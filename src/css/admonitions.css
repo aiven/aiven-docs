@@ -1,0 +1,62 @@
+:root {
+  --aiven-adm-bg-note: rgb(224, 245, 254);
+  --aiven-adm-bg-info: var(--aiven-adm-bg-note);
+  --aiven-adm-bg-tip: rgb(236, 247, 237);
+  --aiven-adm-bg-warning: rgb(254, 232, 230);
+  --aiven-adm-text-color: var(--aiven-grey-60);
+  --aiven-adm-title-color: var(--aiven-grey-80);
+}
+/* --aquarium-colors-info-70: #0399e3;
+--aquarium-colors-error-70: #d80005;
+--aquarium-colors-success-70: #00b300;
+--aquarium-colors-warning-90: #ff9003; */
+.alert {
+  --ifm-alert-background-color: var(--aiven-adm-bg-note);
+  --ifm-alert-border-color: none;
+  border-radius: 4px;
+  --ifm-link-color: var(--aiven-primary-80);
+  --ifm-link-hover-color: var(--aiven-primary-70);
+  --ifm-link-decoration: none;
+  padding: 12px;
+}
+.alert > div:first-child {
+  /* Title of the admonition */
+  font-size: 110%;
+  font-family: Inter;
+  color: var(--aiven-adm-title-color);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.alert > div:first-child > span {
+  /* Icon container */
+  margin: 0;
+}
+.alert > div:first-child > span > svg {
+  /* Icon */
+  height: 1em;
+  fill: var(--aquarium-colors-info-70);
+}
+.alert > div:last-child {
+  /* Body of the admonition */
+  margin-left: 26px;
+  color: var(--aiven-adm-text-color);
+}
+
+.alert--success {
+  --ifm-alert-background-color: var(--aiven-adm-bg-tip);
+}
+.alert--success > div:first-child > span > svg {
+  fill: var(--aquarium-colors-success-70);
+}
+.alert--warning {
+  --ifm-alert-background-color: var(--aiven-adm-bg-warning);
+}
+.alert--warning > div:first-child > span > svg {
+  fill: var(--aquarium-colors-error-70);
+}
+.alert--info {
+  --ifm-alert-background-color: var(--aiven-adm-bg-info);
+}
+.alert--info > div:first-child > span > svg {
+  fill: var(--aquarium-colors-warning-90);
+}

@@ -1,0 +1,76 @@
+.features {
+  display: flex;
+
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+
+  height: 100%;
+  width: 100%;
+  margin: 3em auto;
+  max-width: var(--ifm-container-width);
+  gap: 2em 5em;
+}
+
+.feature {
+  border: 1px solid var(--feature-border-color);
+  min-width: 300px;
+  padding: 8px 16px 16px 16px;
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--feature-background-color);
+}
+.feature:hover {
+  --ifm-link-color: var(--ifm-color-emphasis-800);
+  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+  --ifm-link-hover-decoration: none;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all var(--ifm-transition-fast) ease;
+  transition-property: border, box-shadow;
+}
+.feature a {
+  text-decoration: none;
+  color: var(--ifm-color-content);
+}
+.featureSvg {
+  height: 36px;
+  width: 36px;
+}
+
+.titleContainer {
+  padding: 0 0 8px 0;
+}
+
+.titleContainer > * {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bodyContainer {
+  display: flex;
+  align-items: start;
+  align-self: stretch;
+}
+.logo {
+  padding: 2px;
+  margin-right: 16px;
+  background-image: url('/static/icons/background1.svg'),
+    url('/static/icons/background2.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, bottom right;
+  height: 56px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--aiven-primary-orange);
+}
+.body {
+  color: var(--ifm-color-content);
+}
+.features {
+  padding: 2.2rem;
+}

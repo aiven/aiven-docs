@@ -1,0 +1,43 @@
+.navbar__link {
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+}
+.navbar-button {
+  border-radius: var(--aiven-radius);
+  color: var(--ifm-link-color);
+}
+
+.navbar-button svg {
+  display: none;
+}
+
+.navbar-button-secondary {
+  background-color: transparent;
+  border: 1px solid var(--ifm-link-color);
+}
+
+.navbar-button-primary {
+  color: var(--nav-btn-primary-text-color);
+  background-color: var(--ifm-link-color);
+  border: 1px solid var(--ifm-link-color);
+}
+
+.navbar__link--active {
+  background-color: var(--aiven-nav-active-bg);
+  color: var(--ifm-link-color);
+}
+
+.dropdown__link--active {
+  background-color: transparent;
+  color: var(--ifm-text-color);
+}
+.dropdown__link--active:hover {
+  background-color: var(--aiven-nav-active-bg);
+}
+
+.dropdown__link {
+  color: var(--ifm-text-color);
+}
+.navbar__title {
+  display: none;
+}

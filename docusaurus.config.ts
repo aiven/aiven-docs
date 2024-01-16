@@ -1,0 +1,242 @@
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+const config: Config = {
+  title: 'Aiven documentation',
+  tagline: 'The trusted open source data platform for everyone',
+  favicon: 'img/favicon.ico',
+  url: 'https://aiven.io/',
+  baseUrl: process.env.BASEURL || '/docs/',
+  organizationName: 'Aiven',
+  projectName: 'docs',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'warn',
+  trailingSlash: false,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          routeBasePath: '/', // Serve the docs at the site's root
+          sidebarPath: './sidebars.ts',
+          editUrl: 'https://github.com/aiven/aiven-docs',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
+        // blog: {
+        //   showReadingTime: true,
+        //   editUrl:
+        //     "https://github.com/aiven/aiven-docs",
+        // },
+        theme: {
+          customCss: [
+            './src/css/fonts.css',
+            './src/css/colors.css',
+            './src/css/navbar.css',
+            './src/css/admonitions.css',
+            './src/css/custom.css',
+          ],
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
+
+  themeConfig: {
+    image: 'img/docusaurus-social-card.jpg',
+    navbar: {
+      title: 'aiven',
+      logo: {
+        alt: 'Aiven docs',
+        src: 'img/logo.svg',
+        srcDark: 'img/logoDark.svg',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'main',
+          position: 'left',
+          label: 'Getting started',
+        },
+
+        {
+          label: 'API reference',
+          position: 'left',
+          href: 'https://api.aiven.io/doc/',
+        },
+        {
+          label: 'Changelog',
+          href: 'https://aiven.io/changelog',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/aiven/aiven-docs',
+          label: 'GitHub',
+          position: 'right',
+        },
+
+        {
+          href: 'https://aiven.io/book-demo',
+          label: 'Book a demo',
+          position: 'right',
+          className: 'navbar-button navbar-button-primary',
+        },
+      ],
+    },
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
+    announcementBar: {
+      id: 'announcementBar',
+      content: `We've refreshed our look! The content is going to evolve over the next few months, feel free to share your feedback at <a href="mailto:docs@aiven.io">docs@aiven.io</a>.`,
+    },
+    algolia: {
+      appId: '2LJMO5YILL',
+      apiKey: '61502bc431ba2e440c358ed2b7f5548f',
+      indexName: 'avnsmarketingtest',
+      contextualSearch: true,
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Services',
+              href: '/docs/services',
+            },
+            {
+              label: 'Dev tools',
+              href: '/docs/tools',
+            },
+            {
+              label: 'Docs repository',
+              href: 'https://github.com/aiven/aiven-docs',
+            },
+            {
+              label: 'Changelog',
+              href: 'https://aiven.io/changelog',
+            },
+          ],
+        },
+        {
+          title: 'Resources',
+          items: [
+            {
+              label: 'Community forum',
+              href: 'https://aiven.io/community/forum/',
+            },
+
+            {
+              label: 'Company website',
+              href: 'https://aiven.io/',
+            },
+            {
+              label: 'Blog',
+              href: 'https://aiven.io/blog',
+            },
+            {
+              label: 'Developer center',
+              href: 'https://aiven.io/developer',
+            },
+          ],
+        },
+        {
+          title: 'Terms & Policies',
+          items: [
+            {
+              label: 'Terms of Service',
+              href: 'https://aiven.io/terms',
+            },
+            {
+              label: 'SLA',
+              href: 'https://aiven.io/sla',
+            },
+            {
+              label: 'Privacy Policy',
+              href: 'https://aiven.io/privacy',
+            },
+          ],
+        },
+        {
+          title: "Let's connect",
+          items: [
+            {
+              label: 'Book a demo',
+              href: 'https://aiven.io/book-demo',
+            },
+            {
+              label: 'Contact us',
+              href: 'https://aiven.io/contact',
+            },
+            {
+              label: 'Careers',
+              href: 'https://aiven.io/careers',
+            },
+            {
+              label: 'Subscribe to newsletter',
+              href: 'https://aiven.io/newsletter',
+            },
+            {
+              label: 'Events calendar',
+              href: 'https://aiven.io/events',
+            },
+          ],
+        },
+      ],
+      copyright: `Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. https://clickhouse.com. M3, M3 Aggregator, M3 Coordinator, OpenSearch, PostgreSQL, MySQL, InfluxDB, Grafana, Terraform, and Kubernetes are trademarks and property of their respective owners. *Redis is a registered trademark of Redis Ltd. and the Redis box logo is a mark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by Aiven is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Aiven. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
+    },
+    prism: {
+      theme: prismThemes.nightOwl,
+      darkTheme: prismThemes.dracula,
+      defaultLanguage: 'bash',
+    },
+    mermaid: {
+      options: {
+        maxTextSize: 1000,
+      },
+    },
+    markdown: {
+      format: 'mdx',
+      mermaid: true,
+      // preprocessor: ({filePath, fileContent}) => {
+      //   return fileContent.replaceAll('{{MY_VAR}}', 'MY_VALUE');
+      // },
+      mdx1Compat: {
+        comments: false,
+        admonitions: false,
+        headingIds: false,
+      },
+    },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;

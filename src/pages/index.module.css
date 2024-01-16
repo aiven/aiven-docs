@@ -1,0 +1,46 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 56px 0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--aiven-hero-bg);
+  color: var(--ifm-heading-color);
+  min-height: 200px;
+}
+
+.heroTitle {
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.heroSubtitle {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--ifm-container-width);
+  padding: 0;
+  width: 100%;
+  padding-left: 2.2rem;
+}
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+.buttonHome {
+  padding: 8px 12px;
+}

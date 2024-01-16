@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url(/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+    url(/fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Poppins Bold'), local('Poppins-SemiBold'),
+    url(/fonts/Poppins/Poppins-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local('Inter'), url(/fonts/Inter/Inter-Variable.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Ubuntu'), local('Ubuntu'),
+    url(/fonts/Ubuntu/Ubuntu-Medium.ttf) format('truetype');
+}

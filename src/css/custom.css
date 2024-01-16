@@ -1,0 +1,129 @@
+:root {
+  --aiven-radius: 2px;
+  --badge-radius: 50px;
+  --aiven-nav-active-bg: var(--aiven-grey-0);
+  --ifm-color-primary: var(--aiven-primary-80);
+  --ifm-color-primary-dark: var(--aiven-primary-90);
+  --ifm-color-primary-darker: var(--aiven-primary-90);
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-link-color: var(--aiven-primary-80);
+  --ifm-button-color: white;
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-global-radius: var(--aiven-radius);
+  --ifm-font-family-base: 'Inter', 'Montserrat', system-ui, sans-serif;
+  --ifm-heading-font-family: 'Poppins', 'Montserrat', helvetica, system-ui,
+    sans-serif;
+  --ifm-font-size-base: 90%;
+  --ifm-container-width: 1380px;
+  --ifm-dropdown-hover-background-color: var(--ifm-background-color);
+  --feature-background-color: none;
+  --feature-border-color: var(--aiven-grey-05);
+
+  --ifm-paragraph-margin-bottom: 5px;
+
+  --ifm-menu-color-active: var(--aiven-primary-80);
+  --ifm-menu-color: var(--aiven-grey-60);
+  --ifm-breadcrumb-border-radius: var(--aiven-radius);
+  --ifm-breadcrumb-color-active: var(--ifm-link-color);
+
+  --aiven-announcement-banner-bg: var(--aiven-grey-05);
+  --docusaurus-announcement-bar-height: 36px !important;
+
+  --aiven-hero-bg: var(--aiven-primary-05);
+  --nav-btn-primary-text-color: var(--ifm-button-color);
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.5em !important;
+}
+
+.theme-doc-sidebar-container {
+  background-color: var(--aiven-grey-0);
+}
+
+nav .menu__link {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  font-weight: 400;
+  font-size: 98%;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: var(--ifm-color-gray-900);
+}
+
+.footer__links {
+  font-size: 85%;
+}
+.footer__bottom {
+  font-size: 80%;
+  margin-top: 3em;
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.8rem;
+}
+.navbar__brand {
+  font-size: 170%;
+  font-family: 'Ubuntu';
+}
+[data-theme='dark'] {
+  --ifm-color-primary: var(--aiven-primary-60);
+  --ifm-color-primary-dark: var(--aiven-primary-90);
+  --ifm-color-primary-darker: var(--aiven-primary-100);
+  --ifm-color-primary-darkest: var(--aiven-primary-100);
+  --ifm-color-primary-light: var(--aiven-primary-70);
+  --ifm-color-primary-lighter: var(--aiven-primary-60);
+  --ifm-color-primary-lightest: var(--aiven-primary-50);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: var(--aiven-grey-100);
+  --ifm-background-surface-color: var(--aiven-grey-100);
+  --ifm-color-content: var(--aiven-grey-20);
+  --ifm-heading-color: var(--aiven-grey-0);
+  --ifm-link-color: var(--aiven-primary-60);
+  --ifm-menu-color-active: var(--aiven-primary-60);
+  --ifm-menu-color: var(--aiven-grey-20);
+  --ifm-hover-overlay: var(--aiven-grey-90);
+  --ifm-toc-border-color: var(--aiven-grey-80) !important;
+  --aiven-announcement-banner-bg: var(--aiven-grey-90);
+  --aiven-hero-bg: var(--aiven-grey-80);
+  --aiven-nav-active-bg: var(--aiven-grey-90);
+  --feature-background-color: var(--ifm-card-background-color);
+  --feature-border-color: var(--ifm-color-emphasis-200);
+  --nav-btn-primary-text-color: var(--ifm-button-color);
+  --nav-btn-primary-text-hover-color: var(--aiven-grey-90);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background-color: var(--aiven-grey-90);
+}
+[data-theme='dark'] nav.navbar {
+  background-color: var(--aiven-grey-100);
+  border-bottom: 1px solid var(--aiven-grey-90);
+}
+
+div[class^='announcementBar_'] {
+  background-color: var(--aiven-announcement-banner-bg);
+  color: var(--ifm-menu-color);
+  font-size: 108%;
+}
+div[class^='announcementBar_'] a {
+  color: var(--ifm-link-color);
+}
+[data-theme='dark'] div[class^='announcementBar_'] svg {
+  filter: invert(100%) sepia(94%) saturate(17%) hue-rotate(223deg)
+    brightness(104%) contrast(98%);
+}
+
+.DocSearch-Button {
+  border-radius: var(--ifm-global-radius) !important;
+}
+
+.menu__caret:before,
+.menu__link--sublist-caret:after {
+  background: var(--ifm-menu-link-sublist-icon) 90% / 1.3rem 1.3rem;
+}

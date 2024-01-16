@@ -1,0 +1,1579 @@
+import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+
+/**
+ * Creating a sidebar enables you to:
+ - create an ordered group of docs
+ - render a sidebar for each doc of that group
+ - provide next/previous navigation
+
+ The sidebars can be generated from the filesystem, or explicitly defined here.
+
+ Create as many sidebars as you want.
+ */
+const sidebars: SidebarsConfig = {
+  // By default, Docusaurus generates a sidebar from the docs folder structure
+  main: [
+    {
+      type: 'category',
+      label: 'Get started',
+      link: {id: 'get-started', type: 'doc'},
+      items: [
+        'platform/concepts/free-plan',
+        'platform/concepts/free-trial',
+        {
+          type: 'category',
+          label: 'Set up marketplace subscriptions',
+          link: {
+            type: 'doc',
+            id: 'marketplace-setup',
+          },
+          items: [
+            'platform/howto/billing-aws-marketplace-subscription',
+            'platform/howto/billing-azure-marketplace-subscription',
+            'platform/howto/billing-google-cloud-platform-marketplace-subscription',
+          ],
+        },
+        'tools/aiven-console',
+        'platform/concepts/beta_services',
+        'platform/howto/feature-preview',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Organizations, units, and projects',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-account',
+      },
+      items: [
+        'platform/concepts/projects_accounts_access',
+        'tools/aiven-console/howto/create-accounts',
+        'platform/howto/manage-project',
+        'platform/reference/project-member-privileges',
+        'platform/howto/manage-unassigned-projects',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Billing and payment',
+      link: {
+        type: 'doc',
+        id: 'platform/concepts/list-billing',
+      },
+      items: [
+        'platform/concepts/hourly-billing-model',
+        'platform/concepts/corporate-billing',
+        'platform/concepts/tax-information',
+        'platform/howto/update-tax-status',
+        {
+          type: 'category',
+          label: 'Payment methods',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-billing',
+          },
+          items: [
+            'platform/howto/manage-payment-card',
+            {
+              type: 'category',
+              label: 'Marketplace subscriptions',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-marketplace-payments',
+              },
+              items: [
+                'platform/howto/move-to-aws-marketplace-billing',
+                'platform/howto/move-to-azure-marketplace-billing',
+                'platform/howto/move-to-gcp-marketplace-billing',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Billing groups',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-billing-groups',
+          },
+          items: [
+            'platform/concepts/billing-groups',
+            'platform/howto/create-billing-groups',
+            'platform/howto/use-billing-groups',
+            'platform/howto/billing-assign-projects',
+            'platform/howto/change-billing-contact',
+          ],
+        },
+        'platform/howto/payment-issues-plan-upgrades',
+        'platform/howto/custom-plans',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'User and access management',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-user',
+      },
+      items: [
+        'platform/howto/manage-org-users',
+        'platform/concepts/managed-users',
+        'platform/howto/manage-domains',
+        'platform/howto/delete-user',
+        'platform/howto/make-super-admin',
+        {
+          type: 'category',
+          label: 'User profiles',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-user-profile',
+          },
+          items: [
+            'platform/howto/edit-user-profile',
+            'platform/howto/change-your-email-address',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Authentication methods',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-authentication',
+          },
+          items: [
+            'platform/howto/add-authentication-method',
+            'platform/reference/password-policy',
+            'platform/howto/user-2fa',
+            'platform/howto/set-authentication-policies',
+            'platform/concepts/authentication-tokens',
+            'platform/howto/create_authentication_token',
+            {
+              type: 'category',
+              label: 'SAML authentication',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-saml',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'platform/howto/saml',
+                },
+                'platform/howto/saml/setup-saml-google',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Groups',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-groups',
+          },
+          items: [
+            'platform/howto/manage-groups',
+            'platform/howto/add-groups-projects',
+            'tools/aiven-console/howto/create-manage-teams',
+          ],
+        },
+        'platform/howto/technical-emails',
+        'platform/howto/reactivate-suspended-project',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Service management',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-service',
+      },
+      items: [
+        'platform/concepts/choosing-timeseries-database',
+        'platform/howto/create_new_service',
+        'platform/howto/rename-a-service',
+        'platform/howto/tag-resources',
+        'platform/howto/search-services',
+        'platform/howto/recover-a-deleted-service',
+        'platform/howto/create_new_service_user',
+        'platform/concepts/service-forking',
+        'platform/howto/console-fork-service',
+        'platform/concepts/service_backups',
+        'platform/concepts/service-power-cycle',
+        'platform/howto/pause-from-cli',
+        'platform/concepts/service-resources',
+        'platform/concepts/service-memory-limits',
+        'platform/concepts/out-of-memory-conditions',
+        'platform/howto/prepare-for-high-load',
+        'platform/howto/scale-services',
+        'platform/concepts/dynamic-disk-sizing',
+        'platform/howto/cleanup-powered-off-services',
+        'platform/howto/add-storage-space',
+        'platform/howto/access-service-logs',
+        'platform/howto/service-metrics',
+        'platform/howto/migrate-services-cloud-region',
+        'platform/howto/migrate-services-vpc',
+        'platform/reference/eol-for-major-versions',
+        'platform/concepts/maintenance-window',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Networking and security',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-network',
+      },
+      items: [
+        'platform/reference/list_of_clouds',
+        'platform/concepts/availability-zones',
+        {
+          type: 'category',
+          label: 'Bring your own cloud',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-byoc',
+          },
+          items: [
+            'platform/concepts/byoc',
+            'platform/howto/byoc/enable-byoc',
+            'platform/howto/byoc/create-custom-cloud',
+            'platform/howto/byoc/assign-project-custom-cloud',
+            'platform/howto/byoc/add-customer-info-custom-cloud',
+            'platform/howto/byoc/rename-custom-cloud',
+            'platform/howto/byoc/delete-custom-cloud',
+          ],
+        },
+        'platform/concepts/enhanced-compliance-env',
+        'platform/concepts/aiven-node-firewall-configuration',
+        'platform/concepts/cloud-security',
+        'platform/concepts/disaster-recovery-test-scenarios',
+        'platform/concepts/tls-ssl-certificates',
+        'platform/howto/download-ca-cert',
+        'platform/howto/restrict-access',
+        'platform/howto/public-access-in-vpc',
+        'platform/concepts/static-ips',
+        'platform/reference/service-ip-address',
+        'platform/howto/static-ip-addresses',
+        'platform/howto/private-ip-resolution',
+        'platform/howto/attach-vpc-aws-tgw',
+        'platform/howto/manage-vpc-peering',
+        'platform/howto/vpc-peering-gcp',
+        'platform/howto/vpc-peering-aws',
+        'platform/howto/vnet-peering-azure',
+        'platform/howto/vpc-peering-upcloud',
+        'platform/howto/use-aws-privatelinks',
+        'platform/howto/use-azure-privatelink',
+        'platform/howto/use-google-private-service-connect',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Monitoring and logs',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-monitoring',
+      },
+      items: [
+        'platform/howto/monitoring-services',
+        'platform/concepts/logs-metrics-alerts',
+        'tutorials/anomaly-detection',
+        {
+          type: 'category',
+          label: 'Amazon CloudWatch and Aiven',
+          link: {
+            type: 'doc',
+            id: 'integrations/cloudwatch',
+          },
+          items: [
+            'integrations/cloudwatch/cloudwatch-metrics',
+            'integrations/cloudwatch/list-cloudwatch-logs',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Datadog and Aiven',
+          link: {
+            type: 'doc',
+            id: 'integrations/datadog',
+          },
+          items: [
+            'integrations/datadog/datadog-metrics',
+            'platform/howto/integrations/datadog-increase-metrics-limit',
+            'integrations/datadog/datadog-logs',
+            'integrations/datadog/add-custom-tags-to-datadog',
+          ],
+        },
+        'integrations/send-logs-to-elasticsearch',
+        'integrations/cloudlogging',
+        'integrations/google-bigquery',
+        {
+          type: 'category',
+          label: 'Remote Syslog',
+          link: {
+            type: 'doc',
+            id: 'integrations/rsyslog',
+          },
+          items: [
+            'integrations/rsyslog/logtail',
+            'integrations/rsyslog/loggly',
+          ],
+        },
+        'platform/howto/integrations/access-jmx-metrics-jolokia',
+
+        {
+          type: 'category',
+          label: 'Prometheus',
+          link: {
+            id: 'platform/howto/integrations/prometheus-metrics',
+            type: 'doc',
+          },
+          items: ['integrations/prometheus-system-metrics'],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Integrations',
+      link: {
+        id: 'integrations',
+        type: 'doc',
+      },
+      items: [
+        'platform/concepts/service-integration',
+        'platform/howto/create-service-integration',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Aiven tools',
+      link: {
+        id: 'tools',
+        type: 'doc',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'CLI',
+          link: {
+            id: 'tools/cli',
+            type: 'doc',
+          },
+          items: [
+            'tools/cli/account',
+            'tools/cli/account/account-team',
+            'tools/cli/billing-group',
+            'tools/cli/cloud',
+            'tools/cli/credits',
+            'tools/cli/events',
+            'tools/cli/mirrormaker',
+            'tools/cli/project',
+            {
+              type: 'category',
+              label: 'avn service',
+              link: {
+                id: 'tools/cli/service',
+                type: 'doc',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'tools/cli/service',
+                },
+              ],
+            },
+            'tools/cli/ticket',
+            {
+              type: 'category',
+              label: 'avn user',
+              link: {
+                id: 'tools/cli/user',
+                type: 'doc',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'tools/cli/user',
+                },
+              ],
+            },
+            'tools/cli/vpc',
+          ],
+        },
+        'tools/api',
+        {
+          type: 'category',
+          label: 'Aiven Provider for Terraform®',
+          link: {
+            id: 'tools/terraform',
+            type: 'doc',
+          },
+          items: [
+            'tools/terraform/get-started',
+            'tools/terraform/concepts/data-sources',
+            'tools/terraform/howto/terraform-logging',
+            'tools/terraform/howto/promote-to-master-pg-rr',
+            'tools/terraform/howto/config-postgresql-provider',
+            {
+              type: 'category',
+              label: 'Upgrade Aiven provider',
+              link: {
+                id: 'tools/terraform/list-upgrade-terraform',
+                type: 'doc',
+              },
+              items: [
+                'tools/terraform/howto/upgrade-provider-v1-v2',
+                'tools/terraform/howto/upgrade-provider-v2-v3',
+                'tools/terraform/howto/upgrade-provider-v3-v4',
+                'tools/terraform/howto/upgrade-to-opensearch',
+                'tools/terraform/howto/update-deprecated-resources',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Virtual network peering',
+              link: {
+                type: 'doc',
+                id: 'tools/terraform/list-vpc-terraform',
+              },
+              items: [
+                'tools/terraform/howto/vpc-peering-aws',
+                'tools/terraform/howto/vnet-peering-azure',
+                'tools/terraform/howto/vpc-peering-gcp',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              link: {
+                type: 'doc',
+                id: 'tools/terraform/reference/troubleshooting',
+              },
+              items: [
+                'tools/terraform/reference/troubleshooting/private-access-error',
+              ],
+            },
+          ],
+        },
+        'tools/kubernetes',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Services',
+      link: {
+        id: 'products/services',
+        type: 'doc',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Apache Kafka®',
+          link: {
+            id: 'products/kafka',
+            type: 'doc',
+          },
+          items: [
+            'products/kafka/get-started',
+            'products/kafka/howto/fake-sample-data',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/kafka/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Code samples',
+                  items: [
+                    'products/kafka/howto/connect-with-python',
+                    'products/kafka/howto/connect-with-java',
+                    'products/kafka/howto/connect-with-go',
+                    'products/kafka/howto/connect-with-command-line',
+                    'products/kafka/howto/connect-with-nodejs',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Tools',
+                  items: [
+                    'products/kafka/howto/kafka-tools-config-file',
+                    'products/kafka/howto/kcat',
+                    'products/kafka/howto/kafka-conduktor',
+                    'products/kafka/howto/kafdrop',
+                    'products/kafka/howto/provectus-kafka-ui',
+                    'products/kafka/howto/kpow',
+                    'products/kafka/howto/kafka-klaw',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Security',
+                  items: [
+                    'products/kafka/howto/keystore-truststore',
+                    'products/kafka/howto/manage-acls',
+                    'products/kafka/howto/monitor-logs-acl-failure',
+                    'products/kafka/howto/kafka-sasl-auth',
+                    'products/kafka/howto/renew-ssl-certs',
+                    'products/kafka/howto/enable-oidc',
+                    'products/kafka/howto/kafka-custom-serde-encrypt',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Administrative tasks',
+                  items: [
+                    'products/kafka/howto/enable-karapace',
+                    ,
+                    'products/kafka/howto/best-practices',
+                    ,
+                    'products/kafka/howto/configure-with-kafka-cli',
+                    'products/kafka/howto/set-kafka-parameters',
+                    'products/kafka/howto/viewing-resetting-offset',
+                    'products/kafka/howto/configure-log-cleaner',
+                    'products/kafka/howto/prevent-full-disks',
+                    'products/kafka/howto/use-zookeeper',
+                    'products/kafka/howto/avoid-out-of-memory-error',
+                    'products/kafka/howto/optimizing-resource-usage',
+                    'products/kafka/howto/enabled-consumer-lag-predictor',
+                    'products/kafka/howto/manage-quotas',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Integrations',
+                  items: [
+                    'products/kafka/howto/integrate-service-logs-into-kafka-topic',
+                    'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
+                    'products/kafka/howto/flink-with-aiven-for-kafka',
+                    'products/kafka/howto/datadog-customised-metrics',
+                    'products/kafka/howto/ksql-docker',
+                    'products/kafka/howto/add-missing-producer-consumer-metrics',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Topic/schema management',
+                  items: [
+                    'products/kafka/howto/create-topic',
+                    'products/kafka/howto/create-topics-automatically',
+                    'products/kafka/howto/get-topic-partition-details',
+                    'products/kafka/howto/schema-registry',
+                    'products/kafka/howto/change-retention-period',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Tiers storage',
+                  items: [
+                    'products/kafka/howto/enable-kafka-tiered-storage',
+                    'products/kafka/howto/configure-topic-tiered-storage',
+                    'products/kafka/howto/tiered-storage-overview-page',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/kafka/reference',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Apache Kafka Connect',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/kafka-connect',
+              },
+              items: [
+                'products/kafka/kafka-connect/get-started',
+                {
+                  type: 'category',
+                  label: 'Concepts',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-connect/concepts',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/kafka-connect/concepts',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'How to',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-connect/howto',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/kafka-connect/howto',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Reference',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-connect/reference',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/kafka-connect/reference',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Apache Kafka Mirrormaker 2',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/kafka-mirrormaker',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Concepts',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-mirrormaker/concepts',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/kafka-mirrormaker/concepts',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'How to',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-mirrormaker/howto',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/kafka-mirrormaker/howto',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Reference',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-mirrormaker/reference',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/kafka-mirrormaker/reference',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Karapace',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/karapace',
+              },
+              items: [
+                'products/kafka/karapace/get-started',
+                {
+                  type: 'category',
+                  label: 'Concepts',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/karapace/concepts',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/karapace/concepts',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'How to',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/karapace/howto',
+                  },
+                  items: [
+                    {
+                      type: 'autogenerated',
+                      dirName: 'products/kafka/karapace/howto',
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Apache Flink®',
+          link: {
+            type: 'doc',
+            id: 'products/flink',
+          },
+          items: [
+            'products/flink/list-overview',
+            'products/flink/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/flink/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/flink/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/flink/howto',
+              },
+              items: [
+                'products/flink/howto/list-get-started',
+                {
+                  type: 'category',
+                  label: 'Integrate service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/list-integrations',
+                  },
+                  items: [
+                    'products/flink/howto/create-integration',
+                    'products/flink/howto/ext-kafka-flink-integration',
+                    'products/flink/howto/connect-bigquery',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Aiven for Apache Flink applications',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/list-flink-applications',
+                  },
+                  items: [
+                    'products/flink/howto/create-flink-applications',
+                    'products/flink/howto/manage-flink-applications',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Apache Flink tables',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/list-flink-tables',
+                  },
+                  items: [
+                    'products/flink/howto/manage-flink-tables',
+                    {
+                      type: 'category',
+                      label: 'Create tables with data source',
+                      link: {
+                        id: 'products/flink/howto/list-flink-table-integrations',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/flink/howto/connect-kafka',
+                        'products/flink/howto/flink-confluent-avro',
+                        'products/flink/howto/connect-pg',
+                        'products/flink/howto/connect-opensearch',
+                        'products/flink/howto/pg-cdc-connector',
+                        'products/flink/howto/slack-connector',
+                        'products/flink/howto/datagen-connector',
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/flink/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/flink/howto',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Apache Cassandra®',
+          link: {
+            type: 'doc',
+            id: 'products/cassandra',
+          },
+          items: [
+            'products/cassandra/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/cassandra/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/cassandra/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/cassandra/howto',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/cassandra/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/cassandra/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/cassandra/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Clickhouse',
+          link: {
+            type: 'doc',
+            id: 'products/clickhouse',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Overview',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/list-overview',
+              },
+              items: [
+                'products/clickhouse/concepts/features-overview',
+                'products/clickhouse/concepts/service-architecture',
+                'products/clickhouse/reference/plans-pricing',
+                'products/clickhouse/reference/limitations',
+              ],
+            },
+            'products/clickhouse/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/clickhouse/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/clickhouse/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/clickhouse/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Dragonfly',
+          link: {
+            type: 'doc',
+            id: 'products/dragonfly',
+          },
+          items: [
+            'products/dragonfly/get-started',
+            'products/dragonfly/concepts/overview',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/dragonfly/concepts',
+              },
+              items: ['products/dragonfly/concepts/ha-dragonfly'],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/dragonfly/howto',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/dragonfly/howto/list-code-samples',
+                  },
+                  items: [
+                    'products/dragonfly/howto/connect-redis-cli',
+                    'products/dragonfly/howto/connect-go',
+                    'products/dragonfly/howto/connect-node',
+                    'products/dragonfly/howto/connect-python',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/dragonfly/howto/list-migrate-data',
+                  },
+                  items: [
+                    'products/dragonfly/howto/migrate-aiven-redis-df-console',
+                    'products/dragonfly/howto/migrate-ext-redis-df-console',
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Grafana',
+          link: {
+            type: 'doc',
+            id: 'products/grafana',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Overview',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/list-overview',
+              },
+              items: [
+                'products/grafana/concepts/grafana-features',
+                'products/grafana/reference/plans-pricing',
+              ],
+            },
+            'products/grafana/get-started',
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/howto',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/grafana/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/grafana/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Influxdb',
+          link: {
+            type: 'doc',
+            id: 'products/influxdb',
+          },
+          items: [
+            'products/influxdb/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/influxdb/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/influxdb/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/influxdb/howto',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/influxdb/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/influxdb/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/influxdb/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'M3DB',
+          link: {
+            type: 'doc',
+            id: 'products/m3db',
+          },
+          items: [
+            'products/m3db/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/m3db/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/m3db/concepts',
+                },
+              ],
+            },
+
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/m3db/howto',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/m3db/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/m3db/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/m3db/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'MySQL',
+          link: {
+            type: 'doc',
+            id: 'products/mysql',
+          },
+          items: [
+            'products/mysql/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/mysql/concepts',
+                },
+              ],
+            },
+
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/howto',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/mysql/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/reference',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/mysql/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'OpenSearch',
+          link: {
+            type: 'doc',
+            id: 'products/opensearch',
+          },
+          items: [
+            'products/opensearch/get-started',
+            'products/opensearch/howto/sample-dataset',
+            {
+              type: 'category',
+              label: 'Overview',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/list-overview',
+              },
+              items: [
+                'products/opensearch/concepts/service-overview',
+                'products/opensearch/reference/plans-pricing',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/concepts',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Access control',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/concepts/access_control',
+                  },
+                  items: ['products/opensearch/concepts/users-access-controls'],
+                },
+                {
+                  type: 'category',
+                  label: 'Security',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/concepts/os-security',
+                  },
+                  items: [
+                    'products/opensearch/concepts/opensearch-security-considerations',
+                  ],
+                },
+                'products/opensearch/concepts/backups',
+                'products/opensearch/concepts/indices',
+                'products/opensearch/concepts/aggregations',
+                'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/opensearch-vs-elasticsearch',
+                'products/opensearch/concepts/shards-number',
+                'products/opensearch/concepts/when-create-index',
+                'products/opensearch/concepts/cross-cluster-replication-opensearch',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/howto',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Manage access control',
+                  link: {
+                    id: 'products/opensearch/howto/list-access-control',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/control_access_to_content',
+                    'products/opensearch/howto/enable-opensearch-security',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Connect with service',
+                  link: {
+                    id: 'products/opensearch/howto/list-connect-to-service',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/opensearch-with-curl',
+                    'products/opensearch/howto/connect-with-nodejs',
+                    'products/opensearch/howto/connect-with-python',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Data management',
+                  link: {
+                    id: 'products/opensearch/howto/list-data-management',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
+                    'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
+                    'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Search and aggregation',
+                  link: {
+                    id: 'products/opensearch/howto/list-search-service',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/opensearch-search-and-python',
+                    'products/opensearch/howto/opensearch-and-nodejs',
+                    'products/opensearch/howto/opensearch-aggregations-and-nodejs',
+                    'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Manage OpenSearch Security',
+                  link: {
+                    id: 'products/opensearch/howto/list-opensearch-security',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/enable-opensearch-security',
+                    'products/opensearch/howto/saml-sso-authentication',
+                    'products/opensearch/howto/oidc-authentication',
+                    'products/opensearch/howto/audit-logs',
+                    'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Manage service',
+                  link: {
+                    id: 'products/opensearch/howto/list-manage-service',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/restore_opensearch_backup',
+                    'products/opensearch/howto/set_index_retention_patterns',
+                    'products/opensearch/howto/opensearch-alerting-api',
+                    'products/opensearch/howto/handle-low-disk-space',
+                    'products/opensearch/howto/resolve-shards-too-large',
+                    'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Integrate service',
+                  link: {
+                    id: 'products/opensearch/howto/list-integrations',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/opensearch-log-integration',
+                    'products/opensearch/howto/integrate-with-grafana',
+                  ],
+                },
+                'products/opensearch/howto/upgrade-clients-to-opensearch',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'OpenSearch Dashboards',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/dashboards',
+              },
+              items: [
+                'products/opensearch/dashboards/get-started',
+                {
+                  type: 'category',
+                  label: 'HowTo',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/dashboards/howto',
+                  },
+                  items: [
+                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/opensearch/reference',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/opensearch/troubleshooting',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'PostgreSQL',
+          link: {
+            type: 'doc',
+            id: 'products/postgresql',
+          },
+          items: [
+            'products/postgresql/overview',
+            'products/postgresql/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/concepts',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/postgresql/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/reference',
+              },
+
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/postgresql/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              link: {
+                id: 'products/postgresql/troubleshooting',
+                type: 'doc',
+              },
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/postgresql/troubleshooting',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/postgresql/reference',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Redis',
+          link: {
+            id: 'products/redis',
+            type: 'doc',
+          },
+          items: [
+            'products/redis/concepts/overview',
+            'products/redis/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/redis/concepts',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/redis/howto',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/redis/reference',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              items: [
+                {
+                  type: 'autogenerated',
+                  dirName: 'products/redis/troubleshooting',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'doc',
+      label: 'Support',
+      id: 'platform/howto/project-support-center',
+    },
+  ],
+};
+
+export default sidebars;

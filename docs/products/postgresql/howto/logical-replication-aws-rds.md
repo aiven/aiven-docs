@@ -1,0 +1,26 @@
+---
+title: Enable logical replication on Amazon RDS PostgreSQL®
+---
+
+If you have not enabled logical replication on RDS already, the
+following instructions shows how to set the `rds.logical_replication`
+parameter to `1` (true) in the parameter group.
+
+1.  Create a parameter group for your RDS database.
+
+    > ![RDS PostgreSQL parameter group](/images/products/postgresql/migrate-rds-pg-parameter-group.png)
+
+2.  Set the `rds.logical_replication` parameter to `1` (true) in the
+    parameter group
+
+    > ![RDS PostgreSQL parameter value](/images/products/postgresql/migrate-rds-pg-parameter-value.png)
+
+3.  Modify Database options to use the new DB parameter group - `RDS`
+    -\> `Databases` -\> `Modify`
+
+    > ![RDS PostgreSQL parameter modify](/images/products/postgresql/migrate-rds-pg-parameter-modify.png)
+
+:::warning
+Apply immediately or reboot is required to see configuration change
+reflected to `wal_level`
+:::
