@@ -24,7 +24,7 @@ To configure integration using Aiven CLI, follow these steps:
 
 Use the following command to create an Aiven for Apache Flink service:
 
-``` 
+```
 avn service create -t flink -p <project-name> --cloud <cloud-name> <flink-service-name>
 ```
 
@@ -68,10 +68,10 @@ SASL_PLAINTEXT, and SASL_SSL.
 
 To create a PLAINTEXT protocol type endpoint, use the following command:
 
-``` 
-avn service integration-endpoint-create 
-    --endpoint-name demo-ext-kafka 
-    --endpoint-type external_kafka  
+```
+avn service integration-endpoint-create
+    --endpoint-name demo-ext-kafka
+    --endpoint-type external_kafka
     --user-config-json  '{"bootstrap_servers":"servertest:123","security_protocol":"PLAINTEXT"}'
 ```
 
@@ -85,13 +85,13 @@ Where :
     -   `bootstrap_servers`: List of Apache Kafka broker addresses and
         ports to connect to.
     -   `security_protocol`: Security protocol to use for the
-        connection. In this example, it\'s set to **PLAINTEXT**.
+        connection. In this example, it's set to **PLAINTEXT**.
 
 #### SSL
 
 To create an SSL protocol type endpoint, use the following command:
 
-``` 
+```
 avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 --endpoint-type external_kafka  \
 --user-config-json  '{
@@ -111,7 +111,7 @@ Where:
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 
--   
+-
 
     `--user-config-json`:The configuration for the endpoint in JSON format, which includes the following attributes:
 
@@ -131,7 +131,7 @@ Where:
 To create a SASL_PLAINTEXT protocol type endpoint, use the following
 command:
 
-``` 
+```
 avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 --endpoint-type external_kafka \
 --user-config-json '{
@@ -150,7 +150,7 @@ where:
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 
--   
+-
 
     `--user-config-json`:The configuration for the endpoint in JSON format, which includes the following attributes:
 
@@ -170,7 +170,7 @@ where:
 
 To create a SASL_SSL protocol type endpoint, use the following command:
 
-``` 
+```
 avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 --endpoint-type external_kafka \
 --user-config-json '{
@@ -191,7 +191,7 @@ where:
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 
--   
+-
 
     `--user-config-json`:The configuration for the endpoint in JSON format, which includes the following attributes:
 
@@ -214,19 +214,19 @@ where:
 To integrate Aiven for Apache Flink with the integration endpoint for
 external Apache Kafka, use the following command:
 
-``` 
-avn service integration-create 
-    --source-endpoint-id <source-endpoint-id> 
-    --dest-service <flink-service-name> 
+```
+avn service integration-create
+    --source-endpoint-id <source-endpoint-id>
+    --dest-service <flink-service-name>
     -t flink_external_kafka
 ```
 
 For example,
 
-``` 
-avn service integration-create 
-    --source-endpoint-id eb870a84-b91c-4fd7-bbbc-3ede5fafb9a2 
-    --dest-service flink-1 
+```
+avn service integration-create
+    --source-endpoint-id eb870a84-b91c-4fd7-bbbc-3ede5fafb9a2
+    --dest-service flink-1
     -t flink_kafka
 ```
 
@@ -253,13 +253,13 @@ use the integration.
 To verify that the integration has been created successfully, run the
 following command:
 
-``` 
+```
 avn service integration-list --project <project-name> <flink-service-name>
 ```
 
 For example:
 
-``` 
+```
 avn service integration-list --project systest-project flink-1
 ```
 
@@ -306,7 +306,7 @@ Console](https://console.aiven.io/) by following these steps:
 4.  Select **Services** from the left sidebar, and access the Aiven for
     Apache Flink service where you plan to integrate the external Apache
     Kafka endpoint.
-5.  If you\'re integrating with Aiven for Apache Flink for the first
+5.  If you're integrating with Aiven for Apache Flink for the first
     time, on the **Overview** page and select **Get Started**.
     Alternatively, you can add a new integration in the **Data Flow**
     section by using the plus (+) button.

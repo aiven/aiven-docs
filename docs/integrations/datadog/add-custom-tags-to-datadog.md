@@ -17,7 +17,7 @@ configuration level and on a per-service integration level.
 
 ## Configure tags for the Datadog endpoint {#h_0e3d855c3f}
 
-When configuring tags at the service integration level, it\'s important
+When configuring tags at the service integration level, it's important
 to note that these tags apply exclusively to the specific integration or
 connection being configured. Any tags configured at the endpoint level
 will be included in addition to these tags.

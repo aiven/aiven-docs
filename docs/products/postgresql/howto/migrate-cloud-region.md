@@ -12,7 +12,7 @@ To migrate a PostgreSQL service to a new cloud provider/region
 
 1.  Log in to [Aiven Console](https://console.aiven.io), and select the
     PostgreSQL instance you want to move.
-2.  From the sidebar on your service\'s page, select **Service
+2.  From the sidebar on your service's page, select **Service
     settings**.
 3.  On the **Service settings** page, navigate to the **Cloud and
     network** section, and select **Change cloud or region**.
@@ -25,8 +25,8 @@ The PostgreSQL cluster will enter the `REBALANCING` state, still serving
 queries from the old provider/region.
 
 :::note
-You can check the service\'s state at the top of the service\'s page,
-just below the service\'s name.
+You can check the service's state at the top of the service's page,
+just below the service's name.
 :::
 
 New nodes will be added to the existing PostgreSQL cluster residing in
@@ -37,8 +37,8 @@ decommissioned. After this phase the cluster enters in the `RUNNING`
 status, the PostgreSQL endpoint will not change.
 
 :::note
-You can check the nodes\' availability at the top of the service\'s
-page, just below the service\'s name.
+You can check the nodes\' availability at the top of the service's
+page, just below the service's name.
 :::
 
 :::tip

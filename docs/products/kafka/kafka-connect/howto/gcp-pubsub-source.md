@@ -9,7 +9,7 @@ Apache Kafka® topic.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/googleapis/java-pubsub-group-kafka-connector).
 :::
 
@@ -51,13 +51,13 @@ target Google Pub/Sub upfront:
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
@@ -119,7 +119,7 @@ The configuration file contains the following entries:
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter translates
     messages from the Avro format. To retrieve the message schema we use
-    Aiven\'s [Karapace schema
+    Aiven's [Karapace schema
     registry](https://github.com/aiven/karapace), as specified by the
     `schema.registry.url` parameter and related credentials.
 
@@ -137,7 +137,7 @@ The configuration file contains the following entries:
         `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
         [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/gcp-pubsub-source#connect_pubsub_source_prereq).
     -   `value.converter.basic.auth.credentials.source`: to the value
-        `USER_INFO`, since you\'re going to login to the schema registry
+        `USER_INFO`, since you're going to login to the schema registry
         using username and password.
     -   `value.converter.schema.registry.basic.auth.user.info`: passing
         the required schema registry credentials in the form of

@@ -66,7 +66,7 @@ creation.
 
 # `cassandra_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Cassandra major version**
 
@@ -81,7 +81,7 @@ creation.
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `public_access`
@@ -100,14 +100,14 @@ network**
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**

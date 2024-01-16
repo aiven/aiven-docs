@@ -1,6 +1,6 @@
 # `custom_domain`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom domain** Serve the web frontend using a custom CNAME pointing
 to the Aiven DNS name
@@ -103,7 +103,7 @@ namespaces only.
 *boolean*
 
 **Allow clients to connect to m3coordinator with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `public_access`
@@ -122,13 +122,13 @@ network**
 
 # `m3_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **M3 major version (deprecated, use m3db_version)**
 
 # `m3db_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **M3 major version (the minimum compatible version)**
 
@@ -152,14 +152,14 @@ network**
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**

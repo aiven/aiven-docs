@@ -51,18 +51,18 @@ truststore files, but in actual use, the full path should be used.
 
 ## Variables
 
-  Variable                Description
-  ----------------------- ---------------------------------------------------------------------------------------------------
-  `HOST`                  Host name for the connection
-  `USER_NAME`             Name of the user for the connection
-  `SSL_PORT`              Port number to use for SSL
-  `SASL_PORT`             Port number to use for SASL
-  `SASL_PASSWORD`         Password required to connect using SASL
-  `TRUSTSTORE_LOCATION`   Location of your truststore (named by default as client.truststore.jks)
-  `TRUSTSTORE_PASSWORD`   Password you used when creating a truststore
-  `KEYSTORE_LOCATION`     Location of you keystore (named by default as client.keystore.p12)
-  `KEYSTORE_PASSWORD`     Password you used when creating a keystore
-  `KEY_PASSWORD`          Password for the key in the keystore, if you chose a different password than the one for keystore
+ | Variable              | Description                                                                                       |
+ | --------------------- | ------------------------------------------------------------------------------------------------- |
+ | `HOST`                | Host name for the connection                                                                      |
+ | `USER_NAME`           | Name of the user for the connection                                                               |
+ | `SSL_PORT`            | Port number to use for SSL                                                                        |
+ | `SASL_PORT`           | Port number to use for SASL                                                                       |
+ | `SASL_PASSWORD`       | Password required to connect using SASL                                                           |
+ | `TRUSTSTORE_LOCATION` | Location of your truststore (named by default as client.truststore.jks)                           |
+ | `TRUSTSTORE_PASSWORD` | Password you used when creating a truststore                                                      |
+ | `KEYSTORE_LOCATION`   | Location of you keystore (named by default as client.keystore.p12)                                |
+ | `KEYSTORE_PASSWORD`   | Password you used when creating a keystore                                                        |
+ | `KEY_PASSWORD`        | Password for the key in the keystore, if you chose a different password than the one for keystore |
 
 ## Connect a producer
 
@@ -70,7 +70,7 @@ Set up properties to connect to the cluster and create a producer:
 
 ### With SSL authentication
 
-``` 
+```
 Properties properties = new Properties();
 properties.put("bootstrap.servers", "{HOST}:{SSL_PORT}");
 properties.put("security.protocol", "SSL");
@@ -88,7 +88,7 @@ KafkaProducer<String, String> producer = new KafkaProducer<>(properties, new Str
 
 ### With SASL authentication
 
-``` 
+```
 String sasl_username = "{USER_NAME}";
 String sasl_password = "{SASL_PASSWORD}";
 String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
@@ -113,7 +113,7 @@ Set up properties to connect to the cluster and create a consumer:
 
 ### With SSL authentication
 
-``` 
+```
 String group_id = "groupid";
 
 Properties properties = new Properties();
@@ -134,7 +134,7 @@ KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties, new Str
 
 ### With SASL authentication
 
-``` 
+```
 String group_id = "groupid";
 String sasl_username = "{USER_NAME}";
 String sasl_password = "{SASL_PASSWORD}";

@@ -9,7 +9,7 @@ scenario by providing guidelines on how to use [Aiven
 Console](https://console.aiven.io/) to migrate PostgreSQL databases to
 the Aiven platform.
 
-:::note See also
+:::note
 For the other migration method (using `aiven-db-migrate`), see
 [Migrate to Aiven for PostgreSQL® with aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate).
 :::
@@ -63,7 +63,7 @@ Use `psql` to run the `\du` command:
 ```bash title="Expected output"
 Role name |                      Attributes                            |                 Member of
 ----------+------------------------------------------------------------+-----------------------------------------
-_source_db     | Superuser, Replication                                     | {}
+_source_db     | Superuser, Replication                                | {}
 example   | Create role, Create DB, Replication, Bypass RLS            | {pg_read_all_stats,pg_stat_scan_tables,pg_signal_backend}
 postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
 ```
@@ -118,9 +118,9 @@ follow and go straight to
 -   To use the default continuous migration method in the console, you
     need to have the logical replication enabled on your source database
     either with superuser permissions or the `aiven_extras` extension.
--   Source database\'s hostname or IP address needs to be
+-   Source database's hostname or IP address needs to be
     [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
--   You need to have the following source database\'s credentials and
+-   You need to have the following source database's credentials and
     reference data:
     -   Public hostname or connection string, or IP address used to
         connect to the database
@@ -184,11 +184,11 @@ follow and go straight to
     # IPv4 local connections:
     host    all             all             0.0.0.0/0               md5
     # IPv6 local connections:
-    host    all             all             ::/0                    md5 
+    host    all             all             ::/0                    md5
     ```
 
-    :::note See also
-For more details on the configuration file\'s syntax, see [The
+    :::note[See also]
+For more details on the configuration file's syntax, see [The
     pg_hba.conf
     File](https://www.postgresql.org/docs/14/auth-pg-hba-conf.html).
 :::
@@ -260,7 +260,7 @@ For more details on the configuration file\'s syntax, see [The
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  On the **Services** page, select the service where your target
     database is located.
-3.  From the sidebar on your service\'s page, select **Service
+3.  From the sidebar on your service's page, select **Service
     settings**.
 4.  On the **Service settings** page, navigate to the **Service
     management** section, and select **Import database**.
@@ -305,7 +305,7 @@ the migration. Before you do that, make sure you understand its
 limitations and consequences.
 
 :::note[Impact on target databases]
-It\'s recommended to migrate into an empty database. If you migrate into
+It's recommended to migrate into an empty database. If you migrate into
 a populated database, colliding tables with primary keys are not
 affected, but tables without primary keys are appended. Check other
 limitations in [Logical replication
@@ -351,7 +351,7 @@ the migration again by selecting **Start over**.
 ### Step 4: Close
 
 As soon as the wizard communicates the completion of the migration,
-check if there\'s also information about the replication mode being
+check if there's also information about the replication mode being
 active.
 
 :::note[Replication mode active]

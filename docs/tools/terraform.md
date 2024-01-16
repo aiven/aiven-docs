@@ -2,7 +2,7 @@
 title: Aiven Provider for Terraform
 ---
 
-With Aiven\'s [Terraform](https://www.terraform.io) provider, you can
+With Aiven's [Terraform](https://www.terraform.io) provider, you can
 use an open source infrastructure as code tool to declare and manage
 your cloud services.
 

@@ -46,7 +46,7 @@ To add tags to a project, take the following steps:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     organization and your project from the top navigation bar.
-2.  On the project\'s page, select **Settings** from the sidebar.
+2.  On the project's page, select **Settings** from the sidebar.
 3.  On the **Settings** page, click **Add tag** and enter a key and its
     value in the **Billing Reference Tags** or **Project Tags** fields,
     and select the **+** icon to add more tags in the same manner.
@@ -80,19 +80,19 @@ You can see the tags listed in the table on the **Projects** page.
 
 -   Add new tags to a service:
 
-    ``` 
+    ```
     avn service tags update your-service --add-tag business_unit=sales --add-tag env=smoke_test
     ```
 
 -   Modify or remove tags:
 
-    ``` 
+    ```
     avn service tags update your-service --add-tag env=production --remove-tag business_unit
     ```
 
 -   List service tags:
 
-    ``` 
+    ```
     avn service tags list your-service
     KEY  VALUE
     ===  ==========
@@ -101,7 +101,7 @@ You can see the tags listed in the table on the **Projects** page.
 
 -   Replace tags with a set of new ones, removing the old ones:
 
-    ``` 
+    ```
     avn service tags replace your-service --tag cost_center=U1345
 
     avn service tags list your-service
@@ -117,19 +117,19 @@ too, and work the same way:
 
 -   Add tags to a project:
 
-    ``` 
+    ```
     avn project tags update --project your-project --add-tag business_unit=sales
     ```
 
 -   Replace project tags:
 
-    ``` 
+    ```
     avn project tags replace --project your-project --tag env=smoke_test
     ```
 
 -   List project tags:
 
-    ``` 
+    ```
     avn project tags list
     KEY  VALUE
     ===  ==========

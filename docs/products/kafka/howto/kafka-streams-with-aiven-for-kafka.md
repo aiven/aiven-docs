@@ -38,18 +38,18 @@ information about the Aiven for Apache Kafka service:
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
 -   `APACHE_KAFKA_PORT`: The port of the Apache Kafka service
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for Apache Kafka the above details are available
+If you're using Aiven for Apache Kafka the above details are available
 in the [Aiven console](https://console.aiven.io/) service Overview tab
 or via the dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 The following example assumes you have [Apache
@@ -302,13 +302,13 @@ output):
 
 -   Get the latest top five across all genres
 
-    ``` 
+    ```
     curl http://localhost:7070/kafka-music/charts/top-five | jq
     ```
 
 -   Get the latest top five for the genre `punk`
 
-    ``` 
+    ```
     curl http://localhost:7070/kafka-music/charts/genre/punk | jq
     ```
 

@@ -12,7 +12,7 @@ producer.
 The exact error message depends on your client library and log
 formatting, but should be similar to the following:
 
-``` 
+```
 [2021-02-04 09:01:20,118] WARN [Producer clientId=test-producer] Received invalid metadata error in produce request on partition topic1-25 due to org.apache.kafka.common.errors.NotLeaderForPartitionException: This server is not the leader for that topic-partition.. Going to request metadata update now (org.apache.kafka.clients.producer.internals.Sender)
 ```
 
@@ -22,7 +22,7 @@ nodes.
 Each producer contains a metadata cache that identifies which broker is
 the leader of each partition. When your code produces a message, it
 tries to send it to the broker that is the partition leader according to
-the producer\'s metadata cache.
+the producer's metadata cache.
 
 When nodes are replaced, the partition leaders are expected to change.
 Every partition leader changes at least once, but it can be more,

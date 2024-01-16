@@ -5,7 +5,7 @@ title: MirrorMaker 2 common parameters
 MirrorMaker 2 (MM2) offers a suite of parameters to help with data
 replication and monitoring within Apache Kafka® ecosystems. This topic
 outlines common parameters you can adjust, along with tips for
-validating MM2\'s performance.
+validating MM2's performance.
 
 1.  Increase the value of `kafka_mirrormaker.tasks_max_per_cpu` in the
     advanced options. Setting this to match the number of partitions can
@@ -42,7 +42,7 @@ these:
     [kt](https://github.com/fgeller/kt) to retrieve the latest messages
     from all partitions with the following command:
 
-    ``` 
+    ```
     kt consume -auth ./mykafka.conf \
     -brokers SERVICE-PROJECT.aivencloud.com:PORT \
     -topic topicname -offsets all=newest:newest | \

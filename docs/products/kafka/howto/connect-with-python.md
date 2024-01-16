@@ -63,51 +63,27 @@ page.
 If you are using SSL (remember to choose **Client Certificate** if
 **Authentication Method** is shown):
 
-  Variable                    Description
-  --------------------------- ---------------------------------------------------------------------------------------------------------------------------
-  `HOST`                      Host name for the connection
-  \-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `SSL_PORT`                  Port number to use
+| Variable   | Description                  |
+| ---------- | ---------------------------- |
+| `HOST`     | Host name for the connection |
+| `SSL_PORT` | Port number to use           |
+
 
 If you are using SASL (**Authentication Method** should be **SASL**):
 
-  Variable                            Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------
-  `HOST`                              Host name for the connection
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `SASL_PORT`                         Port number to use
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `SASL_USERNAME`                     User to connect with
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `SASL_PASSWORD`                     Password for this user
+| Variable        | Description                  |
+| --------------- | ---------------------------- |
+| `HOST`          | Host name for the connection |
+| `SASL_PORT`     | Port number to use           |
+| `SASL_USERNAME` | User to connect with         |
+| `SASL_PASSWORD` | Password for this user       |
 
 For consumers you will also need:
 
-+----------------------------------+----------------------------------+
-| Variable                         | Description                      |
-+==================================+==================================+
-| `TOPIC_NAME`                     | The name of the topic to read    |
-|                                  | from                             |
-+----------------------------------+----------------------------------+
-| \                                | \-\-\-\-\-\-\-\-\-\-\-\-\        |
-| -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-- | -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\ |
-|                                  | -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\ |
-|                                  | -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-- |
-+----------------------------------+----------------------------------+
-| `START_FROM`                     | The value to use for the         |
-|                                  | `auto_offset_reset` parameter,   |
-|                                  | which says which message to      |
-|                                  | start consuming from.            |
-|                                  |                                  |
-|                                  | Allowed values are:              |
-|                                  |                                  |
-|                                  | -   `latest` - consume from the  |
-|                                  |     end of the topic partition.  |
-|                                  |     This is the default.         |
-|                                  | -   `earliest` - consume from    |
-|                                  |     the beginning of the topic   |
-|                                  |     partition                    |
-+----------------------------------+----------------------------------+
+| Variable     | Description                                                                                                                                                                                                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TOPIC_NAME` | The name of the topic to read from                                                                                                                                                                                                                                                    |
+| `START_FROM` | The value to use for the `auto_offset_reset` parameter. Indicates the message to start consuming from.  Allowed values are: <ul><li>`latest` (default): Consume from the end of the topic partition.</li><li>`earliest`: Consume from the beginning of the topic partition.</li></ul> |
 
 For more information on `auto_offset_reset`, see the Kafka documentation
 on

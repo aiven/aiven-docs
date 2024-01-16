@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Get started
 ---
 
 To start using **Aiven for OpenSearch® Dashboards**,
@@ -44,7 +44,7 @@ a visual interface or [OpenSearch Query
 DSL](https://opensearch.org/docs/latest/opensearch/query-dsl/index/)
 
 :::tip
-If the index you\'re looking at contains a date field, pay attention to
+If the index you're looking at contains a date field, pay attention to
 the currently selected date range when running a query.
 :::
 

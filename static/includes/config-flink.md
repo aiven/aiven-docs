@@ -20,7 +20,7 @@ available in the HTTP API and console.
 
 # `flink_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Flink major version**
 

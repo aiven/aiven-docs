@@ -75,9 +75,9 @@ To safely make this change you will:
     `aiven_vpc_peering_connection.foo.*` should be updated to instead
     read `aiven_azure_vpc_peering_connection.foo.*` instead.
 
-    Here\'s an example showing the update in action:
+    Here's an example showing the update in action:
 
-    ``` 
+    ```
     - resource "aiven_vpc_peering_connection" "foo" {
         vpc_id                = data.aiven_project_vpc.vpc.id
     -   peer_cloud_account    = "Azure subscription ID"
@@ -99,13 +99,13 @@ To safely make this change you will:
 
 2.  Check the current state of the world:
 
-    ``` 
+    ```
     terraform state list | grep azure
     ```
 
 3.  Remove the resource from the control of Terraform:
 
-    ``` 
+    ```
     terraform state rm aiven_vpc_peering_connection.foo
     ```
 
@@ -117,19 +117,19 @@ To safely make this change you will:
 4.  Add the resource back to Terraform by importing it as a new resource
     with the new type:
 
-    ``` 
+    ```
     terraform import aiven_azure_vpc_peering_connection.foo project_name/vpc_id/azure_subscription_id/vnet_name
     ```
 
 5.  Check that the import is going to run as you expect:
 
-    ``` 
+    ```
     terraform plan
     ```
 
 6.  Apply the new configuration:
 
-    ``` 
+    ```
     terraform apply
     ```
 

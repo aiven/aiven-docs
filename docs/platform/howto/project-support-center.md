@@ -22,7 +22,7 @@ plans. Contact the sales team at [sales@aiven.io](mailto:sales@aiven.io) for mor
 If you have questions or want to downgrade your support tier, contact
 your account team.
 
-To upgrade your organization\'s support tier in the [Aiven
+To upgrade your organization's support tier in the [Aiven
 Console](https://console.aiven.io/):
 
 1.  In the organization, click **Support**.
@@ -74,7 +74,7 @@ support tier**.
         functionality is not working.
     -   High: The primary functions are working, but severely limited or
         slow.
-    -   Critical: The primary functions are not working and it\'s not
+    -   Critical: The primary functions are not working and it's not
         possible to find workarounds.
 
 7.  Optional: Enter the ID of the affected projects and services.
@@ -160,4 +160,4 @@ If the support team asks for a HAR file:
     -   Sensitive URLs
     -   Sensitive cookies or headers
 3.  Send the sanitized file to the support team in your reply to their
-    email or in the ticket\'s comments.
+    email or in the ticket's comments.

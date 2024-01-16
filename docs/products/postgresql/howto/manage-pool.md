@@ -14,10 +14,10 @@ URI** setting listed on the **Overview** page. However, this URI
 doesn\'t make use of the PgBouncer pooling. PgBouncer pools use a
 different port number than the regular PostgreSQL server port. The
 PgBouncer **Service URI** for a particular pool can be found in [Aiven
-Console](https://console.aiven.io/) \> your service\'s page \> **Pools**
+Console](https://console.aiven.io/) \> your service's page \> **Pools**
 view (available from the sidebar). You can also view the generic
 PgBouncer **Service URI** for your pools in [Aiven
-Console](https://console.aiven.io/): your service\'s page \>
+Console](https://console.aiven.io/): your service's page \>
 **Overview** page \> **PgBouncer** tab \> **Service URI**.
 
 You can use both pooled and non-pooled connections at the same time.
@@ -35,7 +35,7 @@ To manage the connection pools, take the following steps:
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     Aiven for PostgreSQL service.
 
-2.  In your service\'s page, select **Pools** from the sidebar.
+2.  In your service's page, select **Pools** from the sidebar.
 
 3.  In the **Pools** view, you can check the available connection pools
     and add or remove them.
@@ -80,12 +80,12 @@ same as for the primary server, except that the host name has a
 
 For example, if the primary connection URI is as follows:
 
-``` 
+```
 postgres://avnadmin:password@pg-prod-myproject.aivencloud.com:20986/mypool?params
 ```
 
 The replica connection pool URI is as follows:
 
-``` 
+```
 postgres://avnadmin:password@replica-pg-prod-myproject.aivencloud.com:20986/mypool?params
 ```

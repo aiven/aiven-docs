@@ -20,7 +20,7 @@ To enable OpenID Connect authentication for Aiven for OpenSearch, you
 must configure OpenID Connect with an Identity Provider (IdP). Aiven for
 OpenSearch integrates with various OpenID Connect IdPs, and the exact
 steps to achieve this differ depending on your chosen IdP. Refer to your
-Identity Provider\'s official documentation for specific configuration
+Identity Provider's official documentation for specific configuration
 steps. To successfully set up OpenID Connect authentication, the
 following parameters from your IdP:
 
@@ -39,7 +39,7 @@ following parameters from your IdP:
     `email`.
 -   **Roles key and subject key**: Keys that help Aiven for OpenSearch
     Dashboards understand which part of the returned token contains role
-    information and which part contains the user\'s identity or name.
+    information and which part contains the user's identity or name.
 
 :::note
 The **Redirect URL** is automatically generated and available in the
@@ -71,13 +71,13 @@ how to obtain this URL, see the next section.
     -   **Scope**: The scope of the claims. This is the set of
         permissions that you are requesting from your IdP. For example,
         you can request the `openid`, `profile`, and `email` scopes to
-        get the user\'s identity, profile information, and email
+        get the user's identity, profile information, and email
         address.
     -   **Roles key**: The key in the returned JSON that stores the
-        user\'s roles. This key is used by Aiven to determine the
-        user\'s permissions.
+        user's roles. This key is used by Aiven to determine the
+        user's permissions.
     -   **Subject key**: This refers to the specific key within the
-        returned JSON that holds the user\'s name or identifying
+        returned JSON that holds the user's name or identifying
         subject. Aiven uses this key to recognize and authenticate the
         user. By default, this key is labeled as `Subject`.
 5.  **Enable advanced configuration** (Optional) to further fine-tune

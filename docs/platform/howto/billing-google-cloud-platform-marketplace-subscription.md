@@ -14,7 +14,7 @@ finishing the process.
 
 1.  Navigate to [Aiven Managed Database Services on the Google Cloud
     Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven).
-    This page contains information about all of Aiven\'s services and
+    This page contains information about all of Aiven's services and
     how the marketplace subscription works. Click the **Subscribe**
     button on this page.
 2.  Select your desired billing account, then read and agree to the

@@ -4,7 +4,7 @@ title: Configure data retention thresholds in Aiven for ClickHouse®'s tiered st
 
 :::important
 Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -88,17 +88,17 @@ Change an already configured TTL in an existing table by using the ALTER
 TABLE MODIFY TTL clause:
 
 ``` shell
-ALTER TABLE database_name.table_name MODIFY TTL ttl_expression; 
+ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
 :::note[Result]
 You have your time-based data retention policy set up. From now on, when
-data is on your SSD longer than a specified time period, it\'s moved to
+data is on your SSD longer than a specified time period, it's moved to
 object storage, regardless of how much of SSD capacity is still
 available.
 :::
 
-## What\'s next
+## What's next
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
 

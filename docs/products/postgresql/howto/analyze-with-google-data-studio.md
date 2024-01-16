@@ -10,12 +10,12 @@ database, and combine these with data from many other data sources.
 
 These are the values you will need to connect to Google Looker Studio:
 
-  Variable     Description
-  ------------ -----------------------------------------------------------------------------
-  `HOSTNAME`   Hostname for the PostgreSQL connection, from the service overview page
-  `PORT`       Port for the PostgreSQL connection, from the service overview page
-  `DATABASE`   Database Name for the PostgreSQL connection, from the service overview page
-  `PASSWORD`   `avnadmin` password, from the service overview page
+ | Variable   | Description                                                                 |
+ | ---------- | --------------------------------------------------------------------------- |
+ | `HOSTNAME` | Hostname for the PostgreSQL connection, from the service overview page      |
+ | `PORT`     | Port for the PostgreSQL connection, from the service overview page          |
+ | `DATABASE` | Database Name for the PostgreSQL connection, from the service overview page |
+ | `PASSWORD` | `avnadmin` password, from the service overview page                         |
 
 ## Pre-requisites
 

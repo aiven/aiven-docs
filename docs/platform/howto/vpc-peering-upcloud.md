@@ -51,7 +51,7 @@ to find your UpCloud SDN network UUID.
 
 To check the UpCloud SDN network UUID, send a request to [get network
 details](https://developers.upcloud.com/1.3/13-networks/#get-network-details)
-UpCloud API endpoint. In the response, you\'ll get the network\'s UUID.
+UpCloud API endpoint. In the response, you\'ll get the network's UUID.
 
 ## Set up VPC peering from Aiven {#avn-uuid}
 
@@ -96,12 +96,12 @@ POST /1.3/network-peering HTTP/1.1
 
 ### Attributes
 
-  Attribute             Accepted value               Default value   Required   Description                                                                                                                                        Example value
-  --------------------- ---------------------------- --------------- ---------- -------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
-  `configured_status`   `active` or `disabled`       `active`        No         Controls whether the peering is administratively up or down.                                                                                       `active`
-  `name`                String of 1-255 characters   None            Yes        Descriptive name for the peering                                                                                                                   `peering upcloud->aiven`
-  `network.uuid`        Valid network UUID           None            Yes        Sets the local network of the peering. Use the UUID you acquired in [Get UpCloud SDN network UUID](/docs/platform/howto/vpc-peering-upcloud#upcloud-uuid).   `03126dc1-a69f-4bc2-8b24-e31c22d64712`
-  `peer_network.uuid`   Valid network UUID           None            Yes        Sets the peer network of the peering. Use the UUID you acquired in [Set up VPC peering from Aiven](/docs/platform/howto/vpc-peering-upcloud#avn-uuid).       `03585987-bf7d-4544-8e9b-5a1b4d74a333`
+| Attribute           | Accepted value             | Default value | Required | Description                                                                                                                                                | Example value                          |
+| ------------------- | -------------------------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `configured_status` | `active` or `disabled`     | `active`      | No       | Controls whether the peering is administratively up or down.                                                                                               | `active`                               |
+| `name`              | String of 1-255 characters | None          | Yes      | Descriptive name for the peering                                                                                                                           | `peering upcloud->aiven`               |
+| `network.uuid`      | Valid network UUID         | None          | Yes      | Sets the local network of the peering. Use the UUID you acquired in [Get UpCloud SDN network UUID](/docs/platform/howto/vpc-peering-upcloud#upcloud-uuid). | `03126dc1-a69f-4bc2-8b24-e31c22d64712` |
+| `peer_network.uuid` | Valid network UUID         | None          | Yes      | Sets the peer network of the peering. Use the UUID you acquired in [Set up VPC peering from Aiven](/docs/platform/howto/vpc-peering-upcloud#avn-uuid).     | `03585987-bf7d-4544-8e9b-5a1b4d74a333` |
 
 ### Expected response
 
@@ -145,12 +145,12 @@ HTTP/1.1 201 Created
 
 ### Error responses
 
-  HTTP status     Error code                Description
-  --------------- ------------------------- ----------------------------------
-  409 Conflict    LOCAL_NETWORK_NO_ROUTER   The local network has no router.
-  404 Not found   NETWORK_NOT_FOUND         The local network was not found.
-  404 Not found   PEER_NETWORK_NOT_FOUND    The peer network was not found.
-  409 Conflict    PEERING_CONFLICT          The peering already exists.
+| HTTP status   | Error code              | Description                      |
+| ------------- | ----------------------- | -------------------------------- |
+| 409 Conflict  | LOCAL_NETWORK_NO_ROUTER | The local network has no router. |
+| 404 Not found | NETWORK_NOT_FOUND       | The local network was not found. |
+| 404 Not found | PEER_NETWORK_NOT_FOUND  | The peer network was not found.  |
+| 409 Conflict  | PEERING_CONFLICT        | The peering already exists.      |
 
 ## Renew a DHCP lease
 

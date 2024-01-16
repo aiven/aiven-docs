@@ -29,12 +29,12 @@ since the latest backup data that was uploaded to object storage.
 
 When a server unexpectedly disconnects, there is no certain way to know
 whether it really disappeared or whether there is a temporary glitch in
-the cloud provider\'s network. Aiven\'s management platform has
+the cloud provider's network. Aiven's management platform has
 different procedures in case of primary or replica nodes disconnections.
 
 ### Primary server disconnection
 
-If the **primary** server disappears, Aiven\'s management platform uses
+If the **primary** server disappears, Aiven's management platform uses
 a **60-second timeout** before marking the server as down and promoting
 a replica server as new primary. During this 60-second timeout, the
 master is unavailable (`servicename-projectname.aivencloud.com` does not
@@ -50,19 +50,19 @@ DNS is switched to point to the new replica server.
 
 ### Replica server disconnection
 
-If the **replica** server disappears, Aiven\'s management platform uses
+If the **replica** server disappears, Aiven's management platform uses
 a **60-second timeout** before marking the server as down and creating a
 new replica server.
 
 :::note
 Each Aiven for PostgreSQL® Business plan supports one replica server
-only, which is why the service\'s read replica endpoint
+only, which is why the service's read replica endpoint
 `replica-SERVICE_NAME-PROJECT_NAME.aivencloud.com` remains unavailable
 and queries to this endpoint time-out until a new replica is available.
 :::
 
 :::tip
-For higher availability on a service\'s read replica endpoint, you can
+For higher availability on a service's read replica endpoint, you can
 upgrade to a Premium plan with two standby servers used as read
 replicas.
 :::
@@ -177,7 +177,7 @@ Uncontrolled failover ramifications
 -   Position of recovered replication slots might be up to several
     seconds older than on the original primary. Therefore, when
     re-connecting to PostgreSQL and reading from replication slots,
-    it\'s recommended to use start positions known to the client until
+    it's recommended to use start positions known to the client until
     which the data was already received. Otherwise, the client might
     receive duplicate entries.
 -   In case of failover with a huge lag between the primary node and the

@@ -35,7 +35,7 @@ project.
 
 Terraform files declare the structure of the infrastructure, the
 dependencies, and configuration. These can be grouped together in one
-file, but it\'s ideal to put them in separate files.
+file, but it's ideal to put them in separate files.
 
 Set up the Terraform project in an empty folder:
 
@@ -125,7 +125,7 @@ Set up the Terraform project in an empty folder:
     install the necessary Aiven Provider plugins:
 
     ``` bash
-    terraform init 
+    terraform init
     ```
 
 2.  Run the `plan` command to create an execution plan and preview the

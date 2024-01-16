@@ -17,14 +17,14 @@ infrastructure and Aiven services within the custom cloud.
 With the BYOC feature enabled, you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organizations. While setting up a custom cloud
 in Aiven, you add customer contacts for this cloud, which is a part of
-the initial custom cloud\'s configuration. Later, you can come back to
-the the **Customer contact** setting in your cloud\'s page in [Aiven
+the initial custom cloud's configuration. Later, you can come back to
+the the **Customer contact** setting in your cloud's page in [Aiven
 Console](https://console.aiven.io/) and update the contacts list you
 initially created for your cloud.
 
 ## Prerequisites
 
--   Administrator\'s role for your Aiven organization
+-   Administrator's role for your Aiven organization
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
 -   Access to [Aiven Console](https://console.aiven.io/)
@@ -44,18 +44,18 @@ initially created for your cloud.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 
-6.  In the selected cloud\'s page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
     the top right corner to select **Customer contact**.
 
-7.  In the **Customer contact** window, select a new contact\'s role
+7.  In the **Customer contact** window, select a new contact's role
     from the dropdown menu, enter the email address, and select **+** to
-    add the provided contact\'s details.
+    add the provided contact's details.
 
     :::note
     You can add multiple customer contacts for your custom cloud.
     :::
 
-8.  When you\'re done adding all the contacts, select **Save changes**.
+8.  When you're done adding all the contacts, select **Save changes**.
 
 :::note[Result]
 The list of contacts for your cloud has been updated.
@@ -74,7 +74,7 @@ steps:
 4.  From the left sidebar, select **Bring your own cloud**.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud\'s page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
     the top right corner.
 7.  Select **Customer contact** from the options available on the the
     ellipsis (**\...**) menu.

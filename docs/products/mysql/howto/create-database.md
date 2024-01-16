@@ -13,7 +13,7 @@ To create a new MySQL® database, take the following steps:
 2.  In the **Services** page, select an Aiven for MySQL service for
     which you want to create a new database.
 
-3.  In your service\'s page, select **Databases** from the sidebar.
+3.  In your service's page, select **Databases** from the sidebar.
 
 4.  In the **Databases** view, select **Create database**.
 

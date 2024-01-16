@@ -21,21 +21,20 @@ buffer. For this reason, the data consumed from the topic by the Kafka®
 engine cannot be read twice.
 
 Persisting the data from the Kafka® table engine read requires capturing
-and inserting it into a different table. Here\'s where materialized
+and inserting it into a different table. Here's where materialized
 views come in. A materialized view triggers a read on the table engine.
 The destination of the data (for example, a Merge Tree family table) is
 defined by the TO clause. This process is illustrated in the following
 diagram:
 
-<!--
-:::mermaid
-
+```mermaid
 flowchart LR
-
-:   a\[Kafka topic\] b{{Kafka table engine}} c\[Materialized view\]
-    d{{Merge Tree\<br /\> family table}} a \--\> b \--\> c \--\> d
-:::
--->
+  a[Kafka topic]
+  b{{Kafka table engine}}
+  c[Materialized view]
+  d{{Merge Tree<br /> family table}}
+  a --> b --> c --> d
+```
 
 ## Create a materialized view
 
@@ -55,8 +54,8 @@ use the ReplicatedMergeTree engine, the stored messages are exchanged
 and replicated across all the nodes.
 :::
 
-:::note See also
+## Related pages
+
 For more information on how to integrate Aiven for ClickHouse® with
 Apache Kafka®, see
 [Connect Apache Kafka® to Aiven for ClickHouse®](/docs/products/clickhouse/howto/integrate-kafka).
-:::

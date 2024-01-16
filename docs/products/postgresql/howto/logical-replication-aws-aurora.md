@@ -16,7 +16,7 @@ parameter to `1` (true) in the parameter group.
     > ![Aurora PostgreSQL cluster parameter value](/images/products/postgresql/migrate-aurora-pg-parameter-value.png)
 
 3.  Modify Database options to use the new DB Cluster parameter group -
-    `RDS` -\> `Databases` -\> `Modify`.
+    `RDS` \> `Databases` \> `Modify`.
 
     > ![Aurora PostgreSQL cluster parameter modify](/images/products/postgresql/migrate-aurora-pg-parameter-modify.png)
 

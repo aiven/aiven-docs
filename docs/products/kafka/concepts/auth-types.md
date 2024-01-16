@@ -56,7 +56,7 @@ is then used to create an \"identity\" that holds:
 
 -   The \"salt\"
 -   The number of iterations to use (4096 by default)
--   `StoredKey` (the hash of the client\'s key)
+-   `StoredKey` (the hash of the client's key)
 -   `ServerKey`
 
 This identity is then by default stored in Apache ZooKeeper™.

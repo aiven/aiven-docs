@@ -12,9 +12,9 @@ built-in PDO module.
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable           Description
-  ------------------ ---------------------------------------------------------------
-  `POSTGRESQL_URI`   URL for PostgreSQL connection, from the service overview page
+ | Variable         | Description                                                   |
+ | ---------------- | ------------------------------------------------------------- |
+ | `POSTGRESQL_URI` | URL for PostgreSQL connection, from the service overview page |
 
 ## Pre-requisites
 
@@ -48,13 +48,13 @@ and adds the location of the cert.
 
 To run the code:
 
-``` 
+```
 php index.php
 ```
 
 If the script runs successfully, the outputs should be the PostgreSQL
 version running in your service like:
 
-``` 
+```
 PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
 ```

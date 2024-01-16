@@ -24,21 +24,21 @@ PostgreSQL](https://cloud.google.com/sql/docs/release-notes#August_30_2021).
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable         Description
-  ---------------- --------------------------------------------------
-  `SRC_HOST`       Hostname of the source PostgreSQL database
-  `SRC_PORT`       Port of the source PostgreSQL database
-  `SRC_DATABASE`   Database Name of the source PostgreSQL database
-  `SRC_USER`       Username of the source PostgreSQL database
-  `SRC_PASSWORD`   Password of the source PostgreSQL database
-  `SRC_CONN_URI`   Connection URI of the source PostgreSQL database
+ | Variable       | Description                                      |
+ | -------------- | ------------------------------------------------ |
+ | `SRC_HOST`     | Hostname of the source PostgreSQL database       |
+ | `SRC_PORT`     | Port of the source PostgreSQL database           |
+ | `SRC_DATABASE` | Database Name of the source PostgreSQL database  |
+ | `SRC_USER`     | Username of the source PostgreSQL database       |
+ | `SRC_PASSWORD` | Password of the source PostgreSQL database       |
+ | `SRC_CONN_URI` | Connection URI of the source PostgreSQL database |
 
 ## Requirements
 
 You will need:
 
 -   PostgreSQL version 10 or newer.
--   Connection between the source cluster\'s PostgreSQL port and Aiven
+-   Connection between the source cluster's PostgreSQL port and Aiven
     for PostgreSQL cluster.
 -   Access to an superuser role on the source cluster.
 -   `wal_level` setting to `logical` on the source cluster. To verify
@@ -74,10 +74,10 @@ logical replication is the following:
 
 1.  On the source cluster, connect to the `origin_database` with `psql`.
 
-2.  Create the `PUBLICATION` entry, named `pub_source_tables`, for the
+1.  Create the `PUBLICATION` entry, named `pub_source_tables`, for the
     test tables:
 
-    ``` 
+    ```
     CREATE PUBLICATION pub_source_tables
     FOR TABLE test_table,test_table_2,test_table_3
     WITH (publish='insert,update,delete');
@@ -93,35 +93,35 @@ logical replication is the following:
     `UPDATE` or `DELETE` operations will be transferred.
     :::
 
-3.  PostgreSQL\'s logical replication doesn\'t copy table definitions,
+1.  PostgreSQL's logical replication doesn\'t copy table definitions,
     that can be extracted from the `origin_database` with `pg_dump` and
     included in a `origin-database-schema.sql` file with:
 
-    ``` 
+    ```
     pg_dump --schema-only --no-publications \
     SRC_CONN_URI                            \
     -t test_table -t test_table_2 -t test_table_3 > origin-database-schema.sql
     ```
 
-4.  Connect via `psql` to the destination Aiven for PostgreSQL database
+1.  Connect via `psql` to the destination Aiven for PostgreSQL database
     and create the new `aiven_extras` extension:
 
-    ``` 
+    ```
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
-5.  Create the table definitions in the Aiven for PostgreSQL destination
+1.  Create the table definitions in the Aiven for PostgreSQL destination
     database within `psql`:
 
-    ``` 
+    ```
     \i origin-database-schema.sql
     ```
 
-6.  Create a `SUBSCRIPTION` entry, named `dest_subscription`, in the
+1.  Create a `SUBSCRIPTION` entry, named `dest_subscription`, in the
     Aiven for PostgreSQL destination database to start replicating
     changes from the source `pub_source_tables` publication:
 
-    ``` 
+    ```
     SELECT * FROM
     aiven_extras.pg_create_subscription(
       'dest_subscription',
@@ -132,12 +132,12 @@ logical replication is the following:
       TRUE);
     ```
 
-7.  Verify that the subscription has been created successfully. As the
+1.  Verify that the subscription has been created successfully. As the
     `pg_subscription` catalog is superuser-only, you can use the
     `aiven_extras.pg_list_all_subscriptions()` function from
     `aiven_extras` extension:
 
-    ``` 
+    ```
     SELECT subdbid, subname, subowner, subenabled, subslotname
     FROM aiven_extras.pg_list_all_subscriptions();
 
@@ -147,9 +147,9 @@ logical replication is the following:
     (1 row)
     ```
 
-8.  Verify the subscription status:
+1.  Verify the subscription status:
 
-    ``` 
+    ```
     SELECT * FROM pg_stat_subscription;
 
      subid |      subname      | pid | relid | received_lsn |      last_msg_send_time       |     last_msg_receipt_time     | latest_end_lsn |        latest_end_time
@@ -158,7 +158,7 @@ logical replication is the following:
     (1 row)
     ```
 
-9.  Verify the data is correctly copied over the Aiven for PostgreSQL
+1.  Verify the data is correctly copied over the Aiven for PostgreSQL
     target tables
 
 ## Remove unused replication setup
@@ -172,13 +172,13 @@ on disk until it becomes full.
 To remove an unused subscription, essentially stopping the replication,
 run the following command in the Aiven for PostgreSQL target database:
 
-``` 
+```
 SELECT * FROM aiven_extras.pg_drop_subscription('dest_subscription');
 ```
 
 Verify the replication removal with:
 
-``` 
+```
 SELECT * FROM aiven_extras.pg_list_all_subscriptions();
 
 subdbid  | subname | subowner | subenabled | subconninfo | subslotname | subsynccommit | subpublications
@@ -195,13 +195,13 @@ to stop serving clients and thus a loss of service.
 
 1.  Assess the replication slots status via `psql`:
 
-    ``` 
+    ```
     SELECT slot_name,restart_lsn FROM pg_replication_slots;
     ```
 
     The command output is like:
 
-    ``` 
+    ```
     slot_name   │ restart_lsn
     ───────────────┼─────────────
     pghoard_local │ 6E/16000000
@@ -209,7 +209,7 @@ to stop serving clients and thus a loss of service.
     (2 rows)
     ```
 
-2.  Compare the `restart_lsn` values between the replication slot in
+1.  Compare the `restart_lsn` values between the replication slot in
     analysis (`dest_slot` in the above example) and `pghoard_local`: the
     hexadecimal difference between the them states how many
     write-ahead-logging (WAL) entries are waiting for the target
@@ -219,7 +219,7 @@ to stop serving clients and thus a loss of service.
     In the above example the difference is 0x6E - 0x5B = 19 entries
     :::
 
-3.  If, after assessing the lag, the `dest_slot` connector results
+1.  If, after assessing the lag, the `dest_slot` connector results
     lagging or inactive:
 
     -   If the `dest_slot` connector is still in use, a recommended
@@ -227,7 +227,7 @@ to stop serving clients and thus a loss of service.
         problem. You can disable and enable the associated subscription
         using `aiven_extras`:
 
-        ``` 
+        ```
         SELECT * FROM aiven_extras.pg_alter_subscription_disable('dest_subscription');
         SELECT * FROM aiven_extras.pg_alter_subscription_enable('dest_subscription');
         ```
@@ -235,21 +235,20 @@ to stop serving clients and thus a loss of service.
     -   If the `dest_slot` connector is no longer needed, run the
         following command to remove it:
 
-        ``` 
+        ```
         SELECT pg_drop_replication_slot('dest_slot');
         ```
 
-4.  In both cases, after the next PostgreSQL checkpoint, the disk space
+1.  In both cases, after the next PostgreSQL checkpoint, the disk space
     that the WAL logs have reserved for the `dest_subscription`
     connector should be freed up.
 
     :::note
-    The checkpoint occurs only when
-
-    :   -   an hour has elapsed (we use a `checkpoint_timeout` value of
-            3600 seconds), or
-        -   5% of disk write operations is reached (the `max_wal_size`
-            value is set to 5% of the instance storage).
+    The checkpoint occurs only when:
+    -   an hour has elapsed (we use a `checkpoint_timeout` value of
+        3600 seconds), or
+    -   5% of disk write operations is reached (the `max_wal_size`
+        value is set to 5% of the instance storage).
     :::
 
 For further information about WAL and checkpoints, read the [PostgreSQL
@@ -257,7 +256,7 @@ documentation](https://www.postgresql.org/docs/current/wal-configuration.html).
 
 :::note
 The recreation of replication slots gets enabled automatically for
-services created or updated as of January 2023. Additional details are
+services created or updated as of January 2021. Additional details are
 outlined in [our blog
 post](https://aiven.io/blog/aiven-for-pg-recreates-logical-replication-slots).
 

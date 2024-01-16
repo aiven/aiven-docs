@@ -2,7 +2,7 @@
 title: avn account team
 ---
 
-Here you\'ll find the full list of commands for `avn account team`.
+Full list of commands for `avn account team`.
 
 ## Manage account teams
 
@@ -12,27 +12,15 @@ Commands for managing Aiven account teams via `avn` commands.
 
 Creates a new account team.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-name`</td>
-      <td>The name of the team</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter     | Information           |
+| ------------- | --------------------- |
+| `account_id`  | The id of the account |
+| `--team-name` | The name of the team  |
 
 **Example:** Create a new team named `clickstream analytics` for the
 account id `123456789123`.
 
-``` 
+```
 avn account team create 123456789123 --team-name "clickstream analytics"
 ```
 
@@ -40,27 +28,15 @@ avn account team create 123456789123 --team-name "clickstream analytics"
 
 Deletes an existing account team.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team to delete</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information                  |
+| ------------ | ---------------------------- |
+| `account_id` | The id of the account        |
+| `--team-id`  | The id of the team to delete |
 
 **Example:** Delete the team with id `at31d79d311b3` for the account id
 `123456789123`.
 
-``` 
+```
 avn account team delete 123456789123 --team-id at31d79d311b3
 ```
 
@@ -68,24 +44,15 @@ avn account team delete 123456789123 --team-id at31d79d311b3
 
 Lists an existing account teams.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information           |
+| ------------ | --------------------- |
+| `account_id` | The id of the account |
 
 **Example:** List all the teams belonging to the account id
 `123456789123`.
 
-``` 
-avn account team list 123456789123 
+```
+avn account team list 123456789123
 ```
 
 An example of `account team list` output:
@@ -102,36 +69,18 @@ ACCOUNT_ID    CREATE_TIME           TEAM_ID        TEAM_NAME           UPDATE_TI
 
 Attaches an existing account team to a project.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team</td>
-    </tr>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to attach to</td>
-    </tr>
-    <tr>
-      <td>[--team-type`</td>
-      <td>The permission level (possible values `admin`, `developer`, `operator`, `read_only`). More info at the `dedicated page](/docs/platform/concepts/projects_accounts_access)</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter     | Information                                                                                                                                                       |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account_id`  | The id of the account                                                                                                                                             |
+| `--team-id`   | The id of the team                                                                                                                                                |
+| `--project`   | The project to attach to                                                                                                                                          |
+| `--team-type` | The permission level (possible values `admin`, `developer`, `operator`, `read_only`). See the [dedicated page](/docs/platform/concepts/projects_accounts_access). |
 
 **Example:** Attach the team with id `at3exxxxxxxxx` belonging to the
 account `123456789123` to the project named `testing-sandbox` granting
 `operator` access.
 
-``` 
+```
 avn account team project-attach 123456789123  \
   --team-id at3exxxxxxxxx                     \
   --project testing-sandbox                   \
@@ -142,31 +91,16 @@ avn account team project-attach 123456789123  \
 
 Detaches an existing account team from a project.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team</td>
-    </tr>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to detach from</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information                |
+| ------------ | -------------------------- |
+| `account_id` | The id of the account      |
+| `--team-id`  | The id of the team         |
+| `--project`  | The project to detach from |
 
 **Example:** Detach the team with id `at3exxxxxxxxx` belonging to the
 account `123456789123` from the project named `testing-sandbox`.
 
-``` 
+```
 avn account team project-detach 123456789123  \
   --team-id at3exxxxxxxxx                     \
   --project testing-sandbox
@@ -176,31 +110,16 @@ avn account team project-detach 123456789123  \
 
 Invites a new user to an Aiven team.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`email`</td>
-      <td>The new user\'s email address</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information                  |
+| ------------ | ---------------------------- |
+| `account_id` | The id of the account        |
+| `email`      | The new user's email address |
+| `--team-id`  | The id of the team           |
 
 **Example:** Invite the user `jane.doe@example.com` to the team id
 `at3exxxxxxxxx` belonging to the account `123456789123`.
 
-``` 
+```
 avn account team user-invite 123456789123 jane.doe@example.com  --team-id at3exxxxxxxxx
 ```
 
@@ -208,31 +127,16 @@ avn account team user-invite 123456789123 jane.doe@example.com  --team-id at3exx
 
 Deletes an existing user from an Aiven team.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team</td>
-    </tr>
-    <tr>
-      <td>`--user-id`</td>
-      <td>The existing user\'s id</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information            |
+| ------------ | ---------------------- |
+| `account_id` | The id of the account  |
+| `--team-id`  | The id of the team     |
+| `--user-id`  | The existing user's id |
 
 **Example:** Remove the user with id `x5dxxxxxxxxx` from the team id
 `at3exxxxxxxxx` belonging to the account `123456789123`.
 
-``` 
+```
 avn account team user-delete 123456789123 --team-id at3exxxxxxxxx --user-id x5dxxxxxxxxx
 ```
 
@@ -240,28 +144,16 @@ avn account team user-delete 123456789123 --team-id at3exxxxxxxxx --user-id x5dx
 
 Lists the existing users in an Aiven team.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information           |
+| ------------ | --------------------- |
+| `account_id` | The id of the account |
+| `--team-id`  | The id of the team    |
 
 **Example:** List all the users in the team id `at3exxxxxxxxx` belonging
 to the account `123456789123`.
 
-``` 
-avn account team user-list 123456789123 --team-id at3exxxxxxxxx 
+```
+avn account team user-list 123456789123 --team-id at3exxxxxxxxx
 ```
 
 An example of `account team user-list` output:
@@ -281,28 +173,16 @@ CREATE_TIME           REAL_NAME            TEAM_ID        TEAM_NAME        UPDAT
 Lists the users with pending invitation from an Aiven team.
 Unacknowledged invitations are automatically deleted in 72 hours.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the account</td>
-    </tr>
-    <tr>
-      <td>`--team-id`</td>
-      <td>The id of the team</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information           |
+| ------------ | --------------------- |
+| `account_id` | The id of the account |
+| `--team-id`  | The id of the team    |
 
 **Example:** List all the users with pending invitations for the team id
 `at3exxxxxxxxx` belonging to the account `123456789123`.
 
-``` 
-avn account team user-list-pending 123456789123 --team-id at3exxxxxxxxx 
+```
+avn account team user-list-pending 123456789123 --team-id at3exxxxxxxxx
 ```
 
 An example of `account team user-list-pending` output:

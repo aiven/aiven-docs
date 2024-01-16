@@ -11,18 +11,9 @@ Aiven using `avn project`.
 
 Fetches project details.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to fetch details for</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                      |
+| ----------- | -------------------------------- |
+| `--project` | The project to fetch details for |
 
 **Example:** Show the details of the currently selected project:
 
@@ -39,18 +30,9 @@ avn project details
 Sets the default project to use when one is not specified in an `avn`
 command.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`project_name`</td>
-      <td>Required positional argument</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `project_name` | Required positional argument |
 
 **Example:** Make the project named `my-project` the default for all
 commands where the `--project` parameter isn\'t supplied:
@@ -76,78 +58,24 @@ Creates a new project with `create` or changes the settings with
 `update`. An account is the same as an
 [organization or organizational unit](/docs/platform/concepts/projects_accounts_access).
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`project_name` (required for `create`)</td>
-      <td>Note: This is a positional argument, not a switch</td>
-    </tr>
-    <tr>
-      <td>`--project` (required for `update`)</td>
-      <td>The project to amend, use with `update` only</td>
-    </tr>
-    <tr>
-      <td>`--name` (`update` only)</td>
-      <td>Supply a new name for the project</td>
-    </tr>
-    <tr>
-      <td>`--account-id`</td>
-      <td>The organization or unit to create the project in</td>
-    </tr>
-    <tr>
-      <td>`--billing-group-id`</td>
-      <td>Billing group ID to use</td>
-    </tr>
-    <tr>
-      <td>`--card-id`</td>
-      <td>The card ID (see `avn card`)</td>
-    </tr>
-    <tr>
-      <td>`--cloud`</td>
-      <td>The cloud to use by default (see `avn cloud`)</td>
-    </tr>
-    <tr>
-      <td>`--no-fail-if-exists`</td>
-      <td>Makes the command safe to run repeatedly, it will succeed if a project of this name already exists.</td>
-    </tr>
-    <tr>
-      <td>`--copy-from-project` (`create` only)</td>
-      <td>Project name to use as a template</td>
-    </tr>
-    <tr>
-      <td>`--country-code`</td>
-      <td>[Code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) for the billing country</td>
-    </tr>
-    <tr>
-      <td>`--billing-address`</td>
-      <td>Address to bill to</td>
-    </tr>
-    <tr>
-      <td>`--billing-extra-text`</td>
-      <td>Information to include with an invoice such as a cost center number</td>
-    </tr>
-    <tr>
-      <td>`--billing-currency`</td>
-      <td>The currency to bill in. The choices are: \"AUD\" \"CAD\" \"CHF\" \"DKK\" \"EUR\" \"GBP\" \"NOK\" \"SEK\" \"USD\"</td>
-    </tr>
-    <tr>
-      <td>`--vat-id`</td>
-      <td>VAT ID for this project</td>
-    </tr>
-    <tr>
-      <td>`--billing-email`</td>
-      <td>Email for the billing contact</td>
-    </tr>
-    <tr>
-      <td>`--tech-email`</td>
-      <td>Email for the technical contact</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter                              | Information                                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `project_name` (required for `create`) | Note: This is a positional argument, not a switch.                                                                 |
+| `--project` (required for `update`)    | The project to amend, use with `update` only                                                                       |
+| `--name` (`update` only)               | Supply a new name for the project                                                                                  |
+| `--account-id`                         | The organization or unit to create the project in                                                                  |
+| `--billing-group-id`                   | Billing group ID to use                                                                                            |
+| `--card-id`                            | The card ID (see `avn card`)                                                                                       |
+| `--cloud`                              | The cloud to use by default (see `avn cloud`)                                                                      |
+| `--no-fail-if-exists`                  | Makes the command safe to run repeatedly, it will succeed if a project of this name already exists.                |
+| `--copy-from-project` (`create` only)  | Project name to use as a template                                                                                  |
+| `--country-code`                       | [Code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) for the billing country |
+| `--billing-address`                    | Address to bill to                                                                                                 |
+| `--billing-extra-text`                 | Information to include with an invoice such as a cost center number                                                |
+| `--billing-currency`                   | The currency to bill in. The choices are: \"AUD\" \"CAD\" \"CHF\" \"DKK\" \"EUR\" \"GBP\" \"NOK\" \"SEK\" \"USD\"  |
+| `--vat-id`                             | VAT ID for this project                                                                                            |
+| `--billing-email`                      | Email for the billing contact                                                                                      |
+| `--tech-email`                         | Email for the technical contact                                                                                    |
 
 **Example:** Create a project named `my-project`:
 
@@ -199,22 +127,10 @@ CA certificates are managed at the project level.
 Downloads the CA certificate for this project, the certificate is saved
 in the file name you supply.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to fetch details for</td>
-    </tr>
-    <tr>
-      <td>`--target-filepath`</td>
-      <td>File name, including path, to use</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter           | Information                       |
+| ------------------- | --------------------------------- |
+| `--project`         | The project to fetch details for  |
+| `--target-filepath` | File name, including path, to use |
 
 **Example:** Download the CA certificate for the current project, and
 save it in a file in the current directory called `ca.pem`:
@@ -231,18 +147,9 @@ Manage user access to the project.
 
 Lists the open invitations to the project.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to show invitations for</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                         |
+| ----------- | ----------------------------------- |
+| `--project` | The project to show invitations for |
 
 **Example:** List the invitations for the current project:
 
@@ -254,18 +161,9 @@ avn project invite-list
 
 Lists the users with access to the project.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to show users for</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                   |
+| ----------- | ----------------------------- |
+| `--project` | The project to show users for |
 
 **Example:** List the users with access to project `my-project`:
 
@@ -277,26 +175,11 @@ avn project user-list --project my-project
 
 Sends an email invitation to a user to join a project.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`email` (required)</td>
-      <td>Note: this is a positional argument</td>
-    </tr>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to invite the user to</td>
-    </tr>
-    <tr>
-      <td>`--role`</td>
-      <td>Can be \"operator\", \"developer\" or \"admin\"</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter          | Information                                     |
+| ------------------ | ----------------------------------------------- |
+| `email` (required) | Note: this is a positional argument             |
+| `--project`        | The project to invite the user to               |
+| `--role`           | Can be \"operator\", \"developer\" or \"admin\" |
 
 **Example:** Invite an important person to be an admin on the
 currently-selected project:
@@ -309,22 +192,10 @@ avn project user-invite --role admin boss@example.com
 
 Removes a user with the supplied email address from the project.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`email` (required)</td>
-      <td>Note: This is a positional argument</td>
-    </tr>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to remove the user from</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter          | Information                         |
+| ------------------ | ----------------------------------- |
+| `email` (required) | Note: This is a positional argument |
+| `--project`        | The project to remove the user from |
 
 **Example:** Remove the user with email `alice@example.com` from project
 `my-project`:
@@ -341,26 +212,14 @@ report download link for a project using the following command:
 
 ### `avn project generate-sbom`
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project name</td>
-    </tr>
-    <tr>
-      <td>`--output`</td>
-      <td>Output format (CSV or SPDX)</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                 |
+| ----------- | --------------------------- |
+| `--project` | The project name            |
+| `--output`  | Output format (CSV or SPDX) |
 
 **Example:** Get the SBOM report download link for the project
 `my-project` in `csv` format:
 
-``` 
+```
 avn project generate-sbom --project my-project --output csv
 ```

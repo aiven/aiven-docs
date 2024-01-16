@@ -9,7 +9,7 @@ authentication are centrally managed at the organization level. These
 projects also get the latest feature updates.
 
 :::important
-It\'s no longer possible to create unassigned projects and projects that
+It's no longer possible to create unassigned projects and projects that
 are not assigned to an organization or unit will not be updated with new
 features. We recommend assigning all projects to an organization or unit
 using the instructions on this page.
@@ -75,7 +75,7 @@ manage users, groups, and other settings.
 
 To see a list of names of all unassigned projects use the following:
 
-``` 
+```
 curl -sXGET \
  https://api.aiven.io/v1/project \
  -H "Authorization: Bearer TOKEN" | jq -r '.projects[] | select(.account_id==null) | .project_name'
@@ -91,7 +91,7 @@ To assign a standalone project to an organization or unit use the
 following call. Replace `ACCOUNT_ID` with the ID of the organization or
 unit and `PROJECT_NAME` with the name of the project to assign.
 
-``` 
+```
 curl -sXPUT \
  https://api.aiven.io/v1/project/PROJECT_NAME \
  -H "Authorization: Bearer TOKEN" \
@@ -104,7 +104,7 @@ curl -sXPUT \
 To create an organization use the following call. Replace `ORG_NAME`
 with a name for your new organization.
 
-``` 
+```
 curl -sXPOST \
  https://api.aiven.io/v1/account \
  -H "Authorization: Bearer TOKEN" \

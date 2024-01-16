@@ -9,7 +9,7 @@ repository](https://github.com/aiven/http-connector-for-apache-kafka/).
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/aiven/aiven-kafka-connect-http).
 :::
 
@@ -31,9 +31,9 @@ target server:
 and, if you are using Avro as the data format:
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry username
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry username
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password
 
 :::note
@@ -74,7 +74,7 @@ The configuration file contains the following entries:
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter translates
     messages from the Avro format. To retrieve the message schema we use
-    Aiven\'s [Karapace schema
+    Aiven's [Karapace schema
     registry](https://github.com/aiven/karapace) as specified by the
     `schema.registry.url` parameter and related credentials.
 
@@ -92,7 +92,7 @@ parameters
     `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
     [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/http-sink#connect_http_sink_prereq).
 -   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you\'re going to login to the schema registry
+    `USER_INFO`, since you're going to login to the schema registry
     using username and password.
 -   `value.converter.schema.registry.basic.auth.user.info`: passing the
     required schema registry credentials in the form of
@@ -149,7 +149,7 @@ You can also create connectors using the
 If you have a topic named `iot_measurements` containing the following
 data in JSON format:
 
-``` 
+```
 Key: 1 Value: {"iot_id":1, "metric":"Temperature", "measurement":14}
 Key: 2 Value: {"iot_id":2, "metric":"Humidity", "measurement":60}
 Key: 1 Value: {"iot_id":1, "metric":"Temperature", "measurement":16}

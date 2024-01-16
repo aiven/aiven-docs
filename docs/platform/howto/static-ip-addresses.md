@@ -7,7 +7,7 @@ Each static IP address will incur a small charge
 :::
 
 By default an Aiven service will use public IP addresses allocated from
-the cloud provider\'s shared pool of addresses for the cloud region. As
+the cloud provider's shared pool of addresses for the cloud region. As
 a result, Aiven service IP addresses cannot be predicted. This is a good
 approach for most use cases, but we do also offer static IP addresses
 should you need them. This allows you to configure a firewall rule for
@@ -23,10 +23,10 @@ the service has enough static IP addresses available to handle upgrades
 and failures. The table below shows how to calculate the number of IP
 addresses needed, depending on the size of your service plan.
 
-  Plan size       IP addresses needed          Example
-  --------------- ---------------------------- ------------------------------------------------------------
-  up to 6 nodes   double the number of nodes   3 node plan needs 6 static IP addresses (2 \* 3 nodes)
-  6+ nodes        number of nodes + 6          9 node plan needs 15 static IP addresses (9 nodes, plus 6)
+| Plan size     | IP addresses needed        | Example                                                    |
+| ------------- | -------------------------- | ---------------------------------------------------------- |
+| up to 6 nodes | double the number of nodes | 3 node plan needs 6 static IP addresses (2 * 3 nodes)      |
+| 6+ nodes      | number of nodes + 6        | 9 node plan needs 15 static IP addresses (9 nodes, plus 6) |
 
 ## Reserve static IP addresses
 
@@ -36,7 +36,7 @@ you need to create enough IP addresses for your service. Specify the
 name of the cloud that the IP address should be created in, to match the
 service that will use it.
 
-``` 
+```
 avn static-ip create --cloud azure-westeurope
 ```
 
@@ -53,7 +53,7 @@ When the IP address has been provisioned, the state turns to `created`.
 The list of static IP addresses in the current project is available
 using the `static-ip list` command:
 
-``` 
+```
 avn static-ip list
 ```
 
@@ -75,7 +75,7 @@ service.
 Using the name of the service, and the ID of the static IP address, you
 can assign which service a static IP should be used by:
 
-``` 
+```
 avn static-ip associate --service my-static-pg ip359373e5e56
 avn static-ip associate --service my-static-pg ip358375b2765
 ```
@@ -88,7 +88,7 @@ static IP addresses on your service.
 Enable static IP addresses for the service by setting the `static_ips`
 user configuration option:
 
-``` 
+```
 avn service update -c static_ips=true my-static-pg
 ```
 
@@ -117,13 +117,13 @@ service, while they are not in use. This returns them back to the
 `created` state to either be associated with another service, or
 deleted.
 
-``` 
+```
 avn static-ip dissociate ip358375b2765
 ```
 
 To delete a static IP:
 
-``` 
+```
 avn static-ip delete ip358375b2765
 ```
 

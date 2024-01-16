@@ -32,7 +32,7 @@ needed.
 
 ### Allocation and setup
 
-`shared_buffers` is allocated only once at startup; thus, it\'s not
+`shared_buffers` is allocated only once at startup; thus, it's not
 allocated per-session or per-user. It is shared among all sessions and
 useable for each worker and, therefore, each query.
 
@@ -86,11 +86,11 @@ relid | schemaname | relname | heap_blks_read | heap_blks_hit | idx_blks_read | 
 Calculate the database cache hit rate with:
 
 ``` shell
-SELECT 
+SELECT
   sum(heap_blks_read) as heap_read,
   sum(heap_blks_hit)  as heap_hit,
   sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as hit_ratio
-FROM 
+FROM
   pg_statio_user_tables;
 
    heap_read | heap_hit |         ratio

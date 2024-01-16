@@ -93,6 +93,6 @@ partition.
 
 Aiven for Apache Kafka provides offset telemetry, which can help
 understand message consumption patterns and troubleshoot issues. The
-`kafka_consumer_group_offset` metric identifies the consumer group\'s
+`kafka_consumer_group_offset` metric identifies the consumer group's
 most recent committed offset, which can be used to determine its
 relative position within the assigned partitions.

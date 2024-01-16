@@ -31,7 +31,7 @@ Before exploring the Pagila database, follow the
     :::tip
     You may use the following command on your terminal:
 
-    ``` 
+    ```
     wget https://raw.githubusercontent.com/aiven/devportal/main/code/products/postgresql/pagila/pagila-data.sql
     ```
     :::
@@ -81,7 +81,7 @@ or to list all films for a specific language.
 
 ## Sample queries {#sample_queries}
 
-Let\'s explore the dataset with a few queries. All the queries results
+Let's explore the dataset with a few queries. All the queries results
 were limited by the first 10 items.
 
 <details><summary>
@@ -100,18 +100,18 @@ order by
 ```
 
 ``` text
-|film_id|title             |length|
-|-------|------------------|------|
-|426    |HOME PITY         |185   |
-|690    |POND SEATTLE      |185   |
-|609    |MUSCLE BRIGHT     |185   |
-|991    |WORST BANGER      |185   |
-|182    |CONTROL ANTHEM    |185   |
-|141    |CHICAGO NORTH     |185   |
-|349    |GANGS PRIDE       |185   |
-|212    |DARN FORRESTER    |185   |
-|817    |SOLDIERS EVOLUTION|185   |
-|872    |SWEET BROTHERHOOD |185   |
+| film_id | title              | length |
+| ------- | ------------------ | ------ |
+| 426     | HOME PITY          | 185    |
+| 690     | POND SEATTLE       | 185    |
+| 609     | MUSCLE BRIGHT      | 185    |
+| 991     | WORST BANGER       | 185    |
+| 182     | CONTROL ANTHEM     | 185    |
+| 141     | CHICAGO NORTH      | 185    |
+| 349     | GANGS PRIDE        | 185    |
+| 212     | DARN FORRESTER     | 185    |
+| 817     | SOLDIERS EVOLUTION | 185    |
+| 872     | SWEET BROTHERHOOD  | 185    |
 ```
 
 </details>
@@ -137,18 +137,18 @@ order by
 ```
 
 ``` text
-|name       |category_count|
-|-----------|--------------|
-|Sports     |74            |
-|Foreign    |73            |
-|Family     |69            |
-|Documentary|68            |
-|Animation  |66            |
-|Action     |64            |
-|New        |63            |
-|Drama      |62            |
-|Sci-Fi     |61            |
-|Games      |61            |
+| name        | category_count |
+| ----------- | -------------- |
+| Sports      | 74             |
+| Foreign     | 73             |
+| Family      | 69             |
+| Documentary | 68             |
+| Animation   | 66             |
+| Action      | 64             |
+| New         | 63             |
+| Drama       | 62             |
+| Sci-Fi      | 61             |
+| Games       | 61             |
 ```
 
 </details>
@@ -175,18 +175,18 @@ order by
 ```
 
 ``` text
-|first_name|last_name|featured_count|
-|----------|---------|--------------|
-|SUSAN     |DAVIS    |54            |
-|GINA      |DEGENERES|42            |
-|WALTER    |TORN     |41            |
-|MARY      |KEITEL   |40            |
-|MATTHEW   |CARREY   |39            |
-|SANDRA    |KILMER   |37            |
-|SCARLETT  |DAMON    |36            |
-|VIVIEN    |BASINGER |35            |
-|VAL       |BOLGER   |35            |
-|GROUCHO   |DUNST    |35            |
+| first_name | last_name | featured_count |
+| ---------- | --------- | -------------- |
+| SUSAN      | DAVIS     | 54             |
+| GINA       | DEGENERES | 42             |
+| WALTER     | TORN      | 41             |
+| MARY       | KEITEL    | 40             |
+| MATTHEW    | CARREY    | 39             |
+| SANDRA     | KILMER    | 37             |
+| SCARLETT   | DAMON     | 36             |
+| VIVIEN     | BASINGER  | 35             |
+| VAL        | BOLGER    | 35             |
+| GROUCHO    | DUNST     | 35             |
 ```
 
 </details>
@@ -207,18 +207,18 @@ order by first_name asc;
 ```
 
 ``` text
-|first_name|last_name|
-|----------|---------|
-|MARY      |SMITH    |
-|PATRICIA  |JOHNSON  |
-|LINDA     |WILLIAMS |
-|BARBARA   |JONES    |
-|ELIZABETH |BROWN    |
-|JENNIFER  |DAVIS    |
-|MARIA     |MILLER   |
-|SUSAN     |WILSON   |
-|MARGARET  |MOORE    |
-|DOROTHY   |TAYLOR   |
+| first_name | last_name |
+| ---------- | --------- |
+| MARY       | SMITH     |
+| PATRICIA   | JOHNSON   |
+| LINDA      | WILLIAMS  |
+| BARBARA    | JONES     |
+| ELIZABETH  | BROWN     |
+| JENNIFER   | DAVIS     |
+| MARIA      | MILLER    |
+| SUSAN      | WILSON    |
+| MARGARET   | MOORE     |
+| DOROTHY    | TAYLOR    |
 ```
 
 </details>
@@ -231,30 +231,30 @@ See who rented most DVDs - and how many times
 select
     customer.first_name,
     customer.last_name,
-    count(customer.first_name) rentals_count 
+    count(customer.first_name) rentals_count
 from
     customer
 left join rental on
     customer.customer_id = rental.customer_id
-group by 
+group by
     customer.first_name,
     customer.last_name
 order by rentals_count desc;
 ```
 
 ``` text
-|first_name|last_name|rentals_count|
-|----------|---------|-------------|
-|ELEANOR   |HUNT     |46           |
-|KARL      |SEAL     |45           |
-|CLARA     |SHAW     |42           |
-|MARCIA    |DEAN     |42           |
-|TAMMY     |SANDERS  |41           |
-|WESLEY    |BULL     |40           |
-|SUE       |PETERS   |40           |
-|MARION    |SNYDER   |39           |
-|RHONDA    |KENNEDY  |39           |
-|TIM       |CARY     |39           |
+| first_name | last_name | rentals_count |
+| ---------- | --------- | ------------- |
+| ELEANOR    | HUNT      | 46            |
+| KARL       | SEAL      | 45            |
+| CLARA      | SHAW      | 42            |
+| MARCIA     | DEAN      | 42            |
+| TAMMY      | SANDERS   | 41            |
+| WESLEY     | BULL      | 40            |
+| SUE        | PETERS    | 40            |
+| MARION     | SNYDER    | 39            |
+| RHONDA     | KENNEDY   | 39            |
+| TIM        | CARY      | 39            |
 ```
 
 </details>
@@ -282,7 +282,7 @@ left join rental on
     rental.inventory_id = inventory.inventory_id
 left join payment on
     payment.rental_id = rental.rental_id
-where 
+where
     payment.amount is not null
 group by
     store.store_id
@@ -291,10 +291,10 @@ order by
 ```
 
 ``` text
-|store_id|total revenue|
-|--------|-------------|
-|       2|     33726.77|
-|       1|     33689.74|
+| store_id | total revenue |
+| -------- | ------------- |
+| 2        | 33726.77      |
+| 1        | 33689.74      |
 ```
 
 </details>
@@ -312,17 +312,17 @@ select
     sum(payment.amount) as "gross revenue"
 from
     film
-left join film_category on 
+left join film_category on
     film_category.film_id = film.film_id
-left join category on 
+left join category on
     film_category.category_id = category.category_id
 left join inventory on
     inventory.film_id = film.film_id
 left join rental on
     rental.inventory_id = inventory.inventory_id
-left join payment 
+left join payment
     on payment.rental_id = rental.rental_id
-where 
+where
     payment.amount is not null
 group by
     category.name,
@@ -333,13 +333,13 @@ limit 5;
 ```
 
 ``` text
-|   name     |       title       | gross revenue| 
-|------------|-------------------|--------------|
-|Music       | TELEGRAPH VOYAGE  |        231.73|
-|Documentary | WIFE TURN         |        223.69|
-|Comedy      | ZORRO ARK         |        214.69|
-|Sci-Fi      | GOODFELLAS SALUTE |        209.69|
-|Sports      | SATURDAY LAMBS    |        204.72|
+| name        | title             | gross revenue |
+| ----------- | ----------------- | ------------- |
+| Music       | TELEGRAPH VOYAGE  | 231.73        |
+| Documentary | WIFE TURN         | 223.69        |
+| Comedy      | ZORRO ARK         | 214.69        |
+| Sci-Fi      | GOODFELLAS SALUTE | 209.69        |
+| Sports      | SATURDAY LAMBS    | 204.72        |
 ```
 
 </details>
@@ -353,7 +353,7 @@ See answer
 </summary>
 
 ``` sql
--- Select all descriptions with the words "documentary" and "robot" 
+-- Select all descriptions with the words "documentary" and "robot"
 
 select
     film.title,
@@ -365,17 +365,17 @@ where
 ```
 
 ``` text
-|  title          |                                                    description                                                     |
-|-----------------|--------------------------------------------------------------------------------------------------------------------|
-|CASPER DRAGONFLY | A Intrepid Documentary of a Boat And a Crocodile who must Chase a Robot in The Sahara Desert                       |
-|CHAINSAW UPTOWN  | A Beautiful Documentary of a Boy And a Robot who must Discover a Squirrel in Australia                             |
-|CONTROL ANTHEM   | A Fateful Documentary of a Robot And a Student who must Battle a Cat in A Monastery                                |
-|CROSSING DIVORCE | A Beautiful Documentary of a Dog And a Robot who must Redeem a Womanizer in Berlin                                 |
-|KANE EXORCIST    | A Epic Documentary of a Composer And a Robot who must Overcome a Car in Berlin                                     |
-|RUNNER MADIGAN   | A Thoughtful Documentary of a Crocodile And a Robot who must Outrace a Womanizer in The Outback                    |
-|SOUTH WAIT       | A Amazing Documentary of a Car And a Robot who must Escape a Lumberjack in An Abandoned Amusement Park             |
-|SWEDEN SHINING   | A Taut Documentary of a Car And a Robot who must Conquer a Boy in The Canadian Rockies                             |
-|VIRGIN DAISY     | A Awe-Inspiring Documentary of a Robot And a Mad Scientist who must Reach a Database Administrator in A Shark Tank |
+| title            | description                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| CASPER DRAGONFLY | A Intrepid Documentary of a Boat And a Crocodile who must Chase a Robot in The Sahara Desert                       |
+| CHAINSAW UPTOWN  | A Beautiful Documentary of a Boy And a Robot who must Discover a Squirrel in Australia                             |
+| CONTROL ANTHEM   | A Fateful Documentary of a Robot And a Student who must Battle a Cat in A Monastery                                |
+| CROSSING DIVORCE | A Beautiful Documentary of a Dog And a Robot who must Redeem a Womanizer in Berlin                                 |
+| KANE EXORCIST    | A Epic Documentary of a Composer And a Robot who must Overcome a Car in Berlin                                     |
+| RUNNER MADIGAN   | A Thoughtful Documentary of a Crocodile And a Robot who must Outrace a Womanizer in The Outback                    |
+| SOUTH WAIT       | A Amazing Documentary of a Car And a Robot who must Escape a Lumberjack in An Abandoned Amusement Park             |
+| SWEDEN SHINING   | A Taut Documentary of a Car And a Robot who must Conquer a Boy in The Canadian Rockies                             |
+| VIRGIN DAISY     | A Awe-Inspiring Documentary of a Robot And a Mad Scientist who must Reach a Database Administrator in A Shark Tank |
 ```
 
 </details>

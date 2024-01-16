@@ -10,7 +10,7 @@ Terraform documentation does not explicitly mention how to promote the
 read-only replica to master, you can remove the service integration
 between services to accomplish the task.
 
-Let\'s create Aiven for PostgreSQL® primary and a read-only replica
+Let's create Aiven for PostgreSQL® primary and a read-only replica
 using the following Terraform file:
 
 ``` terraform

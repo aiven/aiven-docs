@@ -27,12 +27,12 @@ compression.
 The number of stored backups and the backup retention time depends on
 the service plan that you have selected.
 
-  Plan Type   Backup Retention Time
-  ----------- -----------------------
-  Hobbyist    None
-  Startup     2 days
-  Business    14 days
-  Premium     30 days
+| Plan Type | Backup Retention Time |
+| --------- | --------------------- |
+| Hobbyist  | None                  |
+| Startup   | 2 days                |
+| Business  | 14 days               |
+| Premium   | 30 days               |
 
 ## Differences between logical and full backups
 
@@ -41,20 +41,20 @@ with WAL, allow consistent recovery to a point in time (PITR). **Logical
 backups** contain the SQL statements used to create the database schema
 and fill it with data, and are not tied to a specific version.
 
-  Feature              Full backup                                                                                                                       Logical backup
-  -------------------- --------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------
-  Version-specific     Full backups can be restored with the same PostgreSQL version as the backup was created from                                      Cross-version compatibility
-  Database selection   The entire PostgreSQL instance is backed up. No option to backup (or restore) as single database                                  Single database objects can be backed up. Easy to backup and restore any item down to a single table
-  Data                 Contains uncommitted transactions and deleted and updated rows that have not been cleaned up by the PostgreSQL `VACUUM` process   Contains only the current committed content of the tables
-  Indexes              Contains all data from indexes                                                                                                    Contains the queries needed to recreate indexes
-  PITR capabilities    Previous database status can be restored using the WAL                                                                            Only \"as-of-backup\" status can be restored
-  Restore time         Almost instantaneous, restore backup and replay delta WAL files                                                                   Long restoration process, replay of all SQL statements is needed to generate schema object and insert data
+| Feature            | Full backup                                                                                                                     | Logical backup                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Version-specific   | Full backups can be restored with the same PostgreSQL version as the backup was created from                                    | Cross-version compatibility                                                                                |
+| Database selection | The entire PostgreSQL instance is backed up. No option to backup (or restore) as single database                                | Single database objects can be backed up. Easy to backup and restore any item down to a single table       |
+| Data               | Contains uncommitted transactions and deleted and updated rows that have not been cleaned up by the PostgreSQL `VACUUM` process | Contains only the current committed content of the tables                                                  |
+| Indexes            | Contains all data from indexes                                                                                                  | Contains the queries needed to recreate indexes                                                            |
+| PITR capabilities  | Previous database status can be restored using the WAL                                                                          | Only "as-of-backup" status can be restored                                                                 |
+| Restore time       | Almost instantaneous, restore backup and replay delta WAL files                                                                 | Long restoration process, replay of all SQL statements is needed to generate schema object and insert data |
 
 ## Delta base backups
 
 Aiven for PostgreSQL uses delta base backups, which allows to store data
 files that have been changed since the last backup and leave out the
-unchanged files. It\'s particularly beneficial for databases that
+unchanged files. It's particularly beneficial for databases that
 include considerable portions of static data. Compared to regular base
 backups, delta base backups are more efficient, bringing improved
 performance and speeding up backup operations (unless all the data is
@@ -69,7 +69,7 @@ node replacement potentially can be faster for highly updated services
 because fewer WAL files need to be restored since the last backup (WAL
 restoration in PostgreSQL is single-threaded and, therefore, slow).
 
-:::note See also
+:::note[See also]
 To restore a backup, see
 [Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params).
 :::

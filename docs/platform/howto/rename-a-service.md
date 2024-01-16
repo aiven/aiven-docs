@@ -16,7 +16,7 @@ Therefore, to provide a consistency between the original service and the
 fork, service writes should be stopped before forking.
 :::
 
-:::note See also
+:::note[See also]
 Learn more
 [about service forking](/docs/platform/concepts/service-forking).
 :::

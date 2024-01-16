@@ -29,7 +29,7 @@ In cases when the Debezium connector can\'t recover during or after the
 PostgreSQL node replacements, the following errors are commonly shown in
 logs:
 
-``` 
+```
 # ERROR 1
 org.apache.kafka.connect.errors.ConnectException: Could not create PostgreSQL connection
 # ERROR 2
@@ -52,7 +52,7 @@ Console](https://console.aiven.io/), in the service detail page.
 
 :::tip
 For automatically restarting tasks, you can set
-`"_aiven.restart.on.failure": true` in the connector\'s configuration (
+`"_aiven.restart.on.failure": true` in the connector's configuration (
 [check the related
 article](https://docs.aiven.io/docs/products/kafka/kafka-connect/howto/enable-automatic-restart)).
 Aiven automatically check tasks status for errors every 15 minutes but

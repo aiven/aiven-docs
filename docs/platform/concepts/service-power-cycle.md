@@ -25,7 +25,7 @@ Whenever an Aiven service is powered off:
 -   All virtual machine(s) of the service will be **removed** from the
     public cloud.
 -   The service information and configuration will be stored on Aiven
-    Platform, while service data will be lost if there\'s no backup
+    Platform, while service data will be lost if there's no backup
     available .
 -   If the service has **time-based** or **PITR (point in time
     recovery)** backups, they will be kept on Aiven Platform. The
@@ -46,7 +46,7 @@ be sent before actions are taken.
     Aiven service can erase data since the latest backup because the
     service only has time-based but not PITR backups.
 -   Moreover, on the `Backups` page, hovering the mouse over the help
-    icon (if it\'s available) can present some details on the content of
+    icon (if it's available) can present some details on the content of
     the backups. This information suggests what can be restored if the
     service is powered on later.
 

@@ -4,7 +4,7 @@ title: Transfer data between storage devices in Aiven for ClickHouse®'s tiered 
 
 :::important
 Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -74,7 +74,7 @@ to transfer data to your SSD.
 Your data has been moved to the SSD.
 :::
 
-## What\'s next
+## What's next
 
 -   [Check data distribution between SSD and object storage](/docs/products/clickhouse/howto/check-data-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)

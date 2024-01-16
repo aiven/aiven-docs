@@ -14,10 +14,10 @@ logging level of an Apache Kafka® Connect cluster using the [Kafka
 Connect REST APIs](https://kafka.apache.org/documentation.html).
 
 :::warning
-The REST API only changes the logging level on the node that\'s
+The REST API only changes the logging level on the node that's
 accessed, not across an entire distributed Connect cluster. Therefore,
 for a multi-node cluster, you would have to change the logging level in
-all of the nodes that run the connector\'s tasks you wish to debug.
+all of the nodes that run the connector's tasks you wish to debug.
 
 For a dedicated Aiven for Apache Kafka® Connect cluster using a Startup
 plan, there is 1 node, while Business and Premium plans have 3 and 6
@@ -33,9 +33,9 @@ Aiven for Apache Kafka Connect service.
 
 To update the logging level in all the Kafka Connect nodes, you need to
 get their connection URI using the
-[Aiven CLI service get command](/docs/tools/cli/service#avn_service_get)
+[Aiven CLI service get command](/docs/tools/cli/service-cli#avn_service_get)
 
-``` 
+```
 avn service get SERVICE_NAME  --format '{connection_info}'
 ```
 
@@ -50,7 +50,7 @@ You can retrieve the list of loggers, connectors and their current
 logging level on each worker using the dedicated `/admin/loggers` Kafka
 Connect API
 
-``` 
+```
 curl https://avnadmin:PASSWORD@IP_ADDRESS:PORT/admin/loggers --insecure
 ```
 
@@ -81,7 +81,7 @@ The previous command shows the standard list of loggers
 for which the logging level has been already modified.
 
 This means that if you have not previously set a custom logging level
-for a connector\'s logger class, the related logger level information
+for a connector's logger class, the related logger level information
 will not be visible in the list, even if that connector is currently
 running in the Kafka Connect cluster. The next section describes how to
 change the logging level of a particular logger.
@@ -93,7 +93,7 @@ To change the logging level for a particular logger you can use the same
 `admin/loggers` endpoint, specifying the logger name (`LOGGER_NAME` in
 the following command)
 
-``` 
+```
 curl -X PUT -H "Content-Type:application/json"          \
     -d '{"level": "TRACE"}'                             \
     https://192.168.0.1:443/admin/loggers/LOGGER_NAME   \
@@ -142,7 +142,7 @@ set for that logger and all of its children in the logger hierarchy.
 
 By convention, loggers have the same name as the corresponding Java
 class. To get the name of the logger for a particular connector, use the
-connector\'s class name. The class name is usually the first field of
+connector's class name. The class name is usually the first field of
 the connector configuration when you select a connector for creation in
 the Aiven Console. For example, the logger for the Debezium PostgreSQL®
 source connector is also its class name

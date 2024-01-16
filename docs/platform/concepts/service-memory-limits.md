@@ -2,8 +2,6 @@
 title: Service memory limits
 ---
 
-import Variables from '@site/static/variables.json'
-
 The practical memory limit will always be less than the service physical
 memory limit.
 
@@ -12,17 +10,13 @@ memory limit.
 -   A small amount of memory is required by the operating system kernel
     to manage system resources, including networking functions and disk
     cache.
--   Aiven\'s cloud data platform requires memory to monitor
+-   Aiven's cloud data platform requires memory to monitor
     availability, provide metrics, logging and manage backups.
 
 A server (or node) **usable memory** can be calculated as:
 
-$$
-{ RAM - overhead }
-$$
-
 :::important
-`overhead` is calculated as: **{Variables.vm.overhead}**.
+`overhead` is calculated as: .
 :::
 
 Services may utilize optional components, service integrations,

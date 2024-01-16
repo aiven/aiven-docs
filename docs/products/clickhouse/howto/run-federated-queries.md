@@ -53,7 +53,7 @@ data from external S3-compatible object storages.
 ### Query using SELECT and the S3 function
 
 SQL SELECT statements using the S3 and URL functions are able to query
-public resources using the URL of the resource. For instance, let\'s
+public resources using the URL of the resource. For instance, let's
 explore the network connectivity measurement data provided by the [Open
 Observatory of Network Interference (OONI)](https://ooni.org/data/).
 
@@ -133,7 +133,7 @@ FROM s3(
 
 ### Query using SELECT and the URL function
 
-Let\'s query the [Growth Projections and Complexity
+Let's query the [Growth Projections and Complexity
 Rankings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XTAQMC&version=4.0)
 dataset, courtesy of the [Atlas of Economic
 Complexity](https://atlas.cid.harvard.edu/) project.
@@ -180,7 +180,7 @@ VALUES ('column1-value', 'column2-value');
 
 ### Query a virtual table
 
-Instead of specifying the URL of the resource in every query, it\'s
+Instead of specifying the URL of the resource in every query, it's
 possible to create a virtual table using the URL table engine. This can
 be achieved by running a DDL CREATE statement similar to the following:
 

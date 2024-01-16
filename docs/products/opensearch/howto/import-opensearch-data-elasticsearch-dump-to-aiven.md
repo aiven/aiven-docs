@@ -43,7 +43,7 @@ OpenSearch cluster:
 Aiven for OpenSearch:
 
 -   `OUTPUT_SERVICE_URI`: your output OpenSearch service URI. You can
-    find it in Aiven\'s dashboard.
+    find it in Aiven's dashboard.
 -   `OUTPUT_INDEX_NAME`: the index that you want to have in your output
     with the copied data.
 
@@ -52,7 +52,7 @@ Use `export` command to assign your variables in the command line before
 running `elasticdump` command. For example, suppose your
 `INPUT_SERVICE_URI` is `myexample`:
 
-``` 
+```
 export INPUT_INDEX_NAME=myexample
 ```
 :::

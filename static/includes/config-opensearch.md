@@ -1,6 +1,6 @@
 # `opensearch_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **OpenSearch major version**
 
@@ -16,7 +16,7 @@ no longer be activated.
 
 # `custom_domain`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom domain** Serve the web frontend using a custom CNAME pointing
 to the Aiven DNS name
@@ -81,7 +81,7 @@ typically provided by the SP.
 
 ## `subject_key`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **SAML response subject attribute** Optional. Specifies the attribute in
 the SAML response where the subject identifier is stored. If not
@@ -89,7 +89,7 @@ configured, the NameID attribute is used by default.
 
 ## `roles_key`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **SAML response role attribute** Optional. Specifies the attribute in
 the SAML response where role information is stored, if available. Role
@@ -99,7 +99,7 @@ access levels or permissions.
 
 ## `idp_pemtrustedcas_content`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **PEM-encoded root CA Content for SAML IdP server verification** This
 parameter specifies the PEM-encoded root certificate authority (CA)
@@ -131,7 +131,7 @@ settings.
 
 ## `roles_key`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **The key in the JSON payload that stores the user's roles** The key in
 the JSON payload that stores the user's roles. The value of this key
@@ -140,7 +140,7 @@ use roles in the JWT
 
 ## `subject_key`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **The key in the JSON payload that stores the user's name** The key in
 the JSON payload that stores the user's name. If not defined, the
@@ -149,7 +149,7 @@ preferred_username claim. Optional.
 
 ## `jwt_header`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **The HTTP header that stores the token** The HTTP header that stores
 the token. Typically the Authorization header with the Bearer schema:
@@ -157,7 +157,7 @@ Authorization: Bearer \<token\>. Optional. Default is Authorization.
 
 ## `jwt_url_parameter`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **URL JWT token.** If the token is not transmitted in the HTTP header,
 but as an URL parameter, define the name of the parameter here.
@@ -617,7 +617,7 @@ has.
 *boolean*
 
 **Allow clients to connect to opensearch with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `opensearch_dashboards`
@@ -625,7 +625,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to opensearch_dashboards with a DNS name that
-always resolves to the service\'s private IP addresses. Only available
+always resolves to the service's private IP addresses. Only available
 in certain network locations**
 
 ## `prometheus`
@@ -633,7 +633,7 @@ in certain network locations**
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `privatelink_access`
@@ -698,14 +698,14 @@ network**
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**

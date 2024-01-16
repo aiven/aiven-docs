@@ -2,7 +2,7 @@
 title: avn service connector
 ---
 
-Here you\'ll find the full list of commands for `avn service connector`.
+Full list of commands for `avn service connector`.
 
 ## Manage Apache Kafka® Connect connectors details
 
@@ -14,23 +14,14 @@ Commands for managing Aiven for Apache Kafka® Connect connectors via
 Lists Apache Kafka® Connect connector plugins available in a given Aiven
 for Apache Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the Service |
 
 **Example:** List the Kafka Connect connector plugins available for the
 service `kafka-demo`.
 
-``` 
+```
 avn service connector available kafka-demo
 ```
 
@@ -39,27 +30,15 @@ avn service connector available kafka-demo
 Creates a new Apache Kafka® Connect connector in a given Aiven for
 Apache Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector_config`</td>
-      <td>JSON string or path (preceded by `@`) to a Kafka Connect connector JSON configuration file</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter          | Information                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| `service_name`     | The name of the Service                                                                    |
+| `connector_config` | JSON string or path (preceded by `@`) to a Kafka Connect connector JSON configuration file |
 
 **Example:** Create a new JDBC source Kafka Connect connector in the
 service `kafka-demo` passing the JSON configuation string.
 
-``` 
+```
 avn service connector create kafka-demo '{
   "name": "pg-bulk-invoices-source",
   "connector.class": "io.aiven.connect.jdbc.JdbcSourceConnector",
@@ -78,28 +57,16 @@ avn service connector create kafka-demo '{
 Deletes an Apache Kafka® Connect connector in a given Aiven for Apache
 Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `service_name` | The name of the Service      |
+| `connector`    | Kafka Connect connector name |
 
 **Example:** Delete the Kafka Connect connector named
 `pg-bulk-invoices-source` in the service `kafka-demo`.
 
-``` 
-avn service connector delete kafka-demo pg-bulk-invoices-source 
+```
+avn service connector delete kafka-demo pg-bulk-invoices-source
 ```
 
 ### `avn service connector list`
@@ -107,23 +74,14 @@ avn service connector delete kafka-demo pg-bulk-invoices-source
 Lists Apache Kafka® Connect connectors in a given Aiven for Apache
 Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the Service |
 
 **Example:** List all Kafka Connect connectors in the service
 `kafka-demo`.
 
-``` 
+```
 avn service connector list kafka-demo
 ```
 
@@ -164,28 +122,16 @@ An example of `avn service connector list` output:
 Pauses an Apache Kafka® Connect connector in a given Aiven for Apache
 Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `service_name` | The name of the Service      |
+| `connector`    | Kafka Connect connector name |
 
 **Example:** Pause the Kafka Connect connector named
 `pg-bulk-invoices-source` in the service `kafka-demo`.
 
-``` 
-avn service connector pause kafka-demo pg-bulk-invoices-source 
+```
+avn service connector pause kafka-demo pg-bulk-invoices-source
 ```
 
 ### `avn service connector restart`
@@ -193,28 +139,16 @@ avn service connector pause kafka-demo pg-bulk-invoices-source
 Restarts an Apache Kafka® Connect connector in a given Aiven for Apache
 Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `service_name` | The name of the Service      |
+| `connector`    | Kafka Connect connector name |
 
 **Example:** Restart the Kafka Connect connector named
 `pg-bulk-invoices-source` in the service `kafka-demo`.
 
-``` 
-avn service connector restart kafka-demo pg-bulk-invoices-source 
+```
+avn service connector restart kafka-demo pg-bulk-invoices-source
 ```
 
 ### `avn service connector restart-task`
@@ -222,31 +156,16 @@ avn service connector restart kafka-demo pg-bulk-invoices-source
 Restarts an Apache Kafka® Connect connector task in a given Aiven for
 Apache Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-    <tr>
-      <td>`task`</td>
-      <td>Kafka Connect connector task id</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                     |
+| -------------- | ------------------------------- |
+| `service_name` | The name of the Service         |
+| `connector`    | Kafka Connect connector name    |
+| `task`         | Kafka Connect connector task id |
 
 **Example:** Restart the task with id `0` in the Kafka Connect connector
 named `pg-bulk-invoices-source` belonging to the service `kafka-demo`.
 
-``` 
+```
 avn service connector restart-task kafka-demo pg-bulk-invoices-source 0
 ```
 
@@ -255,27 +174,15 @@ avn service connector restart-task kafka-demo pg-bulk-invoices-source 0
 Resumes an Apache Kafka® Connect connector in a given Aiven for Apache
 Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `service_name` | The name of the Service      |
+| `connector`    | Kafka Connect connector name |
 
 **Example:** Resume the Kafka Connect connector named
 `pg-bulk-invoices-source` belonging to the service `kafka-demo`.
 
-``` 
+```
 avn service connector resume kafka-demo pg-bulk-invoices-source
 ```
 
@@ -284,28 +191,16 @@ avn service connector resume kafka-demo pg-bulk-invoices-source
 Retrieves the configuration information for an Apache Kafka® Connect
 connector plugin in a given Aiven for Apache Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector plugin class name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                               |
+| -------------- | ----------------------------------------- |
+| `service_name` | The name of the Service                   |
+| `connector`    | Kafka Connect connector plugin class name |
 
 **Example:** Retrieve the schema for the Kafka Connect plugin with class
 `io.debezium.connector.sqlserver.SqlServerConnector` belonging to the
 service `kafka-demo`.
 
-``` 
+```
 avn service connector schema kafka-demo io.debezium.connector.sqlserver.SqlServerConnector
 ```
 
@@ -314,27 +209,15 @@ avn service connector schema kafka-demo io.debezium.connector.sqlserver.SqlServe
 Gets an Apache Kafka® Connect connector status in a given Aiven for
 Apache Kafka service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `service_name` | The name of the Service      |
+| `connector`    | Kafka Connect connector name |
 
 **Example:** Check the status of a Kafka Connect connector named
 `pg-bulk-invoices-source` belonging to the service `kafka-demo`.
 
-``` 
+```
 avn service connector status kafka-demo pg-bulk-invoices-source
 ```
 
@@ -342,16 +225,16 @@ An example of `avn service connector status` output:
 
 ``` text
 {
-    "status": {
+  "status": {
+    "state": "RUNNING",
+    "tasks": [
+      {
+        "id": 0,
         "state": "RUNNING",
-        "tasks": [
-            {
-                "id": 0,
-                "state": "RUNNING",
-                "trace": ""
-            }
-        ]
-    }
+        "trace": ""
+      }
+    ]
+  }
 }
 ```
 
@@ -360,31 +243,16 @@ An example of `avn service connector status` output:
 Updates an Apache Kafka® Connect connector in a given Aiven for Apache
 Kafka® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the Service</td>
-    </tr>
-    <tr>
-      <td>`connector`</td>
-      <td>Kafka Connect connector name</td>
-    </tr>
-    <tr>
-      <td>`connector_config`</td>
-      <td>JSON string or path (preceded by `@`) to a Kafka Connect connector JSON configuration file</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter          | Information                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| `service_name`     | The name of the Service                                                                    |
+| `connector`        | Kafka Connect connector name                                                               |
+| `connector_config` | JSON string or path (preceded by `@`) to a Kafka Connect connector JSON configuration file |
 
 **Example:** Update a the JDBC source Kafka Connect connector named
 `pg-bulk-invoices-source` in the service `kafka-demo` with the JSON
 configuation string contained in the file `kafka-connect-config.json`.
 
-``` 
+```
 avn service connector update kafka-demo pg-bulk-invoices-source @kafka-connect-config.json
 ```

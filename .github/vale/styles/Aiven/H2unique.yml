@@ -1,0 +1,6 @@
+extends: metric
+message: "You cannot have only 1 H2."
+level: error
+formula: |
+    heading.h2
+condition: "<= 1"

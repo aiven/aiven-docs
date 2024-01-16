@@ -6,16 +6,16 @@ Aiven for PostgreSQL® is available on a variety of plans, offering
 different levels of high availability. The selected plan defines the
 features available, and a summary is provided in the table below:
 
-  Plan           High Availability Features                                                       Backup History
-  -------------- -------------------------------------------------------------------------------- ----------------
-  **Hobbyist**   Single-node with limited availability                                            2 days
-  **Startup**    Single-node with limited availability                                            2 days
-  **Business**   Two-node (primary + standby) with higher availability                            14 days
-  **Premium**    Three-node (primary + standby + standby) with top availability characteristics   30-day
+ | Plan         | High Availability Features                                                     | Backup History |
+ | ------------ | ------------------------------------------------------------------------------ | -------------- |
+ | **Hobbyist** | Single-node with limited availability                                          | 2 days         |
+ | **Startup**  | Single-node with limited availability                                          | 2 days         |
+ | **Business** | Two-node (primary + standby) with higher availability                          | 14 days        |
+ | **Premium**  | Three-node (primary + standby + standby) with top availability characteristics | 30-day         |
 
 ## About primary and standby nodes
 
-Aiven\'s Business and Premium plans offer
+Aiven's Business and Premium plans offer
 [primary nodes](/docs/products/postgresql/reference/terminology) and
 [standby nodes](/docs/products/postgresql/reference/terminology) nodes. A standby service is useful for multiple reasons:
 
@@ -100,7 +100,7 @@ backup daemon
 
 ## Single-node Hobbyist and Startup service plans
 
-Hobbyist and Startup plans provide a single node; when it\'s lost, Aiven
+Hobbyist and Startup plans provide a single node; when it's lost, Aiven
 immediately starts the automatic process of creating a new replacement
 node. The new node starts up, restores its state from the latest
 available backup, and resumes serving customers.

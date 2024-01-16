@@ -24,7 +24,7 @@ and reliability of workloads.
 ## Aiven services across availability zones
 
 For Aiven services, nodes automatically spread across multiple
-availability zones (AZs). All Aiven\'s multi-node service plans are
+availability zones (AZs). All Aiven's multi-node service plans are
 automatically spread among AZs of a region as long as the underlying
 cloud provider supports it.
 
@@ -42,7 +42,7 @@ the following:
 
 ## Smart availability zones for Apache Kafka®
 
-On top of spreading service\'s nodes across the availability zones (AZs)
+On top of spreading service's nodes across the availability zones (AZs)
 of a cloud region, Aiven automatically balances replicas of your Apache
 Kafka® partitions into different AZs. Since Aiven automatically
 rebalances the data in your Apache Kafka® cluster, your data remains

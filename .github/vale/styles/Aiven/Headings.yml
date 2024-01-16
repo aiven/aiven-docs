@@ -1,0 +1,149 @@
+extends: capitalization
+message: "'%s' should be in sentence case"
+level: error
+scope: heading
+match: $sentence
+exceptions:
+  - 'Step \d+: \w+'
+  - ACLs
+  - Active Directory
+  - Aiven
+  - Aiven Console
+  - Aiven Provider
+  - Aiven Provider for Terraform
+  - Amazon
+  - Amazon Aurora
+  - Amazon Web Services
+  - Apache
+  - API
+  - APIs
+  - Auth0
+  - AWS Marketplace
+  - AWS Transit Gateway
+  - Azure
+  - Azure Marketplace
+  - Boot
+  - Business
+  - BYOC
+  - Cassandra
+  - CLI
+  - ClickHouse
+  - Cloud Logging
+  - CloudWatch
+  - Confluent Avro
+  - Connect
+  - Connector
+  - Cookbook
+  - Couchbase
+  - cURL
+  - Dashboards
+  - Datadog
+  - Debezium
+  - Dev
+  - DHCP
+  - Disaster Recovery
+  - DNS
+  - Docker
+  - Dynamic Disk Sizing
+  - Elasticsearch
+  - European Union
+  - Flink
+  - FusionAuth
+  - GiB
+  - GitHub
+  - Go
+  - Google
+  - Google BigQuery
+  - Google Cloud Logging
+  - Google Cloud Marketplace
+  - Google Cloud Platform
+  - Google Cloud SQL
+  - Google Cloud Storage
+  - Google Data Studio
+  - Google Pub/Sub
+  - Google Pub/Sub Lite
+  - Grafana
+  - Hobbyist
+  - HowTo
+  - Identity Provider
+  - IdP
+  - InfluxDB
+  - InnoDB
+  - IPsec
+  - Java
+  - JDBC
+  - JMX
+  - JobManager
+  - Jolokia
+  - JumpCloud
+  - Kafdrop
+  - Kafka
+  - Karapace
+  - Klaw
+  - Kpow
+  - ksqlDB
+  - Kubernetes
+  - LogDNA
+  - Loggly
+  - Logtail
+  - M3
+  - Microsoft Azure
+  - MirrorMaker
+  - MongoDB
+  - MySQL
+  - New Relic
+  - NodeJS
+  - OAuth
+  - OIDC
+  - Okta
+  - OneLogin
+  - OpenSearch
+  - OpenSearch®* Dashboard
+  - OpenSearch®* Security
+  - Operator
+  - Out of Memory Killer
+  - Pagila
+  - pgAdmin
+  - PgBouncer
+  - pgvector
+  - PostgreSQL
+  - Postman
+  - Premium
+  - Private Link
+  - Private Service Connect
+  - PrivateLink
+  - Project
+  - Prometheus
+  - Provectus
+  - Python
+  - Redis
+  - reStructuredText
+  - Rivery
+  - SAML
+  - Schema Registry
+  - Simple Authentication and Security Layer
+  - Skyvia
+  - Slack
+  - Snowflake
+  - Sphinx
+  - Splunk
+  - Spring
+  - SQL Server
+  - Startup
+  - Sumo Logic
+  - TaskManager
+  - Telegraf
+  - Terraform
+  - TimescaleDB
+  - Transport Layer Security
+  - TXT
+  - United States
+  - UpCloud
+  - UUID
+  - UUIDs
+  - Virtual Private Cloud
+  - VNet
+  - Workbench
+  - Zapier
+  - ZDM Proxy
+  - ZooKeeper

@@ -15,7 +15,7 @@ This article details how to set up and manage integration databases from
 the the **Databases and tables** view of your Aiven for ClickHouse
 service.
 
-:::note See also
+:::note[See also]
 For information on how to set up integration databases when creating a
 new data service integration, see
 [Manage Aiven for ClickHouse® data service integrations](/docs/products/clickhouse/howto/data-service-integration).
@@ -43,7 +43,7 @@ Aiven for ClickHouse. This instruction uses *PostgreSQL* as an example.
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 2.  In the **Services** page, select an Aiven for ClickHouse service you
     want to add integration databases to.
-3.  In your service\'s page, select **Databases and tables** from the
+3.  In your service's page, select **Databases and tables** from the
     sidebar.
 4.  In the **Databases and tables** view, select **Create database** \>
     **PostgreSQL integration database**.
@@ -90,7 +90,7 @@ Aiven for ClickHouse. This instruction uses *PostgreSQL* as an example.
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 2.  In the **Services** page, select an Aiven for ClickHouse service you
     want to check integration databases for.
-3.  In your service\'s page, select **Databases and tables** from the
+3.  In your service's page, select **Databases and tables** from the
     sidebar to discover your integration databases in the **Databases
     and tables** list.
 
@@ -109,7 +109,7 @@ You can only edit Apache Kafka integration databases and tables.
 2.  In the **Services** page, select an Aiven for ClickHouse service you
     want to edit integration databases for.
 
-3.  In your service\'s page, select **Databases and tables** from the
+3.  In your service's page, select **Databases and tables** from the
     sidebar to find the **Databases and tables** list.
 
 4.  From the **Databases and tables** list, select a pencil icon for an
@@ -143,7 +143,7 @@ Your integration database and/or its tables have been updated.
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 2.  In the **Services** page, select an Aiven for ClickHouse service you
     want to delete integration databases for.
-3.  In your service\'s page, select **Databases & Tables** from the
+3.  In your service's page, select **Databases & Tables** from the
     sidebar to find the **Databases and tables** list.
 4.  From the **Databases and tables** list, select the trash bin icon
     for the integration database you want to remove.

@@ -22,7 +22,7 @@ still accessible through the plan-change process.
 
 :::note
 -   You can also use the
-    [dedicated service update function](/docs/tools/cli/service#avn-cli-service-update) to scale your service plan via the
+    [dedicated service update function](/docs/tools/cli/service-cli#avn-cli-service-update) to scale your service plan via the
     [Aiven CLI](/docs/tools/cli).
 -   When you perform a service upgrade or downgrade horizontally,
     remember to include all additional disks the service uses. For

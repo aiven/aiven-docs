@@ -19,11 +19,13 @@ added for the system process.
 For plans under 4 GiB of RAM, the number of allowed connections is per
 GiB:
 
-${max\_connections} =$
+$$
+{max\_connections} =  75 \times RAM + extra\_connection
+$$
 
 :::note[Example]
 With 2 GiB of RAM, the maximum number of connections is
-${max\_connections} =$ x 2 + 1
+${max\_connections} = 75 \times 2 + 1$
 :::
 
 ## Plans with 4 GiB or more
@@ -31,9 +33,11 @@ ${max\_connections} =$ x 2 + 1
 For plans higher or equal to 4 GiB, the number of allowed connections is
 per GiB:
 
-${max\_connections} =$
+$$
+{max\_connections} = 100 \times RAM + extra\_connection
+$$
 
 :::note[Example]
 With 7 GiB of RAM, the maximum number of connections is
-${max\_connections} =$ x 7 + 1
+${max\_connections} = 100 \times 7 + 1 $
 :::

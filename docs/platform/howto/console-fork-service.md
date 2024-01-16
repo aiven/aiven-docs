@@ -11,48 +11,37 @@ plan.
 Learn more
 [about service forking](/docs/platform/concepts/service-forking).
 
-## Fork a service using the console
+## Fork a service using the Console
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
-2.  Go to your **Services**, and select the service you want to fork.
-3.  On the **Overview** page of your service, scroll down to **Fork
+1.  Go to your **Services**, and select the service you want to fork.
+1.  On the **Overview** page of your service, scroll down to **Fork
     Database** \> **New database fork**.
-4.  In the **New Database Fork** window, select the new service region
+1.  In the **New Database Fork** window, select the new service region
     and plan.
-5.  Select **Create fork**.
+1.  Select **Create fork**.
 
-:::note[Result]
-You have now copied your Aiven service.
-:::
+You have copied your Aiven service. You can now apply any integrations you may
+need for the copy.
 
-:::tip
-You can now apply any integrations you may need for the copy.
-:::
-
-## Fork a service using the Aiven client (CLI)
+## Fork a service using the Aiven client
 
 1.  Prepare the command to create a new service, this will contain the
     new copy of your data store.
-
-2.  Add the `service_to_fork_from` parameter to specify the service to
+1.  Add the `service_to_fork_from` parameter to specify the service to
     use as the source. Change service type accordingly with `-t`, run
     the following command to see available options:
 
-    ``` 
-    avn service types        
+    ```bash
+    avn service types
     ```
 
 For example, if you want to create a fork of your `forker` PostgreSQL®
 service, and name it `forked`, the command would be something like:
 
-``` 
-avn service create forked -t pg --plan business-4 -c service_to_fork_from=forker
+```bash
+avn service create forked --project PROJECT_NAME --cloud CLOUD_NAME -t pg --plan business-4 -c service_to_fork_from=forker
 ```
 
-:::note[Result]
-You have now copied your Aiven service.
-:::
-
-:::tip
-You can now apply any integrations you may need for the copy.
-:::
+You have now copied your Aiven service. You can now apply any integrations you
+need for the copy.

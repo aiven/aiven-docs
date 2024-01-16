@@ -18,7 +18,7 @@ dashboard.
 -   Aiven for OpenSearch® service
 -   [OpenSearch Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security) for the Aiven for OpenSearch service
 
-After enabling audit logs in the service\'s advanced configuration,
+After enabling audit logs in the service's advanced configuration,
 proceed to enable them in the OpenSearch® Security dashboard.
 
 ## Enabling audit logs in Aiven for OpenSearch
@@ -36,7 +36,7 @@ them:
 6.  Click **Save configuration** to save your changes and enable audit
     logging.
 
-After enabling audit logs in the service\'s advanced configuration,
+After enabling audit logs in the service's advanced configuration,
 proceed to enable them in the OpenSearch® Security dashboard.
 
 ## Enable audit logs in OpenSearch® Security dashboard
@@ -53,7 +53,7 @@ steps:
 
 :::note
 The storage location for audit logs on your Aiven for OpenSearch service
-is configured to be stored on the cluster\'s storage and cannot be
+is configured to be stored on the cluster's storage and cannot be
 changed.
 :::
 
@@ -68,7 +68,7 @@ The following are the types of audit events recorded by OpenSearch:
 -   `FAILED_LOGIN`: User authentication failure.
 -   `AUTHENTICATED`: User authentication success.
 -   `MISSING_PRIVILEGES`: User does not have request privileges.
--   `GRANTED_PRIVILEGES`: User\'s privileges successfully granted.
+-   `GRANTED_PRIVILEGES`: User's privileges successfully granted.
 -   `SSL_EXCEPTION`: Invalid SSL/TLS certificate in request.
 -   `opensearch_SECURITY_INDEX_ATTEMPT`: Unauthorized security plugin
     modification attempt.
@@ -78,7 +78,7 @@ The following are the types of audit events recorded by OpenSearch:
 ## Configure audit logging
 
 Customize the audit logging settings in OpenSearch® Security to align
-with your organization\'s specific requirements. The configuration
+with your organization's specific requirements. The configuration
 process involves two primary sections: General and Compliance settings,
 each offering distinct options:
 

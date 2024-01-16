@@ -3,7 +3,7 @@ title: Visualize M3DB data with Grafana®
 ---
 
 Since M3DB is best for time series data, consisting of many individual
-metrics, then it\'s nicer to visualize the data than try to view it in a
+metrics, then it's nicer to visualize the data than try to view it in a
 table or log. Luckily, Aiven can set up the Grafana® and the integration
 between the two services for you.
 
@@ -19,7 +19,7 @@ between the two services for you.
         name. The service overview page shows the nodes rebuilding, and
         then indicates when they are ready.
 
-    -   If you\'re already using Grafana on Aiven, you can integrate
+    -   If you're already using Grafana on Aiven, you can integrate
         your M3DB as a data source for that existing Grafana.
 
         :::note

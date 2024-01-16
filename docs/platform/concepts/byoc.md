@@ -78,7 +78,7 @@ deployment model is the best fit for you, contact [sales@aiven.io](mailto:sales@
 
 ## BYOC pricing and billing
 
-Unlike Aiven\'s standard all-inclusive pricing, the BYOC setup has
+Unlike Aiven's standard all-inclusive pricing, the BYOC setup has
 custom pricing depending on the nature of your requirements. If you
 enter this arrangement, you are responsible for all cloud infrastructure
 and network traffic charges.
@@ -93,31 +93,35 @@ certain cases.
 For a cost estimate and analysis, contact [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
-## Architecture of the standard BYOC deployment {#byoc-deployment}
+## Standard BYOC architecture {#byoc-deployment}
 
 With BYOC, you can use any standard Aiven method (for example,
 [CLI](/docs/tools/cli) or
-[Terraform](/docs/tools/terraform)) to
+[Terraform](/docs/tools/terraform) to
 manage your services and generally have the same user experience as with
 the regular Aiven deployment model.
 
-![Overview architecture diagram with VPC set up](/images/platform/byoc-standard.png)
+![Overview architecture diagram with VPC set up](/images/platform/byoc-one-vpc-arch.png)
 
-The standard BYOC deployment requires you to create a Virtual Private
-Cloud (VPC) dedicated to Aiven services within each region you want to
-operate in. Aiven accesses these VPCs via a static IP address and then
-routes traffic through a proxy for additional security. To accomplish
-this, Aiven utilizes a bastion host logically separated from the Aiven
-services you deploy. As the user of these services (for example, Aiven
-for Apache Kafka®), you are able to utilize them through standard VPC
-peering techniques. Although the bastion host and the service nodes
-reside in your managed VPC, they are not accessible (for example, SSH)
-to anyone outside Aiven.
+The standard BYOC deployment requires you to create a Virtual Private Cloud
+(**BYOC VPC**) dedicated to Aiven-managed services within a cloud region you
+want to operate in. Aiven accesses this VPC from a static IP address and routes
+traffic through a proxy for additional security. To accomplish this, Aiven
+utilizes a bastion host physically separated from the Aiven services you deploy.
+You are able to integrate your services using standard VPC peering techniques.
+
+:::note
+Although the bastion host and the service nodes reside in the VPC under
+your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone outside Aiven.
+
+The bastion and workload nodes require outbound access to the Internet
+to work properly (supporting HA signaling to the Aiven management node and RPM download from Aiven repositories).
+:::
 
 Depending on the service used, Aiven takes regular backups to enable
 forking, point in time recovery (PITR), and disaster recovery. These
 backups by default do not reside in your cloud. If there is a
-requirement to have all backups in your own cloud, it\'s still possible.
+requirement to have all backups in your own cloud, it's still possible.
 To accomplish this, Aiven needs an object storage and read-write
 permissions.
 
@@ -126,7 +130,7 @@ All backups are encrypted using Aiven-managed keys, and you are
 responsible for managing object storage configurations.
 :::
 
-## What\'s next
+## What's next
 
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)

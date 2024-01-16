@@ -83,5 +83,5 @@ before it starts the actual migration:
 
 ## Next steps
 
-There\'s a detailed guide for performing the migration:
+There's a detailed guide for performing the migration:
 [Migrate to Aiven for PostgreSQL® with aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate)

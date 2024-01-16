@@ -1,5 +1,5 @@
 ---
-title: Getting started with Aiven for Apache Kafka®
+title: Get started with Aiven for Apache Kafka®
 ---
 
 Aiven services are managed in the Aiven [web

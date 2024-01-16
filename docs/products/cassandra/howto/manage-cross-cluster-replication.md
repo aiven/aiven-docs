@@ -4,7 +4,7 @@ title: Manage cross-cluster replication in Aiven for Apache Cassandra®
 
 :::important
 Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -42,7 +42,7 @@ constituting a CCR pair always share the same service plan.
 :::
 
 :::note
-It\'s recommended to use [Aiven Console](https://console.aiven.io/) for
+It's recommended to use [Aiven Console](https://console.aiven.io/) for
 changing the plan for a CCR-enabled service.
 :::
 
@@ -81,7 +81,7 @@ the CCR pair so also affect the replica service.
 :::
 
 :::note
-It\'s recommended to use [Aiven Console](https://console.aiven.io/) for
+It's recommended to use [Aiven Console](https://console.aiven.io/) for
 adding storage space for CCR-enabled services.
 :::
 
@@ -176,7 +176,7 @@ within this keyspace gets replicated to the datacenters according to the
 specified factor.
 :::
 
-:::note See also
+:::note[See also]
 For more details on the replication factor for Apache Cassandra, see
 [NetworkTopologyStrategy](https://cassandra.apache.org/doc/4.1/cassandra/cql/ddl.html#networktopologystrategy)
 in the Apache Cassandra documentation.
@@ -247,7 +247,7 @@ You\'ve set up the consistency level for your service. Now operations on
 your data are considered as successfully completed according to the
 consistency level you specified.
 
-:::note See also
+:::note[See also]
 For more details on consistency levels for Apache Cassandra, see
 [CONSISTENCY](https://cassandra.apache.org/doc/4.1/cassandra/tools/cqlsh.html#consistency)
 in the Apache Cassandra documentation.

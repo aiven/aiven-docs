@@ -36,14 +36,14 @@ You will need
 
 The following variables will be used later in the code snippets:
 
-  Variable                    Description
-  --------------------------- ------------------------------------------------------------------------------------------------------------------------------------------
-  `CLICKHOUSE_SERVICE_NAME`   Name of your Aiven for ClickHouse service.
-  `KAFKA_SERVICE_NAME`        Name of the Apache Kafka service you use for the integration.
-  `PROJECT`                   Name of Aiven project where your services are located.
-  `CONNECTOR_TABLE_NAME`      Name of the Kafka engine virtual table that is used as a connector.
-  [DATA_FORMAT`               Input/output data format in which data is accepted into Aiven for ClickHouse. See `Reference](#reference).
-  `CONSUMER_GROUP_NAME`       Name of the consumer group. Each message is delivered once per consumer group.
+| Variable                  | Description                                                                                                |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `CLICKHOUSE_SERVICE_NAME` | Name of your Aiven for ClickHouse service.                                                                 |
+| `KAFKA_SERVICE_NAME`      | Name of the Apache Kafka service you use for the integration.                                              |
+| `PROJECT`                 | Name of Aiven project where your services are located.                                                     |
+| `CONNECTOR_TABLE_NAME`    | Name of the Kafka engine virtual table that is used as a connector.                                        |
+| [DATA_FORMAT`             | Input/output data format in which data is accepted into Aiven for ClickHouse. See [Reference](#reference). |
+| `CONSUMER_GROUP_NAME`     | Name of the consumer group. Each message is delivered once per consumer group.                             |
 
 ## Create an integration
 
@@ -83,63 +83,38 @@ For each table, you need to define the following:
 -   `group_name` - consumer group name, that will be created on your
     behalf
 
-:::note[JSON format]
-``` json
+```json
 {
-    "tables": [
-        {
-            "name": "CONNECTOR_TABLE_NAME",
-            "columns": [
-                {"name": "id", "type": "UInt64"},
-                {"name": "name", "type": "String"}
-            ],
-            "topics": [{"name": "topic1"}, {"name": "topic2"}],
-            "data_format": "DATA_FORMAT",
-            "group_name": "CONSUMER_NAME"
-        }
-    ]
+  "tables": [
+    {
+      "name": "CONNECTOR_TABLE_NAME",
+      "columns": [
+          {"name": "id", "type": "UInt64"},
+          {"name": "name", "type": "String"}
+      ],
+      "topics": [{"name": "topic1"}, {"name": "topic2"}],
+      "data_format": "DATA_FORMAT",
+      "group_name": "CONSUMER_NAME"
+    }
+  ]
 }
 ```
-:::
 
 ### Optional settings
 
 For each table, you can define the following optional settings:
 
-  --------------------------------------------------------------------------------------------------------------------------
-  Name                       Description                         Default      Allowed values     Minimum   Maximum value
-                                                                 value                           value     
-  -------------------------- ----------------------------------- ------------ ------------------ --------- -----------------
-  `auto_offset_reset`        Action to take when there is no     `earliest`   `smallest`,        \--       \--
-                             initial offset in the offset store               `earliest`,                  
-                             or the desired offset is out of                  `beginning`,                 
-                             range                                            `largest`,                   
-                                                                              `latest`, `end`              
+| Name                     | Description                                                                                              | Default    | Allowed values                                                  | Minimum | Maximum value   |
+| ------------------------ | -------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------- | ------- | --------------- |
+| `auto_offset_reset`      | Action to take when there is no initial offset in the offset store or the desired offset is out of range | `earliest` | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` | \--     | \--             |
+| `date_time_input_format` | Method to read `DateTime` from text input formats                                                        | `basic`    | `basic`, `best_effort`, `best_effort_us`                        | \--     | \--             |
+| `handle_error_mode`      | Method to handle errors for the Kafka engine                                                             | `default`  | `default`, `stream`                                             | \--     | \--             |
+| `max_block_size`         | Number of rows collected by poll(s) for flushing data from Kafka                                         | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+| `max_rows_per_message`   | Maximum number of rows produced in one Kafka message for row-based formats                               | `1`        | `1` - `1_000_000_000`                                           | `1`     | `1_000_000_000` |
+| `num_consumers`          | Number of consumers per table per replica                                                                | `1`        | `1` - `10`                                                      | `1`     | `10`            |
+| `poll_max_batch_size`    | Maximum amount of messages to be polled in a single Kafka poll                                           | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+| `skip_broken_messages`   | Minimum number of broken messages from Kafka topic per block to be skipped                               | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
 
-  `date_time_input_format`   Method to read `DateTime` from text `basic`      `basic`,           \--       \--
-                             input formats                                    `best_effort`,               
-                                                                              `best_effort_us`             
-
-  `handle_error_mode`        Method to handle errors for the     `default`    `default`,         \--       \--
-                             Kafka engine                                     `stream`                     
-
-  `max_block_size`           Number of rows collected by poll(s) `0`          `0` -              `0`       `1_000_000_000`
-                             for flushing data from Kafka                     `1_000_000_000`              
-
-  `max_rows_per_message`     Maximum number of rows produced in  `1`          `1` -              `1`       `1_000_000_000`
-                             one Kafka message for row-based                  `1_000_000_000`              
-                             formats                                                                       
-
-  `num_consumers`            Number of consumers per table per   `1`          `1` - `10`         `1`       `10`
-                             replica                                                                       
-
-  `poll_max_batch_size`      Maximum amount of messages to be    `0`          `0` -              `0`       `1_000_000_000`
-                             polled in a single Kafka poll                    `1_000_000_000`              
-
-  `skip_broken_messages`     Minimum number of broken messages   `0`          `0` -              `0`       `1_000_000_000`
-                             from Kafka topic per block to be                 `1_000_000_000`              
-                             skipped                                                                       
-  --------------------------------------------------------------------------------------------------------------------------
 
 :::note[JSON format]
 ``` json
@@ -173,7 +148,7 @@ Follow these instructions:
     integrations. Replace `PROJECT`, `CLICKHOUSE_SERVICE_NAME` and
     `KAFKA_SERVICE_NAME` with the names of your services:
 
-``` 
+```
 avn service integration-list                        \
 --project PROJECT_NAME                                   \
 CLICKHOUSE_SERVICE_NAME | grep KAFKA_SERVICE_NAME
@@ -184,7 +159,7 @@ CLICKHOUSE_SERVICE_NAME | grep KAFKA_SERVICE_NAME
     Replace `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`,
     `DATA_FORMAT` and `CONSUMER_NAME` with your values:
 
-``` 
+```
 avn service integration-update SERVICE_INTEGRATION_ID \
 --project PROJECT_NAME                                \
 --user-config-json '{
@@ -236,7 +211,7 @@ FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME;
 Now the messages consumed from the Apache Kafka topic will be read
 automatically and sent into the destination table directly.
 
-:::note See also
+:::note[See also]
 For more information on materialized views, see
 [Create materialized views in ClickHouse®](/docs/products/clickhouse/howto/materialized-views).
 :::

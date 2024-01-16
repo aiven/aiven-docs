@@ -20,7 +20,7 @@ testing) the project itself. Instead of using the `aiven_project`
 [resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project),
 try the `aiven_project` [data
 source](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/project)
-instead. Here\'s an example:
+instead. Here's an example:
 
 ``` text
 data "aiven_project" "sandbox" {

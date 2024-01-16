@@ -17,14 +17,14 @@ infrastructure and Aiven services within the custom cloud.
 With the BYOC feature enabled, you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organizations. While
 [setting up a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud), you specify its name, which is a part of the initial custom
-cloud\'s configuration. Later, you can come back to the **Rename**
-setting in your cloud\'s page in [Aiven
+cloud's configuration. Later, you can come back to the **Rename**
+setting in your cloud's page in [Aiven
 Console](https://console.aiven.io/) and update the name you initially
 specified.
 
 ## Prerequisites
 
--   Administrator\'s role for your Aiven organization
+-   Administrator's role for your Aiven organization
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
 -   Access to [Aiven Console](https://console.aiven.io/)
@@ -39,7 +39,7 @@ specified.
 4.  From the left sidebar, select **Bring your own cloud**.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud\'s page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
     the top right corner to select **Rename**.
 7.  In the **Rename custom cloud** window, enter a new name into the
     **Custom cloud name** field and select **Rename**.

@@ -13,13 +13,23 @@
 
 .navbar-button-secondary {
   background-color: transparent;
-  border: 1px solid var(--ifm-link-color);
+  color: var(--nav-btn-secondary-text-color);
+  border: 1px solid var(--nav-btn-secondary-text-color);
+}
+.navbar-button-secondary:hover {
+  border: 1px solid var(--nav-btn-secondary-text-color-hover);
+  color: var(--nav-btn-secondary-text-color-hover);
 }
 
 .navbar-button-primary {
   color: var(--nav-btn-primary-text-color);
-  background-color: var(--ifm-link-color);
-  border: 1px solid var(--ifm-link-color);
+  background-color: var(--nav-btn-primary-bg);
+  border: 1px solid var(--nav-btn-primary-bg);
+}
+.navbar-button-primary:hover {
+  background-color: var(--nav-btn-primary-text-color-hover);
+  border: 1px solid var(--nav-btn-primary-text-color-hover);
+  color: var(--nav-btn-primary-text-color);
 }
 
 .navbar__link--active {

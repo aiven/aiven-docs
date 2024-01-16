@@ -1,5 +1,5 @@
 ---
-title: Getting started with Aiven for PostgreSQL®
+title: Get started with Aiven for PostgreSQL®
 ---
 
 Aiven for PostgreSQL® is available in the [Aiven
@@ -20,13 +20,13 @@ console](https://console.aiven.io).
 
 1.  Log in to [Aiven Console](https://console.aiven.io).
 
-2.  Navigate to your service\'s page, and select **Overview** for the
+2.  Navigate to your service's page, and select **Overview** for the
     left sidebar.
 
 3.  In the **Connection information** section, identify **Service URI**,
     which is the direct PostgreSQL connection endpoint.
 
-    :::note See also
+    :::note[See also]
 For more information on direct connections and connection pooling,
     visit the dedicated
     [page](concepts/pg-connection-pooling).
@@ -35,13 +35,13 @@ For more information on direct connections and connection pooling,
 4.  Use [psql](howto/connect-psql) to
     connect to the PostgreSQL instance by the following command:
 
-    ``` 
+    ```
     psql SERVICE_URI_OF_YOUR_SERVICE
     ```
 
 ## Load a test dataset in PostgreSQL
 
-If you\'re checking out PostgreSQL, loading a test dataset will give you
+If you're checking out PostgreSQL, loading a test dataset will give you
 something to look at. This example uses `dellstore2`, a standard store
 dataset with products, orders, inventory and customer information.
 
@@ -57,7 +57,7 @@ dataset with products, orders, inventory and customer information.
 4.  Create a `dellstore` database and connect to it with the following
     command from `psql`:
 
-    ``` 
+    ```
     CREATE DATABASE dellstore;
     \c dellstore
     ```
@@ -70,19 +70,19 @@ dataset with products, orders, inventory and customer information.
 5.  Populate the database by executing the following command from
     `psql`:
 
-    ``` 
+    ```
     \i dellstore2-normal-1.0.sql
     ```
 
 6.  Verify which objects have been created from `psql`:
 
-    ``` 
+    ```
     \d
     ```
 
 The output should look like this:
 
-``` 
+```
 List of relations
 Schema |           Name           |   Type   |  Owner
 --------+--------------------------+----------+----------
@@ -101,7 +101,7 @@ public | reorder                  | table    | avnadmin
 (12 rows)
 ```
 
-:::note See also
+:::note[See also]
 -   Code examples for connecting to PostgreSQL from your application:
     -   [Go](howto/connect-go)
     -   [Python](howto/connect-python)

@@ -18,7 +18,7 @@ in
 ## Use Virtual Private Cloud (VPC)
 
 With VPC, no public internet-based access is provided to the service and
-it can only be connected to from the customer\'s peered VPC using a
+it can only be connected to from the customer's peered VPC using a
 private network address. Read more on using VPC in
 [Networking with VPC peering](/docs/platform/concepts/cloud-security#networking-with-vpc-peering) and check out how to create a VPC in
 [Configure VPC peering](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering).

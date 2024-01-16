@@ -15,8 +15,13 @@ control over data storage needs.
 
 :::important
 Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
+[early availability feature](/docs/platform/concepts/beta_services). To use this feature, contact our sales team at
+[sales@aiven.io](mailto:sales@aiven.io) to activate tiered storage for your account.
+
+After activation, you must enable the feature from the
+[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
+
+For further details, see [Enable tiered storage for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 :::
 
 :::note
@@ -48,7 +53,7 @@ Tiered storage offers multiple benefits, including:
 -   **Transparency:** Even older Kafka clients can benefit from tiered
     storage without needing to be explicitly aware of it.
 
-## When and why to use it
+## When to and why use it
 
 Understanding when and why to use tiered storage in Aiven for Apache
 Kafka will help you maximize its benefits, particularly around cost

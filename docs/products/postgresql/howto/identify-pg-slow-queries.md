@@ -25,16 +25,16 @@ identifying slow queries.
 These are the entries provided by **Query statistics** which are deduced
 via the `pg_stat_statements`:
 
-  Column Type     Description
-  --------------- ---------------------------------------------------------------------
-  `Query`         Text of a representative statement
-  `Rows`          Total number of rows retrieved or affected by the statement
-  `Calls`         Number of times the statement was executed
-  `Min (ms)`      Minimum time spent executing the statement
-  `Max (ms)`      Maximum time spent executing the statement
-  `Mean (ms)`     Mean time spent executing the statement
-  `Stddev (ms)`   Population standard deviation of time spent executing the statement
-  `Total (ms)`    Total time spent executing the statement
+| Column Type   | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| `Query`       | Text of a representative statement                                  |
+| `Rows`        | Total number of rows retrieved or affected by the statement         |
+| `Calls`       | Number of times the statement was executed                          |
+| `Min (ms)`    | Minimum time spent executing the statement                          |
+| `Max (ms)`    | Maximum time spent executing the statement                          |
+| `Mean (ms)`   | Mean time spent executing the statement                             |
+| `Stddev (ms)` | Population standard deviation of time spent executing the statement |
+| `Total (ms)`  | Total time spent executing the statement                            |
 
 You can also create custom queries using the `pg_stat_statements` view
 and use all the [available
@@ -48,7 +48,9 @@ To query the `pg_stat_statements` view, you\'ll need to create the
 [list of available extensions](/docs/products/postgresql/reference/list-of-extensions)) that can be done via the following `CREATE EXTENSION`
 command:
 
-    CREATE EXTENSION pg_stat_statements;
+```
+CREATE EXTENSION pg_stat_statements;
+```
 
 ## Discover slow queries
 
@@ -63,41 +65,41 @@ With the result being for PostgreSQL 13:
 
 ``` text
 View "public.pg_stat_statements"
-Column        |       Type       | Collation | Nullable | Default 
----------------------+------------------+-----------+----------+---------
-userid              | oid              |           |          | 
-dbid                | oid              |           |          | 
-toplevel            | boolean          |           |          | 
-queryid             | bigint           |           |          | 
-query               | text             |           |          | 
-plans               | bigint           |           |          | 
-total_plan_time     | double precision |           |          | 
-min_plan_time       | double precision |           |          | 
-max_plan_time       | double precision |           |          | 
-mean_plan_time      | double precision |           |          | 
-stddev_plan_time    | double precision |           |          | 
-calls               | bigint           |           |          | 
-total_exec_time     | double precision |           |          | 
-min_exec_time       | double precision |           |          | 
-max_exec_time       | double precision |           |          | 
-mean_exec_time      | double precision |           |          | 
-stddev_exec_time    | double precision |           |          | 
-rows                | bigint           |           |          | 
-shared_blks_hit     | bigint           |           |          | 
-shared_blks_read    | bigint           |           |          | 
-shared_blks_dirtied | bigint           |           |          | 
-shared_blks_written | bigint           |           |          | 
-local_blks_hit      | bigint           |           |          | 
-local_blks_read     | bigint           |           |          | 
-local_blks_dirtied  | bigint           |           |          | 
-local_blks_written  | bigint           |           |          | 
-temp_blks_read      | bigint           |           |          | 
-temp_blks_written   | bigint           |           |          | 
-blk_read_time       | double precision |           |          | 
-blk_write_time      | double precision |           |          | 
-wal_records         | bigint           |           |          | 
-wal_fpi             | bigint           |           |          | 
-wal_bytes           | numeric          |           |          | 
+Column              |       Type       | Collation | Nullable | Default
+--------------------+------------------+-----------+----------+---------
+userid              | oid              |           |          |
+dbid                | oid              |           |          |
+toplevel            | boolean          |           |          |
+queryid             | bigint           |           |          |
+query               | text             |           |          |
+plans               | bigint           |           |          |
+total_plan_time     | double precision |           |          |
+min_plan_time       | double precision |           |          |
+max_plan_time       | double precision |           |          |
+mean_plan_time      | double precision |           |          |
+stddev_plan_time    | double precision |           |          |
+calls               | bigint           |           |          |
+total_exec_time     | double precision |           |          |
+min_exec_time       | double precision |           |          |
+max_exec_time       | double precision |           |          |
+mean_exec_time      | double precision |           |          |
+stddev_exec_time    | double precision |           |          |
+rows                | bigint           |           |          |
+shared_blks_hit     | bigint           |           |          |
+shared_blks_read    | bigint           |           |          |
+shared_blks_dirtied | bigint           |           |          |
+shared_blks_written | bigint           |           |          |
+local_blks_hit      | bigint           |           |          |
+local_blks_read     | bigint           |           |          |
+local_blks_dirtied  | bigint           |           |          |
+local_blks_written  | bigint           |           |          |
+temp_blks_read      | bigint           |           |          |
+temp_blks_written   | bigint           |           |          |
+blk_read_time       | double precision |           |          |
+blk_write_time      | double precision |           |          |
+wal_records         | bigint           |           |          |
+wal_fpi             | bigint           |           |          |
+wal_bytes           | numeric          |           |          |
 ```
 
 On older PostgreSQL versions you might find different column names (e.g.
@@ -125,12 +127,12 @@ SELECT interval '1 millisecond' * total_exec_time AS total_exec_time,
     to_char(calls, 'FM999G999G999G990') AS calls,
     interval '1 millisecond' * (blk_read_time + blk_write_time) AS sync_io_time,
     query AS query
-FROM pg_stat_statements 
-WHERE userid = 
+FROM pg_stat_statements
+WHERE userid =
     (
-        SELECT usesysid 
-        FROM pg_user 
-        WHERE usename = current_user 
+        SELECT usesysid
+        FROM pg_user
+        WHERE usename = current_user
         LIMIT 1
     )
 ORDER BY total_exec_time DESC
@@ -157,11 +159,11 @@ and `blk_write_time` meaning that queries with the highest read/write
 are shown at the top.
 
 ``` postgresql
-SELECT userid::regrole, 
-    dbid, 
+SELECT userid::regrole,
+    dbid,
     query,
     queryid,
-    mean_time/1000 as mean_time_seconds 
+    mean_time/1000 as mean_time_seconds
 FROM pg_stat_statements
 ORDER by (blk_read_time+blk_write_time) DESC
 LIMIT 10;
@@ -177,10 +179,10 @@ in descending order by `mean_time` showing the queries with most
 consumption time first.
 
 ``` postgresql
-SELECT userid::regrole, 
-    dbid, 
+SELECT userid::regrole,
+    dbid,
     query,
-    calls, 
+    calls,
     total_time/1000 as total_time_seconds,
     min_time/1000 as min_time_seconds,
     max_time/1000 as max_time_seconds,
@@ -201,11 +203,11 @@ the number of shared memory blocks returned from the cache
 (`shared_blks_dirtied`).
 
 ``` postgresql
-SELECT userid::regrole, 
-    dbid, 
+SELECT userid::regrole,
+    dbid,
     queryid,
     query
-FROM pg_stat_statements 
+FROM pg_stat_statements
 ORDER by (shared_blks_hit+shared_blks_dirtied) DESC limit 10;
 ```
 

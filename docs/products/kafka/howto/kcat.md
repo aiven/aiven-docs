@@ -42,7 +42,7 @@ contain the following entries:
 
 An example of the `kcat` configuration file is provided below:
 
-``` 
+```
 bootstrap.servers=demo-kafka.my-demo-project.aivencloud.com:17072
 security.protocol=ssl
 ssl.key.location=service.key
@@ -53,14 +53,14 @@ ssl.ca.location=ca.pem
 Once the content is stored in a file named `kcat.config`, this can be
 referenced using the `-F` flag:
 
-``` 
+```
 kcat -F kcat.config
 ```
 
 Alternatively, the same settings can be specified directly on the
 command line with:
 
-``` 
+```
 kcat \
     -b demo-kafka.my-demo-project.aivencloud.com:17072 \
     -X security.protocol=ssl \
@@ -73,7 +73,7 @@ If [SASL authentication](kafka-sasl-auth)
 is enabled, then the `kcat` configuration file requires the following
 entries:
 
-``` 
+```
 bootstrap.servers=demo-kafka.my-demo-project.aivencloud.com:17072
 ssl.ca.location=ca.pem
 security.protocol=SASL_SSL
@@ -83,7 +83,7 @@ sasl.password=yourpassword
 ```
 
 :::tip
-If you\'re using Aiven for Apache Kafka®, you can retrieve the `kcat`
+If you're using Aiven for Apache Kafka®, you can retrieve the `kcat`
 command parameters using the dedicated
 [Aiven CLI command](/docs/tools/cli/service/connection-info#avn_cli_service_connection_info_kcat).
 :::
@@ -93,7 +93,7 @@ command parameters using the dedicated
 Use the following code to produce a single message into topic named
 `test-topic`:
 
-``` 
+```
 echo test-message-content | kcat -F kcat.config -P -t test-topic -k test-message-key
 ```
 
@@ -113,7 +113,7 @@ The output of the above comment is a message sent to Apache Kafka®
 Use the following code to consume messages coming from a topic named
 `test-topic`:
 
-``` 
+```
 kcat -F kcat.config -C -t test-topic -o -1 -e
 ```
 

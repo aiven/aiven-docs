@@ -11,7 +11,7 @@ your own VPC and access an Aiven service from that. The VPC endpoint
 creates network interfaces (NIC) to the subnets and availability zones
 that you choose and receives the private IP addresses that belong to the
 IP range of your VPC. The VPC endpoint is routed to your Aiven service
-located in one of Aiven\'s AWS accounts.
+located in one of Aiven's AWS accounts.
 
 You can enable PrivateLink for Aiven services located in project VPC.
 Before you can set up AWS PrivateLink,
@@ -52,7 +52,7 @@ currently support AWS PrivateLink.
 
     This creates an AWS network load balancer dedicated to your Aiven
     service and attaches it to an AWS VPC endpoint service that you can
-    later use to connect to your account\'s VPC endpoint.
+    later use to connect to your account's VPC endpoint.
 
     The PrivateLink resource stays in the initial `creating` state for
     up to a few minutes while the load balancer is being launched. After
@@ -151,7 +151,7 @@ currently support AWS PrivateLink.
 If you have one private endpoint connected to your Aiven service, you
 can preview the connection information (URI, hostname, or port required
 to access the service through the private endpoint) in [Aiven
-Console](https://console.aiven.io) \> the service\'s **Overview** page
+Console](https://console.aiven.io) \> the service's **Overview** page
 \> the **Connection information** section, where you\'ll also find the
 switch for the `privatelink` access route. `privatelink`-access-route
 values for `host` and `port` differ from those for the `dynamic` access
@@ -241,11 +241,11 @@ allowed to connect a VPC endpoint:
 
 -   Using the Aiven CLI, run the following command:
 
-    ``` 
+    ```
     avn service privatelink aws delete $Aiven_service_name
     ```
 
-    ``` 
+    ```
     AWS_SERVICE_ID             AWS_SERVICE_NAME                                        PRINCIPALS                         STATE
     ========================== ======================================================= ================================== ========
     vpce-svc-0b16e88f3b706aaf1 com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b

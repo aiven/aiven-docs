@@ -12,62 +12,35 @@ information on these, see the [Apache Flink® documentation on
 formats](https://ci.apache.org/projects/flink/flink-docs-release-1.15/docs/connectors/table/formats/overview/).
 :::
 
-+----------------+----------------+----------------+----------------+
-| Parameter      | Description    | Standard       | Upsert         |
-|                |                | connector      | connector      |
-+================+================+================+================+
-| Key data       | Sets the       | Optional       | Required       |
-| format         | format that is |                |                |
-|                | used to        |                |                |
-|                | convert the    |                |                |
-|                | *key* part of  |                |                |
-|                | Kafka          |                |                |
-|                | messages.      |                |                |
-+----------------+----------------+----------------+----------------+
-| Key fields     | Defines the    | Optional       | Not available  |
-|                | columns from   | (required if a |                |
-|                | the SQL schema | key data       |                |
-|                | of the data    | format is      |                |
-|                | table that are | selected)      |                |
-|                | considered     |                |                |
-|                | keys in the    |                |                |
-|                | Kafka          |                |                |
-|                | messages.      |                |                |
-+----------------+----------------+----------------+----------------+
-| Value data     | Sets the       | Required       | Required       |
-| format         | format that is |                |                |
-|                | used to        |                |                |
-|                | convert the    |                |                |
-|                | *value* part   |                |                |
-|                | of Kafka       |                |                |
-|                | messages.      |                |                |
-+----------------+----------------+----------------+----------------+
-| Primary key    | Defines the    | Optional       | Required       |
-|                | column in the  |                |                |
-|                | SQL schema     |                |                |
-|                | that is used   |                |                |
-|                | to identify    |                |                |
-|                | each message.  |                |                |
-|                | Flink uses     |                |                |
-|                | this to        |                |                |
-|                | determine      |                |                |
-|                | whether to     |                |                |
-|                | insert a new   |                |                |
-|                | message or     |                |                |
-|                | update or      |                |                |
-|                | delete an      |                |                |
-|                | existing       |                |                |
-|                | message.       |                |                |
-|                | Defined with   |                |                |
-|                | the            |                |                |
-|                | `PRIMARY KEY`  |                |                |
-|                | entry in the   |                |                |
-|                | SQL schema for |                |                |
-|                | the data       |                |                |
-|                | table. For     |                |                |
-|                | example:       |                |                |
-|                |                |                |                |
-|                |     PRIMARY    |                |                |
-|                |  KEY (hostname |                |                |
-|                | ) NOT ENFORCED |                |                |
-+----------------+----------------+----------------+----------------+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+    <th>Standard connector</th>
+    <th>Upsert connector</th>
+  </tr>
+  <tr>
+    <td>Key data format</td>
+    <td>Sets the format that is used to convert the *key* part of Kafka messages.</td>
+    <td>Optional</td>
+    <td>Required</td>
+  </tr>
+  <tr>
+    <td>Key fields</td>
+    <td>Defines the columns from the SQL schema of the data table that are considered keys in the Kafka messages.</td>
+    <td>Optional (required if a key data format is selected)</td>
+    <td>Not available</td>
+  </tr>
+  <tr>
+    <td>Value data format</td>
+    <td>Sets the format that is used to convert the *value* part of Kafka messages.</td>
+    <td>Required</td>
+    <td>Required</td>
+  </tr>
+  <tr>
+    <td>Primary key</td>
+    <td>Defines the column in the SQL schema that is used to identify each message. Flink uses this to determine whether to insert a new message or update or delete an existing message. Defined with the `PRIMARY KEY` entry in the SQL schema for the data table. For example: `PRIMARY KEY (hostname) NOT ENFORCED`</td>
+    <td>Optional</td>
+    <td>Required</td>
+  </tr>
+</table>

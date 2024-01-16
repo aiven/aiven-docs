@@ -15,7 +15,7 @@ message or in the schema registry features offered by
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/aiven/aiven-kafka-connect-jdbc/blob/master/docs/sink-connector.md).
 :::
 
@@ -38,18 +38,18 @@ target database service upfront:
 -   `TOPIC_LIST`: The list of topics to sink divided by comma
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for PostgreSQL® and Aiven for MySQL® the above
+If you're using Aiven for PostgreSQL® and Aiven for MySQL® the above
 details are available in the [Aiven console](https://console.aiven.io/)
 service *Overview tab* or via the dedicated `avn service get` command
-with the [Aiven CLI](/docs/tools/cli/service#avn_service_get).
+with the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
 The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
 Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
@@ -138,19 +138,17 @@ The configuration file contains the following entries:
     `record_key` to be able to identify the rows to delete.
     :::
 
--   
+-   `pk.mode`: defines the fields to use as primary key. Allowed options are:
 
-    `pk.mode`: defines the fields to use as primary key. Allowed options are:
+    -   `none`: no primary key is used.
+    -   `kafka`: the Apache Kafka coordinates are used.
+    -   `record_key`: the entire (or part of the) message key is
+        used.
+    -   `record_value`: the entire (or part of the) message value is
+        used.
 
-    :   -   `none`: no primary key is used.
-        -   `kafka`: the Apache Kafka coordinates are used.
-        -   `record_key`: the entire (or part of the) message key is
-            used.
-        -   `record_value`: the entire (or part of the) message value is
-            used.
-
-        More information are available in the [dedicated GitHub
-        repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
+    More information are available in the [dedicated GitHub
+    repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
 
 -   `pk.fields`: defines which fields of the composite key or value to
     use as record key in the database.
@@ -159,7 +157,7 @@ The configuration file contains the following entries:
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter translates
     messages from the Avro format. To retrieve the messages schema we
-    use Aiven\'s [Karapace schema
+    use Aiven's [Karapace schema
     registry](https://github.com/aiven/karapace) as specified by the
     `schema.registry.url` parameter and related credentials.
 
@@ -177,7 +175,7 @@ parameters
     `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
     [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
 -   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you\'re going to login to the schema registry
+    `USER_INFO`, since you're going to login to the schema registry
     using username and password.
 -   `value.converter.schema.registry.basic.auth.user.info`: passing the
     required schema registry credentials in the form of
@@ -251,7 +249,7 @@ data in JSON format, with a defined JSON schema:
             "optional": false,
             "field": "measurement"
             }]
-    }, 
+    },
     "payload":{ "iot_id":1, "metric":"Temperature", "measurement":14}
 }
 {
@@ -270,7 +268,7 @@ data in JSON format, with a defined JSON schema:
             "optional": false,
             "field": "measurement"
             }]
-    }, 
+    },
     "payload":{"iot_id":2, "metric":"Humidity", "measurement":60}
 }
 ```
@@ -312,7 +310,7 @@ The configuration file contains the following peculiarities:
 -   `"topics": "iot_measurements"`: setting the topic to sink
 -   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
     the message value is in plain JSON format without a schema, there is
-    not converter defined for the key since it\'s empty
+    not converter defined for the key since it's empty
 -   `"pk.mode": "record_value"`: the connector is using the message
     value to set the target database key
 -   `"pk.fields": "iot_id"`: the connector is using the field `iot_id`
@@ -330,7 +328,7 @@ structure:
 
 ``` text
 key: {"student_id": 1234}
-value: {"student_name": "Mary", "exam": "Math", "exam_result":"A"} 
+value: {"student_name": "Mary", "exam": "Math", "exam_result":"A"}
 ```
 
 You can sink the `students` topic to MySQL with the following connector

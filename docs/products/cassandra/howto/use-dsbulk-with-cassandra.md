@@ -24,13 +24,13 @@ documentation](https://docs.datastax.com/en/dsbulk/docs/getting-started/getting-
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable              Description
-  --------------------- --------------------------------------------------------------------
-  `PASSWORD`            Password of the `avnadmin` user
-  `HOST`                Host name for the connection
-  `PORT`                Port number to use for the Cassandra service
-  `SSL_CERTFILE`        Path of the `CA Certificate` for the Cassandra service
-  `KEYSTORE_PASSWORD`   Password to secure your keystore.
+| Variable            | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| `PASSWORD`          | Password of the `avnadmin` user                        |
+| `HOST`              | Host name for the connection                           |
+| `PORT`              | Port number to use for the Cassandra service           |
+| `SSL_CERTFILE`      | Path of the `CA Certificate` for the Cassandra service |
+| `KEYSTORE_PASSWORD` | Password to secure your keystore.                      |
 
 :::tip
 Most of the above variables and the CA Certificate file can be found in
@@ -52,9 +52,9 @@ truststore.
 2.  Run this command line to create a truststore file and import the
     certificate in it:
 
-    ``` 
+    ```
     keytool -import -v                \
-      -trustcacerts                   \ 
+      -trustcacerts                   \
       -alias CARoot                   \
       -file cassandra-certificate.pem \
       -keystore client.truststore \
@@ -79,7 +79,7 @@ truststore.
 4.  Create a file that contains the connection configuration like the
     following:
 
-    ``` 
+    ```
     datastax-java-driver {
       advanced {
         ssl-engine-factory {
@@ -119,7 +119,7 @@ Once the configuration file is created, you can run the `dsbulk`.
 
 2.  Run the following command:
 
-    ``` 
+    ```
     ./dsbulk count                      \
       -f /full/path/to/conf.file        \
       -k baselines                      \
@@ -145,7 +145,7 @@ Once the configuration file is created, you can run the `dsbulk`.
 
 To extract the data from a table, you can use the following command:
 
-``` 
+```
 ./dsbulk unload        \
  -f /full/path/to/conf.file       \
  -k baselines          \
@@ -163,12 +163,12 @@ format to the directory specified in the `-url` parameter.
 To load data into a Cassandra table, the command line is very similar to
 the previous command:
 
-``` 
+```
 ./dsbulk load            \
  -f /full/path/to/conf.file         \
  -k baselines            \
  -t keyvalue             \
- -h HOST                 \ 
+ -h HOST                 \
  -port PORT              \
  -url data.csv
 ```

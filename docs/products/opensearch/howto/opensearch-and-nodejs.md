@@ -5,7 +5,7 @@ title: Write search queries with OpenSearch® and NodeJS
 Learn how the OpenSearch® JavaScript client gives a clear and useful
 interface to communicate with an OpenSearch cluster and run search
 queries. To make it more delicious we\'ll be using a recipe dataset from
-Kaggle 🍕.
+Kaggle.
 
 ## Prepare the playground
 
@@ -13,7 +13,7 @@ You can create an OpenSearch cluster either with the visual interface or
 with the command line. Depending on your preference follow the
 instructions for
 [getting started with the console for Aiven for Opensearch](/docs/products/opensearch/get-started) or see
-[how to create a service with the help of Aiven command line interface](/docs/tools/cli/service).
+[how to create a service with the help of Aiven command line interface](/docs/tools/cli/service-cli).
 
 :::note
 You can also clone the final demo project from [GitHub
@@ -35,7 +35,7 @@ command line.
 ### Connect to the cluster and load data
 
 Follow instructions on how to
-[connect to the cluster with a NodeJS client](connect-with-nodejs) and add the necessary code to `config.js`. Once you\'re
+[connect to the cluster with a NodeJS client](connect-with-nodejs) and add the necessary code to `config.js`. Once you're
 connected
 [load a sample data set](/docs/products/opensearch/howto/sample-dataset#load-data-with-nodejs) and
 [retrieve the data mapping](/docs/products/opensearch/howto/sample-dataset#get-mapping-with-nodejs) to understand the structure of the created index.
@@ -65,7 +65,7 @@ In the code snippets we\'ll keep error handling somewhat simple and use
 `console.log` to print information into the terminal.
 :::
 
-Now you\'re ready to start querying the data.
+Now you're ready to start querying the data.
 
 ## Query the data
 
@@ -171,7 +171,7 @@ module.exports.term = (field, value) => {
 };
 ```
 
-``` 
+```
 run-func search term sodium 0
 ```
 
@@ -216,7 +216,7 @@ module.exports.range = (field, gte, lte) => {
 };
 ```
 
-``` 
+```
 run-func search range sodium 0 10
 ```
 
@@ -262,7 +262,7 @@ module.exports.fuzzy = (field, value, fuzziness) => {
 
 See if you can find recipes with misspelled pineapple 🍍
 
-``` 
+```
 run-func search fuzzy title pinapple 2
 ```
 
@@ -307,7 +307,7 @@ module.exports.match = (field, query) => {
 };
 ```
 
-``` 
+```
 run-func search match title 'Tomato-garlic soup with dill'
 ```
 
@@ -362,7 +362,7 @@ only for tourists, not a true pizza recipe. We\'ll do it by searching
 the `directions` field for words \"pizza\" and \"pineapple\" with
 top-most distance of 10 words in between.
 
-``` 
+```
 run-func search slop directions "pizza pineapple" 10
 ```
 
@@ -414,7 +414,7 @@ module.exports.query = (field, query, size) => {
 
 To find recipes with tomato, salmon or tuna and no onion run this query:
 
-``` 
+```
 run-func search query ingredients "(salmon|tuna) +tomato -onion" 100
 ```
 
@@ -465,42 +465,27 @@ module.exports.boolean = () => {
 };
 ```
 
-``` 
+```
 run-func search boolean
 ```
 
-Now it\'s your turn to experiment! Create your own boolean query, using
+Now it's your turn to experiment! Create your own boolean query, using
 what we learned to find recipes with particular nutritional values and
 ingredients. Experiment using different clauses to see how they affects
 the results.
 
-## What\'s next?
+## Related pages
 
-Now that you learned how to work with search queries, have a look at
-[our tutorial for aggregations](opensearch-aggregations-and-nodejs). Or, if you\'re done for a day, see
-[how you can pause the service](/docs/platform/howto/pause-from-cli).
-
-## Resources
-
-We created an OpenSearch cluster, connected to it and tried out
-different types of search queries. But this is just a tip of the
-iceberg. Here are some resources to help you learn other features of
-OpenSearch and its JavaScript client
-
+-   [Aggregation tutorial](opensearch-aggregations-and-nodejs).
+-   [Pausing the service](/docs/platform/howto/pause-from-cli).
 -   [Demo
-    repository](https://github.com/aiven/demo-open-search-node-js) - All
-    the examples we run in this tutorial can be found in
-
--   [OpenSearch JavaScript
-    client](https://github.com/opensearch-project/opensearch-js)
-
--   [How to use OpenSearch with curl](opensearch-with-curl)
-
--   
-
-    [Official OpenSearch documentation](https://opensearch.org)
-
-    :   -   [Term-level
+    repository](https://github.com/aiven/demo-open-search-node-js). All
+    the examples we run in this tutorial can be found in:
+    -   [OpenSearch JavaScript
+        client](https://github.com/opensearch-project/opensearch-js)
+    -   [How to use OpenSearch with curl](opensearch-with-curl)
+    -   [Official OpenSearch documentation](https://opensearch.org)
+        -   [Term-level
             queries](https://opensearch.org/docs/latest/opensearch/query-dsl/term/)
         -   [Full-text
             queries](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/)

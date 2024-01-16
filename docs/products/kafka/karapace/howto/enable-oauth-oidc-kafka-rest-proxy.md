@@ -70,24 +70,24 @@ complete the following prerequisites and configuration steps:
 
 1.  In [Aiven Console](https://console.aiven.io/), select your project
     and then choose your Aiven for Apache Kafka® service.
-2.  On the **Overview** page, scroll down to **Advanced configuration**
-    and select **Configure**.
-3.  In the **Advanced configuration** screen, select **Add configuration
-    options**.
-4.  Look for `kafka_rest_authorization` parameter and set it to `True`.
+1. In the service page, select **Service settings** from the sidebar.
+1. On the **Service settings** page, scroll down to the **Advanced configuration**
+   section, and click **Configure**.
+1. In the **Advanced configuration** dialog, select **Add configuration options**.
+1. Look for  `kafka_rest_authorization` parameter and set it to `True`.
 
 ### Configuration via Aiven CLI
 
 To enable REST proxy authorization, use the following command in the
 Aiven CLI, replacing `SERVICE_NAME` with your actual service name:
 
-``` 
+```
 avn service update -c kafka_rest_authorization=true SERVICE_NAME
 ```
 
 Disable REST proxy authorization, use:
 
-``` 
+```
 avn service update -c kafka_rest_authorization=false SERVICE_NAME
 ```
 

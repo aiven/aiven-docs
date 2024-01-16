@@ -3,7 +3,7 @@ title: Migrating to Aiven for PostgreSQL® using Bucardo
 ---
 
 The preferred approach to migrating a database to Aiven for PostgreSQL®
-is to use Aiven\'s open source migration tool
+is to use Aiven's open source migration tool
 ([About aiven-db-migrate](/docs/products/postgresql/concepts/aiven-db-migrate)). However, if you are running PostgreSQL 9.6 (or earlier) or
 do not have `superuser` access to your database to add replication
 slots, you can use the open source [Bucardo](https://bucardo.org) tool
@@ -54,7 +54,7 @@ To migrate your data using Bucardo:
         change `SET session_replication_role = default` to the
         following:
 
-    > ``` 
+    > ```
     > $dbh->do(q{select aiven_extras.session_replication_role('replica');});
     > ```
 
@@ -64,7 +64,7 @@ To migrate your data using Bucardo:
     d.  On line 5428, change `SET session_replication_role = default` to
         the following:
 
-        ``` 
+        ```
         $dbh->do(q{select aiven_extras.session_replication_role('origin');});
         ```
 
@@ -72,7 +72,7 @@ To migrate your data using Bucardo:
 
 4.  Add your source and destination databases. For example:
 
-> ``` 
+> ```
 > bucardo add db srcdb dbhost=0.0.0.0 dbport=5432 dbname=all_your_base dbuser=$DBUSER dbpass=$DBPASS
 >
 > bucardo add db destdb dbhost=cg-pg-dev-sandbox.aivencloud.com dbport=21691 dbname=all_your_base dbuser=$DBUSER dbpass=$DBPASS
@@ -80,7 +80,7 @@ To migrate your data using Bucardo:
 
 1.  Add the tables that you want to replicate:
 
-    ``` 
+    ```
     bucardo add table belong to us herd=$HERD db=srcdb
     ```
 
@@ -92,7 +92,7 @@ To migrate your data using Bucardo:
 2.  Dump and restore the database from your source to your Aiven
     service:
 
-    ``` 
+    ```
     pg_dump --schema-only --no-owner all_your_base > base.sql
     psql "$AIVEN_DB_URL" < base.sql
     ```
@@ -102,7 +102,7 @@ To migrate your data using Bucardo:
 
 3.  Create the `dbgroup` for Bucardo:
 
-    ``` 
+    ```
     bucardo add dbgroup src_to_dest srcdb:source destdb:target
     bucardo add sync sync_src_to_dest relgroup=$HERD db=srcdb,destdb
     (sudo) bucardo start
@@ -114,7 +114,7 @@ To migrate your data using Bucardo:
 
 5.  Log in to the [Aiven web console](https://console.aiven.io), select
     your Aiven for PostgreSQL service from the **Services** list, and
-    select **Current Queries** from the sidebar in your service\'s page.
+    select **Current Queries** from the sidebar in your service's page.
     This shows you that the `bucardo` process is inserting data.
 
 6.  Once all your data is synchronized, switch the database connection

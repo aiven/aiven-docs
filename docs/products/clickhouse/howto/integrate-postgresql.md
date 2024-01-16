@@ -34,13 +34,13 @@ endpoint should be configured in **Integration endpoints**.
 
 The following variables will be used later in the code snippets:
 
-  Variable                    Description
-  --------------------------- -------------------------------------------------------------
-  `CLICKHOUSE_SERVICE_NAME`   Name of your Aiven for ClickHouse service.
-  `PG_SERVICE_NAME`           Name of the PostgreSQL service you use for the integration.
-  `PG_DATABASE`               Name of PostgreSQL database you\'re integrating.
-  `PG_SCHEMA`                 Name of PostgreSQL schema.
-  `PG_TABLE`                  Name of the PostgreSQL table you use for the integration.
+| Variable                  | Description                                                 |
+| ------------------------- | ----------------------------------------------------------- |
+| `CLICKHOUSE_SERVICE_NAME` | Name of your Aiven for ClickHouse service.                  |
+| `PG_SERVICE_NAME`         | Name of the PostgreSQL service you use for the integration. |
+| `PG_DATABASE`             | Name of PostgreSQL database you're integrating.             |
+| `PG_SCHEMA`               | Name of PostgreSQL schema.                                  |
+| `PG_TABLE`                | Name of the PostgreSQL table you use for the integration.   |
 
 ## Create an integration
 
@@ -79,9 +79,9 @@ command
     integrations. Replace `CLICKHOUSE_SERVICE_NAME` and
     `PG_SERVICE_NAME` with the names of your services:
 
-``` 
-avn service integration-list --project PROJECT_NAME CLICKHOUSE_SERVICE_NAME | grep PG_SERVICE_NAME
-```
+    ```
+    avn service integration-list --project PROJECT_NAME CLICKHOUSE_SERVICE_NAME | grep PG_SERVICE_NAME
+    ```
 
 1.  Update the configuration settings using the service integration id
     retrieved in the previous step and your integration settings.
@@ -89,12 +89,12 @@ avn service integration-list --project PROJECT_NAME CLICKHOUSE_SERVICE_NAME | gr
     your values, you can add more than one combination of
     database/schema in the object `databases`:
 
-``` 
-avn service integration-update --project PROJECT_NAME SERVICE_INTEGRATION_ID \
---user-config-json '{
-    "databases":[{"database":"PG_DATABASE","schema":"PG_SCHEMA"}]
-}'
-```
+    ```
+    avn service integration-update --project PROJECT_NAME SERVICE_INTEGRATION_ID \
+    --user-config-json '{
+        "databases":[{"database":"PG_DATABASE","schema":"PG_SCHEMA"}]
+    }'
+    ```
 
 ## Read and store data
 

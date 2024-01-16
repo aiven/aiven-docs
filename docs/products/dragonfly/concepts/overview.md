@@ -3,10 +3,10 @@ title: Aiven for Dragonfly® overview
 ---
 
 Aiven for Dragonfly is an advanced, **high-scale, and Redis®\*
-compatible in-memory database service** that can be easily deployed in
-your preferred cloud environment. It provides lightning-fast data
-storage and retrieval capabilities, making it ideal for businesses that
-handle large-scale data operations.
+compatible in-memory database service** that can be deployed in your
+preferred cloud environment. It provides lightning-fast data storage and
+retrieval capabilities, making it ideal for businesses that handle
+large-scale data operations.
 
 :::important
 Aiven for Dragonfly® is currently a
@@ -14,8 +14,6 @@ Aiven for Dragonfly® is currently a
 reach out to our sales team at [sales@aiven.io](mailto:sales@aiven.io) for more information and
 access.
 :::
-
-## Why Dragonfly?
 
 Dragonfly is designed to overcome the limitations of Redis Open Source
 Software (Redis OSS), especially under high-load conditions. While
@@ -40,7 +38,7 @@ Aiven for Dragonfly offers numerous features and benefits:
 -   **Optimized for large-scale operations:** Dragonfly is specifically
     built to address the scalability and resource utilization
     limitations of Redis Open Source Software (Redis OSS).
--   **Advanced performance:** Dragonfly\'s unique threading model and
+-   **Advanced performance:** Dragonfly's unique threading model and
     shared-nothing architecture allow it to scale vertically, enhancing
     its performance efficiency, especially in environments with heavy
     data loads.

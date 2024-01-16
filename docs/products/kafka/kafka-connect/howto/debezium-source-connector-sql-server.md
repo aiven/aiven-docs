@@ -13,7 +13,7 @@ consumers.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://debezium.io/documentation/reference/stable/connectors/sqlserver.html).
 :::
 
@@ -29,7 +29,7 @@ track with the connector.
 
 To enable the CDC at database level, you can use the following command:
 
-``` 
+```
 USE <DATABASE_NAME>
 GO
 EXEC sys.sp_cdc_enable_db
@@ -37,10 +37,10 @@ GO
 ```
 
 :::note
-If you\'re using GCP Cloud SQL for SQL Server, you can enable database
+If you're using GCP Cloud SQL for SQL Server, you can enable database
 CDC with:
 
-``` 
+```
 EXEC msdb.dbo.gcloudsql_cdc_enable_db '<DATABASE_NAME>'
 ```
 :::
@@ -52,14 +52,14 @@ target database, containing all the required tables.
 
 To enable CDC for a table you can execute the following command:
 
-``` 
+```
 USE <DATABASE_NAME>
 GO
 
 EXEC sys.sp_cdc_enable_table
 @source_schema = N'<SCHEMA_NAME>',
-@source_name   = N'<TABLE_NAME>', 
-@role_name     = N'<ROLE_NAME>',  
+@source_name   = N'<TABLE_NAME>',
+@role_name     = N'<ROLE_NAME>',
 @filegroup_name = N'<FILEGROUP_NAME>',
 @supports_net_changes = 0
 GO
@@ -77,10 +77,10 @@ The command above has the following parameters:
     where the files will be written, needs to be pre-existing
 
 :::note
-If you\'re using GCP Cloud SQL for SQL Server, you can enable database
+If you're using GCP Cloud SQL for SQL Server, you can enable database
 CDC on a table with:
 
-``` 
+```
 EXEC sys.sp_cdc_enable_table
 @source_schema = N'<SCHEMA_NAME>',
 @source_name = N'<TABLE_NAME>',
@@ -119,19 +119,19 @@ source SQL Server database upfront:
 -   `APACHE_KAFKA_PORT`: The port of the Apache Kafka service, needed
     when storing the
     [schema definition changes](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-sql-server#connect_debezium_sql_server_schema_versioning)
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for SQL Server and Aiven for Apache Kafka the
+If you're using Aiven for SQL Server and Aiven for Apache Kafka the
 above details are available in the [Aiven
 console](https://console.aiven.io/) service Overview tab or via the
 dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Setup a SQL Server Debezium source connector with Aiven Console
@@ -233,7 +233,7 @@ The configuration file contains the following entries:
 -   `key.converter` and `value.converter`: defines the messages data
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter pushes messages
-    in Avro format. To store the messages schema we use Aiven\'s
+    in Avro format. To store the messages schema we use Aiven's
     [Karapace schema registry](https://github.com/aiven/karapace) as
     specified by the `schema.registry.url` parameter and related
     credentials.
@@ -282,7 +282,7 @@ To create a Kafka Connect connector, follow these steps:
     connector**.
 
     :::tip
-    If you\'re using Aiven for Apache Kafka, topics will not be created
+    If you're using Aiven for Apache Kafka, topics will not be created
     automatically. Either create them manually following the
     `database.server.name.schema_name.table_name` naming pattern or
     enable the `kafka.auto_create_topics_enable` advanced parameter.

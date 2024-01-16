@@ -4,7 +4,7 @@ title: Create and use read-only replicas
 
 PostgreSQL® read-only replicas provide a great way to reduce the load on
 the primary server by enabling read-only queries to be performed against
-the replica. It\'s also a good way to optimise query response times
+the replica. It's also a good way to optimise query response times
 across different geographical locations since, with Aiven, the replica
 can be placed in different regions or even different cloud providers.
 
@@ -59,7 +59,7 @@ To use a read only replica:
 2.  In the **Overview** page, copy the **Replica URI** an use it to
     connect via `psql`:
 
-    ``` 
+    ```
     psql POSTGRESQL_REPLICA_URI
     ```
 
@@ -69,7 +69,7 @@ To check whether you are connected to a primary or replica node, run the
 following command within a `psql` terminal already connected to a
 database:
 
-``` 
+```
 SELECT * FROM pg_is_in_recovery();
 ```
 

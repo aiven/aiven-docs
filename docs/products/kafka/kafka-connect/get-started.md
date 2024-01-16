@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Get started
 ---
 
 Before creating an Aiven for Apache Kafka® Connect service, ensure that
@@ -39,7 +39,7 @@ To create a new Aiven for Apache Kafka Connect dedicated service:
 
 At the top of the screen, you will notice the Apache Kafka Connect
 integration. Selecting the service name will take you to the **Service
-Overview** page to monitor the service status. Before using it, it\'s
+Overview** page to monitor the service status. Before using it, it's
 important to wait until the service status changes from *REBUILDING* to
 *RUNNING* on this page.
 

@@ -11,7 +11,7 @@ can check this by taking the following steps:
 2.  On the **Services** page, select your Aiven for MySQL service that
     you want to check.
 
-3.  On your service\'s page, select **Service settings** from the
+3.  On your service's page, select **Service settings** from the
     sidebar.
 
 4.  On the **Service settings** page of your service, scroll down to the
@@ -25,15 +25,15 @@ can check this by taking the following steps:
     Attempts to create tables without primary keys will result in the
     following error message:
 
-    ``` 
+    ```
     Unable to create or change a table without a primary key, when the system variable 'sql_require_primary_key' is set. Add a primary key to the table or unset this variable to avoid this message. Note that tables without a primary key can cause performance problems in row-based replication, so please consult your DBA before changing this setting.
     ```
 
     If creating tables without primary keys is prevented and the table
-    that you\'re trying to create is known to be small, you may override
+    that you're trying to create is known to be small, you may override
     this setting and create the table anyway.
 
-:::note See also
+:::note[See also]
 You can read more about the MySQL replication in the
 [Replication overview](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview) article.
 :::
@@ -55,7 +55,7 @@ You have two options to create the tables:
 2.  On the **Services** page, select your Aiven for MySQL service that
     you want to check.
 
-3.  On your service\'s page, select **Service settings** from the
+3.  On your service's page, select **Service settings** from the
     sidebar.
 
 4.  On the **Service settings** page of your service, scroll down to the
@@ -73,7 +73,7 @@ You have two options to create the tables:
     again once you finished creating the tables without primary keys.
     :::
 
-:::note See also
+:::note[See also]
 Learn how to
 [create missing primary keys](/docs/products/mysql/howto/create-missing-primary-keys) in your Aiven for MySQL.
 :::

@@ -13,7 +13,7 @@ Monitoring section of the Apache Kafka®
 documentation](https://kafka.apache.org/documentation/#connect_monitoring).
 
 :::note
-The metrics only appear if there\'s actual activity in the underlying
+The metrics only appear if there's actual activity in the underlying
 Apache Kafka Connect service.
 :::
 
@@ -23,12 +23,12 @@ Apache Kafka Connect service.
     the total number of connector startups that this worker has
     attempted
 -   `kafka_connect_connect_worker_metrics_connector_startup_failure_percentage`:
-    the average percentage of this worker\'s connector starts that
+    the average percentage of this worker's connector starts that
     failed
 -   `kafka_connect_connect_worker_metrics_connector_startup_failure_total`:
     the total number of connector starts that failed
 -   `kafka_connect_connect_worker_metrics_connector_startup_success_percentage`:
-    the average percentage of this worker\'s connector starts that
+    the average percentage of this worker's connector starts that
     succeeded
 -   `kafka_connect_connect_worker_metrics_connector_startup_success_total`:
     the total number of connector starts that succeeded
@@ -37,11 +37,11 @@ Apache Kafka Connect service.
 -   `kafka_connect_connect_worker_metrics_task_startup_attempts_total`:
     the total number of task startups that this worker has attempted
 -   `kafka_connect_connect_worker_metrics_task_startup_failure_percentage`:
-    the average percentage of this worker\'s task starts that failed
+    the average percentage of this worker's task starts that failed
 -   `kafka_connect_connect_worker_metrics_task_startup_failure_total`:
     the total number of task starts that failed
 -   `kafka_connect_connect_worker_metrics_task_startup_success_percentage`:
-    the average percentage of this worker\'s task starts that succeeded
+    the average percentage of this worker's task starts that succeeded
 -   `kafka_connect_connect_worker_metrics_task_startup_success_total`:
     the total number of task starts that succeeded
 -   `kafka_connect_connect_worker_rebalance_metrics_completed_rebalances_total`:

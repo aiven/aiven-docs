@@ -38,11 +38,11 @@ Now your service can be accessed from the specified IP addresses only.
 
 :::note[Alternative method]
 You can also use the
-[dedicated service update function](/docs/tools/cli/service#avn-cli-service-update) to create or update the IP filter for your service via the
+[dedicated service update function](/docs/tools/cli/service-cli#avn-cli-service-update) to create or update the IP filter for your service via the
 [Aiven CLI](/docs/tools/cli).
 :::
 
-:::note See also
+:::note[See also]
 For more ways of securing your service, check information on Virtual
 Private Cloud (VPC) in
 [Networking with VPC peering](/docs/platform/concepts/cloud-security#networking-with-vpc-peering) and

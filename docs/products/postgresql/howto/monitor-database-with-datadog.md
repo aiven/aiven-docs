@@ -27,8 +27,8 @@ services, you must perform the following steps:
     EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)
     SQL commands directly on the Aiven for PostgreSQL® database service.
 
-``` 
-CREATE EXTENSION pg_stat_statements;   
+```
+CREATE EXTENSION pg_stat_statements;
 CREATE EXTENSION aiven_extras;
 ```
 
@@ -48,7 +48,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 -   Find the UUID of the Datadog Metrics integration for a particular
     service:
 
-    ``` 
+    ```
     avn service integration-list --project <project name> <service name>
     ```
 
@@ -57,13 +57,13 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
     `<INTEGRATION_UUID>` with the integration UUID retrieved at the
     previous step:
 
-    ``` 
+    ```
     avn service integration-update --project <PROJECT_NAME> --user-config '{"datadog_dbm_enabled": true}' <INTEGRATION_UUID>
     ```
 
 -   Check if user-config `datadog_dbm_enabled` set correctly:
 
-    ``` 
+    ```
     avn service integration-list <SERVICE_NAME> \
        --project <PROJECT_NAME>  \
        --json | jq '.[] | select(.integration_type=="datadog").user_config'
@@ -71,7 +71,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 
     `datadog_dbm_enabled` should be set to `true`:
 
-    ``` 
+    ```
     {
       "datadog_dbm_enabled": true
     }
@@ -80,7 +80,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 Executing the steps successfully results in enabling Datadog Database
 Monitoring for your service.
 
-:::note See also
+:::note[See also]
 -   Learn more about
     [Datadog and Aiven](/docs/integrations/datadog).
 -   Learn more about [Datadog Deep Database

@@ -117,7 +117,7 @@ maximum transfer speed is usually around 50 megabytes per second.
 Additionally, the new node persists data initially on disk, and does a
 separate loading phase, which is in the low hundreds of megabytes per
 second. For a 20 gigabyte data set the initial sync phase takes around 6
-minutes with today\'s hardware, and it cannot be much faster.
+minutes with today's hardware, and it cannot be much faster.
 
 Once initial sync is complete the new node starts following the
 replication stream from the master. Replication log size is set to 10%

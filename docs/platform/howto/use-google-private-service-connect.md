@@ -67,7 +67,7 @@ avn service privatelink google get MY_SERVICE_NAME
 ```
 
 When the state has changed from `creating` to `active`, resources at
-Aiven end have been allocated, and it\'s possible to create connections.
+Aiven end have been allocated, and it's possible to create connections.
 
 When the privatelink has been successfully created, you can expect an
 output similar to the following:
@@ -246,7 +246,7 @@ VNet peering.
 If you have one private endpoint connected to your Aiven service, you
 can preview the connection information (URI, hostname, or port required
 to access the service through the private endpoint) in [Aiven
-Console](https://console.aiven.io/) \> the service\'s **Overview** page
+Console](https://console.aiven.io/) \> the service's **Overview** page
 \> the **Connection information** section, where you\'ll also find the
 switch for the `privatelink` access route. `privatelink`-access-route
 values for `host` and `port` differ from those for the `dynamic` access

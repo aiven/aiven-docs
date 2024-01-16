@@ -34,16 +34,17 @@ setup only needs to be done once.
 4.  Configure the **Log Template** field. You will need to replace the
     following values:
 
-  Variable               Description
-  ---------------------- ------------------------------------
-  `DATADOG_API_KEY`      From your Datadog account settings
-  `AIVEN_PROJECT_NAME`   Found in the web console
+    | Variable             | Description                        |
+    | -------------------- | ---------------------------------- |
+    | `DATADOG_API_KEY`    | From your Datadog account settings |
+    | `AIVEN_PROJECT_NAME` | Found in the web console           |
+
 
 This is the format to use, replacing the variables listed. Don\'t edit
 the values surrounded by `%` signs, such as `%msg%` as these are used in
 constructing the log line:
 
-``` 
+```
 DATADOG_API_KEY <%pri%>1 %timestamp:::date-rfc3339% %HOSTNAME%.AIVEN_PROJECT_NAME %app-name% - - - %msg%
 ```
 
@@ -82,6 +83,6 @@ should be sent to Datadog.
 3.  Visit Datadog and look under \"Logs\" to see the data flowing within
     a few minutes.
 
-:::note See also
+:::note[See also]
 Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 :::

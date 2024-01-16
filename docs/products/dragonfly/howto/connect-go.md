@@ -11,15 +11,15 @@ SDKs](https://www.dragonflydb.io/docs/development/sdks).
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable          Description
-  ----------------- -----------------------------------
-  `DRAGONFLY_URI`   URL for the Dragonfly® connection
+| Variable        | Description                       |
+| --------------- | --------------------------------- |
+| `DRAGONFLY_URI` | URL for the Dragonfly® connection |
 
 ## Pre-requisites
 
 First, install the `go-redis/redis` library:
 
-``` 
+```
 go get github.com/go-redis/redis/v8
 ```
 
@@ -27,7 +27,7 @@ go get github.com/go-redis/redis/v8
 
 Create a new file named `main.go` and add the following content,
 replacing the `DRAGONFLY_URI` placeholder with your Dragonfly
-instance\'s connection URI:
+instance's connection URI:
 
 ``` go
 package main
@@ -71,12 +71,12 @@ value of this key.
 
 To run the code, use the following command in your terminal:
 
-``` 
+```
 go run main.go
 ```
 
 If everything is set up correctly, the output should be:
 
-``` 
+```
 The value of key is: hello world
 ```

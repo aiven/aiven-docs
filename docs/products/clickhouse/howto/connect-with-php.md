@@ -30,14 +30,14 @@ php composer.phar require smi2/phpclickhouse
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-  Variable     Description
-  ------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `https`      Required to be set to `true`
-  `host`       `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
-  `port`       `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
-  `username`   `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
-  `password`   `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
-  `database`   `Database Name` in the ClickHouse service available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
+| Variable   | Description                                                                                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `https`    | Required to be set to `true`                                                                                                                                |
+| `host`     | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**      |
+| `port`     | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**      |
+| `username` | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**      |
+| `password` | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**  |
+| `database` | `Database Name` in the ClickHouse service available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
 
 ## Connect to the service
 
@@ -64,8 +64,6 @@ Now you have your service connection set up and you can proceed to
 [uploading data into your database](load-dataset).
 :::
 
-:::note See also
-For information on how to connect to the Aiven for Clickhouse service
-with the ClickHouse client, see
-[Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
-:::
+## Related pages
+
+- [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).

@@ -39,10 +39,10 @@ ZooKeeper is responsible for the cross-nodes coordination and
 synchronization of the following replication processes:
 
 -   Replication of database changes across the cluster: CREATE, UPDATE,
-    or ALTER TABLE (by ClickHouse\'s `Replicated`
+    or ALTER TABLE (by ClickHouse's `Replicated`
     [database engine](/docs/products/clickhouse/concepts/service-architecture#replicated-database-engine))
 
--   Replication of table data across the cluster (by ClickHouse\'s
+-   Replication of table data across the cluster (by ClickHouse's
     `ReplicatedMergeTree`
     [table engine](/docs/products/clickhouse/concepts/service-architecture#replicated-table-engine)). Data itself is not written to ZooKeeper but
     transferred directly between ClickHouse servers.
@@ -111,7 +111,7 @@ a wide variety of available table engines, the most common ones belong
 to the `MergeTree` engines family, which is supported in Aiven for
 ClickHouse.
 
-:::note See also
+:::note[See also]
 For a list of all the table engines that you can use in Aiven for
 ClickHouse, see
 [Supported table engines in Aiven for ClickHouse](/docs/products/clickhouse/reference/supported-table-engines).

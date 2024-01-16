@@ -4,7 +4,7 @@ title: Enable tiered storage in Aiven for ClickHouse®
 
 :::important
 Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -33,7 +33,7 @@ table level using SQL (via CLI, for example).
     :::
 
 -   With the tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it\'s not possible to connect to an external existing
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to connect to an external existing
     object storage or cloud storage bucket.
 
 ### Tools
@@ -47,7 +47,7 @@ ClickHouse CLI client).
 -   You have a command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) installed.
 -   All maintenance updates are applied on your service (check in Aiven
-    Console: your service\'s page \> **Service settings** \> **Service
+    Console: your service's page \> **Service settings** \> **Service
     management** \> **Maintenance updates**).
 
 ## Enable tiered storage on a project
@@ -86,7 +86,7 @@ Console](https://console.aiven.io/) \> **Databases & Tables** \>
 storage** column.
 :::
 
-## What\'s next
+## What's next
 
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)

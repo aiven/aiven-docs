@@ -86,7 +86,7 @@ avn vpc peering-connection create \
 ```
 
 Note that you can use the `--user-peer-network-cidr` argument multiple
-times to define more than one peer network CIDR. It\'s also possible to
+times to define more than one peer network CIDR. It's also possible to
 create the attachment without any CIDRs and add them later (though the
 attachment will be not be of any use until that is done since no
 addresses will be routed through the TGW from the Project VPC).

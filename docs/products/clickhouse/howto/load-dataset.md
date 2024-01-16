@@ -28,7 +28,7 @@ Download the original dataset directly from [the dataset documentation
 page](https://clickhouse.com/docs/en/getting-started/example-datasets/metrica/).
 You can do this using cURL, where the generic command looks like this:
 
-``` 
+```
 curl address_to_file_in_format_tsv_xz | unxz --threads=`nproc` > file-name.tsv
 ```
 
@@ -61,7 +61,7 @@ To create the new database, take the following steps:
 
 1.  Log in to the [Aiven web console](https://console.aiven.io/), and
     select your service from the **Services** page.
-2.  In your service\'s page, select **Databases and tables** from the
+2.  In your service's page, select **Databases and tables** from the
     sidebar.
 3.  In the **Databases and tables** page, select **Create database** \>
     **ClickHouse database**.
@@ -89,7 +89,7 @@ docker run --interactive            \
 --secure
 ```
 
-Once you\'re connected, you can run queries from within the ClickHouse
+Once you're connected, you can run queries from within the ClickHouse
 client.
 
 ## Create tables
@@ -124,7 +124,7 @@ To do this:
 
 2.  Run the following command:
 
-    ``` 
+    ```
     cat hits_v1.tsv | docker run        \
     --interactive                       \
     --rm clickhouse/clickhouse-server clickhouse-client  \
@@ -142,7 +142,7 @@ To do this:
 
 3.  Run the corresponding command for `visits_v1.tsv`:
 
-    ``` 
+    ```
     cat visits_v1.tsv | docker run      \
     --interactive                       \
     --rm clickhouse/clickhouse-server clickhouse-client   \
@@ -172,11 +172,11 @@ Another example uses some additional query features to find the longest
 lasting sessions:
 
 ``` sql
-SELECT StartURL AS URL, 
-    MAX(Duration) AS MaxDuration 
-FROM datasets.visits_v1 
-GROUP BY URL 
-ORDER BY MaxDuration DESC 
+SELECT StartURL AS URL,
+    MAX(Duration) AS MaxDuration
+FROM datasets.visits_v1
+GROUP BY URL
+ORDER BY MaxDuration DESC
 LIMIT 10
 ```
 
@@ -184,5 +184,5 @@ LIMIT 10
 
 You can also use the database and added tables with the data in the
 [Aiven web console](https://console.aiven.io/). You can find them by
-selecting **Databases & Tables** from the sidebar of your service\'s
+selecting **Databases & Tables** from the sidebar of your service's
 page in [Aiven Console](https://console.aiven.io/).

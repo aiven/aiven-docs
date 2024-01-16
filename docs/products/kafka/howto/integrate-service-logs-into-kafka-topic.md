@@ -8,7 +8,7 @@ console](https://console.aiven.io).
 
 :::note
 The integration can be used for both Aiven for Apache Kafka, as well as
-external Kafka clusters registered in the project\'s service
+external Kafka clusters registered in the project's service
 integrations page. Read more on
 [how to manage Aiven internal and external integrations](/docs/tools/cli/service/integration).
 :::

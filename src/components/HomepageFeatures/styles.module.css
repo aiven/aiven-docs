@@ -51,7 +51,7 @@
 
 .bodyContainer {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   align-self: stretch;
 }
 .logo {

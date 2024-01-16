@@ -13,7 +13,7 @@ authorization based on the
 Apache Kafka® REST proxy authorization is **disabled** by default on all
 Aiven for Apache Kafka® services.
 
-:::note See also
+:::note[See also]
 -   [Enable OAuth2/OIDC support for Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
 -   [Manage Apache Kafka® REST proxy authorization](/docs/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization)
 :::

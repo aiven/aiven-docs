@@ -20,14 +20,14 @@ available in the HTTP API and console.
 
 # `admin_username`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom username for admin user. This must be set only when a new
 service is being created.**
 
 # `admin_password`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom password for admin user. Defaults to random string. This must
 be set only when a new service is being created.**
@@ -63,7 +63,7 @@ backup is only started if previous backup has already completed.**
 *boolean*
 
 **Allow clients to connect to mysql with a DNS name that always resolves
-to the service\'s private IP addresses. Only available in certain
+to the service's private IP addresses. Only available in certain
 network locations**
 
 ## `mysqlx`
@@ -71,7 +71,7 @@ network locations**
 *boolean*
 
 **Allow clients to connect to mysqlx with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `prometheus`
@@ -79,7 +79,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `privatelink_access`
@@ -137,27 +137,27 @@ network**
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**
 
 # `mysql_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **MySQL major version**
 
 # `recovery_target_time`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Recovery target time when forking a service. This has effect only when
 a new service is being created.**
@@ -197,7 +197,7 @@ for a connect packet before responding with Bad handshake
 *string*
 
 **default_time_zone** Default server time zone as an offset from UTC
-(from -12:00 to +12:00), a time zone name, or \'SYSTEM\' to use the
+(from -12:00 to +12:00), a time zone name, or 'sYSTEM\' to use the
 MySQL server default.
 
 ## `group_concat_max_len`
@@ -242,7 +242,7 @@ of the MySQL service.
 
 ## `innodb_ft_server_stopword_table`
 
-*\[\'null\', \'string\'\]*
+*\[\'null\', 'string\'\]*
 
 **innodb_ft_server_stopword_table** This option is used to specify your
 own InnoDB FULLTEXT index stopword list for all InnoDB tables.

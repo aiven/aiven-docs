@@ -12,25 +12,25 @@ SDKs](https://www.dragonflydb.io/docs/development/sdks).
 Replace the following placeholders in the code sample with the
 appropriate values:
 
-  Variable          Description
-  ----------------- ----------------------------------
-  `DRAGONFLY_URI`   URL for the Dragonfly connection
+ | Variable        | Description                      |
+ | --------------- | -------------------------------- |
+ | `DRAGONFLY_URI` | URL for the Dragonfly connection |
 
 ## Pre-requisites
 
 Install the `redis-py` library:
 
-``` 
+```
 pip install redis
 ```
 
 ## Code
 
 Create a new file named `main.py`, add the following content and replace
-the `DRAGONFLY_URI` placeholder with your Dragonfly instance\'s
+the `DRAGONFLY_URI` placeholder with your Dragonfly instance's
 connection URI:
 
-``` 
+```
 import redis
 
 # Replace with your Dragonfly URI
@@ -49,7 +49,7 @@ value of this key.
 
 To execute the code, use the following command in your terminal:
 
-``` 
+```
 python main.py
 ```
 
@@ -60,6 +60,6 @@ invoke `Python 3`.
 
 If everything is set up correctly, the output should be:
 
-``` 
+```
 The value of key is: hello world
 ```

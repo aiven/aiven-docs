@@ -2,7 +2,7 @@
 title: Integrations for Aiven
 ---
 
-Aiven is just one tool in a cloud professional\'s toolbox. Our aim is to
+Aiven is just one tool in a cloud professional's toolbox. Our aim is to
 ensure that Aiven integrates with the other tools you are already using,
 and makes it easy to add more integrations in the future as your needs
 grow. Aiven makes it easy to integrate one Aiven service with another

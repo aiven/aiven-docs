@@ -2,7 +2,7 @@
 title: avn service topic
 ---
 
-Here you\'ll find the full list of commands for `avn service topic`.
+Full list of commands for `avn service topic`.
 
 ## Manage Aiven for Apache Kafka® topics {#avn_cli_service_topic_create}
 
@@ -11,50 +11,17 @@ Here you\'ll find the full list of commands for `avn service topic`.
 Creates a new Kafka topic on the specified Aiven for Apache Kafka
 service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`topic`</td>
-      <td>The name of the topic</td>
-    </tr>
-    <tr>
-      <td>`--partitions`</td>
-      <td>The number of topic partitions</td>
-    </tr>
-    <tr>
-      <td>`--replication`</td>
-      <td>The topic replication factor</td>
-    </tr>
-    <tr>
-      <td>`--min-insync-replicas`</td>
-      <td>The minimum required nodes In Sync Replicas (ISR) for the topic/partition (default: 1)</td>
-    </tr>
-    <tr>
-      <td>`--retention`</td>
-      <td>The retention period in hours (default: unlimited)</td>
-    </tr>
-    <tr>
-      <td>`--retention-bytes`</td>
-      <td>The retention limit in bytes (default: unlimited)</td>
-    </tr>
-    <tr>
-      <td>`--cleanup-policy`</td>
-      <td>The topic cleanup policy; can be either `delete` or `compact`.</td>
-    </tr>
-    <tr>
-      <td>`--tag KEY[=VALUE]`</td>
-      <td>Topic tagging</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter               | Information                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `service_name`          | The name of the service                                                                |
+| `topic`                 | The name of the topic                                                                  |
+| `--partitions`          | The number of topic partitions                                                         |
+| `--replication`         | The topic replication factor                                                           |
+| `--min-insync-replicas` | The minimum required nodes In Sync Replicas (ISR) for the topic/partition (default: 1) |
+| `--retention`           | The retention period in hours (default: unlimited)                                     |
+| `--retention-bytes`     | The retention limit in bytes (default: unlimited)                                      |
+| `--cleanup-policy`      | The topic cleanup policy; can be either `delete` or `compact`.                         |
+| `--tag KEY[=VALUE]`     | Topic tagging                                                                          |
 
 **Example:** Create a new topic named `invoices` in the `demo-kafka`
 service with:
@@ -64,7 +31,7 @@ service with:
 -   2 hours of retention time
 -   `BU=FINANCE` tag
 
-``` 
+```
 avn service topic-create demo-kafka invoices  \
   --partitions 3                              \
   --replication 2                             \
@@ -76,27 +43,15 @@ avn service topic-create demo-kafka invoices  \
 
 Deletes a Kafka topic on the specified Aiven for Apache Kafka service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`topic`</td>
-      <td>The name of the topic</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the service |
+| `topic`        | The name of the topic   |
 
 **Example:** Delete the topic named `invoices` in the `demo-kafka`
 service.
 
-``` 
+```
 avn service topic-delete demo-kafka invoices
 ```
 
@@ -104,27 +59,15 @@ avn service topic-delete demo-kafka invoices
 
 Retrieves Kafka topic on the specified Aiven for Apache Kafka service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`topic`</td>
-      <td>The name of the topic</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the service |
+| `topic`        | The name of the topic   |
 
 **Example:** Retrieve the information about a topic named `invoices` in
 the `demo-kafka` service.
 
-``` 
+```
 avn service topic-get demo-kafka invoices
 ```
 
@@ -153,23 +96,14 @@ together with the following information:
 -   cleanup policy
 -   tags
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the service |
 
 **Example:** Retrieve list of topics available in the `demo-kafka`
 service.
 
-``` 
+```
 avn service topic-list demo-kafka
 ```
 
@@ -187,60 +121,24 @@ orders      2           3            1                    -1               unlim
 
 Updates a Kafka topic on the specified Aiven for Apache Kafka service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`topic`</td>
-      <td>The name of the topic</td>
-    </tr>
-    <tr>
-      <td>`--partitions`</td>
-      <td>The number of topic partitions</td>
-    </tr>
-    <tr>
-      <td>`--replication`</td>
-      <td>The topic replication factor</td>
-    </tr>
-    <tr>
-      <td>`--min-insync-replicas`</td>
-      <td>The minimum required nodes In Sync Replicas (ISR) for the topic/partition (default: 1)</td>
-    </tr>
-    <tr>
-      <td>`--retention`</td>
-      <td>The retention period in hours (default: unlimited)</td>
-    </tr>
-    <tr>
-      <td>`--retention-bytes`</td>
-      <td>The retention limit in bytes (default: unlimited)</td>
-    </tr>
-    <tr>
-      <td>`--cleanup-policy`</td>
-      <td>The topic cleanup policy; can be either `delete` or `compact`.</td>
-    </tr>
-    <tr>
-      <td>`--tag KEY[=VALUE]`</td>
-      <td>Topic tagging</td>
-    </tr>
-    <tr>
-      <td>`--untag KEY`</td>
-      <td>Topic tag to remove</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter               | Information                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `service_name`          | The name of the service                                                                |
+| `topic`                 | The name of the topic                                                                  |
+| `--partitions`          | The number of topic partitions                                                         |
+| `--replication`         | The topic replication factor                                                           |
+| `--min-insync-replicas` | The minimum required nodes In Sync Replicas (ISR) for the topic/partition (default: 1) |
+| `--retention`           | The retention period in hours (default: unlimited)                                     |
+| `--retention-bytes`     | The retention limit in bytes (default: unlimited)                                      |
+| `--cleanup-policy`      | The topic cleanup policy; can be either `delete` or `compact`.                         |
+| `--tag KEY[=VALUE]`     | Topic tagging                                                                          |
+| `--untag KEY`           | Topic tag to remove                                                                    |
 
 **Example:** Update the topic named `invoices` in the `demo-kafka`
 service. Set `4` partitions and `3` as replication factor. Furthermore
 remove the `BU` tag and add a new `CC=FINANCE_DE` tag.
 
-``` 
+```
 avn service topic-update demo-kafka invoices  \
   --partitions 4                              \
   --replication 3                             \

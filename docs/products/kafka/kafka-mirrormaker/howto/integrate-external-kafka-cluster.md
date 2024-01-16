@@ -46,85 +46,111 @@ permissions for the internal topics.
 Apache Kafka® MirrorMaker 2 creates the following set of topics in the
 source cluster:
 
-+----------------+----------------+----------------+----------------+
-| Topic          | | Replication  | | Partitions   | | Cleanup      |
-|                |   factor       | | (default     |   policy       |
-|                | | (default     |   value)       | | (required    |
-|                |   value)       |                |   policy)      |
-+================+================+================+================+
-| `__con         | 3              | 50             | compact        |
-| sumer_offsets` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `heartbeats`   | 3              | 1              | compact        |
-+----------------+----------------+----------------+----------------+
-| `mm            | 3              | 1              | compact        |
-| 2-configs.<tar |                |                |                |
-| get cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| | `mm2-off     | 3              | 1              | compact        |
-| set-syncs.<tar |                |                |                |
-| get cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-| | see [Offsets |                |                |                |
-|   sync topic   |                |                |                |
-|   location](#  |                |                |                |
-| offsets-sync-t |                |                |                |
-| opic-location) |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `mm            | 3              | 25             | compact        |
-| 2-offsets.<tar |                |                |                |
-| get cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `m             | 3              | 5              | compact        |
-| m2-status.<tar |                |                |                |
-| get cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Replication factor</th>
+    <th>Partitions (default value)</th>
+    <th>Cleanup policy (required policy)</th>
+  </tr>
+  <tr>
+    <td><code>__consumer_offsets</code></td>
+    <td>3</td>
+    <td>50</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>heartbeats</code></td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>mm2-configs.&lt;target cluster alias&gt;.internal</code></td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td>
+    <code>mm2-offsets.&lt;target cluster alias&gt;.internal</code>
+    <p>See <a href="#offsets-sync-topic-location">Offsets sync topic location</a></p>
+    </td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>mm2-offsets.&lt;target cluster alias&gt;.internal</code></td>
+    <td>3</td>
+    <td>25</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>mm2-status.&lt;target cluster alias&gt;.internal</code></td>
+    <td>3</td>
+    <td>5</td>
+    <td>compact</td>
+  </tr>
+</table>
 
 Apache Kafka® MirrorMaker 2 creates the following set of topics in the
 target cluster:
 
-+----------------+----------------+----------------+----------------+
-| Topic          | | Replication  | | Partitions   | | Cleanup      |
-|                |   factor       | | (default     |   policy       |
-|                | | (default     |   value)       | | (required    |
-|                |   value)       |                |   policy)      |
-+================+================+================+================+
-| `__con         | 3              | 50             | compact        |
-| sumer_offsets` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `heartbeats`   | 3              | 1              | compact        |
-+----------------+----------------+----------------+----------------+
-| `<s            | 3              | 1              | compact        |
-| ource cluster  |                |                |                |
-| alias>.checkpo |                |                |                |
-| ints.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `<sourc        | 3              | 1              | compact        |
-| e cluster alia |                |                |                |
-| s>.heartbeats` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `mm            | 3              | 1              | compact        |
-| 2-configs.<sou |                |                |                |
-| rce cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `mm            | 3              | 25             | compact        |
-| 2-offsets.<sou |                |                |                |
-| rce cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
-| `m             | 3              | 5              | compact        |
-| m2-status.<sou |                |                |                |
-| rce cluster al |                |                |                |
-| ias>.internal` |                |                |                |
-+----------------+----------------+----------------+----------------+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Replication factor</th>
+    <th>Partitions (default value)</th>
+    <th>Cleanup policy (required policy)</th>
+  </tr>
+  <tr>
+    <td><code>__consumer_offsets</code></td>
+    <td>3</td>
+    <td>50</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>heartbeats</code></td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>&lt;source cluster alias&gt;.checkpoints.internal</code></td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>&lt;source cluster alias&gt;.heartbeats</code></td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>mm2-configs.&lt;source cluster alias&gt;.internal</code></td>
+    <td>3</td>
+    <td>1</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>mm2-offsets.&lt;source cluster alias&gt;.internal</code></td>
+    <td>3</td>
+    <td>25</td>
+    <td>compact</td>
+  </tr>
+  <tr>
+    <td><code>mm2-status.&lt;source cluster alias&gt;.internal</code></td>
+    <td>3</td>
+    <td>5</td>
+    <td>compact</td>
+  </tr>
+</table>
 
 If using heartbeat emitting to the source cluster (configuration:
 `emit_backward_heartbeats_enabled`), the connecting user needs read and
-write access to the `mm2-offsets.<target cluster alias>.internal` topic
+write access to the `mm2-offsets.&lt;target cluster alias>.internal` topic
 at the external source cluster. If disabled, this topic and permissions
 are not required at the source cluster.
 

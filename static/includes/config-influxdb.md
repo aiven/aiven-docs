@@ -1,6 +1,6 @@
 # `custom_domain`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom domain** Serve the web frontend using a custom CNAME pointing
 to the Aiven DNS name
@@ -36,7 +36,7 @@ available in the HTTP API and console.
 *boolean*
 
 **Allow clients to connect to influxdb with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `privatelink_access`
@@ -132,14 +132,14 @@ unnecessarily.**
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**

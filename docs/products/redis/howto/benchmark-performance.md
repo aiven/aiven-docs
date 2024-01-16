@@ -21,7 +21,7 @@ Redis®\* services.
     the instructions in the
     [README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md)
     to install all the dependencies, then build and install the tool.
-    Now it\'s ready to go.
+    Now it's ready to go.
 
 :::note
 The `Testing` section in
@@ -40,17 +40,12 @@ The following variables need to be substituted when running the
 commands. You can find the information in the **Overview** tab of your
 Aiven for Redis service.
 
-  -----------------------------------------------------------------------
-  Variable       Description
-  -------------- --------------------------------------------------------
-  `USERNAME`     User name of Aiven for Redis connection
-
-  `PASSWORD`     Password of Aiven for Redis connection
-
-  `HOST`         Hostname for Redis connection
-
-  `PORT`         Port for Redis connection
-  -----------------------------------------------------------------------
+ | Variable   | Description                             |
+ | ---------- | --------------------------------------- |
+ | `USERNAME` | User name of Aiven for Redis connection |
+ | `PASSWORD` | Password of Aiven for Redis connection  |
+ | `HOST`     | Hostname for Redis connection           |
+ | `PORT`     | Port for Redis connection               |
 
 Below is a sample command from the [Redis
 blog](https://redis.com/blog/benchmark-shared-vs-dedicated-redis-instances/).
@@ -60,13 +55,13 @@ by launching `4 threads (-t 4)` and each thread opening
 `25 connections (-c 25)`. The tool does `10 iterations (-x 10)` of each
 run to collect meaningful aggregate averages.
 
-``` 
+```
 memtier_benchmark -a 'USERNAME:PASSWORD' -s 'HOST' -p 'PORT' --tls --tls-skip-verify -t 4 -n 10000 --ratio 1:1 -c 25 -x 10 -d 100 --key-pattern S:S
 ```
 
 Your output may be similar to this:
 
-``` 
+```
 Writing results to stdout
 [RUN #1] Preparing benchmark client...
 [RUN #1] Launching threads now...
@@ -85,30 +80,30 @@ Writing results to stdout
 
 BEST RUN RESULTS
 ============================================================================================================================
-Type         Ops/sec     Hits/sec   Misses/sec    Avg. Latency     p50 Latency     p99 Latency   p99.9 Latency       KB/sec 
+Type         Ops/sec     Hits/sec   Misses/sec    Avg. Latency     p50 Latency     p99 Latency   p99.9 Latency       KB/sec
 ----------------------------------------------------------------------------------------------------------------------------
-Sets         2404.11          ---          ---        21.62541        20.60700        48.89500       112.63900       339.90 
-Gets         2404.11      2404.11         0.00        21.62707        20.60700        49.15100       105.98300       328.16 
-Waits           0.00          ---          ---             ---             ---             ---             ---          --- 
-Totals       4808.23      2404.11         0.00        21.62624        20.60700        49.15100       111.10300       668.06 
+Sets         2404.11          ---          ---        21.62541        20.60700        48.89500       112.63900       339.90
+Gets         2404.11      2404.11         0.00        21.62707        20.60700        49.15100       105.98300       328.16
+Waits           0.00          ---          ---             ---             ---             ---             ---          ---
+Totals       4808.23      2404.11         0.00        21.62624        20.60700        49.15100       111.10300       668.06
 
 Request Latency Distribution
 Type     <= msec         Percent
 ------------------------------------------------------------------------
 SET      11.327        0.000
-<<<< many lines 
+<<<< many lines
 GET      66.559      100.000
 ---
 WAIT      0.000      100.000
 
 WORST RUN RESULTS
 ============================================================================================================================
-Type         Ops/sec     Hits/sec   Misses/sec    Avg. Latency     p50 Latency     p99 Latency   p99.9 Latency       KB/sec 
+Type         Ops/sec     Hits/sec   Misses/sec    Avg. Latency     p50 Latency     p99 Latency   p99.9 Latency       KB/sec
 ----------------------------------------------------------------------------------------------------------------------------
-Sets         2249.10          ---          ---        22.94219        21.63100        47.87100       109.56700       317.98 
-Gets         2249.10      2249.10         0.00        22.94561        21.63100        47.87100       109.05500       307.00 
-Waits           0.00          ---          ---             ---             ---             ---             ---          --- 
-Totals       4498.20      2249.10         0.00        22.94390        21.63100        47.87100       109.56700       624.99 
+Sets         2249.10          ---          ---        22.94219        21.63100        47.87100       109.56700       317.98
+Gets         2249.10      2249.10         0.00        22.94561        21.63100        47.87100       109.05500       307.00
+Waits           0.00          ---          ---             ---             ---             ---             ---          ---
+Totals       4498.20      2249.10         0.00        22.94390        21.63100        47.87100       109.56700       624.99
 
 Request Latency Distribution
 Type     <= msec         Percent
@@ -121,12 +116,12 @@ WAIT      0.000      100.000
 
 AGGREGATED AVERAGE RESULTS (10 runs)
 ============================================================================================================================
-Type         Ops/sec     Hits/sec   Misses/sec    Avg. Latency     p50 Latency     p99 Latency   p99.9 Latency       KB/sec 
+Type         Ops/sec     Hits/sec   Misses/sec    Avg. Latency     p50 Latency     p99 Latency   p99.9 Latency       KB/sec
 ----------------------------------------------------------------------------------------------------------------------------
-Sets         2312.01          ---          ---        22.42681        21.24700        47.35900       101.88700       326.88 
-Gets         2312.01      2312.01         0.00        22.42914        21.24700        47.35900       101.88700       315.59 
-Waits           0.00          ---          ---             ---             ---             ---             ---          --- 
-Totals       4624.02      2312.01         0.00        22.42798        21.24700        47.35900       101.88700       642.47 
+Sets         2312.01          ---          ---        22.42681        21.24700        47.35900       101.88700       326.88
+Gets         2312.01      2312.01         0.00        22.42914        21.24700        47.35900       101.88700       315.59
+Waits           0.00          ---          ---             ---             ---             ---             ---          ---
+Totals       4624.02      2312.01         0.00        22.42798        21.24700        47.35900       101.88700       642.47
 
 Request Latency Distribution
 Type     <= msec         Percent
@@ -149,7 +144,7 @@ service in different conditions can effectively benchmark the
 performance.
 
 :::note
-Aiven has `rate limit` on services. By default it\'s `200` new
+Aiven has `rate limit` on services. By default it's `200` new
 connections per 0.5 second per CPU core. Also be aware of the connection
 limit depending on memory size as explained in [Estimate maximum number
 of

@@ -26,7 +26,7 @@ collected metrics.
         to use. You should also give your service a name. The service
         overview page shows the nodes rebuilding, and then indicates
         when they are ready.
-    -   If you\'re already using InfluxDB, M3DB, or PostgreSQL on Aiven,
+    -   If you're already using InfluxDB, M3DB, or PostgreSQL on Aiven,
         you can submit your PostgreSQL metrics to the existing service.
 
 :::warning
@@ -43,7 +43,7 @@ of the metrics in case of problems with the service.
     **Monitor Data in Grafana** option to make the metrics available on
     that platform.
 
-2.  
+2.
 
     Choose either a new or existing Grafana service.
 
@@ -51,13 +51,13 @@ of the metrics in case of problems with the service.
             plan to use. You should also give your service a name. The
             service overview page shows the nodes rebuilding, and then
             indicates when they are ready.
-        -   If you\'re already using Grafana on Aiven, you can integrate
+        -   If you're already using Grafana on Aiven, you can integrate
             your M3DB as an additional data source for that existing
             Grafana.
 
 3.  On the **Overview** page for your Aiven for Grafana service, select
     the **Service URI** link. The username and password for your Grafana
-    service is also available on the service\'s **Overview** page.
+    service is also available on the service's **Overview** page.
 
 Now your Grafana service is connected to M3DB as a data source and you
 can go ahead and visualize your PostgreSQL metrics.

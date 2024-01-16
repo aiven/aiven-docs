@@ -6,12 +6,12 @@ Aiven for OpenSearch® is available on a variety of plans, offering
 different levels of high availability. The selected plan defines the
 features available, and a summary is provided in the table below:
 
-  Plan           High Availability Features                                    Backup History
-  -------------- ------------------------------------------------------------- ------------------------------------------
-  **Hobbyist**   Single-node with limited availability                         single backup for disaster recovery
-  **Startup**    Single-node with limited availability                         2 days, with hourly backup for 24 hours
-  **Business**   Three-node cluster configured for high availability           14 days, with hourly backup for 24 hours
-  **Premium**    Six-node (or more) cluster configured for high availability   30 days, with hourly backup for 24 hours
+| Plan         | High Availability Features                                  | Backup History                           |
+| ------------ | ----------------------------------------------------------- | ---------------------------------------- |
+| **Hobbyist** | Single-node with limited availability                       | single backup for disaster recovery      |
+| **Startup**  | Single-node with limited availability                       | 2 days, with hourly backup for 24 hours  |
+| **Business** | Three-node cluster configured for high availability         | 14 days, with hourly backup for 24 hours |
+| **Premium**  | Six-node (or more) cluster configured for high availability | 30 days, with hourly backup for 24 hours |
 
 ## Failure handling
 
@@ -54,7 +54,7 @@ Aiven platform constantly monitors all nodes in an OpenSearch cluster.
 When a node stops responding to a health check for sufficiently long
 time, Aiven platform starts a replacement node, waits for the node to
 start, and then replaces the failed node with the new node in the
-cluster\'s configuration.
+cluster's configuration.
 
 :::note
 The amount of time it takes for a new node to become fully operational

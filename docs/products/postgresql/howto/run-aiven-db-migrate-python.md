@@ -4,7 +4,7 @@ title: Migrate between PostgreSQL® instances using aiven-db-migrate in Python
 
 The `aiven-db-migrate` tool is an open source project available on
 [GitHub](https://github.com/aiven/aiven-db-migrate), useful to perform
-PostgreSQL migrations. It\'s written in Python and therefore you can
+PostgreSQL migrations. It's written in Python and therefore you can
 start any migration by directly calling the correct module.
 
 The list of source and target database requirements is available in the
@@ -15,17 +15,17 @@ The list of source and target database requirements is available in the
 The following variables need to be substituted in the `aiven-db-migrate`
 calls
 
-  Variable         Description
-  ---------------- ---------------------------------------------------------------
-  `SRC_USERNAME`   Username for source PostgreSQL connection
-  `SRC_PASSWORD`   Password for source PostgreSQL connection
-  `SRC_HOSTNAME`   Hostname for source PostgreSQL connection
-  `SRC_PORT`       Port for source PostgreSQL connection
-  `DST_USERNAME`   Username for destination PostgreSQL connection
-  `DST_PASSWORD`   Password for destination PostgreSQL connection
-  `DST_HOSTNAME`   Hostname for destination PostgreSQL connection
-  `DST_PORT`       Port for destination PostgreSQL connection
-  `DST_DBNAME`     Bootstrap database name for destination PostgreSQL connection
+| Variable       | Description                                                   |
+| -------------- | ------------------------------------------------------------- |
+| `SRC_USERNAME` | Username for source PostgreSQL connection                     |
+| `SRC_PASSWORD` | Password for source PostgreSQL connection                     |
+| `SRC_HOSTNAME` | Hostname for source PostgreSQL connection                     |
+| `SRC_PORT`     | Port for source PostgreSQL connection                         |
+| `DST_USERNAME` | Username for destination PostgreSQL connection                |
+| `DST_PASSWORD` | Password for destination PostgreSQL connection                |
+| `DST_HOSTNAME` | Hostname for destination PostgreSQL connection                |
+| `DST_PORT`     | Port for destination PostgreSQL connection                    |
+| `DST_DBNAME`   | Bootstrap database name for destination PostgreSQL connection |
 
 ## Execute the `aiven-db-migrate` in Python
 

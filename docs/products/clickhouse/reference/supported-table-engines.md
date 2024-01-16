@@ -20,29 +20,29 @@ same engine.
 
 Aiven for ClickHouse supports the following table engines:
 
-  Engine                                        Engine family
-  --------------------------------------------- -----------------
-  `AggregatingMergeTree` (remapped)             MergeTree
-  `Buffer`                                      Special engines
-  `CollapsingMergeTree` (remapped)              MergeTree
-  `Dictionary`                                  Special engines
-  `Distributed`                                 Special engines
-  `GenerateRandom`                              Special engines
-  `GraphiteMergeTree` (remapped)                MergeTree
-  `MaterializedView`                            Special engines
-  `Memory`                                      Special engines
-  `Merge`                                       Special engines
-  `MergeTree` (remapped)                        MergeTree
-  `Null`                                        Special engines
-  `ReplacingMergeTree` (remapped)               MergeTree
-  `ReplicatedAggregatingMergeTree` (remapped)   MergeTree
-  `ReplicatedCollapsingMergeTree`               MergeTree
-  `ReplicatedGraphiteMergeTree`                 MergeTree
-  `ReplicatedMergeTree`                         MergeTree
-  `ReplicatedReplacingMergeTree`                MergeTree
-  `ReplicatedSummingMergeTree`                  MergeTree
-  `ReplicatedVersionedCollapsingMergeTree`      MergeTree
-  `Set`                                         Special engines
-  `SummingMergeTree` (remapped)                 MergeTree
-  `VersionedCollapsingMergeTree` (remapped)     MergeTree
-  `View`                                        Special engines
+| Engine                                      | Engine family   |
+| ------------------------------------------- | --------------- |
+| `AggregatingMergeTree` (remapped)           | MergeTree       |
+| `Buffer`                                    | Special engines |
+| `CollapsingMergeTree` (remapped)            | MergeTree       |
+| `Dictionary`                                | Special engines |
+| `Distributed`                               | Special engines |
+| `GenerateRandom`                            | Special engines |
+| `GraphiteMergeTree` (remapped)              | MergeTree       |
+| `MaterializedView`                          | Special engines |
+| `Memory`                                    | Special engines |
+| `Merge`                                     | Special engines |
+| `MergeTree` (remapped)                      | MergeTree       |
+| `Null`                                      | Special engines |
+| `ReplacingMergeTree` (remapped)             | MergeTree       |
+| `ReplicatedAggregatingMergeTree` (remapped) | MergeTree       |
+| `ReplicatedCollapsingMergeTree`             | MergeTree       |
+| `ReplicatedGraphiteMergeTree`               | MergeTree       |
+| `ReplicatedMergeTree`                       | MergeTree       |
+| `ReplicatedReplacingMergeTree`              | MergeTree       |
+| `ReplicatedSummingMergeTree`                | MergeTree       |
+| `ReplicatedVersionedCollapsingMergeTree`    | MergeTree       |
+| `Set`                                       | Special engines |
+| `SummingMergeTree` (remapped)               | MergeTree       |
+| `VersionedCollapsingMergeTree` (remapped)   | MergeTree       |
+| `View`                                      | Special engines |

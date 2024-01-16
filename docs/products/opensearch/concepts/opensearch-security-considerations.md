@@ -61,4 +61,4 @@ security measures and benefit from enhanced protection.
     the changes and ensure they can effectively manage the transition.
 5.  Monitor and adjust your systems, automation, and infrastructure as
     needed, maintaining optimal performance and security in alignment
-    with your organization\'s requirements.
+    with your organization's requirements.

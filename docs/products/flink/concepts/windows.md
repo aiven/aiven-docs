@@ -10,7 +10,7 @@ instead, windowing offers a way to define a subset of data points that
 you can then process and analyze.
 
 A window is created when the first element matching the criteria that is
-set for it appears. The window\'s trigger defines when the window is
+set for it appears. The window'strigger defines when the window is
 considered ready for processing, and the function set for the window
 specifies how to process the data. Each window also has an allowed
 lateness value - this indicates how long new events are accepted for

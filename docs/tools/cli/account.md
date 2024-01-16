@@ -14,22 +14,10 @@ Check out the full description of
 
 Creates a new organization or organizational unit.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--name`</td>
-      <td>The name of the organization or unit</td>
-    </tr>
-    <tr>
-      <td>`--parent-account-id`</td>
-      <td>The ID of the organization</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter             | Information                          |
+| --------------------- | ------------------------------------ |
+| `--name`              | The name of the organization or unit |
+| `--parent-account-id` | The ID of the organization           |
 
 To create a new organizational unit, specify the parent organization
 using `--parent-account-id`.
@@ -37,14 +25,14 @@ using `--parent-account-id`.
 **Example:** Create an organizational unit for production in an
 organization with the ID `123456789123`.
 
-``` 
+```
 avn account create --name "Production" --parent-account-id 123456789123
 ```
 
 **Example:** Create a new organization for the billing analytics
 department.
 
-``` 
+```
 avn account create --name "Billing Analytics"
 ```
 
@@ -52,22 +40,13 @@ avn account create --name "Billing Analytics"
 
 Deletes an organization or organizational unit.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The id of the organization or unit</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information                        |
+| ------------ | ---------------------------------- |
+| `account_id` | The id of the organization or unit |
 
 **Example:** Delete the organization with id `123456789123`.
 
-``` 
+```
 avn account delete 123456789123
 ```
 
@@ -94,26 +73,14 @@ A full list of commands is available in a
 
 Changes the name of an organization or organizational unit.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`account_id`</td>
-      <td>The ID of the organization or unit</td>
-    </tr>
-    <tr>
-      <td>`--name`</td>
-      <td>The new name</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter    | Information                        |
+| ------------ | ---------------------------------- |
+| `account_id` | The ID of the organization or unit |
+| `--name`     | The new name                       |
 
 **Example:** Change the name of organizational unit with the ID
 `123456789123` to `Billing Analytics Account`.
 
-``` 
+```
 avn account update 123456789123 --name "Billing Analytics Account"
 ```

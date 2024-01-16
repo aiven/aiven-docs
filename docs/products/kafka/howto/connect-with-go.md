@@ -49,14 +49,14 @@ truststore files, but in actual use, the full path should be used.
 
 ## Variables
 
-  Variable          Description
-  ----------------- -----------------------------------------
-  `HOST`            Host name for the connection
-  `SSL_PORT`        Port number to use for SSL
-  `SASL_PORT`       Port number to use for SASL
-  `SASL_USERNAME`   Name of the user for the connection
-  `SASL_PASSWORD`   Password required to connect using SASL
-  `CLIENT_ID`       Application-specific client id
+ | Variable        | Description                             |
+ | --------------- | --------------------------------------- |
+ | `HOST`          | Host name for the connection            |
+ | `SSL_PORT`      | Port number to use for SSL              |
+ | `SASL_PORT`     | Port number to use for SASL             |
+ | `SASL_USERNAME` | Name of the user for the connection     |
+ | `SASL_PASSWORD` | Password required to connect using SASL |
+ | `CLIENT_ID`     | Application-specific client id          |
 
 ## With library `sarama`
 

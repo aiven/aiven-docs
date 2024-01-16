@@ -21,7 +21,7 @@ browse the Lenses.io implementation in the
 [related document](mongodb-sink-lenses)
 
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://docs.mongodb.com/kafka-connector/current/).
 :::
 
@@ -42,18 +42,18 @@ target MongoDB database upfront:
 -   `TOPIC_LIST`: The list of topics to sink divided by comma
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
 The Apache Kafka related details are available in the [Aiven
 console](https://console.aiven.io/) service *Overview tab* or via the
 dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
 The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
 Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
@@ -108,7 +108,7 @@ The configuration file contains the following entries:
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter translates
     messages from the Avro format. To retrieve the messages schema we
-    use Aiven\'s [Karapace schema
+    use Aiven's [Karapace schema
     registry](https://github.com/aiven/karapace) as specified by the
     `schema.registry.url` parameter and related credentials.
 
@@ -126,7 +126,7 @@ parameters
     `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
     [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-mongo#connect_mongodb_sink_prereq).
 -   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you\'re going to login to the schema registry
+    `USER_INFO`, since you're going to login to the schema registry
     using username and password.
 -   `value.converter.schema.registry.basic.auth.user.info`: passing the
     required schema registry credentials in the form of
@@ -175,7 +175,7 @@ You can also create connectors using the
 
 If you have a topic named `students` containing the following data:
 
-``` 
+```
 key: 1       value: {"name":"carlo"}
 key: 2       value: {"name":"lucy"}
 key: 3       value: {"name":"mary"}

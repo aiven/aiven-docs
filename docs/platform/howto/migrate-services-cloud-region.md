@@ -34,11 +34,11 @@ your new cloud provider and region will be in use.
 :::
 
 :::important
-The service\'s URI remains the same after the migration.
+The service's URI remains the same after the migration.
 :::
 
 :::note
 You can also use the
-[dedicated service update function](/docs/tools/cli/service#avn-cli-service-update) to migrate a service via the
+[dedicated service update function](/docs/tools/cli/service-cli#avn-cli-service-update) to migrate a service via the
 [Aiven CLI](/docs/tools/cli).
 :::

@@ -26,24 +26,44 @@ also affect the ports that are available:
 Aiven services commonly assign the following ports for services when
 deployed without any special configuration:
 
-+-------------------------------+-----------------------------------------+
-| Port                          | Description                             |
-+===============================+=========================================+
-| 22                            | Aiven management plane traffic over SSH |
-+-------------------------------+-----------------------------------------+
-| 80 (proxy, not open on nodes) | Redirect HTTP web traffic to HTTPS      |
-+-------------------------------+-----------------------------------------+
-| 443                           | Web user interface traffic              |
-|                               |                                         |
-|                               | -   Kafka® Connect                      |
-|                               | -   Flink®                              |
-|                               | -   Grafana®                            |
-|                               | -   OpenSearch® Dashboards              |
-+-------------------------------+-----------------------------------------+
-| 30287                         | Aiven platform management port          |
-+-------------------------------+-----------------------------------------+
-| 500, 4500 (UDP)               | IPsec (IKE, IPsec NAT-T)                |
-+-------------------------------+-----------------------------------------+
+<table>
+  <thead>
+    <tr>
+      <th>Port</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>22</td>
+      <td>Aiven management plane traffic over SSH</td>
+    </tr>
+    <tr>
+      <td>80 (proxy, not open on nodes)</td>
+      <td>Redirect HTTP web traffic to HTTPS</td>
+    </tr>
+    <tr>
+      <td>443</td>
+      <td>
+      Web user interface traffic
+        <ul>
+          <li>Kafka® Connect</li>
+          <li>Flink®</li>
+          <li>Grafana®</li>
+          <li>OpenSearch® Dashboards</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>30287</td>
+      <td>Aiven platform management port</td>
+    </tr>
+    <tr>
+      <td>500, 4500 (UDP)</td>
+      <td>IPsec (IKE, IPsec NAT-T)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Service ports
 
@@ -79,5 +99,5 @@ With the BYOC deployment model, you deploy Aiven services under your own
 cloud accounts. This gives you greater control over deployment
 configuration, but the VM-level firewall configurations are set at
 deployment time according to Aiven base configurations. You can apply
-additional firewalls using your cloud service provider\'s configuration
+additional firewalls using your cloud service provider's configuration
 options.

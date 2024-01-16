@@ -12,7 +12,7 @@ A dataset from [Kaggle](https://www.kaggle.com/hugodarwood/epirecipes)
 with recipes, rating and nutrition information from
 [Epicurious](https://www.epicurious.com).
 
-Let\'s take a look at a sample recipe document:
+Let's take a look at a sample recipe document:
 
 ``` json
 {
@@ -65,7 +65,7 @@ pip install opensearch-py==1.0.0
     your OpenSearch service.
 
 :::tip
-You can find the `SERVICE_URI` on Aiven\'s dashboard.
+You can find the `SERVICE_URI` on Aiven's dashboard.
 :::
 
 ``` python
@@ -160,7 +160,7 @@ And the mapping with the fields and their respective types.
            'type': 'text'}}
 ```
 
-:::note See also
+:::note[See also]
 Read more about OpenSearch mapping in the [official OpenSearch
 documentation](https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/put-mapping/).
 :::
@@ -206,7 +206,7 @@ module.exports.indexData = () => {
 };
 ```
 
-Run this method to load the data and wait till it\'s done. We\'re
+Run this method to load the data and wait till it's done. We\'re
 injecting over 20k recipes, so it can take 10-15 seconds.
 
 ## Get data mapping with NodeJS {#get-mapping-with-nodejs}
@@ -261,7 +261,7 @@ documentation](https://opensearch.org/docs/latest/field-types/index/#dynamic-map
 With the data in place, we can start trying some queries against your
 OpenSearch service. Since it has a simple HTTP interface, you can use
 your favorite HTTP client. In these examples, we will use
-[httpie](https://github.com/httpie/httpie) because it\'s one of our
+[httpie](https://github.com/httpie/httpie) because it's one of our
 favorites.
 
 First, export the `SERVICE_URI` variable with your OpenSearch service

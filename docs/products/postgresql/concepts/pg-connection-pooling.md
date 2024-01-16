@@ -53,67 +53,52 @@ Without a connection pooler, the database connections are handled
 directly by PostgreSQL backend processes, with one process per
 connection:
 
-<!--
-:::mermaid
-
+```mermaid
 graph LR
-
-:   pg_client_1(PG client) \<-.-\> postmaster pg_client_2(PG client)
-    \-\--\> pg_backend_1(PG Backend 1) pg_client_3(PG client) \-\--\>
-    pg_backend_2(PG Backend 2) pg_client_4(PG client) \-\--\>
-    pg_backend_3(PG Backend 3) pg_client_5(PG client) \-\--\>
-    pg_backend_4(PG Backend 4) pg_client_6(PG client) \-\--\>
-    pg_backend_5(PG Backend 5) pg_client_7(PG client) \-\--\>
-    pg_backend_6(PG Backend 6)
+        pg_client_1(PG client) <-.->|Client establishing a new connection| postmaster
+        pg_client_2(PG client) ---> pg_backend_1(PG Backend 1)
+        pg_client_3(PG client) ---> pg_backend_2(PG Backend 2)
+        pg_client_4(PG client) ---> pg_backend_3(PG Backend 3)
+        pg_client_5(PG client) --->|Existing client connections| pg_backend_4(PG Backend 4)
+        pg_client_6(PG client) ---> pg_backend_5(PG Backend 5)
+        pg_client_7(PG client) ---> pg_backend_6(PG Backend 6)
 
 subgraph PostgreSQL server
-
-:   postmaster & pg_backend_1 & pg_backend_2 & pg_backend_3 &
-    pg_backend_4 & pg_backend_5 & pg_backend_6
-
+    postmaster & pg_backend_1 & pg_backend_2 & pg_backend_3 & pg_backend_4 & pg_backend_5 & pg_backend_6
 end
 
 subgraph Clients
-
-:   pg_client_1 & pg_client_2 & pg_client_3 & pg_client_4 & pg_client_5
-    & pg_client_6 & pg_client_7
-
+    pg_client_1 & pg_client_2 & pg_client_3 & pg_client_4 & pg_client_5 & pg_client_6 & pg_client_7
 end
-:::
--->
+```
 
 Adding a PgBouncer pooler that utilizes fewer backend connections frees
 up server resources for more important uses, such as disk caching:
 
-<!--
-:::mermaid
-
+```mermaid
 graph LR
-
-:   pg_client_1(PG client) \<-.-\> pgbouncer pg_client_2(PG client)
-    \-\--\> pgbouncer pg_client_3(PG client) \-\--\> pgbouncer
-    pg_client_4(PG client) \-\--\> pgbouncer pg_client_5(PG client)
-    \-\--\> pgbouncer pg_client_6(PG client) \-\--\> pgbouncer
-    pg_client_7(PG client) \-\--\> pgbouncer pgbouncer \--\> postmaster
-    pgbouncer \--\> pg_backend_1(PG Backend 1) pgbouncer \--\>
-    pg_backend_2(PG Backend 2) pgbouncer \--\> pg_backend_3(PG
-    Backend 3) pgbouncer \--\> pg_backend_4(PG Backend 4)
+        pg_client_1(PG client) <-.->|Client establishing a new connection| pgbouncer
+        pg_client_2(PG client) ---> pgbouncer
+        pg_client_3(PG client) ---> pgbouncer
+        pg_client_4(PG client) ---> pgbouncer
+        pg_client_5(PG client) --->|Existing client connections| pgbouncer
+        pg_client_6(PG client) ---> pgbouncer
+        pg_client_7(PG client) ---> pgbouncer
+        pgbouncer --> postmaster
+        pgbouncer --> pg_backend_1(PG Backend 1)
+        pgbouncer --> pg_backend_2(PG Backend 2)
+        pgbouncer --> pg_backend_3(PG Backend 3)
+        pgbouncer --> pg_backend_4(PG Backend 4)
 
 subgraph PostgreSQL server
-
-:   pgbouncer postmaster & pg_backend_1 & pg_backend_2 & pg_backend_3 &
-    pg_backend_4
-
+    pgbouncer
+    postmaster & pg_backend_1 & pg_backend_2 & pg_backend_3 & pg_backend_4
 end
 
 subgraph Clients
-
-:   pg_client_1 & pg_client_2 & pg_client_3 & pg_client_4 & pg_client_5
-    & pg_client_6 & pg_client_7
-
+    pg_client_1 & pg_client_2 & pg_client_3 & pg_client_4 & pg_client_5 & pg_client_6 & pg_client_7
 end
-:::
--->
+```
 
 Instead of having dedicated connections per client, now PgBouncer
 manages the connections assignment optimising them based on client
@@ -156,7 +141,7 @@ expected.
 -   The `session` pooling mode means that once a client connection is
     granted access to a PostgreSQL server-side connection, it can hold
     it until the client disconnects from the pooler. After this, the
-    server connection is added back onto the connection pooler\'s free
+    server connection is added back onto the connection pooler's free
     connection list to wait for its next client connection. Client
     connections are accepted (at TCP level), but their queries only
     proceed once another client disconnects and frees up its backend

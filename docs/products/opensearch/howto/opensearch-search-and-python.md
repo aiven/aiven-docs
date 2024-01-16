@@ -34,12 +34,12 @@ the code on your machine and try the commands:
 
 1.  Clone the repository and install the dependencies
 
-``` 
-git clone https://github.com/aiven/demo-opensearch-python
-pip install -r requirements.txt
-```
+    ```
+    git clone https://github.com/aiven/demo-opensearch-python
+    pip install -r requirements.txt
+    ```
 
-2.  Download the dataset from Kaggle\'s [recipe
+2.  Download the dataset from Kaggle's [recipe
     dataset](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json),
     and save the `full_format_recipes.json` in the current folder of the
     [demo repository](https://github.com/aiven/demo-opensearch-python).
@@ -73,18 +73,18 @@ client = OpenSearch(SERVICE_URI, use_ssl=True)
 The `SERVICE_URI` value can be found in the Aiven Console dashboard.
 :::
 
-After creating a client with a valid `SERVICE_URI`, you\'re set to
+After creating a client with a valid `SERVICE_URI`, you're set to
 interact with your cluster.
 
 ### Upload data to OpenSearch using Python
 
-Once you\'re connected, the next step should be to
+Once you're connected, the next step should be to
 [inject data into our cluster](/docs/products/opensearch/howto/sample-dataset#load-data-with-python). This is done in our demo with the [load_data
 function](https://github.com/aiven/demo-opensearch-python/blob/main/index.py).
 
 You can inject the data to your cluster by running:
 
-``` 
+```
 python index.py load-data
 ```
 
@@ -96,7 +96,7 @@ function](https://github.com/aiven/demo-opensearch-python/blob/main/index.py).
 
 Check the structure of your data by running:
 
-``` 
+```
 python index.py get-mapping
 ```
 
@@ -154,7 +154,7 @@ We can check the method signature to understand the function and which
 parameters we\'ll use. As you can see, all the parameters are optional
 in the `search()` method. Find below the method signature:
 
-``` 
+```
 client.search: (body=None, index=None, doc_type=None, params=None, headers=None)
 ```
 
@@ -205,7 +205,7 @@ query_body = {
 In this example, we are searching for \"Garlic-Lemon\" across `title`
 and `ingredients` fields. Try out yourself using our demo:
 
-``` 
+```
 python search.py multi-match title ingredients Garlic-Lemon
 ```
 
@@ -332,7 +332,7 @@ As a result of the \"Spring\" search recipes, you\'ll find:
 ]
 ```
 
-:::note See also
+:::note[See also]
 Find out more about [match
 queries](https://opensearch.org/docs/latest/query-dsl/full-text/match/).
 :::
@@ -365,7 +365,7 @@ Suppose you are looking for citrus recipes 🍋. For example, recipes with
 ingredients and lemon in the title, you can run your query from our
 [demo](https://github.com/aiven/demo-opensearch-python/) as:
 
-``` 
+```
 python search.py multi-match title ingredients lemon
 ```
 
@@ -386,7 +386,7 @@ query_body = {
              }
 ```
 
-If you know exactly which phrases you\'re looking for, you can try out
+If you know exactly which phrases you're looking for, you can try out
 our `match-phrase`
 [search_match_phrase()](https://github.com/aiven/demo-opensearch-python/blob/main/search.py).
 
@@ -399,11 +399,11 @@ uppercase can bring your results according to the relevance
 For example, try searching for `pannacotta with lemon marmalade` in the
 title:
 
-``` 
+```
 python search.py match-phrase title "Pannacotta with lemon marmalade"
 ```
 
-If you just have a rough idea of the phrase you\'re looking for, you can
+If you just have a rough idea of the phrase you're looking for, you can
 make your match phrase query more flexible with the `slop` parameter as
 explained in the section
 [match phrase with slop query](/docs/products/opensearch/howto/opensearch-search-and-python#match-phrase-slop) section.
@@ -411,7 +411,7 @@ explained in the section
 ### Match phrases and add some `slop` {#match-phrase-slop}
 
 You can use the `slop` parameter to create more flexible searches.
-Suppose you\'re searching for `pannacotta marmalade` with the
+Suppose you're searching for `pannacotta marmalade` with the
 `match_phrase` query, and no results are found. This happens because you
 are looking for exact phrases, as discussed in
 [match phrase query](/docs/products/opensearch/howto/opensearch-search-and-python#match-phrase-query)
@@ -445,7 +445,7 @@ query_body = {
 
 In the demo, you can find the
 [search_slop()](https://github.com/aiven/demo-opensearch-python/blob/main/search.py)
-function where this query is used. Suppose you\'re looking for
+function where this query is used. Suppose you're looking for
 `pannacotta marmalade` phrase. To find more results rather than exact
 phrases, you should allow a certain degree. You can configure the `slop`
 to 2 , so it can find matches skipping **two words** between the
@@ -463,10 +463,10 @@ Your result should look like this:
 ['Lemon Pannacotta with Lemon Marmalade ']
 ```
 
-So with `slop` parameter adjusted, you\'re may be able to find results
+So with `slop` parameter adjusted, you're may be able to find results
 even with other words in between the ones you searched.
 
-:::note See also
+:::note[See also]
 Read more about `slop` parameter on the [OpenSearch project
 specifications](https://opensearch.org/docs/latest/query-dsl/full-text/index/).
 :::
@@ -502,14 +502,14 @@ function, which uses this query to build customized term queries.
 Run the search query yourself to find recipes with zero sodium on it,
 for example:
 
-``` 
+```
 python search.py term sodium 0
 ```
 
 ### Search with a `range` query
 
 This query helps to find documents that the field is within a provided
-range. This can be handy if you\'re dealing with **numerical values**
+range. This can be handy if you're dealing with **numerical values**
 and are interested **in ranges** instead of specific values. The queries
 can be constructed as:
 
@@ -529,20 +529,20 @@ query_body = {
 You can construct range queries with combinations of inclusive and
 exclusive parameters as can be seen in the table:
 
-  Parameter   Behavior
-  ----------- --------------------------
-  `gte`       Greater than or equal to
-  `gt`        Greater than
-  `lt`        Less than
-  `lte`       Less than or equal to
+| Parameter | Behavior                 |
+| --------- | ------------------------ |
+| `gte`     | Greater than or equal to |
+| `gt`      | Greater than             |
+| `lt`      | Less than                |
+| `lte`     | Less than or equal to    |
 
 Try to find recipes in a certain range of sodium, for example:
 
-``` 
+```
 python search.py range sodium 0 10
 ```
 
-:::note See also
+:::note[See also]
 See more about the range query in the [OpenSearch
 documentation](https://opensearch.org/docs/latest/query-dsl/term/range/).
 :::
@@ -572,7 +572,7 @@ query_body = {
                        }
                    }
                }
-             } 
+             }
 ```
 
 We can try out looking for a misspelled word and allowing some

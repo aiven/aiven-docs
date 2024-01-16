@@ -4,12 +4,12 @@ title: Create a new service
 
 Follow these steps to create a new service in [Aiven
 Console](https://console.aiven.io/). You can also
-[create a service using the Aiven CLI](/docs/tools/cli/service#avn-cli-service-create).
+[create a service using the Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create).
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 2.  Using the top navigation bar, go to the organization and the project
     that you want to create a service in.
-3.  On the project\'s page, make sure your in the **Services** view and
+3.  On the project's page, make sure your in the **Services** view and
     select **Create service**.
 4.  From the **Select service** page, select the service that you want
     to create.
@@ -38,7 +38,7 @@ Console](https://console.aiven.io/). You can also
         section.
 
         :::note
-        It\'s not possible to add storage space for all cloud
+        It's not possible to add storage space for all cloud
         environments and service plans.
         :::
 

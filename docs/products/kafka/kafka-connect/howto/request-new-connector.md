@@ -7,7 +7,7 @@ like us to support, please email us at [support@aiven.io](mailto:support@aiven.i
 help us shape the future roadmap. We will evaluate the requested
 connector and might add support for it.
 
-Aiven\'s evaluation process for new Apache Kafka Connect connectors
+Aiven's evaluation process for new Apache Kafka Connect connectors
 checks:
 
 -   license compatibility

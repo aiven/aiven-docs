@@ -39,7 +39,7 @@ itself does not use a lot of memory, may still be killed.
 have the highest memory footprint and be a prime candidate for
 termination when the OOM Killer inspects the running processes.*
 
-Aiven\'s cloud data platform leverages kernel namespaces (or containers)
+Aiven's cloud data platform leverages kernel namespaces (or containers)
 to isolate processes from each other. Isolation has several benefits,
 including:
 
@@ -51,7 +51,7 @@ Left unchecked, the `OOM Killer` may opt to kill the primary service.
 This is undesirable as unclean termination of the primary service can
 lead to data loss, inconsistency, or corrupted backups.
 
-Further, if Aiven\'s management platform detects that the primary
+Further, if Aiven's management platform detects that the primary
 service is unavailable for , the service will be marked as down and a
 failover will occur.
 

@@ -23,7 +23,7 @@ updated frequently enough.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://debezium.io/documentation/reference/stable/connectors/postgresql.html).
 :::
 
@@ -59,19 +59,19 @@ source PostgreSQL database upfront:
     if left empty, `debezium` is be used as default
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for PostgreSQL and Aiven for Apache Kafka the
+If you're using Aiven for PostgreSQL and Aiven for Apache Kafka the
 above details are available in the [Aiven
 console](https://console.aiven.io/) service Overview tab or via the
 dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Set up a PostgreSQL Debezium source connector with Aiven CLI
@@ -134,14 +134,14 @@ The configuration file contains the following entries:
 Please note that the `wal2json` logical decoding plugin has limitations
 in the data types that it can support. Besides the basic data types, it
 automatically turns all other data types into strings based on their
-textual representation. Therefore, if you\'re using complex data types,
+textual representation. Therefore, if you're using complex data types,
 check the related `wal2json` string representation.
 :::
 
 -   `key.converter` and `value.converter`: defines the messages data
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter pushes messages
-    in Avro format. To store the messages schema we use Aiven\'s
+    in Avro format. To store the messages schema we use Aiven's
     [Karapace schema registry](https://github.com/aiven/karapace) as
     specified by the `schema.registry.url` parameter and related
     credentials.
@@ -165,7 +165,7 @@ To create the connector, execute the following
 [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create), replacing the `SERVICE_NAME` with the name of the Aiven
 service where the connector needs to run:
 
-``` 
+```
 avn service connector create SERVICE_NAME @debezium_source_pg.json
 ```
 
@@ -173,7 +173,7 @@ Check the connector status with the following command, replacing the
 `SERVICE_NAME` with the Aiven service and the `CONNECTOR_NAME` with the
 name of the connector defined before:
 
-``` 
+```
 avn service connector status SERVICE_NAME CONNECTOR_NAME
 ```
 
@@ -181,7 +181,7 @@ Verify the presence of the topic and data in the Apache Kafka target
 instance.
 
 :::tip
-If you\'re using Aiven for Apache Kafka, topics will not be created
+If you're using Aiven for Apache Kafka, topics will not be created
 automatically. Either create them manually following the
 `database.server.name.schema_name.table_name` naming pattern or enable
 the `kafka.auto_create_topics_enable` advanced parameter.
@@ -193,7 +193,7 @@ When creating a Debezium source connector pointing to Aiven for
 PostgreSQL using the `pgoutput` plugin, you could get the following
 error:
 
-``` 
+```
 Caused by: org.postgresql.util.PSQLException: ERROR: must be superuser to create FOR ALL TABLES publication
 ```
 
@@ -214,7 +214,7 @@ result, this configuration was not conflicting with a publication
 `FOR ALL TABLES`. Starting with Debezium 1.9.7, those configurations are
 conflicting and you could get the following error:
 
-``` 
+```
 Caused by: org.postgresql.util.PSQLException: ERROR: publication "dbz_publication" is defined as FOR ALL TABLES
    Detail: Tables cannot be added to or dropped from FOR ALL TABLES publications.
 ```
@@ -233,17 +233,17 @@ To create the publication in PostgreSQL:
 
 -   Installing the `aiven-extras` extension:
 
-    ``` 
+    ```
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
 -   Create a publication (with name e.g. `my_test_publication`) for all
     the tables:
 
-    ``` 
-    SELECT * 
+    ```
+    SELECT *
     FROM aiven_extras.pg_create_publication_for_all_tables(
-       'my_test_publication', 
+       'my_test_publication',
        'INSERT,UPDATE,DELETE'
     );
     ```

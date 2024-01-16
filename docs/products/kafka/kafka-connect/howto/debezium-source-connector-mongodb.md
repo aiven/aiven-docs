@@ -9,7 +9,7 @@ by multiple consumers.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://debezium.io/docs/connectors/mongodb/).
 :::
 
@@ -28,21 +28,21 @@ source MongoDB database upfront:
 -   `MONGODB_USER`: The database user to connect
 -   `MONGODB_PASSWORD`: The database password for the `MONGODB_USER`
 -   `MONGODB_DATABASE_NAME`: The database name to include in the replica
--   `MONGODB_REPLICA_SET_NAME`: The name of MongoDB\'s replica set
+-   `MONGODB_REPLICA_SET_NAME`: The name of MongoDB's replica set
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for Apache Kafka®, the Kafka related details are
+If you're using Aiven for Apache Kafka®, the Kafka related details are
 available in the [Aiven console](https://console.aiven.io/) service
 Overview tab or via the dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Setup a MongoDB Debezium source connector with Aiven Console
@@ -97,7 +97,7 @@ The configuration file contains the following entries:
 -   `key.converter` and `value.converter`: defines the messages data
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter pushes messages
-    in Avro format. To store the messages schema we use Aiven\'s
+    in Avro format. To store the messages schema we use Aiven's
     [Karapace schema registry](https://github.com/aiven/karapace) as
     specified by the `schema.registry.url` parameter and related
     credentials.
@@ -146,7 +146,7 @@ To create a Kafka Connect connector, follow these steps:
     connector**.
 
     :::tip
-    If you\'re using Aiven for Apache Kafka, topics will not be created
+    If you're using Aiven for Apache Kafka, topics will not be created
     automatically. Either create them manually following the
     `database.server.name.schema_name.table_name` naming pattern or
     enable the `kafka.auto_create_topics_enable` advanced parameter.

@@ -22,7 +22,7 @@ browse the MongoDB implementation in the
 [related document](mongodb-sink-mongo)
 
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://docs.lenses.io/connectors/sink/mongo.html).
 :::
 
@@ -50,28 +50,28 @@ target MongoDB database upfront:
 -   `KCQL_TRANSFORMATION`: The KCQL syntax to parse the topic data,
     should be in the format:
 
-        INSERT | UPSERT 
+        INSERT | UPSERT
         INTO MONGODB_COLLECTION_NAME
-        SELECT LIST_OF_FIELDS 
+        SELECT LIST_OF_FIELDS
         FROM APACHE_KAFKA_TOPIC
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
 The Apache Kafka related details are available in the [Aiven
 console](https://console.aiven.io/) service *Overview tab* or via the
 dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
 The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
 Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
@@ -123,7 +123,7 @@ The configuration file contains the following entries:
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter translates
     messages from the Avro format. To retrieve the messages schema we
-    use Aiven\'s [Karapace schema
+    use Aiven's [Karapace schema
     registry](https://github.com/aiven/karapace) as specified by the
     `schema.registry.url` parameter and related credentials.
 
@@ -141,7 +141,7 @@ parameters
     `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
     [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses#connect_mongodb_lenses_sink_prereq).
 -   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you\'re going to login to the schema registry
+    `USER_INFO`, since you're going to login to the schema registry
     using username and password.
 -   `value.converter.schema.registry.basic.auth.user.info`: passing the
     required schema registry credentials in the form of
@@ -199,7 +199,7 @@ You can also create connectors using the
 If you have a topic named `students` containing the following data that
 you want to move to MongoDB:
 
-``` 
+```
 {"name":"carlo", "age": 77}
 {"name":"lucy", "age": 55}
 {"name":"carlo", "age": 33}
@@ -219,7 +219,7 @@ and `MONGODB_PASSWORD`:
     "topics": "students",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "value.converter.schemas.enable": "false",
-    "connect.mongo.kcql": "INSERT into studentscol SELECT * FROM students"    
+    "connect.mongo.kcql": "INSERT into studentscol SELECT * FROM students"
 }
 ```
 
@@ -245,7 +245,7 @@ If you have a topic named `students` containing the following data that
 you want to move to MongoDB, but having one document per person `name`
 in the following messages:
 
-``` 
+```
 {"name":"carlo", "age": 77}
 {"name":"lucy", "age": 55}
 {"name":"carlo", "age": 33}
@@ -265,7 +265,7 @@ and `MONGODB_PASSWORD`:
     "topics": "students",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "value.converter.schemas.enable": "false",
-    "connect.mongo.kcql": "UPSERT into studentscol SELECT * FROM students PK name"    
+    "connect.mongo.kcql": "UPSERT into studentscol SELECT * FROM students PK name"
 }
 ```
 
@@ -287,7 +287,7 @@ named `studentscol` in the MongoDB database referenced by the
 `MONGODB_DB_NAME` placeholder. The collection should contain two
 documents since the name `carlo` was present two times:
 
-``` 
+```
 {"name":"lucy", age: 55}
 {"name":"carlo", age: 33}
 ```

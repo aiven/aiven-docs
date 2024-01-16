@@ -23,7 +23,7 @@ ID
 According to the tax treaty between Finland and the United States (US),
 no direct tax needs to be withheld from payments by US entities to
 Aiven. Although a W-8 form is not required to confirm this status,
-we\'re happy to provide a W-8BEN-E form describing Aiven\'s status.
+we\'re happy to provide a W-8BEN-E form describing Aiven's status.
 Contact the sales team at [sales@aiven.io](mailto:sales@aiven.io) to request one.
 
 Aiven does charge US sales taxes in several states in the US. The

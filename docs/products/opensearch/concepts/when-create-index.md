@@ -9,7 +9,7 @@ Consider creating a new index per customer/project/entity when
 
 -   you have a very limited number of entities (tens, not hundreds or
     thousands);
--   it\'s very important you can easily and efficiently delete all the
+-   it's very important you can easily and efficiently delete all the
     data related to a single entity.
 
 For example, storing logs or other events on per-date indexes (

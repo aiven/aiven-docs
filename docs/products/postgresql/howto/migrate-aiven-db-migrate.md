@@ -58,7 +58,7 @@ following:
     [Aiven CLI](/docs/tools/cli) substituting the
     parameters accordingly:
 
-    ``` 
+    ```
     avn service create --project PROJECT_NAME -t pg -p DEST_PG_PLAN DEST_PG_NAME
     ```
 
@@ -89,15 +89,15 @@ following:
 The following variables need to be substituted in the `aiven-db-migrate`
 calls
 
-  Variable         Description
-  ---------------- -------------------------------------------------------------------------
-  `SRC_USERNAME`   Username for source PostgreSQL connection
-  `SRC_PASSWORD`   Password for source PostgreSQL connection
-  `SRC_HOSTNAME`   Hostname for source PostgreSQL connection
-  `SRC_PORT`       Port for source PostgreSQL connection
-  `DEST_PG_NAME`   Destination Aiven for PostgreSQL service name
-  `DST_DBNAME`     Bootstrap database name for destination PostgreSQL connection
-  `DB_TO_SKIP`     Comma separated list of database names for which to skip the migrations
+ | Variable       | Description                                                             |
+ | -------------- | ----------------------------------------------------------------------- |
+ | `SRC_USERNAME` | Username for source PostgreSQL connection                               |
+ | `SRC_PASSWORD` | Password for source PostgreSQL connection                               |
+ | `SRC_HOSTNAME` | Hostname for source PostgreSQL connection                               |
+ | `SRC_PORT`     | Port for source PostgreSQL connection                                   |
+ | `DEST_PG_NAME` | Destination Aiven for PostgreSQL service name                           |
+ | `DST_DBNAME`   | Bootstrap database name for destination PostgreSQL connection           |
+ | `DB_TO_SKIP`   | Comma separated list of database names for which to skip the migrations |
 
 ## Perform the migration with `aiven-db-migrate`
 
@@ -151,7 +151,7 @@ The output should be similar to the following, which mentions that the
 `pg_dump` migration of the `defaultdb` database is `done` and the
 logical `replication` of the `has_aiven_extras` database is syncing:
 
-``` 
+```
 -----Response Begin-----
 {
     "migration": {

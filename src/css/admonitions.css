@@ -1,20 +1,8 @@
-:root {
-  --aiven-adm-bg-note: rgb(224, 245, 254);
-  --aiven-adm-bg-info: var(--aiven-adm-bg-note);
-  --aiven-adm-bg-tip: rgb(236, 247, 237);
-  --aiven-adm-bg-warning: rgb(254, 232, 230);
-  --aiven-adm-text-color: var(--aiven-grey-60);
-  --aiven-adm-title-color: var(--aiven-grey-80);
-}
-/* --aquarium-colors-info-70: #0399e3;
---aquarium-colors-error-70: #d80005;
---aquarium-colors-success-70: #00b300;
---aquarium-colors-warning-90: #ff9003; */
 .alert {
   --ifm-alert-background-color: var(--aiven-adm-bg-note);
-  --ifm-alert-border-color: none;
+  border-left: 0px;
   border-radius: 4px;
-  --ifm-link-color: var(--aiven-primary-80);
+  --ifm-link-color: var(--aiven-adm-link-color);
   --ifm-link-hover-color: var(--aiven-primary-70);
   --ifm-link-decoration: none;
   padding: 12px;

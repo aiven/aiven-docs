@@ -12,7 +12,7 @@ more entries that specify a **username**, an **operation**, and a
     -   `schema_registry_read`
     -   `schema_registry_write` (always includes `schema_registry_read`)
 -   A **resource** can be in the following formats:
-    -   
+    -
 
         `Config:`: the entry controls access to global compatibility configurations. Karapace only allows a user to retrieve and change the default schema compatibility mode via the global `Config:` resource. For more information, see the project [README](https://github.com/aiven/karapace/blob/main/README.rst).
 
@@ -64,47 +64,16 @@ to have the following in the ACL:
     `schema_registry_write` permission in the ACL for the specific
     subject.
 
-The following table provides you with examples:
+Example:
 
-  -------------------------------------------------------------------------------------------
-  username           operation                 resource       explanation
-  ------------------ ------------------------- -------------- -------------------------------
-  `user_1`           `schema_registry_read`    `Config:`      Provides `user_1` he permission
-                                                              to read everything in the
-                                                              resource configuration.
+| username         | operation               | resource     | explanation                                                                                                                                                                                                                 |
+| ---------------- | ----------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user_1`         | `schema_registry_read`  | `Config:`    | Provides `user_1` the permission to read everything in the resource configuration.                                                                                                                                          |
+| `user_1`         | `schema_registry_read`  | `Subject:s1` | Provides `user_1` the permission to read only data related to subject `s1`. In case of list endpoints, data related to all other subjects is filtered out.                                                                  |
+| `user_1`         | `schema_registry_write` | `Subject:s1` | Provides `user_1` the permission to write (add, modify, delete) data associated with subject `s1`. Having write permission also means that the user also has the corresponding read permission.                             |
+| `user_readonly*` | `schema_registry_read`  | `Subject:s*` | Provides read access for all users with prefix `user_readonly`, to all the subjects with prefix `s`. The response is filtered to only contain results for all subjects with prefix `s`.                                     |
+| `user_write*`    | `schema_registry_write` | `Subject:s*` | Provides the user with write (add, modify, delete) access for users with prefix `user_write`, to the subjects with prefix `s`. Having write permission also means that the user also has the corresponding read permission. |
 
-  `user_1`           `schema_registry_read`    `Subject:s1`   Provides `user_1` the
-                                                              permission to read only data
-                                                              related to subject `s1`. In
-                                                              case of list endpoints, data
-                                                              related to all other subjects
-                                                              is filtered out.
-
-  `user_1`           `schema_registry_write`   `Subject:s1`   Provides `user_1` the
-                                                              permission to write (add,
-                                                              modify, delete) data associated
-                                                              with subject `s1`. Having write
-                                                              permission also means that the
-                                                              user also has the corresponding
-                                                              read permission.
-
-  `user_readonly*`   `schema_registry_read`    `Subject:s*`   Provides read access for all
-                                                              users with prefix
-                                                              `user_readonly`, to all the
-                                                              subjects with prefix `s`. The
-                                                              response is filtered to only
-                                                              contain results for all
-                                                              subjects with prefix `s`.
-
-  `user_write*`      `schema_registry_write`   `Subject:s*`   Provides the user with write
-                                                              (add, modify, delete) access
-                                                              for users with prefix
-                                                              `user_write`, to the subjects
-                                                              with prefix `s`. Having write
-                                                              permission also means that the
-                                                              user also has the corresponding
-                                                              read permission.
-  -------------------------------------------------------------------------------------------
 
 The user that manages the ACLs is a superuser with write access to
 everything in the schema registry. In the Aiven Console, the superuser

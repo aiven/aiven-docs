@@ -23,7 +23,7 @@ collected metrics.
     service.
     -   If you choose to use a new service, follow instructions on
         [how to create a service](/docs/platform/howto/create_new_service).
-    -   If you\'re already using InfluxDB, M3DB, or PostgreSQL on Aiven,
+    -   If you're already using InfluxDB, M3DB, or PostgreSQL on Aiven,
         you can submit your ClickHouse® metrics to the existing service.
 
 ## Provision and configure Grafana®
@@ -35,7 +35,7 @@ collected metrics.
 2.  Choose either a new or existing Grafana® service.
     -   If you choose to use a new service, follow instructions on
         [how to create a service](/docs/platform/howto/create_new_service).
-    -   If you\'re already using Grafana® on Aiven, you can integrate
+    -   If you're already using Grafana® on Aiven, you can integrate
         your M3DB as an additional data source for that existing
         Grafana.
 3.  On the service **Overview** page for your Grafana® service, select

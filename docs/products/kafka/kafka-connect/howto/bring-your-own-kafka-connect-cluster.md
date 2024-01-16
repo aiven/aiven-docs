@@ -27,17 +27,17 @@ service and the target database upfront:
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
 -   `APACHE_KAFKA_PORT`: The port of the Apache Kafka service
--   `REST_API_PORT`: The Apache Kafka\'s REST API port, only needed when
+-   `REST_API_PORT`: The Apache Kafka's REST API port, only needed when
     testing data flow with REST APIs
--   `REST_API_USERNAME`: The Apache Kafka\'s REST API username, only
+-   `REST_API_USERNAME`: The Apache Kafka's REST API username, only
     needed when testing data flow with REST APIs
--   `REST_API_PASSWORD`: The Apache Kafka\'s REST API password, only
+-   `REST_API_PASSWORD`: The Apache Kafka's REST API password, only
     needed when testing data flow with REST APIs
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 -   `PG_HOST`: The PostgreSQL service hostname
 -   `PG_PORT`: The PostgreSQL service port
@@ -46,11 +46,11 @@ service and the target database upfront:
 -   `PG_DATABASE_NAME`: The PostgreSQL service database name
 
 :::note
-If you\'re using Aiven for PostgreSQL and Aiven for Apache Kafka the
+If you're using Aiven for PostgreSQL and Aiven for Apache Kafka the
 above details are available in the [Aiven
 console](https://console.aiven.io/) service Overview tab or via the
 dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Attach your own Apache Kafka Connect cluster to Aiven for Apache Kafka®

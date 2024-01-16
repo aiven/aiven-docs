@@ -1,0 +1,34 @@
+name: Update global Aiven index
+# Updates the global Aiven index to add the docs content into the global search.
+# The docs website itself is also indexed via DocSearch.
+
+on:
+  schedule:
+    - cron: '0 6 * * 2' # Runs at 06:00 UTC every Tuesday
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Node.js dependencies
+        run: yarn
+
+      - name: Build Docusaurus site
+        run: yarn build
+
+      - name: Index docs output
+        run: node scripts/create_index_algolia.js
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}

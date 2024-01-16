@@ -23,7 +23,7 @@ the following steps:
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  From the **Services** page, select the the Aiven for PostgreSQL
     service where you want to enable JIT.
-3.  From the sidebar on your service\'s page, select **Service
+3.  From the sidebar on your service's page, select **Service
     settings**.
 4.  On the **Service settings** page, navigate to the **Advanced
     configuration** section, and select **Configure**.
@@ -33,9 +33,9 @@ the following steps:
 7.  Select **Save configuration**.
 
 To enable JIT via [Aiven CLI](/docs/tools/cli), you can use the
-[service update command](/docs/tools/cli/service#avn-cli-service-update):
+[service update command](/docs/tools/cli/service-cli#avn-cli-service-update):
 
-``` 
+```
 avn service update --project PROJECT_NAME -c pg.jit=true PG_SERVICE_NAME
 ```
 
@@ -49,13 +49,13 @@ increase the cost. JIT can also be enabled for a single database:
     Console](https://console.aiven.io/) \> your Aiven for PostgreSQL
     service \> the **Overview** page.
 
-``` 
+```
 psql PG_CONNECTION_URI
 ```
 
 2.  Alter the database (in the example `mytestdb`) and enable JIT
 
-``` 
+```
 alter database mytestdb set jit=on;
 ```
 
@@ -73,13 +73,13 @@ JIT can be enabled also for a specific user:
     Console](https://console.aiven.io/) \> the **Overview** page of your
     Aiven for PostgreSQL service.
 
-``` 
+```
 psql PG_CONNECTION_URI
 ```
 
 2.  Alter the role (in the example: `mytestrole`), and enable JIT.
 
-``` 
+```
 alter role mytestrole set jit=on;
 ```
 
@@ -90,14 +90,14 @@ default is only applied to new client sessions.
 
 3.  Start a new session with the role, and check that JIT is running.
 
-``` 
+```
 show jit;
 ```
 
 The result should be:
 
-``` 
-jit 
+```
+jit
 -----
 on
 (1 row)
@@ -105,9 +105,9 @@ on
 
 4.  Run a simple query to test JIT is applied properly.
 
-``` 
+```
 defaultdb=> explain analyze select sum(row) from table;
-                                                            QUERY PLAN                                                     
+                                                            QUERY PLAN
 
 ------------------------------------------------------------------------------------------------------------------------------
 -----------

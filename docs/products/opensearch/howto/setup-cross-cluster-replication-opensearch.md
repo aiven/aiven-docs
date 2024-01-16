@@ -4,7 +4,7 @@ title: Setup cross cluster replication for Aiven for OpenSearch®
 
 :::important
 Aiven for OpenSearch® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -20,7 +20,7 @@ Follow these steps to set up
     the Aiven for OpenSearch service for which you want to set up cross
     cluster replication.
 
-2.  In the service\'s **Overview** screen, scroll to the **Cross cluster
+2.  In the service's **Overview** screen, scroll to the **Cross cluster
     replications** section and select **Create follower**.
 
 3.  In the **Create OpenSearch follower cluster** page:

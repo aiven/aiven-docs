@@ -4,7 +4,7 @@ title: Disable cross-cluster replication in Aiven for Apache Cassandra®
 
 :::important
 Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -23,11 +23,11 @@ pair or by deleting one of them.
 -   CLI
 -   API
 
-It\'s recommended to use Aiven Console for disabling CCR.
+It's recommended to use Aiven Console for disabling CCR.
 
 :::warning
 As soon as you split the cluster, the two services constituting the CCR
-pair become independent. It\'s not possible to recreate the CCR pair
+pair become independent. It's not possible to recreate the CCR pair
 connecting back to the same service. To enable CCR on your service
 again, you can create a new service and CCR-connect it to your existing
 service.
@@ -76,7 +76,7 @@ your services for CCR purposes.
 3.  In the **Overview** page of the service, navigate to the **Cross
     Cluster Replication** section and select the name of the service
     provided in the CCR description, which is supposed to take you to
-    the service\'s page.
+    the service's page.
 
 4.  In the **Overview** page of the service, select **Delete service**
     from the meatballs menu in the top right corner.
@@ -106,7 +106,7 @@ Check out how to get started with the Aiven CLI in
 :::
 
 Use the
-[avn service terminate](/docs/tools/cli/service#avn-cli-service-terminate) command to disable CCR on your service by deleting the
+[avn service terminate](/docs/tools/cli/service-cli#avn-cli-service-terminate) command to disable CCR on your service by deleting the
 service used as a sink for your replicated data.
 
 ``` bash

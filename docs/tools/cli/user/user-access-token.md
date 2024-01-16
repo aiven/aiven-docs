@@ -2,46 +2,31 @@
 title: avn user access-token
 ---
 
-Here you\'ll find the full list of commands for `avn user access-token`.
+Full list of commands for `avn user access-token`.
 
 ## Manage access tokens
 
-Commands for managing user\'s access tokens.
+Commands for managing user's access tokens.
 
 ### `avn user access-token create`
 
 Creates a new access token for the logged-in user.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--description`</td>
-      <td>Description of how the token will be used</td>
-    </tr>
-    <tr>
-      <td>`--max-age-seconds`</td>
-      <td>Maximum age of the token in seconds, if any, after which it will expire(30 days by default)</td>
-    </tr>
-    <tr>
-      <td>`--extend-when-used`</td>
-      <td>Extend token\'s expiry time when used (only applicable if token is set to expire)</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter            | Information                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| `--description`      | Description of how the token will be used                                                   |
+| `--max-age-seconds`  | Maximum age of the token in seconds, if any, after which it will expire(30 days by default) |
+| `--extend-when-used` | Extend token's expiry time when used (only applicable if token is set to expire)            |
 
 **Example:** Create a new access token.
 
-``` 
+```
 avn user access-token create --description "To be used with Python Notebooks"
 ```
 
 **Example:** Create a new token expiring every hour if not used.
 
-``` 
+```
 avn user access-token create                       \
   --description "To be used with Python Notebooks" \
   --max-age-seconds 3600                           \
@@ -64,7 +49,7 @@ the session:
 -   Expiration time
 -   Token prefix
 -   Description
--   Token\'s max age in seconds
+-   Token's max age in seconds
 -   Extended when used flag
 -   Last used time
 -   Last IP address
@@ -72,7 +57,7 @@ the session:
 
 **Example:** Retrieve the information for the logged-in user.
 
-``` 
+```
 avn user access-token list
 ```
 
@@ -92,22 +77,13 @@ Revokes the specified user access token.
 Tokens can also be expired via the
 [`avn user tokens-expire`](/docs/tools/cli/user#avncli user-tokens-expire) command.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`token_prefix`</td>
-      <td>The full token or token prefix identifying the token to revoke</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                                                    |
+| -------------- | -------------------------------------------------------------- |
+| `token_prefix` | The full token or token prefix identifying the token to revoke |
 
 **Example:** Revoke the access token starting with `6JsKDclT3OMQ`.
 
-``` 
+```
 avn user access-token revoke "6JsKDclT3OMQ"
 ```
 
@@ -115,26 +91,14 @@ avn user access-token revoke "6JsKDclT3OMQ"
 
 Updates the description of an access token.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`token_prefix`</td>
-      <td>The full token or token prefix identifying the token to update</td>
-    </tr>
-    <tr>
-      <td>`--description`</td>
-      <td>Description of how the token will be used</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter       | Information                                                    |
+| --------------- | -------------------------------------------------------------- |
+| `token_prefix`  | The full token or token prefix identifying the token to update |
+| `--description` | Description of how the token will be used                      |
 
 **Example:** Update the description of the access token starting with
 `6JsKDclT3OMQ`.
 
-``` 
+```
 avn user access-token update "6JsKDclT3OMQ" --description "To be used with Jupyter Notebooks"
 ```

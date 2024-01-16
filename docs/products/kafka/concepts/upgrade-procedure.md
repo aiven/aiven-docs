@@ -21,28 +21,23 @@ To demonstrate what steps are taken during the automated upgrade
 procedure, we\'ll look at the example for a 3-node Apache Kafka service
 visualised below:
 
-<!--
-:::mermaid
-
+```mermaid
 flowchart TD;
-
-:   
-
-    subgraph KafkaCluster
-
-    :   
-
-        subgraph Node1
-
-        :   PartitionA1(\[Partition A\]) PartitionB1(\[Partition B\])
-
-        end subgraph Node2 PartitionA2(\[Partition A\])
-        PartitionC1(\[Partition C\]) end subgraph Node3
-        PartitionB2(\[Partition B\]) PartitionC2(\[Partition C\]) end
-
-    end
-:::
--->
+  subgraph KafkaCluster
+      subgraph Node1
+          PartitionA1([Partition A])
+          PartitionB1([Partition B])
+      end
+      subgraph Node2
+          PartitionA2([Partition A])
+          PartitionC1([Partition C])
+      end
+      subgraph Node3
+          PartitionB2([Partition B])
+          PartitionC2([Partition C])
+      end
+  end
+```
 
 The following set of steps are executed during an upgrade procedure:
 
@@ -56,34 +51,39 @@ The following set of steps are executed during an upgrade procedure:
 
 3.  The partition data and leadership is transferred to new nodes
 
-    <!--
-:::mermaid
-    flowchart TD;
+    ```mermaid
 
-    > subgraph KafkaCluster
-    >
-    > :   
-    >
-    >     subgraph Node1
-    >
-    >     :   PartitionA1(\[Partition A\]) PartitionB1(\[Partition B\])
-    >
-    >     end subgraph Node2 PartitionA2(\[Partition A\])
-    >     PartitionC1(\[Partition C\]) end subgraph Node3
-    >     PartitionB2(\[Partition B\]) PartitionC2(\[Partition C\]) end
-    >     subgraph NewNode1 PartitionNewA1(\[Partition A\])
-    >     PartitionNewC1(\[Partition C\]) end subgraph NewNode2
-    >     PartitionNewB1(\[Partition B\]) PartitionNewC2(\[Partition
-    >     C\]) end subgraph NewNode3 PartitionNewA2(\[Partition A\])
-    >     PartitionNewB2(\[Partition B\]) end
-    >
-    > end
-    >
-    > PartitionA1 -.-\> PartitionNewA1 PartitionB1 -.-\> PartitionNewB1
-    > PartitionC1 -.-\> PartitionNewC1 PartitionA2 -.-\> PartitionNewA2
-    > PartitionB2 -.-\> PartitionNewB2 PartitionC2 -.-\> PartitionNewC2
-    :::
--->
+          flowchart TD;
+
+            subgraph KafkaCluster
+                subgraph Node1
+                    PartitionA1([Partition A])
+                    PartitionB1([Partition B])
+                end
+                subgraph Node2
+                    PartitionA2([Partition A])
+                    PartitionC1([Partition C])
+                end
+                subgraph Node3
+                    PartitionB2([Partition B])
+                    PartitionC2([Partition C])
+                end
+                subgraph NewNode1
+                    PartitionNewA1([Partition A])
+                    PartitionNewC1([Partition C])
+                end
+                subgraph NewNode2
+                    PartitionNewB1([Partition B])
+                    PartitionNewC2([Partition C])
+                end
+                subgraph NewNode3
+                    PartitionNewA2([Partition A])
+                    PartitionNewB2([Partition B])
+                end
+            end
+
+
+    ```
 
     :::warning
     This step is CPU intensive due to the additional data movement
@@ -99,29 +99,26 @@ The following set of steps are executed during an upgrade procedure:
     :::
 
 5.  The process is completed once the last old node has been removed
-    from the cluster
+    from the cluster:
 
-    <!--
-:::mermaid
+    ```mermaid
     flowchart TD;
 
-    > subgraph KafkaCluster
-    >
-    > :   
-    >
-    >     subgraph NewNode1
-    >
-    >     :   PartitionNewA1(\[Partition A\]) PartitionNewC1(\[Partition
-    >         C\])
-    >
-    >     end subgraph NewNode2 PartitionNewB1(\[Partition B\])
-    >     PartitionNewC2(\[Partition C\]) end subgraph NewNode3
-    >     PartitionNewA2(\[Partition A\]) PartitionNewB2(\[Partition
-    >     B\]) end
-    >
-    > end
-    :::
--->
+      subgraph KafkaCluster
+          subgraph NewNode1
+                PartitionNewA1([Partition A])
+                PartitionNewC1([Partition C])
+          end
+          subgraph NewNode2
+              PartitionNewB1([Partition B])
+              PartitionNewC2([Partition C])
+          end
+          subgraph NewNode3
+              PartitionNewA2([Partition A])
+              PartitionNewB2([Partition B])
+          end
+      end
+     ```
 
 ## Zero upgrade downtime
 
@@ -172,7 +169,7 @@ It is possible to downgrade from a larger service plan back to a smaller
 service plan, if there is enough disk capacity on the smaller plan, via
 the
 [Aiven Console](/docs/platform/howto/scale-services) or the
-[Aiven CLI](/docs/tools/cli/service#avn-cli-service-update).
+[Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-update).
 
 When changing the node type during a service plan change, the upgrade
 procedure remains the same. In case of downgrading to a service plan

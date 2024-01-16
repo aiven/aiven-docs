@@ -12,11 +12,11 @@ the InfluxDB® library.
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable          Description
-  ----------------- ---------------------------------------------------------
-  `SERVICE_HOST`    Service hostname, found on the service overview page
-  `SERVICE_PORT`    Service port number, found on the service overview page
-  `AVNADMIN_PASS`   Password for the default `avnadmin` user
+ | Variable        | Description                                             |
+ | --------------- | ------------------------------------------------------- |
+ | `SERVICE_HOST`  | Service hostname, found on the service overview page    |
+ | `SERVICE_PORT`  | Service port number, found on the service overview page |
+ | `AVNADMIN_PASS` | Password for the default `avnadmin` user                |
 
 ## Pre-requisites
 
@@ -24,7 +24,7 @@ For this example you will need:
 
 1.  The PHP InfluxDB library. You can install this with `composer`:
 
-    ``` 
+    ```
     composer require influxdata/influxdb-client-php
     ```
 
@@ -46,7 +46,7 @@ expected data format, and writes it to the client.
 
 To run the code:
 
-``` 
+```
 php -f index.php
 ```
 

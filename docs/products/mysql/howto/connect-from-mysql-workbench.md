@@ -23,7 +23,7 @@ settings.
 
 ## Create an additional database
 
-To create more databases, go to the service\'s page in [Aiven
+To create more databases, go to the service's page in [Aiven
 Console](https://console.aiven.io/) and select **Databases** from the
 sidebar. In the **Databases** view, select **Create database**, enter a
 name for your database in the **Create a new database** window, and
@@ -33,7 +33,7 @@ select **Add database**.
 
 To add database users, go to [Aiven Console](https://console.aiven.io/)
 and select your Aiven for MySQL service from the **Services** page. In
-your service\'s page, select **Users** from the sidebar. In the
+your service's page, select **Users** from the sidebar. In the
 **Users** view, select **Add service user**.
 
 In the **Create a service user** window, you can choose the

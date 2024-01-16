@@ -50,6 +50,6 @@ should be sent to AWS CloudWatch.
 3.  Visit your AWS account and look under **CloudWatch** and explore the
     **Logs** section to see the data flowing within a few minutes.
 
-:::note See also
+:::note[See also]
 Learn more about [Amazon CloudWatch and Aiven](/docs/integrations/cloudwatch).
 :::

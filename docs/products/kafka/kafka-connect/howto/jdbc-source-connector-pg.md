@@ -15,7 +15,7 @@ to the source database.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/aiven/aiven-kafka-connect-jdbc/blob/master/docs/source-connector.md).
 :::
 
@@ -41,10 +41,10 @@ source PostgreSQL database upfront:
     `schema_name1.table_name1,schema_name2.table_name2`
 
 :::note
-If you\'re using Aiven for PostgreSQL the above details are available in
+If you're using Aiven for PostgreSQL the above details are available in
 the [Aiven console](https://console.aiven.io/) service Overview tab or
 via the dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Setup a PostgreSQL JDBC source connector with Aiven CLI
@@ -58,7 +58,7 @@ source connector to a PostgreSQL database using the
 Define the connector configurations in a file (we\'ll refer to it with
 the name `jdbc_source_pg.json`) with the following content:
 
-``` 
+```
 {
     "name":"CONNECTOR_NAME",
     "connector.class":"io.aiven.connect.jdbc.JdbcSourceConnector",
@@ -108,7 +108,7 @@ To create the connector, execute the following
 [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create), replacing the `SERVICE_NAME` with the name of the Aiven
 service where the connector needs to run:
 
-``` 
+```
 avn service connector create SERVICE_NAME @jdbc_source_pg.json
 ```
 
@@ -116,7 +116,7 @@ Check the connector status with the following command, replacing the
 `SERVICE_NAME` with the Aiven service and the `CONNECTOR_NAME` with the
 name of the connector defined before:
 
-``` 
+```
 avn service connector status SERVICE_NAME CONNECTOR_NAME
 ```
 
@@ -124,7 +124,7 @@ Verify in the Apache Kafka target instance, the presence of the topic
 and the data
 
 :::tip
-If you\'re using Aiven for Apache Kafka, topics will not be created
+If you're using Aiven for Apache Kafka, topics will not be created
 automatically. Either create them manually following the
 `topic.prefix.schema_name.table_name` naming pattern or enable the
 `kafka.auto_create_topics_enable` advanced parameter.
@@ -145,7 +145,7 @@ The example creates an
 
 The connector configuration is the following:
 
-``` 
+```
 {
     "name":"jdbc_source_pg_increment",
     "connector.class":"io.aiven.connect.jdbc.JdbcSourceConnector",
@@ -165,6 +165,6 @@ With the above configuration stored in a
 `jdbc_incremental_source_pg.json` file, you can create the connector in
 the `demo-kafka` instance with:
 
-``` 
+```
 avn service connector create demo-kafka @jdbc_incremental_source_pg.json
 ```

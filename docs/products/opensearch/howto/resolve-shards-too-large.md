@@ -12,7 +12,7 @@ However, exceeding this limit may result in OpenSearch being unable to
 relocate or recover index shards, potentially leading to data loss.
 
 Aiven proactively monitors shard sizes for all OpenSearch services. If a
-service\'s shard exceeds the recommended size, prompt notifications are
+service's shard exceeds the recommended size, prompt notifications are
 sent using the user alert
 `user_alert_resource_usage_es_shard_too_large`. Below, you\'ll find
 recommended solutions on how to address this alert.
@@ -28,7 +28,7 @@ If your application permits, permanently delete records, such as old
 logs or unnecessary records, from your index. For example, to delete
 records older than five days, use the following query:
 
-``` 
+```
 POST /my-index/_delete_by_query
 {
   "query": {
@@ -49,7 +49,7 @@ You can split your index into several smaller indices based on certain
 criteria. For example, to create an index for each `event_type`, you can
 use following script:
 
-``` 
+```
 POST _reindex
 {
 

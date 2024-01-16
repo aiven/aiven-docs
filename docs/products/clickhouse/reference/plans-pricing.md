@@ -20,7 +20,7 @@ of plans to suit the size of your workloads.
     mission-critical apps, handling high query rates and big data
     amounts.
 
-:::note See also
+:::note[See also]
 To compare the plans and learn their pricing details, see [Plan
 comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)
 and [Plan

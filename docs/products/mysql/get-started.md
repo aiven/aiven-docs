@@ -1,5 +1,5 @@
 ---
-title: Getting started with Aiven for MySQL®
+title: Get started with Aiven for MySQL®
 ---
 
 Aiven for MySQL® services are managed from [Aiven

@@ -12,23 +12,12 @@ service.
 
 These are the placeholders you need to replace in the code sample:
 
-  ---------------------------------------------------------------------------
-  Variable           Description
-  ------------------ --------------------------------------------------------
-  `MYSQL_HOST`       Host name for the connection, from [Aiven
-                     Console](https://console.aiven.io/) \> the **Overview**
-                     page of your service \> the **Connection information**
-                     section
-
-  `MYSQL_PORT`       Port number to use, from [Aiven
-                     Console](https://console.aiven.io/) \> the **Overview**
-                     page of your service \> the **Connection information**
-                     section
-
-  `MYSQL_PASSWORD`   Password for `avnadmin` user
-
-  `MYSQL_DATABASE`   Database to connect
-  ---------------------------------------------------------------------------
+  | Variable         | Description                                                                                                                                                      |
+  | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `MYSQL_HOST`     | Host name for the connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section |
+  | `MYSQL_PORT`     | Port number to use, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section           |
+  | `MYSQL_PASSWORD` | Password for `avnadmin` user                                                                                                                                     |
+  | `MYSQL_DATABASE` | Database to connect                                                                                                                                              |
 
 ## Pre-requisites
 
@@ -55,14 +44,14 @@ fetches version of MySQL and prints it the output.
 Run the code after replacement of the placeholders with values for your
 project:
 
-``` 
+```
 javac MySqlExample.java && java -cp mysql-driver-8.0.28.jar:. MySqlExample -host MYSQL_HOST -port MYSQL_PORT -database MYSQL_DATABASE -username avnadmin -password MYSQL_PASSWORD
 ```
 
 If the script runs successfully, the output will be the values that were
 inserted into the table:
 
-``` 
+```
 Version: 8.0.26
 ```
 

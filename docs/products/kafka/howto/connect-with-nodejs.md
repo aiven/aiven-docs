@@ -46,15 +46,15 @@ but in actual use, the full path should be used.
 
 ## Variables
 
-  Variable           Description
-  ------------------ -------------------------------------------------------------------
-  `HOST`             Host name for the connection
-  `USER_NAME`        Name of the user for the connection
-  `SSL_PORT`         Port number to use for SSL
-  `SASL_PORT`        Port number to use for SASL
-  `SASL_PASSWORD`    Password required to connect using SASL
-  `SASL_MECHANISM`   Supported SASL mechanisms are PLAIN, SCRAM-SHA-256, SCRAM-SHA-512
-  `CONSUMER_GROUP`   Consumer group to read the data
+ | Variable         | Description                                                       |
+ | ---------------- | ----------------------------------------------------------------- |
+ | `HOST`           | Host name for the connection                                      |
+ | `USER_NAME`      | Name of the user for the connection                               |
+ | `SSL_PORT`       | Port number to use for SSL                                        |
+ | `SASL_PORT`      | Port number to use for SASL                                       |
+ | `SASL_PASSWORD`  | Password required to connect using SASL                           |
+ | `SASL_MECHANISM` | Supported SASL mechanisms are PLAIN, SCRAM-SHA-256, SCRAM-SHA-512 |
+ | `CONSUMER_GROUP` | Consumer group to read the data                                   |
 
 Replace the variables above in the code examples below.
 

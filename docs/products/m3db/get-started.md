@@ -1,5 +1,5 @@
 ---
-title: Getting started with Aiven for M3DB
+title: Get started with Aiven for M3DB
 ---
 
 To begin your journey with Aiven for M3DB, there are two M3-related
@@ -13,8 +13,8 @@ setup using our startup plans. However, it is important to note that
 this configuration is not recommended for production use. For production
 environments, we recommend trying the 3-node clusters available with our
 business plans or considering a premium plan that suits your specific
-requirements. You can always scale up your plan as needed, so there\'s
-no need to worry if you\'re unsure about the details.
+requirements. You can always scale up your plan as needed, so there's
+no need to worry if you're unsure about the details.
 
 :::note
 The M3 Aggregator service provides extra query functionality when

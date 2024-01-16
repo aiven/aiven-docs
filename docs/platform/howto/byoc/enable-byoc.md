@@ -40,11 +40,11 @@ and meet all the
     eligible for activating BYOC.
 -   BYOC is supported with the
     [standard deployment](/docs/platform/concepts/byoc#byoc-deployment) model only.
--   Only organization\'s administrators can request enabling BYOC.
+-   Only organization's administrators can request enabling BYOC.
 
 ## Prerequisites {#byoc-enable-prerequisites}
 
--   Administrator\'s role for your Aiven organization
+-   Administrator's role for your Aiven organization
 -   Access to [Aiven Console](https://console.aiven.io/)
 -   Active account with your cloud provider
 

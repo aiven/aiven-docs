@@ -7,7 +7,7 @@ You can migrate MySQL® databases to Aiven using either
 addresses the latter scenario by providing guidelines on how to use
 Aiven Console to migrate MySQL databases to the Aiven platform.
 
-:::note See also
+:::note[See also]
 For the other migration method (CLI), see
 [Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql).
 :::
@@ -46,9 +46,9 @@ The console migration tool provides 2 migration methods:
 
 -   To use the default continuous migration method in the console tool,
     you have the logical replication enabled on your source database.
--   Source database\'s hostname or IP address are
+-   Source database's hostname or IP address are
     [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
--   You have the source database\'s credentials and reference data
+-   You have the source database's credentials and reference data
     -   Public hostname or connection string, or IP address used to
         connect to the database
     -   Port used to connect to the database
@@ -78,7 +78,7 @@ The console migration tool provides 2 migration methods:
     # Instead of skip-networking the default is now to listen only on
     # localhost which is more compatible and is not less secure.
     bind-address            = 127.0.0.1
-    . . . 
+    . . .
     ```
 
     Change the value of `bind-address` to a wildcard IP address,`*` or
@@ -92,7 +92,7 @@ The console migration tool provides 2 migration methods:
     # Instead of skip-networking the default is now to listen only on
     # localhost which is more compatible and is not less secure.
     bind-address            = *
-    . . . 
+    . . .
     ```
 
     Save the changes and exit the file. Restart MySQL to apply the
@@ -163,7 +163,7 @@ The console migration tool provides 2 migration methods:
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  On the **Services** page, select the service where your target
     database is located.
-3.  From the sidebar on your service\'s page, select **Service
+3.  From the sidebar on your service's page, select **Service
     settings**.
 4.  On the **Service settings** page, navigate to the **Service
     management** section, and select **Import database**.
@@ -222,13 +222,13 @@ To avoid conflicts and replication issues while the migration is ongoing
     `max_replication_slots`.
 -   Do not make database changes that could disrupt or prevent the
     connection between the source database and the target database. Do
-    not change the source database\'s listen address and do not modify
+    not change the source database's listen address and do not modify
     or enable firewalls on the databases.
 :::
 
 :::note[Migration attempt failed?]
 If you happen to get such a notification, investigate potential causes
-of the failure and try to fix the issues. When you\'re ready, trigger
+of the failure and try to fix the issues. When you're ready, trigger
 the migration again by selecting **Start over**.
 :::
 

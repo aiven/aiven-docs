@@ -9,7 +9,7 @@ cluster performance and scalability.
 
 :::important
 Consumer Lag Predictor for Aiven for Apache Kafka® is a limited
-availability feature. If you\'re interested in trying out this feature,
+availability feature. If you're interested in trying out this feature,
 contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -62,13 +62,13 @@ for Apache Kafka service using
 
 1.  Retrieve the project information using the following command:
 
-    ``` 
+    ```
     avn project details
     ```
 
     If you need details for a specific project, use:
 
-    ``` 
+    ```
     avn project details --project <your_project_name>
     ```
 
@@ -76,7 +76,7 @@ for Apache Kafka service using
     want to enable the consumer lag predictor by using the following
     command:
 
-    ``` 
+    ```
     avn service list
     ```
 
@@ -85,7 +85,7 @@ for Apache Kafka service using
 
 3.  Enable the consumer lag predictor for your service:
 
-    ``` 
+    ```
     avn service update <SERVICE_NAME> -c kafka_lag_predictor.enabled=true
     ```
 
@@ -100,7 +100,7 @@ for Apache Kafka service using
     when calculating the lag prediction, you can set the `group_filters`
     configuration:
 
-    ``` 
+    ```
     avn service update <SERVICE_NAME> \
     -c kafka_lag_predictor.group_filters=\
      '["example_consumer_group_1", "example_consumer_group_2"]'
@@ -116,19 +116,11 @@ for Apache Kafka service using
 
 After enabling the consumer lag predictor, you can use Prometheus to
 access and monitor detailed metrics that offer insights into your Kafka
-cluster\'s performance. Here are the specific metrics and what they
+cluster's performance. Here are the specific metrics and what they
 represent:
 
-  ----------------------------------------------------------------------------------------------------------
-  Metric                                              Type          Description
-  --------------------------------------------------- ------------- ----------------------------------------
-  `kafka_lag_predictor_topic_produced_records`        Counter       Represents the total count of records
-                                                                    produced.
-
-  `kafka_lag_predictor_group_consumed_records`        Counter       Represents the total count of records
-                                                                    consumed.
-
-  `kafka_lag_predictor_group_lag_predicted_seconds`   Gauge         Represents the estimated time lag, in
-                                                                    seconds, for a consumer group to catch
-                                                                    up to the latest message.
-  ----------------------------------------------------------------------------------------------------------
+| Metric                                             | Type    | Description                                                                                            |
+| -------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+| `kafka_lag_predictor_topic_produced_records_total` | Counter | Represents the total count of records produced.                                                        |
+| `kafka_lag_predictor_group_consumed_records_total` | Counter | Represents the total count of records consumed.                                                        |
+| `kafka_lag_predictor_group_lag_predicted_seconds`  | Gauge   | Represents the estimated time lag, in seconds, for a consumer group to catch up to the latest message. |

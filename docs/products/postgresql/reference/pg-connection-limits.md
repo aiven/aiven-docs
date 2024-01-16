@@ -7,14 +7,14 @@ to make sure that the database is able to serve them all. The
 `max_connections` setting varies according to the service plan as
 follows:
 
-  Plan                                                      Max Connections
-  --------------------------------------------------------- -----------------
-  Hobbyist (Google Cloud, DigitalOcean, and UpCloud only)   25
-  Startup/Business/Premium-4                                100
-  Startup/Business/Premium-8                                200
-  Startup/Business/Premium-16                               400
-  Startup/Business/Premium-32                               800
-  Startup/Business/Premium-64 and above                     1000
+| Plan                                                    | Max Connections |
+| ------------------------------------------------------- | --------------- |
+| Hobbyist (Google Cloud, DigitalOcean, and UpCloud only) | 25              |
+| Startup/Business/Premium-4                              | 100             |
+| Startup/Business/Premium-8                              | 200             |
+| Startup/Business/Premium-16                             | 400             |
+| Startup/Business/Premium-32                             | 800             |
+| Startup/Business/Premium-64 and above                   | 1000            |
 
 When several clients or client threads are connecting to the database,
 Aiven recommends using

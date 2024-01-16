@@ -7,7 +7,7 @@ title: Manage SSL connectivity
 ### Default support
 
 Aiven for Redis®\* uses SSL encrypted connections by default. This is
-shown by the use of `rediss://` (with double s) prefix in the
+shown by the use of `rediss://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
 :::tip
@@ -18,14 +18,14 @@ console](https://console.aiven.io/).
 Since **Redis 6**, the `redis-cli` tool itself supports SSL connections;
 therefore, you can connect directly to your service using:
 
-``` 
+```
 redis-cli -u rediss://username:password@host:port
 ```
 
 Alternatively, you can use the third-party [Redli
 tool](https://github.com/IBM-Cloud/redli):
 
-``` 
+```
 redli -u rediss://username:password@host:port
 ```
 
@@ -43,7 +43,7 @@ encryption.
 You can use the following `stunnel` configuration, for example
 `stunnel.conf`, to set up a `stunnel` process.
 
-``` 
+```
 client = yes
 foreground = yes
 debug = info
@@ -67,31 +67,23 @@ the [Stunnel website page](https://www.stunnel.org/index.html).
 
 For `service-level option`, the following parameters are configured:
 
-`accept` =\> *\[host:\]port*
-
-:   **Accept connections on specified address**
-
-`connect` =\> *\[host:\]port*
-
-:   **Connect to a remote address**
-
-`TIMEOUTclose` =\> *seconds*
-
-:   **Time to wait for close_notify**
+-   `accept => *[host:]port*`: Accept connections on the specified
+    address.
+-   `connect => *[host:]port*`: Connect to a remote address.
+-   `TIMEOUTclose => *seconds*`: Time to wait for close_notify.
 
 :::note
 It is important to make changes accordingly to your service. On the
-*Overview* page you can find your **Overview** \> **Host** and
+**Overview** page you can find your **Overview** \> **Host** and
 **Overview** \> **Port** to configure the `connect` parameter.
 :::
 
-It is important to note that when SSL is in use, HAProxy will be
-responsible for terminating the SSL connections before they get
-forwarded to Redis. This process has a connection timeout set to 12
-hours which is not configurable by the customer. If you allow very long
-Redis timeouts, this SSL-terminating HAProxy may end up closing the
-connection before the Redis timeout has expired. This timeout is
-independent of Redis timeout.
+When SSL is in use, HAProxy is responsible for terminating the SSL
+connections before they get forwarded to Redis. This process has a
+connection timeout set to 12 hours which is not configurable by the
+customer. If you allow very long Redis timeouts, this SSL-terminating
+HAProxy may end up closing the connection before the Redis timeout has
+expired. This timeout is independent of Redis timeout.
 
 ### Allow plain-text connections
 
@@ -116,7 +108,6 @@ chosen by you when the service was created.
 avn service update <my-redis> -c "redis_ssl=false"
 ```
 
-After executing the command, the `Service URI` will change and point at
-the new location, it will also start with the `redis://` (removing the
-extra s) prefix denoting that it\'s a direct Redis connection which does
-not use SSL.
+After executing the command, the `Service URI` points to the new
+location and starts with the `redis://` (removing the extra `s`) prefix
+meaning it's a direct Redis connection which does not use SSL.

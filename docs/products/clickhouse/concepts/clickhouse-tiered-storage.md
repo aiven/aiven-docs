@@ -2,37 +2,32 @@
 title: Tiered storage in Aiven for ClickHouse®
 ---
 
-:::important
-Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
 Discover the tiered storage capability in Aiven for ClickHouse®. Learn
 how it works and explore its use cases. Check out why you might need it
 and what benefits you get using it.
+
+:::important
+Aiven for ClickHouse® tiered storage is a
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
+the sales team at [sales@aiven.io](mailto:sales@aiven.io).
+:::
 
 ## Overview
 
 The tiered storage feature introduces a method of organizing and storing
 data in two tiers for improved efficiency and cost optimization. The
 data is automatically moved to an appropriate tier based on your
-database\'s local disk usage. On top of this default data allocation
+database's local disk usage. On top of this default data allocation
 mechanism, you can control the tier your data is stored in using custom
 data retention periods.
 
 The tiered storage in Aiven for ClickHouse consists of the following two
 layers:
 
-SSD - the first tier
-
-:   Fast storage device with limited capacity, better suited for fresh
-    and frequently queried data, relatively costly to use
-
-Object storage - the second tier
-
-:   Affordable storage device with unlimited capability, better suited
-    for historical and more rarely queried data, relatively slower
+- SSD - the first tier: Fast storage device with limited capacity, better suited for fresh
+  and frequently queried data, relatively costly to use
+- Object storage - the second tier: Affordable storage device with unlimited capability, better suited
+  for historical and more rarely queried data, relatively slower
 
 ## Why use it
 
@@ -54,19 +49,21 @@ Optionally, you can
 data is moved from your SSD to object storage after a specified time
 period.
 
-<!--
-:::mermaid
-
+```mermaid
 sequenceDiagram
-
-:   Application-\>\>+SSD: writing data SSD-\>\>Object storage: moving
-    data based \<br\> on storage policies par Application to SSD
-    Application\--\>\>SSD: querying data and Application to Object
-    storage Application\--\>\>Object storage: querying data end alt if
-    stored in Object storage Object storage-\>\>Application: reading
-    data else if stored in SSD SSD-\>\>Application: reading data end
-:::
--->
+        Application->>+SSD: writing data
+        SSD->>Object storage: moving data based <br> on storage policies
+        par Application to SSD
+            Application-->>SSD: querying data
+        and Application to Object storage
+            Application-->>Object storage: querying data
+        end
+        alt if stored in Object storage
+            Object storage->>Application: reading data
+        else if stored in SSD
+            SSD->>Application: reading data
+        end
+```
 
 :::note
 Backups are taken for data that resides both on SSD and in object
@@ -76,7 +73,7 @@ storage.
 ## Typical use case
 
 In your Aiven for ClickHouse service, there is a significant amount of
-data that is there for a while and is hardly ever accessed. It\'s stored
+data that is there for a while and is hardly ever accessed. It's stored
 on SSD and, thus, high-priced. You decide to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage for your service to make your data storage
 more efficient and reduce the costs. For that purpose, you contact the
@@ -100,10 +97,10 @@ between the two layers.
     :::
 
 -   With the tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it\'s not possible to connect to an external existing
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to connect to an external existing
     object storage or cloud storage bucket.
 
-## What\'s next
+## What's next
 
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)

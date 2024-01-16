@@ -57,7 +57,7 @@ storage.
 ### Pricing
 
 If you add storage when you create a service, the cost is included as
-part of your service\'s total cost and is shown in the service summary.
+part of your service's total cost and is shown in the service summary.
 
 The cost of adding storage to a running service is shown in [Aiven
 Console](https://console.aiven.io/) when you add it. The total price you

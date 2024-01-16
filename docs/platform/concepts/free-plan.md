@@ -52,7 +52,7 @@ There are some limitations of the free plan services:
     providers
 -   Only one service per service type per user and
     [organization](/docs/platform/concepts/projects_accounts_access)
--   Not covered under Aiven\'s 99.99% SLA
+-   Not covered under Aiven's 99.99% SLA
 
 Free plans do not have any time limitations. However, Aiven reserves the
 right to shut down services if we believe they violate the [acceptable

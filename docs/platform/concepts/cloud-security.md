@@ -2,7 +2,7 @@
 title: Cloud security
 ---
 
-Learn about Aiven\'s access control, encryption, network security, data
+Learn about Aiven's access control, encryption, network security, data
 privacy and operator access.
 
 ## Cloud provider accounts
@@ -38,7 +38,7 @@ well as service backups in cloud object storage.
 Service instances and the underlying VMs use full volume encryption
 using LUKS with a randomly generated ephemeral key per each instance and
 each volume. The key is never re-used and will be trashed at the
-destruction of the instance, so there\'s a natural key rotation with
+destruction of the instance, so there's a natural key rotation with
 roll-forward upgrades. We use the LUKS2 default mode
 aes-xts-plain64:sha256 with a 512-bit key.
 
@@ -76,7 +76,7 @@ controlled on a per-service basis.
 
 When using VPC peering, no public internet based access is provided to
 the services. Service addresses are published in public DNS, but they
-can only be connected to from the customer\'s peered VPC using private
+can only be connected to from the customer's peered VPC using private
 network addresses.
 
 The services providing virtual machines are still contained under Aiven
@@ -116,7 +116,7 @@ regulations.
 Aiven has partnered with GitHub in scanning for service token leaks and
 will inform customers of tokens being made public through an email
 notification. For more details, check [Improving security: Aiven and
-GitHub\'s secret scanning
+GitHub's secret scanning
 partnership](https://aiven.io/blog/aiven-and-github's-secret-scanning-partnership).
 
 Aiven operators never access customer data, unless explicitly requested

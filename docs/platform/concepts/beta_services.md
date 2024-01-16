@@ -50,5 +50,5 @@ credits, you are charged for the service according to the normal rate.
 
 [Aiven Ideas](https://ideas.aiven.io/) is a portal for users to submit,
 vote on, and discuss your ideas to shape the future of the product.
-It\'s also where you can view the status and progress of each feature on
+It's also where you can view the status and progress of each feature on
 the roadmap.

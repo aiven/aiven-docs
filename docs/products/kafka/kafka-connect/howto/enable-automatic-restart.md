@@ -4,7 +4,7 @@ title: Enable Apache Kafka® Connect connectors auto restart on failures
 
 If you experience an Apache Kafka® Connect connector failure, restarting
 automatically the task is generally not recommended. Perform a proper
-investigation on the problem\'s cause before attempting the restart to
+investigation on the problem's cause before attempting the restart to
 avoid experiencing similar problems in the future. However, sometimes a
 task can fail due to a rare problem like the dedicated node going out of
 memory due to a huge surge of data; in such cases, the automatic task

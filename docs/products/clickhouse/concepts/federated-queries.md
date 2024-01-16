@@ -53,7 +53,7 @@ user is granted access to the sources by default, and new users can be
 allowed to use the sources via the CREATE TEMPORARY TABLE grant, which
 is required for both sources.
 
-:::note See also
+:::note[See also]
 For more information on how to enable new users to use the sources,
 check [Access and permissions](/docs/products/clickhouse/howto/run-federated-queries#access-permissions).
 :::
@@ -64,7 +64,7 @@ S3-compatible storage, you can select from that storage and insert into
 a table in the Aiven local instance, enabling migration of data into
 Aiven.
 
-:::note See also
+:::note[See also]
 For more details on how to run federated querie in Aiven for ClickHouse,
 check
 [Read and pull data from S3 object storages and web resources over HTTP](/docs/products/clickhouse/howto/run-federated-queries).

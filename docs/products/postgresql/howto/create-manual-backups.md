@@ -15,9 +15,9 @@ in this article.
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable           Description
-  ------------------ ---------------------------------------------------------------
-  `POSTGRESQL_URI`   URL for PostgreSQL connection, from the service overview page
+ | Variable         | Description                                                   |
+ | ---------------- | ------------------------------------------------------------- |
+ | `POSTGRESQL_URI` | URL for PostgreSQL connection, from the service overview page |
 
 ## Create backups with `pg_dump`
 
@@ -27,7 +27,7 @@ Perform a backup of your database using the standard PostgreSQL
 documentation](https://www.postgresql.org/docs/current/app-pgdump.html),
 but a typical command would look something like this:
 
-``` 
+```
 pg_dump 'POSTGRESQL_URI' \
     -f backup_folder     \
     -j 2                 \

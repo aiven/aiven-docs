@@ -8,7 +8,7 @@ might want to disable it for a particular session. For example, when
 migrating to an Aiven for MySQL you may face errors related to foreign
 key violations similar to:
 
-``` 
+```
 ERROR 3780 (HY000) at line 11596: Referencing column 'g_id' and referenced column 'g_id' in foreign key constraint 'FK_33b11dcfac6148578da087b07c2f388f' are incompatible.
 ```
 
@@ -30,17 +30,12 @@ Console](https://console.aiven.io/) \> your Aiven for MySQL service \>
 **Overview** \> the **Connection information** section \> the **MySQL**
 tab.
 
-  -----------------------------------------------------------------------
-  Variable       Description
-  -------------- --------------------------------------------------------
-  `HOST`         Hostname for MySQL connection
-
-  `PORT`         Port for MySQL connection
-
-  `PASSWORD`     Password of your Aiven for MySQL connection
-
-  `DB_NAME`      Database Name of your Aiven for MySQL connection
-  -----------------------------------------------------------------------
+| Variable   | Description                                      |
+| ---------- | ------------------------------------------------ |
+| `HOST`     | Hostname for MySQL connection                    |
+| `PORT`     | Port for MySQL connection                        |
+| `PASSWORD` | Password of your Aiven for MySQL connection      |
+| `DB_NAME`  | Database Name of your Aiven for MySQL connection |
 
 ## Check the foreign key check flag
 
@@ -109,13 +104,9 @@ session:
 The same flag works when running a set of commands saved in a file with
 extension `.sql`.
 
-  -----------------------------------------------------------------------
-  Variable       Description
-  -------------- --------------------------------------------------------
-  `FILENAME`     File which the extension is `.sql`, for e.g.
-                 filename.sql
-
-  -----------------------------------------------------------------------
+| Variable   | Description                                               |
+| ---------- | --------------------------------------------------------- |
+| `FILENAME` | File which the extension is `.sql`, for e.g. filename.sql |
 
 You can paste the following command on your `FILENAME`:
 

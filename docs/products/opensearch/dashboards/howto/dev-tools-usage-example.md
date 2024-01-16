@@ -1,5 +1,5 @@
 ---
-title: Getting started with Dev tools
+title: Get started with Dev tools
 ---
 
 Similarly to how you can work with the OpenSearch® service
@@ -18,7 +18,7 @@ sample data, or run a test query.
 Use **POST** method to add a new item to an index called
 `shopping-list`. If the index doesn\'t exist yet, it will be created:
 
-``` 
+```
 POST shopping-list/_doc
 {
    "item": "apple",
@@ -28,7 +28,7 @@ POST shopping-list/_doc
 
 Follow by adding another item with a different set of fields:
 
-``` 
+```
 POST shopping-list/_doc
 {
     "item": "bucket",
@@ -41,7 +41,7 @@ POST shopping-list/_doc
 You can see the command output after running the query describing
 created item:
 
-``` 
+```
 {
   "_index" : "shopping-list",
   "_type" : "_doc",
@@ -60,7 +60,7 @@ created item:
 
 Use **GET** method to send a query to find items with an apple:
 
-``` 
+```
 GET _search
 {
     "query": {
@@ -74,7 +74,7 @@ GET _search
 
 In the output you can see the full response from OpenSearch engine:
 
-``` 
+```
 {
   "took" : 35,
   "timed_out" : false,

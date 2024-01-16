@@ -23,11 +23,11 @@ cloud available for all the projects in your organization, selected
 organizational units, or specific projects only.
 
 Later, you can come back to the **Available projects** tab in your
-cloud\'s page in [Aiven Console](https://console.aiven.io/) and update
+cloud's page in [Aiven Console](https://console.aiven.io/) and update
 the settings you configured during the
 [initial custom cloud's setup](/docs/platform/howto/byoc/create-custom-cloud).
 
-1.  In the **Custom cloud\'s availability in your organization**
+1.  In the **Custom cloud's availability in your organization**
     section, select either:
     -   **By default for all projects** to make your custom cloud
         available in all existing and future projects in the
@@ -41,7 +41,7 @@ the settings you configured during the
 
 ## Prerequisites
 
--   Administrator\'s role for your Aiven organization
+-   Administrator's role for your Aiven organization
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
 -   Access to [Aiven Console](https://console.aiven.io/)
@@ -61,12 +61,12 @@ the settings you configured during the
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 
-6.  In the selected cloud\'s page, navigate to the **Available
+6.  In the selected cloud's page, navigate to the **Available
     projects** tab and modify the settings provided as needed:
 
     -   Select **Set availability** to decide if your custom cloud is
         available in all the projects in your organization or in
-        selected projects only. In the **Custom cloud\'s availability in
+        selected projects only. In the **Custom cloud's availability in
         your organization** window, select either **By default for all
         projects** or **By selection**. If you go for the **By
         selection** option, dropdown menus **Assign organizational
@@ -103,7 +103,7 @@ taking the following steps:
 4.  From the left sidebar, select **Bring your own cloud**.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud\'s page, navigate to the **Available
+6.  In the selected cloud's page, navigate to the **Available
     projects** tab and check the available projects and organizational
     units list for the updates you made.
 

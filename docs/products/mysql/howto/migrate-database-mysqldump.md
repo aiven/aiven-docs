@@ -23,7 +23,7 @@ it up to another Aiven for MySQL database, and restore it using the
 
 :::tip
 For the restore process, we recommend you pick a plan size that is large
-enough to store your data, so you can limit the downtime if you\'re
+enough to store your data, so you can limit the downtime if you're
 performing a migration.
 :::
 
@@ -42,19 +42,13 @@ database. Go to [Aiven Console](https://console.aiven.io/) \> your Aiven
 for MySQL `source-db` service \> **Overview** \> the **Connection
 information** section and find the following information:
 
-  -------------------------------------------------------------------------------
-  Variable               Description
-  ---------------------- --------------------------------------------------------
-  `SOURCE_DB_HOST`       **Host** name for the connection
-
-  `SOURCE_DB_USER`       **User** name for the connection
-
-  `SOURCE_DB_PORT`       Connection **Port** number
-
-  `SOURCE_DB_PASSWORD`   Connection **Password**
-
-  `DEFAULTDB`            Database that contains the `source-db` data
-  -------------------------------------------------------------------------------
+ | Variable             | Description                                 |
+ | -------------------- | ------------------------------------------- |
+ | `SOURCE_DB_HOST`     | **Host** name for the connection            |
+ | `SOURCE_DB_USER`     | **User** name for the connection            |
+ | `SOURCE_DB_PORT`     | Connection **Port** number                  |
+ | `SOURCE_DB_PASSWORD` | Connection **Password**                     |
+ | `DEFAULTDB`          | Database that contains the `source-db` data |
 
 ### Commands
 
@@ -86,7 +80,7 @@ If you are using [Global Transaction
 Identifiers](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-concepts.html)
 (GTIDs) with InnoDB use the `--set-gtid-purged=OFF`
 [option](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_set-gtid-purged).
-The reason is that GTID\'s are not available with MyISAM.
+The reason is that GTID's are not available with MyISAM.
 :::
 
 ## Restore the data
@@ -99,19 +93,13 @@ command. Go to [Aiven Console](https://console.aiven.io/) \> your Aiven
 for MySQL `target-db` service \> **Overview** \> the **Connection
 information** section and find the following information:
 
-  -------------------------------------------------------------------------------
-  Variable               Description
-  ---------------------- --------------------------------------------------------
-  `TARGET_DB_HOST`       **Host** name for the connection
-
-  `TARGET_DB_USER`       **User** name for the connection
-
-  `TARGET_DB_PORT`       Connection **Port** number
-
-  `TARGET_DB_PASSWORD`   Connection **Password**
-
-  `DEFAULTDB`            Database that contains the `target-db` data
-  -------------------------------------------------------------------------------
+  | Variable             | Description                                 |
+  | -------------------- | ------------------------------------------- |
+  | `TARGET_DB_HOST`     | **Host** name for the connection            |
+  | `TARGET_DB_USER`     | **User** name for the connection            |
+  | `TARGET_DB_PORT`     | Connection **Port** number                  |
+  | `TARGET_DB_PASSWORD` | Connection **Password**                     |
+  | `DEFAULTDB`          | Database that contains the `target-db` data |
 
 ### Commands
 

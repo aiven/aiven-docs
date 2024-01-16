@@ -14,10 +14,7 @@ import MyComponentSource8 from '!!raw-loader!/code/products/flink/pgthresholds_s
 import MyComponentSource9 from '!!raw-loader!/code/products/flink/slack_sink.md';
 import MyComponentSource10 from '!!raw-loader!/code/products/flink/slack_notification.md';
 
-## What you will learn
-
-Follow this tutorial and you\'ll learn how to build a streaming anomaly
-detection system. In particular, we\'ll cover the following:
+Learn how to build a streaming anomaly detection system. In particular:
 
 -   How to create a fake streaming dataset.
 -   How to create and use Apache Kafka for data streaming.
@@ -27,14 +24,14 @@ detection system. In particular, we\'ll cover the following:
 -   How to push the outcome of the anomaly detection system as a Slack
     notification.
 
-## What are you going to build
+## Anomaly detection
 
 Anomaly detection is a way to find unusual or unexpected things in data.
-It is immensely helpful in a variety of fields, such as fraud detection,
-network security, quality control and others. By following this tutorial
-you will build your own streaming anomaly detection system.
+It is helpful in a variety of fields, such as fraud detection,
+network security, quality control and others. Let's build our own streaming
+anomaly detection system.
 
-For example: a payment processor might set up anomaly detection against
+For example: A payment processor might set up anomaly detection against
 an e-commerce store if it notices that the store - which sells its items
 in Indian Rupees and is only configured to sell to the Indian market -
 is suddenly receiving a high volume of orders from Spain. This behavior
@@ -42,8 +39,8 @@ could indicate fraud. Another example is that of a domain hosting
 service implementing a CAPTCHA against an IP address it deems is
 interacting with one of its domains in rapid succession.
 
-While it\'s often easier to validate anomalies in data once they due to
-be stored in the database, it\'s more useful to check in-stream and
+While it's often easier to validate anomalies in data once they due to
+be stored in the database, it's more useful to check in-stream and
 address unwanted activity before it affects our dataset.
 
 We can check for anomalies in data by creating filtering pipelines using
@@ -52,9 +49,9 @@ in-stream and batch processing of data. It lets us run SQL-like queries
 against a stream of data and perform actions based on the results of
 those queries.
 
-In this tutorial you\'ll use a fake Internet of Things (IoT) sensor that
+We'll use a fake Internet of Things (IoT) sensor that
 generates data on a CPU usage for various devices as our continuous flow
-of data. Once the data is flowing, you\'ll then create a basic filtering
+of data. Once the data is flowing, we'll also create a basic filtering
 pipeline to separate the usage values surpassing a fixed threshold
 (80%).
 
@@ -64,14 +61,12 @@ having a CPU utilization of 99% might create a heating problem and
 therefore you might want to notify the team in charge of the inventory
 to schedule the replacement.
 
-<!--
-:::mermaid
+```mermaid
 graph LR;
 
-> id1(IoT device)\-- sensor reading \--\>id2(usage \> 80%?); id2\-- yes
-> \--\>id3(notification);
-:::
--->
+    id1(IoT device)-- sensor reading -->id2(usage > 80%?);
+    id2-- yes -->id3(notification);
+```
 
 However, receiving a notification on every sensor reading that surpasses
 a fixed threshold can be overwhelming and create false positives for
@@ -86,15 +81,14 @@ single spikes, but still let you flag components that are at potential
 risk of overheating. The threshold lookup enables a more precise
 definition of alert ranges depending on the device type.
 
-<!--
-:::mermaid
+```mermaid
 graph LR;
 
-> id1(IoT device)\-- sensor reading \--\>id2(average 30 seconds); id2\--
-> average reading \--\>id4(over threshold?); id4\-- yes \--\>
-> id5(notification); id3(threshold table)\-- thresholds \--\> id4;
-:::
--->
+        id1(IoT device)-- sensor reading -->id2(average 30 seconds);
+        id2-- average reading -->id4(over threshold?);
+        id4-- yes --> id5(notification);
+        id3(threshold table)-- thresholds --> id4;
+```
 
 The tutorial includes:
 
@@ -124,16 +118,14 @@ Then an Apache Flink® service combines the data, applies some
 transformation SQL to find the anomalies, and pushes the result to a
 separate Apache Kafka® topic or a Slack channel for team notification.
 
-<!--
-:::mermaid
+```mermaid
 graph TD;
 
-> id1(Apache Kafka)\-- IoT metrics stream \--\>id3(Apache Flink);
-> id2(PostgreSQL)\-- alerting threshold data \--\>id3; id3\--
-> filtered/aggregated data \--\>id1; id3\-- filtered data
-> \--\>id7(Slack);
-:::
--->
+    id1(Apache Kafka)-- IoT metrics stream -->id3(Apache Flink);
+    id2(PostgreSQL)-- alerting threshold data -->id3;
+    id3-- filtered/aggregated data -->id1;
+    id3-- filtered data -->id7(Slack);
+```
 
 ## Prerequisites
 
@@ -296,7 +288,7 @@ similar to the below:
 
 ## Set up the IoT metrics streaming dataset
 
-Now that the plumbing of all the components is sorted, it\'s time for
+Now that the plumbing of all the components is sorted, it's time for
 you to create a continuous stream of fake IoT data that will land in an
 Aiven for Apache Kafka topic. There are various ways to generate fake
 data, for the tutorial you\'ll use the [Dockerized fake data producer
@@ -341,7 +333,7 @@ You can create an authentication token with the following steps:
 
 ### Start the fake IoT data generator
 
-It\'s time to start streaming the fake IoT data that you\'ll later
+It's time to start streaming the fake IoT data that you\'ll later
 process with with Apache Flink:
 
 :::note
@@ -353,7 +345,7 @@ tutorial are based on the IoT sample data.
     Kafka®](https://github.com/aiven/fake-data-producer-for-apache-kafka-docker)
     repository to your computer:
 
-    ``` 
+    ```
     git clone https://github.com/aiven/fake-data-producer-for-apache-kafka-docker.git
     ```
 
@@ -392,13 +384,13 @@ tutorial are based on the IoT sample data.
 
 4.  Run the following command to build the Docker image:
 
-    ``` 
+    ```
     docker build -t fake-data-producer-for-apache-kafka-docker .
     ```
 
 5.  Run the following command to run the Docker image:
 
-    ``` 
+    ```
     docker run fake-data-producer-for-apache-kafka-docker
     ```
 
@@ -406,7 +398,7 @@ tutorial are based on the IoT sample data.
     events to the `cpu_load_stats_real` topic in your Apache Kafka®
     service:
 
-    ``` 
+    ```
     {"hostname": "dopey", "cpu": "cpu4", "usage": 98.3335306302198, "occurred_at": 1633956789277}
     {"hostname": "sleepy", "cpu": "cpu2", "usage": 87.28240549074823, "occurred_at": 1633956783483}
     {"hostname": "sleepy", "cpu": "cpu1", "usage": 85.3384018012967, "occurred_at": 1633956788484}
@@ -451,15 +443,12 @@ anomaly. You\'ll read the IoT sensor readings from the
 Apache Flink, and push the readings above the `80%` threshold back to
 Apache Kafka, but to a separate `cpu_load_stats_real_filter` topic.
 
-<!--
-:::mermaid
+```mermaid
 graph TD;
 
-> id1(Kafka topic: cpu_load_stats_real)\-- IoT metrics stream
-> \--\>id2(Flink application: filtering); id2\-- is CPU high?
-> \--\>id3(Kafka topic: cpu_load_stats_real_filter);
-:::
--->
+      id1(Kafka topic: cpu_load_stats_real)-- IoT metrics stream -->id2(Flink application: filtering);
+      id2-- is CPU high? -->id3(Kafka topic: cpu_load_stats_real_filter);
+```
 
 The steps to create the filtering pipeline are the following:
 
@@ -539,7 +528,7 @@ below:
 
     <CodeBlock language='sql'>{MyComponentSource3}</CodeBlock>
 
-    If you\'re curious, you can preview the output of the transformation
+    If you're curious, you can preview the output of the transformation
     by clicking on the triangle next to the **Run** section, the *Create
     statement* window should be similar to the following image.
 
@@ -577,7 +566,7 @@ The data is now available in the Apache Kafka topic named
 
 In most production environments, you wouldn\'t want to send an alert on
 every measurement above the threshold. Sometimes CPUs spike momentarily,
-for example, and come back down in usage milliseconds later. What\'s
+for example, and come back down in usage milliseconds later. What's
 really useful to you in production is if a CPU spike is sustained over a
 certain period of time.
 
@@ -598,19 +587,15 @@ Every IoT device is different, and various devices usually have
 different alerting ranges. The reference table provides an example of
 variable, device dependent, thresholds.
 
-<!--
-:::mermaid
+```mermaid
 graph TD;
 
-> id1(Kafka topic: cpu_load_stats_real)\-- IoT metrics stream
-> \--\>id3(Flink application: cpu_aggregation); id3\-- 30-second average
-> CPU \--\>id4(Kafka topic: cpu_agg_stats); id4\-- aggregated data
-> \--\>id5(Flink application: cpu_agg); id6(Postgresql table:
-> thresholds)\-- threshold \--\>id5(Flink application:
-> cpu_agg_comparison); id5\-- over threshold \--\>id7(Slack
-> notification);
-:::
--->
+  id1(Kafka topic: cpu_load_stats_real)-- IoT metrics stream -->id3(Flink application: cpu_aggregation);
+  id3-- 30-second average CPU -->id4(Kafka topic: cpu_agg_stats);
+  id4-- aggregated data -->id5(Flink application: cpu_agg);
+  id6(Postgresql table: thresholds)-- threshold -->id5(Flink application: cpu_agg_comparison);
+  id5-- over threshold -->id7(Slack notification);
+```
 
 ### Create the windowing pipeline
 
@@ -618,15 +603,12 @@ In this step, you\'ll create a pipeline to average the CPU metrics
 figures in 30 seconds windows. Averaging the metric over a time window
 allows to avoid notification for temporary spikes.
 
-<!--
-:::mermaid
+```mermaid
 graph TD;
 
-> id1(Kafka topic: cpu_load_stats_real)\-- IoT metrics stream
-> \--\>id3(Flink application: cpu_aggregation); id3\-- 30-second average
-> CPU \--\>id4(Kafka topic: cpu_agg_stats);
-:::
--->
+  id1(Kafka topic: cpu_load_stats_real)-- IoT metrics stream -->id3(Flink application: cpu_aggregation);
+  id3-- 30-second average CPU -->id4(Kafka topic: cpu_agg_stats);
+```
 
 :::note
 In this section, you will be able to reuse `CPU_IN` source table
@@ -726,7 +708,7 @@ The below instructions assume `psql` is installed in your local machine.
     command, replacing the `<SERVICE_URI>` placeholder with the
     **Service URI** string copied in the step above:
 
-    ``` 
+    ```
     psql "<SERVICE_URI>"
     ```
 
@@ -738,13 +720,13 @@ The below instructions assume `psql` is installed in your local machine.
 5.  Enter the following command to check that the threshold values are
     correctly populated:
 
-    ``` 
+    ```
     SELECT * FROM cpu_thresholds;
     ```
 
     The output shows you the content of the table:
 
-    ``` 
+    ```
     hostname | allowed_top
     ---------+------------
     doc      |     20
@@ -765,17 +747,14 @@ you can compare the usage with the thresholds and send a slack
 notification identifying anomaly situations of when the usage is
 exceeding the thresholds.
 
-<!--
-:::mermaid
+```mermaid
 graph TD;
 
-> id1(Kafka topic: cpu_agg_stats); id1\-- aggregated CPU data
-> \--\>id2(Flink application: cpu_agg); id3(Postgresql table:
-> thresholds)\-- threshold \--\>id2(Flink application:
-> cpu_agg_comparison); id2\-- over threshold \--\>id4(Slack
-> notification);
-:::
--->
+  id1(Kafka topic: cpu_agg_stats);
+  id1-- aggregated CPU data -->id2(Flink application: cpu_agg);
+  id3(Postgresql table: thresholds)-- threshold -->id2(Flink application: cpu_agg_comparison);
+  id2-- over threshold -->id4(Slack notification);
+```
 
 You can complete the section with the following steps:
 
@@ -869,8 +848,6 @@ in the Slack channel.
 
 ![A list of Slack notifications driven by the anomaly detection data pipeline](/images/tutorials/anomaly-detection/slack-notifications.png)
 
-:::important
-Congratulations! You created an advanced streaming data pipeline
+You created an advanced streaming data pipeline
 including windowing, joining data coming from different technologies and
 a Slack notification system
-:::

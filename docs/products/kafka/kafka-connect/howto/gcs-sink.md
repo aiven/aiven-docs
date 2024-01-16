@@ -10,7 +10,7 @@ repository](https://github.com/aiven/gcs-connector-for-apache-kafka).
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/aiven/aiven-kafka-connect-gcs).
 :::
 
@@ -50,7 +50,7 @@ GCS sink connector using the [Aiven Console](https://console.aiven.io/).
 Define the connector configurations in a file (we\'ll refer to it with
 the name `gcs_sink.json`) with the following content:
 
-``` 
+```
 {
     "name": "my-gcs-connector",
     "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",
@@ -154,7 +154,7 @@ The example creates an GCS sink connector with the following properties:
 
 The connector configuration is the following:
 
-``` 
+```
 {
     "name": "my_gcs_sink",
     "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",

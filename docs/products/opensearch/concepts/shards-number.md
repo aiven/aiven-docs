@@ -15,7 +15,7 @@ OpenSearch® service.
 The ideal number of shards largely depends on your data volume, usage
 patterns, and expected data growth in OpenSearch®. As a general rule of
 thumb, aim for a shard size between a few gigabytes and tens of
-gigabytes. It\'s better to have a slightly higher number of shards, but
+gigabytes. It's better to have a slightly higher number of shards, but
 avoid overdoing it, as OpenSearch® will issue warnings for excessively
 large or numerous shards.
 

@@ -21,7 +21,7 @@ no matter how many rows in the database are new or stale.
 
 :::tip
 Since the bulk mode replicates the whole table content into the Apache
-Kafka topic at every poll, it\'s a suitable option only for tables with
+Kafka topic at every poll, it's a suitable option only for tables with
 limited amount of data which don\'t have any incremental or timestamp
 column.
 :::
@@ -42,11 +42,11 @@ The column name is passed via the `incrementing.column.name` parameter
 If for example the database `students` table contains the following
 entries:
 
-  `student_id`   `student_name`
-  -------------- ----------------
-  1              `Jon Doe`
-  2              `Mary English`
-  3              `Carol Tunder`
+| `student_id` | `student_name` |
+| ------------ | -------------- |
+| 1            | `Jon Doe`      |
+| 2            | `Mary English` |
+| 3            | `Carol Tunder` |
 
 The column `student_id` can be used as an incremental column. On the
 first poll, the Apache Kafka connector will select all rows from the
@@ -60,12 +60,12 @@ recorded maximum value. In the example below, the condition will be
 then the highest value for the incremental column is stored, and used as
 filter for the following polls.
 
-  `student_id`   `student_name`
-  -------------- ----------------
-  1              `Jon Doe`
-  2              `Mary English`
-  3              `Carol Tunder`
-  **6**          `Sam Cricket`
+| `student_id` | `student_name` |
+| ------------ | -------------- |
+| 1            | `Jon Doe`      |
+| 2            | `Mary English` |
+| 3            | `Carol Tunder` |
+| **6**        | `Sam Cricket`  |
 
 In the case above, where a new row for `Sam Cricket` is added, a new
 record will be sent to the Apache Kafka topic, and the maximum
@@ -98,11 +98,11 @@ The timestamp column(s) is passed via the
 If, for example, the database `students` table contains the following
 entries:
 
-  `student_id`   `student_name`   `created_date`   `modified_date`
-  -------------- ---------------- ---------------- -----------------
-  1              `Jon Doe`        2021-01-01       
-  2              `Mary English`   2021-03-01       2021-04-05
-  3              `Carol Tunder`   2021-03-02       2021-04-06
+ | `student_id` | `student_name` | `created_date` | `modified_date` |
+ | ------------ | -------------- | -------------- | --------------- |
+ | 1            | `Jon Doe`      | 2021-01-01     |                 |
+ | 2            | `Mary English` | 2021-03-01     | 2021-04-05      |
+ | 3            | `Carol Tunder` | 2021-03-02     | 2021-04-06      |
 
 The columns `created_date` and `modified_date` can be used as timestamp
 columns. On the first poll, the Kafka connector will select all rows
@@ -114,7 +114,7 @@ selecting only rows with `modified_date` or `created_date` greater than
 the previously recorded maximum value using the `COALESCENCE` function.
 In the example below, the condition will be:
 
-``` 
+```
 WHERE COALESCENCE(modified_date, created_date) > '2021-04-06'
 ```
 
@@ -125,7 +125,7 @@ is stored, and used as filter for the following polls.
 :::warning
 With the timestamp mode, any change which doesn\'t generate a more
 recent timestamp than the maximum recorded in the previous poll will
-**not** be detected. E.g. updating the `Jon Doe`\'s `modified_date` to
+**not** be detected. E.g. updating the `Jon Doe`'s `modified_date` to
 `2021-04-03` will not be captured since a more recent date
 (`2021-04-06`) was already recorded in the previous poll.
 :::

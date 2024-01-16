@@ -4,7 +4,7 @@ title: Organization hierarchy and access
 
 The Aiven platform uses organizations, organizational units, and
 projects to organize services and access to those services. Learn how
-you can use these effectively to accommodate your organization\'s
+you can use these effectively to accommodate your organization's
 structure.
 
 ![Hierarchy showing two organizational units, each with two projects, nested within one organization.](/images/platform/concepts/organizations_hierarchy.png)
@@ -103,7 +103,7 @@ etc. - at the beginning of project names.
 
 **Medium organizations**
 
-For more complex cases, it\'s helpful to take advantage of the
+For more complex cases, it's helpful to take advantage of the
 organizational units. Organizational units let you collect together
 related projects.
 
@@ -113,7 +113,7 @@ them by categories like testing, staging, and production environments.
 
 **Large organizations**
 
-For large organizations, it\'s best to keep all of your projects in
+For large organizations, it's best to keep all of your projects in
 organizational units instead of organizations. By keeping all of your
 projects in organizational units you can centrally manage things like
 support contracts and billing groups for each group of projects.

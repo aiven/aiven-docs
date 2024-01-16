@@ -13,7 +13,7 @@ setting the `default_transaction_read_only` parameter to `ON`.
 With this setting in place, clients trying to execute write operations
 will start facing errors like:
 
-``` 
+```
 cannot execute CREATE TABLE in a read-only transaction.
 ```
 
@@ -36,7 +36,7 @@ console](https://console.aiven.io/):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select
     your Aiven for PostgreSQL service.
-2.  Select **Service settings** from the sidebar of your service\'s
+2.  Select **Service settings** from the sidebar of your service's
     page.
 3.  Navigate to the **Service plan** section, and select **Change plan**
     from the **Actions** (**\...**) menu.
@@ -67,7 +67,7 @@ limited amount of time over the full database.
 If you want to enable writes for a session, login to the required
 database and execute the following command:
 
-``` 
+```
 SET default_transaction_read_only = OFF;
 ```
 
@@ -80,7 +80,7 @@ time, send the following `POST` request using
 [Aiven APIs](/docs/tools/api) and
 replacing the `PROJECT_NAME` and `SERVICE_NAME` placeholders:
 
-``` 
+```
 https://api.aiven.io/v1/project/<PROJECT_NAME>/service/<SERVICE_NAME>/enable-writes
 ```
 

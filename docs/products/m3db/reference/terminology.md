@@ -13,7 +13,7 @@ title: Terminology for M3
 -   **Replication factor:** M3 stores data redundantly (if replication
     factor \> 1), and uses by default quorum writes and best-effort
     quorum reads. In Aiven for M3, replication factor is hardcoded at 3,
-    which means that single availability zone\'s worth of nodes can be
+    which means that single availability zone's worth of nodes can be
     lost and database still stays functional.
 -   **Shard:** M3 databases have their storage partitioned over multiple
     shards (Aiven for M3 services usually have 60 shards, although this

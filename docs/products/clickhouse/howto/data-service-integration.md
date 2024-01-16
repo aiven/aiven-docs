@@ -13,7 +13,7 @@ Aiven for ClickHouse supports two types of integrations:
 This article details how to set up and use data service integrations in
 Aiven for ClickHouse.
 
-:::note See also
+:::note[See also]
 For information on how to set up and use regular integrations in Aiven
 for ClickHouse, see intregration guides in
 [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations).

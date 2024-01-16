@@ -11,22 +11,10 @@ same as an
 
 Adds projects to a billing group.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The ID of your billing group</td>
-    </tr>
-    <tr>
-      <td>`projects`</td>
-      <td>Names of the projects to assign, separated by spaces</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter  | Information                                          |
+| ---------- | ---------------------------------------------------- |
+| `id`       | The ID of your billing group                         |
+| `projects` | Names of the projects to assign, separated by spaces |
 
 **Example:** Add the project `new-project` to the existing billing group
 with id `55b0e547-58f9-48de-8808-807d385d1f95`
@@ -40,70 +28,22 @@ avn biling-group assign-projects 55b0e547-58f9-48de-8808-807d385d1f95 new-projec
 Creates a new billing group with `create` or amends a billing group with
 `update`.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`name` (required for `create`)</td>
-      <td>Note: This is a positional argument, not a switch</td>
-    </tr>
-    <tr>
-      <td>`ID` (required for `update`)</td>
-      <td>Note: This is a positional argument, not a switch</td>
-    </tr>
-    <tr>
-      <td>`--account-id`</td>
-      <td>The ID of the organization or unit to create the billing group in</td>
-    </tr>
-    <tr>
-      <td>`--card-id`</td>
-      <td>The card ID (see `avn card`)</td>
-    </tr>
-    <tr>
-      <td>`--vat-id`</td>
-      <td>VAT ID for this billing group</td>
-    </tr>
-    <tr>
-      <td>`--billing-currency`</td>
-      <td>The currency to bill in: `AUD`, `CAD`, `CHF`, `DKK`, `EUR`, `GBP`, `JPY`, `NOK`, `NZD`, `SEK`, `SGD`, or `USD`</td>
-    </tr>
-    <tr>
-      <td>`--billing-extra-text`</td>
-      <td>Information to include in an invoice (for example, a cost center number)</td>
-    </tr>
-    <tr>
-      <td>`--billing-email`</td>
-      <td>Email for the billing contact</td>
-    </tr>
-    <tr>
-      <td>`--company`</td>
-      <td>Company name</td>
-    </tr>
-    <tr>
-      <td>`--address-line`</td>
-      <td>First line of address</td>
-    </tr>
-    <tr>
-      <td>`--country-code`</td>
-      <td>[Code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) for the billing country</td>
-    </tr>
-    <tr>
-      <td>`--city`</td>
-      <td>City</td>
-    </tr>
-    <tr>
-      <td>`--state`</td>
-      <td>State / Province</td>
-    </tr>
-    <tr>
-      <td>`--zip-code`</td>
-      <td>ZIP / Post Code</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter                      | Information                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `name` (required for `create`) | Note: This is a positional argument, not a switch                                                                  |
+| `ID` (required for `update`)   | Note: This is a positional argument, not a switch                                                                  |
+| `--account-id`                 | The ID of the organization or unit to create the billing group in                                                  |
+| `--card-id`                    | The card ID (see `avn card`)                                                                                       |
+| `--vat-id`                     | VAT ID for this billing group                                                                                      |
+| `--billing-currency`           | The currency to bill in: `AUD`, `CAD`, `CHF`, `DKK`, `EUR`, `GBP`, `JPY`, `NOK`, `NZD`, `SEK`, `SGD`, or `USD`     |
+| `--billing-extra-text`         | Information to include in an invoice (for example, a cost center number)                                           |
+| `--billing-email`              | Email for the billing contact                                                                                      |
+| `--company`                    | Company name                                                                                                       |
+| `--address-line`               | First line of address                                                                                              |
+| `--country-code`               | [Code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) for the billing country |
+| `--city`                       | City                                                                                                               |
+| `--state`                      | State / Province                                                                                                   |
+| `--zip-code`                   | ZIP / Post Code                                                                                                    |
 
 **Example:** Create a billing group named `qa-dept` in the organization
 that has the account ID `c59dde4j9` and give it the following
@@ -133,29 +73,17 @@ avn billing-group create qa-dept        \
 ``` shell
 avn billing-group update               \
   55b0e547-58f9-48de-8808-807d385d1f95 \
-  --name qa-department 
+  --name qa-department
 ```
 
 ## `avn billing-group credits-claim`
 
 Claims a credit code within your biling-group.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The billing group ID</td>
-    </tr>
-    <tr>
-      <td>`code`</td>
-      <td>Credit Code</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter | Information          |
+| --------- | -------------------- |
+| `id`      | The billing group ID |
+| `code`    | Credit Code          |
 
 **Example:** Claim the credit code `sneaky-crab` in the billing group
 with ID `55b0e547-58f9-48de-8808-807d385d1f95`:
@@ -168,18 +96,9 @@ avn billing-group credits-claim 55b0e547-58f9-48de-8808-807d385d1f95 sneaky-crab
 
 Lists all the credits redeemed in your billing-group
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The ID of your billing group</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter | Information                  |
+| --------- | ---------------------------- |
+| `id`      | The ID of your billing group |
 
 **Example:** List credits claimed in the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`
@@ -200,18 +119,9 @@ S18A11Y  0.00
 
 Deletes a billing group.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The billing group ID</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter | Information          |
+| --------- | -------------------- |
+| `id`      | The billing group ID |
 
 **Example:** Delete the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
@@ -224,18 +134,9 @@ avn billing-group delete 55b0e547-58f9-48de-8808-807d385d1f95
 
 Lists the activity for a given billing group.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The billing group ID</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter | Information          |
+| --------- | -------------------- |
+| `id`      | The billing group ID |
 
 **Example:** List activity for the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
@@ -268,18 +169,9 @@ CREATE_TIME           ACTOR             EVENT_DESC
 
 Gets the details for a given billing group.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The billing group ID</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter | Information          |
+| --------- | -------------------- |
+| `id`      | The billing group ID |
 
 **Example:** Get details for the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
@@ -300,22 +192,10 @@ u856238c-8213-6592-975e-cfc3662c1084  test-group        null
 
 Retrieve the lines for a given invoice
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The ID of your billing group</td>
-    </tr>
-    <tr>
-      <td>`invoice`\`</td>
-      <td>The number of the invoice</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                  |
+| ----------- | ---------------------------- |
+| `id`        | The ID of your billing group |
+| `invoice`\` | The number of the invoice    |
 
 **Example:** Retrieve lines from the invoice `94885-2` for the billing
 group with ID `55b0e547-58f9-48de-8808-807d385d1f95`:
@@ -328,18 +208,9 @@ avn billing-group invoice-lines 55b0e547-58f9-48de-8808-807d385d1f95 94885-2
 
 Lists all invoices for a billing group:
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`id`</td>
-      <td>The ID of your billing group</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter | Information                  |
+| --------- | ---------------------------- |
+| `id`      | The ID of your billing group |
 
 **Example:** List all invoices for the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
@@ -358,7 +229,7 @@ xxxxx-88        2022-09-01T00:00:00Z  2022-09-30T23:59:59Z  estimate  0.00      
 
 ## `avn billing-group list`
 
-Lists all of your billing-groups.
+Lists your billing-groups.
 
 **Example:** List all billing-groups:
 

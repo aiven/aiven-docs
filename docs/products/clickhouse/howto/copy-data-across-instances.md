@@ -29,7 +29,7 @@ Details of the source (remote) server
     INSERT INTO [db.]table [(c1, c2, c3)] SELECT ...
     ```
 
-    :::note See also
+    :::note[See also]
 For details on how to configure and use the INSERT query, see
     [Inserting the Results of
     SELECT](https://clickhouse.com/docs/en/sql-reference/statements/insert-into/#inserting-the-results-of-select).

@@ -2,7 +2,7 @@
 title: avn service schema-registry-acl
 ---
 
-Here you\'ll find the full list of commands for
+Full list of commands for
 `avn service schema-registry-acl`.
 
 ## Manage Karapace schema registry access control lists for Apache Kafka®
@@ -21,17 +21,13 @@ avn service schema-registry-acl-add
 
 Where:
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-     <tr><td><code>service_name</code></td><td>The name of the service</td></tr>
-     <tr><td><code>--permission</code></td><td>The permission type:  -   <code>schema_registry_read</code> -   <code>schema_registry_write</code></td></tr>
-     <tr><td><code>--resource</code></td><td>The resource format can be <code>Config:</code> or <code>Subject:</code>. For more information, see <a href="/docs/products/kafka/karapace/concepts/acl-definition">ACLs definition</a>.</td></tr>
-     <tr><td><code>--username</code></td><td>The name of a service user</td></tr>
-  </tbody>
-</table>
+| Parameter      | Information                                                                                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `service_name` | The name of the service                                                                                                                                          |
+| `--permission` | The permission type:<ul><li>`schema_registry_read`</li><li>`schema_registry_write`</li></ul>                                                                     |
+| `--resource`   | The resource format can be `Config:` or `Subject:<subject>`. For more information, see [ACLs definition](/docs/products/kafka/karapace/concepts/acl-definition). |
+| `--username`   | The name of a service user                                                                                                                                       |
+
 
 **Example**
 
@@ -62,22 +58,10 @@ avn service schema-registry-acl-delete
 
 Where:
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`acl_id`</td>
-      <td>The ID of the Karapace schema registry ACL to delete</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                                          |
+| -------------- | ---------------------------------------------------- |
+| `service_name` | The name of the service                              |
+| `acl_id`       | The ID of the Karapace schema registry ACL to delete |
 
 **Example:**
 
@@ -100,18 +84,9 @@ avn service schema-registry-acl-list
 
 Where:
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the service |
 
 **Example:**
 

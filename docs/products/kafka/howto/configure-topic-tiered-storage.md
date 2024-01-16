@@ -2,16 +2,22 @@
 title: Enable and configure tiered storage for topics
 ---
 
-:::important
-Aiven for Apache Kafka® tiered storage is a
-[early availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Aiven for Apache Kafka® allows you to easily configure tiered storage
+Aiven for Apache Kafka® allows you to configure tiered storage
 and set retention policies for individual topics. Learn how to configure
 tiered storage for individual topics and set local retention policies
 step by step.
+
+:::important
+Aiven for Apache Kafka® tiered storage is an
+[early availability feature](/docs/platform/concepts/beta_services). To use this feature, contact our sales team at
+[sales@aiven.io](mailto:sales@aiven.io) to activate tiered storage for your account.
+
+After
+activation, you must enable the feature from the
+[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
+
+For further details, see [Enable tiered storage for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-kafka-tiered-storage).
+:::
 
 ## Prerequisite
 
@@ -21,8 +27,8 @@ step by step.
 
 1.  Access [Aiven console](https://console.aiven.io/), select your
     project, and select your Aiven for Apache Kafka service.
-2.  From the left sidebar, select **Topics**.
-3.  Here, you have the option to either add a new topic with tiered
+1.  From the left sidebar, select **Topics**.
+1.  Here, you have the option to either add a new topic with tiered
     storage configuration or modify an existing topic to use tiered
     storage.
 
@@ -30,16 +36,16 @@ step by step.
 
 1.  From the **Topics** page, select **Add topic**.
 
-2.  Enable advanced configurations by setting the **Do you want to
+1.  Enable advanced configurations by setting the **Do you want to
     enable advanced configuration?** option to **Yes**.
 
-3.  In the **Topic advanced configuration** drop-down, choose
+1.  In the **Topic advanced configuration** drop-down, choose
     `remote_storage_enable`. This action will reveal the **Remote
     storage enabled** drop-down.
 
-4.  Select **True** to activate tiered storage for the topic.
+1.  Select **True** to activate tiered storage for the topic.
 
-5.  Additionally, you can also set the values for `local_retention_ms`
+1.  Additionally, you can also set the values for `local_retention_ms`
     and `local_retention_bytes` using the respective options from the
     drop-down list.
 
@@ -55,34 +61,34 @@ step by step.
     retention is set to be greater than the local retention.
     :::
 
-6.  Select **Add topic** to save your changes and add the topic with
+1.  Select **Add topic** to save your changes and add the topic with
     tiered storage.
 
 ### For an existing topic
 
 1.  From the **Topics** page, select the topic for which you wish to
     enable tiered storage.
-2.  Use the ellipsis or open the topic and choose **Modify**.
-3.  In the **Modify** page, choose `remote_storage_enable` from the
+1.  Use the ellipsis or open the topic and choose **Modify**.
+1.  In the **Modify** page, choose `remote_storage_enable` from the
     drop-down list, followed by selecting **True** from the **Remote
     storage enable** drop-down.
-4.  Additionally, you can also set the values for `local_retention_ms`
+1.  Additionally, you can also set the values for `local_retention_ms`
     and `local_retention_bytes` using the respective options from the
     drop-down list.
 
-:::important
-If the values for `local_retention_bytes` and `local_retention_ms` are
-not set, they default to -2 or take the configuration from the service
-level.
+    :::important
+    If the values for `local_retention_bytes` and `local_retention_ms` are
+    not set, they default to -2 or take the configuration from the service
+    level.
 
-When set to -2, the retention in local storage will match the total
-retention. In this scenario, the data segments sent to remote storage
-are also retained locally. The remote storage will contain older data
-segments than in the local storage only when the total retention is set
-to be greater than the local retention.
-:::
+    When set to -2, the retention in local storage will match the total
+    retention. In this scenario, the data segments sent to remote storage
+    are also retained locally. The remote storage will contain older data
+    segments than in the local storage only when the total retention is set
+    to be greater than the local retention.
+    :::
 
-5.  Select **Update** to save your changes and activate tiered storage.
+1.  Select **Update** to save your changes and activate tiered storage.
 
 ## (Optional) configure client-side parameter
 

@@ -1,6 +1,6 @@
 # `custom_domain`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom domain** Serve the web frontend using a custom CNAME pointing
 to the Aiven DNS name
@@ -27,12 +27,12 @@ available in the HTTP API and console.
 
 # `m3_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **M3 major version (deprecated, use m3aggregator_version)**
 
 # `m3aggregator_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **M3 major version (the minimum compatible version)**

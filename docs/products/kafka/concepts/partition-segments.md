@@ -16,24 +16,24 @@ segments, with `06.log` being the active one:
 
 **01.log**
 
-  Offset   Key    Value
-  -------- ------ -------------------
-  1        1001   4 Privet Dr
-  2        1002   221B Baker Street
-  3        1003   Milkman Road
+| Offset | Key  | Value             |
+| ------ | ---- | ----------------- |
+| 1      | 1001 | 4 Privet Dr       |
+| 2      | 1002 | 221B Baker Street |
+| 3      | 1003 | Milkman Road      |
 
 **04.log**
 
-  Offset   Key    Value
-  -------- ------ ------------
-  4        1002   21 Jump St
-  5        1001   Paper St
+| Offset | Key  | Value      |
+| ------ | ---- | ---------- |
+| 4      | 1002 | 21 Jump St |
+| 5      | 1001 | Paper St   |
 
 **06.log (active segment)**
 
-  Offset   Key    Value
-  -------- ------ ---------------
-  6        1001   Paper Road 21
+| Offset | Key  | Value         |
+| ------ | ---- | ------------- |
+| 6      | 1001 | Paper Road 21 |
 
 When the segment file reaches a certain size or age, Apache Kafka will
 create a new segment file. This can be controlled by the following

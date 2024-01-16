@@ -7,14 +7,14 @@ import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: 'Aiven documentation',
   tagline: 'The trusted open source data platform for everyone',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
   baseUrl: process.env.BASEURL || '/docs/',
   organizationName: 'Aiven',
   projectName: 'docs',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-  onBrokenAnchors: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
+  onBrokenAnchors: 'throw',
   trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
@@ -29,17 +29,12 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/', // Serve the docs at the site's root
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/aiven/aiven-docs',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl:
-        //     "https://github.com/aiven/aiven-docs",
-        // },
         theme: {
           customCss: [
             './src/css/fonts.css',
@@ -61,15 +56,25 @@ const config: Config = {
       crossorigin: 'anonymous',
     },
   ],
-
+  scripts: [
+    {src: '/docs/page_scripts/snowplow.js', async: true},
+    {
+      src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+      'data-document-language': 'true',
+      type: 'text/javascript',
+      charset: 'UTF-8',
+      'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
+    },
+    {src: '/docs/page_scripts/onetrust.js', async: true},
+  ],
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'images/docusaurus-social-card.jpg',
     navbar: {
       title: 'aiven',
       logo: {
         alt: 'Aiven docs',
-        src: 'img/logo.svg',
-        srcDark: 'img/logoDark.svg',
+        src: 'images/logo.svg',
+        srcDark: 'images/logoDark.svg',
       },
       items: [
         {
@@ -94,10 +99,15 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
-
         {
-          href: 'https://aiven.io/book-demo',
-          label: 'Book a demo',
+          href: 'https://console.aiven.io/login',
+          label: 'Log in',
+          position: 'right',
+          className: 'navbar-button navbar-button-secondary',
+        },
+        {
+          href: 'https://console.aiven.io/signup',
+          label: 'Start for free',
           position: 'right',
           className: 'navbar-button navbar-button-primary',
         },
@@ -108,19 +118,11 @@ const config: Config = {
         autoCollapseCategories: true,
       },
     },
-    announcementBar: {
-      id: 'announcementBar',
-      content: `We've refreshed our look! The content is going to evolve over the next few months, feel free to share your feedback at <a href="mailto:docs@aiven.io">docs@aiven.io</a>.`,
-    },
     algolia: {
-      appId: '2LJMO5YILL',
-      apiKey: '61502bc431ba2e440c358ed2b7f5548f',
-      indexName: 'avnsmarketingtest',
+      appId: 'TVLG5RQH07',
+      apiKey: 'c45fc93238dcf4daae88af57913ce87b',
+      indexName: 'Aiven Production Docs Crawler',
       contextualSearch: true,
-      // Optional: Algolia search parameters
-      searchParameters: {},
-
-      // Optional: path for search page that enabled by default (`false` to disable it)
       searchPagePath: 'search',
     },
     footer: {
@@ -131,7 +133,7 @@ const config: Config = {
           items: [
             {
               label: 'Services',
-              href: '/docs/services',
+              href: '/docs/products/services',
             },
             {
               label: 'Dev tools',
@@ -166,6 +168,10 @@ const config: Config = {
             {
               label: 'Developer center',
               href: 'https://aiven.io/developer',
+            },
+            {
+              label: 'Email the docs team',
+              href: 'mailto:docs@aiven.io',
             },
           ],
         },
@@ -218,6 +224,7 @@ const config: Config = {
       theme: prismThemes.nightOwl,
       darkTheme: prismThemes.dracula,
       defaultLanguage: 'bash',
+      additionalLanguages: ['json', 'php'],
     },
     mermaid: {
       options: {
@@ -227,9 +234,6 @@ const config: Config = {
     markdown: {
       format: 'mdx',
       mermaid: true,
-      // preprocessor: ({filePath, fileContent}) => {
-      //   return fileContent.replaceAll('{{MY_VAR}}', 'MY_VALUE');
-      // },
       mdx1Compat: {
         comments: false,
         admonitions: false,
@@ -237,6 +241,7 @@ const config: Config = {
       },
     },
   } satisfies Preset.ThemeConfig,
+  clientModules: [require.resolve('./static/page_scripts/tracking.ts')],
 };
 
 export default config;

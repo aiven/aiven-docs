@@ -40,7 +40,7 @@ Aiven](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-ope
 (and enjoy a free trial for new accounts). Once you have your account
 set, please generate and note down the
 [authentication token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
-Kubernetes operator with Aiven\'s API.
+Kubernetes operator with Aiven's API.
 
 ### Install the operator
 
@@ -92,7 +92,7 @@ helm repo add aiven https://aiven.github.io/aiven-charts
 helm repo update
 ```
 
-Now let\'s install the CRD and then the operator itself:
+Now let's install the CRD and then the operator itself:
 
 ``` bash
 helm install aiven-operator-crds aiven/aiven-operator-crds
@@ -117,7 +117,7 @@ If your pod is listed with status \"Running\" then all is well.
 ### Authenticating
 
 Before creating a service, we need to authenticate the operator with
-Aiven\'s API. To do so, create the Kubernetes secret with the command
+Aiven's API. To do so, create the Kubernetes secret with the command
 below, substituting the `<your-token-here>` with the authentication
 token generated in the \"Requirements\" section above. This needs to be
 created in the namespace which is going to be used to create your Aiven
@@ -129,7 +129,7 @@ kubectl create secret generic aiven-token --from-literal=token="<your-token-here
 
 ### Deploying Aiven for PostgreSQL
 
-It\'s showtime! Let\'s create an Aiven for PostgreSQL service using the
+It's showtime! Let's create an Aiven for PostgreSQL service using the
 Custom Resource provided by the operator. Create a file named
 `pg-sample.yaml` with the content below, substituting the
 `<your-project-name>` with your Aiven project name. Take a look at the
@@ -152,7 +152,7 @@ spec:
     name: pg-connection
 
   # add your Project name here
-  project: <your-project-name> 
+  project: <your-project-name>
 
   # cloud provider and plan of your choice
   # you can check all of the possibilities here https://aiven.io/pricing
@@ -186,7 +186,7 @@ has the value `RUNNING`, it is ready to use.
 ### Using the service
 
 Once the service is up and running (you can see your database in the
-Aiven web console as well at this point) let\'s deploy a pod to test the
+Aiven web console as well at this point) let's deploy a pod to test the
 connection to PostgreSQL from Kubernetes.
 
 Create a file named `pod-psql.yaml` with the content below:
@@ -203,7 +203,7 @@ spec:
       name: postgres
       command: ['psql', '$(DATABASE_URI)', '-c', 'SELECT version();']
 
-      # the pg-connection secret becomes environment variables 
+      # the pg-connection secret becomes environment variables
       envFrom:
       - secretRef:
           name: pg-connection

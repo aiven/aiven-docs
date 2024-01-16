@@ -2,7 +2,7 @@
 title: Create service integrations
 ---
 
-If you\'re not sure what a service integration is, see
+If you're not sure what a service integration is, see
 [Service integration](/docs/platform/concepts/service-integration) for an overview. This article will guide you on how to
 create service integrations between different Aiven services and move
 telemetry data using these integrations.
@@ -26,8 +26,9 @@ To get started, you need three services:
     provider, region, and a plan from **startup**, **business**, or
     **premium**.
 
-2.  Once all three services are running in the [Aiven Console](https://console.aiven.io/), select the Aiven for
-    PostgreSQL service from the **Services** page. Ensure you are on the
+2.  Once all three services are running in the [Aiven
+    Console](https://console.aiven.io/), select the Aiven for PostgreSQL
+    service from the **Services** page. Ensure you are on the
     **Overview** page of your service.
 
     a.  Select to **Integrations** from the sidebar.

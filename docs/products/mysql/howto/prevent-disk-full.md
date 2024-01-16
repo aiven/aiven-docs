@@ -18,8 +18,8 @@ this state is when your disk usage is at 97% or higher.
 Once your service is made `read-only`, the service reports errors when
 you attempt to insert, update, or delete data:
 
-``` 
-ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement  
+```
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
 ```
 
 ## Free up disk space
@@ -51,13 +51,13 @@ restriction.
 
 You can use our API and send a POST request to:
 
-``` 
-https://api.aiven.io/v1/project/<PROJECT>/service/<SERVICE_NAME>/enable-writes 
+```
+https://api.aiven.io/v1/project/<PROJECT>/service/<SERVICE_NAME>/enable-writes
 ```
 
 The output of a successful operation is:
 
-``` 
+```
 {
   "message": "Writes temporarily enabled",
   "until": "2022-04-22T13:42:05.385432Z"
@@ -66,7 +66,7 @@ The output of a successful operation is:
 
 This way you can free up space within the next 15 minutes.
 
-:::note See also
+:::note[See also]
 Consider reading how to
 [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.
 :::

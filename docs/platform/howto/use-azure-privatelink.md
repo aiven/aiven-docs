@@ -58,10 +58,10 @@ Azure Private Link is supported for the following services:
 
 ## Variables
 
-  Variable            Description
-  ------------------- ----------------------------
-  `SUBSCRIPTION_ID`   Azure subscription ID
-  `AIVEN_SERVICE`     Name of your Aiven service
+| Variable          | Description                |
+| ----------------- | -------------------------- |
+| `SUBSCRIPTION_ID` | Azure subscription ID      |
+| `AIVEN_SERVICE`   | Name of your Aiven service |
 
 ## Set up a Private Link connection
 
@@ -69,10 +69,10 @@ There are three steps to setting up an Azure Private Link with your
 Aiven service:
 
 1.  Create a Private Link service
-2.  Create a private endpoint
-3.  Enable Private Link access service components
+1.  Create a private endpoint
+1.  Enable Private Link access service components
 
-### Step 1: Create a Private Link service
+### Step 1. Create a Private Link service
 
 1.  In the Aiven CLI, create a Private Link resource on your Aiven
     service:
@@ -87,7 +87,7 @@ Aiven service:
     Link service. Connections from other subscriptions are automatically
     rejected.
 
-2.  Check the status of the Private Link service:
+1.  Check the status of the Private Link service:
 
     ``` shell
     avn service privatelink azure get AIVEN_SERVICE
@@ -96,14 +96,14 @@ Aiven service:
     The service is in the `creating` state until Azure provisions a load
     balancer and Private Link service.
 
-3.  When the state changes to `active`, note the `azure_service_alias`
+1.  When the state changes to `active`, note the `azure_service_alias`
     and `azure_service_id`:
 
     ``` shell
     avn service privatelink azure get AIVEN_SERVICE
     ```
 
-### Step 2: Create a private endpoint
+### Step 1. Create a private endpoint
 
 Azure resources in the Aiven service are now ready to be connected to
 your Azure subscription and virtual network.
@@ -114,7 +114,7 @@ your Azure subscription and virtual network.
     by resource ID or alias** and enter the `azure_service_alias` or
     `azure_service_id`.
 
-2.  Refresh the Aiven Private Link service:
+1.  Refresh the Aiven Private Link service:
 
     ``` shell
     avn service privatelink azure refresh AIVEN_SERVICE
@@ -122,11 +122,11 @@ your Azure subscription and virtual network.
 
     :::note
     Azure does not provide notifications about endpoint connections and
-    the Aiven API will not be aware of new endpoints until it\'s
+    the Aiven API will not be aware of new endpoints until it's
     refreshed.
     :::
 
-3.  In the Aiven CLI, check that the endpoint is connected to the
+1.  In the Aiven CLI, check that the endpoint is connected to the
     service:
 
     ``` shell
@@ -138,10 +138,10 @@ your Azure subscription and virtual network.
     ``` shell
     PRIVATELINK_CONNECTION_ID  PRIVATE_ENDPOINT_ID                                                                                                                                         STATE                  USER_IP_ADDRESS
     =========================  ==========================================================================================================================================================  =====================  ===============
-    plc35843e8054b             /subscriptions/8eefec94-5d63-40c9-983c-03ab083b411d/resourceGroups/test-privatelink/providers/Microsoft.Network/privateEndpoints/my-endpoint                pending-user-approval  null
+    plc35843e8051.             /subscriptions/8eefec94-5d63-40c9-983c-03ab083b411d/resourceGroups/test-privatelink/providers/Microsoft.Network/privateEndpoints/my-endpoint                pending-user-approval  null
     ```
 
-4.  Check that the endpoint ID matches the one created in your
+1.  Check that the endpoint ID matches the one created in your
     subscription and approve it:
 
     ``` shell
@@ -152,10 +152,10 @@ your Azure subscription and virtual network.
     Private Link service in the Aiven service. The state of the endpoint
     is `pending`.
 
-5.  In the Azure web console, go to the private endpoint and select
+1.  In the Azure web console, go to the private endpoint and select
     **Network interface**. Copy the private IP address.
 
-6.  In the Aiven CLI, add the endpoint\'s IP address you copied to the
+1.  In the Aiven CLI, add the endpoint's IP address you copied to the
     connection:
 
     ``` shell
@@ -164,11 +164,11 @@ your Azure subscription and virtual network.
        AIVEN_SERVICE PRIVATELINK_CONNECTION_ID
     ```
 
-Once the endpoint IP address is added, the connection\'s status changes
+Once the endpoint IP address is added, the connection's status changes
 to `active`. A DNS name for the service is registered pointing to that
 IP address.
 
-### Step 3: Enable Private Link access for Aiven service components
+### Step 1. Enable Private Link access for Aiven service components
 
 Finally, enable Private Link access on your Aiven services using either
 the Aiven CLI or [Aiven Console](https://console.aiven.io/).
@@ -191,18 +191,18 @@ Console](https://console.aiven.io/):
 
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
-2.  On the **Service settings** page, navigate to the **Cloud and
+1.  On the **Service settings** page, navigate to the **Cloud and
     network** section and select **More network configurations** from
     the actions (**\...**) menu.
-3.  In the **Network configuration** window, take the following actions:
+1.  In the **Network configuration** window, take the following actions:
     1.  Select **Add configuration options**.
-    2.  In the search field, enter `privatelink_access`.
-    3.  From the displayed component names, select the names of the
+    1.  In the search field, enter `privatelink_access`.
+    1.  From the displayed component names, select the names of the
         components that you want to enable
         (`privatelink_access.<service component>`).
-    4.  Select the toggle switches for the selected components to enable
+    1.  Select the toggle switches for the selected components to enable
         them.
-    5.  Select **Save configuration**.
+    1.  Select **Save configuration**.
 
 :::tip
 Each service component can be controlled separately. For example, you
@@ -211,7 +211,7 @@ while allowing Kafka® Connect to only be connected via VNet peering.
 :::
 
 After toggling the values, your Private Link resource will be rebuilt
-with load balancer rules added for the service component\'s ports.
+with load balancer rules added for the service component's ports.
 
 :::note
 For Aiven for Apache Kafka® services, the security group for the VPC
@@ -227,7 +227,7 @@ implementation.
 If you have one private endpoint connected to your Aiven service, you
 can preview the connection information (URI, hostname, or port required
 to access the service through the private endpoint) in [Aiven
-Console](https://console.aiven.io/) \> the service\'s **Overview** page
+Console](https://console.aiven.io/) \> the service's **Overview** page
 \> the **Connection information** section, where you\'ll also find the
 switch for the `privatelink` access route. `privatelink`-access-route
 values for `host` and `port` differ from those for the `dynamic` access

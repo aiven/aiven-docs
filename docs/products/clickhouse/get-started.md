@@ -24,7 +24,7 @@ with the ClickHouse client.
 ## Create a database
 
 1.  When the service is running, select **Databases and tables** from
-    the sidebar of your service\'s page.
+    the sidebar of your service's page.
 
 2.  In the **Databases and tables** page, select **Create database** \>
     **ClickHouse database**.

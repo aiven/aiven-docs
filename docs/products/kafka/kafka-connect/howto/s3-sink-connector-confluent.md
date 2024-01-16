@@ -16,7 +16,7 @@ sink connector check out
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://docs.confluent.io/current/connect/kafka-connect-s3/).
 :::
 
@@ -47,7 +47,7 @@ S3 sink connector using the
 Define the connector configurations in a file (we\'ll refer to it with
 the name `s3_sink.json`) with the following content:
 
-``` 
+```
 {
     "name": "<CONNECTOR_NAME>",
     "topics": "<TOPIC_NAME>",
@@ -99,7 +99,7 @@ To create the connector, execute the following
 [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create), replacing the `SERVICE_NAME` with the name of the existing
 Aiven for Apache Kafka® service where the connector needs to run:
 
-``` 
+```
 avn service connector create SERVICE_NAME @s3_sink.json
 ```
 
@@ -107,7 +107,7 @@ Check the connector status with the following command, replacing the
 `SERVICE_NAME` with the existing Aiven for Apache Kafka® service and the
 `CONNECTOR_NAME` with the name of the connector defined before:
 
-``` 
+```
 avn service connector status SERVICE_NAME CONNECTOR_NAME
 ```
 
@@ -128,7 +128,7 @@ The example creates an S3 sink connector with the following properties:
 
 The connector configuration is the following:
 
-``` 
+```
 {
     "name": "my_s3_sink",
     "topics": "students",
@@ -149,6 +149,6 @@ The connector configuration is the following:
 With the above configuration stored in a `s3_sink.json` file, you can
 create the connector in the `demo-kafka` instance with:
 
-``` 
+```
 avn service connector create demo-kafka @s3_sink.json
 ```

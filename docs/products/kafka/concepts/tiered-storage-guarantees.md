@@ -2,7 +2,7 @@
 title: Guarantees
 ---
 
-With Aiven for Apache Kafka®\'s tiered storage, there are two primary
+With Aiven for Apache Kafka®'s tiered storage, there are two primary
 types of data retention guarantees: *total retention* and *local
 retention*.
 
@@ -18,7 +18,7 @@ exceeds the local retention threshold.
 
 ## Example
 
-Let\'s say you have a topic with a **total retention threshold** of
+Let's say you have a topic with a **total retention threshold** of
 **1000 GB** and a **local retention threshold** of **200 GB**. This
 means that:
 

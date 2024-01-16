@@ -62,7 +62,7 @@ The above approach requires configuration changes in the data pipeline.
 If this is not possible, the alternative is to upgrade your Aiven for
 Apache Kafka service to a bigger plan with more memory. You can do this
 in the [Aiven Console](https://console.aiven.io/) or with the
-[Aiven CLI](/docs/tools/cli/service#avn-cli-service-update).
+[Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-update).
 
 ### Create a dedicated Kafka Connect cluster
 

@@ -39,7 +39,7 @@ connect, this is outlined in the steps below.
 
     :::tip
     If you experience a Java SSL error when testing the connectivity,
-    add the service CA certificate to the list of Conduktor\'s trusted
+    add the service CA certificate to the list of Conduktor's trusted
     certificates.
 
     -   Download the **CA Certificate** file to your computer.

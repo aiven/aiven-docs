@@ -9,7 +9,7 @@ specific workload.
 There are three built-in ways to inspect service logs at Aiven:
 
 -   For recent events, go to [Aiven Console](https://console.aiven.io/)
-    \> your service\'s page \> **Logs** view (available from the
+    \> your service's page \> **Logs** view (available from the
     sidebar)
 
     :::tip
@@ -18,7 +18,7 @@ There are three built-in ways to inspect service logs at Aiven:
     :::
 
 -   For downloading logs programmatically with the
-    [dedicated command](/docs/tools/cli/service#avn-service-logs), use [Aiven CLI](/docs/tools/cli) supports
+    [dedicated command](/docs/tools/cli/service-cli#avn-service-logs), use [Aiven CLI](/docs/tools/cli) supports
 
 -   For fetching the same information two above methods output, if the
     programmatic access is needed, use the [ProjectGetServiceLogs

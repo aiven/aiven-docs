@@ -7,7 +7,7 @@ Kafka® data to the NoSQL database.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/couchbase/kafka-connect-couchbase).
 :::
 
@@ -27,18 +27,18 @@ Couchbase database upfront:
 -   `COUCHBASE_BUCKET`: The bucket where to land the data
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for Apache Kafka®, the Kafka related details are
+If you're using Aiven for Apache Kafka®, the Kafka related details are
 available in the [Aiven console](https://console.aiven.io/) service
 Overview tab or via the dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service#avn_service_get).
+[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Setup a Couchbase sink connector with Aiven Console
@@ -59,7 +59,7 @@ Console](https://console.aiven.io/):
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.couchbase.connect.kafka.CouchbaseSourceConnector",
-    "couchbase.seed.nodes": "COUCHBASE_SEED_NODES", 
+    "couchbase.seed.nodes": "COUCHBASE_SEED_NODES",
     "couchbase.username": "COUCHBASE_USER",
     "couchbase.password": "COUCHBASE_PASSWORD",
     "couchbase.bucket": "COUCHBASE_BUCKET",
@@ -132,7 +132,7 @@ properties:
 
 The connector configuration is the following:
 
-``` 
+```
 {
     "name": "couchbase_sink",
     "connector.class": "com.couchbase.connect.kafka.CouchbaseSinkConnector",

@@ -3,7 +3,7 @@ title: OpenSearch® Dashboards
 ---
 
 OpenSearch® Dashboards is both a visualisation tool for data in the
-cluster and a user interface for OpenSearch plugins. It\'s included with
+cluster and a user interface for OpenSearch plugins. It's included with
 your Aiven for OpenSearch service and accessible through the browser.
 
 :::note

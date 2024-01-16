@@ -4,7 +4,7 @@ title: Enable cross-cluster replication in Aiven for Apache Cassandra®
 
 :::important
 Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -138,17 +138,17 @@ used to interact with Aiven APIs.
     indicates the service you connect to for enabling CCR. The two
     connected services create a CCR service pair.
 -   `cassandra.datacenter` is a datacenter name used to identify nodes
-    from a particular service in the cluster\'s topology. In CCR for
+    from a particular service in the cluster's topology. In CCR for
     Aiven for Apache Cassandra, all nodes of either of the two services
     belong to a single datacenter; therefore, a value of the
     `cassandra.datacenter` parameter needs to be unique for each
-    service. It\'s recommended to set it equal to the service name.
+    service. It's recommended to set it equal to the service name.
 :::
 
 ### Create a new CCR service pair {#new-ccr-service-pair}
 
 1.  Use the
-    [avn service create](/docs/tools/cli/service#avn-cli-service-create) command to create a new service (`service_1`).
+    [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a new service (`service_1`).
 
     ``` bash
     avn service create                                   \
@@ -183,7 +183,7 @@ used to interact with Aiven APIs.
 
 ### Add a CCR peer to an existing service {#new-ccr-peer-service}
 
-Use the [avn service create](/docs/tools/cli/service#avn-cli-service-create) command to create a new service with CCR enabled. Use the
+Use the [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a new service with CCR enabled. Use the
 `service_to_join_with` parameter to connect your new service to an
 existing service creating a CCR pair. Set the value of the
 `service_to_join_with` parameter to the name of the existing service.
@@ -225,11 +225,11 @@ with Aiven APIs.
     indicates the service you connect to for enabling CCR. The two
     connected services create a CCR service pair.
 -   `cassandra.datacenter` is a datacenter name used to identify nodes
-    from a particular service in the cluster\'s topology. In CCR for
+    from a particular service in the cluster's topology. In CCR for
     Aiven for Apache Cassandra, all nodes of either of the two services
     belong to a single datacenter; therefore, a value of the
     `cassandra.datacenter` parameter needs to be unique for each
-    service. It\'s recommended to set it equal to the service name.
+    service. It's recommended to set it equal to the service name.
 :::
 
 ### Create a new CCR service pair {#new-ccr-pair}
@@ -326,7 +326,7 @@ curl --request POST                                                   \
       }'
 ```
 
-## What\'s next
+## What's next
 
 -   [Manage CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/manage-cross-cluster-replication)
 -   [Disable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/disable-cross-cluster-replication)

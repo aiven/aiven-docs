@@ -12,7 +12,7 @@ repository](https://github.com/aiven/aiven-kafka-connect-gcs).
 
 The connector uses the following format for output files (blobs)
 
-``` 
+```
 <prefix><topic>-<partition>-<start-offset>[.gz]
 ```
 
@@ -21,7 +21,7 @@ The file name format has the following building blocks:
 -   `<prefix>`: the file name prefix, useful, for example, to define
     subdirectories in the storage bucket
 -   `<topic>`: the source Apache Kafka topic name
--   `<partition>`: the source Apache Kafka topic\'s partition number
+-   `<partition>`: the source Apache Kafka topic's partition number
 -   `<start-offset>`: the offset of the first record in the file
 -   `[.gz]`: the file suffix, added when compression is enabled and
     depending on compression type
@@ -33,7 +33,7 @@ line (separated by `\n`).
 
 There are two types of data format available:
 
--   **Flat structure**: it\'s the default data format, where the field
+-   **Flat structure**: it's the default data format, where the field
     values are separated by comma (CSV).
 
     You can use the CSV format by setting the `format.output.type` to

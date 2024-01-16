@@ -12,19 +12,19 @@ Once you are connected to the MySQL database, you can determine which
 tables are missing primary keys by running the following commands:
 
 ``` shell
-SELECT    
+SELECT
     tab.table_schema AS database_name,
     tab.table_name AS table_name,
     tab.table_rows AS table_rows
 FROM information_schema.tables tab
-LEFT JOIN information_schema.table_constraints tco          
-    ON (tab.table_schema = tco.table_schema              
+LEFT JOIN information_schema.table_constraints tco
+    ON (tab.table_schema = tco.table_schema
         AND tab.table_name = tco.table_name
         AND tco.constraint_type = 'PRIMARY KEY')
 WHERE
     tab.table_schema NOT IN ('mysql', 'information_schema', 'performance_schema', 'sys')
     AND tco.constraint_type IS NULL
-    AND tab.table_type = 'BASE TABLE'; 
+    AND tab.table_type = 'BASE TABLE';
 ```
 
 To see the exact table definition for the problematic tables you can run
@@ -73,7 +73,7 @@ team_id BIGINT NOT NULL
 Add the primary key using the following query:
 
 ``` shell
-ALTER TABLE team_membership ADD PRIMARY KEY (user_id, team_id); 
+ALTER TABLE team_membership ADD PRIMARY KEY (user_id, team_id);
 ```
 
 If none of the existing columns or a combination of the existing columns
@@ -98,13 +98,13 @@ For the operation to succeed, you need to set a value that is high
 enough. Depending on the table size, this could be a few gigabytes or
 even more for very large tables. You can change
 `mysql.innodb_online_alter_log_max_size` as follows: [Aiven
-Console](https://console.aiven.io/) \> your Aiven for MySQL service\'s
+Console](https://console.aiven.io/) \> your Aiven for MySQL service's
 page \> the **Service settings** page of the service \> the **Advanced
 configuration** section \> **Configure** \> **Add configuration
 options** \> `mysql.innodb_online_alter_log_max_size` \> set a value \>
 **Save configuration**.
 
-:::note See also
+:::note[See also]
 Learn how to
 [create new tables without primary keys](/docs/products/mysql/howto/create-tables-without-primary-keys) in your Aiven for MySQL.
 :::

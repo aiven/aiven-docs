@@ -2,8 +2,6 @@
 title: Aiven for Apache Kafka®
 ---
 
-## What is Aiven for Apache Kafka®?
-
 Aiven for Apache Kafka® is a fully managed **distributed data streaming
 platform**, deployable in the cloud of your choice. Apache Kafka is an
 open source data streaming platform, ideal for event-driven
@@ -17,28 +15,20 @@ is organised into \"topics\" and \"partitions\" so that many data
 streams can be handled at once, regardless of how much data is flowing
 into or out of your Aiven for Apache Kafka service.
 
-## Why Apache Kafka?
-
-Apache Kafka itself is technically a distributed log storage mechanism;
-in reality it is a best-in-class, highly-available data streaming
-solution. Oh, and it just happens to have an incredibly rich ecosystem
-of open source tooling that connects to and extends the existing
-platform.
-
-### Aiven for Apache Kafka® MirrorMaker 2
+## Aiven for Apache Kafka® MirrorMaker 2
 
 By adding Aiven for Apache Kafka MirrorMaker 2 to your setup, you gain
 replication superpowers. Whether you need data replication across
 clusters, availability zones or clouds, MirrorMaker 2 is the answer.
 
-### Aiven for Apache Kafka® Connect
+## Aiven for Apache Kafka® Connect
 
 Apache Kafka moves data between systems, and Apache Kafka Connect is how
 to interface between Apache Kafka and the rest of your data
 architecture. Connectors are available for many databases, storage
 platforms and other common integrations.
 
-## Get started with Aiven for Apache Kafka
+### Get started with Aiven for Apache Kafka
 
 Take your first steps with Aiven for Apache Kafka by following our
 [Getting started with Aiven for Apache Kafka®](/docs/products/kafka/get-started)
@@ -48,7 +38,7 @@ import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
 
-## Apache Kafka resources
+### Apache Kafka resources
 
 If you are new to Apache Kafka, try these resources to learn more:
 

@@ -4,7 +4,7 @@ title: Aiven for PostgreSQL® overview
 
 ## About PostgreSQL®
 
-PostgreSQL® is an open source relational database. It\'s ideal for
+PostgreSQL® is an open source relational database. It's ideal for
 organisations that need a well-organised tabular datastore. On top of
 the strict table and columns formats, PostgreSQL also offers solutions
 for nested datasets with the native `jsonb` format and advanced set of
@@ -16,7 +16,7 @@ up and running within a few minutes.
 ## PostgreSQL resources
 
 If you are new to PostgreSQL, there are lots of great resources out
-there to get you started with the platform. Here\'s our recommended
+there to get you started with the platform. Here's our recommended
 reading list:
 
 -   [PostgreSQL Project website](https://www.postgresql.org/) providing

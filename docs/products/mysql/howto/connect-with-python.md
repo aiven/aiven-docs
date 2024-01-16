@@ -13,15 +13,12 @@ library.
 
 These are the placeholders you need to replace in the code sample:
 
-  Variable                              Description
-  ------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `MYSQL_HOST`                          Host name for the connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `MYSQL_PORT`                          Port number to use, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `MYSQL_USERNAME`                      User to connect with
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `MYSQL_PASSWORD`                      Password for this user
+| Variable         | Description                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `MYSQL_HOST`     | Host name for the connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service |
+| `MYSQL_PORT`     | Port number to use, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service           |
+| `MYSQL_USERNAME` | User to connect with                                                                                                   |
+| `MYSQL_PASSWORD` | Password for this user                                                                                                 |
 
 ## Pre-requisites
 
@@ -31,13 +28,13 @@ For this example you will need:
 
 -   The Python `PyMySQL` library. You can install this with `pip`:
 
-    ``` 
+    ```
     pip install pymysql
     ```
 
--   Install `cryptography` package:
+-   Install the `cryptography` package:
 
-    ``` 
+    ```
     pip install cryptography
     ```
 
@@ -54,15 +51,15 @@ output.
 
 To run the code:
 
-``` 
+```
 python main.py
 ```
 
 If the script runs successfully, the output will be the values that were
 inserted into the table:
 
-``` 
-[{'id': 1}, {'id': 2}]    
+```
+[{'id': 1}, {'id': 2}]
 ```
 
 Now that your application is connected, you are all set to use Python

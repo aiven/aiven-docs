@@ -136,10 +136,10 @@ To safely make this change you will:
     resource, the resource type should be changed, and the old
     `service_type` field removed. Any references to
     `aiven_service.kafka.*` should be updated to instead read
-    `aiven_kafka.kafka.*` instead. Here\'s an example showing the update
+    `aiven_kafka.kafka.*` instead. Here's an example showing the update
     in action:
 
-    ``` 
+    ```
     - resource "aiven_service" "kafka" {
     -    service_type            = "kafka"
     + resource "aiven_kafka" "kafka" {
@@ -155,14 +155,14 @@ To safely make this change you will:
 
 2.  Check the current state of the world:
 
-    ``` 
+    ```
     terraform state list | grep kf
     ```
 
 3.  Remove the service from the control of Terraform, and write a backup
     of the state into your local directory:
 
-    ``` 
+    ```
     terraform state rm -backup=./ aiven_service.kafka
     ```
 
@@ -174,19 +174,19 @@ To safely make this change you will:
 4.  Add the service back to Terraform by importing it as a new service
     with the new service type:
 
-    ``` 
+    ```
     terraform import aiven_kafka.kafka demo-project/existing-kafka
     ```
 
 5.  Check that the import is going to run as you expect:
 
-    ``` 
+    ```
     terraform plan
     ```
 
 6.  Apply the new configuration:
 
-    ``` 
+    ```
     terraform apply
     ```
 

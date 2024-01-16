@@ -17,11 +17,11 @@ services for you.
         to use. You should also give your service a name. The service
         overview page shows the nodes rebuilding, and then indicates
         when they are ready.
-    -   If you\'re already using Grafana on Aiven, you can integrate
+    -   If you're already using Grafana on Aiven, you can integrate
         your PostgreSQL as a data source for that existing Grafana.
 3.  On the **Overview** page for your Aiven for Grafana service, select
     the **Service URI** link. The username and password for your Grafana
-    service is also available on the service\'s **Overview** page.
+    service is also available on the service's **Overview** page.
 
 Now your Grafana service is connected to PostgreSQL as a data source and
 you can go ahead and visualise your data.

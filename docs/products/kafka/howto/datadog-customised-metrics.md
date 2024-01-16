@@ -23,15 +23,14 @@ independent monitoring of each `topic` and `partition`.
 
 These are the placeholders you will need to replace in the code samples.
 
-  Variable                              Description
-  ------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------
-  `SERVICE_NAME`                        Aiven for Apache Kafka® service name
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `INTEGRATION_ID`                      ID of the integration between Aiven for Apache Kafka service and Datadog
+ | Variable         | Description                                                              |
+ | ---------------- | ------------------------------------------------------------------------ |
+ | `SERVICE_NAME`   | Aiven for Apache Kafka® service name                                     |
+ | `INTEGRATION_ID` | ID of the integration between Aiven for Apache Kafka service and Datadog |
 
 You can find the `INTEGRATION_ID` parameter by executing this command:
 
-``` 
+```
 avn service integration-list SERVICE_NAME
 ```
 
@@ -54,7 +53,7 @@ parameters:
 For example, to send the `kafka.log.log_size` and
 `kafka.log.log_end_offset` metrics, execute the following code:
 
-``` 
+```
 avn service integration-update                                                \
     -c kafka_custom_metrics=['kafka.log.log_size','kafka.log.log_end_offset'] \
     INTEGRATION_ID
@@ -63,10 +62,7 @@ avn service integration-update                                                \
 After you successfully update and the metrics are collected and sent to
 Datadog, you can view them in your Datadog explorer.
 
-:::note See also
-Learn more about
-[Datadog and Aiven](/docs/integrations/datadog).
-:::
+Also see [Datadog and Aiven](/docs/integrations/datadog).
 
 ## Customize Apache Kafka® consumer metrics for Datadog
 
@@ -96,7 +92,7 @@ parameters:
 For example, to include topics `topic1` and `topic2`, and exclude
 `topic3`, execute the following code:
 
-``` 
+```
 avn service integration-update                                                  \
     -c kafka_custom_metrics="['kafka.log.log_size','kafka.log.log_end_offset']" \
     -c include_topics="['topic1','topic2']"                                     \

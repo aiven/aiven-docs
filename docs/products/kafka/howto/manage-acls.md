@@ -66,7 +66,7 @@ Console](https://console.aiven.io/) with:
     with wildcard permissions.
     :::
 
-5.  Once you start defining custom ACLs, it\'s recommended to delete the
+5.  Once you start defining custom ACLs, it's recommended to delete the
     default `avnadmin` rule by clicking the **Remove** icon.
 
     :::warning

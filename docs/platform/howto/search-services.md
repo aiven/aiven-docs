@@ -29,7 +29,7 @@ You can add multiple values to filters separated by a comma. For
 example, this is how you would view all running PostgreSQL® services
 that are hosted on AWS or Google Cloud:
 
-``` 
+```
 service:pg status:running provider:aws,google
 ```
 
@@ -37,8 +37,8 @@ You can use these filters alongside keyword searches. For example, to
 see all powered off Kafka® services with *production* in the name, you
 could use the following:
 
-``` 
-production service:kafka status:poweroff 
+```
+production service:kafka status:poweroff
 ```
 
 ### Filter by service type
@@ -46,39 +46,23 @@ production service:kafka status:poweroff
 To filter the services by service type, use the filter values in this
 table.
 
-  -----------------------------------------------------------------------
-  Service name                                    Filter value
-  ----------------------------------------------- -----------------------
-  Apache Cassandra®                               `cassandra`
-
-  Apache Flink®                                   `flink`
-
-  Apache Kafka®                                   `kafka`
-
-  Apache Kafka® Connect                           `kafkaconnect`
-
-  Apache Kafka® MirrorMaker 2                     `mirrormaker`
-
-  ClickHouse®                                     `clickhouse`
-
-  Grafana®                                        `grafana`
-
-  InfluxDB®                                       `influxdb`
-
-  M3 Aggregator®                                  `m3aggregator`
-
-  M3 Coordinator®                                 `m3coordinator`
-
-  M3DB®                                           `m3db`
-
-  MySQL®                                          `mysql`
-
-  OpenSearch®                                     `opensearch`
-
-  PostgreSQL®                                     `pg`
-
-  Redis®\*                                        `redis`
-  -----------------------------------------------------------------------
+| Service name                | Filter value    |
+| --------------------------- | --------------- |
+| Apache Cassandra®           | `cassandra`     |
+| Apache Flink®               | `flink`         |
+| Apache Kafka®               | `kafka`         |
+| Apache Kafka® Connect       | `kafkaconnect`  |
+| Apache Kafka® MirrorMaker 2 | `mirrormaker`   |
+| ClickHouse®                 | `clickhouse`    |
+| Grafana®                    | `grafana`       |
+| InfluxDB®                   | `influxdb`      |
+| M3 Aggregator®              | `m3aggregator`  |
+| M3 Coordinator®             | `m3coordinator` |
+| M3DB®                       | `m3db`          |
+| MySQL®                      | `mysql`         |
+| OpenSearch®                 | `opensearch`    |
+| PostgreSQL®                 | `pg`            |
+| Redis®*                     | `redis`         |
 
 ### Filter by status
 
@@ -96,19 +80,13 @@ filter are the following:
 To filter the services by the cloud provider they are hosted on, use the
 filter values in this table.
 
-  -----------------------------------------------------------------------
-  Cloud provider                                  Filter value
-  ----------------------------------------------- -----------------------
-  Amazon Web Services (AWS)                       `aws`
-
-  Azure                                           `azure`
-
-  Digital Ocean                                   `do`
-
-  Google Cloud Provider (GCP)                     `google`
-
-  UpCloud                                         `upcloud`
-  -----------------------------------------------------------------------
+ | Cloud provider              | Filter value |
+ | --------------------------- | ------------ |
+ | Amazon Web Services (AWS)   | `aws`        |
+ | Azure                       | `azure`      |
+ | Digital Ocean               | `do`         |
+ | Google Cloud Provider (GCP) | `google`     |
+ | UpCloud                     | `upcloud`    |
 
 ### Filter by cloud region
 
@@ -117,6 +95,6 @@ of the tables in
 [List of available cloud regions](/docs/platform/reference/list_of_clouds). For example, to see all services in the AWS `eu-central-1`
 region, you use this filter:
 
-``` 
+```
 region:aws-eu-central-1
 ```

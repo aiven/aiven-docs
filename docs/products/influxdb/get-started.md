@@ -1,5 +1,5 @@
 ---
-title: Getting started with Aiven for InfluxDB®
+title: Get started with Aiven for InfluxDB®
 ---
 
 You can easily create and manage your Aiven for InfluxDB® service from
@@ -41,7 +41,7 @@ that shows all the services available for the selected project.
 8.  Click **Create service**.
 
     The **Overview** page for the service opens. This view shows your
-    service\'s connection parameters, its current status, and the
+    service's connection parameters, its current status, and the
     configuration options. The status is **Rebuilding** while the
     service is being created for you. Once the service is ready, the
     status changes to **Running**. While services typically start up in

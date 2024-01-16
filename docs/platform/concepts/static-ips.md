@@ -20,19 +20,20 @@ number of states, and move between states by being created/deleted, by
 being associated with a service, or when the service is reconfigured to
 use the static IP addresses. This is summarised in the diagram below:
 
-<!--
-:::mermaid
+```mermaid
 graph LR;
+    none[Static IP does not exist]
+    created[State: created]
+    available[State: available]
+    assigned[State: assigned]
 
-> none\[Static IP does not exist\] created\[State: created\]
-> available\[State: available\] assigned\[State: assigned\]
->
-> none \-- create IP \--\> created created \-- associate \--\> available
-> available \-- reconfigure service \--\> assigned assigned \--
-> reconfigure service \--\> available available \-- dissociate \--\>
-> created created \-- delete IP \--\> none
-:::
--->
+    none -- create IP --> created
+    created -- associate --> available
+    available -- reconfigure service --> assigned
+    assigned -- reconfigure service --> available
+    available -- dissociate --> created
+    created -- delete IP --> none
+```
 
 To create, delete, associate or dissociate IP addresses, use the
 [Aiven CLI](/docs/tools/cli) tool. To reconfigure a

@@ -154,7 +154,7 @@
 Oracle Cloud Infrastructure (OCI) is supported on the Aiven platform as
 a
 [limited availability feature](/docs/platform/concepts/beta_services). For more information or access, contact the sales team at
-<sales@Aiven.io>.
+<sales@aiven.io>.
 :::
 
   Region          Cloud              Description

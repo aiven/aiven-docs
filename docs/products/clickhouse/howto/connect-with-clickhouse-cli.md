@@ -2,7 +2,7 @@
 title: Connect to a ClickHouse® cluster with CLI
 ---
 
-It\'s recommended to connect to a ClickHouse® cluster with the
+It's recommended to connect to a ClickHouse® cluster with the
 ClickHouse® client. From this article, you\'ll learn how to use the the
 ClickHouse® client command-line tool for that purpose.
 
@@ -55,7 +55,7 @@ ClickHouse client. You can see the full list of command line options in
 [the ClickHouse CLI
 documentation](https://clickhouse.com/docs/en/interfaces/cli/#command-line-options).
 
-Once you\'re connected to the server, you can type queries directly
+Once you're connected to the server, you can type queries directly
 within the client, for example, to see the list of existing databases,
 run
 
@@ -82,7 +82,7 @@ docker run --interactive            \
 Similar to above example, you can request the list of present databases
 directly:
 
-``` 
+```
 docker run --interactive            \
 --rm clickhouse/clickhouse-server clickhouse-client \
 --user USERNAME                     \

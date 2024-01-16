@@ -12,9 +12,9 @@ CLI](https://www.dragonflydb.io/docs/development/cli).
 Replace the following placeholders in the code sample with the
 appropriate values:
 
-  Variable          Description
-  ----------------- ----------------------------------
-  `DRAGONFLY_URI`   URL for the Dragonfly connection
+ | Variable        | Description                      |
+ | --------------- | -------------------------------- |
+ | `DRAGONFLY_URI` | URL for the Dragonfly connection |
 
 ## Pre-requisites
 
@@ -31,7 +31,7 @@ Ensure the following before proceeding:
 To connect to Dragonfly, execute the following command in a terminal
 window:
 
-``` 
+```
 redis-cli -u DRAGONFLY_URI
 ```
 
@@ -39,7 +39,7 @@ This command connects you to your Dragonfly instance.
 
 To verify the connection is successful, use the `INFO` command:
 
-``` 
+```
 INFO
 ```
 
@@ -56,7 +56,7 @@ dragonfly_mode:standalone
 
 To set a key, use the following command:
 
-``` 
+```
 SET mykey mykeyvalue123
 ```
 
@@ -64,7 +64,7 @@ This should return a confirmation `OK`.
 
 To retrieve the set key value, use:
 
-``` 
+```
 GET mykey
 ```
 

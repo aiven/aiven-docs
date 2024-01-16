@@ -33,16 +33,16 @@ toolbox](https://docs.aiven.io/docs/products/kafka/howto/kafka-tools-config-file
 
 ## Variables
 
-  Variable                 Description
-  ------------------------ ------------------------------------------------------------------------------------------------------------------------------------------
-  `HOST`                   Host name for the connection
-  `PORT`                   Port number to use for the Kafka service
-  `CONFIGURATION_PATH`     Path to your configuration file [for Apache Kafka toolbox](https://docs.aiven.io/docs/products/kafka/howto/kafka-tools-config-file.html)
-  `SCHEMA_REGISTRY_HOST`   Host name for your schema registry
-  `SCHEMA_REGISTRY_PORT`   Port number for your schema registry
-  `SCHEMA_REGISTRY_USER`   User name for your schema registry
-  `SCHEMA_REGISTRY_PWD`    Password for your schema registry
-  `TARGET_TOPIC`           The name of the Kafka topic to be written to/read from
+ | Variable               | Description                                                                                                                              |
+ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+ | `HOST`                 | Host name for the connection                                                                                                             |
+ | `PORT`                 | Port number to use for the Kafka service                                                                                                 |
+ | `CONFIGURATION_PATH`   | Path to your configuration file [for Apache Kafka toolbox](https://docs.aiven.io/docs/products/kafka/howto/kafka-tools-config-file.html) |
+ | `SCHEMA_REGISTRY_HOST` | Host name for your schema registry                                                                                                       |
+ | `SCHEMA_REGISTRY_PORT` | Port number for your schema registry                                                                                                     |
+ | `SCHEMA_REGISTRY_USER` | User name for your schema registry                                                                                                       |
+ | `SCHEMA_REGISTRY_PWD`  | Password for your schema registry                                                                                                        |
+ | `TARGET_TOPIC`         | The name of the Kafka topic to be written to/read from                                                                                   |
 
 In the command lines below, values in `{` and `}` are to be replaced -
 so `{PORT}` would be replaced by the appropriate port number, for
@@ -53,7 +53,7 @@ instance `12345`.
 With `kafka-console-producer` you can send multiple messages into your
 topic.
 
-``` 
+```
 kafka-console-producer.sh --broker-list {HOST}:{PORT} \
   --topic {TARGET_TOPIC} \
   --producer.config {CONFIGURATION_PATH}
@@ -62,7 +62,7 @@ kafka-console-producer.sh --broker-list {HOST}:{PORT} \
 Once the connection is successfully established you can send messages
 one after another by typing them in the terminal. For example:
 
-``` 
+```
 message1
 message2
 ```
@@ -75,7 +75,7 @@ connecting to your schema registry
 :::note
 1.  The `schema.registry.url` value must be a full URL, typically
     starting with `https://`
-2.  Aiven\'s [Karapace](https://karapace.io/) is an acceptable schema
+2.  Aiven's [Karapace](https://karapace.io/) is an acceptable schema
     registry for this purpose. See [Use Karapace with Aiven for Apache
     Kafka®](https://docs.aiven.io/docs/products/kafka/howto/enable-karapace.html)
     for how to enable it for your Aiven for Kafka service. The
@@ -83,7 +83,7 @@ connecting to your schema registry
     service Overview page, on the **Schema registry** tab.
 :::
 
-``` 
+```
 kafka-avro-console-producer --broker-list {HOST}:{PORT} \
   --producer.config {CONFIGURATION_PATH} \
   --topic {TARGET_TOPIC} \
@@ -96,7 +96,7 @@ kafka-avro-console-producer --broker-list {HOST}:{PORT} \
 After the connection is established you can send messages according to
 selected schema. For example:
 
-``` 
+```
 {"id": "1"}
 ```
 
@@ -112,7 +112,7 @@ With `kafka-console-consumer` you can read messages from your topic. For
 example, run the command below to start reading from the beginning of
 the topic.
 
-``` 
+```
 kafka-console-consumer.sh --bootstrap-server {HOST}:{PORT} \
   --topic {TARGET_TOPIC}  \
   --consumer.config {CONFIGURATION_PATH} \

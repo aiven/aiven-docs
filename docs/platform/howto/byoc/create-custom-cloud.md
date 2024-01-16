@@ -64,7 +64,7 @@ contacts for your custom cloud.
     [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc) and follow up with the Aiven team.
 -   BYOC is supported with the
     [standard deployment](/docs/platform/concepts/byoc#byoc-deployment) model only.
--   Only organization\'s administrators can create custom clouds.
+-   Only organization's administrators can create custom clouds.
 
 ## Prerequisites {#byoc-prerequisites}
 
@@ -73,7 +73,7 @@ contacts for your custom cloud.
 -   You have an active account with your cloud provider.
 -   You have access to [Aiven Console](https://console.aiven.io/)
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
--   You have administrator\'s role in your Aiven organization
+-   You have administrator's role in your Aiven organization
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
 -   You have Terraform installed
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
@@ -605,7 +605,7 @@ taking the following steps:
     your current configuration as a draft by selecting **Save draft**.
     You can resume creating your cloud later.
 
-#### Set up your custom cloud\'s availability
+#### Set up your custom cloud's availability
 
 Select in what projects you\'ll be able to use your new custom cloud to
 create services. You can make your cloud available for all the projects
@@ -615,7 +615,7 @@ projects only.
 Continue working in the **Create custom cloud** wizard by taking the
 following steps:
 
-1.  In the **Custom cloud\'s availability in your organization**
+1.  In the **Custom cloud's availability in your organization**
     section, select either:
 
     -   **By default for all projects** to make your custom cloud
@@ -643,7 +643,7 @@ Select at least one person whom Aiven can contact in case any technical
 issue with the custom cloud needs fixing. Continue working in the
 **Create custom cloud** wizard by taking the following steps:
 
-1.  In the **Customer contacts** section, select a contact person\'s
+1.  In the **Customer contacts** section, select a contact person's
     role using the **Job title** dropdown menu, and provide their email
     address in the **Email** field.
 2.  Use **+ Add another contact** to add as many customer contacts as
@@ -658,12 +658,12 @@ your custom cloud**.
 
 #### Complete the cloud setup
 
-You\'re all set. Select **Close** to close the **Create custom cloud**
+you're all set. Select **Close** to close the **Create custom cloud**
 wizard.
 
 :::note[Result]
 The deployment of your new custom cloud might take a few minutes. As
-soon as it\'s over, and your custom cloud is ready to use, you\'ll be
+soon as it's over, and your custom cloud is ready to use, you\'ll be
 able to see it on the list of your custom clouds in the **Bring your own
 cloud** view.
 :::
@@ -673,7 +673,7 @@ Your new custom cloud is ready to use only after its status changes to
 **Active**.
 :::
 
-#### Check your cloud\'s status
+#### Check your cloud's status
 
 You can check the status of your custom cloud by taking the following
 steps:
@@ -689,7 +689,7 @@ steps:
     column.
 
 :::note[Result]
-If your custom cloud\'s status is **Active**, its deployment has been
+If your custom cloud's status is **Active**, its deployment has been
 completed. Your custom cloud is ready to use and you can see it on the
 list of your custom clouds in the **Bring your own cloud** view. Now you
 can create services using your new custom cloud.

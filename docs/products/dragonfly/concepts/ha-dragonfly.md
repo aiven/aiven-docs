@@ -13,34 +13,43 @@ reach out to our sales team at [sales@aiven.io](mailto:sales@aiven.io) for more 
 access.
 :::
 
-  --------------------------------------------------------------------------------------
-  Plan           Node             High availability & Backup features     Backup history
-                 configuration    failover features                       
-  -------------- ---------------- ------------------- ------------------- --------------
-  **Startup**    Single-node      Limited             During limited      1 day
-                                  availability. No    availability, only  
-                                  automatic failover. one latest snapshot 
-                                                      stored.             
+<table>
+  <thead>
+    <tr>
+      <th>Plan</th>
+      <th>Node configuration</th>
+      <th>High availability & Backup features</th>
+      <th>Backup history</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Startup</strong></td>
+      <td>Single-node</td>
+      <td>Limited availability. No automatic failover.</td>
+      <td>During limited availability, only one latest snapshot stored.</td>
+    </tr>
+    <tr>
+      <td><strong>Business</strong></td>
+      <td>Two-node (primary + standby)</td>
+      <td>High availability with automatic failover to a standby node if the primary fails.</td>
+      <td>During limited availability, only one latest snapshot stored.</td>
+    </tr>
+    <tr>
+      <td><strong>Premium</strong></td>
+      <td>Three-node (primary + standby + standby)</td>
+      <td>Enhanced high availability with automatic failover among multiple standby nodes if the primary fails.</td>
+      <td>During limited availability, only one latest snapshot stored.</td>
+    </tr>
+    <tr>
+      <td><strong>Custom</strong></td>
+      <td>Custom configurations</td>
+      <td>Custom high availability and failover features based on user requirements.</td>
+      <td>During limited availability, only one latest snapshot stored. Custom based on user requirements.</td>
+    </tr>
+  </tbody>
+</table>
 
-  **Business**   Two-node         High availability   During limited      3 days
-                 (primary +       with automatic      availability, only  
-                 standby)         failover to a       one latest snapshot 
-                                  standby node if the stored.             
-                                  primary fails.                          
-
-  **Premium**    Three-node       Enhanced high       During limited      13 days
-                 (primary +       availability with   availability, only  
-                 standby +        automatic failover  one latest snapshot 
-                 standby)         among multiple      stored.             
-                                  standby nodes if                        
-                                  the primary fails.                      
-
-  **Custom**     Custom           Custom high         During limited      Custom based
-                 configurations   availability and    availability, only  on user
-                                  failover features   one latest snapshot requirements
-                                  based on user       stored.             
-                                  requirements.                           
-  --------------------------------------------------------------------------------------
 
 ## Failure handling
 
@@ -52,14 +61,14 @@ access.
     available.
 -   **Severe failures**: In case of severe hardware or software
     problems, such as losing an entire node, more drastic recovery
-    measures are required. Aiven\'s monitoring infrastructure
+    measures are required. Aiven's monitoring infrastructure
     automatically detects a failing node when it reports problems with
     its self-diagnostics or stops communicating altogether. The
     monitoring infrastructure then schedules the creation of a new
     replacement node.
 
 :::note
-In case of database failover, your service\'s **Service URI** remains
+In case of database failover, your service's **Service URI** remains
 the same---only the IP address changes to point to the new primary node.
 :::
 

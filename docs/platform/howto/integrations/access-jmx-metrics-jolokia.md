@@ -42,21 +42,18 @@ You can
 To enable Jolokia integration for a specific service, follow these
 steps:
 
-1.  In the [Aiven Console](https://console.aiven.io/), open the service
-    for which you want to enable Jolokia integration.
-2.  On the **Overview** page of your service, navigate to the **Service
-    integrations** section, and select **Manage integrations**.
-3.  On the **Integrations** page, select **Jolokia** from the list.
-4.  Select the Jolokia endpoint you created and select **Enable**. The
-    system will configure the Jolokia endpoint on all service nodes,
-    providing access to the metrics.
+1. Access the `Aiven Console <https://console.aiven.io/>`_ and click the service
+   for which you want to enable Jolokia integration.
+1. On the **Overview** page of your service, click **Integrations** in the sidebar.
+1. On the **Integrations** page, in **External Integrations**, click **Jolokia**.
+1. Choose the Jolokia endpoint you created and click **Enable**. The system configures
+   the Jolokia endpoint on all service nodes, providing access to the metrics.
 
 The Aiven Jolokia integration enables HTTP POST requests to retrieve
 values from service-specific metrics. It also supports bulk requests for
 batch collection of metrics. For more detailed information on the
 Jolokia protocol, refer to [Jolokia
-documentation](https://jolokia.org/reference/html/manual/jolokia_protocol.html)
-.
+documentation](https://jolokia.org/reference/html/manual/jolokia_protocol.html).
 
 Several metrics are specific to a Kafka® broker. Therefore, you may need
 to query each node to obtain a comprehensive overview. The node IP is

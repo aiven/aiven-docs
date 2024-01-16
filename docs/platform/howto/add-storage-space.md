@@ -54,7 +54,7 @@ Storage optimization is performed at the next maintenance update after a
 change to the storage size. Due to cloud provider limitations, there is
 a limit on how many times storage can be increased between two
 maintenance updates. When this limit is reached, you need to perform a
-maintenance update for performance optimization. It\'s best to carefully
+maintenance update for performance optimization. It's best to carefully
 plan increases to avoid reaching this limit.
 :::
 
@@ -65,7 +65,7 @@ You can remove storage that you previously added to a service.
 #### Before you start
 
 -   Make sure the data in your service does not exceed your service
-    plan\'s allocated storage. If it does, you will not be able to
+    plan's allocated storage. If it does, you will not be able to
     remove the additional storage.
 -   Plan for the time it takes to recycle the nodes. The service will be
     in a rebalancing state after removing storage. The time it takes
@@ -103,7 +103,7 @@ Your additional disk space has been removed. The service is in the
 
 You can use [Aiven CLI](/docs/tools/cli)
 to add or remove additional storage by
-[updating the service configuration](/docs/tools/cli/service#avn-cli-service-update) using command `avn service update` with flag
+[updating the service configuration](/docs/tools/cli/service-cli#avn-cli-service-update) using command `avn service update` with flag
 `--disk-space-gib`. Specify the value for the flag as the total disk
 space that you need for your service. For example, if you use a
 `Startup-4` plan with a 80-GiB disk by default and you would like to add

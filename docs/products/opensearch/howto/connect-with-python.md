@@ -12,7 +12,7 @@ To connect with your cluster, you need the **Service URI** of your
 OpenSearch cluster. You can find the connection details in the section
 **Overview** on [Aiven web console](https://console.aiven.io).
 Alternatively, you can retrieve it via the `avn service get` command
-with the [Aiven CLI](/docs/tools/cli/service#avn_service_get).
+with the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 Notice that `service_uri` contains credentials; therefore, should be
 treated with care.
 
@@ -31,7 +31,7 @@ instructions.
 After is installed, you need to create `.env` file in the root directory
 of your project with the `SERVICE_URI` on it:
 
-``` 
+```
 SERVICE_URI=[https://<user>:<password>@<host>:<port](https://<user>:<password>@<host>:<port)
 ```
 

@@ -51,21 +51,16 @@ Functions](https://clickhouse.com/docs/en/sql-reference/functions/type-conversio
 ClickHouse supports a wide range of functions for working with JSON.
 With specific functions, you can use strings for extracting JSON.
 
-:::note See also
+:::note[See also]
 Learn more on [JSON functions in
 ClickHouse](https://clickhouse.com/docs/en/sql-reference/functions/json-functions/).
 :::
 
 :::note[Examples]
-`visitParamExtractString(params, name)`
-
-:   Parse the string in double quotes.
-
-`JSONExtractString(json[, indices_or_keys]…)`
-
-:   Parse a JSON and extract a string.
-
-`toJSONString`
-
-:   Convert a value of any data type to its JSON representation.
+-   `visitParamExtractString(params, name)`: Parse the string in double
+    quotes.
+-   `JSONExtractString(json[, indices_or_keys]…)`: Parse a JSON and
+    extract a string.
+-   `toJSONString`: Convert a value of any data type to its JSON
+    representation.
 :::

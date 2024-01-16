@@ -7,7 +7,7 @@ this tutorial we\'ll look at different types of aggregations, write and
 execute requests to learn more about the data in our dataset.
 
 :::note
-If you\'re new to OpenSearch® and its JavaScript client you might want
+If you're new to OpenSearch® and its JavaScript client you might want
 to check
 [how to write search queries with OpenSearch with NodeJS](opensearch-and-nodejs) first.
 :::
@@ -18,7 +18,7 @@ You can create an OpenSearch cluster either with the visual interface or
 with the command line. Depending on your preference follow the
 instructions for
 [getting started with the console for Aiven for Opensearch](/docs/products/opensearch/get-started) or see
-[how to create a service with the help of Aiven command line interface](/docs/tools/cli/service).
+[how to create a service with the help of Aiven command line interface](/docs/tools/cli/service-cli).
 
 :::note
 You can also clone the final demo project from [GitHub
@@ -41,7 +41,7 @@ command line.
 ### Connect to the cluster and load data
 
 Follow instructions on how to
-[connect to the cluster with a NodeJS client](connect-with-nodejs) and add the necessary code to `config.js`. Once you\'re
+[connect to the cluster with a NodeJS client](connect-with-nodejs) and add the necessary code to `config.js`. Once you're
 connected
 [load a sample data set](/docs/products/opensearch/howto/sample-dataset#load-data-with-nodejs) and
 [retrieve the data mapping](/docs/products/opensearch/howto/sample-dataset#get-mapping-with-nodejs) to understand the structure of the created index.
@@ -51,7 +51,7 @@ In the code snippets we\'ll keep error handling somewhat simple and use
 `console.log` to print information into the terminal.
 :::
 
-Now you\'re ready to start aggregating the data.
+Now you're ready to start aggregating the data.
 
 ## Aggregations
 
@@ -73,7 +73,7 @@ specific for the given aggregation type.
 
 :::note
 In most cases when we deal with aggregations we are not interested in
-individual hits, that\'s why it is common to set `size` property to
+individual hits, that's why it is common to set `size` property to
 zero.
 :::
 
@@ -98,7 +98,7 @@ client.search(
 ```
 
 The best way to learn more about each type of aggregations is to try
-them out. Therefore, it\'s time to make our hands dirty and do some
+them out. Therefore, it's time to make our hands dirty and do some
 coding. Create `aggregate.js` file, this is where we\'ll be
 adding our code. At the top of the file import client and index name,
 we\'ll need them to send requests to the cluster.
@@ -149,14 +149,14 @@ module.exports.averageRating = () => {
 
 Run the method from the command line:
 
-``` 
+```
 run-func aggregate averageRating
 ```
 
 You\'ll see a calculated numeric value, the average of all values from
 the rating field across the documents.
 
-``` 
+```json
 { value: 3.7130597014925373 }
 ```
 
@@ -213,7 +213,7 @@ module.exports.metric = (metric, field) => {
 Run the method to make sure that we still can calculate the average
 rating:
 
-``` 
+```
 run-func aggregate metric avg rating
 ```
 
@@ -230,7 +230,7 @@ We can use the method we created to run other types of metric
 aggregations, for example, to find what the minimum sodium value is, in
 any of the recipes:
 
-``` 
+```
 run-func aggregate metric min sodium
 ```
 
@@ -248,11 +248,11 @@ recipes. Which makes me suspect that the rating data was added
 artificially later into the data set. The cardinality of `calories`,
 `sodium` and `fat` field contain more realistic diversity:
 
-``` 
+```
 run-func aggregate metric cardinality rating
 ```
 
-``` 
+```
 { value: 8 }
 ```
 
@@ -268,22 +268,22 @@ the method we created to explore different types of computed statistics.
 Get a set of metrics (`avg`, `count`, `max`, `min` and `sum`) by using
 `stats` aggregation type:
 
-``` 
+```
 run-func aggregate metric stats rating
 ```
 
-``` 
+```
 { count: 20100, min: 0, max: 5, avg: 3.7130597014925373, sum: 74632.5 }
 ```
 
 To get additional information, such as standard deviation, variance and
 bounds, use `extended_stats`:
 
-``` 
+```
 run-func aggregate metric extended_stats rating
 ```
 
-``` 
+```
 {
   count: 20100,
   min: 0,
@@ -320,11 +320,11 @@ the usage falls below that amount.
 
 Calculate percentiles for `calories`:
 
-``` 
+```
 run-func aggregate metric percentiles calories
 ```
 
-``` 
+```
 {
   values: {
     '1.0': 17.503999999999998,
@@ -347,11 +347,11 @@ query](https://docs.aiven.io/docs/products/opensearch/howto/opensearch-and-nodej
 to find the recipes. Set the minimum value, but keep the maximum empty
 to allow no bounds:
 
-``` 
+```
 run-func search range calories 3256
 ```
 
-``` 
+```
 [
   'Ginger Crunch Cake with Strawberry Sauce ',
   'Apple, Pear, and Cranberry Coffee Cake ',
@@ -365,8 +365,6 @@ run-func search range calories 3256
   'Rice Pilaf with Lamb, Carrots, and Raisins '
 ]
 ```
-
-Ah, I knew it! A chocolate plum cake 🎂
 
 ## Bucket aggregations
 
@@ -420,13 +418,13 @@ module.exports.sodiumRange = () => {
 
 Run it with:
 
-``` 
+```
 run-func aggregate sodiumRange
 ```
 
 And then check the results:
 
-``` 
+```
 {
   buckets: [
     { key: '*-500.0', to: 500, doc_count: 10411 },
@@ -492,20 +490,20 @@ module.exports.range = (field, ...values) => { // map values to list of ranges
 To make sure that the upgraded function works just like the one one,
 run:
 
-``` 
+```
 run-func aggregate range sodium 500 1000
 ```
 
 Now you can run the method with other fields and custom ranges, for
 example, split recipes into buckets based on values in the field `fat`:
 
-``` 
+```
 run-func aggregate range fat 1 5 10 30 50 100
 ```
 
 The returned buckets are:
 
-``` 
+```
 {
   buckets: [
     { key: '*-1.0', to: 1, doc_count: 1230 },
@@ -567,13 +565,13 @@ module.exports.terms = (field, size) => {
 
 To get the buckets created for different categories run:
 
-``` 
+```
 run-func aggregate terms categories.keyword
 ```
 
 Here are the resulting delicious categories:
 
-``` 
+```json
 {
   doc_count_error_upper_bound: 0,
   sum_other_doc_count: 175719,
@@ -602,7 +600,7 @@ more than one category.
 We can increase the number of created buckets by using the `size`
 property:
 
-``` 
+```
 run-func aggregate terms categories.keyword 30
 ```
 
@@ -650,13 +648,12 @@ module.exports.rareTerms = (field, max) => {
 };
 ```
 
-``` 
+```
 run-func aggregate rareTerms categories.keyword 3
 ```
 
 The result will return us all the categories with at most three
-documents each. Frankly, I believe the waffle category deserves more
-recipes! 🧇
+documents each.
 
 ### Histograms
 
@@ -696,13 +693,13 @@ module.exports.dateHistogram = (field, interval) => {
 
 Values for the interval field can be from `minute` up to a `year`.
 
-``` 
+```
 run-func aggregate dateHistogram date year
 ```
 
 The results when we use a year:
 
-``` 
+```
 {
   buckets: [
     {
@@ -814,13 +811,13 @@ module.exports.movingAverage = () => {
 
 Run it on the command line:
 
-``` 
+```
 run-func aggregate movingAverage
 ```
 
 The returned data for every year including a value `moving_average`:
 
-``` 
+```json
 [
   {
     key_as_string: '1996-01-01T00:00:00.000Z',
@@ -858,17 +855,16 @@ Pay attention to the values of `count` and `moving_average`. To
 understand better how those numbers were calculated, we can compute
 first several values on our own:
 
-  Year   Added documents   Moving average
-  ------ ----------------- --------------------------------------------
-  1996   1                 1 (no previous years to make a comparison)
-  1997   0                 (1 + 0) / 2 = 0.5 (we had only two years)
-  1998   3                 (1 + 0 + 3) / 3 = 1.3(3)
-  1999   4                 (0 + 3 + 4) / 3 = 2.3(3)
-  2000   0                 (3 + 4 + 0) / 3 = 2.3(3)
-  \...   \...              and so on
+| Year | Added documents | Moving average                             |
+| ---- | --------------- | ------------------------------------------ |
+| 1996 | 1               | 1 (no previous years to make a comparison) |
+| 1997 | 0               | (1 + 0) / 2 = 0.5 (we had only two years)  |
+| 1998 | 3               | (1 + 0 + 3) / 3 = 1.3(3)                   |
+| 1999 | 4               | (0 + 3 + 4) / 3 = 2.3(3)                   |
+| 2000 | 0               | (3 + 4 + 0) / 3 = 2.3(3)                   |
+| \... | \...            | and so on                                  |
 
-  : Making sense of the `moving_average` result
-
+:::note[Making sense of the `moving_average` result]
 For every data point (a year in our case) we take the count of added
 recipes, add number of recipes added over last two years and divide the
 result by three (according to the size of our window). For the first and
@@ -876,6 +872,7 @@ second year we divide by the number of available years (1 and 2
 respectively). And this is how moving average is calculated. If you
 compare numbers from the table with the numbers returned in the
 `moving_average` field of the response body, you can see they are same.
+:::
 
 ### Other moving functions
 
@@ -887,7 +884,7 @@ function does not perform any time-dependent weighting.
 You can also use other functions such as max(), min(), stdDev() and
 sum(). Additionally, you can write your own functions, such as
 
-``` 
+```
 moving_fn: {
     script: "return values.length === 1 ? 1 : 0"
 }
@@ -897,39 +894,29 @@ Try replacing the script with `MovingFunctions.min(values)`,
 `MovingFunctions.max(values)` or custom scripts, changing the window
 size and shift, and see how thus affects the outcome!
 
-## What\'s next
+## What's next
 
 This was a long ride, hopefully you have a better understanding now how
 to use aggregations with OpenSearch and its NodeJS client. The best way
 to deepen the knowledge on these concepts is to play and experiment with
 different types of aggregations.
 
-We covered some of the examples, but [OpenSearch
+We covered some examples but [OpenSearch
 documentation](https://opensearch.org/docs/latest/opensearch/aggregations/)
 contains many more. Check OpenSearch docs, as well as other resources
 listed below to learn more.
 
 ## Resources
 
--   [Demo GitHub
-    repository](https://github.com/aiven/demo-open-search-node-js) -
-    where all the examples we run in this tutorial can be found
-
--   [Previous chapter of the tutorial](opensearch-and-nodejs) - learn how to use OpenSearch with NodeJS to make search
-    queries
-
--   [How to use OpenSearch with curl](opensearch-with-curl)
-
--   [GitHub repository for OpenSearch JavaScript
-    client](https://github.com/opensearch-project/opensearch-js)
-
--   
-
-    [Official OpenSearch documentation](https://opensearch.org)
-
-    :   -   [Metric
-            aggregations](https://opensearch.org/docs/latest/opensearch/metric-agg/)
-        -   [Bucket
-            aggregations](https://opensearch.org/docs/latest/opensearch/bucket-agg/)
-        -   [Pipeline
-            aggregations](https://opensearch.org/docs/latest/opensearch/pipeline-agg/)
+- [Demo GitHub
+  repository](https://github.com/aiven/demo-open-search-node-js) -
+  where all the examples we run in this tutorial can be found
+- [Previous chapter of the tutorial](opensearch-and-nodejs) - learn how to use OpenSearch with NodeJS to make search
+  queries
+- [How to use OpenSearch with curl](opensearch-with-curl)
+- [GitHub repository for OpenSearch JavaScript
+  client](https://github.com/opensearch-project/opensearch-js)
+- [Official OpenSearch documentation](https://opensearch.org)
+  - [Metric aggregations](https://opensearch.org/docs/latest/opensearch/metric-agg/)
+  - [Bucket aggregations](https://opensearch.org/docs/latest/opensearch/bucket-agg/)
+  - [Pipeline aggregations](https://opensearch.org/docs/latest/opensearch/pipeline-agg/)

@@ -44,7 +44,7 @@ avn service task-create --project PROJECT_NAME --operation migration_check --sou
 You can see the information about the task including the ID.
 
 ``` shell
-TASK_TYPE              SUCCESS  TASK_ID                             
+TASK_TYPE              SUCCESS  TASK_ID
 =====================  =======  ====================================
 mysql_migration_check  null     e2df7736-66c5-4696-b6c9-d33a0fc4cbed
 ```
@@ -55,11 +55,11 @@ ignore certain databases for the check. Please note that filter
 databases are supported by MySQL only at the moment.
 :::
 
-**Step 2: retrieve your task\'s status.**
+**Step 2: retrieve your task's status.**
 
 You can check the status of your task by running:
 
-``` 
+```
 avn service task-get --project PROJECT_NAME --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project MY_PROJECT_NAME mysql
 ```
 
@@ -67,7 +67,7 @@ You can find whether the operation succeeds and more relevant
 information about the migration.
 
 ``` shell
-TASK_TYPE              SUCCESS  TASK_ID                               RESULT                                                                              
+TASK_TYPE              SUCCESS  TASK_ID                               RESULT
 =====================  =======  ====================================  ====================================================================================
 mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-checks passed successfully, preferred migration method will be [Replication]
 ```

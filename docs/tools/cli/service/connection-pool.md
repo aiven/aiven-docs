@@ -2,7 +2,7 @@
 title: avn service connection-pool
 ---
 
-Here you\'ll find the full list of commands for
+Full list of commands for
 `avn service connection-pool`.
 
 ## Manage PgBouncer connection pools
@@ -12,38 +12,14 @@ Here you\'ll find the full list of commands for
 Creates a new
 [PgBouncer connection pool](/docs/products/postgresql/concepts/pg-connection-pooling) for a given PostgreSQL® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`--pool-name`</td>
-      <td>The name of the connection pool</td>
-    </tr>
-    <tr>
-      <td>`--dbname`</td>
-      <td>The name of the database</td>
-    </tr>
-    <tr>
-      <td>`--username`</td>
-      <td>The database username to use for the connection pool</td>
-    </tr>
-    <tr>
-      <td>`--pool-size`</td>
-      <td>Size of the connection pool in number of connections</td>
-    </tr>
-    <tr>
-      <td>`--pool-mode`</td>
-      <td>The [pool mode](/docs/products/postgresql/concepts/pg-connection-pooling#pooling-modes). Possible values are `transaction`, `session` and `statement`</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                                                                                                                                           |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `service_name` | The name of the service                                                                                                                               |
+| `--pool-name`  | The name of the connection pool                                                                                                                       |
+| `--dbname`     | The name of the database                                                                                                                              |
+| `--username`   | The database username to use for the connection pool                                                                                                  |
+| `--pool-size`  | Size of the connection pool in number of connections                                                                                                  |
+| `--pool-mode`  | The [pool mode](/docs/products/postgresql/concepts/pg-connection-pooling#pooling-modes). Possible values are `transaction`, `session` and `statement` |
 
 **Example:** In the service `demo-pg` Create a new connection pool named
 `cp-analytics-it` for the database `it-analytics` with:
@@ -52,7 +28,7 @@ Creates a new
 -   pool-size of `10` connections
 -   `transaction` pool-mode
 
-``` 
+```
 avn service connection-pool-create demo-pg \
   --pool-name cp-analytics-it             \
   --dbname analytics-it                   \
@@ -66,29 +42,17 @@ avn service connection-pool-create demo-pg \
 Deletes a
 [PgBouncer connection pool](/docs/products/postgresql/concepts/pg-connection-pooling) for a given PostgreSQL® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`--pool-name`</td>
-      <td>The name of the connection pool</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                     |
+| -------------- | ------------------------------- |
+| `service_name` | The name of the service         |
+| `--pool-name`  | The name of the connection pool |
 
 **Example:** In the service `demo-pg` delete a connection pool named
 `cp-analytics-it`.
 
-``` 
+```
 avn service connection-pool-delete demo-pg \
-  --pool-name cp-analytics-it             
+  --pool-name cp-analytics-it
 ```
 
 ### `avn service connection-pool-list`
@@ -96,23 +60,14 @@ avn service connection-pool-delete demo-pg \
 Lists the
 [PgBouncer connection pool](/docs/products/postgresql/concepts/pg-connection-pooling) for a given PostgreSQL® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information             |
+| -------------- | ----------------------- |
+| `service_name` | The name of the service |
 
 **Example:** List the connection pools available in the service
 `demo-pg`.
 
-``` 
+```
 avn service connection-pool-list demo-pg
 ```
 
@@ -130,38 +85,14 @@ cp-sales         sales-it      test-usr  session      20
 Updates a
 [PgBouncer connection pool](/docs/products/postgresql/concepts/pg-connection-pooling) for a given PostgreSQL® service.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`service_name`</td>
-      <td>The name of the service</td>
-    </tr>
-    <tr>
-      <td>`--pool-name`</td>
-      <td>The name of the connection pool</td>
-    </tr>
-    <tr>
-      <td>`--dbname`</td>
-      <td>The name of the database</td>
-    </tr>
-    <tr>
-      <td>`--username`</td>
-      <td>The database username to use for the connection pool</td>
-    </tr>
-    <tr>
-      <td>`--pool-size`</td>
-      <td>Size of the connection pool in number of connections</td>
-    </tr>
-    <tr>
-      <td>`--pool-mode`</td>
-      <td>The [pool mode](/docs/products/postgresql/concepts/pg-connection-pooling#pooling-modes). Possible values are `transaction`, `session` and `statement`</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter      | Information                                                                                                                                           |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `service_name` | The name of the service                                                                                                                               |
+| `--pool-name`  | The name of the connection pool                                                                                                                       |
+| `--dbname`     | The name of the database                                                                                                                              |
+| `--username`   | The database username to use for the connection pool                                                                                                  |
+| `--pool-size`  | Size of the connection pool in number of connections                                                                                                  |
+| `--pool-mode`  | The [pool mode](/docs/products/postgresql/concepts/pg-connection-pooling#pooling-modes). Possible values are `transaction`, `session` and `statement` |
 
 **Example:** In the service `demo-pg` update the connection pool named
 `cp-analytics-it` for the database `it-analytics` with:
@@ -170,7 +101,7 @@ Updates a
 -   pool-size of `20` connections
 -   `session` pool-mode
 
-``` 
+```
 avn service connection-pool-update demo-pg \
   --pool-name cp-analytics-it             \
   --dbname analytics-it                   \

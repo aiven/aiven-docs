@@ -25,7 +25,7 @@ ClickHouse.
 -   `PostgreSQL`
 :::
 
-:::note See also
+:::note[See also]
 For the full list of interfaces and protocols supported in ClickHouse,
 check out [Drivers and
 Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
@@ -34,11 +34,11 @@ Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
 ## Drivers (libraries)
 
 There are a number of drivers (libraries) that use one of
-[the fundamental underlying interfaces supported in Aiven for ClickHouse](/docs/products/clickhouse/reference/supported-interfaces-drivers#clickhouse-interfaces) under the hood. It\'s up to you to pick up a driver
+[the fundamental underlying interfaces supported in Aiven for ClickHouse](/docs/products/clickhouse/reference/supported-interfaces-drivers#clickhouse-interfaces) under the hood. It's up to you to pick up a driver
 (library) of your choice and use it for connecting to your Aiven for
 ClickHouse service.
 
-:::note See also
+:::note[See also]
 -   Check out
     [how to use different drivers (libraries) for connecting to Aiven for ClickHouse](/docs/products/clickhouse/howto/list-connect-to-service).
 -   For the full list of drivers and libraries that support connecting

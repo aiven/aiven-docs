@@ -16,9 +16,9 @@ console](https://console.aiven.io/).
     select **Go to most recent message**.
 
 You can also use the dedicated functions
-[service logs](/docs/tools/cli/service#avn-service-logs) and
-[service metrics](/docs/tools/cli/service#avn-service-metrics) to
-export your service\'s monitoring data via the
+[service logs](/docs/tools/cli/service-cli#avn-service-logs) and
+[service metrics](/docs/tools/cli/service-cli#avn-service-metrics) to
+export your service's monitoring data via the
 [Aiven CLI](/docs/tools/cli).
 
 Additionally, you have the option to

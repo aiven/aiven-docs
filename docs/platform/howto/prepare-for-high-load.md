@@ -49,7 +49,7 @@ updates on incidents directly from
 
 ## Monitor the services
 
-It\'s difficult to prepare for high load if the usual load is not
+It's difficult to prepare for high load if the usual load is not
 monitored. Check out how to setup adequate monitoring for your needs in
 [Monitoring services](monitoring-services).
 
@@ -57,19 +57,25 @@ monitored. Check out how to setup adequate monitoring for your needs in
 
 If you forecast a load that can\'t be handled by the current service
 plan, you can decide either to
-[scale up your service plan](scale-services), or [request a custom plan](custom-plans) if none of the available plans satisfies your requirements.
+[scale up your service plan](/docs/platform/howto/scale-services), or [request a custom plan](/docs/platform/howto/custom-plans)
+if none of the available plans satisfies your requirements.
 
 ## Define the backups schedule
 
-During the backup process, you may experience a temporary higher load.
-It is therefore recommended to perform them outside of your peak traffic
-hours to lower the impact.
+To minimize the impact of the higher load during the backup process, it is
+recommended to schedule backups outside of peak traffic hours.
 
-For Aiven for PostgreSQL® and Aiven for MySQL® services, you can
-configure the time in the day when the daily backups are taken by
-setting the `backup_hour` and `backup_minute` variables in [Aiven
-Console](https://console.aiven.io/) \> your service\'s **Overview** page
-\> the **Advanced configuration** section.
+To configure the daily backup time in  **Aiven for PostgreSQL®** and **Aiven for MySQL®** services:
+
+1. Access the `Aiven Console <https://console.aiven.io/>`, select your project and then
+   choose your service.
+1. In the service page, select **Service settings** from the sidebar, and scroll down
+   to the **Advanced configuration** section.
+1. Click **Configure**.
+1. In the **Advanced configuration** dialog, configure the values for these variables:
+
+   - `backup_hour`: The hour of the day when the backup starts.
+   - `backup_minute`: The minute of the hour to begin the backup.
 
 :::tip
 If you intend to make a plan upgrade, it is a good idea to do it shortly
@@ -93,8 +99,9 @@ them yourself or a mandatory update is created.
 
 To test the impact on high traffic on a service, you can run load tests
 against copies of your production service using the
-[fork service option](console-fork-service) option in [Aiven Console](https://console.aiven.io/) \> your
-service\'s **Overview** page \> **Fork Database** \> **New database
+[fork service option](console-fork-service) option in
+[Aiven Console](https://console.aiven.io/) \> your
+service's **Overview** page \> **Fork Database** \> **New database
 fork**.
 
 ## Perform service specific optimizations
@@ -103,7 +110,7 @@ Optimizing a service allows it to perform better under stress therefore
 avoiding the need of an upgrade. The more optimized a service is for
 your usage, the better you can weather spikes in traffic.
 
-:::note See also
--   [Apache Kafka® and Apache Kafka® Connect best practices](/docs/products/kafka/howto/best-practices)
--   [PostgreSQL® best practices](/docs/products/postgresql/howto/optimize-pg-slow-queries)
-:::
+## Related pages
+
+- [Apache Kafka® and Apache Kafka® Connect best practices](/docs/products/kafka/howto/best-practices)
+- [PostgreSQL® best practices](/docs/products/postgresql/howto/optimize-pg-slow-queries)

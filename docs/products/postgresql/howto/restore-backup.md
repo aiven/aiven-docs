@@ -19,7 +19,7 @@ To restore a PostgreSQL database, take the following steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  Select your Aiven for PostgreSQL service from the **Services** page.
-3.  Select **Service settings** from the sidebar of your service\'s
+3.  Select **Service settings** from the sidebar of your service's
     page.
 4.  Navigate to the **Service management** section, and select **Fork
     database** from the **Actions** (**\...**) menu.
@@ -32,7 +32,7 @@ To restore a PostgreSQL database, take the following steps:
         point in time within the available backup retention period.
 7.  With all the fork settings configured, select **Create fork**.
 
-Once the new service is running, you can change your application\'s
+Once the new service is running, you can change your application's
 connection settings to point to it.
 
 :::tip

@@ -13,7 +13,7 @@ To create a new user account for your service,
 1.  Log in to the [Aiven web console](https://console.aiven.io/) and,
     select your ClickHouse® service.
 
-2.  Select **Users and roles** from the sidebar of your service\'s page.
+2.  Select **Users and roles** from the sidebar of your service's page.
 
     This page shows you a list of all the users that are currently
     available in your service. The default `avnadmin` user has all
@@ -57,7 +57,7 @@ rights](https://clickhouse.com/docs/en/operations/access-rights/).
 
 To create a new role named **auditor**, run the following command:
 
-``` 
+```
 CREATE ROLE auditor;
 ```
 
@@ -73,31 +73,31 @@ tables, columns, or rows.
 For example, the following request grants the `auditor` role permissions
 to select data from the `transactions` database:
 
-``` 
+```
 GRANT SELECT ON transactions.* TO auditor;
 ```
 
 You can limit the grant to a specified table:
 
-``` 
+```
 GRANT SELECT ON transactions.expenses TO auditor;
 ```
 
 Or to particular columns of a table:
 
-``` 
+```
 GRANT SELECT(date,description,amount) ON transactions.expenses TO auditor
 ```
 
 To grant the `auditor` and `external` roles to several users, run:
 
-``` 
+```
 GRANT auditor, external TO Mary.Anderson, James.Miller;
 ```
 
 To allow the creation of new users:
 
-``` 
+```
 GRANT CREATE USER ON transactions.* TO administrator
 ```
 
@@ -130,14 +130,14 @@ documentation](https://clickhouse.com/docs/en/sql-reference/statements/grant/).
 A single user can be assigned different roles, either individually or
 simultaneously.
 
-``` 
+```
 SET ROLE auditor;
 ```
 
 You can also specify a role to be activated by default when the user
 logs in:
 
-``` 
+```
 SET DEFAULT ROLE auditor, external TO Mary.Anderson, James.Miller;
 ```
 
@@ -145,7 +145,7 @@ SET DEFAULT ROLE auditor, external TO Mary.Anderson, James.Miller;
 
 If you no longer need a role, you can remove it:
 
-``` 
+```
 DROP ROLE auditor;
 ```
 
@@ -153,13 +153,13 @@ DROP ROLE auditor;
 
 Remove all or specific privileges from users or roles:
 
-``` 
+```
 REVOKE SELECT ON transactions.expenses FROM Mary.Anderson;
 ```
 
 Revoke all privileges to a table or database simultaneously:
 
-``` 
+```
 REVOKE ALL PRIVILEGES ON database.table FROM external;
 ```
 
@@ -171,15 +171,15 @@ privileges](https://clickhouse.com/docs/en/sql-reference/statements/revoke/).
 Run the following commands to see all available grants, users, and
 roles:
 
-``` 
+```
 SHOW GRANTS;
 ```
 
-``` 
+```
 SHOW USERS;
 ```
 
-``` 
+```
 SHOW ROLES;
 ```
 

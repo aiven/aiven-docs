@@ -1,0 +1,33 @@
+name: Update list of clouds
+
+on:
+  # schedule:
+  #   - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  cloud_list:
+    name: Update list of clouds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install project dependencies
+        run: yarn
+      - name: Update available cloud list
+        run: make cloud-list
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: Cloud - Update available list
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          title: Update list of clouds
+          body: Update list of clouds
+          base: main
+          labels: automated-pr
+          branch: cloud-update
+          delete-branch: true

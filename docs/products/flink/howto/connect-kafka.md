@@ -18,7 +18,7 @@ Additionally, enter a clear and meaningful name to the table for
 reference when building data pipelines.
 
 :::warning
-In order to define Flink\'s tables an
+In order to define Flink's tables an
 [existing integration](create-integration) needs to be available between the Aiven for Flink service
 and one or more Aiven for Apache Kafka services.
 :::
@@ -50,7 +50,7 @@ topic via the [Aiven Console](https://console.aiven.io/):
 6.  In the **Table SQL** section, enter the SQL statement below to
     create the Apache Kafka-based Apache Flink:
 
-    ``` 
+    ```
     CREATE TABLE kafka (
 
     ) WITH (
@@ -156,7 +156,7 @@ WITH (
     'topic' = 'metric-topic',
     'value.format' = 'json',
     'scan.startup.mode' = 'earliest-offset'
-    )  
+    )
 ```
 
 :::note
@@ -194,7 +194,7 @@ WITH (
     'topic' = 'metric-topic',
     'value.format' = 'avro',
     'scan.startup.mode' = 'earliest-offset'
-    ) 
+    )
 ```
 
 :::note
@@ -226,7 +226,7 @@ WITH (
     'topic' = 'metric-topic',
     'value.format' = 'json',
     'scan.startup.mode' = 'earliest-offset'
-    ) 
+    )
 ```
 
 :::note

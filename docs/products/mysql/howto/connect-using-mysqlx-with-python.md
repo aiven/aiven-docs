@@ -17,30 +17,18 @@ X-DevAPI is supported by default.
 
 ## Variables
 
-  ----------------------------------------------------------------------------
-  Variable            Description
-  ------------------- --------------------------------------------------------
-  `SERVICE_URI`       Service URI from [Aiven
-                      Console](https://console.aiven.io/) \> the **Overview**
-                      page of your service \> the **Connection information**
-                      section \> the **MySQLx** tab
-
-  `MYSQLX_USER`       User from [Aiven Console](https://console.aiven.io/) \>
-                      the **Overview** page of your service \> the
-                      **Connection information** section \> the **MySQLx** tab
-
-  `MYSQLX_PASSWORD`   Password from [Aiven Console](https://console.aiven.io/)
-                      \> the **Overview** page of your service \> the
-                      **Connection information** section \> the **MySQLx** tab
-  ----------------------------------------------------------------------------
+  | Variable          | Description                                                                                                                                                          |
+  | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `SERVICE_URI`     | Service URI from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section \> the **MySQLx** tab |
+  | `MYSQLX_USER`     | User from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section \> the **MySQLx** tab        |
+  | `MYSQLX_PASSWORD` | Password from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section \> the **MySQLx** tab    |
 
 ## Prerequisites
 
 -   Python 3.7 or later
-
 -   A `mysqlx` python library installed:
 
-    ``` 
+    ```
     pip install mysql-connector-python
     ```
 
@@ -71,7 +59,7 @@ entries, fetches them, and prints the output.
 If the script runs successfully, the output will be the values that were
 inserted into the document:
 
-``` 
+```
 Found document: {"_id": "000062c55a6b0000000000000001", "type": "pizza", "price": "10e"}
 Found document: {"_id": "000062c55a6b0000000000000002", "type": "burger", "price": "5e"}
 ```

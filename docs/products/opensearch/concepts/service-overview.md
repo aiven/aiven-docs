@@ -23,8 +23,6 @@ the formerly open source projects Elasticsearch and Kibana.
 Aiven for OpenSearch includes OpenSearch Dashboards, giving a
 fully-featured user interface and visualization platform for your data.
 
-## Why OpenSearch?
-
 OpenSearch is designed to be robust and scalable, capable of handling
 various data types and structures. It provides high-performance search
 functionality for data of any size or type, and with schemaless storage,
@@ -61,7 +59,7 @@ Aiven for OpenSearch service has many benefits, such as:
 -   **Open-source alternative:** Aiven for OpenSearch is an open-source
     alternative to Elasticsearch.
 -   **Search analytics:** OpenSearch has a lot of search analytics
-    capabilities that you can use with Aiven\'s other services.
+    capabilities that you can use with Aiven's other services.
 -   **High uptime:** Aiven ensures that you get 99.99% uptime.
 -   **Scalability:** You can scale up or down as needed. Increase your
     storage, get more nodes, create new clusters, or expand to new
@@ -80,7 +78,7 @@ and working with your OpenSearch service:
 -   Check the [API
     documentation](https://opensearch.org/docs/opensearch/rest-api/index)
     for detailed information about the HTTP endpoints.
--   There\'s a
+-   There's a
     [list of plugins](/docs/products/opensearch/reference/plugins) supported by Aiven for OpenSearch.
 -   Got a question about the OpenSearch project itself? They have an
     [FAQ](https://opensearch.org/faq/) for that.

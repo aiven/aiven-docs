@@ -16,7 +16,7 @@ OpenSearch does have a default limit of 1024 shards.
 
 ## Choosing when to create new indices
 
-As the number of indices affects the performance of your service, it\'s
+As the number of indices affects the performance of your service, it's
 good to consider your strategy for creating new indices.
 
 Consider creating a new index for each customer, project, or entity if

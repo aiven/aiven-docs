@@ -49,7 +49,7 @@ to your service. A good starting point is to learn how to
 [connect with cURL](howto/opensearch-with-curl). You can find the necessary connection details in the
 service overview.
 
-If you\'re new to OpenSearch and looking for inspiration, recommend
+If you're new to OpenSearch and looking for inspiration, recommend
 checking out our
 [sample dataset](howto/sample-dataset),
 which provides a great starting point for exploring the capabilities of

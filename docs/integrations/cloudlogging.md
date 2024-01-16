@@ -20,7 +20,7 @@ Console](https://console.aiven.io/) or the
     Google Cloud projects is available in the [Google Cloud
     documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
 -   You have Google Cloud service account credentials in JSON format to
-    authenticate with the Google Cloud Platform. See Google Cloud\'s
+    authenticate with the Google Cloud Platform. See Google Cloud's
     documentation for [instructions on how to create and get service
     account
     credentials](https://developers.google.com/workspace/guides/create-credentials).
@@ -52,7 +52,7 @@ Console](https://console.aiven.io/) or the
 
 ### Step 1. Create the integration endpoint
 
-``` 
+```
 avn service integration-endpoint-create --project your-project-name         \
     -d "Google Cloud Logging" -t external_google_cloud_logging              \
     -c project_id=your-gcp-project-id                                       \

@@ -16,7 +16,7 @@ end-to-end example of how to manage Aiven for Apache Kafka® parameters.
 You can read and edit these configuration properties in the Advanced
 configuration section of the Overview page in [Aiven web
 console](https://console.aiven.io/) or using the
-[Aiven CLI service update command](/docs/tools/cli/service#avn-cli-service-update).
+[Aiven CLI service update command](/docs/tools/cli/service-cli#avn-cli-service-update).
 
 :::warning
 Most of the Apache Kafka settings cause the service to restart when
@@ -30,7 +30,7 @@ minutes from the change before the new settings are in use.
 To retrieve the existing Aiven for Apache Kafka configuration use the
 following command:
 
-``` 
+```
 avn service get SERVICE_NAME --json
 ```
 
@@ -41,7 +41,7 @@ The output is the JSON representation of the service configuration.
 Not all Aiven for Apache Kafka parameters are customizable, to retrieve
 the list of those parameters you can change use the following command:
 
-``` 
+```
 avn service types -v
 ```
 
@@ -52,10 +52,10 @@ Apache Kafka.
 ## Update a service parameter with the Aiven CLI
 
 To modify a service parameter use the
-[Aiven CLI service update command](/docs/tools/cli/service#avn-cli-service-update). E.g. to modify the `message.max.bytes` parameter use the
+[Aiven CLI service update command](/docs/tools/cli/service-cli#avn-cli-service-update). E.g. to modify the `message.max.bytes` parameter use the
 following command:
 
-``` 
+```
 avn service update SERVICE_NAME -c "kafka.message_max_bytes=newmaximumbytelimit"
 ```
 

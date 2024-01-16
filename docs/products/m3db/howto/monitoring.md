@@ -3,14 +3,14 @@ title: Monitor Aiven services with M3DB
 ---
 
 M3DB is a perfect fit for a monitoring platform. It is designed to
-handle large volumes of metrics, and it\'s very good at that. Whether
+handle large volumes of metrics, and it's very good at that. Whether
 you are already working at scale or just curious about M3DB and
 monitoring, setting up an M3DB to monitor your existing Aiven services
 (or new ones if you like) is a really nice way to get started with this
 platform.
 
 Start from the **Service Overview** page of the service you would like
-to monitor with M3. So if you\'re going to track the metrics of your
+to monitor with M3. So if you're going to track the metrics of your
 PostgreSQL® service on Aiven, then start on the PostgreSQL® service
 overview page.
 
@@ -24,7 +24,7 @@ overview page.
         name. The service overview page shows the nodes rebuilding, and
         then indicates when they are ready.
 
-    -   If you\'re already using M3DB on Aiven, you can use your M3DB
+    -   If you're already using M3DB on Aiven, you can use your M3DB
         service as a destination for your metrics data.
 
         :::note

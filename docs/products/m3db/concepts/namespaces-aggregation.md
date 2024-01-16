@@ -12,18 +12,18 @@ Both the retention (how long the data is kept for) and the resolution
 (how detailed the data is) are measured in **short time format**. This
 is a number followed by a letter:
 
-  --- ---------
-  s   seconds
-  m   minutes
-  h   hours
-  d   days
-  --- ---------
+| Notation | Meaning |
+| -------- | ------- |
+| s        | seconds |
+| m        | minutes |
+| h        | hours   |
+| d        | days    |
 
 So for example to set the retention to 2 weeks, use `14d`.
 
 ## Unaggregated namespace
 
-Incoming data points are written to the unaggregated namespace. It\'s
+Incoming data points are written to the unaggregated namespace. It's
 the default table, if you like.
 
 ## Aggregated namespace

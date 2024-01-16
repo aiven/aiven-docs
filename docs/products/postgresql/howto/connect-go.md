@@ -12,9 +12,9 @@ This example connects to PostgreSQL® service from Go, making use of the
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable           Description
-  ------------------ ---------------------------------------------------------------
-  `POSTGRESQL_URI`   URL for PostgreSQL connection, from the service overview page
+ | Variable         | Description                                                   |
+ | ---------------- | ------------------------------------------------------------- |
+ | `POSTGRESQL_URI` | URL for PostgreSQL connection, from the service overview page |
 
 ## Pre-requisites
 
@@ -22,7 +22,7 @@ For this example you will need:
 
 -   The Go `pq` library:
 
-    ``` 
+    ```
     go get github.com/lib/pq
     ```
 
@@ -48,13 +48,13 @@ and adds the location of the cert.
 
 To run the code:
 
-``` 
+```
 go run main.go
 ```
 
 If the script runs successfully, the outputs should be the PostgreSQL
 version running in your service like:
 
-``` 
+```
 Version: PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
 ```

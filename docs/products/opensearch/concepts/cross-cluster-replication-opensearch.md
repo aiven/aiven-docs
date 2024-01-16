@@ -4,7 +4,7 @@ title: OpenSearch® cross-cluster replication
 
 :::important
 Aiven for OpenSearch® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -28,7 +28,7 @@ Some of the key benefits of cross-cluster replication include the
 following:
 
 -   **Data locality/proximity:** Replicating data to a cluster closer to
-    the user\'s geographical location helps reduce latency and response
+    the user's geographical location helps reduce latency and response
     time.
 -   **Horizontal scalability:** Splits a query-heavy workload across
     multiple replica clusters to improve application availability.
@@ -56,7 +56,7 @@ Some limitations include:
 -   In case of a node recycle event, replication will be paused until
     the service is running again.
 
-:::note See also
+:::note[See also]
 Learn how to
 [Set up cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch).
 :::

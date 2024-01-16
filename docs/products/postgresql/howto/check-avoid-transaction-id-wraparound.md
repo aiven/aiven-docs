@@ -27,7 +27,7 @@ transaction IDs available before a forced freeze), to avoid unnecessary
 churn for stable data in existing tables. To check your transaction
 freeze limits, run the following command in your PostgreSQL® instance:
 
-``` 
+```
 show autovacuum_freeze_max_age
 ```
 
@@ -38,7 +38,7 @@ start freezing old rows.
 
 Some applications may not automatically adjust their configuration based
 on the actual PostgreSQL® configuration and may show unnecessary
-warnings. For example, [PgHero](https://github.com/ankane/pghero)\'s
+warnings. For example, [PgHero](https://github.com/ankane/pghero)'s
 default settings trigger an alert once 500 million transactions have
 been created, while the correct behavior might be to trigger an alert
 after 1.5 billion transactions. The `transaction_id_danger` setting

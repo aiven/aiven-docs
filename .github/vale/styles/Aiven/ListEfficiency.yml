@@ -1,0 +1,6 @@
+extends: existence
+message: "Use the numbering of the list."
+level: error
+ignorecase: false
+tokens:
+  - Next,

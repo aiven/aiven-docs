@@ -2,14 +2,14 @@
 title: Create a Slack-based Apache Flink® table
 ---
 
-With Aiven\'s Slack Connector for Apache Flink®, you can create sink
+With Aiven's Slack Connector for Apache Flink®, you can create sink
 tables in your Flink application and set up statements to send alerts
 and notifications to your designated Slack channel. This allows for
 real-time monitoring and tracking of your Flink job progress and any
 potential issues that may arise.
 
 You can access the open-source Slack connect for Apache Flink on
-Aiven\'s GitHub repository at [Slack Connector for Apache
+Aiven's GitHub repository at [Slack Connector for Apache
 Flink®](https://github.com/aiven/slack-connector-for-apache-flink).
 
 ## Prerequisites
@@ -48,7 +48,7 @@ version of the application to make changes to the source or sink table.
 5.  In the **Table SQL** section, set the connector to **slack** and
     enter the necessary token as shown in the example below:
 
-``` 
+```
 CREATE TABLE channel_name (
 channel_id STRING,
 message STRING

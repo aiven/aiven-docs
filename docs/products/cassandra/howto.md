@@ -47,3 +47,9 @@ Cross-cluster replication
 -   [Disable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/disable-cross-cluster-replication)
 
 </details>
+
+
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

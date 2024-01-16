@@ -5,12 +5,12 @@ title: Private access error when using VPC
 When trying to set the Terraform argument `private_access` you may
 encounter the following error message:
 
-``` 
+```
 Error: Private only access to service ports cannot be enabled for the service's network
 ```
 
 This error message is seen because the `private_access` argument is
-restricted to certain specific networks within Aiven\'s internal
+restricted to certain specific networks within Aiven's internal
 systems.
 
 Projects that are in a VPC are **designed private by default**, so there

@@ -34,7 +34,7 @@ For more information about access control, patterns and permissions, see
 Another way to manage user accounts, access control, roles, and
 permissions for your Aiven for OpenSearch® service is by
 [enabling OpenSearch® Security management](/docs/products/opensearch/howto/enable-opensearch-security). This method lets you use the OpenSearch Dashboard and
-OpenSearch API to manage all aspects of your service\'s security.
+OpenSearch API to manage all aspects of your service's security.
 
 You can use advanced features such as fine-grained access control with
 OpenSearch Security. This allows you to specify the exact actions that

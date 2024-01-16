@@ -47,7 +47,7 @@ The permission also determines which index APIs the user can access:
 
 :::note
 \* When no rules match, access is implicitly denied. \* The `write`
-permission allows creating indices that match the rule\'s index pattern
+permission allows creating indices that match the rule's index pattern
 but does not allow deleting them. Indices can only be deleted when a
 matching `admin` permission rule exists.
 :::
@@ -87,7 +87,7 @@ simplifying the management and search of data. You can define access
 control rules for aliases to ensure proper security and control over
 data access.
 
-When working with aliases in OpenSearch, it\'s essential to remember how
+When working with aliases in OpenSearch, it's essential to remember how
 access control rules apply to them:
 
 -   Aliases are not automatically expanded in access control. Therefore,
@@ -141,7 +141,7 @@ content is not examined.
 
 Enabling ACLs does not restrict access to OpenSearch Dashboards.
 However, all requests made by OpenSearch Dashboards are checked against
-the current user\'s ACLs.
+the current user's ACLs.
 
 :::note
 You might encounter `HTTP 500` internal server errors when you try to

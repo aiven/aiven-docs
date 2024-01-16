@@ -126,7 +126,7 @@ producer can use to buffer records waiting to be sent to the broker
 
 **The default compression type for producers** Specify the default
 compression type for producers. This configuration accepts the standard
-compression codecs (\'gzip\', \'snappy\', \'lz4\', \'zstd\'). It
+compression codecs (\'gzip\', 'snappy\', \'lz4\', \'zstd\'). It
 additionally accepts \'none\' which is the default and equivalent to no
 compression.
 
@@ -180,7 +180,7 @@ failures when using Kafka's group management facilities (defaults to
 *boolean*
 
 **Allow clients to connect to kafka_connect with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `prometheus`
@@ -188,7 +188,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `privatelink_access`

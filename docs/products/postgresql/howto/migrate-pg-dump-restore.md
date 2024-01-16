@@ -33,13 +33,13 @@ downtime.
 
 You can use the following variables in the code samples provided:
 
-  Variable             Description
-  -------------------- -----------------------------------------------------------------------------------------
-  `SRC_SERVICE_URI`    Service URI for the source PostgreSQL connection
-  `DUMP_FOLDER`        Local Folder used to store the source database dump files
-  `DEST_PG_NAME`       Name of the destination Aiven for PostgreSQL service
-  `DEST_PG_PLAN`       Aiven plan for the destination Aiven for PostgreSQL service
-  `DEST_SERVICE_URI`   Service URI for the destination PostgreSQL connection, available from the Aiven Console
+ | Variable           | Description                                                                             |
+ | ------------------ | --------------------------------------------------------------------------------------- |
+ | `SRC_SERVICE_URI`  | Service URI for the source PostgreSQL connection                                        |
+ | `DUMP_FOLDER`      | Local Folder used to store the source database dump files                               |
+ | `DEST_PG_NAME`     | Name of the destination Aiven for PostgreSQL service                                    |
+ | `DEST_PG_PLAN`     | Aiven plan for the destination Aiven for PostgreSQL service                             |
+ | `DEST_SERVICE_URI` | Service URI for the destination PostgreSQL connection, available from the Aiven Console |
 
 ## Perform the migration
 
@@ -48,7 +48,7 @@ You can use the following variables in the code samples provided:
     [Aiven CLI](/docs/tools/cli) substituting the
     parameters accordingly:
 
-    ``` 
+    ```
     avn service create --project PROJECT_NAME -t pg -p DEST_PG_PLAN DEST_PG_NAME
     ```
 
@@ -61,32 +61,32 @@ You can use the following variables in the code samples provided:
     or down as needed.
     :::
 
-Aiven automatically creates a `defaultdb` database and `avnadmin` user
-account, which are used by default.
+    Aiven automatically creates a `defaultdb` database and `avnadmin` user
+    account, which are used by default.
 
-2.  Run the `pg_dump` command substituting the `SRC_SERVICE_URI` with
+1.  Run the `pg_dump` command substituting the `SRC_SERVICE_URI` with
     the service URI of your source PostgreSQL service, and `DUMP_FOLDER`
     with the folder where you want to store the dump in:
 
-    ``` 
+    ```
     pg_dump -d 'SRC_SERVICE_URI' --jobs 4 --format directory -f DUMP_FOLDER
     ```
 
-The `--jobs` option in this command instructs the operation to use 4
-CPUs to dump the database. Depending on the number of CPUs you have
-available, you can use this option to adjust the performance to better
-suit your server.
+    The `--jobs` option in this command instructs the operation to use 4
+    CPUs to dump the database. Depending on the number of CPUs you have
+    available, you can use this option to adjust the performance to better
+    suit your server.
 
-:::tip
-If you encounter problems with restoring your previous object ownerships
-to users that do not exist in your Aiven database, use the `--no-owner`
-option in the `pg_dump` command. You can create the ownership hierarchy
-after the data is migrated.
-:::
+    :::tip
+    If you encounter problems with restoring your previous object ownerships
+    to users that do not exist in your Aiven database, use the `--no-owner`
+    option in the `pg_dump` command. You can create the ownership hierarchy
+    after the data is migrated.
+    :::
 
-3.  Run `pg_restore` to load the data into the new database:
+1.  Run `pg_restore` to load the data into the new database:
 
-    ``` 
+    ```
     pg_restore -d 'DEST_SERVICE_URI' --jobs 4 DUMP_FOLDER
     ```
 
@@ -95,7 +95,7 @@ after the data is migrated.
     and `pg_restore` steps for each database.
     :::
 
-4.  Switch the connection settings in your applications to use the new
+1.  Switch the connection settings in your applications to use the new
     Aiven database once you have migrated all of your data.
 
     :::warning
@@ -104,16 +104,16 @@ after the data is migrated.
     web console to check the new passwords.
     :::
 
-5.  Connect to the target database via `psql`:
+1.  Connect to the target database via `psql`:
 
-    ``` 
+    ```
     psql 'DEST_SERVICE_URI'
     ```
 
-6.  Run the `ANALYZE` command to apply proper database statistics for
+1.  Run the `ANALYZE` command to apply proper database statistics for
     the newly loaded data:
 
-    ``` 
+    ```
     newdb=> ANALYZE;
     ```
 
@@ -125,13 +125,13 @@ database is now ready to use.
 When migrating PostgreSQL databases to Aiven via `pg_restore` you could
 encounter errors like:
 
-``` 
+```
 could not execute query: ERROR: must be owner of extension <extension>
 ```
 
 For example, the following `pg_restore` error appears quite commonly:
 
-``` 
+```
 pg_restore: [archiver (db)] could not execute query: ERROR: must be owner of extension <some_extension>
 ```
 

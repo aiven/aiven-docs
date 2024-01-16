@@ -25,16 +25,16 @@ documentation](https://docs.nosqlbench.io/introduction/core-concepts/)
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable         Description
-  ---------------- --------------------------------------------------------------------
-  `PASSWORD`       Password of the `avnadmin` user
-  `HOST`           Host name for the connection
-  `PORT`           Port number to use for the Cassandra service
-  `SSL_CERTFILE`   Path of the `CA Certificate` for the Cassandra service
+| Variable       | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| `PASSWORD`     | Password of the `avnadmin` user                        |
+| `HOST`         | Host name for the connection                           |
+| `PORT`         | Port number to use for the Cassandra service           |
+| `SSL_CERTFILE` | Path of the `CA Certificate` for the Cassandra service |
 
 :::tip
 All the above variables and the CA Certificate file can be found in
-[Aiven Console](https://console.aiven.io/) \> your service\'s
+[Aiven Console](https://console.aiven.io/) \> your service's
 **Overview** page \> **Connection information** section.
 :::
 
@@ -50,7 +50,7 @@ Nosqlbench can be used to create a sample schema and load data.
 The schema can be created with the following command, after substituting
 the placeholders for `HOST`, `PORT`, `PASSWORD` and `SSL_CERTFILE`:
 
-``` 
+```
 ./nb run                            \
    host=HOST                        \
    port=PORT                        \
@@ -83,7 +83,7 @@ To create client connections and produce data in the keyspace and tables
 created, you need to run the following command line, after substituting
 the placeholders for `HOST`, `PORT`, `PASSWORD` and `SSL_CERTFILE`:
 
-``` 
+```
 ./nb run \
   host=HOST                        \
   port=PORT                        \
@@ -118,13 +118,13 @@ To check the details of the several predefined workloads and activities,
 you can dump the definition to a file. To have the list of all the
 pre-compiled workloads execute:
 
-``` 
+```
 ./nb --list-workloads
 ```
 
 The above command will generate the list of pre-compiled workloads like:
 
-``` 
+```
 # An IOT workload with more optimal settings for DSE
 /activities/baselines/cql-iot-dse.yaml
 
@@ -138,7 +138,7 @@ The above command will generate the list of pre-compiled workloads like:
 To edit a particular workload file locally, you execute the following,
 replacing the placeholder `WORKLOAD_NAME` with the name of the workload:
 
-``` 
+```
 ./nb --copy WORKLOAD_NAME
 ```
 
@@ -155,7 +155,7 @@ directory of the `nb` command. If you create the file called
 `my-workload.yaml` in the same directory of `nb` command, the new
 workload can be run with this command line:
 
-``` 
+```
 ./nb run                   \
    driver=cql              \
    workload=my-workload

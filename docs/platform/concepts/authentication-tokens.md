@@ -11,18 +11,13 @@ authentication tokens rather than user credentials has many benefits:
 -   The limited lifespan of authentication tokens reduce the security
     risk of being exposed.
 
-<!--
-:::mermaid
-
+```mermaid
 sequenceDiagram
-
-:   Client-\>\>+Server: Here\'s my username/password. Give me a token.
-    Server\--\>\>-Client: Your username/password is valid. Here\'s a
-    token. Client-\>\>+Server: Here\'s a token. Show me a list of my
-    resources. Server\--\>\>-Client: Your token is valid. Here\'s a list
-    of your resources.
-:::
--->
+  Client->>+Server: Here's my username/password. Give me a token.
+  Server-->>-Client: Your username/password is valid. Here's a token.
+  Client->>+Server: Here's a token. Show me a list of my resources.
+  Server-->>-Client: Your token is valid. Here's a list of your resources.
+```
 
 ## How Aiven manages user sessions using authentication tokens
 
@@ -62,7 +57,7 @@ sign out command (`avn user logout`).
 Think about how long the token needs to be valid for; this varies
 depending on what the token is used for.
 
--   If you\'re doing a video recording for a demo, you can set the token
+-   If you're doing a video recording for a demo, you can set the token
     to expire in an hour. This means that even if you have exposed the
     token during your work, it will no longer work by the time the video
     is published.

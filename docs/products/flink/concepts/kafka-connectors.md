@@ -12,14 +12,12 @@ topic and write the processed data to another Kafka topic. Each message
 in the source topic that is processed and written to the sink topic is
 considered unique and is handled as an individual entry.
 
-<!--
-:::mermaid
-graph LR;
+```mermaid
+graph LR
 
-> id1\>Source topic\]\-- message \--\> id2{Flink processing}; id2\--
-> processed message \--\> id3\[sink topic\];
-:::
--->
+    id1>Source topic]-- message --> id2{Flink processing};
+    id2-- processed message --> id3[sink topic];
+```
 
 Another integration approach is upsert, or `INSERT/UPDATE`, which is a
 method of updating or deleting data based on the message key. When used
@@ -34,16 +32,17 @@ documentation](https://kafka.apache.org/documentation/) for details),
 containing only the latest value for a specific key and pushing a
 tombstone message on deletion.
 
-<!--
-:::mermaid
-graph LR;
+```mermaid
+graph LR
 
-> id1\>Source topic\]\-- key, value \--\> id2{Flink processing}; id2-.
-> key not found .-\> id3(INSERT); id2-. key found, value .-\>
-> id4(UPDATE); id2-. key found, no value .-\> id5(DELETE);
-> id3-.-\>id6\[Sink topic\]; id4-.-\>id6; id5-.-\>id6;
-:::
--->
+  id1>Source topic]-- key, value --> id2{Flink processing};
+  id2-. key not found .-> id3(INSERT);
+  id2-. key found, value .-> id4(UPDATE);
+  id2-. key found, no value .-> id5(DELETE);
+  id3-.->id6[Sink topic];
+  id4-.->id6;
+  id5-.->id6;
+```
 
 ## How to choose the right connector type
 

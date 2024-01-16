@@ -23,7 +23,7 @@ Console](https://console.aiven.io/) include the following:
 -   **Disk iops (writes):** Indicates the input/output operations per
     second (IOPS) for disk writes.
 -   **Load average:** Shows the 5-minute average CPU load, indicating
-    the system\'s computational load.
+    the system's computational load.
 -   **Memory usage:** Represents the percentage of memory resources
     utilized by the service.
 -   **Network received:** Indicates the amount of network traffic

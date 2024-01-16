@@ -10,21 +10,21 @@ example shows how to configure PostgreSQL® as a connection in skyvia.
 These are the placeholders you will need to replace your PostgreSQL®
 connection information:
 
-  Variable     Description
-  ------------ -----------------------------------------------------------------------------
-  `HOSTNAME`   Hostname for the PostgreSQL connection, from the service overview page
-  `PORT`       Port for the PostgreSQL connection, from the service overview page
-  `DATABASE`   Database Name for the PostgreSQL connection, from the service overview page
-  `USERNAME`   Username for the PostgreSQL connection
-  `PASSWORD`   Password for the above specified username
+| Variable   | Description                                                                 |
+| ---------- | --------------------------------------------------------------------------- |
+| `HOSTNAME` | Hostname for the PostgreSQL connection, from the service overview page      |
+| `PORT`     | Port for the PostgreSQL connection, from the service overview page          |
+| `DATABASE` | Database Name for the PostgreSQL connection, from the service overview page |
+| `USERNAME` | Username for the PostgreSQL connection                                      |
+| `PASSWORD` | Password for the above specified username                                   |
 
 ## Connect to PostgreSQL®
 
-1.  In skyvia workspace -\> **Connections** -\> **Connector** -\>
+1.  In skyvia workspace > **Connections** > **Connector** >
     **PostgreSQL**.
 2.  In the **General** Tab give the connection a Name (e.g.
     `MyDatabase`)
-3.  In the **Connection** tab set:
+3.  In the **Connection** tab, set:
     -   **Server** to `HOSTNAME`
     -   **Port**: to `PORT`
     -   **User ID** to `USERNAME`

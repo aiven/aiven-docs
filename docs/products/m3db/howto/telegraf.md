@@ -12,11 +12,11 @@ the configuration for both options here.
 
 These are the placeholders used in the examples on this page
 
-  Variable          Description
-  ----------------- ------------------------------------------
-  `M3_HOST`         The hostname of your M3DB
-  `M3_PORT`         Port where M3DB is running
-  `AVNADMIN_PASS`   Password for the default `avnadmin` user
+| Variable        | Description                              |
+| --------------- | ---------------------------------------- |
+| `M3_HOST`       | The hostname of your M3DB                |
+| `M3_PORT`       | Port where M3DB is running               |
+| `AVNADMIN_PASS` | Password for the default `avnadmin` user |
 
 ## Configuring Telegraf InfluxDB® output plugin for M3
 
@@ -24,7 +24,7 @@ Below is an example of how to configure Telegraf to send metrics to M3
 using the InfluxDB line-protocol. These lines belong in the **output
 plugins** section of your Telegraf configuration file:
 
-``` 
+```
 # Configuration for sending metrics to M3
 [[outputs.influxdb]]
   ## The full HTTP URL for your M3 instance.
@@ -46,11 +46,11 @@ plugins** section of your Telegraf configuration file:
 
 ## Configuring Telegraf Prometheus remote write for M3
 
-Here\'s an example of how to configure Telegraf to send metrics to M3
+Here's an example of how to configure Telegraf to send metrics to M3
 using the Prometheus remote write protocol. These lines go in the output
 plugins section of the Telegraf configuration file:
 
-``` 
+```
 # Configuration for sending metrics to M3
 [outputs.http]
   ## URL is the address to send metrics to

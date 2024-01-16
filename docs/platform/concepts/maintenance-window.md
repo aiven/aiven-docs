@@ -61,7 +61,7 @@ Security updates, platform updates that affect reliability or stability
 of the service nodes, and quarterly patch updates are always mandatory.
 Other updates are initially optional. Advance notice is given for all
 updates. After optional updates have been available for six months, they
-become mandatory and are applied on the next week\'s maintenance window
+become mandatory and are applied on the next week's maintenance window
 at the earliest. This means you have at least 7 days advance notice with
 exception of critical security updates. These critical updates are
 applied in the maintenance window of the current week. During service
@@ -74,7 +74,7 @@ following:
 -   [Aiven Console](https://console.aiven.io/) \> **Service settings**
     page \> **Service management** section
 -   `avn service get` command in [Aiven
-    CLI](https://docs.aiven.io/docs/tools/cli/service#avn-service-get)
+    CLI](https://docs.aiven.io/docs/tools/cli/service-cli#avn-service-get)
 -   `service` endpoint in [Aiven REST
     API](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet)
 

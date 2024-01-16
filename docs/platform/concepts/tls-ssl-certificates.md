@@ -11,7 +11,7 @@ is used to sign certificates that are used internally by the Aiven
 services to communicate between different cluster nodes and to Aiven
 management systems.
 
-Some service types (listed below) uses the Aiven project\'s CA for
+Some service types (listed below) uses the Aiven project's CA for
 external connections. To access these services, you need to download the
 CA certificate and configure it on your browser or client.
 
@@ -46,7 +46,7 @@ For these services you can
 from **Overview** page of your service.
 
 :::note
-Older/existing services may be using the Aiven project\'s CA, you can
+Older/existing services may be using the Aiven project's CA, you can
 request switching to a browser-recognized certificate by opening support
 ticket and letting us know.
 :::

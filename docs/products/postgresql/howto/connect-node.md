@@ -12,13 +12,13 @@ the `pg` package.
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable     Description
-  ------------ -------------------------------------------------------------------------
-  `USER`       PostgreSQL username, from the service overview page
-  `PASSWORD`   PostgreSQL password, from the service overview page
-  `HOST`       Hostname for PostgreSQL connection, from the service overview page
-  `PORT`       Port for PostgreSQL connection, from the service overview page
-  `DATABASE`   Database Name for PostgreSQL connection, from the service overview page
+ | Variable   | Description                                                             |
+ | ---------- | ----------------------------------------------------------------------- |
+ | `USER`     | PostgreSQL username, from the service overview page                     |
+ | `PASSWORD` | PostgreSQL password, from the service overview page                     |
+ | `HOST`     | Hostname for PostgreSQL connection, from the service overview page      |
+ | `PORT`     | Port for PostgreSQL connection, from the service overview page          |
+ | `DATABASE` | Database Name for PostgreSQL connection, from the service overview page |
 
 ## Pre-requisites
 
@@ -26,7 +26,7 @@ For this example you will need:
 
 -   The npm `pg` package:
 
-    ``` 
+    ```
     npm install pg --save
     ```
 
@@ -46,13 +46,13 @@ response.
 
 To run the code:
 
-``` 
+```
 node index.js
 ```
 
 If the script runs successfully, the outputs should be the PostgreSQL
 version running in your service like:
 
-``` 
+```
 PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
 ```

@@ -35,18 +35,18 @@ You can do it manually by downloading the certificates and
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable                   Description
-  -------------------------- -----------------------------------------------------------------------------------------------------------------------------
-  `BOOTSTRAPSERVERS`         Service URI for Kafka connection, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab
-  `KEYSTORE`                 Path to the keystore
-  `KEYSTOREPASSWORD`         Password for the keystore
-  `TRUSTSTORE`               Path to the truststore
-  `TRUSTSTOREPASSWORD`       Password for the truststore
-  `SSLKEYPASSWORD`           The password of the private key in the key store file
-  `SCHEMAREGISTRYURL`        Service Registry URI for Apache Kafka connection
-  `SCHEMAREGISTRYUSER`       Service Registry username, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab
-  `SCHEMAREGISTRYPASSWORD`   Service Registry password, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab
-  `TOPIC_NAME`               Apache Kafka topic name to use
+ | Variable                 | Description                                                                                                                 |
+ | ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+ | `BOOTSTRAPSERVERS`       | Service URI for Kafka connection, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab |
+ | `KEYSTORE`               | Path to the keystore                                                                                                        |
+ | `KEYSTOREPASSWORD`       | Password for the keystore                                                                                                   |
+ | `TRUSTSTORE`             | Path to the truststore                                                                                                      |
+ | `TRUSTSTOREPASSWORD`     | Password for the truststore                                                                                                 |
+ | `SSLKEYPASSWORD`         | The password of the private key in the key store file                                                                       |
+ | `SCHEMAREGISTRYURL`      | Service Registry URI for Apache Kafka connection                                                                            |
+ | `SCHEMAREGISTRYUSER`     | Service Registry username, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab        |
+ | `SCHEMAREGISTRYPASSWORD` | Service Registry password, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab        |
+ | `TOPIC_NAME`             | Apache Kafka topic name to use                                                                                              |
 
 ### Create version 1 of the Avro schema
 
@@ -54,7 +54,7 @@ To create an Avro schema, you need a definition file. As example you can
 use a **click record** schema defined in JSON and stored in a file named
 `ClickRecord.avsc` containing the following:
 
-``` 
+```
 {"type": "record",
   "name": "ClickRecord",
   "namespace": "io.aiven.avro.example",
@@ -82,7 +82,7 @@ In case of manual schema compilation, download `avro-tools-1.11.0.jar`
 from [https://avro.apache.org/releases.html](https://avro.apache.org/releases.html) or via maven using the
 following:
 
-``` 
+```
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=org.apache.avro:avro-tools:1.11.0:jar -Ddest=avro-tools-1.11.0.jar
 ```
 
@@ -90,7 +90,7 @@ The schema defined in the previous step, can be now compiled to produce
 a Java class `ClickRecord.java` in the `io.aiven.avro.example` package
 (taken from the `namespace` parameter):
 
-``` 
+```
 java -jar avro-tools-1.11.0.jar compile schema ClickRecord.avsc .
 ```
 
@@ -105,7 +105,7 @@ example, `maven-avro-plugin` or `gradle-avro-plugin`. The following is a
 configuration example for `maven-avro-plugin` when `ClickRecord.avsc` is
 stored in the path `src/main/avro/ClickRecord.avsc`:
 
-``` 
+```
 [](plugin)
     <groupId>org.apache.avro</groupId>
     <artifactId>avro-maven-plugin</artifactId>
@@ -140,7 +140,7 @@ The following contains a list of the properties required.
 
 For producers you need to specify:
 
-``` 
+```
 props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, [BOOTSTRAPSERVERS]);
 props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
 props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, [TRUSTSTORE]);
@@ -158,7 +158,7 @@ props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.clas
 
 For consumers you need to specify:
 
-``` 
+```
 props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, [BOOTSTRAPSERVERS]);
 props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
 props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, [TRUSTSTORE]);

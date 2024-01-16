@@ -18,11 +18,11 @@ it.
 
 ## About pgvector
 
-pgvector is an open-source vector extension for similarity search. It\'s
+pgvector is an open-source vector extension for similarity search. It's
 available as an extension to your Aiven for PostgreSQL® services.
 pgvector introduces capabilities to store and search over data of the
 vector type (ML-generated embeddings). Applying a specific index type
-for querying a table, the extension enables you to search for vector\'s
+for querying a table, the extension enables you to search for vector's
 exact nearest or approximate nearest neighbors (data items).
 
 ### Vector embeddings
@@ -98,11 +98,8 @@ vector embeddings:
     have similar sentiment scores.
 :::
 
-## What\'s next
-
-[Enable and use pgvector on Aiven for PostgreSQL®](/docs/products/postgresql/howto/use-pgvector)
-
 ## Related pages
 
-[pgvector README on
-GitHub](https://github.com/pgvector/pgvector/blob/master/README.md)
+-   [Enable and use pgvector on Aiven for PostgreSQL®](/docs/products/postgresql/howto/use-pgvector)
+-   [pgvector README on
+    GitHub](https://github.com/pgvector/pgvector/blob/master/README.md)

@@ -26,7 +26,7 @@ Kafka plans:
     increased memory usage and IO load.
 -   **Too many client connections:** When there are too many client
     connections, the memory usage can dip significantly. When your
-    service\'s memory is low, it starts to use swap space, adding to the
+    service's memory is low, it starts to use swap space, adding to the
     IO load. Regular use of swap space indicates your system may not
     have enough resources for its workload.
 
@@ -51,7 +51,7 @@ Kafka plans:
     integration of the Datadog service.
 -   **Enable Quotas:** Quotas can manage the resources consumed by
     clients, preventing any single client from using too much of the
-    broker\'s resources.
+    broker's resources.
 -   **Limit the Number of Integrations:** For smaller plans such as the
     Startup-2, consider limiting the number of integrations to manage
     resource consumption effectively.
@@ -63,6 +63,6 @@ Kafka plans:
 Aiven for Apache Kafka service plans with CPUs of 2 or less operate on
 relatively small machines. Enabling integrations like Datadog or
 Karapace might exceed the resources these plans offer, impacting your
-cluster\'s performance. If you experience issues with your cluster or
+cluster's performance. If you experience issues with your cluster or
 require more resources for your integrations, consider upgrading to a
 higher plan.

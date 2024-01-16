@@ -20,7 +20,7 @@ example of how to enable your Aiven for OpenSearch® log integration.
 ## Enable log integration
 
 Here are the steps needed to enable logs integration. This allows you to
-send your service\'s logs to your Aiven for OpenSearch® from another
+send your service's logs to your Aiven for OpenSearch® from another
 Aiven service.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
@@ -30,7 +30,7 @@ Aiven service.
 2.  Select **Logs** from the left sidebar, and select **Enable logs
     integration**.
 
-3.  
+3.
 
     Select an existing OpenSearch instance or create a new one, then select **Continue**.
 
@@ -38,7 +38,7 @@ Aiven service.
             cloud, region and plan to use. You should also give your
             service a name. The service overview page shows the nodes
             rebuilding, and then indicates when they are ready.
-        -   If you\'re already using OpenSearch on Aiven, you can use
+        -   If you're already using OpenSearch on Aiven, you can use
             your running OpenSearch service as a destination for your
             metrics data. If you are a member of more than one Aiven
             project with *operator* or *admin* access rights, you need
@@ -66,7 +66,7 @@ your OpenSearch service:
     indexes
 
 :::warning
-The service\'s logs are sent from the selected service to your
+The service's logs are sent from the selected service to your
 OpenSearch cluster. When the `index retention limit` is reached, those
 indexes are deleted from the OpenSearch cluster.
 :::

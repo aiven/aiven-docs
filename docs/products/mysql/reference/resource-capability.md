@@ -21,7 +21,7 @@ with your specific workload, in a representative setup. It will be
 affected by more than just the instance type: network throughput,
 latency to your applications, number of connections active at the time,
 type of TLS encryption in use, and a whole range of things specific to
-the cloud environment can contribute to a service\'s expected
+the cloud environment can contribute to a service's expected
 performance.
 
 The best way to know how your application will work is to benchmark it

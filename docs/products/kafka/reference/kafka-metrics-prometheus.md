@@ -81,7 +81,7 @@ read/written, and more.
 ## Garbage collector `MXBean`
 
 Metrics associated with the java_lang_GarbageCollector provide insights
-into the JVM\'s garbage collection process. These metrics encompass
+into the JVM's garbage collection process. These metrics encompass
 details such as the collection count, duration of collections, and more.
 
 -   `java_lang_GarbageCollector_G1_Young_Generation_CollectionCount`:
@@ -93,7 +93,7 @@ details such as the collection count, duration of collections, and more.
 
 ## Memory usage
 
-Metrics starting with java_lang_Memory provide insights into the JVM\'s
+Metrics starting with java_lang_Memory provide insights into the JVM's
 memory usage, such as committed memory, initial memory, max memory, used
 memory, etc.
 
@@ -196,7 +196,7 @@ active brokers, offline partitions, replicas to delete, etc.
 :::note
 Metrics like `kafka_log_LogCleaner_cleaner_recopy_percent_Value` and
 `kafka_log_LogCleanerManager_time_since_last_run_ms_Value` provide
-insights into the log cleaner\'s operation, which helps in compacting
+insights into the log cleaner's operation, which helps in compacting
 the Kafka logs.
 
 `Log Flush Rate Metrics` give insights into the log flush operations.
@@ -325,7 +325,7 @@ for all topics and only list metrics for individual topics, filter with
 
 :::note
 Metrics below, like `kernel_boot_time`, `kernel_context_switches`, etc.,
-provide insights into the underlying system\'s kernel operations.
+provide insights into the underlying system's kernel operations.
 :::
 
 -   `kernel_boot_time`
@@ -338,7 +338,7 @@ provide insights into the underlying system\'s kernel operations.
 
 :::note
 Metrics like `mem_active`, `mem_available`, etc., provide insights into
-the system\'s memory usage.
+the system's memory usage.
 :::
 
 -   `mem_active`
@@ -379,7 +379,7 @@ the system\'s memory usage.
 
 :::note
 Metrics like `net_bytes_recv`, `net_packets_sent`, etc., provide
-insights into the system\'s network operations.
+insights into the system's network operations.
 :::
 
 -   `net_bytes_recv`
@@ -489,7 +489,7 @@ insights into the system\'s network operations.
 
 :::note
 Metrics like `processes_running`, `processes_zombies`, etc., provide
-insights into the system\'s process management.
+insights into the system's process management.
 :::
 
 -   `processes_blocked`
@@ -508,7 +508,7 @@ insights into the system\'s process management.
 
 :::note
 Metrics like `swap_free`, `swap_used`, etc., provide insights into the
-system\'s swap memory usage.
+system's swap memory usage.
 :::
 
 -   `swap_free`

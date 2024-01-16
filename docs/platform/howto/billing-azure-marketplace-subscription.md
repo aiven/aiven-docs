@@ -14,7 +14,7 @@ the process.
 
 1.  Search for \"Aiven Managed Database Services\" on the [Azure
     Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).
-    This page contains information about all of Aiven\'s services and
+    This page contains information about all of Aiven's services and
     how the marketplace subscription works. Click the **Subscribe**
     button on this page.
 
@@ -57,6 +57,6 @@ Aiven Console ([https://console.aiven.io](https://console.aiven.io)).
 :::
 
 When you view the Aiven subscription on the Azure SaaS resource list,
-you will see a link to **Open SaaS Account on publisher\'s site**. You
+you will see a link to **Open SaaS Account on publisher's site**. You
 can use this link to complete the subscription process if anything goes
 wrong during the steps listed here.

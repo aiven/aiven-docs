@@ -10,7 +10,7 @@ select **Teams**.
 :::important
 **Teams are becoming groups**
 
-Groups are an easier way to control access to your organization\'s
+Groups are an easier way to control access to your organization's
 projects and services for a group of users. See
 [Migrate teams to groups](#migrate_teams_to_groups).
 :::
@@ -73,7 +73,7 @@ with groups:
 3.  Click **Groups** and then **Create group**.
 
 4.  Enter the name of one of the teams and assign the same users to this
-    group. Do this for each of your organization\'s teams.
+    group. Do this for each of your organization's teams.
 
 5.  [Add each new group to the same projects](/docs/platform/howto/add-groups-projects) that the teams are assigned to. Set the role to the same
     permission level that is used for the team.

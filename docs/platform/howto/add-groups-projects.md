@@ -16,5 +16,5 @@ permission level by assigning the group a
     [role](/docs/platform/reference/project-member-privileges) will be assigned to all users in all selected groups.
 5.  Click **Add groups**.
 
-You can change a group\'s role or remove it from a project later from
+You can change a group's role or remove it from a project later from
 the **Actions** menu for that group.

@@ -25,7 +25,7 @@ query editor, the Play UI, and
 
 Aiven for ClickHouse® includes a web-based query editor, which you can
 find in [Aiven Console](https://console.aiven.io/) by selecting **Query
-editor** from the sidebar of your service\'s page.
+editor** from the sidebar of your service's page.
 
 ### When to use the query editor
 
@@ -37,19 +37,19 @@ through the query editor rely on the permissions granted to this user.
 
 Retrieve a list of current databases:
 
-``` 
+```
 SHOW DATABASES
 ```
 
 Count rows:
 
-``` 
+```
 SELECT COUNT(*) FROM transactions.accounts
 ```
 
 Create a new role:
 
-``` 
+```
 CREATE ROLE accountant
 ```
 

@@ -7,14 +7,14 @@ Elasticsearch service.
 
 You\'ll need the following values for the connection:
 
-  Variable                   Description
-  -------------------------- --------------------------------------------------------------------------------------------
-  `ELASTICSEARCH_USER`       User name to access the Elasticsearch service.
-  `ELASTICSEARCH_PASSWORD`   Password to access the Elasticsearch service.
-  `ELASTICSEARCH_HOST`       HTTPS service host of your external Elasticsearch service.
-  `ELASTICSEARCH_PORT`       Port to use for the connection.
-  `CA_CERTIFICATE`           CA certificate in PEM structure (if necessary).
-  `CONNECTION_NAME`          Name of your choosing for this external connection, that will be used with Aiven services.
+| Variable                 | Description                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------ |
+| `ELASTICSEARCH_USER`     | User name to access the Elasticsearch service.                                             |
+| `ELASTICSEARCH_PASSWORD` | Password to access the Elasticsearch service.                                              |
+| `ELASTICSEARCH_HOST`     | HTTPS service host of your external Elasticsearch service.                                 |
+| `ELASTICSEARCH_PORT`     | Port to use for the connection.                                                            |
+| `CA_CERTIFICATE`         | CA certificate in PEM structure (if necessary).                                            |
+| `CONNECTION_NAME`        | Name of your choosing for this external connection, that will be used with Aiven services. |
 
 ## Create external Elasticsearch integration
 

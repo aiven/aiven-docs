@@ -23,7 +23,7 @@ operations, you will encounter an error. For example, if you are using
 the Python client for Apache Kafka, you may receive the following error
 message:
 
-``` 
+```
 TopicAuthorizationFailedError: [Error 29] TopicAuthorizationFailedError: your-topic
 ```
 
@@ -42,7 +42,7 @@ migrated from the old nodes to the new ones, disk usage will return to
 an acceptable level, and write operations will be allowed again.
 
 You can also use the CLI command
-[`avn service update`](/docs/tools/cli/service#avn-cli-service-update) to upgrade your
+[`avn service update`](/docs/tools/cli/service-cli#avn-cli-service-update) to upgrade your
 service plan.
 
 ## Add additional storage space

@@ -215,7 +215,7 @@ plugins, please reach out to our support team at [support@aiven.io](mailto:suppo
 -   SimpleJson -
     [Grafana](https://grafana.com/grafana/plugins/grafana-simple-json-datasource/),
     [GitHub](https://github.com/grafana/simple-json-datasource)
--   Stackdriver / Google Cloud Monitoring: Data source for Google\'s
+-   Stackdriver / Google Cloud Monitoring: Data source for Google's
     monitoring service (formerly named, and listed as, Stackdriver).
 -   Tempo: High volume, minimal dependency trace storage. OSS tracing
     solution from Grafana Labs.

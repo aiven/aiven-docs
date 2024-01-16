@@ -17,7 +17,7 @@ Aiven Console or Aiven API.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), choose the
     right project, and select your Aiven for ClickHouse service.
-2.  In your service\'s page, select **Query statistics** from the
+2.  In your service's page, select **Query statistics** from the
     sidebar and view the content in the dashboard.
 
 ## Use Aiven API
@@ -30,7 +30,7 @@ endpoint](https://api.aiven.io/doc/#tag/Service:_ClickHouse/operation/ServiceCli
 GET /project/<project>/service/<service_name>/clickhouse/query/stats
 ```
 
-:::note See also
+:::note[See also]
 Learn more on Aiven API in the
 [Aiven API overview](/docs/tools/api).
 :::

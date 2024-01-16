@@ -19,7 +19,7 @@ free.
 You can also use Aiven services through the
 [AWS, Azure, or Google marketplaces](/docs/marketplace-setup).
 
-## What\'s new
+## What's new
 
 Check out the latest features, fixes, and improvements on the [product
 updates page](https://aiven.io/changelog).

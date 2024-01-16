@@ -4,7 +4,7 @@ title: Check data distribution between storage devices in Aiven for ClickHouse®
 
 :::important
 Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -35,7 +35,7 @@ tiered storage is enabled on your service and, if it is, how much
 storage is used on each tier (local SSD and remote object storage) for
 particular tables.
 
-To access tiered storage\'s status information, go to [Aiven
+To access tiered storage's status information, go to [Aiven
 Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
 \> the **Databases and tables** page \> your database \> your table \>
 **View details** \> **Storage details**.
@@ -81,7 +81,7 @@ The query returns a table with data distribution details for all
 databases and tables that belong to your service: the storage device
 they use, their total sizes as well as parts counts and sizing.
 
-## What\'s next
+## What's next
 
 -   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)

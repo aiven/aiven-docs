@@ -41,11 +41,12 @@ We can use the disk space used by the unaggregated namespace over time
 as a basis for calculating how much space the aggregated namespaces will
 need. This example uses namespaces configured as follows:
 
-  Namespace          Retention   Resolution   Block size
-  ------------------ ----------- ------------ ------------
-  Unaggregated (U)   1 week      15 sec       2 hours
-  Aggregated A (A)   4 weeks     5 min        4 hours
-  Aggregated B (B)   8 weeks     1 hour       12 hours
+| Namespace        | Retention | Resolution | Block size |
+| ---------------- | --------- | ---------- | ---------- |
+| Unaggregated (U) | 1 week    | 15 sec     | 2 hours    |
+| Aggregated A (A) | 4 weeks   | 5 min      | 4 hours    |
+| Aggregated B (B) | 8 weeks   | 1 hour     | 12 hours   |
+
 
 The unaggregated namespace will grow at a constant rate for 1 week and
 then remain at that size since the older data is not retained.
@@ -59,13 +60,12 @@ Namespace B stores the data at hourly intervals, so takes 1/240 of the
 space that the unaggregated namespace uses over a week.
 
 Since the retention data is kept for different amounts of time, we can
-estimate the disk space needed as each namespace\'s size multiplied by
+estimate the disk space needed as each namespace's size multiplied by
 the number of weeks we keep the data for:
 
 `( 1 + ( 4 * 1/20 ) + ( 8 * 1/240 ) ) * the space needed for the unaggregated namespace )`
 
-*Spoiler: it\'s about 25% more storage than the unaggregated namespace
-by itself for this example*
+We need 25% more storage than the unaggregated namespace by itself for this example.
 
 ### Block size duration
 
@@ -94,7 +94,7 @@ contributes significantly, as does the data mass described above. In
 general:
 
 -   M3Aggregators are not particularly CPU bound.
--   M3Coordinator\'s main resource that is used is CPU. However, if
+-   M3Coordinator's main resource that is used is CPU. However, if
     there is some sort of network congestion and requests pile up, the
     memory usage can also spike.
 
@@ -127,7 +127,7 @@ filesets) scale linearly with:
 -   number of configured namespaces
 -   number of points within single block
 
-For efficient on-disk storage, M3\'s default recommendation is to have
+For efficient on-disk storage, M3's default recommendation is to have
 about 720 points per block. So for 15 second intervals, that would
 indicate 180 minutes, or 3 hours, per block. For longer lived namespaces
 this rule of thumb may lead to too much data being kept in memory. For

@@ -14,8 +14,8 @@ All Aiven services, except for Apache Kafka® and M3
 Aggregator/Coordinator, have time-based backups that are encrypted and
 securely stored. Backups at Aiven are stored in the object storage of
 the cloud region where the service is first created (for example, S3 for
-AWS or GCS for GCP). You can check the location of your service\'s
-backups in [Aiven Console](https://console.aiven.io/) \> your service\'s
+AWS or GCS for GCP). You can check the location of your service's
+backups in [Aiven Console](https://console.aiven.io/) \> your service's
 homepage \> **Backups**.
 
 The backup retention times vary based on the service and the selected
@@ -87,62 +87,99 @@ Depending on the service plan, each service provides different backups
 with different retention periods. Check out the hourly and daily backups
 with the number of days of retention provided in the table.
 
-  -------------------------------------------------------------------------
-  Service type  Backup                                      
-                retention                                   
-                time based                                  
-                on service                                  
-                Plan                                        
-  ------------- ----------- --------------- --------------- ---------------
-                Hobbyist    Startup         Business        Premium
-
-  Aiven for     No backups  No backups      No backups      No backups
-  Apache Kafka®                                             
-
-  Aiven for     Single      2 days with     14 days with    30 days with
-  PostgreSQL® / backup only PITR            PITR            PITR
-  MySQL         for                                         
-                disaster                                    
-                recovery                                    
-
-  Aiven for     Single      Hourly backup   Hourly backup   Hourly backup
-  OpenSearch®   backup only for 24 hours    for 24 hours    for 24 hours
-                for         and Daily       and Daily       and Daily
-                disaster    backup for 3    backup for 14   backup for 30
-                recovery    days            days            days
-
-  Aiven for     Plan not    Single day      Single day      Single day
-  Apache        available   backup          backup          backup
-  Cassandra®                                                
-
-  Aiven for     Single      Backup every 12 Backup every 12 Backup every 12
-  Redis®\*      backup only hours up to 1   hours up to 3   hours up to 13
-                for         day             days            days
-                disaster                                    
-                recovery                                    
-
-  Aiven for     Plan not    Backup every 12 Plan not        Plan not
-  InfluxDB®     available   hours up to 2.5 available       available
-                            days                            
-
-  Aiven for     Plan not    Hourly backup   Hourly backup   Plan not
-  Apache Flink® available   up to 2 hours   up to 2 hours   available
-
-  Aiven for M3  Plan not    Single day      Daily backup up Daily backup up
-                available   backup          to 6 days       to 13 days
-
-  Aiven for M3  Plan not    Plan not        No backups      No backups
-  Aggregator /  available   available                       
-  Coordinator                                               
-
-  Aiven for     Plan not    Backup every 1  Plan not        Plan not
-  Grafana®      available   hour up to 1    available       available
-                            day                             
-
-  Aiven for     Daily       Daily backups   Daily backups   Daily backups
-  ClickHouse®   backups up  up to 2 days    up to 14 days   up to 30 days
-                to 2 days                                   
-  -------------------------------------------------------------------------
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Service type</th>
+      <th colspan="4">Backup retention time based on service Plan</th>
+    </tr>
+    <tr>
+      <th>Hobbyist</th>
+      <th>Startup</th>
+      <th>Business</th>
+      <th>Premium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aiven for Apache Kafka®</td>
+      <td>No backups</td>
+      <td>No backups</td>
+      <td>No backups</td>
+      <td>No backups</td>
+    </tr>
+    <tr>
+      <td>Aiven for PostgreSQL® / MySQL</td>
+      <td>Single backup only for disaster recovery</td>
+      <td>2 days with PITR</td>
+      <td>14 days with PITR</td>
+      <td>30 days with PITR</td>
+    </tr>
+    <tr>
+      <td>Aiven for OpenSearch®</td>
+      <td>Single backup only for disaster recovery</td>
+      <td>Hourly backup for 24 hours and Daily backup for 3 days</td>
+      <td>Hourly backup for 24 hours and Daily backup for 14 days</td>
+      <td>Hourly backup for 24 hours and Daily backup for 30 days</td>
+    </tr>
+    <tr>
+      <td>Aiven for Apache Cassandra®</td>
+      <td>Plan not available</td>
+      <td>Single day backup</td>
+      <td>Single day backup</td>
+      <td>Single day backup</td>
+    </tr>
+    <tr>
+      <td>Aiven for Redis®*</td>
+      <td>Single backup only for disaster recovery</td>
+      <td>Backup every 12 hours up to 1 day</td>
+      <td>Backup every 12 hours up to 3 days</td>
+      <td>Backup every 12 hours up to 13 days</td>
+    </tr>
+    <tr>
+      <td>Aiven for InfluxDB®</td>
+      <td>Plan not available</td>
+      <td>Single day backup</td>
+      <td>Daily backup up to 6 days</td>
+      <td>Daily backup up to 13 days</td>
+    </tr>
+    <tr>
+      <td>Aiven for Apache Flink®</td>
+      <td>Plan not available</td>
+      <td>Hourly backup up to 2 hours</td>
+      <td>Hourly backup up to 2 hours</td>
+      <td>Plan not available</td>
+    </tr>
+    <tr>
+      <td>Aiven for M3</td>
+      <td>Plan not available</td>
+      <td>Single day backup</td>
+      <td>Daily backup up to 6 days</td>
+      <td>Daily backup up to 13 days</td>
+    </tr>
+    <tr>
+      <td>Aiven for M3 Aggregator / Coordinator</td>
+      <td>Plan not available</td>
+      <td>Plan not available</td>
+      <td>No backups</td>
+      <td>No backups</td>
+    </tr>
+    <tr>
+      <td>Aiven for Grafana®</td>
+      <td>Plan not available</td>
+      <td>Backup every 1 hour up to 1 day</td>
+      <td>Plan not available</td>
+      <td>Plan not available</td>
+    </tr>
+    <tr>
+      <td>Aiven for ClickHouse®</td>
+      <td>Daily backups up to 2 days</td>
+      <td>Daily backups up to 2 days</td>
+      <td>Daily backups up to 14 days</td>
+      <td>Daily backups up to 30 days</td>
+    </tr>
+  </tbody>
+</table>
 
 There are specific backup strategies for particular service types.
 
@@ -157,7 +194,7 @@ durability is determined by data replication across the cluster.
 However, automatic backups for essential Apache Kafka® service
 configurations are offered through
 [configuration backups](/docs/products/kafka/concepts/configuration-backup), and they come at no extra cost. If the Apache Kafka®
-service is powered off/on or if any incidents lead to the cluster\'s
+service is powered off/on or if any incidents lead to the cluster's
 failure, the configuration backup facilitates restoring your Apache
 Kafka® service to its previous state.
 
@@ -183,11 +220,11 @@ the following tools:
     Apache Kafka® to S3 via a
     [dedicated Aiven connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prereq).
 
-:::note See also
+:::note[See also]
 For more information, refer to
 
 -   [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
--   Cloudera\'s [A look inside Kafka MirrorMaker
+-   Cloudera's [A look inside Kafka MirrorMaker
     2](https://blog.cloudera.com/a-look-inside-kafka-mirrormaker-2/)
 -   [Configure AWS for an S3 sink connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prereq)
 -   [Configuration Backups](/docs/products/kafka/concepts/configuration-backup)
@@ -211,11 +248,11 @@ and promote to master if needed.
 
 To shift the backup schedule to a new time, you can modify the backup
 time configuration option in **Advanced configuration** in [Aiven
-Console](https://console.aiven.io/) (the service\'s **Service settings**
+Console](https://console.aiven.io/) (the service's **Service settings**
 page). If a recent backup has been taken, it may take another backup
 cycle before the new backup time takes effect.
 
-:::note See also
+:::note[See also]
 For more information, refer to
 
 -   [PostgreSQL® backups](/docs/products/postgresql/concepts/pg-backups)
@@ -233,11 +270,11 @@ internally for taking full (or incremental) snapshots for MySQL.
 
 To shift the backup schedule to a new time, you can modify the backup
 time configuration option in **Advanced configuration** in [Aiven
-Console](https://console.aiven.io/) (the service\'s **Service settings**
+Console](https://console.aiven.io/) (the service's **Service settings**
 page). If a recent backup has been taken, it may take another backup
 cycle before the new backup time takes effect.
 
-:::note See also
+:::note[See also]
 For more information, refer to
 [MySQL Backups](/docs/products/mysql/concepts/mysql-backups).
 :::
@@ -248,7 +285,7 @@ Aiven for OpenSearch databases are automatically backed up, encrypted,
 and stored securely in the object storage. The backups are taken every
 hour, and the retention period varies based on the service plan.
 
-:::note See also
+:::note[See also]
 For more information, refer to
 
 -   [OpenSearch backups](/docs/products/opensearch/concepts/backups)
@@ -273,7 +310,7 @@ For persistence, Aiven supports Redis Database Backup (RDB).
 
 You can control the persistence feature using `redis_persistence` under
 **Advanced configuration** in [Aiven Console](https://console.aiven.io/)
-(the service\'s **Service settings** page):
+(the service's **Service settings** page):
 
 -   When `redis_persistence` is set to `rdb`, Redis does RDB dumps every
     10 minutes if any key is changed. Also, RDB dumps are done according
@@ -292,7 +329,7 @@ Redis service.
 
 Aiven for InfluxDB backups are taken every 12 hours with 2.5 days of
 retention. InfluxDB® is automatically backed up, encrypted, and uploaded
-to Aiven\'s S3 account in the same region. When an instance has to be
+to Aiven's S3 account in the same region. When an instance has to be
 rebuilt, the backup is downloaded and restored to create a new instance.
 
 ### Aiven for ClickHouse®
@@ -318,7 +355,7 @@ backups, see
 [Aiven for ClickHouse limitations](/docs/products/clickhouse/reference/limitations).
 :::
 
-:::note See also
+:::note[See also]
 For more information on Aiven for ClickHouse backups, see
 [Backup and restore](/docs/products/clickhouse/concepts/disaster-recovery).
 :::

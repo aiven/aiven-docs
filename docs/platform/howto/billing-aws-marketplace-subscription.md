@@ -14,7 +14,7 @@ the process.
 
 1.  Search for \"Aiven Managed Database Services\" on the [AWS
     Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vylwtm6t2c7fk).
-    This page contains information about all of Aiven\'s services and
+    This page contains information about all of Aiven's services and
     how the marketplace subscription works. Click the **View purchase
     options** button on this page.
 

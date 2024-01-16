@@ -12,15 +12,15 @@ This example connects to Redis®\* service from PHP, making use of the
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable      Description
-  ------------- --------------------------------------------------------------
-  `REDIS_URI`   URL for the Redis connection, from the service overview page
+ | Variable    | Description                                                  |
+ | ----------- | ------------------------------------------------------------ |
+ | `REDIS_URI` | URL for the Redis connection, from the service overview page |
 
 ## Pre-requisites
 
 Install the `predis` library:
 
-``` 
+```
 composer require predis/predis
 ```
 
@@ -37,12 +37,12 @@ value.
 
 Run the code:
 
-``` 
+```
 php index.php
 ```
 
 If the script runs successfully, the outputs should be:
 
-``` 
+```
 The value of key is: hello world
 ```

@@ -11,7 +11,7 @@ VPC and Aiven.
 Aiven simplifies the migration process, allowing for seamless one-click
 transitions between different regions and cloud providers, including the
 migration from the public Internet to a VPC. However, migrating your
-service can disrupt connectivity due to the service URI\'s change in
+service can disrupt connectivity due to the service URI's change in
 resolution from public IP addresses to IP addresses within a VPC.
 
 To maintain uninterrupted access throughout this transition, Aiven
@@ -79,7 +79,7 @@ be applicable for most Linux distributions:
 Enable the `public_access.{service type}` configuration for all services
 you are migrating. This setting is found in the **Advanced
 Configuration** section of the [Aiven
-Console](https://console.aiven.io/) on your service\'s **Overview**
+Console](https://console.aiven.io/) on your service's **Overview**
 page. For example, for Aiven for Apache Kafka®, the configuration would
 be `public_access.kafka`. This action creates a new hostname and port,
 which remain publicly accessible even after the service is moved into
@@ -91,7 +91,7 @@ each new host/port combination.
 
 ## Configure and redeploy application
 
-It\'s recommended to configure your applications to use the public
+It's recommended to configure your applications to use the public
 access route during the migration. This ensures continued access to the
 services as they transition to a private network. In dual access mode,
 test all connections and ports before switching over to the private
@@ -108,22 +108,22 @@ Console](https://console.aiven.io/) .
 3.  In the **Cloud and network** section, click **Actions (\...)**.
 4.  Choose **Change cloud or region** from the dropdown menu.
 5.  In the **Migrate service to another cloud** window, select the
-    **VPC** tab and choose the appropriate region for your project\'s
+    **VPC** tab and choose the appropriate region for your project's
     dedicated VPC. Make sure the `Public Internet` tag is
     noted.
-6.  Start the migration process. Afterwards, monitor for the Project
-    VPC tag to appear on the service's page, which
-    signifies the successful migration.
+6.  Start the migration process. Afterwards, monitor for the
+    `Project VPC` tag to appear on the service's page, which signifies
+    the successful migration.
 
 In [Aiven Console](https://console.aiven.io/), use the **Cloud and VPC**
-\> **Migrate cloud** section on the service\'s **Overview** page to
+\> **Migrate cloud** section on the service's **Overview** page to
 migrate your Aiven services into a VPC. Note the `Public Internet` tag.
 
 Ensure that you select the region from the `VPC` tab. This is a
 dedicated VPC for your project.
 
 Ensure that you see the `Project VPC` tag after migration. You can
-monitor the migration status on the service\'s page in [Aiven
+monitor the migration status on the service's page in [Aiven
 Console](https://console.aiven.io/).
 
 ## Testing the service connections
@@ -142,7 +142,7 @@ hostname.
 To finalize the migration, disable the `public_access.{service type}`
 configuration for all your services. This option is located in the
 **Advanced configuration** section of the Aiven Console on your
-service\'s **Overview** page. Disabling it removes the `public-`
+service's **Overview** page. Disabling it removes the `public-`
 prefixed hostname and port.
 
 ## Conclusion

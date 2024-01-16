@@ -8,9 +8,16 @@ The Lenses.io implementation enables you to write [KCQL
 transformations](https://docs.lenses.io/connectors/sink/redis.html) on
 the topic data before sending it to the Redis database.
 
+:::important
+A known issue with the `GEOADD` command in version 4.2.0 of the Redis
+stream reactor sink connector may cause exceptions during initialization
+under specific configurations. For more information, see the [GitHub
+issue](https://github.com/lensesio/stream-reactor/issues/990).
+:::
+
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://docs.lenses.io/connectors/sink/redis.html).
 :::
 
@@ -37,26 +44,26 @@ target Redis database upfront:
     should be in the format:
 
         [INSERT INTO REDIS_CACHE]
-        SELECT LIST_OF_FIELDS 
+        SELECT LIST_OF_FIELDS
         FROM APACHE_KAFKA_TOPIC
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
-If you\'re using Aiven for Redis and Aiven for Apache Kafka, the above
+If you're using Aiven for Redis and Aiven for Apache Kafka, the above
 details are available in the [Aiven console](https://console.aiven.io/)
 service *Overview tab* or via the dedicated `avn service get` command
-with the [Aiven CLI](/docs/tools/cli/service#avn_service_get).
+with the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
 The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
 Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
@@ -110,7 +117,7 @@ The configuration file contains the following entries:
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter translates
     messages from the Avro format. To retrieve the messages schema we
-    use Aiven\'s [Karapace schema
+    use Aiven's [Karapace schema
     registry](https://github.com/aiven/karapace) as specified by the
     `schema.registry.url` parameter and related credentials.
 
@@ -128,7 +135,7 @@ parameters
     `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
     [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/redis-streamreactor-sink#connect_redis_lenses_sink_prereq).
 -   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you\'re going to login to the schema registry
+    `USER_INFO`, since you're going to login to the schema registry
     using username and password.
 -   `value.converter.schema.registry.basic.auth.user.info`: passing the
     required schema registry credentials in the form of
@@ -185,7 +192,7 @@ You can also create connectors using the
 If you have a topic named `students` containing the following data that
 you want to move to Redis:
 
-``` 
+```
 {"id":1, "name":"carlo", "age": 77}
 {"id":2, "name":"lucy", "age": 55}
 {"id":3, "name":"carlo", "age": 33}
@@ -207,7 +214,7 @@ configuration, after replacing the placeholders for `REDIS_HOST`,
     "topics": "students",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "value.converter.schemas.enable": "false",
-    "connect.redis.kcql": "INSERT INTO students- SELECT * FROM students PK id"    
+    "connect.redis.kcql": "INSERT INTO students- SELECT * FROM students PK id"
 }
 ```
 
@@ -226,7 +233,7 @@ The configuration file contains the following peculiarities:
 Once the connector is created successfully, you should see the following
 three entries in the target Redis database.
 
-``` 
+```
 1) "students-1" containing "{\"name\":\"carlo\",\"id\":1,\"age\":77}"
 2) "students-2" containing "{\"name\":\"lucy\",\"id\":2,\"age\":21}"
 3) "students-3" containing "{\"name\":\"carlo\",\"id\":3,\"age\":33}"

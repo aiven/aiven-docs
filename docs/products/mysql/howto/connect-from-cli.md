@@ -14,14 +14,10 @@ with a choice of tools:
 
 These are the placeholders you will need to replace in the code sample:
 
-  ------------------------------------------------------------------------
-  Variable        Description
-  --------------- --------------------------------------------------------
-  `SERVICE_URI`   URL for the MySQL connection, from [Aiven
-                  Console](https://console.aiven.io/) \> the **Overview**
-                  page of your service
+| Variable      | Description                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `SERVICE_URI` | URL for the MySQL connection, from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service |
 
-  ------------------------------------------------------------------------
 
 ### Prerequisites
 
@@ -34,13 +30,13 @@ documentation](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.
 Execute the following from a terminal window to connect to the MySQL
 database:
 
-``` 
+```
 mysqlsh --sql SERVICE_URI
 ```
 
 You can execute this query to test:
 
-``` 
+```
 MySQL ssl defaultdb SQL> select 1 + 2 as three;
 +-------+
 | three |
@@ -56,17 +52,12 @@ MySQL ssl defaultdb SQL> select 1 + 2 as three;
 
 These are the placeholders you need to replace in the code sample:
 
-  --------------------------------------------------------------------------
-  Variable          Description
-  ----------------- --------------------------------------------------------
-  `USER_HOST`       Hostname for MySQL connection
-
-  `USER_PORT`       Port for MySQL connection
-
-  `USER_PASSWORD`   Password of your Aiven for MySQL connection
-
-  `DB_NAME`         Database Name of your Aiven for MySQL connection
-  --------------------------------------------------------------------------
+| Variable        | Description                                      |
+| --------------- | ------------------------------------------------ |
+| `USER_HOST`     | Hostname for MySQL connection                    |
+| `USER_PORT`     | Port for MySQL connection                        |
+| `USER_PASSWORD` | Password of your Aiven for MySQL connection      |
+| `DB_NAME`       | Database Name of your Aiven for MySQL connection |
 
 ### Prerequisites {#connect-mysql}
 
@@ -83,7 +74,7 @@ the **Overview** page of your service.
 Once you have these parameters, execute the following from a terminal
 window to connect to the MySQL database:
 
-``` 
+```
 mysql --user avnadmin --password=USER_PASSWORD --host USER_HOST --port USER_PORT DB_NAME
 ```
 

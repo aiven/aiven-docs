@@ -2,7 +2,7 @@
 title: avn ticket
 ---
 
-Here you\'ll find the full list of commands for `avn ticket`.
+Full list of commands for `avn ticket`.
 
 ## Create and manage support tickets
 
@@ -17,39 +17,18 @@ support contract.
 
 Creates a new ticket.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project for which to create a ticket</td>
-    </tr>
-    <tr>
-      <td>`--service`</td>
-      <td>The service name for which to create a ticket</td>
-    </tr>
-    <tr>
-      <td>`--severity`</td>
-      <td>The ticket severity; possible values are `low`,`high`,`critical`, more information about severity and support levels are available in [the dedicated page](https://aiven.io/support-services).</td>
-    </tr>
-    <tr>
-      <td>`--title`</td>
-      <td>Short description of the issue</td>
-    </tr>
-    <tr>
-      <td>`--description`</td>
-      <td>Detailed description of the issue</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter       | Information                                                                                                                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--project`     | The project for which to create a ticket                                                                                                                                                       |
+| `--service`     | The service name for which to create a ticket                                                                                                                                                  |
+| `--severity`    | The ticket severity; possible values are `low`,`high`,`critical`, more information about severity and support levels are available in [the dedicated page](https://aiven.io/support-services). |
+| `--title`       | Short description of the issue                                                                                                                                                                 |
+| `--description` | Detailed description of the issue                                                                                                                                                              |
 
 **Example:** Create a new ticket with severity `low` for the service
 `pg-demo` in the project `proj-test`.
 
-``` 
+```
 avn ticket create --service pg-demo               \
     --project proj-test                           \
     --severity low                                \
@@ -62,27 +41,15 @@ avn ticket create --service pg-demo               \
 Retrieves the list of support tickets together with the associated
 details like ticket ID, status, create and update time.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project for which to create a ticket</td>
-    </tr>
-    <tr>
-      <td>`--state`</td>
-      <td>The ticket state; possible values are `closed` or `open`</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                                              |
+| ----------- | -------------------------------------------------------- |
+| `--project` | The project for which to create a ticket                 |
+| `--state`   | The ticket state; possible values are `closed` or `open` |
 
 **Example:** Retrieve all the tickets in `open` state for the
 `proj-test` project
 
-``` 
+```
 avn ticket list         \
     --project proj-test \
     --state open

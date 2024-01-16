@@ -19,7 +19,7 @@ instead.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://docs.mongodb.com/kafka-connector/current/).
 :::
 
@@ -65,7 +65,7 @@ file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` 
+```
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
@@ -176,7 +176,7 @@ after replacing the placeholders for `MONGODB_HOST`, `MONGODB_PORT`,
     "output.format.key": "json",
     "output.format.value": "json",
     "output.schema.infer.value": "true",
-    "poll.await.time.ms": "1000"   
+    "poll.await.time.ms": "1000"
 }
 ```
 

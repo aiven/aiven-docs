@@ -8,9 +8,9 @@ This example connects to a Redis®\* service from `redis-cli`.
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable      Description
-  ------------- ----------------------------------------------------------
-  `REDIS_URI`   URL for Redis connection, from the service overview page
+| Variable    | Description                                              |
+| ----------- | -------------------------------------------------------- |
+| `REDIS_URI` | URL for Redis connection, from the service overview page |
 
 ## Pre-requisites
 
@@ -25,7 +25,7 @@ For this example you will need:
 
 Execute the following from a terminal window:
 
-``` 
+```
 redis-cli -u REDIS_URI
 ```
 
@@ -33,7 +33,7 @@ This code connects to the Redis®\* database.
 
 To check the connection is working, execute the following code:
 
-``` 
+```
 INFO
 ```
 
@@ -51,7 +51,7 @@ redis_mode:standalone
 
 To set a key, execute the following command:
 
-``` 
+```
 SET mykey mykeyvalue123
 ```
 
@@ -59,7 +59,7 @@ The command should output a confirmation `OK` statement.
 
 To retrieve the key value, execute the following command:
 
-``` 
+```
 GET mykey
 ```
 

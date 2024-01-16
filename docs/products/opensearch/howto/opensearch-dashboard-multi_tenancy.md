@@ -88,7 +88,7 @@ users. To assign a tenant to a role, follow these steps:
 After assigning tenants to roles and setting the required permissions,
 the next step is associating each user with a specific role, granting
 them access to the tenant and its resources. The level of access and
-control a user has over the tenant\'s data and resources will be
+control a user has over the tenant's data and resources will be
 determined by their assigned role.
 
 To map roles to internal users, follow these steps:

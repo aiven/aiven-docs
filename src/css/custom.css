@@ -1,40 +1,87 @@
 :root {
+  --aiven-adm-bg-info: var(--aiven-adm-bg-note);
+  --aiven-adm-bg-note: rgb(224, 245, 254);
+  --aiven-adm-bg-tip: rgb(236, 247, 237);
+  --aiven-adm-bg-warning: rgb(254, 232, 230);
+  --aiven-adm-link-color: var(--aiven-primary-80);
+  --aiven-adm-text-color: var(--aiven-grey-60);
+  --aiven-adm-title-color: var(--aiven-grey-80);
+  --aiven-announcement-banner-bg: var(--aiven-grey-05);
+  --aiven-hero-bg: var(--aiven-primary-05);
+  --aiven-nav-active-bg: var(--aiven-grey-0);
   --aiven-radius: 2px;
   --badge-radius: 50px;
-  --aiven-nav-active-bg: var(--aiven-grey-0);
-  --ifm-color-primary: var(--aiven-primary-80);
+  --docusaurus-announcement-bar-height: 36px !important;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --feature-background-color: none;
+  --feature-border-color: var(--aiven-grey-05);
+  --ifm-breadcrumb-border-radius: var(--aiven-radius);
+  --ifm-breadcrumb-color-active: var(--ifm-link-color);
+  --ifm-button-color: white;
+  --ifm-code-font-size: 90%;
   --ifm-color-primary-dark: var(--aiven-primary-90);
   --ifm-color-primary-darker: var(--aiven-primary-90);
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
-  --ifm-link-color: var(--aiven-primary-80);
-  --ifm-button-color: white;
-  --ifm-code-font-size: 90%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-global-radius: var(--aiven-radius);
-  --ifm-font-family-base: 'Inter', 'Montserrat', system-ui, sans-serif;
-  --ifm-heading-font-family: 'Poppins', 'Montserrat', helvetica, system-ui,
-    sans-serif;
-  --ifm-font-size-base: 90%;
+  --ifm-color-primary: var(--aiven-primary-80);
   --ifm-container-width: 1380px;
   --ifm-dropdown-hover-background-color: var(--ifm-background-color);
-  --feature-background-color: none;
-  --feature-border-color: var(--aiven-grey-05);
-
-  --ifm-paragraph-margin-bottom: 5px;
-
+  --ifm-font-family-base: 'Inter', 'Montserrat', system-ui, sans-serif;
+  --ifm-font-size-base: 90%;
+  --ifm-global-radius: var(--aiven-radius);
+  --ifm-heading-font-family: 'Poppins', 'Montserrat', helvetica, system-ui,
+    sans-serif;
+  --ifm-link-color: var(--aiven-primary-80);
   --ifm-menu-color-active: var(--aiven-primary-80);
   --ifm-menu-color: var(--aiven-grey-60);
-  --ifm-breadcrumb-border-radius: var(--aiven-radius);
-  --ifm-breadcrumb-color-active: var(--ifm-link-color);
-
-  --aiven-announcement-banner-bg: var(--aiven-grey-05);
-  --docusaurus-announcement-bar-height: 36px !important;
-
-  --aiven-hero-bg: var(--aiven-primary-05);
+  --ifm-paragraph-margin-bottom: 5px;
+  --nav-btn-primary-bg-hover: var(--aiven-primary-80);
+  --nav-btn-primary-bg: var(--ifm-link-color);
+  --nav-btn-primary-text-color-hover: var(--aiven-primary-90);
   --nav-btn-primary-text-color: var(--ifm-button-color);
+  --nav-btn-secondary-text-color-hover: var(--aiven-primary-90);
+  --nav-btn-secondary-text-color: var(--aiven-primary-70);
+}
+
+[data-theme='dark'] {
+  --aiven-adm-bg-info: var(--aiven-adm-bg-note);
+  --aiven-adm-bg-note: var(--ifm-menu-color-background-active);
+  --aiven-adm-bg-tip: rgb(8, 59, 12);
+  --aiven-adm-bg-warning: rgb(61, 17, 13);
+  --aiven-adm-link-color: var(--ifm-color-primary);
+  --aiven-adm-text-color: var(--aiven-grey-05);
+  --aiven-adm-title-color: var(--aiven-grey-05);
+  --aiven-announcement-banner-bg: var(--aiven-grey-90);
+  --aiven-hero-bg: var(--aiven-grey-80);
+  --aiven-nav-active-bg: var(--aiven-grey-90);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --feature-background-color: var(--ifm-card-background-color);
+  --feature-border-color: var(--ifm-color-emphasis-200);
+  --ifm-background-color: var(--aiven-grey-100);
+  --ifm-background-surface-color: var(--aiven-grey-100);
+  --ifm-color-content: var(--aiven-grey-20);
+  --ifm-color-primary-dark: var(--aiven-primary-90);
+  --ifm-color-primary-darker: var(--aiven-primary-100);
+  --ifm-color-primary-darkest: var(--aiven-primary-100);
+  --ifm-color-primary-light: var(--aiven-primary-70);
+  --ifm-color-primary-lighter: var(--aiven-primary-60);
+  --ifm-color-primary-lightest: var(--aiven-primary-50);
+  --ifm-color-primary: var(--aiven-primary-60);
+  --ifm-heading-color: var(--aiven-grey-0);
+  --ifm-hover-overlay: var(--aiven-grey-90);
+  --ifm-link-color: var(--aiven-primary-60);
+  --ifm-menu-color-active: var(--aiven-primary-60);
+  --ifm-menu-color: var(--aiven-grey-20);
+  --ifm-toc-border-color: var(--aiven-grey-80) !important;
+  --nav-btn-primary-bg-hover: var(--aiven-primary-60);
+  --nav-btn-primary-bg: var(--aiven-primary-70);
+  --nav-btn-primary-text-color-hover: var(--aiven-primary-60);
+  --nav-btn-primary-text-color: var(--ifm-button-color);
+  --nav-btn-primary-text-hover-color: var(--aiven-grey-90);
+  --nav-btn-secondary-text-color-hover: var(--aiven-primary-60);
+  --nav-btn-secondary-text-color: var(--aiven-primary-70);
 }
 
 .markdown h1:first-child {
@@ -67,35 +114,10 @@ nav .menu__link {
 .markdown h1:first-child {
   --ifm-h1-font-size: 2.8rem;
 }
+
 .navbar__brand {
   font-size: 170%;
   font-family: 'Ubuntu';
-}
-[data-theme='dark'] {
-  --ifm-color-primary: var(--aiven-primary-60);
-  --ifm-color-primary-dark: var(--aiven-primary-90);
-  --ifm-color-primary-darker: var(--aiven-primary-100);
-  --ifm-color-primary-darkest: var(--aiven-primary-100);
-  --ifm-color-primary-light: var(--aiven-primary-70);
-  --ifm-color-primary-lighter: var(--aiven-primary-60);
-  --ifm-color-primary-lightest: var(--aiven-primary-50);
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-background-color: var(--aiven-grey-100);
-  --ifm-background-surface-color: var(--aiven-grey-100);
-  --ifm-color-content: var(--aiven-grey-20);
-  --ifm-heading-color: var(--aiven-grey-0);
-  --ifm-link-color: var(--aiven-primary-60);
-  --ifm-menu-color-active: var(--aiven-primary-60);
-  --ifm-menu-color: var(--aiven-grey-20);
-  --ifm-hover-overlay: var(--aiven-grey-90);
-  --ifm-toc-border-color: var(--aiven-grey-80) !important;
-  --aiven-announcement-banner-bg: var(--aiven-grey-90);
-  --aiven-hero-bg: var(--aiven-grey-80);
-  --aiven-nav-active-bg: var(--aiven-grey-90);
-  --feature-background-color: var(--ifm-card-background-color);
-  --feature-border-color: var(--ifm-color-emphasis-200);
-  --nav-btn-primary-text-color: var(--ifm-button-color);
-  --nav-btn-primary-text-hover-color: var(--aiven-grey-90);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {

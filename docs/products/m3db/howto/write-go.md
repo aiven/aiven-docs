@@ -12,9 +12,9 @@ the Prometheus write features.
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable           Description
-  ------------------ -----------------------------------------------------------
-  `PROM_WRITE_URL`   URL for Prometheus writes, from the service overview page
+ | Variable         | Description                                               |
+ | ---------------- | --------------------------------------------------------- |
+ | `PROM_WRITE_URL` | URL for Prometheus writes, from the service overview page |
 
 ## Pre-requisites
 
@@ -22,7 +22,7 @@ For this example you will need:
 
 1.  The Prometheus client for Go:
 
-    ``` 
+    ```
     go get -u github.com/m3db/prometheus_remote_client_golang/promremote
     ```
 

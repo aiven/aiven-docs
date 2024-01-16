@@ -99,7 +99,7 @@ While the migration is in progress, you can
 
 -   Close the wizard by selecting **Close window** and check the
     migration status anytime by returning to the wizard from the
-    service\'s overview page.
+    service's overview page.
 -   Continue to write to the target database.
 -   Stop the migration by selecting **Stop migration**. The migrated
     data will be retained, and you can start a new migration.

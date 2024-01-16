@@ -1,4 +1,4 @@
-## Services with memory limits
+# Services with memory limits
 
 For data services with unbounded memory allocation, a memory limit is
 placed on the primary service container, with the remainder reserved for

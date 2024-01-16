@@ -2,12 +2,6 @@
 title: How tiered storage works in Aiven for Apache Kafka®
 ---
 
-:::important
-Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
 Aiven for Apache Kafka® tiered storage is a feature that optimizes data
 management across two distinct storage tiers:
 
@@ -16,8 +10,8 @@ management across two distinct storage tiers:
 -   **Remote tier**: Relies on slower, cost-effective options like cloud
     object storage.
 
-In Aiven for Apache Kafka\'s tiered storage architecture, **remote
-storage** refers to storage options external to the Kafka broker\'s
+In Aiven for Apache Kafka's tiered storage architecture, **remote
+storage** refers to storage options external to the Kafka broker's
 local disk. This typically includes cloud-based or self-hosted object
 storage solutions like AWS S3 and Google Cloud Storage. Although
 network-attached block storage solutions like AWS EBS are technically
@@ -32,6 +26,15 @@ storage is enabled or not.
 Administrators can configure tiered storage per topic by defining the
 retention period and retention bytes to specify how much data should be
 retained on the local disk instead of remote storage.
+
+:::important
+Aiven for Apache Kafka® tiered storage is an
+[early availability feature](/docs/platform/concepts/beta_services). To use this feature, contact our sales team at
+[sales@aiven.io](mailto:sales@aiven.io) to activate tiered storage for your account. After
+activation, you must enable the feature from the
+[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
+
+:::
 
 ## Local vs. remote data retention
 
@@ -76,7 +79,7 @@ downloads and caches these records locally. This allows for quicker
 access in subsequent retrieval operations.
 
 Aiven allocates a small amount of disk space, ranging from 2GB to 16GB,
-equivalent to 5% of the Kafka broker\'s total available disk, for the
+equivalent to 5% of the Kafka broker's total available disk, for the
 temporary storage of fetched records.
 
 ## Security

@@ -6,7 +6,7 @@ OpenSearch® relies on the watermarks to respond to low disk space. Read
 more about each of them
 [in the dedicated article](/docs/products/opensearch/reference/low-space-watermarks).
 
-When you\'re running low on disk space using Aiven for OpenSearch, you
+When you're running low on disk space using Aiven for OpenSearch, you
 can take one of these actions:
 
 -   Upgrade to a larger plan from with a help of [Aiven
@@ -24,7 +24,7 @@ will continue allowing writes. However, if `flood_state watermark` is
 exceeded, **you must manually unset** `read_only_allow_delete` **for
 each affected index**. This can be done by updating index settings:
 
-``` 
+```
 curl https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_settings \
 -X PUT \
 -H 'Content-Type: application/json' \
@@ -33,17 +33,13 @@ curl https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_settings \
 
 These are the placeholders you will need to replace in the code sample:
 
-  Variable                                            Description
-  --------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------
-  `USER`                                              User name to use when accessing the OpenSearch cluster
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `PASSWORD`                                          Password to use when accessing the OpenSearch cluster
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `HOST`                                              Host name for the connection
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `PORT`                                              Port number for the connection
-  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
-  `INDEX_NAME`                                        Name of the index
+| Variable     | Description                                            |
+| ------------ | ------------------------------------------------------ |
+| `USER`       | User name to use when accessing the OpenSearch cluster |
+| `PASSWORD`   | Password to use when accessing the OpenSearch cluster  |
+| `HOST`       | Host name for the connection                           |
+| `PORT`       | Port number for the connection                         |
+| `INDEX_NAME` | Name of the index                                      |
 
 :::warning
 This needs to be done separately for each index that was marked as

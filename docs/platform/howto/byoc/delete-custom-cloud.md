@@ -2,7 +2,7 @@
 title: Delete your AWS custom cloud in Aiven
 ---
 
-Delete a [custom cloud](/docs/platform/concepts/byoc) so that it\'s no longer available in your Aiven
+Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven
 organizations, units, or projects.
 
 :::important
@@ -26,14 +26,14 @@ configuration files.
 ### Impact on your AWS account resources
 
 A bastion service and the corresponding EC2 instance are deleted as a
-consequence of your custom cloud\'s removal. As for resources created
+consequence of your custom cloud's removal. As for resources created
 when applying the Terraform template to create the custom cloud, they
 are not removed after deleting your custom cloud.Unless you\'ve removed
-them earlier, you\'re advised to do that if deleting your cloud.
+them earlier, you're advised to do that if deleting your cloud.
 
 ## Prerequisites
 
--   Administrator\'s role for your Aiven organization
+-   Administrator's role for your Aiven organization
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
 -   No running services that uses a custom cloud to be deleted
@@ -49,7 +49,7 @@ them earlier, you\'re advised to do that if deleting your cloud.
 4.  From the left sidebar, select **Bring your own cloud**.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud\'s page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
     the top right corner to select **Delete**.
 7.  Make sure you understand the impact and, if so, confirm that you
     want to delete the cloud by selecting **Delete** in the **Warning**

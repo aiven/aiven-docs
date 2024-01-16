@@ -23,7 +23,7 @@ these steps:
 1.  Log in to the [Aiven Console](https://console.aiven.io) and select
     your OpenSearch service.
 
-2.  On the service\'s **Overview** screen, in the **Connection
+2.  On the service's **Overview** screen, in the **Connection
     information** section and select the **OpenSearch Dashboards** tab.
 
     This opens the OpenSearch Dashboard

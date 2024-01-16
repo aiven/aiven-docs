@@ -12,25 +12,25 @@ SDKs](https://www.dragonflydb.io/docs/development/sdks).
 Replace the following placeholders in the code sample with the
 appropriate values:
 
-  Variable          Description
-  ----------------- ----------------------------------
-  `DRAGONFLY_URI`   URL for the Dragonfly connection
+ | Variable        | Description                      |
+ | --------------- | -------------------------------- |
+ | `DRAGONFLY_URI` | URL for the Dragonfly connection |
 
 ## Pre-requisites
 
 Install the `ioredis` library:
 
-``` 
+```
 npm install --save ioredis
 ```
 
 ## Code
 
 Create a new file named `index.js`, add the following content and
-replace the `DRAGONFLY_URI` placeholder with your Dragonfly instance\'s
+replace the `DRAGONFLY_URI` placeholder with your Dragonfly instance's
 connection URI:
 
-``` 
+```
 const Redis = require('ioredis');
 
 const redis = new Redis('DRAGONFLY_URI'); // Replace with your Dragonfly URI
@@ -54,12 +54,12 @@ of this key.
 
 To execute the code, use the following command in your terminal:
 
-``` 
+```
 node index.js
 ```
 
 If everything is set up correctly, the output should be:
 
-``` 
+```
 The value of key is: hello world
 ```

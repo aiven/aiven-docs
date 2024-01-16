@@ -1,5 +1,5 @@
 ---
-title: Causes of \"connector list not currently available\"
+title: Causes of "connector list not currently available"
 ---
 
 Sometimes, when accessing the [Aiven Console](https://console.aiven.io/)
@@ -27,7 +27,7 @@ There can be a number of reasons why you are seeing the above message:
     likely keep seeing this message unless you upgrade to a larger plan
 -   One or more nodes on the Apache Kafka Connect cluster crashed. The
     API that fetches the connector list calls the Apache Kafka Connect
-    cluster by it\'s hostname and that maps to one of the 3 workers
+    cluster by it's hostname and that maps to one of the 3 workers
     randomly. If you see this message appear intermittently, this is
     likely the reason. The crashed node should recover automatically,
     but if it doesn\'t, please [contact our

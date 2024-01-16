@@ -17,7 +17,7 @@ console](https://console.aiven.io/):
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the **Services** page.
 
-2.  In your service\'s page, select **Databases and tables** from the
+2.  In your service's page, select **Databases and tables** from the
     sidebar.
 
 3.  In the **Databases and tables** page, select **Create database** \>

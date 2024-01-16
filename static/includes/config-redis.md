@@ -35,7 +35,7 @@ available in the HTTP API and console.
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `redis`
@@ -43,7 +43,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to redis with a DNS name that always resolves
-to the service\'s private IP addresses. Only available in certain
+to the service's private IP addresses. Only available in certain
 network locations**
 
 # `privatelink_access`
@@ -93,7 +93,7 @@ nodes that are in a project VPC or another type of private network**
 
 # `redis_maxmemory_policy`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Redis maxmemory-policy**
 
@@ -174,14 +174,14 @@ configuration acl-pubsub-default.
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**

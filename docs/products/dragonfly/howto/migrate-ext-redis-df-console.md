@@ -17,7 +17,7 @@ not supported at this time.
 Before migrating an external Redis database to Aiven for Dragonfly,
 carefully review your current Redis setup.
 
--   **Review database setup:** Examine your Redis database\'s data
+-   **Review database setup:** Examine your Redis database's data
     structures, storage patterns, and configurations.Identify any unique
     features, custom settings, and specific configurations.
 -   **API compatibility:** While Dragonfly closely mirrors Redis API

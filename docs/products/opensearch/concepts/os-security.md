@@ -10,24 +10,25 @@ your OpenSearch environment.
 
 With OpenSearch Security enabled, you can manage user access and
 permissions directly from the
-[OpenSearch Dashboard](/docs/products/opensearch/dashboards), giving you full control over your service\'s security.
+[OpenSearch Dashboard](/docs/products/opensearch/dashboards), giving you full control over your service's security.
 
 :::warning
-\* Once you have enabled OpenSearch Security management, you can no
-longer use [Aiven Console](https://console.aiven.io/), [Aiven
-API](https://api.aiven.io/doc/),
-[Aiven CLI](/docs/tools/cli),
-[Aiven Terraform provider](/docs/tools/terraform) or
-[Aiven Operator for Kubernetes®](/docs/tools/kubernetes) to manage access controls. \* You must use the OpenSearch
-Security Dashboard or OpenSearch Security API for managing user
-authentication and access control after enabling OpenSearch Security
-management. \* Once enabled, OpenSearch Security management cannot be
-disabled. If you need assistance disabling OpenSearch Security
-management, contact [Aiven support](https://aiven.io/support-services).
+-   Once you have enabled OpenSearch Security management, you can no
+    longer use [Aiven Console](https://console.aiven.io/), [Aiven
+    API](https://api.aiven.io/doc/),
+    [Aiven CLI](/docs/tools/cli),
+    [Aiven Terraform provider](/docs/tools/terraform) or
+    [Aiven Operator for Kubernetes®](/docs/tools/kubernetes) to manage access controls.
+-   You must use the OpenSearch Security Dashboard or OpenSearch
+    Security API for managing user authentication and access control
+    after enabling OpenSearch Security management.
+-   Once enabled, OpenSearch Security management cannot be disabled. If
+    you need assistance disabling OpenSearch Security management,
+    contact [Aiven support](https://aiven.io/support-services).
 :::
 
 :::note
-\* To implement basic and simplified access control, you can use
+To implement basic and simplified access control, you can use
 [Aiven's Access Control Lists (ACL)](/docs/products/opensearch/howto/control_access_to_content) to manage user roles and permissions.
 :::
 
@@ -48,7 +49,7 @@ feature include:
 -   **Advanced access control:**
 
     If you need different levels of access controls for your employees,
-    OpenSearch Security\'s Role-Based Access Control (RBAC) can help.
+    OpenSearch Security's Role-Based Access Control (RBAC) can help.
     With RBAC, you can set up different roles with different access
     levels and map them to different users. Role mapping is also
     available with SAML integration, making this feature ideal for
@@ -63,9 +64,9 @@ feature include:
 
 -   **Multi-tenancy:**
 
-    If you\'re a reseller or have many smaller departments, you may need
+    If you're a reseller or have many smaller departments, you may need
     different tenants on your OpenSearch Dashboard. OpenSearch Security
-    provides multi-tenancy capabilities, ensuring that each tenant\'s
+    provides multi-tenancy capabilities, ensuring that each tenant's
     data is kept separate and secure.
 
 ## Key OpenSearch Security features
@@ -122,7 +123,7 @@ service through the Aiven console triggers several changes:
     pre-defined roles, and create new roles and assignments, but some
     pre-defined roles cannot be changed or deleted.
 -   All service users defined before enabling OS Security management are
-    included in OpenSearch\'s internal users, with the attribute
+    included in OpenSearch's internal users, with the attribute
     `provider_managed: False`. However, the users `avnadmin` and
     `os-sec-admin`, are still managed by the service platform and have
     the attribute `provider_managed:true`. While service platform

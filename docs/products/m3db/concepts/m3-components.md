@@ -18,15 +18,12 @@ An example implementation might look something like this with your
 application sending data to M3, and then the ability to see that data
 with Grafana®.
 
-<!--
-:::mermaid
-
+```mermaid
 graph LR
-
-:   App(Your application) \-\--\> M3\[(M3DB + M3 Coordinator)\] M3
-    \-\-\--\> Gr((Grafana)) M3 \<-.-\> Agg(M3 Aggregator)
-:::
--->
+  App(Your application) ---> M3[(M3DB + M3 Coordinator)]
+  M3 ----> Gr((Grafana))
+  M3 <-.-> Agg(M3 Aggregator)
+```
 
 Another common setup is to use [Prometheus](https://prometheus.io/) with
 M3 as the storage element.

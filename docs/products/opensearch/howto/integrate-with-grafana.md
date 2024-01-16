@@ -4,12 +4,10 @@ title: Integrate with Grafana®
 
 You can monitor and set up alerts for the data in your Aiven for
 OpenSearch® service with Grafana®. This feature is especially powerful
-if you\'re sending your Aiven service logs to an OpenSearch instance
+if you're sending your Aiven service logs to an OpenSearch instance
 using [log integration](opensearch-log-integration).
 
 ## Prerequisites
-
-You will need:
 
 1.  Aiven for OpenSearch service.
 2.  Aiven for Grafana service, see how to
@@ -20,17 +18,16 @@ You will need:
 We\'ll use these values later in the set up. They can be found in your
 Aiven for OpenSearch service page, in the connection information.
 
-  Variable                Description
-  ----------------------- -----------------------------------------
-  `OPENSEARCH_URI`        Service URI of your OpenSearch service.
-  `OPENSEARCH_USER`       Username to access OpenSearch service.
-  `OPENSEARCH_PASSWORD`   Password to access OpenSearch service.
+ | Variable              | Description                             |
+ | --------------------- | --------------------------------------- |
+ | `OPENSEARCH_URI`      | Service URI of your OpenSearch service. |
+ | `OPENSEARCH_USER`     | Username to access OpenSearch service.  |
+ | `OPENSEARCH_PASSWORD` | Password to access OpenSearch service.  |
 
 ## Integration steps
 
-1.  Follow
-    [these instructions](/docs/products/grafana/howto/log-in) to log in into Aiven for Grafana.
-2.  In *Configuration menu* select **Data sources**.
+1.  [Log into Aiven for Grafana](/docs/products/grafana/howto/log-in).
+2.  In **Configuration menu**, select **Data sources**.
 3.  Click to **Add data source**.
 4.  Find **OpenSearch** in the list and select it. You\'ll see a panel
     with list of settings to fill in.

@@ -4,8 +4,8 @@ title: Enable OAUTH2/OIDC authentication for Aiven for Apache Kafka®
 
 OpenID Connect (OIDC) is an authentication protocol built on OAuth 2.0.
 Aiven for Apache Kafka supports the client credentials flow of
-OIDC/OAuth2, allowing clients to verify an user\'s identity using an
-authorization server\'s authentication. By activating this, you can use
+OIDC/OAuth2, allowing clients to verify an user's identity using an
+authorization server's authentication. By activating this, you can use
 token-based authentication and integrate with identity providers.
 Setting the JSON Web Key Set (JWKS) JWKS endpoint via the Aiven console
 activates the OIDC mechanism for Kafka, which triggers a rolling restart
@@ -15,7 +15,7 @@ of the Kafka brokers. This restart does not cause service downtime.
 
 Aiven for Apache Kafka integrates with a wide range of OpenID Connect
 identity providers (IdPs). However, the exact configuration steps can
-differ based on your chosen IdP. Refer to your Identity Provider\'s
+differ based on your chosen IdP. Refer to your Identity Provider's
 official documentation for specific configuration guidelines.
 
 Before proceeding with the setup, ensure you have:
@@ -30,7 +30,7 @@ Before proceeding with the setup, ensure you have:
         vary with your OIDC provider.
     -   **Issuer URL or Identifier**: Identifies and verifies the JWT
         issuer.
-    -   **Audience Identifier(s)**: Validates the JWT\'s intended
+    -   **Audience Identifier(s)**: Validates the JWT's intended
         recipients. For multiple audiences, make a note of all.
 
 ## Enable OAuth2/OIDC via Aiven Console {#console-authentication}
@@ -56,14 +56,14 @@ Before proceeding with the setup, ensure you have:
         -   *Value*: Enter the JWKS endpoint URL provided by your OIDC
             provider.
     -   `kafka.sasl_oauthbearer_sub_claim_name` (Optional)
-        -   *Description*: Name of the JWT\'s subject claim for broker
+        -   *Description*: Name of the JWT's subject claim for broker
             verification. This is optional and typically set to \"sub\".
             Corresponds to the Apache Kafka parameter
             `sasl.oauthbearer.sub.claim.name`.
         -   *Value*: Enter \"sub\" or the specific claim name provided
             by your OIDC provider if different.
     -   `kafka.sasl_oauthbearer_expected_issuer` (Optional)
-        -   *Description*: Specifies the JWT\'s issuer for the broker to
+        -   *Description*: Specifies the JWT's issuer for the broker to
             verify. Corresponds to the Apache Kafka parameter
             `sasl.oauthbearer.expected.issuer`. This setting is
             optional.

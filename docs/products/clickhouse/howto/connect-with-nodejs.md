@@ -25,11 +25,11 @@ npm i @clickhouse/client
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-  Variable                Description
-  ----------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `CLICKHOUSE_HOST`       `https://HOST:HTTPS_PORT`, where `Host` and `Port` for the ClickHouse connection are available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
-  `CLICKHOUSE_USER`       `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
-  `CLICKHOUSE_PASSWORD`   `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**
+| Variable              | Description                                                                                                                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CLICKHOUSE_HOST`     | `https://HOST:HTTPS_PORT`, where `Host` and `Port` for the ClickHouse connection are available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
+| `CLICKHOUSE_USER`     | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**                                                 |
+| `CLICKHOUSE_PASSWORD` | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**                                             |
 
 ## Connect to the service
 
@@ -58,7 +58,7 @@ Now you have your service connection set up and you can proceed to
 [uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
 :::
 
-:::note See also
+:::note[See also]
 For information on how to connect to the Aiven for Clickhouse service
 with the ClickHouse client, see
 [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).

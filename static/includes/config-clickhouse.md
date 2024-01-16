@@ -20,7 +20,7 @@ available in the HTTP API and console.
 
 # `project_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another project to fork a service from. This has effect only
 when a new service is being created.**
@@ -36,7 +36,7 @@ when a new service is being created.**
 *boolean*
 
 **Allow clients to connect to clickhouse with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `clickhouse_https`
@@ -44,7 +44,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to clickhouse_https with a DNS name that
-always resolves to the service\'s private IP addresses. Only available
+always resolves to the service's private IP addresses. Only available
 in certain network locations**
 
 ## `clickhouse_mysql`
@@ -52,7 +52,7 @@ in certain network locations**
 *boolean*
 
 **Allow clients to connect to clickhouse_mysql with a DNS name that
-always resolves to the service\'s private IP addresses. Only available
+always resolves to the service's private IP addresses. Only available
 in certain network locations**
 
 ## `prometheus`
@@ -60,7 +60,7 @@ in certain network locations**
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 # `privatelink_access`
@@ -133,7 +133,7 @@ network**
 
 # `service_to_fork_from`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Name of another service to fork from. This has effect only when a new
 service is being created.**

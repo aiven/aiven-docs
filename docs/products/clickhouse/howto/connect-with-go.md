@@ -32,13 +32,33 @@ purpose, use command
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-  Variable     Description
-  ------------ --------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `Host`       **Host** for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**
-  `Port`       **Port** for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**
-  `Database`   **Database Name** in your the ClickHouse service available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**
-  `Username`   **User** for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**
-  `Password`   **Password** for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**
+ <table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>Host</code></td>
+    <td><strong>Host</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse native</strong></td>
+  </tr>
+  <tr>
+    <td><code>Port</code></td>
+    <td><strong>Port</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse native</strong></td>
+  </tr>
+  <tr>
+    <td><code>Database</code></td>
+    <td><strong>Database Name</strong> in your the ClickHouse service available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse native</strong></td>
+  </tr>
+  <tr>
+    <td><code>Username</code></td>
+    <td><strong>User</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse native</strong></td>
+  </tr>
+  <tr>
+    <td><code>Password</code></td>
+    <td><strong>Password</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse native</strong></td>
+  </tr>
+</table>
+
 
 ### Connect to the service
 
@@ -93,34 +113,36 @@ options.
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-+------------+--------------------------------------------------------+
-| Variable   | Description                                            |
-+============+========================================================+
-| `Host`     | **Host** for the ClickHouse connection available in    |
-|            | the Aiven console: Service **Overview** \>             |
-|            | **Connection information** \> **ClickHouse HTTPS &     |
-|            | JDBC**                                                 |
-+------------+--------------------------------------------------------+
-| `HttpPort` | > **Port** for the ClickHouse connection available in  |
-|            | > the Aiven console: Service **Overview** \>           |
-|            | > **Connection information** \> **ClickHouse HTTPS &   |
-|            | > JDBC**                                               |
-+------------+--------------------------------------------------------+
-| `Database` | **Database Name** in your the ClickHouse service       |
-|            | available in the Aiven console: Service **Overview**   |
-|            | \> **Connection information** \> **ClickHouse HTTPS &  |
-|            | JDBC**                                                 |
-+------------+--------------------------------------------------------+
-| `Username` | **User** for the ClickHouse connection available in    |
-|            | the Aiven console: Service **Overview** \>             |
-|            | **Connection information** \> **ClickHouse HTTPS &     |
-|            | JDBC**                                                 |
-+------------+--------------------------------------------------------+
-| `Password` | **Password** for the ClickHouse connection available   |
-|            | in the Aiven console: Service **Overview** \>          |
-|            | **Connection information** \> **ClickHouse HTTPS &     |
-|            | JDBC**                                                 |
-+------------+--------------------------------------------------------+
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>Host</code></td>
+    <td>
+      <strong>Host</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse HTTPS &amp; JDBC</strong>
+    </td>
+  </tr>
+  <tr>
+    <td><code>HttpPort</code></td>
+    <td><p><strong>Port</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse HTTPS &amp; JDBC</strong></p></td>
+  </tr>
+  <tr>
+    <td><code>Database</code></td>
+    <td><strong>Database Name</strong> in your the ClickHouse service available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse HTTPS &amp; JDBC</strong></td>
+  </tr>
+  <tr>
+    <td><code>Username</code></td>
+    <td><strong>User</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse HTTPS &amp; JDBC</strong></td>
+  </tr>
+  <tr>
+    <td><code>Password</code></td>
+    <td><strong>Password</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse HTTPS &amp; JDBC</strong></td>
+  </tr>
+</table>
+
+
 
 ### Connect to the service
 
@@ -166,7 +188,7 @@ configured. You can proceed to
 [uploading data into your database](load-dataset).
 :::
 
-:::note See also
+:::note[See also]
 -   For instructions on how to configure connection settings, see
     [Connection
     Details](https://clickhouse.com/docs/en/integrations/go#connection-details).

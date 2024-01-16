@@ -17,7 +17,7 @@ a particular project, including:
 An example of events output (note that the newest event is shown first):
 
 ``` text
-TIME                  ACTOR                    EVENT_TYPE                SERVICE_NAME    EVENT_DESC                                                                                    
+TIME                  ACTOR                    EVENT_TYPE                SERVICE_NAME    EVENT_DESC
 ====================  =======================  ========================  ==============  ==============================================================================================
 
 2021-08-10T13:38:23Z  my_user@aiven.io         service_update            demo-pg         Reset service user password
@@ -35,27 +35,18 @@ Information about the events that have occurred in a project.
 
 Lists instance or integration creation, deletion or modification events.
 
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Information</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`--project`</td>
-      <td>The project to fetch details for</td>
-    </tr>
-  </tbody>
-</table>
-
+| Parameter   | Information                      |
+| ----------- | -------------------------------- |
+| `--project` | The project to fetch details for |
 
 **Example:** Show the recent events of the currently selected project.
 
-``` 
+```
 avn events
 ```
 
 **Example:** Show the most recent 10 events of a named project.
 
-``` 
+```
 avn events -n 10 --project my-project
 ```

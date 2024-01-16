@@ -9,15 +9,15 @@ Connect to your Aiven for OpenSearch® service with
 
 These are the placeholders you will need to replace in the code samples:
 
-  Variable           Description
-  ------------------ ----------------------------------------------------------------------------------------
-  `OPENSEARCH_URI`   Service URI, including username and password, available from the service overview page
+| Variable         | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| `OPENSEARCH_URI` | Service URI, including username and password, available from the service overview page |
 
 ## Connect to OpenSearch
 
 Connect to your service with:
 
-``` 
+```
 curl OPENSEARCH_URI
 ```
 
@@ -37,7 +37,7 @@ OpenSearch groups data into an index rather than a table.
 
 Create an index by making a `PUT` call to it:
 
-``` 
+```
 curl -X PUT OPENSEARCH_URI/shopping-list
 ```
 
@@ -48,7 +48,7 @@ If you already know something about the fields that will be in the
 documents you\'ll store, you can create an index with mappings to
 describe those known fields:
 
-``` 
+```
 curl -X PUT -H "Content-Type: application/json" \
 OPENSEARCH_URI/shopping-list \
 -d '{
@@ -68,7 +68,7 @@ help the indexer know how to handle the expected fields.
 
 To list the indices do:
 
-``` 
+```
 curl OPENSEARCH_URI/_cat/indices
 ```
 
@@ -78,7 +78,7 @@ OpenSearch is a document database so there is no enforced schema
 structure for the data you store. To add an item, `POST` the JSON data
 that should be stored:
 
-``` 
+```
 curl -H "Content-Type: application/json" \
 OPENSEARCH_URI/shopping-list/_doc \
 -d '{
@@ -89,7 +89,7 @@ OPENSEARCH_URI/shopping-list/_doc \
 
 Other data fields don\'t need to match in format:
 
-``` 
+```
 curl -H "Content-Type: application/json" \
 OPENSEARCH_URI/shopping-list/_doc \
 -d '{
@@ -115,7 +115,7 @@ information.
 OpenSearch has support for excellent search querying, but if you want to
 get everything:
 
-``` 
+```
 curl OPENSEARCH_URI/_search
 ```
 
@@ -133,7 +133,7 @@ example:
 
 For the most simple search to match a string, you can use:
 
-``` 
+```
 curl OPENSEARCH_URI/_search?q=apple
 ```
 
@@ -142,7 +142,7 @@ curl OPENSEARCH_URI/_search?q=apple
 For more advanced searches, you can send a more detailed payload to
 specify which fields to search among other options:
 
-``` 
+```
 curl -H "Content-Type: application/json" \
 OPENSEARCH_URI/_search \
 -d '{

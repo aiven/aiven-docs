@@ -12,7 +12,7 @@ If you prefer to follow a video tutorial, check out this short video on
 
 ## Getting started
 
-The `avn` client is an ideal way to use Aiven\'s services in a
+The `avn` client is an ideal way to use Aiven's services in a
 scriptable way. This tool accesses the same API that powers the web
 console.
 
@@ -20,7 +20,7 @@ console.
 
 The `avn` utility is a Python package, so you can install using `pip`:
 
-``` 
+```
 pip install aiven-client
 ```
 
@@ -31,14 +31,14 @@ Check your install by running `avn` and looking for usage output.
 There are two options for authenticating. The first is to use your
 username, and then enter your password when prompted:
 
-``` 
+```
 avn user login <you@example.com>
 ```
 
 For security reasons, it is recommended to use an access token,
 especially if you use SSO. You can use a command like:
 
-``` 
+```
 avn user login <you@example.com> --token
 ```
 
@@ -121,7 +121,7 @@ services in a project).
 The kitchen sink! All the commands specific to a service are available
 here.
 
-[See detailed command information](cli/service).
+[See detailed command information](cli/service-cli).
 
 ### `ticket`
 

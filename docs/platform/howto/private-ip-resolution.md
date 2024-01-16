@@ -4,7 +4,7 @@ title: Handle resolution errors of private IP addresses
 
 When an Aiven service is placed in a VPC (Virtual Private Cloud), the
 DNS hostname of the service will resolve to a private IP address within
-the VPC\'s network address range. Any application connecting to the
+the VPC's network address range. Any application connecting to the
 service needs to be on the same VPC.
 
 Some DNS resolvers used in office and home networks block the resolution
@@ -23,14 +23,14 @@ assumption:
     DNS at `8.8.8.8`. This has no rebinding protection so serves as a
     good test. You can use the `dig` command:
 
-    ``` 
-    dig +short myservice-myproject.aivencloud.com @8.8.8.8 
+    ```
+    dig +short myservice-myproject.aivencloud.com @8.8.8.8
     ```
 
 3.  Compare the output of the above command with the response from your
     default DNS resolver:
 
-    ``` 
+    ```
     dig +short myservice-myproject.aivencloud.com
     ```
 

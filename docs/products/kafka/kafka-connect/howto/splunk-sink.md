@@ -10,7 +10,7 @@ collector](https://docs.splunk.com/Documentation/Splunk/latest/Data/Formatevents
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://github.com/splunk/kafka-connect-splunk).
 :::
 
@@ -34,9 +34,9 @@ target server:
 and, if you are using Avro as the data format:
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry username
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry username
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password
 
 :::note
@@ -53,7 +53,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 ### Define a Kafka Connect configuration file
 
 Create a file (we\'ll refer to this one as `splunk_sink.json`) to hold
-the connector configuration. As an example, here\'s some configuration
+the connector configuration. As an example, here's some configuration
 for sending JSON payloads to Splunk:
 
 ``` json

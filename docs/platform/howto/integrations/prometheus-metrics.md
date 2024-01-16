@@ -38,7 +38,7 @@ following steps:
     endpoint available under **Endpoint Name**.
 
 If there is a Prometheus endpoint available, your service supports
-Prometheus. If there\'s no Prometheus endpoint available, proceed to
+Prometheus. If there's no Prometheus endpoint available, proceed to
 [Enable Prometheus on your Aiven project](/docs/platform/howto/integrations/prometheus-metrics#enable-prometheus) to set up Prometheus for your service (project).
 
 ## Enable Prometheus
@@ -76,10 +76,12 @@ feature, take the following steps:
     integration listed and status `active`.
     :::
 
-9.  From the **Integrations** page, go to the **Overview** page \> the
-    **Connection information** section \> the **Prometheus** tab.
+9.  Next, navigate to the service's **Overview** page, and then locate
+    the **Connection information** section.
 
-10. Copy **Service URI**, and use it in your browser to access the
+10. Click on the **Prometheus** tab.
+
+11. Copy **Service URI**, and use it in your browser to access the
     Prometheus dashboard.
 
 :::note[Result]
@@ -94,14 +96,20 @@ metrics become available.
 
 ### Accessing Prometheus in a VPC
 
-If you use a VPC in your project, to access Prometheus, you need to go
-to [Aiven Console](https://console.aiven.io/) \> your project \> the
-service you want to monitor using Prometheus \> the **Service settings**
-page \> the **Cloud and network** section \> the actions (**\...**) menu
-\> the **More network configurations**. In the **Network configuration**
-window, select **Add configuration options**, search for property
-`public_access.prometheus`, enable it, and select **Save
-configuration**.
+If you use a VPC in your project, follow these steps to access
+Prometheus:
+
+1.  Access [Aiven Console](https://console.aiven.io/).
+2.  Select your project, and select the service you want to monitor
+    using Prometheus.
+3.  Click **Service settings** from the sidebar.
+4.  In the **Cloud and network** section, click on the actions
+    (**\...**) menu.
+5.  Choose **More network configurations**.
+6.  In the **Network configuration** window, select **Add configuration
+    options**.
+7.  Search for the `public_access.prometheus` property and enable it.
+8.  Click **Save configuration**.
 
 ## Configure Prometheus
 
@@ -115,14 +123,14 @@ single-node and multi-node services.
 For single-node services, configure the following in your
 `scrape_config` job entry in `prometheus.yml`:
 
--   `basic_auth` details: Check your service\'s the **Overview** page \>
+-   `basic_auth` details: Check your service's the **Overview** page \>
     the **Connection information** section \> the **Prometheus** tab).
 
--   `PROMETHEUS_SERVICE_URI`: Check **Service URI** on your service\'s
+-   `PROMETHEUS_SERVICE_URI`: Check **Service URI** on your service's
     the **Overview** page \> the **Connection information** section \>
     the **Prometheus** tab).
 
--   `ca_file`: Download the CA certificate from your service\'s the
+-   `ca_file`: Download the CA certificate from your service's the
     **Overview** page, and specify its location (the certificates are
     signed by the Aiven project CA).
 
@@ -191,7 +199,7 @@ DNS name does not include standby IP addresses. To track those, make
 sure to include the replica DNS names in the list. If you have
 `<PROMETHEUS_SERVICE_URI>` as `public-example.aivencloud.com`, then you
 will need to add `public-replica-example.aivencloud.com`. This applies
-to PostgreSQL®, MySQL®, and Redis®\* services.
+to PostgreSQL®, MySQL®, Apache Kafka®, and Redis®\* services.
 :::
 
 ### View full list of metrics
@@ -209,9 +217,10 @@ depending on the host role. Most notably for Kafka® only one of the
 nodes provides metrics related to consumer group offsets.
 :::
 
-## More integrations
+## Related pages
 
 Learn more about integrations with Aiven:
 
 -   [Aiven integrations](/docs/platform/concepts/service-integration)
 -   [Datadog integration](/docs/integrations/datadog)
+-   Configure Prometheus for Aiven for Apache Kafka® via Privatelink

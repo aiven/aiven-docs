@@ -4,7 +4,7 @@ title: Cross-cluster replication with Aiven for Apache Cassandra®
 
 :::important
 Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
+[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
@@ -44,23 +44,29 @@ Apache Cassandra cluster that comprises nodes from the two services. The
 services are located in different regions and the nodes of a single
 service comprise a single datacenter.
 
-<!--
-:::mermaid
-
+```mermaid
 flowchart LR
-
-:   subgraph Cluster_xy direction LR cluster_info\[\[\"User keyspace
-    with replication:\<br\>NetworkTopologyStrategy {\'service_x\': 3,
-    \'service_y\': 3}\"\]\] subgraph Service_x direction LR
-    service_info_x\[\[cassandra.datacenter=service_x\]\] x1((node_x1))
-    \-\-- x2((node_x2)) x2((node_x2)) \-\-- x3((node_x3)) x3((node_x3))
-    \-\-- x1((node_x1)) end subgraph Service_y direction LR
-    service_info_y\[\[cassandra.datacenter=service_y\]\] y1((node_y1))
-    \-\-- y2((node_y2)) y2((node_y2)) \-\-- y3((node_y3)) y3((node_y3))
-    \-\-- y1((node_y1)) end Service_x\<-. data_replication .-\>Service_y
+    subgraph Cluster_xy
+    direction LR
+    cluster_info[["User keyspace with replication:<br>NetworkTopologyStrategy {'service_x': 3, 'service_y': 3}"]]
+    subgraph Service_x
+    direction LR
+    service_info_x[[cassandra.datacenter=service_x]]
+    x1((node_x1)) --- x2((node_x2))
+    x2((node_x2)) --- x3((node_x3))
+    x3((node_x3)) --- x1((node_x1))
     end
-:::
--->
+    subgraph Service_y
+    direction LR
+    service_info_y[[cassandra.datacenter=service_y]]
+    y1((node_y1)) --- y2((node_y2))
+    y2((node_y2)) --- y3((node_y3))
+    y3((node_y3)) --- y1((node_y1))
+    end
+    Service_x<-. data_replication .->Service_y
+    end
+```
+
 
 ## How it works
 
@@ -100,7 +106,7 @@ Replication factor
     indicate the number of copies of the data to be saved per cluster
     (in each datacenter).
 
-:::note See also
+:::note[See also]
 For more details on the replication factor for Apache Cassandra, see
 [NetworkTopologyStrategy](https://cassandra.apache.org/doc/4.1/cassandra/cql/ddl.html#networktopologystrategy)
 in the Apache Cassandra documentation.
@@ -148,7 +154,7 @@ number of copies as per replication factor.
     of the regions is unavailable.
 :::
 
-:::note See also
+:::note[See also]
 For more details on consistency levels for Apache Cassandra, see
 [CONSISTENCY](https://cassandra.apache.org/doc/4.1/cassandra/tools/cqlsh.html#consistency)
 in the Apache Cassandra documentation.
@@ -187,7 +193,7 @@ in the Apache Cassandra documentation.
 -   Once a CCR service pair is split, the clusters cannot be
     reconnected.
 
-## What\'s next
+## What's next
 
 -   [Enable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/enable-cross-cluster-replication)
 -   [Manage CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/manage-cross-cluster-replication)

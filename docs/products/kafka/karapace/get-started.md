@@ -1,5 +1,5 @@
 ---
-title: Getting started with Karapace
+title: Get started with Karapace
 ---
 
 To use Karapace, you need to enable **Karapace Schema registry** and

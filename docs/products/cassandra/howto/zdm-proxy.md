@@ -7,7 +7,7 @@ developed in Go and based on client-server architecture. It enables you
 to migrate from one Apache Cassandra® cluster to another without
 downtime or code changes in the application client.
 
-:::note See also
+:::note[See also]
 For details on ZDM Proxy, check out [zdm-proxy
 GitHub](https://github.com/datastax/zdm-proxy).
 :::
@@ -22,7 +22,7 @@ the source cluster. The proxy connects both to the source cluster and
 the target cluster. It sends read requests to the source cluster only,
 while write requests are forwarded to both clusters.
 
-:::note See also
+:::note[See also]
 For details on how ZDM Proxy works, check out [Introduction to Zero
 Downtime
 Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html).
@@ -67,7 +67,7 @@ create table SOURCE_TABLE_NAME.SOURCE_DATABASE_NAME (n_id int, value int, primar
 
 ### Download the binary
 
-Download the ZDM Proxy\'s binary from [ZDM Proxy
+Download the ZDM Proxy's binary from [ZDM Proxy
 releases](https://github.com/datastax/zdm-proxy/releases).
 
 ``` bash
@@ -120,7 +120,7 @@ To connect to ZDM Proxy, use, for example, `cqlsh`. Provide connection
 details and, if your source or target require authentication, specify
 target username and password.
 
-:::note See also
+:::note[See also]
 Check more details on using the credentials in [Client application
 credentials](https://docs.datastax.com/en/astra-serverless/docs/migrate/connect-clients-to-proxy.html#_client_application_credentials).
 :::

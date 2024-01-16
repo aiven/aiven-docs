@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Get started
 ---
 
 Aiven services are managed in the Aiven [web

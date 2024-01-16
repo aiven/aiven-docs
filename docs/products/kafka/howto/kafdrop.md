@@ -26,7 +26,7 @@ configuration file named `kafdrop.properties` with the following
 content, replacing the `KEYSTORE_PWD` and `TRUSTSTORE_PWD` with the
 keystore and truststore passwords respectively:
 
-``` 
+```
 security.protocol=SSL
 ssl.keystore.password=KEYSTORE_PWD
 ssl.keystore.type=PKCS12
@@ -41,7 +41,7 @@ Kafka® service URI available in the service Overview tab of the Aiven
 console, and the `client.truststore.jks` and `client.keystore.p12` with
 the keystores and truststores file names:
 
-``` 
+```
 docker run -p 9000:9000                                                 \
     -e KAFKA_BROKERCONNECT=KAFKA_SERVICE_URI                            \
     -e KAFKA_PROPERTIES="$(cat kafdrop.properties | base64)"            \
@@ -50,11 +50,11 @@ docker run -p 9000:9000                                                 \
     obsidiandynamics/kafdrop
 ```
 
-If you\'re also interested in Kafdrop to de-serialize Avro messages
+If you're also interested in Kafdrop to de-serialize Avro messages
 using [Karapace](https://github.com/aiven/karapace) schema registry, add
 the following two lines to the `docker run` command:
 
-``` 
+```
 -e SCHEMAREGISTRY_AUTH="avnadmin:SCHEMA_REGISTRY_PWD"   \
 -e SCHEMAREGISTRY_CONNECT="https://SCHEMA_REGISTRY_URI" \
 ```

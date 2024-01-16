@@ -1,6 +1,6 @@
 # `custom_domain`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Custom domain** Serve the web frontend using a custom CNAME pointing
 to the Aiven DNS name
@@ -36,7 +36,7 @@ available in the HTTP API and console.
 *boolean*
 
 **Allow clients to connect to kafka with a DNS name that always resolves
-to the service\'s private IP addresses. Only available in certain
+to the service's private IP addresses. Only available in certain
 network locations**
 
 ## `kafka_connect`
@@ -44,7 +44,7 @@ network locations**
 *boolean*
 
 **Allow clients to connect to kafka_connect with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `kafka_rest`
@@ -52,7 +52,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to kafka_rest with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `prometheus`
@@ -60,7 +60,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to prometheus with a DNS name that always
-resolves to the service\'s private IP addresses. Only available in
+resolves to the service's private IP addresses. Only available in
 certain network locations**
 
 ## `schema_registry`
@@ -68,7 +68,7 @@ certain network locations**
 *boolean*
 
 **Allow clients to connect to schema_registry with a DNS name that
-always resolves to the service\'s private IP addresses. Only available
+always resolves to the service's private IP addresses. Only available
 in certain network locations**
 
 # `public_access`
@@ -170,7 +170,7 @@ network**
 
 **compression.type** Specify the final compression type for a given
 topic. This configuration accepts the standard compression codecs
-(\'gzip\', \'snappy\', \'lz4\', \'zstd\'). It additionally accepts
+(\'gzip\', 'snappy\', \'lz4\', \'zstd\'). It additionally accepts
 \'uncompressed\' which is equivalent to no compression; and \'producer\'
 which means retain the original compression codec set by the producer.
 
@@ -652,7 +652,7 @@ producer can use to buffer records waiting to be sent to the broker
 
 **The default compression type for producers** Specify the default
 compression type for producers. This configuration accepts the standard
-compression codecs (\'gzip\', \'snappy\', \'lz4\', \'zstd\'). It
+compression codecs (\'gzip\', 'snappy\', \'lz4\', \'zstd\'). It
 additionally accepts \'none\' which is the default and equivalent to no
 compression.
 
@@ -703,7 +703,7 @@ failures when using Kafka's group management facilities (defaults to
 
 # `kafka_version`
 
-*\[\'string\', \'null\'\]*
+*\['string\', \'null\'\]*
 
 **Kafka major version**
 
@@ -740,7 +740,7 @@ in-sync replicas to acknowledge the record.
 
 **producer.compression.type** Specify the default compression type for
 producers. This configuration accepts the standard compression codecs
-(\'gzip\', \'snappy\', \'lz4\', \'zstd\'). It additionally accepts
+(\'gzip\', 'snappy\', \'lz4\', \'zstd\'). It additionally accepts
 \'none\' which is the default and equivalent to no compression.
 
 ## `producer_linger_ms`
@@ -761,7 +761,7 @@ Note that Kafka broker can also cap the record batch size.
 
 *boolean*
 
-**consumer.enable.auto.commit** If true the consumer\'s offset will be
+**consumer.enable.auto.commit** If true the consumer's offset will be
 periodically committed to Kafka in the background
 
 ## `consumer_request_max_bytes`
@@ -821,7 +821,7 @@ durable log for the data. This topic must be compacted to avoid losing
 data due to retention policy. Please note that changing this
 configuration in an existing Schema Registry / Karapace setup leads to
 previous schemas being inaccessible, data encoded with them potentially
-unreadable and schema ID sequence put out of order. It\'s only possible
+unreadable and schema ID sequence put out of order. It's only possible
 to do the switch while Schema Registry / Karapace is disabled.
 
 ## `leader_eligibility`

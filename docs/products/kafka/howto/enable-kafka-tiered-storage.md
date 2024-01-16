@@ -2,16 +2,20 @@
 title: Enable tiered storage for Aiven for Apache Kafka®
 ---
 
-:::important
-Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services). If you\'re interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
 Tiered storage significantly improves the storage efficiency of your
 Aiven for Apache Kafka® service. You can enable this feature for your
 service using either the [Aiven console](https://console.aiven.io/) or
 the [Aiven CLI](/docs/tools/cli).
+
+:::important
+Aiven for Apache Kafka® tiered storage is an
+[early availability feature](/docs/platform/concepts/beta_services).
+
+To use this feature, contact [our sales team](mailto:sales@aiven.io) to activate tiered storage for your account.
+
+After activation, you must enable the feature from the
+[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
+:::
 
 ## Prerequisites
 
@@ -41,7 +45,7 @@ Aiven Console.
         c.  In the **Service summary**, you can view the pricing for
             tiered storage.
     -   For an existing service:
-        a.  Go to the service\'s **Overview** page, select **Service
+        a.  Go to the service's **Overview** page, select **Service
             settings** from the sidebar.
         b.  In the Service plan section, click **Enable tiered storage**
             to activate it.
@@ -54,7 +58,7 @@ Following the activation of tiered storage for your service and
 
 :::note
 You can also enable tiered storage by clicking **Tiered storage** in the
-sidebar if it\'s not already active for your service.
+sidebar if it's not already active for your service.
 :::
 
 :::warning
@@ -103,7 +107,7 @@ Kafka service using the [Aiven CLI](/docs/tools/cli):
     If you need details for a specific project, use:
 
     ``` bash
-    avn project details --project <your_project_name>
+    avn project details --project <your_project_name)
     ```
 
 2.  Get the name of the Aiven for the Apache Kafka service for which you

@@ -31,7 +31,7 @@ integration endpoint.
     entering the API key you copied earlier. Ensure that the correct
     region is selected.
 
-![Screenshot of the Datadog configuration screen](/images/integrations/configure-datadog-service-integration.png)
+    ![Screenshot of the Datadog configuration screen](/images/integrations/configure-datadog-service-integration.png)
 
 5.  Optionally, include additional tags that will be used when sending
     metrics to Datadog. Refer to
@@ -53,14 +53,14 @@ metric tracking in Datadog, follow these steps:
     and select **Enable**.
 
 :::tip
-If you\'re using Aiven for Apache Kafka® you can also
+If you're using Aiven for Apache Kafka® you can also
 [customise the metrics sent to Datadog](/docs/products/kafka/howto/datadog-customised-metrics).
 :::
 
 5.  Return to your Datadog dashboard and after a few minutes, you should
     see the data start to arrive from your Aiven service(s).
 
-:::note See also
+:::note[See also]
 \- Learn more about [Datadog and Aiven](/docs/integrations/datadog). - For information on how to enable [Datadog Deep Database
 Monitoring](https://www.datadoghq.com/product/database-monitoring/) for
 specific Datadog Metrics integration, see

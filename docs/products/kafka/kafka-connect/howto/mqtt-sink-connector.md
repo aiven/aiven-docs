@@ -8,7 +8,7 @@ copies messages from an Apache Kafka® topic to an MQTT queue.
 
 :::note
 You can check the full set of available parameters and configuration
-options in the [connector\'s
+options in the [connector's
 documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mqttsinkconnector/).
 :::
 
@@ -44,20 +44,20 @@ MQTT server upfront:
 -   `KCQL_STATEMENT`: The KCQL statement to be used in the following
     format:
 
-    ``` 
+    ```
     INSERT INTO <mqtt-topic> SELECT FIELD, ... FROM <kafka-topic>
     ```
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka\'s schema registry port,
+-   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka\'s schema registry
+-   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka\'s schema registry user
+-   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 ## Setup an MQTT sink connector with Aiven Console
@@ -73,7 +73,7 @@ is not strictly necessary but allows to have all the information in one
 place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` 
+```
 {
     "name": "CONNECTOR_NAME",
     "connect.mqtt.hosts": "tcp://<HOST>:<PORT>",

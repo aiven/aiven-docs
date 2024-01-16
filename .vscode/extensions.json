@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "chrischinchilla.vale-vscode",
+    "davidanson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one",
+    "esbenp.prettier-vscode",
+    "unifiedjs.vscode-mdx",
+    "jock.svg"
+  ]
+}

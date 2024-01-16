@@ -30,7 +30,7 @@ OpenSearch cluster and your AWS service:
 Aiven for OpenSearch:
 
 -   `SERVICE_URI`: OpenSearch service URI, which you can find in
-    Aiven\'s dashboard.
+    Aiven's dashboard.
 -   `INPUT_INDEX_NAME`: the index that you aim to copy from your input
     source.
 
@@ -40,7 +40,7 @@ AWS S3:
 -   S3 file path. This includes bucket name and file name, for e.g.
     `s3://${BUCKET_NAME}/${FILE_NAME}.json`
 
-:::note See also
+:::note[See also]
 You can find more information about AWS credentials in the [AWS
 documentation](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html).
 :::
@@ -57,7 +57,7 @@ document.
 elasticdump \
 --s3AccessKeyId "${ACCESS_KEY_ID}" \
 --s3SecretAccessKey "${SECRET_ACCESS_KEY}" \
---input=SERVICE_URI/INPUT_INDEX_NAME --output "s3://${BUCKET_NAME}/${FILE_NAME}.json"  
+--input=SERVICE_URI/INPUT_INDEX_NAME --output "s3://${BUCKET_NAME}/${FILE_NAME}.json"
 ```
 
 ### Resources

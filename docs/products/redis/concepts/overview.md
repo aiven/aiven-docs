@@ -6,8 +6,6 @@ Aiven for Redis®\* is a fully managed **in-memory NoSQL database**,
 deployable in the cloud of your choice which can help you store and
 access data quickly and efficiently.
 
-## Why Redis®?
-
 Redis® is an open source, in-memory NoSQL database that serves as a fast
 data store, cache, or lightweight message broker.
 
@@ -40,7 +38,7 @@ use:
     network connectivity using VPC peering, PrivateLink, or
     TransitGateway technologies. Aiven integrates with various
     observability tooling, including Datadog, Prometheus, and Jolokia,
-    or you can use Aiven\'s observability tools for improved monitoring
+    or you can use Aiven's observability tools for improved monitoring
     and logging.
 -   **DevOps-friendly management and development:** Aiven for Redis is
     easy to manage using [Aiven Console](https://console.aiven.io/),
@@ -64,7 +62,7 @@ use:
     While Redis is not a persistent storage solution by default, it can
     be configured to be persistent.
 
-## Redis resources
+## Related pages
 
 -   [Redis documentation](https://redis.io/documentation)
 -   [Redis refcard on

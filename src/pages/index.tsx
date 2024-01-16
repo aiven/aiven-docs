@@ -35,8 +35,8 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="Aiven Documentation - The trusted open source data platform for everyone">
+      title=""
+      description="Aiven documentation - The trusted open source data platform for everyone">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
