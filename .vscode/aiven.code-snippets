@@ -1,0 +1,88 @@
+{
+  "Related pages": {
+    "scope": "markdown",
+    "prefix": "rel",
+    "body": ["## Related pages", "", "$1"],
+    "description": "Inserts a related pages section"
+  },
+
+  "Title": {
+    "scope": "markdown",
+    "prefix": "ttl",
+    "body": ["---", "title: $1", "---", "", "$2"],
+    "description": "Inserts a title"
+  },
+  "Turn off Vale": {
+    "scope": "markdown",
+    "prefix": "vof",
+    "body": ["<!-- vale off -->"],
+    "description": "Turn off Vale"
+  },
+  "Turn on Vale": {
+    "scope": "markdown",
+    "prefix": "von",
+    "body": ["<!-- vale on -->"],
+    "description": "Turn on Vale"
+  },
+  "Insert note": {
+    "scope": "markdown",
+    "prefix": "note",
+    "body": [":::note", "$1", ":::", "", "$2"],
+    "description": "Insert a note"
+  },
+  "Img mdx": {
+    "prefix": "import image",
+    "body": [
+      "import ${1:MyImg} from \"@site/static/img/$2.png\";",
+      "",
+      "<img src={$1}/>",
+      "",
+      ""
+    ],
+    "description": "Insert an image"
+  },
+  "early access badge": {
+    "prefix": "Insert early access badge",
+    "body": [
+      "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
+      "",
+      "<EarlyBadge/>",
+      ""
+    ]
+  },
+  "limited access badge": {
+    "prefix": "Insert limited access badge",
+    "body": [
+      "import LimitedBadge from \"@site/src/components/Badges/LimitedBadge\";",
+      "",
+      "<LimitedBadge/>",
+      ""
+    ]
+  },
+  "pro badge": {
+    "prefix": "Insert pro badge",
+    "body": [
+      "import ProBadge from \"@site/src/components/ProBadge\";",
+      "",
+      "<ProBadge/>",
+      ""
+    ]
+  },
+  "tabs": {
+    "prefix": "tabs",
+    "body": [
+      "import Tabs from '@theme/Tabs';",
+      "import TabItem from '@theme/TabItem';",
+      "",
+      "<Tabs>",
+      "<TabItem value=\"$1\" label=\"$1\" groupId=\"group1\" default>",
+      "$2",
+      "</TabItem>",
+      "<TabItem value=\"$3\" label=\"$3\">",
+      "$4",
+      "</TabItem>",
+      "</Tabs>",
+      "$5"
+    ]
+  }
+}

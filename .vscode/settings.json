@@ -1,0 +1,35 @@
+{
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.rulers": [90],
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 90,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "npm.autoDetect": "off",
+  "task.autoDetect": "off",
+  "markdownlint.config": {
+    "MD033": false,
+    "MD030": false,
+    "MD032": false,
+    "ul-style": {
+      "style": "dash"
+    }
+  },
+  "[markdown]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  },
+  "markdown.extension.orderedList.marker": "one",
+  "files.associations": {
+    "config": "properties"
+  },
+  "[properties]": {
+    "editor.formatOnSave": false
+  }
+}

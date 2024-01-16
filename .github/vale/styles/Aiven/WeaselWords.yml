@@ -1,0 +1,12 @@
+extends: existence
+message: "Do not judge complexity."
+ignorecase: false
+level: error
+tokens:
+  - easily
+  - quickly
+  - merely
+  - simply
+  - hardly
+  - shortly
+  - swlowly

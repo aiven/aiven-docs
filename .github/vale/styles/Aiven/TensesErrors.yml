@@ -1,0 +1,10 @@
+extends: existence
+message: "Do not use this tense."
+level: error
+ignorecase: true
+tokens:
+  - might
+  - shall
+  - ought
+  - could
+  - should

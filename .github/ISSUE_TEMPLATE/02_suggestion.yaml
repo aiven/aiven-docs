@@ -1,0 +1,21 @@
+name: 💡 Suggestion
+description: Do you have a suggestion to improve your experience of our docs?
+labels: ["suggestion", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+         Thank you for sharing your suggestion!
+  - type: input
+    id: contact
+    attributes:
+      label: Email
+      description: If you want, share your email address in case we have further questions.
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true

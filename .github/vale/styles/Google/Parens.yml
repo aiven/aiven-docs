@@ -1,0 +1,7 @@
+extends: existence
+message: "Try not to use parenthesis."
+link: 'https://developers.google.com/style/parentheses'
+nonword: true
+level: warning
+tokens:
+  - '\(.+\)'

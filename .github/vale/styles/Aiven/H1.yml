@@ -1,0 +1,6 @@
+extends: metric
+message: "Only use H2 and more. The H1 is in the front matter."
+level: error
+formula: |
+    heading.h1
+condition: ">= 1"

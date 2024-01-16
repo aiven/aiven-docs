@@ -1,0 +1,6 @@
+extends: metric
+message: "This page has a lot of sections, consider splitting it."
+level: warning
+formula: |
+    heading.h2
+condition: ">= 6"

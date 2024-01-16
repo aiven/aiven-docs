@@ -1,0 +1,21 @@
+name: 🐞 Bug report
+description: Incorrect code sample? Unclear instructions? Confusing API parameter?
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue with our docs!
+  - type: input
+    id: contact
+    attributes:
+      label: Email
+      description: If you want, share your email address in case we have questions about the issue.
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Recommendation
+    validations:
+      required: true
