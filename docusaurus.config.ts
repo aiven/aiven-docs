@@ -120,7 +120,7 @@ const config: Config = {
     },
     algolia: {
       appId: 'TVLG5RQH07',
-      apiKey: 'c45fc93238dcf4daae88af57913ce87b',
+      apiKey: '1beac99b8c1f460aca8bfa515a6dda6f',
       indexName: 'aiven',
       contextualSearch: true,
       searchPagePath: 'search',
