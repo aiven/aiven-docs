@@ -36,7 +36,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title=""
-      description="Aiven documentation - The trusted open source data platform for everyone">
+      description="Aiven docs - The trusted open source data platform for everyone">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

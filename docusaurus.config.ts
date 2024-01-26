@@ -5,7 +5,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
-  title: 'Aiven documentation',
+  title: 'Aiven docs',
   tagline: 'The trusted open source data platform for everyone',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
