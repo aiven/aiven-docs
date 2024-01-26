@@ -1,15 +1,9 @@
 ---
 title: Delete your AWS custom cloud in Aiven
+sidebar_label: Delete custom clouds
 ---
 
-Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven
-organizations, units, or projects.
-
-:::important
-Custom cloud configuration in Aiven is an
-[early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
-maintaining your custom cloud payments for your integrated AWS infrastructure and Aiven services within the custom cloud.
-:::
+Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
 ## About deleting custom clouds
 

@@ -1,16 +1,9 @@
 ---
 title: Rename your AWS custom cloud in Aiven
+sidebar_label: Rename custom clouds
 ---
 
-Change the name of your
-[custom cloud](/docs/platform/concepts/byoc).
-
-:::important
-Custom cloud configuration in Aiven is an
-[early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
-maintaining your custom cloud: payments for your integrated AWS
-infrastructure and Aiven services within the custom cloud.
-:::
+Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About renaming custom clouds
 

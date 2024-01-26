@@ -1,26 +1,23 @@
 ---
 title: Add or remove customer contacts for your AWS custom cloud in Aiven
+sidebar_label: Update customer contacts
 ---
 
-Update the list of customer contacts for your
-[custom cloud](/docs/platform/concepts/byoc).
-
-:::important
-Custom cloud configuration in Aiven is an
-[early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
-maintaining your custom cloud: payments for your integrated AWS
-infrastructure and Aiven services within the custom cloud.
-:::
+Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About updating customer contacts
 
 With the BYOC feature enabled, you can
-[create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organizations. While setting up a custom cloud
-in Aiven, you add customer contacts for this cloud, which is a part of
-the initial custom cloud's configuration. Later, you can come back to
-the the **Customer contact** setting in your cloud's page in [Aiven
-Console](https://console.aiven.io/) and update the contacts list you
-initially created for your cloud.
+[create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+organizations. While creating a custom cloud in Aiven, you need to add at least the
+**Admin** contact. Later, you can come back to the the **Customer contact**
+setting in your cloud's page in [Aiven Console](https://console.aiven.io/) and update the
+contacts list you initially created for your cloud.
+
+:::important
+While you can add multiple different customer contacts for your custom cloud, **Admin** is
+a mandatory role that is always required as a primary support contact.
+:::
 
 ## Prerequisites
 
@@ -50,10 +47,6 @@ initially created for your cloud.
 7.  In the **Customer contact** window, select a new contact's role
     from the dropdown menu, enter the email address, and select **+** to
     add the provided contact's details.
-
-    :::note
-    You can add multiple customer contacts for your custom cloud.
-    :::
 
 8.  When you're done adding all the contacts, select **Save changes**.
 

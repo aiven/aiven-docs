@@ -1,6 +1,6 @@
 ---
 title: Create an AWS custom cloud in Aiven
-sidebar_label: Create custom cloud
+sidebar_label: Create custom clouds
 ---
 
 Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization to better address your specific business needs or project requirements.
@@ -12,22 +12,15 @@ Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization
     [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc). Check the
     availability of the feature in
     [Who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc). To
-    activate BYOC in your Aiven organization, see
+    activate BYOC in your Aiven organization, follow the
+    steps in
     [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc).
 -   Enabling
-    [the BYOC feature](/docs/platform/concepts/byoc) or creating custom clouds in your Aiven environment does
-    not affect the configuration of your existing organizations,
-    projects, or services. This only makes the new BYOC capabilities
-    available in your environment.
+    [the BYOC feature](/docs/platform/concepts/byoc) or creating custom clouds in your
+    Aiven environment does not affect the configuration of your existing organizations,
+    projects, or services. This only makes the new BYOC capabilities available in your
+    environment.
 
-:::
-
-:::important
-Custom cloud configuration in Aiven is an
-[early availability feature](/docs/platform/concepts/beta_services). You cover the
-costs associated with building and
-maintaining your custom cloud: payments for your integrated AWS
-infrastructure and Aiven services within the custom cloud.
 :::
 
 ## About creating a custom cloud
@@ -39,7 +32,7 @@ the [prerequisites](/docs/platform/howto/byoc/create-custom-cloud#byoc-prerequis
 The process of creating a custom cloud in Aiven differs depending on the
 cloud provider to integrate with:
 
--   To use the AWS cloud provider, create your custom cloud
+-   If you want to use the AWS cloud provider, create your custom cloud
     yourself in [Aiven Console](https://console.aiven.io/).
 
 :::note[BYOC self-service in Aiven Console]
@@ -56,13 +49,21 @@ use your new custom clouds for creating services, and you add customer
 contacts for your custom cloud.
 :::
 
--   To use the GCP or Azure cloud providers, request the
+-   If you want to use the GCP or Azure cloud providers, request the
     Aiven team to create the cloud.
 
 ## Limitations {#byoc-limitations}
 
 -   You need at least the Priority tier of Aiven support services to be
     eligible for activating BYOC.
+
+    :::note
+    Check out [Aiven support tiers](https://aiven.io/support-services) and
+    [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC.
+    Contact the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support
+    tier.
+    :::
+
 -   To build your custom cloud with a cloud provider other
     than AWS, request it as detailed in
     [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc).
@@ -485,6 +486,7 @@ account.
 In the **Create custom cloud** wizard:
 
 1.  Specify the following:
+
     -   Custom cloud name
 
     -   Cloud provider (AWS only)
@@ -525,6 +527,7 @@ In the **Create custom cloud** wizard:
             blocks of VPCs you plan to peer your BYOC VPC with. You
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
+
 1.  Select **Next**.
 
 Your IaC Terraform template gets generated based on your inputs. You can
@@ -563,7 +566,7 @@ AWS account. Continue working in the **Create custom cloud** wizard:
     Console](https://console.aiven.io/).
     :::
 
-1.  Use Terraform to deploy the Infrastructure template in your AWS account with the
+1.  Use Terraform to deploy the infrastructure template in your AWS account with the
     provided variables.
 
     :::important
@@ -583,10 +586,15 @@ AWS account. Continue working in the **Create custom cloud** wizard:
 
 #### Set up your custom cloud's availability
 
-Select in what projects you'll be able to use your new custom cloud to
-create services. You can make your cloud available for all the projects
-in your organization, selected organizational units, or specific
-projects only.
+Select in what projects you'll be able to use your new custom cloud as a hosting cloud for
+services. In the projects where you enable your custom cloud, you'll be able to create new
+services in the custom cloud and migrate your existing services to the custom cloud.
+
+You can make your cloud available as follows:
+
+- For all the projects in your organization
+- For selected organizational units
+- For specific projects only
 
 Continue working in the **Create custom cloud** wizard:
 
@@ -614,9 +622,12 @@ available from all the projects in this unit.
 
 #### Add customer contacts
 
-Select at least one person whom Aiven can contact in case any technical
-issue with the custom cloud needs fixing. Continue working in the
-**Create custom cloud** wizard:
+Select at least one person whom Aiven can contact in case of technical
+issues with your custom cloud.
+
+:::note
+**Admin** is a mandatory role, which is required as a primary support contact.
+:::
 
 1.  In the **Customer contacts** section, select a contact person's
     role using the **Job title** menu, and provide their email
@@ -656,29 +667,44 @@ steps:
     list of available clouds and check its status in the **Status**
     column.
 
-If your custom cloud's status is **Active**, its deployment has been
-completed. Your custom cloud is ready to use and you can see it on the
-list of your custom clouds in the **Bring your own cloud** view. Now you
-can create services using your new custom cloud.
+:::note[Result]
+If your custom cloud's status is **Active**, its deployment has been completed. Your
+custom cloud is ready to use and you can see it on the list of your custom clouds in the
+**Bring your own cloud** view. Now you can create new services in the custom cloud and
+migrate your existing services to the custom cloud.
+:::
 
-## Next steps
-
-### Destroy the Terraform resources
+#### Destroy the Terraform resources
 
 As soon as you new custom cloud gets the **Active** status, remove the
 Terraform resources your created in your AWS account while creating the
 cloud. See the guidelines on how to use the `destroy` command in
 [Command: destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 
-### Create a service using the new cloud
+## Manage services in custom clouds
 
-To create a service in [Aiven Console](https://console.aiven.io/) using
-your new custom cloud, follow the guidelines in
+### Create new services in the custom cloud
+
+To create a service in [Aiven Console](https://console.aiven.io/) in your new custom
+cloud, follow the guidelines in
 [Create a new service](/docs/platform/howto/create_new_service).
 
-When you get to the **Select service region** step while setting up your
-service in [Aiven Console](https://console.aiven.io/), you'll be able
-to select **Custom clouds** from among available regions.
+When creating a service in the [Aiven Console](https://console.aiven.io/), at the
+**Select service region** step, select **Custom clouds** from among available regions.
+
+### Migrate existing services to the custom cloud
+
+To migrate an existing Aiven service to your new custom cloud using
+[Aiven Console](https://console.aiven.io/), follow the guidelines in
+[Migrate service to another cloud or region](/docs/platform/howto/migrate-services-cloud-region).
+
+When migrating your service in [Aiven Console](https://console.aiven.io/) > the
+**Migrate service to another cloud** window, select **Custom clouds** from among available
+regions.
+
+:::important
+To migrate a service that runs in a VPC, contact the [sales team](mailto:sales@aiven.io).
+:::
 
 ## Related pages
 
