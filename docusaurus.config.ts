@@ -31,7 +31,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/aiven/aiven-docs',
+          editUrl: 'https://github.com/aiven/aiven-docs/blob/main',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
