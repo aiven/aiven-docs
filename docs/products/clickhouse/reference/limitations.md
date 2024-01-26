@@ -123,7 +123,7 @@ on how to work around specific restrictions.
       <td>
         <p>
           Use a distributed table with sharded plans. Check
-          <a href="/docs/roducts/clickhouse/howto/use-shards-with-distributed-table"><span>Query data across shards</span></a>
+          <a href="/docs/products/clickhouse/howto/use-shards-with-distributed-table"><span>Query data across shards</span></a>
           for the instructions.
         </p>
       </td>
