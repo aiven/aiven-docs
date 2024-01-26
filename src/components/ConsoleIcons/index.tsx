@@ -356,6 +356,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Add configuration options</b>
         </>
       );
+    case 'addnew':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.add} /> <b>Add new</b>
+        </>
+      );
     case 'plus':
       return (
         <>
