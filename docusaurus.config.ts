@@ -120,8 +120,8 @@ const config: Config = {
     },
     algolia: {
       appId: 'TVLG5RQH07',
-      apiKey: 'c45fc93238dcf4daae88af57913ce87b',
-      indexName: 'Aiven Production Docs Crawler',
+      apiKey: 'd4120acbb149802ce308d3a7a3d709a1',
+      indexName: 'aiven',
       contextualSearch: true,
       searchPagePath: 'search',
     },
