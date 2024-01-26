@@ -68,7 +68,7 @@ const config: Config = {
     {src: '/docs/page_scripts/onetrust.js', async: true},
   ],
   themeConfig: {
-    image: 'images/docusaurus-social-card.jpg',
+    image: 'images/site-preview.png',
     navbar: {
       title: 'aiven',
       logo: {
