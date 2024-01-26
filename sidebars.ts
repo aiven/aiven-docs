@@ -573,7 +573,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Security',
-                  link: {type: 'generated-index'},
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/kafka/howto/list-security',
+                  },
                   items: [
                     'products/kafka/howto/keystore-truststore',
                     'products/kafka/howto/manage-acls',
@@ -1377,6 +1380,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Manage dashboards',
                   link: {
                     type: 'generated-index',
+                    slug: 'products/grafana/howto/list-manage-dashboards',
                   },
                   items: [
                     'products/grafana/howto/dashboard-previews',
@@ -2067,7 +2071,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {type: 'generated-index', title: 'Troubleshooting'},
+              link: {
+                type: 'generated-index',
+                title: 'Troubleshooting',
+                slug: 'products/redis/troubleshooting',
+              },
               items: [
                 'products/redis/troubleshooting/troubleshoot-redis-connection-issues',
               ],
