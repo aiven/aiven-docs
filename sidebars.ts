@@ -539,7 +539,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {type: 'generated-index'},
+              link: {
+                type: 'generated-index',
+                slug: 'products/kafka/howto',
+              },
               items: [
                 {
                   type: 'category',
@@ -559,7 +562,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Tools',
-                  link: {type: 'generated-index'},
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/kafka/howto/list-tools',
+                  },
                   items: [
                     'products/kafka/howto/kafka-tools-config-file',
                     'products/kafka/howto/kcat',
@@ -590,7 +596,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administrative tasks',
-                  link: {type: 'generated-index'},
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/kafka/howto/list-admin',
+                  },
                   items: [
                     'products/kafka/howto/list-schema-registry',
                     'products/kafka/howto/enable-karapace',
@@ -610,7 +619,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrations',
-                  link: {type: 'generated-index'},
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/kafka/howto/list-integration',
+                  },
                   items: [
                     'products/kafka/howto/integrate-service-logs-into-kafka-topic',
                     'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
