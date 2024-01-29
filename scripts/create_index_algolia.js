@@ -54,7 +54,7 @@ function extractDataFromHtml(filePath, buildDir, urlBasePath) {
 
 // Define based path
 const buildDir = path.join(__dirname, '..', 'build');
-const urlBasePath = 'https://avnsmarketingtest.net/docs/'; // TODO: Change to aiven.io/docs/ when we go live
+const urlBasePath = 'https://aiven.io/docs/';
 
 let pages = [];
 // Define a list of pages to exclude
