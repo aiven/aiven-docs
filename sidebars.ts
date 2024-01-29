@@ -1001,6 +1001,7 @@ const sidebars: SidebarsConfig = {
                     'products/flink/howto/create-flink-applications',
                     'products/flink/howto/manage-flink-applications',
                     'products/flink/howto/restart-strategy-jar-applications',
+                    'products/flink/howto/manage-credentials-jars',
                   ],
                 },
                 {
