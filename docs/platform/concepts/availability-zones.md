@@ -39,15 +39,20 @@ the following:
 -   Google Cloud Platform
 -   Microsoft Azure
 -   UpCloud
--   DigitalOcean
--   Oracle Cloud Infrastructire
-    ([limited availability](/docs/platform/concepts/beta_services))
 
 ## List of supported availability zones
 
-All the availability zones supported for Aiven-managed services are listed in
-[List of supported cloud regions and availability zones](/docs/platform/reference/list_of_clouds)
-along with cloud regions they belong to.
+To learn what availability zones per cloud provider and region are supported for
+Aiven-managed services, check the **Cloud** column in
+[List of available cloud regions](/docs/platform/reference/list_of_clouds).
+
+:::note[Example]
+With UpCloud, the only location where Aiven can automatically balance
+replicas of services is `upcloud-fi-hel`. For `upcloud-fi-hel`, UpCloud
+provides two datacenters (`fi-hel1` and `fi-hel2`). With a two-node
+plan, for example, it will result in one of the servers in `fi-hel1` and
+the other in `fi-hel2`.
+:::
 
 ## Smart availability zones for Apache Kafka®
 
@@ -59,7 +64,7 @@ fully available when a node or a whole AZ is lost.
 
 ## Related pages
 
--   [List of supported cloud regions and availability zones](/docs/platform/reference/list_of_clouds)
+-   [List of available cloud regions](/docs/platform/reference/list_of_clouds)
 -   [PostgreSQL® backups](/docs/products/postgresql/concepts/pg-backups)
 -   [High availability](/docs/products/postgresql/concepts/high-availability)
 -   [Create and use read-only replicas](/docs/products/postgresql/howto/create-read-replica)

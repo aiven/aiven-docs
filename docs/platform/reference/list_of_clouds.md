@@ -1,5 +1,5 @@
 ---
-title: List of supported cloud regions and availability zones
+title: List of available cloud regions
 ---
 
 A reference list of the default available cloud regions.
