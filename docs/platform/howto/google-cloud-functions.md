@@ -22,7 +22,7 @@ graph LR;
 You have:
 
 - Created a [VPC on the Aiven platform](/docs/platform/howto/manage-vpc-peering).
-- Set up [VPC peering on GCP](/docs/platform/howto/manage-vpc-peering-gcp).
+- Set up [VPC peering on GCP](/docs/platform/howto/manage-vpc-peering).
 
 ## Create a Serverless VPC access connector
 
