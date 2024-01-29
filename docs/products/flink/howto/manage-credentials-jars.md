@@ -13,7 +13,7 @@ with your organization's security policies.
 
 - Active Aiven for Apache Flink service
 - [Integration with services like Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
-- [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application).
+- [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
 
 ## Credential Provisioning
 
@@ -38,7 +38,8 @@ You can find this file in the path `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
 
 To access the credentials for any service integrations, such as Apache Kafka or
 Aiven for PostgreSQL®, use its unique `integration_id`.
-You can find this `integration_id` in the [integration list](/docs/tools/cli/service/integration#avn-service-integration-list). Aiven stores the credentials
+You can find this `integration_id` in the [integration list](/docs/tools/cli/service/integration#avn-service-integration-list).
+Aiven stores the credentials
 in a JSON file named after this identifier.
 
 For example, if your service's `integration_id` is `my_kafka_service`, you'll find the
@@ -152,8 +153,7 @@ you can also specify the `myKafkaSource` in the **Program Arguments** section.
 For example, in the Create new deployment dialog, locate the Program args field.
 Enter `myKafkaSource=<INTEGRATION_ID>` in this field, replacing `INTEGRATION_ID`
 with the actual
-[integration ID](/docs/tools/cli/service/integration#avn-service-integration-list)
-of your Aiven for Apache Kafka service.
+[integration ID](/docs/tools/cli/service/integration#avn_service_integration_list)
 For more information, see [Creating a JAR application on Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application).
 
 ### Scenario 2: Integration with Avien for PostgreSQL

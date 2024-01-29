@@ -121,6 +121,7 @@ Lists all service integration endpoints available in a selected project.
 **Example:** Lists all service integration endpoints available in the
 selected project.
 
+
 ```
 avn service integration-endpoint-list
 ```
