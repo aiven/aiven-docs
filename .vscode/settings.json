@@ -2,7 +2,7 @@
   "editor.acceptSuggestionOnEnter": "off",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.rulers": [90],
+  "editor.rulers": [],
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 90,
   "files.insertFinalNewline": true,

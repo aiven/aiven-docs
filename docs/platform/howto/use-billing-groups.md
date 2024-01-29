@@ -2,11 +2,9 @@
 title: Manage billing groups
 ---
 
-To view your billing groups in the [Aiven
-Console](https://console.aiven.io/) go to the organization and click
-**Billing**.
+View and manage your organization's billing groups on the **Billing** page in the [Aiven Console](https://console.aiven.io/).
 
-## Rename billing groups
+## Rename a billing group
 
 1.  On the **Billing** page, find the billing group that you want to
     rename.
@@ -16,8 +14,8 @@ Console](https://console.aiven.io/) go to the organization and click
 
 ## Update your billing information
 
-To change the payment card, address, billing contacts, or other billing
-details:
+To change the payment card, billing address, billing contacts, VAT ID,
+or other billing details:
 
 1.  Select the name of the billing group that you want to update.
 2.  On the **Billing information** tab click **Edit** to update the
@@ -31,10 +29,8 @@ details:
 3.  Select the projects to assign to the billing group and click
     **Assign**.
 
-:::note
 Assigning a project that is already assigned to another billing group
 will unassign it from that billing group.
-:::
 
 ## Move a project to another billing group
 

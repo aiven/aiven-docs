@@ -58,22 +58,19 @@ const sidebars: SidebarsConfig = {
       label: 'Billing and payment',
       link: {
         type: 'doc',
-        id: 'platform/concepts/list-billing',
+        id: 'platform/concepts/hourly-billing-model',
       },
       items: [
-        'platform/concepts/hourly-billing-model',
-        'platform/concepts/corporate-billing',
-        'platform/concepts/tax-information',
-        'platform/howto/update-tax-status',
         {
           type: 'category',
           label: 'Payment methods',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-billing',
+            id: 'platform/concepts/corporate-billing',
           },
           items: [
             'platform/howto/manage-payment-card',
+            'platform/howto/pay-by-bank-transfer',
             {
               type: 'category',
               label: 'Marketplace subscriptions',
@@ -94,10 +91,9 @@ const sidebars: SidebarsConfig = {
           label: 'Billing groups',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-billing-groups',
+            id: 'platform/concepts/billing-groups',
           },
           items: [
-            'platform/concepts/billing-groups',
             'platform/howto/create-billing-groups',
             'platform/howto/use-billing-groups',
             'platform/howto/billing-assign-projects',
