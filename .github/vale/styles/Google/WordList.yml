@@ -38,7 +38,6 @@ swap:
   check box: checkbox
   check: select
   click on: click|click in
-  Cloud: Google Cloud Platform|GCP
   Container Engine: Kubernetes Engine
   content type: media type
   curated roles: predefined roles

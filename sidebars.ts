@@ -264,6 +264,7 @@ const sidebars: SidebarsConfig = {
         'platform/howto/attach-vpc-aws-tgw',
         'platform/howto/manage-vpc-peering',
         'platform/howto/vpc-peering-gcp',
+        'platform/howto/google-cloud-functions',
         'platform/howto/vpc-peering-aws',
         'platform/howto/vnet-peering-azure',
         'platform/howto/vpc-peering-upcloud',
