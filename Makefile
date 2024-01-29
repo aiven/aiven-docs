@@ -49,4 +49,4 @@ service-type-config-redis:
 # TODO: add automation for "pg". See https://github.com/aiven/devportal/issues/1026
 
 cloud-list:
-	node "$(SCRIPTS)/clouds.js" "$(INCLUDESDIR)/clouds-list.md"
+	node "$(SCRIPTS)/clouds_parser.js" "$(INCLUDESDIR)/clouds-list.md"

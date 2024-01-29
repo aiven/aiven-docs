@@ -1,169 +1,691 @@
-# Amazon Web Services
 
-  Region          Cloud                  Description
-  --------------- ---------------------- ------------------------------------------
-  Africa          `aws-af-south-1`       Africa, South Africa: Cape Town
-  Asia-Pacific    `aws-ap-east-1`        Asia, Hong Kong: Hong Kong
-  Asia-Pacific    `aws-ap-northeast-1`   Asia, Japan: Tokyo
-  Asia-Pacific    `aws-ap-northeast-2`   Asia, Korea: Seoul
-  Asia-Pacific    `aws-ap-northeast-3`   Asia, Japan: Osaka
-  Asia-Pacific    `aws-ap-south-1`       Asia, India: Mumbai
-  Asia-Pacific    `aws-ap-south-2`       Asia, India: Hyderabad
-  Asia-Pacific    `aws-ap-southeast-1`   Asia, Singapore: Singapore
-  Asia-Pacific    `aws-ap-southeast-3`   Asia, Jakarta: Jakarta
-  Australia       `aws-ap-southeast-2`   Australia, New South Wales: Sydney
-  Australia       `aws-ap-southeast-4`   Australia, Melbourne: Melbourne
-  Europe          `aws-eu-central-1`     Europe, Germany: Frankfurt
-  Europe          `aws-eu-central-2`     Europe, Switzerland: Zurich
-  Europe          `aws-eu-north-1`       Europe, Sweden: Stockholm
-  Europe          `aws-eu-south-1`       Europe, Italy: Milan
-  Europe          `aws-eu-south-2`       Europe, Spain: Madrid
-  Europe          `aws-eu-west-1`        Europe, Ireland: Ireland
-  Europe          `aws-eu-west-2`        Europe, England: London
-  Europe          `aws-eu-west-3`        Europe, France: Paris
-  Middle East     `aws-me-central-1`     Middle East, UAE: UAE
-  Middle East     `aws-me-south-1`       Middle East, Bahrain: Bahrain
-  North America   `aws-ca-central-1`     Canada, Quebec: Canada Central
-  North America   `aws-us-east-1`        United States, Virginia: N. Virginia
-  North America   `aws-us-east-2`        United States, Ohio: Ohio
-  North America   `aws-us-west-1`        United States, California: N. California
-  North America   `aws-us-west-2`        United States, Oregon: Oregon
-  South America   `aws-sa-east-1`        South America, Brazil: São Paulo
+## Amazon Web Services
 
-# Azure
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>africa</td>
+    <td>aws-af-south-1</td>
+    <td>Africa, South Africa: Cape Town</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-east-1</td>
+    <td>Asia, Hong Kong: Hong Kong</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-northeast-1</td>
+    <td>Asia, Japan: Tokyo</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-northeast-2</td>
+    <td>Asia, Korea: Seoul</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-northeast-3</td>
+    <td>Asia, Japan: Osaka</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-south-1</td>
+    <td>Asia, India: Mumbai</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-south-2</td>
+    <td>Asia, India: Hyderabad</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-southeast-1</td>
+    <td>Asia, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>aws-ap-southeast-3</td>
+    <td>Asia, Jakarta: Jakarta</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>aws-ap-southeast-2</td>
+    <td>Australia, New South Wales: Sydney</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>aws-ap-southeast-4</td>
+    <td>Australia, Melbourne: Melbourne</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-central-1</td>
+    <td>Europe, Germany: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-central-2</td>
+    <td>Europe, Switzerland: Zurich</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-north-1</td>
+    <td>Europe, Sweden: Stockholm</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-south-1</td>
+    <td>Europe, Italy: Milan</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-south-2</td>
+    <td>Europe, Spain: Madrid</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-west-1</td>
+    <td>Europe, Ireland: Ireland</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-west-2</td>
+    <td>Europe, England: London</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>aws-eu-west-3</td>
+    <td>Europe, France: Paris</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>aws-me-central-1</td>
+    <td>Middle East, UAE: UAE</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>aws-me-south-1</td>
+    <td>Middle East, Bahrain: Bahrain</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>aws-ca-central-1</td>
+    <td>Canada, Quebec: Canada Central</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>aws-us-east-1</td>
+    <td>United States, Virginia: N. Virginia</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>aws-us-east-2</td>
+    <td>United States, Ohio: Ohio</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>aws-us-west-1</td>
+    <td>United States, California: N. California</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>aws-us-west-2</td>
+    <td>United States, Oregon: Oregon</td>
+  </tr>
+  <tr>
+    <td>south america</td>
+    <td>aws-sa-east-1</td>
+    <td>South America, Brazil: São Paulo</td>
+  </tr>
+</tbody>
+</table>
+## Azure
 
-  Region          Cloud                         Description
-  --------------- ----------------------------- ------------------------------------------------
-  Africa          `azure-south-africa-north`    Africa, South Africa: South Africa North
-  Asia-Pacific    `azure-eastasia`              Asia, Hong Kong: East Asia
-  Asia-Pacific    `azure-india-central`         Asia, India: Central India
-  Asia-Pacific    `azure-india-south`           Asia, India: South India
-  Asia-Pacific    `azure-india-west`            Asia, India: West India
-  Asia-Pacific    `azure-japaneast`             Asia, Japan: Japan East
-  Asia-Pacific    `azure-japanwest`             Asia, Japan: Japan West
-  Asia-Pacific    `azure-korea-central`         Asia, Korea: Korea Central
-  Asia-Pacific    `azure-korea-south`           Asia, Korea: Korea South
-  Asia-Pacific    `azure-southeastasia`         Asia, Singapore: Southeast Asia
-  Australia       `azure-australia-central`     Australia, Canberra: Australia Central
-  Australia       `azure-australiaeast`         Australia, New South Wales: Australia East
-  Australia       `azure-australiasoutheast`    Australia, Victoria: Australia Southeast
-  Europe          `azure-france-central`        Europe, France: France Central
-  Europe          `azure-germany-north`         Europe, Germany: Germany North
-  Europe          `azure-germany-westcentral`   Europe, Germany: Germany West Central
-  Europe          `azure-northeurope`           Europe, Ireland: North Europe
-  Europe          `azure-norway-east`           Europe, Norway: Norway East
-  Europe          `azure-norway-west`           Europe, Norway: Norway West
-  Europe          `azure-sweden-central`        Europe, Gävle: Sweden Central
-  Europe          `azure-switzerland-north`     Europe, Switzerland: Switzerland North
-  Europe          `azure-uksouth`               Europe, England: UK South
-  Europe          `azure-ukwest`                Europe, Wales: UK West
-  Europe          `azure-westeurope`            Europe, Netherlands: West Europe
-  Middle East     `azure-qatar-central`         Middle East, Doha: Qatar Central
-  Middle East     `azure-uae-north`             Middle East, United Arab Emirates: Middle East
-  North America   `azure-canadacentral`         Canada, Ontario: Canada Central
-  North America   `azure-canadaeast`            Canada, Quebec: Canada East
-  North America   `azure-centralus`             United States, Iowa: Central US
-  North America   `azure-eastus`                United States, Virginia: East US
-  North America   `azure-eastus2`               United States, Virginia: East US 2
-  North America   `azure-northcentralus`        United States, Illinois: North Central US
-  North America   `azure-southcentralus`        United States, Texas: South Central US
-  North America   `azure-westcentralus`         United States, Wyoming: West Central US
-  North America   `azure-westus`                United States, California: West US
-  North America   `azure-westus2`               United States, Washington: West US 2
-  North America   `azure-westus3`               United States, Phoenix: West US 3
-  South America   `azure-brazilsouth`           South America, Brazil: Brazil South
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>africa</td>
+    <td>azure-south-africa-north</td>
+    <td>Africa, South Africa: South Africa North</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-eastasia</td>
+    <td>Asia, Hong Kong: East Asia</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-india-central</td>
+    <td>Asia, India: Central India</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-india-south</td>
+    <td>Asia, India: South India</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-india-west</td>
+    <td>Asia, India: West India</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-japaneast</td>
+    <td>Asia, Japan: Japan East</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-japanwest</td>
+    <td>Asia, Japan: Japan West</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-korea-central</td>
+    <td>Asia, Korea: Korea Central</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-korea-south</td>
+    <td>Asia, Korea: Korea South</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-southeastasia</td>
+    <td>Asia, Singapore: Southeast Asia</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>azure-australia-central</td>
+    <td>Australia, Canberra: Australia Central</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>azure-australiaeast</td>
+    <td>Australia, New South Wales: Australia East</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>azure-australiasoutheast</td>
+    <td>Australia, Victoria: Australia Southeast</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-france-central</td>
+    <td>Europe, France: France Central</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-germany-north</td>
+    <td>Europe, Germany: Germany North</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-germany-westcentral</td>
+    <td>Europe, Germany: Germany West Central</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-northeurope</td>
+    <td>Europe, Ireland: North Europe</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-norway-east</td>
+    <td>Europe, Norway: Norway East</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-norway-west</td>
+    <td>Europe, Norway: Norway West</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-sweden-central</td>
+    <td>Europe, Gävle: Sweden Central</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-switzerland-north</td>
+    <td>Europe, Switzerland: Switzerland North</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-uksouth</td>
+    <td>Europe, England: UK South</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-ukwest</td>
+    <td>Europe, Wales: UK West</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>azure-westeurope</td>
+    <td>Europe, Netherlands: West Europe</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>azure-qatar-central</td>
+    <td>Middle East, Doha: Qatar Central</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>azure-uae-north</td>
+    <td>Middle East, United Arab Emirates: Middle East</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-canadacentral</td>
+    <td>Canada, Ontario: Canada Central</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-canadaeast</td>
+    <td>Canada, Quebec: Canada East</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-centralus</td>
+    <td>United States, Iowa: Central US</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-eastus</td>
+    <td>United States, Virginia: East US</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-eastus2</td>
+    <td>United States, Virginia: East US 2</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-northcentralus</td>
+    <td>United States, Illinois: North Central US</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-southcentralus</td>
+    <td>United States, Texas: South Central US</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-westcentralus</td>
+    <td>United States, Wyoming: West Central US</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-westus</td>
+    <td>United States, California: West US</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-westus2</td>
+    <td>United States, Washington: West US 2</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-westus3</td>
+    <td>United States, Phoenix: West US 3</td>
+  </tr>
+  <tr>
+    <td>south america</td>
+    <td>azure-brazilsouth</td>
+    <td>South America, Brazil: Brazil South</td>
+  </tr>
+</tbody>
+</table>
+## DigitalOcean
 
-# DigitalOcean
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>asia-pacific</td>
+    <td>do-blr</td>
+    <td>Asia, India: Bangalore</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>do-sgp</td>
+    <td>Asia, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>do-syd</td>
+    <td>Australia, New South Wales: Sydney</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>do-ams</td>
+    <td>Europe, Netherlands: Amsterdam</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>do-fra</td>
+    <td>Europe, Germany: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>do-lon</td>
+    <td>Europe, England: London</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>do-nyc</td>
+    <td>United States, New York: New York</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>do-sfo</td>
+    <td>United States, California: San Francisco</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>do-tor</td>
+    <td>Canada, Ontario: Toronto</td>
+  </tr>
+</tbody>
+</table>
+## Google Cloud
 
-  Region          Cloud      Description
-  --------------- ---------- ------------------------------------------
-  Asia-Pacific    `do-blr`   Asia, India: Bangalore
-  Asia-Pacific    `do-sgp`   Asia, Singapore: Singapore
-  Australia       `do-syd`   Australia, New South Wales: Sydney
-  Europe          `do-ams`   Europe, Netherlands: Amsterdam
-  Europe          `do-fra`   Europe, Germany: Frankfurt
-  Europe          `do-lon`   Europe, England: London
-  North America   `do-nyc`   United States, New York: New York
-  North America   `do-sfo`   United States, California: San Francisco
-  North America   `do-tor`   Canada, Ontario: Toronto
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-east1</td>
+    <td>Asia, Taiwan: Taiwan</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-east2</td>
+    <td>Asia, Hong Kong: Hong Kong</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-northeast1</td>
+    <td>Asia, Japan: Tokyo</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-northeast2</td>
+    <td>Asia, Japan: Osaka</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-northeast3</td>
+    <td>Asia, Korea: Seoul</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-south1</td>
+    <td>Asia, India: Mumbai</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-south2</td>
+    <td>Asia, India: Delhi</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-southeast1</td>
+    <td>Asia, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>google-asia-southeast2</td>
+    <td>Asia, Indonesia: Jakarta</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>google-australia-southeast1</td>
+    <td>Australia, New South Wales: Sydney</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>google-australia-southeast2</td>
+    <td>Australia, Victoria: Melbourne</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-central2</td>
+    <td>Europe, Poland: Warsaw</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-north1</td>
+    <td>Europe, Finland: Finland</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-southwest1</td>
+    <td>Europe, Madrid: Spain</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west1</td>
+    <td>Europe, Belgium: Belgium</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west12</td>
+    <td>Europe, Italy: Turin</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west2</td>
+    <td>Europe, England: London</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west3</td>
+    <td>Europe, Germany: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west4</td>
+    <td>Europe, Netherlands: Netherlands</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west6</td>
+    <td>Europe, Switzerland: Zürich</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west8</td>
+    <td>Europe, Italy: Milan</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west9</td>
+    <td>Europe, France: Paris</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>google-me-central1</td>
+    <td>Middle East, Qatar: Doha</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>google-me-central2</td>
+    <td>Middle East, Saudi Arabia: Dammam</td>
+  </tr>
+  <tr>
+    <td>middle east</td>
+    <td>google-me-west1</td>
+    <td>Middle East, Israel: Tel Aviv</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-northamerica-northeast1</td>
+    <td>Canada, Quebec: Montréal</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-northamerica-northeast2</td>
+    <td>Canada, Ontario: Toronto</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-central1</td>
+    <td>United States, Iowa: Iowa</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-east1</td>
+    <td>United States, South Carolina: South Carolina</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-east4</td>
+    <td>United States, Virginia: Northern Virginia</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-east5</td>
+    <td>United States, Ohio: Columbus</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-south1</td>
+    <td>United States, Texas: Dallas</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-west1</td>
+    <td>United States, Oregon: Oregon</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-west2</td>
+    <td>United States, California: Los Angeles</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-west3</td>
+    <td>United States, Utah: Salt Lake City</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-us-west4</td>
+    <td>United States, Nevada: Las Vegas</td>
+  </tr>
+  <tr>
+    <td>south america</td>
+    <td>google-southamerica-east1</td>
+    <td>South America, Brazil: Sao Paulo</td>
+  </tr>
+  <tr>
+    <td>south america</td>
+    <td>google-southamerica-west1</td>
+    <td>South America, Chile: Santiago</td>
+  </tr>
+</tbody>
+</table>
+## UpCloud
 
-# Google Cloud
-
-  Region          Cloud                              Description
-  --------------- ---------------------------------- -----------------------------------------------
-  Asia-Pacific    `google-asia-east1`                Asia, Taiwan: Taiwan
-  Asia-Pacific    `google-asia-east2`                Asia, Hong Kong: Hong Kong
-  Asia-Pacific    `google-asia-northeast1`           Asia, Japan: Tokyo
-  Asia-Pacific    `google-asia-northeast2`           Asia, Japan: Osaka
-  Asia-Pacific    `google-asia-northeast3`           Asia, Korea: Seoul
-  Asia-Pacific    `google-asia-south1`               Asia, India: Mumbai
-  Asia-Pacific    `google-asia-south2`               Asia, India: Delhi
-  Asia-Pacific    `google-asia-southeast1`           Asia, Singapore: Singapore
-  Asia-Pacific    `google-asia-southeast2`           Asia, Indonesia: Jakarta
-  Australia       `google-australia-southeast1`      Australia, New South Wales: Sydney
-  Australia       `google-australia-southeast2`      Australia, Victoria: Melbourne
-  Europe          `google-europe-central2`           Europe, Poland: Warsaw
-  Europe          `google-europe-north1`             Europe, Finland: Finland
-  Europe          `google-europe-southwest1`         Europe, Madrid: Spain
-  Europe          `google-europe-west1`              Europe, Belgium: Belgium
-  Europe          `google-europe-west2`              Europe, England: London
-  Europe          `google-europe-west3`              Europe, Germany: Frankfurt
-  Europe          `google-europe-west4`              Europe, Netherlands: Netherlands
-  Europe          `google-europe-west6`              Europe, Switzerland: Zürich
-  Europe          `google-europe-west8`              Europe, Italy: Milan
-  Europe          `google-europe-west9`              Europe, France: Paris
-  Europe          `google-europe-west12`             Europe, Italy: Turin
-  Middle East     `google-me-central1`               Middle East, Qatar: Doha
-  Middle East     `google-me-central2`               Middle East, Saudi Arabia: Dammam
-  Middle East     `google-me-west1`                  Middle East, Israel: Tel Aviv
-  North America   `google-northamerica-northeast1`   Canada, Quebec: Montréal
-  North America   `google-northamerica-northeast2`   Canada, Ontario: Toronto
-  North America   `google-us-central1`               United States, Iowa: Iowa
-  North America   `google-us-east1`                  United States, South Carolina: South Carolina
-  North America   `google-us-east4`                  United States, Virginia: Northern Virginia
-  North America   `google-us-east5`                  United States, Ohio: Columbus
-  North America   `google-us-south1`                 United States, Texas: Dallas
-  North America   `google-us-west1`                  United States, Oregon: Oregon
-  North America   `google-us-west2`                  United States, California: Los Angeles
-  North America   `google-us-west3`                  United States, Utah: Salt Lake City
-  North America   `google-us-west4`                  United States, Nevada: Las Vegas
-  South America   `google-southamerica-east1`        South America, Brazil: Sao Paulo
-  South America   `google-southamerica-west1`        South America, Chile: Santiago
-
-# UpCloud
-
-  Region          Cloud               Description
-  --------------- ------------------- -------------------------------------
-  Asia-Pacific    `upcloud-sg-sin`    Asia, Singapore: Singapore
-  Australia       `upcloud-au-syd`    Australia, New South Wales: Sydney
-  Europe          `upcloud-de-fra`    Europe, Germany: Frankfurt
-  Europe          `upcloud-es-mad`    Europe, Spain: Madrid
-  Europe          `upcloud-fi-hel`    Europe, Finland: Helsinki
-  Europe          `upcloud-fi-hel1`   Europe, Finland: Helsinki
-  Europe          `upcloud-fi-hel2`   Europe, Finland: Helsinki
-  Europe          `upcloud-nl-ams`    Europe, Netherlands: Amsterdam
-  Europe          `upcloud-pl-waw`    Europe, Poland: Warsaw
-  Europe          `upcloud-se-sto`    Europe, Sweden: Stockholm
-  North America   `upcloud-us-chi`    United States, Illinois: Chicago
-  North America   `upcloud-us-nyc`    United States, New York: New York
-  North America   `upcloud-us-sjo`    United States, California: San Jose
-
-# Oracle Cloud Infrastructure
-
-:::important
-Oracle Cloud Infrastructure (OCI) is supported on the Aiven platform as
-a
-[limited availability feature](/docs/platform/concepts/beta_services). For more information or access, contact the sales team at
-<sales@aiven.io>.
-:::
-
-  Region          Cloud              Description
-  --------------- ------------------ -------------------------------------
-  Asia-Pacific    `ap-mumbai-1`      India, India West: Mumbai
-  Asia-Pacific    `ap-sydney-1`      Australia, Australia East: Sydney
-  Europe          `eu-frankfurt-1`   Germany, Germany Central: Frankfurt
-  Europe          `uk-london-1`      United Kingdom, UK South: London
-  Middle East     `me-dubai-1`       UAE, UAE East: Dubai
-  North America   `us-ashburn-1`     US East, Virginia: Ashburn
-  North America   `us-phoenix-1`     US West, Arizona: Phoenix
-  South America   `sa-saopaulo-1`    Brazil, Brazil East: São Paulo
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>asia-pacific</td>
+    <td>upcloud-sg-sin</td>
+    <td>Asia, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>australia</td>
+    <td>upcloud-au-syd</td>
+    <td>Australia, New South Wales: Sydney</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-de-fra</td>
+    <td>Europe, Germany: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-es-mad</td>
+    <td>Europe, Spain: Madrid</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-fi-hel</td>
+    <td>Europe, Finland: Helsinki</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-fi-hel1</td>
+    <td>Europe, Finland: Helsinki</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-fi-hel2</td>
+    <td>Europe, Finland: Helsinki</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-nl-ams</td>
+    <td>Europe, Netherlands: Amsterdam</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-pl-waw</td>
+    <td>Europe, Poland: Warsaw</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-se-sto</td>
+    <td>Europe, Sweden: Stockholm</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>upcloud-us-chi</td>
+    <td>United States, Illinois: Chicago</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>upcloud-us-nyc</td>
+    <td>United States, New York: New York</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>upcloud-us-sjo</td>
+    <td>United States, California: San Jose</td>
+  </tr>
+</tbody>
+</table>

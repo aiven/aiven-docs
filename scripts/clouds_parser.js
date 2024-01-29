@@ -10,6 +10,7 @@ const handlebars = require('handlebars');
 const CLOUD_ENTRIES_TEMPLATE = `
 {{#each organizedData}}
 ## {{@key}}
+
 <table>
   <thead>
   <tr>
@@ -60,7 +61,7 @@ const main = async () => {
 
     const outputFilename = process.argv[2];
     fs.writeFileSync(outputFilename, result);
-    console.log(`👌 Markdown content written to ${outputFileName}`);
+    console.log(`👌 Markdown content written to ${outputFilename}`);
   } catch (error) {
     console.error('⚠️ Error fetching data:', error.message);
   }
