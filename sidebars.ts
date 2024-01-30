@@ -50,6 +50,7 @@ const sidebars: SidebarsConfig = {
         'tools/aiven-console/howto/create-accounts',
         'platform/howto/manage-organizations',
         'platform/howto/manage-project',
+        'platform/howto/add-project-members',
         'platform/reference/project-member-privileges',
         'platform/howto/manage-unassigned-projects',
       ],
