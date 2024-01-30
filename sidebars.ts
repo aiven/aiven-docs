@@ -34,6 +34,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'tools/aiven-console',
+        'platform/howto/pro-platform',
         'platform/concepts/beta_services',
         'platform/howto/feature-preview',
       ],
