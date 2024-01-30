@@ -11,8 +11,11 @@ console provides a guided wizard to assist you with the migration
 process.
 
 :::important
-Migrating from Google Cloud Memorystore for Redis®\* is not currently
+Migrating from Google Cloud Memorystore for Redis is not currently
 supported.
+
+The version of the source Redis service cannot be higher than the version
+of the target Aiven for Redis®* service.
 :::
 
 ## Prerequisites

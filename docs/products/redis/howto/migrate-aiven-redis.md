@@ -14,6 +14,9 @@ name is `test`, and the service name for the target Aiven for Redis is
 :::important
 Migrating from Google Cloud Memorystore for Redis is not currently
 supported.
+
+The version of the source Redis service cannot be higher than the version
+of the target Aiven for Redis®* service.
 :::
 
 ## What you\'ll need
