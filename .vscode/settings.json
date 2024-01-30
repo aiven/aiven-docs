@@ -15,7 +15,8 @@
       "other": true,
       "comments": false,
       "strings": true
-    }
+    },
+    "editor.formatOnSave": false
   },
   "markdown.extension.orderedList.marker": "one",
   "files.associations": {
