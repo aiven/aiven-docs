@@ -3,18 +3,18 @@
 # See https://developers.cloudflare.com/pages/configuration/redirects/
 #
 
-/community/documentation                              https://aiven.io/community
-/community/documentation/tips-tricks/renaming-files   https://aiven.io/community
-/tools/cli/service                                    /tools/cli/service-cli
-/tools/terraform/reference/cookbook                   /tools/terraform/get-started
-/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  /tools/terraform/get-started
-/platform/howto/saml/saml-authentication              /platform/howto/saml/add-identity-providers
-/platform/howto/list-saml                             /platform/howto/list-identity-providers
-/platform/howto/saml/saml-authentication              /platform/howto/saml/add-identity-providers
-/platform/howto/saml/setup-saml-auth0                 /platform/howto/saml/add-auth0-idp
-/platform/howto/saml/setup-saml-azure                 /platform/howto/saml/add-azure-idp
-/platform/howto/saml/setup-saml-fusionauth            /platform/howto/saml/add-fusionauth-idp
-/platform/howto/saml/setup-saml-google                /platform/howto/saml/add-google-idp
-/platform/howto/saml/setup-saml-jumpcloud             /platform/howto/saml/add-jumpcloud-idp
-/platform/howto/saml/setup-saml-okta                  /platform/howto/saml/add-okta-idp
-/platform/howto/saml/setup-saml-onelogin              /platform/howto/saml/add-onelogin-idp
+/docs/community/documentation                              https://aiven.io/community
+/docs/community/documentation/tips-tricks/renaming-files   https://aiven.io/community
+/docs/tools/cli/service                                    /docs/tools/cli/service-cli
+/docs/tools/terraform/reference/cookbook                   /docs/tools/terraform/get-started
+/docs/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  /docs/tools/terraform/get-started
+/docs/platform/howto/saml/saml-authentication              /docs/platform/howto/saml/add-identity-providers
+/docs/platform/howto/list-saml                             /docs/platform/howto/list-identity-providers
+/docs/platform/howto/saml/saml-authentication              /docs/platform/howto/saml/add-identity-providers
+/docs/platform/howto/saml/setup-saml-auth0                 /docs/platform/howto/saml/add-auth0-idp
+/docs/platform/howto/saml/setup-saml-azure                 /docs/platform/howto/saml/add-azure-idp
+/docs/platform/howto/saml/setup-saml-fusionauth            /docs/platform/howto/saml/add-fusionauth-idp
+/docs/platform/howto/saml/setup-saml-google                /docs/platform/howto/saml/add-google-idp
+/docs/platform/howto/saml/setup-saml-jumpcloud             /docs/platform/howto/saml/add-jumpcloud-idp
+/docs/platform/howto/saml/setup-saml-okta                  /docs/platform/howto/saml/add-okta-idp
+/docs/platform/howto/saml/setup-saml-onelogin              /docs/platform/howto/saml/add-onelogin-idp
