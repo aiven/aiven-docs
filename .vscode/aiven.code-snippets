@@ -13,6 +13,13 @@
     "description": "Inserts a related pages section"
   },
 
+  "Required access": {
+    "scope": "markdown",
+    "prefix": "Required access",
+    "body": ["## Required access", "", "You must be a ${role:[super admin](/docs/platform/howto/make-super-admin)} to use access this feature."],
+    "description": "Inserts a related pages section"
+  },
+
   "Title": {
     "scope": "markdown",
     "prefix": "ttl",
