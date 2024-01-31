@@ -29,7 +29,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/',
+          routeBasePath: process.env.PREVIEW ? '/docs/' : '/',
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/aiven/aiven-docs/blob/main',
           remarkPlugins: [remarkMath],
