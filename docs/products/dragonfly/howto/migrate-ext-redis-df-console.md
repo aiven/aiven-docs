@@ -1,5 +1,6 @@
 ---
 title: Migrate external Redis®* databases to Aiven for Dragonfly®
+limited: true
 ---
 
 Redis is an in-memory data structure store commonly used as a database,

@@ -1,5 +1,6 @@
 ---
 title: Guarantees
+early: true
 ---
 
 With Aiven for Apache Kafka®'s tiered storage, there are two primary

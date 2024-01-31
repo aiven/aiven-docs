@@ -1,28 +1,25 @@
 ---
 title: Create a JAR application
+limited: true
 ---
 
 Aiven for Apache Flink® enables you to upload and deploy
 [custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your Flink applications with advanced data
 processing capabilities.
 
-:::important
-Custom JARs for Aiven for Apache Flink is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
+
 
 ## Prerequisite
 
--   To enable custom JARs for a new Aiven for Apache Flink service,
-    toggle the feature during service creation.
--   For an existing service, in [Aiven
-    Console](https://console.aiven.io/) , select your project and then
-    choose your Aiven for Apache Flink® service.
-    -   Click **Service settings** on the left sidebar.
-    -   Scroll to the **Advanced configuration** section, and click
+- To enable custom JARs for a new Aiven for Apache Flink service,
+  toggle the feature during service creation.
+- For an existing service, in
+[AivenConsole](https://console.aiven.io/) , select your project and then
+choose your Aiven for Apache Flink® service.
+  - Click **Service settings** on the left sidebar.
+  - Scroll to the **Advanced configuration** section, and click
         **Configure**.
-    -   In the **Advanced configuration** screen, click **Add
+  - In the **Advanced configuration** screen, click **Add
         configuration options**, and using the search box find and set
         `custom_code` configuration to **Enabled** position.
 
@@ -31,26 +28,27 @@ the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 1.  Access the [Aiven Console](https://console.aiven.io/) and select the
     Aiven for Apache Flink service where you want to deploy a JAR
     application.
-2.  From the left sidebar, click **Applications** and then click
+1.  From the left sidebar, click **Applications** and then click
     **Create application**.
-3.  In the **Create application** dialog, enter a name for your JAR
+1.  In the **Create application** dialog, enter a name for your JAR
     application, and select **JAR** as the application type from the
     drop-down.
-4.  Click **Create application** to proceed.
-5.  Click **Upload first version** to upload the first version of the
+1.  Click **Create application** to proceed.
+1.  Click **Upload first version** to upload the first version of the
     application.
-6.  In the **Upload new version** dialog:
+1.  In the **Upload new version** dialog:
     -   Click **Choose file** to select your custom JAR file.
     -   Select the **Terms of Service** checkbox to indicate your
         agreement.
     -   Click **Upload version** to upload your JAR file.
-7.  After the upload, you are redirected to the application'soverview
+1.  After the upload, you are redirected to the application'soverview
     page.
-8.  To deploy the application, click **Create deployment**. In the
+1.  To deploy the application, click **Create deployment**. In the
     **Create new deployment** dialog:
     -   Select the application version to deploy.
     -   Select a
-        [savepoint](/docs/products/flink/concepts/savepoints) if you wish to deploy from a specific state. No
+        [savepoint](/docs/products/flink/concepts/savepoints) if you wish to deploy from
+        a specific state. No
         savepoints are available for the first application deployment.
     -   Toggle **Restart on failure** to automatically restart Flink
         jobs upon failure.
@@ -61,9 +59,9 @@ the sales team at [sales@aiven.io](mailto:sales@aiven.io).
     -   Specify the number of [parallel
         instances](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/execution/parallel/)
         you require for the task.
-9.  Click **Deploy without a savepoint** to begin the deployment
+1.  Click **Deploy without a savepoint** to begin the deployment
     process.
-10. While deploying, the application status shows **Initializing**. Once
+1. While deploying, the application status shows **Initializing**. Once
     deployed, the status changes to **Running**.
 
 ## Related pages
