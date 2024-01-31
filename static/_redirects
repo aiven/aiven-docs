@@ -5,3 +5,6 @@
 
 /community/documentation                              https://aiven.io/community
 /community/documentation/tips-tricks/renaming-files   https://aiven.io/community
+/tools/cli/service                                    /tools/cli/service-cli
+/tools/terraform/reference/cookbook                   /tools/terraform/get-started
+/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  /tools/terraform/get-started

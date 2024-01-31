@@ -636,7 +636,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Topic and schema management',
-                  link: {type: 'generated-index'},
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/kafka/howto/list-topic-management',
+                  },
                   items: [
                     'products/kafka/howto/create-topic',
                     'products/kafka/howto/create-topics-automatically',
@@ -665,6 +668,7 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               link: {
                 type: 'generated-index',
+                slug: 'products/kafka/reference',
               },
               items: [
                 'products/kafka/reference/advanced-params',
@@ -732,8 +736,8 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Source connectors',
                       link: {
-                        type: 'doc',
-                        id: 'products/kafka/kafka-connect/howto/list-source-connectors',
+                        type: 'generated-index',
+                        slug: 'products/kafka/kafka-connect/howto/list-source-connectors',
                       },
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
@@ -1380,6 +1384,7 @@ const sidebars: SidebarsConfig = {
                   label: 'User access',
                   link: {
                     type: 'generated-index',
+                    slug: 'products/grafana/user-access',
                   },
                   items: [
                     'products/grafana/howto/log-in',
@@ -1641,7 +1646,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {type: 'generated-index'},
+              link: {
+                type: 'generated-index',
+                slug: 'products/opensearch/concepts',
+              },
               items: [
                 {
                   type: 'category',
@@ -1803,7 +1811,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {type: 'generated-index'},
+              link: {
+                type: 'generated-index',
+                slug: 'products/opensearch/reference',
+              },
               items: [
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/advanced-params',
@@ -2016,7 +2027,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {type: 'generated-index'},
+              link: {type: 'generated-index', slug: 'products/redis/concepts'},
               items: [
                 'products/redis/concepts/high-availability-redis',
                 'products/redis/concepts/lua-scripts-redis',
@@ -2027,7 +2038,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {type: 'generated-index'},
+              link: {type: 'generated-index', slug: 'products/redis/howto'},
               items: [
                 {
                   type: 'category',
@@ -2077,7 +2088,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {type: 'generated-index'},
+              link: {type: 'generated-index', slug: 'products/redis/reference'},
               items: ['products/redis/reference/advanced-params'],
             },
             {
