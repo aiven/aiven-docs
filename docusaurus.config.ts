@@ -9,7 +9,7 @@ const config: Config = {
   tagline: 'The trusted open source data platform for everyone',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
-  baseUrl: '/docs/',
+  baseUrl: process.env.BASEURL || '/docs/',
   organizationName: 'Aiven',
   projectName: 'docs',
   onBrokenLinks: 'throw',
@@ -29,7 +29,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/',
+          routeBasePath: process.env.ROUTEBASEPATH || '/',
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/aiven/aiven-docs/blob/main',
           remarkPlugins: [remarkMath],
