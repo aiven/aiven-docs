@@ -121,6 +121,7 @@ exceptions:
   - Rivery
   - SAML
   - Schema Registry
+  - Serverless VPC
   - Simple Authentication and Security Layer
   - Skyvia
   - Slack
