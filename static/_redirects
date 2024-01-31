@@ -3,5 +3,5 @@
 # See https://developers.cloudflare.com/pages/configuration/redirects/
 #
 
-/docs/community/documentation                              https://aiven.io/community
-/docs/community/documentation/tips-tricks/renaming-files   https://aiven.io/community
+/community/documentation                              https://aiven.io/community
+/community/documentation/tips-tricks/renaming-files   https://aiven.io/community
