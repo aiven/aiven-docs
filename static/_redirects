@@ -8,3 +8,13 @@
 /tools/cli/service                                    /tools/cli/service-cli
 /tools/terraform/reference/cookbook                   /tools/terraform/get-started
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  /tools/terraform/get-started
+/platform/howto/saml/saml-authentication              /platform/howto/saml/add-identity-providers
+/platform/howto/list-saml                             /platform/howto/list-identity-providers
+/platform/howto/saml/saml-authentication              /platform/howto/saml/add-identity-providers
+/platform/howto/saml/setup-saml-auth0                 /platform/howto/saml/add-auth0-idp
+/platform/howto/saml/setup-saml-azure                 /platform/howto/saml/add-azure-idp
+/platform/howto/saml/setup-saml-fusionauth            /platform/howto/saml/add-fusionauth-idp
+/platform/howto/saml/setup-saml-google                /platform/howto/saml/add-google-idp
+/platform/howto/saml/setup-saml-jumpcloud             /platform/howto/saml/add-jumpcloud-idp
+/platform/howto/saml/setup-saml-okta                  /platform/howto/saml/add-okta-idp
+/platform/howto/saml/setup-saml-onelogin              /platform/howto/saml/add-onelogin-idp
