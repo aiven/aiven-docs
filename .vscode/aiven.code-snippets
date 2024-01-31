@@ -91,5 +91,11 @@
       "</Tabs>",
       "$5"
     ]
+  },
+  "Prerequisites": {
+    "scope": "markdown",
+    "prefix": "pre",
+    "body": ["## Prerequisites", "", "- Access to the [Aiven Console](https://console.aiven.io/)", "- $1"],
+    "description": "Inserts a prerequisites section"
   }
 }
