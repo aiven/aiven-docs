@@ -16,8 +16,12 @@
   "Required access": {
     "scope": "markdown",
     "prefix": "Required access",
-    "body": ["## Required access", "", "You must be a ${role:[super admin](/docs/platform/howto/make-super-admin)} to use access this feature."],
-    "description": "Inserts a related pages section"
+    "body": [
+      "## Required access",
+      "",
+      "You must be a ${1|[super admin](/docs/platform/howto/make-super-admin),[project admin](/docs/platform/reference/project-member-privileges),[project operator](/docs/platform/reference/project-member-privileges)|} to access this feature."
+    ],
+    "description": "Inserts a section with information on what role is needed for a feature"
   },
 
   "Title": {
