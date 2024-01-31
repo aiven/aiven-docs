@@ -1,5 +1,6 @@
 ---
 title: Remote syslog integration
+sidebar_label: Rsyslog
 ---
 
 In addition to using Aiven for OpenSearch® to store the logs from your Aiven services, you can also integrate with an external monitoring system that supports the rsyslog protocol.
@@ -58,6 +59,7 @@ Optional:
 -   `key` - (PEM format) client key if the server requires client
     authentication
 -   `cert` - (PEM format) client cert to use
+-   `max_message_size` - Rsyslog maximum message size; default value: 8192
 
 ### Add rsyslog integration to service {#add_rsyslog_integration}
 
@@ -71,16 +73,17 @@ integration by selecting **Enable** in the modal window.
 ![The page that shows the integrations available for a service](/images/integrations/rsyslog-service-integration.png)
 
 Alternately, with the Aiven Client, first you need the id of the
-endpoint previously created
+endpoint previously created.
 
-```text
+```bash
 avn service integration-endpoint-list --project your-project
+
 ENDPOINT_ID                           ENDPOINT_NAME   ENDPOINT_TYPE
 ====================================  ==============  =============
 618fb764-5832-4636-ba26-0d9857222cfd  example-syslog  rsyslog
 ```
 
-Then you can link the service to the endpoint
+Then you can link the service to the endpoint.
 
 ```bash
 avn service integration-create --project your-project \
@@ -91,7 +94,8 @@ avn service integration-create --project your-project \
 ## Example configurations
 
 Rsyslog is a standard integration so you can use it with any external
-system.
+system. We have collected some examples of how to integrate with popular
+third party platforms to get you started quickly.
 
 :::note
 All integrations can be configured using the Aiven Console or the Aiven
@@ -129,7 +133,7 @@ avn service integration-endpoint-create --project your-project \
 For [Loggly](hthtps://www.loggly.com/) integration, use a
 custom `logline` format with your token.
 
-```bas
+```bash
 avn service integration-endpoint-create --project your-project \
     -d loggly -t rsyslog \
     -c server=logs-01.loggly.com -c port=6514 \
