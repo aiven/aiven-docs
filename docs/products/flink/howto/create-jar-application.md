@@ -4,23 +4,26 @@ limited: true
 ---
 
 Aiven for Apache Flink® enables you to upload and deploy
-[custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your Flink applications with advanced data
+[custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your
+Flink applications with advanced data
 processing capabilities.
-
-
 
 ## Prerequisite
 
-- To enable custom JARs for a new Aiven for Apache Flink service,
+- Custom JARs for Aiven for Apache Flink is a **limited availability** feature that requires
+activation on your Aiven account. If you want to try this feature, contact our sales
+team at sales@aiven.io to request activation.
+- Once activated on your Aiven account:
+  - To enable custom JARs for a new Aiven for Apache Flink service,
   toggle the feature during service creation.
-- For an existing service, in
+  - For an existing service, in
 [AivenConsole](https://console.aiven.io/) , select your project and then
 choose your Aiven for Apache Flink® service.
-  - Click **Service settings** on the left sidebar.
-  - Scroll to the **Advanced configuration** section, and click
+    - Click **Service settings** on the left sidebar.
+    - Scroll to the **Advanced configuration** section, and click
         **Configure**.
-  - In the **Advanced configuration** screen, click **Add
-        configuration options**, and using the search box find and set
+    - In the **Advanced configuration** screen, click **Add
+        configuration options**, and using the search box, find and set
         `custom_code` configuration to **Enabled** position.
 
 ## Create and deploy application
