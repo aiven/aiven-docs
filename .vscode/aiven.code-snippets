@@ -21,7 +21,7 @@
       "",
       "You must be a ${1|[super admin](/docs/platform/howto/make-super-admin),[project admin](/docs/platform/reference/project-member-privileges),[project operator](/docs/platform/reference/project-member-privileges)|} to access this feature."
     ],
-    "description": "Inserts a section with information on what role is needed for a feature"
+    "description": "Inserts a section with information on what role is needed to access a feature"
   },
 
   "Title": {
