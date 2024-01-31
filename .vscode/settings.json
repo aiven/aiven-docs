@@ -20,7 +20,8 @@
   },
   "markdown.extension.orderedList.marker": "one",
   "files.associations": {
-    "config": "properties"
+    "config": "properties",
+    "_redirects": "ini"
   },
   "[properties]": {
     "editor.formatOnSave": false
