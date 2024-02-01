@@ -40,10 +40,10 @@ processing capabilities.
 1.  Click **Upload first version** to upload the first version of the
     application.
 1.  In the **Upload new version** dialog:
-    -   Click **Choose file** to select your custom JAR file.
-    -   Select the **Terms of Service** checkbox to indicate your
-        agreement.
-    -   Click **Upload version** to upload your JAR file.
+    1. Click **Choose file** to select your custom JAR file.
+    1. Select the **Terms of Service** checkbox to indicate your
+       agreement.
+    1. Click **Upload version** to upload your JAR file.
 1.  After the upload, you are redirected to the application'soverview
     page.
 1.  To deploy the application, click **Create deployment**. In the
