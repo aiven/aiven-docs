@@ -37,16 +37,16 @@ Aiven Console.
     -   For
         [a new service](/docs/platform/howto/create_new_service):
 
-        -  On the **Create Apache Kafka® service** page, scroll down to
+        1.  On the **Create Apache Kafka® service** page, scroll down to
             the **Tiered storage** section.
-        -  Turn on the **Enable tiered storage** toggle to activate
+        1.  Turn on the **Enable tiered storage** toggle to activate
             tiered storage.
-        -  In the **Service summary**, you can view the pricing for
+        1.  In the **Service summary**, you can view the pricing for
             tiered storage.
     -   For an existing service:
-        -  Go to the service's **Overview** page, select **Service
+        1.  Go to the service's **Overview** page, select **Service
             settings** from the sidebar.
-        -  In the Service plan section, click **Enable tiered storage**
+        1.  In the Service plan section, click **Enable tiered storage**
             to activate it.
 1.  Click **Activate tiered storage** to confirm your settings and turn
     on tiered storage for your service.
