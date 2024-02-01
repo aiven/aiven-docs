@@ -44,9 +44,7 @@ specified.
 7.  In the **Rename custom cloud** window, enter a new name into the
     **Custom cloud name** field and select **Rename**.
 
-:::note[Result]
 The name of your custom cloud has been updated.
-:::
 
 ## Check it out
 

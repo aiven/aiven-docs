@@ -57,9 +57,7 @@ initially created for your cloud.
 
 8.  When you're done adding all the contacts, select **Save changes**.
 
-:::note[Result]
 The list of contacts for your cloud has been updated.
-:::
 
 ## Check it out
 

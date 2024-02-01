@@ -52,9 +52,7 @@ To add tags to a project, take the following steps:
     and select the **+** icon to add more tags in the same manner.
 4.  Select **Save changes** to save all of your tags.
 
-:::note[Result]
 You can see the tags listed in the table on the **Projects** page.
-:::
 
 ### Add tags to services
 

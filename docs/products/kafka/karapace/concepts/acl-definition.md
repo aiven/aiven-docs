@@ -12,19 +12,17 @@ more entries that specify a **username**, an **operation**, and a
     -   `schema_registry_read`
     -   `schema_registry_write` (always includes `schema_registry_read`)
 -   A **resource** can be in the following formats:
-    -
+    - `Config:`: the entry controls access to global compatibility configurations. Karapace only allows a user to retrieve and change the default schema compatibility mode via the global `Config:` resource. For more information, see the project [README](https://github.com/aiven/karapace/blob/main/README.rst).
 
-        `Config:`: the entry controls access to global compatibility configurations. Karapace only allows a user to retrieve and change the default schema compatibility mode via the global `Config:` resource. For more information, see the project [README](https://github.com/aiven/karapace/blob/main/README.rst).
+      :::note
+      The global compatibility APIs require `Config:` resource
+      access with `schema_registry_read` permission when getting
+      the configuration and `schema_registry_write` permission
+      when setting it.
+      :::
 
-        :   :::note
-            The global compatibility APIs require `Config:` resource
-            access with `schema_registry_read` permission when getting
-            the configuration and `schema_registry_write` permission
-            when setting it.
-            :::
-
-    -   `Subject:subject_name`: the entry controls access to subjects in
-        the schema registry.
+    - `Subject:subject_name`: the entry controls access to subjects in
+      the schema registry.
 
 :::tip
 The `name` specified in the ACL entry resource and username can use

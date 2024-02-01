@@ -37,10 +37,8 @@ request to your Prometheus service endpoint.
     curl -k --user USERNAME:PASSWORD PROMETHEUS_URL/metrics
     ```
 
-:::note[Result]
 The resulting output is a full list of the metrics available for your
 service.
-:::
 
 ## Metrics
 

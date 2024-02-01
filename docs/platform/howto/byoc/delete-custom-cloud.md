@@ -55,9 +55,7 @@ them earlier, you're advised to do that if deleting your cloud.
     want to delete the cloud by selecting **Delete** in the **Warning**
     window.
 
-:::note[Result]
 Your custom cloud has been deleted.
-:::
 
 :::important
 Remember to remove the resources created in your AWS account when

@@ -28,10 +28,8 @@ within the same provider, or both.
     provider and region.
 6.  Select **Migrate**.
 
-:::note[Result]
 Your service is in the *Rebuilding* state. Once the rebuilding is over,
 your new cloud provider and region will be in use.
-:::
 
 :::important
 The service's URI remains the same after the migration.

@@ -81,11 +81,9 @@ required when executing statements on your databases.
     and, if your configuration turns out as expected, select **+Create
     services** if the setting looks.
 
-:::note[Result]
 You\'ve created two new services that are connected for CCR purposes.
 You can preview CCR details for your services by selecting **Overview**
 from the sidebar and going to the **Cross Cluster replication** section.
-:::
 
 ### Add a CCR peer to an existing service {#new-peer}
 
@@ -111,11 +109,9 @@ from the sidebar and going to the **Cross Cluster replication** section.
         configuration for your new service meets your expectations. If
         so, select **Create Cross Cluster Replica**.
 
-:::note[Result]
 CCR has been enabled by connecting your service to another new service,
 which is now visible in the **Overview** page in the **Cross Cluster
 replication** section.
-:::
 
 ## Enable CCR with CLI
 

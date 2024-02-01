@@ -2,23 +2,19 @@
 title: Transfer data between storage devices in Aiven for ClickHouse®'s tiered storage
 ---
 
+After [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, you can move your data from SSD to object storage.
+
+Next, you may want to size down your SSD by selecting
+a service plan with less SSD capacity. Later, you can move your data
+from object storage back to your SSD if needed. Both operations can be
+performed using SQL statements against your tables directly.
+
 :::important
 Aiven for ClickHouse® tiered storage is a
 [limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
 the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 :::
 
-Check out this article for instructions on transferring data from and to
-SSD for an Aiven for ClickHouse® service.
-
-## About moving data between storage devices
-
-After
-[enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, you can move your data from SSD
-to object storage. Next, you may want to size down your SSD by selecting
-a service plan with less SSD capacity. Later, you can move your data
-from object storage back to your SSD if needed. Both operations can be
-performed using SQL statements against your tables directly.
 
 ## Prerequisites
 
@@ -44,11 +40,9 @@ of its capacity. You can also
     ALTER TABLE database-name.tablename MODIFY SETTING storage_policy = 'tiered'
     ```
 
-:::note[Result]
 Now, with the tiered storage feature
 [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your data is moved from SSD to object storage when the SSD
 reaches 80% of its capacity.
-:::
 
 ## Transfer data from object storage to SSD
 
@@ -70,9 +64,7 @@ to transfer data to your SSD.
     ALTER TABLE table_name MOVE PARTITION partition_expr TO VOLUME 'default'
     ```
 
-:::note[Result]
 Your data has been moved to the SSD.
-:::
 
 ## What's next
 

@@ -134,9 +134,7 @@ You can only edit Apache Kafka integration databases and tables.
 
 7.  Select **Update table details** \> **Save changes**.
 
-:::note[Result]
 Your integration database and/or its tables have been updated.
-:::
 
 ## Delete integration databases
 
@@ -151,10 +149,8 @@ Your integration database and/or its tables have been updated.
     select **Confirm** if you accept removing the database along with
     the tables inside it.
 
-:::note[Result]
 Your integration database has been removed from the **Databases and
 tables** list.
-:::
 
 ## Related pages
 
