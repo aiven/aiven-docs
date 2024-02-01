@@ -10,9 +10,9 @@ processing capabilities.
 
 ## Prerequisite
 
-- Custom JARs for Aiven for Apache Flink is a **limited availability** feature that requires
-activation on your Aiven account. If you want to try this feature, contact our sales
-team at sales@aiven.io to request activation.
+- Custom JARs for Aiven for Apache Flink is a **limited availability** feature.
+  To try this feature, request it by contacting
+  our [Sales team](mailto:sales@aiven.io).
 - Once activated on your Aiven account:
   - To enable custom JARs for a new Aiven for Apache Flink service,
   toggle the feature during service creation.
