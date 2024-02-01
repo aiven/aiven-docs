@@ -71,7 +71,8 @@ automatically to replace them. However, this may lead to data loss as the primar
 node is restored from the latest backup. As a result, any database writes made since
 the last backup could be lost.
 
-:::note The duration for replacing a failed node depends mainly on the **cloud region**
+:::note
+The duration for replacing a failed node depends mainly on the **cloud region**
 and the **amount of data** to be restored. For Business, Premium, and Custom plans
 with multiple nodes, this process is automatic and requires no administrator
 intervention, but service interruptions may occur during the recreation of nodes.
