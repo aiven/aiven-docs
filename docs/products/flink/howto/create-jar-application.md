@@ -48,18 +48,18 @@ processing capabilities.
     page.
 1.  To deploy the application, click **Create deployment**. In the
     **Create new deployment** dialog:
-    -   Select the application version to deploy.
-    -   Select a
+    1.   Select the application version to deploy.
+    1.   Select a
         [savepoint](/docs/products/flink/concepts/savepoints) if you wish to deploy from
         a specific state. No
         savepoints are available for the first application deployment.
-    -   Toggle **Restart on failure** to automatically restart Flink
+    1.   Toggle **Restart on failure** to automatically restart Flink
         jobs upon failure.
-    -   In the **Program args** field, provide command-line arguments
+    1.   In the **Program args** field, provide command-line arguments
         consisting of variables and configurations relevant to your
         application'slogic upon submission. Each argument is limited
         to 64 characters, with a total limit of 32 separate items.
-    -   Specify the number of [parallel
+    1.   Specify the number of [parallel
         instances](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/execution/parallel/)
         you require for the task.
 1.  Click **Deploy without a savepoint** to begin the deployment
