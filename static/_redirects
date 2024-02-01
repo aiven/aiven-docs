@@ -5,15 +5,15 @@
 
 /community/documentation                              https://aiven.io/community
 /community/documentation/tips-tricks/renaming-files   https://aiven.io/community
-/tools/cli/service                                    /docs/tools/cli/service-cli
-/tools/terraform/reference/cookbook                   /docs/tools/terraform/get-started
-/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  /docs/tools/terraform/get-started
-/platform/howto/list-saml                             /docs/platform/howto/list-identity-providers
-/platform/howto/saml/saml-authentication              /docs/platform/howto/saml/add-identity-providers
-/platform/howto/saml/setup-saml-auth0                 /docs/platform/howto/saml/add-auth0-idp
-/platform/howto/saml/setup-saml-azure                 /docs/platform/howto/saml/add-azure-idp
-/platform/howto/saml/setup-saml-fusionauth            /docs/platform/howto/saml/add-fusionauth-idp
-/platform/howto/saml/setup-saml-google                /docs/platform/howto/saml/add-google-idp
-/platform/howto/saml/setup-saml-jumpcloud             /docs/platform/howto/saml/add-jumpcloud-idp
-/platform/howto/saml/setup-saml-okta                  /docs/platform/howto/saml/add-okta-idp
-/platform/howto/saml/setup-saml-onelogin              /docs/platform/howto/saml/add-onelogin-idp
+/tools/cli/service                                    https://aiven.io/docs/tools/cli/service-cli
+/tools/terraform/reference/cookbook                   https://aiven.io/docs/tools/terraform/get-started
+/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  https://aiven.io/docs/tools/terraform/get-started
+/platform/howto/list-saml                             https://aiven.io/docs/platform/howto/list-identity-providers
+/platform/howto/saml/saml-authentication              https://aiven.io/docs/platform/howto/saml/add-identity-providers
+/platform/howto/saml/setup-saml-auth0                 https://aiven.io/docs/platform/howto/saml/add-auth0-idp
+/platform/howto/saml/setup-saml-azure                 https://aiven.io/docs/platform/howto/saml/add-azure-idp
+/platform/howto/saml/setup-saml-fusionauth            https://aiven.io/docs/platform/howto/saml/add-fusionauth-idp
+/platform/howto/saml/setup-saml-google                https://aiven.io/docs/platform/howto/saml/add-google-idp
+/platform/howto/saml/setup-saml-jumpcloud             https://aiven.io/docs/platform/howto/saml/add-jumpcloud-idp
+/platform/howto/saml/setup-saml-okta                  https://aiven.io/docs/platform/howto/saml/add-okta-idp
+/platform/howto/saml/setup-saml-onelogin              https://aiven.io/docs/platform/howto/saml/add-onelogin-idp
