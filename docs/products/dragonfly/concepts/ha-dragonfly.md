@@ -66,7 +66,7 @@ the new primary based on data from the Aiven monitoring infrastructure.
 Once promoted, this node starts serving clients, and a new node is scheduled to become
 the standby. However, during this transition, there may be a brief service interruption.
 
-If the primary and standby nodes fail simultaneously, new nodes will be created
+If the primary and standby nodes fail simultaneously, new nodes are created
 automatically to replace them. However, this may lead to data loss as the primary
 node is restored from the latest backup. As a result, any database writes made since
 the last backup could be lost.
