@@ -35,6 +35,7 @@ Add Google as an
     | ---------------- | --------------------------------- |
     | `Entity ID`      | `Metadata URL` from Aiven Console |
     | `ACS URL`        | `ACS URL` from Aiven Console      |
+    | `Start URL`      | <ul><li><code>https://console.aiven.io/</code> when using the Aiven Console</li> <li><code>https://console.gcp.aiven.io/</code> when using Aiven GCP Marketplace Console</li> <li><code>https://console.aws.aiven.io/</code> when using Aiven AWS Marketplace Console</li></ul>          |
     | `Name ID format` | `EMAIL`                           |
     | `App attributes` | `email`                           |
 
