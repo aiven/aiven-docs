@@ -19,8 +19,8 @@ processing capabilities.
   - For an existing service, in
     [Aiven Console](https://console.aiven.io/):
     1. Select your project and choose your Aiven for Apache Flink® service.
-    - Click **Service settings** on the left sidebar.
-    - Scroll to the **Advanced configuration** section, and click
+    1. Click **Service settings** on the left sidebar.
+    1. Scroll to the **Advanced configuration** section, and click
         **Configure**.
     - In the **Advanced configuration** screen, click **Add
         configuration options**, and using the search box, find and set
