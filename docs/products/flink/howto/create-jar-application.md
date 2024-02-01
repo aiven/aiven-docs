@@ -22,9 +22,9 @@ processing capabilities.
     1. Click **Service settings** on the left sidebar.
     1. Scroll to the **Advanced configuration** section, and click
         **Configure**.
-    - In the **Advanced configuration** screen, click **Add
-        configuration options**, and using the search box, find and set
-        `custom_code` configuration to **Enabled** position.
+    1. In the **Advanced configuration** screen, click **Add
+       configuration options**, and using the search box, find and set
+       `custom_code` configuration to **Enabled**.
 
 ## Create and deploy application
 
