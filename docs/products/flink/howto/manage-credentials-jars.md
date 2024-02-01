@@ -2,35 +2,69 @@
 title: Credential management for JAR applications
 ---
 
-Aiven for Apache Flink® provides a secure and convenient way to manage credentials for both internal and external integrations using the `AVN_CREDENTIALS_DIR` environment variable. By centralizing credentials in this directory, you can ensure that your applications access sensitive information securely and in compliance with your organization's security policies.
+[Custom JARs](/docs/products/flink/concepts/custom-jars) in Aiven for Apache Flink®
+enable you to connect your Apache Flink jobs with Aiven's supported connectors and any
+external systems you manage, which is essential for real-time stream processing.
+Effectively managing credentials is critical to securing and ensuring compliant
+access to these services.
+
+Aiven for Apache Flink® provides a secure and convenient way to manage credentials for
+both internal and external integrations using the `AVN_CREDENTIALS_DIR` environment
+variable. By centralizing credentials in this directory, you can ensure that your
+applications access sensitive information securely and in compliance with your
+organization's security policies.
 
 ## Prerequisites
 
-- Active Aiven for Apache Flink service
-- [Integration with services like Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
-- [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
+- An active Aiven for Apache Flink service
+- [Integration with services: Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
+or external Apache kafka service
+- Permission to create a [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
 
-## Credential Provisioning
+## Credential provisioning
 
-Aiven manages the `AVN_CREDENTIALS_DIR` environment variable within its service environment. This variable points to the directory where credentials for integrated services like Apache Kafka or PostgreSQL are stored. This setup simplifies access for users while abstracting the complexities of internal storage.
+Aiven streamlines credential management for Aiven-managed and external services using
+the `AVN_CREDENTIALS_DIR` environment variable. This variable points to a
+directory with integrated service credentials, providing easy access for users while
+abstracting the intricacies of internal storage.
 
-When configuring an integration with a managed Aiven service, such as Aiven for Apache Kafka or Aiven for PostgreSQL, Aiven automatically generates the necessary credentials. These credentials are stored in a JSON file, which is named using the service's unique `integration_id`. For instance, if the `integration_id` of your Kafka service is `my_kafka_service`, the credentials file will be named `my_kafka_service.json`. This file is located in a directory that your Aiven for Apache Flink® application can access. You can find this file in the path `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
+:::note
+You can have multiple credentials for multiple Apache Kafka services in
+the same `AVN_CREDENTIALS_DIR` directory.
+:::
+
+Aiven automatically generates credentials for integrated services and stores them in JSON
+files named by each service's integration_id. For example, credentials for an Apache
+Kafka service with an `integration_id` such as `my_kafka_service` will be stored in a
+file named `my_kafka_service.json`. This file, located in a directory accessible to your
+Aiven for Apache Flink® application, can be found at the path
+`/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
 
 ## Access credentials in JAR applications
 
-### Step 1. Locate credentials file
+1. Locate credentials file
 
-To access the credentials for any service integrations, such as Apache Kafka or Aiven for PostgreSQL®, use its unique `integration_id`. You can find this `integration_id` in the [integration list](/docs/tools/cli/service/integration#avn-service-integration-list). Aiven stores the credentials in a JSON file named after this identifier.
+   - Identify the `integration_id` of your service from the [integration list](/docs/tools/cli/service/integration#avn-service-integration-list).
+   - Retrieve the corresponding credentials file named `{integration_id}.json`
+   located at `/AVN_CREDENTIALS_DIR/`.
+   For example, if your service's `integration_id` is `my_kafka_service`,
+   locate the credentials file `my_kafka_service.json` at `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
 
-For example, if your service's `integration_id` is `my_kafka_service`, you'll find the credentials in a file named `my_kafka_service.json` at `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
-
-### Step 2. Read and parse JSON file
-
-In your Aiven for Apache Flink JAR application, you will need to implement the code to read and parse the credentials file. This process involves extracting necessary details like connection strings, usernames, passwords, and other configuration data required for connecting to the integrated service.
+1. Read and parse JSON file
+   - Implement code within your Aiven for Apache Flink JAR application to read the
+   JSON file.
+   - Extract essential details like connection strings, usernames, passwords, and
+   security protocols from the JSON file.
 
 ## Example: Parsing credentials in JAR applications
 
-### Scenario 1: Integration with Aiven for Apache Kafka
+Aiven for Apache Flink® enables connections to various data sources and sinks, allowing
+you to create JAR applcations. Managing credentials effectively within these applications
+is crucial for securing data access and ensuring compliance with data protection
+standards. This section provides examples of how to parse credentials
+to ensure data security.
+
+### Example 1: Integration with Aiven for Apache Kafka
 
 To connect to Aiven for Apache Kafka service, the credentials JSON structure is as follows:
 
@@ -44,7 +78,13 @@ To connect to Aiven for Apache Kafka service, the credentials JSON structure is 
 }
 ```
 
-**Java application example**
+:::note
+The JSON structure provided here is specific to Aiven services and may differ from
+standard Apache Kafka configuration formats.
+
+:::
+
+**Java application example:**
 
 ```java
 import org.json.simple.JSONObject;
@@ -85,36 +125,64 @@ public class KafkaCredentialsReader {
 }
 ```
 
-In this scenario:
+In this example:
 
-- The file named `my-kafka-service.json` contains the credentials in JSON format necessary for connecting to the Aiven for Apache Kafka service.
-- The Java code demonstrates how to construct the path to the credentials file dynamically. This is achieved by using the `myKafkaSource` argument, which should be provided when running the application. This approach allows flexibility and avoids hardcoding the file name.
-- The application reads and parses the JSON file to extract critical configuration details such as `bootstrap_servers` (the Kafka server address) and `security_protocol` (the communication protocol for security).
-- These extracted details are then used to configure a Kafka source within the Flink application. This configuration is crucial for establishing a proper connection to the Kafka service and handling data according to the service's specifications.
+- The file named `my-kafka-service.json` contains the credentials in JSON format
+necessary for connecting to the Aiven for Apache Kafka service.
+- The Java code shows a dynamic approach to constructing the path to the credentials file,
+using the `myKafkaSource` argument provided during application execution. This approach
+allows flexibility and avoids hardcoding the file name.
+- The application reads and parses the JSON file to extract critical configuration
+details such as `bootstrap_servers` (the Kafka server address) and `security_protocol`
+(the communication protocol for security).
+- These extracted details are then used to configure the Apache Kafka source within the
+Apache Flink application. The exact process applies to configuring an Apache Kafka sink.
+This configuration is crucial for establishing a proper connection to the Apache Kafka
+service and handling data according to the service's specifications.
 
-#### Configuring myKafkaSource
+#### Configuration of  `myKafkaSource` for application deployment
 
-##### For Command Line Execution
+The `myKafkaSource` argument is a dynamic runtime parameter that specifies which
+Apache Kafka service your application connects to. This flexibility allows you to
+switch between different Kafka services without recompiling the JAR file each time.
+For example, you can easily replace a development Apache Kafka integration with a
+production Apache Kafka integration using the same JAR.
 
-Run the `KafkaCredentialsReader` application with the Kafka source specified using the `--myKafkaSource` argument.
+##### Aiven Console deployment
 
-```bash
-  java KafkaCredentialsReader --myKafkaSource=my-kafka-service
+When deploying your application using the [Aiven Console](https://console.aiven.io/),
+you can provide the `myKafkaSource` in the **Program Arguments** section.
+For example, in the **Create new deployment dialog**, locate the **Program args** field.
+Insert the following syntax, replacing `integration_id` with the actual
+[integration ID](/docs/tools/cli/service/integration#avn_service_integration_list)
+of your Aiven for Apache Kafka service:
+
+```text
+myKafkaSource=<INTEGRATION_ID>
 ```
 
-Replace `my-kafka-service` with the integration ID of your Aiven for Apache Kafka service.
+For more information, see [Creating a JAR application on Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application).
 
-The application uses `ParameterTool` to parse this argument:
+##### Java code deployment
 
-```bash
+Using the `ParameterTool`, you can dynamically parse the myKafkaSource argument at
+runtime in your JAR application. This approach lets you configure the
+Apache Kafka service connection for your application without needing to
+recompile the JAR file.
+
+```java
   ParameterTool parameters = ParameterTool.fromArgs(args);
+  String myKafkaSource = parameters.getRequired("myKafkaSource");
+
 ```
 
-##### For Aiven Console deployment
+This code snippet shows how `ParameterTool` extracts the `myKafkaSource` value from the
+command-line arguments. The extracted `myKafkaSource` specifies the integration ID of the
+Apache Kafka service to be used by the application. Modifying this argument when running
+the JAR allows you to switch between different Apache Kafka services
+(e.g., from a development environment to a production environment).
 
-When deploying your application through the [Aiven Console](https://console.aiven.io/), you can also specify the `myKafkaSource` in the **Program Arguments** section. For example, in the Create new deployment dialog, locate the Program args field. Enter `myKafkaSource=<INTEGRATION_ID>` in this field, replacing `INTEGRATION_ID` with the actual [integration ID](/docs/tools/cli/service/integration#avn_service_integration_list) For more information, see [Creating a JAR application on Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application).
-
-### Scenario 2: Integration with Avien for PostgreSQL
+### Example 2: Integration with Avien for PostgreSQL
 
 To connect to Aiven for PostgreSQL service, the credentials JSON structure is as follows:
 
@@ -153,13 +221,18 @@ public class PostgreSQLCredentialsParser {
 }
 ```
 
-In this scenario, the application parses the PostgreSQL connection string to extract the username, password, host, port, and database.
+In this example, the application dynamically parses the PostgreSQL connection string to
+extract the necessary connection parameters, including username, password, host, port,
+and database name.
 
-### Scenario 3: External or self-hosted Apache Kafka integration with SASL_SSL\*
+### Example 3: External or self-hosted Apache Kafka integration with SASL_SSL
 
-When integrating with an external Apache Kafka service using SASL_SSL, the credentials file will be structured based on the configuration details you specify for your external Apache Kafka integration. The credentials JSON structure is as follows:
-
-**Credentials JSON Structure:**
+When integrating with an external Apache Kafka service using `SASL_SSL`, the credentials
+file is structured based on the configuration details you specify for your external
+Apache Kafka integration. The following JSON structure represents the minimum required
+for initial setup, serving as a foundational configuration. Additional parameters
+may be necessary depending on your security requirements. The credentials JSON structure
+is as follows:
 
 ```JSON
 {
@@ -174,7 +247,12 @@ When integrating with an external Apache Kafka service using SASL_SSL, the crede
 }
 ```
 
-:::note The structure of this JSON file corresponds to the configuration settings you established when creating an external Apache Kafka integration with Aiven for Apache Kafka service. This includes essential details such as bootstrap servers, security protocol, and SASL_SSL settings. :::
+:::note
+The structure of this JSON file corresponds to the configuration settings you established
+when creating an external Apache Kafka integration with Aiven for Apache Kafka service.
+This includes essential details such as bootstrap servers, security protocol, and
+SASL_SSL settings.
+:::
 
 **Java application example:**
 
@@ -210,12 +288,17 @@ public class ExternalKafkaCredentialsReader {
 }
 ```
 
-In this scenario:
+In this example:
 
-- The file named `external-kafka-service.json` contains credentials in JSON format for connecting to an external Kafka service that employs the SASL_SSL security protocol.
-- The Java code demonstrates how to read the file, parse the JSON content, and extract key details, including SASL and SSL configurations.
-- These details are then used to configure a Kafka client within the Flink application, e nsuring secure communication with the external Kafka service.
+- The file named `external-kafka-service.json` contains credentials in JSON format for
+connecting to an external Kafka service that employs the SASL_SSL security protocol.
+- The Java code demonstrates how to read the file, parse the JSON content, and extract
+key details, including SASL and SSL configurations.
+- These details are then used to configure a Kafka client within the Flink application,
+ensuring secure communication with the external Kafka service.
 
 ## Related page
 
-- For additional information on integrating external or self-hosted Apache Kafka with Aiven for Apache Flink, see [Integrate Aiven for Apache Flink® with Apache Kafka®](/docs/products/flink/howto/ext-kafka-flink-integration)
+- For additional information on integrating external or self-hosted Apache Kafka with
+Aiven for Apache Flink, see
+[Integrate Aiven for Apache Flink® with Apache Kafka®](/docs/products/flink/howto/ext-kafka-flink-integration)
