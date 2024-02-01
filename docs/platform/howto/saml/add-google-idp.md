@@ -2,8 +2,7 @@
 title: Add Google as an identity provider
 ---
 
-Use Google to give your organization users single sign-on (SSO) access
-to Aiven.
+Use Google to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
