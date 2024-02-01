@@ -51,7 +51,7 @@ summary of these plans:
 
 :::note
 In case of database failover, your service's
-**Service URI** remains the same---only the IP address changes to
+**Service URI** remains the same, only the IP address changes to
 point to the new primary node.
 :::
 
