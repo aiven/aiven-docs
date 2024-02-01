@@ -84,6 +84,5 @@ Losing the only node in the service triggers an automatic process of creating a 
 replacement node. The new node then restores its state from the latest available backup
 and resumes serving customers.
 
-Since there was just a single node providing the service, the service will be
-unavailable for the duration of the restore operation.
+The service is unavailable for the duration of the restore operation.
 All the write operations made since the last backup are lost.
