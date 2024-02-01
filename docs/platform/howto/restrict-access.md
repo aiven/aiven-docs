@@ -32,9 +32,7 @@ IP filters apply to publicly-accessible endpoints only.
 
 6.  Select **Close**.
 
-:::note[Result]
 Now your service can be accessed from the specified IP addresses only.
-:::
 
 :::note[Alternative method]
 You can also use the

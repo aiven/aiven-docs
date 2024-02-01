@@ -127,10 +127,8 @@ service any time later. See
     service and select **Disconnect integration** if you accept erasing
     all the databases and configuration information.
 
-:::note[Result]
 Your integration has been removed along with all the corresponding
 databases and configuration information.
-:::
 
 ## Related pages
 

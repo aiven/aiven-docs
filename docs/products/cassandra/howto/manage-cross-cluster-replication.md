@@ -68,10 +68,8 @@ changing the plan for a CCR-enabled service.
 
 6.  Select **Change**.
 
-:::note[Result]
 You\'ve changed the plan for your CCR-enabled service and its
 CCR-replica service.
-:::
 
 ## Add an extra disk space
 
@@ -107,10 +105,8 @@ adding storage space for CCR-enabled services.
 
 6.  Select **Save changes**.
 
-:::note[Result]
 You\'ve added extra disk storage space for your CCR-enabled service and
 its CCR-replica service.
-:::
 
 ## Set up the replication factor {#set-up-replication-factor}
 
@@ -170,11 +166,9 @@ driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/driver
     AND durable_writes = true;
     ```
 
-:::note[Result]
 You\'ve set up the replication factor for your keyspace. Now all data
 within this keyspace gets replicated to the datacenters according to the
 specified factor.
-:::
 
 :::note[See also]
 For more details on the replication factor for Apache Cassandra, see

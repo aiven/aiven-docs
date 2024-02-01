@@ -2,9 +2,7 @@
 title: Use Prometheus with Aiven
 ---
 
-Discover Prometheus as a tool for monitoring your Aiven services. Check
-why use it and how it works. Learn how to enable and configure
-Prometheus on your project.
+Discover Prometheus as a tool for monitoring your Aiven services. Check why use it and how it works. Learn how to enable and configure Prometheus on your project.
 
 ## About Prometheus
 
@@ -28,14 +26,14 @@ service, you need to verify if the project for this service has a
 Prometheus integration endpoint created. For this purpose, take the
 following steps:
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), go to
-    **Projects** in the top navigation bar, and select your project from
-    the dropdown list.
-2.  On the **Services** page, select **Integration endpoints** from the
-    left sidebar.
-3.  On the **Integration endpoints** page, select **Prometheus** from
-    the list available integration endpoints, and check if there is any
-    endpoint available under **Endpoint Name**.
+1. Log in to [Aiven Console](https://console.aiven.io/), go to
+   **Projects** in the top navigation bar, and select your project from
+   the dropdown list.
+1. On the **Services** page, select **Integration endpoints** from the
+   left sidebar.
+1. On the **Integration endpoints** page, select **Prometheus** from
+   the list available integration endpoints, and check if there is any
+   endpoint available under **Endpoint Name**.
 
 If there is a Prometheus endpoint available, your service supports
 Prometheus. If there's no Prometheus endpoint available, proceed to
@@ -46,48 +44,46 @@ Prometheus. If there's no Prometheus endpoint available, proceed to
 Aiven offers Prometheus endpoints for your services. To enable this
 feature, take the following steps:
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), go to
-    **Projects** in the top navigation bar, and select your project from
-    the dropdown list.
+1. Log in to [Aiven Console](https://console.aiven.io/), go to
+   **Projects** in the top navigation bar, and select your project from
+   the dropdown list.
 
-2.  On the **Services** page, select **Integration endpoints** from the
-    left sidebar.
+1. On the **Services** page, select **Integration endpoints** from the
+   left sidebar.
 
-3.  On the **Integration endpoints** page, select **Prometheus** from
-    the list available integration endpoints, and select **Add new
-    endpoint**.
+1. On the **Integration endpoints** page, select **Prometheus** from
+   the list available integration endpoints, and select **Add new
+   endpoint**.
 
-4.  In the **Create new Prometheus endpoint** window, enter the details
-    for the endpoint, and select **Create**.
+1. In the **Create new Prometheus endpoint** window, enter the details
+   for the endpoint, and select **Create**.
 
-5.  Select **Services** from the sidebar, and navigate to the service
-    that you would like to monitor.
+1. Select **Services** from the sidebar, and navigate to the service
+   that you would like to monitor.
 
-6.  On the **Overview** page of your service, go to the **Service
-    integrations** section, and select **Manage integrations**.
+1. On the **Overview** page of your service, go to the **Service
+   integrations** section, and select **Manage integrations**.
 
-7.  On the **Integrations** page, select **Prometheus**.
+1. On the **Integrations** page, select **Prometheus**.
 
-8.  In the **Prometheus integration** window, select the endpoint name
-    you created from the dropdown list, and select **Enable**.
+1. In the **Prometheus integration** window, select the endpoint name
+   you created from the dropdown list, and select **Enable**.
 
-    :::note
-    At the top of the **Integrations** page, you will see the Prometheus
-    integration listed and status `active`.
-    :::
+   :::note
+   At the top of the **Integrations** page, you will see the Prometheus
+   integration listed and status `active`.
+   :::
 
-9.  Next, navigate to the service's **Overview** page, and then locate
-    the **Connection information** section.
+1. Next, navigate to the service's **Overview** page, and then locate
+   the **Connection information** section.
 
-10. Click on the **Prometheus** tab.
+1. Click on the **Prometheus** tab.
 
-11. Copy **Service URI**, and use it in your browser to access the
-    Prometheus dashboard.
+1. Copy **Service URI**, and use it in your browser to access the
+   Prometheus dashboard.
 
-:::note[Result]
 The system initiates an HTTP server on all service nodes, granting
 access to the metrics. Aiven is exposing endpoints for your services.
-:::
 
 :::note
 There might be a slight delay of approximately one minute before the
@@ -99,17 +95,17 @@ metrics become available.
 If you use a VPC in your project, follow these steps to access
 Prometheus:
 
-1.  Access [Aiven Console](https://console.aiven.io/).
-2.  Select your project, and select the service you want to monitor
-    using Prometheus.
-3.  Click **Service settings** from the sidebar.
-4.  In the **Cloud and network** section, click on the actions
-    (**\...**) menu.
-5.  Choose **More network configurations**.
-6.  In the **Network configuration** window, select **Add configuration
-    options**.
-7.  Search for the `public_access.prometheus` property and enable it.
-8.  Click **Save configuration**.
+1. Access [Aiven Console](https://console.aiven.io/).
+1. Select your project, and select the service you want to monitor
+   using Prometheus.
+1. Click **Service settings** from the sidebar.
+1. In the **Cloud and network** section, click the actions
+   (**\...**) menu.
+1. Choose **More network configurations**.
+1. In the **Network configuration** window, select **Add configuration
+   options**.
+1. Search for the `public_access.prometheus` property and enable it.
+1. Click **Save configuration**.
 
 ## Configure Prometheus
 
@@ -141,6 +137,7 @@ For single-node services, configure the following in your
     :::
 
 :::note[Sample configuration]
+
 ``` bash
 scrape_configs:
   - job_name: aivenmetrics
@@ -153,29 +150,26 @@ scrape_configs:
     static_configs:
       - targets: ["<PROMETHEUS_SERVICE_URI>:<PROMETHEUS_SERVICE_PORT"]
 ```
+
 :::
 
-:::note[Result]
 With the configuration in place, Prometheus starts pulling metrics from
 your service.
-:::
 
 ### Multi-node services
 
-1.  For any service that consist of multiple nodes without a DNS name
+1. For any service that consist of multiple nodes without a DNS name
     for each node, use the `dns_sd_configs` option to define the servers
     with DNS type set to `A`.
 
-:::note[Result]
-Prometheus resolves all the IP addresses associated with the DNS name
-and query all of those IP addresses directly. A side effect of using
-this IP resolution is that Prometheus expects the TLS certificate to be
-bound to the IP addresses of the hosts, not to the DNS name.
-:::
+   Prometheus resolves all the IP addresses associated with the DNS name
+   and query all of those IP addresses directly. A side effect of using
+   this IP resolution is that Prometheus expects the TLS certificate to be
+   bound to the IP addresses of the hosts, not to the DNS name.
 
-2.  Enable the `insecure_skip_verify` setting so that Prometheus
-    wouldn\'t verify if the TLS certificate is bound to the IP addresses
-    of the hosts.
+1. Enable the `insecure_skip_verify` setting so that Prometheus
+   wouldn\'t verify if the TLS certificate is bound to the IP addresses
+   of the hosts.
 
     ``` bash
     scrape_configs:
@@ -193,14 +187,14 @@ bound to the IP addresses of the hosts, not to the DNS name.
           insecure_skip_verify: true
     ```
 
-:::note
-For Aiven services with multiple nodes and a Replica URI, the primary
-DNS name does not include standby IP addresses. To track those, make
-sure to include the replica DNS names in the list. If you have
-`<PROMETHEUS_SERVICE_URI>` as `public-example.aivencloud.com`, then you
-will need to add `public-replica-example.aivencloud.com`. This applies
-to PostgreSQL®, MySQL®, Apache Kafka®, and Redis®\* services.
-:::
+   :::note
+   For Aiven services with multiple nodes and a Replica URI, the primary
+   DNS name does not include standby IP addresses. To track those, make
+   sure to include the replica DNS names in the list. If you have
+   `<PROMETHEUS_SERVICE_URI>` as `public-example.aivencloud.com`, then you
+   will need to add `public-replica-example.aivencloud.com`. This applies
+   to PostgreSQL®, MySQL®, Apache Kafka®, and Redis®\* services.
+   :::
 
 ### View full list of metrics
 

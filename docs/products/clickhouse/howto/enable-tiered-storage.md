@@ -55,10 +55,8 @@ ClickHouse CLI client).
 To enable tiered storage on your project, request it from the sales team
 at [sales@aiven.io](mailto:sales@aiven.io).
 
-:::note[Result]
 Your project now supports tiered storage, and you can enable it for each
 table of your Aiven for ClickHouse services.
-:::
 
 ## Enable tiered storage on a table
 
@@ -75,7 +73,6 @@ enabling it on your tables, both new and existing ones.
     ALTER TABLE database-name.table-name MODIFY SETTING storage_policy = 'tiered'
     ```
 
-:::note[Result]
 Tiered storage is enabled on your table and data in this table is now
 distributed between two tiers: SSD and object storage.
 
@@ -84,7 +81,6 @@ You can check if tiered storage is now supported (**Active** /
 Console](https://console.aiven.io/) \> **Databases & Tables** \>
 **Databases lists** \> Your database \> Your table \> the **Tiered
 storage** column.
-:::
 
 ## What's next
 

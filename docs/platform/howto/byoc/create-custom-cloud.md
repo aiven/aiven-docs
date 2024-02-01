@@ -549,11 +549,9 @@ In the **Create custom cloud** wizard, proceed as follows:
             cloud is created.
 2.  Select **Next**.
 
-:::note[Result]
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
 [acquire Role ARN](/docs/platform/howto/byoc/create-custom-cloud#acquire-role-arn).
-:::
 
 #### Deploy the template to acquire `Role ARN` {#acquire-role-arn}
 
@@ -650,23 +648,19 @@ issue with the custom cloud needs fixing. Continue working in the
     needed for your custom cloud.
 3.  Select **Create**.
 
-:::note[Result]
 The custom cloud process has been initiated for you, which is
 communicated in the the **Create custom cloud** wizard as **Creating
 your custom cloud**.
-:::
 
 #### Complete the cloud setup
 
 you're all set. Select **Close** to close the **Create custom cloud**
 wizard.
 
-:::note[Result]
 The deployment of your new custom cloud might take a few minutes. As
 soon as it's over, and your custom cloud is ready to use, you\'ll be
 able to see it on the list of your custom clouds in the **Bring your own
 cloud** view.
-:::
 
 :::note
 Your new custom cloud is ready to use only after its status changes to
@@ -688,12 +682,10 @@ steps:
     list of available clouds and check its status in the **Status**
     column.
 
-:::note[Result]
 If your custom cloud's status is **Active**, its deployment has been
 completed. Your custom cloud is ready to use and you can see it on the
 list of your custom clouds in the **Bring your own cloud** view. Now you
 can create services using your new custom cloud.
-:::
 
 ## Next steps
 

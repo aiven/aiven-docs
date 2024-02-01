@@ -42,11 +42,9 @@ Termination Protection has no effect on service migrations or upgrades.
     section, and select **Enable termination protection** from the
     **Actions** (**\...**) menu.
 
-:::note[Result]
 Termination Protection is enabled for your service: It cannot be
 terminated or powered down from the Aiven web console, via the Aiven
 REST API, or by using the Aiven command-line client.
-:::
 
 ### Terminate a protected service
 

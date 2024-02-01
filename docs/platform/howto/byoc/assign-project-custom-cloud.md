@@ -85,10 +85,8 @@ the settings you configured during the
         desired units and/ or projects as needed. Confirm your choice by
         selecting **Assign projects**.
 
-:::note[Result]
 In the projects and/ or organizational units you assigned, you can
 create services using your custom cloud.
-:::
 
 ## Check it out
 

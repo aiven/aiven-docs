@@ -91,12 +91,10 @@ TABLE MODIFY TTL clause:
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
-:::note[Result]
 You have your time-based data retention policy set up. From now on, when
 data is on your SSD longer than a specified time period, it's moved to
 object storage, regardless of how much of SSD capacity is still
 available.
-:::
 
 ## What's next
 

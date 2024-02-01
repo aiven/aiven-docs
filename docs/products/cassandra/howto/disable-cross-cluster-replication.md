@@ -58,10 +58,8 @@ on your service(s): split the services or delete one of them.
     splitting the cluster, make sure you understand the impact, and
     select **Split cluster**.
 
-:::note[Result]
 You service no longer replicates to the other service since the services
 have been disconnected.
-:::
 
 ### Delete a service
 
@@ -90,10 +88,8 @@ your services for CCR purposes.
 5.  When in the **Delete confirmation** popup, make sure you understand
     the impact, copy-paste the service name, and select **Delete**.
 
-:::note[Result]
-You\'ve disabled CCR on your service by deleting one of the peer
+You've disabled CCR on your service by deleting one of the peer
 services in the CCR service pair.
-:::
 
 ## Disable CCR with CLI
 

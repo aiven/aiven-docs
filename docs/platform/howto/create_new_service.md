@@ -47,11 +47,9 @@ Console](https://console.aiven.io/). You can also
     5.  Select **Create service** from the right-side **Service
         Summary** card.
 
-:::note[Result]
 The new service opens on the **Overview** page, where you can find the
 connection parameters for your service, its current status, and the
 configuration options.
-:::
 
 :::note
 The service is in the **Rebuilding** status while it is being created.

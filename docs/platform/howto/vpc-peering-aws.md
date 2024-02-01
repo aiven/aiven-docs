@@ -43,7 +43,5 @@ Create a
     tables](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html)
     to match your Aiven CIDR settings.
 
-:::note[Result]
 When you accept the request in AWS Console, the peering connection gets
 activated in the [Aiven Console](https://console.aiven.io/).
-:::

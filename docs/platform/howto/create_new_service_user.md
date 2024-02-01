@@ -32,10 +32,8 @@ service,
         authentication, roles, or replication), and select **Add service
         user**.
 
-:::note[Result]
 A popup alert displays the result of the operation informing about the
 creation of your new user.
-:::
 
 :::note
 You can

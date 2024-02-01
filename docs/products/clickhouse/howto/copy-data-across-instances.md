@@ -30,12 +30,12 @@ Details of the source (remote) server
     ```
 
     :::note[See also]
-For details on how to configure and use the INSERT query, see
+
+    For details on how to configure and use the INSERT query, see
     [Inserting the Results of
     SELECT](https://clickhouse.com/docs/en/sql-reference/statements/insert-into/#inserting-the-results-of-select).
-:::
 
-:::note[Results]
+    :::
+
 Your data has been copied from the remote (source) server to the new
 (target) server.
-:::

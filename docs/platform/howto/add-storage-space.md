@@ -45,9 +45,7 @@ Console](https://console.aiven.io/) without interrupting the service.
 
 6.  Click **Save changes**.
 
-:::note[Result]
 The additional storage is available for immediate use.
-:::
 
 :::warning
 Storage optimization is performed at the next maintenance update after a
@@ -94,10 +92,8 @@ You can remove storage that you previously added to a service.
 
 6.  Click **Save changes**.
 
-:::note[Result]
 Your additional disk space has been removed. The service is in the
 **Rebalancing** state while the nodes are being recycled.
-:::
 
 ## Use Aiven CLI
 

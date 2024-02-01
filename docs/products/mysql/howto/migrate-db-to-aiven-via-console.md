@@ -250,9 +250,7 @@ continuously being synced between the connected databases.
 When the wizard communicates the completion of the migration without
 indicating an active replication process, select **Close connection**.
 
-:::note[Result]
 All the data in your database has been transferred to Aiven.
-:::
 
 ## Start over {#start-over-mysql}
 

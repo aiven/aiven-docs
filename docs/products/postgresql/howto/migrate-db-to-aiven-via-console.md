@@ -188,10 +188,10 @@ follow and go straight to
     ```
 
     :::note[See also]
-For more details on the configuration file's syntax, see [The
+    For more details on the configuration file's syntax, see [The
     pg_hba.conf
     File](https://www.postgresql.org/docs/14/auth-pg-hba-conf.html).
-:::
+    :::
 
 -   Enable the logical replication.
 
@@ -371,10 +371,8 @@ the connected databases.
     the **Syncing** tag, and you\'ll be able to check the status of the
     migration process by selecting **Status update**.
 
-:::note[Result]
 You have successfully migrated your PostgreSQL database into you Aiven
 for PostgreSQL service.
-:::
 
 ## Related pages
 

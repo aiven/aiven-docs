@@ -221,12 +221,10 @@ n_id | value
 (5 rows)
 ```
 
-:::note[Result]
 ZDM Proxy has forwarded both the write request and the read request to
 the source cluster. As a result, all the values are there: both
 newly-added ones (`50` and `48`) and previously-added ones (`42`, `44`,
 and `46`).
-:::
 
 ### Check data in the target
 
@@ -260,12 +258,10 @@ n_id | value
 (2 rows)
 ```
 
-:::note[Result]
 `50` and `48` are there in the target table since ZDM Proxy has
 forwarded the write request to the target service. `42`, `44`, and `46`
 are not there since ZDM Proxy has not sent the read request to the
 target service.
-:::
 
 ## Related pages
 
