@@ -1,6 +1,6 @@
 extends: metric
-message: "You cannot have only 1 H2."
+message: "You cannot have only one H2."
 level: error
 formula: |
-    heading.h2
-condition: "<= 1"
+  heading.h2
+condition: "= 1"

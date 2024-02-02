@@ -2,16 +2,14 @@
 title: Send logs to Datadog
 ---
 
-This article will show you how to use the Aiven Rsyslog integration to
-send the logs from your Aiven services to Datadog.
+Use the Aiven Rsyslog integration to send the logs from your Aiven services to Datadog.
 
 You will need:
 
 -   A Datadog account, and which region it is in.
 -   A Datadog API key. Generate an API key by visiting **Organization
     settings** under your account menu, and then choose **API Keys**.
-    The **New Key** button will give you an API key; you should copy
-    this as you will need it shortly.
+    The **New Key** button will give you an API key. Make a note of it.
 -   An Aiven account with a project set up. You\'ll need the name of the
     project.
 
@@ -39,7 +37,6 @@ setup only needs to be done once.
     | `DATADOG_API_KEY`    | From your Datadog account settings |
     | `AIVEN_PROJECT_NAME` | Found in the web console           |
 
-
 This is the format to use, replacing the variables listed. Don\'t edit
 the values surrounded by `%` signs, such as `%msg%` as these are used in
 constructing the log line:
@@ -56,7 +53,7 @@ An example of the correct format, using an example API key and
 :::note
 Metrics and logs are correlated in Datadog by hostname. The metrics
 integration is currently configured to append the project name to the
-hostname in order to disambiguate between services that have the same
+hostname to disambiguate between services that have the same
 name in different projects. Adding the project name to the hostname in
 the syslog integration to Datadog assures that they can be correlated
 again in the Datadog dashboard. Not doing so will not result in missing
@@ -69,8 +66,7 @@ documentation](https://docs.datadoghq.com/integrations/rsyslog).
 
 ## Send logs from an Aiven service to Datadog
 
-Follow the steps in this section for each of the services whose logs
-should be sent to Datadog.
+To send logs to Datadog:
 
 1.  On the **Overview** page of your service, select **Integrations**
     from the sidebar, and select the **Rsyslog** option.
@@ -83,6 +79,6 @@ should be sent to Datadog.
 3.  Visit Datadog and look under \"Logs\" to see the data flowing within
     a few minutes.
 
-:::note[See also]
+## Related pages
+
 Learn more about [Datadog and Aiven](/docs/integrations/datadog).
-:::

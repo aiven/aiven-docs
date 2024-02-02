@@ -2,6 +2,8 @@
 title: Streaming anomaly detection with Apache Flink®, Apache Kafka® and PostgreSQL®
 ---
 
+<!-- vale off -->
+
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/flink/basic_cpu-in_table.md';
 import MyComponentSource2 from '!!raw-loader!/code/products/flink/basic_cpu-out-filter_table.md';

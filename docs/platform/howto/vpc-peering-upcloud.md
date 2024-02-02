@@ -2,12 +2,9 @@
 title: Set up network peering between Aiven and UpCloud
 ---
 
-Network peerings enable traffic between two networks from different
-accounts or platforms. A peering needs to be established from both
-connecting components to be activated.
+Network peerings enable traffic between two networks from different accounts or platforms.
 
-This article shows how to establish a network peering connection between
-Aiven and UpCloud.
+A peering needs to be established from both connecting components to be activated.
 
 ## About establishing Aiven-Upcloud peering
 
@@ -60,15 +57,15 @@ You can establish a peering connection from Aiven to UpCloud using
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), navigate to
     the organization and project you want to use.
-2.  On the **Services** page, select **VPCs** from the sidebar.
-3.  On the **Virtual private clouds** page, select the ID of the VPC
+1.  On the **Services** page, select **VPCs** from the sidebar.
+1.  On the **Virtual private clouds** page, select the ID of the VPC
     connection you want to use for the peering.
-4.  On the **VPC peering connections** page, in the **Add peering
+1.  On the **VPC peering connections** page, in the **Add peering
     connection** section, populate **Peer network ID** field with your
     UpCloud SDN network UUIDs.
-5.  Select **Add peering connection**. This adds a new connection to the
+1.  Select **Add peering connection**. This adds a new connection to the
     VPC peering connections list.
-6.  Wait until you see the `peer_pending` state in the **State** column
+1.  Wait until you see the `peer_pending` state in the **State** column
     of the of the VPC peering connections table. At this point, the
     Aiven VPC network UUID should be available in the **Aiven network
     ID** column of the of the VPC peering connections table.
@@ -174,7 +171,7 @@ commands:
     dhclient -r NETWORK_INTERFACE_NAME
     ```
 
-2.  To request a renewal of the DHCP lease
+1.  To request a renewal of the DHCP lease
 
     ``` bash
     dhclient NETWORK_INTERFACE_NAME

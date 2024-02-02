@@ -2,9 +2,7 @@
 title: Send logs to AWS CloudWatch from Aiven client
 ---
 
-This article will show you how you can send logs from your Aiven service
-to the AWS CloudWatch using the
-[Aiven client](/docs/tools/cli).
+Send logs from your Aiven service to the AWS CloudWatch using the [Aiven client](/docs/tools/cli).
 
 ## Prerequisites
 
@@ -17,7 +15,7 @@ using the [Aiven client](/docs/tools/cli).
 -   An AWS Access Key and Secret Key. Generate the credentials by
     visiting **IAM dashboard** then click in **Users**, open the
     **Security credentials** tab, and choose **Create access key**.
-    Click on **Download** as you will need this shortly.
+    Click on **Download** and keep the file.
 
 :::important
 Your AWS credentials should have appropriate access rights. According to

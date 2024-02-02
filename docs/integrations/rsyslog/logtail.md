@@ -2,17 +2,15 @@
 title: Send Aiven logs to Logtail
 ---
 
-[Logtail](https://betterstack.com/logs) is a logging service with solid
-database backing and a cool SQL query interface. You can use the Aiven
-[Remote syslog integration](/docs/integrations/rsyslog) to send your
-logs to Logtail. This article will show you how to set this up.
+[Logtail](https://betterstack.com/logs) is a logging service. You can use the Aiven [Remote syslog integration](/docs/integrations/rsyslog) to send your
+logs to Logtail.
 
 1.  Set up an Rsyslog source on Logtail. Choose **Connect source**, give
     your source a **Name**, and select \"Rsyslog\" as the **Platform**.
-2.  Copy the **Source token** of your new source; you will need this
-    shortly to configure the Aiven side of the integration.
+2.  Copy the **Source token** of your new source to configure
+    the Aiven side of the integration.
 3.  Create the service integration on Aiven. Choose **Integration
-    endpoints** in the web console, click on **Syslog** and choose **Add
+    endpoints** in the web console, click **Syslog** and choose **Add
     new endpoint**.
 4.  Configure the new endpoint:
     -   Set an **Endpoint name** for this integration
@@ -27,7 +25,7 @@ logs to Logtail. This article will show you how to set this up.
         below with the token you copied in step 2, and paste into the
         **Log template** field:
 
-        ``` 
+        ```text
         <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [logtail@11993 source_token="YOUR_LOGTAIL_SOURCE_TOKEN"] %msg%
         ```
 5.  Add your new logs integration to any of your Aiven services (more
@@ -37,11 +35,11 @@ logs to Logtail. This article will show you how to set this up.
 
 ## Create the Logtail service integration endpoint with Aiven client
 
-If you would rather use the CLI, you can use the following command to
+To use the CLI, use the following command to
 create the service integration endpoint. Replace the placeholder with
 your token:
 
-``` 
+```bash
 avn service integration-endpoint-create --project your-project \
 -d logtail -t rsyslog \
 -c server=in.logtail.com -c port=6514 \

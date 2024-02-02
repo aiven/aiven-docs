@@ -2,22 +2,19 @@
 title: Set up Azure virtual network peering
 ---
 
-This help article contains step-by-step instructions for setting up
-peering in Azure. See the [Using VPC
-peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
-article for how to set up a Project VPC. This creates an isolated
-virtual network in the Aiven subscription where you can create services
-instead of the Aiven cloud's public network.
+Create an isolated Microsoft Azure virtual network in your Aiven deployment where you can create services instead of using Aiven Cloud's public network.
+
+See the [Using VPC peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
+for how to set up a Project VPC.
 
 :::note
-Microsoft Azure uses the term `Virtual Network` (VNet), which is the
-same as a `Virtual Private Cloud` (VPC). We use the terms
-interchangeably in this article.
-:::
 
-:::note
-You can create VPC peering using
-[Aiven Provider for Terraform](/docs/tools/terraform/howto/vnet-peering-azure) as well.
+- Azure uses the term `Virtual Network` (VNet), which is the
+  same as a `Virtual Private Cloud` (VPC). We use the terms
+  interchangeably.
+- You can create VPC peering using
+  [Aiven Provider for Terraform](/docs/tools/terraform/howto/vnet-peering-azure) as well.
+
 :::
 
 ## Peer your network with the VPC
@@ -25,8 +22,10 @@ You can create VPC peering using
 For an Azure virtual network peering's state to become **connected**
 between networks A and B, a peering must be created both from network A
 to B and from B to A. See
-[this](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions)
-for an overview. In the case of Project VPCs, one of the networks is
+[Create a virtual network peering](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions)
+for an overview.
+
+In the case of Project VPCs, one of the networks is
 located in the Aiven subscription and the Aiven platform handles
 creating the peering from that network to the network you wish to peer.
 For this the Aiven platform's [Active Directory application
@@ -38,9 +37,10 @@ your network to Aiven once it's been given permissions to do so.
 
 ### Preparation
 
-Please install the [Azure
-CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
-as well as the [Aiven CLI](/docs/tools/cli) to follow this guide.
+Install:
+
+- the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+- the [Aiven CLI](/docs/tools/cli)
 
 ### 1. log in with an Azure admin account
 
@@ -172,10 +172,10 @@ object, this is a fix id and the command must be run like that. Save the
 `id` field from the JSON output - (just above the `info` field) - it
 will be referred to as `$aiven_sp_id` later.
 
-If this fails with the error \"When using this permission, the backing
+If this fails with the error "When using this permission, the backing
 application of the service principal being created must in the local
-tenant\" then your account does not have the correct permissions. Please
-use an account with at least the **Application administrator** role
+tenant" then your account does not have the correct permissions.
+Use an account with at least the **Application administrator** role
 assigned.
 
 ### 8. create a custom role for the Aiven application object
@@ -191,7 +191,7 @@ az role definition create --role-definition '{"Name": "<name of your choosing>",
 
 Creating a custom role must include your subscription's id in
 `AssignableScopes` . This in itself does not give permissions to your
-subscription - it merely restricts which scopes a role assignment can
+subscription. It restricts which scopes a role assignment can
 include. Save the `id` field from the output - this will be referred to
 as `$aiven_role_id`
 
@@ -303,11 +303,11 @@ state `connected`
 In case you get the error below, it's possible the role assignment from
 step 6 hasn\'t taken effect yet. If that is the case, try logging in
 again and creating the peering again after waiting a bit by repeating
-the commands in this step. If the error message persists, please check
+the commands in this step. If the error message persists, check
 the role assignment in step 6 was correct.
 
 ```
-The client '<random uuid>' with object id '<another random uuid>' does not have authorization to perform action 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write' over scope '$user_vnet_id' If access was recently granted, please refresh your credentials.
+The client '<random uuid>' with object id '<another random uuid>' does not have authorization to perform action 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write' over scope '$user_vnet_id' If access was recently granted, refresh your credentials.
 ```
 
 ### 14. wait until the Aiven peering connection is active

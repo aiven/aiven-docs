@@ -22,7 +22,7 @@ Aiven Console.
 Another option is to use the [Aiven
 Client](https://github.com/aiven/aiven-client) .
 
-```
+```bash
 avn service integration-endpoint-create --project your-project \
     -d example-syslog -t rsyslog \
     -c server=logs.example.com -c port=514 \
@@ -75,7 +75,7 @@ integration by selecting **Enable** in the modal window.
 Alternately, with the Aiven Client, first you need the id of the
 endpoint previously created
 
-```
+```text
 avn service integration-endpoint-list --project your-project
 ENDPOINT_ID                           ENDPOINT_NAME   ENDPOINT_TYPE
 ====================================  ==============  =============
@@ -84,7 +84,7 @@ ENDPOINT_ID                           ENDPOINT_NAME   ENDPOINT_TYPE
 
 Then you can link the service to the endpoint
 
-```
+```bash
 avn service integration-create --project your-project \
     -t rsyslog -s your-service \
     -D 618fb764-5832-4636-ba26-0d9857222cfd
@@ -93,8 +93,7 @@ avn service integration-create --project your-project \
 ## Example configurations
 
 Rsyslog is a standard integration so you can use it with any external
-system. We have collected some examples of how to integrate with popular
-third party platforms to get you started quickly.
+system.
 
 :::note
 All integrations can be configured using the Aiven Console or the Aiven
@@ -115,7 +114,7 @@ The Syslog Endpoint to use for `server` depends on your account:
 See the Coralogix [Rsyslog](https://coralogix.com/docs/) documentation
 for more information.
 
-```
+```bash
 avn service integration-endpoint-create --project your-project \
     -d coralogix -t rsyslog \
     -c server=syslogserver.coralogix.us -c port=5142 \
@@ -129,10 +128,10 @@ avn service integration-endpoint-create --project your-project \
 
 ### Loggly® {#rsyslog_loggly}
 
-For [Loggly](https://www.loggly.com/) integration, you need to use a
+For [Loggly](hthtps://www.loggly.com/) integration, you need to use a
 custom `logline` format with your token.
 
-```
+```bas
 avn service integration-endpoint-create --project your-project \
     -d loggly -t rsyslog \
     -c server=logs-01.loggly.com -c port=6514 \
@@ -145,7 +144,7 @@ avn service integration-endpoint-create --project your-project \
 For [Mezmo](https://www.mezmo.com/) syslog integration you need to use a
 custom `logline` format with your key.
 
-```
+```bash
 avn service integration-endpoint-create --project your-project \
    -d logdna -t rsyslog \
    -c server=syslog-a.logdna.com -c port=6514 \
@@ -171,7 +170,7 @@ The value to use for `server` depends on the account location:
 For more information see [Use TCP endpoint to forward logs to New
 Relic](https://docs.newrelic.com/docs/logs/log-api/use-tcp-endpoint-forward-logs-new-relic/)
 
-```
+```bash
 avn service integration-endpoint-create --project your-project \
     -d newrelic -t rsyslog \
     -c server=newrelic.syslog.nr-data.net -c port=6514 \
@@ -188,7 +187,7 @@ and `port` respectively. You **do not need** the ca-bundle as the
 Papertrail servers use certificates signed by a known CA. You also need
 to set the format to `rfc3164` .
 
-```
+```bash
 avn service integration-endpoint-create --project your-project \
     -d papertrail -t rsyslog \
     -c server=logsN.papertrailapp.com -c port=XXXXX \
@@ -204,7 +203,7 @@ the collector, and replace `YOUR_DEPLOYMENT` with one of `au`, `ca`,
 Source](https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source)
 for more information.
 
-```
+```bash
 avn service integration-endpoint-create --project your-project \
     -d sumologic -t rsyslog \
     -c server=syslog.collection.YOUR_DEPLOYMENT.sumologic.com -c port=6514 \

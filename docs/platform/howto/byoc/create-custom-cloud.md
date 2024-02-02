@@ -2,26 +2,29 @@
 title: Create an AWS custom cloud in Aiven
 ---
 
-Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization to better address your specific
-business needs or project requirements.
+Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization to better address your specific business needs or project requirements.
 
 :::note
+
 -   Creating and using custom clouds in your Aiven organization requires
     enabling
-    [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc). Check the availability of the feature in
-    [Who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc). To activate BYOC in your Aiven organization, follow the
-    steps in
+    [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc). Check the
+    availability of the feature in
+    [Who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc). To
+    activate BYOC in your Aiven organization, see
     [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc).
 -   Enabling
     [the BYOC feature](/docs/platform/concepts/byoc) or creating custom clouds in your Aiven environment does
     not affect the configuration of your existing organizations,
     projects, or services. This only makes the new BYOC capabilities
     available in your environment.
+
 :::
 
 :::important
 Custom cloud configuration in Aiven is an
-[early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
+[early availability feature](/docs/platform/concepts/beta_services). You cover the
+costs associated with building and
 maintaining your custom cloud: payments for your integrated AWS
 infrastructure and Aiven services within the custom cloud.
 :::
@@ -35,7 +38,7 @@ all the [prerequisites](/docs/platform/howto/byoc/create-custom-cloud#byoc-prere
 The process of creating a custom cloud in Aiven differs depending on the
 cloud provider you want to integrate with:
 
--   If you want to use the AWS cloud provider, create your custom cloud
+-   To use the AWS cloud provider, create your custom cloud
     yourself in [Aiven Console](https://console.aiven.io/).
 
 :::note[BYOC self-service in Aiven Console]
@@ -52,14 +55,14 @@ use your new custom clouds for creating services, and you add customer
 contacts for your custom cloud.
 :::
 
--   If you want to use the GCP or Azure cloud providers, request the
+-   To use the GCP or Azure cloud providers, request the
     Aiven team to create the cloud.
 
 ## Limitations {#byoc-limitations}
 
 -   You need at least the Priority tier of Aiven support services to be
     eligible for activating BYOC.
--   If you want to build your custom cloud with a cloud provider other
+-   To build your custom cloud with a cloud provider other
     than AWS, you need to request it as detailed in
     [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc) and follow up with the Aiven team.
 -   BYOC is supported with the
@@ -464,7 +467,7 @@ workload networks
 
 ### Create a custom cloud with GCP or Azure {#create-cloud-non-aws}
 
-If you want to use the GCP or Azure cloud providers, you\'ll have your
+To use the GCP or Azure cloud providers, you\'ll have your
 custom cloud created by the Aiven team (not via [Aiven
 Console](https://console.aiven.io/)). Therefore, after
 [enabling the BYOC feature](/docs/platform/howto/byoc/enable-byoc) in [Aiven Console](https://console.aiven.io/), there are no

@@ -2,10 +2,7 @@
 title: Get started with Aiven
 ---
 
-Aiven provides managed open source services for streaming, storing and
-analyzing data on all major clouds. The platform ensures that all
-services run reliably and securely, and can easily be integrated with
-each other and with external tools.
+Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
 
 ## Sign up
 
@@ -21,10 +18,10 @@ You can also use Aiven services through the
 
 ## What's new
 
-Check out the latest features, fixes, and improvements on the [product
+Discover the latest features, fixes, and improvements on the [product
 updates page](https://aiven.io/changelog).
 
-## Learn more about Aiven
+## Start browsing our docs
 
 import DocCardList from '@theme/DocCardList';
 

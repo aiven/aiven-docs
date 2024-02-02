@@ -13,9 +13,9 @@ migrates the existing data to it and then retire the old node.
 
 :::note
 Aiven also offer the ability to define
-[static IP addresses](/docs/platform/concepts/static-ips) in case you need them a service. For more information about
-how to obtain a static IP and assign it to a particular service, please
-check the
+[static IP addresses](/docs/platform/concepts/static-ips) if you need them in a service.
+For more information about obtaining a static IP and assigning it to a particular service,
+see the
 [related guide](/docs/platform/howto/static-ip-addresses).
 :::
 
@@ -30,7 +30,7 @@ article](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering).
 When a new service is being provisioned, its hostname is defined as
 follows:
 
-``` 
+```
 <SERVICE_NAME>-<PROJECT_NAME>.*.aivencloud.com
 ```
 
@@ -43,12 +43,12 @@ where
     DNS zones.
 
 :::note
-Second-level domain part of `aivencloud.com` might change to another
+Second-level domain part of `aivencloud.com` can change to another
 name in the future if the domain becomes unavailable for updates.
 :::
 
 :::important
-Always use a fully-qualified domain name returned by Aiven API. Make
+Always use a fully qualified domain name returned by Aiven API. Make
 sure your code doesn\'t put any constraints on the domain part or format
 of the returned service hostname.
 :::
@@ -56,6 +56,6 @@ of the returned service hostname.
 :::note
 If the `<SERVICE_NAME>` is too short or was recently used (for example,
 if you drop and recreate a service with the same name), the hostname
-format could be
+format can be
 `<SERVICE_NAME><3RANDOMLETTERS>-<PROJECT_NAME>.*.aivencloud.com`.
 :::

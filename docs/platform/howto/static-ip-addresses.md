@@ -2,19 +2,19 @@
 title: Manage static IP addresses
 ---
 
-:::note
-Each static IP address will incur a small charge
-:::
+By default an Aiven service will use public IP addresses allocated from the cloud provider's shared pool of addresses for the cloud region.
 
-By default an Aiven service will use public IP addresses allocated from
-the cloud provider's shared pool of addresses for the cloud region. As
-a result, Aiven service IP addresses cannot be predicted. This is a good
+As a result, Aiven service IP addresses cannot be predicted. This is a good
 approach for most use cases, but we do also offer static IP addresses
 should you need them. This allows you to configure a firewall rule for
 your own services.
 
 Learn more about
 [static IP addresses at Aiven](/docs/platform/concepts/static-ips).
+
+:::note
+Each static IP address will incur a small charge
+:::
 
 ## Calculate the number of IP addresses needed {#platform_howto_setup_static_ip}
 

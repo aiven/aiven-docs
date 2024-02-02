@@ -4,7 +4,7 @@ title: Integrate Google BigQuery endpoints with Aiven services
 
 Google BigQuery is a serverless, highly scalable data warehouse that can
 be used to store and analyze large amounts of data. By integrating
-Google BigQuery endpoints with Aiven services, you can easily combine
+Google BigQuery endpoints with Aiven services, you can combine
 powerful data analysis from BigQuery with the convenience of Aiven's
 managed cloud platform. You can achieve this using the [Aiven
 Console](https://console.aiven.io/) or by using the
@@ -108,12 +108,12 @@ where:
 -   `--endpoint-type`: The type of integration endpoint. For example, if
     it's an external BigQuery service, enter `external_bigquery`.
 -   `--user-config-json`: A JSON object with custom configurations for
-    the integration endpoint. The JSON object should include the
+    the integration endpoint. The JSON object includes the
     following fields:
     -   `project_id`: Your actual Google Cloud Platform project ID.
     -   `service_account_credentials`: An object that holds the
         necessary credentials for authenticating and accessing the
-        external Google BigQuery service. This object should include the
+        external Google BigQuery service. This object includes the
         following fields:
         -   `auth_provider_x509_cert_url`: The URL where the
             authentication provider's x509 certificate can be fetched.
@@ -138,14 +138,14 @@ where:
 
 1.  Retrieve the endpoint identifier using the following command:
 
-    ```
+    ```bash
     avn service integration-endpoint-list --project your-project-name
     ```
 
 2.  Using this `endpoint_id`, connect your Aiven service to the endpoint
     with the following command:
 
-    ```
+    ```bash
     avn service integration-create --project your-project-name \
     -t external_google_bigquery -s your-service-name \
     -D <ENDPOINT_ID>

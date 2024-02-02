@@ -1,9 +1,14 @@
 extends: existence
-message: "Do not use this construct, use something more specific."
+message: "This is too generic. Use something more specific."
 level: error
 ignorecase: true
 tokens:
-  - this page
-  - this article
-  - this tutorial
   - click here
+  - follow the steps
+  - if you want to
+  - this article
+  - this guide
+  - this help article
+  - this page
+  - this tutorial
+  - you can find

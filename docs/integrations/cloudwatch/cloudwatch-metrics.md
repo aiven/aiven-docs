@@ -2,9 +2,7 @@
 title: Send metrics to Amazon CloudWatch
 ---
 
-Aiven enables you to send your service metrics to your [Amazon (AWS)
-CloudWatch](https://aws.amazon.com/cloudwatch/). This article covers all
-the steps to enable this integration for your Aiven service.
+Aiven enables you to send your service metrics to your [Amazon (AWS) CloudWatch](https://aws.amazon.com/cloudwatch/).
 
 ## Prerequisites
 
@@ -15,8 +13,7 @@ the steps to enable this integration for your Aiven service.
 :::tip
 To generate your AWS credentials, visit your AWS console under the **IAM
 dashboard** then click in **Users**, open the **Security credentials**
-tab, and choose **Create access key**. Click on **Download** as you will
-need this shortly.
+tab, and choose **Create access key**. Click on **Download** and keep the file.
 :::
 
 ## Configure the integration
@@ -41,25 +38,24 @@ service and the AWS CloudWatch. This setup only needs to be done once.
 
 ## Send metrics from an Aiven service to AWS CloudWatch
 
-Follow the steps in this section for each of the services whose metrics
-should be sent to your AWS CloudWatch.
+For each of the services whose metrics should be sent to your AWS CloudWatch:
 
 1. From the **Overview** page of your service, select **Integrations**
-    and choose the **Amazon CloudWatch Metrics** option.
+   and choose the **Amazon CloudWatch Metrics** option.
 
-    ![Screenshot of system integrations including AWS CloudWatch Metrics](/images/integrations/cloudwatch-overview-integrations.png)
+   ![Screenshot of system integrations including AWS CloudWatch Metrics](/images/integrations/cloudwatch-overview-integrations.png)
 
 1. Choose the endpoint by the **Endpoint name** you created earlier
-    from the dropdown and choose **Continue**.
+   from the dropdown and choose **Continue**.
 
 1. Customize which metrics you want to send to the CloudWatch. To do
-    this, toggle a metric group or individual metric field.
+   this, toggle a metric group or individual metric field.
 
-    ![Screenshot of CloudWatch Metrics Aiven list](/images/integrations/cloudwatch-metrics-list.png)
+   ![Screenshot of CloudWatch Metrics Aiven list](/images/integrations/cloudwatch-metrics-list.png)
 
 1. Go to your AWS account and check the **CloudWatch** service. You can
-    go to the **Metrics** section to see your Aiven service metrics
-    data. It may take a few minutes until the data arrives.
+   go to the **Metrics** section to see your Aiven service metrics
+   data. It may take a few minutes until the data arrives.
 
 ## Related pages
 

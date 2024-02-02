@@ -76,7 +76,7 @@ integrations** section.
 :::
 
 Your logs should now be visible on Loggly **Search** tab. Enter the tag
-name your previously specified (e.g. `tag:your-tag` ) and it will
+name your previously specified, for example `tag:your-tag`, and it will
 populate the dashboard with the log events from the Aiven service.
 
 :::tip
