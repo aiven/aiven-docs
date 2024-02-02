@@ -39,16 +39,16 @@ GTID to be set to `on`
 
 You can use the following variables in the code samples provided:
 
- | Variable         | Description                                                                                    |
- | ---------------- | ---------------------------------------------------------------------------------------------- |
- | `SRC_HOSTNAME`   | Hostname for source MySQL connection                                                           |
- | `SRC_PORT`       | Port for source MySQL connection                                                               |
- | `SRC_USERNAME`   | Username for source MySQL connection                                                           |
- | `SRC_PASSWORD`   | Password for source MySQL connection                                                           |
- | `SRC_IGNORE_DBS` | Comma-separated list of databases to ignore in migration                                       |
- | `SRC_SSL`        | SSL setting for source MySQL connection                                                        |
- | `DEST_NAME`      | Name of the destination Aiven for MySQL service                                                |
- | `DEST_PLAN`      | Aiven plan for the destination Aiven for MySQL service  (e.g. `startup-4`, `business-32`, etc) |
+ |     Variable     |                                              Description                                               |
+ |------------------|--------------------------------------------------------------------------------------------------------|
+ | `SRC_HOSTNAME`   | Hostname for source MySQL connection                                                                   |
+ | `SRC_PORT`       | Port for source MySQL connection                                                                       |
+ | `SRC_USERNAME`   | Username for source MySQL connection                                                                   |
+ | `SRC_PASSWORD`   | Password for source MySQL connection                                                                   |
+ | `SRC_IGNORE_DBS` | Comma-separated list of databases to ignore in migration                                               |
+ | `SRC_SSL`        | SSL setting for source MySQL connection                                                                |
+ | `DEST_NAME`      | Name of the destination Aiven for MySQL service                                                        |
+ | `DEST_PLAN`      | Aiven plan for the destination Aiven for MySQL service  (for example, `startup-4`, `business-32`, etc) |
 
 ## Perform the migration
 

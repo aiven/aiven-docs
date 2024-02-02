@@ -46,7 +46,7 @@ scrape_configs:
 
 **Configuration details**:
 
--   `job_name`: Identifies the set of targets, e.g., `aivenmetrics`.
+-   `job_name`: Identifies the set of targets, for example,, `aivenmetrics`.
 
 -   `scheme`: Specifies the protocol, typically `https`.
 
@@ -64,7 +64,7 @@ scrape_configs:
 -   `http_sd_configs`: Configures HTTP Service Discovery. Includes:
 
     -   `url`: The URI for Prometheus Privatelink service access.
-    -   `refresh_interval`: The frequency of target list refresh, e.g.,
+    -   `refresh_interval`: The frequency of target list refresh, for example,,
         `120s`.
 
 :::note

@@ -30,7 +30,7 @@ If no Aiven for Apache Kafka MirrorMaker 2 are already defined,
         the list for the source Apache Kafka cluster.
     -   Select an existing Apache Kafka service you want to use as the
         source/target for the replication flow.
-    -   Provide a cluster alias name (e.g., source-Kafka) to the
+    -   Provide a cluster alias name (for example,, source-Kafka) to the
         integration of the Apache Kafka cluster.
     -   Repeat the above steps to set up the integration for the target
         Apache Kafka cluster and provide a cluster alias name.

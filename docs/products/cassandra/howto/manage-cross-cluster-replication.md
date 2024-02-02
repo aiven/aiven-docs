@@ -110,7 +110,7 @@ its CCR-replica service.
 
 ## Set up the replication factor {#set-up-replication-factor}
 
-You can specify how many replicas of your data you\'d like to have on
+You can specify how many replicas of your data you'd like to have on
 either of datacenters hosting your service. For that purpose, you need a
 keyspace with the `NetworkTopologyStrategy` replication. To create a
 keyspace that supports CCR and defines the replication factor, you need

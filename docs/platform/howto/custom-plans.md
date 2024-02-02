@@ -42,10 +42,10 @@ availability of a custom plan.
 
 For the custom plan request, please provide:
 
--   The **region** and **cloud** you would like the custom plan in (e.g.
+-   The **region** and **cloud** you would like the custom plan in (for example,
     Google cloud, `us-east1`)
--   The **service type** (e.g. \"Kafka\" or \"PostgreSQL\")
+-   The **service type** (for example, \"Kafka\" or \"PostgreSQL\")
 -   The name of the **Aiven project** you would like the custom plan
     available for
--   The custom attributes changed vs a stock plan (e.g. \"a PostgreSQL
+-   The custom attributes changed vs a stock plan (for example, \"a PostgreSQL
     `business-4` but with 900 GB of storage\")

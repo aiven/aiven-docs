@@ -2,8 +2,7 @@
 title: Send metrics to Datadog
 ---
 
-This guide will show you how to send metrics from your Aiven service to
-your Datadog account.
+Send metrics from your Aiven service to your Datadog account.
 
 ## Prepare your Datadog account
 
@@ -14,7 +13,7 @@ Before you begin, ensure that you have the following details ready:
 -   A Datadog API key. Generate an API key for your Datadog account by
     visiting the **Organization settings** in your account menu. Select
     **API Keys** and then select **New Key** to obtain the API key. Make
-    sure to copy this key, as you will need it shortly.
+    sure to copy this key.
 
 ## Configure the service integration endpoint
 
@@ -58,11 +57,12 @@ If you're using Aiven for Apache Kafka® you can also
 :::
 
 5.  Return to your Datadog dashboard and after a few minutes, you should
-    see the data start to arrive from your Aiven service(s).
+    see the data start to arrive from your Aiven services.
 
-:::note[See also]
-\- Learn more about [Datadog and Aiven](/docs/integrations/datadog). - For information on how to enable [Datadog Deep Database
-Monitoring](https://www.datadoghq.com/product/database-monitoring/) for
-specific Datadog Metrics integration, see
-[Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).
-:::
+## Related pages
+
+- Learn more about [Datadog and Aiven](/docs/integrations/datadog).
+- For information on how to enable [Datadog Deep Database
+  Monitoring](https://www.datadoghq.com/product/database-monitoring/) for
+  specific Datadog Metrics integration, see
+  [Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).

@@ -120,7 +120,7 @@ documentation](https://kafka.apache.org/documentation/#monitoring).
 
 :::note
 The metrics with a `_Count` suffix are cumulative counters for the given
-metric, e.g.
+metric, for example,
 `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`.
 
 Note that a metric like

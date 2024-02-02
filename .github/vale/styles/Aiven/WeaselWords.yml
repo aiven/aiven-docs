@@ -1,6 +1,6 @@
 extends: existence
 message: "Do not judge complexity."
-ignorecase: false
+ignorecase: true
 level: error
 tokens:
   - easily

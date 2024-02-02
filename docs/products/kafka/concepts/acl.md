@@ -70,7 +70,7 @@ create the admin user with wildcard permissions.
 
 You can define four types of permission for a particular topic or topic
 pattern. Note each permission is called differently in the Console when
-creating them (e.g. Consume) and in the ACL entries list:
+creating them (for example, Consume) and in the ACL entries list:
 
 -   Admin / `admin`
 -   Consume and Produce / `readwrite`

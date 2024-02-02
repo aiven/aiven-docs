@@ -52,7 +52,7 @@ Apache Kafka.
 ## Update a service parameter with the Aiven CLI
 
 To modify a service parameter use the
-[Aiven CLI service update command](/docs/tools/cli/service-cli#avn-cli-service-update). E.g. to modify the `message.max.bytes` parameter use the
+[Aiven CLI service update command](/docs/tools/cli/service-cli#avn-cli-service-update). for example, to modify the `message.max.bytes` parameter use the
 following command:
 
 ```

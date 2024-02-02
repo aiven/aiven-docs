@@ -113,7 +113,7 @@ of your ticket, add `#escalate` in the comments.
 
 ## Add participants to a support ticket
 
-If you want to give every organization user access to all support
+To give every organization user access to all support
 tickets in your organization contact your account team.
 
 To add Aiven users to a support ticket:

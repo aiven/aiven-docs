@@ -9,7 +9,7 @@ step by step.
 
 :::important
 Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services). To use this feature, contact our sales team at
+[early availability feature](/docs/platform/concepts/beta_services). To use this feature,contact our sales team at
 [sales@aiven.io](mailto:sales@aiven.io) to activate tiered storage for your account.
 
 After
@@ -28,7 +28,7 @@ For further details, see [Enable tiered storage for Aiven for Apache Kafka](/doc
 1.  Access [Aiven console](https://console.aiven.io/), select your
     project, and select your Aiven for Apache Kafka service.
 1.  From the left sidebar, select **Topics**.
-1.  Here, you have the option to either add a new topic with tiered
+1.  You have the option to either add a new topic with tiered
     storage configuration or modify an existing topic to use tiered
     storage.
 

@@ -28,7 +28,7 @@ configuration files.
 A bastion service and the corresponding EC2 instance are deleted as a
 consequence of your custom cloud's removal. As for resources created
 when applying the Terraform template to create the custom cloud, they
-are not removed after deleting your custom cloud.Unless you\'ve removed
+are not removed after deleting your custom cloud. Unless you've removed
 them earlier, you're advised to do that if deleting your cloud.
 
 ## Prerequisites

@@ -235,7 +235,7 @@ follow and go straight to
     ``` bash
     max_replication_slots
     -----------
-    <number of slots, e.g. 8>
+    <number of slots, for example, 8>
     (1 row)
     ```
 

@@ -78,7 +78,7 @@ owner directly.
 
 ## Requesting new connectors
 
-If you know about new and interesting connectors you\'d like us to
+If you know about new and interesting connectors you'd like us to
 support, please open a support request about it to help us shaping the
 future roadmap. You can request adding support of a new connector by
 creating a support ticket. We will evaluate the requested connector and
@@ -93,7 +93,7 @@ Aiven evaluation process for new Apache Kafka Connect connectors checks:
 :::tip
 When requesting connectors that are not on the pre-approved list through
 a support ticket, specify the target Aiven for Apache Kafka service
-you\'d like to have it installed to.
+you'd like to have it installed to.
 :::
 
 ------------------------------------------------------------------------

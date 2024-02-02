@@ -237,7 +237,7 @@ To create the publication in PostgreSQL:
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
--   Create a publication (with name e.g. `my_test_publication`) for all
+-   Create a publication (with name for example, `my_test_publication`) for all
     the tables:
 
     ```
@@ -248,6 +248,6 @@ To create the publication in PostgreSQL:
     );
     ```
 
--   Make sure to use the correct publication name (e.g.
+-   Make sure to use the correct publication name (for example,
     `my_test_publication`) in the connector definition and restart the
     connector
