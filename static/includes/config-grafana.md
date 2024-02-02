@@ -1,624 +1,700 @@
-# `custom_domain`
+## additional_backup_regions
 
-*\['string\', \'null\'\]*
+**Title:** Additional Cloud Regions for Backup Replication
 
-**Custom domain** Serve the web frontend using a custom CNAME pointing
-to the Aiven DNS name
 
-# `ip_filter`
+**Type:** `array`
 
-*array*
+## custom_domain
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Title:** Custom domain
 
-# `service_log`
+**Description:** Serve the web frontend using a custom CNAME pointing to the Aiven DNS name
 
-*\[\'boolean\', \'null\'\]*
+**Type:** `string,null`
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+## ip_filter
 
-# `static_ips`
+**Title:** IP filter
 
-*boolean*
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-**Static IP addresses** Use static public IP addresses
+**Type:** `array`
 
-# `external_image_storage`
+## service_log
 
-*object*
+**Title:** Service logging
 
-**External image store settings**
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-## `provider`
+**Type:** `boolean,null`
 
-*string*
+## static_ips
 
-**Provider type**
+**Title:** Static IP addresses
 
-## `bucket_url`
+**Description:** Use static public IP addresses
 
-*string*
+**Type:** `boolean`
 
-**Bucket URL for S3**
+## external_image_storage
 
-## `access_key`
+**Title:** External image store settings
 
-*string*
 
-**S3 access key. Requires permissions to the S3 bucket for the
-s3:PutObject and s3:PutObjectAcl actions**
+**Type:** `object`
 
-## `secret_key`
+### provider
 
-*string*
+**Title:** Provider type
 
-**S3 secret key**
 
-# `smtp_server`
+**Type:** `string`
 
-*object*
+### bucket_url
 
-**SMTP server settings**
+**Title:** Bucket URL for S3
 
-## `host`
 
-*string*
+**Type:** `string`
 
-**Server hostname or IP**
+### access_key
 
-## `port`
+**Title:** S3 access key. Requires permissions to the S3 bucket for the s3:PutObject and s3:PutObjectAcl actions
 
-*integer*
 
-**SMTP server port**
+**Type:** `string`
 
-## `skip_verify`
+### secret_key
 
-*boolean*
+**Title:** S3 secret key
 
-**Skip verifying server certificate. Defaults to false**
 
-## `username`
+**Type:** `string`
 
-*\['string\', \'null\'\]*
+## smtp_server
 
-**Username for SMTP authentication**
+**Title:** SMTP server settings
 
-## `password`
 
-*\['string\', \'null\'\]*
+**Type:** `object`
 
-**Password for SMTP authentication**
+### host
 
-## `from_address`
+**Title:** Server hostname or IP
 
-*string*
 
-**Address used for sending emails**
+**Type:** `string`
 
-## `from_name`
+### port
 
-*\['string\', \'null\'\]*
+**Title:** SMTP server port
 
-**Name used in outgoing emails, defaults to Grafana**
 
-## `starttls_policy`
+**Type:** `integer`
 
-*string*
+### skip_verify
 
-**Either OpportunisticStartTLS, MandatoryStartTLS or NoStartTLS. Default
-is OpportunisticStartTLS.**
+**Title:** Skip verifying server certificate. Defaults to false
 
-# `auth_basic_enabled`
 
-*boolean*
+**Type:** `boolean`
 
-**Enable or disable basic authentication form, used by Grafana built-in
-login**
+### username
 
-# `oauth_allow_insecure_email_lookup`
+**Title:** Username for SMTP authentication
 
-*boolean*
 
-**Enforce user lookup based on email instead of the unique ID provided
-by the IdP**
+**Type:** `string,null`
 
-# `auth_generic_oauth`
+### password
 
-*object*
+**Title:** Password for SMTP authentication
 
-**Generic OAuth integration**
 
-## `allow_sign_up`
+**Type:** `string,null`
 
-*boolean*
+### from_address
 
-**Automatically sign-up users on successful sign-in**
+**Title:** Address used for sending emails
 
-## `allowed_domains`
 
-*array*
+**Type:** `string`
 
-**Allowed domains**
+### from_name
 
-## `allowed_organizations`
+**Title:** Name used in outgoing emails, defaults to Grafana
 
-*array*
 
-**Require user to be member of one of the listed organizations**
+**Type:** `string,null`
 
-## `api_url`
+### starttls_policy
 
-*string*
+**Title:** Either OpportunisticStartTLS, MandatoryStartTLS or NoStartTLS. Default is OpportunisticStartTLS.
 
-**API URL**
 
-## `auth_url`
+**Type:** `string`
 
-*string*
+## auth_basic_enabled
 
-**Authorization URL**
+**Title:** Enable or disable basic authentication form, used by Grafana built-in login
 
-## `auto_login`
 
-*boolean*
+**Type:** `boolean`
 
-**Allow users to bypass the login screen and automatically log in**
+## oauth_allow_insecure_email_lookup
 
-## `client_id`
+**Title:** Enforce user lookup based on email instead of the unique ID provided by the IdP
 
-*string*
 
-**Client ID from provider**
+**Type:** `boolean`
 
-## `client_secret`
+## auth_generic_oauth
 
-*string*
+**Title:** Generic OAuth integration
 
-**Client secret from provider**
 
-## `name`
+**Type:** `object`
 
-*string*
+### allow_sign_up
 
-**Name of the OAuth integration**
+**Title:** Automatically sign-up users on successful sign-in
 
-## `scopes`
 
-*array*
+**Type:** `boolean`
 
-**OAuth scopes**
+### allowed_domains
 
-## `token_url`
+**Title:** Allowed domains
 
-*string*
 
-**Token URL**
+**Type:** `array`
 
-# `auth_google`
+### allowed_organizations
 
-*object*
+**Title:** Require user to be member of one of the listed organizations
 
-**Google Auth integration**
 
-## `allow_sign_up`
+**Type:** `array`
 
-*boolean*
+### api_url
 
-**Automatically sign-up users on successful sign-in**
+**Title:** API URL
 
-## `client_id`
 
-*string*
+**Type:** `string`
 
-**Client ID from provider**
+### auth_url
 
-## `client_secret`
+**Title:** Authorization URL
 
-*string*
 
-**Client secret from provider**
+**Type:** `string`
 
-## `allowed_domains`
+### auto_login
 
-*array*
+**Title:** Allow users to bypass the login screen and automatically log in
 
-**Domains allowed to sign-in to this Grafana**
 
-# `auth_github`
+**Type:** `boolean`
 
-*object*
+### client_id
 
-**Github Auth integration**
+**Title:** Client ID from provider
 
-## `allow_sign_up`
 
-*boolean*
+**Type:** `string`
 
-**Automatically sign-up users on successful sign-in**
+### client_secret
 
-## `auto_login`
+**Title:** Client secret from provider
 
-*boolean*
 
-**Allow users to bypass the login screen and automatically log in**
+**Type:** `string`
 
-## `client_id`
+### name
 
-*string*
+**Title:** Name of the OAuth integration
 
-**Client ID from provider**
 
-## `client_secret`
+**Type:** `string`
 
-*string*
+### scopes
 
-**Client secret from provider**
+**Title:** OAuth scopes
 
-## `team_ids`
 
-*array*
+**Type:** `array`
 
-**Require users to belong to one of given team IDs**
+### token_url
 
-## `allowed_organizations`
+**Title:** Token URL
 
-*array*
 
-**Require users to belong to one of given organizations**
+**Type:** `string`
 
-## `skip_org_role_sync`
+## auth_google
 
-*boolean*
+**Title:** Google Auth integration
 
-**Stop automatically syncing user roles**
 
-# `auth_gitlab`
+**Type:** `object`
 
-*object*
+### allow_sign_up
 
-**GitLab Auth integration**
+**Title:** Automatically sign-up users on successful sign-in
 
-## `allow_sign_up`
 
-*boolean*
+**Type:** `boolean`
 
-**Automatically sign-up users on successful sign-in**
+### client_id
 
-## `api_url`
+**Title:** Client ID from provider
 
-*string*
 
-**API URL. This only needs to be set when using self hosted GitLab**
+**Type:** `string`
 
-## `auth_url`
+### client_secret
 
-*string*
+**Title:** Client secret from provider
 
-**Authorization URL. This only needs to be set when using self hosted
-GitLab**
 
-## `client_id`
+**Type:** `string`
 
-*string*
+### allowed_domains
 
-**Client ID from provider**
+**Title:** Domains allowed to sign-in to this Grafana
 
-## `client_secret`
 
-*string*
+**Type:** `array`
 
-**Client secret from provider**
+## auth_github
 
-## `allowed_groups`
+**Title:** Github Auth integration
 
-*array*
 
-**Require users to belong to one of given groups**
+**Type:** `object`
 
-## `token_url`
+### allow_sign_up
 
-*string*
+**Title:** Automatically sign-up users on successful sign-in
 
-**Token URL. This only needs to be set when using self hosted GitLab**
 
-# `auth_azuread`
+**Type:** `boolean`
 
-*object*
+### auto_login
 
-**Azure AD OAuth integration**
+**Title:** Allow users to bypass the login screen and automatically log in
 
-## `allow_sign_up`
 
-*boolean*
+**Type:** `boolean`
 
-**Automatically sign-up users on successful sign-in**
+### client_id
 
-## `client_id`
+**Title:** Client ID from provider
 
-*string*
 
-**Client ID from provider**
+**Type:** `string`
 
-## `client_secret`
+### client_secret
 
-*string*
+**Title:** Client secret from provider
 
-**Client secret from provider**
 
-## `auth_url`
+**Type:** `string`
 
-*string*
+### team_ids
 
-**Authorization URL**
+**Title:** Require users to belong to one of given team IDs
 
-## `token_url`
 
-*string*
+**Type:** `array`
 
-**Token URL**
+### allowed_organizations
 
-## `allowed_groups`
+**Title:** Require users to belong to one of given organizations
 
-*array*
 
-**Require users to belong to one of given groups**
+**Type:** `array`
 
-## `allowed_domains`
+### skip_org_role_sync
 
-*array*
+**Title:** Stop automatically syncing user roles
 
-**Allowed domains**
 
-# `private_access`
+**Type:** `boolean`
 
-*object*
+## auth_gitlab
 
-**Allow access to selected service ports from private networks**
+**Title:** GitLab Auth integration
 
-## `grafana`
 
-*boolean*
+**Type:** `object`
 
-**Allow clients to connect to grafana with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+### allow_sign_up
 
-# `privatelink_access`
+**Title:** Automatically sign-up users on successful sign-in
 
-*object*
 
-**Allow access to selected service components through Privatelink**
+**Type:** `boolean`
 
-## `grafana`
+### api_url
 
-*boolean*
+**Title:** API URL. This only needs to be set when using self hosted GitLab
 
-**Enable grafana**
 
-# `public_access`
+**Type:** `string`
 
-*object*
+### auth_url
 
-**Allow access to selected service ports from the public Internet**
+**Title:** Authorization URL. This only needs to be set when using self hosted GitLab
 
-## `grafana`
 
-*boolean*
+**Type:** `string`
 
-**Allow clients to connect to grafana from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+### client_id
 
-# `recovery_basebackup_name`
+**Title:** Client ID from provider
 
-*string*
 
-**Name of the basebackup to restore in forked service**
+**Type:** `string`
 
-# `service_to_fork_from`
+### client_secret
 
-*\['string\', \'null\'\]*
+**Title:** Client secret from provider
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
 
-# `project_to_fork_from`
+**Type:** `string`
 
-*\['string\', \'null\'\]*
+### allowed_groups
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+**Title:** Require users to belong to one of given groups
 
-# `user_auto_assign_org`
 
-*boolean*
+**Type:** `array`
 
-**Auto-assign new users on signup to main organization. Defaults to
-false**
+### token_url
 
-# `user_auto_assign_org_role`
+**Title:** Token URL. This only needs to be set when using self hosted GitLab
 
-*string*
 
-**Set role for new signups. Defaults to Viewer**
+**Type:** `string`
 
-# `google_analytics_ua_id`
+## auth_azuread
 
-*string*
+**Title:** Azure AD OAuth integration
 
-**Google Analytics ID**
 
-# `metrics_enabled`
+**Type:** `object`
 
-*boolean*
+### allow_sign_up
 
-**Enable Grafana /metrics endpoint**
+**Title:** Automatically sign-up users on successful sign-in
 
-# `cookie_samesite`
 
-*string*
+**Type:** `boolean`
 
-**Cookie SameSite attribute: 'strict\' prevents sending cookie for
-cross-site requests, effectively disabling direct linking from other
-sites to Grafana. \'lax\' is the default value.**
+### client_id
 
-# `alerting_error_or_timeout`
+**Title:** Client ID from provider
 
-*string*
 
-**Default error or timeout setting for new alerting rules**
+**Type:** `string`
 
-# `alerting_nodata_or_nullvalues`
+### client_secret
 
-*string*
+**Title:** Client secret from provider
 
-**Default value for \'no data or null values\' for new alerting rules**
 
-# `alerting_enabled`
+**Type:** `string`
 
-*boolean*
+### auth_url
 
-**Enable or disable Grafana legacy alerting functionality. This should
-not be enabled with unified_alerting_enabled.**
+**Title:** Authorization URL
 
-# `alerting_max_annotations_to_keep`
 
-*integer*
+**Type:** `string`
 
-**Max number of alert annotations that Grafana stores. 0 (default) keeps
-all alert annotations.**
+### token_url
 
-# `dashboards_min_refresh_interval`
+**Title:** Token URL
 
-*string*
 
-**Minimum refresh interval** Signed sequence of decimal numbers,
-followed by a unit suffix (ms, s, m, h, d), e.g. 30s, 1h
+**Type:** `string`
 
-# `dashboards_versions_to_keep`
+### allowed_groups
 
-*integer*
+**Title:** Require users to belong to one of given groups
 
-**Dashboard versions to keep per dashboard**
 
-# `dataproxy_timeout`
+**Type:** `array`
 
-*integer*
+### allowed_domains
 
-**Timeout for data proxy requests in seconds**
+**Title:** Allowed domains
 
-# `dataproxy_send_user_header`
 
-*boolean*
+**Type:** `array`
 
-**Send \'X-Grafana-User\' header to data source**
+## private_access
 
-# `dashboard_previews_enabled`
+**Title:** Allow access to selected service ports from private networks
 
-*boolean*
 
-**Enable browsing of dashboards in grid (pictures) mode** This feature
-is new in Grafana 9 and is quite resource intensive. It may cause
-low-end plans to work more slowly while the dashboard previews are
-rendering.
+**Type:** `object`
 
-# `viewers_can_edit`
+### grafana
 
-*boolean*
+**Title:** Allow clients to connect to grafana with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-**Users with view-only permission can edit but not save dashboards**
 
-# `editors_can_admin`
+**Type:** `boolean`
 
-*boolean*
+## privatelink_access
 
-**Editors can manage folders, teams and dashboards created by them**
+**Title:** Allow access to selected service components through Privatelink
 
-# `disable_gravatar`
 
-*boolean*
+**Type:** `object`
 
-**Set to true to disable gravatar. Defaults to false (gravatar is
-enabled)**
+### grafana
 
-# `allow_embedding`
+**Title:** Enable grafana
 
-*boolean*
 
-**Allow embedding Grafana dashboards with iframe/frame/object/embed
-tags. Disabled by default to limit impact of clickjacking**
+**Type:** `boolean`
 
-# `date_formats`
+## public_access
 
-*object*
+**Title:** Allow access to selected service ports from the public Internet
 
-**Grafana date format specifications**
 
-## `full_date`
+**Type:** `object`
 
-*string*
+### grafana
 
-**Moment.js style format string for cases where full date is shown**
+**Title:** Allow clients to connect to grafana from the public internet for service nodes that are in a project VPC or another type of private network
 
-## `interval_second`
 
-*string*
+**Type:** `boolean`
 
-**Moment.js style format string used when a time requiring second
-accuracy is shown**
+## recovery_basebackup_name
 
-## `interval_minute`
+**Title:** Name of the basebackup to restore in forked service
 
-*string*
 
-**Moment.js style format string used when a time requiring minute
-accuracy is shown**
+**Type:** `string`
 
-## `interval_hour`
+## service_to_fork_from
 
-*string*
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
 
-**Moment.js style format string used when a time requiring hour accuracy
-is shown**
 
-## `interval_day`
+**Type:** `string,null`
 
-*string*
+## project_to_fork_from
 
-**Moment.js style format string used when a time requiring day accuracy
-is shown**
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
 
-## `interval_month`
 
-*string*
+**Type:** `string,null`
 
-**Moment.js style format string used when a time requiring month
-accuracy is shown**
+## user_auto_assign_org
 
-## `interval_year`
+**Title:** Auto-assign new users on signup to main organization. Defaults to false
 
-*string*
 
-**Moment.js style format string used when a time requiring year accuracy
-is shown**
+**Type:** `boolean`
 
-## `default_timezone`
+## user_auto_assign_org_role
 
-*string*
+**Title:** Set role for new signups. Defaults to Viewer
 
-**Default time zone for user preferences. Value \'browser\' uses browser
-local time zone.**
 
-# `unified_alerting_enabled`
+**Type:** `string`
 
-*boolean*
+## google_analytics_ua_id
 
-**Enable or disable Grafana unified alerting functionality. By default
-this is enabled and any legacy alerts will be migrated on upgrade to
-Grafana 9+. To stay on legacy alerting, set unified_alerting_enabled to
-false and alerting_enabled to true. See
-https://grafana.com/docs/grafana/latest/alerting/set-up/migrating-alerts/
-for more details.**
+**Title:** Google Analytics ID
+
+
+**Type:** `string`
+
+## metrics_enabled
+
+**Title:** Enable Grafana /metrics endpoint
+
+
+**Type:** `boolean`
+
+## cookie_samesite
+
+**Title:** Cookie SameSite attribute: 'strict' prevents sending cookie for cross-site requests, effectively disabling direct linking from other sites to Grafana. 'lax' is the default value.
+
+
+**Type:** `string`
+
+## alerting_error_or_timeout
+
+**Title:** Default error or timeout setting for new alerting rules
+
+
+**Type:** `string`
+
+## alerting_nodata_or_nullvalues
+
+**Title:** Default value for 'no data or null values' for new alerting rules
+
+
+**Type:** `string`
+
+## alerting_enabled
+
+**Title:** Enable or disable Grafana legacy alerting functionality. This should not be enabled with unified_alerting_enabled.
+
+
+**Type:** `boolean`
+
+## alerting_max_annotations_to_keep
+
+**Title:** Max number of alert annotations that Grafana stores. 0 (default) keeps all alert annotations.
+
+
+**Type:** `integer`
+
+## dashboards_min_refresh_interval
+
+**Title:** Minimum refresh interval
+
+**Description:** Signed sequence of decimal numbers, followed by a unit suffix (ms, s, m, h, d), e.g. 30s, 1h
+
+**Type:** `string`
+
+## dashboards_versions_to_keep
+
+**Title:** Dashboard versions to keep per dashboard
+
+
+**Type:** `integer`
+
+## dataproxy_timeout
+
+**Title:** Timeout for data proxy requests in seconds
+
+
+**Type:** `integer`
+
+## dataproxy_send_user_header
+
+**Title:** Send 'X-Grafana-User' header to data source
+
+
+**Type:** `boolean`
+
+## dashboard_previews_enabled
+
+**Title:** Enable browsing of dashboards in grid (pictures) mode
+
+**Description:** This feature is new in Grafana 9 and is quite resource intensive. It may cause low-end plans to work more slowly while the dashboard previews are rendering.
+
+**Type:** `boolean`
+
+## viewers_can_edit
+
+**Title:** Users with view-only permission can edit but not save dashboards
+
+
+**Type:** `boolean`
+
+## editors_can_admin
+
+**Title:** Editors can manage folders, teams and dashboards created by them
+
+
+**Type:** `boolean`
+
+## disable_gravatar
+
+**Title:** Set to true to disable gravatar. Defaults to false (gravatar is enabled)
+
+
+**Type:** `boolean`
+
+## allow_embedding
+
+**Title:** Allow embedding Grafana dashboards with iframe/frame/object/embed tags. Disabled by default to limit impact of clickjacking
+
+
+**Type:** `boolean`
+
+## date_formats
+
+**Title:** Grafana date format specifications
+
+
+**Type:** `object`
+
+### full_date
+
+**Title:** Moment.js style format string for cases where full date is shown
+
+
+**Type:** `string`
+
+### interval_second
+
+**Title:** Moment.js style format string used when a time requiring second accuracy is shown
+
+
+**Type:** `string`
+
+### interval_minute
+
+**Title:** Moment.js style format string used when a time requiring minute accuracy is shown
+
+
+**Type:** `string`
+
+### interval_hour
+
+**Title:** Moment.js style format string used when a time requiring hour accuracy is shown
+
+
+**Type:** `string`
+
+### interval_day
+
+**Title:** Moment.js style format string used when a time requiring day accuracy is shown
+
+
+**Type:** `string`
+
+### interval_month
+
+**Title:** Moment.js style format string used when a time requiring month accuracy is shown
+
+
+**Type:** `string`
+
+### interval_year
+
+**Title:** Moment.js style format string used when a time requiring year accuracy is shown
+
+
+**Type:** `string`
+
+### default_timezone
+
+**Title:** Default time zone for user preferences. Value 'browser' uses browser local time zone.
+
+
+**Type:** `string`
+
+## unified_alerting_enabled
+
+**Title:** Enable or disable Grafana unified alerting functionality. By default this is enabled and any legacy alerts will be migrated on upgrade to Grafana 9+. To stay on legacy alerting, set unified_alerting_enabled to false and alerting_enabled to true. See https://grafana.com/docs/grafana/latest/alerting/set-up/migrating-alerts/ for more details.
+
+
+**Type:** `boolean`
+
+    

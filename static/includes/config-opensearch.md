@@ -1,711 +1,734 @@
-# `opensearch_version`
+## additional_backup_regions
 
-*\['string\', \'null\'\]*
+**Title:** Additional Cloud Regions for Backup Replication
 
-**OpenSearch major version**
 
-# `disable_replication_factor_adjustment`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## opensearch_version
 
-**Disable replication factor adjustment** DEPRECATED: Disable automatic
-replication factor adjustment for multi-node services. By default, Aiven
-ensures all indexes are replicated at least to two nodes. Note: Due to
-potential data loss in case of losing a service node, this setting can
-no longer be activated.
+**Title:** OpenSearch major version
 
-# `custom_domain`
 
-*\['string\', \'null\'\]*
+**Type:** `string,null`
 
-**Custom domain** Serve the web frontend using a custom CNAME pointing
-to the Aiven DNS name
+## disable_replication_factor_adjustment
 
-# `ip_filter`
+**Title:** Disable replication factor adjustment
 
-*array*
+**Description:** DEPRECATED: Disable automatic replication factor adjustment for multi-node services. By default, Aiven ensures all indexes are replicated at least to two nodes. Note: Due to potential data loss in case of losing a service node, this setting can no longer be activated.
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Type:** `boolean,null`
 
-# `service_log`
+## custom_domain
 
-*\[\'boolean\', \'null\'\]*
+**Title:** Custom domain
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Description:** Serve the web frontend using a custom CNAME pointing to the Aiven DNS name
 
-# `static_ips`
+**Type:** `string,null`
 
-*boolean*
+## ip_filter
 
-**Static IP addresses** Use static public IP addresses
+**Title:** IP filter
 
-# `saml`
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-*object*
+**Type:** `array`
 
-**OpenSearch SAML configuration**
+## service_log
 
-## `enabled`
+**Title:** Service logging
 
-*boolean*
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-**Enable or disable OpenSearch SAML authentication** Enables or disables
-SAML-based authentication for OpenSearch. When enabled, users can
-authenticate using SAML with an Identity Provider.
+**Type:** `boolean,null`
 
-## `idp_metadata_url`
+## static_ips
 
-*string*
+**Title:** Static IP addresses
 
-**Identity Provider (IdP) SAML metadata URL** The URL of the SAML
-metadata for the Identity Provider (IdP). This is used to configure
-SAML-based authentication with the IdP.
+**Description:** Use static public IP addresses
 
-## `idp_entity_id`
+**Type:** `boolean`
 
-*string*
+## saml
 
-**Identity Provider Entity ID** The unique identifier for the Identity
-Provider (IdP) entity that is used for SAML authentication. This value
-is typically provided by the IdP.
+**Title:** OpenSearch SAML configuration
 
-## `sp_entity_id`
 
-*string*
+**Type:** `object`
 
-**Service Provider Entity ID** The unique identifier for the Service
-Provider (SP) entity that is used for SAML authentication. This value is
-typically provided by the SP.
+### enabled
 
-## `subject_key`
+**Title:** Enable or disable OpenSearch SAML authentication
 
-*\['string\', \'null\'\]*
+**Description:** Enables or disables SAML-based authentication for OpenSearch. When enabled, users can authenticate using SAML with an Identity Provider.
 
-**SAML response subject attribute** Optional. Specifies the attribute in
-the SAML response where the subject identifier is stored. If not
-configured, the NameID attribute is used by default.
+**Type:** `boolean`
 
-## `roles_key`
+### idp_metadata_url
 
-*\['string\', \'null\'\]*
+**Title:** Identity Provider (IdP) SAML metadata URL
 
-**SAML response role attribute** Optional. Specifies the attribute in
-the SAML response where role information is stored, if available. Role
-attributes are not required for SAML authentication, but can be included
-in SAML assertions by most Identity Providers (IdPs) to determine user
-access levels or permissions.
+**Description:** The URL of the SAML metadata for the Identity Provider (IdP). This is used to configure SAML-based authentication with the IdP.
 
-## `idp_pemtrustedcas_content`
+**Type:** `string`
 
-*\['string\', \'null\'\]*
+### idp_entity_id
 
-**PEM-encoded root CA Content for SAML IdP server verification** This
-parameter specifies the PEM-encoded root certificate authority (CA)
-content for the SAML identity provider (IdP) server verification. The
-root CA content is used to verify the SSL/TLS certificate presented by
-the server.
+**Title:** Identity Provider Entity ID
 
-# `openid`
+**Description:** The unique identifier for the Identity Provider (IdP) entity that is used for SAML authentication. This value is typically provided by the IdP.
 
-*object*
+**Type:** `string`
 
-**OpenSearch OpenID Connect Configuration**
+### sp_entity_id
 
-## `enabled`
+**Title:** Service Provider Entity ID
 
-*boolean*
+**Description:** The unique identifier for the Service Provider (SP) entity that is used for SAML authentication. This value is typically provided by the SP.
 
-**Enable or disable OpenSearch OpenID Connect authentication** Enables
-or disables OpenID Connect authentication for OpenSearch. When enabled,
-users can authenticate using OpenID Connect with an Identity Provider.
+**Type:** `string`
 
-## `connect_url`
+### subject_key
 
-*string*
+**Title:** SAML response subject attribute
 
-**OpenID Connect metadata/configuration URL** The URL of your IdP where
-the Security plugin can find the OpenID Connect metadata/configuration
-settings.
+**Description:** Optional. Specifies the attribute in the SAML response where the subject identifier is stored. If not configured, the NameID attribute is used by default.
 
-## `roles_key`
+**Type:** `string,null`
 
-*\['string\', \'null\'\]*
+### roles_key
 
-**The key in the JSON payload that stores the user's roles** The key in
-the JSON payload that stores the user's roles. The value of this key
-must be a comma-separated list of roles. Required only if you want to
-use roles in the JWT
+**Title:** SAML response role attribute
 
-## `subject_key`
+**Description:** Optional. Specifies the attribute in the SAML response where role information is stored, if available. Role attributes are not required for SAML authentication, but can be included in SAML assertions by most Identity Providers (IdPs) to determine user access levels or permissions.
 
-*\['string\', \'null\'\]*
+**Type:** `string,null`
 
-**The key in the JSON payload that stores the user's name** The key in
-the JSON payload that stores the user's name. If not defined, the
-subject registered claim is used. Most IdP providers use the
-preferred_username claim. Optional.
+### idp_pemtrustedcas_content
 
-## `jwt_header`
+**Title:** PEM-encoded root CA Content for SAML IdP server verification
 
-*\['string\', \'null\'\]*
+**Description:** This parameter specifies the PEM-encoded root certificate authority (CA) content for the SAML identity provider (IdP) server verification. The root CA content is used to verify the SSL/TLS certificate presented by the server.
 
-**The HTTP header that stores the token** The HTTP header that stores
-the token. Typically the Authorization header with the Bearer schema:
-Authorization: Bearer \<token\>. Optional. Default is Authorization.
+**Type:** `string,null`
 
-## `jwt_url_parameter`
+## openid
 
-*\['string\', \'null\'\]*
+**Title:** OpenSearch OpenID Connect Configuration
 
-**URL JWT token.** If the token is not transmitted in the HTTP header,
-but as an URL parameter, define the name of the parameter here.
-Optional.
 
-## `refresh_rate_limit_count`
+**Type:** `object`
 
-*\[\'integer\', \'null\'\]*
+### enabled
 
-**The maximum number of unknown key IDs in the time frame** The maximum
-number of unknown key IDs in the time frame. Default is 10. Optional.
+**Title:** Enable or disable OpenSearch OpenID Connect authentication
 
-## `refresh_rate_limit_time_window_ms`
+**Description:** Enables or disables OpenID Connect authentication for OpenSearch. When enabled, users can authenticate using OpenID Connect with an Identity Provider.
 
-*\[\'integer\', \'null\'\]*
+**Type:** `boolean`
 
-**The time frame to use when checking the maximum number of unknown key
-IDs, in milliseconds** The time frame to use when checking the maximum
-number of unknown key IDs, in milliseconds. Optional.Default is 10000
-(10 seconds).
+### connect_url
 
-## `client_id`
+**Title:** OpenID Connect metadata/configuration URL
 
-*string*
+**Description:** The URL of your IdP where the Security plugin can find the OpenID Connect metadata/configuration settings.
 
-**The ID of the OpenID Connect client** The ID of the OpenID Connect
-client configured in your IdP. Required.
+**Type:** `string`
 
-## `client_secret`
+### roles_key
 
-*string*
+**Title:** The key in the JSON payload that stores the user’s roles
 
-**The client secret of the OpenID Connect** The client secret of the
-OpenID Connect client configured in your IdP. Required.
+**Description:** The key in the JSON payload that stores the user’s roles. The value of this key must be a comma-separated list of roles. Required only if you want to use roles in the JWT
 
-## `scope`
+**Type:** `string,null`
 
-*string*
+### subject_key
 
-**The scope of the identity token issued by the IdP** The scope of the
-identity token issued by the IdP. Optional. Default is openid profile
-email address phone.
+**Title:** The key in the JSON payload that stores the user’s name
 
-## `header`
+**Description:** The key in the JSON payload that stores the user’s name. If not defined, the subject registered claim is used. Most IdP providers use the preferred_username claim. Optional.
 
-*string*
+**Type:** `string,null`
 
-**HTTP header name of the JWT token** HTTP header name of the JWT token.
-Optional. Default is Authorization.
+### jwt_header
 
-# `index_patterns`
+**Title:** The HTTP header that stores the token
 
-*array*
+**Description:** The HTTP header that stores the token. Typically the Authorization header with the Bearer schema: Authorization: Bearer &lt;token&gt;. Optional. Default is Authorization.
 
-**Index patterns**
+**Type:** `string,null`
 
-# `max_index_count`
+### jwt_url_parameter
 
-*integer*
+**Title:** URL JWT token.
 
-**Maximum index count** DEPRECATED: use index_patterns instead
+**Description:** If the token is not transmitted in the HTTP header, but as an URL parameter, define the name of the parameter here. Optional.
 
-# `keep_index_refresh_interval`
+**Type:** `string,null`
 
-*boolean*
+### refresh_rate_limit_count
 
-**Don\'t reset index.refresh_interval to the default value** Aiven
-automation resets index.refresh_interval to default value for every
-index to be sure that indices are always visible to search. If it
-doesn\'t fit your case, you can disable this by setting up this flag to
-true.
+**Title:** The maximum number of unknown key IDs in the time frame
 
-# `opensearch_dashboards`
+**Description:** The maximum number of unknown key IDs in the time frame. Default is 10. Optional.
 
-*object*
+**Type:** `integer,null`
 
-**OpenSearch Dashboards settings**
+### refresh_rate_limit_time_window_ms
 
-## `enabled`
+**Title:** The time frame to use when checking the maximum number of unknown key IDs, in milliseconds
 
-*boolean*
+**Description:** The time frame to use when checking the maximum number of unknown key IDs, in milliseconds. Optional.Default is 10000 (10 seconds).
 
-**Enable or disable OpenSearch Dashboards**
+**Type:** `integer,null`
 
-## `max_old_space_size`
+### client_id
 
-*integer*
+**Title:** The ID of the OpenID Connect client
 
-**max_old_space_size** Limits the maximum amount of memory (in MiB) the
-OpenSearch Dashboards process can use. This sets the max_old_space_size
-option of the nodejs running the OpenSearch Dashboards. Note: the memory
-reserved by OpenSearch Dashboards is not available for OpenSearch.
+**Description:** The ID of the OpenID Connect client configured in your IdP. Required.
 
-## `opensearch_request_timeout`
+**Type:** `string`
 
-*integer*
+### client_secret
 
-**Timeout in milliseconds for requests made by OpenSearch Dashboards
-towards OpenSearch**
+**Title:** The client secret of the OpenID Connect
 
-# `opensearch`
+**Description:** The client secret of the OpenID Connect client configured in your IdP. Required.
 
-*object*
+**Type:** `string`
 
-**OpenSearch settings**
+### scope
 
-## `reindex_remote_whitelist`
+**Title:** The scope of the identity token issued by the IdP
 
-*\[\'array\', \'null\'\]*
+**Description:** The scope of the identity token issued by the IdP. Optional. Default is openid profile email address phone.
 
-**reindex_remote_whitelist** Whitelisted addresses for reindexing.
-Changing this value will cause all OpenSearch instances to restart.
+**Type:** `string`
 
-## `http_max_content_length`
+### header
 
-*integer*
+**Title:** HTTP header name of the JWT token
 
-**http.max_content_length** Maximum content length for HTTP requests to
-the OpenSearch HTTP API, in bytes.
+**Description:** HTTP header name of the JWT token. Optional. Default is Authorization.
 
-## `http_max_header_size`
+**Type:** `string`
 
-*integer*
+## index_patterns
 
-**http.max_header_size** The max size of allowed headers, in bytes
+**Title:** Index patterns
 
-## `http_max_initial_line_length`
 
-*integer*
+**Type:** `array`
 
-**http.max_initial_line_length** The max length of an HTTP URL, in bytes
+## max_index_count
 
-## `indices_query_bool_max_clause_count`
+**Title:** Maximum index count
 
-*integer*
+**Description:** DEPRECATED: use index_patterns instead
 
-**indices.query.bool.max_clause_count** Maximum number of clauses Lucene
-BooleanQuery can have. The default value (1024) is relatively high, and
-increasing it may cause performance issues. Investigate other approaches
-first before increasing this value.
+**Type:** `integer`
 
-## `search_max_buckets`
+## keep_index_refresh_interval
 
-*\[\'integer\', \'null\'\]*
+**Title:** Don't reset index.refresh_interval to the default value
 
-**search.max_buckets** Maximum number of aggregation buckets allowed in
-a single response. OpenSearch default value is used when this is not
-defined.
+**Description:** Aiven automation resets index.refresh_interval to default value for every index to be sure that indices are always visible to search. If it doesn't fit your case, you can disable this by setting up this flag to true.
 
-## `indices_fielddata_cache_size`
+**Type:** `boolean`
 
-*\[\'integer\', \'null\'\]*
+## opensearch_dashboards
 
-**indices.fielddata.cache.size** Relative amount. Maximum amount of heap
-memory used for field data cache. This is an expert setting; decreasing
-the value too much will increase overhead of loading field data; too
-much memory used for field data cache will decrease amount of heap
-available for other operations.
+**Title:** OpenSearch Dashboards settings
 
-## `indices_memory_index_buffer_size`
 
-*integer*
+**Type:** `object`
 
-**indices.memory.index_buffer_size** Percentage value. Default is 10%.
-Total amount of heap used for indexing buffer, before writing segments
-to disk. This is an expert setting. Too low value will slow down
-indexing; too high value will increase indexing performance but causes
-performance issues for query performance.
+### enabled
 
-## `indices_memory_min_index_buffer_size`
+**Title:** Enable or disable OpenSearch Dashboards
 
-*integer*
 
-**indices.memory.min_index_buffer_size** Absolute value. Default is
-48mb. Doesn\'t work without indices.memory.index_buffer_size. Minimum
-amount of heap used for query cache, an absolute
-indices.memory.index_buffer_size minimal hard limit.
+**Type:** `boolean`
 
-## `indices_memory_max_index_buffer_size`
+### max_old_space_size
 
-*integer*
+**Title:** max_old_space_size
 
-**indices.memory.max_index_buffer_size** Absolute value. Default is
-unbound. Doesn\'t work without indices.memory.index_buffer_size. Maximum
-amount of heap used for query cache, an absolute
-indices.memory.index_buffer_size maximum hard limit.
+**Description:** Limits the maximum amount of memory (in MiB) the OpenSearch Dashboards process can use. This sets the max_old_space_size option of the nodejs running the OpenSearch Dashboards. Note: the memory reserved by OpenSearch Dashboards is not available for OpenSearch.
 
-## `indices_queries_cache_size`
+**Type:** `integer`
 
-*integer*
+### opensearch_request_timeout
 
-**indices.queries.cache.size** Percentage value. Default is 10%. Maximum
-amount of heap used for query cache. This is an expert setting. Too low
-value will decrease query performance and increase performance for other
-operations; too high value will cause issues with other OpenSearch
-functionality.
+**Title:** Timeout in milliseconds for requests made by OpenSearch Dashboards towards OpenSearch
 
-## `indices_recovery_max_bytes_per_sec`
 
-*integer*
+**Type:** `integer`
 
-**indices.recovery.max_bytes_per_sec** Limits total inbound and outbound
-recovery traffic for each node. Applies to both peer recoveries as well
-as snapshot recoveries (i.e., restores from a snapshot). Defaults to
-40mb
+## opensearch
 
-## `indices_recovery_max_concurrent_file_chunks`
+**Title:** OpenSearch settings
 
-*integer*
 
-**indices.recovery.max_concurrent_file_chunks** Number of file chunks
-sent in parallel for each recovery. Defaults to 2.
+**Type:** `object`
 
-## `action_auto_create_index_enabled`
+### reindex_remote_whitelist
 
-*boolean*
+**Title:** reindex_remote_whitelist
 
-**action.auto_create_index** Explicitly allow or block automatic
-creation of indices. Defaults to true
+**Description:** Whitelisted addresses for reindexing. Changing this value will cause all OpenSearch instances to restart.
 
-## `auth_failure_listeners`
+**Type:** `array,null`
 
-*object*
+### http_max_content_length
 
-**Opensearch Security Plugin Settings**
+**Title:** http.max_content_length
 
-## `enable_security_audit`
+**Description:** Maximum content length for HTTP requests to the OpenSearch HTTP API, in bytes.
 
-*boolean*
+**Type:** `integer`
 
-**Enable/Disable security audit**
+### http_max_header_size
 
-## `thread_pool_search_size`
+**Title:** http.max_header_size
 
-*integer*
+**Description:** The max size of allowed headers, in bytes
 
-**search thread pool size** Size for the thread pool. See documentation
-for exact details. Do note this may have maximum value depending on CPU
-count - value is automatically lowered if set to higher than maximum
-value.
+**Type:** `integer`
 
-## `thread_pool_search_throttled_size`
+### http_max_initial_line_length
 
-*integer*
+**Title:** http.max_initial_line_length
 
-**search_throttled thread pool size** Size for the thread pool. See
-documentation for exact details. Do note this may have maximum value
-depending on CPU count - value is automatically lowered if set to higher
-than maximum value.
+**Description:** The max length of an HTTP URL, in bytes
 
-## `thread_pool_get_size`
+**Type:** `integer`
 
-*integer*
+### indices_query_bool_max_clause_count
 
-**get thread pool size** Size for the thread pool. See documentation for
-exact details. Do note this may have maximum value depending on CPU
-count - value is automatically lowered if set to higher than maximum
-value.
+**Title:** indices.query.bool.max_clause_count
 
-## `thread_pool_analyze_size`
+**Description:** Maximum number of clauses Lucene BooleanQuery can have. The default value (1024) is relatively high, and increasing it may cause performance issues. Investigate other approaches first before increasing this value.
 
-*integer*
+**Type:** `integer`
 
-**analyze thread pool size** Size for the thread pool. See documentation
-for exact details. Do note this may have maximum value depending on CPU
-count - value is automatically lowered if set to higher than maximum
-value.
+### search_max_buckets
 
-## `thread_pool_write_size`
+**Title:** search.max_buckets
 
-*integer*
+**Description:** Maximum number of aggregation buckets allowed in a single response. OpenSearch default value is used when this is not defined.
 
-**write thread pool size** Size for the thread pool. See documentation
-for exact details. Do note this may have maximum value depending on CPU
-count - value is automatically lowered if set to higher than maximum
-value.
+**Type:** `integer,null`
 
-## `thread_pool_force_merge_size`
+### indices_fielddata_cache_size
 
-*integer*
+**Title:** indices.fielddata.cache.size
 
-**force_merge thread pool size** Size for the thread pool. See
-documentation for exact details. Do note this may have maximum value
-depending on CPU count - value is automatically lowered if set to higher
-than maximum value.
+**Description:** Relative amount. Maximum amount of heap memory used for field data cache. This is an expert setting; decreasing the value too much will increase overhead of loading field data; too much memory used for field data cache will decrease amount of heap available for other operations.
 
-## `thread_pool_search_queue_size`
+**Type:** `integer,null`
 
-*integer*
+### indices_memory_index_buffer_size
 
-**search thread pool queue size** Size for the thread pool queue. See
-documentation for exact details.
+**Title:** indices.memory.index_buffer_size
 
-## `thread_pool_search_throttled_queue_size`
+**Description:** Percentage value. Default is 10%. Total amount of heap used for indexing buffer, before writing segments to disk. This is an expert setting. Too low value will slow down indexing; too high value will increase indexing performance but causes performance issues for query performance.
 
-*integer*
+**Type:** `integer`
 
-**search_throttled thread pool queue size** Size for the thread pool
-queue. See documentation for exact details.
+### indices_memory_min_index_buffer_size
 
-## `thread_pool_get_queue_size`
+**Title:** indices.memory.min_index_buffer_size
 
-*integer*
+**Description:** Absolute value. Default is 48mb. Doesn't work without indices.memory.index_buffer_size. Minimum amount of heap used for query cache, an absolute indices.memory.index_buffer_size minimal hard limit.
 
-**get thread pool queue size** Size for the thread pool queue. See
-documentation for exact details.
+**Type:** `integer`
 
-## `thread_pool_analyze_queue_size`
+### indices_memory_max_index_buffer_size
 
-*integer*
+**Title:** indices.memory.max_index_buffer_size
 
-**analyze thread pool queue size** Size for the thread pool queue. See
-documentation for exact details.
+**Description:** Absolute value. Default is unbound. Doesn't work without indices.memory.index_buffer_size. Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size maximum hard limit.
 
-## `thread_pool_write_queue_size`
+**Type:** `integer`
 
-*integer*
+### indices_queries_cache_size
 
-**write thread pool queue size** Size for the thread pool queue. See
-documentation for exact details.
+**Title:** indices.queries.cache.size
 
-## `action_destructive_requires_name`
+**Description:** Percentage value. Default is 10%. Maximum amount of heap used for query cache. This is an expert setting. Too low value will decrease query performance and increase performance for other operations; too high value will cause issues with other OpenSearch functionality.
 
-*\[\'boolean\', \'null\'\]*
+**Type:** `integer`
 
-**Require explicit index names when deleting**
+### indices_recovery_max_bytes_per_sec
 
-## `cluster_max_shards_per_node`
+**Title:** indices.recovery.max_bytes_per_sec
 
-*integer*
+**Description:** Limits total inbound and outbound recovery traffic for each node. Applies to both peer recoveries as well as snapshot recoveries (i.e., restores from a snapshot). Defaults to 40mb
 
-**cluster.max_shards_per_node** Controls the number of shards allowed in
-the cluster per data node
+**Type:** `integer`
 
-## `override_main_response_version`
+### indices_recovery_max_concurrent_file_chunks
 
-*boolean*
+**Title:** indices.recovery.max_concurrent_file_chunks
 
-**compatibility.override_main_response_version** Compatibility mode sets
-OpenSearch to report its version as 7.10 so clients continue to work.
-Default is false
+**Description:** Number of file chunks sent in parallel for each recovery. Defaults to 2.
 
-## `script_max_compilations_rate`
+**Type:** `integer`
 
-*string*
+### action_auto_create_index_enabled
 
-**Script max compilation rate - circuit breaker to prevent/minimize
-OOMs** Script compilation circuit breaker limits the number of inline
-script compilations within a period of time. Default is use-context
+**Title:** action.auto_create_index
 
-## `cluster_routing_allocation_node_concurrent_recoveries`
+**Description:** Explicitly allow or block automatic creation of indices. Defaults to true
 
-*integer*
+**Type:** `boolean`
 
-**Concurrent incoming/outgoing shard recoveries per node** How many
-concurrent incoming/outgoing shard recoveries (normally replicas) are
-allowed to happen on a node. Defaults to 2.
+### auth_failure_listeners
 
-## `email_sender_name`
+**Title:** Opensearch Security Plugin Settings
 
-*string*
 
-**Sender name placeholder to be used in Opensearch Dashboards and
-Opensearch keystore** This should be identical to the Sender name
-defined in Opensearch dashboards
+**Type:** `object`
 
-## `email_sender_username`
+### enable_security_audit
 
-*string*
+**Title:** Enable/Disable security audit
 
-**Sender username for Opensearch alerts**
 
-## `email_sender_password`
+**Type:** `boolean`
 
-*string*
+### thread_pool_search_size
 
-**Sender password for Opensearch alerts to authenticate with SMTP
-server** Sender password for Opensearch alerts to authenticate with SMTP
-server
+**Title:** search thread pool size
 
-## `ism_enabled`
+**Description:** Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
 
-*boolean*
+**Type:** `integer`
 
-**Specifies whether ISM is enabled or not**
+### thread_pool_search_throttled_size
 
-## `ism_history_enabled`
+**Title:** search_throttled thread pool size
 
-*boolean*
+**Description:** Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
 
-**Specifies whether audit history is enabled or not. The logs from ISM
-are automatically indexed to a logs document.**
+**Type:** `integer`
 
-## `ism_history_max_age`
+### thread_pool_get_size
 
-*integer*
+**Title:** get thread pool size
 
-**The maximum age before rolling over the audit history index in hours**
+**Description:** Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
 
-## `ism_history_max_docs`
+**Type:** `integer`
 
-*integer*
+### thread_pool_analyze_size
 
-**The maximum number of documents before rolling over the audit history
-index.**
+**Title:** analyze thread pool size
 
-## `ism_history_rollover_check_period`
+**Description:** Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
 
-*integer*
+**Type:** `integer`
 
-**The time between rollover checks for the audit history index in
-hours.**
+### thread_pool_write_size
 
-## `ism_history_rollover_retention_period`
+**Title:** write thread pool size
 
-*integer*
+**Description:** Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
 
-**How long audit history indices are kept in days.**
+**Type:** `integer`
 
-# `index_template`
+### thread_pool_force_merge_size
 
-*object*
+**Title:** force_merge thread pool size
 
-**Template settings for all new indexes**
+**Description:** Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
 
-## `mapping_nested_objects_limit`
+**Type:** `integer`
 
-*\[\'integer\', \'null\'\]*
+### thread_pool_search_queue_size
 
-**index.mapping.nested_objects.limit** The maximum number of nested JSON
-objects that a single document can contain across all nested types. This
-limit helps to prevent out of memory errors when a document contains too
-many nested objects. Default is 10000.
+**Title:** search thread pool queue size
 
-## `number_of_shards`
+**Description:** Size for the thread pool queue. See documentation for exact details.
 
-*\[\'integer\', \'null\'\]*
+**Type:** `integer`
 
-**index.number_of_shards** The number of primary shards that an index
-should have.
+### thread_pool_search_throttled_queue_size
 
-## `number_of_replicas`
+**Title:** search_throttled thread pool queue size
 
-*\[\'integer\', \'null\'\]*
+**Description:** Size for the thread pool queue. See documentation for exact details.
 
-**index.number_of_replicas** The number of replicas each primary shard
-has.
+**Type:** `integer`
 
-# `private_access`
+### thread_pool_get_queue_size
 
-*object*
+**Title:** get thread pool queue size
 
-**Allow access to selected service ports from private networks**
+**Description:** Size for the thread pool queue. See documentation for exact details.
 
-## `opensearch`
+**Type:** `integer`
 
-*boolean*
+### thread_pool_analyze_queue_size
 
-**Allow clients to connect to opensearch with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Title:** analyze thread pool queue size
 
-## `opensearch_dashboards`
+**Description:** Size for the thread pool queue. See documentation for exact details.
 
-*boolean*
+**Type:** `integer`
 
-**Allow clients to connect to opensearch_dashboards with a DNS name that
-always resolves to the service's private IP addresses. Only available
-in certain network locations**
+### thread_pool_write_queue_size
 
-## `prometheus`
+**Title:** write thread pool queue size
 
-*boolean*
+**Description:** Size for the thread pool queue. See documentation for exact details.
 
-**Allow clients to connect to prometheus with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Type:** `integer`
 
-# `privatelink_access`
+### action_destructive_requires_name
 
-*object*
+**Title:** Require explicit index names when deleting
 
-**Allow access to selected service components through Privatelink**
 
-## `opensearch`
+**Type:** `boolean,null`
 
-*boolean*
+### cluster_max_shards_per_node
 
-**Enable opensearch**
+**Title:** cluster.max_shards_per_node
 
-## `opensearch_dashboards`
+**Description:** Controls the number of shards allowed in the cluster per data node
 
-*boolean*
+**Type:** `integer`
 
-**Enable opensearch_dashboards**
+### override_main_response_version
 
-## `prometheus`
+**Title:** compatibility.override_main_response_version
 
-*boolean*
+**Description:** Compatibility mode sets OpenSearch to report its version as 7.10 so clients continue to work. Default is false
 
-**Enable prometheus**
+**Type:** `boolean`
 
-# `public_access`
+### script_max_compilations_rate
 
-*object*
+**Title:** Script max compilation rate - circuit breaker to prevent/minimize OOMs
 
-**Allow access to selected service ports from the public Internet**
+**Description:** Script compilation circuit breaker limits the number of inline script compilations within a period of time. Default is use-context
 
-## `opensearch`
+**Type:** `string`
 
-*boolean*
+### cluster_routing_allocation_node_concurrent_recoveries
 
-**Allow clients to connect to opensearch from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Title:** Concurrent incoming/outgoing shard recoveries per node
 
-## `opensearch_dashboards`
+**Description:** How many concurrent incoming/outgoing shard recoveries (normally replicas) are allowed to happen on a node. Defaults to 2.
 
-*boolean*
+**Type:** `integer`
 
-**Allow clients to connect to opensearch_dashboards from the public
-internet for service nodes that are in a project VPC or another type of
-private network**
+### email_sender_name
 
-## `prometheus`
+**Title:** Sender name placeholder to be used in Opensearch Dashboards and Opensearch keystore
 
-*boolean*
+**Description:** This should be identical to the Sender name defined in Opensearch dashboards
 
-**Allow clients to connect to prometheus from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Type:** `string`
 
-# `recovery_basebackup_name`
+### email_sender_username
 
-*string*
+**Title:** Sender username for Opensearch alerts
 
-**Name of the basebackup to restore in forked service**
 
-# `service_to_fork_from`
+**Type:** `string`
 
-*\['string\', \'null\'\]*
+### email_sender_password
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
+**Title:** Sender password for Opensearch alerts to authenticate with SMTP server
 
-# `project_to_fork_from`
+**Description:** Sender password for Opensearch alerts to authenticate with SMTP server
 
-*\['string\', \'null\'\]*
+**Type:** `string`
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+### ism_enabled
+
+**Title:** Specifies whether ISM is enabled or not
+
+
+**Type:** `boolean`
+
+### ism_history_enabled
+
+**Title:** Specifies whether audit history is enabled or not. The logs from ISM are automatically indexed to a logs document.
+
+
+**Type:** `boolean`
+
+### ism_history_max_age
+
+**Title:** The maximum age before rolling over the audit history index in hours
+
+
+**Type:** `integer`
+
+### ism_history_max_docs
+
+**Title:** The maximum number of documents before rolling over the audit history index.
+
+
+**Type:** `integer`
+
+### ism_history_rollover_check_period
+
+**Title:** The time between rollover checks for the audit history index in hours.
+
+
+**Type:** `integer`
+
+### ism_history_rollover_retention_period
+
+**Title:** How long audit history indices are kept in days.
+
+
+**Type:** `integer`
+
+## index_template
+
+**Title:** Template settings for all new indexes
+
+
+**Type:** `object`
+
+### mapping_nested_objects_limit
+
+**Title:** index.mapping.nested_objects.limit
+
+**Description:** The maximum number of nested JSON objects that a single document can contain across all nested types. This limit helps to prevent out of memory errors when a document contains too many nested objects. Default is 10000.
+
+**Type:** `integer,null`
+
+### number_of_shards
+
+**Title:** index.number_of_shards
+
+**Description:** The number of primary shards that an index should have.
+
+**Type:** `integer,null`
+
+### number_of_replicas
+
+**Title:** index.number_of_replicas
+
+**Description:** The number of replicas each primary shard has.
+
+**Type:** `integer,null`
+
+## private_access
+
+**Title:** Allow access to selected service ports from private networks
+
+
+**Type:** `object`
+
+### opensearch
+
+**Title:** Allow clients to connect to opensearch with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
+
+
+**Type:** `boolean`
+
+### opensearch_dashboards
+
+**Title:** Allow clients to connect to opensearch_dashboards with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Allow clients to connect to prometheus with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
+
+
+**Type:** `boolean`
+
+## privatelink_access
+
+**Title:** Allow access to selected service components through Privatelink
+
+
+**Type:** `object`
+
+### opensearch
+
+**Title:** Enable opensearch
+
+
+**Type:** `boolean`
+
+### opensearch_dashboards
+
+**Title:** Enable opensearch_dashboards
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Enable prometheus
+
+
+**Type:** `boolean`
+
+## public_access
+
+**Title:** Allow access to selected service ports from the public Internet
+
+
+**Type:** `object`
+
+### opensearch
+
+**Title:** Allow clients to connect to opensearch from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### opensearch_dashboards
+
+**Title:** Allow clients to connect to opensearch_dashboards from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Allow clients to connect to prometheus from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+## recovery_basebackup_name
+
+**Title:** Name of the basebackup to restore in forked service
+
+
+**Type:** `string`
+
+## service_to_fork_from
+
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+## project_to_fork_from
+
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+    

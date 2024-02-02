@@ -1,139 +1,144 @@
-# `ip_filter`
+## ip_filter
 
-*array*
+**Title:** IP filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-# `service_log`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## service_log
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Title:** Service logging
 
-# `static_ips`
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-*boolean*
+**Type:** `boolean,null`
 
-**Static IP addresses** Use static public IP addresses
+## static_ips
 
-# `project_to_fork_from`
+**Title:** Static IP addresses
 
-*\['string\', \'null\'\]*
+**Description:** Use static public IP addresses
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+**Type:** `boolean`
 
-# `private_access`
+## project_to_fork_from
 
-*object*
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
 
-**Allow access to selected service ports from private networks**
 
-## `clickhouse`
+**Type:** `string,null`
 
-*boolean*
+## private_access
 
-**Allow clients to connect to clickhouse with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Title:** Allow access to selected service ports from private networks
 
-## `clickhouse_https`
 
-*boolean*
+**Type:** `object`
 
-**Allow clients to connect to clickhouse_https with a DNS name that
-always resolves to the service's private IP addresses. Only available
-in certain network locations**
+### clickhouse
 
-## `clickhouse_mysql`
+**Title:** Allow clients to connect to clickhouse with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-*boolean*
 
-**Allow clients to connect to clickhouse_mysql with a DNS name that
-always resolves to the service's private IP addresses. Only available
-in certain network locations**
+**Type:** `boolean`
 
-## `prometheus`
+### clickhouse_https
 
-*boolean*
+**Title:** Allow clients to connect to clickhouse_https with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-**Allow clients to connect to prometheus with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
 
-# `privatelink_access`
+**Type:** `boolean`
 
-*object*
+### clickhouse_mysql
 
-**Allow access to selected service components through Privatelink**
+**Title:** Allow clients to connect to clickhouse_mysql with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-## `clickhouse`
 
-*boolean*
+**Type:** `boolean`
 
-**Enable clickhouse**
+### prometheus
 
-## `clickhouse_https`
+**Title:** Allow clients to connect to prometheus with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-*boolean*
 
-**Enable clickhouse_https**
+**Type:** `boolean`
 
-## `clickhouse_mysql`
+## privatelink_access
 
-*boolean*
+**Title:** Allow access to selected service components through Privatelink
 
-**Enable clickhouse_mysql**
 
-## `prometheus`
+**Type:** `object`
 
-*boolean*
+### clickhouse
 
-**Enable prometheus**
+**Title:** Enable clickhouse
 
-# `public_access`
 
-*object*
+**Type:** `boolean`
 
-**Allow access to selected service ports from the public Internet**
+### clickhouse_https
 
-## `clickhouse`
+**Title:** Enable clickhouse_https
 
-*boolean*
 
-**Allow clients to connect to clickhouse from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Type:** `boolean`
 
-## `clickhouse_https`
+### clickhouse_mysql
 
-*boolean*
+**Title:** Enable clickhouse_mysql
 
-**Allow clients to connect to clickhouse_https from the public internet
-for service nodes that are in a project VPC or another type of private
-network**
 
-## `clickhouse_mysql`
+**Type:** `boolean`
 
-*boolean*
+### prometheus
 
-**Allow clients to connect to clickhouse_mysql from the public internet
-for service nodes that are in a project VPC or another type of private
-network**
+**Title:** Enable prometheus
 
-## `prometheus`
 
-*boolean*
+**Type:** `boolean`
 
-**Allow clients to connect to prometheus from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+## public_access
 
-# `service_to_fork_from`
+**Title:** Allow access to selected service ports from the public Internet
 
-*\['string\', \'null\'\]*
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
+**Type:** `object`
+
+### clickhouse
+
+**Title:** Allow clients to connect to clickhouse from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### clickhouse_https
+
+**Title:** Allow clients to connect to clickhouse_https from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### clickhouse_mysql
+
+**Title:** Allow clients to connect to clickhouse_mysql from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Allow clients to connect to prometheus from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+## service_to_fork_from
+
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+    

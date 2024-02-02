@@ -38,27 +38,27 @@ async function fetchData(serviceName, outputFileName) {
 ## {{@key}}
 
 {{#if title}}
-{{title}}
+**Title:** {{title}}
 {{/if}}
 
 {{#if description}}
-{{description}}
+**Description:** {{description}}
 {{/if}}
 
-Type: {{type}}
+**Type:** \`{{type}}\`
 
 {{#each properties}}
 ### {{@key}}
 
 {{#if title}}
-{{title}}
+**Title:** {{title}}
 {{/if}}
 
 {{#if description}}
-{{description}}
+**Description:** {{description}}
 {{/if}}
 
-Type: {{type}}
+**Type:** \`{{type}}\`
 
 {{/each}}
 {{/each}}

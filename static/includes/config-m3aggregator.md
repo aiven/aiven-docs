@@ -1,38 +1,47 @@
-# `custom_domain`
+## custom_domain
 
-*\['string\', \'null\'\]*
+**Title:** Custom domain
 
-**Custom domain** Serve the web frontend using a custom CNAME pointing
-to the Aiven DNS name
+**Description:** Serve the web frontend using a custom CNAME pointing to the Aiven DNS name
 
-# `ip_filter`
+**Type:** `string,null`
 
-*array*
+## ip_filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Title:** IP filter
 
-# `service_log`
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-*\[\'boolean\', \'null\'\]*
+**Type:** `array`
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+## service_log
 
-# `static_ips`
+**Title:** Service logging
 
-*boolean*
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-**Static IP addresses** Use static public IP addresses
+**Type:** `boolean,null`
 
-# `m3_version`
+## static_ips
 
-*\['string\', \'null\'\]*
+**Title:** Static IP addresses
 
-**M3 major version (deprecated, use m3aggregator_version)**
+**Description:** Use static public IP addresses
 
-# `m3aggregator_version`
+**Type:** `boolean`
 
-*\['string\', \'null\'\]*
+## m3_version
 
-**M3 major version (the minimum compatible version)**
+**Title:** M3 major version (deprecated, use m3aggregator_version)
+
+
+**Type:** `string,null`
+
+## m3aggregator_version
+
+**Title:** M3 major version (the minimum compatible version)
+
+
+**Type:** `string,null`
+
+    

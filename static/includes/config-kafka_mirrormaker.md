@@ -1,121 +1,136 @@
-# `ip_filter`
+## ip_filter
 
-*array*
+**Title:** IP filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-# `service_log`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## service_log
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Title:** Service logging
 
-# `static_ips`
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-*boolean*
+**Type:** `boolean,null`
 
-**Static IP addresses** Use static public IP addresses
+## static_ips
 
-# `kafka_mirrormaker`
+**Title:** Static IP addresses
 
-*object*
+**Description:** Use static public IP addresses
 
-**Kafka MirrorMaker configuration values**
+**Type:** `boolean`
 
-## `refresh_topics_enabled`
+## kafka_mirrormaker
 
-*boolean*
+**Title:** Kafka MirrorMaker configuration values
 
-**Refresh topics and partitions** Whether to periodically check for new
-topics and partitions. Defaults to \'true\'.
 
-## `refresh_topics_interval_seconds`
+**Type:** `object`
 
-*integer*
+### refresh_topics_enabled
 
-**Frequency of topic and partitions refresh** Frequency of topic and
-partitions refresh in seconds. Defaults to 600 seconds (10 minutes).
+**Title:** Refresh topics and partitions
 
-## `refresh_groups_enabled`
+**Description:** Whether to periodically check for new topics and partitions. Defaults to 'true'.
 
-*boolean*
+**Type:** `boolean`
 
-**Refresh consumer groups** Whether to periodically check for new
-consumer groups. Defaults to \'true\'.
+### refresh_topics_interval_seconds
 
-## `refresh_groups_interval_seconds`
+**Title:** Frequency of topic and partitions refresh
 
-*integer*
+**Description:** Frequency of topic and partitions refresh in seconds. Defaults to 600 seconds (10 minutes).
 
-**Frequency of group refresh** Frequency of consumer group refresh in
-seconds. Defaults to 600 seconds (10 minutes).
+**Type:** `integer`
 
-## `sync_group_offsets_enabled`
+### refresh_groups_enabled
 
-*boolean*
+**Title:** Refresh consumer groups
 
-**Sync consumer group offsets** Whether to periodically write the
-translated offsets of replicated consumer groups (in the source cluster)
-to \_\_consumer_offsets topic in target cluster, as long as no active
-consumers in that group are connected to the target cluster
+**Description:** Whether to periodically check for new consumer groups. Defaults to 'true'.
 
-## `sync_group_offsets_interval_seconds`
+**Type:** `boolean`
 
-*integer*
+### refresh_groups_interval_seconds
 
-**Frequency of consumer group offset sync** Frequency at which consumer
-group offsets are synced (default: 60, every minute)
+**Title:** Frequency of group refresh
 
-## `emit_checkpoints_enabled`
+**Description:** Frequency of consumer group refresh in seconds. Defaults to 600 seconds (10 minutes).
 
-*boolean*
+**Type:** `integer`
 
-**Emit consumer group offset checkpoints** Whether to emit consumer
-group offset checkpoints to target cluster periodically (default: true)
+### sync_group_offsets_enabled
 
-## `emit_checkpoints_interval_seconds`
+**Title:** Sync consumer group offsets
 
-*integer*
+**Description:** Whether to periodically write the translated offsets of replicated consumer groups (in the source cluster) to __consumer_offsets topic in target cluster, as long as no active consumers in that group are connected to the target cluster
 
-**Frequency of consumer group offset checkpoints** Frequency at which
-consumer group offset checkpoints are emitted (default: 60, every
-minute)
+**Type:** `boolean`
 
-## `sync_topic_configs_enabled`
+### sync_group_offsets_interval_seconds
 
-*boolean*
+**Title:** Frequency of consumer group offset sync
 
-**Sync remote topics** Whether to periodically configure remote topics
-to match their corresponding upstream topics.
+**Description:** Frequency at which consumer group offsets are synced (default: 60, every minute)
 
-## `tasks_max_per_cpu`
+**Type:** `integer`
 
-*integer*
+### emit_checkpoints_enabled
 
-**Maximum number of MirrorMaker tasks (of each type) per service CPU**
-\'tasks.max\' is set to this multiplied by the number of CPUs in the
-service.
+**Title:** Emit consumer group offset checkpoints
 
-## `offset_lag_max`
+**Description:** Whether to emit consumer group offset checkpoints to target cluster periodically (default: true)
 
-*integer*
+**Type:** `boolean`
 
-**Maximum offset lag before it is resynced** How out-of-sync a remote
-partition can be before it is resynced.
+### emit_checkpoints_interval_seconds
 
-## `groups`
+**Title:** Frequency of consumer group offset checkpoints
 
-*string*
+**Description:** Frequency at which consumer group offset checkpoints are emitted (default: 60, every minute)
 
-**Comma-separated list of consumer groups to replicate** Consumer groups
-to replicate. Supports comma-separated group IDs and regexes.
+**Type:** `integer`
 
-## `groups_exclude`
+### sync_topic_configs_enabled
 
-*string*
+**Title:** Sync remote topics
 
-**Comma-separated list of group IDs and regexes to exclude from
-replication** Exclude groups. Supports comma-separated group IDs and
-regexes. Excludes take precedence over includes.
+**Description:** Whether to periodically configure remote topics to match their corresponding upstream topics.
+
+**Type:** `boolean`
+
+### tasks_max_per_cpu
+
+**Title:** Maximum number of MirrorMaker tasks (of each type) per service CPU
+
+**Description:** 'tasks.max' is set to this multiplied by the number of CPUs in the service.
+
+**Type:** `integer`
+
+### offset_lag_max
+
+**Title:** Maximum offset lag before it is resynced
+
+**Description:** How out-of-sync a remote partition can be before it is resynced.
+
+**Type:** `integer`
+
+### groups
+
+**Title:** Comma-separated list of consumer groups to replicate
+
+**Description:** Consumer groups to replicate. Supports comma-separated group IDs and regexes.
+
+**Type:** `string`
+
+### groups_exclude
+
+**Title:** Comma-separated list of group IDs and regexes to exclude from replication
+
+**Description:** Exclude groups. Supports comma-separated group IDs and regexes. Excludes take precedence over includes.
+
+**Type:** `string`
+
+    

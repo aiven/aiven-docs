@@ -1,145 +1,152 @@
-# `custom_domain`
+## custom_domain
 
-*\['string\', \'null\'\]*
+**Title:** Custom domain
 
-**Custom domain** Serve the web frontend using a custom CNAME pointing
-to the Aiven DNS name
+**Description:** Serve the web frontend using a custom CNAME pointing to the Aiven DNS name
 
-# `ip_filter`
+**Type:** `string,null`
 
-*array*
+## ip_filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Title:** IP filter
 
-# `service_log`
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-*\[\'boolean\', \'null\'\]*
+**Type:** `array`
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+## service_log
 
-# `static_ips`
+**Title:** Service logging
 
-*boolean*
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-**Static IP addresses** Use static public IP addresses
+**Type:** `boolean,null`
 
-# `private_access`
+## static_ips
 
-*object*
+**Title:** Static IP addresses
 
-**Allow access to selected service ports from private networks**
+**Description:** Use static public IP addresses
 
-## `influxdb`
+**Type:** `boolean`
 
-*boolean*
+## private_access
 
-**Allow clients to connect to influxdb with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Title:** Allow access to selected service ports from private networks
 
-# `privatelink_access`
 
-*object*
+**Type:** `object`
 
-**Allow access to selected service components through Privatelink**
+### influxdb
 
-## `influxdb`
+**Title:** Allow clients to connect to influxdb with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-*boolean*
 
-**Enable influxdb**
+**Type:** `boolean`
 
-# `public_access`
+## privatelink_access
 
-*object*
+**Title:** Allow access to selected service components through Privatelink
 
-**Allow access to selected service ports from the public Internet**
 
-## `influxdb`
+**Type:** `object`
 
-*boolean*
+### influxdb
 
-**Allow clients to connect to influxdb from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Title:** Enable influxdb
 
-# `recovery_basebackup_name`
 
-*string*
+**Type:** `boolean`
 
-**Name of the basebackup to restore in forked service**
+## public_access
 
-# `influxdb`
+**Title:** Allow access to selected service ports from the public Internet
 
-*object*
 
-**influxdb.conf configuration values**
+**Type:** `object`
 
-## `query_log_enabled`
+### influxdb
 
-*boolean*
+**Title:** Allow clients to connect to influxdb from the public internet for service nodes that are in a project VPC or another type of private network
 
-**Whether queries should be logged before execution. May log sensitive
-data contained within a query.**
 
-## `log_queries_after`
+**Type:** `boolean`
 
-*integer*
+## recovery_basebackup_name
 
-**The maximum duration in seconds before a query is logged as a slow
-query. Setting this to 0 (the default) will never log slow queries.**
+**Title:** Name of the basebackup to restore in forked service
 
-## `max_row_limit`
 
-*integer*
+**Type:** `string`
 
-**The maximum number of rows returned in a non-chunked query. Setting
-this to 0 (the default) allows an unlimited number to be returned.**
+## influxdb
 
-## `max_select_buckets`
+**Title:** influxdb.conf configuration values
 
-*integer*
 
-**The maximum number of \`GROUP BY time()\` buckets that can be
-processed in a query. Setting this to 0 (the default) allows an
-unlimited number to be processed.**
+**Type:** `object`
 
-## `max_select_point`
+### query_log_enabled
 
-*integer*
+**Title:** Whether queries should be logged before execution. May log sensitive data contained within a query.
 
-**The maximum number of points that can be processed in a SELECT
-statement. Setting this to 0 (the default) allows an unlimited number to
-be processed.**
 
-## `query_timeout`
+**Type:** `boolean`
 
-*integer*
+### log_queries_after
 
-**The maximum duration in seconds before a query is killed. Setting this
-to 0 (the default) will never kill slow queries.**
+**Title:** The maximum duration in seconds before a query is logged as a slow query. Setting this to 0 (the default) will never log slow queries.
 
-## `max_connection_limit`
 
-*integer*
+**Type:** `integer`
 
-**Maximum number of connections to InfluxDB. Setting this to 0 (default)
-means no limit. If using max_connection_limit, it is recommended to set
-the value to be large enough in order to not block clients
-unnecessarily.**
+### max_row_limit
 
-# `service_to_fork_from`
+**Title:** The maximum number of rows returned in a non-chunked query. Setting this to 0 (the default) allows an unlimited number to be returned.
 
-*\['string\', \'null\'\]*
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
+**Type:** `integer`
 
-# `project_to_fork_from`
+### max_select_buckets
 
-*\['string\', \'null\'\]*
+**Title:** The maximum number of `GROUP BY time()` buckets that can be processed in a query. Setting this to 0 (the default) allows an unlimited number to be processed.
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+
+**Type:** `integer`
+
+### max_select_point
+
+**Title:** The maximum number of points that can be processed in a SELECT statement. Setting this to 0 (the default) allows an unlimited number to be processed.
+
+
+**Type:** `integer`
+
+### query_timeout
+
+**Title:** The maximum duration in seconds before a query is killed. Setting this to 0 (the default) will never kill slow queries.
+
+
+**Type:** `integer`
+
+### max_connection_limit
+
+**Title:** Maximum number of connections to InfluxDB. Setting this to 0 (default) means no limit. If using max_connection_limit, it is recommended to set the value to be large enough in order to not block clients unnecessarily.
+
+
+**Type:** `integer`
+
+## service_to_fork_from
+
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+## project_to_fork_from
+
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+    

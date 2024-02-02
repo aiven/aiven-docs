@@ -1,165 +1,189 @@
-# `custom_domain`
+## custom_domain
 
-*\['string\', \'null\'\]*
+**Title:** Custom domain
 
-**Custom domain** Serve the web frontend using a custom CNAME pointing
-to the Aiven DNS name
+**Description:** Serve the web frontend using a custom CNAME pointing to the Aiven DNS name
 
-# `ip_filter`
+**Type:** `string,null`
 
-*array*
+## ip_filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Title:** IP filter
 
-# `service_log`
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-*\[\'boolean\', \'null\'\]*
+**Type:** `array`
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+## service_log
 
-# `static_ips`
+**Title:** Service logging
 
-*boolean*
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-**Static IP addresses** Use static public IP addresses
+**Type:** `boolean,null`
 
-# `limits`
+## static_ips
 
-*object*
+**Title:** Static IP addresses
 
-**M3 limits**
+**Description:** Use static public IP addresses
 
-## `query_series`
+**Type:** `boolean`
 
-*integer*
+## limits
 
-**The maximum number of series fetched in single query.**
+**Title:** M3 limits
 
-## `query_docs`
 
-*integer*
+**Type:** `object`
 
-**The maximum number of docs fetched in single query.**
+### query_series
 
-## `query_require_exhaustive`
+**Title:** The maximum number of series fetched in single query.
 
-*boolean*
 
-**Require exhaustive result** When query limits are exceeded, whether to
-return error or return partial results.
+**Type:** `integer`
 
-## `max_recently_queried_series_disk_bytes_read`
+### query_docs
 
-*integer*
+**Title:** The maximum number of docs fetched in single query.
 
-**The maximum number of disk bytes that can be read in a given lookback
-period.**
 
-## `max_recently_queried_series_blocks`
+**Type:** `integer`
 
-*integer*
+### query_require_exhaustive
 
-**The maximum number of blocks that can be read in a given lookback
-period.**
+**Title:** Require exhaustive result
 
-## `max_recently_queried_series_lookback`
+**Description:** When query limits are exceeded, whether to return error or return partial results.
 
-*string*
+**Type:** `boolean`
 
-**The lookback period for \'max_recently_queried_series_blocks\' and
-\'max_recently_queried_series_disk_bytes_read\'.**
+### max_recently_queried_series_disk_bytes_read
 
-# `m3`
+**Title:** The maximum number of disk bytes that can be read in a given lookback period.
 
-*object*
 
-**M3 specific configuration options**
+**Type:** `integer`
 
-## `tag_options`
+### max_recently_queried_series_blocks
 
-*object*
+**Title:** The maximum number of blocks that can be read in a given lookback period.
 
-**M3 Tag Options**
 
-# `m3coordinator_enable_graphite_carbon_ingest`
+**Type:** `integer`
 
-*boolean*
+### max_recently_queried_series_lookback
 
-**Enable Graphite ingestion using Carbon plaintext protocol** Enables
-access to Graphite Carbon plaintext metrics ingestion. It can be enabled
-only for services inside VPCs. The metrics are written to aggregated
-namespaces only.
+**Title:** The lookback period for 'max_recently_queried_series_blocks' and 'max_recently_queried_series_disk_bytes_read'.
 
-# `private_access`
 
-*object*
+**Type:** `string`
 
-**Allow access to selected service ports from private networks**
+## m3
 
-## `m3coordinator`
+**Title:** M3 specific configuration options
 
-*boolean*
 
-**Allow clients to connect to m3coordinator with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Type:** `object`
 
-# `public_access`
+### tag_options
 
-*object*
+**Title:** M3 Tag Options
 
-**Allow access to selected service ports from the public Internet**
 
-## `m3coordinator`
+**Type:** `object`
 
-*boolean*
+## m3coordinator_enable_graphite_carbon_ingest
 
-**Allow clients to connect to m3coordinator from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Title:** Enable Graphite ingestion using Carbon plaintext protocol
 
-# `m3_version`
+**Description:** Enables access to Graphite Carbon plaintext metrics ingestion. It can be enabled only for services inside VPCs. The metrics are written to aggregated namespaces only.
 
-*\['string\', \'null\'\]*
+**Type:** `boolean`
 
-**M3 major version (deprecated, use m3db_version)**
+## private_access
 
-# `m3db_version`
+**Title:** Allow access to selected service ports from private networks
 
-*\['string\', \'null\'\]*
 
-**M3 major version (the minimum compatible version)**
+**Type:** `object`
 
-# `namespaces`
+### m3coordinator
 
-*array*
+**Title:** Allow clients to connect to m3coordinator with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-**List of M3 namespaces**
 
-# `rules`
+**Type:** `boolean`
 
-*object*
+## public_access
 
-**M3 rules**
+**Title:** Allow access to selected service ports from the public Internet
 
-## `mapping`
 
-*array*
+**Type:** `object`
 
-**List of M3 mapping rules**
+### m3coordinator
 
-# `service_to_fork_from`
+**Title:** Allow clients to connect to m3coordinator from the public internet for service nodes that are in a project VPC or another type of private network
 
-*\['string\', \'null\'\]*
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
+**Type:** `boolean`
 
-# `project_to_fork_from`
+## additional_backup_regions
 
-*\['string\', \'null\'\]*
+**Title:** Additional Cloud Regions for Backup Replication
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+
+**Type:** `array`
+
+## m3_version
+
+**Title:** M3 major version (deprecated, use m3db_version)
+
+
+**Type:** `string,null`
+
+## m3db_version
+
+**Title:** M3 major version (the minimum compatible version)
+
+
+**Type:** `string,null`
+
+## namespaces
+
+**Title:** List of M3 namespaces
+
+
+**Type:** `array`
+
+## rules
+
+**Title:** M3 rules
+
+
+**Type:** `object`
+
+### mapping
+
+**Title:** List of M3 mapping rules
+
+
+**Type:** `array`
+
+## service_to_fork_from
+
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+## project_to_fork_from
+
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+    
