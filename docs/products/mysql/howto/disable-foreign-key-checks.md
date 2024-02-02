@@ -106,7 +106,7 @@ extension `.sql`.
 
 | Variable   | Description                                               |
 | ---------- | --------------------------------------------------------- |
-| `FILENAME` | File which the extension is `.sql`, for e.g. filename.sql |
+| `FILENAME` | File which the extension is `.sql`, for for example, filename.sql |
 
 You can paste the following command on your `FILENAME`:
 

@@ -22,8 +22,8 @@ connection information:
 
 1.  In skyvia workspace > **Connections** > **Connector** >
     **PostgreSQL**.
-2.  In the **General** Tab give the connection a Name (e.g.
-    `MyDatabase`)
+2.  In the **General** Tab give the connection a name, for example
+    `MyDatabase`.
 3.  In the **Connection** tab, set:
     -   **Server** to `HOSTNAME`
     -   **Port**: to `PORT`

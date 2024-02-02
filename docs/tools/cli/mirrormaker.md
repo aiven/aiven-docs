@@ -18,7 +18,7 @@ Before creating a replication flow, an
 [integration](/docs/tools/cli/service/integration#avn_service_integration_create) needs to be created between the Aiven for Apache Kafka
 MirrorMaker 2 service and each of the source and the target services.
 
-E.g. An integration with alias `kafka-target-alias` between an Aiven for
+for example, An integration with alias `kafka-target-alias` between an Aiven for
 Apache Kafka service named `kafka-target` and an Aiven for Apache Kafka
 MirrorMaker 2 named `kafka-mm` can be created with:
 

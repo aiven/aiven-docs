@@ -216,7 +216,7 @@ two:
 
 The [PostgreSQL](/docs/products/postgresql) database is where you\'ll store the threshold data for each
 IoT device. These thresholds represent the alerting range of each IoT
-device, e.g. a device might trigger an alert when the usage is over
+device, for example, a device might trigger an alert when the usage is over
 `90%`, for other devices, the threshold should be
 `60%`.
 

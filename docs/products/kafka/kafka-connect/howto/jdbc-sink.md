@@ -119,7 +119,7 @@ The configuration file contains the following entries:
         database, more information in the [dedicated GitHub
         repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
     -   `update`: uses the update semantics supported by the target
-        database. E.g. `UPDATE`, more information in the [dedicated
+        database. for example, `UPDATE`, more information in the [dedicated
         GitHub
         repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
 

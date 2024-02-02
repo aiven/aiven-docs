@@ -37,13 +37,11 @@ Aiven for OpenSearch:
 AWS S3:
 
 -   AWS credentials (`ACCESS_KEY_ID` and `SECRET_ACCESS_KEY`).
--   S3 file path. This includes bucket name and file name, for e.g.
+-   S3 file path. This includes bucket name and file name, for for example,
     `s3://${BUCKET_NAME}/${FILE_NAME}.json`
 
-:::note[See also]
 You can find more information about AWS credentials in the [AWS
 documentation](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html).
-:::
 
 ## Export OpenSearch index data to S3
 

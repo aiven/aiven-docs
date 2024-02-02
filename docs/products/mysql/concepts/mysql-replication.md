@@ -30,7 +30,7 @@ individual update or delete statement and the replication can become
 extremely slow if the table is large.
 
 ``` bash
-DELETE FROM nopk WHERE modified_time > '2022-01-13' 
+DELETE FROM nopk WHERE modified_time > '2022-01-13'
 ```
 
 If a statement like the above matched 500 rows and the table had a
@@ -59,7 +59,7 @@ failed nodes, upgrading service plan, migrating service to a different
 cloud provider or region, starting up new read-only replica service,
 forking a service, and some others to take extremely long time or
 depending on the situation practically not complete at all without
-manual operator intervention (e.g. new read-only replica might never be
+manual operator intervention (for example, new read-only replica might never be
 able to catch up with existing master because replication is too slow).
 
 To work around these issues Aiven operations people may need to resort

@@ -102,7 +102,7 @@ wal_fpi             | bigint           |           |          |
 wal_bytes           | numeric          |           |          |
 ```
 
-On older PostgreSQL versions you might find different column names (e.g.
+On older PostgreSQL versions you might find different column names (for example,
 the column previously named `max_time` is now `max_exec_time`). Always
 refer to the [PostgreSQL® official
 documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)

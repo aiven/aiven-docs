@@ -71,7 +71,7 @@ When a service is powered on, the following things will happen:
     could take from minutes to hours. Smaller plans with larger backups
     take longer time than bigger plans with smaller backups. Restore
     progress can be checked by Aiven support with Aiven Admin CLI.
--   If PITR backup is available, the database transaction log (e.g.
+-   If PITR backup is available, the database transaction log (for example,
     `WAL` for PostgreSQL®, `binlog` for MySQL) will be replayed to
     recover the service data to a specific point in time.
 -   Service will be ready for serving.

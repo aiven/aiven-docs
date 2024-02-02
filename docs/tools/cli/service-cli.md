@@ -360,7 +360,7 @@ format. The list of service metrics includes:
 | Parameter      | Information                                                                                                                                                                                                          |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `service_name` | The name of the service                                                                                                                                                                                              |
-| `--period`     | The time period to retrieve the metrics for (possible values `hour`, `day`, `week`, `month`, `year`); the time period is relative to the current date and time, e.g. `hour` will retrieve metrics for the last hour. |
+| `--period`     | The time period to retrieve the metrics for (possible values `hour`, `day`, `week`, `month`, `year`); the time period is relative to the current date and time, for example, `hour` will retrieve metrics for the last hour. |
 
 :::note
 The **granularity** of retrieved data changes based on the `--period`
@@ -444,7 +444,7 @@ documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)
 | Parameter      | Information                                                                                        |
 | -------------- | -------------------------------------------------------------------------------------------------- |
 | `service_name` | The name of the service                                                                            |
-| `--format`     | The format string for output defining the query metrics to retrieve, e.g. `'{calls} {total_time}'` |
+| `--format`     | The format string for output defining the query metrics to retrieve, for example, `'{calls} {total_time}'` |
 
 **Example:** List the queries for an Aiven for PostgreSQL service named
 `pg-demo` including the query blurb, number of calls and both total and
@@ -507,7 +507,7 @@ Create a service task
 | `--target-version`     | Upgrade target version (used for PostgreSQL) (possible values: `11`, `12`, `13`, `14`)         |
 | `--source-service-uri` | Migration: source URI for migration                                                            |
 | `--ignore-dbs`         | Migration: comma-separated list of databases to be ignored (MySQL only)                        |
-| `--format`             | Format string for output, e.g. `{name} {retention_hours}`                                      |
+| `--format`             | Format string for output, for example, `{name} {retention_hours}`                                      |
 | `--json`               | Raw JSON output                                                                                |
 
 **Example:** Create a migration task to migrate a MySQL database to
@@ -534,7 +534,7 @@ Get details for a single task for your service
 | `service_name` | The name of the service                                   |
 | `--project`    | Project name (defaults to `None`)                         |
 | `--task-id`    | The task ID to check                                      |
-| `--format`     | Format string for output, e.g. `{name} {retention_hours}` |
+| `--format`     | Format string for output, for example, `{name} {retention_hours}` |
 | `--json`       | Raw JSON output                                           |
 
 **Example:** Check the status of your migration task with id

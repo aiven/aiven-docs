@@ -77,7 +77,7 @@ The configuration file contains the following entries:
     `io.confluent.connect.s3.format.bytearray.ByteArrayFormat` writes
     messages in binary format.
 -   `flush.size`: Defines how many messages to write per file in the S3
-    bucket. E.g. setting `flush.size` to `3` generates a file every
+    bucket. for example, setting `flush.size` to `3` generates a file every
     three messages in a topic and partition.
 -   `s3.bucket.name`: The name of the S3 bucket
 -   `s3.region`: The AWS region where the S3 bucket has been created
