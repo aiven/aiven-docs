@@ -76,7 +76,7 @@ Recommended backup tools per service are as follows:
     `influxd`
 
 :::note
-The listed backup tools are merely recommendations and are not intended
+The listed backup tools are recommendations and are not intended
 to create a snapshot of your Aiven service but to provide access to the
 data.
 :::
@@ -298,7 +298,7 @@ Aiven for Apache Cassandra backups are taken every 24 hours. The
 point-in-time recovery (PITR) feature is currently not available.
 
 :::note
-If you\'d like to be notified once the PITR feature is available for
+If you'd like to be notified once the PITR feature is available for
 Cassandra, contact the Aiven support.
 :::
 

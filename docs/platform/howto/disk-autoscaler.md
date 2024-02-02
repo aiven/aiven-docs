@@ -70,7 +70,7 @@ the available disk storage capacity and depends on a service type:
     service
 -   Role of the operator for your Aiven organization, project, and
     service
--   Depending on what interface you\'d like to use for interacting with
+-   Depending on what interface you'd like to use for interacting with
     disk autoscaler:
     -   Access to [Aiven Console](https://console.aiven.io/)
     -   [Aiven API](https://api.aiven.io/doc/)

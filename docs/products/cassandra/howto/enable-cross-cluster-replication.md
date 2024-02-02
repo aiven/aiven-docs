@@ -90,7 +90,7 @@ from the sidebar and going to the **Cross Cluster replication** section.
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 
 2.  From the **Services** page, select an Aiven for Apache Cassandra
-    service on which you\'d like to enable CCR.
+    service on which you'd like to enable CCR.
 
 3.  In the **Overview** page of your service, navigate to the **Cross
     Cluster Replication** section and select **Migrate to Cross

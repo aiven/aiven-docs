@@ -46,9 +46,6 @@ Let's take a look at a sample recipe document:
 
 ## Load the data with Python {#load-data-with-python}
 
-Follow the steps below to obtain the dataset and then load the sample
-data into your OpenSearch service using Python:
-
 1.  Download and unzip the
     [full_format_recipes.json](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json)
     file from the dataset in your current directory.
@@ -103,7 +100,8 @@ python epicurious_recipes_import.py
 ## Get data mapping with Python {#get-mapping-with-python}
 
 When no data structure is specified, which is our case as shown on
-[load the data with Python](/docs/products/opensearch/howto/sample-dataset#load-data-with-python), OpenSearch uses dynamic mapping to automatically detect the
+[load the data with Python](/docs/products/opensearch/howto/sample-dataset#load-data-with-python),
+OpenSearch uses dynamic mapping to automatically detect the
 fields. To check the mapping definition of your data, OpenSearch client
 provides a function called `get_mapping` as shown:
 
@@ -160,10 +158,8 @@ And the mapping with the fields and their respective types.
            'type': 'text'}}
 ```
 
-:::note[See also]
 Read more about OpenSearch mapping in the [official OpenSearch
 documentation](https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/put-mapping/).
-:::
 
 ## Load the data with NodeJS {#load-data-with-nodejs}
 
@@ -176,7 +172,7 @@ unzip and put it into the project folder.
 
 It is possible to index values either one by one or by using a bulk
 operation. Because we have a file containing a long list of recipes
-we\'ll use a bulk operation. A bulk endpoint expects a request in a
+we'll use a bulk operation. A bulk endpoint expects a request in a
 format of a list where an action and an optional document are followed
 one after another:
 
