@@ -1,405 +1,489 @@
-# `ip_filter`
+## additional_backup_regions
 
-*array*
+**Title:** Additional Cloud Regions for Backup Replication
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
 
-# `service_log`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## ip_filter
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Title:** IP filter
 
-# `static_ips`
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-*boolean*
+**Type:** `array`
 
-**Static IP addresses** Use static public IP addresses
+## service_log
 
-# `admin_username`
+**Title:** Service logging
 
-*\['string\', \'null\'\]*
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-**Custom username for admin user. This must be set only when a new
-service is being created.**
+**Type:** `boolean,null`
 
-# `admin_password`
+## static_ips
 
-*\['string\', \'null\'\]*
+**Title:** Static IP addresses
 
-**Custom password for admin user. Defaults to random string. This must
-be set only when a new service is being created.**
+**Description:** Use static public IP addresses
 
-# `backup_hour`
+**Type:** `boolean`
 
-*\[\'integer\', \'null\'\]*
+## admin_username
 
-**The hour of day (in UTC) when backup for the service is started. New
-backup is only started if previous backup has already completed.**
+**Title:** Custom username for admin user. This must be set only when a new service is being created.
 
-# `backup_minute`
 
-*\[\'integer\', \'null\'\]*
+**Type:** `string,null`
 
-**The minute of an hour when backup for the service is started. New
-backup is only started if previous backup has already completed.**
+## admin_password
 
-# `migration`
+**Title:** Custom password for admin user. Defaults to random string. This must be set only when a new service is being created.
 
-*\[\'object\', \'null\'\]*
 
-**Migrate data from existing server**
+**Type:** `string,null`
 
-# `private_access`
+## backup_hour
 
-*object*
+**Title:** The hour of day (in UTC) when backup for the service is started. New backup is only started if previous backup has already completed.
 
-**Allow access to selected service ports from private networks**
 
-## `mysql`
+**Type:** `integer,null`
 
-*boolean*
+## backup_minute
 
-**Allow clients to connect to mysql with a DNS name that always resolves
-to the service's private IP addresses. Only available in certain
-network locations**
+**Title:** The minute of an hour when backup for the service is started. New backup is only started if previous backup has already completed.
 
-## `mysqlx`
 
-*boolean*
+**Type:** `integer,null`
 
-**Allow clients to connect to mysqlx with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+## migration
 
-## `prometheus`
+**Title:** Migrate data from existing server
 
-*boolean*
 
-**Allow clients to connect to prometheus with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Type:** `object,null`
 
-# `privatelink_access`
+### host
 
-*object*
+**Title:** Hostname or IP address of the server where to migrate data from
 
-**Allow access to selected service components through Privatelink**
 
-## `mysql`
+**Type:** `string`
 
-*boolean*
+### port
 
-**Enable mysql**
+**Title:** Port number of the server where to migrate data from
 
-## `mysqlx`
 
-*boolean*
+**Type:** `integer`
 
-**Enable mysqlx**
+### password
 
-## `prometheus`
+**Title:** Password for authentication with the server where to migrate data from
 
-*boolean*
 
-**Enable prometheus**
+**Type:** `string`
 
-# `public_access`
+### ssl
 
-*object*
+**Title:** The server where to migrate data from is secured with SSL
 
-**Allow access to selected service ports from the public Internet**
 
-## `mysql`
+**Type:** `boolean`
 
-*boolean*
+### username
 
-**Allow clients to connect to mysql from the public internet for service
-nodes that are in a project VPC or another type of private network**
+**Title:** User name for authentication with the server where to migrate data from
 
-## `mysqlx`
 
-*boolean*
+**Type:** `string`
 
-**Allow clients to connect to mysqlx from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+### dbname
 
-## `prometheus`
+**Title:** Database name for bootstrapping the initial connection
 
-*boolean*
 
-**Allow clients to connect to prometheus from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Type:** `string`
 
-# `service_to_fork_from`
+### ignore_dbs
 
-*\['string\', \'null\'\]*
+**Title:** Comma-separated list of databases, which should be ignored during migration (supported by MySQL and PostgreSQL only at the moment)
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
 
-# `project_to_fork_from`
+**Type:** `string`
 
-*\['string\', \'null\'\]*
+### method
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+**Title:** The migration method to be used (currently supported only by Redis, Dragonfly, MySQL and PostgreSQL service types)
 
-# `mysql_version`
 
-*\['string\', \'null\'\]*
+**Type:** `string`
 
-**MySQL major version**
+## private_access
 
-# `recovery_target_time`
+**Title:** Allow access to selected service ports from private networks
 
-*\['string\', \'null\'\]*
 
-**Recovery target time when forking a service. This has effect only when
-a new service is being created.**
+**Type:** `object`
 
-# `binlog_retention_period`
+### mysql
 
-*integer*
+**Title:** Allow clients to connect to mysql with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-**The minimum amount of time in seconds to keep binlog entries before
-deletion. This may be extended for services that require binlog entries
-for longer than the default for example if using the MySQL Debezium
-Kafka connector.**
 
-# `mysql`
+**Type:** `boolean`
 
-*object*
+### mysqlx
 
-**mysql.conf configuration values**
+**Title:** Allow clients to connect to mysqlx with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-## `sql_mode`
 
-*string*
+**Type:** `boolean`
 
-**sql_mode** Global SQL mode. Set to empty to use MySQL server defaults.
-When creating a new service and not setting this field Aiven default SQL
-mode (strict, SQL standard compliant) will be assigned.
+### prometheus
 
-## `connect_timeout`
+**Title:** Allow clients to connect to prometheus with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-*integer*
 
-**connect_timeout** The number of seconds that the mysqld server waits
-for a connect packet before responding with Bad handshake
+**Type:** `boolean`
 
-## `default_time_zone`
+## privatelink_access
 
-*string*
+**Title:** Allow access to selected service components through Privatelink
 
-**default_time_zone** Default server time zone as an offset from UTC
-(from -12:00 to +12:00), a time zone name, or 'sYSTEM\' to use the
-MySQL server default.
 
-## `group_concat_max_len`
+**Type:** `object`
 
-*integer*
+### mysql
 
-**group_concat_max_len** The maximum permitted result length in bytes
-for the GROUP_CONCAT() function.
+**Title:** Enable mysql
 
-## `information_schema_stats_expiry`
 
-*integer*
+**Type:** `boolean`
 
-**information_schema_stats_expiry** The time, in seconds, before cached
-statistics expire
+### mysqlx
 
-## `innodb_change_buffer_max_size`
+**Title:** Enable mysqlx
 
-*integer*
 
-**innodb_change_buffer_max_size** Maximum size for the InnoDB change
-buffer, as a percentage of the total size of the buffer pool. Default is
-25
+**Type:** `boolean`
 
-## `innodb_flush_neighbors`
+### prometheus
 
-*integer*
+**Title:** Enable prometheus
 
-**innodb_flush_neighbors** Specifies whether flushing a page from the
-InnoDB buffer pool also flushes other dirty pages in the same extent
-(default is 1): 0 - dirty pages in the same extent are not flushed, 1 -
-flush contiguous dirty pages in the same extent, 2 - flush dirty pages
-in the same extent
 
-## `innodb_ft_min_token_size`
+**Type:** `boolean`
 
-*integer*
+## public_access
 
-**innodb_ft_min_token_size** Minimum length of words that are stored in
-an InnoDB FULLTEXT index. Changing this parameter will lead to a restart
-of the MySQL service.
+**Title:** Allow access to selected service ports from the public Internet
 
-## `innodb_ft_server_stopword_table`
 
-*\[\'null\', 'string\'\]*
+**Type:** `object`
 
-**innodb_ft_server_stopword_table** This option is used to specify your
-own InnoDB FULLTEXT index stopword list for all InnoDB tables.
+### mysql
 
-## `innodb_lock_wait_timeout`
+**Title:** Allow clients to connect to mysql from the public internet for service nodes that are in a project VPC or another type of private network
 
-*integer*
 
-**innodb_lock_wait_timeout** The length of time in seconds an InnoDB
-transaction waits for a row lock before giving up. Default is 120.
+**Type:** `boolean`
 
-## `innodb_log_buffer_size`
+### mysqlx
 
-*integer*
+**Title:** Allow clients to connect to mysqlx from the public internet for service nodes that are in a project VPC or another type of private network
 
-**innodb_log_buffer_size** The size in bytes of the buffer that InnoDB
-uses to write to the log files on disk.
 
-## `innodb_online_alter_log_max_size`
+**Type:** `boolean`
 
-*integer*
+### prometheus
 
-**innodb_online_alter_log_max_size** The upper limit in bytes on the
-size of the temporary log files used during online DDL operations for
-InnoDB tables.
+**Title:** Allow clients to connect to prometheus from the public internet for service nodes that are in a project VPC or another type of private network
 
-## `innodb_print_all_deadlocks`
 
-*boolean*
+**Type:** `boolean`
 
-**innodb_print_all_deadlocks** When enabled, information about all
-deadlocks in InnoDB user transactions is recorded in the error log.
-Disabled by default.
+## service_to_fork_from
 
-## `innodb_read_io_threads`
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
 
-*integer*
 
-**innodb_read_io_threads** The number of I/O threads for read operations
-in InnoDB. Default is 4. Changing this parameter will lead to a restart
-of the MySQL service.
+**Type:** `string,null`
 
-## `innodb_rollback_on_timeout`
+## project_to_fork_from
 
-*boolean*
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
 
-**innodb_rollback_on_timeout** When enabled a transaction timeout causes
-InnoDB to abort and roll back the entire transaction. Changing this
-parameter will lead to a restart of the MySQL service.
 
-## `innodb_thread_concurrency`
+**Type:** `string,null`
 
-*integer*
+## mysql_version
 
-**innodb_thread_concurrency** Defines the maximum number of threads
-permitted inside of InnoDB. Default is 0 (infinite concurrency - no
-limit)
+**Title:** MySQL major version
 
-## `innodb_write_io_threads`
 
-*integer*
+**Type:** `string,null`
 
-**innodb_write_io_threads** The number of I/O threads for write
-operations in InnoDB. Default is 4. Changing this parameter will lead to
-a restart of the MySQL service.
+## recovery_target_time
 
-## `interactive_timeout`
+**Title:** Recovery target time when forking a service. This has effect only when a new service is being created.
 
-*integer*
 
-**interactive_timeout** The number of seconds the server waits for
-activity on an interactive connection before closing it.
+**Type:** `string,null`
 
-## `internal_tmp_mem_storage_engine`
+## binlog_retention_period
 
-*string*
+**Title:** The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector.
 
-**internal_tmp_mem_storage_engine** The storage engine for in-memory
-internal temporary tables.
 
-## `net_buffer_length`
+**Type:** `integer`
 
-*integer*
+## mysql
 
-**net_buffer_length** Start sizes of connection buffer and result
-buffer. Default is 16384 (16K). Changing this parameter will lead to a
-restart of the MySQL service.
+**Title:** mysql.conf configuration values
 
-## `net_read_timeout`
 
-*integer*
+**Type:** `object`
 
-**net_read_timeout** The number of seconds to wait for more data from a
-connection before aborting the read.
+### sql_mode
 
-## `net_write_timeout`
+**Title:** sql_mode
 
-*integer*
+**Description:** Global SQL mode. Set to empty to use MySQL server defaults. When creating a new service and not setting this field Aiven default SQL mode (strict, SQL standard compliant) will be assigned.
 
-**net_write_timeout** The number of seconds to wait for a block to be
-written to a connection before aborting the write.
+**Type:** `string`
 
-## `sql_require_primary_key`
+### connect_timeout
 
-*boolean*
+**Title:** connect_timeout
 
-**sql_require_primary_key** Require primary key to be defined for new
-tables or old tables modified with ALTER TABLE and fail if missing. It
-is recommended to always have primary keys because various functionality
-may break if any large table is missing them.
+**Description:** The number of seconds that the mysqld server waits for a connect packet before responding with Bad handshake
 
-## `wait_timeout`
+**Type:** `integer`
 
-*integer*
+### default_time_zone
 
-**wait_timeout** The number of seconds the server waits for activity on
-a noninteractive connection before closing it.
+**Title:** default_time_zone
 
-## `max_allowed_packet`
+**Description:** Default server time zone as an offset from UTC (from -12:00 to +12:00), a time zone name, or 'SYSTEM' to use the MySQL server default.
 
-*integer*
+**Type:** `string`
 
-**max_allowed_packet** Size of the largest message in bytes that can be
-received by the server. Default is 67108864 (64M)
+### group_concat_max_len
 
-## `max_heap_table_size`
+**Title:** group_concat_max_len
 
-*integer*
+**Description:** The maximum permitted result length in bytes for the GROUP_CONCAT() function.
 
-**max_heap_table_size** Limits the size of internal in-memory tables.
-Also set tmp_table_size. Default is 16777216 (16M)
+**Type:** `integer`
 
-## `sort_buffer_size`
+### information_schema_stats_expiry
 
-*integer*
+**Title:** information_schema_stats_expiry
 
-**sort_buffer_size** Sort buffer size in bytes for ORDER BY
-optimization. Default is 262144 (256K)
+**Description:** The time, in seconds, before cached statistics expire
 
-## `tmp_table_size`
+**Type:** `integer`
 
-*integer*
+### innodb_change_buffer_max_size
 
-**tmp_table_size** Limits the size of internal in-memory tables. Also
-set max_heap_table_size. Default is 16777216 (16M)
+**Title:** innodb_change_buffer_max_size
 
-## `slow_query_log`
+**Description:** Maximum size for the InnoDB change buffer, as a percentage of the total size of the buffer pool. Default is 25
 
-*boolean*
+**Type:** `integer`
 
-**slow_query_log** Slow query log enables capturing of slow queries.
-Setting slow_query_log to false also truncates the mysql.slow_log table.
-Default is off
+### innodb_flush_neighbors
 
-## `long_query_time`
+**Title:** innodb_flush_neighbors
 
-*number*
+**Description:** Specifies whether flushing a page from the InnoDB buffer pool also flushes other dirty pages in the same extent (default is 1): 0 - dirty pages in the same extent are not flushed,  1 - flush contiguous dirty pages in the same extent,  2 - flush dirty pages in the same extent
 
-**long_query_time** The slow_query_logs work as SQL statements that take
-more than long_query_time seconds to execute. Default is 10s
+**Type:** `integer`
+
+### innodb_ft_min_token_size
+
+**Title:** innodb_ft_min_token_size
+
+**Description:** Minimum length of words that are stored in an InnoDB FULLTEXT index. Changing this parameter will lead to a restart of the MySQL service.
+
+**Type:** `integer`
+
+### innodb_ft_server_stopword_table
+
+**Title:** innodb_ft_server_stopword_table
+
+**Description:** This option is used to specify your own InnoDB FULLTEXT index stopword list for all InnoDB tables.
+
+**Type:** `null,string`
+
+### innodb_lock_wait_timeout
+
+**Title:** innodb_lock_wait_timeout
+
+**Description:** The length of time in seconds an InnoDB transaction waits for a row lock before giving up. Default is 120.
+
+**Type:** `integer`
+
+### innodb_log_buffer_size
+
+**Title:** innodb_log_buffer_size
+
+**Description:** The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
+
+**Type:** `integer`
+
+### innodb_online_alter_log_max_size
+
+**Title:** innodb_online_alter_log_max_size
+
+**Description:** The upper limit in bytes on the size of the temporary log files used during online DDL operations for InnoDB tables.
+
+**Type:** `integer`
+
+### innodb_print_all_deadlocks
+
+**Title:** innodb_print_all_deadlocks
+
+**Description:** When enabled, information about all deadlocks in InnoDB user transactions is recorded in the error log. Disabled by default.
+
+**Type:** `boolean`
+
+### innodb_read_io_threads
+
+**Title:** innodb_read_io_threads
+
+**Description:** The number of I/O threads for read operations in InnoDB. Default is 4. Changing this parameter will lead to a restart of the MySQL service.
+
+**Type:** `integer`
+
+### innodb_rollback_on_timeout
+
+**Title:** innodb_rollback_on_timeout
+
+**Description:** When enabled a transaction timeout causes InnoDB to abort and roll back the entire transaction. Changing this parameter will lead to a restart of the MySQL service.
+
+**Type:** `boolean`
+
+### innodb_thread_concurrency
+
+**Title:** innodb_thread_concurrency
+
+**Description:** Defines the maximum number of threads permitted inside of InnoDB. Default is 0 (infinite concurrency - no limit)
+
+**Type:** `integer`
+
+### innodb_write_io_threads
+
+**Title:** innodb_write_io_threads
+
+**Description:** The number of I/O threads for write operations in InnoDB. Default is 4. Changing this parameter will lead to a restart of the MySQL service.
+
+**Type:** `integer`
+
+### interactive_timeout
+
+**Title:** interactive_timeout
+
+**Description:** The number of seconds the server waits for activity on an interactive connection before closing it.
+
+**Type:** `integer`
+
+### internal_tmp_mem_storage_engine
+
+**Title:** internal_tmp_mem_storage_engine
+
+**Description:** The storage engine for in-memory internal temporary tables.
+
+**Type:** `string`
+
+### net_buffer_length
+
+**Title:** net_buffer_length
+
+**Description:** Start sizes of connection buffer and result buffer. Default is 16384 (16K). Changing this parameter will lead to a restart of the MySQL service.
+
+**Type:** `integer`
+
+### net_read_timeout
+
+**Title:** net_read_timeout
+
+**Description:** The number of seconds to wait for more data from a connection before aborting the read.
+
+**Type:** `integer`
+
+### net_write_timeout
+
+**Title:** net_write_timeout
+
+**Description:** The number of seconds to wait for a block to be written to a connection before aborting the write.
+
+**Type:** `integer`
+
+### sql_require_primary_key
+
+**Title:** sql_require_primary_key
+
+**Description:** Require primary key to be defined for new tables or old tables modified with ALTER TABLE and fail if missing. It is recommended to always have primary keys because various functionality may break if any large table is missing them.
+
+**Type:** `boolean`
+
+### wait_timeout
+
+**Title:** wait_timeout
+
+**Description:** The number of seconds the server waits for activity on a noninteractive connection before closing it.
+
+**Type:** `integer`
+
+### max_allowed_packet
+
+**Title:** max_allowed_packet
+
+**Description:** Size of the largest message in bytes that can be received by the server. Default is 67108864 (64M)
+
+**Type:** `integer`
+
+### max_heap_table_size
+
+**Title:** max_heap_table_size
+
+**Description:** Limits the size of internal in-memory tables. Also set tmp_table_size. Default is 16777216 (16M)
+
+**Type:** `integer`
+
+### sort_buffer_size
+
+**Title:** sort_buffer_size
+
+**Description:** Sort buffer size in bytes for ORDER BY optimization. Default is 262144 (256K)
+
+**Type:** `integer`
+
+### tmp_table_size
+
+**Title:** tmp_table_size
+
+**Description:** Limits the size of internal in-memory tables. Also set max_heap_table_size. Default is 16777216 (16M)
+
+**Type:** `integer`
+
+### slow_query_log
+
+**Title:** slow_query_log
+
+**Description:** Slow query log enables capturing of slow queries. Setting slow_query_log to false also truncates the mysql.slow_log table. Default is off
+
+**Type:** `boolean`
+
+### long_query_time
+
+**Title:** long_query_time
+
+**Description:** The slow_query_logs work as SQL statements that take more than long_query_time seconds to execute. Default is 10s
+
+**Type:** `number`
+
+    

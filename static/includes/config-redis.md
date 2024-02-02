@@ -1,187 +1,268 @@
-# `ip_filter`
+## additional_backup_regions
 
-*array*
+**Title:** Additional Cloud Regions for Backup Replication
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
 
-# `service_log`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## ip_filter
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Title:** IP filter
 
-# `static_ips`
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-*boolean*
+**Type:** `array`
 
-**Static IP addresses** Use static public IP addresses
+## service_log
 
-# `migration`
+**Title:** Service logging
 
-*\[\'object\', \'null\'\]*
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-**Migrate data from existing server**
+**Type:** `boolean,null`
 
-# `private_access`
+## static_ips
 
-*object*
+**Title:** Static IP addresses
 
-**Allow access to selected service ports from private networks**
+**Description:** Use static public IP addresses
 
-## `prometheus`
+**Type:** `boolean`
 
-*boolean*
+## migration
 
-**Allow clients to connect to prometheus with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Title:** Migrate data from existing server
 
-## `redis`
 
-*boolean*
+**Type:** `object,null`
 
-**Allow clients to connect to redis with a DNS name that always resolves
-to the service's private IP addresses. Only available in certain
-network locations**
+### host
 
-# `privatelink_access`
+**Title:** Hostname or IP address of the server where to migrate data from
 
-*object*
 
-**Allow access to selected service components through Privatelink**
+**Type:** `string`
 
-## `prometheus`
+### port
 
-*boolean*
+**Title:** Port number of the server where to migrate data from
 
-**Enable prometheus**
 
-## `redis`
+**Type:** `integer`
 
-*boolean*
+### password
 
-**Enable redis**
+**Title:** Password for authentication with the server where to migrate data from
 
-# `public_access`
 
-*object*
+**Type:** `string`
 
-**Allow access to selected service ports from the public Internet**
+### ssl
 
-## `prometheus`
+**Title:** The server where to migrate data from is secured with SSL
 
-*boolean*
 
-**Allow clients to connect to prometheus from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Type:** `boolean`
 
-## `redis`
+### username
 
-*boolean*
+**Title:** User name for authentication with the server where to migrate data from
 
-**Allow clients to connect to redis from the public internet for service
-nodes that are in a project VPC or another type of private network**
 
-# `recovery_basebackup_name`
+**Type:** `string`
 
-*string*
+### dbname
 
-**Name of the basebackup to restore in forked service**
+**Title:** Database name for bootstrapping the initial connection
 
-# `redis_maxmemory_policy`
 
-*\['string\', \'null\'\]*
+**Type:** `string`
 
-**Redis maxmemory-policy**
+### ignore_dbs
 
-# `redis_pubsub_client_output_buffer_limit`
+**Title:** Comma-separated list of databases, which should be ignored during migration (supported by MySQL and PostgreSQL only at the moment)
 
-*integer*
 
-**Pub/sub client output buffer hard limit in MB** Set output buffer
-limit for pub / sub clients in MB. The value is the hard limit, the soft
-limit is 1/4 of the hard limit. When setting the limit, be mindful of
-the available memory in the selected service plan.
+**Type:** `string`
 
-# `redis_number_of_databases`
+### method
 
-*integer*
+**Title:** The migration method to be used (currently supported only by Redis, Dragonfly, MySQL and PostgreSQL service types)
 
-**Number of Redis databases** Set number of Redis databases. Changing
-this will cause a restart of the Redis service.
 
-# `redis_io_threads`
+**Type:** `string`
 
-*integer*
+## private_access
 
-**Redis IO thread count** Set Redis IO thread count. Changing this will
-cause a restart of the Redis service.
+**Title:** Allow access to selected service ports from private networks
 
-# `redis_lfu_log_factor`
 
-*integer*
+**Type:** `object`
 
-**Counter logarithm factor for volatile-lfu and allkeys-lfu
-maxmemory-policies**
+### prometheus
 
-# `redis_lfu_decay_time`
+**Title:** Allow clients to connect to prometheus with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-*integer*
 
-**LFU maxmemory-policy counter decay time in minutes**
+**Type:** `boolean`
 
-# `redis_ssl`
+### redis
 
-*boolean*
+**Title:** Allow clients to connect to redis with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-**Require SSL to access Redis**
 
-# `redis_timeout`
+**Type:** `boolean`
 
-*integer*
+## privatelink_access
 
-**Redis idle connection timeout in seconds**
+**Title:** Allow access to selected service components through Privatelink
 
-# `redis_notify_keyspace_events`
 
-*string*
+**Type:** `object`
 
-**Set notify-keyspace-events option**
+### prometheus
 
-# `redis_persistence`
+**Title:** Enable prometheus
 
-*string*
 
-**Redis persistence** When persistence is \'rdb\', Redis does RDB dumps
-each 10 minutes if any key is changed. Also RDB dumps are done according
-to backup schedule for backup purposes. When persistence is \'off\', no
-RDB dumps and backups are done, so data can be lost at any moment if
-service is restarted for any reason, or if service is powered off. Also
-service can\'t be forked.
+**Type:** `boolean`
 
-# `redis_acl_channels_default`
+### redis
 
-*string*
+**Title:** Enable redis
 
-**Default ACL for pub/sub channels used when Redis user is created**
-Determines default pub/sub channels\' ACL for new users if ACL is not
-supplied. When this option is not defined, all_channels is assumed to
-keep backward compatibility. This option doesn\'t affect Redis
-configuration acl-pubsub-default.
 
-# `service_to_fork_from`
+**Type:** `boolean`
 
-*\['string\', \'null\'\]*
+## public_access
 
-**Name of another service to fork from. This has effect only when a new
-service is being created.**
+**Title:** Allow access to selected service ports from the public Internet
 
-# `project_to_fork_from`
 
-*\['string\', \'null\'\]*
+**Type:** `object`
 
-**Name of another project to fork a service from. This has effect only
-when a new service is being created.**
+### prometheus
+
+**Title:** Allow clients to connect to prometheus from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### redis
+
+**Title:** Allow clients to connect to redis from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+## recovery_basebackup_name
+
+**Title:** Name of the basebackup to restore in forked service
+
+
+**Type:** `string`
+
+## redis_maxmemory_policy
+
+**Title:** Redis maxmemory-policy
+
+
+**Type:** `string,null`
+
+## redis_pubsub_client_output_buffer_limit
+
+**Title:** Pub/sub client output buffer hard limit in MB
+
+**Description:** Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.
+
+**Type:** `integer`
+
+## redis_number_of_databases
+
+**Title:** Number of Redis databases
+
+**Description:** Set number of Redis databases. Changing this will cause a restart of the Redis service.
+
+**Type:** `integer`
+
+## redis_io_threads
+
+**Title:** Redis IO thread count
+
+**Description:** Set Redis IO thread count. Changing this will cause a restart of the Redis service.
+
+**Type:** `integer`
+
+## redis_lfu_log_factor
+
+**Title:** Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies
+
+
+**Type:** `integer`
+
+## redis_lfu_decay_time
+
+**Title:** LFU maxmemory-policy counter decay time in minutes
+
+
+**Type:** `integer`
+
+## redis_ssl
+
+**Title:** Require SSL to access Redis
+
+
+**Type:** `boolean`
+
+## redis_timeout
+
+**Title:** Redis idle connection timeout in seconds
+
+
+**Type:** `integer`
+
+## redis_notify_keyspace_events
+
+**Title:** Set notify-keyspace-events option
+
+
+**Type:** `string`
+
+## redis_persistence
+
+**Title:** Redis persistence
+
+**Description:** When persistence is 'rdb', Redis does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is 'off', no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can't be forked.
+
+**Type:** `string`
+
+## redis_acl_channels_default
+
+**Title:** Default ACL for pub/sub channels used when Redis user is created
+
+**Description:** Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Redis configuration acl-pubsub-default.
+
+**Type:** `string`
+
+## redis_version
+
+**Title:** Redis major version
+
+
+**Type:** `string,null`
+
+## service_to_fork_from
+
+**Title:** Name of another service to fork from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+## project_to_fork_from
+
+**Title:** Name of another project to fork a service from. This has effect only when a new service is being created.
+
+
+**Type:** `string,null`
+
+    

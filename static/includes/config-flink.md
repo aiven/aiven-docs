@@ -1,50 +1,61 @@
-# `ip_filter`
+## ip_filter
 
-*array*
+**Title:** IP filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-# `service_log`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## service_log
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Title:** Service logging
 
-# `static_ips`
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-*boolean*
+**Type:** `boolean,null`
 
-**Static IP addresses** Use static public IP addresses
+## static_ips
 
-# `flink_version`
+**Title:** Static IP addresses
 
-*\['string\', \'null\'\]*
+**Description:** Use static public IP addresses
 
-**Flink major version**
+**Type:** `boolean`
 
-# `number_of_task_slots`
+## flink_version
 
-*integer*
+**Title:** Flink major version
 
-**Flink taskmanager.numberOfTaskSlots** Task slots per node. For a 3
-node plan, total number of task slots is 3x this value
 
-# `privatelink_access`
+**Type:** `string,null`
 
-*object*
+## number_of_task_slots
 
-**Allow access to selected service components through Privatelink**
+**Title:** Flink taskmanager.numberOfTaskSlots
 
-## `flink`
+**Description:** Task slots per node. For a 3 node plan, total number of task slots is 3x this value
 
-*boolean*
+**Type:** `integer`
 
-**Enable flink**
+## privatelink_access
 
-## `prometheus`
+**Title:** Allow access to selected service components through Privatelink
 
-*boolean*
 
-**Enable prometheus**
+**Type:** `object`
+
+### flink
+
+**Title:** Enable flink
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Enable prometheus
+
+
+**Type:** `boolean`
+
+    

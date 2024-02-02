@@ -1,238 +1,230 @@
-# `ip_filter`
+## ip_filter
 
-*array*
+**Title:** IP filter
 
-**IP filter** Allow incoming connections from CIDR address block, e.g.
-\'10.20.0.0/16\'
+**Description:** Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'
 
-# `service_log`
+**Type:** `array`
 
-*\[\'boolean\', \'null\'\]*
+## service_log
 
-**Service logging** Store logs for the service so that they are
-available in the HTTP API and console.
+**Title:** Service logging
 
-# `static_ips`
+**Description:** Store logs for the service so that they are available in the HTTP API and console.
 
-*boolean*
+**Type:** `boolean,null`
 
-**Static IP addresses** Use static public IP addresses
+## static_ips
 
-# `kafka_connect`
+**Title:** Static IP addresses
 
-*object*
+**Description:** Use static public IP addresses
 
-**Kafka Connect configuration values**
+**Type:** `boolean`
 
-## `connector_client_config_override_policy`
+## kafka_connect
 
-*string*
+**Title:** Kafka Connect configuration values
 
-**Client config override policy** Defines what client configurations can
-be overridden by the connector. Default is None
 
-## `consumer_auto_offset_reset`
+**Type:** `object`
 
-*string*
+### connector_client_config_override_policy
 
-**Consumer auto offset reset** What to do when there is no initial
-offset in Kafka or if the current offset does not exist any more on the
-server. Default is earliest
+**Title:** Client config override policy
 
-## `consumer_fetch_max_bytes`
+**Description:** Defines what client configurations can be overridden by the connector. Default is None
 
-*integer*
+**Type:** `string`
 
-**The maximum amount of data the server should return for a fetch
-request** Records are fetched in batches by the consumer, and if the
-first record batch in the first non-empty partition of the fetch is
-larger than this value, the record batch will still be returned to
-ensure that the consumer can make progress. As such, this is not a
-absolute maximum.
+### consumer_auto_offset_reset
 
-## `consumer_isolation_level`
+**Title:** Consumer auto offset reset
 
-*string*
+**Description:** What to do when there is no initial offset in Kafka or if the current offset does not exist any more on the server. Default is earliest
 
-**Consumer isolation level** Transaction read isolation level.
-read_uncommitted is the default, but read_committed can be used if
-consume-exactly-once behavior is desired.
+**Type:** `string`
 
-## `consumer_max_partition_fetch_bytes`
+### consumer_fetch_max_bytes
 
-*integer*
+**Title:** The maximum amount of data the server should return for a fetch request
 
-**The maximum amount of data per-partition the server will return.**
-Records are fetched in batches by the consumer.If the first record batch
-in the first non-empty partition of the fetch is larger than this limit,
-the batch will still be returned to ensure that the consumer can make
-progress.
+**Description:** Records are fetched in batches by the consumer, and if the first record batch in the first non-empty partition of the fetch is larger than this value, the record batch will still be returned to ensure that the consumer can make progress. As such, this is not a absolute maximum.
 
-## `consumer_max_poll_interval_ms`
+**Type:** `integer`
 
-*integer*
+### consumer_isolation_level
 
-**The maximum delay between polls when using consumer group management**
-The maximum delay in milliseconds between invocations of poll() when
-using consumer group management (defaults to 300000).
+**Title:** Consumer isolation level
 
-## `consumer_max_poll_records`
+**Description:** Transaction read isolation level. read_uncommitted is the default, but read_committed can be used if consume-exactly-once behavior is desired.
 
-*integer*
+**Type:** `string`
 
-**The maximum number of records returned by a single poll** The maximum
-number of records returned in a single call to poll() (defaults to 500).
+### consumer_max_partition_fetch_bytes
 
-## `offset_flush_interval_ms`
+**Title:** The maximum amount of data per-partition the server will return.
 
-*integer*
+**Description:** Records are fetched in batches by the consumer.If the first record batch in the first non-empty partition of the fetch is larger than this limit, the batch will still be returned to ensure that the consumer can make progress. 
 
-**The interval at which to try committing offsets for tasks** The
-interval at which to try committing offsets for tasks (defaults to
-60000).
+**Type:** `integer`
 
-## `offset_flush_timeout_ms`
+### consumer_max_poll_interval_ms
 
-*integer*
+**Title:** The maximum delay between polls when using consumer group management
 
-**Offset flush timeout** Maximum number of milliseconds to wait for
-records to flush and partition offset data to be committed to offset
-storage before cancelling the process and restoring the offset data to
-be committed in a future attempt (defaults to 5000).
+**Description:** The maximum delay in milliseconds between invocations of poll() when using consumer group management (defaults to 300000).
 
-## `producer_batch_size`
+**Type:** `integer`
 
-*integer*
+### consumer_max_poll_records
 
-**The batch size in bytes the producer will attempt to collect for the
-same partition before publishing to broker** This setting gives the
-upper bound of the batch size to be sent. If there are fewer than this
-many bytes accumulated for this partition, the producer will \'linger\'
-for the linger.ms time waiting for more records to show up. A batch size
-of zero will disable batching entirely (defaults to 16384).
+**Title:** The maximum number of records returned by a single poll
 
-## `producer_buffer_memory`
+**Description:** The maximum number of records returned in a single call to poll() (defaults to 500).
 
-*integer*
+**Type:** `integer`
 
-**The total bytes of memory the producer can use to buffer records
-waiting to be sent to the broker** The total bytes of memory the
-producer can use to buffer records waiting to be sent to the broker
-(defaults to 33554432).
+### offset_flush_interval_ms
 
-## `producer_compression_type`
+**Title:** The interval at which to try committing offsets for tasks
 
-*string*
+**Description:** The interval at which to try committing offsets for tasks (defaults to 60000).
 
-**The default compression type for producers** Specify the default
-compression type for producers. This configuration accepts the standard
-compression codecs (\'gzip\', 'snappy\', \'lz4\', \'zstd\'). It
-additionally accepts \'none\' which is the default and equivalent to no
-compression.
+**Type:** `integer`
 
-## `producer_linger_ms`
+### offset_flush_timeout_ms
 
-*integer*
+**Title:** Offset flush timeout
 
-**Wait for up to the given delay to allow batching records together**
-This setting gives the upper bound on the delay for batching: once there
-is batch.size worth of records for a partition it will be sent
-immediately regardless of this setting, however if there are fewer than
-this many bytes accumulated for this partition the producer will
-\'linger\' for the specified time waiting for more records to show up.
-Defaults to 0.
+**Description:** Maximum number of milliseconds to wait for records to flush and partition offset data to be committed to offset storage before cancelling the process and restoring the offset data to be committed in a future attempt (defaults to 5000).
 
-## `producer_max_request_size`
+**Type:** `integer`
 
-*integer*
+### producer_batch_size
 
-**The maximum size of a request in bytes** This setting will limit the
-number of record batches the producer will send in a single request to
-avoid sending huge requests.
+**Title:** The batch size in bytes the producer will attempt to collect for the same partition before publishing to broker
 
-## `scheduled_rebalance_max_delay_ms`
+**Description:** This setting gives the upper bound of the batch size to be sent. If there are fewer than this many bytes accumulated for this partition, the producer will 'linger' for the linger.ms time waiting for more records to show up. A batch size of zero will disable batching entirely (defaults to 16384).
 
-*integer*
+**Type:** `integer`
 
-**The maximum delay of rebalancing connector workers** The maximum delay
-that is scheduled in order to wait for the return of one or more
-departed workers before rebalancing and reassigning their connectors and
-tasks to the group. During this period the connectors and tasks of the
-departed workers remain unassigned. Defaults to 5 minutes.
+### producer_buffer_memory
 
-## `session_timeout_ms`
+**Title:** The total bytes of memory the producer can use to buffer records waiting to be sent to the broker
 
-*integer*
+**Description:** The total bytes of memory the producer can use to buffer records waiting to be sent to the broker (defaults to 33554432).
 
-**The timeout used to detect failures when using Kafka's group
-management facilities** The timeout in milliseconds used to detect
-failures when using Kafka's group management facilities (defaults to
-10000).
+**Type:** `integer`
 
-# `private_access`
+### producer_compression_type
 
-*object*
+**Title:** The default compression type for producers
 
-**Allow access to selected service ports from private networks**
+**Description:** Specify the default compression type for producers. This configuration accepts the standard compression codecs ('gzip', 'snappy', 'lz4', 'zstd'). It additionally accepts 'none' which is the default and equivalent to no compression.
 
-## `kafka_connect`
+**Type:** `string`
 
-*boolean*
+### producer_linger_ms
 
-**Allow clients to connect to kafka_connect with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+**Title:** Wait for up to the given delay to allow batching records together
 
-## `prometheus`
+**Description:** This setting gives the upper bound on the delay for batching: once there is batch.size worth of records for a partition it will be sent immediately regardless of this setting, however if there are fewer than this many bytes accumulated for this partition the producer will 'linger' for the specified time waiting for more records to show up. Defaults to 0.
 
-*boolean*
+**Type:** `integer`
 
-**Allow clients to connect to prometheus with a DNS name that always
-resolves to the service's private IP addresses. Only available in
-certain network locations**
+### producer_max_request_size
 
-# `privatelink_access`
+**Title:** The maximum size of a request in bytes
 
-*object*
+**Description:** This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests.
 
-**Allow access to selected service components through Privatelink**
+**Type:** `integer`
 
-## `jolokia`
+### scheduled_rebalance_max_delay_ms
 
-*boolean*
+**Title:** The maximum delay of rebalancing connector workers
 
-**Enable jolokia**
+**Description:** The maximum delay that is scheduled in order to wait for the return of one or more departed workers before rebalancing and reassigning their connectors and tasks to the group. During this period the connectors and tasks of the departed workers remain unassigned.  Defaults to 5 minutes.
 
-## `kafka_connect`
+**Type:** `integer`
 
-*boolean*
+### session_timeout_ms
 
-**Enable kafka_connect**
+**Title:** The timeout used to detect failures when using Kafka’s group management facilities
 
-## `prometheus`
+**Description:** The timeout in milliseconds used to detect failures when using Kafka’s group management facilities (defaults to 10000).
 
-*boolean*
+**Type:** `integer`
 
-**Enable prometheus**
+## private_access
 
-# `public_access`
+**Title:** Allow access to selected service ports from private networks
 
-*object*
 
-**Allow access to selected service ports from the public Internet**
+**Type:** `object`
 
-## `kafka_connect`
+### kafka_connect
 
-*boolean*
+**Title:** Allow clients to connect to kafka_connect with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
 
-**Allow clients to connect to kafka_connect from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
 
-## `prometheus`
+**Type:** `boolean`
 
-*boolean*
+### prometheus
 
-**Allow clients to connect to prometheus from the public internet for
-service nodes that are in a project VPC or another type of private
-network**
+**Title:** Allow clients to connect to prometheus with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations
+
+
+**Type:** `boolean`
+
+## privatelink_access
+
+**Title:** Allow access to selected service components through Privatelink
+
+
+**Type:** `object`
+
+### jolokia
+
+**Title:** Enable jolokia
+
+
+**Type:** `boolean`
+
+### kafka_connect
+
+**Title:** Enable kafka_connect
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Enable prometheus
+
+
+**Type:** `boolean`
+
+## public_access
+
+**Title:** Allow access to selected service ports from the public Internet
+
+
+**Type:** `object`
+
+### kafka_connect
+
+**Title:** Allow clients to connect to kafka_connect from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+### prometheus
+
+**Title:** Allow clients to connect to prometheus from the public internet for service nodes that are in a project VPC or another type of private network
+
+
+**Type:** `boolean`
+
+    
