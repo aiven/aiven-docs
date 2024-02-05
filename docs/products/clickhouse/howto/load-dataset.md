@@ -114,9 +114,9 @@ If no database is specified, the default one is used.
 
 ## Load data
 
-Now that you have a dataset with two empty tables, we\'ll load data into
+Now that you have a dataset with two empty tables, we'll load data into
 each of the tables. However, because we need to access files outside the
-docker container, we\'ll run the command specifying `--query` parameter.
+docker container, we'll run the command specifying `--query` parameter.
 To do this:
 
 1.  Go to the folder where you stored the downloaded files for

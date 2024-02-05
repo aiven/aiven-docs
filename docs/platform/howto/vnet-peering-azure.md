@@ -182,7 +182,7 @@ assigned.
 
 The Aiven application now has a service principal that can be given
 permissions. In order to target a network in your subscription with a
-peering and nothing else, we\'ll create a this a custom role definition,
+peering and nothing else, we'll create a this a custom role definition,
 with only a single action allowing to do that and only that:
 
 ```

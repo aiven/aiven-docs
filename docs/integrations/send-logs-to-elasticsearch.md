@@ -25,7 +25,7 @@ Start by setting up an external service integration for Elasticsearch.
     Aiven.
 4.  Select **External Elasticsearch** from the list.
 5.  Select **Add new endpoint**.
-6.  Set a preferred *endpoint name*, we\'ll call it `CONNECTION_NAME`
+6.  Set a preferred *endpoint name*, we'll call it `CONNECTION_NAME`
     later.
 7.  In the connection URL field set the connection string in a format
     `https://ELASTICSEARCH_USER:ELASTICSEARCH_PASSWORD@ELASTICSEARCH_HOST:ELASTICSEARCH_PORT`,

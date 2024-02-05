@@ -49,53 +49,51 @@ Let's take a look at a sample recipe document:
 1.  Download and unzip the
     [full_format_recipes.json](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json)
     file from the dataset in your current directory.
-2.  Install the Python dependencies:
+1.  Install the Python dependencies:
 
-``` shell
-pip install opensearch-py==1.0.0
-```
+    ``` shell
+    pip install opensearch-py==1.0.0
+    ```
 
-4.  In this step you will create the script that reads the data file you
+1.  In this step you will create the script that reads the data file you
     downloaded and puts the records into the OpenSearch service. Create
     a file named `epicurious_recipes_import.py`, and add the following
     code; you will need to edit it to add the connection details for
     your OpenSearch service.
 
-:::tip
-You can find the `SERVICE_URI` on Aiven's dashboard.
-:::
+    You can find the `SERVICE_URI` on Aiven's dashboard.
 
-``` python
-import json
-from opensearchpy import helpers, OpenSearch
+    ``` python
+    import json
+    from opensearchpy import helpers, OpenSearch
 
 
-SERVICE_URI = 'YOUR_SERVICE_URI_HERE'
-INDEX_NAME = 'epicurious-recipes'
+    SERVICE_URI = 'YOUR_SERVICE_URI_HERE'
+    INDEX_NAME = 'epicurious-recipes'
 
-os_client = OpenSearch(hosts=SERVICE_URI, ssl_enable=True)
+    os_client = OpenSearch(hosts=SERVICE_URI, ssl_enable=True)
 
 
-def load_data():
-    with open('full_format_recipes.json', 'r') as f:
-        data = json.load(f)
-        for recipe in data:
-            yield {'_index': INDEX_NAME, '_source': recipe}
-```
+    def load_data():
+        with open('full_format_recipes.json', 'r') as f:
+            data = json.load(f)
+            for recipe in data:
+                yield {'_index': INDEX_NAME, '_source': recipe}
+    ```
 
-OpenSearch Python client offers a helper called bulk() which allows us
-to send multiple documents in one API call.
+    OpenSearch Python client offers a helper called bulk() which allows us
+    to send multiple documents in one API call.
 
-``` python
-helpers.bulk(os_client, load_data())
-```
+    ``` python
+    helpers.bulk(os_client, load_data())
+    ```
 
-5.  Run the script with the following command, and wait for it to
+1.  Run the script with the following command, and wait for it to
     complete:
 
-``` bash
-python epicurious_recipes_import.py
-```
+    ``` bash
+    python epicurious_recipes_import.py
+    ```
 
 ## Get data mapping with Python {#get-mapping-with-python}
 
@@ -163,7 +161,7 @@ documentation](https://opensearch.org/docs/latest/opensearch/rest-api/index-apis
 
 ## Load the data with NodeJS {#load-data-with-nodejs}
 
-To load data with NodeJS we\'ll use [OpenSearch JavaScript
+To load data with NodeJS we'll use [OpenSearch JavaScript
 client](https://github.com/opensearch-project/opensearch-js)
 
 Download
@@ -180,7 +178,7 @@ one after another:
 -   Optional document
 -   Action and metadata
 -   Optional document
--   and so on\...
+-   and so on
 
 To achieve this expected format, use a flat map to create a flat list of
 such pairs instructing OpenSearch to index the documents.
@@ -270,49 +268,38 @@ export SERVICE_URI="YOUR_SERVICE_URI_HERE/epicurious-recipes"
 1.  Execute a basic search for the word `vegan` across all documents and
     fields:
 
-``` bash
-http "$SERVICE_URI/_search?q=vegan"
-```
+    ``` bash
+    http "$SERVICE_URI/_search?q=vegan"
+    ```
 
-2.  Search for `vegan` in the `desc` or `title` fields only:
+1.  Search for `vegan` in the `desc` or `title` fields only:
 
-``` bash
-http POST "$SERVICE_URI/_search" <<< '
-{
-    "query": {
-        "multi_match": {
-            "query": "vegan",
-            "fields": ["desc", "title"]
-        }
-    }
-}
-'
-```
-
-3.  Search for recipes published only in 2013:
-
-``` bash
-http POST "$SERVICE_URI/_search" <<< '
-{
-    "query": {
-        "range" : {
-            "date": {
-            "gte": "2013-01-01",
-            "lte": "2013-12-31"
+    ``` bash
+    http POST "$SERVICE_URI/_search" <<< '
+    {
+        "query": {
+            "multi_match": {
+                "query": "vegan",
+                "fields": ["desc", "title"]
             }
         }
     }
-}
-'
-```
+    '
+    ```
 
-## Ready for a challenge?
+1.  Search for recipes published only in 2013:
 
-After playing around with the sample queries, can you use OpenSearch
-queries to answer some of these questions?
-
-1.  Find all vegan recipes and order them by `calories`.
-2.  Find all recipes with `vegan` on the title but without the words
-    `cheese`, `meat` or `eggs` on any other field.
-3.  Use one query to count how many `vegan` and `vegetarian` recipes
-    there are.
+    ``` bash
+    http POST "$SERVICE_URI/_search" <<< '
+    {
+        "query": {
+            "range" : {
+                "date": {
+                "gte": "2013-01-01",
+                "lte": "2013-12-31"
+                }
+            }
+        }
+    }
+    '
+    ```

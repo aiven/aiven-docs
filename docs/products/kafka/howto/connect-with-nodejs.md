@@ -31,7 +31,7 @@ library.
             1.  Select **SASL** as the **Authentication Method**
             2.  Next to *CA Certificate*, click **Download** and save
                 the `ca.pem` file
-            3.  Note the *Password* required for the SASL, we\'ll need
+            3.  Note the *Password* required for the SASL, we'll need
                 it for authentication
 
 :::note

@@ -99,7 +99,7 @@ The tutorial includes:
 -   PostgreSQL® for data storage/query.
 -   Slack as notification system.
 
-In this tutorial we\'ll be using Aiven services, specifically [Aiven for
+In this tutorial we'll be using Aiven services, specifically [Aiven for
 Apache Flink®](https://aiven.io/flink), [Aiven for Apache
 Kafka®](https://aiven.io/kafka), and [Aiven for
 PostgreSQL®](https://aiven.io/postgresql). All of these are open source
@@ -581,7 +581,7 @@ filter out short term spikes in usage, and flag only anomaly scenarios
 where the usage is consistently above a pre-defined threshold for a long
 period of time.
 
-To add a bit of complexity, and mimic a real scenario, we\'ll also move
+To add a bit of complexity, and mimic a real scenario, we'll also move
 away from a fixed `80%` threshold, and compare the average utilization
 figures with the different thresholds, set in a reference table (stored
 in PostgreSQL), for the various IoT devices based on their `hostname`.

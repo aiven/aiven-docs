@@ -111,7 +111,7 @@ You can also include the following parameters:
     list of STS endpoints in the [dedicated AWS
     documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html).
 
-The connector configurations in a file (we\'ll refer to it with the name
+The connector configurations in a file (we'll refer to it with the name
 `s3_sink.json`) should contain at least the following content:
 
 ``` json

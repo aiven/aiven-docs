@@ -88,7 +88,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `mongodb_sink.json`) with the following content, creating a
 file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven

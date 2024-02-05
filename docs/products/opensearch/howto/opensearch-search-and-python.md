@@ -148,22 +148,22 @@ All set to start writing your search queries.
 
 You have an OpenSearch client and data injected in your cluster, so you
 can start writing search queries. Python OpenSearch client has a handy
-method called `search()`, which we\'ll use to run our queries.
+method called `search()`, which we'll use to run our queries.
 
 We can check the method signature to understand the function and which
-parameters we\'ll use. As you can see, all the parameters are optional
+parameters we'll use. As you can see, all the parameters are optional
 in the `search()` method. Find below the method signature:
 
 ```
 client.search: (body=None, index=None, doc_type=None, params=None, headers=None)
 ```
 
-To run the search queries, we\'ll use two of these parameters - `index`
+To run the search queries, we'll use two of these parameters - `index`
 and `body`:
 
 -   `index`, parameter refers to the name of the index we used to load
     the data. Therefore, it does not change.
--   `body`, parameter refers to the search query specifications. We\'ll
+-   `body`, parameter refers to the search query specifications. we'll
     modify it according to our query purpose.
 
 ### Lucene query and query DSL

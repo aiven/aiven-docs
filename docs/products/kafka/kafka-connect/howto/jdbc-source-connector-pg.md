@@ -55,7 +55,7 @@ source connector to a PostgreSQL database using the
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `jdbc_source_pg.json`) with the following content:
 
 ```

@@ -18,7 +18,7 @@ existing ones.
 ## Upgrade procedure steps
 
 To demonstrate what steps are taken during the automated upgrade
-procedure, we\'ll look at the example for a 3-node Apache Kafka service
+procedure, we'll look at the example for a 3-node Apache Kafka service
 visualised below:
 
 ```mermaid

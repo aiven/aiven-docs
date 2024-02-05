@@ -44,10 +44,10 @@ S3 sink connector using the
 
 ### Define a Kafka Connect® configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `s3_sink.json`) with the following content:
 
-```
+```json
 {
     "name": "<CONNECTOR_NAME>",
     "topics": "<TOPIC_NAME>",

@@ -15,7 +15,7 @@ using [log integration](opensearch-log-integration).
 
 ## Variables
 
-We\'ll use these values later in the set up. They can be found in your
+we'll use these values later in the set up. They can be found in your
 Aiven for OpenSearch service page, in the connection information.
 
  | Variable              | Description                             |

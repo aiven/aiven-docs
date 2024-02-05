@@ -471,7 +471,7 @@ To use the GCP or Azure cloud providers, you\'ll have your
 custom cloud created by the Aiven team (not via [Aiven
 Console](https://console.aiven.io/)). Therefore, after
 [enabling the BYOC feature](/docs/platform/howto/byoc/enable-byoc) in [Aiven Console](https://console.aiven.io/), there are no
-further actions required from you to create your custom cloud. We\'ll
+further actions required from you to create your custom cloud. we'll
 build your custom cloud for you according to the specifications you
 provided while
 [enabling BYOC](/docs/platform/howto/byoc/enable-byoc) in [Aiven Console](https://console.aiven.io/). We might

@@ -79,7 +79,7 @@ Console](https://console.aiven.io/).
 
 ### Define an Apache Kafka Connect® configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `snowflake_sink.json`) with the following content:
 
 ``` json

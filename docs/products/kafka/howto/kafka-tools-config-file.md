@@ -12,7 +12,7 @@ authentication.
 :::note
 There are no restrictions on the file name, but make sure to use the
 correct name when performing CLI operations. In the examples below
-we\'ll name the file `configuration.properties`.
+we'll name the file `configuration.properties`.
 :::
 
 ## Define the configuration file
@@ -43,7 +43,7 @@ for the truststore, keystore and key
 
 An example of the `configuration.properties` content is the following:
 
-``` 
+```
 security.protocol=SSL
 ssl.protocol=TLS
 ssl.keystore.type=PKCS12

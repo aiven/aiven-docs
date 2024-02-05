@@ -82,7 +82,7 @@ Connector for Apache Kafka to a PostgreSQL database using the
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `debezium_source_pg.json`) with the following content:
 
 ``` json

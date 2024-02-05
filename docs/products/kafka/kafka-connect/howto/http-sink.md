@@ -49,7 +49,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `http_sink.json`) with the following content:
 
 ``` json

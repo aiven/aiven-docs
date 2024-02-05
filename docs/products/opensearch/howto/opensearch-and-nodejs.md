@@ -4,7 +4,7 @@ title: Write search queries with OpenSearch® and NodeJS
 
 Learn how the OpenSearch® JavaScript client gives a clear and useful
 interface to communicate with an OpenSearch cluster and run search
-queries. To make it more delicious we\'ll be using a recipe dataset from
+queries. To make it more delicious we'll be using a recipe dataset from
 Kaggle.
 
 ## Prepare the playground
@@ -22,14 +22,14 @@ repository](https://github.com/aiven/demo-open-search-node-js).
 
 ### File structure and GitHub repository
 
-To organise our development space we\'ll use these files:
+To organise our development space we'll use these files:
 
 -   `config.js` to keep necessary basis to connect to the cluster,
 -   `index.js` to hold methods which manipulate the index,
 -   `helpers.js` to contain utilities for logging responses,
 -   `search.js` for methods specific to search requests.
 
-We\'ll be adding code into these files and running the methods from the
+we'll be adding code into these files and running the methods from the
 command line.
 
 ### Connect to the cluster and load data
@@ -61,7 +61,7 @@ const logTitles = (error, result) => {
 ```
 
 :::note
-In the code snippets we\'ll keep error handling somewhat simple and use
+In the code snippets we'll keep error handling somewhat simple and use
 `console.log` to print information into the terminal.
 :::
 
@@ -90,7 +90,7 @@ specify a variety of parameters, such as the name of the index
 response is paginated (`size` and `from`), by which fields to sort the
 data (`sort`) and others.
 
-We\'ll pay a closer attention to two of these parameters - `q` - a query
+we'll pay a closer attention to two of these parameters - `q` - a query
 defined in the Lucene query string syntax and `body` - a query based on
 Query DSL (Domain Specific Language). These are two main methods to
 construct a query.
@@ -126,7 +126,7 @@ variety of granular parameters.
  })
 ```
 
-In this tutorial we\'ll focus on Query DSL and its three main groups of
+In this tutorial we'll focus on Query DSL and its three main groups of
 requests: term-level, full-text and boolean. You will also see how to
 use the Lucene query string syntax inside Query DSL.
 
@@ -358,7 +358,7 @@ module.exports.slop = (field, query, slop) => {
 
 We can use this method to find some recipes for pizza with pineapple. I
 learned from my Italian colleague that this considered a combination
-only for tourists, not a true pizza recipe. We\'ll do it by searching
+only for tourists, not a true pizza recipe. we'll do it by searching
 the `directions` field for words \"pizza\" and \"pineapple\" with
 top-most distance of 10 words in between.
 
@@ -370,7 +370,7 @@ Oh look: \"Pan-Fried Hawaiian Pizza\" (don\'t tell my colleague).
 
 So far all the requests we tried returned us at most 10 results. Why 10?
 Because it is a default `size` value. It can be increased by setting
-`size` property to a higher number when making the request. We\'ll
+`size` property to a higher number when making the request. we'll
 include this in the next example.
 
 ### Search with query string syntax

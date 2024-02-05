@@ -52,7 +52,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Create a file (we\'ll refer to this one as `splunk_sink.json`) to hold
+Create a file (we'll refer to this one as `splunk_sink.json`) to hold
 the connector configuration. As an example, here's some configuration
 for sending JSON payloads to Splunk:
 

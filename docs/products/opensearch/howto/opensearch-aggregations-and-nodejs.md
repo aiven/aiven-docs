@@ -3,7 +3,7 @@ title: Use Aggregations with OpenSearch® and NodeJS
 ---
 
 Learn how to aggregate data using OpenSearch and its NodeJS client. In
-this tutorial we\'ll look at different types of aggregations, write and
+this tutorial we'll look at different types of aggregations, write and
 execute requests to learn more about the data in our dataset.
 
 :::note
@@ -27,7 +27,7 @@ repository](https://github.com/aiven/demo-open-search-node-js).
 
 ### File structure and GitHub repository
 
-To organise our development space we\'ll use these files:
+To organise our development space we'll use these files:
 
 -   `config.js` to keep necessary basis to connect to the cluster,
 -   `index.js` to hold methods which manipulate the index,
@@ -35,7 +35,7 @@ To organise our development space we\'ll use these files:
 -   `search.js` and `aggregation.js` for methods specific to search and
     aggregation requests.
 
-We\'ll be adding code into these files and running the methods from the
+we'll be adding code into these files and running the methods from the
 command line.
 
 ### Connect to the cluster and load data
@@ -47,7 +47,7 @@ connected
 [retrieve the data mapping](/docs/products/opensearch/howto/sample-dataset#get-mapping-with-nodejs) to understand the structure of the created index.
 
 :::note
-In the code snippets we\'ll keep error handling somewhat simple and use
+In the code snippets we'll keep error handling somewhat simple and use
 `console.log` to print information into the terminal.
 :::
 
@@ -55,7 +55,7 @@ Now you're ready to start aggregating the data.
 
 ## Aggregations
 
-In this tutorial we\'ll write and run examples for three different types
+In this tutorial we'll write and run examples for three different types
 of aggregations: metric, bucket and pipeline. You can read more about
 aggregations in
 [a concept article](/docs/products/opensearch/concepts/aggregations).
@@ -99,9 +99,9 @@ client.search(
 
 The best way to learn more about each type of aggregations is to try
 them out. Therefore, it's time to make our hands dirty and do some
-coding. Create `aggregate.js` file, this is where we\'ll be
+coding. Create `aggregate.js` file, this is where we'll be
 adding our code. At the top of the file import client and index name,
-we\'ll need them to send requests to the cluster.
+we'll need them to send requests to the cluster.
 
 ``` javascript
 const { client, indexName: index } = require("./config");
@@ -374,7 +374,7 @@ You can aggregate data by dividing it into a set of buckets. We can
 either predefine these buckets, or create them dynamically to fit the
 data.
 
-To understand how this works, we\'ll create a method to aggregate
+To understand how this works, we'll create a method to aggregate
 recipes into buckets based on sodium ranges.
 
 We use `range` aggregation and add a property `ranges` to describe how
@@ -439,7 +439,7 @@ the buckets.
 
 However, our method is narrowed down to a specific scenario. We want to
 refactor it a bit to use for other fields and different sets of ranges.
-To achieve this we\'ll:
+To achieve this we'll:
 
 -   move aggregation field and bucket ranges to the list of method
     parameters
@@ -659,7 +659,7 @@ documents each.
 
 The story of bucket aggregations won\'t be complete without speaking
 about histograms. Histograms aggregate date based on provided interval.
-And since we have a `date` property, we\'ll build a date histogram.
+And since we have a `date` property, we'll build a date histogram.
 
 The format of the histogram aggregation is similar to what we saw so
 far, so we can create a new method almost identical to previous ones:
@@ -739,7 +739,7 @@ OpenSearch allows \"piping\" the results of one aggregation into the
 different one to achieve more granular analysis through an intermediate
 step.
 
-To demonstrate an example of pipeline aggregations, we\'ll look at the
+To demonstrate an example of pipeline aggregations, we'll look at the
 moving average of number of recipes added throughout the years. With the
 help of what we learned so far and a couple of new tools we can do the
 following:
