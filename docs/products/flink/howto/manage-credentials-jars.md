@@ -2,8 +2,7 @@
 title: Credential management for JAR applications
 ---
 
-Learn how to use the `AVN_CREDENTIALS_DIR` environment variable to securely manage
-credentials for custom JARs in Aiven for Apache Flink®.
+Learn how to use the `AVN_CREDENTIALS_DIR` environment variable to securely manage credentials for custom JARs in Aiven for Apache Flink®.
 
 ## About credential management
 
