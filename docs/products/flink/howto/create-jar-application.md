@@ -64,7 +64,7 @@ processing capabilities.
         you require for the task.
 1.  Click **Deploy without a savepoint** to begin the deployment
     process.
-1. While deploying, the application status shows **Initializing**. Once
+1.  While deploying, the application status shows **Initializing**. Once
     deployed, the status changes to **Running**.
 
 ## Related pages

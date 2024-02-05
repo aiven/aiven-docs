@@ -19,11 +19,10 @@ the [Aiven CLI](/docs/tools/cli).
     list of supported plans and regions.
 -   Aiven CLI
 -   The tiered storage for Aiven for Apache Kafka® is an **early availability**
-feature and requires activation on your Aiven account. Contact our sales team
-at sales@aiven.io to request activation. Once activated, you must
-enable tiered storage from the [feature preview](/docs/platform/howto/feature-preview)
-page in your user profile to start using it.
-
+    feature and requires activation on your Aiven account.
+    Contact [our sales team](mailto:sales@aiven.io) to request activation. Once activated,
+    enable tiered storage from the [feature preview](/docs/platform/howto/feature-preview)
+    page in your user profile to start using it.
 
 ## Enable tiered storage via Aiven Console
 
@@ -33,21 +32,20 @@ Aiven Console.
 1. Log in to the [Aiven console](https://console.aiven.io/), and select
     your project.
 1. Either create a new Aiven for Apache Kafka service or select an
-    existing one.
-    -   For
-        [a new service](/docs/platform/howto/create_new_service):
+   existing one.
+   -   For [a new service](/docs/platform/howto/create_new_service):
 
-        1.  On the **Create Apache Kafka® service** page, scroll down to
-            the **Tiered storage** section.
-        1.  Turn on the **Enable tiered storage** toggle to activate
-            tiered storage.
-        1.  In the **Service summary**, you can view the pricing for
-            tiered storage.
-    -   For an existing service:
-        1.  Go to the service's **Overview** page, select **Service
-            settings** from the sidebar.
-        1.  In the Service plan section, click **Enable tiered storage**
-            to activate it.
+       1.  On the **Create Apache Kafka® service** page, scroll down to
+           the **Tiered storage** section.
+       1.  Turn on the **Enable tiered storage** toggle to activate
+           tiered storage.
+       1.  In the **Service summary**, you can view the pricing for
+           tiered storage.
+   -   For an existing service:
+       1.  Go to the service's **Overview** page, select **Service
+           settings** from the sidebar.
+       1.  In the Service plan section, click **Enable tiered storage**
+           to activate it.
 1.  Click **Activate tiered storage** to confirm your settings and turn
     on tiered storage for your service.
 
@@ -98,8 +96,8 @@ parameter `fetch.max.wait.ms` from its default value of 500ms to 5000ms.
 Follow these steps to enable tiered storage for your Aiven for Apache
 Kafka service using the [Aiven CLI](/docs/tools/cli):
 
-1. Ensure the tiered storage feature is activated for your account by contacting our sales
-   team at sales@aiven.io. This feature is an early availability and requires
+1. Ensure the tiered storage feature is activated for your account by contacting [our sales
+   team](mailto:sales@aiven.io). This feature is an early availability and requires
    activation on your account.
 
 1.  Once activated, retrieve the project information using the following command:
@@ -115,7 +113,7 @@ Kafka service using the [Aiven CLI](/docs/tools/cli):
     ```
 
 1.  To find the name of the Aiven for Apache Kafka service for enabling tiered storage,
-use this command:
+    use this command:
 
     ``` bash
     avn service list

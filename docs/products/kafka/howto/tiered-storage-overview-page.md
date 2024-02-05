@@ -4,10 +4,10 @@ sidebar_label: Tiered storage overview page
 early: true
 ---
 
-Aiven for Apache Kafka® offers a comprehensive overview of tiered
-storage, allowing you to understand its usage and make informed
-decisions. This overview page provides insights into various aspects of
-tiered storage, including hourly billing, settings, and storage details.
+Aiven for Apache Kafka® offers a comprehensive overview of tiered storage, allowing you to understand its usage and make informed decisions.
+
+This overview page provides insights into various aspects of tiered storage, including
+hourly billing, settings, and storage details.
 
 ## Prerequisite
 

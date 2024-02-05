@@ -16,18 +16,18 @@ Before you start, ensure you have the following:
 -   Aiven account.
 -   [Aiven for Apache Kafka®](/docs/products/kafka/get-started) service running.
 -   [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) set up
-for your Aiven for Apache Kafka for extracting
+    for your Aiven for Apache Kafka for extracting
     metrics.
 -   Necessary permissions to modify service configurations.
 -   The consumer lag predictor for Aiven for Apache Kafka® is a
-**limited availability** feature and requires activation on your Aiven account.
-Contact our sales team at sales@aiven.io to request activation.
+    **limited availability** feature and requires activation on your Aiven account.
+    Contact our sales team at sales@aiven.io to request activation.
 
 ## Enable via Aiven Console
 
-1. Once the consumer lag predictor is activated for your account,
-log in to the [Aiven Console](https://console.aiven.io/),
-select your project and then choose your Aiven for Apache Kafka® service.
+1.  Once the consumer lag predictor is activated for your account,
+    log in to the [Aiven Console](https://console.aiven.io/),
+    select your project and then choose your Aiven for Apache Kafka® service.
 
 1.  On the service page, click **Service settings** on the sidebar.
 
@@ -47,9 +47,9 @@ select your project and then choose your Aiven for Apache Kafka® service.
         consider during lag prediction calculations.
 
         :::note
-          By default, the consumer lag predictor calculates the lag of all
-          consumer groups. To restrict the calculation to specific groups, use
-          the `kafka_lag_predictor.group_filters` option.
+        By default, the consumer lag predictor calculates the lag of all
+        consumer groups. To restrict the calculation to specific groups, use
+        the `kafka_lag_predictor.group_filters` option.
         :::
 
 1.  Select **Save configuration** to save your changes and enable
@@ -62,23 +62,23 @@ for Apache Kafka service using
 [Aiven CLI](/docs/tools/cli).
 
 1. Ensure the consumer lag predictor feature is activated for your account by contacting
-our sales team at sales@aiven.io. The consumer lag predictor is a limited availability
-feature and needs to be activated for your account.
+   our sales team at sales@aiven.io. The consumer lag predictor is a limited availability
+   feature and needs to be activated for your account.
 1. Once activated, retrieve the project information using the following command:
 
    ```text
    avn project details
    ```
 
-    If you need details for a specific project, use:
+   If you need details for a specific project, use:
 
-    ```text
-    avn project details --project <your_project_name>
-    ```
+   ```text
+   avn project details --project <your_project_name>
+   ```
 
 1. Get the name of the Aiven for Apache Kafka service for which you
-    want to enable the consumer lag predictor by using the following
-    command:
+   want to enable the consumer lag predictor by using the following
+   command:
 
    ```text
    avn service list
@@ -101,8 +101,8 @@ feature and needs to be activated for your account.
     :::
 
 1. If you wish to specify which consumer groups should be considered
-    when calculating the lag prediction, you can set the `group_filters`
-    configuration:
+   when calculating the lag prediction, you can set the `group_filters`
+   configuration:
 
    ```text
    avn service update <SERVICE_NAME> \
