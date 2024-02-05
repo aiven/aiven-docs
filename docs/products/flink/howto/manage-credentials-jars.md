@@ -12,10 +12,11 @@ external systems you manage, which is essential for real-time stream processing.
 Effectively managing credentials is critical to securing and ensuring compliant
 access to these services.
 
-Aiven for Apache Flink® provides a secure way to manage credentials for
-both internal and external integrations using the `AVN_CREDENTIALS_DIR` environment
-variable. Centralizing credentials in this directory ensures secure and policy-compliant
-access to sensitive information by JAR applications.
+Aiven for Apache Flink® securely manages credentials for your JAR applications using
+the `AVN_CREDENTIALS_DIR` environment variable. This centralizes credentials for internal
+and external integrations, ensuring policy-compliant and secure access
+to sensitive information.
+
 
 ## Prerequisitesg
 
