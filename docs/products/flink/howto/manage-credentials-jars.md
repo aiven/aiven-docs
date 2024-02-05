@@ -154,7 +154,7 @@ When deploying your application using the [Aiven Console](https://console.aiven.
 you can provide the `myKafkaSource` in the **Program Arguments** section.
 For example, in the **Create new deployment dialog**, locate the **Program args** field.
 Insert the following syntax, replacing `integration_id` with the actual
-[integration ID](/docs/tools/cli/service/integration#avn_service_integration_list)
+[integration ID](/docs/tools/cli/service/integration##avn-service-integration-types)
 of your Aiven for Apache Kafka service:
 
 ```text
