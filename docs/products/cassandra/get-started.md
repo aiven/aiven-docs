@@ -1,44 +1,36 @@
 ---
 title: Get started with Aiven for Apache Cassandra®
+sidebar_labels: Get started
 ---
 
-The first step in using Aiven for Apache Cassandra® is to create a
-service. You can do so either using [Aiven
-Console](https://console.aiven.io/) or the [Aiven
-CLI](https://github.com/aiven/aiven-client).
+Start using Aiven for Apache Cassandra® by creating a service either in the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](/docs/tools/cli).
 
-## Create an Aiven for Apache Cassandra service using the Aiven Console
+## Create a service in the console
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
-2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create a new Aiven for Apache Cassandra service.
+1.  [Create an Aiven for Apache Cassandra® service](/docs/platform/howto/create_new_service).
 
-    Once the service is ready, the status changes to *Running*. This
-    typically takes a couple of minutes, depending on your selected
-    cloud provider and region.
+    Once the service is ready, its status changes to **Running**, which typically takes a
+    couple of minutes, depending on your selected cloud provider and region.
 
-## Create an Aiven for Apache Cassandra service using the Aiven CLI
+## Create a service with the Aiven CLI
 
-If you prefer launching a new service from the CLI, [Aiven
-CLI](https://github.com/aiven/aiven-client) includes a command for doing
-so.
+To create a service using the
+[Aiven CLI](https://github.com/aiven/aiven-client), decide on the service plan, cloud
+provider, and region for your new service and run the `avn service create` command.
 
-In order to launch a service, decide on the service plan, cloud
-provider, and region you want to run your service on. Then run the
-following command to create an Aiven for Apache Cassandra service named
-`demo-cassandra`:
-
-``` 
+```bash
 avn service create demo-cassandra       \
    --service-type cassandra             \
    --cloud CLOUD_AND_REGION             \
    --plan PLAN                          \
-   --project PROJECT_NAME 
+   --project PROJECT_NAME
 ```
 
 :::note
-See the full list of default flags using the `avn service create -h`
-command. Additionally, there are some type-specific options, which you
-can see executing the `avn service types -v` command.
+
+- To preview the full list of default flags, run `avn service create -h`.
+- To list the type-specific options, run `avn service types -v`.
+
 :::
