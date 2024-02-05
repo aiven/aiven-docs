@@ -17,7 +17,6 @@ the `AVN_CREDENTIALS_DIR` environment variable. This centralizes credentials for
 and external integrations, ensuring policy-compliant and secure access
 to sensitive information.
 
-
 ## Prerequisitesg
 
    - An active Aiven for Apache Flink service
