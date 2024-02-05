@@ -30,6 +30,7 @@ async function fetchData(serviceName, outputFileName) {
 
     if (!selectedService) {
       console.error(`🤷‍♂️ Service '${serviceName}' not found.`);
+      process.exitCode = 1;
       return;
     }
 
