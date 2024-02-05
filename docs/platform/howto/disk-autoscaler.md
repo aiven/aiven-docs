@@ -1,15 +1,9 @@
 ---
 title: Scale your Aiven service disks automatically
+limited: true
 ---
 
-:::important
-Service disk autoscaler is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying it out, contact the sales
-team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Discover the service disk autoscaler and its capabilities. Find out how
-it works and how to use it with your Aiven services.
+Discover the service disk autoscaler and its capabilities. Find out how it works and how to use it with your Aiven services.
 
 :::note[Pricing]
 Costs of using disk autoscaler depend on your service type and plan.
@@ -65,6 +59,9 @@ the available disk storage capacity and depends on a service type:
 
 ## Prerequisites
 
+-   This is a
+    [limited availability feature](/docs/platform/concepts/beta_services). To try it out,
+    contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 -   Aiven organization, project, and service up and running
 -   [Dynamic disk sizing (DDS)](/docs/platform/concepts/dynamic-disk-sizing) supported for the service plan and the cloud hosting the
     service

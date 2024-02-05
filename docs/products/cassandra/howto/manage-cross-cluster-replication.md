@@ -1,19 +1,14 @@
 ---
 title: Manage cross-cluster replication in Aiven for Apache Cassandra®
+limited: true
 ---
 
-:::important
-Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Learn how to update Apache Cassandra® services that has cross-cluster
-replication (CCR) enabled: change the service plan and add an extra disk
-space. Find out how to set up the replication factor and the consistency
-level for your CCR-enabled Apache Cassandra® services.
+Learn how to update Apache Cassandra® services that has cross-cluster replication (CCR) enabled: change the service plan and add an extra disk space. Find out how to set up the replication factor and the consistency level for your CCR-enabled Apache Cassandra® services.
 
 ## Prerequisites
+
+This feature is in [limited availability](/docs/platform/concepts/beta_services).
+[Contact the sales team](mailto:sales@aiven.io) to try it out.
 
 ### Aiven-wise
 

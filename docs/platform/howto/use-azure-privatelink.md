@@ -1,21 +1,9 @@
 ---
 title: Use Azure Private Link with Aiven services
+limited: true
 ---
 
-:::important
-Azure Private Link is a
-[limited availability feature](/docs/platform/concepts/beta_services), which you can request from the sales team
-([sales@aiven.io](mailto:sales@aiven.io)) or your account manager. During the limited
-availability stage, you can use the feature at no cost. If you want to
-continue using Azure Private Link after it reaches general availability,
-you\'ll be billed according to the latest applicable price.
-:::
-
-Azure Private Link lets you bring your Aiven services into your virtual
-network (VNet) over a private endpoint. The endpoint creates a network
-interface into one of the VNet subnets, and receives a private IP
-address from its IP range. The private endpoint is routed to your Aiven
-service.
+Azure Private Link lets you bring your Aiven services into your virtual network (VNet) over a private endpoint. The endpoint creates a network interface into one of the VNet subnets, and receives a private IP address from its IP range. The private endpoint is routed to your Aiven service.
 
 Azure Private Link is supported for the following services:
 
@@ -30,6 +18,9 @@ Azure Private Link is supported for the following services:
 -   Aiven for Redis®\*
 
 ## Prerequisites
+
+-   This feature is in [limited availability](/docs/platform/concepts/beta_services).
+    [Contact the sales team](mailto:sales@aiven.io) to enable it.
 
 -   [Aiven CLI](/docs/tools/cli) is
     installed.

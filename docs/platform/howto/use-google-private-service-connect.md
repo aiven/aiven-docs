@@ -1,22 +1,9 @@
 ---
 title: Use Google Private Service Connect with Aiven services
+limited: true
 ---
 
-:::important
-Google Private Service Connect is a
-[limited availability feature](/docs/platform/concepts/beta_services), which you can request from the sales team
-([sales@aiven.io](mailto:sales@aiven.io)). During the limited availability stage, you can use
-the feature at no cost. If you want to continue using Google Private
-Service Connect after it reaches general availability, you\'ll be billed
-according to the latest applicable price.
-
-Google Private Service Connect is supported for Aiven for Apache Kafka®
-and Aiven for ClickHouse® only.
-:::
-
-Discover Google Private Service Connect and benefits of using it with
-your Aiven services. Learn how to enable Google Private Service Connect
-for Aiven services.
+Discover Google Private Service Connect and benefits of using it with your Aiven services. Learn how to enable Google Private Service Connect for Aiven services.
 
 ## About Private Service Connect
 
@@ -32,8 +19,12 @@ in Aiven tools. This applies to all clouds, including Google Cloud.
 
 ## Prerequisites
 
+This feature is in [limited availability](/docs/platform/concepts/beta_services).
+[Contact the sales team](mailto:sales@aiven.io) to enable it.
+
 Your Aiven service is hosted in
-[a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the region where the connecting endpoint will be created.
+[a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the
+region where the connecting endpoint will be created.
 
 :::note
 Private Service Connect endpoints are service specific. For each service
