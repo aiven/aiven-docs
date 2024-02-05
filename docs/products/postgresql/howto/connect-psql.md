@@ -13,7 +13,7 @@ These are the placeholders you will need to replace in the code sample:
 | ---------------- | ------------------------------------------------------------- |
 | `POSTGRESQL_URI` | URL for PostgreSQL connection, from the service overview page |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you\'ll need `psql` already installed on your computer
 

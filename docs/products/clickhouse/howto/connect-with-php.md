@@ -5,7 +5,7 @@ title: Connect to the Aiven for ClickHouse® service with PHP
 Learn how to connect to your Aiven for ClickHouse® service with PHP
 using the PHP ClickHouse client and the HTTPS port.
 
-## Pre-requisites
+## Prerequisites
 
 -   [PHP 7.4 or later](https://www.php.net/downloads)
 -   `smi2/phpclickhouse` library

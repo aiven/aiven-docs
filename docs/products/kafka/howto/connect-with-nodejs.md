@@ -6,7 +6,7 @@ These examples show how to connect to an Aiven for Apache Kafka® service
 using the [node-rdkafka](https://github.com/blizzard/node-rdkafka)
 library.
 
-## Pre-requisites
+## Prerequisites
 
 1.  Install [node-rdkafka](https://github.com/blizzard/node-rdkafka).
     Make sure that you have OpenSSL set up on your machine.

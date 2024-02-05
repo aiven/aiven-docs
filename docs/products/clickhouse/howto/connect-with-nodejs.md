@@ -6,7 +6,7 @@ Learn how to connect to your Aiven for ClickHouse® service with Node.js
 using the official Node.js client for connecting to ClickHouse and the
 HTTPS port.
 
-## Pre-requisites
+## Prerequisites
 
 -   [Node.js](https://nodejs.org/en/download/) in your environment
 -   [Node.js client for connecting to

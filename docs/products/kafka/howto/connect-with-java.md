@@ -2,23 +2,19 @@
 title: Connect to Aiven for Apache Kafka® with Java
 ---
 
-These examples show how to connect to an Aiven for Apache Kafka® service
-using the Java client library for Apache Kafka.
+You can connect to an Aiven for Apache Kafka® service using the Java client library for Apache Kafka.
 
-:::note
-The examples in this article provide two different options for
-authentication: SSL and SASL-SSL. For more information on these
-authentication methods read
-[our article on Kafka authentication types](../concepts/auth-types).
-:::
+The provided examples show different options for authentication: SSL and
+SASL-SSL. For more information,
+see [Authentication types](/docs/products/kafka/concepts/auth-types).
 
-## Pre-requisites
+## Prerequisites
 
 Add a dependency for `kafka-clients` from your preferred artifact
 repository, for example [Maven
 repository](https://maven.apache.org/index.html) into your Java project.
 
-Go to the *Overview* page of your Aiven for Apache Kafka service.
+Go to the **Overview** page of your Aiven for Apache Kafka service.
 
 -   If you are going to connect with SSL authentication:
     -   In the *Connection information* section:
@@ -109,7 +105,7 @@ KafkaProducer<String, String> producer = new KafkaProducer<>(properties, new Str
 
 ## Connect a consumer
 
-Set up properties to connect to the cluster and create a consumer:
+Set up properties to connect to the cluster and create a consumer.
 
 ### With SSL authentication
 

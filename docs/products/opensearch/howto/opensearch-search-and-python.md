@@ -11,7 +11,7 @@ Kaggle](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes
 After injecting this data into our cluster, we will write search queries
 to find different food recipes.
 
-## Pre-requisites
+## Prerequisites
 
 ### GitHub repository
 

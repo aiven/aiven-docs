@@ -41,7 +41,7 @@ and use all the [available
 columns](https://www.postgresql.org/docs/current/pgstatstatements.html)
 to investigate your use case.
 
-## Pre-requisites
+## Prerequisites
 
 To query the `pg_stat_statements` view, you\'ll need to create the
 `pg_stat_statements` extension (included in the

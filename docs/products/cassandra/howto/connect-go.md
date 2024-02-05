@@ -21,7 +21,7 @@ These are the placeholders you will need to replace in the code sample:
 | `SSL-CERTFILE` | Path to the `CA Certificate` file of your Cassandra service                    |
 
 
-## Pre-requisites
+## Prerequisites
 
 Get the `gocql` library:
 

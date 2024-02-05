@@ -5,7 +5,7 @@ title: Connect to Aiven for Apache Kafka® with command line tools
 These examples show how to send messages to and receive messages from an
 Aiven for Apache Kafka® service using command line tools.
 
-## Pre-requisites
+## Prerequisites
 
 `kafka-console-producer.sh` and `kafka-console-consumer.sh` are part of
 the Apache Kafka® toolbox included with the [open source Apache Kafka®

@@ -9,7 +9,7 @@ This example connects to an Aiven for Apache Cassandra® service from
 Python as the `avnadmin` user by making use of the `cassandra-driver`
 library.
 
-## Pre-requisites
+## Prerequisites
 
 Install the `cassandra-driver` library:
 

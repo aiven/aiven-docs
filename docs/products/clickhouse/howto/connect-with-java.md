@@ -5,7 +5,7 @@ title: Connect to the Aiven for ClickHouse® service with Java
 Learn how to connect to your Aiven for ClickHouse® service with Java
 using the ClickHouse JDBC driver and the HTTPS port.
 
-## Pre-requisites
+## Prerequisites
 
 -   [Java 8](https://www.java.com/en/download/) or later
 -   [ClickHouse JDBC

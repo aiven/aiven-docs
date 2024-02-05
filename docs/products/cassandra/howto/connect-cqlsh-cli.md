@@ -5,7 +5,7 @@ title: Connect with cqlsh
 This example shows how to connect to an Aiven for Apache Cassandra®
 service using `cqlsh`.
 
-## Pre-requisites
+## Prerequisites
 
 For this example you need to have:
 

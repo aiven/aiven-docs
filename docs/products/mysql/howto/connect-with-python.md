@@ -20,7 +20,7 @@ These are the placeholders you need to replace in the code sample:
 | `MYSQL_USERNAME` | User to connect with                                                                                                   |
 | `MYSQL_PASSWORD` | Password for this user                                                                                                 |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you will need:
 

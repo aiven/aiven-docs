@@ -14,7 +14,7 @@ authentication methods read
 [our article on Kafka authentication types](../concepts/auth-types).
 :::
 
-## Pre-requisites
+## Prerequisites
 
 Go to the *Overview* page of your Aiven for Apache Kafka service.
 

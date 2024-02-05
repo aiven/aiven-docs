@@ -37,7 +37,7 @@ CloudWatch. This setup only needs to be done once.
 1.  On the **Overview** page of your service, select **Integrations**
     and choose the **Amazon CloudWatch Logs** option.
 
-![Screenshot of system integrations including AWS CloudWatch Logs](/images/integrations/cloudwatch-overview-integrations.png)
+    ![Screenshot of system integrations including AWS CloudWatch Logs](/images/integrations/cloudwatch-overview-integrations.png)
 
 1.  Pick the endpoint by the **Endpoint name** you created earlier from
     the dropdown and choose **Enable**.

@@ -16,7 +16,7 @@ These are the placeholders you need to replace in the code sample:
 | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `MYSQL_URI` | Service URI for MySQL connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service |
 
-## Pre-requisites
+## Prerequisites
 
 -   [Download CA certificates](/docs/platform/howto/download-ca-cert) from [Aiven Console](https://console.aiven.io/) \> the
     **Overview** page of your service. This example assumes it is in a

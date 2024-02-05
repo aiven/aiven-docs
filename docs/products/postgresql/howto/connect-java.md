@@ -19,7 +19,7 @@ These are the placeholders you will need to replace in the code sample:
  | `DATABASE` | Database Name for PostgreSQL connection, from the service overview page |
  | `PASSWORD` | `avnadmin` password, from the service overview page                     |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you will need the PostgreSQL Driver:
 

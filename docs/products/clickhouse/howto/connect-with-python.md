@@ -8,7 +8,7 @@ provides you with instructions for both scenarios.
 
 ## Connect with the native protocol
 
-### Pre-requisites
+### Prerequisites
 
 -   [Python 3.5 or later](https://www.python.org/downloads/)
 -   [ClickHouse Python
@@ -40,7 +40,7 @@ print(client.execute("SELECT 1"))
 
 ## Connect with HTTPS
 
-### Pre-requisites
+### Prerequisites
 
 -   [Python 3.7 or later](https://www.python.org/downloads/)
 -   [Requests HTTP library](https://pypi.org/project/requests/)

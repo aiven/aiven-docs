@@ -18,7 +18,7 @@ These are the placeholders you will need to replace in the code sample:
  | `SERVICE_PORT`  | Service port number, found on the service overview page |
  | `AVNADMIN_PASS` | Password for the default `avnadmin` user                |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you will need:
 

@@ -15,7 +15,7 @@ These are the placeholders you will need to replace in the code sample:
 | --------------- | --------------------------------- |
 | `DRAGONFLY_URI` | URL for the Dragonfly® connection |
 
-## Pre-requisites
+## Prerequisites
 
 First, install the `go-redis/redis` library:
 

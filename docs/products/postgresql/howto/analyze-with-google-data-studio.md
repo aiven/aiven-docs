@@ -17,7 +17,7 @@ These are the values you will need to connect to Google Looker Studio:
  | `DATABASE` | Database Name for the PostgreSQL connection, from the service overview page |
  | `PASSWORD` | `avnadmin` password, from the service overview page                         |
 
-## Pre-requisites
+## Prerequisites
 
 1.  You will need a Google account, to access Google Looker Studio.
 2.  On the Aiven Console service page for your PostgreSQL database,

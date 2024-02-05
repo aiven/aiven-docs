@@ -12,7 +12,7 @@ see [our article on Kafka authentication
 types](https://docs.aiven.io/docs/products/kafka/concepts/auth-types).
 :::
 
-## Pre-requisites
+## Prerequisites
 
 Install the Python `kafka-python`\_ library:
 

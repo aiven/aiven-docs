@@ -16,7 +16,7 @@ These are the placeholders you will need to replace in the code sample:
  | ---------------- | --------------------------------------------------------- |
  | `PROM_WRITE_URL` | URL for Prometheus writes, from the service overview page |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you will need:
 

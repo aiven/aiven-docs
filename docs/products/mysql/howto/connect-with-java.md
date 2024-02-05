@@ -19,7 +19,7 @@ These are the placeholders you need to replace in the code sample:
   | `MYSQL_PASSWORD` | Password for `avnadmin` user                                                                                                                                     |
   | `MYSQL_DATABASE` | Database to connect                                                                                                                                              |
 
-## Pre-requisites
+## Prerequisites
 
 -   JDK 1.8+
 -   MySQL JDBC Driver, which could be downloaded in the following ways:
