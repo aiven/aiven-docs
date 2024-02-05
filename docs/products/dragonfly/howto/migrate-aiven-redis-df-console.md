@@ -1,5 +1,6 @@
 ---
 title: Migrate Aiven for Redis®* to Aiven for Dragonfly®
+limited: true
 ---
 
 Transition Aiven for Redis® databases seamlessly to Aiven for Dragonfly

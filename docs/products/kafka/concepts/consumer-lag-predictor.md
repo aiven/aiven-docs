@@ -1,5 +1,7 @@
 ---
 title: Consumer lag predictor for Aiven for Apache Kafka®
+sidebar_label: Consumer lag predictor
+limited: true
 ---
 
 The **consumer lag predictor** for Aiven for Apache Kafka estimates the
@@ -8,14 +10,9 @@ consumed by a consumer group. This information can be used to improve
 the performance, scalability, and cost-effectiveness of your Kafka
 cluster.
 
-:::important
-Consumer Lag Predictor for Aiven for Apache Kafka® is a limited
-availability feature. If you're interested in trying out this feature,
-contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
 To use the **consumer lag predictor** effectively, set up
-[Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) with your Aiven for Apache Kafka® service. The Prometheus
+[Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) with your
+Aiven for Apache Kafka® service. The Prometheus
 integration enables the extraction of key metrics necessary for lag
 prediction and monitoring.
 
@@ -63,5 +60,5 @@ Prometheus. Here are the key metrics provided:
 
 ## Next steps
 
--   Learn how to
-    [enable consumer lag predictor](/docs/products/kafka/howto/enabled-consumer-lag-predictor) for your Aiven for Apache Kafka® service
+-   Learn how to [enable consumer lag predictor](/docs/products/kafka/howto/enabled-consumer-lag-predictor)
+    for your Aiven for Apache Kafka® service
