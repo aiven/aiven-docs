@@ -162,10 +162,10 @@ const sidebars: SidebarsConfig = {
             'platform/howto/saml/add-auth0-idp',
             'platform/howto/saml/add-azure-idp',
             'platform/howto/saml/add-fusionauth-idp',
+            'platform/howto/saml/add-google-idp',
             'platform/howto/saml/add-jumpcloud-idp',
             'platform/howto/saml/add-okta-idp',
             'platform/howto/saml/add-onelogin-idp',
-            'platform/howto/saml/add-google-idp',
           ],
         },
         {

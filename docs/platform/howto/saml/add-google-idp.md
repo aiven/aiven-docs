@@ -2,8 +2,7 @@
 title: Add Google as an identity provider
 ---
 
-Use Google to give your organization users single sign-on (SSO) access
-to Aiven.
+Use Google to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
@@ -31,12 +30,13 @@ Add Google as an
 1. In the Service Provider Details window, set the following
     parameters:
 
-    | Parameter        | Value                             |
-    | ---------------- | --------------------------------- |
-    | `Entity ID`      | `Metadata URL` from Aiven Console |
-    | `ACS URL`        | `ACS URL` from Aiven Console      |
-    | `Name ID format` | `EMAIL`                           |
-    | `App attributes` | `email`                           |
+    |    Parameter     |                                                                                                                                      Value                                                                                                                                      |
+    | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `Entity ID`      | `Metadata URL` from Aiven Console                                                                                                                                                                                                                                               |
+    | `ACS URL`        | `ACS URL` from Aiven Console                                                                                                                                                                                                                                                    |
+    | `Start URL`      | <ul><li><code>https://console.aiven.io/</code> when using the Aiven Console</li> <li><code>https://console.gcp.aiven.io/</code> when using Aiven GCP Marketplace Console</li> <li><code>https://console.aws.aiven.io/</code> when using Aiven AWS Marketplace Console</li></ul> |
+    | `Name ID format` | `EMAIL`                                                                                                                                                                                                                                                                         |
+    | `App attributes` | `email`                                                                                                                                                                                                                                                                         |
 
 1. Click Finish.
 
