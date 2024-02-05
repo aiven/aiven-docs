@@ -44,7 +44,7 @@ Aiven for Apache Flink® application, can be found at the path
 
 1. Locate credentials file
 
-   - Identify the `integration_id` of your service from the [integration list](/docs/tools/cli/service/integration#avn-service-integration-list).
+   - Identify the `integration_id` of your service from the [integration list](/docs/tools/cli/service/integration#avn_service_integration_list).
    - Retrieve the corresponding credentials file named `{integration_id}.json`
    located at `/AVN_CREDENTIALS_DIR/`.
    For example, if your service's `integration_id` is `my_kafka_service`,
@@ -154,7 +154,7 @@ When deploying your application using the [Aiven Console](https://console.aiven.
 you can provide the `myKafkaSource` in the **Program Arguments** section.
 For example, in the **Create new deployment dialog**, locate the **Program args** field.
 Insert the following syntax, replacing `integration_id` with the actual
-[integration ID](/docs/tools/cli/service/integration#avn-service-integration-types)
+[integration ID](/docs/tools/cli/service/integration#avn_service_integration_list)
 of your Aiven for Apache Kafka service:
 
 ```text

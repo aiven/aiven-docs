@@ -13,7 +13,7 @@ Creates a new service integration.
 
 | Parameter              | Information                                                                                                                               |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `--integration-type`   | The type of integration (check [the command details](/docs/tools/cli/service/integration#avn-service-integration-types) for more details) |
+| `--integration-type`   | The type of integration (check [the command details](/docs/tools/cli/service/integration#avn_service_integration_types) for more details) |
 | `--source-service`     | The integration source service                                                                                                            |
 | `--dest-service`       | The integration destination service                                                                                                       |
 | `--source-endpoint-id` | The integration source endpoint ID                                                                                                        |
@@ -182,7 +182,7 @@ avn service integration-endpoint-update 821e0144-1503-42db-aa9f-b4aa34c4af6b \
     --user-config-json  '{"bootstrap_servers":"servertestABC:123","security_protocol":"PLAINTEXT"}'
 ```
 
-### `avn service integration-list` {#avn-service-integration-list}
+### `avn service integration-list` {#avn_service_integration_list}
 
 Lists the integrations defined for a selected service.
 
@@ -208,7 +208,7 @@ SERVICE_INTEGRATION_ID                SOURCE        DEST        INTEGRATION_TYPE
 (integration not enabled)             demo-pg       demo-pg     metrics           false    false   Send service metrics to InfluxDB, M3 or PostgreSQL service
 ```
 
-### `avn service integration-types-list` {#avn-service-integration-types}
+### `avn service integration-types-list` {#avn_service_integration_types}
 
 Lists all available integration types for given project.
 
