@@ -7,85 +7,85 @@ on:
 
 jobs:
   update-adv-params-cassandra:
-    name: Update advanced parameters - Cassandra
+    name: Update parameters - Cassandra
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: cassandra
 
   update-adv-params-clickhouse:
-    name: Update advanced parameters - Clickhouse
+    name: Update parameters - Clickhouse
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: clickhouse
 
   update-adv-params-dragonfly:
-    name: Update advanced parameters - Dragonfly
+    name: Update parameters - Dragonfly
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: dragonfly
 
   update-adv-params-flink:
-    name: Update advanced parameters - Flink
+    name: Update parameters - Flink
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: flink
 
   update-adv-params-grafana:
-    name: Update advanced parameters - Grafana
+    name: Update parameters - Grafana
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: grafana
 
   update-adv-params-influxdb:
-    name: Update advanced parameters - Influxdb
+    name: Update parameters - Influxdb
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: influxdb
 
   update-adv-params-kafka_connect:
-    name: Update advanced parameters - Kafka connect
+    name: Update parameters - Kafka connect
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: kafka_connect
 
   update-adv-params-kafka_mirrormaker:
-    name: Update advanced parameters - kafka_mirrormaker
+    name: Update parameters - Kafka_mirrormaker
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: kafka_mirrormaker
 
   update-adv-params-kafka:
-    name: Update advanced parameters - kafka
+    name: Update parameters - Kafka
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: kafka
 
   update-adv-params-m3aggregator:
-    name: Update advanced parameters - m3aggregator
+    name: Update parameters - m3aggregator
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: m3aggregator
 
   update-adv-params-m3db:
-    name: Update advanced parameters - m3db
+    name: Update parameters - m3db
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: m3db
 
   update-adv-params-mysql:
-    name: Update advanced parameters - mysql
+    name: Update parameters - Mysql
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: mysql
 
   update-adv-params-opensearch:
-    name: Update advanced parameters - opensearch
+    name: Update parameters - Opensearch
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: opensearch
 
   update-adv-params-redis:
-    name: Update advanced parameters - redis
+    name: Update parameters - redis
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: redis
