@@ -46,11 +46,11 @@ select your project and then choose your Aiven for Apache Kafka® service.
         consumer group pattern. This specifies which consumer groups to
         consider during lag prediction calculations.
 
-    :::note
-    By default, the consumer lag predictor calculates the lag of all
-    consumer groups. To restrict the calculation to specific groups, use
-    the `kafka_lag_predictor.group_filters` option.
-    :::
+        :::note
+          By default, the consumer lag predictor calculates the lag of all
+          consumer groups. To restrict the calculation to specific groups, use
+          the `kafka_lag_predictor.group_filters` option.
+        :::
 
 1.  Select **Save configuration** to save your changes and enable
     consumer lag prediction.
@@ -66,9 +66,9 @@ our sales team at sales@aiven.io. The consumer lag predictor is a limited availa
 feature and needs to be activated for your account.
 1. Once activated, retrieve the project information using the following command:
 
-    ```text
-    avn project details
-    ```
+   ```text
+   avn project details
+   ```
 
     If you need details for a specific project, use:
 
@@ -80,18 +80,18 @@ feature and needs to be activated for your account.
     want to enable the consumer lag predictor by using the following
     command:
 
-    ```text
-    avn service list
-    ```
+   ```text
+   avn service list
+   ```
 
    Make a note of the `SERVICE_NAME` corresponding to your Aiven for
     Apache Kafka service.
 
 1. Enable the consumer lag predictor for your service:
 
-    ```text
-    avn service update <SERVICE_NAME> -c kafka_lag_predictor.enabled=true
-    ```
+   ```text
+   avn service update <SERVICE_NAME> -c kafka_lag_predictor.enabled=true
+   ```
 
    Replace \<SERVICE_NAME\> with your actual service name.
 
@@ -104,9 +104,9 @@ feature and needs to be activated for your account.
     when calculating the lag prediction, you can set the `group_filters`
     configuration:
 
-    ```text
-    avn service update <SERVICE_NAME> \
-    -c kafka_lag_predictor.group_filters=\
+   ```text
+   avn service update <SERVICE_NAME> \
+   -c kafka_lag_predictor.group_filters=\
      '["example_consumer_group_1", "example_consumer_group_2"]'
     ```
 
