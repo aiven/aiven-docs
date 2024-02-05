@@ -99,8 +99,8 @@ Follow these steps to enable tiered storage for your Aiven for Apache
 Kafka service using the [Aiven CLI](/docs/tools/cli):
 
 1. Ensure the tiered storage feature is activated for your account by contacting our sales
-team at sales@aiven.io. This feature is an early availability and requires
-activation on your account.
+   team at sales@aiven.io. This feature is an early availability and requires
+   activation on your account.
 
 1.  Once activated, retrieve the project information using the following command:
 
