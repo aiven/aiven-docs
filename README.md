@@ -1,5 +1,7 @@
 # Aiven docs
 
+<!-- vale off -->
+
 The Aiven docs repo generates the content located at [www.aiven.io/docs](www.aiven.io/docs).
 We use [Docusaurus](https://docusaurus.io/) to build the docs.
 
@@ -15,7 +17,15 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    yarn
    ```
 
-1. (Optional) [Install Vale](https://vale.sh/docs/vale-cli/installation/).
+1. (Optional) Install [Vale](https://vale.sh/docs/vale-cli/installation/).
+
+1. (Optional) Install [Husky](https://typicode.github.io/husky/):
+
+   ```bash
+   yarn dlx husky
+   ```
+
+   Husky prevents git pushes when Vale erros are in the files you've modified.
 
 1. Build the docs:
 
@@ -31,6 +41,6 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
 
    **☝ ️Caution:**
    - `yarn start` doesn't check for broken links, use `yarn build` instead. This command
-   doesn't start a live server.
+     doesn't start a live server.
 
 1. When you are happy with your changes, open a PR.
