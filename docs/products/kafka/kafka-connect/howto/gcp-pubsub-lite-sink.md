@@ -45,7 +45,7 @@ Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
 
 As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
 Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://aiven.io/docs/products/kafka/karapace)
+replacement, Karapace](https://aiven.io/docs/products/kafka/karapace).
 :::
 
 ## Setup a Google Pub/Sub Lite sink connector with Aiven Console
