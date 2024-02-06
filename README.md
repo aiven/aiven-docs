@@ -15,17 +15,22 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    yarn
    ```
 
+1. (Optional) [Install Vale](https://vale.sh/docs/vale-cli/installation/).
+
 1. Build the docs:
 
    ```bash
    yarn start
    ```
 
-   **Note:** If you use VS Code, use the build task: **⌘+⇧+B** > **Build the docs**
-
    A local development server starts and a browser window opens. Modify the content and
    save to automatically refresh the output.
 
-1. Check the CLI output for broken links.
+   > [!TIP]
+   > If you use VS Code, you can use the build task: **⌘+⇧+B** > **Build the docs**
+
+   > [!CAUTION]
+   > `yarn start` doesn't check for broken links, use `yarn build` instead. This command
+   > doesn't start a live server.
 
 1. When you are happy with your changes, open a PR.
