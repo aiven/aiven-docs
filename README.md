@@ -26,11 +26,11 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    A local development server starts and a browser window opens. Modify the content and
    save to automatically refresh the output.
 
-   > [!TIP]
-   > If you use VS Code, you can use the build task: **⌘+⇧+B** > **Build the docs**
+   **💡 Tip:**
+   - If you use VS Code, you can use the build task: **⌘+⇧+B** > **Build the docs**
 
-   > [!CAUTION]
-   > `yarn start` doesn't check for broken links, use `yarn build` instead. This command
-   > doesn't start a live server.
+   **☝ ️Caution:**
+   - `yarn start` doesn't check for broken links, use `yarn build` instead. This command
+   doesn't start a live server.
 
 1. When you are happy with your changes, open a PR.
