@@ -134,6 +134,10 @@ Replace the placeholders with your PostgreSQL and Apache Kafka Connect informati
 database.
    - Apache Kafka topics are automatically created, provided that the auto-creation
 feature is enabled.
+     :::note
+     You must create Apacke Kafka topics manually if auto-creation option is
+     not enabled before starting the connector.
+     :::
    - Apache Kafka Connect streams data into topics using the naming
 pattern: `{connector_name}.{database_name}.{table_name}`.
 
