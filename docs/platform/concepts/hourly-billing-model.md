@@ -7,7 +7,9 @@ Console](https://console.aiven.io), you can manage your
 [billing groups](/docs/platform/concepts/billing-groups),
 [payment cards](/docs/platform/howto/manage-payment-card), and view and download your invoices.
 
-To access billing features, you must be a super admin or account owner.
+:::info
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+:::
 
 ## Service charges
 

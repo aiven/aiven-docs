@@ -3,8 +3,11 @@ title: Manage payment cards
 ---
 
 You can add a payment card to your organization and use it as the
-payment method for one or more billing groups. You must be a super admin
-or account owner to manage payment methods.
+payment method for one or more billing groups.
+
+:::info
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+:::
 
 ## Add a payment card
 

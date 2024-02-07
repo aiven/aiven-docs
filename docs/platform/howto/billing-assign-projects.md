@@ -7,6 +7,10 @@ You can assign multiple projects to a billing group to [use the same payment car
 Each project can only be assigned to one billing group. If a project is already assigned
 to a billing group and you assign it to another, it will be removed from the first group.
 
+:::info
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+:::
+
 To assign projects to a billing group:
 
 1.  Go to **Billing** > **Billing groups**.

@@ -2,12 +2,11 @@
 title: Create billing groups
 ---
 
-With billing groups you can set up billing profiles to be used across
-all the projects in an organization. A consolidated
-[invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
+With [billing groups](/docs/platform/concepts/billing-groups) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
 
-More information about billing groups is available in the
-[Billing groups article](/docs/platform/concepts/billing-groups).
+:::info
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+:::
 
 ## Create a billing group
 
