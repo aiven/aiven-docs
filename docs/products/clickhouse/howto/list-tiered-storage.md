@@ -1,16 +1,10 @@
 ---
 title: Tiered storage
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Tiered storage in Aiven for ClickHouse® allows you to use storage resources efficiently and can help reduce storage costs of your service.
-
-:::important
-This feature is in [limited availability](/docs/platform/concepts/beta_services).
-Contact your account team to enable it for your project.
-:::
 
 ## Tiered storage feature
 
@@ -21,12 +15,13 @@ your database's local disk usage.
 
 ## Access tiered storage details
 
-When [enabled on your service](/docs/products/clickhouse/howto/enable-tiered-storage),
-tiered storage along with its details can be accessed in the [Aiven Console](https://console.aiven.io/):
+When you [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage,
+you can preview its details in the [Aiven Console](https://console.aiven.io/) in the service
+<ConsoleLabel name="overview"/>:
 
-- Click **Tiered storage** in the service page or
-- Click **Databases and tables** > <ConsoleLabel name="actions"/> > **View details** >
-  **Storage details** in the service page.
+- Click <ConsoleLabel name="tieredstorage"/> or
+- Click <ConsoleLabel name="databasesandtables"/> > <ConsoleLabel name="actions"/> >
+  <ConsoleLabel name="viewdetails"/> > **Storage details**.
 
 import DocCardList from '@theme/DocCardList';
 
