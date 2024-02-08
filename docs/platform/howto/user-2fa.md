@@ -2,9 +2,12 @@
 title: Manage two-factor authentication
 ---
 
-Two-factor authentication (also known as 2-step verification or 2FA) in
-Aiven provides an extra level of security by requiring a second
-authentication code in addition to the user password.
+Two-factor authentication in Aiven provides an extra level of security by requiring a second authentication code in addition to the user password.
+
+:::warning
+Enabling and disabling two-factor authentication revokes your
+existing authentication tokens.
+:::
 
 ## Enable two-factor authentication {#enable-2fa}
 
@@ -46,10 +49,6 @@ To disable two-factor authentication on the Aiven Console:
     authentication**.
 3.  Enter your password and click **Disable Two-Factor Authentication**.
 
-:::warning
-Disabling two-factor authentication will automatically revoke your
-existing authentication tokens.
-:::
 
 ## Reset two-factor authentication
 
