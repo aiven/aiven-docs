@@ -117,6 +117,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'platform/howto/list-user',
       },
+
       items: [
         'platform/howto/manage-org-users',
         'platform/concepts/managed-users',
@@ -194,7 +195,6 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-service',
       },
       items: [
-        'platform/concepts/choosing-timeseries-database',
         'platform/howto/create_new_service',
         'platform/howto/rename-a-service',
         'platform/howto/tag-resources',
@@ -221,6 +221,7 @@ const sidebars: SidebarsConfig = {
         'platform/howto/migrate-services-vpc',
         'platform/reference/eol-for-major-versions',
         'platform/concepts/maintenance-window',
+        'platform/concepts/choosing-timeseries-database',
       ],
     },
     {
