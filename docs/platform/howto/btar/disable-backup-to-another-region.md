@@ -4,14 +4,12 @@ sidebar_label: Delete cross-region backup
 pro: true
 ---
 
-Delete :doc:`an additional service backup </docs/platform/concepts/backup-to-another-region>` from a region other than where primary service backups are stored.
+Delete an [additional service backup](/docs/platform/concepts/backup-to-another-region) [created](/docs/platform/howto/btar/enable-backup-to-another-region) in a region different from your primary backup region.
 
-:::important
-Backup to another region (BTAR) is available on
-`[Pro Platform](/docs/platform/concepts/pro-platform)`.
-:::
+You can delete a cross-region backup using the Aiven [console](#delete-btar-console),
+[CLI](#delete-btar-cli), or [API](#delete-btar-api).
 
-## Disable BTAR via console
+## Delete backup via console {#delete-btar-console}
 
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. From the **Services** view, select an Aiven service on which you'd like to disable BTAR.
@@ -22,22 +20,22 @@ Backup to another region (BTAR) is available on
 Your additional service backup is no longer visible on your service's **Backups** page in
 the **Secondary backup location** column.
 
-## Disable BTAR via CLI
+## Delete backup with CLI {#delete-btar-cli}
 
 To remove secondary backups for your service, use the
 [avn service update](/docs/tools/cli/service-cli) command to remove all target regions names
-from the ``additional_backup_regions`` array.
+from the `additional_backup_regions` array.
 
 ```bash
 avn service update your-sevice-name   \
     -c additional_backup_regions=\[\]
 ```
 
-## Disable BTAR via API
+## Delete backup with API {#delete-btar-api}
 
 To remove secondary backups for your service, update the service configuration. Use the
 [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint
-to remove all target regions names from the ``additional_backup_regions`` array.
+to remove all target regions names from the `additional_backup_regions` array.
 
 ```bash
 curl --request PUT                                                                  \
@@ -52,10 +50,8 @@ curl --request PUT                                                              
       }'
 ```
 
-:::note[Result]
 The additional cross-region backup has been deleted. You still have the default backup
 located in the primary (service-hosting) region.
-::::
 
 ## Related pages
 

@@ -7,35 +7,23 @@ pro: true
 Enable [the backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) and create an additional cross-region service backup on top of a regular backup stored in the region where your service is hosted.
 
 :::important
-Backup to another region (BTAR) is available on
-`[Pro Platform](/docs/platform/concepts/pro-platform)`.
+BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL® only.
 :::
 
-## About enabling BTAR
-
-### Tools
-
-To add an additional service backup for your service, you can use the following tools:
-
-- [Aiven Console](https://console.aiven.io/)
-- CLI
-- API
-
-### Limitations
-
-Currently, BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL® only.
+To add an additional service backup for your service, you can use the Aiven
+[console](#enable-btar-console), [CLI](#enable-btar-cli), or [API](#enable-btar-api).
 
 ## Prerequisites
 
-- Aiven organization, project, and service
-- `[Pro Platform](/docs/platform/concepts/pro-platform)` enabled
-- Depending on the method you choose to use for enabling CCR
+- [Pro Platform](/docs/platform/concepts/pro-platform) enabled
+- At least one running Aiven for MySQL® or Aiven for PostgreSQL® service
+- Depending on the tool you choose to use for enabling BTAR
 
   - Access to the [Aiven Console](https://console.aiven.io/)
-  - `cURL` CLI tool
-  - [Aiven CLI tool](https://github.com/aiven/aiven-client)
+  - [Aiven CLI client](/docs/tools/cli)
+  - [cURL](https://curl.se/download.html) CLI tool
 
-## Back up to another region via console
+## Back up to another region via console {#enable-btar-console}
 
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. From the **Services** view, select an Aiven service on which you'd like to enable BTAR.
@@ -54,7 +42,7 @@ Currently, BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL® on
 Your new additional backup is now visible on your service's **Backups** page in the
 **Secondary backup location** column.
 
-## Back up to another region with CLI
+## Back up to another region with CLI {#enable-btar-cli}
 
 Using the [Aiven CLI client](/docs/tools/cli), you can enable BTAR for
 
@@ -62,14 +50,14 @@ Using the [Aiven CLI client](/docs/tools/cli), you can enable BTAR for
 - [Existing Aiven service](#existing-service-cli)
 
 :::note[additional_backup_regions]
-To enable BTAR on an Aiven service, add the ``additional_backup_regions``
+To enable BTAR on an Aiven service, add the `additional_backup_regions`
 parameter to relevant commands.
 :::
 
 ### Create a new service with BTAR via CLI {#new-service-cli}
 
 Use the [avn service create](/docs/tools/cli/service-cli) command to create a new
-service. Include ``additional_backup_regions`` as a parameter to the command and set its
+service. Include `additional_backup_regions` as a parameter to the command and set its
 value to the name of the desired cloud region.
 
 ```bash
@@ -84,7 +72,7 @@ avn service create                                            \
 ### Enable BTAR on an existing service via CLI {#existing-service-cli}
 
 Use the [avn service update](/docs/tools/cli/service-cli) command to configure your
-service so that it supports BTAR. Include ``additional_backup_regions`` as a parameter to
+service so that it supports BTAR. Include `additional_backup_regions` as a parameter to
 the command and set its value to the name of desired cloud region.
 
 ```bash
@@ -92,7 +80,7 @@ avn service update name_of_existing_service         \
     -c additional_backup_regions=[\"name_of_cloud_region\"]
 ```
 
-## Back up to another region with API
+## Back up to another region with API {#enable-btar-api}
 
 Using [Aiven APIs](/docs/tools/api), you can enable BTAR for:
 
@@ -100,7 +88,7 @@ Using [Aiven APIs](/docs/tools/api), you can enable BTAR for:
 - [Existing Aiven service](#existing-service-api)
 
 :::note[additional_backup_regions]
-To enable BTAR on an Aiven service, include the ``additional_backup_regions``
+To enable BTAR on an Aiven service, include the `additional_backup_regions`
 parameter in relevant calls.
 :::
 
@@ -108,7 +96,7 @@ parameter in relevant calls.
 
 Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate) API
 to create a new service with BTAR enabled. When constructing the API request, add the
-``user_config`` object to the request body and nest the ``additional_backup_regions``
+`user_config` object to the request body and nest the `additional_backup_regions`
 field inside.
 
 ```bash
@@ -132,9 +120,9 @@ curl --request POST                                                    \
 
 Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) API
 to configure your existing service so that it supports BTAR. When constructing the API
-request, add the ``user_config`` object to the request body and nest the
-``additional_backup_regions`` field inside. Set the value of the
-``additional_backup_regions`` parameter to the name of desired cloud region.
+request, add the `user_config` object to the request body and nest the
+`additional_backup_regions` field inside. Set the value of the
+`additional_backup_regions` parameter to the name of desired cloud region.
 
 ```bash
 curl --request PUT                                                                       \
