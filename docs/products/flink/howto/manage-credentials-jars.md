@@ -19,10 +19,10 @@ to sensitive information.
 
 ## Prerequisites
 
-   - An active Aiven for Apache Flink service
-   - [Integration with services: Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
+- An active Aiven for Apache Flink service
+- [Integration with services: Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
 or external Apache kafka service
-   - Permission to create a [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
+- Permission to create a [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
 
 ## Credential provisioning
 
@@ -82,8 +82,8 @@ To connect to Aiven for Apache Kafka service, the credentials JSON structure is 
 ```
 
 :::note
-The JSON structure provided here is specific to Aiven services and may differ from
-standard Apache Kafka configuration formats.
+The JSON structure provided in the code snippet is specific to Aiven services and
+may differ from standard Apache Kafka configuration formats.
 :::
 
 **Java application example:**
