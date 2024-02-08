@@ -4,38 +4,31 @@ sidebar_label: About backup to another region
 pro: true
 ---
 
-Discover the backup to another region (BTAR) feature, check why use it, and learn how it works.
+Additionally to the primary service backup, you can have a secondary backup in an alternative location.
 
 :::important
-Backup to another region (BTAR) is available on
+The backup to another region (BTAR) feature is available on
 `[Pro Platform](/docs/platform/concepts/pro-platform)`.
 :::
 
 ## About BTAR
 
-The backup to another region (BTAR) feature allows existing backup files to be copied from
-the service's primary backup region to an additional (secondary) region. As a disaster
-recovery feature, BTAR is particularly useful when the service-hosting region is down
-since it allows forking the service from an additional copy of the backup residing outside
-the service-hosting region.
+Backup to another region (BTAR) is a disaster recovery feature that allows backup
+files to be copied from the service's primary backup region to an additional (secondary)
+region. BTAR helps improve data resilience and makes data protected against disasters in
+the primary backup region. When the primary region is down, BTAR allows forking the service
+from an additional copy of the backup residing outside the primary region.
 
-BTAR is currently supported for the following services:
+BTAR is supported for the following services:
 
 - Aiven for PostgreSQL®
 - Aiven for MySQL®
 
-## Why use BTAR
-
-BTAR provides an additional level of data resilience, helping you make your data safe and
-protected. BTAR is a cost-efficient low-complexity disaster recovery feature that allows
-you to replicate your data in a secondary backup region and recover it there in case of
-outage, downtime, data loss, or data corruption in the primary backup region.
-
 ## How BTAR works
 
-By enabling the backup to another region (BTAR) feature, you create a service backup that
-is additional to the default backup. This secondary backup is always located in a region
-of your choice different from the primary backup region.
+When you enable the backup to another region (BTAR) feature, an additional service backup
+is created in the cloud region of your choice that is altenative to the primary backup
+location.
 
 Secondary backups are generated from primary backups, not from the service itself. For
 this reason, your secondary backup becomes available only after the primary backup is
@@ -80,12 +73,14 @@ flowchart LR
 
 ## Limitations
 
-- When selecting a cloud region for your additional backup, you need to use the same cloud
-  provider that your service uses.
-- When you want to
+- The cloud provider for your additional backup region must match the cloud provider for
+  your service and the primary backup.
+<!-- Coming soon!
+- To
   [restore your service from an additional backup](/docs/platform/howto/btar/manage-backup-to-another-region)
-  and you use a point in time to specify the scope of data to be restored, you need to set
-  up the time to no later than the time of the latest backup.
+  using point-in-time recovery (PITR), set up the time to no later than the time of the
+  latest backup.
+ -->
 - Secondary backup can only be restored in the region where it was stored.
 - Secondary backup is generated only after a primary backup is complete, and there might
   be a data replication lag between the primary region and the secondary region.

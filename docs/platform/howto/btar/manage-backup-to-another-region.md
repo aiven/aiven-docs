@@ -28,13 +28,13 @@ You have at least one
    selecting **Save**.
 
 :::important
-Think carefully before you decide to change a backup region. Since each change of a backup
-region triggers a new base backup, you can change a backup region only infrequently.
+When you change the backup region, a new base backup is triggered. To change the backup
+region again, wait until the triggered base backup is complete.
 :::
 
 ## Monitor a service with BTAR
 
-There are a few things you may want to check for your Aiven service in the context for
+There are a few things you may want to check for your Aiven service in the context of
 BTAR:
 
 - What is the status of a secondary backup?
@@ -51,9 +51,9 @@ To check out the availability, the status, and the target region of a secondary 
 backup in the [Aiven Console](https://console.aiven.io/), navigate to your
 **service's page** > **Backups** view > **Secondary backup location** column.
 
-### Check replication lag with API
+### Determine replication lag with API
 
-To check out the target region and the replication lag for a secondary (BTAR) backup of
+Determine the target region and the replication lag for a secondary (BTAR) backup of
 your service, call the
 [ServiceBackupToAnotherRegionReport](https://api.aiven.io/doc/#tag/Service/operation/ServiceBackupToAnotherRegionReport)
 endpoint.
@@ -66,16 +66,14 @@ Configure the call as follows:
    ``month``, or ``year``.
 
 ```bash
-    curl --request POST                                                                                                      \
-        --url https://api.aiven.io/v1/project/YOUR-PROJECT-NAME/service/YOUR-SERVICE-NAME/backup_to_another_region/report    \
-        --header 'Authorization: Bearer YOUR-BEARER-TOKEN'                                                                   \
-        --header 'content-type: application/json'                                                                            \
-        --data '{"period":"DESIRED-TIME-PERIOD"}'
+curl --request POST                                                                                                     \
+   --url https://api.aiven.io/v1/project/YOUR-PROJECT-NAME/service/YOUR-SERVICE-NAME/backup_to_another_region/report    \
+   --header 'Authorization: Bearer YOUR-BEARER-TOKEN'                                                                   \
+   --header 'content-type: application/json'                                                                            \
+   --data '{"period":"DESIRED-TIME-PERIOD"}'
 ```
 
-:::note[Output]
-As an output, you get metrics including replication lags at specific points in time.
-:::
+As output, you get metrics including replication lags at specific points in time.
 
 ## Fork and restore a service with BTAR {#fork-and-restore}
 
