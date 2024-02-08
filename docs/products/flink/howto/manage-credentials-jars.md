@@ -21,7 +21,7 @@ to sensitive information.
 
 - An active Aiven for Apache Flink service
 - [Integration with services: Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
- or external Apache kafka service
+  or external Apache kafka service
 - Permission to create a [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
 
 ## Credential provisioning
@@ -49,15 +49,15 @@ is `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
 
    1. Identify the `integration_id` of your service from the [integration list](/docs/tools/cli/service/integration#avn_service_integration_list).
    1. Retrieve the corresponding credentials file named `{integration_id}.json`
-   located at `/AVN_CREDENTIALS_DIR/`. For example, if your service's `integration_id`
-   is `my_kafka_service`, locate the credentials file `my_kafka_service.json` at `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
+      located at `/AVN_CREDENTIALS_DIR/`. For example, if your service's `integration_id`
+      is `my_kafka_service`, locate the credentials file `my_kafka_service.json` at `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
 
 1. Read and parse the JSON file
 
    1. Implement the code within your Aiven for Apache Flink JAR application to read the
-   JSON file.
+      JSON file.
    1. Extract essential details like connection strings, usernames, passwords, and
-   security protocols from the JSON file.
+      security protocols from the JSON file.
 
 ## Example: Parsing credentials in JAR applications
 
@@ -130,16 +130,16 @@ public class KafkaCredentialsReader {
 In this example:
 
 - The file named `my-kafka-service.json` contains the credentials in JSON format
-necessary for connecting to the Aiven for Apache Kafka service.
+  necessary for connecting to the Aiven for Apache Kafka service.
 - The Java code shows a dynamic approach to constructing the path to the credentials file,
-using the `myKafkaSource` argument provided during application execution. This approach
-allows flexibility and avoids using fixed the file name.
+  using the `myKafkaSource` argument provided during application execution. This approach
+  allows flexibility and avoids using fixed the file name.
 - The application reads and parses the JSON file to extract configuration
-details such as `bootstrap_servers` (the Kafka server address) and `security_protocol`
-(the communication protocol for security).
+  details such as `bootstrap_servers` (the Kafka server address) and `security_protocol`
+  (the communication protocol for security).
 - These extracted details can be used to configure Apache Kafka sources and sinks in
-Apache Flink applications. This configuration establishes a connection to the
-Apache Kafka service and handles data according to the service's specifications.
+  Apache Flink applications. This configuration establishes a connection to the
+  Apache Kafka service and handles data according to the service's specifications.
 
 #### Configuration of  `myKafkaSource` for application deployment
 
@@ -157,8 +157,8 @@ you can pass the `myKafkaSource` as **Program Arguments**.
 1. [Create a JAR application](/docs/products/flink/howto/create-jar-application).
 1. In the **Create new deployment** dialog look for the **Program args** field.
 1. Insert the following syntax, replacing `integration_id` with the actual
-[integration ID](/docs/tools/cli/service/integration#avn_service_integration_list)
-of your Aiven for Apache Kafka service:
+   [integration ID](/docs/tools/cli/service/integration#avn_service_integration_list)
+   of your Aiven for Apache Kafka service:
 
    ```text
    myKafkaSource=<INTEGRATION_ID>
@@ -292,14 +292,14 @@ public class ExternalKafkaCredentialsReader {
 In this example:
 
 - The file named `external-kafka-service.json` contains credentials in JSON format for
-connecting to an external Kafka service that employs the SASL_SSL security protocol.
+  connecting to an external Kafka service that employs the SASL_SSL security protocol.
 - The Java code demonstrates how to read the file, parse the JSON content, and extract
-key details, including SASL and SSL configurations.
+  key details, including SASL and SSL configurations.
 - These details are then used to configure a Kafka client within the Flink application,
-ensuring secure communication with the external Kafka service.
+  ensuring secure communication with the external Kafka service.
 
 ## Related page
 
    - For additional information on integrating external or self-hosted Apache Kafka with
-Aiven for Apache Flink, see
-[Integrate Aiven for Apache Flink® with Apache Kafka®](/docs/products/flink/howto/ext-kafka-flink-integration)
+     Aiven for Apache Flink, see
+     [Integrate Aiven for Apache Flink® with Apache Kafka®](/docs/products/flink/howto/ext-kafka-flink-integration)
