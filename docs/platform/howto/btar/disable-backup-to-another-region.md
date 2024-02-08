@@ -29,8 +29,8 @@ To remove secondary backups for your service, use the
 from the ``additional_backup_regions`` array.
 
 ```bash
-    avn service update your-sevice-name                   \
-        -c additional_backup_regions=\[\]
+avn service update your-sevice-name   \
+    -c additional_backup_regions=\[\]
 ```
 
 ## Disable BTAR via API
@@ -40,7 +40,7 @@ To remove secondary backups for your service, update the service configuration. 
 to remove all target regions names from the ``additional_backup_regions`` array.
 
 ```bash
-    curl --request PUT                                                                  \
+curl --request PUT                                                                  \
     --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service/YOUR_SERVICE_NAME   \
     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                                  \
     --header 'content-type: application/json'                                           \
@@ -53,7 +53,8 @@ to remove all target regions names from the ``additional_backup_regions`` array.
 ```
 
 :::note[Result]
-Your service has no longer secondary backups in regions different from its hosting region.
+The additional cross-region backup has been deleted. You still have the default backup
+located in the primary (service-hosting) region.
 ::::
 
 ## Related pages
