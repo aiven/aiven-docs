@@ -2,9 +2,11 @@
 title: Manage billing groups
 ---
 
-To view your billing groups in the [Aiven
-Console](https://console.aiven.io/) go to the organization and click
-**Billing**.
+To view and update your billing groups in the [Aiven Console](https://console.aiven.io/) go to the organization and click **Billing**.
+
+:::info
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+:::
 
 ## Rename billing groups
 
