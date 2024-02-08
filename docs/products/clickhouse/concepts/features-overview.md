@@ -95,7 +95,8 @@ choice.
 
 Role based Access Control (RBAC) To learn what kind of granular access
 is possible in Aiven for ClickHouse, check out
-[RBAC with Zookeeper](#zookeeper).
+[RBAC with Zookeeper](/docs/products/clickhouse/concepts/service-architecture#zookeeper).
+
 
 -   **Zero lock-in:** Aiven for ClickHouse offers compatibility with
     open source software (OSS), which protects you from software and

@@ -1427,49 +1427,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Influxdb',
-          link: {
-            type: 'doc',
-            id: 'products/influxdb',
-          },
-          items: [
-            'products/influxdb/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/concepts',
-              },
-              items: [
-                'products/influxdb/concepts/continuous-queries',
-                'products/influxdb/concepts/influxdb-retention-policy',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/howto',
-              },
-              items: [
-                'products/influxdb/howto/migrate-data-self-hosted-influxdb-aiven',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/reference',
-              },
-              items: ['products/influxdb/reference/advanced-params'],
-            },
-          ],
-        },
-        {
-          type: 'category',
           label: 'M3DB',
           link: {
             type: 'doc',
