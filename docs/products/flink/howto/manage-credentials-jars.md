@@ -17,7 +17,7 @@ the `AVN_CREDENTIALS_DIR` environment variable. This centralizes credentials for
 and external integrations, ensuring policy-compliant and secure access
 to sensitive information.
 
-## Prerequisitesg
+## Prerequisites
 
    - An active Aiven for Apache Flink service
    - [Integration with services: Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
@@ -37,11 +37,11 @@ the same `AVN_CREDENTIALS_DIR` directory.
 :::
 
 Aiven automatically generates credentials for integrated services and stores them in JSON
-files named by each service's integration_id. For example, credentials for an Apache
-Kafka service with an `integration_id` such as `my_kafka_service` will be stored in a
-file named `my_kafka_service.json`. This file, located in a directory accessible to your
-Aiven for Apache Flink® application, can be found at the path
-`/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
+files named by each service's `integration_id`. For example, credentials for an Apache
+Kafka service with an `integration_id` such as `my_kafka_service` is stored in a
+file named `my_kafka_service.json`. This file is in a directory your
+Aiven for Apache Flink® application can access. The path to this folder
+is `/AVN_CREDENTIALS_DIR/my_kafka_service.json`.
 
 ## Access credentials in JAR applications
 
@@ -133,7 +133,7 @@ In this example:
 necessary for connecting to the Aiven for Apache Kafka service.
 - The Java code shows a dynamic approach to constructing the path to the credentials file,
 using the `myKafkaSource` argument provided during application execution. This approach
-allows flexibility and avoids hardcoding the file name.
+allows flexibility and avoids using fixed the file name.
 - The application reads and parses the JSON file to extract configuration
 details such as `bootstrap_servers` (the Kafka server address) and `security_protocol`
 (the communication protocol for security).
@@ -182,7 +182,7 @@ Apache Kafka service to be used by the application. Modifying this argument when
 the JAR allows you to switch between different Apache Kafka services
 (For example, from a development environment to a production environment).
 
-### Example 2: Integration with Avien for PostgreSQL
+### Example 2: Integration with Aiven for PostgreSQL
 
 To connect to Aiven for PostgreSQL service, the credentials JSON structure is as follows:
 
