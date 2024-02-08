@@ -38,15 +38,15 @@ Before proceeding with the setup, ensure you have:
 1.  In the [Aiven Console](https://console.aiven.io/), select your
     project and then choose your Aiven for Apache Kafka® service.
 
-2.  In the service page, select **Service settings** from the sidebar.
+1.  In the service page, select **Service settings** from the sidebar.
 
-3.  On the **Service settings** page, scroll down to the **Advanced
+1.  On the **Service settings** page, scroll down to the **Advanced
     configuration** section, and click **Configure**.
 
-4.  In the **Advanced configuration** dialog, select **Add configuration
+1.  In the **Advanced configuration** dialog, select **Add configuration
     options**.
 
-5.  Set the following OIDC parameters:
+1.  Set the following OIDC parameters:
 
     -   `kafka.sasl_oauthbearer_jwks_endpoint_url`
         -   *Description*: Endpoint for retrieving the JSON Web Key Set
@@ -92,7 +92,7 @@ Before proceeding with the setup, ensure you have:
     that ensures a minimal impact on your operations.
     :::
 
-6.  Select **Save configurations** to save your changes
+1.  Select **Save configurations** to save your changes
 
 ## Enable OAuth2/OIDC via Aiven CLI
 
@@ -109,7 +109,7 @@ service using [Aiven CLI](/docs/tools/cli):
     Make a note of the `SERVICE_NAME` corresponding to your Aiven for
     Apache Kafka service.
 
-2.  Enable OAuth2/OIDC authentication for your service:
+1.  Enable OAuth2/OIDC authentication for your service:
 
     ``` bash
     avn service update <SERVICE_NAME> \
@@ -124,4 +124,4 @@ For detailed explanations on the OIDC parameters, refer to the
 
 ## Related pages
 
--   Enable OAuth2/OIDC support for Apache Kafka® REST proxy
+- [Enable OAuth2/OIDC support for Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
