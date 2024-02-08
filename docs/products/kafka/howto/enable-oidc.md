@@ -57,10 +57,10 @@ Before proceeding with the setup, ensure you have:
             provider.
     -   `kafka.sasl_oauthbearer_sub_claim_name` (Optional)
         -   *Description*: Name of the JWT's subject claim for broker
-            verification. This is optional and typically set to \"sub\".
+            verification. This is optional and typically set to `sub`.
             Corresponds to the Apache Kafka parameter
             `sasl.oauthbearer.sub.claim.name`.
-        -   *Value*: Enter \"sub\" or the specific claim name provided
+        -   *Value*: Enter `sub` or the specific claim name provided
             by your OIDC provider if different.
     -   `kafka.sasl_oauthbearer_expected_issuer` (Optional)
         -   *Description*: Specifies the JWT's issuer for the broker to
