@@ -30,7 +30,7 @@ Before proceeding with the setup, ensure you have:
         vary with your OIDC provider.
     -   **Issuer URL or Identifier**: Identifies and verifies the JWT
         issuer.
-    -   **Audience Identifier(s)**: Validates the JWT's intended
+    -   **Audience identifiers**: Validates the JWT's intended
         recipients. For multiple audiences, make a note of all.
 
 ## Enable OAuth2/OIDC via Aiven Console {#console-authentication}
@@ -74,7 +74,7 @@ Before proceeding with the setup, ensure you have:
             broker. Corresponds to the Apache Kafka parameter
             `sasl.oauthbearer.expected.audience`. This is optional and
             is used if your OIDC provider specifies an audience.
-        -   *Value*: Input the audience identifier(s) given by your OIDC
+        -   *Value*: Input the audience identifiers given by your OIDC
             provider. If there are multiple audiences, separate them
             with commas.
 
