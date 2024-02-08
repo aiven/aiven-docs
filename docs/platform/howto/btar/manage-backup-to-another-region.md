@@ -4,12 +4,7 @@ sidebar_label: Manage cross-region backup
 pro: true
 ---
 
-For a service that has the [backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) enabled, you can check the service backup status, change the backup region, monitor the replication lag, fork and restore using [the cross-region backup](/docs/platform/concepts/backup-to-another-region), or migrate to another cloud or region.
-
-:::important
-Backup to another region (BTAR) is available on
-`[Pro Platform](/docs/platform/concepts/pro-platform)`.
-:::
+For a service that has the [backup to another region (BTAR)](/docs/platform/concepts/backup-to-another-region) feature [enabled](/docs/platform/howto/btar/enable-backup-to-another-region), you can check the service backup status, change the backup region, monitor the replication lag, fork and restore using [the cross-region backup](/docs/platform/concepts/backup-to-another-region), or migrate to another cloud or region.
 
 ## Prerequisites
 
@@ -28,8 +23,7 @@ You have at least one
    selecting **Save**.
 
 :::important
-When you change the backup region, a new base backup is triggered. To change the backup
-region again, wait until the triggered base backup is complete.
+You can change the backup region once in 24 hours.
 :::
 
 ## Monitor a service with BTAR
@@ -62,8 +56,8 @@ Configure the call as follows:
 
 1. Enter YOUR-PROJECT-NAME and YOUR-SERVICE-NAME into the URL.
 1. Specify DESIRED-TIME-PERIOD depending on the time period you need the metrics for:
-   select one of the following values for the ``period`` key: ``hour``, ``day``, ``week``,
-   ``month``, or ``year``.
+   select one of the following values for the `period` key: `hour`, `day`, `week`,
+   `month`, or `year`.
 
 ```bash
 curl --request POST                                                                                                     \
