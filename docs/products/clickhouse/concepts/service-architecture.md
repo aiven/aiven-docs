@@ -33,7 +33,7 @@ each ClickHouse server.
 
 Each Aiven for ClickHouse node runs ClickHouse, ZooKeeper, and Astacus.
 
-### ZooKeeper {zookeeper}
+### ZooKeeper
 
 ZooKeeper is responsible for the cross-nodes coordination and
 synchronization of the following replication processes:
