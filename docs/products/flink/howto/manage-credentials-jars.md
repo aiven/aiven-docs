@@ -21,7 +21,7 @@ to sensitive information.
 
 - An active Aiven for Apache Flink service
 - [Integration with services: Aiven for Apache Kafka or PostgreSQL](/docs/products/flink/howto/create-integration)
-or external Apache kafka service
+ or external Apache kafka service
 - Permission to create a [JAR application for Aiven for Apache Flink](/docs/products/flink/howto/create-jar-application)
 
 ## Credential provisioning
