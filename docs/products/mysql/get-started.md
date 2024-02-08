@@ -1,46 +1,38 @@
 ---
 title: Get started with Aiven for MySQL®
+sidebar_label: Get started
 ---
 
-Aiven for MySQL® services are managed from [Aiven
-Console](https://console.aiven.io/).
+Start using Aiven for MySQL® by creating and configuring a service.
 
-## Start a service
+## Create a service
 
-1.  Start an Aiven for MySQL service by following the steps in
-    [this article](/docs/platform/howto/create_new_service).
+[Create an Aiven for PostgreSQL® service](/docs/platform/howto/create_new_service) in the
+[Aiven Console](https://console.aiven.io).
 
-    Upon creating a service, the view returns to the service list, where
-    the new service is shown with an indicator that it is being created.
+The new service appears on the **Services** page and its status
+indicator shows **Rebuilding**. It usually takes a couple of minutes before the status
+changes to **Running**.
 
-2.  Select the service name in the list to go to the **Overview** page.
+## Configure a service
 
-    This view shows the connection parameters for your MySQL service and
-    its current status.
+1.  Select the new service from the list of services on the **Services** page.
 
-3.  On the **Overview** page, select **Service settings** from the
+    This opens the **Overview** page of your service and shows its current status and
+    connection parameters.
+
+1.  On the **Overview** page, select **Service settings** from the
     sidebar to access the **Advanced configuration** section and make
     changes to the service configuration, even while the service is
     being built.
 
-    You can find the available configuration options in the
-    [reference article](/docs/products/mysql/reference/advanced-params).
-
-The status indicator says **Rebuilding** while the service is being
-created. Once the service is up and running, the light changes to green
-and the indicator says **Running**.
-
-:::note
-Services typically start in a couple of minutes, the performance between
-clouds varies and it can take longer under some circumstances.
-:::
+    Check the available configuration options in
+    [Advanced parameters for Aiven for MySQL](/docs/products/mysql/reference/advanced-params).
 
 ## Next steps
 
--   Learn how to connect to MySQL:
+-   Learn how to connect to Aiven for MySQL
     -   [From the command line](/docs/products/mysql/howto/connect-from-cli)
-    -   [With MySQL workbench](/docs/products/mysql/howto/connect-from-mysql-workbench)
--   Create additional databases:
-    -   [Create your database](/docs/products/mysql/howto/create-database)
--   Connect from your own
-    [Python application](/docs/products/mysql/howto/connect-with-python).
+    -   [With MySQL Workbench](/docs/products/mysql/howto/connect-from-mysql-workbench)
+-   [Create additional databases](/docs/products/mysql/howto/create-database)
+-   [Connect from your own Python application](/docs/products/mysql/howto/connect-with-python)
