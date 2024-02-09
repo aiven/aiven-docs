@@ -8,11 +8,10 @@
   // Example:
   "Related pages": {
     "scope": "markdown",
-    "prefix": "rel",
+    "prefix": ["related", "pages"],
     "body": ["## Related pages", "", "$1"],
     "description": "Inserts a related pages section"
   },
-
   "Required access": {
     "scope": "markdown",
     "prefix": "Required access",
@@ -23,22 +22,21 @@
     ],
     "description": "Inserts a section with information on what role is needed to access a feature"
   },
-
   "Title": {
     "scope": "markdown",
-    "prefix": "ttl",
+    "prefix": ["ttl", "title"],
     "body": ["---", "title: $1", "---", "", "$2"],
     "description": "Inserts a title"
   },
   "Turn off Vale": {
     "scope": "markdown",
-    "prefix": "vof",
+    "prefix": ["vof", "vale"],
     "body": ["<!-- vale off -->"],
     "description": "Turn off Vale"
   },
   "Turn on Vale": {
     "scope": "markdown",
-    "prefix": "von",
+    "prefix": ["von", "vale"],
     "body": ["<!-- vale on -->"],
     "description": "Turn on Vale"
   },
@@ -57,10 +55,10 @@
       "",
       ""
     ],
-    "description": "Insert an image"
+    "description": "Insert an image as component"
   },
-  "early access badge": {
-    "prefix": "Insert early access badge",
+  "Early access badge": {
+    "prefix": ["early access", "badge", "ea"],
     "body": [
       "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
       "",
@@ -68,8 +66,8 @@
       ""
     ]
   },
-  "limited access badge": {
-    "prefix": "Insert limited access badge",
+  "Limited access badge": {
+    "prefix": ["limited access", "badge", "la"],
     "body": [
       "import LimitedBadge from \"@site/src/components/Badges/LimitedBadge\";",
       "",
@@ -77,8 +75,8 @@
       ""
     ]
   },
-  "pro badge": {
-    "prefix": "Insert pro badge",
+  "Pro-platform badge": {
+    "prefix": ["pro", "badge"],
     "body": [
       "import ProBadge from \"@site/src/components/ProBadge\";",
       "",
@@ -86,7 +84,7 @@
       ""
     ]
   },
-  "tabs": {
+  "Tabs": {
     "prefix": "tabs",
     "body": [
       "import Tabs from '@theme/Tabs';",
@@ -103,9 +101,18 @@
       "$5"
     ]
   },
+  "DocCardList": {
+    "prefix": ["doccard", "tiles"],
+    "body": [
+      "import DocCardList from '@theme/DocCardList';",
+      "",
+      "<DocCardList />",
+      ""
+    ]
+  },
   "Prerequisites": {
     "scope": "markdown",
-    "prefix": "pre",
+    "prefix": ["prereq"],
     "body": [
       "## Prerequisites",
       "",
@@ -113,5 +120,17 @@
       "- $1"
     ],
     "description": "Inserts a prerequisites section"
+  },
+  "Enable feature": {
+    "scope": "markdown",
+    "prefix": ["enable", "feature", "contact", "sales"],
+    "body": [
+      "To enable this feature, contact the [sales team](mailto:sales@aiven.io)."
+    ]
+  },
+  "Contact sales": {
+    "scope": "markdown",
+    "prefix": ["contact", "sales"],
+    "body": ["contact the [sales team](mailto:sales@aiven.io)"]
   }
 }
