@@ -49,8 +49,6 @@ You can fork the following Aiven services:
     access.
     :::
 
--   InfluxDB®
-
 -   M3DB
 
 -   Grafana®
