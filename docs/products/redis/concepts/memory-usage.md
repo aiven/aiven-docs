@@ -29,7 +29,7 @@ storing values, and never remove anything, the write operations will
 start failing when the maximum memory is reached.
 
 This is acceptable when data is consumed at a similar rate to how it is
-written. However, for other use cases, using the allkeys-lru eviction policy - which
+written. However, for other use cases, using the `allkeys-lru` eviction policy - which
 starts dropping old keys based on the least recently used strategy when
 `maxmemory` is reached - works better. Another way is to drop random
 keys.
