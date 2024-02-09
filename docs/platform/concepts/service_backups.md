@@ -72,8 +72,6 @@ Recommended backup tools per service are as follows:
     `cqlsh`
 -   [OpenSearch®](https://github.com/elasticsearch-dump/elasticsearch-dump):
     `elasticdump`
--   [InfluxDB®](https://docs.influxdata.com/influxdb/v1.8/tools/influx-cli/):
-    `influxd`
 
 :::note
 The listed backup tools are recommendations and are not intended
@@ -135,13 +133,6 @@ with the number of days of retention provided in the table.
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
       <td>Backup every 12 hours up to 13 days</td>
-    </tr>
-    <tr>
-      <td>Aiven for InfluxDB®</td>
-      <td>Plan not available</td>
-      <td>Single day backup</td>
-      <td>Daily backup up to 6 days</td>
-      <td>Daily backup up to 13 days</td>
     </tr>
     <tr>
       <td>Aiven for Apache Flink®</td>
@@ -324,13 +315,6 @@ You can control the persistence feature using `redis_persistence` under
 AOF persistence is currently not supported by Aiven for the managed
 Redis service.
 :::
-
-### Aiven for InfluxDB®
-
-Aiven for InfluxDB backups are taken every 12 hours with 2.5 days of
-retention. InfluxDB® is automatically backed up, encrypted, and uploaded
-to Aiven's S3 account in the same region. When an instance has to be
-rebuilt, the backup is downloaded and restored to create a new instance.
 
 ### Aiven for ClickHouse®
 

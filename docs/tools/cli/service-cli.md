@@ -58,7 +58,7 @@ avn service ca get kafka-doc --target-filepath /tmp/ca.pem
 
 Opens the appropriate interactive shell, such as `psql` or `redis-cli`,
 to the given service. Supported only for Aiven for PostgreSQL®, Aiven
-for Redis®\*, and Aiven for InfluxDB® services.
+for Redis®*.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
@@ -163,8 +163,7 @@ avn service current-queries pg-demo
 
 ### `avn service database`
 
-Manages databases within an Aiven for PostgreSQL®, Aiven for MySQL or
-Aiven for InfluxDB® service.
+Manages databases within an Aiven for PostgreSQL®, or Aiven for MySQL.
 
 More information on `database-add`, `database-delete` and
 `database-list` can be found in
@@ -281,7 +280,6 @@ SERVICE_NAME        SERVICE_TYPE  STATE    CLOUD_NAME           PLAN         CRE
 ==================  ============  =======  ===================  ===========  ====================  ====================
 cassandra-28962a5b  cassandra     RUNNING  google-europe-west3  business-16  2021-09-27T10:18:19Z  2021-09-27T10:25:58Z
 os-24a6d6db         opensearch    RUNNING  google-europe-west3  business-4   2021-09-27T10:18:04Z  2021-09-27T10:23:31Z
-influx-103c3f07     influxdb      RUNNING  google-europe-west3  startup-4    2021-09-27T10:18:13Z  2021-09-27T10:22:05Z
 kafka-2134          kafka         RUNNING  google-europe-west3  business-4   2021-09-27T08:48:35Z  2021-09-27T11:20:55Z
 mysql-12f7628c      mysql         RUNNING  google-europe-west3  business-4   2021-09-27T10:18:09Z  2021-09-27T10:23:02Z
 pg-123456           pg            RUNNING  google-europe-west3  business-4   2021-09-27T07:41:04Z  2021-09-27T10:56:19Z
@@ -606,7 +604,6 @@ SERVICE_TYPE       DESCRIPTION
 cassandra          Cassandra - Distributed NoSQL data store
 elasticsearch      Elasticsearch - Search & Analyze Data in Real Time
 grafana            Grafana - Metrics Dashboard
-influxdb           InfluxDB - Distributed Time Series Database
 kafka              Kafka - High-Throughput Distributed Messaging System
 kafka_connect      Kafka Connect - Kafka Connect service
 kafka_mirrormaker  Kafka MirrorMaker - Kafka MirrorMaker service
