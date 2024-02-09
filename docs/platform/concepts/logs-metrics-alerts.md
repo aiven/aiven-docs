@@ -15,7 +15,7 @@ new one.
 ## Metrics
 
 On the **Overview** page of your service, select **Integrations** to set
-up an integration to push service metrics to an M3, InfluxDB® or
+up an integration to push service metrics to an M3 or
 PostgreSQL® service on Aiven. This can be an existing service or you can
 create a new one to receive the metrics.
 

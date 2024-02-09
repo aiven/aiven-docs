@@ -36,12 +36,6 @@ jobs:
     with:
       service-name: grafana
 
-  update-adv-params-influxdb:
-    name: Update parameters - Influxdb
-    uses: ./.github/workflows/update-adv-params.yaml
-    with:
-      service-name: influxdb
-
   update-adv-params-kafka_connect:
     name: Update parameters - Kafka connect
     uses: ./.github/workflows/update-adv-params.yaml

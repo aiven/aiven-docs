@@ -865,7 +865,6 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
-                    'products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                   ],
                 },
@@ -1424,49 +1423,6 @@ const sidebars: SidebarsConfig = {
                 'products/grafana/reference/advanced-params',
                 'products/grafana/reference/plugins',
               ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Influxdb',
-          link: {
-            type: 'doc',
-            id: 'products/influxdb',
-          },
-          items: [
-            'products/influxdb/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/concepts',
-              },
-              items: [
-                'products/influxdb/concepts/continuous-queries',
-                'products/influxdb/concepts/influxdb-retention-policy',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/howto',
-              },
-              items: [
-                'products/influxdb/howto/migrate-data-self-hosted-influxdb-aiven',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/reference',
-              },
-              items: ['products/influxdb/reference/advanced-params'],
             },
           ],
         },

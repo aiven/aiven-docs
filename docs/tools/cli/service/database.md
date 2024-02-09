@@ -8,8 +8,7 @@ Full list of commands for `avn service database`.
 
 ### `avn service database-create`
 
-Creates a database within an Aiven for PostgreSQL®, Aiven for MySQL or
-Aiven for InfluxDB® service.
+Creates a database within an Aiven for PostgreSQL® or Aiven for MySQL.
 
 | Parameter      | Information              |
 | -------------- | ------------------------ |
@@ -25,8 +24,8 @@ avn service database-create pg-demo --dbname analytics-it
 
 ### `avn service database-delete`
 
-Removes a specific database within an Aiven for PostgreSQL®, Aiven for
-MySQL or Aiven for InfluxDB® service.
+Removes a specific database within an Aiven for PostgreSQL® or Aiven for
+MySQL.
 
 | Parameter      | Information              |
 | -------------- | ------------------------ |
@@ -42,8 +41,8 @@ avn service database-delete pg-demo --dbname analytics-it
 
 ### `avn service database-list`
 
-Lists the service databases available in an Aiven for PostgreSQL®, Aiven
-for MySQL or Aiven for InfluxDB® service.
+Lists the service databases available in an Aiven for PostgreSQL® or Aiven
+for MySQL.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |

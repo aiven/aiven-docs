@@ -185,7 +185,7 @@ To delete the service and its data:
 
 -   Try [another sample
     project](https://github.com/aiven/terraform-provider-aiven/blob/main/sample_project/sample.tf)
-    to set up integrated Aiven for Kafka®, PostgreSQL®, InfluxDB®, and
+    to set up integrated Aiven for Kafka®, PostgreSQL®, and
     Grafana® services.
 -   Read the [Terraform
     Docs](https://www.terraform.io/language/modules/develop/structure)

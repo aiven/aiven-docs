@@ -198,9 +198,9 @@ your service.
 
 ### View full list of metrics
 
-Aiven provides the Prometheus client via the Telegraf plugin so all the
-same metrics that are available via the Aiven for InfluxDB® metrics
-integration are also available via the Prometheus integration.
+The Prometheus client, provided through the Telegraf plugin, offers access to a
+comprehensive range of metrics, similar to those previously available through another
+metrics integration, now accessible via the Prometheus integration.
 
 You can preview the full list of metrics in
 [Prometheus system metrics](/docs/integrations/prometheus-system-metrics).
