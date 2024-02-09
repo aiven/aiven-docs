@@ -3,8 +3,7 @@ title: Data eviction policy in Aiven for Dragonfly
 sidebar_label: Data eviction policy
 ---
 
-Aiven for Dragonfly® optimizes cache memory management with a data eviction policy,
-ensuring efficient memory usage and optimal performance.
+Aiven for Dragonfly® optimizes cache memory management with a data eviction policy, ensuring efficient memory usage and optimal performance.
 
 ## Understand data eviction policy
 
