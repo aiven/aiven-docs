@@ -864,7 +864,6 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
-                    'products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                   ],
                 },
