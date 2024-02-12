@@ -60,7 +60,7 @@ Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `pubsub_lite_source.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.google.pubsublite.kafka.source.PubSubLiteSourceConnector",
@@ -182,7 +182,7 @@ can create a source connector with the following configuration, after
 replacing the placeholders for `GCP_PROJECT_NAME`, `GCP_SERVICE_KEY` and
 `GCP_PUBSUB_LOCATION`:
 
-``` json
+```json
 {
    "name":"CONNECTOR_NAME",
    "connector.class": "com.google.pubsub.kafka.source.CloudPubSubSourceConnector",

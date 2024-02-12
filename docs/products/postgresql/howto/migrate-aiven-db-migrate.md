@@ -80,7 +80,7 @@ following:
     To review the current `wal_level`, run the following command on the
     source cluster via `psql`
 
-    ``` sql
+    ```sql
     show wal_level;
     ```
 
@@ -114,7 +114,7 @@ You can initiate a migration to an Aiven for PostgreSQL® service with
 the [Aiven CLI](/docs/tools/cli) and the following
 command, substituting the placeholders accordingly:
 
-``` bash
+```bash
 avn service update --project PROJECT_NAME -c migration.host=SRC_HOSTNAME   \
     -c migration.port=SRC_PORT                                             \
     -c migration.ssl=true                                                  \
@@ -137,7 +137,7 @@ You can check the migration status using the
 [Aiven CLI](/docs/tools/cli) and the
 following call:
 
-``` bash
+```bash
 avn --project PROJECT_NAME --show-http service migration-status \
     DEST_PG_NAME
 ```
@@ -203,7 +203,7 @@ cluster in an inconsistent state.
 
 The migration process can be stopped with:
 
-``` bash
+```bash
 avn service update --project PROJECT_NAME --remove-option migration DEST_PG_NAME
 ```
 

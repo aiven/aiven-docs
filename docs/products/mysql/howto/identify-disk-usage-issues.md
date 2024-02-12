@@ -24,7 +24,7 @@ grow.
 To identify tables with significant allocated but unused space, you can
 run the following query:
 
-``` shell
+```shell
 SELECT
   TABLES.TABLE_SCHEMA,
   TABLES.TABLE_NAME,

@@ -40,13 +40,13 @@ currently support AWS PrivateLink.
     Use the Aiven CLI to run the following command including your AWS
     account ID, the access scope, and the name of your Aiven service:
 
-    ``` bash
+    ```bash
     avn service privatelink aws create --principal arn:aws:iam::$AWS_account_ID:$access_scope $Aiven_service_name
     ```
 
     For example:
 
-    ``` bash
+    ```bash
     avn service privatelink aws create --principal arn:aws:iam::012345678901:user/mwf my-kafka
     ```
 
@@ -62,7 +62,7 @@ currently support AWS PrivateLink.
 
 2.  In the AWS CLI, run the following command to create a VPC endpoint:
 
-    ``` bash
+    ```bash
     aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
     ```
 
@@ -72,7 +72,7 @@ currently support AWS PrivateLink.
     (**\...**) menu \> **Edit AWS PrivateLink** \> **AWS service name**
     or as an output of the following Aiven CLI command:
 
-    ``` bash
+    ```bash
     avn service privatelink aws get aws_service_name
     ```
 
@@ -109,7 +109,7 @@ currently support AWS PrivateLink.
         `user_config.privatelink_access.<service component>` to `true`
         for the components that you want to enable. For example:
 
-        ``` bash
+        ```bash
         avn service update -c privatelink_access.kafka=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_connect=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_rest=true $Aiven_service_name
@@ -177,7 +177,7 @@ PrivateLink, run the
 -   For SSL connection information for your service component using AWS
     PrivateLink, run the following command:
 
-    ``` bash
+    ```bash
     avn service connection-info UTILITY_NAME SERVICE_NAME --privatelink-connection-id PRIVATELINK_CONNECTION_ID
     ```
 
@@ -192,7 +192,7 @@ PrivateLink, run the
 -   For SASL connection information for Aiven for Apache Kafka® service
     components using AWS PrivateLink, run the following command:
 
-    ``` bash
+    ```bash
     avn service connection-info UTILITY_NAME SERVICE_NAME --privatelink-connection-id PRIVATELINK_CONNECTION_ID -a sasl
     ```
 
@@ -216,7 +216,7 @@ allowed to connect a VPC endpoint:
 
 -   Use the `update` command of the Aiven CLI:
 
-    ``` bash
+    ```bash
     avn service privatelink aws update --principal arn:aws:iam::$AWS_account_ID:$access_scope $Aiven_service_name
     ```
 

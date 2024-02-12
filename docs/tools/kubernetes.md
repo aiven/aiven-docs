@@ -69,14 +69,14 @@ into the `cert-manager` namespace, as per [this GitHub issue
 comment](https://github.com/cert-manager/cert-manager/issues/3717#issuecomment-975031637)
 :::
 
-``` bash
+```bash
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
 ```
 
 Verify the `cert-manager` installation by checking if their pods are up
 and running:
 
-``` bash
+```bash
 kubectl get pod -n cert-manager
 ```
 
@@ -87,14 +87,14 @@ Add the [Aiven Helm chart
 repository](https://github.com/aiven/aiven-charts/) and update your
 local Helm information:
 
-``` bash
+```bash
 helm repo add aiven https://aiven.github.io/aiven-charts
 helm repo update
 ```
 
 Now let's install the CRD and then the operator itself:
 
-``` bash
+```bash
 helm install aiven-operator-crds aiven/aiven-operator-crds
 helm install aiven-operator aiven/aiven-operator
 ```
@@ -108,7 +108,7 @@ to disable the admission webhooks.
 Verify the installation by making sure the operator pod is running with
 the `get pod` command:
 
-``` bash
+```bash
 kubectl get pod -l app.kubernetes.io/name=aiven-operator
 ```
 
@@ -123,7 +123,7 @@ token generated in the \"Requirements\" section above. This needs to be
 created in the namespace which is going to be used to create your Aiven
 services.
 
-``` bash
+```bash
 kubectl create secret generic aiven-token --from-literal=token="<your-token-here>"
 ```
 
@@ -135,7 +135,7 @@ Custom Resource provided by the operator. Create a file named
 `<your-project-name>` with your Aiven project name. Take a look at the
 commented lines to understand better what each field represents.
 
-``` yaml
+```yaml
 apiVersion: aiven.io/v1alpha1
 kind: PostgreSQL
 metadata:
@@ -170,13 +170,13 @@ spec:
 
 Apply the resource with the command below:
 
-``` bash
+```bash
 kubectl apply -f pg-sample.yaml
 ```
 
 You can verify the status of your service with the following command.
 
-``` bash
+```bash
 kubectl get postgresqls.aiven.io pg-sample
 ```
 
@@ -191,7 +191,7 @@ connection to PostgreSQL from Kubernetes.
 
 Create a file named `pod-psql.yaml` with the content below:
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -215,14 +215,14 @@ after the value from the `connInfoSecretTarget.name` field.
 
 Go ahead and run `apply` to create the pod and test the connection:
 
-``` bash
+```bash
 kubectl apply -f pod-psql.yaml
 ```
 
 It will run, output the PostgreSQL version and terminate. We can see the
 logs with the following command:
 
-``` bash
+```bash
 kubectl logs psql-test-connection
 ```
 
@@ -233,7 +233,7 @@ Kubernetes.
 
 To destroy the resources created, execute the following commands:
 
-``` bash
+```bash
 kubectl delete pod psql-test-connection
 kubectl delete postgresqls.aiven.io pg-sample
 ```
@@ -241,7 +241,7 @@ kubectl delete postgresqls.aiven.io pg-sample
 To remove the operator and `cert-manager` (if installed), use the
 following:
 
-``` bash
+```bash
 helm uninstall aiven-operator
 helm uninstall aiven-operator-crds
 kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml

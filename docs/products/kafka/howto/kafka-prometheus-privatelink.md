@@ -25,7 +25,7 @@ Begin by configuring Prometheus to scrape metrics from your Aiven for
 Apache Kafka service. This setup involves specifying various parameters
 for secure data retrieval. Following is an example configuration:
 
-``` yaml
+```yaml
 scrape_configs:
   - job_name: aivenmetrics
     scheme: https
@@ -86,7 +86,7 @@ To manage metrics from different Privatelink connections, include the
 `__meta_privatelink_connection_id` label in your configuration. This
 setup helps categorize and filter relevant metrics for each connection.
 
-``` yaml
+```yaml
 relabel_configs:
   - source_labels: [__meta_privatelink_connection_id]
     regex: 1

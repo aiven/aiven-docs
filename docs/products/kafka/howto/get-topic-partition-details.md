@@ -34,7 +34,7 @@ of commands for `avn service topic` in
 For example, this bash script, with a help of `jq` utility, lists topics
 and their details for a specified Apache Kafka service:
 
-``` bash
+```bash
 #!/bin/bash
 proj=${1:-YOUR-AIVEN-PROJECT-NAME}
 serv="${2:-YOUR-KAFKA-SERVICE-NAME}"

@@ -114,7 +114,7 @@ You can also include the following parameters:
 The connector configurations in a file (we'll refer to it with the name
 `s3_sink.json`) should contain at least the following content:
 
-``` json
+```json
 {
     "name": "<CONNECTOR_NAME>",
     "connector.class": "io.aiven.kafka.connect.s3.AivenKafkaConnectS3SinkConnector",

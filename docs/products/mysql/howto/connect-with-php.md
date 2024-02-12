@@ -26,7 +26,7 @@ These are the placeholders you need to replace in the code sample:
     `ca.pem` file and you add an absolute path to this file
     into [the code](/docs/products/mysql/howto/connect-with-php#connect-mysql-php-code):
 
-    ``` bash
+    ```bash
     $conn .= ";sslmode=verify-ca;sslrootcert='D:/absolute/path/to/ssl/certs/ca.pem'"
     ```
 

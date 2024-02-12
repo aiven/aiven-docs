@@ -94,7 +94,7 @@ file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
@@ -210,7 +210,7 @@ connector configuration, after replacing the placeholders for
 `MONGODB_HOST`, `MONGODB_PORT`, `MONGODB_DB_NAME`, `MONGODB_USERNAME`
 and `MONGODB_PASSWORD`:
 
-``` json
+```json
 {
     "name": "my-mongodb-sink",
     "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
@@ -256,7 +256,7 @@ connector configuration, after replacing the placeholders for
 `MONGODB_HOST`, `MONGODB_PORT`, `MONGODB_DB_NAME`, `MONGODB_USERNAME`
 and `MONGODB_PASSWORD`:
 
-``` json
+```json
 {
     "name": "my-mongodb-sink",
     "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",

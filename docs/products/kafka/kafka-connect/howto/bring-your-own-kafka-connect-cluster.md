@@ -104,14 +104,14 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
 
 1.  Extract the Apache Kafka binaries
 
-    ``` shell
+    ```shell
     tar -xzf kafka_2.13-3.1.0.tgz
     ```
 
 2.  Within the newly created `kafka_2.13-3.1.0` folder, create a
     `plugins` folder containing a `lib` sub-folder
 
-    ``` shell
+    ```shell
     cd kafka_2.13-3.1.0
     mkdir -p plugins/lib
     ```
@@ -119,7 +119,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
 3.  Unzip the JDBC and Avro binaries and copy the `jar` files in the
     `plugins/lib` folder
 
-    ``` shell
+    ```shell
     # extract aiven connect jdbc
     unzip jdbc-connector-for-apache-kafka-6.7.0.zip
     # extract confluent kafka connect avro converter
@@ -150,7 +150,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
 5.  Start the local Apache Kafka Connect cluster, executing the
     following from the `kafka_2.13-3.1.0` folder:
 
-    ``` shell
+    ```shell
     ./bin/connect-distributed.sh ./my-connect-distributed.properties
     ```
 
@@ -165,7 +165,7 @@ Apache Kafka Connect cluster:
     `PG_DATABASE_NAME`, `APACHE_KAFKA_HOST`, `SCHEMA_REGISTRY_PORT`,
     `SCHEMA_REGISTRY_USER`, `SCHEMA_REGISTRY_PASSWORD`.
 
-    ``` json
+    ```json
     {
        "name": "jdbc-sink-pg",
        "config": {
@@ -185,7 +185,7 @@ Apache Kafka Connect cluster:
 2.  Create the JDBC sink connector instance using Kafka Connect REST
     APIs
 
-    ``` shell
+    ```shell
     curl -s -H "Content-Type: application/json" -X POST \
        -d @jdbc-sink-pg.json                            \
        http://localhost:8083/connectors/
@@ -194,13 +194,13 @@ Apache Kafka Connect cluster:
 3.  Check the status of the JDBC sink connector instance, `jq` is used
     to beautify the output
 
-    ``` shell
+    ```shell
     curl localhost:8083/connectors/jdbc-sink-pg/status | jq
     ```
 
     The result should be similar to the following
 
-    ``` json
+    ```json
     {
        "name": "jdbc-sink-pg",
        "connector": {
@@ -235,7 +235,7 @@ APIs](https://github.com/aiven/karapace), by following the steps below:
     changing the placeholders for `REST_API_USER`, `REST_API_PASSWORD`,
     `APACHE_KAFKA_HOST`, `REST_API_PORT`
 
-    ``` shell
+    ```shell
     curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
        --data '''
           {"schema":
@@ -252,7 +252,7 @@ APIs](https://github.com/aiven/karapace), by following the steps below:
     `REST_API_USER`, `REST_API_PASSWORD`, `APACHE_KAFKA_HOST`,
     `REST_API_PORT`
 
-    ``` shell
+    ```shell
     curl -H "Content-Type: application/vnd.kafka.avro.v2+json" -X POST \
        -d '''
           {"value_schema":

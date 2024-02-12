@@ -24,7 +24,7 @@ which uses Prometheus to monitor itself as a starting point.
     the following section, replacing `<PROM_WRITE_URL>` with the URL you
     copied.
 
-``` yaml
+```yaml
 remote_write:
   - url: "<PROM_WRITE_URL>"
 ```
@@ -38,7 +38,7 @@ Prometheus is now configured to send data to your Aiven for M3 service.
     configuration file, add the following section, replacing
     `<PROM_READ_URL>` with the URL you copied.
 
-``` yaml
+```yaml
 remote_read:
   - url: "<PROM_READ_URL>"
     read_recent: true

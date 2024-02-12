@@ -28,7 +28,7 @@ These are the placeholders you need to replace in the code sample:
 
     -   Or using maven
 
-        ``` bash
+        ```bash
         mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=mysql:mysql-connector-java:8.0.28:jar -Ddest=mysql-driver-8.0.28.jar
         ```
 

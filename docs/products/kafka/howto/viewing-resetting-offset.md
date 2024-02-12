@@ -25,7 +25,7 @@ To list the currently active consumer groups use the following command
 replacing the `demo-kafka.my-project.aivencloud.com:17072` with your
 service URI:
 
-``` 
+```
 kafka-consumer-groups.sh \
     --bootstrap-server demo-kafka.my-project.aivencloud.com:17072 \
     --command-config consumer.properties \
@@ -39,7 +39,7 @@ replacing the `demo-kafka.my-project.aivencloud.com:17072` with the
 Aiven for Apache Kafka service URI and the `my-group` with the required
 consumer group name:
 
-``` 
+```
 kafka-consumer-groups.sh \
     --bootstrap-server demo-kafka.my-project.aivencloud.com:17072 \
     --command-config consumer.properties \
@@ -50,7 +50,7 @@ kafka-consumer-groups.sh \
 The details of the consumer group `my-group` are printed out in the
 following output:
 
-``` text
+```text
 GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                HOST            CLIENT-ID
 my-group        test-topic      0          5509            5515            6               rdkafka-39404560-f8f2-4b0b /151.62.82.140  rdkafka
 ```
@@ -62,7 +62,7 @@ command replacing the `demo-kafka.my-project.aivencloud.com:17072` with
 the Aiven for Apache Kafka service URI and the `my-group` with the
 required consumer group name:
 
-``` 
+```
 kafka-consumer-groups.sh \
     --bootstrap-server demo-kafka.my-project.aivencloud.com:17072 \
     --command-config consumer.properties \
@@ -74,7 +74,7 @@ kafka-consumer-groups.sh \
 The members of the `my-group` consumer group are printed out in the
 following output:
 
-``` text
+```text
 GROUP           CONSUMER-ID                                  HOST            CLIENT-ID       #PARTITIONS
 my-group        rdkafka-a4c0a09c-8c6e-457e-bf9e-354a8e2f4bb8 /151.62.82.140  rdkafka         0
 my-group        rdkafka-39404560-f8f2-4b0b-9518-811e2eb20074 /151.62.82.140  rdkafka         1
@@ -95,7 +95,7 @@ use the following command replacing:
 The consumer group must be inactive when you make offset changes.
 :::
 
-``` 
+```
 kafka-consumer-groups.sh \
     --bootstrap-server demo-kafka.my-project.aivencloud.com:17072 \
     --command-config consumer.properties \

@@ -104,7 +104,7 @@ To disable SSL on an existing Redis instance use the following Aiven CLI
 command substituting the `<my-redis>` with your Redis the name service
 chosen by you when the service was created.
 
-``` console
+```console
 avn service update <my-redis> -c "redis_ssl=false"
 ```
 

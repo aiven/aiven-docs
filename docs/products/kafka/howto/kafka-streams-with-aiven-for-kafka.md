@@ -64,13 +64,13 @@ work with Aiven for Apache Kafka.
 
 1.  Download the `kafka-streams-examples` sources from GitHub
 
-    ``` shell
+    ```shell
     git clone https://github.com/confluentinc/kafka-streams-examples.git
     ```
 
 2.  Build the packages using Maven
 
-    ``` shell
+    ```shell
     cd kafka-streams-examples/
     mvn -DskipTests=true clean package
     ```
@@ -108,7 +108,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
 
 1.  Add the following dependencies
 
-    ``` java
+    ```java
     import org.apache.kafka.clients.CommonClientConfigs;
     import org.apache.kafka.common.config.SslConfigs;
     import java.util.HashMap;
@@ -120,7 +120,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`, `APACHE_KAFKA_HOST`,
     `SCHEMA_REGISTRY_PORT` placeholders
 
-    ``` java
+    ```java
     private static final String DEFAULT_BOOTSTRAP_SERVERS = "APACHE_KAFKA_HOST:APACHE_KAFKA_PORT";
     private static final String DEFAULT_SCHEMA_REGISTRY_URL = "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT";
     ```
@@ -128,14 +128,14 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
 3.  Within the `main` function, replace the `bootstrapServers` and
     `schemaRegistryUrl` default values
 
-    ``` java
+    ```java
     final String bootstrapServers = args.length > 1 ? args[1] : DEFAULT_BOOTSTRAP_SERVERS;
     final String schemaRegistryUrl = args.length > 2 ? args[2] : DEFAULT_SCHEMA_REGISTRY_URL;
     ```
 
 4.  Within the `main` function, after the line
 
-    ``` java
+    ```java
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
     ```
 
@@ -144,7 +144,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     `TRUSTSTORE_PATH` and `KEY_TRUST_SECRET` with the values set when
     [creating the keystore and truststore](/docs/products/kafka/howto/kafka-streams-with-aiven-for-kafka#kafka-streams-keystore-truststore).
 
-    ``` java
+    ```java
     props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
     props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "TRUSTSTORE_PATH/client.truststore.jks");
     props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "KEY_TRUST_SECRET");
@@ -156,7 +156,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
 
 5.  Within the `main` function, replace the line
 
-    ``` java
+    ```java
     final Map<String, String> serdeConfig = Collections.singletonMap(
        AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
     ```
@@ -166,7 +166,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     and password and substituting the `SCHEMA_REGISTRY_USER` and
     `SCHEMA_REGISTRY_PASSWORD` placeholders
 
-    ``` java
+    ```java
     final Map<String, String> serdeConfig = new HashMap<>();
     serdeConfig.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
     serdeConfig.put(AbstractKafkaSchemaSerDeConfig.BASIC_AUTH_CREDENTIALS_SOURCE, "USER_INFO");
@@ -182,7 +182,7 @@ parameters fetched in the
 
 1.  Add the following dependencies
 
-    ``` java
+    ```java
     import org.apache.kafka.clients.CommonClientConfigs;
     import org.apache.kafka.common.config.SslConfigs;
     ```
@@ -192,7 +192,7 @@ parameters fetched in the
     `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`, `APACHE_KAFKA_HOST`,
     `SCHEMA_REGISTRY_PORT` placeholders
 
-    ``` java
+    ```java
     private static final String DEFAULT_BOOTSTRAP_SERVERS = "APACHE_KAFKA_HOST:APACHE_KAFKA_PORT";
     private static final String DEFAULT_SCHEMA_REGISTRY_URL = "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT";
     ```
@@ -200,14 +200,14 @@ parameters fetched in the
 3.  Replace the `bootstrapServers` and `schemaRegistryUrl` default
     values
 
-    ``` java
+    ```java
     final String bootstrapServers = args.length > 1 ? args[1] : DEFAULT_BOOTSTRAP_SERVERS;
     final String schemaRegistryUrl = args.length > 2 ? args[2] : DEFAULT_SCHEMA_REGISTRY_URL;
     ```
 
 4.  Within the `main` function, replace the line
 
-    ``` java
+    ```java
     final KafkaStreams streams = new KafkaStreams(
        buildTopology(singletonMap(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl)),
        streamsConfig(bootstrapServers, restEndpointPort, "/tmp/kafka-streams", restEndpointHostname)
@@ -219,7 +219,7 @@ parameters fetched in the
     and password and substituting the `SCHEMA_REGISTRY_USER` and
     `SCHEMA_REGISTRY_PASSWORD` placeholders
 
-    ``` java
+    ```java
     final Map<String, String> serdeConfig = new HashMap<>();
     serdeConfig.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
     serdeConfig.put(AbstractKafkaSchemaSerDeConfig.BASIC_AUTH_CREDENTIALS_SOURCE, "USER_INFO");
@@ -233,7 +233,7 @@ parameters fetched in the
 
 5.  Within the `streamsConfig` static function, after the line
 
-    ``` java
+    ```java
     streamsConfiguration.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
     ```
 
@@ -242,7 +242,7 @@ parameters fetched in the
     `TRUSTSTORE_PATH` and `KEY_TRUST_SECRET` with the values set when
     [creating the keystore and truststore](/docs/products/kafka/howto/kafka-streams-with-aiven-for-kafka#kafka-streams-keystore-truststore).
 
-    ``` java
+    ```java
     streamsConfiguration.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
     streamsConfiguration.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "TRUSTSTORE_PATH/client.truststore.jks");
     streamsConfiguration.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "KEY_TRUST_SECRET");
@@ -257,7 +257,7 @@ parameters fetched in the
 From the main `kafka-streams-examples` folder, execute the following
 Maven command to build the applications:
 
-``` shell
+```shell
 mvn -DskipTests=true clean package
 ```
 
@@ -275,7 +275,7 @@ sessions pointing at the main `kafka-streams-examples` folder.
 From the first terminal session you can start the
 `KafkaMusicExampleDriver` producer with:
 
-``` shell
+```shell
 java -cp ./target/kafka-streams-examples-7.0.0-standalone.jar \
    io.confluent.examples.streams.interactivequeries.kafkamusic.KafkaMusicExampleDriver
 ```
@@ -286,7 +286,7 @@ command if necessary.
 From the second terminal session you can start the `KafkaMusicExample`
 Kafka streams application with:
 
-``` shell
+```shell
 java -cp ./target/kafka-streams-examples-7.0.0-standalone.jar \
    io.confluent.examples.streams.interactivequeries.kafkamusic.KafkaMusicExample 7070
 ```

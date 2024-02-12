@@ -69,7 +69,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `jdbc_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",
@@ -232,7 +232,7 @@ MySQL.
 If you have a topic named `iot_measurements` containing the following
 data in JSON format, with a defined JSON schema:
 
-``` json
+```json
 {
     "schema": {
         "type":"struct",
@@ -286,7 +286,7 @@ following connector configuration, after replacing the placeholders for
 `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_SSL_MODE`, `DB_USERNAME` and
 `DB_PASSWORD`:
 
-``` json
+```json
 {
     "name":"sink_iot_json_schema",
     "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",
@@ -326,7 +326,7 @@ the schema stored in the schema registry provided by
 [Karapace](https://help.aiven.io/en/articles/5651983) with the following
 structure:
 
-``` text
+```text
 key: {"student_id": 1234}
 value: {"student_name": "Mary", "exam": "Math", "exam_result":"A"}
 ```
@@ -337,7 +337,7 @@ configuration, after replacing the placeholders for `DB_HOST`,
 `APACHE_KAFKA_HOST`, `SCHEMA_REGISTRY_PORT`, `SCHEMA_REGISTRY_USER` and
 `SCHEMA_REGISTRY_PASSWORD`:
 
-``` json
+```json
 {
     "name": "sink_students_avro_schema",
     "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",

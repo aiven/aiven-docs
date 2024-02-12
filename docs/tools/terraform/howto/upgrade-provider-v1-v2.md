@@ -32,7 +32,7 @@ Update the Aiven Terraform Provider by editing the providers block of
 your script to include the latest version of the Aiven Terraform
 Provider (v2.3.1 at the time of writing):
 
-``` terraform
+```terraform
 terraform {
   required_providers {
     aiven = {

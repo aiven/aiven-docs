@@ -31,7 +31,7 @@ data evenly across all the cluster nodes.
     engine](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/)
     as shown for the `cash_flows` table in the following example:
 
-    ``` sql
+    ```sql
     CREATE TABLE test_db.cash_flows
     (
         EventDate DateTime,
@@ -53,7 +53,7 @@ data evenly across all the cluster nodes.
 1.  Create distributed table `cash_flows_distributed` with the
     distributed engine:
 
-    ``` sql
+    ```sql
     CREATE TABLE test_db.cash_flows_distributed AS test_db.cash_flows
     ENGINE = Distributed(test_db, test_db, cash_flows, SourceAccount)
     ```
@@ -65,7 +65,7 @@ use it to access your data from all the shards.
 
 1.  Run a read query for the number of table rows:
 
-    ``` sql
+    ```sql
     SELECT count() FROM test_db.cash_flows_distributed
     ```
 
@@ -76,7 +76,7 @@ use it to access your data from all the shards.
 
 1.  Run a write query to insert new data into the distributed table:
 
-    ``` sql
+    ```sql
     INSERT INTO test_db.cash_flows_distributed (
       EventDate, SourceAccount, TargetAccount, Amount
     )

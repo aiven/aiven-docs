@@ -32,7 +32,7 @@ avn service backup-list grafana-25c408a5
 
 An example of `service backup-list` output:
 
-``` text
+```text
 BACKUP_NAME                     BACKUP_TIME           DATA_SIZE  STORAGE_LOCATION
 ==============================  ====================  =========  ===================
 grafana-20220614T140308137245Z  2022-06-14T14:03:08Z  774144     google-europe-west3
@@ -275,7 +275,7 @@ avn service list
 
 An example of `service list` output:
 
-``` text
+```text
 SERVICE_NAME        SERVICE_TYPE  STATE    CLOUD_NAME           PLAN         CREATE_TIME           UPDATE_TIME
 ==================  ============  =======  ===================  ===========  ====================  ====================
 cassandra-28962a5b  cassandra     RUNNING  google-europe-west3  business-16  2021-09-27T10:18:19Z  2021-09-27T10:25:58Z
@@ -401,7 +401,7 @@ avn service plans --service-type pg --cloud google-europe-west3
 
 An example of `service plans` output:
 
-``` text
+```text
 pg:hobbyist                    $0.034/h  Hobbyist (1 CPU, 2 GB RAM, 8 GB disk)
 pg:startup-4                   $0.136/h  Startup-4 (1 CPU, 4 GB RAM, 80 GB disk)
 pg:startup-8                   $0.267/h  Startup-8 (2 CPU, 8 GB RAM, 175 GB disk)
@@ -517,7 +517,7 @@ avn service task-create --operation migration_check --source-service-uri mysql:/
 
 An example `avn service task-create` output:
 
-``` text
+```text
 TASK_TYPE              SUCCESS  TASK_ID
 =====================  =======  ====================================
 mysql_migration_check  null     e2df7736-66c5-4696-b6c9-d33a0fc4cbed
@@ -545,7 +545,7 @@ avn service task-get --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project my
 
 An example `avn service task-get` ouput:
 
-``` text
+```text
 TASK_TYPE              SUCCESS  TASK_ID                               RESULT
 =====================  =======  ====================================  ====================================================================================
 mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-checks passed successfully, preferred migration method will be [Replication]
@@ -598,7 +598,7 @@ avn service types
 
 An example of `service types` output:
 
-``` text
+```text
 SERVICE_TYPE       DESCRIPTION
 =================  ===================================================================================
 cassandra          Cassandra - Distributed NoSQL data store
@@ -721,7 +721,7 @@ avn service versions
 
 An example of `service versions` output:
 
-``` text
+```text
 SERVICE_TYPE   MAJOR_VERSION  STATE        AVAILABILITY_START_TIME  AVAILABILITY_END_TIME  AIVEN_END_OF_LIFE_TIME  UPSTREAM_END_OF_LIFE_TIME  TERMINATION_TIME  END_OF_LIFE_HELP_ARTICLE_URL
 =============  =============  ===========  =======================  =====================  ======================  =========================  ================  ====================================================================================================
 cassandra      3.11           available    2018-11-08T00:00:00Z     null                   null                    null                       null              null

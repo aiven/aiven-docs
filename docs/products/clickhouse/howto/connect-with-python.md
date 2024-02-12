@@ -32,7 +32,7 @@ the following variables:
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` python
+```python
 from clickhouse_driver import Client
 client = Client(user="USERNAME", password="PASSWORD", host="HOST", port=NATIVE_PORT, secure=True)
 print(client.execute("SELECT 1"))
@@ -64,7 +64,7 @@ the following variables:
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` python
+```python
 import requests
 response = requests.post(
     "https://HOST:HTTPS_PORT",

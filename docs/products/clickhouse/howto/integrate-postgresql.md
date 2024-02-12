@@ -102,7 +102,7 @@ In Aiven for ClickHouse you can read data by running SELECT command.
 Replace `PG_SERVICE_NAME`, `PG_DATABASE`, `PG_SCHEMA` and `PG_TABLE`
 with your values and run:
 
-``` sql
+```sql
 SELECT * FROM service_PG_SERVICE_NAME_PG_DATABASE_PG_SCHEMA.PG_TABLE
 ```
 
@@ -119,7 +119,7 @@ You can also insert rows from the ClickHouse table into the PostgreSQL
 table. Replace `PG_SERVICE_NAME`, `PG_DATABASE`, `PG_SCHEMA` and
 `PG_TABLE` with your values:
 
-``` sql
+```sql
 INSERT INTO service_PG_SERVICE_NAME_PG_DATABASE_PG_SCHEMA.PG_TABLE(id, name)
 VALUES (1, 'Michelangelo')
 ```

@@ -60,7 +60,7 @@ avn service acl-list kafka-doc
 
 An example of `account service acl-list` output:
 
-``` text
+```text
 ID              USERNAME  TOPIC      PERMISSION
 ==============  ========  =========  ==========
 default         *         *          admin

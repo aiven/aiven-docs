@@ -35,7 +35,7 @@ information** section on the **Overview** page of your service in the
 The command to connect to the service looks like this, substitute the
 placeholders for `USERNAME`, `PASSWORD`, `HOST` and `PORT`:
 
-``` bash
+```bash
 docker run -it \
 --rm clickhouse/clickhouse-server clickhouse-client \
 --user USERNAME \
@@ -59,7 +59,7 @@ Once you're connected to the server, you can type queries directly
 within the client, for example, to see the list of existing databases,
 run
 
-``` sql
+```sql
 SHOW DATABASES
 ```
 
@@ -68,7 +68,7 @@ able to access the command prompt outside the docker container. In this
 case you can set `--interactive` and use `--query` parameter without
 entering the docker container:
 
-``` bash
+```bash
 docker run --interactive            \
 --rm clickhouse/clickhouse-server clickhouse-client \
 --user USERNAME                     \

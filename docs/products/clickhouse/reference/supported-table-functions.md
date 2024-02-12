@@ -8,7 +8,7 @@ can be used to construct tables, for example, in a FROM clause of a
 query or in an INSERT INTO TABLE FUNCTION statement.
 
 :::note[Sample usage of the S3 table function]
-``` bash
+```bash
 SELECT *
 FROM deltaLake('s3://bucket/path/to/lake')
 ```

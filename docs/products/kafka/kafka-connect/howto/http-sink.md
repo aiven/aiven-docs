@@ -52,7 +52,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `http_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "io.aiven.kafka.connect.http.HttpSinkConnector",
@@ -159,7 +159,7 @@ You can sink the `iot_measurements` topic to a remote server over HTTP
 with the following connector configuration, after replacing the
 placeholders for `SERVER_URL`, and `SERVER_AUTHORIZATION_TYPE`:
 
-``` json
+```json
 {
     "name":"iot_measurements_sink",
     "connector.class": "io.aiven.kafka.connect.http.HttpSinkConnector",

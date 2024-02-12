@@ -55,7 +55,7 @@ information** section and find the following information:
 Use the following command to back up your Aiven for MySQL data to a file
 named `mydb_backup.sql`:
 
-``` shell
+```shell
 mysqldump \
 -p DEFAULTDB -P SOURCE_DB_PORT \
 -h SOURCE_DB_HOST --single-transaction \
@@ -106,7 +106,7 @@ information** section and find the following information:
 Run the following command to load your saved data into your Aiven for
 MySQL database:
 
-``` shell
+```shell
 mysqldump \
 -p DEFAULTDB -P TARGET_DB_PORT \
 -h TARGET_DB_HOST \

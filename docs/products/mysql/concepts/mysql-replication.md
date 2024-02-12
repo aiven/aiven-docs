@@ -29,7 +29,7 @@ key, the target server needs to make a sequential table scan for each
 individual update or delete statement and the replication can become
 extremely slow if the table is large.
 
-``` bash
+```bash
 DELETE FROM nopk WHERE modified_time > '2022-01-13'
 ```
 

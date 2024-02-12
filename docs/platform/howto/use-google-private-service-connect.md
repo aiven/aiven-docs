@@ -38,7 +38,7 @@ you wish to connect to, you need to create a separate endpoint.
 Using the Aiven CLI, enable a Private Service Connect for your Aiven
 service:
 
-``` shell
+```shell
 avn service privatelink google create MY_SERVICE_NAME
 ```
 
@@ -53,7 +53,7 @@ Creating a privatelink usually takes a minute or two.
 
 You can use the following command to see the current state:
 
-``` shell
+```shell
 avn service privatelink google get MY_SERVICE_NAME
 ```
 
@@ -63,7 +63,7 @@ Aiven end have been allocated, and it's possible to create connections.
 When the privatelink has been successfully created, you can expect an
 output similar to the following:
 
-``` shell
+```shell
 GOOGLE_SERVICE_ATTACHMENT                                                             STATE
 ====================================================================================  ======
 projects/aivenprod/regions/europe-west1/serviceAttachments/privatelink-s3fd836dfc60   active
@@ -103,18 +103,18 @@ associated with the endpoint so that you can use it the next step.
 1.  Update the state of Private Service Connect connections for your
     Aiven service by running
 
-    ``` shell
+    ```shell
     avn service privatelink google refresh MY_SERVICE_NAME
     ```
 
 2.  Retry the following command until it returns the
     pending-user-approval status:
 
-    ``` shell
+    ```shell
     avn service privatelink google connection list MY_SERVICE_NAME
     ```
 
-    ``` shell
+    ```shell
     PRIVATELINK_CONNECTION_ID  PSC_CONNECTION_ID  STATE                  USER_IP_ADDRESS
     =========================  =================  =====================  ===============
     plc3fd852bec98             12870921937223780  pending-user-approval  null
@@ -141,18 +141,18 @@ associated with the endpoint so that you can use it the next step.
 
     To approve the connection, run the following approval command:
 
-    ``` shell
+    ```shell
     avn service privatelink google connection approve MY_SERVICE_NAME --privatelink-connection-id PRIVATELINK_CONNECTION_ID --user-ip-address PSC_ENDPOINT_IP_ADDRESS
     ```
 
 As a result, the connection initially transitions to the user-approved
 state.
 
-``` shell
+```shell
 avn service privatelink google connection list MY_SERVICE_NAME
 ```
 
-``` shell
+```shell
 PRIVATELINK_CONNECTION_ID  PSC_CONNECTION_ID  STATE          USER_IP_ADDRESS
 =========================  =================  =============  ===============
 plc3fd852bec98             12870921937223780  user-approved  10.0.0.100
@@ -162,18 +162,18 @@ You may need to run the `avn service privatelink google refresh` command
 at this point since updates to service attachment accept lists are not
 immediately reflected in the states of returned connected endpoints.
 
-``` shell
+```shell
 avn service privatelink google refresh MY_SERVICE_NAME
 ```
 
 After establishing the connection and populating DNS records, the
 connection appears as `active`.
 
-``` shell
+```shell
 avn service privatelink google connection list MY_SERVICE_NAME
 ```
 
-``` shell
+```shell
 PRIVATELINK_CONNECTION_ID  PSC_CONNECTION_ID  STATE   USER_IP_ADDRESS
 =========================  =================  ======  ===============
 plc3fd852bec98             12870921937223780  active  10.0.0.100
@@ -199,7 +199,7 @@ CLI, set `user_config.privatelink_access.<service component>` to `true`
 for the components you want to enable. Take the following command as an
 example for Apache Kafka:
 
-``` shell
+```shell
 avn service update -c privatelink_access.kafka=true MY_SERVICE_NAME
 ```
 
@@ -259,7 +259,7 @@ Private Service Connect, run the
 -   For SSL connection information for your service component using
     Private Service Connect, run the following command:
 
-    ``` bash
+    ```bash
     avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
     ```
 
@@ -272,7 +272,7 @@ Private Service Connect, run the
 -   For SASL connection information for Aiven for Apache Kafka® service
     components using Private Service Connect, run the following command:
 
-    ``` bash
+    ```bash
     avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
     ```
 
@@ -292,6 +292,6 @@ connections.
 Use the [Aiven CLI](/docs/tools/cli) to
 delete the Private Service Connect connection for a service:
 
-``` shell
+```shell
 avn service privatelink google delete MY_SERVICE_NAME
 ```

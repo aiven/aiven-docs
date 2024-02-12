@@ -30,7 +30,7 @@ You update the Aiven Terraform Provider by editing the providers block
 of your script. If the version was already set to `>= 3.0.0` then the
 upgrade is automatic.
 
-``` terraform
+```terraform
 terraform {
   required_providers {
     aiven = {
@@ -66,7 +66,7 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
 1.  Update `aiven_database` references to `aiven_pg_database` as in this
     example file:
 
-    ``` 
+    ```
     - resource "aiven_database" "mydatabase" {
         project       = aiven_project.myproject.project
         service_name  = aiven_pg.mypg.service_name
@@ -83,13 +83,13 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
 
 2.  View a list of all resources in the state file:
 
-    ``` 
+    ```
     terraform state list
     ```
 
 3.  Remove the resource from the control of Terraform:
 
-    ``` 
+    ```
     terraform state rm aiven_database
     ```
 
@@ -101,19 +101,19 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
 4.  Add the resource back to Terraform by importing it as a new
     resource:
 
-    ``` 
+    ```
     terraform import aiven_pg_database project_name/service_name/db_name
     ```
 
 5.  Check that the import is going to run as you expect:
 
-    ``` 
+    ```
     terraform plan
     ```
 
 6.  Apply the new configuration:
 
-    ``` 
+    ```
     terraform apply
     ```
 

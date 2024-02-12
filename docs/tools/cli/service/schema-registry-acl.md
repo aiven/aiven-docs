@@ -99,7 +99,7 @@ avn service schema-registry-acl-list kafka-doc
 
 The command output is:
 
-``` text
+```text
 ID                        USERNAME  RESOURCE         PERMISSION
 ========================  ========  ===============  =====================
 default-sr-admin-config   avnadmin  Config:          schema_registry_write

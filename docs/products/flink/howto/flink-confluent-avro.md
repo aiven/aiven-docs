@@ -58,7 +58,7 @@ source table that uses Confluent Avro format to stream Avro messages.
     create an Apache Kafka®-based Apache Flink® table with Confluent
     Avro:
 
-    ``` sql
+    ```sql
     CREATE TABLE kafka (
       -- specify the table columns
     ) WITH (
@@ -142,7 +142,7 @@ The Aiven for Apache Kafka service called `demo-kafka` includes a topic
 called `my_test.public.student` that holds a stream of student data in
 Confluent Avro format like:
 
-``` text
+```text
 {"id": 1, "name": "John", "email": "john@gmail.com"}
 {"id": 2, "name": "Jane", "email": "jane@yahoo.com"}
 {"id": 3, "name": "Bob", "email": "bob@hotmail.com"}
@@ -152,7 +152,7 @@ Confluent Avro format like:
 You can define a `students` Flink table by selecting `demo-kafka` as the
 integration service and writing the following SQL schema:
 
-``` 
+```
 CREATE TABLE students (
   id INT,
   name STRING,

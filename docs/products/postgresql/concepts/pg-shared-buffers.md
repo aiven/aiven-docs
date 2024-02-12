@@ -52,7 +52,7 @@ working data set, and the workload applied.
 
 To examine the current `shared_buffers` value, run the following query:
 
-``` shell
+```shell
 SHOW shared_buffers;
 ```
 
@@ -74,7 +74,7 @@ ideal.
 You can find an overview of `shared_buffers` cache hit rates using
 `pg_statio_user_tables`:
 
-``` shell
+```shell
 SELECT * FROM pg_statio_user_tables;
 
 relid | schemaname | relname | heap_blks_read | heap_blks_hit | idx_blks_read | idx_blks_hit | toast_blks_read | toast_blks_hit | tidx_blks_read | tidx_blks_hit
@@ -85,7 +85,7 @@ relid | schemaname | relname | heap_blks_read | heap_blks_hit | idx_blks_read | 
 
 Calculate the database cache hit rate with:
 
-``` shell
+```shell
 SELECT
   sum(heap_blks_read) as heap_read,
   sum(heap_blks_hit)  as heap_hit,
@@ -125,14 +125,14 @@ modification.
 For a deeper examination into the contents of the `shared_buffers`,
 enable the `pg_buffercache` extension:
 
-``` shell
+```shell
 CREATE EXTENSION pg_buffercache;
 ```
 
 Calculate how many blocks from tables (r), indexes (i), sequences (S),
 and other objects are currently cached using the following query:
 
-``` shell
+```shell
 SELECT c.relname, c.relkind
   , pg_size_pretty(count(*) * 8193) as buffered
   , round(100.0 * count(*) / ( SELECT setting FROM pg_settings WHERE name='shared_buffers')::integer,1) AS buffers_percent
@@ -159,7 +159,7 @@ objects.
 Queries can also be inspected for the cache hit performance using
 `EXPLAIN`:
 
-``` shell
+```shell
 EXPLAIN (ANALYZE, BUFFERS, VERBOSE)
 SELECT * from records;
                                                           QUERY PLAN
@@ -184,14 +184,14 @@ You may want to prewarm the `shared_buffers` in anticipation of a
 specific workload, such as a large analytical query set used for
 reporting. This can be accomplished using the `pg_prewarm` extension.
 
-``` shell
+```shell
 CREATE EXTENSION pg_prewarm;
 ```
 
 :::note[Example]
 Call the `pg_prewarm` function and pass the name of a desired table.
 
-``` shell
+```shell
 SELECT * FROM pg_prewarm('public.records');
 pg_prewarm
 ------------

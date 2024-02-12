@@ -15,7 +15,7 @@ HTTPS port.
 :::tip
 You can install the Node.js client for connecting to ClickHouse using
 
-``` shell
+```shell
 npm i @clickhouse/client
 ```
 :::
@@ -36,7 +36,7 @@ the following variables:
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` javascript
+```javascript
 import { createClient } from '@clickhouse/client'
 const client = createClient({
     host: "CLICKHOUSE_HOST",

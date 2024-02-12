@@ -47,13 +47,13 @@ have `mysql.slow_query_log` enabled and set `mysql.long_query_time` to
 `2` seconds. Now, you can run the following query to simulate a slow
 query of 3 seconds.
 
-``` shell
+```shell
 select sleep(3);
 ```
 
 You should see the following output:
 
-``` shell
+```shell
 +----------+
 | sleep(3) |
 +----------+
@@ -64,13 +64,13 @@ You should see the following output:
 
 Now, you can check the logs of your slow query:
 
-``` shell
+```shell
 select convert(sql_text using utf8) as slow_query, query_time from mysql.slow_log;
 ```
 
 You can expect to receive an output similar to the following:
 
-``` shell
+```shell
 +-----------------+-----------------+
 | slow_query      | query_time      |
 +-----------------+-----------------+

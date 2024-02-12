@@ -27,7 +27,7 @@ the following variables:
 
 1.  Add the ClickHouse JDBC driver to your Maven dependencies.
 
-``` shell
+```shell
 [](dependency)
     <groupId>com.clickhouse</groupId>
     <artifactId>clickhouse-jdbc</artifactId>
@@ -45,14 +45,14 @@ the following variables:
 2.  Replace `CLICKHOUSE_HTTPS_HOST` and `CLICKHOUSE_HTTPS_PORT` in the
     command with your connection values and run the code.
 
-    ``` shell
+    ```shell
     jdbc:ch://CLICKHOUSE_HTTPS_HOST:CLICKHOUSE_HTTPS_PORT?ssl=true&sslmode=STRICT
     ```
 
 3.  Replace `CLICKHOUSE_USER` and `CLICKHOUSE_PASSWORD` in the code with
     meaningful data and run the code.
 
-    ``` java
+    ```java
     import com.clickhouse.jdbc.ClickHouseConnection;
     import com.clickhouse.jdbc.ClickHouseDataSource;
 

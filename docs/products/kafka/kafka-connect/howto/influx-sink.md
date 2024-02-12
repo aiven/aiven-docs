@@ -83,7 +83,7 @@ file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.datamountaineer.streamreactor.connect.influx.InfluxSinkConnector",
@@ -204,7 +204,7 @@ connector configuration, after replacing the placeholders for
 `INFLUXDB_HOST`, `INFLUXDB_PORT`, `INFLUXDB_DB_NAME`,
 `INFLUXDB_USERNAME`, `INFLUXDB_PASSWORD` and schema registry:
 
-``` json
+```json
 {
     "name": "my-influxdb-sink",
     "connector.class": "com.datamountaineer.streamreactor.connect.influx.InfluxSinkConnector",

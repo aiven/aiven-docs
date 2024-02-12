@@ -61,7 +61,7 @@ error due to using the IP instead of the hostname
 
 The output should be similar to the following
 
-``` json
+```json
 {
     "org.apache.zookeeper": {
         "level": "ERROR"
@@ -110,7 +110,7 @@ For example, if you set the custom log level for the logger
 `io.debezium.connector.postgresql.connection` to be `TRACE`, then this
 is what you will see upon listing the logger levels:
 
-``` json
+```json
 {
     "io.debezium.connector.postgresql.connection.AbstractMessageDecoder": {
         "level": "TRACE"
@@ -148,7 +148,7 @@ the Aiven Console. For example, the logger for the Debezium PostgreSQL®
 source connector is also its class name
 `io.debezium.connector.postgresql`:
 
-``` json
+```json
 {
     "connector.class": "io.debezium.connector.postgresql"
 }

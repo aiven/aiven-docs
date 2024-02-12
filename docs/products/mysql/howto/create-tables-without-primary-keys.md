@@ -43,7 +43,7 @@ You have two options to create the tables:
 -   Setting `mysql.sql_require_primary_key` to `0` for the current
     session with the following command:
 
-    ``` shell
+    ```shell
     SET SESSION sql_require_primary_key = 0; and then execute the CREATE TABLE or ALTER TABLE statement again in the same session.
     ```
 

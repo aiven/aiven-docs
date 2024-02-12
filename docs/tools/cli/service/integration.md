@@ -128,7 +128,7 @@ avn service integration-endpoint-list
 
 An example of `avn service integration-endpoint-list` output:
 
-``` text
+```text
 ENDPOINT_ID                           ENDPOINT_NAME     ENDPOINT_TYPE
 ====================================  ================  ==============
 97590813-4a58-4c0c-91fd-eef0f074873b  datadog instance  datadog
@@ -148,7 +148,7 @@ avn service integration-endpoint-types-list
 
 An example of `avn service integration-endpoint-types-list` output:
 
-``` text
+```text
 TITLE                                        ENDPOINT_TYPE                    SERVICE_TYPES
 ===========================================  ===============================  =====================================================================================================================================================================================================================
 Send service metrics to Datadog              datadog                          cassandra, elasticsearch, kafka, kafka_connect, kafka_mirrormaker, mysql, pg, redis
@@ -198,7 +198,7 @@ avn service integration-list demo-pg
 
 An example of `account service integration-list` output:
 
-``` text
+```text
 SERVICE_INTEGRATION_ID                SOURCE        DEST        INTEGRATION_TYPE  ENABLED  ACTIVE  DESCRIPTION
 ====================================  ============  ==========  ================  =======  ======  ============================================================
 0e431dab-175a-4029-b417-d74a6437af1a  demo-grafana  demo-pg     dashboard         true     true    Provide a datasource for Grafana service
@@ -221,7 +221,7 @@ avn service integration-types-list
 
 An example of `account service integration-types-list` output:
 
-``` text
+```text
 INTEGRATION_TYPE                 DEST_DESCRIPTION                                                      DEST_SERVICE_TYPE                SOURCE_DESCRIPTION                                          SOURCE_SERVICE_TYPES
 ===============================  ====================================================================  ===============================  ==========================================================  ==================================================================================================================================================================================================
 alertmanager                     Runs alert rules against time series databases and sends to Opsgenie  alertmanager                     Provide a datasource for Alertmanager service               m3coordinator

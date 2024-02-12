@@ -39,7 +39,7 @@ INFO
 
 The command returns all the Redis parameters:
 
-``` text
+```text
 # Server
 redis_version:6.2.3
 redis_git_sha1:c708fc4f

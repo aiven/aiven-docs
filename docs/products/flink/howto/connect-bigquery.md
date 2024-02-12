@@ -235,7 +235,7 @@ to create Aiven for Apache Flink applications, see
 
 Following is an example of a Google BigQuery SINK table:
 
-``` sql
+```sql
 CREATE TABLE `table1` (
     `name` STRING
 )

@@ -136,7 +136,7 @@ SELECT * FROM dblink('pg_remote','SELECT item_id FROM inventory')
 
 -   Check the results
 
-``` text
+```text
 target_item_id
 ----------------
             1

@@ -81,7 +81,7 @@ Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `bigquery_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
@@ -266,7 +266,7 @@ To create a Kafka Connect connector, follow these steps:
 You have a topic named `iot_measurements` containing data in JSON
 format, with a defined JSON schema:
 
-``` json
+```json
 {
     "schema": {
         "type":"struct",
@@ -319,7 +319,7 @@ You can sink the `iot_measurements` topic to BigQuery with the following
 connector configuration, after replacing the placeholders for
 `GCP_PROJECT_NAME`, `GCP_SERVICE_KEY` and `BIGQUERY_DATASET_NAME`:
 
-``` json
+```json
 {
     "name":"iot_sink",
     "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
@@ -350,7 +350,7 @@ connector configuration, after replacing the placeholders for
 `SCHEMA_REGISTRY_USER`, `SCHEMA_REGISTRY_PASSWORD`, `APACHE_KAFKA_HOST`,
 `SCHEMA_REGISTRY_PORT`:
 
-``` json
+```json
 {
     "name":"students_sink",
     "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",

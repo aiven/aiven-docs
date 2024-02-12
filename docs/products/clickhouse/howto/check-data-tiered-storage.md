@@ -47,7 +47,7 @@ Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
 
 2.  Run the following query:
 
-    ``` bash
+    ```bash
     SELECT
         database,
         table,
@@ -70,7 +70,7 @@ Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
     You can expect to receive the following output:
     ```
 
-    ``` bash
+    ```bash
     ┌─database─┬─table─────┬─disk_name─┬─total_size─┬─parts_count─┬─min_part_size─┬─median_part_size─┬─max_part_size─┐
     │ datasets │ hits_v1   │ default   │ 1.20 GiB   │           6 │ 33.65 MiB     │ 238.69 MiB       │ 253.18 MiB    │
     │ datasets │ visits_v1 │ S3        │ 536.69 MiB │           5 │ 44.61 MiB     │ 57.90 MiB        │ 317.19 MiB    │

@@ -66,7 +66,7 @@ The console migration tool provides 2 migration methods:
     installation. Next, open the network configuration of MySQL with the
     following command:
 
-    ``` bash
+    ```bash
     sudo code /etc/mysql/mysql.conf.d/mysqld.cnf
     ```
 
@@ -98,7 +98,7 @@ The console migration tool provides 2 migration methods:
     Save the changes and exit the file. Restart MySQL to apply the
     changes.
 
-    ``` bash
+    ```bash
     sudo systemctl restart mysql
     ```
 
@@ -123,7 +123,7 @@ The console migration tool provides 2 migration methods:
 
     Check that the `my.cnf` file has the `[mysqld]` header.
 
-    ``` bash
+    ```bash
     [mysqld]
     gtid_mode=ON
     enforce_gtid_consistency=ON
@@ -131,7 +131,7 @@ The console migration tool provides 2 migration methods:
 
     After enabling GTID, restart MySQL.
 
-    ``` bash
+    ```bash
     sudo systemctl restart mysql
     ```
 
@@ -143,13 +143,13 @@ The console migration tool provides 2 migration methods:
     Log in to the database as an administrator and grant the following
     permission to the user:
 
-    ``` bash
+    ```bash
     GRANT ALL ON DATABASE_NAME.* TO USERNAME_CONNECTING_TO_SOURCE_DB;
     ```
 
     Reload the grant tables to apply the changes to the permissions.
 
-    ``` bash
+    ```bash
     FLUSH PRIVILEGES;
     ```
 

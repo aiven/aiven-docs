@@ -42,7 +42,7 @@ Start using Aiven for ClickHouse® by creating a service, adding a database, and
     queries on your database, substitute the placeholders for
     `USERNAME`, `PASSWORD`, `HOST` and `PORT`:
 
-    ``` bash
+    ```bash
     docker run -it                       \
     --rm clickhouse/clickhouse-client    \
     --user USERNAME                      \

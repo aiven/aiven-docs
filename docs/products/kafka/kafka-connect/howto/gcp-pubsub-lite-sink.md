@@ -59,7 +59,7 @@ Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `pubsub_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.google.pubsublite.kafka.sink.PubSubLiteSinkConnector",
@@ -172,7 +172,7 @@ Google Pub/Sub Lite topic `iot_metrics_pubsub`, you can create a sink
 connector with the following configuration, after replacing the
 placeholders for `GCP_PROJECT_NAME` and `GCP_PUBSUB_LOCATION`:
 
-``` json
+```json
 {
    "name":"CONNECTOR_NAME",
    "connector.class": "com.google.pubsublite.kafka.sink.PubSubLiteSinkConnector",

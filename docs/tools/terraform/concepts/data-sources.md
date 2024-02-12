@@ -22,7 +22,7 @@ try the `aiven_project` [data
 source](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/project)
 instead. Here's an example:
 
-``` text
+```text
 data "aiven_project" "sandbox" {
     project = "my-sandbox"
 }

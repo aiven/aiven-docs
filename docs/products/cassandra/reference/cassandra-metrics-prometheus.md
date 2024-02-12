@@ -8,7 +8,7 @@ for Aiven for Apache Cassandra® services.
 You can retrieve the complete list of available metrics for your service
 by requesting the Prometheus endpoint as follows:
 
-``` bash
+```bash
 curl --cacert ca.pem \
     --user '<PROMETHEUS_USER>:<PROMETHEUS_PASSWORD>' \
     'https://<CASSANDRA_HOSTNAME>:<PROMETHEUS_PORT>/metrics'
@@ -26,7 +26,7 @@ You can check how to use Prometheus with Aiven in
 [Prometheus metrics](/docs/platform/howto/integrations/prometheus-metrics).
 :::
 
-``` shell
+```shell
 # TYPE cpu_usage_guest gauge
 cpu_usage_guest
 # TYPE cpu_usage_guest_nice gauge

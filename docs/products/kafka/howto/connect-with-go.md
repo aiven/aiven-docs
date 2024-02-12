@@ -67,7 +67,7 @@ code snippet according to your preferred authentication method below.
 
 Set up properties to connect to the cluster:
 
-``` go
+```go
 package main
 
 import (
@@ -117,7 +117,7 @@ func main() {
 
 Set up properties to connect to the cluster:
 
-``` go
+```go
 package main
 
 import (
@@ -171,7 +171,7 @@ below.
 
 ### With SSL authentication
 
-``` go
+```go
 package main
 
 import (
@@ -222,7 +222,7 @@ func main() {
 
 ### With SASL authentication
 
-``` go
+```go
 package main
 
 import (

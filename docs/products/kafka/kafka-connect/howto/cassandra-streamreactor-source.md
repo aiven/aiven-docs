@@ -107,7 +107,7 @@ file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector",
@@ -221,7 +221,7 @@ configuration, after replacing the placeholders for `CASSANDRA_HOST`,
 `CASSANDRA_TRUSTSTORE`, `CASSANDRA_TRUSTSTORE_PASSWORD`,
 `CASSANDRA_KEYSPACE`:
 
-``` json
+```json
 {
     "name": "my-cassandra-source",
     "connector.class": "com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSinkConnector",

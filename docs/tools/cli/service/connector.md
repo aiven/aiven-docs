@@ -87,7 +87,7 @@ avn service connector list kafka-demo
 
 An example of `avn service connector list` output:
 
-``` text
+```text
 {
     "connectors": [
         {
@@ -223,7 +223,7 @@ avn service connector status kafka-demo pg-bulk-invoices-source
 
 An example of `avn service connector status` output:
 
-``` text
+```text
 {
   "status": {
     "state": "RUNNING",

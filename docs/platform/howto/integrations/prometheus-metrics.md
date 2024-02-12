@@ -138,7 +138,7 @@ For single-node services, configure the following in your
 
 :::note[Sample configuration]
 
-``` bash
+```bash
 scrape_configs:
   - job_name: aivenmetrics
     scheme: https
@@ -171,7 +171,7 @@ your service.
    wouldn\'t verify if the TLS certificate is bound to the IP addresses
    of the hosts.
 
-    ``` bash
+    ```bash
     scrape_configs:
       - job_name: aivenmetrics
         scheme: https

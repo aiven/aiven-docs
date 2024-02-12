@@ -21,7 +21,7 @@ Retrieves the tags associated with an Aiven service.
 avn service tags list kafka-demo
 ```
 
-``` text
+```text
 KEY      VALUE
 =======  ===================
 team     frontend
@@ -35,7 +35,7 @@ scope    userclicks-tracking
 avn service tags list kafka-demo --json
 ```
 
-``` json
+```json
 [
     {
         "key": "team",

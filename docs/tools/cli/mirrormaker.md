@@ -121,7 +121,7 @@ avn mirrormaker replication-flow get kafka-mm \
 
 An example of the `avn mirrormaker replication-flow get` command output:
 
-``` json
+```json
 {
     "emit_heartbeats_enabled": true,
     "enabled": true,
@@ -159,7 +159,7 @@ avn mirrormaker replication-flow list kafka-mm
 An example of the `avn mirrormaker replication-flow list` command
 output:
 
-``` json
+```json
 [
       {
           "emit_heartbeats_enabled": true,

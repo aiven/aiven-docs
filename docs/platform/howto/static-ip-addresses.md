@@ -43,7 +43,7 @@ avn static-ip create --cloud azure-westeurope
 The command returns some information about the newly created static IP
 address.
 
-``` text
+```text
 CLOUD_NAME        IP_ADDRESS  SERVICE_NAME  STATE     STATIC_IP_ADDRESS_ID
 ================  ==========  ============  ========  ====================
 azure-westeurope  null        null          creating  ip359373e5e56
@@ -60,7 +60,7 @@ avn static-ip list
 The output shows the state of each one, and its `ID`, which you will
 need in the next step.
 
-``` text
+```text
 CLOUD_NAME        IP_ADDRESS     SERVICE_NAME  STATE    STATIC_IP_ADDRESS_ID
 ================  =============  ============  =======  ====================
 azure-westeurope  13.81.29.69    null          created  ip359373e5e56

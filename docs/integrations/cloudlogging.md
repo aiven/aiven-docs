@@ -64,13 +64,13 @@ avn service integration-endpoint-create --project your-project-name         \
 
 1.  Get the endpoint identifier:
 
-    ``` shell
+    ```shell
     avn service integration-endpoint-list --project your-project-name
     ```
 
 2.  Use the `endpoint_id` to attach the service to the endpoint:
 
-    ``` shell
+    ```shell
     avn service integration-create --project your-project-name  \
     -t external_google_cloud_logging -s your-service            \
     -D <ENDPOINT_ID>

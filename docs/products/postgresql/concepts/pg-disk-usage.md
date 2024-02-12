@@ -37,7 +37,7 @@ database.
 You can check the list of replication slot subscriptions created on your
 service using the following command:
 
-``` shell
+```shell
 SELECT * FROM aiven_extras.pg_list_all_subscriptions();
 ```
 

@@ -44,13 +44,13 @@ Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introducti
 
 [Connect to your Aiven for Apache Cassandra service](/docs/products/cassandra/howto/connect-cqlsh-cli) using `cqlsh`, for example.
 
-``` bash
+```bash
 cqlsh --ssl -u avnadmin -p YOUR_SECRET_PASSWORD cassandra-target-cluster-name.a.avns.net 12345
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 Connected to a1b2c3d4-1a2b-3c4d-5e6f-a1b2c3d4e5f6 at cassandra-target-cluster-name.a.avns.net:12345
 [cqlsh 6.1.0 | Cassandra 4.0.11 | CQL spec 3.4.5 | Native protocol v5]
 ```
@@ -60,7 +60,7 @@ Connected to a1b2c3d4-1a2b-3c4d-5e6f-a1b2c3d4e5f6 at cassandra-target-cluster-na
 In your target service, create the same keyspaces and tables you have in
 your source Apache Cassandra cluster.
 
-``` bash
+```bash
 create keyspace SOURCE_KEYSPACE_NAME with replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
 create table SOURCE_TABLE_NAME.SOURCE_DATABASE_NAME (n_id int, value int, primary key (n_id));
 ```
@@ -70,7 +70,7 @@ create table SOURCE_TABLE_NAME.SOURCE_DATABASE_NAME (n_id int, value int, primar
 Download the ZDM Proxy's binary from [ZDM Proxy
 releases](https://github.com/datastax/zdm-proxy/releases).
 
-``` bash
+```bash
 wget https://github.com/datastax/zdm-proxy/releases/download/v2.1.0/zdm-proxy-linux-amd64-v2.1.0.tgz
 tar xf zdm-proxy-linux-amd64-v2.1.0.tgz
 ```
@@ -79,7 +79,7 @@ Check if the binary has been downloaded successfully using `ls` in the
 relevant directory. You can expect to receive output similar to the
 following:
 
-``` bash
+```bash
 LICENSE  zdm-proxy-linux-amd64-v2.1.0.tgz  zdm-proxy-v2.1.0
 ```
 
@@ -88,7 +88,7 @@ LICENSE  zdm-proxy-linux-amd64-v2.1.0.tgz  zdm-proxy-v2.1.0
 To run ZDM Proxy, specify connection information by setting `ZDM_*`
 environment variables using the `export` command. Next, run the binary.
 
-``` bash
+```bash
 export ZDM_SOURCE_CONTACT_POINTS=localhost
 export ZDM_SOURCE_USERNAME=cassandra
 export ZDM_SOURCE_PASSWORD=cassandra
@@ -129,26 +129,26 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
 
 1.  Connect using ZDM Proxy.
 
-``` bash
+```bash
 cqlsh -u avnadmin -p YOUR_SECRET_PASSWORD localhost 14002
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 Connected to CLUSTER_NAME at localhost:14002
 [cqlsh 6.1.0 | Cassandra 4.1.3 | CQL spec 3.4.6 | Native protocol v4]
 ```
 
 2.  Check data in the table.
 
-``` bash
+```bash
 select * from TABLE_NAME.DATABASE_NAME;
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 n_id | value
 ------+-------
     1 |    42
@@ -161,20 +161,20 @@ n_id | value
 3.  Insert more data into the table to test how ZDM Proxy handles write
     request.
 
-``` bash
+```bash
 insert into TABLE_NAME.DATABASE_NAME (n_id, value) values (4, 48);
 insert into TABLE_NAME.DATABASE_NAME (n_id, value) values (5, 50);
 ```
 
 4.  Check again data inside the table.
 
-``` bash
+```bash
 select * from TABLE_NAME.DATABASE_NAME;
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 n_id | value
 ------+-------
     5 |    50
@@ -190,26 +190,26 @@ n_id | value
 
 1.  Connect to the source:
 
-``` bash
+```bash
 cqlsh localhost 1234
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 Connected to SOURCE_CLUSTER_NAME at localhost:1234
 [cqlsh 6.1.0 | Cassandra 4.1.3 | CQL spec 3.4.6 | Native protocol v5]
 ```
 
 2.  Check data in the table:
 
-``` bash
+```bash
 select * from SOURCE_TABLE_NAME.SOURCE_DATABASE_NAME;
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 n_id | value
 ------+-------
     5 |    50
@@ -230,26 +230,26 @@ and `46`).
 
 1.  Connect to the target service.
 
-``` bash
+```bash
 cqlsh --ssl -u avnadmin -p YOUR_SECRET_PASSWORD cassandra-target-cluster-name.a.avns.net 12345
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 Connected to a1b2c3d4-1a2b-3c4d-5e6f-a1b2c3d4e5f6 at cassandra-target-cluster-name.a.avns.net:12345
 [cqlsh 6.1.0 | Cassandra 4.0.11 | CQL spec 3.4.5 | Native protocol v5]
 ```
 
 2.  Check data in the table.
 
-``` bash
+```bash
 select * from TARGET_TABLE_NAME.TARGET_DATABASE_NAME;
 ```
 
 You can expect to receive output similar to the following:
 
-``` bash
+```bash
 n_id | value
 ------+-------
     5 |    50

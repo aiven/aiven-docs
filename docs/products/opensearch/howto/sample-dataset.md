@@ -14,7 +14,7 @@ with recipes, rating and nutrition information from
 
 Let's take a look at a sample recipe document:
 
-``` json
+```json
 {
     "title": "A very nice Vegan dish",
     "desc": "A beautiful description of the recipe",
@@ -51,7 +51,7 @@ Let's take a look at a sample recipe document:
     file from the dataset in your current directory.
 1.  Install the Python dependencies:
 
-    ``` shell
+    ```shell
     pip install opensearch-py==1.0.0
     ```
 
@@ -63,7 +63,7 @@ Let's take a look at a sample recipe document:
 
     You can find the `SERVICE_URI` on Aiven's dashboard.
 
-    ``` python
+    ```python
     import json
     from opensearchpy import helpers, OpenSearch
 
@@ -84,14 +84,14 @@ Let's take a look at a sample recipe document:
     OpenSearch Python client offers a helper called bulk() which allows us
     to send multiple documents in one API call.
 
-    ``` python
+    ```python
     helpers.bulk(os_client, load_data())
     ```
 
 1.  Run the script with the following command, and wait for it to
     complete:
 
-    ``` bash
+    ```bash
     python epicurious_recipes_import.py
     ```
 
@@ -103,7 +103,7 @@ OpenSearch uses dynamic mapping to automatically detect the
 fields. To check the mapping definition of your data, OpenSearch client
 provides a function called `get_mapping` as shown:
 
-``` python
+```python
 import pprint
 
 INDEX_NAME = 'epicurious-recipes'
@@ -120,7 +120,7 @@ pprint(schema)
 
 You should be able to see the fields\' output:
 
-``` bash
+```bash
 ['calories',
 'categories',
 'date',
@@ -136,7 +136,7 @@ You should be able to see the fields\' output:
 
 And the mapping with the fields and their respective types.
 
-``` bash
+```bash
 {'calories': {'type': 'float'},
  'categories': {'fields': {'keyword': {'ignore_above': 256, 'type': 'keyword'}},
                 'type': 'text'},
@@ -183,7 +183,7 @@ one after another:
 To achieve this expected format, use a flat map to create a flat list of
 such pairs instructing OpenSearch to index the documents.
 
-``` javascript
+```javascript
 module.exports.recipes = require("./full_format_recipes.json");
 
 /**
@@ -211,7 +211,7 @@ we opted to rely on OpenSearch to derive the structure from the data and
 use dynamic mapping. To see the mapping definitions use the `getMapping`
 method and provide the index name as a parameter.
 
-``` javascript
+```javascript
 /**
  * Retrieving mapping for the index.
  */
@@ -230,7 +230,7 @@ module.exports.getMapping = () => {
 
 You should be able to see the following structure:
 
-``` javascript
+```javascript
 {
   calories: { type: 'long' },
   categories: { type: 'text', fields: { keyword: [Object] } },
@@ -261,20 +261,20 @@ favorites.
 First, export the `SERVICE_URI` variable with your OpenSearch service
 URI address and index name from the previous script:
 
-``` bash
+```bash
 export SERVICE_URI="YOUR_SERVICE_URI_HERE/epicurious-recipes"
 ```
 
 1.  Execute a basic search for the word `vegan` across all documents and
     fields:
 
-    ``` bash
+    ```bash
     http "$SERVICE_URI/_search?q=vegan"
     ```
 
 1.  Search for `vegan` in the `desc` or `title` fields only:
 
-    ``` bash
+    ```bash
     http POST "$SERVICE_URI/_search" <<< '
     {
         "query": {
@@ -289,7 +289,7 @@ export SERVICE_URI="YOUR_SERVICE_URI_HERE/epicurious-recipes"
 
 1.  Search for recipes published only in 2013:
 
-    ``` bash
+    ```bash
     http POST "$SERVICE_URI/_search" <<< '
     {
         "query": {

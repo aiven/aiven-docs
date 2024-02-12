@@ -111,7 +111,7 @@ Apache Cassandra services with CCR enabled. On the cluster, you need to
 issue the CREATE KEYSPACE request, specifying `NetworkTopologyStrategy`
 as a replication strategy along with desired replication factors.
 
-``` bash
+```bash
 CREATE KEYSPACE test WITH replication =  /
 {                                        /
  'class': 'NetworkTopologyStrategy',     /

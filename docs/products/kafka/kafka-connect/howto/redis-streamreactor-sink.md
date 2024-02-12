@@ -86,7 +86,7 @@ is not strictly necessary but allows to have all the information in one
 place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.datamountaineer.streamreactor.connect.redis.sink.RedisSinkConnector",
@@ -203,7 +203,7 @@ You can sink the `students` topic to Redis with the following connector
 configuration, after replacing the placeholders for `REDIS_HOST`,
 `REDIS_PORT`, `REDIS_DB_NAME`, `REDIS_USERNAME` and `REDIS_PASSWORD`:
 
-``` json
+```json
 {
     "name": "my-redis-sink",
     "connector.class": "com.datamountaineer.streamreactor.connect.redis.sink.RedisSinkConnector",

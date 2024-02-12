@@ -16,7 +16,7 @@ a particular project, including:
 
 An example of events output (note that the newest event is shown first):
 
-``` text
+```text
 TIME                  ACTOR                    EVENT_TYPE                SERVICE_NAME    EVENT_DESC
 ====================  =======================  ========================  ==============  ==============================================================================================
 

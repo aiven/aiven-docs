@@ -96,7 +96,7 @@ retention policies.
 To enable tiered storage for a Kafka topic, execute the following
 command:
 
-``` bash
+```bash
 avn service topic-create \
     --project demo-kafka-project \
     --service-name demo-kafka-service \
@@ -120,7 +120,7 @@ In this example:
 After enabling tiered storage, you can configure the retention policies
 for local storage:
 
-``` bash
+```bash
 avn service topic-update \
     --project demo-kafka-project \
     --service-name demo-kafka-service \

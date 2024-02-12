@@ -98,7 +98,7 @@ Use the
 [avn service terminate](/docs/tools/cli/service-cli#avn-cli-service-terminate) command to disable CCR on your service by deleting the
 service used as a sink for your replicated data.
 
-``` bash
+```bash
 avn service terminate --project PROJECT_NAME ccr_peer_service_name
 ```
 
@@ -124,7 +124,7 @@ To call the
 endpoint, specify the project name and the service name as path
 parameters and provide your token as a header in the request.
 
-``` bash
+```bash
 curl --request DELETE \
    --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
    --header 'Authorization: Bearer YOUR_TOKEN'

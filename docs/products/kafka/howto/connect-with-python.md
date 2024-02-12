@@ -16,7 +16,7 @@ types](https://docs.aiven.io/docs/products/kafka/concepts/auth-types).
 
 Install the Python `kafka-python`\_ library:
 
-``` bash
+```bash
 pip install kafka-python
 ```
 
@@ -95,7 +95,7 @@ Position](https://kafka.apache.org/documentation/#design_consumerposition).
 
 ### With SSL authentication
 
-``` python
+```python
 from kafka import KafkaProducer
 
 producer = KafkaProducer(
@@ -109,7 +109,7 @@ producer = KafkaProducer(
 
 ### With SASL authentication
 
-``` python
+```python
 from kafka import KafkaProducer
 
 # Choose an appropriate SASL mechanism, for instance:
@@ -129,7 +129,7 @@ producer = KafkaProducer(
 
 ### With SSL authentication
 
-``` python
+```python
 from kafka import KafkaConsumer
 
 consumer = KafkaConsumer(
@@ -147,7 +147,7 @@ consumer = KafkaConsumer(
 
 ### With SASL authentication
 
-``` python
+```python
 from kafka import KafkaConsumer
 
 # Choose an appropriate SASL mechanism, for instance:

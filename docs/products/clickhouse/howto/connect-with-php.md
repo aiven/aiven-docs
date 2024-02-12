@@ -14,13 +14,13 @@ using the PHP ClickHouse client and the HTTPS port.
 :::tip
 You can install `smi2/phpclickhouse` with the following command:
 
-``` php
+```php
 composer require smi2/phpclickhouse
 ```
 
 or
 
-``` php
+```php
 php composer.phar require smi2/phpclickhouse
 ```
 :::
@@ -44,7 +44,7 @@ the following variables:
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` php
+```php
 <?php
     require_once 'vendor/autoload.php';
     $db = new ClickHouseDB\Client([

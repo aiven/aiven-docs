@@ -54,7 +54,7 @@ The example below shows a query to add new table `expenses` to
 `transactions` database. To keep it simple, this example has an
 unrealistically small amount of columns:
 
-``` sql
+```sql
 CREATE TABLE transactions.expenses (
     Title String,
     Date DateTime,
@@ -91,7 +91,7 @@ since parameters `max_table_size_to_drop` and
 
 Run the following SQL command to remove your table:
 
-``` bash
+```bash
 DROP TABLE NAME_OF_YOUR_DATABASE.NAME_OF_YOUR_TABLE;
 ```
 
