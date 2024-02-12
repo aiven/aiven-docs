@@ -1,8 +1,8 @@
 name: Update list of clouds
 
 on:
-  # schedule:
-  #   - cron: "0 6 * * *"
+  schedule:
+    - cron: '0 8 1,15 * *'
   workflow_dispatch:
 
 jobs:
