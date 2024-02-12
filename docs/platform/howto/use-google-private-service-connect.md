@@ -205,8 +205,8 @@ avn service update -c privatelink_access.kafka=true MY_SERVICE_NAME
 
 **Aiven Console**
 
-To enable Private Link access in [Aiven
-Console](https://console.aiven.io/), take the following steps:
+To enable Private Link access in [Aiven Console](https://console.aiven.io/):
+
 
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
