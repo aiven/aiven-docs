@@ -3,7 +3,7 @@ title: Data eviction policy in Aiven for Dragonfly
 sidebar_label: Data eviction policy
 ---
 
-Aiven for Dragonfly® optimizes cache memory management with a data eviction policy, ensuring efficient memory usage and optimal performance.
+Aiven for Dragonfly® optimizes cache memory management with a low-overhead data eviction policy.
 
 ## Understand data eviction policy
 
@@ -24,9 +24,9 @@ less critical data efficiently.
 
 ## Enable `cache_mode` via Aiven Console
 
-By default, `cache_mode` in Aiven for Dragonfly is disabled, providing basic caching.
-To use Dragonfly's advanced eviction features, enable `cache_mode` in the
-advanced settings for better memory use and traffic adaptability.
+By default, `cache_mode `in Aiven for Dragonfly is disabled, which might result in
+out-of-memory errors when the `maxmemory` limit is reached. To prevent these errors,
+enable `cache_mode` in the advanced settings.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), select your project, and
    select your Aiven for Dragonfly service.
