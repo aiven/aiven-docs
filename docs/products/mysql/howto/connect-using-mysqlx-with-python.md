@@ -41,7 +41,7 @@ X-DevAPI is supported by default.
     If you are running Python from the command line, you can set this in
     your terminal:
 
-    ``` shell
+    ```shell
     export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
     ```
 

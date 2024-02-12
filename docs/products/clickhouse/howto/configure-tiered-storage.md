@@ -49,7 +49,7 @@ For data retention control purposes, the TTL clause uses the following:
 
 2.  Select a database for operations you intend to perform.
 
-    ``` bash
+    ```bash
     USE database-name
     ```
 
@@ -59,7 +59,7 @@ Create a new table with the `storage_policy` setting set to `tiered` (to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL (time-to-live) configured to add a
 time-based data retention threshold on the table.
 
-``` shell
+```shell
 CREATE TABLE example_table (
     SearchDate Date,
     SearchID UInt64,
@@ -76,7 +76,7 @@ SETTINGS storage_policy = 'tiered';
 
 Use the MODIFY TTL clause:
 
-``` shell
+```shell
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
@@ -85,7 +85,7 @@ ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 Change an already configured TTL in an existing table by using the ALTER
 TABLE MODIFY TTL clause:
 
-``` shell
+```shell
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 

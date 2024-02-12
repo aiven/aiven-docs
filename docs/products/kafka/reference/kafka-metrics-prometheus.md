@@ -14,7 +14,7 @@ specific service by requesting the Prometheus endpoint, substituting:
 -   the Aiven for Apache Kafka hostname (`<KAFKA_HOSTNAME>`)
 -   the Prometheus port (`<PROMETHEUS_PORT>`)
 
-``` bash
+```bash
 curl --cacert ca.pem \
     --user '<PROMETHEUS_USER>:<PROMETHEUS_PASSWORD>' \
     'https://<KAFKA_HOSTNAME>:<PROMETHEUS_PORT>/metrics'

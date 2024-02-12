@@ -23,7 +23,7 @@ Terraform code.
     `cyrilgdn/postgresql`) along with the Aiven Terraform Provider
     (source: `aiven/aiven`).
 
-    ``` terraform
+    ```terraform
     terraform {
       required_providers {
         aiven = {
@@ -33,7 +33,7 @@ Terraform code.
         postgresql = {
           source  = "cyrilgdn/postgresql"
           version = "1.16.0"
-        }        
+        }
       }
     }
     ```
@@ -41,7 +41,7 @@ Terraform code.
 2.  If the PostgreSQL provider is used on its own, you can provide the
     Aiven for PostgreSQL service connection details as follows:
 
-    ``` terraform
+    ```terraform
     provider "postgresql" {
       host            = "pg-serivicename-projectname.aivencloud.com"
       port            = 12691
@@ -58,7 +58,7 @@ Terraform code.
     PostgreSQL provider can be passed using references to the resource,
     as shown in the code below:
 
-    ``` terraform
+    ```terraform
     resource "aiven_pg" "demo-pg" {
       project                 = var.project_name
       cloud_name              = "google-asia-southeast1"
@@ -83,7 +83,7 @@ Terraform code.
 3.  Create a PostgreSQL role called `test_role` using the Terraform
     resource `postgresql_role.my_role`.
 
-    ``` terraform
+    ```terraform
     resource "postgresql_role" "my_role" {
       name     = "test_role"
     }

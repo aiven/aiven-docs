@@ -41,7 +41,7 @@ flowchart LR
 To store the Kafka® messages by creating a materialized view on top of
 the Kafka® table, you need to run the following query:
 
-``` sql
+```sql
 CREATE MATERIALIZED VIEW default.my_view TO destination_name
 ENGINE = ReplicatedMergeTree
 ORDER BY x AS SELECT x,y FROM service_kaf.table_name

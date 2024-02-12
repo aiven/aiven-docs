@@ -44,7 +44,7 @@ There are a few steps illustrating how disk autoscaler works:
     for your service is done every 30 seconds.
 4.  When disk storage consumption reaches the threshold for a specific
     service, disk autoscaler increases available storage space by 10%
-    every time taking the currently-used disk space as a baseline.
+    every time taking the used disk space as a baseline.
 
 :::note[AUTOSCALE THRESHOLDS PER SERVICE TYPE]
 The threshold at which disk autoscaling is triggered is a percentage of
@@ -103,7 +103,7 @@ CLI client.
     from the sidebar.
 3.  On the **Integrations** page, navigate to **External integrations**
     and select **Disk autoscaler**.
-4.  In the **Autoscaler integration** window, select the newly-created
+4.  In the **Autoscaler integration** window, select the newly created
     autoscaler integration endpoint from the dropdown menu and select
     **Enable**.
 
@@ -124,7 +124,7 @@ endpoint to create an autoscaler integration on your service.
     -   `endpoint_type` (request body): `disk_storage`
     -   `max_additional_storage` (request body \> `user_config` object)
 
-    ``` bash
+    ```bash
     curl --request POST \
       --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint \
       --header 'Authorization: Bearer REPLACE_WITH_YOUR_BEARER_TOKEN' \
@@ -153,7 +153,7 @@ endpoint to create an autoscaler integration on your service.
     -   `source_service`: the name of a service for which you want to
         enable autoscaler
 
-    ``` bash
+    ```bash
     curl --request POST \
       --url https://api.aiven.io/v1/project/{project_name}/integration \
       --header 'Authorization: Bearer REPLACE_WITH_YOUR_BEARER_TOKEN' \
@@ -180,7 +180,7 @@ autoscaler integration endpoint
 1.  Run the following command to create an autoscaler integration
     endpoint on your project:
 
-    ``` bash
+    ```bash
     avn service integration-endpoint-create                                                   \
        --project YOUR_PROJECT_NAME                                                            \
        --endpoint-name DESIRED_ENDPOINT_NAME                                                  \
@@ -191,14 +191,14 @@ autoscaler integration endpoint
 2.  Run the
     [avn service integration-endpoint-list](/docs/tools/cli/service/integration#avn_service_integration_endpoint_list) command to retrieve the identifier of the new endpoint:
 
-    ``` shell
+    ```shell
     avn service integration-endpoint-list --project YOUR_PROJECT_NAME
     ```
 
 3.  Run the following command to create an autoscaler integration on
     your service using the new autoscaler integration endpoint:
 
-    ``` bash
+    ```bash
     avn service integration-create
        --dest-service YOUR_SERVICE_NAME                             \
        --integration-type autoscaler                                \
@@ -239,7 +239,7 @@ endpoint passing the following parameters in your request:
 -   `integration_endpoint_id` (path parameter)
 -   `max_additional_storage` (request body \> `user_config` object)
 
-``` bash
+```bash
 curl --request PUT \
   --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint/{integration_endpoint_id} \
   --header 'Authorization: Bearer REPLACE_WITH_YOUR_BEARER_TOKEN' \
@@ -263,7 +263,7 @@ Run the
 [avn service integration-endpoint-update](/docs/tools/cli/service/integration#avn-service-integration-endpoint-update) command passing a desired maximum additional disk storage as
 PARAMETER_VALUE_IN_GB:
 
-``` bash
+```bash
 avn service integration-endpoint-update AUTOSCALER_ENDPOINT_ID
    --user-config-json '{"max_additional_storage":"PARAMETER_VALUE_IN_GB"}'
 ```
@@ -326,7 +326,7 @@ endpoint passing `{"service disk autoscaler": {"enabled": true}}` in the
     -   `integration_id` (path parameter): ID of an autoscaler service
         integration you want to disable
 
-    ``` bash
+    ```bash
     curl --request DELETE \
       --url https://api.aiven.io/v1/project/{project_name}/integration/{integration_id} \
       --header 'Authorization: Bearer REPLACE_WITH_YOUR_BEARER_TOKEN'
@@ -341,7 +341,7 @@ endpoint passing `{"service disk autoscaler": {"enabled": true}}` in the
     -   `integration_endpoint_id` (path parameter): ID of an autoscaler
         integration endpoint you want to delete
 
-    ``` bash
+    ```bash
     curl --request DELETE \
       --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint/{integration_endpoint_id} \
       --header 'Authorization: Bearer REPLACE_WITH_YOUR_BEARER_TOKEN'
@@ -361,28 +361,28 @@ run the commands to delete the following:
 1.  Retrieve the ID of an integration you want to disable by running the
     following command:
 
-    ``` bash
+    ```bash
     avn service integration-list SERVICE_NAME
     ```
 
 2.  Run the following command to delete an autoscaler integration on
     your service:
 
-    ``` bash
+    ```bash
     avn service integration-delete INTEGRATION_ID
     ```
 
 3.  Retrieve the ID of an autoscaler integration endpoint you want to
     delete by running the following command:
 
-    ``` bash
+    ```bash
     avn service integration-endpoint-list PROJECT_NAME
     ```
 
 4.  Run the following command to delete an autoscaler integration
     endpoint on your project:
 
-    ``` bash
+    ```bash
     avn service integration-endpoint-delete ENDPOINT_ID
     ```
 

@@ -64,7 +64,7 @@ repository](https://github.com/aiven/aiven-examples/tree/master/kafka/flink-capi
 1.  Generate a Flink job skeleton named `flink-capitalizer` using the
     Maven archetype:
 
-    ``` shell
+    ```shell
     mvn archetype:generate -DinteractiveMode=false  \
       -DarchetypeGroupId=org.apache.flink           \
       -DarchetypeArtifactId=flink-quickstart-java   \
@@ -77,7 +77,7 @@ repository](https://github.com/aiven/aiven-examples/tree/master/kafka/flink-capi
 
 2.  Uncomment the Kafka connector in \`pom.xml\`:
 
-    ``` xml
+    ```xml
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-kafka</artifactId>
@@ -96,7 +96,7 @@ with the cluster for your processing.
     a simple `MapFunction` transformation on incoming records with every
     incoming string will be emitted as uppercase.
 
-    ``` java
+    ```java
     package io.aiven.example.flinkcapitalizer;
 
     import org.apache.flink.api.common.functions.MapFunction;
@@ -110,7 +110,7 @@ with the cluster for your processing.
 
 2.  Import the following classes in the `DataStreamJob`
 
-    ``` java
+    ```java
     import java.util.Properties;
     import org.apache.flink.api.common.eventtime.WatermarkStrategy;
     import org.apache.flink.api.common.serialization.SimpleStringSchema;
@@ -127,7 +127,7 @@ with the cluster for your processing.
     `KEY_TRUST_SECRET` placeholders with the values from the
     [prerequisites](/docs/products/kafka/howto/flink-with-aiven-for-kafka#kafka-flink-java-prereq).
 
-    ``` java
+    ```java
     public static void main(String[] args) throws Exception {
       final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
@@ -168,7 +168,7 @@ with the cluster for your processing.
 4.  Tie the Kafka sources and sinks together with the
     `StringCapitalizer` in a single processing pipeline.
 
-    ``` java
+    ```java
     // ... processing continues here
     env
       .fromSource(source, WatermarkStrategy.noWatermarks(), "Kafka Source")
@@ -182,7 +182,7 @@ with the cluster for your processing.
 From the main `flink-capitalizer` folder, execute the following Maven
 command to build the application:
 
-``` shell
+```shell
 mvn -DskipTests=true clean package
 ```
 
@@ -196,7 +196,7 @@ If you have installed a [local cluster installation of Apache Flink
 you can launch the job on your local machine. `$FLINK_HOME` is the Flink
 installation directory.
 
-``` shell
+```shell
 $FLINK_HOME/bin/flink run target/flink-capitalizer-0.0.1-SNAPSHOT.jar
 ```
 

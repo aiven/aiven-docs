@@ -53,7 +53,7 @@ avn user info
 
 An example of user information:
 
-``` text
+```text
 USER                  REAL_NAME  STATE   TOKEN_VALIDITY_BEGIN              PROJECTS                       AUTH
 ====================  =========  ======  ================================  =============================  ========
 john.doe@example.com  John Doe   active  2021-08-18T09:24:10.298796+00:00  dev-sandbox, prod-environment  password

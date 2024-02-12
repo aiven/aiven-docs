@@ -72,7 +72,7 @@ Another strategy involves re-indexing data into a fresh index while
 increasing the number of shards. To create a new index with 2 shards,
 use the following commands:
 
-``` python
+```python
 PUT /my_new_index/_settings
 {
     "index" : {
@@ -84,7 +84,7 @@ PUT /my_new_index/_settings
 Once the new index is set up, proceed to re-index your data using the
 following commands:
 
-``` python
+```python
 POST _reindex
 {
   "source": {

@@ -31,6 +31,7 @@ BYOC
 Cassandra
 Centrify
 checkpointing
+CIDRs
 ClickHouse
 CloudWatch
 codecs

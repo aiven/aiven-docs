@@ -7,7 +7,7 @@ payment method and no invoices have been paid, you may receive the
 following error when you try to spin up a new service or upgrade the
 plan of an existing one:
 
-``` text
+```text
 Creating plan this large requires valid payment information and at least one invoice having been paid.
 
 Please contact support to enable creation of larger plans when these conditions are not met.

@@ -37,7 +37,7 @@ You can run perform a PostgreSQL® migration using `aiven-db-migrate` by:
 
 -   Executing the following script
 
-    ``` bash
+    ```bash
     python3 -m aiven_db_migrate.migrate pg -d \
         -s postgres://SRC_USERNAME:SRC_PASSWORD@SRC_HOSTNAME:SRC_PORT \
         -t postgres://DST_USERNAME:DST_PASSWORD@DST_HOSTNAME:DST_PORT/DST_DBNAME?sslmode=require \
@@ -71,6 +71,6 @@ flags are not needed to keep logical replication running.
 The full list of parameters and related descriptions is available by
 running the following command:
 
-``` bash
+```bash
 python3 -m aiven_db_migrate.migrate pg -h
 ```

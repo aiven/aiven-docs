@@ -64,7 +64,7 @@ indexed is called mapping. When no data structure is specified, we rely
 on OpenSearch to automatically detect the fields using dynamic mapping.
 However, we can set our data mapping before the data is sent:
 
-``` shell
+```shell
 elasticdump \
 --input=$INPUT_SERVICE_URI/$INPUT_INDEX_NAME \
 --output=$OUTPUT_SERVICE_URI/$OUTPUT_INDEX_NAME \
@@ -76,7 +76,7 @@ elasticdump \
 This is how you can copy your index data from an OpenSearch cluster (can
 be in Aiven or elsewhere) to an Aiven for OpenSearch one.
 
-``` shell
+```shell
 elasticdump \
 --input=$INPUT_SERVICE_URI/$INPUT_INDEX_NAME \
 --output=$OUTPUT_SERVICE_URI/$OUTPUT_INDEX_NAME \

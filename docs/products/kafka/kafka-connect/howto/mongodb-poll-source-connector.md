@@ -155,7 +155,7 @@ If you have in MongoDB a collection named `students` in a database named
 `districtA` containing the following data that you want to move to
 Apache Kafka:
 
-``` json
+```json
 {"name":"carlo", "age": 77}
 {"name":"lucy", "age": 55}
 {"name":"carlo", "age": 33}
@@ -166,7 +166,7 @@ collection to Apache Kafka with the following connector configuration,
 after replacing the placeholders for `MONGODB_HOST`, `MONGODB_PORT`,
 `MONGODB_DB_NAME`, `MONGODB_USERNAME` and `MONGODB_PASSWORD`:
 
-``` json
+```json
 {
     "name": "my-mongodb-source",
     "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",

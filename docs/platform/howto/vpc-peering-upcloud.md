@@ -75,7 +75,7 @@ You can establish a peering connection from Aiven to UpCloud using
 To establish a VPC peering from UpCloud to Aiven, use [UpCloud
 API](https://developers.upcloud.com/1.3/) to send the following request:
 
-``` bash
+```bash
 POST /1.3/network-peering HTTP/1.1
 {
   "network_peering": {
@@ -110,7 +110,7 @@ only.
 If your peering API request is successful, you can expect a response
 similar to the following:
 
-``` bash
+```bash
 HTTP/1.1 201 Created
 {
   "network_peering": {
@@ -167,13 +167,13 @@ commands:
 
 1.  To clear the existing DHCP lease
 
-    ``` bash
+    ```bash
     dhclient -r NETWORK_INTERFACE_NAME
     ```
 
 1.  To request a renewal of the DHCP lease
 
-    ``` bash
+    ```bash
     dhclient NETWORK_INTERFACE_NAME
     ```
 

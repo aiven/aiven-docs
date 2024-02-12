@@ -44,21 +44,21 @@ steps:
 
 -   Connect to your Aiven for MySQL service with the following command:
 
-    ``` shell
+    ```shell
     mysql --user avnadmin --password=PASSWORD --host HOST --port PORT DB_NAME
     ```
 
 -   Run the following command to check the default configuration for
     your foreign key checks.
 
-    ``` shell
+    ```shell
     SHOW VARIABLES LIKE 'foreign_key_checks';
     ```
 
 -   Verify that the foreign keys are enabled by default. You can expect
     to receive the following output:
 
-    ``` shell
+    ```shell
     +--------------------+-------+
     | Variable_name      | Value |
     +--------------------+-------+
@@ -73,7 +73,7 @@ To disable the foreign key checks for the session, you give an
 additional parameter when you connect to your Aiven for MySQL using the
 `mysqlsh`:
 
-``` shell
+```shell
 mysql                   \
   --user avnadmin       \
   --password=PASSWORD   \
@@ -85,14 +85,14 @@ mysql                   \
 Once again, we can check the current status of the foreign key checks by
 running the following:
 
-``` shell
+```shell
 SHOW VARIABLES LIKE 'foreign_key_checks';
 ```
 
 As result, we can see that the foreign key checks are disabled for this
 session:
 
-``` shell
+```shell
 +--------------------+-------+
 | Variable_name      | Value |
 +--------------------+-------+
@@ -110,14 +110,14 @@ extension `.sql`.
 
 You can paste the following command on your `FILENAME`:
 
-``` shell
+```shell
 SHOW VARIABLES LIKE 'foreign_key_checks';
 ```
 
 Now you can set the `init-command` flag to disable the foreign key
 checks, and run the commands in this file.
 
-``` shell
+```shell
 mysql                   \
   --user avnadmin       \
   --password=PASSWORD   \

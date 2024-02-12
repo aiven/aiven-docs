@@ -31,7 +31,7 @@ of its capacity. You can also
 
 2.  Run the following query:
 
-    ``` bash
+    ```bash
     ALTER TABLE database-name.tablename MODIFY SETTING storage_policy = 'tiered'
     ```
 
@@ -49,13 +49,13 @@ to transfer data to your SSD.
 
 2.  Select a database for operations you intend to perform.
 
-    ``` bash
+    ```bash
     USE database-name
     ```
 
 3.  Run the following query:
 
-    ``` bash
+    ```bash
     ALTER TABLE table_name MOVE PARTITION partition_expr TO VOLUME 'default'
     ```
 

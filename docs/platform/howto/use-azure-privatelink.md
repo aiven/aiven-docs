@@ -68,7 +68,7 @@ Aiven service:
 1.  In the Aiven CLI, create a Private Link resource on your Aiven
     service:
 
-    ``` shell
+    ```shell
     avn service privatelink azure create AIVEN_SERVICE --user-subscription-id SUBSCRIPTION_ID
     ```
 
@@ -80,7 +80,7 @@ Aiven service:
 
 1.  Check the status of the Private Link service:
 
-    ``` shell
+    ```shell
     avn service privatelink azure get AIVEN_SERVICE
     ```
 
@@ -90,7 +90,7 @@ Aiven service:
 1.  When the state changes to `active`, note the `azure_service_alias`
     and `azure_service_id`:
 
-    ``` shell
+    ```shell
     avn service privatelink azure get AIVEN_SERVICE
     ```
 
@@ -107,7 +107,7 @@ your Azure subscription and virtual network.
 
 1.  Refresh the Aiven Private Link service:
 
-    ``` shell
+    ```shell
     avn service privatelink azure refresh AIVEN_SERVICE
     ```
 
@@ -120,13 +120,13 @@ your Azure subscription and virtual network.
 1.  In the Aiven CLI, check that the endpoint is connected to the
     service:
 
-    ``` shell
+    ```shell
     avn service privatelink azure connection list AIVEN_SERVICE
     ```
 
     The output will look similar to this:
 
-    ``` shell
+    ```shell
     PRIVATELINK_CONNECTION_ID  PRIVATE_ENDPOINT_ID                                                                                                                                         STATE                  USER_IP_ADDRESS
     =========================  ==========================================================================================================================================================  =====================  ===============
     plc35843e8051.             /subscriptions/8eefec94-5d63-40c9-983c-03ab083b411d/resourceGroups/test-privatelink/providers/Microsoft.Network/privateEndpoints/my-endpoint                pending-user-approval  null
@@ -135,7 +135,7 @@ your Azure subscription and virtual network.
 1.  Check that the endpoint ID matches the one created in your
     subscription and approve it:
 
-    ``` shell
+    ```shell
     avn service privatelink azure connection approve AIVEN_SERVICE PRIVATELINK_CONNECTION_ID
     ```
 
@@ -149,7 +149,7 @@ your Azure subscription and virtual network.
 1.  In the Aiven CLI, add the endpoint's IP address you copied to the
     connection:
 
-    ``` shell
+    ```shell
     avn service privatelink azure connection update \
        --endpoint-ip-address IP_ADDRESS             \
        AIVEN_SERVICE PRIVATELINK_CONNECTION_ID
@@ -171,7 +171,7 @@ To enable Private Link access for your service in the Aiven CLI, set
 components you want to enable. For example, for PostgreSQL the command
 is:
 
-``` shell
+```shell
 avn service update -c privatelink_access.pg=true AIVEN_SERVICE
 ```
 
@@ -240,7 +240,7 @@ Private Link, run the
 -   For SSL connection information for your service component using
     Azure Private Link, run the following command:
 
-    ``` bash
+    ```bash
     avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
     ```
 
@@ -253,7 +253,7 @@ Private Link, run the
 -   For SASL connection information for Aiven for Apache Kafka® service
     components using Azure Private Link, run the following command:
 
-    ``` bash
+    ```bash
     avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
     ```
 
@@ -273,7 +273,7 @@ connections.
 In the Aiven CLI, you can update the list of Azure subscriptions that
 have access to Aiven service endpoints:
 
-``` shell
+```shell
 avn service privatelink azure update AIVEN_SERVICE SUBSCRIPTION_ID
 ```
 
@@ -282,6 +282,6 @@ avn service privatelink azure update AIVEN_SERVICE SUBSCRIPTION_ID
 Use the Aiven CLI to delete the Azure Load Balancer and Private Link
 service:
 
-``` shell
+```shell
 avn service privatelink azure delete AIVEN_SERVICE
 ```

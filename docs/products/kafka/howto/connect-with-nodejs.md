@@ -70,7 +70,7 @@ The consumer example expects the messages to be in a topic named
 
 ### With SSL authentication
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 console.log(Kafka.features); // this should print 'ssl', among other things
 
@@ -95,7 +95,7 @@ producer.on('ready', () => {
 If you prefer to authenticate with SASL, the setup looks slightly
 different.
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 console.log(Kafka.features); // this should print 'sasl_ssl', among other things
 
@@ -124,7 +124,7 @@ your consumer in action, run the producer as well, and try using
 
 ### With SSL authentication
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 
 const stream = new Kafka.createReadStream({
@@ -146,7 +146,7 @@ stream.on('data', (message) => {
 If you prefer to authenticate with SASL, the setup looks slightly
 different.
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 
 const stream = new Kafka.createReadStream({

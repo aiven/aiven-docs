@@ -45,7 +45,7 @@ connected
 To render the response, add the following helper method to your
 `helpers.js` file.
 
-``` javascript
+```javascript
 /**
  * Parsing and logging list of titles from the result, used in callbacks.
  */
@@ -76,7 +76,7 @@ into `search.js`, you\'ll need connection configuration and helpers
 methods. Therefore, include them at the top of your `search.js` file
 with
 
-``` javascript
+```javascript
 const { client, indexName } = require("./config");
 const { logTitles } = require("./helpers");
 ```
@@ -101,7 +101,7 @@ since it is a very compact string. However, as the complexity of a
 request grows, it becomes more difficult to read and maintain these
 types of queries.
 
-``` javascript
+```javascript
 //example of using a query syntax
 client.search({
     index: 'recipes',
@@ -114,7 +114,7 @@ structure makes it easier to read, understand and modify the content.
 Unlike `q`, which expects a string, `body` is an object allowing a
 variety of granular parameters.
 
-``` javascript
+```javascript
 //example of using a request body
  client.search({
      index: indexName,
@@ -147,7 +147,7 @@ containing a particular value in a field. To construct a body request we
 use `term` property which defines an object, where the name is a field
 and the value is a term we\'re searching in this field.
 
-``` javascript
+```javascript
 /**
  * Searching for exact matches of a value in a field.
  * run-func search term sodium 0
@@ -187,7 +187,7 @@ expects an object, where the name is set to the field name and the body
 defines the upper and lower bounds: `gt` (greater than), `gte` (greater
 than or equal to), `lt` (less than) and `lte` (less than or equal to).
 
-``` javascript
+```javascript
 /**
  * Searching for a range of values in a field.
  * run-func search range sodium 0 10
@@ -231,7 +231,7 @@ number of single-character edits necessary to convert one word into
 another. Such types of queries are called `fuzzy` and the property
 `fuzziness` specifies the maximum edit distance.
 
-``` javascript
+```javascript
 /**
  * Specifying fuzziness to account for typos and misspelling.
  * run-func search fuzzy title pinapple 2
@@ -281,7 +281,7 @@ string.
 To see `match` in action use the method below to search for \"Tomato
 garlic soup with dill\".
 
-``` javascript
+```javascript
 /**
  * Finding matches sorted by relevance.
  * run-func search match title 'Tomato-garlic soup with dill'
@@ -327,7 +327,7 @@ considered a match. This parameter is called `slop` and its default
 value is `0`. The format of `match_phrase` is almost identical to
 `match`:
 
-``` javascript
+```javascript
 /**
  * Specifying a slop - a distance between search words.
  * run-func search slop directions "pizza pineapple" 10
@@ -384,7 +384,7 @@ to indicate the search fields.
 This example also sets `size` to demonstrate how we can get more than 10
 results.
 
-``` javascript
+```javascript
 /**
  * Using special operators within a query string and a size parameter.
  * run-func search query ingredients "(salmon|tuna) +tomato -onion" 100
@@ -434,7 +434,7 @@ In the next method we combine what we learned so far, using both
 term-level and full-search queries to find recipes to make a quick and
 easy dish, with no garlic, low sodium and high protein.
 
-``` javascript
+```javascript
 /**
  * Combining several queries together
  * run-func search boolean

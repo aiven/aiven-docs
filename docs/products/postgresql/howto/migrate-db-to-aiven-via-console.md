@@ -56,7 +56,7 @@ Expand to check out how to verify that you have superuser permissions.
 
 Use `psql` to run the `\du` command:
 
-``` bash
+```bash
 \du
 ```
 
@@ -79,7 +79,7 @@ If you don\'t have superuser permissions, but you still want to use the
 continuous migration, you can install the `aiven_extras` extension on
 the source database using the following command:
 
-``` bash
+```bash
 CREATE EXTENSION `aiven_extras` CASCADE;
 ```
 :::
@@ -138,14 +138,14 @@ follow and go straight to
     Check that your database allows all remote connections by using
     `psql` to run the following query:
 
-    ``` bash
+    ```bash
     SHOW listen_addresses;
     ```
 
     If enabled, you can expect the following output (with
     `listen_addresses` set to `*`):
 
-    ``` bash
+    ```bash
     listen_addresses
     -----------
     *
@@ -155,7 +155,7 @@ follow and go straight to
     If the command line returns something different, enable remote
     connections for your database with the following query:
 
-    ``` bash
+    ```bash
     ALTER SYSTEM SET listen_addresses = '*';
     ```
 
@@ -164,21 +164,21 @@ follow and go straight to
 
     Find the `pg_hba.conf` configuration file using the following query:
 
-    ``` bash
+    ```bash
     SHOW hba_file;
     ```
 
     Open `pg_hba.conf` in a text editor of your choice, for example,
     Visual Studio Code.
 
-    ``` bash
+    ```bash
     code pg_hba.conf
     ```
 
     Under `IPv4 local connections`, find and replace the IP address with
     `0.0.0.0/0`.
 
-    ``` bash
+    ```bash
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
     # IPv4 local connections:
@@ -202,7 +202,7 @@ follow and go straight to
     Check that the logical replication is enabled using `psql` to run
     the following query:
 
-    ``` bash
+    ```bash
     SHOW wal_level;
     ```
 
@@ -217,7 +217,7 @@ follow and go straight to
     logical replication in your database by setting `wal_level` to
     `logical`:
 
-    ``` bash
+    ```bash
     ALTER SYSTEM SET wal_level = logical;
     ```
 
@@ -226,13 +226,13 @@ follow and go straight to
 
     Check the current status using the following query:
 
-    ``` bash
+    ```bash
     SHOW max_replication_slots;
     ```
 
     You can expect the following output:
 
-    ``` bash
+    ```bash
     max_replication_slots
     -----------
     <number of slots, for example, 8>
@@ -242,7 +242,7 @@ follow and go straight to
     If `number of slots` is smaller than the number of databases in your
     PostgreSQL server, modify it using the following query:
 
-    ``` bash
+    ```bash
     ALTER SYSTEM SET max_replication_slots = use_your_number;
     ```
 
@@ -251,7 +251,7 @@ follow and go straight to
 
 -   Restart your PostgreSQL server using the following command:
 
-    ``` bash
+    ```bash
     sudo service postgresql restart
     ```
 

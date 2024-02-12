@@ -36,7 +36,7 @@ avn service connection-info kafkacat demo-kafka --write
 
 An example of `service connection-info kafkacat` output:
 
-``` text
+```text
 kafkacat -b demo-kafka-dev-advocates.aivencloud.com:13041 -X security.protocol=SSL -X ssl.ca.location=ca.pem -X ssl.key.location=service.key -X ssl.certificate.location=service.crt
 ```
 
@@ -69,7 +69,7 @@ avn service connection-info pg string demo-pg
 
 An example of `avn service connection-info pg string` output:
 
-``` text
+```text
 host='demo-pg-dev-project.aivencloud.com' port='13039' user=avnadmin dbname='defaultdb'
 ```
 
@@ -96,7 +96,7 @@ avn service connection-info pg uri demo-pg
 
 An example of `avn service connection-info pg uri` output:
 
-``` text
+```text
 postgres://avnadmin:XXXXXXXXXX@demo-pg-dev-project.aivencloud.com:13039/defaultdb?sslmode=require
 ```
 
@@ -124,7 +124,7 @@ avn service connection-info psql demo-pg
 
 An example of `avn service connection-info psql` output:
 
-``` text
+```text
 psql postgres://avnadmin:XXXXXXXXXXXX@demo-pg-dev-advocates.aivencloud.com:13039/defaultdb?sslmode=require
 ```
 
@@ -151,6 +151,6 @@ avn service connection-info redis uri demo-redis
 
 An example of `avn service connection-info redis uri` output:
 
-``` text
+```text
 rediss://default:XXXXXXXXXX@demo-redis-dev-project.aivencloud.com:13040
 ```

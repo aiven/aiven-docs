@@ -9,7 +9,7 @@ API](https://api.aiven.io/doc/#section/Introduction).
 
 When migrating a database to Aiven, you may find errors such as:
 
-``` shell
+```shell
 {
     "migration": {
         "error": "Migration process failed",
@@ -37,13 +37,13 @@ how you can run those checks for your MySQL migration process.
 You can create the task of migration, for example, from a MySQL DB to an
 Aiven service (`project`: `MY_PROJECT_NAME`, `service`: `mysql`):
 
-``` shell
+```shell
 avn service task-create --project PROJECT_NAME --operation migration_check --source-service-uri mysql://user:password@host:port/databasename --project MY_PROJECT_NAME mysql
 ```
 
 You can see the information about the task including the ID.
 
-``` shell
+```shell
 TASK_TYPE              SUCCESS  TASK_ID
 =====================  =======  ====================================
 mysql_migration_check  null     e2df7736-66c5-4696-b6c9-d33a0fc4cbed
@@ -66,7 +66,7 @@ avn service task-get --project PROJECT_NAME --task-id e2df7736-66c5-4696-b6c9-d3
 You can find whether the operation succeeds and more relevant
 information about the migration.
 
-``` shell
+```shell
 TASK_TYPE              SUCCESS  TASK_ID                               RESULT
 =====================  =======  ====================================  ====================================================================================
 mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-checks passed successfully, preferred migration method will be [Replication]

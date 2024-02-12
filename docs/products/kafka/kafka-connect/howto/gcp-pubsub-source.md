@@ -80,7 +80,7 @@ Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `pubsub_source.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.google.pubsub.kafka.source.CloudPubSubSourceConnector",
@@ -202,7 +202,7 @@ to push to a Aiven for Apache Kafka topic named `measurements` you can
 create a source connector with the following configuration, after
 replacing the placeholders for `GCP_PROJECT_NAME` and `GCP_SERVICE_KEY`:
 
-``` json
+```json
 {
    "name":"CONNECTOR_NAME",
    "connector.class": "com.google.pubsub.kafka.source.CloudPubSubSourceConnector",

@@ -139,7 +139,7 @@ used to interact with Aiven APIs.
 1.  Use the
     [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a new service (`service_1`).
 
-    ``` bash
+    ```bash
     avn service create                                   \
        --project project_name                            \
        --service-type cassandra                          \
@@ -159,7 +159,7 @@ used to interact with Aiven APIs.
     before you set the parameters.
     :::
 
-    ``` bash
+    ```bash
     avn service create                                   \
        --project project_name                            \
        --service-type cassandra                          \
@@ -182,7 +182,7 @@ See [Limitations](/docs/products/cassandra/concepts/cross-cluster-replication#cc
 you set the parameters.
 :::
 
-``` bash
+```bash
 avn service create                                   \
    --project project_name                            \
    --service-type cassandra                          \
@@ -233,7 +233,7 @@ inside it the `service_to_join_with` and `datacenter` fields.
     [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
     API to create a new service (`service_1`).
 
-    ``` bash
+    ```bash
     curl --request POST                                                   \
        --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service    \
        --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
@@ -259,7 +259,7 @@ inside it the `service_to_join_with` and `datacenter` fields.
     before you set the parameters.
     :::
 
-    ``` bash
+    ```bash
     curl --request POST                                                   \
        --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service    \
        --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
@@ -295,7 +295,7 @@ See [Limitations](/docs/products/cassandra/concepts/cross-cluster-replication#cc
 you set the parameters.
 :::
 
-``` bash
+```bash
 curl --request POST                                                   \
    --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service    \
    --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \

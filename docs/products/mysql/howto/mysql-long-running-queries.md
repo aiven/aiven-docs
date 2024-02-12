@@ -28,7 +28,7 @@ You can
 [login to your service](/docs/products/mysql/howto/connect-from-cli) using `mysqlsh` or `mysql`. Once connected, you can call the
 following command on the `mysql` shell to view all running queries:
 
-``` shell
+```shell
 SHOW PROCESSLIST WHERE command = 'Query' AND info NOT LIKE '%PROCESSLIST%';
 ```
 
@@ -38,7 +38,7 @@ documentation](https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html).
 
 You can terminate a query manually using:
 
-``` shell
+```shell
 KILL QUERY pid
 ```
 

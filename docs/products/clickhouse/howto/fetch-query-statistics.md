@@ -26,7 +26,7 @@ To access query statistics in Aiven for ClickHouse with Aiven API, use
 the [ServiceClickHouseQueryStats
 endpoint](https://api.aiven.io/doc/#tag/Service:_ClickHouse/operation/ServiceClickHouseQueryStats).
 
-``` bash
+```bash
 GET /project/<project>/service/<service_name>/clickhouse/query/stats
 ```
 

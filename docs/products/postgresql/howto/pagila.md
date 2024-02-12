@@ -39,14 +39,14 @@ Before exploring the Pagila database, follow the
 2.  Connect to the PostgreSQL instance using the following command. The
     `SERVICE_URI` value can be found in the Aiven Console dashboard.
 
-    ``` shell
+    ```shell
     psql 'SERVICE_URI'
     ```
 
 3.  Within the `psql` shell, create a database named `pagila` and
     connect to it with the command below:
 
-    ``` psql
+    ```psql
     CREATE DATABASE pagila;
     \c pagila;
     ```
@@ -54,14 +54,14 @@ Before exploring the Pagila database, follow the
 4.  Populate the database with the command below. This might take some
     time.
 
-    ``` psql
+    ```psql
     \i pagila-data.sql;
     ```
 
 5.  Once the command finishes, make sure to reconnect to the database to
     access the imported data:
 
-    ``` psql
+    ```psql
     \c pagila;
     ```
 
@@ -88,7 +88,7 @@ were limited by the first 10 items.
 List all the films by ordered by their length
 </summary>
 
-``` sql
+```sql
 select
     film_id,
     title,
@@ -99,7 +99,7 @@ order by
     length desc;
 ```
 
-``` text
+```text
 | film_id | title              | length |
 | ------- | ------------------ | ------ |
 | 426     | HOME PITY          | 185    |
@@ -120,7 +120,7 @@ order by
 List how many films there are in each film category
 </summary>
 
-``` sql
+```sql
 select
     category.name,
     count(category.name) category_count
@@ -136,7 +136,7 @@ order by
     category_count desc;
 ```
 
-``` text
+```text
 | name        | category_count |
 | ----------- | -------------- |
 | Sports      | 74             |
@@ -158,7 +158,7 @@ Show the actors and actresses ordered by how many movies they are
 featured in
 </summary>
 
-``` sql
+```sql
 select
     actor.first_name,
     actor.last_name,
@@ -174,7 +174,7 @@ order by
     featured_count desc;
 ```
 
-``` text
+```text
 | first_name | last_name | featured_count |
 | ---------- | --------- | -------------- |
 | SUSAN      | DAVIS     | 54             |
@@ -195,7 +195,7 @@ order by
 Get a list of all active customers, ordered by their first name
 </summary>
 
-``` sql
+```sql
 select
     first_name,
     last_name
@@ -206,7 +206,7 @@ where
 order by first_name asc;
 ```
 
-``` text
+```text
 | first_name | last_name |
 | ---------- | --------- |
 | MARY       | SMITH     |
@@ -227,7 +227,7 @@ order by first_name asc;
 See who rented most DVDs - and how many times
 </summary>
 
-``` sql
+```sql
 select
     customer.first_name,
     customer.last_name,
@@ -242,7 +242,7 @@ group by
 order by rentals_count desc;
 ```
 
-``` text
+```text
 | first_name | last_name | rentals_count |
 | ---------- | --------- | ------------- |
 | ELEANOR    | HUNT      | 46            |
@@ -270,7 +270,7 @@ to answer some of these questions?
 See answer
 </summary>
 
-``` sql
+```sql
 select
     store.store_id,
     sum(payment.amount) as "total revenue"
@@ -290,7 +290,7 @@ order by
     sum(payment.amount) desc;
 ```
 
-``` text
+```text
 | store_id | total revenue |
 | -------- | ------------- |
 | 2        | 33726.77      |
@@ -305,7 +305,7 @@ order by
 See answer
 </summary>
 
-``` sql
+```sql
 select
     category.name,
     film.title,
@@ -332,7 +332,7 @@ order by
 limit 5;
 ```
 
-``` text
+```text
 | name        | title             | gross revenue |
 | ----------- | ----------------- | ------------- |
 | Music       | TELEGRAPH VOYAGE  | 231.73        |
@@ -352,7 +352,7 @@ limit 5;
 See answer
 </summary>
 
-``` sql
+```sql
 -- Select all descriptions with the words "documentary" and "robot"
 
 select
@@ -364,7 +364,7 @@ where
     to_tsvector(film.description) @@ to_tsquery('documentary & robot');
 ```
 
-``` text
+```text
 | title            | description                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
 | CASPER DRAGONFLY | A Intrepid Documentary of a Boat And a Crocodile who must Chase a Robot in The Sahara Desert                       |
@@ -385,7 +385,7 @@ where
 To clean up the environment and destroy the database, run the following
 commands:
 
-``` psql
+```psql
 \c defaultdb;
 DROP DATABASE pagila;
 ```

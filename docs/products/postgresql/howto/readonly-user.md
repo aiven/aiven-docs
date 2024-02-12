@@ -10,14 +10,14 @@ setting up read-only permissions for specific user's roles.
 1.  Modify default permissions for a user's role in a particular
     schema.
 
-``` bash
+```bash
 alter default privileges for role name_of_role in schema name_of_schema YOUR_GRANT_OR_REVOKE_PERMISSIONS
 ```
 
 2.  Apply the new read-only access setting to your existing database
     objects that uses the affected schema.
 
-``` bash
+```bash
 grant select on all tables in schema name_of_schema to NAME_OF_READ_ONLY_ROLE
 ```
 

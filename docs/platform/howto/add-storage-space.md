@@ -2,9 +2,7 @@
 title: Add or remove storage
 ---
 
-With
-[dynamic disk sizing](/docs/platform/concepts/dynamic-disk-sizing), you can add or remove disk storage (by factor of 10 GiB)
-both when you create a service and later for a running service.
+With [dynamic disk sizing](/docs/platform/concepts/dynamic-disk-sizing), you can add or remove disk storage, by a factor of 10 GiB, when you create a service or for a running service.
 
 :::note
 -   You cannot add or remove storage when service nodes are in the
@@ -86,7 +84,7 @@ You can remove storage that you previously added to a service.
 
     :::note
     You can only remove storage that you previously added using this
-    feature. If you want to downgrade further, you can
+    feature. To downgrade further, you can
     [change your service plan](/docs/platform/howto/scale-services).
     :::
 
@@ -106,7 +104,7 @@ space that you need for your service. For example, if you use a
 an extra 10-GiB disk, the value that the `--disk-space-gib` flag
 requires is `90`.
 
-``` bash
+```bash
 avn service update --disk-space-gib 90 --project PROJECT_NAME SERVICE_NAME
 ```
 

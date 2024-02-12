@@ -56,7 +56,7 @@ connect to your OpenSearch cluster using the
 [connection instructions](connect-with-python). You can see find the whole code sample in the
 [config.py](https://github.com/aiven/demo-opensearch-python/blob/main/config.py):
 
-``` python
+```python
 import os
 
 from dotenv import load_dotenv
@@ -102,7 +102,7 @@ python index.py get-mapping
 
 You should be able to see the fields\' output:
 
-``` bash
+```bash
 [
   'calories',
   'categories',
@@ -120,7 +120,7 @@ You should be able to see the fields\' output:
 
 And the mapping with the fields and their respective types.
 
-``` bash
+```bash
 {'calories': {'type': 'float'},
  'categories': {'fields': {'keyword': {'ignore_above': 256, 'type': 'keyword'}},
                 'type': 'text'},
@@ -172,7 +172,7 @@ OpenSearch supports the **Lucene query syntax** to perform searches by
 using the `q` parameter. The `q` parameter expects a string with your
 query specifications, for example:
 
-``` python
+```python
 client.search({
     index: 'recipes',
     q: 'ingredients:broccoli AND calories:(>=100 AND <200)'
@@ -188,7 +188,7 @@ For the **Query DSL**, the field `body` expects a dictionary object
 which can facilitate the construction of more complex queries depending
 on your use case, for example:
 
-``` python
+```python
 query_body = {
                "query": {
                  "multi_match": {
@@ -211,7 +211,7 @@ python search.py multi-match title ingredients Garlic-Lemon
 
 Check what comes out from this interesting combination 🧄 🍋 :
 
-``` shell
+```shell
 [
   'Garlic-Lemon Potatoes ',
   'Lemon Garlic Mayonnaise ',
@@ -250,7 +250,7 @@ search](https://opensearch.org/docs/latest/opensearch/query-dsl/full-text/).
 You can build your match query based on a `field` and the `query` that
 you are searching for. The DSL defaults to the \"or\" `operator`.
 
-``` python
+```python
 query_body = {
                 "query": {
                   "match": {
@@ -267,7 +267,7 @@ Thinking about how the match query works, if we run this query, it will
 return matches. This could be confusing because in our cluster the field
 `fat` corresponds to a value `float`, not a `string`.
 
-``` python
+```python
 query_body = {
                 "query": {
                   "match": {
@@ -285,7 +285,7 @@ such as the match query, use an analyzer to make the data optimized for
 search. As we have not specified an analyzer when we searched, the
 default standard analyzer is used:
 
-``` python
+```python
 query_body = {
                 "query": {
                   "match": {
@@ -311,13 +311,13 @@ function. You can run yourself the code to explore the `match` function.
 For example, if you want to find out recipes with the name \"Spring\" on
 them:
 
-``` shell
+```shell
 python search.py match title Spring
 ```
 
 As a result of the \"Spring\" search recipes, you\'ll find:
 
-``` shell
+```shell
 [
   'Spring Fever ',
   'Spring Rolls ',
@@ -344,7 +344,7 @@ expand it to search in more fields is the `multi_match` query. You can
 add several fields in the `fields` property, to search for the `query`
 string across all those fields included in the list.
 
-``` python
+```python
 query_body = {
                "query": {
                  "multi_match": {
@@ -374,7 +374,7 @@ python search.py multi-match title ingredients lemon
 This query can be used to match **exact phrases** in a field. Where the
 `query` is the phrase that is being searched in a certain `field`:
 
-``` python
+```python
 query_body = {
                "query": {
                  "match_phrase": {
@@ -430,7 +430,7 @@ feature](https://opensearch.org/docs/latest/query-dsl/full-text/match/):
 
 You can construct a query and add some `slop` like this:
 
-``` python
+```python
 query_body = {
                "query": {
                  "match_phrase": {
@@ -453,13 +453,13 @@ searched ones.
 
 This is how you can run this query yourself:
 
-``` shell
+```shell
 python search.py slop "title" "pannacotta marmalade" 2
 ```
 
 Your result should look like this:
 
-``` python
+```python
 ['Lemon Pannacotta with Lemon Marmalade ']
 ```
 
@@ -480,7 +480,7 @@ a precise value such as a price or product ID, for example.
 
 This query can be constructed as:
 
-``` python
+```python
 query_body = {
                "query": {
                  "term": {
@@ -513,7 +513,7 @@ range. This can be handy if you're dealing with **numerical values**
 and are interested **in ranges** instead of specific values. The queries
 can be constructed as:
 
-``` python
+```python
 query_body = {
                "query": {
                  "range": {
@@ -562,7 +562,7 @@ two words. Some of those changes:
 
 The queries can be constructed as:
 
-``` python
+```python
 query_body = {
                "query": {
                    "fuzzy": {
@@ -580,7 +580,7 @@ We can try out looking for a misspelled word and allowing some
 `pinapple` and setting `fuzziness` to zero. Running it, will bring no
 results:
 
-``` python
+```python
 python search.py fuzzy "title" "pinapple" 0
 ```
 
@@ -588,13 +588,13 @@ To correct `pinapple` → `Pineapple` word, we only need to change one
 letter. So we can try again to search this word setting the `fuzziness`
 to one and run the search again.
 
-``` python
+```python
 python search.py fuzzy "title" "pinapple" 1
 ```
 
 As you can see, this search returns results 🍍:
 
-``` python
+```python
 [
   'Pineapple "Lasagna" ',
   'Pineapple Bowl ',

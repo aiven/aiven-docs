@@ -38,7 +38,7 @@ contains credentials. Additionally, when creating a client you can also
 specify `ssl configuration`, `bearer token`, `CA fingerprint` and other
 authentication details depending on protocols you use.
 
-``` javascript
+```javascript
 const { Client } = require('@opensearch-project/opensearch')
 
 module.exports.client = new Client({

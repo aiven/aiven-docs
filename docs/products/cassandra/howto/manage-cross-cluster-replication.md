@@ -141,7 +141,7 @@ driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/driver
     -   Number of replicas to be created in the second datacenter
         (`'datacenter_2_name': 'number_of_replicas'`)
 
-    ``` bash
+    ```bash
     CREATE KEYSPACE keyspace_name WITH replication =    /
     {                                                   /
       'class': 'NetworkTopologyStrategy',               /
@@ -227,7 +227,7 @@ component before running a particular query.
 In Python, you can specify `consistency_level` as a parameter for the
 `SimpleStatement` object.
 
-``` bash
+```bash
 session.execute(SimpleStatement("LIST ROLES", consistency_level=ConsistencyLevel.ALL))
 ```
 :::

@@ -79,7 +79,7 @@ zero.
 
 The structure of a simple request looks like this:
 
-``` javascript
+```javascript
 client.search(
   {
     index,
@@ -103,7 +103,7 @@ coding. Create `aggregate.js` file, this is where we'll be
 adding our code. At the top of the file import client and index name,
 we'll need them to send requests to the cluster.
 
-``` javascript
+```javascript
 const { client, indexName: index } = require("./config");
 ```
 
@@ -116,7 +116,7 @@ single-value metric, such as finding an average across values in a
 field. Using the draft structure of an aggregation we can create a
 method to calculate the average of the recipe ratings:
 
-``` javascript
+```javascript
 /**
  * Calculate average rating of all documents
  * run-func aggregate averageRating
@@ -175,7 +175,7 @@ created:
 
 With these changes our method looks like this:
 
-``` javascript
+```javascript
 const logAggs = (field, error, result) => {
   if (error) {
     console.error(error);
@@ -220,7 +220,7 @@ run-func aggregate metric avg rating
 And because we like clean code, move and export the `logAggs` function
 from `helpers.js` and reference it in `aggregate.js`.
 
-``` javascript
+```javascript
 const { logAggs } = require("./helpers");
 ```
 
@@ -380,7 +380,7 @@ recipes into buckets based on sodium ranges.
 We use `range` aggregation and add a property `ranges` to describe how
 we want to split the data across buckets:
 
-``` javascript
+```javascript
 /**
  * Group recipes into bucket based on sodium levels
  * run-func aggregate sodiumRange
@@ -450,7 +450,7 @@ To achieve this we'll:
     results
 -   separate `body` into a variable for better readability
 
-``` javascript
+```javascript
 /**
  * Group recipes into bucket based on the provided field and set of ranges
  * run-func aggregate range sodium 500 1000
@@ -536,7 +536,7 @@ what we wrote for the ranges, with a couple of differences:
 -   use an optional property `size`, which specifies the upper limit of
     the buckets we want to create.
 
-``` javascript
+```javascript
 /**
  * Group recipes into buckets for every unique value
  * `run-func aggregate terms categories.keyword 20`
@@ -621,7 +621,7 @@ rarely used items will be at the top of the response.
 `rare_terms` relies on `max_doc_count`, which sets upper limit for
 number of documents per bucket.
 
-``` javascript
+```javascript
 /**
  * Group recipes into buckets to find the most rare items
  * `run-func aggregate rareTerms categories.keyword 3`
@@ -664,7 +664,7 @@ And since we have a `date` property, we'll build a date histogram.
 The format of the histogram aggregation is similar to what we saw so
 far, so we can create a new method almost identical to previous ones:
 
-``` javascript
+```javascript
 /**
  * Date histogram with a time interval
  * `run-func aggregate dateHistogram date year`
@@ -759,7 +759,7 @@ following:
 
 When put these pieces together we can write this method:
 
-``` javascript
+```javascript
 /**
  * Calculating the moving average of number of added recipes across years
  * `run-func aggregate movingAverage`

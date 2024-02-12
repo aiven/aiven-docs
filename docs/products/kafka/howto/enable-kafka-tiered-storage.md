@@ -102,20 +102,20 @@ Kafka service using the [Aiven CLI](/docs/tools/cli):
 
 1.  Once activated, retrieve the project information using the following command:
 
-    ``` bash
+    ```bash
     avn project details
     ```
 
     If you need details for a specific project, use:
 
-    ``` bash
+    ```bash
     avn project details --project <your_project_name)
     ```
 
 1.  To find the name of the Aiven for Apache Kafka service for enabling tiered storage,
     use this command:
 
-    ``` bash
+    ```bash
     avn service list
     ```
 
@@ -124,7 +124,7 @@ Kafka service using the [Aiven CLI](/docs/tools/cli):
 
 1.  Enable tiered storage using the command below:
 
-    ``` bash
+    ```bash
     avn service update \
        --project demo-kafka-project \
        demo-kafka-service \

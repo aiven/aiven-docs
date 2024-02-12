@@ -32,13 +32,13 @@ the similarity search on.
 
 2.  Connect to your database where you want to operate.
 
-    ``` bash
+    ```bash
     \c database-name
     ```
 
 3.  Run the CREATE EXTENSION statement.
 
-    ``` bash
+    ```bash
     CREATE EXTENSION vector;
     ```
 
@@ -47,7 +47,7 @@ the similarity search on.
 1.  Create a table to store the generated vector embeddings. Use the
     CREATE TABLE SQL command, adjusting the dimensions as needed.
 
-    ``` bash
+    ```bash
     CREATE TABLE items (id bigserial PRIMARY KEY, embedding vector(3));
     ```
 
@@ -61,7 +61,7 @@ the similarity search on.
     API](https://platform.openai.com/docs/api-reference/embeddings/create)
     client.
 
-    ``` bash
+    ```bash
     INSERT INTO items (embedding) VALUES ('[1,2,3]'), ('[4,5,6]');
     ```
 
@@ -75,7 +75,7 @@ the similarity search on.
 To calculate similarity, run the SELECT statements using the built-in
 vector operators.
 
-``` bash
+```bash
 SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
 ```
 
@@ -102,7 +102,7 @@ distance, cosine distance, inner product).
 
 To add an index, run a query similar to the following:
 
-``` bash
+```bash
 CREATE INDEX ON items USING ivfflat (embedding vector_l2_ops) WITH (lists = 100);
 ```
 
@@ -116,7 +116,7 @@ distance function.
 To stop the pgvector extension and remove it from a database, run the
 following SQL command:
 
-``` bash
+```bash
 DROP EXTENSION vector;
 ```
 

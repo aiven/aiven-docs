@@ -75,7 +75,7 @@ Query Workbench allows you to use SQL syntax instead of DSL to query the
 data. For example, you can retrieve the items we just added to the
 shopping list with:
 
-``` sql
+```sql
 select * from shopping-list
 ```
 

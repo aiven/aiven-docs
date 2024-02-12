@@ -24,7 +24,7 @@ have set up the AWS CLI.
 
 Create a file named `variables.tf` and add the following code:
 
-``` 
+```
 variable "aiven_api_token" {}
 variable "aws_account_id" {}
 variable "aiven_project_name" {}
@@ -37,7 +37,7 @@ name and the AWS account ID.
 
 Create a file named `provider.tf` and add the following code:
 
-``` 
+```
 terraform {
   required_providers {
     aiven = {
@@ -69,8 +69,8 @@ variables defined in the `variables.tf` file
 
 Create a file named project.tf and add the following code:
 
-``` 
-# Create a VPC in AWS 
+```
+# Create a VPC in AWS
 resource "aws_vpc" "awsvpc" {
   cidr_block       = "10.0.0.0/16"
   enable_dns_hostnames = true
@@ -79,7 +79,7 @@ resource "aws_vpc" "awsvpc" {
   }
 }
 
-# Create a subnet in the AWS VPC    
+# Create a subnet in the AWS VPC
 resource "aws_subnet" "awssubnet1" {
   vpc_id     = aws_vpc.awsvpc.id
   cidr_block = "10.0.1.0/24"
@@ -103,7 +103,7 @@ AWS, and creates a subnet within that VPC.
 Add the following code to your `project.tf` file to create a VPC in
 Aiven:
 
-``` 
+```
 # Create Aiven Project VPC
 resource "aiven_project_vpc" "my_vpc" {
   project      = data.aiven_project.my_project.project
@@ -122,7 +122,7 @@ example, the Aiven VPC uses the CIDR range \"192.168.0.0/24\"
 Add the following code to your project.tf file to create a peering
 connection between the Aiven VPC and your AWS VPC:
 
-``` 
+```
 # Create a VPC peering from Aiven.
 resource "aiven_aws_vpc_peering_connection" "peertoaws" {
   vpc_id         = aiven_project_vpc.my_vpc.id
@@ -176,7 +176,7 @@ routes to the Aiven VPC from AWS VPC.
 Run the following commands to initialize and apply the Terraform
 configuration:
 
-``` console
+```console
 terraform init
 terraform apply
 ```
@@ -190,7 +190,7 @@ connection is active by checking the state attribute of the
 order to refresh the status and show current status run the following
 code:
 
-``` console
+```console
 terraform apply
 terraform show
 ```

@@ -59,7 +59,7 @@ Creating a file is not strictly necessary but allows to have all the
 information in one place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",

@@ -18,7 +18,7 @@ treated with care.
 
 The **Service URI** has information in the following format:
 
-``` bash
+```bash
 [](https://<user>:<password>@<host>:<port)
 ```
 
@@ -37,7 +37,7 @@ SERVICE_URI=[https://<user>:<password>@<host>:<port](https://<user>:<password>@<
 
 And import it in your Python script.
 
-``` python
+```python
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -50,7 +50,7 @@ You can import OpenSearch and create an instance of the class to connect
 with your cluster. In this example, we will be giving the full path and
 enabling the `use_ssl` to secure our connection.
 
-``` python
+```python
 from opensearchpy import OpenSearch
 opensearch = OpenSearch(SERVICE_URI, use_ssl=True)
 ```

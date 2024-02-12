@@ -117,7 +117,7 @@ For each table, you can define the following optional settings:
 
 
 :::note[JSON format]
-``` json
+```json
 {
     "tables": [
         {
@@ -184,7 +184,7 @@ In Aiven for ClickHouse you can consume messages by running SELECT
 command. Replace `KAFKA_SERVICE_NAME` and `CONNECTOR_TABLE_NAME` with
 your values and run:
 
-``` sql
+```sql
 SELECT * FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME
 ```
 
@@ -194,7 +194,7 @@ ClickHouse table with the help of a materialized view.
 
 For example, run to creating a destination table:
 
-``` sql
+```sql
 CREATE TABLE destination (id UInt64, name String)
 ENGINE = ReplicatedMergeTree()
 ORDER BY id;
@@ -202,7 +202,7 @@ ORDER BY id;
 
 Add a materialised view to bring the data from the connector:
 
-``` sql
+```sql
 CREATE MATERIALIZED VIEW materialised_view TO destination AS
 SELECT *
 FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME;
@@ -228,7 +228,7 @@ You can also bring the entries from ClickHouse table into the Apache
 Kafka topic. Replace `KAFKA_SERVICE_NAME` and `CONNECTOR_TABLE_NAME`
 with your values:
 
-``` sql
+```sql
 INSERT INTO service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME(id, name)
 VALUES (1, 'Michelangelo')
 ```

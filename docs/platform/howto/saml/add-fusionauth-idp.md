@@ -39,14 +39,14 @@ Create an API Key in your FusionAuth instance:
 1. Clone [the FusionAuth example scripts GitHub
     repository](https://github.com/FusionAuth/fusionauth-example-scripts).
 
-    ``` shell
+    ```shell
     git clone git@github.com:FusionAuth/fusionauth-example-scripts.git
     cd fusionauth-example-scripts/v3-certificate
     ```
 
 1. Run the `generate-certificate` script.
 
-    ``` shell
+    ```shell
     ./generate-certificate
     ```
 

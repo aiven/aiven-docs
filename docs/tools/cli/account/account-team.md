@@ -57,7 +57,7 @@ avn account team list 123456789123
 
 An example of `account team list` output:
 
-``` text
+```text
 ACCOUNT_ID    CREATE_TIME           TEAM_ID        TEAM_NAME           UPDATE_TIME
 ============  ====================  =============  ==================  ====================
 123456789123  2020-09-09T20:28:44Z  at3exxxxxxxxx  Account Owners      2020-09-09T20:28:44Z
@@ -158,7 +158,7 @@ avn account team user-list 123456789123 --team-id at3exxxxxxxxx
 
 An example of `account team user-list` output:
 
-``` text
+```text
 CREATE_TIME           REAL_NAME            TEAM_ID        TEAM_NAME        UPDATE_TIME           USER_EMAIL                    USER_ID
 ====================  ===================  =============  ===============  ====================  ============================  ============
 2020-09-22T12:37:21Z  Jane Doe             at3exxxxxxxxx  admin-team-test  2020-09-22T12:37:21Z  jane.doe@example.com          u2xxxxxxxxxx
@@ -187,7 +187,7 @@ avn account team user-list-pending 123456789123 --team-id at3exxxxxxxxx
 
 An example of `account team user-list-pending` output:
 
-``` text
+```text
 ACCOUNT_ID    ACCOUNT_NAME    CREATE_TIME           INVITED_BY_USER_EMAIL  TEAM_ID        TEAM_NAME        USER_EMAIL
 ============  ==============  ====================  =====================  =============  ===============  ==========================
 123456789123  Jana Reinhardt  2021-08-23T13:14:20Z  jane.doe@example.com   at3exxxxxxxxx  admin-team-test  jana.reinhardt@example.com

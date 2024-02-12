@@ -47,7 +47,7 @@ strategy in Aiven for Apache Flink® through configuration files.
 Instead, directly modify the code of your Jar application to achieve
 this.
 
-``` java
+```java
 StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 env.setRestartStrategy(RestartStrategies.noRestart());
 ```

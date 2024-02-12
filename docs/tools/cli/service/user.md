@@ -141,7 +141,7 @@ avn service user-list pg-doc
 
 An example of `account service user-list` output:
 
-``` text
+```text
 USERNAME   TYPE
 =========  =======
 analytics  normal

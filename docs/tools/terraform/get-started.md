@@ -47,7 +47,7 @@ Set up the Terraform project in an empty folder:
     [Aiven Provider
     page](https://registry.terraform.io/providers/aiven/aiven/latest).
 
-    ``` terraform
+    ```terraform
     terraform {
       required_providers {
         aiven = {
@@ -67,7 +67,7 @@ Set up the Terraform project in an empty folder:
     Add the following code to define the configuration of a single-node
     Aiven for Redis®\* service:
 
-    ``` terraform
+    ```terraform
     # Redis service
 
     resource "aiven_redis" "single-node-aiven-redis" {
@@ -94,7 +94,7 @@ Set up the Terraform project in an empty folder:
     Add the following code to declare the API token and project name
     variables:
 
-    ``` terraform
+    ```terraform
     variable "aiven_api_token" {
       description = "Aiven console API token"
       type        = string
@@ -113,7 +113,7 @@ Set up the Terraform project in an empty folder:
     your API token and `AIVEN_PROJECT_NAME` with the name of your
     project:
 
-    ``` terraform
+    ```terraform
     aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
     project_name    = "AIVEN_PROJECT_NAME"
     ```
@@ -124,7 +124,7 @@ Set up the Terraform project in an empty folder:
     Terraform. Run this command to automatically find, download, and
     install the necessary Aiven Provider plugins:
 
-    ``` bash
+    ```bash
     terraform init
     ```
 
@@ -132,19 +132,19 @@ Set up the Terraform project in an empty folder:
     changes that will be made (for example, what resources will be
     created or modified):
 
-    ``` bash
+    ```bash
     terraform plan
     ```
 
 3.  To create the resources, run:
 
-    ``` bash
+    ```bash
     terraform apply --auto-approve
     ```
 
 The output will be similar to the following:
 
-``` bash
+```bash
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
@@ -158,20 +158,20 @@ To delete the service and its data:
 1.  Create a destroy plan and preview the changes to your infrastructure
     with the following command:
 
-    ``` bash
+    ```bash
     terraform plan -destroy
     ```
 
 2.  To delete the resources and all data, run:
 
-    ``` bash
+    ```bash
     terraform destroy
     ```
 
 3.  Enter \"yes\" to confirm. The output will be similar to the
     following:
 
-    ``` bash
+    ```bash
     Do you really want to destroy all resources?
     Terraform will destroy all your managed infrastructure, as shown above.
     There is no undo. Only 'yes' will be accepted to confirm.

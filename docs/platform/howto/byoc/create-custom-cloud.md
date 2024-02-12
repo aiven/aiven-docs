@@ -89,7 +89,7 @@ Show permissions required for creating resources for bastion and
 workload networks
 </summary>
 
-``` bash
+```bash
 {
     "Statement": [
         {
@@ -602,7 +602,7 @@ taking the following steps:
 5.  Enter Role ARN into the **Role ARN** field in the **Create custom
     cloud** wizard.
 
-6.  Select **Next** to proceed or park your cloud setup here and save
+6.  Select **Next** to proceed or park your cloud setup and save
     your current configuration as a draft by selecting **Save draft**.
     You can resume creating your cloud later.
 

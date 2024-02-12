@@ -79,7 +79,7 @@ in the **Connection information** section of the **Overview** page in
 the Aiven web console. You will need **Host**, **Port**, **User**, and
 **Password**.
 
-``` bash
+```bash
 docker run --interactive            \
 --rm clickhouse/clickhouse-server clickhouse-client   \
 --user USERNAME                     \
@@ -100,11 +100,11 @@ ClickHouse documentation includes sample `CREATE TABLE` commands with
 structure](https://clickhouse.com/docs/en/getting-started/example-datasets/metrica),
 use it to create the tables for both `hits_v1` and `visits_v1`:
 
-``` sql
+```sql
 CREATE TABLE datasets.hits_v1 [...]
 ```
 
-``` sql
+```sql
 CREATE TABLE datasets.visits_v1 [...]
 ```
 
@@ -164,14 +164,14 @@ Once the data is loaded, you can run queries against the sample data you
 imported. For example, here is a command to query the number of items in
 the `hits_v1` table:
 
-``` sql
+```sql
 SELECT COUNT(*) FROM datasets.hits_v1
 ```
 
 Another example uses some additional query features to find the longest
 lasting sessions:
 
-``` sql
+```sql
 SELECT StartURL AS URL,
     MAX(Duration) AS MaxDuration
 FROM datasets.visits_v1

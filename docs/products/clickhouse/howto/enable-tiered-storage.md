@@ -65,7 +65,7 @@ enabling it on your tables, both new and existing ones.
     `storage_policy` to `tiered` on this table by executing the
     following SQL statement:
 
-    ``` bash
+    ```bash
     ALTER TABLE database-name.table-name MODIFY SETTING storage_policy = 'tiered'
     ```
 

@@ -82,7 +82,7 @@ Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `snowflake_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name": "my-test-snowflake",
     "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
@@ -220,7 +220,7 @@ properties:
 
 The connector configuration is the following:
 
-``` json
+```json
 {
     "name": "my_snowflake_sink",
     "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
@@ -247,7 +247,7 @@ The connector configuration is the following:
 If you have a topic named `iot_measurements` containing the following
 data in JSON format, with a defined JSON schema:
 
-``` json
+```json
 {
     "schema": {
         "type":"struct",
@@ -302,7 +302,7 @@ following connector configuration, after replacing the placeholders for
 `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`, `SNOWFLAKE_DATABASE` and
 `SNOWFLAKE_SCHEMA`:
 
-``` json
+```json
 {
     "name": "my-test-snowflake-1",
     "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",

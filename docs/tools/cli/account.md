@@ -58,7 +58,7 @@ last updated.
 
 An example of the output:
 
-``` text
+```text
 ACCOUNT_ID    ACCOUNT_NAME            ACCOUNT_OWNER_TEAM_ID  CREATE_TIME           IS_ACCOUNT_OWNER  PRIMARY_BILLING_GROUP_ID  TENANT_ID     UPDATE_TIME
 ============  ======================  =====================  ====================  ================  ========================  ============  ====================
 123456789123  Billing Analytics       45678910111213         2020-09-09T20:28:44Z  true              null                      my_tenant_id  2020-09-09T20:28:44Z

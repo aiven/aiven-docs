@@ -54,11 +54,11 @@ Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html).
 Using a 4GB service as an example, a view of the global buffers shows
 what memory has been allocated:
 
-``` sql
-SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area, 
-   format_bytes(SUM(current_alloc)) AS current_alloc 
-FROM sys.x$memory_global_by_current_bytes 
-GROUP BY SUBSTRING_INDEX(event_name,'/',2) 
+```sql
+SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area,
+   format_bytes(SUM(current_alloc)) AS current_alloc
+FROM sys.x$memory_global_by_current_bytes
+GROUP BY SUBSTRING_INDEX(event_name,'/',2)
 ORDER BY SUM(current_alloc) DESC;
 
 +---------------------------+---------------+
@@ -79,7 +79,7 @@ ORDER BY SUM(current_alloc) DESC;
 
 Although allocated, the buffers may be relatively empty:
 
-``` sql
+```sql
 SELECT CONCAT(FORMAT(A.num * 100.0 / B.num,2),'%') `BufferPool %` FROM
     (SELECT variable_value num FROM performance_schema.global_status
     WHERE variable_name = 'Innodb_buffer_pool_pages_data') A,

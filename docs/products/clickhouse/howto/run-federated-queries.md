@@ -29,7 +29,7 @@ cluster requires grants to the S3 and/or URL sources. The main service
 user is granted access to the sources by default, and new users can be
 allowed to use the sources with the following query:
 
-``` sql
+```sql
 GRANT CREATE TEMPORARY TABLE, S3, URL ON *.* TO <username> [WITH GRANT OPTION]
 ```
 
@@ -57,7 +57,7 @@ public resources using the URL of the resource. For instance, let's
 explore the network connectivity measurement data provided by the [Open
 Observatory of Network Interference (OONI)](https://ooni.org/data/).
 
-``` sql
+```sql
 WITH ooni_data_sample AS
    (
   SELECT *
@@ -83,7 +83,7 @@ The `s3Cluster` function allows all cluster nodes to participate in the
 query execution. Using `default` for the cluster name parameter, we can
 compute the same aggregations as above as follows:
 
-``` sql
+```sql
 WITH ooni_clustered_data_sample AS
     (
     SELECT *
@@ -108,7 +108,7 @@ LIMIT 50
 Private buckets can be accessed by providing the access token and secret
 as function parameters.
 
-``` sql
+```sql
 SELECT *
 FROM s3(
   'https://private-bucket.s3.eu-west-3.amazonaws.com/dataset-prefix/partition-name.csv',
@@ -120,7 +120,7 @@ FROM s3(
 Depending on the format, the schema can be automatically detected. If it
 isn\'t, you may also provide the column types as function parameters.
 
-``` sql
+```sql
 SELECT *
 FROM s3(
   'https://private-bucket.s3.eu-west-3.amazonaws.com/orders-dataset/partition-name.csv',
@@ -138,7 +138,7 @@ Rankings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/D
 dataset, courtesy of the [Atlas of Economic
 Complexity](https://atlas.cid.harvard.edu/) project.
 
-``` sql
+```sql
 WITH economic_complexity_ranking AS
     (
     SELECT *
@@ -161,7 +161,7 @@ can be used to interact with APIs having public endpoints. For instance,
 if your application has a `ingest-csv` endpoint accepting CSV data, you
 can insert a row using the following statement:
 
-``` sql
+```sql
 INSERT INTO FUNCTION
   url('https://app-name.company-name.cloud/api/ingest-csv', 'CSVWithNames')
 VALUES ('column1-value', 'column2-value');
@@ -172,7 +172,7 @@ VALUES ('column1-value', 'column2-value');
 When executing an INSERT statement into the S3 function, the rows are
 appended to the corresponding object if the table structure matches:
 
-``` sql
+```sql
 INSERT INTO FUNCTION
   s3('https://bucket-name.s3.region-name.amazonaws.com/dataset-name/landing/raw-data.csv', 'CSVWithNames')
 VALUES ('column1-value', 'column2-value');
@@ -184,7 +184,7 @@ Instead of specifying the URL of the resource in every query, it's
 possible to create a virtual table using the URL table engine. This can
 be achieved by running a DDL CREATE statement similar to the following:
 
-``` sql
+```sql
 CREATE TABLE trips_export_endpoint_table
 (
     `trip_id` UInt32,
@@ -200,7 +200,7 @@ ENGINE = URL('https://app-name.company-name.cloud/api/trip-csv-export', CSV)
 Once the table is defined, SELECT and INSERT statements execute GET and
 POST requests to the URL respectively:
 
-``` sql
+```sql
 SELECT
 toDate(pickup_datetime) AS pickup_date,
 median(fare_amount) AS median_fare_amount,

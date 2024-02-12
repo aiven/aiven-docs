@@ -14,7 +14,7 @@ article provides you with instructions for both scenarios.
 
 To install the ClickHouse Go module, run the following command:
 
-``` go
+```go
 go get github.com/ClickHouse/clickhouse-go/v2
 ```
 
@@ -65,7 +65,7 @@ the following variables:
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` go
+```go
 package main
 import "fmt"
 import "log"
@@ -149,7 +149,7 @@ the following variables:
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` go
+```go
 package main
 import "database/sql"
 import "fmt"

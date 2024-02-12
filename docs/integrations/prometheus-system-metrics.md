@@ -33,7 +33,7 @@ request to your Prometheus service endpoint.
 2.  Make a request to get a snapshot of your metrics, replacing the
     placeholders in the following code with the values for your service:
 
-    ``` bash
+    ```bash
     curl -k --user USERNAME:PASSWORD PROMETHEUS_URL/metrics
     ```
 
@@ -48,7 +48,7 @@ CPU usage metrics are helpful in determining if the CPU is constantly
 being maxed out. For a high-level view of the CPU usage for a single CPU
 service, you can use the following:
 
-``` bash
+```bash
 100 - cpu_usage_idle{cpu="cpu-total"}
 ```
 

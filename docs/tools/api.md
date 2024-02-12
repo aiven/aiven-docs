@@ -36,7 +36,7 @@ console](https://console.aiven.io/profile/auth).
 Send this token in the header, using a structure like this, and
 replacing `TOKEN` with your actual API token:
 
-``` 
+```
 Authorization: aivenv1 TOKEN
 ```
 
@@ -58,13 +58,13 @@ authentication token.
 
 ### List your projects
 
-``` 
+```
 curl -H "Authorization: aivenv1 {TOKEN}" https://api.aiven.io/v1/project
 ```
 
 The following is a sample response:
 
-``` json
+```json
 {
   "project_membership": {
     "my-best-demo": "admin",
@@ -148,13 +148,13 @@ The following is a sample response:
 This endpoint does not require authorization; if you aren\'t
 authenticated then the standard set of clouds will be returned.
 
-``` 
+```
 curl https://api.aiven.io/v1/clouds
 ```
 
 The following is a sample response:
 
-``` json
+```json
 {
   "clouds": [
     {

@@ -51,7 +51,7 @@ OpenSearch `SERVICE_URI` for the `input` . For the `output`, choose an
 AWS S3 file path including the file name that you want for your
 document.
 
-``` shell
+```shell
 elasticdump \
 --s3AccessKeyId "${ACCESS_KEY_ID}" \
 --s3SecretAccessKey "${SECRET_ACCESS_KEY}" \

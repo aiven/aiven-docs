@@ -22,7 +22,7 @@ Lists PrivateLink cloud availability and prices.
 avn service privatelink availability
 ```
 
-``` text
+```text
 CLOUD_NAME                       PRICE_USD
 ===============================  =========
 aws-ca-central-1                 0.0600
@@ -83,7 +83,7 @@ avn service privatelink aws create --principal 'arn:aws:iam::123456789012:user/c
 
 An example of output:
 
-``` text
+```text
 AWS_SERVICE_ID  AWS_SERVICE_NAME  PRINCIPALS                                                                            STATE
 ==============  ================  ====================================================================================  ========
 null            null              arn:aws:iam::123456789012:user/cloud_user, arn:aws:iam::987654321098:user/cloud_user  creating
@@ -108,7 +108,7 @@ avn service privatelink aws delete kafka-12a3b4c5
 
 An example of output:
 
-``` text
+```text
 AWS_SERVICE_ID              AWS_SERVICE_NAME                                         PRINCIPALS                                 STATE
 ==========================  =======================================================  =========================================  ========
 vpce-svc-1234567890abc1234  com.amazonaws.vpce.us-east-1.vpce-svc-1234567890abc1234  arn:aws:iam::123456789012:user/cloud_user  deleting
@@ -138,7 +138,7 @@ avn service privatelink aws get kafka-12a3b4c5
 
 An example of output:
 
-``` text
+```text
 AWS_SERVICE_ID              AWS_SERVICE_NAME                                         PRINCIPALS                                 STATE
 ==========================  =======================================================  =========================================  ======
 vpce-svc-1234567890abc1234  com.amazonaws.vpce.us-east-1.vpce-svc-1234567890abc1234  arn:aws:iam::123456789012:user/cloud_user  active
@@ -166,7 +166,7 @@ avn service privatelink aws update                        \
 
 An example of output:
 
-``` text
+```text
 AWS_SERVICE_ID              AWS_SERVICE_NAME                                         PRINCIPALS                                 STATE
 ==========================  =======================================================  =========================================  ======
 vpce-svc-1234567890abc1234  com.amazonaws.vpce.us-east-1.vpce-svc-1234567890abc1234  arn:aws:iam::123456789012:user/cloud_user  active
@@ -192,7 +192,7 @@ avn service privatelink azure connection approve kafka-12a3b4c5 plc12345abcdef
 
 An example of output:
 
-``` text
+```text
 PRIVATE_ENDPOINT_ID                                                                                                                       PRIVATELINK_CONNECTION_ID  STATE          USER_IP_ADDRESS
 ========================================================================================================================================  =========================  =============  ===============
 /subscriptions/12345678-90ab-cdef-0987-6543210abcde/resourceGroups/group-eastus/providers/Microsoft.Network/privateEndpoints/pl-endpoint  plc12345abcdef             user-approved  null
@@ -217,7 +217,7 @@ avn service privatelink azure connection list kafka-12a3b4c5
 
 An example of output:
 
-``` text
+```text
 PRIVATELINK_CONNECTION_ID  PRIVATE_ENDPOINT_ID                                                                                                                       STATE                  USER_IP_ADDRESS
 =========================  ========================================================================================================================================  =====================  ===============
 plc12345abcdef             /subscriptions/12345678-90ab-cdef-0987-6543210abcde/resourceGroups/group-eastus/providers/Microsoft.Network/privateEndpoints/pl-endpoint  pending-user-approval  null
@@ -248,7 +248,7 @@ avn service privatelink azure connection update   \
 
 An example of output:
 
-``` text
+```text
 PRIVATE_ENDPOINT_ID                                                                                                                       PRIVATELINK_CONNECTION_ID  STATE   USER_IP_ADDRESS
 ========================================================================================================================================  =========================  ======  ===============
 /subscriptions/12345678-90ab-cdef-0987-6543210abcde/resourceGroups/group-eastus/providers/Microsoft.Network/privateEndpoints/pl-endpoint  plc12345abcdef             active  10.19.1.4
@@ -277,7 +277,7 @@ avn service privatelink azure create    \
 
 An example of output:
 
-``` text
+```text
 AZURE_SERVICE_ALIAS  AZURE_SERVICE_ID  STATE     USER_SUBSCRIPTION_IDS
 ===================  ================  ========  ====================================
 null                 null              creating  12345678-90ab-cdef-0987-6543210abcde
@@ -301,7 +301,7 @@ avn service privatelink azure delete kafka-12a3b4c5
 
 An example of output:
 
-``` text
+```text
 AZURE_SERVICE_ALIAS                                                                           AZURE_SERVICE_ID                                                                                                                                                                           STATE     USER_SUBSCRIPTION_IDS
 ============================================================================================  =========================================================================================================================================================================================  ========  ====================================
 aivenprod-ss123456789ab.12345678-90ab-cdef-9876-543210abcdef.eastus.azure.privatelinkservice  /subscriptions/12345678-90ab-cdef-1234-567890abcdef/resourceGroups/aivenprod-12345678-90ab-cdef-1234-567890abcdef/providers/Microsoft.Network/privateLinkServices/aivenprod-ss123456789ab  deleting  12345678-90ab-cdef-0987-6543210abcde
@@ -326,7 +326,7 @@ avn service privatelink azure get kafka-12a3b4c5
 
 An example of output:
 
-``` text
+```text
 AZURE_SERVICE_ALIAS                                                                           AZURE_SERVICE_ID                                                                                                                                                                           STATE   USER_SUBSCRIPTION_IDS
 ============================================================================================  =========================================================================================================================================================================================  ======  ====================================
 aivenprod-ss123456789ab.12345678-90ab-cdef-9876-543210abcdef.eastus.azure.privatelinkservice  /subscriptions/12345678-90ab-cdef-1234-567890abcdef/resourceGroups/aivenprod-12345678-90ab-cdef-1234-567890abcdef/providers/Microsoft.Network/privateLinkServices/aivenprod-ss123456789ab  active  12345678-90ab-cdef-0987-6543210abcde

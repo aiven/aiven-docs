@@ -102,7 +102,7 @@ service using [Aiven CLI](/docs/tools/cli):
 1.  Get the name of the Aiven for Apache Kafka service you want to
     enable OAuth2/OIDC authentication with:
 
-    ``` bash
+    ```bash
     avn service list
     ```
 
@@ -111,7 +111,7 @@ service using [Aiven CLI](/docs/tools/cli):
 
 1.  Enable OAuth2/OIDC authentication for your service:
 
-    ``` bash
+    ```bash
     avn service update <SERVICE_NAME> \
         -c kafka.sasl_oauthbearer_expected_audience="my-audience, another-audience" \
         -c kafka.sasl_oauthbearer_expected_issuer="https://my-issuer.example.com" \
