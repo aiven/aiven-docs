@@ -20,7 +20,7 @@ To set up VPC peering for your Aiven project:
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select
     **VPCs** from the sidebar on the **Services** page.
 
-2.  Click **Create VPC**.
+1.  Click **Create VPC**.
 
     :::note
     **Admin** and **operator** user roles can create a VPC. For more
@@ -28,17 +28,19 @@ To set up VPC peering for your Aiven project:
     [Organizations, projects, and managing access permissions](/docs/platform/concepts/projects_accounts_access).
     :::
 
-3.  In the **Create a VPC for this project** window
+1.  In the **Create a VPC for this project** window:
 
-    1.  Select a cloud provider and region from the dropdown list.
-    2.  Enter the IP range that you want to use for the VPC connection.
-        Use an IP range that does not overlap with any networks that you
-        want to connect via VPC peering. For example, if your own
-        networks use the range `10.0.0.0/8`, you could set
-        the range for your Aiven project's VPC to
-        `192.168.0.0/24`.
+    1. Select a cloud provider and region from the dropdown list.
+    1. Enter the IP range that you want to use for the VPC connection.
+       Use an IP range that does not overlap with any networks that you
+       want to connect via VPC peering.
 
-4.  Click **Create VPC**.
+       For example, if your own
+       networks use the range `11.1.1.0/8`, you can set
+       the range for your Aiven project's VPC to
+       `191.161.1.0/24`.
+
+1.  Click **Create VPC**.
 
 The state of the VPC is shown in the table.
 
@@ -73,7 +75,7 @@ belong to the project where that specific VPC was created.
 Before deleting an existing VPC from [Aiven
 Console](https://console.aiven.io/), you should move out any active
 services from that VPC. To delete a VPC, navigate to [Aiven
-Console](https://console.aiven.io/) \> **VPCs**. Find your VPC and
+Console](https://console.aiven.io/) > **VPCs**. Find your VPC and
 select **Delete** from the meatballs menu for this VPC. Once the VPC is
 deleted, the cloud provider side of the peering connection will go to an
 inactive or deleted state.
@@ -82,15 +84,15 @@ inactive or deleted state.
 
 You can migrate any Aiven service to a different VPC:
 
-1.  In [Aiven Console](https://console.aiven.io/), go to your service.
-2.  On the **Overview** page of your service, select **Service
-    settings** from the sidebar.
-3.  On the **Service settings** page, navigate to the **Cloud and
-    network** section and select **Change cloud or region** from the
-    actions (**\...**) menu.
-4.  In the **Migrate service to another cloud** window \> the **Region**
-    section, select the **VPCs** tab, select the VPC that you want to
-    use, and select **Migrate**.
+1. In [Aiven Console](https://console.aiven.io/), go to your service.
+1. On the **Overview** page of your service, select **Service
+   settings** from the sidebar.
+1. On the **Service settings** page, navigate to the **Cloud and
+   network** section and select **Change cloud or region** from the
+   actions (**...**) menu.
+1. In the **Migrate service to another cloud** window > the **Region**
+   section, select the **VPCs** tab, select the VPC that you want to
+   use, and select **Migrate**.
 
 ## Access VPC services from the public internet
 
@@ -100,15 +102,15 @@ is created with a public prefix. You can enable public Internet access
 for your services by following the
 [Enable public access in a VPC](/docs/platform/howto/public-access-in-vpc) instructions.
 
-IP filtering (the **Service settings** page \> the **Cloud and network**
-section \> the actions (**\...**) menu \> **Set public IP filters**) is
+IP filtering (the **Service settings** page > the **Cloud and network**
+section > the actions (**...**) menu > **Set public IP filters**) is
 still available for a service deployed to a VPC where both public and
 private access are allowed. We recommend that you use IP filtering when
 your VPC service is also exposed to the public internet.
 
 :::note
 **Public IP filters** are restricted via VPC. IP filters apply to
-publicly-accessible endpoints only.
+publicly accessible endpoints only.
 :::
 
 Safelisting applies to both internal and external traffic. If you
@@ -125,16 +127,16 @@ case, try to refresh your VPC connections.
 
 :::note
 Changes to your VPCs (such as adding a new subnet) can take up to 24
-hours to take effect so wait at least 24h before refreshing your VPC
+hours to take effect so wait at least 24 hours before refreshing your VPC
 connections.
 :::
 
 To refresh your VCP connections:
 
-1.  In [Aiven Console](https://console.aiven.io/), select **VPCs**.
-2.  Find the ID of the affected VPC and select it from the **Internal
-    ID** column.
-3.  Select **Refresh VPC connections**.
+1. In [Aiven Console](https://console.aiven.io/), select **VPCs**.
+1. Find the ID of the affected VPC and select it from the **Internal
+   ID** column.
+1. Select **Refresh VPC connections**.
 
 The platform checks the VPC peering connection and rebuilds the peering
 connection state if there are any changes detected.

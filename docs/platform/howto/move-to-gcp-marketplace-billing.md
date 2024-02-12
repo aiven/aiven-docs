@@ -2,36 +2,18 @@
 title: Move from Aiven direct billing to Google Cloud Platform Marketplace
 ---
 
-Aiven makes its services available through the Google Cloud Platform
-Marketplace. If you already have some services running in a project
-which is billed directly through Aiven but you would like to move to a
-Google Cloud Platform Marketplace subscription without disrupting your
-services, this article shows the steps needed to gather the relevant
-information and submit the request.
+Aiven makes its services available through the Google Cloud Platform Marketplace. If you already have some services running in a project, which is billed directly through Aiven, you can move to a Google Cloud Platform Marketplace subscription without disrupting your services.
 
-## Create a new account using a Google Cloud Platform Marketplace subscription
+1. [Set up Google Cloud Platform Marketplace for Aiven Services](billing-google-cloud-platform-marketplace-subscription).
+   The new Aiven organization will contain your projects.
 
-Follow the steps to
-[set up Google Cloud Platform Marketplace for Aiven Services](billing-google-cloud-platform-marketplace-subscription). This will create a new Aiven organization, which is where
-your project will be moved to.
+1. Collect the required information:
 
-## Gather the required information
+   1. From your **existing Aiven account**, retrieve The name of the Aiven projects
+      that contain the services you wish to move.
 
-Aiven will need some information from both your existing and new
-subscriptions in order to perform the migration.
+   1. From your **new Aiven organization** with the GCP marketplace
+      subscription, retrieve the Aiven organization name, as shown in the
+      [Aiven GCP console](https://console.gcp.aiven.io/).
 
-**From your existing Aiven account:**
-
--   The name of the Aiven project (or projects) that contain the
-    services you wish to move.
-
-**From your new Aiven organization with the GCP marketplace
-subscription:**
-
--   Your new Aiven organization name, as shown in the [Aiven GCP
-    console](https://console.gcp.aiven.io/).
-
-## Send the request to Aiven
-
-Once you have collected the information above, send it by email to
-[sales@aiven.io](mailto:sales@aiven.io) and someone will be in touch to complete the process.
+1. Send the information by email to [the sales team](mailto:sales@aiven.io).

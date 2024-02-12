@@ -166,9 +166,9 @@ You can use the same credentials with any access route.
 Use CLI to acquire connection information for more than one AWS
 PrivateLink connection.
 
-Each endpoint (connection) has PRIVATELINK_CONNECTION_ID, which you can
+Each endpoint (connection) has a `PRIVATELINK_CONNECTION_ID`, which you can
 check using the
-[avn service privatelink aws connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
+[avn service privatelink AWS connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
 
 To acquire connection information for your service component using AWS
 PrivateLink, run the
@@ -241,11 +241,11 @@ allowed to connect a VPC endpoint:
 
 -   Using the Aiven CLI, run the following command:
 
-    ```
+    ```bash
     avn service privatelink aws delete $Aiven_service_name
     ```
 
-    ```
+    ```text
     AWS_SERVICE_ID             AWS_SERVICE_NAME                                        PRINCIPALS                         STATE
     ========================== ======================================================= ================================== ========
     vpce-svc-0b16e88f3b706aaf1 com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b

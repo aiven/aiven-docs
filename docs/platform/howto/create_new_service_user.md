@@ -18,24 +18,23 @@ service,
 :::
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
-2.  On the **Services** page, select your service.
-3.  On the **Overview** page of your service, select **Users** from the
+1.  On the **Services** page, select your service.
+1.  On the **Overview** page of your service, select **Users** from the
     sidebar.
-4.  In the **Users** page, select **Add service user**.
-5.  In the **Create a service user** window
-    a.  Enter a name for your service user.
+1.  In the **Users** page, select **Add service user**.
+1.  In the **Create a service user** window
+    1.  Enter a name for your service user.
 
         If a password is required, a new random password will be
         generated automatically. This can be modified later.
 
-    b.  Set up all the other configuration options (such as
+    1.  Set up all the other configuration options (such as
         authentication, roles, or replication), and select **Add service
         user**.
 
 A popup alert displays the result of the operation informing about the
 creation of your new user.
 
-:::note
-You can
-[create a new service user using the Aiven CLI](/docs/tools/cli/service/user#avn-service-user-create) as well.
-:::
+## Related pages
+
+- [Create a new service user using the Aiven CLI](/docs/tools/cli/service/user#avn-service-user-create)
