@@ -54,7 +54,8 @@ processing capabilities.
         a specific state. No
         savepoints are available for the first application deployment.
     1.   Toggle **Restart on failure** to automatically restart Flink
-        jobs upon failure.
+        jobs upon failure. See [Restart strategy in SQL and JAR applications](/docs/products/flink/howto/restart-strategy-jar-applications)
+        for details.
     1.   In the **Program args** field, provide command-line arguments
         consisting of variables and configurations relevant to your
         application'slogic upon submission. Each argument is limited
