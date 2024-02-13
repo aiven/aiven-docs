@@ -1,5 +1,6 @@
 ---
 title: Manage application users
+limited: true
 ---
 
 Application users give non-human users programmatic access to Aiven.

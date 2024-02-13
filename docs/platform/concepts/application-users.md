@@ -1,5 +1,6 @@
 ---
 title: Application users
+limited: true
 ---
 
 An application user is a type of user that provides programmatic access to the Aiven platform and services through the [Aiven API](/docs/tools/api.md), [CLI](/docs/tools/), [Terraform](/docs/tools/terraform.md), and [Kubernetes](/docs/tools/kubernetes.md). They're intended for non-human users that need to access Aiven.
