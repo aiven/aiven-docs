@@ -1340,6 +1340,7 @@ const sidebars: SidebarsConfig = {
                     'products/dragonfly/howto/migrate-ext-redis-df-console',
                   ],
                 },
+                'products/dragonfly/howto/eviction-policy-df',
               ],
             },
             {
