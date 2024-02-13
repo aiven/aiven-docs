@@ -4,11 +4,6 @@ title: Aiven CLI
 
 The Aiven command line interface (CLI) lets you use the Aiven platform and services in a scriptable way through the API.
 
-It's available [on GitHub](https://github.com/aiven/aiven-client). Check out
-[this blog](https://aiven.io/blog/aiven-cmdline) to learn how to use the Aiven CLI
-for common tasks. If you prefer video, watch the short
-[how to get started tutorial](https://www.youtube.com/watch?v=nf3PPn5w6K8).
-
 ## Get started
 
 ### Install
@@ -141,3 +136,9 @@ Manage your VPC configuration including user/peer networks.
 
 Try the `--json` switch to any command to get more information, in a
 JSON format.
+
+## Related pages
+
+- [Learn how to use the Aiven CLI](https://aiven.io/blog/aiven-cmdline) for common tasks.
+- Watch the [how to get started tutorial](https://www.youtube.com/watch?v=nf3PPn5w6K8).
+- Check out the [aiven-client repository on GitHub](https://github.com/aiven/aiven-client).
