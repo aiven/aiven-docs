@@ -26,7 +26,7 @@ following are some suggested best practices for using Aiven application users.
 ### Create dedicated application users for each application
 
 Try to create a different application user for each tool or application. For example, if
-you are have an application that needs to connect to services in one of your projects and
+you have an application that needs to connect to services in one of your projects and
 you are using using Terraform in the same project, create two application users. Use
 the description field for each user to clearly indicate what it's used for.
 
