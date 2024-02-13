@@ -78,7 +78,7 @@
   "Pro-platform badge": {
     "prefix": ["pro", "badge"],
     "body": [
-      "import ProBadge from \"@site/src/components/ProBadge\";",
+      "import ProBadge from \"@site/src/components/Badges/ProBadge\";",
       "",
       "<ProBadge/>",
       ""
