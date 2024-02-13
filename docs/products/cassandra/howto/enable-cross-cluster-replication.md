@@ -129,7 +129,7 @@ used to interact with Aiven APIs.
 
 1.  Use the
     [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to
-    create a new servic (`service_1`).
+    create a new service (`service_1`).
 
     ```bash
     avn service create                                   \

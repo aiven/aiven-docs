@@ -4,28 +4,18 @@ pro: true
 limited: true
 ---
 
-Learn how to update Apache Cassandra® services that has cross-cluster replication (CCR) enabled: change the service plan and add an extra disk space. Find out how to set up the replication factor and the consistency level for your CCR-enabled Apache Cassandra® services.
+Update Apache Cassandra® services that has cross-cluster replication (CCR) enabled: change the service plan and add an extra disk space. Find out how to set up the replication factor and the consistency level for your CCR-enabled Apache Cassandra® services.
 
 ## Prerequisites
 
-### Aiven-wise
-
--   Aiven account
--   Pair of Aiven for Apache Cassandra services with CCR enabled
-
-### Tools
-<!-- vale off -->
--   To update the service plan or add an extra disk space, use [Aiven
-    Console](https://console.aiven.io/).
--   To set up the replication factor on the database side, issue the
-    CREATE KEYSPACE statement from [any supported client
-    driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html).
-    This guide uses the `cqlsh` Cassandra client for that purpose to
-    ensure general applicability of the instruction.
--   To set up the consistency level on the client side, configure it in
-    your software. This guide uses the `cqlsh` Cassandra client for that
-    purpose to ensure general applicability of the instruction.
-<!-- vale on -->
+- Pair of Aiven for Apache Cassandra services with CCR enabled
+- [Aiven Console](https://console.aiven.io/) to update the service plan or add an extra
+  disk space
+- [Any supported client driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html)
+  (for example, the `cqlsh` Cassandra client)
+  - To set up the replication factor on the database side by issuing the CREATE KEYSPACE
+    statement
+  - To set up the consistency level on the client side by configuring it in your software
 
 ## Change the service plan
 
@@ -50,7 +40,7 @@ changing the plan for a CCR-enabled service.
 
 1. On the **Service settings** page of your service, navigate to the
     **Service plan** section, and select **Change plan** from the
-    **Actions** (**...**) menu.
+    **Actions** (**\...**) menu.
 
 1. In the **Change service plan** window, select a new plan you want to
     use for your service.
@@ -62,7 +52,7 @@ changing the plan for a CCR-enabled service.
 
 1. Select **Change**.
 
-You've changed the plan for your CCR-enabled service and its
+You\'ve changed the plan for your CCR-enabled service and its
 CCR-replica service.
 
 ## Add an extra disk space
@@ -87,7 +77,7 @@ adding storage space for CCR-enabled services.
 
 1. On the **Service settings** page of your service, navigate to the
     **Service plan** section, and select **Add additional storage** from
-    the **Actions** (**...**) menu.
+    the **Actions** (**\...**) menu.
 
 1. In the **Upgrade service storage** window, use the slider to add
     extra disk space for your service.
@@ -99,7 +89,7 @@ adding storage space for CCR-enabled services.
 
 1. Select **Save changes**.
 
-You've added extra disk storage space for your CCR-enabled service and
+You\'ve added extra disk storage space for your CCR-enabled service and
 its CCR-replica service.
 
 ## Set up the replication factor {#set-up-replication-factor}
@@ -120,53 +110,55 @@ driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/driver
 
 1. [Connect to your service via cqlsh](/docs/products/cassandra/howto/connect-cqlsh-cli).
 
-   :::note
-   You can connect to either of the two services constituting the CCR
-   pair to set up the replication factor.
-   :::
+    :::note
+    You can connect to either of the two services constituting the CCR
+    pair to set up the replication factor.
+    :::
 
 1. From the `cqlsh` shell, check out
 
-   - Existing keyspaces with the `DESCRIBE keyspaces;` query (for a
-     new service, only system keyspaces are returned)
-   - Datacenters available for your service with the
-     `SELECT data_center from system.peers_v2;` query.
+    - Existing keyspaces with the `DESCRIBE keyspaces;` query (for a
+        new service, only system keyspaces are returned)
+    - Datacenters available for your service with the
+        `SELECT data_center from system.peers_v2;` query.
 
 1. Create a keyspace by running a query in which you specify
 
-   - Replication strategy (`'class': 'NetworkTopologyStrategy'`)
-   - Number of replicas to be created in the first datacenter
-     (`'datacenter_1_name': 'number_of_replicas'`)
-   - Number of replicas to be created in the second datacenter
-     (`'datacenter_2_name': 'number_of_replicas'`)
+    - Replication strategy (`'class': 'NetworkTopologyStrategy'`)
+    - Number of replicas to be created in the first datacenter
+        (`'datacenter_1_name': 'number_of_replicas'`)
+    - Number of replicas to be created in the second datacenter
+        (`'datacenter_2_name': 'number_of_replicas'`)
 
-   ```bash
-   CREATE KEYSPACE keyspace_name WITH replication =    /
-   {                                                   /
-     'class': 'NetworkTopologyStrategy',               /
-     'datacenter_1_name': 'number_of_replicas',        /
-     'datacaenter_2_name': 'number_of_replicas'        /
-   }                                                   /
-   AND durable_writes = true;
-   ```
+    ```bash
+    CREATE KEYSPACE keyspace_name WITH replication =    /
+    {                                                   /
+      'class': 'NetworkTopologyStrategy',               /
+      'datacenter_1_name': 'number_of_replicas',        /
+      'datacaenter_2_name': 'number_of_replicas'        /
+    }                                                   /
+    AND durable_writes = true;
+    ```
 
-   ```bash title="Example"
-   CREATE KEYSPACE default WITH replication =           /
-   {                                                    /
-     'class': 'NetworkTopologyStrategy',                /
-     'dc_1': '3',                                       /
-     'dc_2': '3'                                        /
-   }                                                    /
-   AND durable_writes = true;
-   ```
+    ```bash title="Example"
+    CREATE KEYSPACE default WITH replication =           /
+    {                                                    /
+      'class': 'NetworkTopologyStrategy',                /
+      'dc_1': '3',                                       /
+      'dc_2': '3'                                        /
+    }                                                    /
+    AND durable_writes = true;
+    ```
 
-You've set up the replication factor for your keyspace. Now all data
+You\'ve set up the replication factor for your keyspace. Now all data
 within this keyspace gets replicated to the datacenters according to the
 specified factor.
 
+:::note[See also]
 For more details on the replication factor for Apache Cassandra, see
 [NetworkTopologyStrategy](https://cassandra.apache.org/doc/4.1/cassandra/cql/ddl.html#networktopologystrategy)
 in the Apache Cassandra documentation.
+:::
 
 ## Set up the consistency level
 
@@ -221,31 +213,35 @@ parameter or object to define the consistency level on your software
 component before running a particular query.
 
 :::note[Example:]
+
 In Python, you can specify `consistency_level` as a parameter for the
 `SimpleStatement` object.
 
 ```bash
 session.execute(SimpleStatement("LIST ROLES", consistency_level=ConsistencyLevel.ALL))
 ```
+
 :::
 
-You've set up the consistency level for your service. Now operations on
+You\'ve set up the consistency level for your service. Now operations on
 your data are considered as successfully completed according to the
 consistency level you specified.
 
+:::note[See also]
 For more details on consistency levels for Apache Cassandra, see
 [CONSISTENCY](https://cassandra.apache.org/doc/4.1/cassandra/tools/cqlsh.html#consistency)
 in the Apache Cassandra documentation.
+:::
 
 ## More on Apache Cassandra CCR
 
--   [About cross-cluster replication on Aiven for Apache Cassandra](/docs/products/cassandra/concepts/cross-cluster-replication)
--   [Enable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/enable-cross-cluster-replication)
--   [Disable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/disable-cross-cluster-replication)
+- [About cross-cluster replication on Aiven for Apache Cassandra](/docs/products/cassandra/concepts/cross-cluster-replication)
+- [Enable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/enable-cross-cluster-replication)
+- [Disable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/disable-cross-cluster-replication)
 
 ## More on CCR with Aiven
 
--   [OpenSearch® cross-cluster replication](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
--   [Set up cross-cluster replication for OpenSearch](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch)
--   [Enabling cross-cluster replication for Apache Kafka® via
+- [OpenSearch® cross-cluster replication](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
+- [Set up cross-cluster replication for OpenSearch](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch)
+- [Enabling cross-cluster replication for Apache Kafka® via
     Terraform](https://aiven.io/developer/kafka-mirrormaker-crosscluster).
