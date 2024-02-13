@@ -1,9 +1,10 @@
 ---
 title: Cross-cluster replication with Aiven for Apache Cassandra®
+pro: true
 limited: true
 ---
 
-Cross-cluster replication (CCR) is a configuration of Apache Cassandra services on the Aiven platform that mirrors your data between different clouds and/or regions, providing increased durability and locality.
+The cross-cluster replication (CCR) feature for Aiven for Apache Cassandra® allows data replication between two different clouds and/or regions for improved availability and performance.
 
 ## About cross-cluster replication
 
@@ -111,7 +112,7 @@ CREATE KEYSPACE test WITH replication =  /
 ```
 
 Where `service-1` and `service-2` are the names of Apache Cassandra
-datacenter, which you can find in the Aiven console.
+datacenter, which are visible in the Aiven console.
 
 ### CCR in action
 
@@ -141,6 +142,10 @@ For more details on consistency levels for Apache Cassandra, see
 in the Apache Cassandra documentation.
 
 ## Limitations {#ccr-limitations}
+
+-  This feature requires `[Pro Platform](/docs/platform/concepts/pro-platform)` enabled
+   on your Aiven organization and `[Pro Features](/docs/platform/concepts/pro-platform)`
+   enabled on your Aiven project.
 
 -   It is not possible to connect two existing services to become a CCR
     pair. But you still can:
@@ -179,7 +184,7 @@ in the Apache Cassandra documentation.
 -   [Manage CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/manage-cross-cluster-replication)
 -   [Disable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/disable-cross-cluster-replication)
 
-## More on CCR with Aiven
+## Related pages
 
 -   [OpenSearch® cross-cluster replication](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
 -   [Set up cross-cluster replication for OpenSearch](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch)
