@@ -10,10 +10,10 @@ enhancements and give our product teams feedback to help improve them.
 
 To try upcoming features before they are released:
 
-1.  Click the **User information** icon in the top right and select
-    **Feature preview**.
-2.  On the **Feature preview** tab, click **Enable** for any of the
-    features you want to test.
+1. Click the **User information** icon in the top right and select
+   **Feature preview**.
+1. On the **Feature preview** tab, click **Enable** for any of the
+   features you want to test.
 
 After enabling a feature preview and testing it, you can provide
-feedback from this page by clicking **Give feedback**.
+feedback by clicking **Give feedback**.

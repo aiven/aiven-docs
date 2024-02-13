@@ -37,7 +37,7 @@ Console](https://console.aiven.io/):
 
     :::note
     If you select the current month, you will be charged a percentage of
-    the total service spend for the whole month, starting from the 1st.
+    the total service spend for the whole month, starting from the first.
     :::
 
 5.  Select a **Billing group**.

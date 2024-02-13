@@ -21,7 +21,7 @@ To receive notifications about the service health, you can set the
 appropriate emails in [Aiven Console](https://console.aiven.io/):
 
 1.  Go to your project, and select **Settings** from the sidebar.
-2.  In the **Settings** page, include relevant email addresses in the
+1.  In the **Settings** page, include relevant email addresses in the
     **Technical Emails** section.
 
 The specified email addressees will receive notifications related to
@@ -29,7 +29,7 @@ plan size change, performance, outages and upcoming maintenance.
 
 :::warning
 If no technical emails are specified, Aiven sends some high priority
-messages to the project admin(s).
+messages to the project admins.
 
 Therefore, if some technical support members are not admins, they might
 be missing important notifications for your services.
@@ -43,19 +43,23 @@ platform wide incidents. You can follow the RSS feed, subscribe for
 email or SMS notifications, or use the Slack integration to get notified
 where your team is already.
 
+<!-- vale off -->
 You can check the status of the the Aiven platform and subscribe to
 updates on incidents directly from
 [status.Aiven.io](https://status.aiven.io/).
+<!-- vale on -->
 
 ## Monitor the services
 
+<!-- vale off -->
 It's difficult to prepare for high load if the usual load is not
 monitored. Check out how to setup adequate monitoring for your needs in
 [Monitoring services](monitoring-services).
+<!-- vale on -->
 
 ## Modify the service plan
 
-If you forecast a load that can\'t be handled by the current service
+If you forecast a load that can't be handled by the current service
 plan, you can decide either to
 [scale up your service plan](/docs/platform/howto/scale-services), or [request a custom plan](/docs/platform/howto/custom-plans)
 if none of the available plans satisfies your requirements.
@@ -78,8 +82,8 @@ To configure the daily backup time in  **Aiven for PostgreSQL®** and **Aiven fo
    - `backup_minute`: The minute of the hour to begin the backup.
 
 :::tip
-If you intend to make a plan upgrade, it is a good idea to do it shortly
-after a full backup is taken. This reduces the amount of incremental
+If you intend to make a plan upgrade, we recommend you do it immediately
+after a full backup. This reduces the amount of incremental
 changes that need to be applied on top of the base backup and therefore
 speeds up the upgrade itself.
 :::
@@ -100,8 +104,8 @@ them yourself or a mandatory update is created.
 To test the impact on high traffic on a service, you can run load tests
 against copies of your production service using the
 [fork service option](console-fork-service) option in
-[Aiven Console](https://console.aiven.io/) \> your
-service's **Overview** page \> **Fork Database** \> **New database
+[Aiven Console](https://console.aiven.io/) > your
+service's **Overview** page > **Fork Database** > **New database
 fork**.
 
 ## Perform service specific optimizations

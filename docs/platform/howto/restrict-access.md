@@ -7,7 +7,7 @@ access to your service to a single IP, an address block, or any
 combination of both.
 
 :::important
-IP filters apply to publicly-accessible endpoints only.
+IP filters apply to publicly accessible endpoints only.
 :::
 
 1.  Log in to [Aiven Console](https://console.aiven.io).

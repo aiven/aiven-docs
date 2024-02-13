@@ -124,3 +124,4 @@ swap:
   in case: if
   in the case of: if
   pre-requisites: prerequisites
+  (?:take|apply)? ?(?:the )?following steps: nothing

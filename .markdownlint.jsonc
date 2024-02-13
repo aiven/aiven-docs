@@ -16,7 +16,7 @@
   "MD039": true,
   "MD048": {"style": "backtick"},
   "MD042": true,
-  "MD049": {"style": "asterisk"},
+  "MD049": {"style": "underscore"},
   "MD050": {"style": "asterisk"},
   "MD013": {"line_length": 90},
   "MD033": {

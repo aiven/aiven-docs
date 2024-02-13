@@ -87,14 +87,14 @@ Console](https://console.cloud.google.com/net-services/psc/addConsumer).
     from the previous step.
     :::
 
-2.  Select an existing subnet hosting your side of the endpoint.
+1.  Select an existing subnet hosting your side of the endpoint.
 
 After the endpoint is created, it initially exists in the `pending`
 state. To allow connections via the endpoint, it needs to be accepted at
 the service publisher (Aiven) end.
 
 :::tip
-If you use an automatically-assigned IP address, note the IP address
+If you use an automatically assigned IP address, note the IP address
 associated with the endpoint so that you can use it the next step.
 :::
 
@@ -107,7 +107,7 @@ associated with the endpoint so that you can use it the next step.
     avn service privatelink google refresh MY_SERVICE_NAME
     ```
 
-2.  Retry the following command until it returns the
+1.  Retry the following command until it returns the
     pending-user-approval status:
 
     ```shell
@@ -129,7 +129,7 @@ associated with the endpoint so that you can use it the next step.
         step.
     :::
 
-3.  To enable a connection, approve it.
+1.  To enable a connection, approve it.
 
     :::note
     By approving the connection, you provide the IP address assigned to
@@ -173,7 +173,7 @@ connection appears as `active`.
 avn service privatelink google connection list MY_SERVICE_NAME
 ```
 
-```shell
+```text
 PRIVATELINK_CONNECTION_ID  PSC_CONNECTION_ID  STATE   USER_IP_ADDRESS
 =========================  =================  ======  ===============
 plc3fd852bec98             12870921937223780  active  10.0.0.100
@@ -205,23 +205,23 @@ avn service update -c privatelink_access.kafka=true MY_SERVICE_NAME
 
 **Aiven Console**
 
-To enable Private Link access in [Aiven
-Console](https://console.aiven.io/), take the following steps:
+To enable Private Link access in [Aiven Console](https://console.aiven.io/):
+
 
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
-2.  On the **Service settings** page, navigate to the **Cloud and
+1.  On the **Service settings** page, navigate to the **Cloud and
     network** section and select **More network configurations** from
-    the actions (**\...**) menu.
-3.  In the **Network configuration** window, take the following actions:
+    the actions (**...**) menu.
+1.  In the **Network configuration** window, take the following actions:
     1.  Select **Add configuration options**.
-    2.  In the search field, enter `privatelink_access`.
-    3.  From the displayed component names, select the names of the
+    1.  In the search field, enter `privatelink_access`.
+    1.  From the displayed component names, select the names of the
         components that you want to enable
         (`privatelink_access.<service component>`).
-    4.  Select the toggle switches for the selected components to enable
+    1.  Select the toggle switches for the selected components to enable
         them.
-    5.  Select **Save configuration**.
+    1.  Select **Save configuration**.
 
 :::tip
 Each service component can be controlled separately. For example, you
