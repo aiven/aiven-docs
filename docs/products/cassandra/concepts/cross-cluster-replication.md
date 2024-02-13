@@ -143,9 +143,7 @@ in the Apache Cassandra documentation.
 
 ## Limitations {#ccr-limitations}
 
--  This feature requires `[Pro Platform](/docs/platform/concepts/pro-platform)` enabled
-   on your Aiven organization and `[Pro Features](/docs/platform/concepts/pro-platform)`
-   enabled on your Aiven project.
+-  This feature requires `[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`.
 
 -   It is not possible to connect two existing services to become a CCR
     pair. But you still can:

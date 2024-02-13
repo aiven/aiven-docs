@@ -11,13 +11,9 @@ Stop data replication between two different clouds and/or regions for your Aiven
 When you enable CCR for your service, you connect it to another service,
 which results in creating a CCR pair of services. You can disable CCR
 for your service either by splitting the services constituting the CCR
-pair or by deleting one of them.
-
--   [Aiven Console](https://console.aiven.io/)
--   CLI
--   API
-
-It's recommended to use Aiven Console for disabling CCR.
+pair or by deleting one of them. While you can disable CCR in
+[Aiven Console](https://console.aiven.io/), with the Aiven CLI, or with the Aiven API,
+it's recommended to use the Aiven Console for that purpose.
 
 :::warning
 As soon as you split the cluster, the two services constituting the CCR
@@ -29,12 +25,11 @@ service.
 
 ## Prerequisites
 
--   Aiven account
+-   CCR enabled on a pair of Aiven for Apache Cassandra services
 -   Depending on the method you choose to use for disabling CCR
     -   Access to [Aiven Console](https://console.aiven.io/)
     -   `cURL` CLI tool
     -   [Aiven CLI tool](https://github.com/aiven/aiven-client)
--   CCR enabled on a pair of Aiven for Apache Cassandra services
 
 ## Disable CCR in the console
 
@@ -138,7 +133,7 @@ curl --request DELETE \
 -   [Enable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/enable-cross-cluster-replication)
 -   [Manage CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/manage-cross-cluster-replication)
 
-## More on CCR with Aiven
+## Related pages
 
 -   [OpenSearch® cross-cluster replication](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
 -   [Set up cross-cluster replication for OpenSearch](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch)

@@ -14,9 +14,7 @@ CLI, or programmatically with Aiven API.
 
 ## Prerequisites {#enable-ccr-in-aiven}
 
--   This feature requires `[Pro Platform](/docs/platform/concepts/pro-platform)` enabled
-    on your Aiven organization and `[Pro Features](/docs/platform/concepts/pro-platform)`
-    enabled on your Aiven project.
+-   This feature requires `[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`.
 -   This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
     it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 -   Aiven account
