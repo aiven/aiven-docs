@@ -2,8 +2,7 @@
 title: avn service integration
 ---
 
-Full list of commands for
-`avn service integration`.
+A full list of commands for `avn service integration`.
 
 ## Manage Aiven internal and external integrations
 
@@ -11,15 +10,15 @@ Full list of commands for
 
 Creates a new service integration.
 
-| Parameter              | Information                                                                                                                               |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `--integration-type`   | The type of integration (check [the command details](/docs/tools/cli/service/integration#avn_service_integration_types) for more details) |
-| `--source-service`     | The integration source service                                                                                                            |
-| `--dest-service`       | The integration destination service                                                                                                       |
-| `--source-endpoint-id` | The integration source endpoint ID                                                                                                        |
-| `--dest-endpoint-id`   | The integration destination endpoint ID                                                                                                   |
-| `--user-config-json`   | The integration parameters as JSON string or path to file (preceded by `@`)                                                               |
-| `-c KEY=VALUE`         | The custom configuration settings.                                                                                                        |
+|       Parameter        |                                        Information                                        |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| `--integration-type`   | The [integration type](/docs/tools/cli/service/integration#avn_service_integration_types) |
+| `--source-service`     | The integration source service                                                            |
+| `--dest-service`       | The integration destination service                                                       |
+| `--source-endpoint-id` | The integration source endpoint ID                                                        |
+| `--dest-endpoint-id`   | The integration destination endpoint ID                                                   |
+| `--user-config-json`   | The integration parameters as JSON string or path to file preceded by `@`               |
+| `-c KEY=VALUE`         | The custom configuration settings.                                                        |
 
 :::tip
 Endpoint IDs are used when creating an integration with external
@@ -29,20 +28,22 @@ services. To get an integration endpoint ID use the
 
 :::note
 Both the `--user-config-json` and `-c` flags provide a way to customise
-the service integration using different methods. Only one of the flag is
-allowed per command. When using both in the same command, an error will
-be shown:
+the service integration using different methods. Only one of the flags are
+allowed per command. When using both in the same command, an error is
+shown:
 
+```text
+ERROR   command failed: UserError: -c (user config) and --user-config-json parameters
+cannot be used at the same time
 ```
-ERROR   command failed: UserError: -c (user config) and --user-config-json parameters can not be used at the same time
-```
+
 :::
 
 **Example:** Create a new `kafka_logs` service integration to send the
 logs of the service named `demo-pg` to an Aiven for Kafka service named
 `demo-kafka` in the topic `test_log`.
 
-```
+```bash
 avn service integration-create            \
   --integration-type kafka_logs           \
   --source-service demo-pg                \
@@ -54,14 +55,14 @@ avn service integration-create            \
 
 Deletes a service integration.
 
-| Parameter        | Information                         |
+|    Parameter     |             Information             |
 | ---------------- | ----------------------------------- |
 | `integration-id` | The ID of the integration to delete |
 
 **Example:** Delete the integration with id
 `8e752fa9-a0c1-4332-892b-f1757390d53f`.
 
-```
+```bash
 avn service integration-delete 8e752fa9-a0c1-4332-892b-f1757390d53f
 ```
 
@@ -72,14 +73,14 @@ Creates an external service integration endpoint.
 | Parameter            | Information                                                                                                                                     |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `--endpoint-name`    | The name of the endpoint                                                                                                                        |
-| `--endpoint-type`    | The type of endpoint (check [the command details](/docs/tools/cli/service/integration#avn service integration endpoint types) for more details) |
-| `--user-config-json` | The endpoint configuration in JSON format or as path to a file (preceded by `@`)                                                                |
+| `--endpoint-type`    | The [endpoint type](/docs/tools/cli/service/integration#avn%20service%20integration%20endpoint%20types)  |
+| `--user-config-json` | The endpoint configuration in JSON format or as path to a file preceded by `@`                                                                |
 | `-c KEY=VALUE`       | The custom configuration settings.                                                                                                              |
 
 **Example:** Create an external Apache Kafka® endpoint named
 `demo-ext-kafka`.
 
-```
+```bash
 avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
     --endpoint-type external_kafka  \
     --user-config-json  '{"bootstrap_servers":"servertest:123","security_protocol":"PLAINTEXT"}'
@@ -87,7 +88,7 @@ avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 
 **Example:** Create an external Loggly endpoint named `Loggly-ext`.
 
-```
+```bash
 avn service integration-endpoint-create         \
   --endpoint-name Loggly-ext                    \
   -d loggly -t rsyslog                          \
@@ -103,14 +104,14 @@ avn service integration-endpoint-create         \
 
 Deletes a service integration endpoint.
 
-| Parameter     | Information                      |
+|   Parameter   |           Information            |
 | ------------- | -------------------------------- |
 | `endpoint-id` | The ID of the endpoint to delete |
 
 **Example:** Delete the endpoint with ID
 `97590813-4a58-4c0c-91fd-eef0f074873b`.
 
-```
+```bash
 avn service integration-endpoint-delete 97590813-4a58-4c0c-91fd-eef0f074873b
 ```
 
@@ -121,8 +122,7 @@ Lists all service integration endpoints available in a selected project.
 **Example:** Lists all service integration endpoints available in the
 selected project.
 
-
-```
+```bash
 avn service integration-endpoint-list
 ```
 
@@ -142,7 +142,7 @@ Lists all available integration endpoint types for given project.
 **Example:** Lists all service integration endpoint types available in
 the selected project.
 
-```
+```bash
 avn service integration-endpoint-types-list
 ```
 
@@ -168,16 +168,16 @@ Send service metrics to SignalFX             signalfx                         ka
 
 Updates a service integration endpoint.
 
-| Parameter            | Information                                                                      |
+|      Parameter       |                                   Information                                    |
 | -------------------- | -------------------------------------------------------------------------------- |
 | `endpoint-id`        | The ID of the endpoint                                                           |
-| `--user-config-json` | The endpoint configuration in JSON format or as path to a file (preceded by `@`) |
+| `--user-config-json` | The endpoint configuration in JSON format or as path to a file preceded by `@` |
 | `-c KEY=VALUE`       | The custom configuration settings.                                               |
 
 **Example:** Update an external Apache Kafka® endpoint with id
 `821e0144-1503-42db-aa9f-b4aa34c4af6b`.
 
-```
+```bash
 avn service integration-endpoint-update 821e0144-1503-42db-aa9f-b4aa34c4af6b \
     --user-config-json  '{"bootstrap_servers":"servertestABC:123","security_protocol":"PLAINTEXT"}'
 ```
@@ -186,13 +186,13 @@ avn service integration-endpoint-update 821e0144-1503-42db-aa9f-b4aa34c4af6b \
 
 Lists the integrations defined for a selected service.
 
-| Parameter      | Information             |
+|   Parameter    |       Information       |
 | -------------- | ----------------------- |
 | `service_name` | The name of the service |
 
 **Example:** List all integrations for the service named `demo-pg`.
 
-```
+```bash
 avn service integration-list demo-pg
 ```
 
@@ -215,7 +215,7 @@ Lists all available integration types for given project.
 **Example:** List all integration types for the currently selected
 project.
 
-```
+```bash
 avn service integration-types-list
 ```
 
@@ -239,7 +239,7 @@ signalfx                         Receive service metrics from service           
 
 Updates an existing service integration.
 
-| Parameter            | Information                                                                 |
+|      Parameter       |                                 Information                                 |
 | -------------------- | --------------------------------------------------------------------------- |
 | `integration_id`     | The ID of integration                                                       |
 | `--user-config-json` | The integration parameters as JSON string or path to file (preceded by `@`) |
@@ -249,7 +249,7 @@ Updates an existing service integration.
 `8e752fa9-a0c1-4332-892b-f1757390d53f` changing the Aiven for Kafka
 topic storing the logs to `test_pg_log`.
 
-```
+```bash
 avn service integration-update 8e752fa9-a0c1-4332-892b-f1757390d53f \
   -c 'kafka_topic=test_pg_log'
 ```
