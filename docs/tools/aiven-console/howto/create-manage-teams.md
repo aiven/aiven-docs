@@ -68,7 +68,9 @@ clicking the more options menu for the project.
 
     :::note
     Users on the Account Owners team automatically become super admin with full access to
-    manage the organization. You don't need to create a group for these users.
+    manage the organization. You don't need to create a group for these users or manage
+    this team after the migration. Instead, you can
+    [make users super admin](/docs/platform/howto/make-super-admin).
     :::
 
 1.  Click **Groups**.
