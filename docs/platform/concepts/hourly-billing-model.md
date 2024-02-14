@@ -13,8 +13,8 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 ## Service charges
 
-The prices shown in the Aiven console are all-inclusive, meaning that
-all of the following are included in the hourly service price:
+The prices shown in the Aiven console are all-inclusive. The following costs are
+included in the hourly service price:
 
 -   Virtual machine costs
 -   Network costs

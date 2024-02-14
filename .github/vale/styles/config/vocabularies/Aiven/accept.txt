@@ -33,6 +33,7 @@ Centrify
 checkpointing
 CIDRs
 ClickHouse
+Cloudera
 CloudWatch
 codecs
 compliances
