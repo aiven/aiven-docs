@@ -255,7 +255,7 @@ avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-
 
 A state such as `INVALID_SPECIFICATION` or `REJECTED_BY_PEER` may be
 shown if the VNet specified in the previous step did not exist, or the
-Aiven app object wasn\'t given permissions to peer with it. If that
+Aiven app object wasn't given permissions to peer with it. If that
 occurs, check your configuration and recreate the peering
 connection in step 12.
 

@@ -32,7 +32,7 @@ addresses needed, depending on the size of your service plan.
 
 Create a static IP addresses using the
 [Aiven CLI](/docs/tools/cli), repeat as many times as
-you need to create enough IP addresses for your service. Specify the
+needed to create enough IP addresses for your service. Specify the
 name of the cloud that the IP address should be created in, to match the
 service that will use it.
 

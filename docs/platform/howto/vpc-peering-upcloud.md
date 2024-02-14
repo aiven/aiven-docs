@@ -14,10 +14,10 @@ on both ends: Aiven and UpCloud.
 -   To set up a peering from Aiven to UpCloud, you can use [Aiven
     Console](https://console.aiven.io/) to create a VPC for your Aiven
     project and add a peering connection to UpCloud. For this purpose,
-    you need to identify the UpCloud SDN network UUID first.
+    identify the UpCloud SDN network UUID first.
 -   To set up a peering from UpCloud to Aiven, you can use [UpCloud
     API](https://developers.upcloud.com/1.3/). Since the API takes UUIDs
-    of both networks as attributes, you need to identify the network
+    of both networks as attributes, identify the network
     UUIDs before calling the API.
 
 ## Limitations
@@ -152,7 +152,7 @@ HTTP/1.1 201 Created
 ## Renew a DHCP lease
 
 You only need to take this step if any of your VMs has been created
-before setting up the network peering. In that case, you need to refresh
+before setting up the network peering. In this case, refresh
 the Dynamic Host Configuration Protocol (DHCP) lease for a relevant
 network interface to get new routes.
 
