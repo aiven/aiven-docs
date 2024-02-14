@@ -26,7 +26,7 @@ duplicated.
 To work with tags, you can use the following:
 
 -   [Aiven Console](https://console.aiven.io/)
--   Aiven client: Aiven-client version 2.14.0 or later is required for
+-   Aiven client: Aiven-client version 1.11.0 or later is required for
     tagging support.
 -   APIs (for example,
     [ProjectUpdate](https://api.aiven.io/doc/#tag/Project/operation/ProjectUpdate))
@@ -42,15 +42,15 @@ You can add the following types of tags to projects:
 -   Project tags - returned for resources in the API and displayed in
     the list of projects
 
-To add tags to a project, take the following steps:
+To add tags to a project:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     organization and your project from the top navigation bar.
-2.  On the project's page, select **Settings** from the sidebar.
-3.  On the **Settings** page, click **Add tag** and enter a key and its
+1.  On the project's page, select **Settings** from the sidebar.
+1.  On the **Settings** page, click **Add tag** and enter a key and its
     value in the **Billing Reference Tags** or **Project Tags** fields,
     and select the **+** icon to add more tags in the same manner.
-4.  Select **Save changes** to save all of your tags.
+1.  Select **Save changes** to save your tags.
 
 You can see the tags listed in the table on the **Projects** page.
 
@@ -60,15 +60,15 @@ To add tags to a service, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     your organization and your project from the top navigation bar.
-2.  On the **Services** page of your project, select the service you
+1.  On the **Services** page of your project, select the service you
     wish to tag.
-3.  On the service page, select **Service settings** from the sidebar.
-4.  In the **Service status** section, click **Actions (\...)**, then
+1.  On the service page, select **Service settings** from the sidebar.
+1.  In the **Service status** section, click **Actions (\...)**, then
     click **Add service tags** from the dropdown menu.
-5.  In the **Tag this service** dialog, enter a key and its value in the
+1.  In the **Tag this service** dialog, enter a key and its value in the
     **Service Tags** fields.
-6.  Click **Add tag** to add additional tags.
-7.  Click **Save changes** to apply the tags.
+1.  Click **Add tag** to add additional tags.
+1.  Click **Save changes** to apply the tags.
 
 You can see the tags listed in the table on the **Projects** page.
 
@@ -78,19 +78,19 @@ You can see the tags listed in the table on the **Projects** page.
 
 -   Add new tags to a service:
 
-    ```
+    ```bash
     avn service tags update your-service --add-tag business_unit=sales --add-tag env=smoke_test
     ```
 
 -   Modify or remove tags:
 
-    ```
+    ```bash
     avn service tags update your-service --add-tag env=production --remove-tag business_unit
     ```
 
 -   List service tags:
 
-    ```
+    ```bash
     avn service tags list your-service
     KEY  VALUE
     ===  ==========
@@ -99,7 +99,7 @@ You can see the tags listed in the table on the **Projects** page.
 
 -   Replace tags with a set of new ones, removing the old ones:
 
-    ```
+    ```bash
     avn service tags replace your-service --tag cost_center=U1345
 
     avn service tags list your-service
@@ -115,20 +115,21 @@ too, and work the same way:
 
 -   Add tags to a project:
 
-    ```
+    ```bash
     avn project tags update --project your-project --add-tag business_unit=sales
     ```
 
 -   Replace project tags:
 
-    ```
+    ```bash
     avn project tags replace --project your-project --tag env=smoke_test
     ```
 
 -   List project tags:
 
-    ```
+    ```bash
     avn project tags list
+
     KEY  VALUE
     ===  ==========
     env  smoke_test

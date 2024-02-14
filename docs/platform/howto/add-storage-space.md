@@ -5,10 +5,12 @@ title: Add or remove storage
 With [dynamic disk sizing](/docs/platform/concepts/dynamic-disk-sizing), you can add or remove disk storage, by a factor of 10 GiB, when you create a service or for a running service.
 
 :::note
+
 -   You cannot add or remove storage when service nodes are in the
     rebalancing state, for example, during a maintenance update or a
     service upgrade.
 -   This feature is not available for all service plans.
+
 :::
 
 ## Use Aiven Console
@@ -24,16 +26,16 @@ You can add storage to your running service in [Aiven
 Console](https://console.aiven.io/) without interrupting the service.
 
 1.  Log into the [Aiven Console](https://console.aiven.io/), select your
-    project and then select the service for which you want to add
+    project and select the service for which you want to add
     storage.
 
-2.  On the service page, click **Service settings** from the sidebar.
+1.  On the service page, click **Service settings** from the sidebar.
 
-3.  In the **Service plan** section, click **Actions (\...)**.
+1.  In the **Service plan** section, click **Actions (\...)**.
 
-4.  From the dropdown menu, select **Manage additional storage**.
+1.  From the dropdown menu, select **Manage additional storage**.
 
-5.  In the **Upgrade service storage** dialog, click **Change plan**
+1.  In the **Upgrade service storage** dialog, click **Change plan**
     choose the new service plan and tier or use the slider to add disk
     storage.
 
@@ -41,7 +43,7 @@ Console](https://console.aiven.io/) without interrupting the service.
     The price shown for the additional storage includes backup costs.
     :::
 
-6.  Click **Save changes**.
+1.  Click **Save changes**.
 
 The additional storage is available for immediate use.
 
@@ -49,9 +51,8 @@ The additional storage is available for immediate use.
 Storage optimization is performed at the next maintenance update after a
 change to the storage size. Due to cloud provider limitations, there is
 a limit on how many times storage can be increased between two
-maintenance updates. When this limit is reached, you need to perform a
-maintenance update for performance optimization. It's best to carefully
-plan increases to avoid reaching this limit.
+maintenance updates. When this limit is reached, perform a
+maintenance update for performance optimization. Plan increases to avoid reaching this limit.
 :::
 
 ### Remove additional storage
@@ -70,16 +71,16 @@ You can remove storage that you previously added to a service.
 #### Remove added storage
 
 1.  Log into the [Aiven Console](https://console.aiven.io/), select your
-    project and then select the service for which you want to add
+    project and select the service for which you want to add
     storage.
 
-2.  On the service page, click **Service settings** from the sidebar.
+1.  On the service page, click **Service settings** from the sidebar.
 
-3.  In the **Service plan** section, click **Actions (\...)**.
+1.  In the **Service plan** section, click **Actions (\...)**.
 
-4.  From the dropdown menu, select **Manage additional storage**.
+1.  From the dropdown menu, select **Manage additional storage**.
 
-5.  In the **Upgrade service storage** dialog, use the slider to remove
+1.  In the **Upgrade service storage** dialog, use the slider to remove
     disk storage.
 
     :::note
@@ -88,7 +89,7 @@ You can remove storage that you previously added to a service.
     [change your service plan](/docs/platform/howto/scale-services).
     :::
 
-6.  Click **Save changes**.
+1.  Click **Save changes**.
 
 Your additional disk space has been removed. The service is in the
 **Rebalancing** state while the nodes are being recycled.
@@ -109,6 +110,7 @@ avn service update --disk-space-gib 90 --project PROJECT_NAME SERVICE_NAME
 ```
 
 :::note
+
 -   When you perform a service upgrade or downgrade horizontally,
     remember to include all additional disks the service uses. For
     example, when switching from `Startup-4` to `Business-4` or from
@@ -116,4 +118,5 @@ avn service update --disk-space-gib 90 --project PROJECT_NAME SERVICE_NAME
     available for this service.
 -   Similarly, when you fork an existing service, include all additional
     disks the service uses.
+
 :::

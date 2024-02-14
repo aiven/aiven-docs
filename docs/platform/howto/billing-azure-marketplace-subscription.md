@@ -41,7 +41,7 @@ Aiven makes its services available through the Microsoft Azure Marketplace, you 
 1. After you are redirected to the [Azure signup page at Aiven](https://console.azure.aiven.io/login),
    enter your Azure console email address to log in to the account.
 1. After entering your email address, you will be authenticated via Azure single sign-on
-   and then returned to the Aiven Console.
+   and redirected to the Aiven Console.
 1. Check whether you have received an email to activate your new subscription.
    Click **Activate now** to join your Aiven account to your Azure account.
 
