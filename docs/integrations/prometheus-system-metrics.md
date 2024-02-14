@@ -2,9 +2,7 @@
 title: Prometheus system metrics
 ---
 
-Learn how to check what metrics are available for monitoring your
-service using Prometheus, and find out which of the available metrics
-are particularly worth monitoring and why.
+Learn how to check what metrics are available for monitoring your service using Prometheus, and find out which of the available metrics are particularly worth monitoring and why.
 
 ## About the Prometheus integration
 
@@ -12,7 +10,7 @@ The Prometheus integration allows you to monitor your Aiven services and
 understand the resource usage. Using this integration, you can also
 track some non-service-specific metrics that may be worth monitoring.
 
-To start using Prometheus for monitoring the metrics, you need to
+To start using Prometheus for monitoring the metrics,
 [configure the Prometheus integration and set up the Prometheus server](/docs/platform/howto/integrations/prometheus-metrics).
 
 ## Get a list of available service metrics
@@ -30,7 +28,7 @@ request to your Prometheus service endpoint.
     -   Username
     -   Password
 
-2.  Make a request to get a snapshot of your metrics, replacing the
+1.  Make a request to get a snapshot of your metrics, replacing the
     placeholders in the following code with the values for your service:
 
     ```bash
@@ -98,7 +96,7 @@ collect and monitor:
 | Metrics             | Description                                                                                                           |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `disk_free`         | Free space on the service disk                                                                                        |
-| `disk_used`         | Used space on the disk, for example, `8.0e+9` (8,000,000,000 bytes)                                                   |
+| `disk_used`         | Used space on the disk, for example, `1.0e+9` (8,000,000,000 bytes)                                                   |
 | `disk_total`        | Total space on the disk (free and used)                                                                               |
 | `disk_used_percent` | Percentage of the disk space used equal to `disk_used / disk_total * 100`, for example, `80` (80% service disk usage) |
 | `disk_inodes_free`  | Number of index nodes available on the service disk                                                                   |

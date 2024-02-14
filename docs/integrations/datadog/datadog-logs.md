@@ -4,14 +4,14 @@ title: Send logs to Datadog
 
 Use the Aiven Rsyslog integration to send the logs from your Aiven services to Datadog.
 
-You will need:
+Before you begin, ensure you know:
 
--   A Datadog account, and which region it is in.
--   A Datadog API key. Generate an API key by visiting **Organization
-    settings** under your account menu, and then choose **API Keys**.
-    The **New Key** button will give you an API key. Make a note of it.
--   An Aiven account with a project set up. You\'ll need the name of the
-    project.
+- The region of your Datadog account.
+- Your Datadog API key. Generate an API key for your Datadog account
+  in the **Organization settings**, and click **API Keys** > **New Key**. Make sure to
+  copy this key.
+- An Aiven account with a project set up. You'll need the name of the
+  project.
 
 ## Configure the integration
 
@@ -20,16 +20,16 @@ setup only needs to be done once.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     **Integration endpoints** from the left sidebar in the project page.
-2.  Select **Syslog** from the list in the **Integration endpoints**
-    screen, and then select **Add new endpoint**.
-3.  Configure the settings for the new endpoint:
+1.  Select **Syslog** from the list in the **Integration endpoints**
+    screen, and select **Add new endpoint**.
+1.  Configure the settings for the new endpoint:
     -   **Endpoint name** is how you will refer to this logs integration
         when linking it to other Aiven services
     -   **Server** and **Port** (leave TLS enabled):
         -   For region USA use `intake.logs.datadoghq.com` and `10516`
         -   For region EU use `tcp-intake.logs.datadoghq.eu` and `443`
-    -   **Format** set to \"custom\"
-4.  Configure the **Log Template** field. You will need to replace the
+    -   **Format** set to `custom`.
+1.  Configure the **Log Template** field. You will need to replace the
     following values:
 
     | Variable             | Description                        |
@@ -37,11 +37,11 @@ setup only needs to be done once.
     | `DATADOG_API_KEY`    | From your Datadog account settings |
     | `AIVEN_PROJECT_NAME` | Found in the web console           |
 
-This is the format to use, replacing the variables listed. Don\'t edit
+This is the format to use, replacing the variables listed. Don't edit
 the values surrounded by `%` signs, such as `%msg%` as these are used in
 constructing the log line:
 
-```
+```text
 DATADOG_API_KEY <%pri%>1 %timestamp:::date-rfc3339% %HOSTNAME%.AIVEN_PROJECT_NAME %app-name% - - - %msg%
 ```
 
@@ -62,7 +62,7 @@ this correlation with the metrics. See the [Datadog
 documentation](https://docs.datadoghq.com/integrations/rsyslog).
 :::
 
-4.  Select **Create** to save the endpoint.
+1.  Select **Create** to save the endpoint.
 
 ## Send logs from an Aiven service to Datadog
 
@@ -73,12 +73,12 @@ To send logs to Datadog:
 
     ![Screenshot of system integrations including rsyslog](/images/integrations/rsyslog-service-integration.png)
 
-2.  Pick the log integration you created earlier from the dropdown and
+1.  Pick the log integration you created earlier from the dropdown and
     choose **Enable**.
 
-3.  Visit Datadog and look under \"Logs\" to see the data flowing within
+1.  Visit Datadog and look under \"Logs\" to see the data flowing within
     a few minutes.
 
 ## Related pages
 
-Learn more about [Datadog and Aiven](/docs/integrations/datadog).
+- [Datadog and Aiven](/docs/integrations/datadog)
