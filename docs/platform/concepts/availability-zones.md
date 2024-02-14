@@ -28,9 +28,11 @@ availability zones (AZs). All Aiven's multi-node service plans are
 automatically spread among AZs of a region as long as the underlying
 cloud provider supports it.
 
+<!-- vale off -->
 The virtual machines (VMs) are distributed evenly across zones to
 provide the best possible service availability in cases an entire AZ
 (which may include one or more datacenters) goes down.
+<!-- vale on -->
 
 Cloud providers with AZs available to support your Aiven services are
 the following:

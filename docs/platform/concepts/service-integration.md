@@ -46,12 +46,9 @@ so on.
 ### Can I add alerts in Grafana for the telemetry data?
 
 Yes. You can add alert thresholds for individual graphs and attach
-different alerting mechanisms to them for sending out alerts. Please
-refer to the
-[Grafana documentation](/docs/products/grafana) for more information.
+different alerting mechanisms to them for sending out alerts.
+See the [Grafana documentation](/docs/products/grafana) for more information.
 
 ## Create a service integration
 
-Follow
-[this guide](/docs/platform/howto/create-service-integration) to create service integration between multiple Aiven
-services.
+See [Create service integrations](/docs/platform/howto/create-service-integration).

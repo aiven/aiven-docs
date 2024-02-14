@@ -50,13 +50,12 @@ BYOC:
 ## Who is eligible for BYOC {#eligible-for-byoc}
 
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
-not all cloud providers support it yet. You need to meet a few
-requirements to be eligible for BYOC:
+not all cloud providers support it yet. Meet a few requirements to be eligible for BYOC:
 
 -   You use one of the following public clouds: Amazon Web Services
     (AWS), Google Cloud Platform (GCP), or Microsoft Azure (excluding
     Azure Germany).
--   Your total monthly spend is at least \$5,000.00 for at least 12
+-   Your total monthly spend is at least $5,000.00 for at least 12
     months.
 -   You use at least the [Priority tier of Aiven support
     services](https://aiven.io/support-services).
@@ -90,7 +89,7 @@ may have and potentially leverage committed use discounts (CUDs) in
 certain cases.
 
 :::note
-For a cost estimate and analysis, contact [sales@aiven.io](mailto:sales@aiven.io).
+For a cost estimate and analysis, contact [the sales team](mailto:sales@aiven.io).
 :::
 
 ## Standard BYOC architecture {#byoc-deployment}

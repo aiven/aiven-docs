@@ -1,4 +1,6 @@
-# Access Aiven services from Google Cloud Functions via VPC peering
+---
+title: Access Aiven services from Google Cloud Functions via VPC peering
+---
 
 You can access Aiven service by creating a **Serverless VPC access connector** and **Google Cloud Function**.
 
@@ -38,7 +40,7 @@ You have:
         subnet that is not in use.
 
 1.  If you have **allowed IP addresses** configured on your Aiven
-    service, please ensure the subnet of **serverless VPC access
+    service, ensure the subnet of **serverless VPC access
     connector** is listed there
 
 ## Create a Cloud Function
@@ -79,7 +81,7 @@ You have:
 ## Troubleshooting
 
 If you cannot access your VPC or Aiven VPC from the Cloud Function,
-please consider using the following example for troubleshooting
+consider using the following example for troubleshooting
 purposes.
 
 ```python
