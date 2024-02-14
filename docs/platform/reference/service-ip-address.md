@@ -9,7 +9,7 @@ will dynamically assign one or more public IP address from their
 connection pool. This IP address is not permanent, and with every
 service maintenance (in case of failover, maintenance upgrade or cloud
 migration) the IP address changes since Aiven creates a new node,
-migrates the existing data to it and then retire the old node.
+migrates the existing data to it and retire the old node.
 
 :::note
 Aiven also offer the ability to define
@@ -30,7 +30,7 @@ article](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering).
 When a new service is being provisioned, its hostname is defined as
 follows:
 
-```
+```text
 <SERVICE_NAME>-<PROJECT_NAME>.*.aivencloud.com
 ```
 
