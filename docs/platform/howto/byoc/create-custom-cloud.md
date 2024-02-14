@@ -32,7 +32,7 @@ the [prerequisites](/docs/platform/howto/byoc/create-custom-cloud#byoc-prerequis
 The process of creating a custom cloud in Aiven differs depending on the
 cloud provider to integrate with:
 
--   If you want to use the AWS cloud provider, create your custom cloud
+-   To use the AWS cloud provider, create your custom cloud
     yourself in [Aiven Console](https://console.aiven.io/).
 
 :::note[BYOC self-service in Aiven Console]
@@ -49,7 +49,7 @@ use your new custom clouds for creating services, and you add customer
 contacts for your custom cloud.
 :::
 
--   If you want to use the GCP or Azure cloud providers, request the
+-   To use the GCP or Azure cloud providers, request the
     Aiven team to create the cloud.
 
 ## Limitations {#byoc-limitations}
@@ -667,12 +667,10 @@ steps:
     list of available clouds and check its status in the **Status**
     column.
 
-:::note[Result]
 If your custom cloud's status is **Active**, its deployment has been completed. Your
 custom cloud is ready to use and you can see it on the list of your custom clouds in the
 **Bring your own cloud** view. Now you can create new services in the custom cloud and
 migrate your existing services to the custom cloud.
-:::
 
 #### Destroy the Terraform resources
 

@@ -12,7 +12,7 @@ With the BYOC feature enabled, you can
 organization. As a part of the
 [initial custom cloud's setup in Aiven Console](/docs/platform/howto/byoc/create-custom-cloud),
 you select in what projects you'll be able to use your new custom cloud to host Aiven
-services. You decide if you want to make your cloud available for all the projects in your
+services. You can decide to make your cloud available for all the projects in your
 organization, selected organizational units, or specific projects only.
 
 Later, you can come back to the **Available projects** tab in your
@@ -79,14 +79,11 @@ the settings you configured during the
         desired units and/ or projects as needed. Confirm your choice by
         selecting **Assign projects**.
 
-:::note[Result]
-In the projects and/ or organizational units for which you enable your custom cloud, you
-can perform the following operations:
+As a result, in the projects and/ or organizational units for which you enable your
+custom cloud, you can perform the following operations:
 
 - Create new services in the custom cloud
 - Migrate existing services to the custom cloud
-
-:::
 
 ## Check it out
 

@@ -56,8 +56,7 @@ not all cloud providers support it yet. Meet a few requirements to be eligible f
 -   You use one of the following public clouds: Amazon Web Services
     (AWS), Google Cloud Platform (GCP), or Microsoft Azure (excluding
     Azure Germany).
--   Your total monthly spend is at least $5,000.00 for at least 12
-    months.
+-   You have a commitment deal with Aiven.
 -   You use at least the [Priority tier of Aiven support
     services](https://aiven.io/support-services).
 
