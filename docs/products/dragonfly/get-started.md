@@ -1,17 +1,16 @@
 ---
 title: Get started with Aiven for Dragonfly®
+sidebar_label: Get started
 limited: true
 ---
 
-The first step in using Aiven for Dragonfly is to create a service. You
-can do so either using the [Aiven Console](https://console.aiven.io/) or
-the [Aiven CLI](https://github.com/aiven/aiven-client).
+Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
 ## Prerequisites
 
-Aiven for Dragonfly® is currently a **limited availability** service and requires activation
-on your Aiven account. To explore this offering and request access for your account, contact our
-sales team at sales@aiven.io.
+Aiven for Dragonfly® is currently a **limited-availability** service that requires activation
+on your Aiven account. To explore this offering and request access to your account,
+contact [sales team](mailto:sales@aiven.io).
 
 ## Create a service using the Aiven Console
 
@@ -49,6 +48,13 @@ running the following commands:
 -   For type-specific options: `avn service types -v`
 
 :::
+
+## Create service integrations
+
+Integrate Aiven for Dragonfly® with other Aiven services or third-party tools using the
+integration wizard available on the [Aiven Console](https://console.aiven.io/) or
+[Aiven CLI](https://github.com/aiven/aiven-client).
+Learn how to [create service integrations](/docs/platform/howto/create-service-integration).
 
 ## Connect to Aiven for Dragonfly
 
