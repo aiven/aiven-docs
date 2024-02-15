@@ -120,10 +120,11 @@ const sidebars: SidebarsConfig = {
 
       items: [
         'platform/howto/manage-org-users',
-        'platform/concepts/managed-users',
-        'platform/howto/manage-domains',
-        'platform/howto/delete-user',
         'platform/howto/make-super-admin',
+        'platform/concepts/managed-users',
+        'platform/concepts/application-users',
+        'platform/howto/manage-application-users',
+        'platform/howto/delete-user',
         {
           type: 'category',
           label: 'User profiles',
@@ -154,12 +155,13 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Identity providers',
+          label: 'Identity providers and domains',
           link: {
             type: 'doc',
             id: 'platform/howto/list-identity-providers',
           },
           items: [
+            'platform/howto/manage-domains',
             'platform/howto/saml/add-identity-providers',
             'platform/howto/saml/add-auth0-idp',
             'platform/howto/saml/add-azure-idp',
