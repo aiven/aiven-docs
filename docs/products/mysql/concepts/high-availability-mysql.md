@@ -3,16 +3,14 @@ title: High availability of Aiven for MySQL®
 sidebar_label: High availability
 ---
 
-Aiven for MySQL® is available on a variety of plans, offering
-different levels of high availability. The selected plan defines the
-features available, and a summary is provided in the table below:
+Aiven for MySQL® is available on a variety of plans, offering different levels of high availability. The selected plan defines the features available, and a summary is provided in the table below:
 
- | Plan         | High Availability Features                                                     | Backup History |
- | ------------ | ------------------------------------------------------------------------------ | -------------- |
- | **Hobbyist** | Single-node with limited availability                                          | 2 days         |
- | **Startup**  | Single-node with limited availability                                          | 2 days         |
- | **Business** | Two-node (primary + standby) with higher availability                          | 14 days        |
- | **Premium**  | Three-node (primary + standby + standby) with top availability characteristics | 30-day         |
+| Plan         | High availability features                                      | Backup history | Uptime  |
+| ------------ | --------------------------------------------------------------- | -------------- | ------- |
+| **Hobbyist** | Single node with limited availability                           | 2 days         | 98.5 %  |
+| **Startup**  | Single node with limited availability                           | 2 days         | 99 %    |
+| **Business** | Two nodes (primary + standby: basic high availability)          | 14 days        | 99.9 %  |
+| **Premium**  | Three nodes (primary + 2 x standby: stronger high availability) | 30-day         | 99.99 % |
 
 ## About primary and standby nodes
 
@@ -30,14 +28,18 @@ service is useful for multiple reasons:
 
 ## Failure handling
 
-**Minor failures**, such as service process crashes or temporary loss of
+### Minor failures
+
+Minor failures, such as service process crashes or temporary loss of
 network access, are handled automatically by Aiven in all plans without
 any major changes to the service deployment. The service automatically
-restores normal operation once the crashed process is automatically
-restarted or when network access is restored.
+restores normal operation once the crashed process is restarted or when network access is
+restored.
 
-**Severe failures**, such as losing a node entirely in case of hardware
-or severe software problems, require drastic recovery measures. The
+### Severe failures
+
+Severe failures, such as losing a node entirely in case of hardware
+or severe software problems, require involved recovery measures. The
 Aiven monitoring infrastructure automatically detects a failing node
 both when the node starts reporting issues in the self-diagnostics or
 when stops communicating. In such cases, the monitoring infrastructure
@@ -51,25 +53,28 @@ primary node.
 
 ## Highly available Business and Premium service plans
 
-When the failed node is a MySQL **standby** node, the primary node
+When the failed node is a MySQL standby node, the primary node
 keeps running normally and provides a normal service level to the client
 applications. Once the new replacement standby node is ready and
 synchronised with the primary node, it starts replicating the primary
 node in real time as the situation reverts back to normal.
 
-When the failed node is a MySQL **primary** node, the combined
+When the failed node is a MySQL primary node, the combined
 information from the Aiven monitoring infrastructure and the standby
 node is used to make a failover decision. The standby node is then
 promoted as the new primary and immediately starts serving clients. A
 new replacement node is automatically scheduled and becomes the new
-standby node.
+standby node. There is no data loss in this scenario.
 
-If all the **primary** and **standby nodes** fail at the same time, new
+If all the primary and standby nodes fail at the same time or if all the primary
+nodes fail while standby nodes are being recovered, new
 nodes are automatically scheduled for creation to become the new primary
 and standby. The primary node is restored from the latest available
-backup, which could involve some degree of data loss. Any write
+backup, which can involve some degree of data loss. Any write
 operations made since the backup of the latest write-ahead logging (WAL) file are lost.
 Typically, this time window is limited to either five minutes of time or one WAL file.
+
+If all the primary nodes fail while a standby is being recovered
 
 :::note
 The amount of time it takes to replace a failed node depends mainly on
@@ -80,7 +85,7 @@ All of this is automatic and requires no administrator intervention.
 :::
 
 **Premium** plans operate in a similar way as **Business** plans. The
-main difference comes when one of the **standby** or **primary** nodes
+main difference comes when one of the standby or primary nodes
 fails. Premium plans have an additional, redundant standby node
 available, providing platform availability even in the event of losing
 two nodes. In cases where the primary node fails, Aiven monitoring tool determines which
