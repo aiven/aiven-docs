@@ -1666,6 +1666,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-replication',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',
+                'products/mysql/concepts/high-availability-mysql',
               ],
             },
 
