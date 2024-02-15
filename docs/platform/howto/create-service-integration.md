@@ -28,7 +28,7 @@ Ensure you have these services:
     **Overview** page of your service.
 
     1.  Select to **Integrations** from the sidebar.
-    1.  Under **Aiven solutions**, click **Monitor Data in Grafana**.
+    1.  Under **Aiven solutions**, click **Grafana Metrics Dashboard**.
     1.  In the **Datasource integration** window, select the **Existing
         service** radio button and choose the Aiven for Grafana service
         you created.
