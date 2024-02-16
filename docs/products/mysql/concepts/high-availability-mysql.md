@@ -9,12 +9,12 @@ Aiven for MySQL® is available on a variety of plans, offering different levels 
 | ------------ | --------------------------------------------------------------- | -------------- | ------- |
 | **Hobbyist** | Single node with limited availability                           | 2 days         | 98.5 %  |
 | **Startup**  | Single node with limited availability                           | 2 days         | 99 %    |
-| **Business** | Two nodes (primary + standby: basic high availability)          | 14 days        | 99.9 %  |
-| **Premium**  | Three nodes (primary + 2 x standby: stronger high availability) | 30-day         | 99.99 % |
+| **Business** | Two nodes (primary + standby: regular high availability)        | 14 days        | 99.9 %  |
+| **Premium**  | Three nodes (primary + 2 x standby: strong high availability)   | 30-day         | 99.99 % |
 
 ## About primary and standby nodes
 
-Aiven's Business and Premium plans offer primary nodes and standby nodes. A standby
+Aiven's Business and Premium plans offer a primary node and standby nodes. A standby
 service is useful for multiple reasons:
 
 -   Provides another physical copy of the data in case of hardware,
@@ -32,24 +32,32 @@ service is useful for multiple reasons:
 Minor failures, such as service process crashes or temporary loss of
 network access, are handled automatically by Aiven in all plans without
 any major changes to the service deployment. The service automatically
-resumes normal operation once the crashed process is restarted or when network access is
-restored.
+resumes normal operation once the crashed process is automatically restarted or when
+network access is restored.
 
 ### Severe failures
 
-Severe failures, such as losing a node entirely in case of hardware
-or severe software problems, require involved recovery measures. The
-Aiven monitoring infrastructure automatically detects a failing node
-both when the node starts reporting issues in the self-diagnostics or
-when stops communicating. The monitoring infrastructure automatically schedules the
-creation of a replacement node unless there is a standby to which a failover can be
-performed.
+Severe failures occur, for example, when a node is lost entirely in case of hardware
+or severe software problems, such as an unrecoverable crash-looping condition. Severe
+failures require radical recovery measures. The Aiven monitoring infrastructure
+automatically detects a failing node both when the node starts reporting issues in the
+self-diagnostics or when stops communicating. The monitoring infrastructure automatically
+schedules the creation of a replacement node unless there is a standby to which a failover
+can be performed.
 
 :::note
-In the event of database failover, the **Service URI** of your service
-remains the same; only the IP address will change to point to the new
+In case of database failover, the **Service URI** of your service
+remains the same; only the IP address changes to point to the new
 primary node.
 :::
+
+### RTO and RPO
+
+- With standby, recovery time objective (RTO) is quick, and recovery point objective (RPO)
+  is close to zero loss.
+- Without standby, RPO loses 5 minutes of data, and RTO is variable as it involves
+  restoring a backup and applying binlogs, which depends on the database size and the
+  write load (up to 6 hours or more in edge cases).
 
 ## Highly available Business and Premium service plans
 
@@ -72,8 +80,8 @@ promoted as the new primary and starts serving clients. A
 new replacement node is automatically scheduled and becomes the new
 standby node. Data loss in this scenario is close to zero.
 
-In case all primary and standby nodes fail at the same time or
-all the primary nodes fail while standby nodes are being recovered:
+In case the primary node and all the standby nodes fail at the same time or the primary
+node fails while all the standby nodes are being recovered:
 
 - On a single-standby node plan
 
@@ -97,7 +105,7 @@ All of this is automatic and requires no administrator intervention.
 :::
 
 **Premium** plans operate in a similar way as **Business** plans. The
-main difference comes when one of the standby or primary nodes
+main difference comes when one of the standby nodes or the primary node
 fails. Premium plans have an additional, redundant standby node
 available, providing platform availability even in the event of losing
 two nodes. In cases where the primary node fails, Aiven monitoring tool determines which
