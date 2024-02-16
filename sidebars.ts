@@ -1343,6 +1343,7 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/dragonfly/howto/eviction-policy-df',
+                'products/dragonfly/howto/compatibility-redisjson',
               ],
             },
             {
