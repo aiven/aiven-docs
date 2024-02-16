@@ -19,11 +19,10 @@ service is useful for multiple reasons:
 
 -   Provides another physical copy of the data in case of hardware,
     software, or network failures
--   Typically reduces the data loss window in disaster scenarios
--   Provides a quicker database time to restore with a controlled
-    failover in case of failures, as the standby is already installed,
-    running, and synchronised with the data
--   Can be used for read-only queries to reduce the load on the primary
+-   Reduces the data loss window in failure scenarios
+-   Provides higher availability as failure recovery leverages an already provisioned
+    standby node and does not suffer the delay of restoring a backups
+-   Can be used for low-availability or occasionnal read-only queries
     server
 
 ## Failure handling
@@ -33,7 +32,7 @@ service is useful for multiple reasons:
 Minor failures, such as service process crashes or temporary loss of
 network access, are handled automatically by Aiven in all plans without
 any major changes to the service deployment. The service automatically
-restores normal operation once the crashed process is restarted or when network access is
+resumes normal operation once the crashed process is restarted or when network access is
 restored.
 
 ### Severe failures
@@ -42,8 +41,9 @@ Severe failures, such as losing a node entirely in case of hardware
 or severe software problems, require involved recovery measures. The
 Aiven monitoring infrastructure automatically detects a failing node
 both when the node starts reporting issues in the self-diagnostics or
-when stops communicating. In such cases, the monitoring infrastructure
-automatically schedules a new replacement node to be created.
+when stops communicating. The monitoring infrastructure automatically schedules the
+creation of a replacement node unless there is a standby to which a failover can be
+performed.
 
 :::note
 In the event of database failover, the **Service URI** of your service
@@ -55,26 +55,38 @@ primary node.
 
 When the failed node is a MySQL standby node, the primary node
 keeps running normally and provides a normal service level to the client
-applications. Once the new replacement standby node is ready and
+applications.
+Once the new replacement standby node is ready and
 synchronised with the primary node, it starts replicating the primary
 node in real time as the situation reverts back to normal.
+
+:::note
+When the only standby is restored, a failure of the primary is long to recover since the
+recovery requires restoring a backup and applying binlogs.
+:::
 
 When the failed node is a MySQL primary node, the combined
 information from the Aiven monitoring infrastructure and the standby
 node is used to make a failover decision. The standby node is then
-promoted as the new primary and immediately starts serving clients. A
+promoted as the new primary and starts serving clients. A
 new replacement node is automatically scheduled and becomes the new
-standby node. There is no data loss in this scenario.
+standby node. Data loss in this scenario is close to zero.
 
-If all the primary and standby nodes fail at the same time or if all the primary
-nodes fail while standby nodes are being recovered, new
-nodes are automatically scheduled for creation to become the new primary
-and standby. The primary node is restored from the latest available
-backup, which can involve some degree of data loss. Any write
-operations made since the backup of the latest write-ahead logging (WAL) file are lost.
-Typically, this time window is limited to either five minutes of time or one WAL file.
+In case all primary and standby nodes fail at the same time or
+all the primary nodes fail while standby nodes are being recovered:
 
-If all the primary nodes fail while a standby is being recovered
+- On a single-standby node plan
+
+  New nodes are automatically scheduled for creation to become the new primary and standby.
+  The primary node is restored from the latest available backup, which can involve some
+  degree of data loss. Any write operations made since the backup of the binary log file
+  are lost. Typically, this time window is limited to either five minutes of time or one
+  binary log file.
+
+- On a two-standby node plan
+
+  To avoid a cascading failure condition leading to data lost, the second failover to the
+  last standby is recommended only after a new standby is provisioned.
 
 :::note
 The amount of time it takes to replace a failed node depends mainly on
@@ -102,11 +114,10 @@ For Aiven for MySQL backups and restoration, Aiven uses
 
 Hobbyist and Startup plans provide a single node; when it's lost, Aiven
 immediately starts the automatic process of creating a new replacement
-node. The new node starts up, restores its state from the latest
-available backup, and resumes serving customers.
+node. The new node starts up and restores its state from the latest
+available backup also applying the saved binlogs. Next, it resumes serving customers.
 
 Since there is just a single node providing the service, the service is
 unavailable for the duration of the restoration. In addition, any write
-operations made since the backup of the latest WAL file are lost. Typically, this time
-window is limited to
-either five minutes of time or one WAL file.
+operations made since the backup of the latest binary log file are lost. Typically, this time
+window is limited to either five minutes of time or one binary log file.
