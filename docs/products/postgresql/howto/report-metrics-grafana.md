@@ -40,7 +40,7 @@ of the metrics in case of problems with the service.
 
 1.  Select the target M3DB, or PostgreSQL database service and
     go to its service page. Under **Manage integrations**, choose the
-    **Monitor Data in Grafana** option to make the metrics available on
+    **Grafana Metrics Dashboard** option to make the metrics available on
     that platform.
 
 2.
