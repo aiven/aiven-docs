@@ -3,16 +3,12 @@ title: Create a JAR application
 limited: true
 ---
 
-Aiven for Apache Flink® enables you to upload and deploy
-[custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your
-Flink applications with advanced data
-processing capabilities.
+Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your Apache Flink applications with advanced data processing capabilities.
 
 ## Prerequisite
 
 - Custom JARs for Aiven for Apache Flink is a **limited availability** feature.
-  To try this feature, request it by contacting
-  our [Sales team](mailto:sales@aiven.io).
+  To try this feature, request access by contacting the [sales team](mailto:sales@aiven.io).
 - Once activated on your Aiven account, enable it:
   - For a new Aiven for Apache Flink service,
     toggle the feature during service creation.
@@ -39,6 +35,12 @@ processing capabilities.
 1.  Click **Create application** to proceed.
 1.  Click **Upload first version** to upload the first version of the
     application.
+
+    :::note
+    There is a limit on the size of the custom JAR file you can upload to an Apache Flink
+    JAR application. For more information, contact the sales or support team.
+    :::
+
 1.  In the **Upload new version** dialog:
     1. Click **Choose file** to select your custom JAR file.
     1. Select the **Terms of Service** checkbox to indicate your
