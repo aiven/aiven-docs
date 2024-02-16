@@ -1,24 +1,20 @@
 ---
 title: Static IP addresses
+sidebar_label: Static IP
 ---
 
-Aiven services are normally addressed by their hostname. There are some
-situations however where static IP addresses may be needed for your
-platform, and so these are also available for a small additional charge.
+Aiven services are normally addressed by their hostname, but static IP addresses are also available for an additional charge.
 
-Some common use cases for needing a static IP address might include:
+Static IP address are useful with the following:
 
--   firewall rules for specific IP addresses
--   tools, such as some proxies, that use IP addresses rather than
-    hostnames
+-   Firewall rules for specific IP addresses
+-   Tools such as proxies that use IP addresses rather than hostnames
 
-## Static IP addresses on the Aiven platform
-
-Static IP addresses are created in a specific cloud and belong to a
+Static IP addresses on the Aiven platform are created in a specific cloud and belong to a
 specific project. During their lifecycle, the IP addresses can be in a
 number of states, and move between states by being created/deleted, by
 being associated with a service, or when the service is reconfigured to
-use the static IP addresses. This is summarised in the diagram below:
+use the static IP addresses. This is summarised in the diagram.
 
 ```mermaid
 graph LR;
@@ -42,8 +38,10 @@ static IP addresses, or `false` to stop using them.
 
 :::note
 The `static_ip` configuration can only be enabled when enough static IP
-addresses have been created *and associated* with the service.
+addresses have been created and associated with the service.
 :::
 
-For more information, read the step-by-step process
-[Aiven CLI](/docs/tools/cli)
+:::important
+Static IP addresses are not disassociated/ deleted when a service is powered off or
+deleted. They continue to generate the usual costs.
+:::
