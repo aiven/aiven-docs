@@ -440,6 +440,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/get-started',
             'tools/terraform/concepts/data-sources',
             'tools/terraform/howto/terraform-logging',
+            'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/promote-to-master-pg-rr',
             'tools/terraform/howto/config-postgresql-provider',
             {
