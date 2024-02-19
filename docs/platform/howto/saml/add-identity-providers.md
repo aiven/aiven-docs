@@ -20,8 +20,8 @@ To set up single sign-on through an IdP for your organization:
 1. Click **Identity providers**.
 1. Click **Add identity provider**.
 1. Select an IdP and enter a name.
-1. (Optional) Select a [verified domain](/docs/platform/howto/manage-domains) to link
-    this IdP to.
+1. Select a [verified domain](/docs/platform/howto/manage-domains) to link
+    this IdP to. Users see linked IdPs on the login page.
 1. On the **Configuration** step are two parameters that you need to
    set up the SAML authentication in your IdP:
 
@@ -56,7 +56,7 @@ Go back to the Aiven Console to complete setting up the IdP:
    | **Entity ID** | `Issuer URN`                  | `Azure AD Identifier` | `Entity ID` | `Entity ID` | `IdP Entity ID` | `Identity Provider Issuer`             | `Issuer URL`               |
 
 1. Paste the certificate from the IdP into the **Certificate** field.
-1. (Optional) Paste or upload a JSON file with configuration details
+1. Optional: Paste or upload a JSON file with configuration details
    for your IdP.
 1. Click **Next**.
 1. Configure the security options for this IdP:
