@@ -1,0 +1,56 @@
+#
+# Rules for .github/workflows/labeler.yaml
+#
+platform:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/platform/**'
+
+service/cassandra:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/cassandra/**'
+
+service/clickhouse:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/clickhouse/**'
+
+service/dragonfly:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/dragonfly/**'
+
+service/flink:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/flink/**'
+
+service/kafka:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/kafka/**'
+
+service/m3db:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/m3db/**'
+
+service/mysql:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/mysql/**'
+
+service/postgre:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/postgre/**'
+
+service/redis:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/redis/**'
+
+tool/terraform:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/tools/terraform/**'
+
+tool/cli:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/tools/cli/**'
+
+tech:
+  - changed-files:
+      - any-glob-to-any-file: 'scripts/**'
+      - any-glob-to-any-file: '.github/**'
+      - any-glob-to-any-file: 'src/**'
