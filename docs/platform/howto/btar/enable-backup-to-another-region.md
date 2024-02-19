@@ -7,7 +7,7 @@ pro: true
 Enable [the backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) and create an additional cross-region service backup on top of a regular backup stored in the region where your service is hosted.
 
 :::important
-BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL® only.
+BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL®.
 :::
 
 To add an additional service backup for your service, you can use the Aiven

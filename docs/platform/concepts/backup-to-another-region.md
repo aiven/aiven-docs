@@ -4,15 +4,15 @@ sidebar_label: About backup to another region
 pro: true
 ---
 
-Additionally to the primary service backup, you can have a secondary backup in an alternative location.
+In addition to the primary service backup, you can have a secondary backup in an alternative location.
 
 ## About BTAR
 
 Backup to another region (BTAR) is a disaster recovery feature that allows backup
 files to be copied from the service's primary backup region to an additional (secondary)
-region. BTAR helps improve data resilience and makes data protected against disasters in
-the primary backup region. When the primary region is down, BTAR allows forking the service
-from an additional copy of the backup residing outside the primary region.
+region. BTAR can bolster data resilience and helps improve data protection against
+disasters in the primary backup region. When the primary region is down, BTAR allows
+forking the service from an additional copy of the backup residing in a secondary region.
 
 BTAR is supported for the following services:
 
