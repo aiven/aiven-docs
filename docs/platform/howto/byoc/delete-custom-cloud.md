@@ -8,8 +8,7 @@ organizations, units, or projects.
 :::important
 Custom cloud configuration in Aiven is an
 [early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
-maintaining your custom cloud: payments for your integrated AWS
-infrastructure and Aiven services within the custom cloud.
+maintaining your custom cloud payments for your integrated AWS infrastructure and Aiven services within the custom cloud.
 :::
 
 ## About deleting custom clouds
@@ -43,15 +42,15 @@ them earlier, you're advised to do that if deleting your cloud.
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
-2.  Select the organization you want to use from the dropdown menu in
+1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
-3.  From the top navigation bar, select **Admin**.
-4.  From the left sidebar, select **Bring your own cloud**.
-5.  In the **Bring your own cloud** view, select one of the clouds
+1.  From the top navigation bar, select **Admin**.
+1.  From the left sidebar, select **Bring your own cloud**.
+1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
+1.  In the selected cloud's page, use the ellipsis (**\...**) menu in
     the top right corner to select **Delete**.
-7.  Make sure you understand the impact and, if so, confirm that you
+1.  Make sure you understand the impact and, if so, confirm that you
     want to delete the cloud by selecting **Delete** in the **Warning**
     window.
 
@@ -68,16 +67,15 @@ destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 
 ## Check it out
 
-You can verify if you deleted your cloud successfully by taking the
-following steps:
+To ensure a cloud was successfully deleted:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
-2.  Select the organization you want to use from the dropdown menu in
+1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
-3.  From the top navigation bar, select **Admin**.
-4.  From the left sidebar, select **Bring your own cloud**.
-5.  In the **Bring your own cloud** view, see the list of the available
+1.  From the top navigation bar, select **Admin**.
+1.  From the left sidebar, select **Bring your own cloud**.
+1.  In the **Bring your own cloud** view, see the list of the available
     clouds to make sure the cloud you intended to delete is actually
     gone.
 

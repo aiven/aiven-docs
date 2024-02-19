@@ -132,5 +132,10 @@
     "scope": "markdown",
     "prefix": ["contact", "sales"],
     "body": ["contact the [sales team](mailto:sales@aiven.io)"]
+  },
+  "Contact support": {
+    "scope": "markdown",
+    "prefix": ["contact", "support"],
+    "body": ["contact the [support team](mailto:support@aiven.io)"]
   }
 }

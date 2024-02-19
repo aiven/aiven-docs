@@ -230,9 +230,10 @@ in order for the Aiven application object to authenticate with your
 tenant to give it access to the service principal created in step 7 (
 `--peer-azure-tenant-id $user_tenant_id` ).
 
-| `$aiven_project_vpc_id` is the ID of the Aiven Project VPC, and can be
-  found with `avn vpc list`
-| Using the Aiven CLI:
+`$aiven_project_vpc_id` is the ID of the Aiven Project VPC, and can be
+found with `avn vpc list`
+
+Using the Aiven CLI:
 
 ```
 avn vpc peering-connection create --project-vpc-id $aiven_project_vpc_id --peer-cloud-account $user_subscription_id --peer-resource-group $user_resource_group --peer-vpc $user_vnet_name --peer-azure-app-id $user_app_id --peer-azure-tenant-id $user_tenant_id
@@ -252,15 +253,16 @@ Run the following command until the state is no longer `APPROVED` , but
 avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cloud-account $user_subscription_id --peer-resource-group $user_resource_group --peer-vpc $user_vnet_name
 ```
 
-| A state such as `INVALID_SPECIFICATION` or `REJECTED_BY_PEER` may be
-  shown if the VNet specified in the previous step did not exist, or the
-  Aiven app object wasn\'t given permissions to peer with it. If that
-  occurs, check your configuration and then recreate the peering
-  connection in step 12
-| If everything went as expected, the state changes to `PENDING_PEER`
-  within a couple of minutes showing details to set up the peering
-  connection from your VNet to the Project VPC's VNet in the Aiven
-  subscription.
+A state such as `INVALID_SPECIFICATION` or `REJECTED_BY_PEER` may be
+shown if the VNet specified in the previous step did not exist, or the
+Aiven app object wasn't given permissions to peer with it. If that
+occurs, check your configuration and recreate the peering
+connection in step 12.
+
+If everything went as expected, the state changes to `PENDING_PEER`
+within a couple of minutes showing details to set up the peering
+connection from your VNet to the Project VPC's VNet in the Aiven
+subscription.
 
 Save the `to-tenant-id` field from the output. It will be referred to as
 the `aiven_tenant_id` later. The `to-network-id` field from the output

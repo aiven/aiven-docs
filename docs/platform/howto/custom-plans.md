@@ -2,14 +2,11 @@
 title: Request service custom plans
 ---
 
-Aiven stock plans are designed to cover most common use cases. The plans
-are tested and configurations optimized to work well across the
-different clouds.
+Aiven stock plans are designed to cover most common use cases. The plans are tested and configurations optimized to work well across the different clouds.
 
 Sometimes, for special use cases like very high throughput clusters, the
 stock plans might not be an optimal fit. In such cases we can create
-custom plans where the default service configurations are modified to
-best fit your needs.
+custom plans where the default service configurations are modified to fit your needs.
 
 :::note
 Custom plans can be made available for all the Aiven services types (as

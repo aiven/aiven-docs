@@ -1,0 +1,15 @@
+extends: substitution
+message: "Using '%s' instead of '%s'."
+ignorecase: true
+level: error
+action:
+  name: replace
+swap:
+  spin up: start
+  if you want to: to
+  you need to: imperative
+  pre-requisites: prerequisite
+  (?:take|apply)? ?(?:the )?following steps: nothing
+  and then: and
+  to see a list: to list
+  proceed as follows: nothing

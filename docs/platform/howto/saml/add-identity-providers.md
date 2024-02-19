@@ -20,8 +20,8 @@ To set up single sign-on through an IdP for your organization:
 1. Click **Identity providers**.
 1. Click **Add identity provider**.
 1. Select an IdP and enter a name.
-1. On the **Configuration** step are two parameters that you need to
-   set up the SAML authentication in your IdP:
+1. On the **Configuration** step, set up the following parameters to configure the SAML
+   authentication in your IdP:
 
    -   Metadata URL
    -   ACS URL

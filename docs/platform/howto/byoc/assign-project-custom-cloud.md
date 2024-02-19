@@ -7,7 +7,7 @@ To use a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization
 :::important
 Custom cloud configuration in Aiven is an
 [early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
-maintaining your custom cloud: payments for your integrated AWS
+maintaining your custom cloud payments for your integrated AWS
 infrastructure and Aiven services within the custom cloud.
 :::
 
@@ -88,8 +88,7 @@ create services using your custom cloud.
 
 ## Check it out
 
-You can verify if the cloud availability changes you made are live by
-taking the following steps:
+To verify if the cloud availability changes you made are live:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.

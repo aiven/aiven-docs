@@ -2,10 +2,7 @@
 title: Access JMX metrics via Jolokia
 ---
 
-[Jolokia](https://jolokia.org/) is one of the external metrics
-integration supported on the Aiven platform besides
-[Datadog metrics](/docs/integrations/datadog/datadog-metrics) and
-[Prometheus metrics](/docs/platform/howto/integrations/prometheus-metrics).
+[Jolokia](https://jolokia.org/) is one of the external metrics integration supported on the Aiven platform besides [Datadog metrics](/docs/integrations/datadog/datadog-metrics) and [Prometheus metrics](/docs/platform/howto/integrations/prometheus-metrics).
 
 :::note
 Only Aiven for Apache Kafka® has support for Jolokia integration.
@@ -20,10 +17,10 @@ create a new Jolokia endpoint configuration:
     the **Services** page, select **Integration endpoints** on the left
     sidebar.
 
-2.  In the **Integrations** page, select **Jolokia**, and then select
+1.  In the **Integrations** page, select **Jolokia**, and select
     **Add new endpoint**.
 
-3.  Enter an **Endpoint name** for the new Jolokia endpoint and select
+1.  Enter an **Endpoint name** for the new Jolokia endpoint and select
     **Create**. The system will automatically generate a username and
     password for authentication. Usually, you can reuse the same
     Jolokia endpoint configuration for all services within a project.

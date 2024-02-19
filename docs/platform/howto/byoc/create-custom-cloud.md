@@ -63,8 +63,8 @@ contacts for your custom cloud.
 -   You need at least the Priority tier of Aiven support services to be
     eligible for activating BYOC.
 -   To build your custom cloud with a cloud provider other
-    than AWS, you need to request it as detailed in
-    [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc) and follow up with the Aiven team.
+    than AWS, request it as detailed in
+    [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc).
 -   BYOC is supported with the
     [standard deployment](/docs/platform/concepts/byoc#byoc-deployment) model only.
 -   Only organization's administrators can create custom clouds.
@@ -507,7 +507,7 @@ you\'ll deploy this template in your AWS account to acquire Role ARN
 (Amazon Resource Name), which Aiven needs for accessing your AWS
 account.
 
-In the **Create custom cloud** wizard, proceed as follows:
+In the **Create custom cloud** wizard:
 
 1.  Specify the following:
     -   Custom cloud name
@@ -568,8 +568,7 @@ account.
 
 Use the Terraform template generated in step
 [Generate an infrastructure template](/docs/platform/howto/byoc/create-custom-cloud#generate-infra-template) to create your Role ARN by deploying the template in your
-AWS account. Continue working in the **Create custom cloud** wizard by
-taking the following steps:
+AWS account. Continue working in the **Create custom cloud** wizard:
 
 1.  Copy or download the template and the variables file from the
     **Create custom cloud** wizard.
@@ -613,8 +612,7 @@ create services. You can make your cloud available for all the projects
 in your organization, selected organizational units, or specific
 projects only.
 
-Continue working in the **Create custom cloud** wizard by taking the
-following steps:
+Continue working in the **Create custom cloud** wizard:
 
 1.  In the **Custom cloud's availability in your organization**
     section, select either:
@@ -642,7 +640,7 @@ available from all the projects in this unit.
 
 Select at least one person whom Aiven can contact in case any technical
 issue with the custom cloud needs fixing. Continue working in the
-**Create custom cloud** wizard by taking the following steps:
+**Create custom cloud** wizard:
 
 1.  In the **Customer contacts** section, select a contact person's
     role using the **Job title** dropdown menu, and provide their email
@@ -657,8 +655,7 @@ your custom cloud**.
 
 #### Complete the cloud setup
 
-you're all set. Select **Close** to close the **Create custom cloud**
-wizard.
+Select **Close** to close the **Create custom cloud** wizard.
 
 The deployment of your new custom cloud might take a few minutes. As
 soon as it's over, and your custom cloud is ready to use, you\'ll be
@@ -697,8 +694,7 @@ can create services using your new custom cloud.
 As soon as you new custom cloud gets the **Active** status, remove the
 Terraform resources your created in your AWS account while creating the
 cloud. See the guidelines on how to use the `destroy` command in
-[Command:
-destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
+[Command: destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 
 ### Create a service using the new cloud
 
@@ -707,7 +703,7 @@ your new custom cloud, follow the guidelines in
 [Create a new service](/docs/platform/howto/create_new_service).
 
 When you get to the **Select service region** step while setting up your
-service in [Aiven Console](https://console.aiven.io/), you\'ll be able
+service in [Aiven Console](https://console.aiven.io/), you'll be able
 to select **Custom clouds** from among available regions.
 
 ## Related pages

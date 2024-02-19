@@ -2,22 +2,20 @@
 title: Remote syslog integration
 ---
 
-In addition to using Aiven for OpenSearch® to store the logs from your
-Aiven services, you can also integrate with an external monitoring
-system that supports the rsyslog protocol.
+In addition to using Aiven for OpenSearch® to store the logs from your Aiven services, you can also integrate with an external monitoring system that supports the rsyslog protocol.
 
 ## Creating rsyslog integration
 
 ### Add rsyslog integration endpoint
 
-As the first step, you need to add the remote syslog you want to send
+Add the remote syslog you want to send
 the log to into the project that contains the service you want to
 integrate.
 
 This can be configured from the **Integration endpoints** page in the
 Aiven Console.
 
-![\"Create new Syslog endpoint\" dialog](/images/integrations/remote-syslog-endpoint.png)
+!["Create new Syslog endpoint" dialog](/images/integrations/remote-syslog-endpoint.png)
 
 Another option is to use the [Aiven
 Client](https://github.com/aiven/aiven-client) .
@@ -102,14 +100,14 @@ CLI though the examples are easier to copy and paste in the CLI form.
 
 ### Coralogix {#rsyslog_coralogix}
 
-For [Coralogix](https://coralogix.com/) integration you need to use a
+For a [Coralogix](https://coralogix.com/) integration, use a
 custom `logline` format with your key and company ID.
 
 The Syslog Endpoint to use for `server` depends on your account:
 
--   if it ends with `.com` use `syslogserver.coralogix.com`
--   if it ends with `.us` use `syslogserver.coralogix.us`
--   if it ends with `.in` use `syslogserver.app.coralogix.in`
+-   If it ends with `.com`, use `syslogserver.coralogix.com`.
+-   If it ends with `.us`, use `syslogserver.coralogix.us`.
+-   If it ends with `.in`, use `syslogserver.app.coralogix.in`.
 
 See the Coralogix [Rsyslog](https://coralogix.com/docs/) documentation
 for more information.
@@ -128,7 +126,7 @@ avn service integration-endpoint-create --project your-project \
 
 ### Loggly® {#rsyslog_loggly}
 
-For [Loggly](hthtps://www.loggly.com/) integration, you need to use a
+For [Loggly](hthtps://www.loggly.com/) integration, use a
 custom `logline` format with your token.
 
 ```bas
@@ -141,7 +139,7 @@ avn service integration-endpoint-create --project your-project \
 
 ### Mezmo (LogDNA) {#rsyslog_mezmo}
 
-For [Mezmo](https://www.mezmo.com/) syslog integration you need to use a
+For [Mezmo](https://www.mezmo.com/) syslog integration, use a
 custom `logline` format with your key.
 
 ```bash
@@ -154,7 +152,7 @@ avn service integration-endpoint-create --project your-project \
 
 ### New Relic {#rsyslog_new_relic}
 
-For [New Relic](https://newrelic.com/) Syslog integration you need to
+For [New Relic](https://newrelic.com/) Syslog integration,
 use a custom `logline` format with your license key. This is so you can
 prepend your [New Relic License
 Key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#license-key)
@@ -167,7 +165,7 @@ The value to use for `server` depends on the account location:
     endpoint will not work for an EU account)
 -   `newrelic.syslog.nr-data.net` for other regions
 
-For more information see [Use TCP endpoint to forward logs to New
+For more information, see [Use TCP endpoint to forward logs to New
 Relic](https://docs.newrelic.com/docs/logs/log-api/use-tcp-endpoint-forward-logs-new-relic/)
 
 ```bash
@@ -182,7 +180,7 @@ avn service integration-endpoint-create --project your-project \
 
 As [Papertrail](https://www.papertrail.com/) identifies the client based
 on the server and port you only need to copy the appropriate values from
-the \"Log Destinations\" page and use those as the values for `server`
+the "Log Destinations" page and use those as the values for `server`
 and `port` respectively. You **do not need** the ca-bundle as the
 Papertrail servers use certificates signed by a known CA. You also need
 to set the format to `rfc3164` .
@@ -196,7 +194,7 @@ avn service integration-endpoint-create --project your-project \
 
 ### Sumo Logic® {#rsyslog_sumo_logic}
 
-For [Sumo Logic](https://www.sumologic.com/) you need to use a custom
+For [Sumo Logic](https://www.sumologic.com/), use a custom
 `logline` format with your collector token, use the server and port of
 the collector, and replace `YOUR_DEPLOYMENT` with one of `au`, `ca`,
 `de`, `eu`, `fed`, `in`, `jp`, `us1` or `us2`. See [Cloud Syslog

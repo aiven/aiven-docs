@@ -133,7 +133,9 @@ When Aiven sets the EOL date for a service major version:
 -   In the month of the EOL date, the weekly reminders are sent to
     customers.
 
+<!-- vale off -->
 ### EOL best practices
+<!-- vale on -->
 
 It's highly recommended to perform the version upgrade well before EOL
 so that you can test the compatibility for any breaking changes, plan
