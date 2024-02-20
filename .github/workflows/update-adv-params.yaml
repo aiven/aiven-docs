@@ -24,7 +24,7 @@ jobs:
       - name: Parse service file
         run: make service-type-config-${{ inputs.service-name }}
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: (${{ inputs.service-name }}) Update advanced parameters
           committer: GitHub <noreply@github.com>

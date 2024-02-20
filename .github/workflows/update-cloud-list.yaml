@@ -22,7 +22,7 @@ jobs:
       - name: Update available cloud list
         run: make cloud-list
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: Cloud - Update available list
           committer: GitHub <noreply@github.com>
