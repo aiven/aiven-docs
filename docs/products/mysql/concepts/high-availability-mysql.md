@@ -93,8 +93,8 @@ node fails while all the standby nodes are being recovered:
 
 - On a two-standby node plan
 
-  To avoid a cascading failure condition leading to data lost, the second failover to the
-  last standby is recommended only after a new standby is provisioned.
+  The second failover to the last standby is recommended only after a new standby is
+  provisioned.
 
 :::note
 The amount of time it takes to replace a failed node depends mainly on
