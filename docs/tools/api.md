@@ -145,7 +145,7 @@ The following is a sample response:
 
 ## List of cloud regions
 
-This endpoint does not require authorization; if you aren\'t
+This endpoint does not require authorization; if you aren't
 authenticated then the standard set of clouds will be returned.
 
 ```

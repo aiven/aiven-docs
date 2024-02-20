@@ -6,7 +6,7 @@ Send logs from your Aiven service to the AWS CloudWatch using the [Aiven client]
 
 ## Prerequisites
 
-This is what you\'ll need to send your logs from the AWS CloudWatch
+This is what you'll need to send your logs from the AWS CloudWatch
 using the [Aiven client](/docs/tools/cli).
 
 -   Aiven client installed.

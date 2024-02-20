@@ -315,7 +315,7 @@ them:
 python search.py match title Spring
 ```
 
-As a result of the \"Spring\" search recipes, you\'ll find:
+As a result of the \"Spring\" search recipes, you'll find:
 
 ```shell
 [

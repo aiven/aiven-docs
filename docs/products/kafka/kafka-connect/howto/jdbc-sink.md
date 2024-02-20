@@ -107,7 +107,7 @@ The configuration file contains the following entries:
     maximum is 1 per topic and partition.
 
 -   `auto.create`: boolean flag enabling the target table creation if it
-    doesn\'t exists.
+    doesn't exists.
 
 -   `auto.evolve`: boolean flag enabling the target table modification
     in cases of schema modification of the messages in the topic.

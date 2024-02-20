@@ -303,7 +303,7 @@ peering. After the peering has been created the peering should be in
 state `connected`
 
 In case you get the error below, it's possible the role assignment from
-step 6 hasn\'t taken effect yet. If that is the case, try logging in
+step 6 hasn't taken effect yet. If that is the case, try logging in
 again and creating the peering again after waiting a bit by repeating
 the commands in this step. If the error message persists, check
 the role assignment in step 6 was correct.

@@ -40,7 +40,7 @@ Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html) says:
 > variable defines the buffer pool size. Typically, a recommended
 > `innodb_buffer_pool_size` value is 50 to 75 percent of system memory.
 
-However, the InnoDB buffer pool isn\'t the only pre-allocated buffer.
+However, the InnoDB buffer pool isn't the only pre-allocated buffer.
 
 ## Global buffers
 

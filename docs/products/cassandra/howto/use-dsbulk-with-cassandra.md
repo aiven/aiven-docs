@@ -72,7 +72,7 @@ truststore.
     information.
 
     By creating a configuration file, the `dsbulk` command line is more
-    readable and it doesn\'t show passwords in clear text. If you don\'t
+    readable and it doesn't show passwords in clear text. If you don't
     create a configuration file, every option must be explicitly
     provided on the command line.
 

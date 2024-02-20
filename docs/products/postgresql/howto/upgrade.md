@@ -79,7 +79,7 @@ the
 [dedicated page](/docs/products/postgresql/concepts/upgrade-failover).
 
 :::warning
-Once the upgrade is started, the PostgreSQL instance can\'t be restored
+Once the upgrade is started, the PostgreSQL instance can't be restored
 to the previous version. Similarly, the pre-existing backups cannot be
 used for procedures such as Point In Time Recovery since they were
 created with an earlier version of PostgreSQL.

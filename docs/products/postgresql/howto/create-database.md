@@ -2,7 +2,7 @@
 title: Create additional PostgreSQL® databases
 ---
 
-Once you\'ve created your Aiven for PostgreSQL® service, you can add
+Once you've created your Aiven for PostgreSQL® service, you can add
 additional databases, whether for security purposes or to isolate your
 data per application.
 

@@ -15,7 +15,7 @@ These are the placeholders you will need to replace in the code sample:
 
 ## Prerequisites
 
-For this example you\'ll need `psql` already installed on your computer
+For this example you'll need `psql` already installed on your computer
 
 ## Connect to PostgreSQL
 

@@ -165,7 +165,7 @@ The SQL schema includes:
 -   the message fields `cpu`, `hostname`, `usage`, `occurred_at` and the
     related [data
     type](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/table/types/#list-of-data-types).
-    The order of fields in the SQL definition doesn\'t need to follow
+    The order of fields in the SQL definition doesn't need to follow
     the order presented in the payload.
 -   the definition of the field `time_ltz` as transformation to
     `TIMESTAMP(3)` from the `occurred_at` timestamp in Linux format.

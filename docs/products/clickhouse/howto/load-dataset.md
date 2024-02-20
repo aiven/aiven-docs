@@ -48,7 +48,7 @@ Once done, you should have two files available: `hits_v1.tsv` and
 
 ## Set up the service and database
 
-If you don\'t yet have an Aiven for ClickHouse service, follow the steps
+If you don't yet have an Aiven for ClickHouse service, follow the steps
 in our
 [getting started guide](/docs/products/clickhouse/get-started) to create one.
 

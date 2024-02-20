@@ -61,7 +61,7 @@ You can use the following variables in the code samples provided:
         grant replication slave on *.* TO 'SRC_USERNAME'@'%';
         grant select, process, event on *.* to 'SRC_USERNAME'@'%'
 
-2.  If you don\'t have an Aiven for MySQL database yet, create it via
+2.  If you don't have an Aiven for MySQL database yet, create it via
     [Aiven Console](/docs/products/mysql/get-started) or the dedicated
     [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-create)
 

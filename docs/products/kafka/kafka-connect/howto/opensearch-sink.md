@@ -321,10 +321,10 @@ The configuration file contains the following peculiarities:
 -   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
     the message value is in plain JSON format without a schema
 -   `"value.converter.schemas.enable": "false"`: since the data in the
-    value doesn\'t have a schema, the connector shouldn\'t try to read
+    value doesn't have a schema, the connector shouldn't try to read
     it and sets it to null
 -   `"schema.ignore": "true"`: since the value schema is null, the
-    connector doesn\'t infer it before pushing the data to OpenSearch
+    connector doesn't infer it before pushing the data to OpenSearch
 
 :::note
 The OpenSearch document ID is set as the message key

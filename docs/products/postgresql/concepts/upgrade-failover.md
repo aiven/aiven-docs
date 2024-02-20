@@ -74,7 +74,7 @@ recovery of the replica server.
 ## Controlled switchover during upgrades or migrations
 
 :::note
-The below doesn\'t apply to major version upgrade with `pg_upgrade`, for
+The below doesn't apply to major version upgrade with `pg_upgrade`, for
 major version upgrade please read the related
 [how-to](/docs/products/postgresql/howto/upgrade).
 :::
@@ -128,7 +128,7 @@ automatically recreated in the new primary server.
 
 :::note
 The recreation of replication slots feature is enabled automatically and
-doesn\'t require restarting the nodes for services that have been
+doesn't require restarting the nodes for services that have been
 created or updated as of January 2023. Additional details are outlined
 in [our blog
 post](https://aiven.io/blog/aiven-for-pg-recreates-logical-replication-slots).

@@ -59,7 +59,7 @@ Your custom cloud has been deleted.
 :::important
 Remember to remove the resources created in your AWS account when
 applying the Terraform template to create the custom cloud. They are not
-removed automatically after deleting the cloud. Unless you\'ve removed
+removed automatically after deleting the cloud. Unless you've removed
 them earlier, use the `terraform destroy` command to delete them. See
 the guidelines on how to use the `destroy` command in [Command:
 destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).

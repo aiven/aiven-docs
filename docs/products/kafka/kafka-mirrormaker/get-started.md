@@ -11,7 +11,7 @@ selected project.
 :::warning
 Aiven for Apache Kafka® MirrorMaker 2 services can be created only
 alongside at least one existing Aiven for Apache Kafka running service.
-If your project doesn\'t contain any Aiven for Apache Kafka services,
+If your project doesn't contain any Aiven for Apache Kafka services,
 create one before attempting to create an Aiven for Apache Kafka
 MirrorMaker 2 service.
 :::

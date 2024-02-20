@@ -15,7 +15,7 @@ scenario, you want your consumers and producers to be able to switch
 with minimal downtime and without needing to modify the topic names in
 their configuration.
 
-In such cases, to remove the topic prefix, you\'ll need to change the
+In such cases, to remove the topic prefix, you'll need to change the
 replication flow `replication_policy_class` parameter from the default
 `org.apache.kafka.connect.mirror.DefaultReplicationPolicy` value which
 includes the source cluster alias in the target topic name to
@@ -47,7 +47,7 @@ alias as topic prefix, execute the above command passing the
 
 :::warning
 The `org.apache.kafka.connect.mirror.IdentityReplicationPolicy`
-replication policy **doesn\'t support active-active replication** as the
+replication policy **doesn't support active-active replication** as the
 topics keep the same name and offsets can not be accurately tracked.
 Creating the same replication flows between a source and a destination
 with `org.apache.kafka.connect.mirror.IdentityReplicationPolicy` policy

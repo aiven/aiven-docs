@@ -82,6 +82,6 @@ they exist.
     incoming messages, then we would advise to scale the consumer
     up/vertically or out/horizontally.
 
-If the above didn\'t help you resolve your issue and you have further
+If the above didn't help you resolve your issue and you have further
 concerns or questions, feel free to contact [Aiven
 support](mailto:support@aiven.io).

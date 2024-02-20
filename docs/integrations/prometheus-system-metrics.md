@@ -83,7 +83,7 @@ They are as follows:
 
 ### Disk usage
 
-Monitoring the disk usage ensures that applications or processes don\'t
+Monitoring the disk usage ensures that applications or processes don't
 fail due to an insufficient disk storage.
 
 :::tip

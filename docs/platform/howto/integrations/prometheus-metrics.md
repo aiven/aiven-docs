@@ -167,7 +167,7 @@ your service.
    bound to the IP addresses of the hosts, not to the DNS name.
 
 1. Enable the `insecure_skip_verify` setting so that Prometheus
-   wouldn\'t verify if the TLS certificate is bound to the IP addresses
+   wouldn't verify if the TLS certificate is bound to the IP addresses
    of the hosts.
 
     ```bash

@@ -10,7 +10,7 @@ instance is created and content from the original database is restored
 into it.
 
 :::note
-Aiven for PostgreSQL doesn\'t allow a service to be rolled back to a
+Aiven for PostgreSQL doesn't allow a service to be rolled back to a
 backup in-place since it creates alternative timelines for the database,
 adding complexity for the user.
 :::

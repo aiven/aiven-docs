@@ -30,7 +30,7 @@ removed even with this setting enabled.
 
 ## Configure your project and services
 
-In this section, you\'ll learn how to structure a simple Terraform
+In this section, you'll learn how to structure a simple Terraform
 project.
 
 Terraform files declare the structure of the infrastructure, the

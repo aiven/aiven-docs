@@ -35,7 +35,7 @@ command.
 | `project_name` | Required positional argument |
 
 **Example:** Make the project named `my-project` the default for all
-commands where the `--project` parameter isn\'t supplied:
+commands where the `--project` parameter isn't supplied:
 
 ```shell
 avn project switch my-project
@@ -104,11 +104,11 @@ avn project update
 
 ### `avn project delete` {#avn-delete-project}
 
-Deletes a project. If the project isn\'t empty, it removes the services
+Deletes a project. If the project isn't empty, it removes the services
 in it first.
 
 :::note
-Aiven doesn\'t allow the deletion of non-empty projects as safeguard
+Aiven doesn't allow the deletion of non-empty projects as safeguard
 against accidental code execution.
 :::
 

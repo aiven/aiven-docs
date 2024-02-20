@@ -10,10 +10,10 @@ connect, this is outlined in the steps below.
 
 1.  Visit the **Service overview** page for your Aiven for Apache Kafka®
     service (the [Getting started with Aiven for Apache Kafka®](/docs/products/kafka/get-started) page is a good place for more information about creating
-    a new service if you don\'t have one already).
+    a new service if you don't have one already).
 
 2.  Download the **Access Key**, **Access Certificate** and **CA
-    Certificate** (if you didn\'t have that already) into a directory on
+    Certificate** (if you didn't have that already) into a directory on
     your computer.
 
 3.  Choose **New Kafka Cluster** on the main pane, and click the

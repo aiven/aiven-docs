@@ -43,5 +43,5 @@ following object permissions must be enabled in the bucket:
 
 The connector should be granted these permissions via a custom role or
 the standard role **Storage Legacy Bucket Writer**. You also need to
-ensure the bucket doesn\'t have a retention policy that prohibits
+ensure the bucket doesn't have a retention policy that prohibits
 overwriting.

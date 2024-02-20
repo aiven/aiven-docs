@@ -15,7 +15,7 @@ for M3.
 
 ## Create Aiven for M3 service
 
-If you don\'t have an existing Aiven account, you can sign up for a free
+If you don't have an existing Aiven account, you can sign up for a free
 30-day trial with \$300 credits using the [Aiven
 Console](https://console.aiven.io) link.
 
@@ -42,7 +42,7 @@ Assuming you have Homebrew installed on a MacBook, simply run the
 following command at the Terminal to install Telegraf
 ([https://formulae.brew.sh/formula/telegraf](https://formulae.brew.sh/formula/telegraf)):
 
-``` 
+```
 brew update && brew install telegraf
 ```
 
@@ -51,7 +51,7 @@ brew update && brew install telegraf
 Use the Telegraf agent to generate a default configuration file for
 editing:
 
-``` 
+```
 telegraf config > telegraf.conf
 ```
 
@@ -67,7 +67,7 @@ Specify the service username/password and set the database name to
 `default` (the database that is automatically created when your service
 is provisioned):
 
-``` 
+```
 [[outputs.influxdb]]
   urls = ["https://my-M3-service-my-project.aivencloud.com:24947/api/v1/influxdb"]
   database = "default"

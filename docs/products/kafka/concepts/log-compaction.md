@@ -137,6 +137,6 @@ Lastly, the records in the offset map are added in the tail.
 The compaction occurs **per partition**: if two records with the same
 key land in different partitions, they will not be compacted.
 
-This usually doesn\'t happen since the record key is used to select the
+This usually doesn't happen since the record key is used to select the
 partition. However, for custom message routing this might be an issue.
 :::

@@ -48,7 +48,7 @@ to find your UpCloud SDN network UUID.
 
 To check the UpCloud SDN network UUID, send a request to [get network
 details](https://developers.upcloud.com/1.3/13-networks/#get-network-details)
-UpCloud API endpoint. In the response, you\'ll get the network's UUID.
+UpCloud API endpoint. In the response, you'll get the network's UUID.
 
 ## Set up VPC peering from Aiven {#avn-uuid}
 
@@ -158,7 +158,7 @@ network interface to get new routes.
 
 :::warning
 A peering connection between an Aiven VPC and VMs created before the
-peering setup won\'t work unless you refresh the DHCP lease for a
+peering setup won't work unless you refresh the DHCP lease for a
 relevant network interface.
 :::
 

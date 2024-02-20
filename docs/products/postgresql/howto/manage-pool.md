@@ -11,7 +11,7 @@ resources. Read more about it on
 
 You can connect directly to the PostgreSQL® server using the **Service
 URI** setting listed on the **Overview** page. However, this URI
-doesn\'t make use of the PgBouncer pooling. PgBouncer pools use a
+doesn't make use of the PgBouncer pooling. PgBouncer pools use a
 different port number than the regular PostgreSQL server port. The
 PgBouncer **Service URI** for a particular pool can be found in [Aiven
 Console](https://console.aiven.io/) \> your service's page \> **Pools**

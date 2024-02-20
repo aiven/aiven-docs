@@ -118,7 +118,7 @@ FROM s3(
 ```
 
 Depending on the format, the schema can be automatically detected. If it
-isn\'t, you may also provide the column types as function parameters.
+isn't, you may also provide the column types as function parameters.
 
 ```sql
 SELECT *

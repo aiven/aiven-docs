@@ -78,7 +78,7 @@ strategies to help mitigate the effects that can sometimes be observed.
 -   Avoid queries that end up running on all partitions in a table, such
     as queries with no `WHERE` clause, or queries that need
     `ALLOW FILTERING`.
--   Update your queries so that they don\'t have to scan over tombstone
+-   Update your queries so that they don't have to scan over tombstone
     rows in the same manner. For range queries, this might mean
     investigating if you can use a narrower range, or use a different
     approach to the query.

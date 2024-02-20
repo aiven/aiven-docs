@@ -3,7 +3,7 @@ title: Free plans
 ---
 
 The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL,
-and Aiven for Redis®\* services. You don\'t need a credit card to sign
+and Aiven for Redis®\* services. You don't need a credit card to sign
 up and you can create one free service for each type. This means you can
 create one free PostgreSQL, one free MySQL, and one free Redis service.
 

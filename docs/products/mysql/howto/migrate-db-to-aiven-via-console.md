@@ -183,7 +183,7 @@ configuration is in line with them, and select **Get started**.
     -   Password
 1.  Select the **SSL encryption recommended** checkbox.
 1.  In the **Exclude databases** field, enter names of databases that
-    you don\'t want to migrate (if any).
+    you don't want to migrate (if any).
 1.  Select **Run checks** to have the connection validated.
 
 :::note[Unable to use logical replication?]
@@ -216,7 +216,7 @@ To avoid conflicts and replication issues while the migration is ongoing
 -   Do not write to any tables in the target database that are being
     processed by the migration tool.
 -   Do not change the replication configuration of the source database
-    manually. Don\'t modify `wal_level` or reduce
+    manually. Don't modify `wal_level` or reduce
     `max_replication_slots`.
 -   Do not make database changes that could disrupt or prevent the
     connection between the source database and the target database. Do

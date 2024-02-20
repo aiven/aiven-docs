@@ -467,7 +467,7 @@ workload networks
 
 ### Create a custom cloud with GCP or Azure {#create-cloud-non-aws}
 
-To use the GCP or Azure cloud providers, you\'ll have your
+To use the GCP or Azure cloud providers, you'll have your
 custom cloud created by the Aiven team (not via [Aiven
 Console](https://console.aiven.io/)). Therefore, after
 [enabling the BYOC feature](/docs/platform/howto/byoc/enable-byoc) in [Aiven Console](https://console.aiven.io/), there are no
@@ -503,7 +503,7 @@ person for your custom cloud.
 
 In this step, an IaC template is generated in the Terraform format. In
 [the next step](/docs/platform/howto/byoc/create-custom-cloud#acquire-role-arn),
-you\'ll deploy this template in your AWS account to acquire Role ARN
+you'll deploy this template in your AWS account to acquire Role ARN
 (Amazon Resource Name), which Aiven needs for accessing your AWS
 account.
 
@@ -546,7 +546,7 @@ In the **Create custom cloud** wizard:
             replacements or maintenance upgrades if running low on
             available free IP addresses.
 
-        -   CIDR block of your BYOC VCP doesn\'t overlap with the CIDR
+        -   CIDR block of your BYOC VCP doesn't overlap with the CIDR
             blocks of VPCs you plan to peer your BYOC VPC with. You
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
@@ -607,7 +607,7 @@ AWS account. Continue working in the **Create custom cloud** wizard:
 
 #### Set up your custom cloud's availability
 
-Select in what projects you\'ll be able to use your new custom cloud to
+Select in what projects you'll be able to use your new custom cloud to
 create services. You can make your cloud available for all the projects
 in your organization, selected organizational units, or specific
 projects only.
@@ -658,7 +658,7 @@ your custom cloud**.
 Select **Close** to close the **Create custom cloud** wizard.
 
 The deployment of your new custom cloud might take a few minutes. As
-soon as it's over, and your custom cloud is ready to use, you\'ll be
+soon as it's over, and your custom cloud is ready to use, you'll be
 able to see it on the list of your custom clouds in the **Bring your own
 cloud** view.
 

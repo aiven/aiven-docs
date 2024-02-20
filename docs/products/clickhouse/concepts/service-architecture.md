@@ -135,7 +135,7 @@ performance profile of ClickHouse.
 
 Each engine of the `MergeTree` family has a matching
 `ReplicatedMergeTree` engine, which additionally enables the replication
-of all writes using [ZooKeeper](#zookeeper). The data itself doesn\'t travel through ZooKeeper and is
+of all writes using [ZooKeeper](#zookeeper). The data itself doesn't travel through ZooKeeper and is
 actually fetched from one ClickHouse server to another. A shared log of
 update queries is maintained with ZooKeeper. All nodes add entries to
 the queue and watch for changes to execute the queries.

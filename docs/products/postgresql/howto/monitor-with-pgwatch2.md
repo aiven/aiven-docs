@@ -10,7 +10,7 @@ PostgreSQL extensions.
 
 :::note
 Aiven for PostgreSQL supports the most popular extensions, but, due to
-security implications, can\'t support all the available extensions.
+security implications, can't support all the available extensions.
 Check
 [Extensions on Aiven for PostgreSQL®](/docs/products/postgresql/reference/list-of-extensions) and
 [Extensions on Aiven for PostgreSQL®](/docs/products/postgresql/reference/list-of-extensions) for details on the supported PostgreSQL extensions on the
@@ -24,7 +24,7 @@ instance to be monitored with pgwatch2:
 
 1.  Create a user for pgwatch2 (with a sensible password):
 
-    ``` 
+    ```
     CREATE USER pgwatch2 WITH PASSWORD 'password';
     ```
 
@@ -41,7 +41,7 @@ instance to be monitored with pgwatch2:
 4.  If you want to collect data gathered from the `pg_stat_statements`
     extension, it needs to be enabled:
 
-    ``` 
+    ```
     CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
     ```
 
@@ -66,7 +66,7 @@ to choose from. For the sake of simplicity, the following example uses
 mode](https://pgwatch2.readthedocs.io/en/latest/installation_options.html#ad-hoc-mode)
 with a Docker container:
 
-``` 
+```
 docker run --rm -p 3000:3000 -p 8080:8080 \
     -e PW2_ADHOC_CONN_STR='postgres://pgwatch2:password@HOST:PORT/defaultdb?sslmode=require' \
     -e PW2_ADHOC_CONFIG='rds' --name pw2 cybertec/pgwatch2-postgres

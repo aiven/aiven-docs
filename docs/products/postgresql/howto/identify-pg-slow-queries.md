@@ -43,7 +43,7 @@ to investigate your use case.
 
 ## Prerequisites
 
-To query the `pg_stat_statements` view, you\'ll need to create the
+To query the `pg_stat_statements` view, you'll need to create the
 `pg_stat_statements` extension (included in the
 [list of available extensions](/docs/products/postgresql/reference/list-of-extensions)) that can be done via the following `CREATE EXTENSION`
 command:

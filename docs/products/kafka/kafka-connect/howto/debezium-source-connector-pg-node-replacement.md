@@ -25,7 +25,7 @@ article](https://github.com/aiven/debezium-pg-kafka-connect-test).
 
 ## Common Debezium errors related to PostgreSQL node replacement
 
-In cases when the Debezium connector can\'t recover during or after the
+In cases when the Debezium connector can't recover during or after the
 PostgreSQL node replacements, the following errors are commonly shown in
 logs:
 
@@ -169,7 +169,7 @@ are made *after* the replication slot was created.
 > demonstrates a basic functionality of disabling inserts to the
 > database unless the Debezium replication slot is active. However, it
 > is enough to check that the replication slot to exists although it may
-> be inactive - meaning the connector isn\'t actively listening on the
+> be inactive - meaning the connector isn't actively listening on the
 > slot yet. Once the connector starts listening again, it will capture
 > all the change events since the replication slot was created.
 

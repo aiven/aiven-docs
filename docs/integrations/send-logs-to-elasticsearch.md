@@ -21,7 +21,7 @@ Start by setting up an external service integration for Elasticsearch.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  Navigate to **Service Integration** from the menu on the left.
-3.  You\'ll see a list of external services you can integrate with
+3.  You'll see a list of external services you can integrate with
     Aiven.
 4.  Select **External Elasticsearch** from the list.
 5.  Select **Add new endpoint**.
@@ -30,7 +30,7 @@ Start by setting up an external service integration for Elasticsearch.
 7.  In the connection URL field set the connection string in a format
     `https://ELASTICSEARCH_USER:ELASTICSEARCH_PASSWORD@ELASTICSEARCH_HOST:ELASTICSEARCH_PORT`,
     using your own values for those parameters.
-8.  Set desired index prefix, that doesn\'t overlap with any of already
+8.  Set desired index prefix, that doesn't overlap with any of already
     existing indexes in your Elasticsearch service.
 9.  If you need a certificate to access the endpoint, add the body of
     your CA certificate in PEM format. This field is optional.

@@ -81,5 +81,5 @@ If it is blank, there are two possible solutions:
 
 If you still have login issues, you can use the [SAML Tracer browser
 extension](https://addons.mozilla.org/firefox/addon/saml-tracer/) to
-check the process step by step. If this doesn\'t work, get in touch with
+check the process step by step. If this doesn't work, get in touch with
 our support team at [support@aiven.io](mailto:support@aiven.io).

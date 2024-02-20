@@ -19,7 +19,7 @@ The version of the source Redis service cannot be higher than the version
 of the target Aiven for Redis®* service.
 :::
 
-## What you\'ll need
+## What you'll need
 
 -   A target Aiven for Redis service. See
     [Get started with Aiven for Redis®*](/docs/products/redis/get-started) to
@@ -42,7 +42,7 @@ thus require project VPC and peering connection.
 
     -   For Aiven configuration options, type:
 
-        ``` 
+        ```
         avn service types -v
 
         ...
@@ -50,7 +50,7 @@ thus require project VPC and peering connection.
         ...
         Remove migration
             => --remove-option migration
-        Hostname or IP address of the server where to migrate data from 
+        Hostname or IP address of the server where to migrate data from
             => -c migration.host=<string>
         Password for authentication with the server where to migrate data from
             => -c migration.password=<string>
@@ -64,7 +64,7 @@ thus require project VPC and peering connection.
 
     -   for the VPC information, type:
 
-        ``` 
+        ```
         avn vpc list --project test
 
         PROJECT_VPC_ID                        CLOUD_NAME     ...
@@ -78,10 +78,10 @@ thus require project VPC and peering connection.
         cloud name.
         :::
 
-2.  Create the Aiven for Redis service (if you don\'t have one yet), and
+2.  Create the Aiven for Redis service (if you don't have one yet), and
     migrate:
 
-    ``` 
+    ```
     avn service create --project test -t redis -p hobbyist --cloud aws-eu-west-1 --project-vpc-id 40ddf681-0e89-4bce-bd89-25e246047731 -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> redis
     ```
 
@@ -92,7 +92,7 @@ thus require project VPC and peering connection.
 
 3.  Check the migration status:
 
-    ``` 
+    ```
     avn service migration-status --project test redis
 
     STATUS  METHOD  ERROR
@@ -104,10 +104,10 @@ thus require project VPC and peering connection.
     Status can be one of `done`, `failed` or `running`. In case of
     failure, the error contains the error message:
 
-    ``` 
+    ```
     avn service migration-status --project test redis
 
-    STATUS  METHOD  ERROR           
+    STATUS  METHOD  ERROR
     ======  ======  ================
     failed  scan    invalid password
     ```
@@ -118,7 +118,7 @@ thus require project VPC and peering connection.
 Migrate to an existing Aiven for Redis service by updating the service
 configuration:
 
-``` 
+```
 avn service update --project test -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> redis
 ```
 
@@ -129,6 +129,6 @@ migration cannot be restarted. If you need to run migration again, you
 should first remove it from the configuration, and then configure it
 again:
 
-``` 
+```
 avn service update --project test --remove-option migration redis
 ```

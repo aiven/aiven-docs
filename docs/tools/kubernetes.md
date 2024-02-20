@@ -32,9 +32,9 @@ documentation](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 
 We will be installing the operator with [Helm](https://helm.sh/). Follow
 their [official instructions](https://helm.sh/docs/intro/install/) to
-install it if you don\'t have it already.
+install it if you don't have it already.
 
-You\'ll also need an Aiven account. If you don\'t have one yet, [sign up
+You\'ll also need an Aiven account. If you don't have one yet, [sign up
 for
 Aiven](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post)
 (and enjoy a free trial for new accounts). Once you have your account

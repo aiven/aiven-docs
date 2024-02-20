@@ -5,11 +5,11 @@ title: Manage configurations with Apache Kafka® CLI tools
 Aiven for Apache Kafka® services are fully manageable and customizable
 via either
 [advanced configuration flags in the Aiven Console](use-zookeeper) or the [Aiven CLI](/docs/tools/cli). To guarantee the service stability, direct Apache
-ZooKeeper™ access isn\'t available, but our tooling provides you all the
+ZooKeeper™ access isn't available, but our tooling provides you all the
 options that you need - whether your Apache Kafka version has Apache
 ZooKeeper™ in it or not.
 
-Some of the configuration changes don\'t need ZooKeeper access, and
+Some of the configuration changes don't need ZooKeeper access, and
 therefore you can use the standard client tools shipped with the Apache
 Kafka® binaries. The example below shows how to create a topic using one
 of such tools, the `kafka-topics.sh`.
@@ -45,7 +45,7 @@ following steps:
     URI of the service available in the [Aiven
     Console](https://console.aiven.io/).
 
-    ``` 
+    ```
     ./kafka-topics.sh                           \
         --bootstrap-server <KAFKA_SERVICE_URI>  \
         --command-config consumer.properties    \
@@ -59,7 +59,7 @@ following steps:
     kafka-topics script for this and set the retention value in
     milliseconds `((100 * 60) * 30 = 180000)`.
 
-    ``` 
+    ```
     ./kafka-topics.sh  \
         --bootstrap-server <KAFKA_SERVICE_URI>  \
         --command-config consumer.properties    \
