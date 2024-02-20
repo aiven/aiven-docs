@@ -13,9 +13,9 @@ Add Google as an
 
 1. Log in to Google Admin console.
 
-1. Go to Menu \> Apps \> Web and mobile apps.
+1. Go to Menu > Apps > Web and mobile apps.
 
-1. Click Add App \> Add custom SAML app.
+1. Click Add App > Add custom SAML app.
 
 1. On the App Details page, enter a name for the Aiven profile.
 

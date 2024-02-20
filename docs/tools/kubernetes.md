@@ -56,7 +56,7 @@ webhooks, skip this step and move on to the Helm chart section.
 :::
 
 :::note
-[For GKE version \>=1.21 VPC users, firewall rule to explicitly allow
+[For GKE version >=1.21 VPC users, firewall rule to explicitly allow
 ingress to port
 9443](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules)
 needs to be added for admission webhook.
@@ -64,7 +64,7 @@ needs to be added for admission webhook.
 
 :::tip
 If you are running a GKE \"Autopilot\" cluster in Google Cloud Platform,
-you will need to be using GKE version \>=1.21 and install `cert-manager`
+you will need to be using GKE version >=1.21 and install `cert-manager`
 into the `cert-manager` namespace, as per [this GitHub issue
 comment](https://github.com/cert-manager/cert-manager/issues/3717#issuecomment-975031637)
 :::

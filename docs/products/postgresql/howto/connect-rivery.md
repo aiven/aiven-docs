@@ -21,7 +21,7 @@ PostgreSQL® connection information:
 
 ## Connect to PostgreSQL®
 
-1.  In skyvia workspace \> **Connections** \> **Connector** \>
+1.  In skyvia workspace > **Connections** > **Connector** >
     **PostgreSQL**.
 2.  In the **General** Tab give the connection a name, for example
     `MyDatabase`.

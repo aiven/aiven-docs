@@ -14,11 +14,11 @@ URI** setting listed on the **Overview** page. However, this URI
 doesn't make use of the PgBouncer pooling. PgBouncer pools use a
 different port number than the regular PostgreSQL server port. The
 PgBouncer **Service URI** for a particular pool can be found in [Aiven
-Console](https://console.aiven.io/) \> your service's page \> **Pools**
+Console](https://console.aiven.io/) > your service's page > **Pools**
 view (available from the sidebar). You can also view the generic
 PgBouncer **Service URI** for your pools in [Aiven
-Console](https://console.aiven.io/): your service's page \>
-**Overview** page \> **PgBouncer** tab \> **Service URI**.
+Console](https://console.aiven.io/): your service's page >
+**Overview** page > **PgBouncer** tab > **Service URI**.
 
 You can use both pooled and non-pooled connections at the same time.
 

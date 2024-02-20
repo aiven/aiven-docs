@@ -13,7 +13,7 @@ private cloud (VPC), follow these steps:
 
 3.  On the **Service settings** page, navigate to the **Cloud and
     network** section and select **More network configurations** from
-    the actions (**\...**) menu.
+    the actions (**...**) menu.
 
 4.  In the **Network configuration** window, select **Add configuration
     options**. In the search field, enter `public_access`. From the

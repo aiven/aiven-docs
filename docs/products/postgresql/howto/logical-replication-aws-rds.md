@@ -15,8 +15,8 @@ parameter to `1` (true) in the parameter group.
 
     ![RDS PostgreSQL parameter value](/images/products/postgresql/migrate-rds-pg-parameter-value.png)
 
-3.  Modify Database options to use the new DB parameter group - `RDS`
-    \> `Databases` \> `Modify`
+3.  Modify Database options to use the new DB parameter group: `RDS` >
+    `Databases` > `Modify`
 
     ![RDS PostgreSQL parameter modify](/images/products/postgresql/migrate-rds-pg-parameter-modify.png)
 

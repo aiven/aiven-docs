@@ -3,7 +3,7 @@ title: Optimal number of shards
 ---
 
 A key component of using OpenSearch® is determining the optimal number
-of shards for your index. This article provides helpful insights on
+of shards for your index. This article provides insights on
 choosing the appropriate number of shards and maximizing performance.
 
 ## Considerations for optimal shard count
@@ -38,7 +38,7 @@ number of shards for your OpenSearch® index:
 -   **Hundreds of gigabytes of data:** Calculate the starting number of
     shards by dividing the amount of data by 10.
 
-    > $$number\_of\_shards = amount\_of\_data\_in\_gigabytes / 10$$
+    $$number\_of\_shards = amount\_of\_data\_in\_gigabytes / 10$$
 
     For example, a 250GB index would need 25 shards.
 

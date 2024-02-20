@@ -20,7 +20,7 @@ console](https://console.aiven.io/):
 2.  In your service's page, select **Databases and tables** from the
     sidebar.
 
-3.  In the **Databases and tables** page, select **Create database** \>
+3.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
 
 4.  In the **Create ClickHouse database** window, enter a name for your

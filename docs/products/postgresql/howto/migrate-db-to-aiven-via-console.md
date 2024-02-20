@@ -317,8 +317,8 @@ While the migration is in progress, you can take the following actions:
 
 -   Let it proceed until completed by selecting **Close window**, which
     closes the wizard. You can come back to check the status at any time
-    on the **Service settings** page \> the **Service management**
-    section \> **Import database**.
+    on the **Service settings** page > the **Service management**
+    section > **Import database**.
 -   Write to the target database.
 -   Discontinue the migration by selecting **Stop migration**. Although
     the data already migrated is retained, you cannot restart the
@@ -360,12 +360,12 @@ the connected databases.
 
 -   If there is no replication in progress, select **Close connection**
     in the migration wizard to finalize the migration process. As a
-    result, on the **Service settings** page \> the **Service
-    management** section \> **Import database**, you'll see the
+    result, on the **Service settings** page > the **Service
+    management** section > **Import database**, you'll see the
     **Ready** tag.
 -   If the replication mode is active, you can select **Keep
-    replicating**. As a result, on the **Service settings** page \> the
-    **Service management** section \> **Import database**, you'll see
+    replicating**. As a result, on the **Service settings** page > the
+    **Service management** section > **Import database**, you'll see
     the **Syncing** tag, and you'll be able to check the status of the
     migration process by selecting **Status update**.
 

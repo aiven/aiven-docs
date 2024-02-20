@@ -68,7 +68,7 @@ documentation](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
 ### Code
 
 This step requires to manually specify individual parameters. You can
-find those parameters in [Aiven Console](https://console.aiven.io) \>
+find those parameters in [Aiven Console](https://console.aiven.io) >
 the **Overview** page of your service.
 
 Once you have these parameters, execute the following from a terminal

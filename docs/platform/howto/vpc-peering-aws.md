@@ -35,7 +35,7 @@ Create a
 
 1.  In your AWS Console, check that the account ID and VPC ID match
     those listed in the [Aiven Console](https://console.aiven.io/) and,
-    if so, select **Actions** \> **Accept Request**.
+    if so, select **Actions** > **Accept Request**.
 
 1.  Update [your AWS route
     tables](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html)

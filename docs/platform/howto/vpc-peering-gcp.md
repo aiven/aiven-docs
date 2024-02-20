@@ -31,7 +31,7 @@ Once you've created a [VPC on the Aiven platform](manage-vpc-peering), you can s
     project ID and the VPC network name.
     :::
 
-1.  In your GCP Console, go to **VPC** \> **VPC network peering**, and
+1.  In your GCP Console, go to **VPC** > **VPC network peering**, and
     select **Create peering connection**.
 
 1.  To create a peering connection:

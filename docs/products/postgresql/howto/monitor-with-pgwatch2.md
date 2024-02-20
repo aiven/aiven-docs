@@ -32,11 +32,15 @@ instance to be monitored with pgwatch2:
     recommended in the [pgwatch2
     documentation](https://pgwatch2.readthedocs.io/en/latest/)):
 
-    > ALTER ROLE pgwatch2 CONNECTION LIMIT 3;
+    ```
+    ALTER ROLE pgwatch2 CONNECTION LIMIT 3;
+    ```
 
 3.  Allow pgwatch2 to read database statistics:
 
-    > GRANT pg_read_all_stats TO pgwatch2;
+    ```
+    GRANT pg_read_all_stats TO pgwatch2;
+    ```
 
 4.  If you want to collect data gathered from the `pg_stat_statements`
     extension, it needs to be enabled:

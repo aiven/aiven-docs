@@ -44,7 +44,7 @@ initially created for your cloud.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 
-6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**...**) menu in
     the top right corner to select **Customer contact**.
 
 7.  In the **Customer contact** window, select a new contact's role
@@ -72,10 +72,10 @@ steps:
 4.  From the left sidebar, select **Bring your own cloud**.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**...**) menu in
     the top right corner.
 7.  Select **Customer contact** from the options available on the the
-    ellipsis (**\...**) menu.
+    ellipsis (**...**) menu.
 
 ## Related pages
 

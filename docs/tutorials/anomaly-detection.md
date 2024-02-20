@@ -199,16 +199,16 @@ two:
 1.  Enable the Apache Kafka REST APIs to manage and query via the Aiven
     Console.
 
-    Navigate to **Service settings** page \> **Service management**
-    section \> actions (**\...**) menu \> **Enable REST API
+    Navigate to **Service settings** page > **Service management**
+    section > actions (**...**) menu > **Enable REST API
     (Karapace)**.
 
 2.  Enable the
     [automatic creation of Apache Kafka topics](/docs/products/kafka/howto/create-topics-automatically) to create new Apache Kafka® topics on the fly while
     pushing a first record.
 
-    Navigate to **Service settings** page \> **Advanced configuration**
-    section \> **Configure** \> **Add configuration options** \>
+    Navigate to **Service settings** page > **Advanced configuration**
+    section > **Configure** > **Add configuration options** >
     `kafka.auto_create_topics_enable`, enable the selected parameter
     using the toggle switch, and select **Save configuration**.
 

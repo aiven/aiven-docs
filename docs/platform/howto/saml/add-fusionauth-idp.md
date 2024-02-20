@@ -20,7 +20,7 @@ The setup on FusionAuth has three parts:
 
 Create an API Key in your FusionAuth instance:
 
-1. In FusionAuth, go to **Settings** \> **API Keys**.
+1. In FusionAuth, go to **Settings** > **API Keys**.
 1. Click the **Add** icon.
 1. Enter a description for the key. Example: `Certificate generator`.
 1. In the **Endpoints** list, find `/api/key/import`.

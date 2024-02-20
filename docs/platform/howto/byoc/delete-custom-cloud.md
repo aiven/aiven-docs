@@ -48,7 +48,7 @@ them earlier, you're advised to do that if deleting your cloud.
 1.  From the left sidebar, select **Bring your own cloud**.
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-1.  In the selected cloud's page, use the ellipsis (**\...**) menu in
+1.  In the selected cloud's page, use the ellipsis (**...**) menu in
     the top right corner to select **Delete**.
 1.  Make sure you understand the impact and, if so, confirm that you
     want to delete the cloud by selecting **Delete** in the **Warning**

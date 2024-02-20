@@ -151,10 +151,12 @@ re-creates the replication slot on the new PostgreSQL nodes. As per
 [Debezium
 docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-cluster-failures):
 
-> There must be a process that re-creates the Debezium replication slot
-> before allowing applications to write to the new primary. This is
-> crucial. Without this process, your application can miss change
-> events.
+:::note
+There must be a process that re-creates the Debezium replication slot
+before allowing applications to write to the new primary. This is
+crucial. Without this process, your application can miss change
+events.
+:::
 
 After recovering, the Debezium connector can create the replication slot
 on the newly promoted database if none exists, however there can be some
@@ -164,21 +166,23 @@ fundamental to resume normal operations as soon as possible without data
 loss. When the connector recovers, it will capture all the changes that
 are made *after* the replication slot was created.
 
-> The example contained in the [dedicated Aiven
-> repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/6f1e6e829ba06bbc396fc0faf28be9e0268ad4f8/bin/python_scripts/debezium_pg_producer.py#L164)
-> demonstrates a basic functionality of disabling inserts to the
-> database unless the Debezium replication slot is active. However, it
-> is enough to check that the replication slot to exists although it may
-> be inactive - meaning the connector isn't actively listening on the
-> slot yet. Once the connector starts listening again, it will capture
-> all the change events since the replication slot was created.
+:::note
+The example contained in the [dedicated Aiven
+repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/6f1e6e829ba06bbc396fc0faf28be9e0268ad4f8/bin/python_scripts/debezium_pg_producer.py#L164)
+demonstrates a basic functionality of disabling inserts to the
+database unless the Debezium replication slot is active. However, it
+is enough to check that the replication slot to exists although it may
+be inactive - meaning the connector isn't actively listening on the
+slot yet. Once the connector starts listening again, it will capture
+all the change events since the replication slot was created.
+:::
 
 The [Debezium
 docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-cluster-failures)
 also suggest:
 
-> Verify that Debezium was able to read all changes in the slot before
-> the old primary failed.
+Verify that Debezium was able to read all changes in the slot before
+the old primary failed.
 
 To ensure that client applications that depend on events captured by
 Debezium get all the events, you need to implement a method to verify

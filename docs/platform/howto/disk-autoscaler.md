@@ -89,7 +89,7 @@ CLI client.
     a desired organization and project.
 1.  On the **Services** page of your project, select **Integration
     endpoints** from the sidebar.
-1.  On the **Integration endpoints** page, select **Disk autoscaler** \>
+1.  On the **Integration endpoints** page, select **Disk autoscaler** >
     **Add new endpoint**.
 1.  In the **Create new autoscaler endpoint** window, enter an endpoint
     name, specify a maximum additional disk storage that you want to
@@ -122,7 +122,7 @@ endpoint to create an autoscaler integration on your service.
 
     -   Endpoint name (path and request body parameters)
     -   `endpoint_type` (request body): `disk_storage`
-    -   `max_additional_storage` (request body \> `user_config` object)
+    -   `max_additional_storage` (request body > `user_config` object)
 
     ```bash
     curl --request POST \
@@ -237,7 +237,7 @@ endpoint passing the following parameters in your request:
 
 -   `project_name` (path parameter)
 -   `integration_endpoint_id` (path parameter)
--   `max_additional_storage` (request body \> `user_config` object)
+-   `max_additional_storage` (request body > `user_config` object)
 
 ```bash
 curl --request PUT \
@@ -286,7 +286,7 @@ client.
 1.  On the **Overview** page of your service, select **Integrations**
     from the sidebar.
 1.  On the **Integrations** page, find your autoscaler service
-    integration at the top, select the **Actions** (**\...**) menu \>
+    integration at the top, select the **Actions** (**...**) menu >
     **Disconnect**.
 1.  In the **Disconnect service integration** window, select
     **Disconnect**.

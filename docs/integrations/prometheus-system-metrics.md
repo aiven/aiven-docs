@@ -20,8 +20,8 @@ request to your Prometheus service endpoint.
 
 1.  Once your Prometheus integration is configured, collect the
     following Prometheus service details from [Aiven
-    Console](https://console.aiven.io/) \> the **Overview** page of your
-    service \> the **Connection information** section \> the
+    Console](https://console.aiven.io/) > the **Overview** page of your
+    service > the **Connection information** section > the
     **Prometheus** tab:
 
     -   Prometheus URL
@@ -73,7 +73,7 @@ They are as follows:
 | `cpu_usage_idle`       | Percentage of time the CPU is idle                                                      |
 | `cpu_usage_system`     | Percentage of time the Kernel code is consuming the CPU                                 |
 | `cpu_usage_user`       | Percentage of time the CPU is in the user-space program with a `nice` value \<= `0`     |
-| `cpu_usage_nice`       | Percentage of time the CPU is in the user-space program with a `nice` value \> `0`      |
+| `cpu_usage_nice`       | Percentage of time the CPU is in the user-space program with a `nice` value > `0`      |
 | `cpu_usage_iowait`     | Percentage of time that the CPU is idle when the system has pending disk I/O operations |
 | `cpu_usage_steal`      | Percentage of time waiting for the hypervisor to give CPU cycles to the VM              |
 | `cpu_usage_irq`        | Percentage of time the system is handling interrupts                                    |

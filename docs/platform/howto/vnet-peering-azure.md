@@ -105,8 +105,8 @@ Save the `password` field from the output - this will be referred to as
 
 ### 5. find the id properties of your virtual network
 
-This can be found in the Azure portal in **Virtual networks** \> name of
-your network \> **JSON View** \> **Resource ID**, or using
+This can be found in the Azure portal in **Virtual networks** > name of
+your network > **JSON View** > **Resource ID**, or using
 
 ```
 az network vnet list
@@ -115,10 +115,10 @@ az network vnet list
 Save the `id` field which will be referred to as `$user_vnet_id` . Also
 grab
 
--   the Azure Subscription ID (**Properties** \> **Subscription ID**) or
+-   the Azure Subscription ID (**Properties** > **Subscription ID**) or
     the part after `/subscriptions/` in the resource ID. This is
     referred to as `$user_subscription_id`
--   the resource group name (**Properties** \> **Resource group**) or
+-   the resource group name (**Properties** > **Resource group**) or
     the `resourceGroup` field in the output. This is referred to as
     `$user_resource_group`
 -   the VNet name (title of the network page), or the `name` field from
@@ -209,7 +209,7 @@ az role assignment create --role $aiven_role_id --assignee-object-id $aiven_sp_i
 ### 10. find your AD tenant id
 
 The ID of your AD tenant will be needed in the next step. Find it from
-the Azure portal from **Azure Active Directory** \> **Properties** \>
+the Azure portal from **Azure Active Directory** > **Properties** >
 **Directory ID** or with the Azure CLI using
 
 ```

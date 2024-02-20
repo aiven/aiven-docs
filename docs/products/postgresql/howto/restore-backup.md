@@ -22,7 +22,7 @@ To restore a PostgreSQL database, take the following steps:
 3.  Select **Service settings** from the sidebar of your service's
     page.
 4.  Navigate to the **Service management** section, and select **Fork
-    database** from the **Actions** (**\...**) menu.
+    database** from the **Actions** (**...**) menu.
 5.  Enter a service name, and choose a project name, database version,
     cloud region and plan for the new instance.
 6.  Select the **Source service state** defining the backup point, the
