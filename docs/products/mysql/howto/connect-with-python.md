@@ -13,12 +13,12 @@ library.
 
 These are the placeholders you need to replace in the code sample:
 
-| Variable         | Description                                                                                                            |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `MYSQL_HOST`     | Host name for the connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service |
-| `MYSQL_PORT`     | Port number to use, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service           |
-| `MYSQL_USERNAME` | User to connect with                                                                                                   |
-| `MYSQL_PASSWORD` | Password for this user                                                                                                 |
+|     Variable     |                                                      Description                                                      |
+|------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `MYSQL_HOST`     | Host name for the connection, from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service |
+| `MYSQL_PORT`     | Port number to use, from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service           |
+| `MYSQL_USERNAME` | User to connect with                                                                                                  |
+| `MYSQL_PASSWORD` | Password for this user                                                                                                |
 
 ## Prerequisites
 

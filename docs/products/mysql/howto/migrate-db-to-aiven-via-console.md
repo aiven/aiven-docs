@@ -190,7 +190,7 @@ configuration is in line with them, and select **Get started**.
 If your connection check returns the **Unable to use logical
 replication** warning, either resolve the issues or give up using the
 logical replication and opt for the dump method by selecting **Start the
-migration using a one-time snapshot (dump method)** \> **Run check** \>
+migration using a one-time snapshot (dump method)** > **Run check** >
 **Start migration**.
 :::
 

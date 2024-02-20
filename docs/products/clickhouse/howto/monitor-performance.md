@@ -48,7 +48,7 @@ metrics.
 
 ## Open ClickHouse® metrics dashboard
 
-1.  In Grafana®, go to **Dashboards** \> **Manage**.
-2.  Double click on the dashboard that bears the name of the metrics
+1.  In Grafana®, go to **Dashboards** > **Manage**.
+2.  Double click the dashboard that bears the name of the metrics
     database.
 3.  Browse the prebuilt dashboard or create your own monitoring views.

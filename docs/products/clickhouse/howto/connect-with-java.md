@@ -16,31 +16,31 @@ using the ClickHouse JDBC driver and the HTTPS port.
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-| Variable                | Description                                                                                                                                                |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CLICKHOUSE_HTTPS_HOST` | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**     |
-| `CLICKHOUSE_HTTPS_PORT` | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**     |
-| `CLICKHOUSE_USER`       | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**     |
-| `CLICKHOUSE_PASSWORD`   | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
+|        Variable         |                                                                       Description                                                                        |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CLICKHOUSE_HTTPS_HOST` | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**     |
+| `CLICKHOUSE_HTTPS_PORT` | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**     |
+| `CLICKHOUSE_USER`       | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**     |
+| `CLICKHOUSE_PASSWORD`   | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC** |
 
 ## Connect to the service
 
 1.  Add the ClickHouse JDBC driver to your Maven dependencies.
 
-```shell
-[](dependency)
-    <groupId>com.clickhouse</groupId>
-    <artifactId>clickhouse-jdbc</artifactId>
-    <version>0.3.2-patch11</version>
-    <classifier>all</classifier>
-    <exclusions>
-        <exclusion>
-            <groupId>*</groupId>
-            <artifactId>*</artifactId>
-        </exclusion>
-    </exclusions>
-[](/dependency)
-```
+    ```shell
+    [](dependency)
+        <groupId>com.clickhouse</groupId>
+        <artifactId>clickhouse-jdbc</artifactId>
+        <version>0.3.2-patch11</version>
+        <classifier>all</classifier>
+        <exclusions>
+            <exclusion>
+                <groupId>*</groupId>
+                <artifactId>*</artifactId>
+            </exclusion>
+        </exclusions>
+    [](/dependency)
+    ```
 
 2.  Replace `CLICKHOUSE_HTTPS_HOST` and `CLICKHOUSE_HTTPS_PORT` in the
     command with your connection values and run the code.

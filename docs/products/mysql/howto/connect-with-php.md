@@ -12,13 +12,13 @@ use of the built-in PDO module.
 
 These are the placeholders you need to replace in the code sample:
 
-| Variable    | Description                                                                                                                |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `MYSQL_URI` | Service URI for MySQL connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service |
+|  Variable   |                                                        Description                                                        |
+|-------------|---------------------------------------------------------------------------------------------------------------------------|
+| `MYSQL_URI` | Service URI for MySQL connection, from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service |
 
 ## Prerequisites
 
--   [Download CA certificates](/docs/platform/howto/download-ca-cert) from [Aiven Console](https://console.aiven.io/) \> the
+-   [Download CA certificates](/docs/platform/howto/download-ca-cert) from [Aiven Console](https://console.aiven.io/) > the
     **Overview** page of your service. This example assumes it is in a
     local file called `ca.pem`.
 

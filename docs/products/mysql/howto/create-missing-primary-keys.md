@@ -98,10 +98,10 @@ For the operation to succeed, you need to set a value that is high
 enough. Depending on the table size, this could be a few gigabytes or
 even more for very large tables. You can change
 `mysql.innodb_online_alter_log_max_size` as follows: [Aiven
-Console](https://console.aiven.io/) \> your Aiven for MySQL service's
-page \> the **Service settings** page of the service \> the **Advanced
-configuration** section \> **Configure** \> **Add configuration
-options** \> `mysql.innodb_online_alter_log_max_size` \> set a value \>
+Console](https://console.aiven.io/) > your Aiven for MySQL service's
+page > the **Service settings** page of the service > the **Advanced
+configuration** section > **Configure** > **Add configuration
+options** > `mysql.innodb_online_alter_log_max_size` > set a value >
 **Save configuration**.
 
 ## Related pages

@@ -37,9 +37,9 @@ storage is used on each tier (local SSD and remote object storage) for
 particular tables.
 
 To access tiered storage's status information, go to [Aiven
-Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
-\> the **Databases and tables** page \> your database \> your table \>
-**View details** \> **Storage details**.
+Console](https://console.aiven.io/) > your Aiven for ClickHouse service > the
+**Databases and tables** page > your database > your table >
+**View details** > **Storage details**.
 
 ## Run a data distribution check with the ClickHouse client (CLI)
 

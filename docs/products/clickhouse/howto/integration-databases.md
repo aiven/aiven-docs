@@ -130,7 +130,7 @@ You can only edit Apache Kafka integration databases and tables.
     -   Data format
     -   Table columns
 
-7.  Select **Update table details** \> **Save changes**.
+7.  Select **Update table details** > **Save changes**.
 
 Your integration database and/or its tables have been updated.
 

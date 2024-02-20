@@ -26,8 +26,8 @@ foreign key checking for the duration of a session.
 
 There are a few variables you need to substitute when running the
 commands. To find the values for the substitution, go to [Aiven
-Console](https://console.aiven.io/) \> your Aiven for MySQL service \>
-**Overview** \> the **Connection information** section \> the **MySQL**
+Console](https://console.aiven.io/) > your Aiven for MySQL service \>
+**Overview** > the **Connection information** section > the **MySQL**
 tab.
 
 | Variable   | Description                                      |

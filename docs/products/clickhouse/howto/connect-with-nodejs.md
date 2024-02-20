@@ -25,11 +25,11 @@ npm i @clickhouse/client
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-| Variable              | Description                                                                                                                                                                                            |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CLICKHOUSE_HOST`     | `https://HOST:HTTPS_PORT`, where `Host` and `Port` for the ClickHouse connection are available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
-| `CLICKHOUSE_USER`     | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**                                                 |
-| `CLICKHOUSE_PASSWORD` | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**                                             |
+|       Variable        |                                                                                             Description                                                                                              |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CLICKHOUSE_HOST`     | `https://HOST:HTTPS_PORT`, where `Host` and `Port` for the ClickHouse connection are available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC** |
+| `CLICKHOUSE_USER`     | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**                                                 |
+| `CLICKHOUSE_PASSWORD` | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**                                             |
 
 ## Connect to the service
 

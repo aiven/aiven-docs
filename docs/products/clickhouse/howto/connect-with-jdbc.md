@@ -8,8 +8,8 @@ to connect external sources to your Aiven for ClickHouse database.
 
 You will need Aiven for ClickHouse® service, accessible by HTTPS. The
 connection values you need can be found in [Aiven
-Console](https://console.aiven.io/) \> your service's page \>
-**Overview** \> **Connection information** \> **ClickHouse HTTPS &
+Console](https://console.aiven.io/) > your service's page \>
+**Overview** > **Connection information** > **ClickHouse HTTPS &
 JDBC**.
 
  | Variable                | Description                                    |

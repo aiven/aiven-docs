@@ -97,12 +97,11 @@ DROP TABLE NAME_OF_YOUR_DATABASE.NAME_OF_YOUR_TABLE;
 
 ### Remove a table in the console
 
-To remove your table in [Aiven Console](https://console.aiven.io/), take
-the following steps:
+To remove your table in [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  Navigate to the table you want to remove: organization \> project \>
-    service \> **Databases and tables**.
+2.  Navigate to the table you want to remove: organization > project >
+    service > **Databases and tables**.
 3.  In the **Databases and tables** view, navigate to the table and
-    select **Actions** menu (**\...**) \> **Remove** \> **Delete
+    select **Actions** menu (**...**) > **Remove** > **Delete
     table**.

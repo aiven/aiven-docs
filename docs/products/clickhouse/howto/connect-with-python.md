@@ -19,13 +19,13 @@ provides you with instructions for both scenarios.
 To run the code for connecting to your service, first identify values of
 the following variables:
 
- | Variable      | Description                                                                                                                                          |
- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
- | `USERNAME`    | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**     |
- | `PASSOWRD`    | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native** |
- | `HOST`        | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**     |
- | `NATIVE_PORT` | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse native**     |
- | `query`       | Query you want to run, for example `SELECT 1`                                                                                                        |
+ |   Variable    |                                                                    Description                                                                     |
+ |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+ | `USERNAME`    | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse native**     |
+ | `PASSOWRD`    | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse native** |
+ | `HOST`        | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse native**     |
+ | `NATIVE_PORT` | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse native**     |
+ | `query`       | Query you want to run, for example `SELECT 1`                                                                                                      |
 
 ### Connect to the service
 
@@ -50,14 +50,14 @@ print(client.execute("SELECT 1"))
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-| Variable                  | Description                                                                                                                                                       |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `https://HOST:HTTPS_PORT` | `Host` and `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
-| `query`                   | Query you want to run, for example `SELECT 1`                                                                                                                     |
-| `X-ClickHouse-Database`   | `Database Name` available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**, for example `system`           |
-| `X-ClickHouse-User`       | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**            |
-| `X-ClickHouse-Key`        | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**        |
-| `X-ClickHouse-Format`     | Format for the output from your query, for example `JSONCompact`                                                                                                  |
+|         Variable          |                                                                           Description                                                                           |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `https://HOST:HTTPS_PORT` | `Host` and `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC** |
+| `query`                   | Query you want to run, for example `SELECT 1`                                                                                                                   |
+| `X-ClickHouse-Database`   | `Database Name` available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**, for example `system`           |
+| `X-ClickHouse-User`       | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**            |
+| `X-ClickHouse-Key`        | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**        |
+| `X-ClickHouse-Format`     | Format for the output from your query, for example `JSONCompact`                                                                                                |
 
 ### Connect to the service
 
