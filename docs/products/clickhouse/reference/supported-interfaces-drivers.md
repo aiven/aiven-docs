@@ -25,11 +25,9 @@ ClickHouse.
 -   `PostgreSQL`
 :::
 
-:::note[See also]
 For the full list of interfaces and protocols supported in ClickHouse,
 check out [Drivers and
 Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
-:::
 
 ## Drivers (libraries)
 
@@ -38,13 +36,11 @@ There are a number of drivers (libraries) that use one of
 (library) of your choice and use it for connecting to your Aiven for
 ClickHouse service.
 
-:::note[See also]
 -   Check out
     [how to use different drivers (libraries) for connecting to Aiven for ClickHouse](/docs/products/clickhouse/howto/list-connect-to-service).
 -   For the full list of drivers and libraries that support connecting
     to ClickHouse, check out [Drivers and
     Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
-:::
 
 :::note
 You can connect to Aiven for ClickHouse with any driver that uses TLS

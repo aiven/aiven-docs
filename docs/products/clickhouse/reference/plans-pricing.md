@@ -20,20 +20,20 @@ of plans to suit the size of your workloads.
     mission-critical apps, handling high query rates and big data
     amounts.
 
-:::note[See also]
+## Related pages
+
 To compare the plans and learn their pricing details, see [Plan
 comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)
 and [Plan
 pricing](https://aiven.io/pricing?tab=plan-pricing&product=clickhouse),
 respectively.
-:::
 
 ## Custom plans
 
 Aiven for ClickHouse plans are optimized for working well in the various
 clouds supported by Aiven. The plans also enable easy migration between
 the clouds. Should any available plans not be an ideal fit for your
-workload, we\'re happy to tailor a custom plan to suit your needs
+workload, we're happy to tailor a custom plan to suit your needs
 better. Learn how to [request a custom
 plan](https://docs.aiven.io/docs/platform/howto/custom-plans.html).
 

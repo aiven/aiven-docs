@@ -111,11 +111,9 @@ a wide variety of available table engines, the most common ones belong
 to the `MergeTree` engines family, which is supported in Aiven for
 ClickHouse.
 
-:::note[See also]
 For a list of all the table engines that you can use in Aiven for
 ClickHouse, see
 [Supported table engines in Aiven for ClickHouse](/docs/products/clickhouse/reference/supported-table-engines).
-:::
 
 #### `MergeTree` engine
 

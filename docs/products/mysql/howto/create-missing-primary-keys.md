@@ -104,7 +104,7 @@ configuration** section \> **Configure** \> **Add configuration
 options** \> `mysql.innodb_online_alter_log_max_size` \> set a value \>
 **Save configuration**.
 
-:::note[See also]
+## Related pages
+
 Learn how to
 [create new tables without primary keys](/docs/products/mysql/howto/create-tables-without-primary-keys) in your Aiven for MySQL.
-:::

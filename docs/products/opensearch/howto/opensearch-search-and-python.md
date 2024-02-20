@@ -332,10 +332,8 @@ As a result of the \"Spring\" search recipes, you\'ll find:
 ]
 ```
 
-:::note[See also]
 Find out more about [match
 queries](https://opensearch.org/docs/latest/query-dsl/full-text/match/).
-:::
 
 ### Use a `multi_match` query
 
@@ -466,10 +464,8 @@ Your result should look like this:
 So with `slop` parameter adjusted, you're may be able to find results
 even with other words in between the ones you searched.
 
-:::note[See also]
 Read more about `slop` parameter on the [OpenSearch project
 specifications](https://opensearch.org/docs/latest/query-dsl/full-text/index/).
-:::
 
 ### Use a `term` query
 
@@ -502,7 +498,7 @@ function, which uses this query to build customized term queries.
 Run the search query yourself to find recipes with zero sodium on it,
 for example:
 
-```
+```python
 python search.py term sodium 0
 ```
 
@@ -542,10 +538,8 @@ Try to find recipes in a certain range of sodium, for example:
 python search.py range sodium 0 10
 ```
 
-:::note[See also]
 See more about the range query in the [OpenSearch
 documentation](https://opensearch.org/docs/latest/query-dsl/term/range/).
-:::
 
 ### Write fuzzy queries {#fuzzy-query}
 

@@ -2,10 +2,7 @@
 title: Indexing and data processing in ClickHouse®
 ---
 
-This article helps you understand how ClickHouse® processes data and how
-it differs from the way the other database management systems (DBMS) do
-that. Discover spare and skipping indexes and check out what the vector
-computation engine is used for.
+ClickHouse® processes data differently from other database management systems. ClickHouse uses sparse and skipping indexes and a vector computation engine.
 
 ## ClickHouse as a columnar database
 
@@ -16,10 +13,8 @@ the columns you read, the faster and more efficient the performance of
 the request. If you have to read many or all columns, using a columnar
 database becomes a less effective approach.
 
-:::note[See also]
 Read more about characteristics of columnar databases and their features
 in [Columnar databases](columnar-databases).
-:::
 
 ## Reading data in blocks
 
@@ -96,7 +91,6 @@ help ClickHouse to skip in advance values that do not satisfy the
 request condition.
 :::
 
-:::tip
-Learn more about [skipping indexes in the official documentation of
-ClickHouse](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-data_skipping-indexes).
-:::
+## Related pages
+
+Learn more about [skipping indexes in the official ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-data_skipping-indexes).

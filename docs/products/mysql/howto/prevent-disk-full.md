@@ -45,8 +45,8 @@ read-only state is canceled, allowing writes to be made once more.
 ### Delete data
 
 As your service is set in `read-only` mode, attempting to free disk
-space by deleting data can\'t be done directly. To disable the
-`read-only` state, you need to use our API to temporarily remove the
+space by deleting data can't be done directly. To disable the
+`read-only` state,  use our API to temporarily remove the
 restriction.
 
 You can use our API and send a POST request to:
@@ -66,7 +66,6 @@ The output of a successful operation is:
 
 This way you can free up space within the next 15 minutes.
 
-:::note[See also]
-Consider reading how to
-[reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.
-:::
+## Related pages
+
+See [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.

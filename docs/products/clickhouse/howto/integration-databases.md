@@ -15,11 +15,9 @@ This article details how to set up and manage integration databases from
 the the **Databases and tables** view of your Aiven for ClickHouse
 service.
 
-:::note[See also]
 For information on how to set up integration databases when creating a
 new data service integration, see
 [Manage Aiven for ClickHouse® data service integrations](/docs/products/clickhouse/howto/data-service-integration).
-:::
 
 ## About integration databases
 

@@ -49,14 +49,13 @@ Some limitations include:
     service plan as the leader cluster service. This ensures the
     follower cluster service has as much memory as the leader cluster.
     You can change the service plan as required later.
--   To delete the cross cluster replication integration, you need to
+-   To delete the cross cluster replication integration,
     **delete** the follower cluster service.
 -   Maintenance upgrade, major version upgrade needs to be done manually
     for both Leader and Follower service.
 -   In case of a node recycle event, replication will be paused until
     the service is running again.
 
-:::note[See also]
-Learn how to
+## Related pages
+
 [Set up cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch).
-:::

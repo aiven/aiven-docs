@@ -182,17 +182,15 @@ func main() {
 }
 ```
 
-:::note[Expected result]
-Now you have your service connection established and (possibly)
+You have your service connection established and
 configured. You can proceed to
 [uploading data into your database](load-dataset).
-:::
 
-:::note[See also]
+## Related pages
+
 -   For instructions on how to configure connection settings, see
     [Connection
     Details](https://clickhouse.com/docs/en/integrations/go#connection-details).
 -   For information on how to connect to the Aiven for Clickhouse
     service with the ClickHouse client, see
     [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
-:::

@@ -75,7 +75,7 @@ EXPIRY_TIME           TOKEN_PREFIX  DESCRIPTION                       MAX_AGE_SE
 Revokes the specified user access token.
 
 Tokens can also be expired via the
-[`avn user tokens-expire`](/docs/tools/cli/user#avncli user-tokens-expire) command.
+[`avn user tokens-expire`](/docs/tools/cli/user#avncli%20user-tokens-expire) command.
 
 | Parameter      | Information                                                    |
 | -------------- | -------------------------------------------------------------- |

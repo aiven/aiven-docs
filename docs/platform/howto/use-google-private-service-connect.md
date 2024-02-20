@@ -256,31 +256,31 @@ To acquire connection information for your service component using
 Private Service Connect, run the
 [avn service connection-info](/docs/tools/cli/service/connection-info) command.
 
--   For SSL connection information for your service component using
-    Private Service Connect, run the following command:
+- For SSL connection information for your service component using
+  Private Service Connect, run the following command:
 
-    ```bash
-    avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
-    ```
+  ```bash
+  avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
+  ```
 
-:::note[Where]
--   UTILITY_NAME is `kcat`, for example
--   SERVICE_NAME is `kafka-12a3b4c5`, for example
--   PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
-:::
+  Where:
 
--   For SASL connection information for Aiven for Apache Kafka® service
-    components using Private Service Connect, run the following command:
+  -   UTILITY_NAME is `kcat`, for example
+  -   SERVICE_NAME is `kafka-12a3b4c5`, for example
+  -   PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
 
-    ```bash
-    avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
-    ```
+- For SASL connection information for Aiven for Apache Kafka® service
+  components using Private Service Connect, run the following command:
 
-:::note[Where]
--   UTILITY_NAME is `kcat`, for example
--   SERVICE_NAME is `kafka-12a3b4c5`, for example
--   PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
-:::
+  ```bash
+  avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
+  ```
+
+  Where:
+
+  -   UTILITY_NAME is `kcat`, for example
+  -   SERVICE_NAME is `kafka-12a3b4c5`, for example
+  -   PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
 
 :::note
 SSL certificates and SASL credentials are the same for all the

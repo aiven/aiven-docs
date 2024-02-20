@@ -16,7 +16,7 @@ file formats:
 -   `ORC`
 -   `Avro`
 
-:::note[See also]
+## Related pages
+
 -   [Table functions supported in Aiven for ClickHouse®](/docs/products/clickhouse/reference/supported-table-functions)
 -   [Read and pull data from S3 object storages and web resources over HTTP](/docs/products/clickhouse/howto/run-federated-queries)
-:::

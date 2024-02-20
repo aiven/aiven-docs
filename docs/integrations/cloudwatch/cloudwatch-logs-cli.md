@@ -32,10 +32,8 @@ credentials are:
     specified log stream.
 :::
 
-:::note[See also]
 Find more information about [CloudWatch
 API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html).
-:::
 
 ## Configure the integration
 
