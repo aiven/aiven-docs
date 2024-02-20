@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-      # - name: Install dependencies
-      #   run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Update available cloud list
         run: make cloud-list
       - name: Create pull request

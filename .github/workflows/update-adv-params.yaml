@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-      # - name: Install dependencies
-      #   run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Parse service file
         run: make service-type-config-${{ inputs.service-name }}
       - name: Create pull request
