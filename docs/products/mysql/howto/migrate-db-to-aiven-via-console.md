@@ -7,10 +7,8 @@ You can migrate MySQL® databases to Aiven using either
 addresses the latter scenario by providing guidelines on how to use
 Aiven Console to migrate MySQL databases to the Aiven platform.
 
-:::note[See also]
 For the other migration method (CLI), see
 [Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql).
-:::
 
 ## About migrating via console
 
@@ -161,13 +159,13 @@ The console migration tool provides 2 migration methods:
 ## Migrate a database
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  On the **Services** page, select the service where your target
+1.  On the **Services** page, select the service where your target
     database is located.
-3.  From the sidebar on your service's page, select **Service
+1.  From the sidebar on your service's page, select **Service
     settings**.
-4.  On the **Service settings** page, navigate to the **Service
+1.  On the **Service settings** page, navigate to the **Service
     management** section, and select **Import database**.
-5.  Guided by the migration wizard, go through all the migration steps.
+1.  Guided by the migration wizard, go through all the migration steps.
 
 ### Step 1 - configure
 
@@ -183,10 +181,10 @@ configuration is in line with them, and select **Get started**.
     -   Port
     -   Username
     -   Password
-2.  Select the **SSL encryption recommended** checkbox.
-3.  In the **Exclude databases** field, enter names of databases that
+1.  Select the **SSL encryption recommended** checkbox.
+1.  In the **Exclude databases** field, enter names of databases that
     you don\'t want to migrate (if any).
-4.  Select **Run checks** to have the connection validated.
+1.  Select **Run checks** to have the connection validated.
 
 :::note[Unable to use logical replication?]
 If your connection check returns the **Unable to use logical

@@ -45,7 +45,6 @@ By default, statistics in `information_schema.TABLES` are only updated
 every 24 hours or whenever the `ANALYZE TABLE` command runs.
 :::
 
-:::note[See also]
-Consider reading how to
-[reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.
-:::
+## Related pages
+
+See [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.

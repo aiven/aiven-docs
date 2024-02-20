@@ -177,7 +177,7 @@ If you need a custom plan with capacity beyond the listed limits,
 [contact us](https://aiven.io/contact?department=1306714).
 :::
 
-:::note[See also]
+## Related pages
+
 -   [Quotas for specific tiers of Business and Premium plans](https://aiven.io/pricing?tab=plan-pricing&product=clickhouse)
 -   [Plans comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)
-:::

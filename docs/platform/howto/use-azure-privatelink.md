@@ -7,45 +7,45 @@ Azure Private Link lets you bring your Aiven services into your virtual network 
 
 Azure Private Link is supported for the following services:
 
--   Aiven for Apache Kafka®
--   Aiven for Apache Kafka Connect®
--   Aiven for ClickHouse®
--   Aiven for Grafana®
--   Aiven for InfluxDB®
--   Aiven for MySQL®
--   Aiven for OpenSearch®
--   Aiven for PostgreSQL®
--   Aiven for Redis®\*
+- Aiven for Apache Kafka®
+- Aiven for Apache Kafka Connect®
+- Aiven for ClickHouse®
+- Aiven for Grafana®
+- Aiven for InfluxDB®
+- Aiven for MySQL®
+- Aiven for OpenSearch®
+- Aiven for PostgreSQL®
+- Aiven for Redis®\*
 
 ## Prerequisites
 
--   This feature is in [limited availability](/docs/platform/concepts/beta_services).
-    [Contact the sales team](mailto:sales@aiven.io) to enable it.
+- This feature is in [limited availability](/docs/platform/concepts/beta_services).
+  [Contact the sales team](mailto:sales@aiven.io) to enable it.
 
--   [Aiven CLI](/docs/tools/cli) is
-    installed.
+- [Aiven CLI](/docs/tools/cli) is
+  installed.
 
--   The Aiven service is in
-    [a project VPC](/docs/platform/howto/manage-vpc-peering). This ensures the service is not accessible from the
-    public internet.
+- The Aiven service is in
+  [a project VPC](/docs/platform/howto/manage-vpc-peering). This ensures the service is not accessible from the
+  public internet.
 
-    :::note
-    If you are not using regular VNet peerings, any private IP range can
-    be used for the VPC. There is no network routing between your Azure
-    subscription and the Aiven VPC, so overlapping IP ranges are not an
-    issue.
-    :::
+  :::note
+  If you are not using regular VNet peerings, any private IP range can
+  be used for the VPC. There is no network routing between your Azure
+  subscription and the Aiven VPC, so overlapping IP ranges are not an
+  issue.
+  :::
 
--   The Aiven service is using
-    [static IP addresses](/docs/platform/howto/static-ip-addresses).
+- The Aiven service is using
+  [static IP addresses](/docs/platform/howto/static-ip-addresses).
 
-    :::note
-    Even though services in a VPC only communicate using private IP
-    addresses, Azure load balancers require [standard SKU IP
-    addresses](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-upgrade-portal)
-    for target virtual machines. Azure sends TCP health probes to load
-    balancer target ports from a public IP address.
-    :::
+  :::note
+  Even though services in a VPC only communicate using private IP
+  addresses, Azure load balancers require [standard SKU IP
+  addresses](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-upgrade-portal)
+  for target virtual machines. Azure sends TCP health probes to load
+  balancer target ports from a public IP address.
+  :::
 
 ## Variables
 
@@ -184,7 +184,7 @@ Console](https://console.aiven.io/):
     settings** from the sidebar.
 1.  On the **Service settings** page, navigate to the **Cloud and
     network** section and select **More network configurations** from
-    the actions (**\...**) menu.
+    the actions (**...**) menu.
 1.  In the **Network configuration** window, take the following actions:
     1.  Select **Add configuration options**.
     1.  In the search field, enter `privatelink_access`.
@@ -218,8 +218,8 @@ implementation.
 If you have one private endpoint connected to your Aiven service, you
 can preview the connection information (URI, hostname, or port required
 to access the service through the private endpoint) in [Aiven
-Console](https://console.aiven.io/) \> the service's **Overview** page
-\> the **Connection information** section, where you\'ll also find the
+Console](https://console.aiven.io/) > the service's **Overview** page
+> the **Connection information** section, where you'll also find the
 switch for the `privatelink` access route. `privatelink`-access-route
 values for `host` and `port` differ from those for the `dynamic` access
 route used by default to connect to the service.
@@ -237,31 +237,31 @@ To acquire connection information for your service component using Azure
 Private Link, run the
 [avn service connection-info](/docs/tools/cli/service/connection-info) command.
 
--   For SSL connection information for your service component using
-    Azure Private Link, run the following command:
+- For SSL connection information for your service component using
+  Azure Private Link, run the following command:
 
-    ```bash
-    avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
-    ```
+  ```bash
+  avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
+  ```
 
-:::note[Where]
--   UTILITY_NAME is `kcat`, for example
--   SERVICE_NAME is `kafka-12a3b4c5`, for example
--   PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
-:::
+Where:
 
--   For SASL connection information for Aiven for Apache Kafka® service
-    components using Azure Private Link, run the following command:
+- UTILITY_NAME is `kcat`, for example
+- SERVICE_NAME is `kafka-12a3b4c5`, for example
+- PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
 
-    ```bash
-    avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
-    ```
+- For SASL connection information for Aiven for Apache Kafka® service
+  components using Azure Private Link, run the following command:
 
-:::note[Where]
--   UTILITY_NAME is `kcat`, for example
--   SERVICE_NAME is `kafka-12a3b4c5`, for example
--   PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
-:::
+  ```bash
+  avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
+  ```
+
+Where:
+
+- UTILITY_NAME is `kcat`, for example
+- SERVICE_NAME is `kafka-12a3b4c5`, for example
+- PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
 
 :::note
 SSL certificates and SASL credentials are the same for all the

@@ -52,7 +52,5 @@ For most applications with a large pool of clients, the transaction
 pooling allows the application pool to maintain their connections, thus
 avoiding the overhead of new connection requests.
 
-:::note[See also]
 For the setup and configurations of PgBouncer, refer to
 [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling).
-:::

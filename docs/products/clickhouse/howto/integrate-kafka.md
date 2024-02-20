@@ -140,7 +140,7 @@ For each table, you can define the following optional settings:
 
 Currently the configurations can be set only with the help of CLI
 command
-[avn service integration-update](/docs/tools/cli/service/integration#avn service integration-update)
+[avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
 
 Follow these instructions:
 
@@ -211,10 +211,8 @@ FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME;
 Now the messages consumed from the Apache Kafka topic will be read
 automatically and sent into the destination table directly.
 
-:::note[See also]
 For more information on materialized views, see
 [Create materialized views in ClickHouse®](/docs/products/clickhouse/howto/materialized-views).
-:::
 
 :::note
 ClickHouse is strict about allowed symbols in database and table names.

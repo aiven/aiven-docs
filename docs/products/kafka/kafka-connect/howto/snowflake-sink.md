@@ -24,24 +24,25 @@ Furthermore you need to follow the steps
 [to prepare the Snowflake account](snowflake-sink-prereq) and collect the following information about the target
 Snowflake database upfront:
 
--
+- `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where:
 
-    `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where
+  -   `ACCOUNT_LOCATOR` is the name of the account, more
+      information are available in the dedicated [Snowflake
+      documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
+  -   `REGION_ID` is the Id of the region where the Snowflake
+      service is available, you can review the region Ids in the
+      [dedicated
+      documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
 
-    :   -   `ACCOUNT_LOCATOR` is the name of the account, more
-            information are available in the dedicated [Snowflake
-            documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
-        -   `REGION_ID` is the Id of the region where the Snowflake
-            service is available, you can review the region Ids in the
-            [dedicated
-            documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
+  :::tip
+  The Snowflake account Id and region name can be obtained in the
+  Snowflake UI by issuing the following query in a worksheet:
 
-        :::tip
-        The Snowflake account Id and region name can be obtained in the
-        Snowflake UI by issuing the following query in a worksheet:
+  ```
+  select current_account(), current_region()
+  ```
 
-            select current_account(), current_region()
-        :::
+  :::
 
 -   `SNOWFLAKE_USERNAME`: A valid Snowflake username with enough
     privileges to write data in the target database as mentioned in the

@@ -59,10 +59,8 @@ service connection and run the code.
     print_r($response->rows());
 ```
 
-:::note[Expected result]
 Now you have your service connection set up and you can proceed to
 [uploading data into your database](load-dataset).
-:::
 
 ## Related pages
 

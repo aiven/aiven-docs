@@ -69,7 +69,7 @@ node replacement potentially can be faster for highly updated services
 because fewer WAL files need to be restored since the last backup (WAL
 restoration in PostgreSQL is single-threaded and, therefore, slow).
 
-:::note[See also]
+## Related pages
+
 To restore a backup, see
 [Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params).
-:::

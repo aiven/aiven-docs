@@ -78,13 +78,9 @@ response = requests.post(
 print(response.text)
 ```
 
-:::note[Expected result]
 Now you have your service connection set up and you can proceed to
 [uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
-:::
 
-:::note[See also]
 For information on how to connect to the Aiven for Clickhouse service
 with the ClickHouse client, see
 [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
-:::

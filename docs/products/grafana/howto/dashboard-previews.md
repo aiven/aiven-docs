@@ -55,7 +55,7 @@ Grafana service:
     dashboard previews are unavailable, you need first to disable it on
     the current service.
 
-:::note[See also]
+## Related pages
+
 For more information on Dashboard previews, see [Grafana
 documentation](https://grafana.com/docs/grafana/latest/dashboards/).
-:::

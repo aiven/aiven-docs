@@ -2,11 +2,7 @@
 title: String data type in Aiven for ClickHouse®
 ---
 
-Aiven for ClickHouse® uses ClickHouse® databases, which can store
-diverse types of data, such as decimals, boolean data type, or arrays.
-This article focuses on strings and its usage in ClickHouse. Discover
-key functions and data type conversions required for working efficiently
-with strings in ClickHouse.
+Aiven for ClickHouse® uses ClickHouse® databases, which can store diverse types of data, such as strings, decimals, booleans, or arrays.
 
 ## About strings in ClickHouse
 
@@ -51,10 +47,8 @@ Functions](https://clickhouse.com/docs/en/sql-reference/functions/type-conversio
 ClickHouse supports a wide range of functions for working with JSON.
 With specific functions, you can use strings for extracting JSON.
 
-:::note[See also]
 Learn more on [JSON functions in
 ClickHouse](https://clickhouse.com/docs/en/sql-reference/functions/json-functions/).
-:::
 
 :::note[Examples]
 -   `visitParamExtractString(params, name)`: Parse the string in double

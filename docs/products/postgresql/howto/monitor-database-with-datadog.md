@@ -82,10 +82,10 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 Executing the steps successfully results in enabling Datadog Database
 Monitoring for your service.
 
-:::note[See also]
+## Related pages
+
 -   Learn more about
     [Datadog and Aiven](/docs/integrations/datadog).
 -   Learn more about [Datadog Deep Database
     Monitoring](https://www.datadoghq.com/product/database-monitoring/)
     from their product page.
-:::

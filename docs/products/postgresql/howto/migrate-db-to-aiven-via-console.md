@@ -187,11 +187,9 @@ follow and go straight to
     host    all             all             ::/0                    md5
     ```
 
-    :::note[See also]
     For more details on the configuration file's syntax, see [The
     pg_hba.conf
     File](https://www.postgresql.org/docs/14/auth-pg-hba-conf.html).
-    :::
 
 -   Enable the logical replication.
 
@@ -258,13 +256,13 @@ follow and go straight to
 ## Migrate a database {#migrate-in-console}
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  On the **Services** page, select the service where your target
+1.  On the **Services** page, select the service where your target
     database is located.
-3.  From the sidebar on your service's page, select **Service
+1.  From the sidebar on your service's page, select **Service
     settings**.
-4.  On the **Service settings** page, navigate to the **Service
+1.  On the **Service settings** page, navigate to the **Service
     management** section, and select **Import database**.
-5.  Guided by the migration wizard, go through all the migration steps.
+1.  Guided by the migration wizard, go through all the migration steps.
 
 ### Step 1: Configure
 
@@ -282,11 +280,11 @@ with them, and select **Get started**.
     -   Database name
     -   Username
     -   Password
-2.  Select the **SSL encryption (recommended)** checkbox.
-3.  Optionally, exclude specific databases from the migration by
+1.  Select the **SSL encryption (recommended)** checkbox.
+1.  Optionally, exclude specific databases from the migration by
     entering their names (separated with spaces) into the **Exclude
     databases** field.
-4.  Select **Run check**.
+1.  Select **Run check**.
 
 :::note[Cannot migrate the database using logical replication?]
 If your connection test returns information that you cannot migrate the

@@ -88,7 +88,7 @@ public | reorder                  | table    | avnadmin
 (12 rows)
 ```
 
-:::note[See also]
+## Related pages
 
 - [Code examples for connecting to PostgreSQL from your application](/docs/products/postgresql/howto/list-code-samples)
 - How to [use PgAdmin](howto/connect-pgadmin) with Aiven for PostgreSQL
@@ -96,5 +96,3 @@ public | reorder                  | table    | avnadmin
 - Learn PostgreSQL with [PostgreSQL Exercises](https://pgexercises.com/)
 - [awesome-postgres ecosystem](https://github.com/dhamaniasad/awesome-postgres) of tools
   and solutions
-
-:::
