@@ -32,9 +32,9 @@ documentation](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 
 We will be installing the operator with [Helm](https://helm.sh/). Follow
 their [official instructions](https://helm.sh/docs/intro/install/) to
-install it if you don\'t have it already.
+install it if you don't have it already.
 
-You\'ll also need an Aiven account. If you don\'t have one yet, [sign up
+You\'ll also need an Aiven account. If you don't have one yet, [sign up
 for
 Aiven](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post)
 (and enjoy a free trial for new accounts). Once you have your account
@@ -56,7 +56,7 @@ webhooks, skip this step and move on to the Helm chart section.
 :::
 
 :::note
-[For GKE version \>=1.21 VPC users, firewall rule to explicitly allow
+[For GKE version >=1.21 VPC users, firewall rule to explicitly allow
 ingress to port
 9443](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules)
 needs to be added for admission webhook.
@@ -64,7 +64,7 @@ needs to be added for admission webhook.
 
 :::tip
 If you are running a GKE \"Autopilot\" cluster in Google Cloud Platform,
-you will need to be using GKE version \>=1.21 and install `cert-manager`
+you will need to be using GKE version >=1.21 and install `cert-manager`
 into the `cert-manager` namespace, as per [this GitHub issue
 comment](https://github.com/cert-manager/cert-manager/issues/3717#issuecomment-975031637)
 :::

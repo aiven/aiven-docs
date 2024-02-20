@@ -62,7 +62,7 @@ Optional:
 ### Add rsyslog integration to service {#add_rsyslog_integration}
 
 This can be configured in the [Aiven Console](https://console.aiven.io/)
-by navigating to the **Overview** page of the target service \> the
+by navigating to the **Overview** page of the target service > the
 **Service integrations** section and selecting **Manage integrations**.
 
 You should be able to select your previously configured Rsyslog service

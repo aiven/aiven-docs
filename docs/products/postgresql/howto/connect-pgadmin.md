@@ -18,7 +18,7 @@ These are the placeholders you will need to replace in the code sample:
 
 ## Prerequisites
 
-For this example you\'ll need pgAdmin already installed on your
+For this example you'll need pgAdmin already installed on your
 computer, for installation instructions follow the [pgAdmin
 website](https://www.pgadmin.org/download/)
 

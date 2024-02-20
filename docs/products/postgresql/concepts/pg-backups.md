@@ -60,9 +60,9 @@ backups, delta base backups are more efficient, bringing improved
 performance and speeding up backup operations (unless all the data is
 updated constantly).
 
-Since delta base backups don\'t take all the data files, they are faster
+Since delta base backups don't take all the data files, they are faster
 and easier to perform on large databases with huge volumes of data.
-Because performing a delta base backup doesn\'t last long, Aiven can
+Because performing a delta base backup doesn't last long, Aiven can
 back up data more frequently if required and applicable to specific
 datasets. With the increased backup frequency, service restoration and
 node replacement potentially can be faster for highly updated services

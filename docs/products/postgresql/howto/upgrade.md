@@ -11,12 +11,12 @@ the database to be upgraded. Testing on a fork provides the benefit of
 verifying the impact of the upgrade for the specific service without
 affecting the running service. This is useful in two main aspects:
 
-1.  Ensuring that it succeeds and is performed quickly enough \-- which
-    might not be the case \-- usually when there many of databases or
-    many \"large objects\". Smaller node sizes with a large dataset can
+1.  Ensuring that it succeeds and is performed quickly enough, which
+    might not be the case, usually when there many of databases or
+    many "large objects". Smaller node sizes with a large dataset can
     run into OOM issues during the `pg_dump/pg_restore` phase of
     `pg_upgrade --link` and a fork will reveal this scenario.
-2.  To test query performance directly after upgrade under real world
+1.  To test query performance directly after upgrade under real world
     load i.e. when no statistics are available and caches are cold.
 
 :::warning
@@ -28,43 +28,43 @@ goes down before the system is back in a normal state. A read-only
 replica can help reduce this risk.
 :::
 
-Here are the steps to upgrade a PostgreSQL service:
+To upgrade a PostgreSQL service:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select the
     instance that you want to upgrade.
-2.  Select **Service settings** from the sidebar of your service's
+1.  Select **Service settings** from the sidebar of your service's
     page.
-3.  Navigate to the **Service management** section, and select **Upgrade
-    versioin** from the **Actions** (**\...**) menu.
-4.  In the **Upgrade Aiven for PostgreSQL Confirmation** window, select
+1.  Navigate to the **Service management** section, and select **Upgrade
+    versioin** from the **Actions** (**...**) menu.
+1.  In the **Upgrade Aiven for PostgreSQL Confirmation** window, select
     the version that you want to upgrade to from the dropdown menu.
 
-:::note
-When you select the version, the system checks the compatibility of the
-upgrade.
-:::
+    :::note
+    When you select the version, the system checks the compatibility of the
+    upgrade.
+    :::
 
-5.  Select **Upgrade**.
+1.  Select **Upgrade**.
 
     The system starts applying the upgrade.
 
-    a.  An automatic check is executed to confirm whether an upgrade is
+    1.  An automatic check is executed to confirm whether an upgrade is
         possible (`pg_upgrade --check`).
-    b.  If the service has more than one node, any standby nodes are
+    1.  If the service has more than one node, any standby nodes are
         shut down and removed, as replication can not be performed
         during the upgrade.
-    c.  The primary node starts an in-place upgrade to the new major
+    1.  The primary node starts an in-place upgrade to the new major
         version.
-    d.  After a successful upgrade the primary node becomes available
+    1.  After a successful upgrade the primary node becomes available
         for use. A new full backup is initiated.
-    e.  After completion of the full backup, new standby nodes are
+    1.  After completion of the full backup, new standby nodes are
         created for services with more than one node.
-    f.  If the service is a configured to have a
+    1.  If the service is a configured to have a
         [read-only replica service](create-read-replica), the replica service will now be upgraded to the
         same version using the very same process. Read-only replicas
         remain readable during the upgrade of the primary service, but
         will go offline for the upgrade at this point.
-    g.  `ANALYZE` will be automatically run for all tables after the
+    1.  `ANALYZE` will be automatically run for all tables after the
         upgrade to refresh table statistics and optimize queries.
 
 :::note
@@ -79,7 +79,7 @@ the
 [dedicated page](/docs/products/postgresql/concepts/upgrade-failover).
 
 :::warning
-Once the upgrade is started, the PostgreSQL instance can\'t be restored
+Once the upgrade is started, the PostgreSQL instance can't be restored
 to the previous version. Similarly, the pre-existing backups cannot be
 used for procedures such as Point In Time Recovery since they were
 created with an earlier version of PostgreSQL.

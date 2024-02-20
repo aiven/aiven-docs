@@ -190,7 +190,7 @@ services. As of now you can define integration with:
 -   Aiven for OpenSearch® as sink
 
 Sinking data using the
-[Slack connector](/docs/products/flink/howto/slack-connector), doesn\'t need an integration.
+[Slack connector](/docs/products/flink/howto/slack-connector), doesn't need an integration.
 
 **Example**: to create an integration between an Aiven for Apache Flink
 service named `flink-democli` and an Aiven for Apache Kafka service
@@ -332,7 +332,7 @@ services. As of now you can define integration with:
 -   Aiven for OpenSearch® as sink
 
 Sinking data using the
-[Slack connector](/docs/products/flink/howto/slack-connector), doesn\'t need an integration.
+[Slack connector](/docs/products/flink/howto/slack-connector), doesn't need an integration.
 
 **Example**: to create an integration between an Aiven for Apache Flink
 service named `flink-democli` and an Aiven for Apache Kafka service

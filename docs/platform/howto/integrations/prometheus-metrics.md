@@ -99,7 +99,7 @@ Prometheus:
    using Prometheus.
 1. Click **Service settings** from the sidebar.
 1. In the **Cloud and network** section, click the actions
-   (**\...**) menu.
+   (**...**) menu.
 1. Choose **More network configurations**.
 1. In the **Network configuration** window, select **Add configuration
    options**.
@@ -118,11 +118,11 @@ single-node and multi-node services.
 For single-node services, configure the following in your
 `scrape_config` job entry in `prometheus.yml`:
 
--   `basic_auth` details: Check your service's the **Overview** page \>
-    the **Connection information** section \> the **Prometheus** tab).
+-   `basic_auth` details: Check your service's the **Overview** page >
+    the **Connection information** section > the **Prometheus** tab).
 
 -   `PROMETHEUS_SERVICE_URI`: Check **Service URI** on your service's
-    the **Overview** page \> the **Connection information** section \>
+    the **Overview** page > the **Connection information** section >
     the **Prometheus** tab).
 
 -   `ca_file`: Download the CA certificate from your service's the
@@ -167,7 +167,7 @@ your service.
    bound to the IP addresses of the hosts, not to the DNS name.
 
 1. Enable the `insecure_skip_verify` setting so that Prometheus
-   wouldn\'t verify if the TLS certificate is bound to the IP addresses
+   wouldn't verify if the TLS certificate is bound to the IP addresses
    of the hosts.
 
     ```bash

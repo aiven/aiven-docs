@@ -38,7 +38,7 @@ To create a new user account for your service,
     This creates the new user and shows you a summary of the
     information.
 
-6.  Copy the password on screen to a safe place. It can\'t be accessed
+6.  Copy the password on screen to a safe place. It can't be accessed
     again in future, however it can be reset if needed.
 
 ## Manage roles and permissions

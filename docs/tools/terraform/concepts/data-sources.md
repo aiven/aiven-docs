@@ -33,7 +33,7 @@ output "project_ca" {
 }
 ```
 
-By using the data source instead of the resource Terraform won\'t try to
+By using the data source instead of the resource Terraform won't try to
 manage the project. However it has awareness of it and can return
 information relating to it. In the example above the certificate is made
 available as an [output
@@ -42,4 +42,4 @@ Terraform can use that data perhaps as configuration for another
 resource.
 
 The data source approach is recommended for projects that will integrate
-with resources that they don\'t manage themselves.
+with resources that they don't manage themselves.

@@ -187,7 +187,7 @@ resource "aiven_azure_vpc_peering_connection" "peering_connection" {
 Now create the connection using the credentials from the previous step.
 
 :::note
-Terraform doesn\'t support dynamic provider configuration.
+Terraform doesn't support dynamic provider configuration.
 :::
 
 In the same file, follow these steps to create the connection:

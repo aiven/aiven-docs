@@ -41,7 +41,7 @@ revoked. For automatically created tokens the limit is **1000** but when
 this limit is reached the system automatically deletes tokens that have
 been used least recently to avoid going above the limit.
 
-Therefore, an old token can stop working even if it hasn\'t expired nor
+Therefore, an old token can stop working even if it hasn't expired nor
 been explicitly revoked. To avoid running into problems with this
 behavior, configure your tokens with expiry times that suit their use
 case. This is mostly relevant for automation which automatically creates

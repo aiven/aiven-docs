@@ -57,7 +57,7 @@ your Apache Kafka service.
 
 :::note
 During this step we only created an empty database in Aiven for
-ClickHouse, but we didn\'t create any tables yet. Creation of the
+ClickHouse, but we didn't create any tables yet. Creation of the
 virtual connector table is done by setting specific integration
 configuration, see the section below.
 :::

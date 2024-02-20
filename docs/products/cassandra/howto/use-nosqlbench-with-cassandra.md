@@ -34,8 +34,8 @@ These are the placeholders you will need to replace in the code sample:
 
 :::tip
 All the above variables and the CA Certificate file can be found in
-[Aiven Console](https://console.aiven.io/) \> your service's
-**Overview** page \> **Connection information** section.
+[Aiven Console](https://console.aiven.io/) > your service's
+**Overview** page > **Connection information** section.
 :::
 
 ## Run nosqlbench against your Aiven for Apache Cassandra® service

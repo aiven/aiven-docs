@@ -34,7 +34,7 @@ the development and deployment of Flink applications. Applications are
 **automatically versioned** on every edit of the underline definition
 (tables, transformation SQL, or custom JARs), allowing you to experiment
 with new transformations and revert to a previously stored definition if
-the result of the edits doesn\'t meet expectations.
+the result of the edits doesn't meet expectations.
 
 For infromation on how to create applications, see
 [Create an Aiven for Apache Flink® application](/docs/products/flink/howto/create-flink-applications)

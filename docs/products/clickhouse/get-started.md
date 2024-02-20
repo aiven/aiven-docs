@@ -19,7 +19,7 @@ Start using Aiven for ClickHouse® by creating a service, adding a database, and
 1.  When the service is running, select **Databases and tables** from
     the sidebar of your service's page.
 
-1.  In the **Databases and tables** page, select **Create database** \>
+1.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
 
 1.  In the **Create ClickHouse database** window, enter a name for your

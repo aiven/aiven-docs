@@ -14,7 +14,7 @@ relocate or recover index shards, potentially leading to data loss.
 Aiven proactively monitors shard sizes for all OpenSearch services. If a
 service's shard exceeds the recommended size, prompt notifications are
 sent using the user alert
-`user_alert_resource_usage_es_shard_too_large`. Below, you\'ll find
+`user_alert_resource_usage_es_shard_too_large`. Below, you'll find
 recommended solutions on how to address this alert.
 
 ## Solutions to address large shards

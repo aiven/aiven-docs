@@ -11,7 +11,7 @@ maintainers of the open source software (the upstream projects). Once
 the upstream project retires a specific version, they do not receive
 security updates and critical bug fixes anymore by the maintainers.
 
-Outdated services don\'t offer the level of protection our customers
+Outdated services don't offer the level of protection our customers
 need, so Aiven follows the upstream project's EOL schedule to ensure
 that Aiven services are always running on supported versions.
 

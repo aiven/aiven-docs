@@ -151,6 +151,9 @@ div[class^='announcementBar_'] a {
 }
 
 ol ol,
-ul ol {
+ul ol,
+ul ol ol,
+ul ul ol,
+ol ul ol {
   list-style: decimal;
 }

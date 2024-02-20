@@ -89,7 +89,7 @@ CLI client.
     a desired organization and project.
 1.  On the **Services** page of your project, select **Integration
     endpoints** from the sidebar.
-1.  On the **Integration endpoints** page, select **Disk autoscaler** \>
+1.  On the **Integration endpoints** page, select **Disk autoscaler** >
     **Add new endpoint**.
 1.  In the **Create new autoscaler endpoint** window, enter an endpoint
     name, specify a maximum additional disk storage that you want to
@@ -122,7 +122,7 @@ endpoint to create an autoscaler integration on your service.
 
     -   Endpoint name (path and request body parameters)
     -   `endpoint_type` (request body): `disk_storage`
-    -   `max_additional_storage` (request body \> `user_config` object)
+    -   `max_additional_storage` (request body > `user_config` object)
 
     ```bash
     curl --request POST \
@@ -237,7 +237,7 @@ endpoint passing the following parameters in your request:
 
 -   `project_name` (path parameter)
 -   `integration_endpoint_id` (path parameter)
--   `max_additional_storage` (request body \> `user_config` object)
+-   `max_additional_storage` (request body > `user_config` object)
 
 ```bash
 curl --request PUT \
@@ -272,7 +272,7 @@ avn service integration-endpoint-update AUTOSCALER_ENDPOINT_ID
 
 To disable disk autoscaling on your Aiven service,
 disconnect the service from the autoscaler integration endpoint. You can
-also delete the integration endpoint itself if you don\'t need it for
+also delete the integration endpoint itself if you don't need it for
 future purposes. You can disable disk autoscaling in [Aiven
 Console](https://console.aiven.io/), using Aiven API, or Aiven CLI
 client.
@@ -286,7 +286,7 @@ client.
 1.  On the **Overview** page of your service, select **Integrations**
     from the sidebar.
 1.  On the **Integrations** page, find your autoscaler service
-    integration at the top, select the **Actions** (**\...**) menu \>
+    integration at the top, select the **Actions** (**...**) menu >
     **Disconnect**.
 1.  In the **Disconnect service integration** window, select
     **Disconnect**.
@@ -311,7 +311,7 @@ endpoint to delete an autoscaler integration on your service and, next,
 the
 [ServiceIntegrationEndpointDelete](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationEndpointDelete)
 endpoint on your project to delete the autoscaler integration endpoint
-if you don\'t need it for any future purposes.
+if you don't need it for any future purposes.
 
 [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
 endpoint passing `{"service disk autoscaler": {"enabled": true}}` in the
@@ -354,7 +354,7 @@ You can disable disk autoscaler on your service with the
 run the commands to delete the following:
 
 -   Autoscaler integration on your service
--   Autoscaler integration endpoint on your project (if you don\'t need
+-   Autoscaler integration endpoint on your project (if you don't need
     the autoscaler integration endpoint on your project for any future
     purposes).
 

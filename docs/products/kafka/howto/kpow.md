@@ -71,7 +71,7 @@ replacing the `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`,
 `SSL_TRUSTSTORE_FILE_NAME` and `SSL_TRUSTSTORE_PASSWORD` with the the
 respective values taken from the prerequisites section:
 
-``` 
+```
 BOOTSTRAP=APACHE_KAFKA_HOST:APACHE_KAFKA_PORT
 LICENSE_ID=KPOW_LICENSE_ID
 LICENSE_CODE=KPOW_LICENSE_CODE
@@ -87,7 +87,7 @@ SSL_TRUSTSTORE_PASSWORD=SSL_TRUSTSTORE_PASSWORD
 ```
 
 :::warning
-Don\'t remove the `/ssl/` prefix before the keystore and truststore
+don't remove the `/ssl/` prefix before the keystore and truststore
 setting, the `SSL_STORE_FOLDER` local folder containing the keystore and
 truststore will be mapped to the `/ssl/` folder during the docker
 instance creation.
@@ -102,7 +102,7 @@ You can run Kpow in a Docker/Podman container with the following
 command, by replacing the `SSL_STORE_FOLDER` with the name of the folder
 containing the Java keystore and truststore:
 
-``` 
+```
 docker run -p 3000:3000 -m2G \
     -v SSL_STORE_FOLDER:/ssl \
     --env-file ./kpow.env operatr/kpow:latest

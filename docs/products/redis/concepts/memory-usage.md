@@ -58,7 +58,7 @@ memory:
 
 :::note
 When Redis creates a fork of itself all the memory pages of the new
-process are identical to the parent, and don\'t consume any extra
+process are identical to the parent, and don't consume any extra
 memory. However, any changes in the parent process cause memory to
 diverge, and the real memory allocation to grow.
 

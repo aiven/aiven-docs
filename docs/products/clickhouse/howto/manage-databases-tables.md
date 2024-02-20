@@ -20,7 +20,7 @@ console](https://console.aiven.io/):
 2.  In your service's page, select **Databases and tables** from the
     sidebar.
 
-3.  In the **Databases and tables** page, select **Create database** \>
+3.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
 
 4.  In the **Create ClickHouse database** window, enter a name for your
@@ -35,13 +35,13 @@ console](https://console.aiven.io/):
 
 Similar to creating the database, removal should also be done through
 the Aiven platform. In the web interface of [Aiven
-console](https://console.aiven.io/) you\'ll find a delete button next to
+console](https://console.aiven.io/) you'll find a delete button next to
 the database you created in the list of databases in the **Databases and
 tables** page.
 
 :::note
 If you try adding or removing a database in for your Aiven for
-ClickHouse service through the command line, you\'ll encounter an
+ClickHouse service through the command line, you'll encounter an
 exception `Not enough privileges.(ACCESS_DENIED)`. Please use the Aiven
 web interface to add or remove a database.
 :::

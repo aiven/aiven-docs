@@ -89,7 +89,7 @@ adding storage space for CCR-enabled services.
 
 1. On the **Service settings** page of your service, navigate to the
     **Service plan** section, and select **Add additional storage** from
-    the **Actions** (**\...**) menu.
+    the **Actions** (**...**) menu.
 
 1. In the **Upgrade service storage** window, use the slider to add
     extra disk space for your service.

@@ -48,7 +48,7 @@ Once done, you should have two files available: `hits_v1.tsv` and
 
 ## Set up the service and database
 
-If you don\'t yet have an Aiven for ClickHouse service, follow the steps
+If you don't yet have an Aiven for ClickHouse service, follow the steps
 in our
 [getting started guide](/docs/products/clickhouse/get-started) to create one.
 
@@ -63,7 +63,7 @@ To create the new database, take the following steps:
     select your service from the **Services** page.
 2.  In your service's page, select **Databases and tables** from the
     sidebar.
-3.  In the **Databases and tables** page, select **Create database** \>
+3.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
 4.  In the **Create ClickHouse database** window, enter name `datasets`
     for your database and select **Create database**.

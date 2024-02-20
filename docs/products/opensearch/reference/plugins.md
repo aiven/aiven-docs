@@ -57,9 +57,9 @@ The **Notebooks** and **OpenSearch notification** plugins are part of
 **OpenSearch observability**.
 :::
 
-### Can\'t find the plugin you need?
+### Can't find the plugin you need?
 
-If you need a plugin but don\'t see it here, submit your request through
+If you need a plugin but don't see it here, submit your request through
 our [Aiven Ideas](https://ideas.aiven.io/) portal. We\'re always looking
 to expand our offerings, and your feedback and ideas are important in
 shaping the future updates of our product.

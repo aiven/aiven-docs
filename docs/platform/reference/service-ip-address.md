@@ -49,7 +49,7 @@ name in the future if the domain becomes unavailable for updates.
 
 :::important
 Always use a fully qualified domain name returned by Aiven API. Make
-sure your code doesn\'t put any constraints on the domain part or format
+sure your code doesn't put any constraints on the domain part or format
 of the returned service hostname.
 :::
 

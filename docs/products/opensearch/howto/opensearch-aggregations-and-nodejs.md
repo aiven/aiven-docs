@@ -657,7 +657,7 @@ documents each.
 
 ### Histograms
 
-The story of bucket aggregations won\'t be complete without speaking
+The story of bucket aggregations won't be complete without speaking
 about histograms. Histograms aggregate date based on provided interval.
 And since we have a `date` property, we'll build a date histogram.
 

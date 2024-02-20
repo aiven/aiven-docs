@@ -21,8 +21,8 @@ above `75%`
 
 OpenSearch API Alerting API URL can be copied from Aiven console:
 
-Click the **Overview** tab \> **OpenSearch** under
-`Connection Information` \> **Service URI** append
+Click the **Overview** tab > **OpenSearch** under
+`Connection Information` > **Service URI** append
 `_plugins/_alerting/monitors` to the **Service URI**.
 
 Example:
@@ -35,7 +35,7 @@ Save the JSON below into `cpu_alert.json`
 
 Use `curl` to create the alert
 
-``` 
+```
 curl -XPOST \
 https://username:password@os-name-myproject.aivencloud.com:24947/_plugins/_alerting/monitors \
 -H 'Content-type: application/json' -T cpu_alert.json

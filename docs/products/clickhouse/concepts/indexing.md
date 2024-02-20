@@ -59,7 +59,7 @@ working with individual rows and suitable for processing millions or
 trillions of items.
 
 :::note[Example]
-When analysing error rates based on a server log analysis, you don\'t
+When analysing error rates based on a server log analysis, you don't
 focus on individual lines but look at the overall picture to see trends.
 Such requests allow approximate calculations using only a sample of data
 to draw conclusions.

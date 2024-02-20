@@ -10,7 +10,7 @@ installed.
 Any available extension can be installed by the `avnadmin` user with the
 following `CREATE EXTENSION` command:
 
-``` 
+```
 CREATE EXTENSION <EXTENSION_NAME> CASCADE;
 ```
 
@@ -19,7 +19,7 @@ CREATE EXTENSION <EXTENSION_NAME> CASCADE;
 To upgrade an already-installed extension to the latest version
 available, run as the `avnadmin` user:
 
-``` 
+```
 ALTER EXTENSION <EXTENSION_NAME> UPDATE;
 ```
 
@@ -31,7 +31,7 @@ live database.
 When a service is updated via a maintenance update, this does not update
 the extension versions that are used automatically. The reason for this
 is that user schemas and functions can (and do often) rely on specific
-versions of an extension being used, so we can\'t assume that all
+versions of an extension being used, so we can't assume that all
 extensions are safe to upgrade.
 :::
 

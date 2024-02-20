@@ -57,7 +57,7 @@ You can create the missing primary key by adding the primary key:
 ALTER TABLE person ADD PRIMARY KEY (social_security_number);
 ```
 
-You don\'t have to explicitly define it as UNIQUE, [as the primary key
+You don't have to explicitly define it as UNIQUE, [as the primary key
 is always unique in
 MySQL](https://dev.mysql.com/doc/refman/8.0/en/primary-key-optimization.html).
 

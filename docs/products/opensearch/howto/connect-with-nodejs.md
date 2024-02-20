@@ -7,7 +7,7 @@ rely on [OpenSearch® JavaScript
 client](https://github.com/opensearch-project/opensearch-js). Follow its
 `README` file for installation instructions.
 
-To connect to the cluster, you\'ll need `service_uri`, which you can
+To connect to the cluster, you'll need `service_uri`, which you can
 find either in the service overview in the [Aiven
 console](https://console.aiven.io) or get through the Aiven command line
 interface [service

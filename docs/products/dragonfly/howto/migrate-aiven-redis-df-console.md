@@ -67,7 +67,7 @@ for Redis service. Click **Run validation** to validate the connection.
 :::warning
 If a validation error occurs during migration, follow the on-screen
 instructions to fix it. Rerun validation to ensure the database meets
-migration criteria. Note that the migration doesn\'t include service
+migration criteria. Note that the migration doesn't include service
 user accounts and commands in progress.
 :::
 

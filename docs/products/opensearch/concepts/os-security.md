@@ -42,7 +42,7 @@ feature include:
 
     If you use an identity management software like Okta or Azure AD,
     you can use SAML integration to access your OpenSearch Dashboard
-    through your identity provider. With this feature, you won\'t need
+    through your identity provider. With this feature, you won't need
     to create and manage separate login credentials for OpenSearch,
     simplifying the authentication process.
 

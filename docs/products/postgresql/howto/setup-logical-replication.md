@@ -93,7 +93,7 @@ logical replication is the following:
     `UPDATE` or `DELETE` operations will be transferred.
     :::
 
-1.  PostgreSQL's logical replication doesn\'t copy table definitions,
+1.  PostgreSQL's logical replication doesn't copy table definitions,
     that can be extracted from the `origin_database` with `pg_dump` and
     included in a `origin-database-schema.sql` file with:
 

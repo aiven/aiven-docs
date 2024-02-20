@@ -43,7 +43,7 @@ Aiven for ClickHouse. This instruction uses *PostgreSQL* as an example.
     want to add integration databases to.
 3.  In your service's page, select **Databases and tables** from the
     sidebar.
-4.  In the **Databases and tables** view, select **Create database** \>
+4.  In the **Databases and tables** view, select **Create database** >
     **PostgreSQL integration database**.
 5.  In **Create PostgreSQL integration database** wizard, select one of
     the following options:

@@ -124,7 +124,7 @@ below:
 2.  **Create a visualization**: Navigate to the **Visualize** section,
     where you can design and tailor visualizations to suit your analysis
     needs.
-3.  **Save and modify visualization**: Once you\'ve created a
+3.  **Save and modify visualization**: Once you've created a
     visualization, save it for future reference. You can always return
     to modify and update it as your requirements evolve
 

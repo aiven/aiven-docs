@@ -255,7 +255,7 @@ per row in the Cassandra table appearing in the target Apache Kafka
 `students_topic` topic.
 
 :::tip
-If your Aiven for Apache Kafka instance doesn\'t have the
+If your Aiven for Apache Kafka instance doesn't have the
 [automatic creation of topic enabled](/docs/products/kafka/howto/create-topics-automatically), you might need to create the `students_topic` topic upfront
 before starting the connector
 :::

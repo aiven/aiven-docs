@@ -44,7 +44,7 @@ upgrade to take place.
 V3 of the Aiven Terraform Provider moves away from using
 `aiven_vpc_peering_connection` as a resource, and instead provides
 provider specific resources such as
-`aiven_azure_vpc_peering_connection`. Since we probably don\'t want to
+`aiven_azure_vpc_peering_connection`. Since we probably don't want to
 destroy existing resources and make new ones, this guide will help you
 perform the migration safely.
 

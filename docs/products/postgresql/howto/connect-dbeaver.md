@@ -13,8 +13,8 @@ Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for PostgreSQL® se
 
 ## Get JDBC URI from Aiven Console
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and navigate to your organization
-   \> project > Aiven for PostgreSQL service.
+1. Log in to [Aiven Console](https://console.aiven.io/) and navigate
+   to your organization > project > Aiven for PostgreSQL service.
 1. On the service **Overview** page, select **Quick connect**.
 1. In the **Connect** window
 

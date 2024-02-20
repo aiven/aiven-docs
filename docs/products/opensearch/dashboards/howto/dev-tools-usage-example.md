@@ -16,7 +16,7 @@ This interface is helpful when you want to quickly populate index with
 sample data, or run a test query.
 
 Use **POST** method to add a new item to an index called
-`shopping-list`. If the index doesn\'t exist yet, it will be created:
+`shopping-list`. If the index doesn't exist yet, it will be created:
 
 ```
 POST shopping-list/_doc

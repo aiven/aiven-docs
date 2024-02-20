@@ -67,9 +67,9 @@ currently support AWS PrivateLink.
     ```
 
     Replace the `--service-name` value with the value shown either in
-    the [Aiven Console](https://console.aiven.io) \> **Service
-    settings** page \> **Cloud and network** section \> actions
-    (**\...**) menu \> **Edit AWS PrivateLink** \> **AWS service name**
+    the [Aiven Console](https://console.aiven.io) > **Service
+    settings** page > **Cloud and network** section > actions
+    (**...**) menu > **Edit AWS PrivateLink** > **AWS service name**
     or as an output of the following Aiven CLI command:
 
     ```bash
@@ -82,8 +82,8 @@ currently support AWS PrivateLink.
     interfaces created by AWS into the specified subnets.
 
     Alternatively, you can create the VPC endpoint in [AWS
-    Console](https://console.aws.amazon.com) under **VPC** \>
-    **Endpoints** \> **Create endpoint** . See the [AWS
+    Console](https://console.aws.amazon.com) under **VPC** >
+    **Endpoints** > **Create endpoint** . See the [AWS
     documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)
     for details.
 
@@ -123,7 +123,7 @@ currently support AWS PrivateLink.
 
         1.  On the **Service settings** page, navigate to the **Cloud
             and network** section and select **More network
-            configurations** from the actions (**\...**) menu.
+            configurations** from the actions (**...**) menu.
 
         1.  In the **Network configuration** window, select **Add
             configuration options**. In the search field, enter
@@ -151,8 +151,7 @@ currently support AWS PrivateLink.
 If you have one private endpoint connected to your Aiven service, you
 can preview the connection information (URI, hostname, or port required
 to access the service through the private endpoint) in [Aiven
-Console](https://console.aiven.io) \> the service's **Overview** page
-\> the **Connection information** section, where you\'ll also find the
+Console](https://console.aiven.io) > the service's **Overview** page > the **Connection information** section, where you'll also find the
 switch for the `privatelink` access route. `privatelink`-access-route
 values for `host` and `port` differ from those for the `dynamic` access
 route used by default to connect to the service.
@@ -258,7 +257,7 @@ allowed to connect a VPC endpoint:
         sidebar.
     1.  On the **Service settings** page, navigate to the **Cloud and
         network** section and select **Delete AWS PrivateLink** from the
-        actions (**\...**) menu.
+        actions (**...**) menu.
     1.  In the **Confirmation** window, select **Delete** .
 
 This deletes the AWS load balancer and VPC service endpoint.

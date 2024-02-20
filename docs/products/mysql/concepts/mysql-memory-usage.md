@@ -2,8 +2,7 @@
 title: Understand MySQL memory usage
 ---
 
-**MySQL memory utilization can appear high, even if the service is
-relatively idle.**
+MySQL memory utilization can appear high, even if the service is relatively idle.
 
 [All services are subject to operating overhead](/docs/platform/concepts/service-memory-limits), but some services, including MySQL, pre-allocate memory.
 This can lead to a false impression that the service is misbehaving,
@@ -27,20 +26,24 @@ The [MySQL 8.0
 Reference](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html)
 says:
 
-> The buffer pool is an area in main memory where InnoDB caches table
-> and index data as it is accessed. The buffer pool permits frequently
-> used data to be accessed directly from memory, which speeds up
-> processing.
+```
+The buffer pool is an area in main memory where InnoDB caches table
+and index data as it is accessed. The buffer pool permits frequently
+used data to be accessed directly from memory, which speeds up
+processing.
+```
 
 And [How MySQL Uses
 Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html) says:
 
-> InnoDB allocates memory for the entire buffer pool at server startup,
-> using `malloc()` operations. The `innodb_buffer_pool_size` system
-> variable defines the buffer pool size. Typically, a recommended
-> `innodb_buffer_pool_size` value is 50 to 75 percent of system memory.
+```
+InnoDB allocates memory for the entire buffer pool at server startup,
+using `malloc()` operations. The `innodb_buffer_pool_size` system
+variable defines the buffer pool size. Typically, a recommended
+`innodb_buffer_pool_size` value is 50 to 75 percent of system memory.
+```
 
-However, the InnoDB buffer pool isn\'t the only pre-allocated buffer.
+However, the InnoDB buffer pool isn't the only pre-allocated buffer.
 
 ## Global buffers
 

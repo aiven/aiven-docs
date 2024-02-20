@@ -4,7 +4,7 @@ title: Upgrade Elasticsearch clients to OpenSearch®
 
 Elasticsearch has introduced breaking changes into their client
 libraries as early as **7.13.\***, that's why newer Elasticsearch
-clients won\'t work with OpenSearch®.
+clients won't work with OpenSearch®.
 
 ## Migration steps
 
@@ -22,7 +22,7 @@ You can migrate your cluster from Elasticsearch to OpenSearch either
 before or after switching the clients.
 :::
 
-## What if you can\'t upgrade immediately?
+## What if you can't upgrade immediately?
 
 If you want to postpone the upgrade, we recommend locking the client
 version of Elasticsearch to **7.10.2** and use this version till you can

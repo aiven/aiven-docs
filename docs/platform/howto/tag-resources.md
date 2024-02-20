@@ -19,7 +19,7 @@ following:
 
 :::note
 Any single Aiven resource can have at most 10 tags attached. Within a
-resource, the tag keys must be unique, meaning that they can\'t be a
+resource, the tag keys must be unique, meaning that they can't be a
 duplicated.
 :::
 

@@ -14,10 +14,10 @@ cannot eliminate the latency completely.
 -   If you enable tiered storage for a topic, you cannot deactivate it
     without losing data in the remote storage. To deactivate tiered
     storage, contact [Aiven support](mailto:support@aiven.io).
--   Increasing the local retention threshold won\'t move segments
+-   Increasing the local retention threshold won't move segments
     already uploaded to remote storage back to local storage. This
     change only affects new data segments.
--   If you enable tiered storage on a service, you can\'t migrate the
+-   If you enable tiered storage on a service, you can't migrate the
     service to a different region or cloud, except for moving to a
     virtual cloud in the same region. For migration to a different
     region or cloud, contact [Aiven support](mailto:support@aiven.io).

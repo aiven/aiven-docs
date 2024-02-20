@@ -24,7 +24,7 @@ can be used in your billing groups.
 
 ## Delete a payment card
 
-You can\'t delete a payment card that is assigned to a billing group. If
+You can't delete a payment card that is assigned to a billing group. If
 you want to delete a payment card,
 [remove it from all billing groups](/docs/platform/howto/use-billing-groups) first.
 

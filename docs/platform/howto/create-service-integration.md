@@ -68,7 +68,7 @@ automatically maintained by Aiven.
 :::
 
 :::note
-Data may take a minute to appear on the dashboard if you\'ve just
+Data may take a minute to appear on the dashboard if you've just
 enabled the integrations. Refresh the view by reloading the page from
 the top-right corner. You can create custom dashboards either from
 scratch in Grafana or by saving a copy of the predefined dashboard under

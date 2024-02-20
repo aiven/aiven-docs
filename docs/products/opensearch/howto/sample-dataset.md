@@ -205,7 +205,7 @@ injecting over 20k recipes, so it can take 10-15 seconds.
 
 ## Get data mapping with NodeJS {#get-mapping-with-nodejs}
 
-We didn\'t specify any particular structure for the recipes data when we
+We didn't specify any particular structure for the recipes data when we
 uploaded it. Even though we could have set explicit mapping beforehand,
 we opted to rely on OpenSearch to derive the structure from the data and
 use dynamic mapping. To see the mapping definitions use the `getMapping`

@@ -71,7 +71,7 @@ integrated with Loggly.
 
 :::note
 It may take a few moments to setup the new log, and you can track the
-status on the **Overview** page of your service \> the **Service
+status on the **Overview** page of your service > the **Service
 integrations** section.
 :::
 

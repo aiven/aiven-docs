@@ -72,7 +72,7 @@ Now you're ready to start querying the data.
 Now that we have data in the OpenSearch cluster, we\'re ready to
 construct and run search queries. We will use `search` method which is
 provided by the OpenSearch JavaScript client. The following code goes
-into `search.js`, you\'ll need connection configuration and helpers
+into `search.js`, you'll need connection configuration and helpers
 methods. Therefore, include them at the top of your `search.js` file
 with
 
@@ -131,7 +131,7 @@ requests: term-level, full-text and boolean. You will also see how to
 use the Lucene query string syntax inside Query DSL.
 
 -   Term-level queries are handy when we need to find **exact matches**
-    for numbers, dates or tags and don\'t need to sort the results by
+    for numbers, dates or tags and don't need to sort the results by
     relevance. Term-level queries use search terms as they are without
     additional analysis.
 -   Full-text queries allow a smarter search for matches in analysed
@@ -366,7 +366,7 @@ top-most distance of 10 words in between.
 run-func search slop directions "pizza pineapple" 10
 ```
 
-Oh look: \"Pan-Fried Hawaiian Pizza\" (don\'t tell my colleague).
+Oh look: \"Pan-Fried Hawaiian Pizza\" (don't tell my colleague).
 
 So far all the requests we tried returned us at most 10 results. Why 10?
 Because it is a default `size` value. It can be increased by setting
@@ -426,7 +426,7 @@ different ingredients.
 The boolean clause types each affect the document relevance score
 differently. Both `must` and `should` positively contribute to the
 score, affecting the relevance of matches; `must_not` sets the score to
-0, ensuring that the document won\'t appear in the results. `filter`
+0, ensuring that the document won't appear in the results. `filter`
 clause is similar to `must`, however it has no effect on the relevance
 score.
 

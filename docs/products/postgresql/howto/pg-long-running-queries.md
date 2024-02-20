@@ -52,9 +52,9 @@ the current connection that runs over a specified length of time. For
 example, the following would cancel any query that runs for more 15
 seconds automatically:
 
-    .. code::
-
-> SET statement_timeout = 15000
+```
+SET statement_timeout = 15000
+```
 
 You may check the [client connection
 defaults](https://www.postgresql.org/docs/current/runtime-config-client.html)

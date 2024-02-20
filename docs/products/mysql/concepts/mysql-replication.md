@@ -10,7 +10,7 @@ the target server should apply or it may have an entry saying **update
 row with these old attributes to have these new attributes**. These are
 called statement and row formats.
 
-The statement format is more compact but can\'t represent all changes
+The statement format is more compact but can't represent all changes
 because some statements would yield different results if executed as is
 on different servers. The row format statement can represent all
 changes, and it allows using tools like Debezium since the binary log

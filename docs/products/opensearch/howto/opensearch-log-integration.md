@@ -78,7 +78,7 @@ You can change the configuration of the `index prefix` and
     the Aiven for OpenSearch service.
 2.  Click **Integrations** on the sidebar.
 3.  Identify the service you want to configure in the Integrations page.
-4.  Click **Actions** (**\...**) menu, select **Edit** to modify the
+4.  Click **Actions** (**...**) menu, select **Edit** to modify the
     necessary parameters.
 5.  After making the changes, click **Edit** again to save them.
 
@@ -90,7 +90,7 @@ follow these steps to disable the integration:
 1.  In your Aiven for OpenSearch service, navigate to the
     **Integrations** screen using the left sidebar and locate the
     service you want to modify.
-2.  From the **Actions** (**\...**) menu, select **Disconnect** to
+2.  From the **Actions** (**...**) menu, select **Disconnect** to
     proceed with disabling the integration.
 3.  In the confirmation window, click **Disconnect** again to confirm
     and save the changes.
