@@ -2,8 +2,7 @@
 title: About logging, metrics and alerting
 ---
 
-Administrators can configure log and metrics integrations to Aiven
-services so that you can monitor the health of your service.
+Administrators can configure log and metrics integrations to Aiven services so that you can monitor the health of your service.
 
 ## Logs
 
@@ -26,8 +25,9 @@ service.
 
 ## Alerts
 
-The platform also has alert policies to notify you via email when a key
-metric rises above or below a set threshold, such as low memory or high
-CPU consumption. For information on setting the addresses for these
-emails, see
-[this article](/docs/platform/howto/technical-emails).
+The platform has alert policies to notify you via email when a key metric
+reaches or drifts from a threshold. For example, low memory or high CPU
+consumption.
+
+For information on setting the addresses for these emails, see
+[Manage project and service notifications](/docs/platform/howto/technical-emails).

@@ -56,17 +56,17 @@ sign out command (`avn user logout`).
 
 Think about how long the token needs to be valid for; this varies
 depending on what the token is used for.
-
+<!-- vale off -->
 -   If you're doing a video recording for a demo, you can set the token
     to expire in an hour. This means that even if you have exposed the
     token during your work, it will no longer work by the time the video
     is published.
--   For server side use within the build process, such as on the CI
+-   For server-side use within the build process, such as on the CI
     server, a token with long-term validity and/or refresh interval is
     appropriate.
 -   For a situation where the token could ever be accessible, keep the
     expiry time short, and generate a new token for each operation.
-
+<!-- vale on -->
 The longer a token lives, the higher the risk of exposure. Follow the IT
 security best practises established by your company and refrain from
 allowing human users to share the same token.
@@ -84,11 +84,12 @@ account to automation services that may only need read access.
 It is also good practice to rotate your authorization tokens on a
 regular basis, for example each month. You can have as many tokens
 active at one time as you need, so you can create a new token, replace
-it as needed, check everything works, and then remove the old token once
+it as needed, check everything works, and remove the old token once
 you are confident that all changes have completed successfully.
 
 :::note
 Follow
-[Create an authentication token](/docs/platform/howto/create_authentication_token) to create an authentication token from [Aiven
+[Create an authentication token](/docs/platform/howto/create_authentication_token) to
+create an authentication token from [Aiven
 Console](https://console.aiven.io/) or the Aiven CLI.
 :::

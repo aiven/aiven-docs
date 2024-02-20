@@ -33,6 +33,7 @@ Centrify
 checkpointing
 CIDRs
 ClickHouse
+Cloudera
 CloudWatch
 codecs
 compliances
@@ -294,12 +295,14 @@ Unschedule
 untrusted
 UpCloud
 upsert
+URIs?
 UUID
 UUIDs
 vectorizing
 virtualized
 VM
 VMs
+ECEs?
 VNet
 VPC/MS
 VPCs?

@@ -2,11 +2,7 @@
 title: Service power cycle
 ---
 
-Aiven service power off and power on is more than stopping and starting
-a service on nodes. For better utilisation of resources on Aiven
-platform, idle resources will be released and only the necessary data
-will be kept after power off. The impact on the service is different
-depending on the service type and plan.
+Aiven service power off and on is more than stopping and starting a service on nodes. For better utilisation of resources on Aiven platform, idle resources will be released and only the necessary data will be kept after power off. The impact on the service is different depending on the service type and plan.
 
 :::warning
 Depending on service type and plan, data loss may happen during a
@@ -22,11 +18,11 @@ Console](https://console.aiven.io) or through
 
 Whenever an Aiven service is powered off:
 
--   All virtual machine(s) of the service will be **removed** from the
+-   All virtual machines of the service will be **removed** from the
     public cloud.
 -   The service information and configuration will be stored on Aiven
     Platform, while service data will be lost if there's no backup
-    available .
+    available.
 -   If the service has **time-based** or **PITR (point in time
     recovery)** backups, they will be kept on Aiven Platform. The
     backups are listed on the **Backups** page of the service in [Aiven
@@ -45,30 +41,30 @@ be sent before actions are taken.
     on the consequence of the power off. For example, powering off an
     Aiven service can erase data since the latest backup because the
     service only has time-based but not PITR backups.
--   Moreover, on the `Backups` page, hovering the mouse over the help
-    icon (if it's available) can present some details on the content of
-    the backups. This information suggests what can be restored if the
+-   On the **Backups** page, hovering over the help
+    icon displays some details on the content of
+    the backups including what can be restored if the
     service is powered on later.
 
 :::warning
 For backup enabled Aiven for Apache Kafka® services, topic
 configuration, schemas and connectors are all backed up, but not the
 data in topics. Therefore all topic data will be lost on power off. For
-Kafka services without backups, topic configurations together with all
+Kafka services without backups, topic configurations including all
 topic data will be lost on power off.
 :::
 
 ## Power on
 
-When a service is powered on, the following things will happen:
+When a service is powered on:
 
--   New virtual machine(s) will be created on the specified public cloud
+-   New virtual machines will be created on the specified public cloud
     for the service.
 -   Service will be started with the stored configuration parameters.
 -   The latest time-based backup that is available will be restored. The
     restore time depends on the network bandwidth and disk IOPS
     allocated to the service plan as well as the size of the backup. It
-    could take from minutes to hours. Smaller plans with larger backups
+    takes from a few minutes to a few hours. Smaller plans with larger backups
     take longer time than bigger plans with smaller backups. Restore
     progress can be checked by Aiven support with Aiven Admin CLI.
 -   If PITR backup is available, the database transaction log (for example,

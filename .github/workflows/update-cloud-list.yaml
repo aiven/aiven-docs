@@ -11,16 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'yarn'
-      - name: Install project dependencies
-        run: yarn
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Update available cloud list
         run: make cloud-list
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: Cloud - Update available list
           committer: GitHub <noreply@github.com>

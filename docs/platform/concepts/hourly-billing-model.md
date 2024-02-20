@@ -13,8 +13,8 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 ## Service charges
 
-The prices shown in the Aiven console are all-inclusive, meaning that
-all of the following are included in the hourly service price:
+The prices shown in the Aiven console are all-inclusive. The following costs are
+included in the hourly service price:
 
 -   Virtual machine costs
 -   Network costs
@@ -35,9 +35,10 @@ an Aiven service and terminate it after 40 minutes, you will be charged
 for one full hour. Likewise, if you terminate a service after 40.5
 hours, you will be charged for 41 hours.
 
-[Terminating or pausing a service](/docs/platform/howto/pause-from-cli) will stop the accumulation of new charges immediately.
-However, please note that the minimum hourly charge unit still applies
-prior to terminating or pausing a service.
+[Terminating or pausing a service](/docs/platform/howto/pause-from-cli) stops
+the accumulation of new charges immediately.
+However, the minimum hourly charge unit still applies prior to terminating or pausing
+a service.
 
-Migrating a service to another cloud region or to a different cloud
-provider does not incur any additional costs.
+Migrating a service to another cloud region or to a different cloud provider does not
+incur any additional costs.

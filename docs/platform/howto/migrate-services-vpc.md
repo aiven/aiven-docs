@@ -16,7 +16,8 @@ resolution from public IP addresses to IP addresses within a VPC.
 
 To maintain uninterrupted access throughout this transition, Aiven
 provides a
-[public access](/docs/platform/howto/public-access-in-vpc) advanced configuration. This ensures that your service
+[public access](/docs/platform/howto/public-access-in-vpc) advanced configuration
+This ensures that your service
 remains accessible over both the public Internet and within the VPC
 during migration.
 
@@ -29,19 +30,19 @@ Follow these steps to migrate Aiven services to a VPC:
 
 1.  **VPC creation and peering**:
     [Create a VPC](/docs/platform/howto/manage-vpc-peering) and establish peering.
-2.  **Network peering validation**: Test the network peering with a
+1.  **Network peering validation**: Test the network peering with a
     non-critical service.
-3.  **Enable public access**: Activate public access for all services to
+1.  **Enable public access**: Activate public access for all services to
     be migrated.
-4.  **Application configuration update**: Modify your application to use
+1.  **Application configuration update**: Modify your application to use
     public access hostnames.
-5.  **Service migration**: Start the migration of the service into the
+1.  **Service migration**: Start the migration of the service into the
     VPC.
-6.  **Peering connections validation**: Confirm the functionality of
+1.  **Peering connections validation**: Confirm the functionality of
     peering connections with private hostnames and ports.
-7.  **Switch to private access hostnames**: Change application
+1.  **Switch to private access hostnames**: Change application
     configuration to use private access hostnames.
-8.  **Disable public access**: Turn off public access for all services.
+1.  **Disable public access**: Turn off public access for all services.
 
 :::note
 Steps 3, 4, 6, 7, 8 are optional but highly recommended. Following these
@@ -85,8 +86,8 @@ be `public_access.kafka`. This action creates a new hostname and port,
 which remain publicly accessible even after the service is moved into
 the VPC.
 
-You can find the new hostname and port under **Connection Information**
-by selecting the `Public` \"Access Route\". Make sure you can connect to
+See the new hostname and port under **Connection Information**
+by selecting the **Public Access Route**. Make sure you can connect to
 each new host/port combination.
 
 ## Configure and redeploy application
@@ -103,20 +104,19 @@ You can migrate your Aiven services into a VPC using the [Aiven
 Console](https://console.aiven.io/) .
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) select your
-    project and then select the service.
-2.  On the service page, select **Service settings** from the sidebar.
-3.  In the **Cloud and network** section, click **Actions (\...)**.
-4.  Choose **Change cloud or region** from the dropdown menu.
-5.  In the **Migrate service to another cloud** window, select the
+    project and select the service.
+1.  On the service page, select **Service settings** from the sidebar.
+1.  In the **Cloud and network** section, click **Actions (...)**.
+1.  Choose **Change cloud or region** from the dropdown menu.
+1.  In the **Migrate service to another cloud** window, select the
     **VPC** tab and choose the appropriate region for your project's
     dedicated VPC. Make sure the `Public Internet` tag is
     noted.
-6.  Start the migration process. Afterwards, monitor for the
+1.  Start the migration process. Afterwards, monitor for the
     `Project VPC` tag to appear on the service's page, which signifies
     the successful migration.
 
-In [Aiven Console](https://console.aiven.io/), use the **Cloud and VPC**
-\> **Migrate cloud** section on the service's **Overview** page to
+In [Aiven Console](https://console.aiven.io/), use the **Cloud and VPC** > **Migrate cloud** section on the service's **Overview** page to
 migrate your Aiven services into a VPC. Note the `Public Internet` tag.
 
 Ensure that you select the region from the `VPC` tab. This is a

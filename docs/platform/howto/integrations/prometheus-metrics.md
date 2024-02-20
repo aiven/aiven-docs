@@ -22,9 +22,8 @@ from the HTTP server running on Aiven nodes.
 
 Usually one Prometheus integration endpoint can be used for all services
 in the same project. To check if Prometheus is supported on your
-service, you need to verify if the project for this service has a
-Prometheus integration endpoint created. For this purpose, take the
-following steps:
+service, verify if the project for this service has a
+Prometheus integration endpoint created:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), go to
    **Projects** in the top navigation bar, and select your project from
@@ -42,7 +41,7 @@ Prometheus. If there's no Prometheus endpoint available, proceed to
 ## Enable Prometheus
 
 Aiven offers Prometheus endpoints for your services. To enable this
-feature, take the following steps:
+feature:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), go to
    **Projects** in the top navigation bar, and select your project from
@@ -74,7 +73,7 @@ feature, take the following steps:
    integration listed and status `active`.
    :::
 
-1. Next, navigate to the service's **Overview** page, and then locate
+1. Next, navigate to the service's **Overview** page, and locate
    the **Connection information** section.
 
 1. Click on the **Prometheus** tab.

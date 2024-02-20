@@ -28,7 +28,7 @@ region where the connecting endpoint will be created.
 
 :::note
 Private Service Connect endpoints are service specific. For each service
-you wish to connect to, you need to create a separate endpoint.
+you wish to connect to, create a separate endpoint.
 :::
 
 ## Set up a Private Service Connect connection
@@ -183,7 +183,7 @@ The state of your Private Service Connect endpoint should have
 transitioned from `pending` to `accepted` at this point. Private Service
 Connect connectivity has been established now.
 
-As the final step, you need to allow connectivity using the Private
+As the final step, allow connectivity using the Private
 Service Connect endpoint.
 
 ### Step 4: Enable Private Link access service components

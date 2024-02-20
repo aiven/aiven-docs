@@ -2,10 +2,9 @@
 title: Prepare services for high load
 ---
 
-If you are expecting higher than usual traffic on your Aiven services,
-you can follow the recommendations and best practices detailed below
-ahead of time to make sure you have the best tools and your service is
-ready to sustain high loads.
+<!-- vale off -->
+When you expect higher than usual traffic on your Aiven services, follow these recommendations and best practices.
+<!-- vale on -->
 
 :::tip
 If your services are already experiencing high load, under-performing or
@@ -20,11 +19,11 @@ load](https://help.aiven.io/en/articles/4660372-reacting-to-high-load).
 To receive notifications about the service health, you can set the
 appropriate emails in [Aiven Console](https://console.aiven.io/):
 
-1.  Go to your project, and select **Settings** from the sidebar.
-1.  In the **Settings** page, include relevant email addresses in the
-    **Technical Emails** section.
+1. Go to your project, and select **Settings** from the sidebar.
+1. In the **Settings** page, include relevant email addresses in the
+   **Technical Emails** section.
 
-The specified email addressees will receive notifications related to
+The specified email addresses will receive notifications related to
 plan size change, performance, outages and upcoming maintenance.
 
 :::warning
@@ -51,11 +50,8 @@ updates on incidents directly from
 
 ## Monitor the services
 
-<!-- vale off -->
-It's difficult to prepare for high load if the usual load is not
-monitored. Check out how to setup adequate monitoring for your needs in
-[Monitoring services](monitoring-services).
-<!-- vale on -->
+Monitoring helps you prepare for high load. Check out how to setup adequate monitoring
+for your needs in [Monitoring services](/docs/platform/howto/monitoring-services).
 
 ## Modify the service plan
 
@@ -71,7 +67,7 @@ recommended to schedule backups outside of peak traffic hours.
 
 To configure the daily backup time in  **Aiven for PostgreSQL®** and **Aiven for MySQL®** services:
 
-1. Access the `Aiven Console <https://console.aiven.io/>`, select your project and then
+1. Access the `Aiven Console <https://console.aiven.io/>`, select your project and
    choose your service.
 1. In the service page, select **Service settings** from the sidebar, and scroll down
    to the **Advanced configuration** section.
@@ -116,5 +112,7 @@ your usage, the better you can weather spikes in traffic.
 
 ## Related pages
 
+<!-- vale off -->
 - [Apache Kafka® and Apache Kafka® Connect best practices](/docs/products/kafka/howto/best-practices)
 - [PostgreSQL® best practices](/docs/products/postgresql/howto/optimize-pg-slow-queries)
+<!-- vale on -->

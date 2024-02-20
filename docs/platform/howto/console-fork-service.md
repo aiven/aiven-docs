@@ -2,11 +2,7 @@
 title: Fork your service
 ---
 
-Fork your Aiven service in order to make a copy of the service. You can
-use it to create a development copy of your production environment, set
-up a snapshot to analyze an issue or test an upgrade, or create an
-instance in a different cloud/geographical location/under a different
-plan.
+Fork your Aiven service to make a copy of the service. You can use it to create a development copy of your production environment, set up a snapshot to analyze an issue or test an upgrade, or create an instance in a different cloud/geographical location/under a different plan.
 
 Learn more
 [about service forking](/docs/platform/concepts/service-forking).
@@ -16,7 +12,7 @@ Learn more
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 1.  Go to your **Services**, and select the service you want to fork.
 1.  On the **Overview** page of your service, scroll down to **Fork
-    Database** \> **New database fork**.
+    Database** > **New database fork**.
 1.  In the **New Database Fork** window, select the new service region
     and plan.
 1.  Select **Create fork**.
@@ -36,12 +32,12 @@ need for the copy.
     avn service types
     ```
 
-For example, if you want to create a fork of your `forker` PostgreSQL®
+For example, to create a fork of your `forker` PostgreSQL®
 service, and name it `forked`, the command would be something like:
 
 ```bash
 avn service create forked --project PROJECT_NAME --cloud CLOUD_NAME -t pg --plan business-4 -c service_to_fork_from=forker
 ```
 
-You have now copied your Aiven service. You can now apply any integrations you
+You have copied your Aiven service. You can now apply any integrations you
 need for the copy.

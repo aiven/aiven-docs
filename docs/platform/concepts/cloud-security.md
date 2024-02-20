@@ -2,13 +2,14 @@
 title: Cloud security
 ---
 
-Learn about Aiven's access control, encryption, network security, data
-privacy and operator access.
+Learn about Aiven's access control, encryption, network security, data privacy and operator access.
 
 ## Cloud provider accounts
 
-The regular Aiven services are hosted under cloud provider accounts
-controlled by Aiven. These accounts are managed only by Aiven operations
+Aiven services are hosted under cloud provider accounts
+controlled by Aiven.
+
+These accounts are managed only by Aiven operations
 personnel, and customers cannot directly access the Aiven cloud provider
 account resources.
 
@@ -16,19 +17,21 @@ account resources.
 
 Each Aiven service consists of one or more virtual machines, which are
 automatically launched to the target cloud region chosen by the
-customer. In cloud regions that have multiple Availability Zones (or a
-similar mechanism), the virtual machines are distributed evenly across
-the zones in order to provide best possible service in cases when an
-entire availability zone (which can include one or more datacenters)
-goes unavailable.
+customer.
 
-Service-providing virtual machines (VMs) are dedicated for a single
-customer, i.e. there is no multi-tenancy on a VM basis, and the customer
+In cloud regions that have multiple Availability Zones (or a
+similar mechanism), virtual machines are distributed evenly across
+the zones to provide the best possible service in cases when an
+entire availability zone (which can include one or more datacenters)
+becomes unavailable.
+
+Service-providing virtual machines (VMs) are dedicated to a single
+customer. This means there is no multi-tenancy on a VM basis, and the customer
 data never leaves the machine, except when uploaded to the offsite
 backup location.
 
-Virtual machines are not reused and will be terminated, and wiped upon
-service upgrade or termination.
+Virtual machines are not reused and are terminated and wiped during service
+upgrade or termination.
 
 ## Data encryption
 
@@ -51,9 +54,10 @@ RSA key-pair is randomly generated for each service. The key lengths are
 3072-bits for the RSA key.
 
 Aiven-encrypted backup files are stored in the object storage in the
-same region where the service virtual machines are located. For those
-cloud providers that do not provide object storage services (i.e.
-DigitalOcean, UpCloud), the nearest region from another cloud provider
+same region where the service virtual machines are located.
+
+For cloud providers that do not provide object storage services like
+DigitalOcean or UpCloud, the nearest region from another cloud provider
 that provides an object storage is used.
 
 ## Networking security
@@ -86,9 +90,8 @@ projects. When services are deployed in a VPC, the DNS names resolve to
 their Private IP.
 
 Some services allow both public and private access to be enabled while
-inside a VPC (for testing, for example) and you can find instructions
-for this in the
-[Enable public access in a VPC](/docs/platform/howto/public-access-in-vpc) article.
+inside a VPC and see
+[Enable public access in a VPC](/docs/platform/howto/public-access-in-vpc).
 
 Connections to Aiven services are always established from your VPC to
 the peered Aiven VPC. So, you can use VPC firewall rules to prevent any

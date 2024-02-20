@@ -2,10 +2,7 @@
 title: Organization hierarchy and access
 ---
 
-The Aiven platform uses organizations, organizational units, and
-projects to organize services and access to those services. Learn how
-you can use these effectively to accommodate your organization's
-structure.
+The Aiven platform uses organizations, organizational units, and projects to organize services and manage access to those services.
 
 ![Hierarchy showing two organizational units, each with two projects, nested within one organization.](/images/platform/concepts/organizations_hierarchy.png)
 
@@ -18,23 +15,23 @@ You can use your organization to create a hierarchical structure that
 fits your needs. Organizational units can be nested within an
 organization, adding another level to group your projects. This gives
 you greater flexibility to organize your infrastructure based on your
-specific use cases. For example, you can easily split production and
+specific use cases. For example, you can split production and
 testing workloads into different organizational units.
 
 Grouping your projects in organizations and organizational units lets
 you centrally manage settings like:
 
--   Authentication methods: Only available on the organization level
--   Access control lists (ACLs): Can be set on all levels (organization,
-    organizational unit, and project)
-    -   ACLs for service plans are inherited, meaning all projects
-        within an organization or organizational unit will have the same
-        service plan.
--   Groups: Managed at the organization level and assigned to projects
--   Support contracts: Specific to a single organization and cannot be
-    shared between them
--   Billing groups: Specific to a single organization and cannot be
-    shared between them
+- Authentication methods: Only available on the organization level
+- Access control lists (ACLs): Can be set on all levels (organization,
+  organizational unit, and project)
+  - ACLs for service plans are inherited, meaning all projects
+    within an organization or organizational unit will have the same
+    service plan.
+- Groups: Managed at the organization level and assigned to projects
+- Support contracts: Specific to a single organization and cannot be
+  shared between them
+- Billing groups: Specific to a single organization and cannot be
+  shared between them
 
 ### Super admin
 
@@ -81,39 +78,38 @@ contractors.
 
 ### Groups
 
-[Organization users](/docs/platform/howto/manage-org-users) can be
-[added to groups](/docs/platform/howto/manage-groups), making it easy to control access to the services in a
-project. When you
-[add a group to a project](/docs/platform/howto/add-groups-projects), you also select the role for that group. This role gives
-all users in that group the same level of access to all services in the
-project.
+[Organization users](/docs/platform/howto/manage-org-users) can be [added to
+groups](/docs/platform/howto/manage-groups), making it easy to control access to
+the services in a project. When you [add a group to a
+project](/docs/platform/howto/add-groups-projects), you also select the role for
+that group. This role gives users in that group the same level of access to
+all services in the project.
 
 ## Best practices for organizations
 
-**Small organizations**
+### Small organizations
 
 For smaller organizations that have a limited number of projects we
-recommend consolidating all of your projects within one organization.
+recommend consolidating all your projects within one organization.
 This will make it easier for your teams to navigate between projects and
 services.
 
 Good naming conventions also help with finding projects and services.
-For example, you can include the environment type - `dev`, `prod`,
-etc. - at the beginning of project names.
+For example, you can include the environment type,  `dev`, `prod`,
+etc., at the beginning of project names.
 
-**Medium organizations**
+### Medium organizations
 
-For more complex cases, it's helpful to take advantage of the
-organizational units. Organizational units let you collect together
-related projects.
+For more complex cases, take advantage of the
+organizational units. Organizational units group related projects.
 
-You could, for example, group projects into organizational units that
-correspond to your internal departments. Alternatively, you could group
+You can, for example, group projects into organizational units that
+correspond to your internal departments. Alternatively, you can group
 them by categories like testing, staging, and production environments.
 
-**Large organizations**
+### Large organizations
 
-For large organizations, it's best to keep all of your projects in
-organizational units instead of organizations. By keeping all of your
+For large organizations, keep your projects in
+organizational units instead of organizations. By keeping your
 projects in organizational units you can centrally manage things like
 support contracts and billing groups for each group of projects.
