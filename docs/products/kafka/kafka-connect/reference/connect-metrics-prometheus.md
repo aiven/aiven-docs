@@ -2,8 +2,9 @@
 title: Metrics for Aiven for Apache Kafka® Connect available via Prometheus
 ---
 
-Below you can find a summary of every metric available via Prometheus
-for an Aiven for Apache Kafka® Connect service. You can review the list
+These are the metrics available via Prometheus for an Aiven for Apache Kafka® Connect service.
+
+You can review the list
 of metrics available via Prometheus for the Aiven for Apache Kafka®
 service in the
 [dedicated document](/docs/products/kafka/reference/kafka-metrics-prometheus).
@@ -13,7 +14,7 @@ Monitoring section of the Apache Kafka®
 documentation](https://kafka.apache.org/documentation/#connect_monitoring).
 
 :::note
-The metrics only appear if there's actual activity in the underlying
+The metrics only appear if there is activity in the underlying
 Apache Kafka Connect service.
 :::
 

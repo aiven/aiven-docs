@@ -3,7 +3,7 @@ title: Use Aggregations with OpenSearch® and NodeJS
 ---
 
 Learn how to aggregate data using OpenSearch and its NodeJS client. In
-this tutorial we\'ll look at different types of aggregations, write and
+this tutorial we'll look at different types of aggregations, write and
 execute requests to learn more about the data in our dataset.
 
 :::note
@@ -27,7 +27,7 @@ repository](https://github.com/aiven/demo-open-search-node-js).
 
 ### File structure and GitHub repository
 
-To organise our development space we\'ll use these files:
+To organise our development space we'll use these files:
 
 -   `config.js` to keep necessary basis to connect to the cluster,
 -   `index.js` to hold methods which manipulate the index,
@@ -35,7 +35,7 @@ To organise our development space we\'ll use these files:
 -   `search.js` and `aggregation.js` for methods specific to search and
     aggregation requests.
 
-We\'ll be adding code into these files and running the methods from the
+we'll be adding code into these files and running the methods from the
 command line.
 
 ### Connect to the cluster and load data
@@ -47,7 +47,7 @@ connected
 [retrieve the data mapping](/docs/products/opensearch/howto/sample-dataset#get-mapping-with-nodejs) to understand the structure of the created index.
 
 :::note
-In the code snippets we\'ll keep error handling somewhat simple and use
+In the code snippets we'll keep error handling somewhat simple and use
 `console.log` to print information into the terminal.
 :::
 
@@ -55,7 +55,7 @@ Now you're ready to start aggregating the data.
 
 ## Aggregations
 
-In this tutorial we\'ll write and run examples for three different types
+In this tutorial we'll write and run examples for three different types
 of aggregations: metric, bucket and pipeline. You can read more about
 aggregations in
 [a concept article](/docs/products/opensearch/concepts/aggregations).
@@ -79,7 +79,7 @@ zero.
 
 The structure of a simple request looks like this:
 
-``` javascript
+```javascript
 client.search(
   {
     index,
@@ -99,11 +99,11 @@ client.search(
 
 The best way to learn more about each type of aggregations is to try
 them out. Therefore, it's time to make our hands dirty and do some
-coding. Create `aggregate.js` file, this is where we\'ll be
+coding. Create `aggregate.js` file, this is where we'll be
 adding our code. At the top of the file import client and index name,
-we\'ll need them to send requests to the cluster.
+we'll need them to send requests to the cluster.
 
-``` javascript
+```javascript
 const { client, indexName: index } = require("./config");
 ```
 
@@ -116,7 +116,7 @@ single-value metric, such as finding an average across values in a
 field. Using the draft structure of an aggregation we can create a
 method to calculate the average of the recipe ratings:
 
-``` javascript
+```javascript
 /**
  * Calculate average rating of all documents
  * run-func aggregate averageRating
@@ -175,7 +175,7 @@ created:
 
 With these changes our method looks like this:
 
-``` javascript
+```javascript
 const logAggs = (field, error, result) => {
   if (error) {
     console.error(error);
@@ -220,7 +220,7 @@ run-func aggregate metric avg rating
 And because we like clean code, move and export the `logAggs` function
 from `helpers.js` and reference it in `aggregate.js`.
 
-``` javascript
+```javascript
 const { logAggs } = require("./helpers");
 ```
 
@@ -374,13 +374,13 @@ You can aggregate data by dividing it into a set of buckets. We can
 either predefine these buckets, or create them dynamically to fit the
 data.
 
-To understand how this works, we\'ll create a method to aggregate
+To understand how this works, we'll create a method to aggregate
 recipes into buckets based on sodium ranges.
 
 We use `range` aggregation and add a property `ranges` to describe how
 we want to split the data across buckets:
 
-``` javascript
+```javascript
 /**
  * Group recipes into bucket based on sodium levels
  * run-func aggregate sodiumRange
@@ -439,7 +439,7 @@ the buckets.
 
 However, our method is narrowed down to a specific scenario. We want to
 refactor it a bit to use for other fields and different sets of ranges.
-To achieve this we\'ll:
+To achieve this we'll:
 
 -   move aggregation field and bucket ranges to the list of method
     parameters
@@ -450,7 +450,7 @@ To achieve this we\'ll:
     results
 -   separate `body` into a variable for better readability
 
-``` javascript
+```javascript
 /**
  * Group recipes into bucket based on the provided field and set of ranges
  * run-func aggregate range sodium 500 1000
@@ -536,7 +536,7 @@ what we wrote for the ranges, with a couple of differences:
 -   use an optional property `size`, which specifies the upper limit of
     the buckets we want to create.
 
-``` javascript
+```javascript
 /**
  * Group recipes into buckets for every unique value
  * `run-func aggregate terms categories.keyword 20`
@@ -621,7 +621,7 @@ rarely used items will be at the top of the response.
 `rare_terms` relies on `max_doc_count`, which sets upper limit for
 number of documents per bucket.
 
-``` javascript
+```javascript
 /**
  * Group recipes into buckets to find the most rare items
  * `run-func aggregate rareTerms categories.keyword 3`
@@ -657,14 +657,14 @@ documents each.
 
 ### Histograms
 
-The story of bucket aggregations won\'t be complete without speaking
+The story of bucket aggregations won't be complete without speaking
 about histograms. Histograms aggregate date based on provided interval.
-And since we have a `date` property, we\'ll build a date histogram.
+And since we have a `date` property, we'll build a date histogram.
 
 The format of the histogram aggregation is similar to what we saw so
 far, so we can create a new method almost identical to previous ones:
 
-``` javascript
+```javascript
 /**
  * Date histogram with a time interval
  * `run-func aggregate dateHistogram date year`
@@ -739,7 +739,7 @@ OpenSearch allows \"piping\" the results of one aggregation into the
 different one to achieve more granular analysis through an intermediate
 step.
 
-To demonstrate an example of pipeline aggregations, we\'ll look at the
+To demonstrate an example of pipeline aggregations, we'll look at the
 moving average of number of recipes added throughout the years. With the
 help of what we learned so far and a couple of new tools we can do the
 following:
@@ -759,7 +759,7 @@ following:
 
 When put these pieces together we can write this method:
 
-``` javascript
+```javascript
 /**
  * Calculating the moving average of number of added recipes across years
  * `run-func aggregate movingAverage`

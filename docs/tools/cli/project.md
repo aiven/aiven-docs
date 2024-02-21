@@ -17,7 +17,7 @@ Fetches project details.
 
 **Example:** Show the details of the currently selected project:
 
-``` shell
+```shell
 avn project details
 ```
 
@@ -35,9 +35,9 @@ command.
 | `project_name` | Required positional argument |
 
 **Example:** Make the project named `my-project` the default for all
-commands where the `--project` parameter isn\'t supplied:
+commands where the `--project` parameter isn't supplied:
 
-``` shell
+```shell
 avn project switch my-project
 ```
 
@@ -48,7 +48,7 @@ Lists all the projects that you have access to.
 **Example:** List all the projects available to use with a `--project`
 command switch:
 
-``` shell
+```shell
 avn project list
 ```
 
@@ -79,14 +79,14 @@ Creates a new project with `create` or changes the settings with
 
 **Example:** Create a project named `my-project`:
 
-``` shell
+```shell
 avn project create my-project
 ```
 
 **Example:** Create a project in an organization using `my-project` as a
 template and set the email address for the technical contact:
 
-``` shell
+```shell
 avn project create \
   --create-project-from my-project \
   --account-id abcdef0123456789 \
@@ -96,7 +96,7 @@ avn project create \
 
 **Example:** Rename a project:
 
-``` shell
+```shell
 avn project update
   --project my-project
   --name my-better-named-project
@@ -104,17 +104,17 @@ avn project update
 
 ### `avn project delete` {#avn-delete-project}
 
-Deletes a project. If the project isn\'t empty, it removes the services
+Deletes a project. If the project isn't empty, it removes the services
 in it first.
 
 :::note
-Aiven doesn\'t allow the deletion of non-empty projects as safeguard
+Aiven doesn't allow the deletion of non-empty projects as safeguard
 against accidental code execution.
 :::
 
 **Example:** Delete `my-project`:
 
-``` shell
+```shell
 avn project delete my-project
 ```
 
@@ -135,7 +135,7 @@ in the file name you supply.
 **Example:** Download the CA certificate for the current project, and
 save it in a file in the current directory called `ca.pem`:
 
-``` shell
+```shell
 avn project ca-get --target-filepath ca.pem
 ```
 
@@ -153,7 +153,7 @@ Lists the open invitations to the project.
 
 **Example:** List the invitations for the current project:
 
-``` shell
+```shell
 avn project invite-list
 ```
 
@@ -167,7 +167,7 @@ Lists the users with access to the project.
 
 **Example:** List the users with access to project `my-project`:
 
-``` shell
+```shell
 avn project user-list --project my-project
 ```
 
@@ -184,7 +184,7 @@ Sends an email invitation to a user to join a project.
 **Example:** Invite an important person to be an admin on the
 currently-selected project:
 
-``` shell
+```shell
 avn project user-invite --role admin boss@example.com
 ```
 
@@ -200,7 +200,7 @@ Removes a user with the supplied email address from the project.
 **Example:** Remove the user with email `alice@example.com` from project
 `my-project`:
 
-``` shell
+```shell
 avn project user-remove --project my-project alice@example.com
 ```
 

@@ -57,7 +57,7 @@ avn ticket list         \
 
 An example of `avn ticket list` output:
 
-``` text
+```text
 TICKET_ID  SEVERITY  STATE  TITLE                                 PROJECT_NAME   SERVICE_NAME           CREATE_TIME           DESCRIPTION                                         UPDATE_TIME           USER_EMAIL         USER_REAL_NAME
 =========  ========  =====  ====================================  =============  ============  ====================  ============================================================ ====================  =================  ==============
 T-4EXXX    high      open   Error during enabling XYZ extension   proj-test      pg-demo       2021-11-01T07:59:52Z  "When enabling XYZ extension I get the error ERROR123: ZZZ"  2021-11-03T22:30:28Z  joe@example.com    Joe Doe

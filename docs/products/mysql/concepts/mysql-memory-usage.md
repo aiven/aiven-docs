@@ -2,8 +2,7 @@
 title: Understand MySQL memory usage
 ---
 
-**MySQL memory utilization can appear high, even if the service is
-relatively idle.**
+MySQL memory utilization can appear high, even if the service is relatively idle.
 
 [All services are subject to operating overhead](/docs/platform/concepts/service-memory-limits), but some services, including MySQL, pre-allocate memory.
 This can lead to a false impression that the service is misbehaving,
@@ -27,20 +26,24 @@ The [MySQL 8.0
 Reference](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html)
 says:
 
-> The buffer pool is an area in main memory where InnoDB caches table
-> and index data as it is accessed. The buffer pool permits frequently
-> used data to be accessed directly from memory, which speeds up
-> processing.
+```
+The buffer pool is an area in main memory where InnoDB caches table
+and index data as it is accessed. The buffer pool permits frequently
+used data to be accessed directly from memory, which speeds up
+processing.
+```
 
 And [How MySQL Uses
 Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html) says:
 
-> InnoDB allocates memory for the entire buffer pool at server startup,
-> using `malloc()` operations. The `innodb_buffer_pool_size` system
-> variable defines the buffer pool size. Typically, a recommended
-> `innodb_buffer_pool_size` value is 50 to 75 percent of system memory.
+```
+InnoDB allocates memory for the entire buffer pool at server startup,
+using `malloc()` operations. The `innodb_buffer_pool_size` system
+variable defines the buffer pool size. Typically, a recommended
+`innodb_buffer_pool_size` value is 50 to 75 percent of system memory.
+```
 
-However, the InnoDB buffer pool isn\'t the only pre-allocated buffer.
+However, the InnoDB buffer pool isn't the only pre-allocated buffer.
 
 ## Global buffers
 
@@ -54,11 +57,11 @@ Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html).
 Using a 4GB service as an example, a view of the global buffers shows
 what memory has been allocated:
 
-``` sql
-SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area, 
-   format_bytes(SUM(current_alloc)) AS current_alloc 
-FROM sys.x$memory_global_by_current_bytes 
-GROUP BY SUBSTRING_INDEX(event_name,'/',2) 
+```sql
+SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area,
+   format_bytes(SUM(current_alloc)) AS current_alloc
+FROM sys.x$memory_global_by_current_bytes
+GROUP BY SUBSTRING_INDEX(event_name,'/',2)
 ORDER BY SUM(current_alloc) DESC;
 
 +---------------------------+---------------+
@@ -79,7 +82,7 @@ ORDER BY SUM(current_alloc) DESC;
 
 Although allocated, the buffers may be relatively empty:
 
-``` sql
+```sql
 SELECT CONCAT(FORMAT(A.num * 100.0 / B.num,2),'%') `BufferPool %` FROM
     (SELECT variable_value num FROM performance_schema.global_status
     WHERE variable_name = 'Innodb_buffer_pool_pages_data') A,

@@ -7,7 +7,7 @@ rely on [OpenSearch® JavaScript
 client](https://github.com/opensearch-project/opensearch-js). Follow its
 `README` file for installation instructions.
 
-To connect to the cluster, you\'ll need `service_uri`, which you can
+To connect to the cluster, you'll need `service_uri`, which you can
 find either in the service overview in the [Aiven
 console](https://console.aiven.io) or get through the Aiven command line
 interface [service
@@ -38,7 +38,7 @@ contains credentials. Additionally, when creating a client you can also
 specify `ssl configuration`, `bearer token`, `CA fingerprint` and other
 authentication details depending on protocols you use.
 
-``` javascript
+```javascript
 const { Client } = require('@opensearch-project/opensearch')
 
 module.exports.client = new Client({

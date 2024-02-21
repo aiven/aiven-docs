@@ -36,7 +36,7 @@ of the following advanced parameters:
   <tr>
     <td><code>ip_filter</code></td>
     <td>array</td>
-    <td>Restricts the incoming connections from the Classless Inter-Domain Routing (CIDR) address block, e.g. <code>10.20.0.0/16</code>. The default value is: <code>0.0.0.0/0</code></td>
+    <td>Restricts the incoming connections from the Classless Inter-Domain Routing (CIDR) address block, for example, <code>10.20.0.0/16</code>. The default value is: <code>0.0.0.0/0</code></td>
   </tr>
   <tr>
     <td><code>pg.deadlock_timeout</code></td>

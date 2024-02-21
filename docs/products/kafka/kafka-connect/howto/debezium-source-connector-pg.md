@@ -82,10 +82,10 @@ Connector for Apache Kafka to a PostgreSQL database using the
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `debezium_source_pg.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
@@ -237,7 +237,7 @@ To create the publication in PostgreSQL:
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
--   Create a publication (with name e.g. `my_test_publication`) for all
+-   Create a publication (with name for example, `my_test_publication`) for all
     the tables:
 
     ```
@@ -248,6 +248,6 @@ To create the publication in PostgreSQL:
     );
     ```
 
--   Make sure to use the correct publication name (e.g.
+-   Make sure to use the correct publication name (for example,
     `my_test_publication`) in the connector definition and restart the
     connector

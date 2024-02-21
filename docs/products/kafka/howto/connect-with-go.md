@@ -14,7 +14,7 @@ authentication methods read
 [our article on Kafka authentication types](../concepts/auth-types).
 :::
 
-## Pre-requisites
+## Prerequisites
 
 Go to the *Overview* page of your Aiven for Apache Kafka service.
 
@@ -36,7 +36,7 @@ Go to the *Overview* page of your Aiven for Apache Kafka service.
         1.  Select **SASL** as the **Authentication Method**
         2.  Next to *CA Certificate*, click **Download** and save the
             `ca.pem` file
-        3.  Note the *Password* required for the SASL, we\'ll need it
+        3.  Note the *Password* required for the SASL, we'll need it
             for authentication
 -   Created the keystore `client.keystore.p12` and truststore
     `client.truststore.jks` by following
@@ -67,7 +67,7 @@ code snippet according to your preferred authentication method below.
 
 Set up properties to connect to the cluster:
 
-``` go
+```go
 package main
 
 import (
@@ -117,7 +117,7 @@ func main() {
 
 Set up properties to connect to the cluster:
 
-``` go
+```go
 package main
 
 import (
@@ -171,7 +171,7 @@ below.
 
 ### With SSL authentication
 
-``` go
+```go
 package main
 
 import (
@@ -222,7 +222,7 @@ func main() {
 
 ### With SASL authentication
 
-``` go
+```go
 package main
 
 import (

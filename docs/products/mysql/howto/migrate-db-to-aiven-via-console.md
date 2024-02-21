@@ -7,10 +7,8 @@ You can migrate MySQL® databases to Aiven using either
 addresses the latter scenario by providing guidelines on how to use
 Aiven Console to migrate MySQL databases to the Aiven platform.
 
-:::note[See also]
 For the other migration method (CLI), see
 [Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql).
-:::
 
 ## About migrating via console
 
@@ -66,7 +64,7 @@ The console migration tool provides 2 migration methods:
     installation. Next, open the network configuration of MySQL with the
     following command:
 
-    ``` bash
+    ```bash
     sudo code /etc/mysql/mysql.conf.d/mysqld.cnf
     ```
 
@@ -98,7 +96,7 @@ The console migration tool provides 2 migration methods:
     Save the changes and exit the file. Restart MySQL to apply the
     changes.
 
-    ``` bash
+    ```bash
     sudo systemctl restart mysql
     ```
 
@@ -123,7 +121,7 @@ The console migration tool provides 2 migration methods:
 
     Check that the `my.cnf` file has the `[mysqld]` header.
 
-    ``` bash
+    ```bash
     [mysqld]
     gtid_mode=ON
     enforce_gtid_consistency=ON
@@ -131,7 +129,7 @@ The console migration tool provides 2 migration methods:
 
     After enabling GTID, restart MySQL.
 
-    ``` bash
+    ```bash
     sudo systemctl restart mysql
     ```
 
@@ -143,13 +141,13 @@ The console migration tool provides 2 migration methods:
     Log in to the database as an administrator and grant the following
     permission to the user:
 
-    ``` bash
+    ```bash
     GRANT ALL ON DATABASE_NAME.* TO USERNAME_CONNECTING_TO_SOURCE_DB;
     ```
 
     Reload the grant tables to apply the changes to the permissions.
 
-    ``` bash
+    ```bash
     FLUSH PRIVILEGES;
     ```
 
@@ -161,13 +159,13 @@ The console migration tool provides 2 migration methods:
 ## Migrate a database
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  On the **Services** page, select the service where your target
+1.  On the **Services** page, select the service where your target
     database is located.
-3.  From the sidebar on your service's page, select **Service
+1.  From the sidebar on your service's page, select **Service
     settings**.
-4.  On the **Service settings** page, navigate to the **Service
+1.  On the **Service settings** page, navigate to the **Service
     management** section, and select **Import database**.
-5.  Guided by the migration wizard, go through all the migration steps.
+1.  Guided by the migration wizard, go through all the migration steps.
 
 ### Step 1 - configure
 
@@ -183,16 +181,16 @@ configuration is in line with them, and select **Get started**.
     -   Port
     -   Username
     -   Password
-2.  Select the **SSL encryption recommended** checkbox.
-3.  In the **Exclude databases** field, enter names of databases that
-    you don\'t want to migrate (if any).
-4.  Select **Run checks** to have the connection validated.
+1.  Select the **SSL encryption recommended** checkbox.
+1.  In the **Exclude databases** field, enter names of databases that
+    you don't want to migrate (if any).
+1.  Select **Run checks** to have the connection validated.
 
 :::note[Unable to use logical replication?]
 If your connection check returns the **Unable to use logical
 replication** warning, either resolve the issues or give up using the
 logical replication and opt for the dump method by selecting **Start the
-migration using a one-time snapshot (dump method)** \> **Run check** \>
+migration using a one-time snapshot (dump method)** > **Run check** >
 **Start migration**.
 :::
 
@@ -218,7 +216,7 @@ To avoid conflicts and replication issues while the migration is ongoing
 -   Do not write to any tables in the target database that are being
     processed by the migration tool.
 -   Do not change the replication configuration of the source database
-    manually. Don\'t modify `wal_level` or reduce
+    manually. Don't modify `wal_level` or reduce
     `max_replication_slots`.
 -   Do not make database changes that could disrupt or prevent the
     connection between the source database and the target database. Do

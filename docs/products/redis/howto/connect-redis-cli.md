@@ -12,7 +12,7 @@ These are the placeholders you will need to replace in the code sample:
 | ----------- | -------------------------------------------------------- |
 | `REDIS_URI` | URL for Redis connection, from the service overview page |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you will need:
 
@@ -39,7 +39,7 @@ INFO
 
 The command returns all the Redis parameters:
 
-``` text
+```text
 # Server
 redis_version:6.2.3
 redis_git_sha1:c708fc4f

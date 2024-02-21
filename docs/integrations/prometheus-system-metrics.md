@@ -2,9 +2,7 @@
 title: Prometheus system metrics
 ---
 
-Learn how to check what metrics are available for monitoring your
-service using Prometheus, and find out which of the available metrics
-are particularly worth monitoring and why.
+Learn how to check what metrics are available for monitoring your service using Prometheus, and find out which of the available metrics are particularly worth monitoring and why.
 
 ## About the Prometheus integration
 
@@ -12,7 +10,7 @@ The Prometheus integration allows you to monitor your Aiven services and
 understand the resource usage. Using this integration, you can also
 track some non-service-specific metrics that may be worth monitoring.
 
-To start using Prometheus for monitoring the metrics, you need to
+To start using Prometheus for monitoring the metrics,
 [configure the Prometheus integration and set up the Prometheus server](/docs/platform/howto/integrations/prometheus-metrics).
 
 ## Get a list of available service metrics
@@ -22,18 +20,18 @@ request to your Prometheus service endpoint.
 
 1.  Once your Prometheus integration is configured, collect the
     following Prometheus service details from [Aiven
-    Console](https://console.aiven.io/) \> the **Overview** page of your
-    service \> the **Connection information** section \> the
+    Console](https://console.aiven.io/) > the **Overview** page of your
+    service > the **Connection information** section > the
     **Prometheus** tab:
 
     -   Prometheus URL
     -   Username
     -   Password
 
-2.  Make a request to get a snapshot of your metrics, replacing the
+1.  Make a request to get a snapshot of your metrics, replacing the
     placeholders in the following code with the values for your service:
 
-    ``` bash
+    ```bash
     curl -k --user USERNAME:PASSWORD PROMETHEUS_URL/metrics
     ```
 
@@ -48,7 +46,7 @@ CPU usage metrics are helpful in determining if the CPU is constantly
 being maxed out. For a high-level view of the CPU usage for a single CPU
 service, you can use the following:
 
-``` bash
+```bash
 100 - cpu_usage_idle{cpu="cpu-total"}
 ```
 
@@ -75,7 +73,7 @@ They are as follows:
 | `cpu_usage_idle`       | Percentage of time the CPU is idle                                                      |
 | `cpu_usage_system`     | Percentage of time the Kernel code is consuming the CPU                                 |
 | `cpu_usage_user`       | Percentage of time the CPU is in the user-space program with a `nice` value \<= `0`     |
-| `cpu_usage_nice`       | Percentage of time the CPU is in the user-space program with a `nice` value \> `0`      |
+| `cpu_usage_nice`       | Percentage of time the CPU is in the user-space program with a `nice` value > `0`      |
 | `cpu_usage_iowait`     | Percentage of time that the CPU is idle when the system has pending disk I/O operations |
 | `cpu_usage_steal`      | Percentage of time waiting for the hypervisor to give CPU cycles to the VM              |
 | `cpu_usage_irq`        | Percentage of time the system is handling interrupts                                    |
@@ -85,7 +83,7 @@ They are as follows:
 
 ### Disk usage
 
-Monitoring the disk usage ensures that applications or processes don\'t
+Monitoring the disk usage ensures that applications or processes don't
 fail due to an insufficient disk storage.
 
 :::tip
@@ -98,7 +96,7 @@ collect and monitor:
 | Metrics             | Description                                                                                                           |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `disk_free`         | Free space on the service disk                                                                                        |
-| `disk_used`         | Used space on the disk, for example, `8.0e+9` (8,000,000,000 bytes)                                                   |
+| `disk_used`         | Used space on the disk, for example, `1.0e+9` (8,000,000,000 bytes)                                                   |
 | `disk_total`        | Total space on the disk (free and used)                                                                               |
 | `disk_used_percent` | Percentage of the disk space used equal to `disk_used / disk_total * 100`, for example, `80` (80% service disk usage) |
 | `disk_inodes_free`  | Number of index nodes available on the service disk                                                                   |

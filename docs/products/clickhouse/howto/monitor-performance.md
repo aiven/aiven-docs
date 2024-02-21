@@ -9,7 +9,7 @@ dashboards in Aiven for Grafana®. For more information on the metrics,
 see
 [Aiven for ClickHouse® metrics exposed in Aiven for Grafana®](/docs/products/clickhouse/reference/metrics-list).
 
-## Push ClickHouse® metrics to InfluxDB®, M3DB, or PostgreSQL®
+## Push ClickHouse® metrics to M3DB, or PostgreSQL®
 
 To collect metrics about your ClickHouse® service, you will need to
 configure a metrics integration and nominate somewhere to store the
@@ -19,16 +19,16 @@ collected metrics.
     **Manage integrations** and choose the **Store Metrics** option with
     **Store service metrics in a time-series database** as its
     description.
-2.  Choose either a new or existing InfluxDB®, M3DB, or PostgreSQL®
+2.  Choose either a new or existing M3DB, or PostgreSQL®
     service.
     -   If you choose to use a new service, follow instructions on
         [how to create a service](/docs/platform/howto/create_new_service).
-    -   If you're already using InfluxDB, M3DB, or PostgreSQL on Aiven,
+    -   If you're already using M3DB, or PostgreSQL on Aiven,
         you can submit your ClickHouse® metrics to the existing service.
 
 ## Provision and configure Grafana®
 
-1.  Select the target InfluxDB, M3DB, or PostgreSQL database service and
+1.  Select the target M3DB, or PostgreSQL database service and
     go to its service page. Under **Manage integrations**, select
     **Grafana Metrics Dashboard** to make the metrics available on that
     platform.
@@ -42,13 +42,13 @@ collected metrics.
     the **Service URI** link. The username and password for your
     Grafana® service is also available on the same page.
 
-Now your Grafana® service is connected to InfluxDB, M3DB, or PostgreSQL
+Now your Grafana® service is connected to M3DB, or PostgreSQL
 as a data source and you can go ahead and visualize your ClickHouse®
 metrics.
 
 ## Open ClickHouse® metrics dashboard
 
-1.  In Grafana®, go to **Dashboards** \> **Manage**.
-2.  Double click on the dashboard that bears the name of the metrics
+1.  In Grafana®, go to **Dashboards** > **Manage**.
+2.  Double click the dashboard that bears the name of the metrics
     database.
 3.  Browse the prebuilt dashboard or create your own monitoring views.

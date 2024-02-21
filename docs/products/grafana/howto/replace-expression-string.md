@@ -19,7 +19,7 @@ To build the tool from its [source
 repository](https://github.com/aiven/aiven-string-replacer-for-grafana),
 run the following at the terminal prompt:
 
-``` bash
+```bash
 go install github.com/aiven/aiven-string-replacer-for-grafana
 ```
 
@@ -70,7 +70,7 @@ To get the dashboard URL and UID (`GRAFANA_DASHBOARD_URL` and
 Use a command like the following to perform the replacement, changing
 the placeholder variable names to the values you collected above:
 
-``` bash
+```bash
 aiven-string-replacer-for-grafana \
     -apikey GRAFANA_API_KEY \
     -url GRAFANA_DASHBOARD_URL \
@@ -84,7 +84,7 @@ aiven-string-replacer-for-grafana \
 For instance, use the following command to change all metric expressions
 that start with `elasticsearch_` to instead start with `opensearch_`:
 
-``` bash
+```bash
 aiven-string-replacer-for-grafana \
     -apikey GRAFANA_API_KEY \
     -url YOUR_DASHBOARD_URL \

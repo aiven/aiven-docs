@@ -229,9 +229,7 @@ To use protocols, such as `SASL_PLAIN`, `SASL_SSL/PLAIN`, and
 lines starting with `acc1.kafkasasl.jaasconfig.<>`, uncomment the line
 and enter the required values. Save the `application.properties` file.
 
-:::note[See also]
-\* For more information about Klaw, see [Klaw
-documentation](https://www.klaw-project.io/docs). \* Additionally,
-checkout the [Klaw GitHub project
-repository](https://github.com/aiven/klaw).
-:::
+## Related pages
+
+- [Klaw documentation](https://www.klaw-project.io/docs).
+- [Klaw GitHub project repository](https://github.com/aiven/klaw)

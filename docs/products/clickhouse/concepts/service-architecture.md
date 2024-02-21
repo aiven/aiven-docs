@@ -111,11 +111,9 @@ a wide variety of available table engines, the most common ones belong
 to the `MergeTree` engines family, which is supported in Aiven for
 ClickHouse.
 
-:::note[See also]
 For a list of all the table engines that you can use in Aiven for
 ClickHouse, see
 [Supported table engines in Aiven for ClickHouse](/docs/products/clickhouse/reference/supported-table-engines).
-:::
 
 #### `MergeTree` engine
 
@@ -137,7 +135,7 @@ performance profile of ClickHouse.
 
 Each engine of the `MergeTree` family has a matching
 `ReplicatedMergeTree` engine, which additionally enables the replication
-of all writes using [ZooKeeper](#zookeeper). The data itself doesn\'t travel through ZooKeeper and is
+of all writes using [ZooKeeper](#zookeeper). The data itself doesn't travel through ZooKeeper and is
 actually fetched from one ClickHouse server to another. A shared log of
 update queries is maintained with ZooKeeper. All nodes add entries to
 the queue and watch for changes to execute the queries.

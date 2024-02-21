@@ -15,7 +15,7 @@ help you connect the two services.
 
 You\'ll need a few variables for the setup. To get their values, go to
 [Aiven Console](https://console.aiven.io/) and navigate to **Overview**
-of your Aiven for ClickHouse® service (**Connection information** \>
+of your Aiven for ClickHouse® service (**Connection information** >
 **ClickHouse HTTPS & JDBC**).
 
 | Variable               | Description                                   |
@@ -28,7 +28,7 @@ of your Aiven for ClickHouse® service (**Connection information** \>
 
 1.  Log in to Aiven for Grafana® following
     [the instructions](/docs/products/grafana/howto/log-in).
-1.  From the **Configuration** menu, select **Data sources** \> **Add
+1.  From the **Configuration** menu, select **Data sources** > **Add
     data source**.
 1.  Find **Altinity plugin for ClickHouse** in the list and select it.
 1.  Set **URL** to `CLICKHOUSE_HTTPS_URI`.

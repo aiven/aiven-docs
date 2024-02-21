@@ -4,7 +4,7 @@ title: Write search queries with OpenSearch® and NodeJS
 
 Learn how the OpenSearch® JavaScript client gives a clear and useful
 interface to communicate with an OpenSearch cluster and run search
-queries. To make it more delicious we\'ll be using a recipe dataset from
+queries. To make it more delicious we'll be using a recipe dataset from
 Kaggle.
 
 ## Prepare the playground
@@ -22,14 +22,14 @@ repository](https://github.com/aiven/demo-open-search-node-js).
 
 ### File structure and GitHub repository
 
-To organise our development space we\'ll use these files:
+To organise our development space we'll use these files:
 
 -   `config.js` to keep necessary basis to connect to the cluster,
 -   `index.js` to hold methods which manipulate the index,
 -   `helpers.js` to contain utilities for logging responses,
 -   `search.js` for methods specific to search requests.
 
-We\'ll be adding code into these files and running the methods from the
+we'll be adding code into these files and running the methods from the
 command line.
 
 ### Connect to the cluster and load data
@@ -45,7 +45,7 @@ connected
 To render the response, add the following helper method to your
 `helpers.js` file.
 
-``` javascript
+```javascript
 /**
  * Parsing and logging list of titles from the result, used in callbacks.
  */
@@ -61,7 +61,7 @@ const logTitles = (error, result) => {
 ```
 
 :::note
-In the code snippets we\'ll keep error handling somewhat simple and use
+In the code snippets we'll keep error handling somewhat simple and use
 `console.log` to print information into the terminal.
 :::
 
@@ -72,11 +72,11 @@ Now you're ready to start querying the data.
 Now that we have data in the OpenSearch cluster, we\'re ready to
 construct and run search queries. We will use `search` method which is
 provided by the OpenSearch JavaScript client. The following code goes
-into `search.js`, you\'ll need connection configuration and helpers
+into `search.js`, you'll need connection configuration and helpers
 methods. Therefore, include them at the top of your `search.js` file
 with
 
-``` javascript
+```javascript
 const { client, indexName } = require("./config");
 const { logTitles } = require("./helpers");
 ```
@@ -90,7 +90,7 @@ specify a variety of parameters, such as the name of the index
 response is paginated (`size` and `from`), by which fields to sort the
 data (`sort`) and others.
 
-We\'ll pay a closer attention to two of these parameters - `q` - a query
+we'll pay a closer attention to two of these parameters - `q` - a query
 defined in the Lucene query string syntax and `body` - a query based on
 Query DSL (Domain Specific Language). These are two main methods to
 construct a query.
@@ -101,7 +101,7 @@ since it is a very compact string. However, as the complexity of a
 request grows, it becomes more difficult to read and maintain these
 types of queries.
 
-``` javascript
+```javascript
 //example of using a query syntax
 client.search({
     index: 'recipes',
@@ -114,7 +114,7 @@ structure makes it easier to read, understand and modify the content.
 Unlike `q`, which expects a string, `body` is an object allowing a
 variety of granular parameters.
 
-``` javascript
+```javascript
 //example of using a request body
  client.search({
      index: indexName,
@@ -126,12 +126,12 @@ variety of granular parameters.
  })
 ```
 
-In this tutorial we\'ll focus on Query DSL and its three main groups of
+In this tutorial we'll focus on Query DSL and its three main groups of
 requests: term-level, full-text and boolean. You will also see how to
 use the Lucene query string syntax inside Query DSL.
 
 -   Term-level queries are handy when we need to find **exact matches**
-    for numbers, dates or tags and don\'t need to sort the results by
+    for numbers, dates or tags and don't need to sort the results by
     relevance. Term-level queries use search terms as they are without
     additional analysis.
 -   Full-text queries allow a smarter search for matches in analysed
@@ -147,7 +147,7 @@ containing a particular value in a field. To construct a body request we
 use `term` property which defines an object, where the name is a field
 and the value is a term we\'re searching in this field.
 
-``` javascript
+```javascript
 /**
  * Searching for exact matches of a value in a field.
  * run-func search term sodium 0
@@ -187,7 +187,7 @@ expects an object, where the name is set to the field name and the body
 defines the upper and lower bounds: `gt` (greater than), `gte` (greater
 than or equal to), `lt` (less than) and `lte` (less than or equal to).
 
-``` javascript
+```javascript
 /**
  * Searching for a range of values in a field.
  * run-func search range sodium 0 10
@@ -231,7 +231,7 @@ number of single-character edits necessary to convert one word into
 another. Such types of queries are called `fuzzy` and the property
 `fuzziness` specifies the maximum edit distance.
 
-``` javascript
+```javascript
 /**
  * Specifying fuzziness to account for typos and misspelling.
  * run-func search fuzzy title pinapple 2
@@ -281,7 +281,7 @@ string.
 To see `match` in action use the method below to search for \"Tomato
 garlic soup with dill\".
 
-``` javascript
+```javascript
 /**
  * Finding matches sorted by relevance.
  * run-func search match title 'Tomato-garlic soup with dill'
@@ -327,7 +327,7 @@ considered a match. This parameter is called `slop` and its default
 value is `0`. The format of `match_phrase` is almost identical to
 `match`:
 
-``` javascript
+```javascript
 /**
  * Specifying a slop - a distance between search words.
  * run-func search slop directions "pizza pineapple" 10
@@ -358,7 +358,7 @@ module.exports.slop = (field, query, slop) => {
 
 We can use this method to find some recipes for pizza with pineapple. I
 learned from my Italian colleague that this considered a combination
-only for tourists, not a true pizza recipe. We\'ll do it by searching
+only for tourists, not a true pizza recipe. we'll do it by searching
 the `directions` field for words \"pizza\" and \"pineapple\" with
 top-most distance of 10 words in between.
 
@@ -366,11 +366,11 @@ top-most distance of 10 words in between.
 run-func search slop directions "pizza pineapple" 10
 ```
 
-Oh look: \"Pan-Fried Hawaiian Pizza\" (don\'t tell my colleague).
+Oh look: \"Pan-Fried Hawaiian Pizza\" (don't tell my colleague).
 
 So far all the requests we tried returned us at most 10 results. Why 10?
 Because it is a default `size` value. It can be increased by setting
-`size` property to a higher number when making the request. We\'ll
+`size` property to a higher number when making the request. we'll
 include this in the next example.
 
 ### Search with query string syntax
@@ -384,7 +384,7 @@ to indicate the search fields.
 This example also sets `size` to demonstrate how we can get more than 10
 results.
 
-``` javascript
+```javascript
 /**
  * Using special operators within a query string and a size parameter.
  * run-func search query ingredients "(salmon|tuna) +tomato -onion" 100
@@ -426,7 +426,7 @@ different ingredients.
 The boolean clause types each affect the document relevance score
 differently. Both `must` and `should` positively contribute to the
 score, affecting the relevance of matches; `must_not` sets the score to
-0, ensuring that the document won\'t appear in the results. `filter`
+0, ensuring that the document won't appear in the results. `filter`
 clause is similar to `must`, however it has no effect on the relevance
 score.
 
@@ -434,7 +434,7 @@ In the next method we combine what we learned so far, using both
 term-level and full-search queries to find recipes to make a quick and
 easy dish, with no garlic, low sodium and high protein.
 
-``` javascript
+```javascript
 /**
  * Combining several queries together
  * run-func search boolean

@@ -48,7 +48,7 @@ Once done, you should have two files available: `hits_v1.tsv` and
 
 ## Set up the service and database
 
-If you don\'t yet have an Aiven for ClickHouse service, follow the steps
+If you don't yet have an Aiven for ClickHouse service, follow the steps
 in our
 [getting started guide](/docs/products/clickhouse/get-started) to create one.
 
@@ -63,7 +63,7 @@ To create the new database, take the following steps:
     select your service from the **Services** page.
 2.  In your service's page, select **Databases and tables** from the
     sidebar.
-3.  In the **Databases and tables** page, select **Create database** \>
+3.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
 4.  In the **Create ClickHouse database** window, enter name `datasets`
     for your database and select **Create database**.
@@ -79,7 +79,7 @@ in the **Connection information** section of the **Overview** page in
 the Aiven web console. You will need **Host**, **Port**, **User**, and
 **Password**.
 
-``` bash
+```bash
 docker run --interactive            \
 --rm clickhouse/clickhouse-server clickhouse-client   \
 --user USERNAME                     \
@@ -100,11 +100,11 @@ ClickHouse documentation includes sample `CREATE TABLE` commands with
 structure](https://clickhouse.com/docs/en/getting-started/example-datasets/metrica),
 use it to create the tables for both `hits_v1` and `visits_v1`:
 
-``` sql
+```sql
 CREATE TABLE datasets.hits_v1 [...]
 ```
 
-``` sql
+```sql
 CREATE TABLE datasets.visits_v1 [...]
 ```
 
@@ -114,9 +114,9 @@ If no database is specified, the default one is used.
 
 ## Load data
 
-Now that you have a dataset with two empty tables, we\'ll load data into
+Now that you have a dataset with two empty tables, we'll load data into
 each of the tables. However, because we need to access files outside the
-docker container, we\'ll run the command specifying `--query` parameter.
+docker container, we'll run the command specifying `--query` parameter.
 To do this:
 
 1.  Go to the folder where you stored the downloaded files for
@@ -164,14 +164,14 @@ Once the data is loaded, you can run queries against the sample data you
 imported. For example, here is a command to query the number of items in
 the `hits_v1` table:
 
-``` sql
+```sql
 SELECT COUNT(*) FROM datasets.hits_v1
 ```
 
 Another example uses some additional query features to find the longest
 lasting sessions:
 
-``` sql
+```sql
 SELECT StartURL AS URL,
     MAX(Duration) AS MaxDuration
 FROM datasets.visits_v1

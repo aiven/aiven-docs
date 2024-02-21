@@ -1,17 +1,9 @@
 ---
 title: Configure data retention thresholds in Aiven for ClickHouse®'s tiered storage
+limited: true
 ---
 
-:::important
-Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Learn to control how your data is distributed between storage devices in
-the tiered storage of an Aiven for ClickHouse service. Check out how to
-configure tables so that your data is automatically written either to
-SSD or object storage as needed.
+Learn to control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Check out how to configure tables so that your data is automatically written either to SSD or object storage as needed.
 
 ## About data retention control
 
@@ -39,9 +31,15 @@ For data retention control purposes, the TTL clause uses the following:
 
 ## Prerequisites
 
--   Aiven organization
 -   Tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on the project level and on the table level
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on the project level
+    and on the table level
+
+    :::note
+    This feature is in [limited availability](/docs/platform/concepts/beta_services).
+    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
+
+-   Aiven organization
 -   Command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 
@@ -51,7 +49,7 @@ For data retention control purposes, the TTL clause uses the following:
 
 2.  Select a database for operations you intend to perform.
 
-    ``` bash
+    ```bash
     USE database-name
     ```
 
@@ -61,7 +59,7 @@ Create a new table with the `storage_policy` setting set to `tiered` (to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL (time-to-live) configured to add a
 time-based data retention threshold on the table.
 
-``` shell
+```shell
 CREATE TABLE example_table (
     SearchDate Date,
     SearchID UInt64,
@@ -78,7 +76,7 @@ SETTINGS storage_policy = 'tiered';
 
 Use the MODIFY TTL clause:
 
-``` shell
+```shell
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
@@ -87,7 +85,7 @@ ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 Change an already configured TTL in an existing table by using the ALTER
 TABLE MODIFY TTL clause:
 
-``` shell
+```shell
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 

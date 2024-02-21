@@ -34,13 +34,13 @@ These are the placeholders you will need to replace in the code sample:
 
 :::tip
 All the above variables and the CA Certificate file can be found in
-[Aiven Console](https://console.aiven.io/) \> your service's
-**Overview** page \> **Connection information** section.
+[Aiven Console](https://console.aiven.io/) > your service's
+**Overview** page > **Connection information** section.
 :::
 
 ## Run nosqlbench against your Aiven for Apache Cassandra® service
 
-The following sections shows how to run several nosqlbench worKloads
+The following sections shows how to run several nosqlbench workloads
 against an Aiven for Cassandra service.
 
 ### Create a schema and load data
@@ -56,13 +56,12 @@ the placeholders for `HOST`, `PORT`, `PASSWORD` and `SSL_CERTFILE`:
    port=PORT                        \
    username=avnadmin                \
    password=PASSWORD                \
+   localdc=aiven                    \
    driver=cql                       \
    workload=cql-keyvalue            \
    ssl=openssl                      \
    certFilePath=SSL_CERTFILE        \
-   tags=phase:schema                \
-   cycles=100k                      \
-   --progress console:1s
+   tags=block:schema
 ```
 
 The following parameters are used:
@@ -74,9 +73,9 @@ The following parameters are used:
     pairs for a table called `baselines.keyvalue`. You can read more on
     how to define custom workloads in the
     [dedicated documentation](/docs/products/cassandra/howto/use-nosqlbench-with-cassandra#nosqlbench_cassandra)
--   `phase`: refers to a specific point in the `workload` definition
+-   `block`: refers to a specific point in the `workload` definition
     file and specifies the particular `activity` to run. In the example,
-    the phase is `schema` which means that the nosqlbench will create
+    the block is `schema` which means that the nosqlbench will create
     the schema of the Cassandra keyspace.
 
 To create client connections and produce data in the keyspace and tables
@@ -84,24 +83,25 @@ created, you need to run the following command line, after substituting
 the placeholders for `HOST`, `PORT`, `PASSWORD` and `SSL_CERTFILE`:
 
 ```
-./nb run \
+./nb start \
   host=HOST                        \
   port=PORT                        \
   username=avnadmin                \
   password=PASSWORD                \
+  localdc=aiven                    \
   driver=cql                       \
   workload=cql-keyvalue            \
   ssl=openssl                      \
   certFilePath=SSL_CERTFILE        \
-  tags=phase:rampup                \
+  tags=block:rampup                \
   cycles=100k                      \
-  threads=50                       \
-  --progress console:1s
+  threads=auto                     \
+  --progress console:2s
 ```
 
 :::note
-You can also run a command replacing the phase `rampup` with `main` to
-execute other activities defined in the `cql-keyvalue` workload file.
+You can also run a command replacing the phase `rampup` with `main-read` or `main-write`
+to execute other activities defined in the `cql-keyvalue` workload file.
 :::
 
 The `threads` parameter, specifies the number of concurrent threads used

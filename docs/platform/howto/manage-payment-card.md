@@ -3,8 +3,11 @@ title: Manage payment cards
 ---
 
 You can add a payment card to your organization and use it as the
-payment method for one or more billing groups. You must be a super admin
-or account owner to manage payment methods.
+payment method for one or more billing groups.
+
+:::info
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+:::
 
 ## Add a payment card
 
@@ -21,7 +24,7 @@ can be used in your billing groups.
 
 ## Delete a payment card
 
-You can\'t delete a payment card that is assigned to a billing group. If
+You can't delete a payment card that is assigned to a billing group. If
 you want to delete a payment card,
 [remove it from all billing groups](/docs/platform/howto/use-billing-groups) first.
 

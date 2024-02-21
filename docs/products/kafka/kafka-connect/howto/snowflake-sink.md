@@ -24,24 +24,25 @@ Furthermore you need to follow the steps
 [to prepare the Snowflake account](snowflake-sink-prereq) and collect the following information about the target
 Snowflake database upfront:
 
--
+- `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where:
 
-    `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where
+  -   `ACCOUNT_LOCATOR` is the name of the account, more
+      information are available in the dedicated [Snowflake
+      documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
+  -   `REGION_ID` is the Id of the region where the Snowflake
+      service is available, you can review the region Ids in the
+      [dedicated
+      documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
 
-    :   -   `ACCOUNT_LOCATOR` is the name of the account, more
-            information are available in the dedicated [Snowflake
-            documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
-        -   `REGION_ID` is the Id of the region where the Snowflake
-            service is available, you can review the region Ids in the
-            [dedicated
-            documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
+  :::tip
+  The Snowflake account Id and region name can be obtained in the
+  Snowflake UI by issuing the following query in a worksheet:
 
-        :::tip
-        The Snowflake account Id and region name can be obtained in the
-        Snowflake UI by issuing the following query in a worksheet:
+  ```
+  select current_account(), current_region()
+  ```
 
-            select current_account(), current_region()
-        :::
+  :::
 
 -   `SNOWFLAKE_USERNAME`: A valid Snowflake username with enough
     privileges to write data in the target database as mentioned in the
@@ -79,10 +80,10 @@ Console](https://console.aiven.io/).
 
 ### Define an Apache Kafka Connect® configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `snowflake_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name": "my-test-snowflake",
     "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
@@ -220,7 +221,7 @@ properties:
 
 The connector configuration is the following:
 
-``` json
+```json
 {
     "name": "my_snowflake_sink",
     "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
@@ -247,7 +248,7 @@ The connector configuration is the following:
 If you have a topic named `iot_measurements` containing the following
 data in JSON format, with a defined JSON schema:
 
-``` json
+```json
 {
     "schema": {
         "type":"struct",
@@ -302,7 +303,7 @@ following connector configuration, after replacing the placeholders for
 `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`, `SNOWFLAKE_DATABASE` and
 `SNOWFLAKE_SCHEMA`:
 
-``` json
+```json
 {
     "name": "my-test-snowflake-1",
     "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",

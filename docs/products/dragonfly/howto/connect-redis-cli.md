@@ -16,7 +16,7 @@ appropriate values:
  | --------------- | -------------------------------- |
  | `DRAGONFLY_URI` | URL for the Dragonfly connection |
 
-## Pre-requisites
+## Prerequisites
 
 Ensure the following before proceeding:
 
@@ -46,7 +46,7 @@ INFO
 This command should return various Dragonfly parameters similar to
 Redis:
 
-``` text
+```text
 # Server
 dragonfly_version:1.0.0
 dragonfly_git_sha1:0a1b2c3d

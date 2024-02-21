@@ -14,7 +14,7 @@ available:
 -   **Horizontal** scaling the cluster by adding more brokers
 
 Both scaling options are available for all Aiven for Apache Kafka
-customers and don\'t require any downtime, keeping your cluster up and
+customers and don't require any downtime, keeping your cluster up and
 running during the upgrade.
 
 :::note

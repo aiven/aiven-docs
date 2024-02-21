@@ -48,7 +48,7 @@ in the top right hand corner.
 ![Screenshot of a Grafana panel](/images/products/postgresql/view-data-postgresql-grafana.png)
 
 :::tip
-Grafana expects a Time column in the query, if you don\'t have any, use
+Grafana expects a Time column in the query, if you don't have any, use
 the function `NOW()` which generates the up-to-date timestamp.
 :::
 

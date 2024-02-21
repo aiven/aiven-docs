@@ -126,7 +126,7 @@ docker run -d --name ksql  \
 
 :::tip
 `USER_INFO` is **not** a placeholder, but rather a literal that
-shouldn\'t be changed
+shouldn't be changed
 :::
 
 :::warning

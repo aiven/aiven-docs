@@ -35,7 +35,7 @@ avn user access-token create                       \
 
 An example of newly created access token:
 
-``` text
+```text
 EXPIRY_TIME           DESCRIPTION                       MAX_AGE_SECONDS  EXTEND_WHEN_USED  FULL_TOKEN
 ====================  ================================  ===============  ================  ===============================
 2021-08-16T16:26:10Z  To be used with python notebooks  3600             true              6JsKDclT3OMQd1V2Fl2...RaraBPg==
@@ -63,7 +63,7 @@ avn user access-token list
 
 An example of user information:
 
-``` text
+```text
 EXPIRY_TIME           TOKEN_PREFIX  DESCRIPTION                       MAX_AGE_SECONDS  EXTEND_WHEN_USED  LAST_USED_TIME        LAST_IP      LAST_USER_AGENT
 ====================  ============  ================================  ===============  ================  ====================  ===========  ===================
 2021-09-15T15:29:14Z  XCJ3+bgWywIh  Test token                        2592000          true              2021-08-16T15:29:14Z  192.168.1.1  aiven-client/2.12.0
@@ -75,7 +75,7 @@ EXPIRY_TIME           TOKEN_PREFIX  DESCRIPTION                       MAX_AGE_SE
 Revokes the specified user access token.
 
 Tokens can also be expired via the
-[`avn user tokens-expire`](/docs/tools/cli/user#avncli user-tokens-expire) command.
+[`avn user tokens-expire`](/docs/tools/cli/user#avncli%20user-tokens-expire) command.
 
 | Parameter      | Information                                                    |
 | -------------- | -------------------------------------------------------------- |

@@ -3,13 +3,13 @@ title: Free plans
 ---
 
 The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL,
-and Aiven for Redis®\* services. You don\'t need a credit card to sign
+and Aiven for Redis®\* services. You don't need a credit card to sign
 up and you can create one free service for each type. This means you can
 create one free PostgreSQL, one free MySQL, and one free Redis service.
 
-If you want to try a different service, you may want to consider a
+To try a different service, you may want to consider a
 30-day
-[free trial](/docs/platform/concepts/free-trial), which gives you \$300 USD of free credits.
+[free trial](/docs/platform/concepts/free-trial), which gives you $300 USD of free credits.
 
 You can run free plan services alongside a free 30-day trial without
 affecting your trial credits. Free plan services also continue running
@@ -25,8 +25,8 @@ Free plans include:
 
 -   A single node
 -   1 CPU per virtual machine
--   1GB RAM
--   For PostgreSQL and MySQL: 5GB disk storage
+-   1 GB RAM
+-   For PostgreSQL and MySQL: 5 GB disk storage
 -   For Redis: `maxmemory` set to 50%
 -   Management via our web console, CLI, API, Terraform provider, or
     Kubernetes® operator
@@ -62,9 +62,10 @@ use policy](https://aiven.io/terms) or are unused for some time.
 
 You can upgrade your free plan to a paid plan at any time.
 
-To upgrade, you need to add a payment method or start a full platform
-trial. After adding a payment method, selecting upgrade lets you choose
-a new plan size, cloud, and region.
+To upgrade:
+
+1. Add a payment method or start a full platform trial.
+1. Click upgrade and  choose a new plan size, cloud, and region.
 
 :::important
 If you upgrade your free plan service to a paid plan using a free trial,

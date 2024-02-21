@@ -39,7 +39,7 @@ console](https://console.aiven.io/):
 2.  Select **Service settings** from the sidebar of your service's
     page.
 3.  Navigate to the **Service plan** section, and select **Change plan**
-    from the **Actions** (**\...**) menu.
+    from the **Actions** (**...**) menu.
 4.  In the **Change service plan** window, select a new plan with a
     higher capacity, and select **Change**.
 

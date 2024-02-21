@@ -67,7 +67,7 @@ named `metrics` in an Aiven for OpenSearch® service named
 `demo-opensearch`. The application result should generate the following
 data:
 
-``` text
+```text
 {'hostname': 'sleepy', 'cpu': 'cpu3', 'usage': 93.30629927475789, 'occurred_at': 1637775077782}
 {'hostname': 'dopey', 'cpu': 'cpu4', 'usage': 88.39531418706092, 'occurred_at': 1637775078369}
 {'hostname': 'happy', 'cpu': 'cpu2', 'usage': 77.90860728236156, 'occurred_at': 1637775078964}
@@ -81,7 +81,7 @@ We can define a `metrics_out` Apache Flink® table with:
 -   `metrics_out` as Flink table name
 -   the following as SQL schema
 
-``` sql
+```sql
 CREATE TABLE metrics_out (
 cpu VARCHAR,
 hostname VARCHAR,

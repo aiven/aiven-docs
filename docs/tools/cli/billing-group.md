@@ -19,7 +19,7 @@ Adds projects to a billing group.
 **Example:** Add the project `new-project` to the existing billing group
 with id `55b0e547-58f9-48de-8808-807d385d1f95`
 
-``` shell
+```shell
 avn biling-group assign-projects 55b0e547-58f9-48de-8808-807d385d1f95 new-project
 ```
 
@@ -56,7 +56,7 @@ properties:
 -   country code: `SE`
 -   city: `Stockholm`
 
-``` shell
+```shell
 avn billing-group create qa-dept        \
   --account-id c59dde4j9                \
   --billing-currency EUR                \
@@ -70,7 +70,7 @@ avn billing-group create qa-dept        \
 **Example:** Rename your `qa-dept` billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95` to `qa-department`.
 
-``` shell
+```shell
 avn billing-group update               \
   55b0e547-58f9-48de-8808-807d385d1f95 \
   --name qa-department
@@ -88,7 +88,7 @@ Claims a credit code within your biling-group.
 **Example:** Claim the credit code `sneaky-crab` in the billing group
 with ID `55b0e547-58f9-48de-8808-807d385d1f95`:
 
-``` shell
+```shell
 avn billing-group credits-claim 55b0e547-58f9-48de-8808-807d385d1f95 sneaky-crab
 ```
 
@@ -103,13 +103,13 @@ Lists all the credits redeemed in your billing-group
 **Example:** List credits claimed in the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`
 
-``` shell
+```shell
 avn billing-group credits-list 55b0e547-58f9-48de-8808-807d385d1f95
 ```
 
 An example of `avn billing-group credits-list` output:
 
-``` text
+```text
 CODE      REMAINING_VALUE
 ========  ===============
 S18A11Y  0.00
@@ -126,7 +126,7 @@ Deletes a billing group.
 **Example:** Delete the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
 
-``` shell
+```shell
 avn billing-group delete 55b0e547-58f9-48de-8808-807d385d1f95
 ```
 
@@ -141,13 +141,13 @@ Lists the activity for a given billing group.
 **Example:** List activity for the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
 
-``` shell
+```shell
 avn billing-group events 55b0e547-58f9-48de-8808-807d385d1f95
 ```
 
 An example of `avn billing-group events` output:
 
-``` text
+```text
 CREATE_TIME           ACTOR             EVENT_DESC
 ====================  ================  ===================================================================================================================
 2021-10-14T21:09:02Z  Aiven Automation  Set VAT ID state to invalid
@@ -176,13 +176,13 @@ Gets the details for a given billing group.
 **Example:** Get details for the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
 
-``` shell
+```shell
 avn billing-group get 55b0e547-58f9-48de-8808-807d385d1f95
 ```
 
 An example of `avn billing-group get` output:
 
-``` text
+```text
 BILLING_GROUP_ID                      BILLING_GROUP_NAME  ACCOUNT_NAME
 ====================================  ==================  ============
 u856238c-8213-6592-975e-cfc3662c1084  test-group        null
@@ -200,7 +200,7 @@ Retrieve the lines for a given invoice
 **Example:** Retrieve lines from the invoice `94885-2` for the billing
 group with ID `55b0e547-58f9-48de-8808-807d385d1f95`:
 
-``` shell
+```shell
 avn billing-group invoice-lines 55b0e547-58f9-48de-8808-807d385d1f95 94885-2
 ```
 
@@ -215,13 +215,13 @@ Lists all invoices for a billing group:
 **Example:** List all invoices for the billing group with ID
 `55b0e547-58f9-48de-8808-807d385d1f95`:
 
-``` shell
+```shell
 avn billing-group invoice-list 55b0e547-58f9-48de-8808-807d385d1f95
 ```
 
 An example of `avn billing-group invoice-list` output:
 
-``` text
+```text
 INVOICE_NUMBER  PERIOD_BEGIN          PERIOD_END            STATE     TOTAL_INC_VAT  TOTAL_VAT_ZERO
 ==============  ====================  ====================  ========  =============  ==============
 xxxxx-88        2022-09-01T00:00:00Z  2022-09-30T23:59:59Z  estimate  0.00           0.00
@@ -233,13 +233,13 @@ Lists your billing-groups.
 
 **Example:** List all billing-groups:
 
-``` shell
+```shell
 avn billing-group list
 ```
 
 An example of `avn billing-group list` output:
 
-``` text
+```text
 BILLING_GROUP_ID                      BILLING_GROUP_NAME                               ACCOUNT_NAME
 ====================================  ===============================================  ======================
 2a4981e1-f988-4cb8-b1a8-xxxxxxxxxxxx  Default billing group for abcdddddd              Account 123

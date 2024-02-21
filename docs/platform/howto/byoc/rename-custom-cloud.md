@@ -39,7 +39,7 @@ specified.
 4.  From the left sidebar, select **Bring your own cloud**.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-6.  In the selected cloud's page, use the ellipsis (**\...**) menu in
+6.  In the selected cloud's page, use the ellipsis (**...**) menu in
     the top right corner to select **Rename**.
 7.  In the **Rename custom cloud** window, enter a new name into the
     **Custom cloud name** field and select **Rename**.

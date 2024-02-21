@@ -41,9 +41,9 @@ and use all the [available
 columns](https://www.postgresql.org/docs/current/pgstatstatements.html)
 to investigate your use case.
 
-## Pre-requisites
+## Prerequisites
 
-To query the `pg_stat_statements` view, you\'ll need to create the
+To query the `pg_stat_statements` view, you'll need to create the
 `pg_stat_statements` extension (included in the
 [list of available extensions](/docs/products/postgresql/reference/list-of-extensions)) that can be done via the following `CREATE EXTENSION`
 command:
@@ -57,13 +57,13 @@ CREATE EXTENSION pg_stat_statements;
 You can run the following command to display the `pg_stat_statements`
 view and all the columns contained:
 
-``` shell
+```shell
 \d pg_stat_statements;
 ```
 
 With the result being for PostgreSQL 13:
 
-``` text
+```text
 View "public.pg_stat_statements"
 Column              |       Type       | Collation | Nullable | Default
 --------------------+------------------+-----------+----------+---------
@@ -102,7 +102,7 @@ wal_fpi             | bigint           |           |          |
 wal_bytes           | numeric          |           |          |
 ```
 
-On older PostgreSQL versions you might find different column names (e.g.
+On older PostgreSQL versions you might find different column names (for example,
 the column previously named `max_time` is now `max_exec_time`). Always
 refer to the [PostgreSQL® official
 documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)
@@ -121,7 +121,7 @@ uses the `pg_stat_statements` view, shows the running queries sorted
 descending by `total_exec_time`, re-formats the `calls` column and
 deduces the `prop_exec_time` and `sync_io_time`:
 
-``` postgresql
+```postgresql
 SELECT interval '1 millisecond' * total_exec_time AS total_exec_time,
     to_char((total_exec_time/sum(total_exec_time) OVER()) * 100, 'FM90D0') || '%'  AS prop_exec_time,
     to_char(calls, 'FM999G999G999G990') AS calls,
@@ -146,7 +146,7 @@ information about how the recent queries are performing.
 It is possible to discard the `pg_stat_statements` previously gathered
 statistics by using the following command:
 
-``` sql
+```sql
 SELECT pg_stat_statements_reset()
 ```
 :::
@@ -158,7 +158,7 @@ seconds. The result set is ordered based on the sum of `blk_read_time`
 and `blk_write_time` meaning that queries with the highest read/write
 are shown at the top.
 
-``` postgresql
+```postgresql
 SELECT userid::regrole,
     dbid,
     query,
@@ -178,7 +178,7 @@ query has ever been executed in milliseconds. The result set is ordered
 in descending order by `mean_time` showing the queries with most
 consumption time first.
 
-``` postgresql
+```postgresql
 SELECT userid::regrole,
     dbid,
     query,
@@ -202,7 +202,7 @@ the number of shared memory blocks returned from the cache
 \"dirty\" during a request needed to be written to disk
 (`shared_blks_dirtied`).
 
-``` postgresql
+```postgresql
 SELECT userid::regrole,
     dbid,
     queryid,

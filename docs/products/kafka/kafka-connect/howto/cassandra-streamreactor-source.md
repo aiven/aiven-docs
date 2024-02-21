@@ -101,13 +101,13 @@ Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `cassandra_source.json`) with the following content, creating a
 file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven
 Console](https://console.aiven.io/):
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector",
@@ -221,7 +221,7 @@ configuration, after replacing the placeholders for `CASSANDRA_HOST`,
 `CASSANDRA_TRUSTSTORE`, `CASSANDRA_TRUSTSTORE_PASSWORD`,
 `CASSANDRA_KEYSPACE`:
 
-``` json
+```json
 {
     "name": "my-cassandra-source",
     "connector.class": "com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSinkConnector",
@@ -255,7 +255,7 @@ per row in the Cassandra table appearing in the target Apache Kafka
 `students_topic` topic.
 
 :::tip
-If your Aiven for Apache Kafka instance doesn\'t have the
+If your Aiven for Apache Kafka instance doesn't have the
 [automatic creation of topic enabled](/docs/products/kafka/howto/create-topics-automatically), you might need to create the `students_topic` topic upfront
 before starting the connector
 :::

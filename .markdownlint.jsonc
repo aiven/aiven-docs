@@ -2,7 +2,7 @@
   "default": true,
   "MD003": {"style": "atx"},
   "MD004": {"style": "dash"},
-  "MD007": {"indent": 2},
+  "MD007": false,
   "no-hard-tabs": true,
   "whitespace": false,
   "MD012": {"maximum": 1},
@@ -16,7 +16,19 @@
   "MD039": true,
   "MD048": {"style": "backtick"},
   "MD042": true,
-  "MD049": {"style": "asterisk"},
+  "MD049": {"style": "underscore"},
   "MD050": {"style": "asterisk"},
-  "MD013": {"line_length": 90}
+  "MD013": {"line_length": 90},
+  "MD033": {
+    "allowed_elements": [
+      "table",
+      "DocCardList",
+      "Clouds",
+      "details",
+      "summary",
+      "EarlyBadge",
+      "LimitedBadge",
+      "ProBadge"
+    ]
+  }
 }

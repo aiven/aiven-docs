@@ -6,7 +6,7 @@ Learn how to connect to your Aiven for ClickHouse® service with Node.js
 using the official Node.js client for connecting to ClickHouse and the
 HTTPS port.
 
-## Pre-requisites
+## Prerequisites
 
 -   [Node.js](https://nodejs.org/en/download/) in your environment
 -   [Node.js client for connecting to
@@ -15,7 +15,7 @@ HTTPS port.
 :::tip
 You can install the Node.js client for connecting to ClickHouse using
 
-``` shell
+```shell
 npm i @clickhouse/client
 ```
 :::
@@ -25,18 +25,18 @@ npm i @clickhouse/client
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-| Variable              | Description                                                                                                                                                                                            |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CLICKHOUSE_HOST`     | `https://HOST:HTTPS_PORT`, where `Host` and `Port` for the ClickHouse connection are available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
-| `CLICKHOUSE_USER`     | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**                                                 |
-| `CLICKHOUSE_PASSWORD` | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**                                             |
+|       Variable        |                                                                                             Description                                                                                              |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CLICKHOUSE_HOST`     | `https://HOST:HTTPS_PORT`, where `Host` and `Port` for the ClickHouse connection are available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC** |
+| `CLICKHOUSE_USER`     | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**                                                 |
+| `CLICKHOUSE_PASSWORD` | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**                                             |
 
 ## Connect to the service
 
 Replace the placeholders in the code with meaningful information on your
 service connection and run the code.
 
-``` javascript
+```javascript
 import { createClient } from '@clickhouse/client'
 const client = createClient({
     host: "CLICKHOUSE_HOST",
@@ -53,13 +53,11 @@ const data = await response.json()
 console.log(data)
 ```
 
-:::note[Expected result]
 Now you have your service connection set up and you can proceed to
 [uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
-:::
 
-:::note[See also]
+## Related pages
+
 For information on how to connect to the Aiven for Clickhouse service
 with the ClickHouse client, see
 [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
-:::

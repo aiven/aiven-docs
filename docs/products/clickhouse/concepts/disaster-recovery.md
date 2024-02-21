@@ -27,9 +27,7 @@ plans. See [Plan
 comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)
 for details.
 
-:::note[See also]
-[Cross-availability-zone data distribution](/docs/platform/concepts/availability-zones#cross-zone-data-distro)
-:::
+Also see [cross-availability-zone data distribution](/docs/platform/concepts/availability-zones#cross-zone-data-distro)
 
 ## Backup and restore
 
@@ -63,10 +61,8 @@ performed on a running ClickHouse server and proceeds as a regular
 power-on of the service. The restoration happens only for powering up a
 service after powering it down or forking a service.
 
-:::note[See also]
 For more information on backups in Aiven, see
 [Backups at Aiven](/docs/platform/concepts/service_backups).
-:::
 
 ## Sharding
 
@@ -90,10 +86,8 @@ Although sharding with replicated nodes can reduce failures, it still
 cannot save a service from the loss of an entire region.
 :::
 
-:::note[See also]
 For information on how to work with shards in Aiven for ClickHouse, see
 [Enable reading and writing data across shards](/docs/products/clickhouse/howto/use-shards-with-distributed-table).
-:::
 
 ## Limitations
 
@@ -103,10 +97,8 @@ capability.
 -   No backup to another region
 -   No point in time recovery (PITR)
 
-:::note[See also]
 For all the restrictions and limits for Aiven for ClickHouse, see
 [Aiven for ClickHouse limits and limitations](/docs/products/clickhouse/reference/limitations).
-:::
 
 ## Related pages
 

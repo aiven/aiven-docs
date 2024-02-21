@@ -2,18 +2,17 @@
 title: Manage users in an organization
 ---
 
-Adding users to your organization lets you give them access to specific
-organizational units, projects, and services within that organization.
+Adding users to your organization lets you give them access to specific organizational units, projects, and services within that organization.
 
 ## Invite users to an organization
 
 To add users to your organization, send them an invite:
 
 1.  Click **Admin**.
-2.  Click **Users**.
-3.  Click **Invite users**.
-4.  Enter the email addresses of the people you want to invite.
-5.  Click **Invite users**.
+1.  Click **Users**.
+1.  Click **Invite users**.
+1.  Enter the email addresses of the people you want to invite.
+1.  Click **Invite users**.
 
 The users receive an email with instructions to sign up (for new users)
 and accept the invite.
@@ -27,21 +26,21 @@ in the organization.
 To remove a user from an organization:
 
 1.  Click **Admin**.
-2.  Click **Users**.
-3.  Find the user that you want to remove and click the **Actions**
+1.  Click **Users**.
+1.  Find the user that you want to remove and click the **Actions**
     menu.
-4.  Select **Remove**.
-5.  Confirm you want to remove the user by clicking **Remove user**.
+1.  Select **Remove**.
+1.  Confirm you want to remove the user by clicking **Remove user**.
 
 ## Resend an invite
 
-If you need to resend an invite to a user:
+To resend an invite to a user:
 
 1.  Click **Admin**.
-2.  Click **Users**.
-3.  Find the email address that you want to resend an invite to and
+1.  Click **Users**.
+1.  Find the email address that you want to resend an invite to and
     click the **Actions** menu.
-4.  Select **Resend invite**.
+1.  Select **Resend invite**.
 
-They get a new email with instructions for signing up or accepting the
+They receive a new email with instructions for signing up or accepting the
 invite.

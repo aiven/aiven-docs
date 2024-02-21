@@ -73,7 +73,7 @@ avn service topic-get demo-kafka invoices
 
 An example of `avn service topic-get` output:
 
-``` text
+```text
 PARTITION  ISR  SIZE  EARLIEST_OFFSET  LATEST_OFFSET  GROUPS
 =========  ===  ====  ===============  =============  ======
 0          2    0     0                0              0
@@ -109,7 +109,7 @@ avn service topic-list demo-kafka
 
 An example of `avn service topic-get` output:
 
-``` text
+```text
 TOPIC_NAME  PARTITIONS  REPLICATION  MIN_INSYNC_REPLICAS  RETENTION_BYTES  RETENTION_HOURS  CLEANUP_POLICY  TAGS
 ==========  ==========  ===========  ===================  ===============  ===============  ==============  ==========
 bills       3           2            1                    -1               unlimited        delete

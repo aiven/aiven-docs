@@ -1,18 +1,9 @@
 ---
 title: Enable cross-cluster replication in Aiven for Apache Cassandra®
+limited: true
 ---
 
-:::important
-Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Enabling the cross-cluster replication (CCR) feature requires building a
-CCR setup in the Aiven platform and, next, configuring the replication
-on the Apache Cassandra side. This article covers the first part only by
-providing instructions on how to set up CCR for your Aiven for Apache
-Cassandra® service on the Aiven side.
+Enabling the cross-cluster replication (CCR) feature requires building a CCR setup in the Aiven platform and, next, configuring the replication on the Apache Cassandra side. This article covers the first part only by providing instructions on how to set up CCR for your Aiven for Apache Cassandra® service on the Aiven side.
 
 For the other part (the configuration of the replication factor on the
 Apache Cassandra side), which ultimately makes the replication work, see
@@ -39,6 +30,8 @@ To enable CCR, you can use the following tools:
 
 ## Prerequisites
 
+-   This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
+    it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 -   Aiven account
 -   Depending on the method you choose to use for enabling CCR
     -   Access to [Aiven Console](https://console.aiven.io/)
@@ -90,7 +83,7 @@ from the sidebar and going to the **Cross Cluster replication** section.
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 
 2.  From the **Services** page, select an Aiven for Apache Cassandra
-    service on which you\'d like to enable CCR.
+    service on which you'd like to enable CCR.
 
 3.  In the **Overview** page of your service, navigate to the **Cross
     Cluster Replication** section and select **Migrate to Cross
@@ -146,7 +139,7 @@ used to interact with Aiven APIs.
 1.  Use the
     [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a new service (`service_1`).
 
-    ``` bash
+    ```bash
     avn service create                                   \
        --project project_name                            \
        --service-type cassandra                          \
@@ -166,7 +159,7 @@ used to interact with Aiven APIs.
     before you set the parameters.
     :::
 
-    ``` bash
+    ```bash
     avn service create                                   \
        --project project_name                            \
        --service-type cassandra                          \
@@ -189,7 +182,7 @@ See [Limitations](/docs/products/cassandra/concepts/cross-cluster-replication#cc
 you set the parameters.
 :::
 
-``` bash
+```bash
 avn service create                                   \
    --project project_name                            \
    --service-type cassandra                          \
@@ -240,7 +233,7 @@ inside it the `service_to_join_with` and `datacenter` fields.
     [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
     API to create a new service (`service_1`).
 
-    ``` bash
+    ```bash
     curl --request POST                                                   \
        --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service    \
        --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
@@ -266,7 +259,7 @@ inside it the `service_to_join_with` and `datacenter` fields.
     before you set the parameters.
     :::
 
-    ``` bash
+    ```bash
     curl --request POST                                                   \
        --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service    \
        --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
@@ -302,7 +295,7 @@ See [Limitations](/docs/products/cassandra/concepts/cross-cluster-replication#cc
 you set the parameters.
 :::
 
-``` bash
+```bash
 curl --request POST                                                   \
    --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service    \
    --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \

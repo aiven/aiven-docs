@@ -74,8 +74,8 @@ For `service-level option`, the following parameters are configured:
 
 :::note
 It is important to make changes accordingly to your service. On the
-**Overview** page you can find your **Overview** \> **Host** and
-**Overview** \> **Port** to configure the `connect` parameter.
+**Overview** page you can find your **Overview** > **Host** and
+**Overview** > **Port** to configure the `connect` parameter.
 :::
 
 When SSL is in use, HAProxy is responsible for terminating the SSL
@@ -104,7 +104,7 @@ To disable SSL on an existing Redis instance use the following Aiven CLI
 command substituting the `<my-redis>` with your Redis the name service
 chosen by you when the service was created.
 
-``` console
+```console
 avn service update <my-redis> -c "redis_ssl=false"
 ```
 

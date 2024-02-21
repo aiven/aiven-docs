@@ -131,7 +131,7 @@ The Aiven for Apache Kafka service named `demo-kafka` contains a topic
 named `metric-topic` holding a stream of service metrics in JSON format
 like:
 
-``` text
+```text
 {'hostname': 'sleepy', 'cpu': 'cpu3', 'usage': 93.30629927475789, 'occurred_at': 1637775077782}
 {'hostname': 'dopey', 'cpu': 'cpu4', 'usage': 88.39531418706092, 'occurred_at': 1637775078369}
 {'hostname': 'happy', 'cpu': 'cpu2', 'usage': 77.90860728236156, 'occurred_at': 1637775078964}
@@ -141,7 +141,7 @@ like:
 We can define a `metrics_in` Flink table by selecting `demo-kafka` as
 integration service and writing the following as SQL schema:
 
-``` sql
+```sql
 CREATE TABLE metrics_in (
     cpu VARCHAR,
     hostname VARCHAR,
@@ -165,7 +165,7 @@ The SQL schema includes:
 -   the message fields `cpu`, `hostname`, `usage`, `occurred_at` and the
     related [data
     type](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/table/types/#list-of-data-types).
-    The order of fields in the SQL definition doesn\'t need to follow
+    The order of fields in the SQL definition doesn't need to follow
     the order presented in the payload.
 -   the definition of the field `time_ltz` as transformation to
     `TIMESTAMP(3)` from the `occurred_at` timestamp in Linux format.
@@ -182,7 +182,7 @@ You can define a `metric_topic_tgt` Flink table by selecting the
 `demo-kafka` as integration service and writing the following SQL
 schema:
 
-``` sql
+```sql
 CREATE TABLE metric_topic_tgt (
     cpu VARCHAR,
     hostname VARCHAR,
@@ -213,7 +213,7 @@ You can define a `metric_topic_tgt` Flink table by selecting
 `demo-kafka` as integration service and writing the following SQL
 schema:
 
-``` sql
+```sql
 CREATE TABLE metric_topic_tgt (
     cpu VARCHAR,
     hostname VARCHAR,

@@ -32,7 +32,7 @@ Update the Aiven Terraform Provider by editing the providers block of
 your script to include the latest version of the Aiven Terraform
 Provider (v2.3.1 at the time of writing):
 
-``` terraform
+```terraform
 terraform {
   required_providers {
     aiven = {
@@ -111,7 +111,7 @@ you will need to add Aiven provider to the `exclude` block or remove
 
 V2 of the Aiven Terraform Provider moves away from using `aiven_service`
 as a resource, and instead provides specific service resources such as
-`aiven_kafka`. Since we probably don\'t want to destroy the existing
+`aiven_kafka`. Since we probably don't want to destroy the existing
 resources and making new ones, this guide will help you perform the
 migration safely.
 

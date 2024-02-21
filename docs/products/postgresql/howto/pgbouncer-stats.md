@@ -8,8 +8,8 @@ PgBouncer is used at Aiven for
 ## Get PgBouncer URL
 
 PgBouncer URL can be checked under **Pools** in [Aiven
-Console](https://console.aiven.io/) \> your Aiven for PostgreSQL®
-service's page \> **Pools** view (available from the sidebar).
+Console](https://console.aiven.io/) > your Aiven for PostgreSQL®
+service's page > **Pools** view (available from the sidebar).
 Alternatively, it can be extracted via
 [Aiven Command Line interface](/docs/tools/cli), using `jq` ([https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)) to parse the
 JSON response.

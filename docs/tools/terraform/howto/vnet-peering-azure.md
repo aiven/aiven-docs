@@ -7,11 +7,11 @@ peering in Azure. See the [Using VPC
 peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
 article for how to set up a Project VPC.
 
-While most Terraform manifestos can be applied in one go, we\'ll have to
+While most Terraform manifestos can be applied in one go, we'll have to
 break this up into two steps:
 
-1.  First, we\'ll create most of the necessary resources.
-2.  Then, we\'ll configure the Azure provider using data from step 1 to
+1.  First, we'll create most of the necessary resources.
+2.  Then, we'll configure the Azure provider using data from step 1 to
     create the last resource and connect the networks together.
 
 ## Before you start
@@ -24,7 +24,7 @@ Directory](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs
 
 For example:
 
-``` 
+```json
 terraform {
   required_providers {
     aiven = {
@@ -66,7 +66,7 @@ provider "azurerm" {
 Create or bind the existing resources using `terraform import` by
 following the steps in this example:
 
-``` 
+```
 data "aiven_project" "avn_project" {
   project = "aiven-ci-kubernetes-operator"
 }
@@ -187,12 +187,12 @@ resource "aiven_azure_vpc_peering_connection" "peering_connection" {
 Now create the connection using the credentials from the previous step.
 
 :::note
-Terraform doesn\'t support dynamic provider configuration.
+Terraform doesn't support dynamic provider configuration.
 :::
 
 In the same file, follow these steps to create the connection:
 
-``` 
+```
 # 13. Create peering from your VNet to the Project VPC's VNet
 provider "azurerm" {
   features {}

@@ -1,45 +1,32 @@
 ---
 title: Get started with Aiven for PostgreSQL®
+sidebar_label: Get started
 ---
 
-Aiven for PostgreSQL® is available in the [Aiven
-console](https://console.aiven.io).
+Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
-## Create an Aiven for PostgreSQL® service
+## Prerequisites
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/).
+- Access to the [Aiven Console](https://console.aiven.io)
+- [psql](https://www.postgresql.org/download/) command line tool installed on your
+  computer
 
-2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create a new Aiven for PostgreSQL service.
+## Create a service
 
-    Once the service is ready, the status changes to *Running*. This
-    typically takes a couple of minutes, depending on your selected
-    cloud provider and region.
+[Create an Aiven for PostgreSQL® service](/docs/platform/howto/create_new_service)  in the
+[Aiven Console](https://console.aiven.io).
 
-## Connect to PostgreSQL with `psql`
+## Connect to the new service
 
-1.  Log in to [Aiven Console](https://console.aiven.io).
-
-2.  Navigate to your service's page, and select **Overview** for the
-    left sidebar.
-
-3.  In the **Connection information** section, identify **Service URI**,
-    which is the direct PostgreSQL connection endpoint.
-
-    :::note[See also]
-For more information on direct connections and connection pooling,
-    visit the dedicated
-    [page](concepts/pg-connection-pooling).
+:::tip
+Check different tools you can use to connect to Aiven for PostgreSQL in
+[Connect to Aiven for PostgreSQL](/docs/products/postgresql/howto/list-code-samples).
 :::
 
-4.  Use [psql](howto/connect-psql) to
-    connect to the PostgreSQL instance by the following command:
+[Connect to your new service](/docs/products/postgresql/howto/connect-psql) with, for
+example, [psql](https://www.postgresql.org/download/) CLI tool.
 
-    ```
-    psql SERVICE_URI_OF_YOUR_SERVICE
-    ```
-
-## Load a test dataset in PostgreSQL
+## Load a test dataset
 
 If you're checking out PostgreSQL, loading a test dataset will give you
 something to look at. This example uses `dellstore2`, a standard store
@@ -50,14 +37,14 @@ dataset with products, orders, inventory and customer information.
     website](https://www.postgresql.org/ftp/projects/pgFoundry/dbsamples/dellstore2/dellstore2-normal-1.0/)
     and unzip it.
 
-2.  Navigate to the `dellstore2-normal-1.0` folder on your terminal.
+1.  Navigate to the `dellstore2-normal-1.0` folder on your terminal.
 
-3.  Connect to your PostgreSQL instance with `psql` as shown above.
+1.  Connect to your PostgreSQL instance with `psql` as shown above.
 
-4.  Create a `dellstore` database and connect to it with the following
+1.  Create a `dellstore` database and connect to it with the following
     command from `psql`:
 
-    ```
+    ```sql
     CREATE DATABASE dellstore;
     \c dellstore
     ```
@@ -67,22 +54,22 @@ dataset with products, orders, inventory and customer information.
     are connected to the correct database.
     :::
 
-5.  Populate the database by executing the following command from
+1.  Populate the database by executing the following command from
     `psql`:
 
-    ```
+    ```sql
     \i dellstore2-normal-1.0.sql
     ```
 
-6.  Verify which objects have been created from `psql`:
+1.  Verify which objects have been created from `psql`:
 
-    ```
+    ```sql
     \d
     ```
 
 The output should look like this:
 
-```
+```sql
 List of relations
 Schema |           Name           |   Type   |  Owner
 --------+--------------------------+----------+----------
@@ -101,16 +88,11 @@ public | reorder                  | table    | avnadmin
 (12 rows)
 ```
 
-:::note[See also]
--   Code examples for connecting to PostgreSQL from your application:
-    -   [Go](howto/connect-go)
-    -   [Python](howto/connect-python)
--   How to [use PgAdmin](howto/connect-pgadmin) with Aiven for PostgreSQL
--   How to
-    [migrate your PostgreSQL to Aiven](concepts/aiven-db-migrate)
--   Learn PostgreSQL with some [PostgreSQL
-    Exercises](https://pgexercises.com/)
--   The [awesome PostgreSQL
-    ecosystem](https://github.com/dhamaniasad/awesome-postgres) of tools
-    and solutions
-:::
+## Related pages
+
+- [Code examples for connecting to PostgreSQL from your application](/docs/products/postgresql/howto/list-code-samples)
+- How to [use PgAdmin](howto/connect-pgadmin) with Aiven for PostgreSQL
+- How to [migrate your PostgreSQL to Aiven](concepts/aiven-db-migrate)
+- Learn PostgreSQL with [PostgreSQL Exercises](https://pgexercises.com/)
+- [awesome-postgres ecosystem](https://github.com/dhamaniasad/awesome-postgres) of tools
+  and solutions

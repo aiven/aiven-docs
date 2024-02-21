@@ -38,7 +38,7 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
 
 An example of resource configuration via Terraform is as shown below:
 
-``` terraform
+```terraform
 resource "aiven_kafka_schema_registry_acl" "my_resource" {
   project      = aiven_kafka_topic.demo.project
   service_name = aiven_kafka_topic.demo.service_name

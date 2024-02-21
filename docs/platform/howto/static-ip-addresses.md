@@ -2,19 +2,19 @@
 title: Manage static IP addresses
 ---
 
-:::note
-Each static IP address will incur a small charge
-:::
+By default an Aiven service will use public IP addresses allocated from the cloud provider's shared pool of addresses for the cloud region.
 
-By default an Aiven service will use public IP addresses allocated from
-the cloud provider's shared pool of addresses for the cloud region. As
-a result, Aiven service IP addresses cannot be predicted. This is a good
+As a result, Aiven service IP addresses cannot be predicted. This is a good
 approach for most use cases, but we do also offer static IP addresses
 should you need them. This allows you to configure a firewall rule for
 your own services.
 
 Learn more about
 [static IP addresses at Aiven](/docs/platform/concepts/static-ips).
+
+:::note
+Each static IP address will incur a small charge
+:::
 
 ## Calculate the number of IP addresses needed {#platform_howto_setup_static_ip}
 
@@ -32,7 +32,7 @@ addresses needed, depending on the size of your service plan.
 
 Create a static IP addresses using the
 [Aiven CLI](/docs/tools/cli), repeat as many times as
-you need to create enough IP addresses for your service. Specify the
+needed to create enough IP addresses for your service. Specify the
 name of the cloud that the IP address should be created in, to match the
 service that will use it.
 
@@ -43,7 +43,7 @@ avn static-ip create --cloud azure-westeurope
 The command returns some information about the newly created static IP
 address.
 
-``` text
+```text
 CLOUD_NAME        IP_ADDRESS  SERVICE_NAME  STATE     STATIC_IP_ADDRESS_ID
 ================  ==========  ============  ========  ====================
 azure-westeurope  null        null          creating  ip359373e5e56
@@ -60,7 +60,7 @@ avn static-ip list
 The output shows the state of each one, and its `ID`, which you will
 need in the next step.
 
-``` text
+```text
 CLOUD_NAME        IP_ADDRESS     SERVICE_NAME  STATE    STATIC_IP_ADDRESS_ID
 ================  =============  ============  =======  ====================
 azure-westeurope  13.81.29.69    null          created  ip359373e5e56

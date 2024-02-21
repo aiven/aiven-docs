@@ -1,17 +1,9 @@
 ---
 title: Enable tiered storage in Aiven for ClickHouse®
+limited: true
 ---
 
-:::important
-Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Find out how to enable the tiered storage feature on your project and
-activate it for specific tables. To learn what tiered storage is, how it
-works, and why use it, see
-[Tiered storage in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/clickhouse-tiered-storage).
+Find out how to enable the tiered storage feature on your project and activate it for specific tables. To learn what tiered storage is, how it works, and why use it, see [Tiered storage in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/clickhouse-tiered-storage).
 
 ## About enabling tiered storage
 
@@ -43,12 +35,14 @@ ClickHouse CLI client).
 
 ## Prerequisites
 
+-   This feature is in [limited availability](/docs/platform/concepts/beta_services).
+    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
 -   You have an Aiven organization and at least one project.
 -   You have a command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) installed.
 -   All maintenance updates are applied on your service (check in Aiven
-    Console: your service's page \> **Service settings** \> **Service
-    management** \> **Maintenance updates**).
+    Console: your service's page > **Service settings** > **Service
+    management** > **Maintenance updates**).
 
 ## Enable tiered storage on a project
 
@@ -65,11 +59,11 @@ enabling it on your tables, both new and existing ones.
 
 1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
 
-2.  To activate the tiered storage feature on a specific table, set
+1.  To activate the tiered storage feature on a specific table, set
     `storage_policy` to `tiered` on this table by executing the
     following SQL statement:
 
-    ``` bash
+    ```bash
     ALTER TABLE database-name.table-name MODIFY SETTING storage_policy = 'tiered'
     ```
 
@@ -78,16 +72,16 @@ distributed between two tiers: SSD and object storage.
 
 You can check if tiered storage is now supported (**Active** /
 **Inactive**) on your table in [Aiven
-Console](https://console.aiven.io/) \> **Databases & Tables** \>
-**Databases lists** \> Your database \> Your table \> the **Tiered
+Console](https://console.aiven.io/) > **Databases & Tables** >
+**Databases lists** > Your database > Your table > the **Tiered
 storage** column.
 
 ## What's next
 
--   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
--   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
+- [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
+- [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
 
 ## Related pages
 
--   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
--   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+- [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
+- [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)

@@ -2,12 +2,9 @@
 title: Set up network peering between Aiven and UpCloud
 ---
 
-Network peerings enable traffic between two networks from different
-accounts or platforms. A peering needs to be established from both
-connecting components to be activated.
+Network peerings enable traffic between two networks from different accounts or platforms.
 
-This article shows how to establish a network peering connection between
-Aiven and UpCloud.
+A peering needs to be established from both connecting components to be activated.
 
 ## About establishing Aiven-Upcloud peering
 
@@ -17,10 +14,10 @@ on both ends: Aiven and UpCloud.
 -   To set up a peering from Aiven to UpCloud, you can use [Aiven
     Console](https://console.aiven.io/) to create a VPC for your Aiven
     project and add a peering connection to UpCloud. For this purpose,
-    you need to identify the UpCloud SDN network UUID first.
+    identify the UpCloud SDN network UUID first.
 -   To set up a peering from UpCloud to Aiven, you can use [UpCloud
     API](https://developers.upcloud.com/1.3/). Since the API takes UUIDs
-    of both networks as attributes, you need to identify the network
+    of both networks as attributes, identify the network
     UUIDs before calling the API.
 
 ## Limitations
@@ -51,7 +48,7 @@ to find your UpCloud SDN network UUID.
 
 To check the UpCloud SDN network UUID, send a request to [get network
 details](https://developers.upcloud.com/1.3/13-networks/#get-network-details)
-UpCloud API endpoint. In the response, you\'ll get the network's UUID.
+UpCloud API endpoint. In the response, you'll get the network's UUID.
 
 ## Set up VPC peering from Aiven {#avn-uuid}
 
@@ -60,15 +57,15 @@ You can establish a peering connection from Aiven to UpCloud using
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), navigate to
     the organization and project you want to use.
-2.  On the **Services** page, select **VPCs** from the sidebar.
-3.  On the **Virtual private clouds** page, select the ID of the VPC
+1.  On the **Services** page, select **VPCs** from the sidebar.
+1.  On the **Virtual private clouds** page, select the ID of the VPC
     connection you want to use for the peering.
-4.  On the **VPC peering connections** page, in the **Add peering
+1.  On the **VPC peering connections** page, in the **Add peering
     connection** section, populate **Peer network ID** field with your
     UpCloud SDN network UUIDs.
-5.  Select **Add peering connection**. This adds a new connection to the
+1.  Select **Add peering connection**. This adds a new connection to the
     VPC peering connections list.
-6.  Wait until you see the `peer_pending` state in the **State** column
+1.  Wait until you see the `peer_pending` state in the **State** column
     of the of the VPC peering connections table. At this point, the
     Aiven VPC network UUID should be available in the **Aiven network
     ID** column of the of the VPC peering connections table.
@@ -78,7 +75,7 @@ You can establish a peering connection from Aiven to UpCloud using
 To establish a VPC peering from UpCloud to Aiven, use [UpCloud
 API](https://developers.upcloud.com/1.3/) to send the following request:
 
-``` bash
+```bash
 POST /1.3/network-peering HTTP/1.1
 {
   "network_peering": {
@@ -113,7 +110,7 @@ only.
 If your peering API request is successful, you can expect a response
 similar to the following:
 
-``` bash
+```bash
 HTTP/1.1 201 Created
 {
   "network_peering": {
@@ -155,13 +152,13 @@ HTTP/1.1 201 Created
 ## Renew a DHCP lease
 
 You only need to take this step if any of your VMs has been created
-before setting up the network peering. In that case, you need to refresh
+before setting up the network peering. In this case, refresh
 the Dynamic Host Configuration Protocol (DHCP) lease for a relevant
 network interface to get new routes.
 
 :::warning
 A peering connection between an Aiven VPC and VMs created before the
-peering setup won\'t work unless you refresh the DHCP lease for a
+peering setup won't work unless you refresh the DHCP lease for a
 relevant network interface.
 :::
 
@@ -170,13 +167,13 @@ commands:
 
 1.  To clear the existing DHCP lease
 
-    ``` bash
+    ```bash
     dhclient -r NETWORK_INTERFACE_NAME
     ```
 
-2.  To request a renewal of the DHCP lease
+1.  To request a renewal of the DHCP lease
 
-    ``` bash
+    ```bash
     dhclient NETWORK_INTERFACE_NAME
     ```
 

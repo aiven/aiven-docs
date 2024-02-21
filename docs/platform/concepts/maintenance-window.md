@@ -10,14 +10,12 @@ process is completed, the overall URI DNS name is pointed at the new
 location.
 
 The upgrade is done during the maintenance window that you can set from
-the [Aiven Console](https://console.aiven.io/), in service details page.
-During the maintenance window some services could have a minimal
-downtime period.
+the [Aiven Console](https://console.aiven.io/), in the service details page.
+During the maintenance window, some services might have minimal downtime.
 
 :::note
-For example, if there is a mandatory service updates for Apache Kafka®,
-the following [upgrade
-procedure](https://docs.aiven.io/docs/products/kafka/concepts/upgrade-procedure.html)
+For example, when a mandatory service update for Apache Kafka® is released,
+the [Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure)
 is executed.
 :::
 
@@ -25,7 +23,7 @@ Aiven service upgrades are performed in rolling forward style, which
 means that new service nodes are first created alongside with the older
 nodes one at a time, after which the old nodes are retired.
 
-In case of **MySQL®**, **PostgreSQL®** and **Redis®**\* the maintenance
+For **MySQL®**, **PostgreSQL®** and **Redis®**\*, the maintenance
 window usually lasts around several seconds. The downtime comes from old
 master stopping itself in a controlled manner and new master executing
 promotion sequence after this. Once the promotion is complete the old
@@ -34,7 +32,7 @@ service is accessible before DNS updates are propagated, though clients
 that end up reconnecting to the old master node will see additional
 disconnection once the old master is permanently retired.
 
-In case of **Apache Kafka®** and **OpenSearch®** the service DNS address
+For **Apache Kafka®** and **OpenSearch®**, the service DNS address
 resolves to all the available service nodes. During an upgrade the DNS
 address changes to reflect the added and removed nodes. For example,
 during an [Apache Kafka upgrade
@@ -71,8 +69,8 @@ require any action from you.
 You can view maintenance updates pending for your service using the
 following:
 
--   [Aiven Console](https://console.aiven.io/) \> **Service settings**
-    page \> **Service management** section
+-   [Aiven Console](https://console.aiven.io/) > **Service settings**
+    page > **Service management** section
 -   `avn service get` command in [Aiven
     CLI](https://docs.aiven.io/docs/tools/cli/service-cli#avn-service-get)
 -   `service` endpoint in [Aiven REST

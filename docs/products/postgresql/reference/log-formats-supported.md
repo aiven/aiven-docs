@@ -11,7 +11,7 @@ service on the [Aiven Console](https://console.aiven.io/).
 
 From the sidebar on your service's page, select **Service settings**.
 On the **Service settings** page, navigate to the **Advanced
-configuration** section, and select **Configure** \> **Add configuration
+configuration** section, and select **Configure** > **Add configuration
 options**. Next, you can select the `pg.log_line_prefix` parameter and a
 desired format based on a pre-fixed list.
 

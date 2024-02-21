@@ -1,34 +1,30 @@
 ---
-title: Tiered storage overview in Aiven Console
+title: Tiered storage overview page in Aiven Console
+sidebar_label: Tiered storage overview page
+early: true
 ---
 
-Aiven for Apache Kafka® offers a comprehensive overview of tiered
-storage, allowing you to understand its usage and make informed
-decisions. This overview provides insights into various aspects of
-tiered storage, including hourly billing, settings, and storage details.
+Aiven for Apache Kafka® offers a comprehensive overview of tiered storage, allowing you to understand its usage and make informed decisions.
 
-:::important
-Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services).
+This overview page provides insights into various aspects of tiered storage, including
+hourly billing, settings, and storage details.
 
-To use this feature, contact [our sales team](mailto:sales@aiven.io) to activate tiered storage for your account.
+## Prerequisite
 
-After activation, you must enable the feature from the
-[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
-:::
+-   [Tiered storage enabled for the Aiven for Apache Kafka service](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
-## Access tiered storage overview
+## Access tiered storage overview page
 
 1.  Log in to the [Aiven console](https://console.aiven.io/), choose
     your project and select your Aiven for Apache Kafka service.
-2.  From the left sidebar, select **Tiered Storage**.
+1.  From the left sidebar, select **Tiered Storage**.
     -   If tiered storage is not yet enabled for your service, you will
         see the option to enabled it.
     -   If tiered storage is enabled but not configured for any topics,
         you have the option to set it up for topics directly. For more
         details, see
         [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
-3.  Once configured, you can view an overview of tiered storage and its
+1.  Once configured, you can view an overview of tiered storage and its
     associated details.
 
 ## Key insights of tiered storage
@@ -59,12 +55,12 @@ retention policy configurations for tiered storage:
 
 1.  In the **Tiered storage settings** section, click **Actions(\...)**
     and click **Update tiered storage settings**.
-2.  Within **Update tiered storage settings** page, adjust the values
+1.  Within **Update tiered storage settings** page, adjust the values
     for:
     -   Local Cache
     -   Default Local Retention Time (ms)
     -   Default Local Retention Bytes
-3.  Click **Save changes**.
+1.  Click **Save changes**.
 
 ## Remote storage overview
 

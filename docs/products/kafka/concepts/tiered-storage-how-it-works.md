@@ -1,5 +1,6 @@
 ---
 title: How tiered storage works in Aiven for Apache Kafka®
+early: true
 ---
 
 Aiven for Apache Kafka® tiered storage is a feature that optimizes data
@@ -26,15 +27,6 @@ storage is enabled or not.
 Administrators can configure tiered storage per topic by defining the
 retention period and retention bytes to specify how much data should be
 retained on the local disk instead of remote storage.
-
-:::important
-Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services). To use this feature, contact our sales team at
-[sales@aiven.io](mailto:sales@aiven.io) to activate tiered storage for your account. After
-activation, you must enable the feature from the
-[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
-
-:::
 
 ## Local vs. remote data retention
 

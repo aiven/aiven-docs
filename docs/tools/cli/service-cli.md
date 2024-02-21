@@ -32,7 +32,7 @@ avn service backup-list grafana-25c408a5
 
 An example of `service backup-list` output:
 
-``` text
+```text
 BACKUP_NAME                     BACKUP_TIME           DATA_SIZE  STORAGE_LOCATION
 ==============================  ====================  =========  ===================
 grafana-20220614T140308137245Z  2022-06-14T14:03:08Z  774144     google-europe-west3
@@ -58,7 +58,7 @@ avn service ca get kafka-doc --target-filepath /tmp/ca.pem
 
 Opens the appropriate interactive shell, such as `psql` or `redis-cli`,
 to the given service. Supported only for Aiven for PostgreSQL®, Aiven
-for Redis®\*, and Aiven for InfluxDB® services.
+for Redis®*.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
@@ -163,8 +163,7 @@ avn service current-queries pg-demo
 
 ### `avn service database`
 
-Manages databases within an Aiven for PostgreSQL®, Aiven for MySQL or
-Aiven for InfluxDB® service.
+Manages databases within an Aiven for PostgreSQL®, or Aiven for MySQL.
 
 More information on `database-add`, `database-delete` and
 `database-list` can be found in
@@ -276,12 +275,11 @@ avn service list
 
 An example of `service list` output:
 
-``` text
+```text
 SERVICE_NAME        SERVICE_TYPE  STATE    CLOUD_NAME           PLAN         CREATE_TIME           UPDATE_TIME
 ==================  ============  =======  ===================  ===========  ====================  ====================
 cassandra-28962a5b  cassandra     RUNNING  google-europe-west3  business-16  2021-09-27T10:18:19Z  2021-09-27T10:25:58Z
 os-24a6d6db         opensearch    RUNNING  google-europe-west3  business-4   2021-09-27T10:18:04Z  2021-09-27T10:23:31Z
-influx-103c3f07     influxdb      RUNNING  google-europe-west3  startup-4    2021-09-27T10:18:13Z  2021-09-27T10:22:05Z
 kafka-2134          kafka         RUNNING  google-europe-west3  business-4   2021-09-27T08:48:35Z  2021-09-27T11:20:55Z
 mysql-12f7628c      mysql         RUNNING  google-europe-west3  business-4   2021-09-27T10:18:09Z  2021-09-27T10:23:02Z
 pg-123456           pg            RUNNING  google-europe-west3  business-4   2021-09-27T07:41:04Z  2021-09-27T10:56:19Z
@@ -360,7 +358,7 @@ format. The list of service metrics includes:
 | Parameter      | Information                                                                                                                                                                                                          |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `service_name` | The name of the service                                                                                                                                                                                              |
-| `--period`     | The time period to retrieve the metrics for (possible values `hour`, `day`, `week`, `month`, `year`); the time period is relative to the current date and time, e.g. `hour` will retrieve metrics for the last hour. |
+| `--period`     | The time period to retrieve the metrics for (possible values `hour`, `day`, `week`, `month`, `year`); the time period is relative to the current date and time, for example, `hour` will retrieve metrics for the last hour. |
 
 :::note
 The **granularity** of retrieved data changes based on the `--period`
@@ -403,7 +401,7 @@ avn service plans --service-type pg --cloud google-europe-west3
 
 An example of `service plans` output:
 
-``` text
+```text
 pg:hobbyist                    $0.034/h  Hobbyist (1 CPU, 2 GB RAM, 8 GB disk)
 pg:startup-4                   $0.136/h  Startup-4 (1 CPU, 4 GB RAM, 80 GB disk)
 pg:startup-8                   $0.267/h  Startup-8 (2 CPU, 8 GB RAM, 175 GB disk)
@@ -444,7 +442,7 @@ documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)
 | Parameter      | Information                                                                                        |
 | -------------- | -------------------------------------------------------------------------------------------------- |
 | `service_name` | The name of the service                                                                            |
-| `--format`     | The format string for output defining the query metrics to retrieve, e.g. `'{calls} {total_time}'` |
+| `--format`     | The format string for output defining the query metrics to retrieve, for example, `'{calls} {total_time}'` |
 
 **Example:** List the queries for an Aiven for PostgreSQL service named
 `pg-demo` including the query blurb, number of calls and both total and
@@ -507,7 +505,7 @@ Create a service task
 | `--target-version`     | Upgrade target version (used for PostgreSQL) (possible values: `11`, `12`, `13`, `14`)         |
 | `--source-service-uri` | Migration: source URI for migration                                                            |
 | `--ignore-dbs`         | Migration: comma-separated list of databases to be ignored (MySQL only)                        |
-| `--format`             | Format string for output, e.g. `{name} {retention_hours}`                                      |
+| `--format`             | Format string for output, for example, `{name} {retention_hours}`                                      |
 | `--json`               | Raw JSON output                                                                                |
 
 **Example:** Create a migration task to migrate a MySQL database to
@@ -519,7 +517,7 @@ avn service task-create --operation migration_check --source-service-uri mysql:/
 
 An example `avn service task-create` output:
 
-``` text
+```text
 TASK_TYPE              SUCCESS  TASK_ID
 =====================  =======  ====================================
 mysql_migration_check  null     e2df7736-66c5-4696-b6c9-d33a0fc4cbed
@@ -534,7 +532,7 @@ Get details for a single task for your service
 | `service_name` | The name of the service                                   |
 | `--project`    | Project name (defaults to `None`)                         |
 | `--task-id`    | The task ID to check                                      |
-| `--format`     | Format string for output, e.g. `{name} {retention_hours}` |
+| `--format`     | Format string for output, for example, `{name} {retention_hours}` |
 | `--json`       | Raw JSON output                                           |
 
 **Example:** Check the status of your migration task with id
@@ -547,7 +545,7 @@ avn service task-get --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project my
 
 An example `avn service task-get` ouput:
 
-``` text
+```text
 TASK_TYPE              SUCCESS  TASK_ID                               RESULT
 =====================  =======  ====================================  ====================================================================================
 mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-checks passed successfully, preferred migration method will be [Replication]
@@ -600,13 +598,12 @@ avn service types
 
 An example of `service types` output:
 
-``` text
+```text
 SERVICE_TYPE       DESCRIPTION
 =================  ===================================================================================
 cassandra          Cassandra - Distributed NoSQL data store
 elasticsearch      Elasticsearch - Search & Analyze Data in Real Time
 grafana            Grafana - Metrics Dashboard
-influxdb           InfluxDB - Distributed Time Series Database
 kafka              Kafka - High-Throughput Distributed Messaging System
 kafka_connect      Kafka Connect - Kafka Connect service
 kafka_mirrormaker  Kafka MirrorMaker - Kafka MirrorMaker service
@@ -724,7 +721,7 @@ avn service versions
 
 An example of `service versions` output:
 
-``` text
+```text
 SERVICE_TYPE   MAJOR_VERSION  STATE        AVAILABILITY_START_TIME  AVAILABILITY_END_TIME  AIVEN_END_OF_LIFE_TIME  UPSTREAM_END_OF_LIFE_TIME  TERMINATION_TIME  END_OF_LIFE_HELP_ARTICLE_URL
 =============  =============  ===========  =======================  =====================  ======================  =========================  ================  ====================================================================================================
 cassandra      3.11           available    2018-11-08T00:00:00Z     null                   null                    null                       null              null

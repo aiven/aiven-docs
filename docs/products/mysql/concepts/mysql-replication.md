@@ -10,7 +10,7 @@ the target server should apply or it may have an entry saying **update
 row with these old attributes to have these new attributes**. These are
 called statement and row formats.
 
-The statement format is more compact but can\'t represent all changes
+The statement format is more compact but can't represent all changes
 because some statements would yield different results if executed as is
 on different servers. The row format statement can represent all
 changes, and it allows using tools like Debezium since the binary log
@@ -29,8 +29,8 @@ key, the target server needs to make a sequential table scan for each
 individual update or delete statement and the replication can become
 extremely slow if the table is large.
 
-``` bash
-DELETE FROM nopk WHERE modified_time > '2022-01-13' 
+```bash
+DELETE FROM nopk WHERE modified_time > '2022-01-13'
 ```
 
 If a statement like the above matched 500 rows and the table had a
@@ -59,7 +59,7 @@ failed nodes, upgrading service plan, migrating service to a different
 cloud provider or region, starting up new read-only replica service,
 forking a service, and some others to take extremely long time or
 depending on the situation practically not complete at all without
-manual operator intervention (e.g. new read-only replica might never be
+manual operator intervention (for example, new read-only replica might never be
 able to catch up with existing master because replication is too slow).
 
 To work around these issues Aiven operations people may need to resort

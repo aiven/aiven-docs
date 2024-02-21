@@ -16,12 +16,12 @@ address and password. For an added layer of security, you can enforce
 two-factor authentication (2FA) for password logins for all users in
 your organization.
 
-When two-factor authentication is required, users won\'t be able to
+When 2FA is required, users won't be able to
 access any resources in your organization until they set up 2FA.
 
 :::note
-Authentication tokens are not affected and will continue to work when
-you enable two-factor authentication.
+Authentication tokens are not affected and continue to work when you make 2FA required.
+However, when users [enable 2FA](/docs/platform/howto/user-2fa) their existing authentication tokens are revoked.
 :::
 
 ### Third-party authentication

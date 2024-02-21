@@ -10,7 +10,7 @@ Aiven for MySQL® services.
 
 Enter the individual connection parameters as shown in [Aiven
 Console](https://console.aiven.io/) (the **Overview** page of your
-service \> the **Connection information** section) and also download the
+service > the **Connection information** section) and also download the
 SSL CA certificate and specify the file on SSL page.
 
 ![Screenshot of the MySQL Workbench settings screen](/images/products/mysql/mysql-workbench.png)

@@ -45,7 +45,7 @@ The response should have status 200 and the body data will have
 `acknowledged` set to true.
 
 If you already know something about the fields that will be in the
-documents you\'ll store, you can create an index with mappings to
+documents you'll store, you can create an index with mappings to
 describe those known fields:
 
 ```
@@ -87,7 +87,7 @@ OPENSEARCH_URI/shopping-list/_doc \
     }'
 ```
 
-Other data fields don\'t need to match in format:
+Other data fields don't need to match in format:
 
 ```
 curl -H "Content-Type: application/json" \

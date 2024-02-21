@@ -8,8 +8,7 @@ specific workload.
 
 There are three built-in ways to inspect service logs at Aiven:
 
--   For recent events, go to [Aiven Console](https://console.aiven.io/)
-    \> your service's page \> **Logs** view (available from the
+-   For recent events, go to [Aiven Console](https://console.aiven.io/)  > your service's page > **Logs** view (available from the
     sidebar)
 
     :::tip

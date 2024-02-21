@@ -57,7 +57,7 @@ your Apache Kafka service.
 
 :::note
 During this step we only created an empty database in Aiven for
-ClickHouse, but we didn\'t create any tables yet. Creation of the
+ClickHouse, but we didn't create any tables yet. Creation of the
 virtual connector table is done by setting specific integration
 configuration, see the section below.
 :::
@@ -117,7 +117,7 @@ For each table, you can define the following optional settings:
 
 
 :::note[JSON format]
-``` json
+```json
 {
     "tables": [
         {
@@ -140,7 +140,7 @@ For each table, you can define the following optional settings:
 
 Currently the configurations can be set only with the help of CLI
 command
-[avn service integration-update](/docs/tools/cli/service/integration#avn service integration-update)
+[avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
 
 Follow these instructions:
 
@@ -184,7 +184,7 @@ In Aiven for ClickHouse you can consume messages by running SELECT
 command. Replace `KAFKA_SERVICE_NAME` and `CONNECTOR_TABLE_NAME` with
 your values and run:
 
-``` sql
+```sql
 SELECT * FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME
 ```
 
@@ -194,7 +194,7 @@ ClickHouse table with the help of a materialized view.
 
 For example, run to creating a destination table:
 
-``` sql
+```sql
 CREATE TABLE destination (id UInt64, name String)
 ENGINE = ReplicatedMergeTree()
 ORDER BY id;
@@ -202,7 +202,7 @@ ORDER BY id;
 
 Add a materialised view to bring the data from the connector:
 
-``` sql
+```sql
 CREATE MATERIALIZED VIEW materialised_view TO destination AS
 SELECT *
 FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME;
@@ -211,10 +211,8 @@ FROM service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME;
 Now the messages consumed from the Apache Kafka topic will be read
 automatically and sent into the destination table directly.
 
-:::note[See also]
 For more information on materialized views, see
 [Create materialized views in ClickHouse®](/docs/products/clickhouse/howto/materialized-views).
-:::
 
 :::note
 ClickHouse is strict about allowed symbols in database and table names.
@@ -228,7 +226,7 @@ You can also bring the entries from ClickHouse table into the Apache
 Kafka topic. Replace `KAFKA_SERVICE_NAME` and `CONNECTOR_TABLE_NAME`
 with your values:
 
-``` sql
+```sql
 INSERT INTO service_KAFKA_SERVICE_NAME.CONNECTOR_TABLE_NAME(id, name)
 VALUES (1, 'Michelangelo')
 ```

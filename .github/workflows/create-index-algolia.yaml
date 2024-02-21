@@ -5,27 +5,25 @@ name: Update global Aiven index
 on:
   schedule:
     - cron: '0 6 * * 2' # Runs at 06:00 UTC every Tuesday
-  workflow_dispatch: # Allows manual triggering of the workflow
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-
-      - name: Install Node.js dependencies
-        run: yarn
-
+          node-version: 20
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Build Docusaurus site
         run: yarn build
-
       - name: Index docs output
         run: node scripts/create_index_algolia.js
         env:

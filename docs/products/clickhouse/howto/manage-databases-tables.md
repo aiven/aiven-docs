@@ -20,7 +20,7 @@ console](https://console.aiven.io/):
 2.  In your service's page, select **Databases and tables** from the
     sidebar.
 
-3.  In the **Databases and tables** page, select **Create database** \>
+3.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
 
 4.  In the **Create ClickHouse database** window, enter a name for your
@@ -35,13 +35,13 @@ console](https://console.aiven.io/):
 
 Similar to creating the database, removal should also be done through
 the Aiven platform. In the web interface of [Aiven
-console](https://console.aiven.io/) you\'ll find a delete button next to
+console](https://console.aiven.io/) you'll find a delete button next to
 the database you created in the list of databases in the **Databases and
 tables** page.
 
 :::note
 If you try adding or removing a database in for your Aiven for
-ClickHouse service through the command line, you\'ll encounter an
+ClickHouse service through the command line, you'll encounter an
 exception `Not enough privileges.(ACCESS_DENIED)`. Please use the Aiven
 web interface to add or remove a database.
 :::
@@ -54,7 +54,7 @@ The example below shows a query to add new table `expenses` to
 `transactions` database. To keep it simple, this example has an
 unrealistically small amount of columns:
 
-``` sql
+```sql
 CREATE TABLE transactions.expenses (
     Title String,
     Date DateTime,
@@ -91,18 +91,17 @@ since parameters `max_table_size_to_drop` and
 
 Run the following SQL command to remove your table:
 
-``` bash
+```bash
 DROP TABLE NAME_OF_YOUR_DATABASE.NAME_OF_YOUR_TABLE;
 ```
 
 ### Remove a table in the console
 
-To remove your table in [Aiven Console](https://console.aiven.io/), take
-the following steps:
+To remove your table in [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  Navigate to the table you want to remove: organization \> project \>
-    service \> **Databases and tables**.
+2.  Navigate to the table you want to remove: organization > project >
+    service > **Databases and tables**.
 3.  In the **Databases and tables** view, navigate to the table and
-    select **Actions** menu (**\...**) \> **Remove** \> **Delete
+    select **Actions** menu (**...**) > **Remove** > **Delete
     table**.

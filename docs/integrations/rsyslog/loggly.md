@@ -71,12 +71,12 @@ integrated with Loggly.
 
 :::note
 It may take a few moments to setup the new log, and you can track the
-status on the **Overview** page of your service \> the **Service
+status on the **Overview** page of your service > the **Service
 integrations** section.
 :::
 
 Your logs should now be visible on Loggly **Search** tab. Enter the tag
-name your previously specified (e.g. `tag:your-tag` ) and it will
+name your previously specified, for example `tag:your-tag`, and it will
 populate the dashboard with the log events from the Aiven service.
 
 :::tip

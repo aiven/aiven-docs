@@ -15,7 +15,7 @@ in the [Aiven Community Forum](https://aiven.io/community/forum/).
 
 The Aiven service level agreement (SLA) is available on [the SLA
 page](https://aiven.io/sla). Custom SLAs are available for premium
-plans. Contact the sales team at [sales@aiven.io](mailto:sales@aiven.io) for more details.
+plans. Contact the [sales team](mailto:sales@aiven.io) for more details.
 
 ## Upgrade your support tier {#upgrade-support-tier}
 
@@ -27,20 +27,20 @@ Console](https://console.aiven.io/):
 
 1.  In the organization, click **Support**.
 
-2.  In the **Current support tier** section, click **Upgrade to
+1.  In the **Current support tier** section, click **Upgrade to
     Enterprise**.
 
-3.  Choose the support tier you want to upgrade to and click **Choose
+1.  Choose the support tier you want to upgrade to and click **Choose
     tier**.
 
-4.  Select a **Start date**.
+1.  Select a **Start date**.
 
     :::note
     If you select the current month, you will be charged a percentage of
-    the total service spend for the whole month, starting from the 1st.
+    the total service spend for the whole month, starting from the first.
     :::
 
-5.  Select a **Billing group**.
+1.  Select a **Billing group**.
 
     :::important
     The support costs for all current and future services in the
@@ -48,7 +48,7 @@ Console](https://console.aiven.io/):
     added to the invoice for this billing group.
     :::
 
-6.  Click **Upgrade tier**.
+1.  Click **Upgrade tier**.
 
 It typically takes 1-2 business days to set up the new support tier. You
 can view the status of your request on the support page under **Current
@@ -59,16 +59,16 @@ support tier**.
 1.  In the [Aiven Console](https://console.aiven.io/), click
     **Support**.
 
-2.  Click **Go to Aiven Support Center**.
+1.  Click **Go to Aiven Support Center**.
 
-3.  Click **Create ticket**.
+1.  Click **Create ticket**.
 
-4.  Enter email addresses to CC in the support ticket. All new comments
+1.  Enter email addresses to CC in the support ticket. All new comments
     and updates will be sent to these emails.
 
-5.  Enter a **Subject**.
+1.  Enter a **Subject**.
 
-6.  Select a **Severity** level:
+1.  Select a **Severity** level:
 
     -   Low: The primary functions are working, but some secondary
         functionality is not working.
@@ -77,12 +77,12 @@ support tier**.
     -   Critical: The primary functions are not working and it's not
         possible to find workarounds.
 
-7.  Optional: Enter the ID of the affected projects and services.
+1.  Optional: Enter the ID of the affected projects and services.
 
-8.  Select the affected **Product** and the reason for creating the
+1.  Select the affected **Product** and the reason for creating the
     ticket.
 
-9.  Enter a detailed **Description** of the issue.
+1.  Enter a detailed **Description** of the issue.
 
     :::note
     Include the following information in the description to help the
@@ -95,7 +95,7 @@ support tier**.
     -   Any languages or frameworks you are using
     :::
 
-10. Optional: Upload files such as screenshots, logs, or
+1.  Optional: Upload files such as screenshots, logs, or
     [HAR files](#create-har-files).
 
     :::important
@@ -104,7 +104,7 @@ support tier**.
     in files that you attach to a support ticket.
     :::
 
-11. Click **Create ticket**.
+1.  Click **Create ticket**.
 
 You can track the status of your tickets on the **My tickets** page.
 [Response times](https://aiven.io/support-services) vary by case
@@ -113,16 +113,16 @@ of your ticket, add `#escalate` in the comments.
 
 ## Add participants to a support ticket
 
-If you want to give every organization user access to all support
+To give every organization user access to all support
 tickets in your organization contact your account team.
 
 To add Aiven users to a support ticket:
 
 1.  On the **My tickets** page, open the ticket.
-2.  Click **Add to conversation**.
-3.  Add the email addresses in the **CC** field separated by a space.
+1.  Click **Add to conversation**.
+1.  Add the email addresses in the **CC** field separated by a space.
     This must be the same email address they use to log in.
-4.  Enter a comment and click **Submit**.
+1.  Enter a comment and click **Submit**.
 
 ## Get notifications for all support tickets
 
@@ -130,7 +130,7 @@ Super admin can get notifications for updates on all tickets in their
 organization.
 
 1.  Click **My tickets**.
-2.  On the **Tickets in my organization** tab, click **Follow all
+1.  On the **Tickets in my organization** tab, click **Follow all
     tickets**.
 
 You will get email notifications for all updates on both existing and
@@ -151,13 +151,12 @@ If the support team asks for a HAR file:
         and Chrome](https://toolbox.googleapps.com/apps/har_analyzer/).
     -   For Safari, make sure you can access the [developer
         tools](https://support.apple.com/en-ie/guide/safari/sfri20948/mac)
-        and then follow the instructions for [exporting a HAR
-        file](https://webkit.org/web-inspector/network-tab/).
-2.  Replace sensitive data in the file with placeholders while retaining
+        and [export the HAR file](https://webkit.org/web-inspector/network-tab/).
+1.  Replace sensitive data in the file with placeholders while retaining
     the JSON structure and format. Examples of sensitive data include:
     -   Personal identifiers such as email addresses and phone numbers
     -   Authentication tokens or passwords
     -   Sensitive URLs
     -   Sensitive cookies or headers
-3.  Send the sanitized file to the support team in your reply to their
+1.  Send the sanitized file to the support team in your reply to their
     email or in the ticket's comments.

@@ -1,23 +1,12 @@
 ---
 title: Enable and configure tiered storage for topics
+early: true
 ---
 
 Aiven for Apache Kafka® allows you to configure tiered storage
 and set retention policies for individual topics. Learn how to configure
 tiered storage for individual topics and set local retention policies
 step by step.
-
-:::important
-Aiven for Apache Kafka® tiered storage is an
-[early availability feature](/docs/platform/concepts/beta_services). To use this feature, contact our sales team at
-[sales@aiven.io](mailto:sales@aiven.io) to activate tiered storage for your account.
-
-After
-activation, you must enable the feature from the
-[feature preview page](/docs/platform/howto/feature-preview) in your user profile to start using tiered storage.
-
-For further details, see [Enable tiered storage for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-kafka-tiered-storage).
-:::
 
 ## Prerequisite
 
@@ -28,7 +17,7 @@ For further details, see [Enable tiered storage for Aiven for Apache Kafka](/doc
 1.  Access [Aiven console](https://console.aiven.io/), select your
     project, and select your Aiven for Apache Kafka service.
 1.  From the left sidebar, select **Topics**.
-1.  Here, you have the option to either add a new topic with tiered
+1.  You have the option to either add a new topic with tiered
     storage configuration or modify an existing topic to use tiered
     storage.
 
@@ -107,7 +96,7 @@ retention policies.
 To enable tiered storage for a Kafka topic, execute the following
 command:
 
-``` bash
+```bash
 avn service topic-create \
     --project demo-kafka-project \
     --service-name demo-kafka-service \
@@ -131,7 +120,7 @@ In this example:
 After enabling tiered storage, you can configure the retention policies
 for local storage:
 
-``` bash
+```bash
 avn service topic-update \
     --project demo-kafka-project \
     --service-name demo-kafka-service \

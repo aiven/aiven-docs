@@ -14,7 +14,7 @@ specific service by requesting the Prometheus endpoint, substituting:
 -   the Aiven for Apache Kafka hostname (`<KAFKA_HOSTNAME>`)
 -   the Prometheus port (`<PROMETHEUS_PORT>`)
 
-``` bash
+```bash
 curl --cacert ca.pem \
     --user '<PROMETHEUS_USER>:<PROMETHEUS_PASSWORD>' \
     'https://<KAFKA_HOSTNAME>:<PROMETHEUS_PORT>/metrics'
@@ -120,7 +120,7 @@ documentation](https://kafka.apache.org/documentation/#monitoring).
 
 :::note
 The metrics with a `_Count` suffix are cumulative counters for the given
-metric, e.g.
+metric, for example,
 `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`.
 
 Note that a metric like
@@ -262,45 +262,45 @@ for all topics and only list metrics for individual topics, filter with
 :::
 
 -   `kafka_server_BrokerTopicMetrics_BytesInPerSec_Count`: Byte in (from
-    the clients) rate per topic. Omitting \'topic=(\...)\' will yield
+    the clients) rate per topic. Omitting `topic=(...)` will yield
     the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_BytesOutPerSec_Count`: Byte out (to
-    the clients) rate per topic. Omitting \'topic=(\...)\' will yield
+    the clients) rate per topic. Omitting `topic=(...)` will yield
     the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_BytesRejectedPerSec_Count`:
     Rejected byte rate per topic due to the record batch size being
     greater than max.message.bytes configuration. Omitting
-    \'topic=(\...)\' will yield the all-topic rate.
+    `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_FailedFetchRequestsPerSec_Count`:
     Failed Fetch request (from clients or followers) rate per topic.
-    Omitting \'topic=(\...)\' will yield the all-topic rate.
+    Omitting `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_FailedProduceRequestsPerSec_Count`:
-    Failed Produce request rate per topic. Omitting \'topic=(\...)\'
+    Failed Produce request rate per topic. Omitting `topic=(...)`
     will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_FetchMessageConversionsPerSec_Count`:
     Message format conversion rate, for Produce or Fetch requests, per
-    topic. Omitting \'topic=(\...)\' will yield the all-topic rate.
+    topic. Omitting `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_MessagesInPerSec_Count`: Incoming
-    message rate per topic. Omitting \'topic=(\...)\' will yield the
+    message rate per topic. Omitting `topic=(...)` will yield the
     all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_ProduceMessageConversionsPerSec_Count`:
     Message format conversion rate, for Produce or Fetch requests, per
-    topic. Omitting \'topic=(\...)\' will yield the all-topic rate.
+    topic. Omitting `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_ReassignmentBytesInPerSec_Count`:
     Incoming byte rate of reassignment traffic
 -   `kafka_server_BrokerTopicMetrics_ReassignmentBytesOutPerSec_Count`:
     Outgoing byte rate of reassignment traffic
 -   `kafka_server_BrokerTopicMetrics_ReplicationBytesInPerSec_Count`:
     Byte in (from the other brokers) rate per topic. Omitting
-    \'topic=(\...)\' will yield the all-topic rate.
+    `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_ReplicationBytesOutPerSec_Count`:
     Byte out (to the other brokers) rate per topic. Omitting
-    \'topic=(\...)\' will yield the all-topic rate.
+    `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_TotalFetchRequestsPerSec_Count`:
     Fetch request (from clients or followers) rate per topic. Omitting
-    \'topic=(\...)\' will yield the all-topic rate.
+    `topic=(...)` will yield the all-topic rate.
 -   `kafka_server_BrokerTopicMetrics_TotalProduceRequestsPerSec_Count`:
-    Produce request rate per topic. Omitting \'topic=(\...)\' will yield
+    Produce request rate per topic. Omitting `topic=(...)` will yield
     the all-topic rate.
 -   `kafka_server_DelayedOperationPurgatory_NumDelayedOperations_Value`
 -   `kafka_server_DelayedOperationPurgatory_PurgatorySize_Value`

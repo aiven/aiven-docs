@@ -6,7 +6,7 @@ These examples show how to connect to an Aiven for Apache Kafka® service
 using the [node-rdkafka](https://github.com/blizzard/node-rdkafka)
 library.
 
-## Pre-requisites
+## Prerequisites
 
 1.  Install [node-rdkafka](https://github.com/blizzard/node-rdkafka).
     Make sure that you have OpenSSL set up on your machine.
@@ -31,7 +31,7 @@ library.
             1.  Select **SASL** as the **Authentication Method**
             2.  Next to *CA Certificate*, click **Download** and save
                 the `ca.pem` file
-            3.  Note the *Password* required for the SASL, we\'ll need
+            3.  Note the *Password* required for the SASL, we'll need
                 it for authentication
 
 :::note
@@ -70,7 +70,7 @@ The consumer example expects the messages to be in a topic named
 
 ### With SSL authentication
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 console.log(Kafka.features); // this should print 'ssl', among other things
 
@@ -95,7 +95,7 @@ producer.on('ready', () => {
 If you prefer to authenticate with SASL, the setup looks slightly
 different.
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 console.log(Kafka.features); // this should print 'sasl_ssl', among other things
 
@@ -124,7 +124,7 @@ your consumer in action, run the producer as well, and try using
 
 ### With SSL authentication
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 
 const stream = new Kafka.createReadStream({
@@ -146,7 +146,7 @@ stream.on('data', (message) => {
 If you prefer to authenticate with SASL, the setup looks slightly
 different.
 
-``` js
+```js
 const Kafka = require('node-rdkafka');
 
 const stream = new Kafka.createReadStream({

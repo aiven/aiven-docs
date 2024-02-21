@@ -65,10 +65,10 @@ Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `elasticsearch_sink.json`) with the following content:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "io.aiven.connect.elasticsearch.ElasticsearchSinkConnector",
@@ -204,7 +204,7 @@ connector. You can create Elasticsearch indices in many ways including
 If you have a topic named `iot_measurements` containing the following
 data in JSON format, with a defined JSON schema:
 
-``` json
+```json
 {
     "schema": {
         "type":"struct",
@@ -257,7 +257,7 @@ You can sink the `iot_measurements` topic to Elasticsearch with the
 following connector configuration, after replacing the placeholders for
 `ES_CONNECTION_URL`, `ES_USERNAME` and `ES_PASSWORD`:
 
-``` json
+```json
 {
     "name":"sink_iot_json_schema",
     "connector.class": "io.aiven.connect.elasticsearch.ElasticsearchSinkConnector",
@@ -286,7 +286,7 @@ The configuration file contains the following peculiarities:
 If you have a topic named `students` containing the following data in
 JSON format, without a defined schema:
 
-``` text
+```text
 Key: 1 Value: {"student_id":1, "student_name":"Carla"}
 Key: 2 Value: {"student_id":2, "student_name":"Ugo"}
 Key: 3 Value: {"student_id":3, "student_name":"Mary"}
@@ -296,7 +296,7 @@ You can sink the `students` topic to Elasticsearch with the following
 connector configuration, after replacing the placeholders for
 `ES_CONNECTION_URL`, `ES_USERNAME` and `ES_PASSWORD`:
 
-``` json
+```json
 {
     "name":"sink_students_json",
     "connector.class": "io.aiven.connect.elasticsearch.ElasticsearchSinkConnector",
@@ -321,10 +321,10 @@ The configuration file contains the following peculiarities:
 -   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
     the message value is in plain JSON format without a schema
 -   `"value.converter.schemas.enable": "false"`: since the data in the
-    value doesn\'t have a schema, the connector shouldn\'t try to read
+    value doesn't have a schema, the connector shouldn't try to read
     it and sets it to null
 -   `"schema.ignore": "true"`: since the value schema is null, the
-    connector doesn\'t infer it before pushing the data to Elasticsearch
+    connector doesn't infer it before pushing the data to Elasticsearch
 
 :::note
 The Elasticsearch document ID is set as the message key

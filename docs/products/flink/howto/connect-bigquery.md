@@ -231,11 +231,11 @@ integration ID of the Aiven for Apache Flink service. Obtain the
 With the `integration ID` obtained from the previous step, you can now
 create an application that uses the integration. For information on how
 to create Aiven for Apache Flink applications, see
-[avn service flink create-application](/docs/tools/cli/service/flink#avn service flink create-application).
+[avn service flink create-application](/docs/tools/cli/service/flink#avn%20service%20flink%20create-application).
 
 Following is an example of a Google BigQuery SINK table:
 
-``` sql
+```sql
 CREATE TABLE `table1` (
     `name` STRING
 )

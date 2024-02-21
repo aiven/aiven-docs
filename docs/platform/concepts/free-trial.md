@@ -19,6 +19,7 @@ If you create services on the [free plan](/docs/platform/concepts/free-plan), th
 continue to run alongside your free 30-day trial without affecting your trial credits.
 Free plan services also continue running after the trial has expired.
 
+<!-- vale off -->
 There are some limitations:
 
 -   You can only have one trial.
@@ -26,6 +27,7 @@ There are some limitations:
     [billing group](/docs/platform/concepts/billing-groups). You cannot transfer them to
     another billing group.
 -   You can't create new services if your remaining credits would be spent too quickly.
+<!-- vale on -->
 
 Services are automatically powered down after the trial ends or your credits run out. To
 keep your services running, [add a payment card](/docs/platform/howto/manage-payment-card).

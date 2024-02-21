@@ -45,7 +45,7 @@ choice.
     [tag your service](/docs/platform/howto/tag-resources) by purpose, owner, environment, or any other criteria.
 -   **Forking:** Forking an Aiven for ClickHouse service creates a new
     database service containing the latest snapshot of an existing
-    service. Forks don\'t stay up-to-date with the parent database, but
+    service. Forks don't stay up-to-date with the parent database, but
     you can write to them. It provides a risk-free way of working with
     your production data and schema. For example, you can use them to
     test upgrades, new schema migrations, or load test your app with a
@@ -95,7 +95,8 @@ choice.
 
 Role based Access Control (RBAC) To learn what kind of granular access
 is possible in Aiven for ClickHouse, check out
-[RBAC with Zookeeper](#zookeeper).
+[RBAC with Zookeeper](/docs/products/clickhouse/concepts/service-architecture#zookeeper).
+
 
 -   **Zero lock-in:** Aiven for ClickHouse offers compatibility with
     open source software (OSS), which protects you from software and

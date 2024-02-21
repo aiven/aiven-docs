@@ -2,57 +2,49 @@
 title: Aiven CLI
 ---
 
-Aiven offers an installable CLI (command line interface) tool. You can
-find it [on GitHub](https://github.com/aiven/aiven-client). Check out
-[this blog](https://aiven.io/blog/aiven-cmdline) to learn how to use the
-Aiven command line tool to do common tasks.
+The Aiven command line interface (CLI) lets you use the Aiven platform and services in a scriptable way through the API.
 
-If you prefer to follow a video tutorial, check out this short video on
-[how to get started](https://www.youtube.com/watch?v=nf3PPn5w6K8).
-
-## Getting started
-
-The `avn` client is an ideal way to use Aiven's services in a
-scriptable way. This tool accesses the same API that powers the web
-console.
+## Get started
 
 ### Install
 
-The `avn` utility is a Python package, so you can install using `pip`:
+The `avn` utility is a Python package that you can install using `pip`:
 
 ```
 pip install aiven-client
 ```
 
-Check your install by running `avn` and looking for usage output.
+You can also use [Homebrew](https://formulae.brew.sh/formula/aiven-client) to install it:
+
+```
+brew install aiven-client
+```
+
+To check your installation run `avn --version`.
 
 ### Authenticate
 
 There are two options for authenticating. The first is to use your
-username, and then enter your password when prompted:
+email and password:
+
+1. To log in with your email, run:
+   ```
+   avn user login EMAIL_ADDRESS
+   ```
+
+1. When prompted, enter your password.
+
+For increased security, you can use an
+[authentication token](/docs/platform/howto/create_authentication_token) by running
+this command:
 
 ```
-avn user login <you@example.com>
+avn user login EMAIL_ADDRESS --token
 ```
-
-For security reasons, it is recommended to use an access token,
-especially if you use SSO. You can use a command like:
-
-```
-avn user login <you@example.com> --token
-```
-
-:::tip
-To learn how to create an authentication token refer to
-[Create authentication tokens](/docs/platform/howto/create_authentication_token)
-:::
-
-This command will prompt you for a token rather than a password.
 
 ## Commands
 
-Top-level commands for the Aiven CLI are listed here, along with some
-information about the features found in each section.
+Top-level commands for the Aiven CLI.
 
 ### `account`
 
@@ -62,7 +54,7 @@ the accounts.
 Find more info on the help article about
 [Accounts, Teams, Members and Roles](/docs/platform/concepts/projects_accounts_access)
 
-[See detailed command information](cli/account).
+[View detailed command information](cli/account).
 
 ### `billing-group`
 
@@ -76,24 +68,24 @@ features, and detailed invoice line data.
 
 ### `cloud`
 
-Use `avn cloud list` to see all the currently-available clouds on Aiven.
+Use `avn cloud list` to get a list of all available clouds on Aiven.
 This is useful for looking up the cloud name to use with `service`
 commands.
 
-[See detailed command information](cli/cloud).
+[View detailed command information](cli/cloud).
 
 ### `credits`
 
 Claim or view the history of credit codes.
 
-[See detailed command information](cli/credits).
+[View detailed command information](cli/credits).
 
 ### `events`
 
 Inspect the events on your account such as the services created/deleted,
 and which users triggered each event.
 
-[See detailed command information](cli/events).
+[View detailed command information](cli/events).
 
 ### `help`
 
@@ -103,7 +95,7 @@ Detailed help on using the CLI.
 
 Manage the replication flows for Apache Kafka® MirrorMaker 2.
 
-[See detailed command information](cli/mirrormaker).
+[View detailed command information](cli/mirrormaker).
 
 ### `project`
 
@@ -114,36 +106,39 @@ all users.
 Download the CA cert for this project (CA certs are common for all
 services in a project).
 
-[See detailed command information](cli/project).
+[View detailed command information](cli/project).
 
 ### `service`
 
-The kitchen sink! All the commands specific to a service are available
-here.
-
-[See detailed command information](cli/service-cli).
+[View detailed command information](cli/service-cli).
 
 ### `ticket`
 
 Create or list tickets. An alternative support ticket interface to
 either email or the chat widget found on our web console.
 
-[See detailed command information](cli/ticket).
+[View detailed command information](cli/ticket).
 
 ### `user`
 
-Log in/out and manage your user tokens here. You can also create other
+Log in, log out, and manage your user tokens. You can also create other
 users.
 
-[See detailed command information](cli/user)
+[View detailed command information](cli/user)
 
 ### `vpc`
 
 Manage your VPC configuration including user/peer networks.
 
-[See detailed command information](cli/vpc)
+[View detailed command information](cli/vpc)
 
 ## General usage
 
 Try the `--json` switch to any command to get more information, in a
 JSON format.
+
+## Related pages
+
+- [Learn how to use the Aiven CLI](https://aiven.io/blog/aiven-cmdline) for common tasks.
+- Watch the [how to get started tutorial](https://www.youtube.com/watch?v=nf3PPn5w6K8).
+- Check out the [aiven-client repository on GitHub](https://github.com/aiven/aiven-client).

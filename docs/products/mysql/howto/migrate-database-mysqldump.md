@@ -38,8 +38,8 @@ the instruction in
 
 To backup the `source-db` data to a file called `mydb_backup.sql` you
 need to collect some information about your Aiven for MySQL `source-db`
-database. Go to [Aiven Console](https://console.aiven.io/) \> your Aiven
-for MySQL `source-db` service \> **Overview** \> the **Connection
+database. Go to [Aiven Console](https://console.aiven.io/) > your Aiven
+for MySQL `source-db` service > **Overview** > the **Connection
 information** section and find the following information:
 
  | Variable             | Description                                 |
@@ -55,7 +55,7 @@ information** section and find the following information:
 Use the following command to back up your Aiven for MySQL data to a file
 named `mydb_backup.sql`:
 
-``` shell
+```shell
 mysqldump \
 -p DEFAULTDB -P SOURCE_DB_PORT \
 -h SOURCE_DB_HOST --single-transaction \
@@ -89,8 +89,8 @@ The reason is that GTID's are not available with MyISAM.
 
 To restore data saved in a file to an Aiven for MySQL database, you need
 to include the connection information for the service in the `mysqldump`
-command. Go to [Aiven Console](https://console.aiven.io/) \> your Aiven
-for MySQL `target-db` service \> **Overview** \> the **Connection
+command. Go to [Aiven Console](https://console.aiven.io/) > your Aiven
+for MySQL `target-db` service > **Overview** > the **Connection
 information** section and find the following information:
 
   | Variable             | Description                                 |
@@ -106,7 +106,7 @@ information** section and find the following information:
 Run the following command to load your saved data into your Aiven for
 MySQL database:
 
-``` shell
+```shell
 mysqldump \
 -p DEFAULTDB -P TARGET_DB_PORT \
 -h TARGET_DB_HOST \

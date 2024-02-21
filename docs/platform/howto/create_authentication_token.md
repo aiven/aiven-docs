@@ -15,7 +15,7 @@ Console](https://console.aiven.io/):
 2.  Click **Generate token**.
 
 3.  Enter a description and set an expiration time in the **Max. age**
-    field. Leave **Max. age** empty if you don\'t want the token to
+    field. Leave **Max. age** empty if you don't want the token to
     expire.
 
 4.  Click **Generate token**.

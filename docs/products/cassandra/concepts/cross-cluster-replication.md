@@ -1,27 +1,16 @@
 ---
 title: Cross-cluster replication with Aiven for Apache Cassandra®
+limited: true
 ---
 
-:::important
-Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-This article provides an overview of the cross-cluster replication (CCR)
-feature for Aiven for Apache Cassandra®. Learn what CCR is and how it
-works. Discover how you can benefit from this feature and what limits
-and limitations it has.
+Cross-cluster replication (CCR) is a configuration of Apache Cassandra services on the Aiven platform that mirrors your data between different clouds and/or regions, providing increased durability and locality.
 
 ## About cross-cluster replication
 
-Cross-cluster replication (CCR) is a configuration of Apache Cassandra
-services on the Aiven platform that mirrors your data between different
-clouds and/or regions, providing increased durability and locality. You
-can choose which region to replicate your data to. CCR deploys a single
-multi-datacenter Apache Cassandra cluster across two Aiven services.
-Apache Cassandra is configured to treat nodes from a single service as
-located in a single datacenter.
+You can choose which region to replicate your data to. CCR deploys a single
+multi-datacenter Apache Cassandra cluster across two Aiven services. Apache
+Cassandra is configured to treat nodes from a single service as located in a
+single datacenter.
 
 ## Why use CCR
 
@@ -67,7 +56,6 @@ flowchart LR
     end
 ```
 
-
 ## How it works
 
 ### Replication strategy
@@ -95,31 +83,25 @@ creating a keyspace on the cluster. The same CREATE KEYSPACE query can
 be used to specify the replication factor and a datacenter that data can
 be replicated to.
 
-Datacenter per service
+- **Datacenter per service:** For the CCR feature to work, the two services that cross-replicate
+  need to be located in two different datacenters.
 
-:   For the CCR feature to work, the two services that cross-replicate
-    need to be located in two different datacenters.
+- **Replication factor:** The replication factor is defined in the CREATE KEYSPACE query to
+  indicate the number of copies of the data to be saved per cluster
+  (in each datacenter).
 
-Replication factor
-
-:   The replication factor is defined in the CREATE KEYSPACE query to
-    indicate the number of copies of the data to be saved per cluster
-    (in each datacenter).
-
-:::note[See also]
 For more details on the replication factor for Apache Cassandra, see
 [NetworkTopologyStrategy](https://cassandra.apache.org/doc/4.1/cassandra/cql/ddl.html#networktopologystrategy)
 in the Apache Cassandra documentation.
-:::
 
 ### CCR setup
 
 To make CCR work on your services, you need a cluster comprising two
-Apache Cassandra services with CCR enabled. On the cluster, you need to
+Apache Cassandra services with CCR enabled. On the cluster,
 issue the CREATE KEYSPACE request, specifying `NetworkTopologyStrategy`
 as a replication strategy along with desired replication factors.
 
-``` bash
+```bash
 CREATE KEYSPACE test WITH replication =  /
 {                                        /
  'class': 'NetworkTopologyStrategy',     /
@@ -154,11 +136,9 @@ number of copies as per replication factor.
     of the regions is unavailable.
 :::
 
-:::note[See also]
 For more details on consistency levels for Apache Cassandra, see
 [CONSISTENCY](https://cassandra.apache.org/doc/4.1/cassandra/tools/cqlsh.html#consistency)
 in the Apache Cassandra documentation.
-:::
 
 ## Limitations {#ccr-limitations}
 

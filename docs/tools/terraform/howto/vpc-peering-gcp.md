@@ -19,7 +19,7 @@ have set up the Google Cloud SDK.
     SDK](https://cloud.google.com/sdk/docs/install).
 -   Authenticate using the following command
 
-``` console
+```console
 gcloud auth application-default login
 ```
 
@@ -27,7 +27,7 @@ gcloud auth application-default login
 
 Create a file named `variables.tf` and add the following code:
 
-``` 
+```
 variable "aiven_api_token" {}
 variable "gcp_project_id" {}
 ```
@@ -39,7 +39,7 @@ Cloud project ID.
 
 Create a file named `provider.tf` and add the following code:
 
-``` 
+```
 terraform {
   required_providers {
     google = {
@@ -70,7 +70,7 @@ variables defined in the `variables.tf` file
 
 Create a file named project.tf and add the following code:
 
-``` 
+```
 #Get Aiven project details
 data "aiven_project" "my_project" {
   project = "project_name"
@@ -97,7 +97,7 @@ GCP, and creates a subnet within that VPC.
 Add the following code to your `project.tf` file to create a VPC in
 Aiven:
 
-``` 
+```
 resource "aiven_project_vpc" "my_vpc" {
   project      = data.aiven_project.my_project.project
   cloud_name   = "google-us-central1"
@@ -115,7 +115,7 @@ example, the Aiven VPC uses the CIDR range \"192.168.0.0/24\"
 Add the following code to your project.tf file to create a peering
 connection between the Aiven VPC and your GCP VPC:
 
-``` 
+```
 resource "aiven_gcp_vpc_peering_connection" "my_peering" {
   vpc_id             = aiven_project_vpc.my_vpc.id
   gcp_project_id     = var.gcp_project_id
@@ -140,7 +140,7 @@ before the `google_compute_network_peering` resource.
 Run the following commands to initialize and apply the Terraform
 configuration:
 
-``` console
+```console
 terraform init
 terraform apply
 ```
@@ -152,7 +152,7 @@ connection is active by checking the state attribute of the
 `google_compute_network_peering` resource. It should have changed from
 \"PENDING_PEER\" to \"ACTIVE\"
 
-``` console
+```console
 terraform show
 ```
 

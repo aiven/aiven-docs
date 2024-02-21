@@ -28,8 +28,7 @@ information about the PostgreSQL remote server:
 
 :::note
 If you're using Aiven for PostgreSQL as remote server, the above
-details are available in the [Aiven console](https://console.aiven.io/)
-\> the service's **Overview** page or via the dedicated
+details are available in the [Aiven console](https://console.aiven.io/) > the service's **Overview** page or via the dedicated
 `avn service get` command with the
 [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
@@ -136,7 +135,7 @@ SELECT * FROM dblink('pg_remote','SELECT item_id FROM inventory')
 
 -   Check the results
 
-``` text
+```text
 target_item_id
 ----------------
             1

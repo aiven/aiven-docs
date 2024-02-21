@@ -23,7 +23,7 @@ geospatial indexes, and streams.
 Aiven for Redis has many features that make it easy and stress-free to
 use:
 
--   **Managed service:** Aiven for Redis is fully managed, so you don\'t
+-   **Managed service:** Aiven for Redis is fully managed, so you don't
     have to worry about setup, management, or updates. Aiven provides
     tools and integrations to help you easily use Redis in your data
     pipelines.

@@ -40,7 +40,7 @@ To perform a migration with `aiven-db-migrate`:
     an external IP, as configured in `pg_hba.conf` on the source
     cluster.
 
-In order to use the **logical replication** method, you\'ll need the
+In order to use the **logical replication** method, you'll need the
 following:
 
 -   PostgreSQL® version is 10 or higher.
@@ -53,7 +53,7 @@ following:
 -   An available replication slot on the destination cluster for each
     database migrated from the source cluster.
 
-1.  If you don\'t have an Aiven for PostgreSQL database yet, run the
+1.  If you don't have an Aiven for PostgreSQL database yet, run the
     following command to create a couple of PostgreSQL services via
     [Aiven CLI](/docs/tools/cli) substituting the
     parameters accordingly:
@@ -80,7 +80,7 @@ following:
     To review the current `wal_level`, run the following command on the
     source cluster via `psql`
 
-    ``` sql
+    ```sql
     show wal_level;
     ```
 
@@ -114,7 +114,7 @@ You can initiate a migration to an Aiven for PostgreSQL® service with
 the [Aiven CLI](/docs/tools/cli) and the following
 command, substituting the placeholders accordingly:
 
-``` bash
+```bash
 avn service update --project PROJECT_NAME -c migration.host=SRC_HOSTNAME   \
     -c migration.port=SRC_PORT                                             \
     -c migration.ssl=true                                                  \
@@ -137,7 +137,7 @@ You can check the migration status using the
 [Aiven CLI](/docs/tools/cli) and the
 following call:
 
-``` bash
+```bash
 avn --project PROJECT_NAME --show-http service migration-status \
     DEST_PG_NAME
 ```
@@ -203,7 +203,7 @@ cluster in an inconsistent state.
 
 The migration process can be stopped with:
 
-``` bash
+```bash
 avn service update --project PROJECT_NAME --remove-option migration DEST_PG_NAME
 ```
 
@@ -213,7 +213,7 @@ process stops it. It has no effect for the `pg_dump` method as it is a
 one-time operation.
 
 :::warning
-Don\'t stop the migration process while it is `running` state since both
+Don't stop the migration process while it is `running` state since both
 the logical replication and `pg-dump`/`pg-restore` methods are copying
 data from the source to the destination cluster.
 

@@ -30,7 +30,7 @@ avn vpc create              \
 
 The command output is:
 
-``` text
+```text
 PROJECT_VPC_ID                        STATE     CLOUD_NAME     NETWORK_CIDR
 ====================================  ========  =============  ============
 1548c3f6-6240-45ab-892f-2dfacc62ed0d  APPROVED  aws-us-west-1  10.1.2.0/24
@@ -55,7 +55,7 @@ avn vpc delete \
 
 The command output is:
 
-``` text
+```text
 PROJECT_VPC_ID                        STATE     CLOUD_NAME     NETWORK_CIDR
 ====================================  ========  =============  ============
 1548c3f6-6240-45ab-892f-2dfacc62ed0d  DELETING  aws-us-west-1  10.1.2.0/24
@@ -79,7 +79,7 @@ avn vpc list
 
 The command output is:
 
-``` text
+```text
 PROJECT_VPC_ID                        CLOUD_NAME          NETWORK_CIDR   STATE
 ====================================  ==================  =============  ======
 b132dfbf-b035-4cf5-8b15-b7cd6a68aqqd  aws-us-east-1       10.2.1.0/24    ACTIVE
@@ -120,7 +120,7 @@ avn vpc peering-connection create \
 
 The command output is:
 
-``` text
+```text
 CREATE_TIME           PEER_AZURE_APP_ID  PEER_AZURE_TENANT_ID  PEER_CLOUD_ACCOUNT  PEER_RESOURCE_GROUP  PEER_VPC               STATE     STATE_INFO  UPDATE_TIME           USER_PEER_NETWORK_CIDRS  VPC_PEERING_CONNECTION_TYPE
 ====================  =================  ====================  ==================  ===================  =====================  ========  ==========  ====================  =======================  ===========================
 2022-06-15T14:50:54Z  null               null                  012345678901        null                 vpc-abcdef01234567890  APPROVED  null        2022-06-15T14:50:54Z
@@ -152,7 +152,7 @@ avn vpc peering-connection delete \
 
 The command output is:
 
-``` text
+```text
 CREATE_TIME           PEER_AZURE_APP_ID  PEER_AZURE_TENANT_ID  PEER_CLOUD_ACCOUNT  PEER_REGION  PEER_RESOURCE_GROUP  PEER_VPC               STATE     STATE_INFO  UPDATE_TIME           USER_PEER_NETWORK_CIDRS  VPC_PEERING_CONNECTION_TYPE
 ====================  =================  ====================  ==================  ===========  ===================  =====================  ========  ==========  ====================  =======================  ===========================
 2022-06-15T14:50:54Z  null               null                  012345678901        us-east-1    null                 vpc-abcdef01234567890  DELETING  null        2022-06-15T15:02:12Z
@@ -182,7 +182,7 @@ avn vpc peering-connection get \
 
 The command output is:
 
-``` text
+```text
 State: ACTIVE
 Message: Peering connection active
 
@@ -209,7 +209,7 @@ avn vpc peering-connection list --project-vpc-id b032dfbf-b035-4cf5-8b15-b7cd6a6
 
 The command output is:
 
-``` text
+```text
 PEER_CLOUD_ACCOUNT  PEER_RESOURCE_GROUP  PEER_VPC               PEER_REGION  STATE
 ==================  ===================  =====================  ===========  ======
 012345678901        null                 vpc-abcdef01234567890  us-east-1    ACTIVE

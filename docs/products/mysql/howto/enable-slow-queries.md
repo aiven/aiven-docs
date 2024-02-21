@@ -4,14 +4,14 @@ title: Enable slow query logging
 
 You can identify inefficient or time-consuming queries by enabling [slow
 query log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)
-in your Aiven for MySQL® service. In this article, you\'ll find out how
+in your Aiven for MySQL® service. In this article, you'll find out how
 to enable slow queries in your Aiven for MySQL service.
 
 :::warning
 Since the output of the slow query log is written to the
 `mysql.slow_log` table on a particular server (of the service or its
 replica), the slow query logging is not supported on read-only replicas,
-which don\'t allow any writes.
+which don't allow any writes.
 :::
 
 ## Prerequisites
@@ -47,13 +47,13 @@ have `mysql.slow_query_log` enabled and set `mysql.long_query_time` to
 `2` seconds. Now, you can run the following query to simulate a slow
 query of 3 seconds.
 
-``` shell
+```shell
 select sleep(3);
 ```
 
 You should see the following output:
 
-``` shell
+```shell
 +----------+
 | sleep(3) |
 +----------+
@@ -64,13 +64,13 @@ You should see the following output:
 
 Now, you can check the logs of your slow query:
 
-``` shell
+```shell
 select convert(sql_text using utf8) as slow_query, query_time from mysql.slow_log;
 ```
 
 You can expect to receive an output similar to the following:
 
-``` shell
+```shell
 +-----------------+-----------------+
 | slow_query      | query_time      |
 +-----------------+-----------------+

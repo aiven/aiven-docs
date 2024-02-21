@@ -56,7 +56,7 @@ Expand to check out how to verify that you have superuser permissions.
 
 Use `psql` to run the `\du` command:
 
-``` bash
+```bash
 \du
 ```
 
@@ -75,11 +75,11 @@ request it from your system administrator.
 </details>
 
 :::note[No superuser permissions? Install `aiven_extras`.]
-If you don\'t have superuser permissions, but you still want to use the
+If you don't have superuser permissions, but you still want to use the
 continuous migration, you can install the `aiven_extras` extension on
 the source database using the following command:
 
-``` bash
+```bash
 CREATE EXTENSION `aiven_extras` CASCADE;
 ```
 :::
@@ -138,14 +138,14 @@ follow and go straight to
     Check that your database allows all remote connections by using
     `psql` to run the following query:
 
-    ``` bash
+    ```bash
     SHOW listen_addresses;
     ```
 
     If enabled, you can expect the following output (with
     `listen_addresses` set to `*`):
 
-    ``` bash
+    ```bash
     listen_addresses
     -----------
     *
@@ -155,7 +155,7 @@ follow and go straight to
     If the command line returns something different, enable remote
     connections for your database with the following query:
 
-    ``` bash
+    ```bash
     ALTER SYSTEM SET listen_addresses = '*';
     ```
 
@@ -164,21 +164,21 @@ follow and go straight to
 
     Find the `pg_hba.conf` configuration file using the following query:
 
-    ``` bash
+    ```bash
     SHOW hba_file;
     ```
 
     Open `pg_hba.conf` in a text editor of your choice, for example,
     Visual Studio Code.
 
-    ``` bash
+    ```bash
     code pg_hba.conf
     ```
 
     Under `IPv4 local connections`, find and replace the IP address with
     `0.0.0.0/0`.
 
-    ``` bash
+    ```bash
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
     # IPv4 local connections:
@@ -187,11 +187,9 @@ follow and go straight to
     host    all             all             ::/0                    md5
     ```
 
-    :::note[See also]
     For more details on the configuration file's syntax, see [The
     pg_hba.conf
     File](https://www.postgresql.org/docs/14/auth-pg-hba-conf.html).
-    :::
 
 -   Enable the logical replication.
 
@@ -202,7 +200,7 @@ follow and go straight to
     Check that the logical replication is enabled using `psql` to run
     the following query:
 
-    ``` bash
+    ```bash
     SHOW wal_level;
     ```
 
@@ -217,7 +215,7 @@ follow and go straight to
     logical replication in your database by setting `wal_level` to
     `logical`:
 
-    ``` bash
+    ```bash
     ALTER SYSTEM SET wal_level = logical;
     ```
 
@@ -226,23 +224,23 @@ follow and go straight to
 
     Check the current status using the following query:
 
-    ``` bash
+    ```bash
     SHOW max_replication_slots;
     ```
 
     You can expect the following output:
 
-    ``` bash
+    ```bash
     max_replication_slots
     -----------
-    <number of slots, e.g. 8>
+    <number of slots, for example, 8>
     (1 row)
     ```
 
     If `number of slots` is smaller than the number of databases in your
     PostgreSQL server, modify it using the following query:
 
-    ``` bash
+    ```bash
     ALTER SYSTEM SET max_replication_slots = use_your_number;
     ```
 
@@ -251,20 +249,20 @@ follow and go straight to
 
 -   Restart your PostgreSQL server using the following command:
 
-    ``` bash
+    ```bash
     sudo service postgresql restart
     ```
 
 ## Migrate a database {#migrate-in-console}
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  On the **Services** page, select the service where your target
+1.  On the **Services** page, select the service where your target
     database is located.
-3.  From the sidebar on your service's page, select **Service
+1.  From the sidebar on your service's page, select **Service
     settings**.
-4.  On the **Service settings** page, navigate to the **Service
+1.  On the **Service settings** page, navigate to the **Service
     management** section, and select **Import database**.
-5.  Guided by the migration wizard, go through all the migration steps.
+1.  Guided by the migration wizard, go through all the migration steps.
 
 ### Step 1: Configure
 
@@ -282,11 +280,11 @@ with them, and select **Get started**.
     -   Database name
     -   Username
     -   Password
-2.  Select the **SSL encryption (recommended)** checkbox.
-3.  Optionally, exclude specific databases from the migration by
+1.  Select the **SSL encryption (recommended)** checkbox.
+1.  Optionally, exclude specific databases from the migration by
     entering their names (separated with spaces) into the **Exclude
     databases** field.
-4.  Select **Run check**.
+1.  Select **Run check**.
 
 :::note[Cannot migrate the database using logical replication?]
 If your connection test returns information that you cannot migrate the
@@ -319,8 +317,8 @@ While the migration is in progress, you can take the following actions:
 
 -   Let it proceed until completed by selecting **Close window**, which
     closes the wizard. You can come back to check the status at any time
-    on the **Service settings** page \> the **Service management**
-    section \> **Import database**.
+    on the **Service settings** page > the **Service management**
+    section > **Import database**.
 -   Write to the target database.
 -   Discontinue the migration by selecting **Stop migration**. Although
     the data already migrated is retained, you cannot restart the
@@ -362,13 +360,13 @@ the connected databases.
 
 -   If there is no replication in progress, select **Close connection**
     in the migration wizard to finalize the migration process. As a
-    result, on the **Service settings** page \> the **Service
-    management** section \> **Import database**, you\'ll see the
+    result, on the **Service settings** page > the **Service
+    management** section > **Import database**, you'll see the
     **Ready** tag.
 -   If the replication mode is active, you can select **Keep
-    replicating**. As a result, on the **Service settings** page \> the
-    **Service management** section \> **Import database**, you\'ll see
-    the **Syncing** tag, and you\'ll be able to check the status of the
+    replicating**. As a result, on the **Service settings** page > the
+    **Service management** section > **Import database**, you'll see
+    the **Syncing** tag, and you'll be able to check the status of the
     migration process by selecting **Status update**.
 
 You have successfully migrated your PostgreSQL database into you Aiven

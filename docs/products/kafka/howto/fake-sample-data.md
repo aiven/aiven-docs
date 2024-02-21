@@ -25,7 +25,7 @@ To start using the generator:
 
 1.  Clone the repository:
 
-    ``` 
+    ```
     git clone https://github.com/aiven/fake-data-producer-for-apache-kafka-docker
     ```
 
@@ -37,7 +37,7 @@ To start using the generator:
     changing the `max-age-seconds` appropriately for the duration of
     your test:
 
-    ``` 
+    ```
     avn user access-token create                            \
     --description "Token used by Fake data generator"       \
     --max-age-seconds 3600                                  \
@@ -46,7 +46,7 @@ To start using the generator:
 
     :::tip
     The above command uses `jq` ([https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)) to
-    parse the result of the Aiven CLI command. If you don\'t have `jq`
+    parse the result of the Aiven CLI command. If you don't have `jq`
     installed, you can remove the `| jq -r '.[].full_token'` section
     from the above command and parse the JSON result manually to extract
     the access token.
@@ -65,7 +65,7 @@ To start using the generator:
 
 5.  Build the Docker image with:
 
-    ``` 
+    ```
     docker build -t fake-data-producer-for-apache-kafka-docker .
     ```
 
@@ -76,7 +76,7 @@ To start using the generator:
 
 6.  Start the streaming data flow with:
 
-    ``` 
+    ```
     docker run fake-data-producer-for-apache-kafka-docker
     ```
 

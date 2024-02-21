@@ -2,6 +2,8 @@
 title: Streaming anomaly detection with Apache Flink®, Apache Kafka® and PostgreSQL®
 ---
 
+<!-- vale off -->
+
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/flink/basic_cpu-in_table.md';
 import MyComponentSource2 from '!!raw-loader!/code/products/flink/basic_cpu-out-filter_table.md';
@@ -70,7 +72,7 @@ graph LR;
 
 However, receiving a notification on every sensor reading that surpasses
 a fixed threshold can be overwhelming and create false positives for
-short usage spikes. Therefore you\'ll create a second, more advanced,
+short usage spikes. Therefore you'll create a second, more advanced,
 pipeline to average the sensor readings values over 30 seconds windows
 and then compare the results with various thresholds, defined for every
 IoT device, and stored in a reference table.
@@ -97,7 +99,7 @@ The tutorial includes:
 -   PostgreSQL® for data storage/query.
 -   Slack as notification system.
 
-In this tutorial we\'ll be using Aiven services, specifically [Aiven for
+In this tutorial we'll be using Aiven services, specifically [Aiven for
 Apache Flink®](https://aiven.io/flink), [Aiven for Apache
 Kafka®](https://aiven.io/kafka), and [Aiven for
 PostgreSQL®](https://aiven.io/postgresql). All of these are open source
@@ -108,7 +110,7 @@ communicate with each other to nearly zero.
 
 ## Architecture overview
 
-To build near real-time anomaly detection system, you\'ll build a
+To build near real-time anomaly detection system, you'll build a
 streaming data pipeline that will be able to process the IoT sensor
 readings as soon as they are generated. The pipeline relies on two
 sources: the first source is an Apache Kafka topic that contains the
@@ -129,7 +131,7 @@ graph TD;
 
 ## Prerequisites
 
-The tutorial uses Aiven services, therefore you\'ll need a valid [Aiven
+The tutorial uses Aiven services, therefore you'll need a valid [Aiven
 account](https://console.aiven.io/signup). On top of the Aiven account,
 you will also need the following three items:
 
@@ -147,7 +149,7 @@ you will also need the following three items:
 
 ## Create the Aiven services
 
-In this section you\'ll create all the services needed to define the
+In this section you'll create all the services needed to define the
 anomaly detection system via the [Aiven
 Console](https://console.aiven.io/):
 
@@ -191,30 +193,30 @@ IoT sensor readings. Create the service with the following steps:
 
 Now that your service is created, you need to customise its
 functionality. On the **Service settings** page of your freshly created
-service, you\'ll see a bunch of toggles and properties. Change these
+service, you'll see a bunch of toggles and properties. Change these
 two:
 
 1.  Enable the Apache Kafka REST APIs to manage and query via the Aiven
     Console.
 
-    Navigate to **Service settings** page \> **Service management**
-    section \> actions (**\...**) menu \> **Enable REST API
+    Navigate to **Service settings** page > **Service management**
+    section > actions (**...**) menu > **Enable REST API
     (Karapace)**.
 
 2.  Enable the
     [automatic creation of Apache Kafka topics](/docs/products/kafka/howto/create-topics-automatically) to create new Apache Kafka® topics on the fly while
     pushing a first record.
 
-    Navigate to **Service settings** page \> **Advanced configuration**
-    section \> **Configure** \> **Add configuration options** \>
+    Navigate to **Service settings** page > **Advanced configuration**
+    section > **Configure** > **Add configuration options** >
     `kafka.auto_create_topics_enable`, enable the selected parameter
     using the toggle switch, and select **Save configuration**.
 
 ### Create an Aiven for PostgreSQL® service
 
-The [PostgreSQL](/docs/products/postgresql) database is where you\'ll store the threshold data for each
+The [PostgreSQL](/docs/products/postgresql) database is where you'll store the threshold data for each
 IoT device. These thresholds represent the alerting range of each IoT
-device, e.g. a device might trigger an alert when the usage is over
+device, for example, a device might trigger an alert when the usage is over
 `90%`, for other devices, the threshold should be
 `60%`.
 
@@ -237,7 +239,7 @@ steps:
 ### Create an Aiven for Apache Flink service
 
 The [Apache Flink](/docs/products/flink)
-service is where you\'ll define the streaming data pipelines to
+service is where you'll define the streaming data pipelines to
 calculate and detect the anomalies.
 
 You can create the Aiven for Apache Flink service with the following
@@ -258,9 +260,9 @@ steps:
 
 ### Integrate Aiven for Apache Flink service with sources and sinks
 
-After creating the service, you\'ll be redirected to the service details
-page. Apache Flink doesn\'t work in isolation, it needs data sources and
-sinks. Therefore you\'ll need to define the integrations between Apache
+After creating the service, you'll be redirected to the service details
+page. Apache Flink doesn't work in isolation, it needs data sources and
+sinks. Therefore you'll need to define the integrations between Apache
 Flink service and:
 
 -   Aiven for Apache Kafka®, which contains the stream of IoT sensor
@@ -291,7 +293,7 @@ similar to the below:
 Now that the plumbing of all the components is sorted, it's time for
 you to create a continuous stream of fake IoT data that will land in an
 Aiven for Apache Kafka topic. There are various ways to generate fake
-data, for the tutorial you\'ll use the [Dockerized fake data producer
+data, for the tutorial you'll use the [Dockerized fake data producer
 for Aiven for Apache
 Kafka®](https://github.com/aiven/fake-data-producer-for-apache-kafka-docker)
 allowing you to generate a continuous flow of data with a minimal setup.
@@ -333,7 +335,7 @@ You can create an authentication token with the following steps:
 
 ### Start the fake IoT data generator
 
-It's time to start streaming the fake IoT data that you\'ll later
+It's time to start streaming the fake IoT data that you'll later
 process with with Apache Flink:
 
 :::note
@@ -435,7 +437,7 @@ the Aiven console and look for the `cpu_load_stats_real` topic:
 
 ## Create a basic anomaly detection pipeline with filtering
 
-The first anomaly detection pipeline that you\'ll create showcases a
+The first anomaly detection pipeline that you'll create showcases a
 basic anomaly detection system: you want to flag any sensor reading
 exceeding a fixed `80%` threshold since it could represent a heating
 anomaly. You\'ll read the IoT sensor readings from the
@@ -564,14 +566,14 @@ The data is now available in the Apache Kafka topic named
 
 ## Evolve the anomaly detection pipeline with windowing and threshold lookup
 
-In most production environments, you wouldn\'t want to send an alert on
+In most production environments, you wouldn't want to send an alert on
 every measurement above the threshold. Sometimes CPUs spike momentarily,
 for example, and come back down in usage milliseconds later. What's
 really useful to you in production is if a CPU spike is sustained over a
 certain period of time.
 
 If a CPU usage spike happens continuously for a 30 seconds interval,
-there might be a problem. In this step, you\'ll aggregate the CPU load
+there might be a problem. In this step, you'll aggregate the CPU load
 over a configured time using
 [windows](/docs/products/flink/concepts/windows) and the
 [event time](/docs/products/flink/concepts/event-processing-time). By averaging the CPU values over a time window you can
@@ -579,7 +581,7 @@ filter out short term spikes in usage, and flag only anomaly scenarios
 where the usage is consistently above a pre-defined threshold for a long
 period of time.
 
-To add a bit of complexity, and mimic a real scenario, we\'ll also move
+To add a bit of complexity, and mimic a real scenario, we'll also move
 away from a fixed `80%` threshold, and compare the average utilization
 figures with the different thresholds, set in a reference table (stored
 in PostgreSQL), for the various IoT devices based on their `hostname`.
@@ -599,7 +601,7 @@ graph TD;
 
 ### Create the windowing pipeline
 
-In this step, you\'ll create a pipeline to average the CPU metrics
+In this step, you'll create a pipeline to average the CPU metrics
 figures in 30 seconds windows. Averaging the metric over a time window
 allows to avoid notification for temporary spikes.
 

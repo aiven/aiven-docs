@@ -26,27 +26,27 @@ of the acceptable formats
 When the result of the data pipeline contains a timestamp column like
 the below:
 
-``` 
+```
 EVENT_TIME TIMESTAMP(3),
 HOSTNAME STRING,
 CPU DOUBLE
 ```
 
-to push the data correctly to an OpenSearch® index, you\'ll need to set
+to push the data correctly to an OpenSearch® index, you'll need to set
 the target column format as `STRING` in the Flink table definition,
 like:
 
-``` 
+```
 EVENT_TIME STRING,
 HOSTNAME STRING,
-CPU DOUBLE    
+CPU DOUBLE
 ```
 
-and, assuming the `EVENT_TIME` is a timestamp, you\'ll need to specify
+and, assuming the `EVENT_TIME` is a timestamp, you'll need to specify
 it in the format understood by OpenSearch® using the `DATE_FORMAT`
 function, like:
 
-``` 
+```
 DATE_FORMAT(EVENT_TIME, 'yyyy/MM/dd HH:mm:ss')
 ```
 

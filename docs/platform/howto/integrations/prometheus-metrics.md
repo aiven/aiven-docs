@@ -22,9 +22,8 @@ from the HTTP server running on Aiven nodes.
 
 Usually one Prometheus integration endpoint can be used for all services
 in the same project. To check if Prometheus is supported on your
-service, you need to verify if the project for this service has a
-Prometheus integration endpoint created. For this purpose, take the
-following steps:
+service, verify if the project for this service has a
+Prometheus integration endpoint created:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), go to
    **Projects** in the top navigation bar, and select your project from
@@ -42,7 +41,7 @@ Prometheus. If there's no Prometheus endpoint available, proceed to
 ## Enable Prometheus
 
 Aiven offers Prometheus endpoints for your services. To enable this
-feature, take the following steps:
+feature:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), go to
    **Projects** in the top navigation bar, and select your project from
@@ -74,7 +73,7 @@ feature, take the following steps:
    integration listed and status `active`.
    :::
 
-1. Next, navigate to the service's **Overview** page, and then locate
+1. Next, navigate to the service's **Overview** page, and locate
    the **Connection information** section.
 
 1. Click on the **Prometheus** tab.
@@ -100,7 +99,7 @@ Prometheus:
    using Prometheus.
 1. Click **Service settings** from the sidebar.
 1. In the **Cloud and network** section, click the actions
-   (**\...**) menu.
+   (**...**) menu.
 1. Choose **More network configurations**.
 1. In the **Network configuration** window, select **Add configuration
    options**.
@@ -119,11 +118,11 @@ single-node and multi-node services.
 For single-node services, configure the following in your
 `scrape_config` job entry in `prometheus.yml`:
 
--   `basic_auth` details: Check your service's the **Overview** page \>
-    the **Connection information** section \> the **Prometheus** tab).
+-   `basic_auth` details: Check your service's the **Overview** page >
+    the **Connection information** section > the **Prometheus** tab).
 
 -   `PROMETHEUS_SERVICE_URI`: Check **Service URI** on your service's
-    the **Overview** page \> the **Connection information** section \>
+    the **Overview** page > the **Connection information** section >
     the **Prometheus** tab).
 
 -   `ca_file`: Download the CA certificate from your service's the
@@ -138,7 +137,7 @@ For single-node services, configure the following in your
 
 :::note[Sample configuration]
 
-``` bash
+```bash
 scrape_configs:
   - job_name: aivenmetrics
     scheme: https
@@ -168,10 +167,10 @@ your service.
    bound to the IP addresses of the hosts, not to the DNS name.
 
 1. Enable the `insecure_skip_verify` setting so that Prometheus
-   wouldn\'t verify if the TLS certificate is bound to the IP addresses
+   wouldn't verify if the TLS certificate is bound to the IP addresses
    of the hosts.
 
-    ``` bash
+    ```bash
     scrape_configs:
       - job_name: aivenmetrics
         scheme: https
@@ -198,9 +197,9 @@ your service.
 
 ### View full list of metrics
 
-Aiven provides the Prometheus client via the Telegraf plugin so all the
-same metrics that are available via the Aiven for InfluxDB® metrics
-integration are also available via the Prometheus integration.
+The Prometheus client, provided through the Telegraf plugin, offers access to a
+comprehensive range of metrics, similar to those previously available through another
+metrics integration, now accessible via the Prometheus integration.
 
 You can preview the full list of metrics in
 [Prometheus system metrics](/docs/integrations/prometheus-system-metrics).

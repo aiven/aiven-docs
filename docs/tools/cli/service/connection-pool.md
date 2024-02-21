@@ -73,7 +73,7 @@ avn service connection-pool-list demo-pg
 
 An example of `avn service connection-pool-list` output:
 
-``` text
+```text
 POOL_NAME        DATABASE      USERNAME  POOL_MODE    POOL_SIZE
 ===============  ============  ========  ===========  =========
 cp-analytics-it  analytics-it  avnadmin  transaction  10

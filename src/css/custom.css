@@ -149,3 +149,11 @@ div[class^='announcementBar_'] a {
 .menu__link--sublist-caret:after {
   background: var(--ifm-menu-link-sublist-icon) 90% / 1.3rem 1.3rem;
 }
+
+ol ol,
+ul ol,
+ul ol ol,
+ul ul ol,
+ol ul ol {
+  list-style: decimal;
+}

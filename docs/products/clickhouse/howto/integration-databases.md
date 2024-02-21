@@ -15,11 +15,9 @@ This article details how to set up and manage integration databases from
 the the **Databases and tables** view of your Aiven for ClickHouse
 service.
 
-:::note[See also]
 For information on how to set up integration databases when creating a
 new data service integration, see
 [Manage Aiven for ClickHouse® data service integrations](/docs/products/clickhouse/howto/data-service-integration).
-:::
 
 ## About integration databases
 
@@ -45,7 +43,7 @@ Aiven for ClickHouse. This instruction uses *PostgreSQL* as an example.
     want to add integration databases to.
 3.  In your service's page, select **Databases and tables** from the
     sidebar.
-4.  In the **Databases and tables** view, select **Create database** \>
+4.  In the **Databases and tables** view, select **Create database** >
     **PostgreSQL integration database**.
 5.  In **Create PostgreSQL integration database** wizard, select one of
     the following options:
@@ -132,7 +130,7 @@ You can only edit Apache Kafka integration databases and tables.
     -   Data format
     -   Table columns
 
-7.  Select **Update table details** \> **Save changes**.
+7.  Select **Update table details** > **Save changes**.
 
 Your integration database and/or its tables have been updated.
 

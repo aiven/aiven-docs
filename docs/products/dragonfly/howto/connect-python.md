@@ -16,7 +16,7 @@ appropriate values:
  | --------------- | -------------------------------- |
  | `DRAGONFLY_URI` | URL for the Dragonfly connection |
 
-## Pre-requisites
+## Prerequisites
 
 Install the `redis-py` library:
 

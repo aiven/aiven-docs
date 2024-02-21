@@ -10,11 +10,11 @@ version 3.3.0. See
 
 -   **MirrorMaker 2 offset sync is incorrect if the target partition is
     empty**: [https://issues.apache.org/jira/browse/KAFKA-12635](https://issues.apache.org/jira/browse/KAFKA-12635)
--   `Kafka-12635`: **Don\'t emit checkpoints for partitions without any
+-   `Kafka-12635`: **Don't emit checkpoints for partitions without any
     offset**: [https://github.com/apache/kafka/pull/11748](https://github.com/apache/kafka/pull/11748)
 -   **MM2 creates invalid checkpoint when offset mapping is not
     available**: [https://issues.apache.org/jira/browse/KAFKA-13452](https://issues.apache.org/jira/browse/KAFKA-13452)
--   `Kafka-13452`: **MM2 shouldn\'t checkpoint when offset mapping is
+-   `Kafka-13452`: **MM2 shouldn't checkpoint when offset mapping is
     unavailable**: [https://github.com/apache/kafka/pull/11492](https://github.com/apache/kafka/pull/11492)
 
 ## MirrorMaker 2 is always set `min.insync.replicas = 1` in destination cluster topics

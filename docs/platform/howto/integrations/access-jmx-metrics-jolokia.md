@@ -2,10 +2,7 @@
 title: Access JMX metrics via Jolokia
 ---
 
-[Jolokia](https://jolokia.org/) is one of the external metrics
-integration supported on the Aiven platform besides
-[Datadog metrics](/docs/integrations/datadog/datadog-metrics) and
-[Prometheus metrics](/docs/platform/howto/integrations/prometheus-metrics).
+[Jolokia](https://jolokia.org/) is one of the external metrics integration supported on the Aiven platform besides [Datadog metrics](/docs/integrations/datadog/datadog-metrics) and [Prometheus metrics](/docs/platform/howto/integrations/prometheus-metrics).
 
 :::note
 Only Aiven for Apache Kafka® has support for Jolokia integration.
@@ -20,12 +17,12 @@ create a new Jolokia endpoint configuration:
     the **Services** page, select **Integration endpoints** on the left
     sidebar.
 
-2.  In the **Integrations** page, select **Jolokia**, and then select
+1.  In the **Integrations** page, select **Jolokia**, and select
     **Add new endpoint**.
 
-3.  Enter an **Endpoint name** for the new Jolokia endpoint and select
+1.  Enter an **Endpoint name** for the new Jolokia endpoint and select
     **Create**. The system will automatically generate a username and
-    password for authentication. In most cases, you can reuse the same
+    password for authentication. Usually, you can reuse the same
     Jolokia endpoint configuration for all services within a project.
 
     ![Jolokia service integration endpoint](/images/integrations/jolokia-service-integration-image-1.png)
@@ -61,7 +58,7 @@ represented by a single DNS name. You can use the `host` command on Unix
 systems or the `nslookup` command on Windows systems to retrieve the
 list of IP addresses associated with a DNS name.
 
-``` shell
+```shell
 host kafka-67bd7c5-myproject.aivencloud.com
 kafka-67bd7c5-myproject.aivencloud.com has address 35.228.218.115
 kafka-67bd7c5-myproject.aivencloud.com has address 35.228.234.106
@@ -70,18 +67,18 @@ kafka-67bd7c5-myproject.aivencloud.com has address 35.228.157.197
 
 ## Example cURL requests
 
-Here is an example of a cURL request for accessing JMX metrics using
-Jolokia. Before executing the cURL
-request,[download the CA certificate](/docs/platform/howto/download-ca-cert) specific to your project. The CA certificate file is
+Before executing the cURL
+request,[download the CA certificate](/docs/platform/howto/download-ca-cert) specific
+to your project. The CA certificate file is
 identical for all endpoints and services within the same project.
 Performing a cURL request to read a specific metric:
 
 Ensure that you use port 6733, the default port for Jolokia. Replace
 `joljkr2l:PWD` with the username and password obtained during the
-Jolokia endpoint setup step. You can find these endpoint details on the
+Jolokia endpoint setup step. See the endpoint details on the
 **Integration endpoints** page.
 
-``` shell
+```shell
 curl --cacert ca.pem \
     -X POST \
     https://joljkr2l:PWD@HOST_IP:6733/jolokia/  \
@@ -91,7 +88,7 @@ curl --cacert ca.pem \
 
 Jolokia supports searching beans using `search` command:
 
-``` shell
+```shell
 curl --cacert ca.pem \
     -X POST \
     https://joljkr2l:PWD@HOST_IP:6733/jolokia/  \

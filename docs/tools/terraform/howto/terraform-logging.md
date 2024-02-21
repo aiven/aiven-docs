@@ -12,13 +12,13 @@ need to contact our support team for help.
 
     Enable debugging on Linux:
 
-    ``` Shell
+    ```Shell
     export TF_LOG="DEBUG"
     ```
 
     Enable debugging for PowerShell:
 
-    ``` Powershell
+    ```Powershell
     $env:TF_LOG="DEBUG"
     ```
 
@@ -39,13 +39,13 @@ need to contact our support team for help.
 
     Configure log location on Linux:
 
-    ``` Shell
+    ```Shell
     export TF_LOG_PATH=”/tmp/terraform-debug.log
     ```
 
     Configure log location for PowerShell:
 
-    ``` Powershell
+    ```Powershell
     $env:TF_LOG_PATH="C:\tmp\terraform-debug.log"
     ```
 
@@ -54,6 +54,6 @@ need to contact our support team for help.
 
 3.  To generate an example of the core and provider logs,run:
 
-    ``` Shell
+    ```Shell
     terraform refresh
     ```

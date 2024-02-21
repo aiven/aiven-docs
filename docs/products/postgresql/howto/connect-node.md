@@ -20,7 +20,7 @@ These are the placeholders you will need to replace in the code sample:
  | `PORT`     | Port for PostgreSQL connection, from the service overview page          |
  | `DATABASE` | Database Name for PostgreSQL connection, from the service overview page |
 
-## Pre-requisites
+## Prerequisites
 
 For this example you will need:
 

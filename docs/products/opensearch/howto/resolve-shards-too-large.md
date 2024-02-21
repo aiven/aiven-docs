@@ -14,7 +14,7 @@ relocate or recover index shards, potentially leading to data loss.
 Aiven proactively monitors shard sizes for all OpenSearch services. If a
 service's shard exceeds the recommended size, prompt notifications are
 sent using the user alert
-`user_alert_resource_usage_es_shard_too_large`. Below, you\'ll find
+`user_alert_resource_usage_es_shard_too_large`. Below, you'll find
 recommended solutions on how to address this alert.
 
 ## Solutions to address large shards
@@ -72,7 +72,7 @@ Another strategy involves re-indexing data into a fresh index while
 increasing the number of shards. To create a new index with 2 shards,
 use the following commands:
 
-``` python
+```python
 PUT /my_new_index/_settings
 {
     "index" : {
@@ -84,7 +84,7 @@ PUT /my_new_index/_settings
 Once the new index is set up, proceed to re-index your data using the
 following commands:
 
-``` python
+```python
 POST _reindex
 {
   "source": {

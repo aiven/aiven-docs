@@ -4,7 +4,6 @@ For data services with unbounded memory allocation, a memory limit is
 placed on the primary service container, with the remainder reserved for
 overhead and disk cache:
 
--   InfluxDB®
 -   MySQL
 -   PostgreSQL®
 

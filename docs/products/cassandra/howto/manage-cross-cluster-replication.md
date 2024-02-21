@@ -1,19 +1,14 @@
 ---
 title: Manage cross-cluster replication in Aiven for Apache Cassandra®
+limited: true
 ---
 
-:::important
-Aiven for Apache Cassandra® cross-cluster replication (CCR) is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Learn how to update Apache Cassandra® services that has cross-cluster
-replication (CCR) enabled: change the service plan and add an extra disk
-space. Find out how to set up the replication factor and the consistency
-level for your CCR-enabled Apache Cassandra® services.
+Learn how to update Apache Cassandra® services that has cross-cluster replication (CCR) enabled: change the service plan and add an extra disk space. Find out how to set up the replication factor and the consistency level for your CCR-enabled Apache Cassandra® services.
 
 ## Prerequisites
+
+This feature is in [limited availability](/docs/platform/concepts/beta_services).
+[Contact the sales team](mailto:sales@aiven.io) to try it out.
 
 ### Aiven-wise
 
@@ -21,7 +16,7 @@ level for your CCR-enabled Apache Cassandra® services.
 -   Pair of Aiven for Apache Cassandra services with CCR enabled
 
 ### Tools
-
+<!-- vale off -->
 -   To update the service plan or add an extra disk space, use [Aiven
     Console](https://console.aiven.io/).
 -   To set up the replication factor on the database side, issue the
@@ -32,6 +27,7 @@ level for your CCR-enabled Apache Cassandra® services.
 -   To set up the consistency level on the client side, configure it in
     your software. This guide uses the `cqlsh` Cassandra client for that
     purpose to ensure general applicability of the instruction.
+<!-- vale on -->
 
 ## Change the service plan
 
@@ -46,19 +42,19 @@ It's recommended to use [Aiven Console](https://console.aiven.io/) for
 changing the plan for a CCR-enabled service.
 :::
 
-1.  Log in to [Aiven Console](https://console.aiven.io/).
+1. Log in to [Aiven Console](https://console.aiven.io/).
 
-2.  From the **Services** page, select a CCR-enabled Aiven for Apache
+1. From the **Services** page, select a CCR-enabled Aiven for Apache
     Cassandra service that you want to update.
 
-3.  On the **Overview** page of your service, select **Service
+1. On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 
-4.  On the **Service settings** page of your service, navigate to the
+1. On the **Service settings** page of your service, navigate to the
     **Service plan** section, and select **Change plan** from the
-    **Actions** (**\...**) menu.
+    **Actions** (**...**) menu.
 
-5.  In the **Change service plan** window, select a new plan you want to
+1. In the **Change service plan** window, select a new plan you want to
     use for your service.
 
     :::tip
@@ -66,9 +62,9 @@ changing the plan for a CCR-enabled service.
     slider in the **Additional disk storage** section.
     :::
 
-6.  Select **Change**.
+1. Select **Change**.
 
-You\'ve changed the plan for your CCR-enabled service and its
+You've changed the plan for your CCR-enabled service and its
 CCR-replica service.
 
 ## Add an extra disk space
@@ -83,19 +79,19 @@ It's recommended to use [Aiven Console](https://console.aiven.io/) for
 adding storage space for CCR-enabled services.
 :::
 
-1.  Log in to [Aiven Console](https://console.aiven.io/).
+1. Log in to [Aiven Console](https://console.aiven.io/).
 
-2.  From the **Services** page, select a CCR-enabled Aiven for Apache
+1. From the **Services** page, select a CCR-enabled Aiven for Apache
     Cassandra service that you want to update.
 
-3.  On the **Overview** page of your service, select **Service
+1. On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 
-4.  On the **Service settings** page of your service, navigate to the
+1. On the **Service settings** page of your service, navigate to the
     **Service plan** section, and select **Add additional storage** from
-    the **Actions** (**\...**) menu.
+    the **Actions** (**...**) menu.
 
-5.  In the **Upgrade service storage** window, use the slider to add
+1. In the **Upgrade service storage** window, use the slider to add
     extra disk space for your service.
 
     :::tip
@@ -103,14 +99,14 @@ adding storage space for CCR-enabled services.
     in the **Your current plan** section.
     :::
 
-6.  Select **Save changes**.
+1. Select **Save changes**.
 
-You\'ve added extra disk storage space for your CCR-enabled service and
+You've added extra disk storage space for your CCR-enabled service and
 its CCR-replica service.
 
 ## Set up the replication factor {#set-up-replication-factor}
 
-You can specify how many replicas of your data you\'d like to have on
+You can specify how many replicas of your data you'd like to have on
 either of datacenters hosting your service. For that purpose, you need a
 keyspace with the `NetworkTopologyStrategy` replication. To create a
 keyspace that supports CCR and defines the replication factor, you need
@@ -124,57 +120,55 @@ same statements can be executed using any [supported client
 driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html).
 :::
 
-1.  [Connect to your service via cqlsh](/docs/products/cassandra/howto/connect-cqlsh-cli).
+1. [Connect to your service via cqlsh](/docs/products/cassandra/howto/connect-cqlsh-cli).
 
-    :::note
-    You can connect to either of the two services constituting the CCR
-    pair to set up the replication factor.
-    :::
+   :::note
+   You can connect to either of the two services constituting the CCR
+   pair to set up the replication factor.
+   :::
 
-2.  From the `cqlsh` shell, check out
+1. From the `cqlsh` shell, check out
 
-    -   Existing keyspaces with the `DESCRIBE keyspaces;` query (for a
-        new service, only system keyspaces are returned)
-    -   Datacenters available for your service with the
-        `SELECT data_center from system.peers_v2;` query.
+   - Existing keyspaces with the `DESCRIBE keyspaces;` query (for a
+     new service, only system keyspaces are returned)
+   - Datacenters available for your service with the
+     `SELECT data_center from system.peers_v2;` query.
 
-3.  Create a keyspace by running a query in which you specify
+1. Create a keyspace by running a query in which you specify
 
-    -   Replication strategy (`'class': 'NetworkTopologyStrategy'`)
-    -   Number of replicas to be created in the first datacenter
-        (`'datacenter_1_name': 'number_of_replicas'`)
-    -   Number of replicas to be created in the second datacenter
-        (`'datacenter_2_name': 'number_of_replicas'`)
+   - Replication strategy (`'class': 'NetworkTopologyStrategy'`)
+   - Number of replicas to be created in the first datacenter
+     (`'datacenter_1_name': 'number_of_replicas'`)
+   - Number of replicas to be created in the second datacenter
+     (`'datacenter_2_name': 'number_of_replicas'`)
 
-    ``` bash
-    CREATE KEYSPACE keyspace_name WITH replication =    /
-    {                                                   /
-      'class': 'NetworkTopologyStrategy',               /
-      'datacenter_1_name': 'number_of_replicas',        /
-      'datacaenter_2_name': 'number_of_replicas'        /
-    }                                                   /
-    AND durable_writes = true;
-    ```
+   ```bash
+   CREATE KEYSPACE keyspace_name WITH replication =    /
+   {                                                   /
+     'class': 'NetworkTopologyStrategy',               /
+     'datacenter_1_name': 'number_of_replicas',        /
+     'datacaenter_2_name': 'number_of_replicas'        /
+   }                                                   /
+   AND durable_writes = true;
+   ```
 
-    ```bash title="Example"
-    CREATE KEYSPACE default WITH replication =           /
-    {                                                    /
-      'class': 'NetworkTopologyStrategy',                /
-      'dc_1': '3',                                       /
-      'dc_2': '3'                                        /
-    }                                                    /
-    AND durable_writes = true;
-    ```
+   ```bash title="Example"
+   CREATE KEYSPACE default WITH replication =           /
+   {                                                    /
+     'class': 'NetworkTopologyStrategy',                /
+     'dc_1': '3',                                       /
+     'dc_2': '3'                                        /
+   }                                                    /
+   AND durable_writes = true;
+   ```
 
-You\'ve set up the replication factor for your keyspace. Now all data
+You've set up the replication factor for your keyspace. Now all data
 within this keyspace gets replicated to the datacenters according to the
 specified factor.
 
-:::note[See also]
 For more details on the replication factor for Apache Cassandra, see
 [NetworkTopologyStrategy](https://cassandra.apache.org/doc/4.1/cassandra/cql/ddl.html#networktopologystrategy)
 in the Apache Cassandra documentation.
-:::
 
 ## Set up the consistency level
 
@@ -200,9 +194,9 @@ This instruction uses the `cqlsh` Cassandra CLI client to configure the
 consistency level.
 :::
 
-1.  [Connect to your service via cqlsh](/docs/products/cassandra/howto/connect-cqlsh-cli).
+1. [Connect to your service via cqlsh](/docs/products/cassandra/howto/connect-cqlsh-cli).
 
-2.  Run `CONSISTENCY;` to check your current setting for the consistency
+1. Run `CONSISTENCY;` to check your current setting for the consistency
     level.
 
     Expected output: The query can return, for example,
@@ -210,7 +204,7 @@ consistency level.
     of an operation completion on one node is enough for this operation
     to be considered as successful.
 
-3.  To set up the consistency level to a specific value, run the
+1. To set up the consistency level to a specific value, run the
     `CONSISTENCY consistency_level_argument;` query.
 
     Allowed consistency level arguments: For the list of the allowed
@@ -232,20 +226,18 @@ component before running a particular query.
 In Python, you can specify `consistency_level` as a parameter for the
 `SimpleStatement` object.
 
-``` bash
+```bash
 session.execute(SimpleStatement("LIST ROLES", consistency_level=ConsistencyLevel.ALL))
 ```
 :::
 
-You\'ve set up the consistency level for your service. Now operations on
+You've set up the consistency level for your service. Now operations on
 your data are considered as successfully completed according to the
 consistency level you specified.
 
-:::note[See also]
 For more details on consistency levels for Apache Cassandra, see
 [CONSISTENCY](https://cassandra.apache.org/doc/4.1/cassandra/tools/cqlsh.html#consistency)
 in the Apache Cassandra documentation.
-:::
 
 ## More on Apache Cassandra CCR
 

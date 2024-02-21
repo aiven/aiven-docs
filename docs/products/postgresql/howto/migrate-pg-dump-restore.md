@@ -43,7 +43,7 @@ You can use the following variables in the code samples provided:
 
 ## Perform the migration
 
-1.  If you don\'t have an Aiven for PostgreSQL database yet, run the
+1.  If you don't have an Aiven for PostgreSQL database yet, run the
     following command to create a couple of PostgreSQL services via
     [Aiven CLI](/docs/tools/cli) substituting the
     parameters accordingly:

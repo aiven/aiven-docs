@@ -50,6 +50,7 @@ const sidebars: SidebarsConfig = {
         'tools/aiven-console/howto/create-accounts',
         'platform/howto/manage-organizations',
         'platform/howto/manage-project',
+        'platform/howto/add-project-members',
         'platform/reference/project-member-privileges',
         'platform/howto/manage-unassigned-projects',
       ],
@@ -116,12 +117,14 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'platform/howto/list-user',
       },
+
       items: [
         'platform/howto/manage-org-users',
-        'platform/concepts/managed-users',
-        'platform/howto/manage-domains',
-        'platform/howto/delete-user',
         'platform/howto/make-super-admin',
+        'platform/concepts/managed-users',
+        'platform/concepts/application-users',
+        'platform/howto/manage-application-users',
+        'platform/howto/delete-user',
         {
           type: 'category',
           label: 'User profiles',
@@ -152,20 +155,21 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Identity providers',
+          label: 'Identity providers and domains',
           link: {
             type: 'doc',
             id: 'platform/howto/list-identity-providers',
           },
           items: [
+            'platform/howto/manage-domains',
             'platform/howto/saml/add-identity-providers',
             'platform/howto/saml/add-auth0-idp',
             'platform/howto/saml/add-azure-idp',
             'platform/howto/saml/add-fusionauth-idp',
+            'platform/howto/saml/add-google-idp',
             'platform/howto/saml/add-jumpcloud-idp',
             'platform/howto/saml/add-okta-idp',
             'platform/howto/saml/add-onelogin-idp',
-            'platform/howto/saml/add-google-idp',
           ],
         },
         {
@@ -193,7 +197,6 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-service',
       },
       items: [
-        'platform/concepts/choosing-timeseries-database',
         'platform/howto/create_new_service',
         'platform/howto/rename-a-service',
         'platform/howto/tag-resources',
@@ -220,6 +223,7 @@ const sidebars: SidebarsConfig = {
         'platform/howto/migrate-services-vpc',
         'platform/reference/eol-for-major-versions',
         'platform/concepts/maintenance-window',
+        'platform/concepts/choosing-timeseries-database',
       ],
     },
     {
@@ -436,6 +440,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/get-started',
             'tools/terraform/concepts/data-sources',
             'tools/terraform/howto/terraform-logging',
+            'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/promote-to-master-pg-rr',
             'tools/terraform/howto/config-postgresql-provider',
             {
@@ -863,7 +868,6 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
-                    'products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                   ],
                 },
@@ -999,6 +1003,7 @@ const sidebars: SidebarsConfig = {
                     'products/flink/howto/create-flink-applications',
                     'products/flink/howto/manage-flink-applications',
                     'products/flink/howto/restart-strategy-jar-applications',
+                    'products/flink/howto/manage-credentials-jars',
                   ],
                 },
                 {
@@ -1338,6 +1343,7 @@ const sidebars: SidebarsConfig = {
                     'products/dragonfly/howto/migrate-ext-redis-df-console',
                   ],
                 },
+                'products/dragonfly/howto/eviction-policy-df',
               ],
             },
             {
@@ -1421,49 +1427,6 @@ const sidebars: SidebarsConfig = {
                 'products/grafana/reference/advanced-params',
                 'products/grafana/reference/plugins',
               ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Influxdb',
-          link: {
-            type: 'doc',
-            id: 'products/influxdb',
-          },
-          items: [
-            'products/influxdb/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/concepts',
-              },
-              items: [
-                'products/influxdb/concepts/continuous-queries',
-                'products/influxdb/concepts/influxdb-retention-policy',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/howto',
-              },
-              items: [
-                'products/influxdb/howto/migrate-data-self-hosted-influxdb-aiven',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/influxdb/reference',
-              },
-              items: ['products/influxdb/reference/advanced-params'],
             },
           ],
         },
@@ -1903,6 +1866,8 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/connect-rivery',
                     'products/postgresql/howto/connect-skyvia',
                     'products/postgresql/howto/connect-zapier',
+                    'products/postgresql/howto/connect-datagrip',
+                    'products/postgresql/howto/connect-dbeaver',
                   ],
                 },
                 {

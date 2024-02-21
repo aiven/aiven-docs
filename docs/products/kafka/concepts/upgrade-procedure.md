@@ -18,7 +18,7 @@ existing ones.
 ## Upgrade procedure steps
 
 To demonstrate what steps are taken during the automated upgrade
-procedure, we\'ll look at the example for a 3-node Apache Kafka service
+procedure, we'll look at the example for a 3-node Apache Kafka service
 visualised below:
 
 ```mermaid
@@ -90,7 +90,7 @@ The following set of steps are executed during an upgrade procedure:
     overhead.
     :::
 
-4.  Once old nodes don\'t have any partition data, they are retired from
+4.  Once old nodes don't have any partition data, they are retired from
     the cluster.
 
     :::note
@@ -161,7 +161,7 @@ removed from the cluster.
 
 :::note
 Nodes are not removed from the cluster while they hold data. If an
-upgrade doesn\'t progress, the nodes are not removed since that would
+upgrade doesn't progress, the nodes are not removed since that would
 lead to data loss.
 :::
 

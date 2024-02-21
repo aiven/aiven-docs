@@ -1,23 +1,21 @@
 ---
 title: Get started with Aiven for Dragonfly®
+sidebar_label: Get started
+limited: true
 ---
 
-The first step in using Aiven for Dragonfly is to create a service. You
-can do so either using the [Aiven Console](https://console.aiven.io/) or
-the [Aiven CLI](https://github.com/aiven/aiven-client).
+Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
-:::important
-Aiven for Dragonfly® is currently a
-[limited availability](/docs/platform/concepts/beta_services) service. If you are interested in exploring this offering,
-reach out to our sales team at [sales@aiven.io](mailto:sales@aiven.io) for more information and
-access.
-:::
+## Prerequisites
+
+Aiven for Dragonfly® is currently a **limited-availability** service that requires activation
+on your Aiven account. To explore this offering and request access to your account,
+contact [sales team](mailto:sales@aiven.io).
 
 ## Create a service using the Aiven Console
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create a new Dragonfly service.
+1.  [Create a Dragonfly service](/docs/platform/howto/create_new_service).
 
 Once the service is ready, the status changes to *Running*. Depending on
 your selected cloud provider and region, this generally takes a couple
@@ -31,10 +29,10 @@ launching a new service from the CLI, follow these steps:
 
 1.  Determine the service plan, cloud provider, and region you want to
     use for your Dragonfly service.
-2.  Run the following command to create Dragonfly service named
+1.  Run the following command to create Dragonfly service named
     dragonfly-demo:
 
-``` 
+```text
 avn service create dragonfly-demo   \
     --service-type dragonfly                 \
     --cloud google-europe-north1             \
@@ -48,7 +46,15 @@ running the following commands:
 
 -   For a full list of default flags: `avn service create -h`
 -   For type-specific options: `avn service types -v`
+
 :::
+
+## Create service integrations
+
+Integrate Aiven for Dragonfly® with other Aiven services or third-party tools using the
+integration wizard available on the [Aiven Console](https://console.aiven.io/) or
+[Aiven CLI](https://github.com/aiven/aiven-client).
+Learn how to [create service integrations](/docs/platform/howto/create-service-integration).
 
 ## Connect to Aiven for Dragonfly
 

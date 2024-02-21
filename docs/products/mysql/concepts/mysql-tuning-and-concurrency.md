@@ -40,11 +40,11 @@ An explanation of these various buffers (or code areas) can be found in
 the MySQL documentation: [How MySQL Uses
 Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html).
 
-``` sql
-SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area, 
-   format_bytes(SUM(current_alloc)) AS current_alloc 
-FROM sys.x$memory_global_by_current_bytes 
-GROUP BY SUBSTRING_INDEX(event_name,'/',2) 
+```sql
+SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area,
+   format_bytes(SUM(current_alloc)) AS current_alloc
+FROM sys.x$memory_global_by_current_bytes
+GROUP BY SUBSTRING_INDEX(event_name,'/',2)
 ORDER BY SUM(current_alloc) DESC;
 
 +---------------------------+---------------+
@@ -70,7 +70,7 @@ database.**
 
 Queries may use part or all of the allocation.
 
-``` sql
+```sql
 SELECT ( @@read_buffer_size
 + @@read_rnd_buffer_size
 + @@sort_buffer_size
@@ -104,13 +104,13 @@ all MySQL services.
 The [max_connections](max-number-of-connections) parameter is based off the service
 [usable memory](/docs/platform/concepts/service-memory-limits).
 
-``` sql
+```sql
 select @@max_connections;
 +-------------------+
 | @@max_connections |
 +-------------------+
 |               226 |
-+-------------------+ 
++-------------------+
 ```
 
 :::important

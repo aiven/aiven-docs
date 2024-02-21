@@ -1,15 +1,9 @@
 ---
 title: Check data distribution between storage devices in Aiven for ClickHouse®'s tiered storage
+limited: true
 ---
 
-:::important
-Aiven for ClickHouse® tiered storage is a
-[limited availability feature](/docs/platform/concepts/beta_services). If you're interested in trying out this feature, contact
-the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
-Monitor how your data is distributed between the two layers of your
-tiered storage: SSD and object storage.
+Monitor how your data is distributed between the two layers of your tiered storage: SSD and object storage.
 
 ## About checking data distribution
 
@@ -22,9 +16,16 @@ median part sizes, and maximum part sizes.
 
 ## Prerequisites
 
--   Access to [Aiven Console](https://console.aiven.io/)
 -   Tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) in a project,
+    database, or table
+
+    :::note
+    This feature is in [limited availability](/docs/platform/concepts/beta_services).
+    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
+    :::
+
+-   Access to [Aiven Console](https://console.aiven.io/)
 -   Command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 
@@ -36,9 +37,9 @@ storage is used on each tier (local SSD and remote object storage) for
 particular tables.
 
 To access tiered storage's status information, go to [Aiven
-Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
-\> the **Databases and tables** page \> your database \> your table \>
-**View details** \> **Storage details**.
+Console](https://console.aiven.io/) > your Aiven for ClickHouse service > the
+**Databases and tables** page > your database > your table >
+**View details** > **Storage details**.
 
 ## Run a data distribution check with the ClickHouse client (CLI)
 
@@ -46,7 +47,7 @@ Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
 
 2.  Run the following query:
 
-    ``` bash
+    ```bash
     SELECT
         database,
         table,
@@ -69,7 +70,7 @@ Console](https://console.aiven.io/) \> your Aiven for ClickHouse service
     You can expect to receive the following output:
     ```
 
-    ``` bash
+    ```bash
     ┌─database─┬─table─────┬─disk_name─┬─total_size─┬─parts_count─┬─min_part_size─┬─median_part_size─┬─max_part_size─┐
     │ datasets │ hits_v1   │ default   │ 1.20 GiB   │           6 │ 33.65 MiB     │ 238.69 MiB       │ 253.18 MiB    │
     │ datasets │ visits_v1 │ S3        │ 536.69 MiB │           5 │ 44.61 MiB     │ 57.90 MiB        │ 317.19 MiB    │

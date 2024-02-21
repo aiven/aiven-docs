@@ -17,11 +17,11 @@ X-DevAPI is supported by default.
 
 ## Variables
 
-  | Variable          | Description                                                                                                                                                          |
-  | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `SERVICE_URI`     | Service URI from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section \> the **MySQLx** tab |
-  | `MYSQLX_USER`     | User from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section \> the **MySQLx** tab        |
-  | `MYSQLX_PASSWORD` | Password from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service \> the **Connection information** section \> the **MySQLx** tab    |
+  |     Variable      |                                                                             Description                                                                             |
+  |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | `SERVICE_URI`     | Service URI from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service >  the **Connection information** section >  the **MySQLx** tab |
+  | `MYSQLX_USER`     | User from [Aiven Console](https://console.aiven.io/) >  the **Overview** page of your service >  the **Connection information** section >  the **MySQLx** tab       |
+  | `MYSQLX_PASSWORD` | Password from [Aiven Console](https://console.aiven.io/) >  the **Overview** page of your service >  the **Connection information** section >  the **MySQLx** tab   |
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ X-DevAPI is supported by default.
     If you are running Python from the command line, you can set this in
     your terminal:
 
-    ``` shell
+    ```shell
     export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
     ```
 

@@ -30,5 +30,5 @@ There can be a number of reasons why you are seeing the above message:
     cluster by it's hostname and that maps to one of the 3 workers
     randomly. If you see this message appear intermittently, this is
     likely the reason. The crashed node should recover automatically,
-    but if it doesn\'t, please [contact our
+    but if it doesn't, please [contact our
     support](https://aiven.io/support-services) for further help

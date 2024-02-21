@@ -5,7 +5,7 @@ title: Connect to the Aiven for ClickHouse® service with Java
 Learn how to connect to your Aiven for ClickHouse® service with Java
 using the ClickHouse JDBC driver and the HTTPS port.
 
-## Pre-requisites
+## Prerequisites
 
 -   [Java 8](https://www.java.com/en/download/) or later
 -   [ClickHouse JDBC
@@ -16,43 +16,43 @@ using the ClickHouse JDBC driver and the HTTPS port.
 To run the code for connecting to your service, first identify values of
 the following variables:
 
-| Variable                | Description                                                                                                                                                |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CLICKHOUSE_HTTPS_HOST` | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**     |
-| `CLICKHOUSE_HTTPS_PORT` | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**     |
-| `CLICKHOUSE_USER`       | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC**     |
-| `CLICKHOUSE_PASSWORD`   | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** \> **Connection information** \> **ClickHouse HTTPS & JDBC** |
+|        Variable         |                                                                       Description                                                                        |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CLICKHOUSE_HTTPS_HOST` | `Host` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**     |
+| `CLICKHOUSE_HTTPS_PORT` | `Port` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**     |
+| `CLICKHOUSE_USER`       | `User` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC**     |
+| `CLICKHOUSE_PASSWORD`   | `Password` for the ClickHouse connection available in the Aiven console: Service **Overview** > **Connection information** > **ClickHouse HTTPS & JDBC** |
 
 ## Connect to the service
 
 1.  Add the ClickHouse JDBC driver to your Maven dependencies.
 
-``` shell
-[](dependency)
-    <groupId>com.clickhouse</groupId>
-    <artifactId>clickhouse-jdbc</artifactId>
-    <version>0.3.2-patch11</version>
-    <classifier>all</classifier>
-    <exclusions>
-        <exclusion>
-            <groupId>*</groupId>
-            <artifactId>*</artifactId>
-        </exclusion>
-    </exclusions>
-[](/dependency)
-```
+    ```shell
+    [](dependency)
+        <groupId>com.clickhouse</groupId>
+        <artifactId>clickhouse-jdbc</artifactId>
+        <version>0.3.2-patch11</version>
+        <classifier>all</classifier>
+        <exclusions>
+            <exclusion>
+                <groupId>*</groupId>
+                <artifactId>*</artifactId>
+            </exclusion>
+        </exclusions>
+    [](/dependency)
+    ```
 
 2.  Replace `CLICKHOUSE_HTTPS_HOST` and `CLICKHOUSE_HTTPS_PORT` in the
     command with your connection values and run the code.
 
-    ``` shell
+    ```shell
     jdbc:ch://CLICKHOUSE_HTTPS_HOST:CLICKHOUSE_HTTPS_PORT?ssl=true&sslmode=STRICT
     ```
 
 3.  Replace `CLICKHOUSE_USER` and `CLICKHOUSE_PASSWORD` in the code with
     meaningful data and run the code.
 
-    ``` java
+    ```java
     import com.clickhouse.jdbc.ClickHouseConnection;
     import com.clickhouse.jdbc.ClickHouseDataSource;
 
@@ -74,13 +74,11 @@ the following variables:
     }
     ```
 
-:::note[Expected result]
 Now you have your service connection set up and you can proceed to
-[uploading data into your database](load-dataset).
-:::
+[uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
 
-:::note[See also]
+## Related pages
+
 For information on how to connect to the Aiven for Clickhouse service
 with the ClickHouse client, see
 [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
-:::

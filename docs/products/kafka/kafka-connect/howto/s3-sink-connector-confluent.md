@@ -9,13 +9,13 @@ for long term storage.
 :::note
 There are two versions of S3 sink connector available with Aiven for
 Apache Kafka Connect®: One is developed by Aiven, another developed by
-Confluent. This article uses the Confluent version. To learn about Aiven
-sink connector check out
+Confluent. This example uses the Confluent version. To learn about Aiven
+sink connector see
 [the dedicated page](s3-sink-connector-aiven).
 :::
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.confluent.io/current/connect/kafka-connect-s3/).
 :::
@@ -44,10 +44,10 @@ S3 sink connector using the
 
 ### Define a Kafka Connect® configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `s3_sink.json`) with the following content:
 
-```
+```json
 {
     "name": "<CONNECTOR_NAME>",
     "topics": "<TOPIC_NAME>",
@@ -77,7 +77,7 @@ The configuration file contains the following entries:
     `io.confluent.connect.s3.format.bytearray.ByteArrayFormat` writes
     messages in binary format.
 -   `flush.size`: Defines how many messages to write per file in the S3
-    bucket. E.g. setting `flush.size` to `3` generates a file every
+    bucket. for example, setting `flush.size` to `3` generates a file every
     three messages in a topic and partition.
 -   `s3.bucket.name`: The name of the S3 bucket
 -   `s3.region`: The AWS region where the S3 bucket has been created

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+IFS=$'\n'
+files=$(git diff --name-only main... | grep -E '\.mdx?$') || true
+for file in $files; do
+	vale --minAlertLevel=error $file
+done

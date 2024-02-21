@@ -16,7 +16,7 @@ These are the placeholders you will need to replace in the code sample:
 | ----------- | ------------------------------------------------------------ |
 | `REDIS_URI` | URL for the Redis connection, from the service overview page |
 
-## Pre-requisites
+## Prerequisites
 
 Install the `redis-py` library:
 

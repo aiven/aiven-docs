@@ -22,7 +22,7 @@ no matter how many rows in the database are new or stale.
 :::tip
 Since the bulk mode replicates the whole table content into the Apache
 Kafka topic at every poll, it's a suitable option only for tables with
-limited amount of data which don\'t have any incremental or timestamp
+limited amount of data which don't have any incremental or timestamp
 column.
 :::
 
@@ -73,9 +73,9 @@ record will be sent to the Apache Kafka topic, and the maximum
 in the next polls.
 
 :::warning
-With the incremental mode, any change which doesn\'t generate rows with
+With the incremental mode, any change which doesn't generate rows with
 an id higher than the maximum recorded in the previous poll will **not**
-be detected. E.g. updating the `student_name` without changing the
+be detected. for example, updating the `student_name` without changing the
 `student_id` will not generate any new records in Apache Kafka.
 :::
 
@@ -86,7 +86,7 @@ a `WHERE` condition based on one or more **timestamp columns**. This
 requires that timestamps columns (like creation date and modification
 date) are present for every row.
 
-In cases of two columns (e.g. `creation_date` and `modification_date`)
+In cases of two columns (for example, `creation_date` and `modification_date`)
 the polling query will apply the `COALESCENCE` function, parsing the
 value of the second column only when the first column is null.
 
@@ -123,9 +123,9 @@ available in the table, then the highest value for the timestamp columns
 is stored, and used as filter for the following polls.
 
 :::warning
-With the timestamp mode, any change which doesn\'t generate a more
+With the timestamp mode, any change which doesn't generate a more
 recent timestamp than the maximum recorded in the previous poll will
-**not** be detected. E.g. updating the `Jon Doe`'s `modified_date` to
+**not** be detected. for example, updating the `Jon Doe`'s `modified_date` to
 `2021-04-03` will not be captured since a more recent date
 (`2021-04-06`) was already recorded in the previous poll.
 :::

@@ -1,14 +1,16 @@
 extends: existence
 message: "Do not judge complexity."
-ignorecase: false
+ignorecase: true
 level: error
 tokens:
   - easily
   - quickly
   - merely
   - simply
+  # - best
   - hardly
   - shortly
   - slowly
   - here
   - please
+  - difficult

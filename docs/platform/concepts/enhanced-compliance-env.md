@@ -2,13 +2,8 @@
 title: Enhanced compliance environments (ECE)
 ---
 
-As a business that collects, manages, and operates on sensitive data
-that is protected by privacy and compliance rules and regulations - any
-vendor that assists with this collection, management and operation is
-subject to these same rules and regulations. Aiven meets the needs of
-these businesses by providing specialized enhanced compliance
-environments (ECE) that comply with many of the most common compliance
-requirements.
+Aiven collects, manages, and operates on sensitive data that is protected by privacy and compliance rules and regulations. Aiven meets the needs of its customers by providing specialized enhanced compliance environments (ECE) that comply with many of the most common compliance requirements.
+The vendors that assist with this collection, management and operation are subject to the same rules and regulations.
 
 An enhanced compliance environment will run on Aiven managed
 infrastructure with the additional compliance requirement that no ECE
@@ -43,70 +38,69 @@ accordingly.
 
 ## Similarities to a standard environment
 
-In many ways, an ECE is the same as a standard Aiven deployment. All of
-Aiven's tooling ([CLI](/docs/tools/cli),
-[Terraform](/docs/tools/terraform), etc.)
-interact with ECEs seamlessly, you will still be able to take advantage
-of all of Aiven's service integrations, and access to the environment
+In many ways, an ECE is the same as a standard Aiven deployment.
+Aiven's tooling, such as [CLI](/docs/tools/cli) and [Terraform](/docs/tools/terraform),
+interact with ECEs seamlessly, you will still be able to take advantage of Aiven's
+service integrations, and access to the environment
 can be achieved through VPC peering or Privatelink (on AWS or Azure).
+
 However, there are some key differences from standard environments as
 well:
 
--   No internet access. Internet access cannot even be allow-listed as
-    would be the case in standard private VPCs
--   VPCs cannot be automatically provisioned and must be manually
-    configured by our networking team.
--   VPC peering or Privatelink connections must be manually approved on
-    the Aiven end
+- No internet access. Internet access cannot even be allow-listed as
+  would be the case in standard private VPCs
+- VPCs cannot be automatically provisioned and must be manually
+  configured by our networking team.
+- VPC peering or Privatelink connections must be manually approved on
+  the Aiven end
 
 With these differences in mind, Aiven requires the following to
 provision an Enhanced Compliance Environment:
 
--   A CIDR block for all region/environment combinations. For example,
-    if you have a development, QA and production environment and operate
-    in 3 regions in each of those, we will need 9 CIDR blocks.
+- A CIDR block for all region/environment combinations. For example,
+  if you have a development, QA and production environment and operate
+  in 3 regions in each of those, we will need 9 CIDR blocks.
 
 The necessary peering information to enable the peer from our end. This
 differs between clouds:
 
 **AWS:**
 
--   AWS account ID
--   VPC ID
+- AWS account ID
+- VPC ID
 
 **GCP:**
 
--   GCP Project ID
--   VPC Network Name
+- GCP Project ID
+- VPC Network Name
 
 **Azure:**
 
--   Azure Tenant ID
--   Azure App ID
--   Azure VNet ID
+- Azure Tenant ID
+- Azure App ID
+- Azure VNet ID
 
-## What compliances are covered?
+## Compliances
 
 Although not exhaustive, Aiven is capable of supporting both the Health
 Insurance Portability and Accountability Act (HIPAA) and the Payment
 Card Industry Data Security Standard (PCI DSS) compliances.
 
-If you require compliance beyond these please contact our sales
-department so we can better understand your specific needs.
-Additionally, we also offer an alternative deployment option. See
+If you require compliance beyond these compliances, contact the [sales
+team](mailto:sales@aiven.io) so we can better understand your specific needs.
+
+Additionally, we offer an alternative deployment option. See
 [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc).
 
-## Migrating
+## Migrate to an ECE
 
-Migrations to Aiven are fairly straightforward in general, but migrating
-to an ECE can add a tiny bit of complexity. If the migration is for a
-new service there are a few standard migration methods that will work -
-please contact [sales](mailto:sales@aiven.io)and a Solution Architect will be
-able to help.
+Migrations to Aiven are a standard procedure, but migrating
+to an ECE can add complexity.
 
-If you need to migrate an existing Aiven service to an ECE the standard
-automated migration methods will not work out of the box. To facilitate
-the migration, the Aiven network team will create a VPN tunnel between
-your non-compliant VPC and your ECE VPC to enable a one-click migration.
-The migration will then be performed in an automated and zero-downtime
-fashion. Once the migration is complete, we will remove the VPN tunnel.
+To migrate a new service to an ECE, contact [the sales team](mailto:sales@aiven.io)
+to request help.
+
+To migrate an existing Aiven service to an ECE, the Aiven network team creates a VPN
+tunnel between your non-compliant VPC and your ECE VPC to enable a one-click migration.
+The migration is then performed in an automated and zero-downtime fashion.
+Once the migration is complete, the VPN tunnel is removed.

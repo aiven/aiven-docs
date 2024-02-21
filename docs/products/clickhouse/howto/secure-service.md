@@ -40,7 +40,7 @@ Termination Protection has no effect on service migrations or upgrades.
     settings** from the sidebar.
 3.  On the **Service settings** page, navigate to the **Service status**
     section, and select **Enable termination protection** from the
-    **Actions** (**\...**) menu.
+    **Actions** (**...**) menu.
 
 Termination Protection is enabled for your service: It cannot be
 terminated or powered down from the Aiven web console, via the Aiven

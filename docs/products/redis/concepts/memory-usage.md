@@ -2,17 +2,13 @@
 title: Memory Management and persistence in Aiven for Redis®*
 ---
 
-Learn how Aiven for Redis®\* addresses the challenges of high memory
-usage and high change rate in Redis®\*.
+Learn how Aiven for Redis®\* addresses the challenges of high memory usage and high change rate in Redis®\*.
 
 Redis®\* is commonly used as a database cache, where data is written to
 Redis whenever it is fetched from a database. As a result, the system
 experiences high memory usage and a high rate of change. In this topic,
 explore how Aiven for Redis®\* solves these issues by implementing
 robust memory management and persistence strategies.
-
-Here we show you how Aiven for Redis®\* solves the challenges related to
-high memory usage and high change rate.
 
 One of the main ways Redis®\* is used is as a database cache. Data is
 written to Redis whenever it is fetched from a database, and the
@@ -25,7 +21,7 @@ high memory usage, and can result in a high change rate.
 Data eviction policy is one of the most important Redis settings and it
 is available in the Aiven web console.
 
-Redis has a `max memory` setting which controls how much data is allowed
+Redis has a `maxmemory` setting which controls how much data is allowed
 to be stored, and the data eviction policy controls what happens when
 that maximum is reached. All Aiven for Redis services have the eviction
 policy set to *No eviction* by default. This means that if you keep
@@ -33,9 +29,9 @@ storing values, and never remove anything, the write operations will
 start failing when the maximum memory is reached.
 
 This is acceptable when data is consumed at a similar rate to how it is
-written. However, for other use cases `Evict all keys` with least
-recently used first (LRU) - which starts dropping old keys when
-`max memory` is reached - works better. Another way is to drop random
+written. However, for other use cases, using the `allkeys-lru` eviction policy - which
+starts dropping old keys based on the least recently used strategy when
+`maxmemory` is reached - works better. Another way is to drop random
 keys.
 
 Whichever way is chosen, only the keys that have an explicit expiration
@@ -43,11 +39,11 @@ time set are dropped, and keys with shortest time-to-live (TTL) are
 dropped first.
 
 Regardless of the eviction policy, if you write, you will eventually
-reach the `max memory` setting.
+reach the `maxmemory` setting.
 
 ## High memory and high change rate behavior
 
-For all new Aiven for Redis services the `max memory` is set to **70% of
+For all new Aiven for Redis services the `maxmemory` is set to **70% of
 available RAM** (minus management overhead) plus 10% for replication
 log. The memory usage is limited to below 100% because of the following
 situations when Redis performs operations that can require additional
@@ -62,7 +58,7 @@ memory:
 
 :::note
 When Redis creates a fork of itself all the memory pages of the new
-process are identical to the parent, and don\'t consume any extra
+process are identical to the parent, and don't consume any extra
 memory. However, any changes in the parent process cause memory to
 diverge, and the real memory allocation to grow.
 
@@ -80,7 +76,7 @@ the memory reserved for allowing these operations to complete (without
 using swap) is also proportional to total memory.
 
 If Redis memory usage grows so big that it needs to use swap, the system
-can quickly go into a cycle that makes the node unresponsive, and it
+can go into a cycle that makes the node unresponsive, and it
 needs to be replaced.
 
 In the on-disk persistence case, the child process wants to dump all of

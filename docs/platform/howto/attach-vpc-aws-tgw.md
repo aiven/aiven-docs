@@ -37,7 +37,7 @@ Before the Aiven platform can attach the Project VPC located in the
 Aiven AWS account with the Transit Gateway in your account, the TGW
 needs to be shared using [AWS Resource Access
 Manager](https://aws.amazon.com/ram/). Sharing the TGW allows the Aiven
-account to describe the TGW and its route table(s), and to request
+account to describe the TGW and its route tables, and to request
 attaching VPC (and VPN) to it. Note that attachments are not
 automatically created when the VPC and TGW reside in different
 accounts - the TGW owner account needs to accept a VPC attachment,
@@ -48,7 +48,7 @@ A resource share can be created using the [AWS RAM
 console](https://console.aws.amazon.com/ram/home), or the [AWS
 CLI](https://aws.amazon.com/cli/) using the
 [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html)
-command. Please add the Transit Gateway as a resource to the share, and
+command. Add the Transit Gateway as a resource to the share, and
 the Aiven AWS account ID as a principal. The Aiven AWS account ID is
 `675999398324`.
 
@@ -77,7 +77,7 @@ Aiven API for a peering connection. The Aiven API handles both actual
 connections](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
 and AWS Transit Gateway VPC attachments as peering connections.
 
-``` shell
+```shell
 avn vpc peering-connection create \
   --project-vpc-id $aws_vpc \
   --peer-cloud-account $user_account_id \
@@ -103,7 +103,7 @@ attachment has completed.
 
 The state can be checked using:
 
-``` shell
+```shell
 avn vpc peering-connection \
   --project-vpc-id $project_vpc_id \
   --peer-cloud-account $user_account_id \

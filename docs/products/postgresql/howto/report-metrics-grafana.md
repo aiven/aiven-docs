@@ -10,7 +10,7 @@ endpoint like Datadog or to create an integration and a
 metrics and dashboard sections in
 [PostgreSQL® metrics exposed in Grafana®](/docs/products/postgresql/reference/pg-metrics).
 
-## Push PostgreSQL metrics to InfluxDB®, M3DB, or PostgreSQL
+## Push PostgreSQL metrics to M3DB, or PostgreSQL
 
 To collect metrics about your PostgreSQL service you will need to
 configure a metrics integration and nominate somewhere to store the
@@ -20,13 +20,13 @@ collected metrics.
     **Manage integrations** and choose the **Store Metrics** option with
     **Store service metrics in a time-series database** as its
     description.
-2.  Choose either a new or existing InfluxDB®, M3DB, or PostgreSQL
+2.  Choose either a new or existing M3DB, or PostgreSQL
     service.
     -   A new service will ask you to select the cloud, region and plan
         to use. You should also give your service a name. The service
         overview page shows the nodes rebuilding, and then indicates
         when they are ready.
-    -   If you're already using InfluxDB, M3DB, or PostgreSQL on Aiven,
+    -   If you're already using M3DB, or PostgreSQL on Aiven,
         you can submit your PostgreSQL metrics to the existing service.
 
 :::warning
@@ -38,9 +38,9 @@ of the metrics in case of problems with the service.
 
 ## Provision and configure Grafana
 
-1.  Select the target InfluxDB, M3DB, or PostgreSQL database service and
+1.  Select the target M3DB, or PostgreSQL database service and
     go to its service page. Under **Manage integrations**, choose the
-    **Monitor Data in Grafana** option to make the metrics available on
+    **Grafana Metrics Dashboard** option to make the metrics available on
     that platform.
 
 2.

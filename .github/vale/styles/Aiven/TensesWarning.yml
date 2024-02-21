@@ -3,6 +3,7 @@ message: "Do not use this tense, use %s instead."
 level: warning
 ignorecase: true
 swap:
-  will: the present
+  will: is/are
   may: can
   must: the imperative
+  should: can

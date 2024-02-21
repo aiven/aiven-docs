@@ -59,7 +59,7 @@ source connector using the [Aiven Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we\'ll refer to it with
+Define the connector configurations in a file (we'll refer to it with
 the name `mongodb_source.json`) with the following content, creating a
 file is not strictly necessary but allows to have all the information in
 one place before copy/pasting them in the [Aiven
@@ -155,7 +155,7 @@ If you have in MongoDB a collection named `students` in a database named
 `districtA` containing the following data that you want to move to
 Apache Kafka:
 
-``` json
+```json
 {"name":"carlo", "age": 77}
 {"name":"lucy", "age": 55}
 {"name":"carlo", "age": 33}
@@ -166,7 +166,7 @@ collection to Apache Kafka with the following connector configuration,
 after replacing the placeholders for `MONGODB_HOST`, `MONGODB_PORT`,
 `MONGODB_DB_NAME`, `MONGODB_USERNAME` and `MONGODB_PASSWORD`:
 
-``` json
+```json
 {
     "name": "my-mongodb-source",
     "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",

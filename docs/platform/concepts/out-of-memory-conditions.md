@@ -32,7 +32,7 @@ long the process has been running.
 
 Processes that have been running for a long time are less likely to be
 killed. Subprocesses are summed with parent processes in terms of memory
-usage, so a process which forks a large number of subprocesses, but
+usage, so a process which forks many subprocesses, but
 itself does not use a lot of memory, may still be killed.
 
 *In most instances, the hosted data service, or a child process, will
@@ -43,9 +43,9 @@ Aiven's cloud data platform leverages kernel namespaces (or containers)
 to isolate processes from each other. Isolation has several benefits,
 including:
 
--   A smaller footprint for security‑related concerns
--   A smaller blast radius for failure
--   Greater control of system resources
+- A smaller footprint for security‑related concerns
+- A smaller blast radius for failure
+- Greater control of system resources
 
 Left unchecked, the `OOM Killer` may opt to kill the primary service.
 This is undesirable as unclean termination of the primary service can
@@ -72,17 +72,17 @@ including data unavailable or data loss conditions.
 
 ## How to avoid the OOM Killer
 
-The OOM killer only runs when the system is critically low on memory, so
-to avoid it running you need to either reduce your memory usage or
+The OOM killer only runs when the system is critically low on memory.
+To prevent it from running, either reduce your memory usage or
 increase the available memory.
 
 For most databases, the service memory footprint can often be reduced
 by:
 
--   Reducing concurrency or implementing connection pooling
--   Tuning queries to limit result sets
--   Tuning indexes for query load
--   Dropping unused objects from storage
+- Reducing concurrency or implementing connection pooling
+- Tuning queries to limit result sets
+- Tuning indexes for query load
+- Dropping unused objects from storage
 
 In cases where the working set no longer fits into memory, consider
 [scaling your service](/docs/platform/howto/scale-services).

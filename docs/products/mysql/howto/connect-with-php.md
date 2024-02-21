@@ -12,13 +12,13 @@ use of the built-in PDO module.
 
 These are the placeholders you need to replace in the code sample:
 
-| Variable    | Description                                                                                                                |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `MYSQL_URI` | Service URI for MySQL connection, from [Aiven Console](https://console.aiven.io/) \> the **Overview** page of your service |
+|  Variable   |                                                        Description                                                        |
+|-------------|---------------------------------------------------------------------------------------------------------------------------|
+| `MYSQL_URI` | Service URI for MySQL connection, from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service |
 
-## Pre-requisites
+## Prerequisites
 
--   [Download CA certificates](/docs/platform/howto/download-ca-cert) from [Aiven Console](https://console.aiven.io/) \> the
+-   [Download CA certificates](/docs/platform/howto/download-ca-cert) from [Aiven Console](https://console.aiven.io/) > the
     **Overview** page of your service. This example assumes it is in a
     local file called `ca.pem`.
 
@@ -26,7 +26,7 @@ These are the placeholders you need to replace in the code sample:
     `ca.pem` file and you add an absolute path to this file
     into [the code](/docs/products/mysql/howto/connect-with-php#connect-mysql-php-code):
 
-    ``` bash
+    ```bash
     $conn .= ";sslmode=verify-ca;sslrootcert='D:/absolute/path/to/ssl/certs/ca.pem'"
     ```
 

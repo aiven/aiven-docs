@@ -52,11 +52,11 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Create a file (we\'ll refer to this one as `splunk_sink.json`) to hold
+Create a file (we'll refer to this one as `splunk_sink.json`) to hold
 the connector configuration. As an example, here's some configuration
 for sending JSON payloads to Splunk:
 
-``` json
+```json
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.splunk.kafka.connect.SplunkSinkConnector",
@@ -140,7 +140,7 @@ To create a Apache Kafka Connect connector, follow these steps:
 If you have a topic named `data_logs` that you want to sink to a Splunk
 server in the `kafka_logs` index:
 
-``` json
+```json
 {
     "name":"data_logs_splunk_sink",
     "connector.class": "com.splunk.kafka.connect.SplunkSinkConnector",

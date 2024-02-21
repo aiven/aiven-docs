@@ -30,7 +30,7 @@ Before proceeding with the setup, ensure you have:
         vary with your OIDC provider.
     -   **Issuer URL or Identifier**: Identifies and verifies the JWT
         issuer.
-    -   **Audience Identifier(s)**: Validates the JWT's intended
+    -   **Audience identifiers**: Validates the JWT's intended
         recipients. For multiple audiences, make a note of all.
 
 ## Enable OAuth2/OIDC via Aiven Console {#console-authentication}
@@ -38,15 +38,15 @@ Before proceeding with the setup, ensure you have:
 1.  In the [Aiven Console](https://console.aiven.io/), select your
     project and then choose your Aiven for Apache Kafka® service.
 
-2.  In the service page, select **Service settings** from the sidebar.
+1.  In the service page, select **Service settings** from the sidebar.
 
-3.  On the **Service settings** page, scroll down to the **Advanced
+1.  On the **Service settings** page, scroll down to the **Advanced
     configuration** section, and click **Configure**.
 
-4.  In the **Advanced configuration** dialog, select **Add configuration
+1.  In the **Advanced configuration** dialog, select **Add configuration
     options**.
 
-5.  Set the following OIDC parameters:
+1.  Set the following OIDC parameters:
 
     -   `kafka.sasl_oauthbearer_jwks_endpoint_url`
         -   *Description*: Endpoint for retrieving the JSON Web Key Set
@@ -57,10 +57,10 @@ Before proceeding with the setup, ensure you have:
             provider.
     -   `kafka.sasl_oauthbearer_sub_claim_name` (Optional)
         -   *Description*: Name of the JWT's subject claim for broker
-            verification. This is optional and typically set to \"sub\".
+            verification. This is optional and typically set to `sub`.
             Corresponds to the Apache Kafka parameter
             `sasl.oauthbearer.sub.claim.name`.
-        -   *Value*: Enter \"sub\" or the specific claim name provided
+        -   *Value*: Enter `sub` or the specific claim name provided
             by your OIDC provider if different.
     -   `kafka.sasl_oauthbearer_expected_issuer` (Optional)
         -   *Description*: Specifies the JWT's issuer for the broker to
@@ -74,7 +74,7 @@ Before proceeding with the setup, ensure you have:
             broker. Corresponds to the Apache Kafka parameter
             `sasl.oauthbearer.expected.audience`. This is optional and
             is used if your OIDC provider specifies an audience.
-        -   *Value*: Input the audience identifier(s) given by your OIDC
+        -   *Value*: Input the audience identifiers given by your OIDC
             provider. If there are multiple audiences, separate them
             with commas.
 
@@ -92,7 +92,7 @@ Before proceeding with the setup, ensure you have:
     that ensures a minimal impact on your operations.
     :::
 
-6.  Select **Save configurations** to save your changes
+1.  Select **Save configurations** to save your changes
 
 ## Enable OAuth2/OIDC via Aiven CLI
 
@@ -102,16 +102,16 @@ service using [Aiven CLI](/docs/tools/cli):
 1.  Get the name of the Aiven for Apache Kafka service you want to
     enable OAuth2/OIDC authentication with:
 
-    ``` bash
+    ```bash
     avn service list
     ```
 
     Make a note of the `SERVICE_NAME` corresponding to your Aiven for
     Apache Kafka service.
 
-2.  Enable OAuth2/OIDC authentication for your service:
+1.  Enable OAuth2/OIDC authentication for your service:
 
-    ``` bash
+    ```bash
     avn service update <SERVICE_NAME> \
         -c kafka.sasl_oauthbearer_expected_audience="my-audience, another-audience" \
         -c kafka.sasl_oauthbearer_expected_issuer="https://my-issuer.example.com" \
@@ -124,4 +124,4 @@ For detailed explanations on the OIDC parameters, refer to the
 
 ## Related pages
 
--   Enable OAuth2/OIDC support for Apache Kafka® REST proxy
+- [Enable OAuth2/OIDC support for Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)

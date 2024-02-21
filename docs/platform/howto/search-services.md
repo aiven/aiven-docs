@@ -34,8 +34,7 @@ service:pg status:running provider:aws,google
 ```
 
 You can use these filters alongside keyword searches. For example, to
-see all powered off Kafka® services with *production* in the name, you
-could use the following:
+see all powered off Kafka® services with *production* in the name. Example output:
 
 ```
 production service:kafka status:poweroff

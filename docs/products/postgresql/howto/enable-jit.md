@@ -46,8 +46,8 @@ increase the cost. JIT can also be enabled for a single database:
 
 1.  Connect to the database where you want to enable JIT, for example,
     with `psql` and the service URI available in [Aiven
-    Console](https://console.aiven.io/) \> your Aiven for PostgreSQL
-    service \> the **Overview** page.
+    Console](https://console.aiven.io/) > your Aiven for PostgreSQL
+    service > the **Overview** page.
 
 ```
 psql PG_CONNECTION_URI
@@ -70,7 +70,7 @@ JIT can be enabled also for a specific user:
 
 1.  Connect to the database where you want to enable JIT using, for
     example, `psql` and the service URI available in [Aiven
-    Console](https://console.aiven.io/) \> the **Overview** page of your
+    Console](https://console.aiven.io/) > the **Overview** page of your
     Aiven for PostgreSQL service.
 
 ```
