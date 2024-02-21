@@ -78,8 +78,9 @@ draft, you can open the settings by clicking the name of the IdP.
 1. Optional: Select a user group to add all users who sign up with this IdP to.
 1. <ProBadge/> To enable user provisioning with Okta, click the toggle.
 
-   1. Copy the **Base URL** and add it to your Okta application.
-   1. Copy and save the **Access token**.
+   1. Copy the **Base URL** and **Access token**.
+   1. Add the URL and token to your
+      [Okta app integration](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm).
 
 1. Click **Finish** to complete the setup.
 
