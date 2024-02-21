@@ -43,8 +43,7 @@ The name of your custom cloud has been updated.
 
 ## Check it out
 
-You can preview the updated name of your cloud by taking the following
-steps:
+Preview the updated name of your cloud:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.

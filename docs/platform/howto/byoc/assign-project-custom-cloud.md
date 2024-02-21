@@ -3,19 +3,17 @@ title: Enable your AWS custom cloud in Aiven organizations, units, or projects
 sidebar_label: Attach projects
 ---
 
-To use a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organizations, units, or projects, configure its availability.
+Configure the availability of your [custom cloud](/docs/platform/concepts/byoc) to access
+it in all the projects, selected organizational units, or specific projects only.
 
 ## About making custom clouds available from your projects
 
 With the BYOC feature enabled, you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
 organization. As a part of the
-[initial custom cloud's setup in Aiven Console](/docs/platform/howto/byoc/create-custom-cloud),
+[initial custom cloud's setup in the Aiven Console](/docs/platform/howto/byoc/create-custom-cloud),
 you select in what projects you'll be able to use your new custom cloud to host Aiven
-services. You can decide to make your cloud available for all the projects in your
-organization, selected organizational units, or specific projects only.
-
-Later, you can come back to the **Available projects** tab in your
+services. Later, you can come back to the **Available projects** tab in your
 cloud's page in [Aiven Console](https://console.aiven.io/) and update
 the settings you configured during the
 [initial custom cloud's setup](/docs/platform/howto/byoc/create-custom-cloud).
@@ -79,11 +77,13 @@ the settings you configured during the
         desired units and/ or projects as needed. Confirm your choice by
         selecting **Assign projects**.
 
-As a result, in the projects and/ or organizational units for which you enable your
-custom cloud, you can perform the following operations:
+As a result, in the projects and/or organizational units for which you enable your
+custom cloud, you can:
 
 - Create new services in the custom cloud
-- Migrate existing services to the custom cloud
+- Migrate existing services to your custom cloud if your service and networking
+  configuration allows it. For more information, contact the
+  [sales team](mailto:sales@aiven.io).
 
 ## Check it out
 

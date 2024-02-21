@@ -9,7 +9,7 @@ Update the list of customer contacts for your [custom cloud](/docs/platform/conc
 
 With the BYOC feature enabled, you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-organizations. While creating a custom cloud in Aiven, you need to add at least the
+organizations. While creating a custom cloud in Aiven, add at least the
 **Admin** contact. Later, you can come back to the the **Customer contact**
 setting in your cloud's page in [Aiven Console](https://console.aiven.io/) and update the
 contacts list you initially created for your cloud.
@@ -54,8 +54,7 @@ The list of contacts for your cloud has been updated.
 
 ## Check it out
 
-You can preview the updated list of contacts by taking the following
-steps:
+Preview the updated list of contacts:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.

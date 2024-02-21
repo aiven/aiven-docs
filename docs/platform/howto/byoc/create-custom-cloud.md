@@ -12,8 +12,7 @@ Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization
     [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc). Check the
     availability of the feature in
     [Who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc). To
-    activate BYOC in your Aiven organization, follow the
-    steps in
+    activate BYOC in your Aiven organization, follow
     [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc).
 -   Enabling
     [the BYOC feature](/docs/platform/concepts/byoc) or creating custom clouds in your
@@ -587,14 +586,16 @@ AWS account. Continue working in the **Create custom cloud** wizard:
 #### Set up your custom cloud's availability
 
 Select in what projects you'll be able to use your new custom cloud as a hosting cloud for
-services. In the projects where you enable your custom cloud, you'll be able to create new
-services in the custom cloud and migrate your existing services to the custom cloud.
+services. In the projects where you enable your custom cloud, you can create new
+services in the custom cloud or migrate your existing services to the custom cloud if your
+service and networking configuration allows it. For more information on migrating your
+existing services to the custom cloud, contact the [sales team](mailto:sales@aiven.io).
 
-You can make your cloud available as follows:
+Your cloud can be available in:
 
-- For all the projects in your organization
-- For selected organizational units
-- For specific projects only
+- All the projects in your organization
+- Selected organizational units
+- Specific projects only
 
 Continue working in the **Create custom cloud** wizard:
 
@@ -622,8 +623,8 @@ available from all the projects in this unit.
 
 #### Add customer contacts
 
-Select at least one person whom Aiven can contact in case of technical
-issues with your custom cloud.
+Select at least one person whom Aiven can contact in case any technical
+issues with your custom cloud need fixing.
 
 :::note
 **Admin** is a mandatory role, which is required as a primary support contact.
@@ -656,9 +657,6 @@ Your new custom cloud is ready to use only after its status changes to
 
 #### Check your cloud's status
 
-You can check the status of your custom cloud by taking the following
-steps:
-
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator, and go to a desired organization.
 1.  From the top navigation bar, select **Admin**.
@@ -667,10 +665,12 @@ steps:
     list of available clouds and check its status in the **Status**
     column.
 
-If your custom cloud's status is **Active**, its deployment has been completed. Your
+When your custom cloud's status is **Active**, its deployment has been completed. Your
 custom cloud is ready to use and you can see it on the list of your custom clouds in the
-**Bring your own cloud** view. Now you can create new services in the custom cloud and
-migrate your existing services to the custom cloud.
+**Bring your own cloud** view. Now you can create new services in the custom cloud or
+migrate your existing services to the custom cloud if your service and networking
+configuration allows it. For more information on migrating your existing services to the
+custom cloud, contact the [sales team](mailto:sales@aiven.io).
 
 #### Destroy the Terraform resources
 
@@ -688,21 +688,13 @@ cloud, follow the guidelines in
 [Create a new service](/docs/platform/howto/create_new_service).
 
 When creating a service in the [Aiven Console](https://console.aiven.io/), at the
-**Select service region** step, select **Custom clouds** from among available regions.
+**Select service region** step, select **Custom clouds** from the available regions.
 
 ### Migrate existing services to the custom cloud
 
-To migrate an existing Aiven service to your new custom cloud using
-[Aiven Console](https://console.aiven.io/), follow the guidelines in
-[Migrate service to another cloud or region](/docs/platform/howto/migrate-services-cloud-region).
-
-When migrating your service in [Aiven Console](https://console.aiven.io/) > the
-**Migrate service to another cloud** window, select **Custom clouds** from among available
-regions.
-
-:::important
-To migrate a service that runs in a VPC, contact the [sales team](mailto:sales@aiven.io).
-:::
+Whether you can migrate existing services to the custom cloud depends on your service and
+networking configuration. Contact the [sales team](mailto:sales@aiven.io) for more
+information.
 
 ## Related pages
 
