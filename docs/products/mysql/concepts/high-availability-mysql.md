@@ -3,7 +3,7 @@ title: High availability of Aiven for MySQL®
 sidebar_label: High availability
 ---
 
-Aiven for MySQL® is available on a variety of plans, offering different levels of high availability. The selected plan defines the features available, and a summary is provided in the table below:
+Aiven for MySQL® is available on a variety of plans, offering different levels of high availability. The selected plan defines the features available.
 
 | Plan         | High availability features                                      | Backup history | Uptime  |
 | ------------ | --------------------------------------------------------------- | -------------- | ------- |
@@ -33,7 +33,8 @@ Minor failures, such as service process crashes or temporary loss of
 network access, are handled automatically by Aiven in all plans without
 any major changes to the service deployment. The service automatically
 resumes normal operation once the crashed process is automatically restarted or when
-network access is restored.
+network access is restored. On a plan with a standby node, a failover is performed if a
+crash loop occurs.
 
 ### Severe failures
 
@@ -55,9 +56,9 @@ primary node.
 
 - With standby, recovery time objective (RTO) is quick, and recovery point objective (RPO)
   is close to zero loss.
-- Without standby, RPO loses 5 minutes of data, and RTO is variable as it involves
+- Without standby, RPO loses up to 5 minutes of data, and RTO is variable as it involves
   restoring a backup and applying binlogs, which depends on the database size and the
-  write load (up to 6 hours or more in edge cases).
+  write load (up to several hours or more in edge cases).
 
 ## Highly available Business and Premium service plans
 
@@ -86,10 +87,10 @@ node fails while all the standby nodes are being recovered:
 - On a single-standby node plan
 
   New nodes are automatically scheduled for creation to become the new primary and standby.
-  The primary node is restored from the latest available backup, which can involve some
-  degree of data loss. Any write operations made since the backup of the binary log file
-  are lost. Typically, this time window is limited to either five minutes of time or one
-  binary log file.
+  The primary node is restored from the latest available backup. Next, writes made since
+  the last backup are applied from the backup of the binary log file. Any writes made
+  since the backup of the binary log file are lost. Typically, this time window is limited
+  to either five minutes of time or one binary log file.
 
 - On a two-standby node plan
 
@@ -104,7 +105,7 @@ keeps on serving clients even during the recreation of the other node.
 All of this is automatic and requires no administrator intervention.
 :::
 
-**Premium** plans operate in a similar way as **Business** plans. The
+Premium plans operate in a similar way as Business plans. The
 main difference comes when one of the standby nodes or the primary node
 fails. Premium plans have an additional, redundant standby node
 available, providing platform availability even in the event of losing
@@ -127,5 +128,5 @@ available backup also applying the saved binlogs. Next, it resumes serving custo
 
 Since there is just a single node providing the service, the service is
 unavailable for the duration of the restoration. In addition, any write
-operations made since the backup of the latest binary log file are lost. Typically, this time
-window is limited to either five minutes of time or one binary log file.
+operations made since the backup of the latest binary log file are lost. Typically, this
+time window is limited to either five minutes of time or one binary log file.
