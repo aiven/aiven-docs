@@ -22,9 +22,9 @@ Free plan services also continue running after the trial has expired.
 There are some limitations:
 
 -   You can only have one trial.
--   Trial credits are added to the default
-    [billing group](/docs/platform/concepts/billing-groups), which is created when
-    you sign up. They cannot be transferred to another billing group.
+-   Trial credits are added to a single
+    [billing group](/docs/platform/concepts/billing-groups). You cannot transfer them to
+    another billing group.
 -   You can't create new services if your remaining credits would be spent too quickly.
 
 Services are automatically powered down after the trial ends or your credits run out. To
