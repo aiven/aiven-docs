@@ -19,6 +19,7 @@ jobs:
           wip: true
           ignoreLabels: |
             automated-pr
+            dependencies
           types: |
             fix
             feat
