@@ -20,8 +20,11 @@ To set up single sign-on through an IdP for your organization:
 1. Click **Identity providers**.
 1. Click **Add identity provider**.
 1. Select an IdP and enter a name.
-1. On the **Configuration** step, set up the following parameters to configure the SAML
-   authentication in your IdP:
+1. Select a [verified domain](/docs/platform/howto/manage-domains) to link
+    this IdP to. Users see linked IdPs on the login page.
+
+On the **Configuration** step are two parameters that you use to set up the SAML
+authentication in your IdP:
 
    -   Metadata URL
    -   ACS URL
@@ -48,13 +51,13 @@ Go back to the Aiven Console to complete setting up the IdP:
 
 1. Enter the **IDP URL** and **Entity Id** details.
 
-   | Aiven         | Auth0                         | Azure AD              | FusionAuth  | Google      | JumpCloud       | Okta                                   | OneLogin                   |
+   |     Aiven     |             Auth0             |       Azure AD        | FusionAuth  |   Google    |    JumpCloud    |                  Okta                  |          OneLogin          |
    | ------------- | ----------------------------- | --------------------- | ----------- | ----------- | --------------- | -------------------------------------- | -------------------------- |
    | **IdP URL**   | `Identity Provider Login URL` | `Login URL`           | `Login URL` | `SSO URL`   | `IDP URL`       | `Identity Provider Single Sign-On URL` | `SAML 2.0 Endpoint (HTTP)` |
    | **Entity ID** | `Issuer URN`                  | `Azure AD Identifier` | `Entity ID` | `Entity ID` | `IdP Entity ID` | `Identity Provider Issuer`             | `Issuer URL`               |
 
 1. Paste the certificate from the IdP into the **Certificate** field.
-1. (Optional) Paste or upload a JSON file with configuration details
+1. Optional: Paste or upload a JSON file with configuration details
    for your IdP.
 1. Click **Next**.
 1. Configure the security options for this IdP:
