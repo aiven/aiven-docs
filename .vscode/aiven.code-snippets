@@ -72,7 +72,7 @@
     ]
   },
   "Actions menu": {
-    "prefix": ["actions", "svg", "icon"],
+    "prefix": ["action", "menu", "svg", "icon"],
     "description": "Insert the actiosn menu label and icon",
     "body": [
       "import ActionsIcon from \"@site/static/images/icons/more.svg\";",

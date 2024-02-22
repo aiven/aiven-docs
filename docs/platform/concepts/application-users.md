@@ -3,6 +3,9 @@ title: Application users
 limited: true
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+import UsersIcon from "@site/static/images/icons/app-users.svg";
+
 An application user is a type of user that provides programmatic access to the Aiven platform and services through the [Aiven API](/docs/tools/api.md), [CLI](/docs/tools/), [Terraform](/docs/tools/terraform.md), and [Kubernetes](/docs/tools/kubernetes.md). They're intended for non-human users that need to access Aiven.
 
 :::info
@@ -39,13 +42,14 @@ Make sure tokens are securely stored and only accessible by people who need them
 should also be routinely [revoked](/docs/platform/howto/manage-application-users#revoke-a-token-for-an-application-user)
 and replaced with new tokens.
 
-### Remove unused users and tokens
+### Delete unused users and tokens
 
-Regularly audit your list of application users to check for users that are not used.
+Regularly audit your list of application users to delete unused users.
 
-You can view a list of all application users and the last time they were used by going to
-**Admin** > **Application users**. To check the tokens for each user open the **Actions**
-menu and select **View profile**.
+To list all application users and the last time they were used,
+click **Admin** > <UsersIcon className="icon"/> **Users**.
+
+To see a user's tokens, in the <UsersIcon className="icon"/> **Users** page, click <ActionsIcon className="icon"/> **Actions** > <UsersIcon className="icon"/> **View profile**.
 
 You can [delete unused users](/docs/platform/howto/manage-application-users#delete-an-application-user)
 or [revoke specific tokens](/docs/platform/howto/manage-application-users#revoke-a-token-for-an-application-user).

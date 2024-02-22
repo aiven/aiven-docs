@@ -2,6 +2,8 @@
 title: Manage Virtual Private Cloud (VPC) peering
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 Virtual Private Cloud (VPC) peering is a method of connecting separate
 AWS, Google Cloud, or Azure private networks with each other. This makes
 it possible for the virtual machines in the different private networks
@@ -87,9 +89,8 @@ You can migrate any Aiven service to a different VPC:
 1. In [Aiven Console](https://console.aiven.io/), go to your service.
 1. On the **Overview** page of your service, select **Service
    settings** from the sidebar.
-1. On the **Service settings** page, navigate to the **Cloud and
-   network** section and select **Change cloud or region** from the
-   actions (**...**) menu.
+1. On the **Service settings** page, in the **Cloud and
+   network** section, click <ActionsIcon className="icon"/> **Actions** >  **Change cloud or region**.
 1. In the **Migrate service to another cloud** window > the **Region**
    section, select the **VPCs** tab, select the VPC that you want to
    use, and select **Migrate**.
@@ -102,9 +103,7 @@ is created with a public prefix. You can enable public Internet access
 for your services by following the
 [Enable public access in a VPC](/docs/platform/howto/public-access-in-vpc) instructions.
 
-IP filtering (the **Service settings** page > the **Cloud and network**
-section > the actions (**...**) menu > **Set public IP filters**) is
-still available for a service deployed to a VPC where both public and
+IP filtering is available for a service deployed to a VPC where both public and
 private access are allowed. We recommend that you use IP filtering when
 your VPC service is also exposed to the public internet.
 
@@ -118,6 +117,11 @@ safelist an external IP address and want to keep traffic flowing with
 the internal (peered) connections, make sure that you safelist the CIDR
 blocks of the peered networks as well to avoid disruptions to the
 service.
+
+To edit a service IP filtering:
+
+1. Open the **Service settings** page.
+1. Click **Cloud and network** > <ActionsIcon className="icon"/> **Actions** > **Set public IP filters**.
 
 ## Troubleshoot VPC connection issues
 

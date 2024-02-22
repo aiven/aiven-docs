@@ -2,6 +2,8 @@
 title: Manage domains
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 Verified domains let you manage users in your organization.
 
 There are two ways you can verify a domain:
@@ -23,7 +25,7 @@ After adding a domain, organization users automatically become
 1. Enter a **Domain name**.
 
 1. In the **Verification method**, select **Add a DNS TXT record to
-    your domain host**.
+   your domain host**.
 
 1. Click **Add domain**.
 
@@ -32,7 +34,7 @@ After adding a domain, organization users automatically become
 1. Copy the TXT record value.
 
 1. In another browser tab or window, log in to your domain hosting
-    provider.
+   provider.
 
 1. Go to the DNS settings.
 
@@ -45,8 +47,7 @@ After adding a domain, organization users automatically become
    | Record value | The TXT record value you copied in the format `token=<random_string>,expiry=never` |
    | Type         | `TXT`                                                                              |
 
-12. In the Aiven Console, open the **Actions** menu and click
-    **Verify**.
+1. In the Aiven Console, click <ActionsIcon className="icon"/> **Actions** > **Verify**.
 
 It can take up to 72 hours for your DNS records to update the domain to
 be verified. If the domain is still not verified after that time, you
@@ -59,15 +60,13 @@ can retry it by repeating the last step.
 1. Click **Domains**.
 1. Click **Add domain**.
 1. Enter a **Domain name**.
-1. In the **Verification method**, select **Upload an HTML file to your
-    website**.
+1. In the **Verification method**, select **Upload an HTML file to your website**.
 1. Click **Add domain**.
 1. In the **Verification method** column, click **HTML file upload**.
 1. Download the HTML file.
 1. Upload the HTML file to your website in the path
     `/.well-known/aiven`.
-10. In the Aiven Console, open the **Actions** menu and click
-    **Verify**.
+1. In the Aiven Console, open the <ActionsIcon className="icon"/> **Actions** > **Verify**.
 
 ## Remove a domain
 
@@ -78,7 +77,5 @@ Removing a domain is an irreversible action.
 1. In the organization that you want to remove a domain from, click
     **Admin**.
 1. Click **Domains**.
-1. Find the domain that you want to remove and open the **Actions**
-    menu.
-1. Click **Remove**.
-1. Confirm you want to remove the domain by clicking **Remove domain**.
+1. Find the domain you want to remove and click <ActionsIcon className="icon"/>
+   **Actions** > **Remove** and confirm.

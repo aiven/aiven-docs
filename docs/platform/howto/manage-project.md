@@ -2,6 +2,8 @@
 title: Manage projects
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 ## Create a project
 
 In the [Aiven Console](https://console.aiven.io/), follow these steps to
@@ -22,17 +24,19 @@ You can also
 ## Rename a project
 
 :::important
--   Except for Aiven for Apache Kafka®, all services have backups that
-    are restored when you power them back on.
--   The project name in your DNS records will not be updated.
+
+- Except for Aiven for Apache Kafka®, all services have backups that
+  are restored when you power them back on.
+- The project name in your DNS records will not be updated.
+
 :::
 
 To rename a project in the [Aiven Console](https://console.aiven.io/):
 
-1.  Power off all services in the project.
-2.  In the **Project**, click **Settings**.
-3.  Edit the **Project name**.
-4.  Click **Save changes**.
+1. Power off all services in the project.
+1. In the **Project**, click **Settings**.
+1. Edit the **Project name**.
+1. Click **Save changes**.
 
 :::note
 You can also
@@ -47,10 +51,9 @@ Console](https://console.aiven.io/):
 1.  Click **Admin** and select the organizational unit with the project
     you want to move.
 
-2.  Click the actions menu for the project you want to move and select
-    **Move project**.
+1.  In the project to be moved, click <ActionsIcon className="icon"/> **Actions** > **Move project**.
 
-3.  Select the organizational unit that you want to move the project to.
+1.  Select the organizational unit that you want to move the project to.
     You can also move the project up a level to the organization.
 
     :::note
@@ -58,18 +61,16 @@ Console](https://console.aiven.io/):
     moved to organizational units that are in other organizations.
     :::
 
-4.  Choose a billing group.
+1.  Choose a billing group.
 
-5.  Click **Move project**.
+1.  Click **Move project**.
 
 ## Delete a project
 
 To delete a project in the [Aiven Console](https://console.aiven.io/):
 
-1.  Delete all of the services in the project.
-2.  Click **Settings**.
-3.  Click **Delete**.
-4.  Click **Confirm**.
+1. Delete all the services in the project.
+1. Click **Settings** > **Delete** > **Confirm**.
 
 :::note
 You can also

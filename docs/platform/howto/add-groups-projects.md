@@ -2,6 +2,8 @@
 title: Add groups to projects
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 Give [groups](/docs/platform/howto/manage-groups) of organization users access to a project and the services
 in it by adding groups to it. When you add a group, you set the
 permission level by assigning the group a
@@ -17,4 +19,4 @@ permission level by assigning the group a
 5.  Click **Add groups**.
 
 You can change a group's role or remove it from a project later from
-the **Actions** menu for that group.
+the <ActionsIcon className="icon"/> **Actions** for that group.

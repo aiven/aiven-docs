@@ -3,6 +3,8 @@ title: Scale your Aiven service disks automatically
 limited: true
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 Discover the service disk autoscaler and its capabilities. Find out how it works and how to use it with your Aiven services.
 
 :::note[Pricing]
@@ -286,7 +288,7 @@ client.
 1.  On the **Overview** page of your service, select **Integrations**
     from the sidebar.
 1.  On the **Integrations** page, find your autoscaler service
-    integration at the top, select the **Actions** (**...**) menu >
+    integration at the top, click <ActionsIcon className="icon"/> **Actions** >
     **Disconnect**.
 1.  In the **Disconnect service integration** window, select
     **Disconnect**.
