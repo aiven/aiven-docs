@@ -1,7 +1,7 @@
 extends: substitution
-message: "Do not use 'must', but the imperative."
+message: "Do not use 'must'. Use the imperative."
 level: warning
-ignorecase: true
+ignorecase: false
 swap:
   you must create: create
   you must start: start
