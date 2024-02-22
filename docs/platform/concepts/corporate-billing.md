@@ -36,7 +36,7 @@ different. The fee may be applied even if the card was charged in the
 card's default currency (USD).
 
 Such fees are not added by Aiven and are not visible to us or our credit
-card processor, and we\'re thus unable to include them in our prices or
+card processor, and we're thus unable to include them in our prices or
 waive the fees.
 
 ## Invoice payments

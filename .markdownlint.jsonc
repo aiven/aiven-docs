@@ -19,16 +19,5 @@
   "MD049": {"style": "underscore"},
   "MD050": {"style": "asterisk"},
   "MD013": {"line_length": 90},
-  "MD033": {
-    "allowed_elements": [
-      "table",
-      "DocCardList",
-      "Clouds",
-      "details",
-      "summary",
-      "EarlyBadge",
-      "LimitedBadge",
-      "ProBadge"
-    ]
-  }
+  "MD033": false
 }

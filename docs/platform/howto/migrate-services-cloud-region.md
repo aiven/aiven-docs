@@ -2,6 +2,8 @@
 title: Migrate service to another cloud or region
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 When migrating a service, the migration happens in the background and
 does not affect your service until the service has been rebuilt at the
 new region. The migration includes the DNS update for the named service
@@ -10,7 +12,7 @@ interruption expected. However, for services like PostgreSQL®, MySQL®,
 and Redis®\*, it may cause a short interruption (5 to 10 seconds) in
 service while the DNS changes are propagated.
 
-The short interruption mentioned above does not include the potential
+The short interruption does not include potential
 delays caused by client side library implementation.
 
 When spinning a new Aiven service, you are not tied to a cloud provider
@@ -22,11 +24,10 @@ within the same provider, or both.
     project and select the service you want migrate to another
     cloud or region.
 1.  On the service page, click **Service settings** from the sidebar.
-1.  In the **Cloud and network** section, click **Actions (\...)**.
-1.  From the dropdown menu, click **Change cloud or region**.
+1.  In the **Cloud and network** section, click
+    <ActionsIcon className="icon"/> **Actions** > **Change cloud or region**.
 1.  In the **Migrate service to another cloud** window, select new cloud
-    provider and region.
-1.  Select **Migrate**.
+    provider and region and click **Migrate**.
 
 Your service is in the **Rebuilding** state. Once the rebuilding is over,
 your new cloud provider and region will be in use.

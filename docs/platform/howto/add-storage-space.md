@@ -2,6 +2,8 @@
 title: Add or remove storage
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 With [dynamic disk sizing](/docs/platform/concepts/dynamic-disk-sizing), you can add or remove disk storage, by a factor of 10 GiB, when you create a service or for a running service.
 
 :::note
@@ -31,9 +33,9 @@ Console](https://console.aiven.io/) without interrupting the service.
 
 1.  On the service page, click **Service settings** from the sidebar.
 
-1.  In the **Service plan** section, click **Actions (\...)**.
+1.  In the **Service plan** section, click <ActionsIcon className="icon"/> **Actions**.
 
-1.  From the dropdown menu, select **Manage additional storage**.
+1.  From the dropdown menu, click **Manage additional storage**.
 
 1.  In the **Upgrade service storage** dialog, click **Change plan**
     choose the new service plan and tier or use the slider to add disk
@@ -76,7 +78,7 @@ You can remove storage that you previously added to a service.
 
 1.  On the service page, click **Service settings** from the sidebar.
 
-1.  In the **Service plan** section, click **Actions (\...)**.
+1.  In the **Service plan** section, click <ActionsIcon className="icon"/> **Actions**-.
 
 1.  From the dropdown menu, select **Manage additional storage**.
 

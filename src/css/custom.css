@@ -157,3 +157,8 @@ ul ul ol,
 ol ul ol {
   list-style: decimal;
 }
+
+.icon {
+  color: var(--ifm-font-color-base);
+  vertical-align: middle;
+}

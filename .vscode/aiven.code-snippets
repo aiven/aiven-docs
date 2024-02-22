@@ -1,11 +1,11 @@
 {
-  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
-  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
-  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
-  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
-  // Placeholders with the same ids are connected.
-  // Example:
+  // https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax
+
+  // Tab stops: $1, $2, $0 for the final cursor position
+  // Placeholders: ${1:label}, ${2:another}. Placeholders with the same ids are connected.
+  // Choice: ${1|one,two,three|}
+  // Variables: $name or ${name:default}, see variables https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
+
   "Related pages": {
     "scope": "markdown",
     "prefix": ["related", "pages"],
@@ -46,16 +46,40 @@
     "body": [":::note", "$1", ":::", "", "$2"],
     "description": "Insert a note"
   },
-  "Img mdx": {
-    "prefix": "import image",
+  "Wrap in note": {
+    "scope": "markdown",
+    "body": [":::note", "$TM_SELECTED_TEXT", ":::"],
+    "description": "Wrap in note admonition"
+  },
+  "Insert png": {
+    "prefix": ["image", "img", "png"],
+    "description": "Insert an image as component",
     "body": [
       "import ${1:MyImg} from \"@site/static/images/$2.png\";",
       "",
-      "<img src={$1}/>",
-      "",
+      "<img src={$1} class=\"image\"/>",
       ""
-    ],
-    "description": "Insert an image as component"
+    ]
+  },
+  "Insert icon": {
+    "prefix": ["image", "img", "svg", "icon"],
+    "description": "Insert an image as component",
+    "body": [
+      "import ${1:MyImg} from \"@site/static/images/icons/$2.svg\";",
+      "",
+      "<$1 className=\"icon\"/>",
+      ""
+    ]
+  },
+  "Actions menu": {
+    "prefix": ["action", "menu", "svg", "icon"],
+    "description": "Insert the actiosn menu label and icon",
+    "body": [
+      "import ActionsIcon from \"@site/static/images/icons/more.svg\";",
+      "",
+      "<ActionsIcon className=\"icon\"/> **Actions**",
+      ""
+    ]
   },
   "Early access badge": {
     "prefix": ["early access", "badge", "ea"],

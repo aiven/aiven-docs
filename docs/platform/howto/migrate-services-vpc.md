@@ -2,6 +2,8 @@
 title: Migrate a public service to a Virtual Private Cloud (VPC)
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 When operating your Aiven service over the public Internet, you might
 consider enhancing security or connectivity by transitioning to a
 Virtual Private Cloud (VPC, also known as VNet). This move allows you to
@@ -24,9 +26,7 @@ during migration.
 To ensure uninterrupted access to your service during the migration
 phase, conduct a few simple tests to verify connectivity.
 
-## Migration process
-
-Follow these steps to migrate Aiven services to a VPC:
+## Migrate a public service to a VPN
 
 1.  **VPC creation and peering**:
     [Create a VPC](/docs/platform/howto/manage-vpc-peering) and establish peering.
@@ -98,7 +98,7 @@ services as they transition to a private network. In dual access mode,
 test all connections and ports before switching over to the private
 hostname(s) and IP addresses.
 
-## Migrate Aiven service to your VPC
+## Migrate an Aiven service to your VPC
 
 You can migrate your Aiven services into a VPC using the [Aiven
 Console](https://console.aiven.io/) .
@@ -106,17 +106,18 @@ Console](https://console.aiven.io/) .
 1.  Log in to the [Aiven Console](https://console.aiven.io/) select your
     project and select the service.
 1.  On the service page, select **Service settings** from the sidebar.
-1.  In the **Cloud and network** section, click **Actions (...)**.
-1.  Choose **Change cloud or region** from the dropdown menu.
+1.  In the **Cloud and network** section, click
+    <ActionsIcon className="icon"/> **Actions** > **Change cloud or region**.
 1.  In the **Migrate service to another cloud** window, select the
     **VPC** tab and choose the appropriate region for your project's
-    dedicated VPC. Make sure the `Public Internet` tag is
-    noted.
-1.  Start the migration process. Afterwards, monitor for the
-    `Project VPC` tag to appear on the service's page, which signifies
-    the successful migration.
+    dedicated VPC. The `Public Internet` tag is displayed.
+1.  Start the migration process.
+1.  Once the migration is complete, ensure the
+    `Project VPC` tag appears on the service's page. This tag indicates the migration
+    was successful.
 
-In [Aiven Console](https://console.aiven.io/), use the **Cloud and VPC** > **Migrate cloud** section on the service's **Overview** page to
+In [Aiven Console](https://console.aiven.io/), use the **Cloud and VPC** >
+**Migrate cloud** section on the service's **Overview** page to
 migrate your Aiven services into a VPC. Note the `Public Internet` tag.
 
 Ensure that you select the region from the `VPC` tab. This is a
