@@ -2,26 +2,31 @@
 title: Create a Debezium source connector from MongoDB to Apache Kafka®
 ---
 
-The Debezium source connector for MongoDB tracks database changes using
-a MongoDB replica set or shared cluster, and writes them to an Apache
-Kafka® topic in a standard format where they can be transformed and read
-by multiple consumers.
+Track and write MongoDB database changes to an Apache Kafka® topic in a standard format with the Debezium source connector, enabling transformation and access by multiple consumers using a MongoDB replica set or sharded cluster.
 
 :::note
-You can check the full set of available parameters and configuration
-options in the [connector's
-documentation](https://debezium.io/docs/connectors/mongodb/).
+**Breaking changes in Debezium 2.5**:
+Debezium version 2.5 introduces significant changes to the connector's configuration
+and behavior. New setups [defaults to version 2.5](https://debezium.io/releases/2.5/release-notes)
+while existing setups using version 1.9 remain on that version for stability.
+Test configurations with version 2.5 before upgrading. Review the specific
+changes to the MongoDB connector in Debezium 2.5.
+For help with upgrades or queries, contact Aiven support.
 :::
 
 ## Prerequisites {#connect_debezium_mongodb_source_prereq}
 
-To setup a Debezium source connector pointing to MongoDB, you need an
-Aiven for Apache Kafka service
-[with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+To configure a Debezium source connector for MongoDB, you need either an
+Aiven for Apache Kafka service with [Apache Kafka Connect enabled](enable-connect) or
+a [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
-source MongoDB database upfront:
+:::note
+You can view the full set of available parameters and configuration
+options in the [connector's
+documentation](https://debezium.io/docs/connectors/mongodb/).
+:::
+
+Before you begin, gather the necessary information about your source MongoDB database:
 
 -   `MONGODB_HOST`: The database hostname
 -   `MONGODB_PORT`: The database port
@@ -39,10 +44,10 @@ source MongoDB database upfront:
     password, only needed when using Avro as data format
 
 :::note
-If you're using Aiven for Apache Kafka®, the Kafka related details are
-available in the [Aiven console](https://console.aiven.io/) service
-Overview tab or via the dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
+When Aiven for Apache Kafka, you can gather the necessary Apache Kafka
+details from the service's Overview page on  [Aiven
+console](https://console.aiven.io/)  or by using the `avn service get` command with
+the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Setup a MongoDB Debezium source connector with Aiven Console
@@ -53,11 +58,10 @@ Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we'll refer to it with
-the name `debezium_source_mongodb.json`) with the following content.
-Creating a file is not strictly necessary but allows to have all the
-information in one place before copy/pasting them in the [Aiven
-Console](https://console.aiven.io/):
+Create a configuration file named `debezium_source_mongodb.json` with the following
+connector configurations. While optional, creating this file helps you organize your
+settings in one place and copy/paste them into the
+[Aiven Console](https://console.aiven.io/) later.
 
 ```json
 {
@@ -81,84 +85,84 @@ Console](https://console.aiven.io/):
 
 The configuration file contains the following entries:
 
--   `name`: the connector name, replace CONNECTOR_NAME with the name you
+-   `name`: The connector name, replace CONNECTOR_NAME with the name you
     want to use for the connector
 
 -   `MONGODB_HOST`, `MONGODB_PORT`, `MONGODB_DATABASE_NAME`,
     `MONGODB_USER`, `MONGODB_PASSWORD` and `MONGODB_REPLICA_SET_NAME`:
-    source database parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mongodb#connect_debezium_mongodb_source_prereq) phase.
+    Source database parameters collected in the
+    [prerequisite](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mongodb#connect_debezium_mongodb_source_prereq)
+    phase.
 
--   `tasks.max`: maximum number of tasks to execute in parallel. By
+-   `tasks.max`: Maximum number of tasks to execute in parallel. By
     default this is 1, the connector can use at most 1 task for each
     collection defined. Replace `NR_TASKS` with the amount of parallel
     task based on the number of input collections.
 
--   `key.converter` and `value.converter`: defines the messages data
+-   `key.converter` and `value.converter`: Defines the messages data
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter pushes messages
-    in Avro format. To store the messages schema we use Aiven's
-    [Karapace schema registry](https://github.com/aiven/karapace) as
-    specified by the `schema.registry.url` parameter and related
-    credentials.
+    in Avro format. To store the message schemas, Aiven's
+    [Karapace schema registry](https://github.com/Aiven-Open/karapace) is used,
+    specified by the `schema.registry.url` parameter and related credentials.
 
     :::note
     The `key.converter` and `value.converter` sections are only needed
-    when pushing data in Avro format. If omitted the messages will be
-    defined in JSON format.
+    when pushing data in Avro format. Otherwise, messages default to JSON format.
 
-    The `USER_INFO` is **not** a placeholder, no substitution is needed
-    for that parameter.
+    The `USER_INFO` is not a placeholder and does not require any parameter substitution.
     :::
 
 ### Create a Kafka Connect connector with the Aiven Console
 
 To create a Kafka Connect connector, follow these steps:
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
-2.  Select **Connectors** from the left sidebar.
+1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service where
+    you want to define the connector.
 
-3.  Select **Create New Connector**, the button is enabled only for
+1.  Select **Connectors** from the sidebar.
+
+1.  Select **Create New Connector**, the button is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 
-4.  Select **Debezium - MongoDB**.
+1.  Select **Debezium - MongoDB**.
 
-5.  In the **Common** tab, locate the **Connector configuration** text
+1.  In the **Common** tab, locate the **Connector configuration** text
     box and select on **Edit**.
 
-6.  Paste the connector configuration (stored in the
+1.  Paste the connector configuration (stored in the
     `debezium_source_mongodb.json` file) in the form.
 
-7.  Select **Apply**.
+1.  Select **Apply**.
 
     :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tabs and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
+    The Aiven Console reads through the configuration file and automatically populates
+    the relevant UI fields. You can view and modify these fields across
+    different tabs. Any change you make is reflected in JSON format
+    within the **Connector configuration** text box.
     :::
 
-8.  After all the settings are correctly configured, select **Create new
-    connector**.
+1. After all the settings are correctly configured, select **Create new
+   connector**.
 
-    :::tip
-    If you're using Aiven for Apache Kafka, topics will not be created
-    automatically. Either create them manually following the
-    `database.server.name.schema_name.table_name` naming pattern or
-    enable the `kafka.auto_create_topics_enable` advanced parameter.
-    :::
+   :::tip
+   With Aiven for Apache Kafka, topics are not created automatically. You have two options:
 
-9.  Verify the connector status under the **Connectors** screen.
+   - Manually create topics using the naming pattern: `database.server.name.schema_name.table_name`.
+   - Enable the `Kafka topic auto-creation` feature.
+     See [Enable automatic topic creation with Aiven CLI](docs/products/kafka/howto/create-topics-automatically#enable-automatic-topic-creation-with-aiven-cli).
+   :::
 
-10. Verify the presence of the data in the target Apache Kafka topic
-    coming from the MongoDB dataset. The topic name is equal to the
-    concatenation of the database and collection name. If you need to
-    change the target table name, you can do so using the Kafka Connect
-    `RegexRouter` transformation.
+1. Verify the connector status under the **Connectors** screen.
+
+1. Verify the presence of the data in the target Apache Kafka topic
+   coming from the MySQL dataset. The topic name is equal to
+   concatenation of the database and table name. To change
+   the target table name, you can use Apache Kafka Connect
+   `RegexRouter` transformation.
 
 You can also create connectors using the
 [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).

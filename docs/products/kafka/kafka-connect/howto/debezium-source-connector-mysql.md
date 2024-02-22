@@ -1,21 +1,21 @@
 ---
 title: Create a Debezium source connector from MySQL to Apache Kafka®
 ---
-
-The MySQL Debezium source connector extracts the changes committed to
-the database binary log (binlog), and writes them to an Apache Kafka®
-topic in a standard format where they can be transformed and read by
-multiple consumers.
+The MySQL Debezium source connector extracts the changes committed to the database binary log (binlog), and writes them to an Apache Kafka® topic in a standard format where they can be transformed and read by multiple consumers.
 
 :::note
-You can check the complete set of available parameters and configuration
-options in the [connector's
-documentation](https://debezium.io/docs/connectors/mysql/).
+**Breaking changes in Debezium 2.5**:
+Debezium version 2.5 introduces significant changes to the connector's configuration
+and behavior. New setups [defaults to version 2.5](https://debezium.io/releases/2.5/release-notes)
+while existing setups using version 1.9 remain on that version for stability.
+Test configurations with version 2.5 before upgrading. For MySQL, review any
+specific deprecations or recommended plugin transitions in this version.
+For help with upgrades or queries, contact Aiven support.
 :::
 
 ## Schema versioning {#connect_debezium_mysql_schema_versioning}
 
-Database table's schema can evolve over time by adding, modifying, or
+Database table schemas can evolve over time by adding, modifying, or
 removing columns. The MySQL Debezium source connector keeps track of
 schema changes by storing them in a separate \"history\" topic that you
 can set up with dedicated `history.*` configuration parameters.
@@ -23,20 +23,23 @@ can set up with dedicated `history.*` configuration parameters.
 :::warning
 The MySQL Debezium source connector `history.*` parameters are not
 visible in the list of options available in the [Aiven
-Console](https://console.aiven.io/) but can be inserted/modified by
-editing the JSON configuration settings in the **Connector
-configuration** section.
+Console](https://console.aiven.io/). However, you can insert or modify them by editing
+the JSON configuration in the **Connector configuration** section.
 :::
 
 ## Prerequisites {#connect_debezium_mysql_source_prereq}
 
-To set up a Debezium source connector pointing to MySQL, you need an
-Aiven for Apache Kafka service
-[with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+To configure a Debezium source connector for MySQL, you need either an
+Aiven for Apache Kafka service with [Apache Kafka Connect enabled](enable-connect) or
+a [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore, you need to collect the following information about the
-source MySQL database upfront:
+Before you begin, gather the necessary information about your source MySQL database:
+
+:::note
+You can view the full set of available parameters and configuration
+options in the [connector's
+documentation](https://debezium.io/docs/connectors/mysql/).
+:::
 
 -   `MYSQL_HOST`: The database hostname
 -   `MYSQL_PORT`: The database port
@@ -45,9 +48,8 @@ source MySQL database upfront:
 -   `MYSQL_DATABASE_NAME`: The database name
 -   `SSL_MODE`: The [SSL
     mode](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html)
--   `MYSQL_TABLES`: The list of database tables to be included in Apache
-    Kafka; the list must be in the form of
-    `schema_name1.table_name1,schema_name2.table_name2`
+-   `MYSQL_TABLES`: The list of database tables to be included in Apache Kafka. Format
+    the list as `schema_name1.table_name1,schema_name2.table_name2`.
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service,
     needed when storing the
     [schema definition changes](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_schema_versioning)
@@ -62,25 +64,24 @@ source MySQL database upfront:
     password is only needed when using Avro as a data format
 
 :::note
-If you're using Aiven for MySQL and Aiven for Apache Kafka, the above
-details are available in the [Aiven console](https://console.aiven.io/)
-service Overview tab or via the dedicated `avn service get` command with
+When using Aiven for MySQL and Aiven for Apache Kafka, you can gather the necessary
+details from the service's Overview page on  [Aiven
+console](https://console.aiven.io/)  or by using the `avn service get` command with
 the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
 
 ## Setup a MySQL Debezium source connector with Aiven Console
 
 The following example demonstrates how to set up a Debezium source
-Connector for Apache Kafka to a MySQL database using the [Aiven
-Console](https://console.aiven.io/).
+Connector for Apache Kafka to a MySQL database using the
+[Aiven CLI dedicated command](/docs/tools/cli/service/connector).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we'll refer to it with
-the name `debezium_source_mysql.json`) with the following content.
-Creating a file is not strictly necessary but allows to have all the
-information in one place before copy/pasting them in the [Aiven
-Console](https://console.aiven.io/):
+Create a configuration file named `debezium_source_mysql.json` with the following
+connector configurations. While optional, creating this file helps you organize your
+settings in one place and copy/paste them into the
+[Aiven Console](https://console.aiven.io/) later.
 
 ```json
 {
@@ -125,33 +126,31 @@ Console](https://console.aiven.io/):
 
 The configuration file contains the following entries:
 
--   `name`: the connector name, replace CONNECTOR_NAME with the name you
+-   `name`: The connector name, replace CONNECTOR_NAME with the name you
     want to use for the connector.
 
 -   `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_DATABASE_NAME`, `SSL_MODE`,
-    `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_TABLES`: source database
+    `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_TABLES`:Source database
     parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_source_prereq) phase.
 
--   `database.server.name`: the logical name of the database, dictates
-    the prefix that will be used for Apache Kafka topic names. The
-    resulting topic name will be the concatenation of the
+-   `database.server.name`: The logical name of the database, which determines the prefix
+    used for Apache Kafka topic names. The resulting topic name is a combination of the
     `database.server.name` and the table name.
 
--   `tasks.max`: maximum number of tasks to execute in parallel. By
+-   `tasks.max`: Maximum number of tasks to execute in parallel. By
     default this is 1, the connector can use at most 1 task for each
     source table defined. Replace `NR_TASKS` with the amount of parallel
     task based on the number of tables.
 
--   `database.history.kafka.topic`: the name of the Apache Kafka topic
-    that will contain the history of schema changes.
+-   `database.history.kafka.topic`: The name of the Apache Kafka topic
+    that contains the history of schema changes.
 
--   `database.history.kafka.bootstrap.servers`: points to the Aiven for
-    Apache Kafka service where the connector is running and is needed to
-    store
-    [schema definition changes](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_schema_versioning)
+-   `database.history.kafka.bootstrap.servers`: Directs to the Aiven for
+    Apache Kafka service that runs the connector and stores
+    [schema definition changes](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_schema_versioning).
 
--   `database.history.producer` and `database.history.consumer`: points
+-   `database.history.producer` and `database.history.consumer`: Refers
     to truststores and keystores pre-created on the Aiven for Apache
     Kafka node to handle SSL authentication
 
@@ -159,74 +158,72 @@ The configuration file contains the following entries:
     The values defined for each `database.history.producer` and
     `database.history.consumer` parameters are already set to work with
     the predefined truststore and keystore created in the Aiven for
-    Apache Kafka nodes. Therefore, they **should not be changed**.
+    Apache Kafka nodes. Modifying these values is not recommended.
     :::
 
--   `key.converter` and `value.converter`: defines the messages data
+-   `key.converter` and `value.converter`: Defines the messages data
     format in the Apache Kafka topic. The
     `io.confluent.connect.avro.AvroConverter` converter pushes messages
-    in Avro format. To store the messages schema we use Aiven's
-    [Karapace schema registry](https://github.com/aiven/karapace) as
-    specified by the `schema.registry.url` parameter and related
-    credentials.
-
+    in Avro format. To store the message schemas, Aiven's
+    [Karapace schema registry](https://github.com/Aiven-Open/karapace) is used,
+    specified by the `schema.registry.url` parameter and related credentials.
+`
     :::note
     The `key.converter` and `value.converter` sections are only needed
-    when pushing data in Avro format. If omitted the messages will be
-    defined in JSON format.
+    when pushing data in Avro format. Otherwise, messages default to JSON format.
 
-    The `USER_INFO` is not a placeholder, no substitution is needed for
-    that parameter.
+    The `USER_INFO` is not a placeholder and does not require any parameter substitution.
     :::
 
 ### Create a Kafka Connect connector with the Aiven Console
 
 To create a Kafka Connect connector, follow these steps:
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
-2.  Select **Connectors** from the left sidebar.
+1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service where
+    you want to define the connector.
 
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+1. Select **Connectors** from the sidebar.
 
-4.  Select the **Debezium - MySQL**.
+1. Select **Create New Connector**, the button is enabled only for
+   services [with Apache Kafka Connect enabled](enable-connect).
 
-5.  In the **Common** tab, locate the **Connector configuration** text
+1. Select the **Debezium - MySQL**.
+
+1. In the **Common** tab, locate the **Connector configuration** text
     box and select on **Edit**.
 
-6.  Paste the connector configuration (stored in the
+1. Paste the connector configuration (stored in the
     `debezium_source_mysql.json` file) in the form.
 
-7.  Select **Apply**.
+1. Select **Apply**.
 
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tabs and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
+   :::note
+   The Aiven Console reads through the configuration file and automatically populates
+   the relevant UI fields. You can view and modify these fields across
+   different tabs. Any change you make is reflected in JSON format
+   within the **Connector configuration** text box.
+   :::
 
-8.  After all the settings are correctly configured, select **Create
-    connector**
+1. After all the settings are correctly configured, select **Create connector**
 
-    :::tip
-    If you're using Aiven for Apache Kafka, topics will not be created
-    automatically. Either create them manually following the
-    `database.server.name.schema_name.table_name` naming pattern or
-    enable the `kafka.auto_create_topics_enable` advanced parameter.
-    :::
+   :::tip
+   With Aiven for Apache Kafka, topics are not created automatically. You have two options:
 
-9.  Verify the connector status under the **Connectors** screen.
+   - Manually create topics using the naming pattern: `database.server.name.schema_name.table_name`.
+   - Enable the `Kafka topic auto-creation` feature.
+     See [Enable automatic topic creation with Aiven CLI](docs/products/kafka/howto/create-topics-automatically#enable-automatic-topic-creation-with-aiven-cli).
 
-10. Verify the presence of the data in the target Apache Kafka topic
-    coming from the MySQL dataset. The topic name is equal to
-    concatenation of the database and table name. If you need to change
-    the target table name, you can do so using the Kafka Connect
-    `RegexRouter` transformation.
+   :::
+
+1. Verify the connector status under the **Connectors** screen.
+
+1. Verify the presence of the data in the target Apache Kafka topic
+   coming from the MySQL dataset. The topic name is equal to
+   concatenation of the database and table name. To change
+   the target table name, you can use Apache Kafka Connect
+   `RegexRouter` transformation.
 
 :::note
 You can also create connectors using the
