@@ -108,7 +108,7 @@ link their Aiven user account with the IdP:
         the Aiven Console and the IdP is linked to your profile. You can
         use the IdP for all future logins.
 -   For existing users that are not logged into the Aiven Console
-    1. Click on the **Login** button.
+    1. Click on the **Login**.
     1. On the login page of the Aiven Console, log in as usual. You are
         redirected to your IdP's authentication page.
     1. Once logged in to the provider, you are redirected back to the
