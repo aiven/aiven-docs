@@ -5,5 +5,5 @@ ignorecase: true
 swap:
   will: is/are
   may: can
-  must: the imperative
+  must(?! be ): the imperative
   should: can
