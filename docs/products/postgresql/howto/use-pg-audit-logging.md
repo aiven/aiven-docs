@@ -1,14 +1,14 @@
 ---
 title: Collect audit logs in Aiven for PostgreSQL®
 sidebar_label: Collect audit logs
-pro: true
+enterprise: true
 ---
 
 Enable and configure the [Aiven for PostgreSQL® audit logging feature](/docs/products/postgresql/concepts/pg-audit-logging) on your service. Access and visualize your logs to monitor activities on your databases.
 
 ## Prerequisites
 
-- `[Pro Platform](/docs/platform/concepts/pro-platform)`
+- `[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`
 - PostgreSQL version 11 or higher
 - `avnadmin` superuser role
 - Dev tool of your choice to interact with the feature
@@ -345,8 +345,8 @@ Disable audit logging by setting the `pgaudit.featureEnabled` parameter to
 [CLI](/docs/tools/cli), or [psql](https://www.postgresql.org/docs/current/app-psql.html).
 
 :::important
-Audit logging is disabled automatically if you unsubscribe from Pro Platform or Pro
-Features.
+Audit logging is disabled automatically if you unsubscribe from
+`[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`.
 :::
 
 <Tabs>
