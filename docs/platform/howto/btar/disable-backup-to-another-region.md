@@ -1,7 +1,7 @@
 ---
 title: Delete a cross-region backup
 sidebar_label: Delete cross-region backup
-pro: true
+enterprise: true
 ---
 
 Delete an [additional service backup](/docs/platform/concepts/backup-to-another-region) [created](/docs/platform/howto/btar/enable-backup-to-another-region) in a region different from your primary backup region.
