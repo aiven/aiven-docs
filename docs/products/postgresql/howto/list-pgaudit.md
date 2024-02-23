@@ -1,6 +1,6 @@
 ---
 title: PGAudit logging
-pro: true
+enterprise: true
 ---
 
 import DocCardList from '@theme/DocCardList';

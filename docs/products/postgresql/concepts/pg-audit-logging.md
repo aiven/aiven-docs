@@ -1,7 +1,7 @@
 ---
 title: Aiven for PostgreSQL® audit logging
 sidebar_label: Audit logging
-pro: true
+enterprise: true
 ---
 
 A path to optimal data security, compliance, incident management, and system performance starts with [collecting robust audit logs](/docs/products/postgresql/howto/use-pg-audit-logging).
@@ -106,7 +106,7 @@ The audit logging feature has application in the following industries:
 
 Aiven for PostgreSQL® audit logging requires the following:
 
-- `[Pro Platform](/docs/platform/concepts/pro-platform)`
+- `[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`
 - Aiven for PostgreSQL version 11 or later
 - `avnadmin` superuser role
 - [psql](https://www.postgresql.org/docs/current/app-psql.html) for advanced configuration
