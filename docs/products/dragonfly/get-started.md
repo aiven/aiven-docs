@@ -66,7 +66,7 @@ languages:
 -   [Node](/docs/products/dragonfly/howto/connect-node)
 -   [Python](/docs/products/dragonfly/howto/connect-python)
 
-## Migration limitations at General Availability (GA)
+## Limitations at General Availability (GA)
 
 As Aiven for Dragonfly moves to General Availability (GA), the focus is on delivering
 the most valuable features to you, guided by your feedback. During the initial phase of
