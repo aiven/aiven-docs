@@ -27,8 +27,8 @@ of minutes.
 efficient way to create an Aiven for Dragonfly® service. If you prefer
 launching a new service from the CLI, follow these steps:
 
-1.  Determine the service plan, cloud provider, and region you want to
-    use for your Dragonfly service.
+1.  Determine the service plan, cloud provider, and region to use for your
+    Dragonfly service.
 1.  Run the following command to create Dragonfly service named
     dragonfly-demo:
 
@@ -65,6 +65,21 @@ languages:
 -   [Go](/docs/products/dragonfly/howto/connect-go)
 -   [Node](/docs/products/dragonfly/howto/connect-node)
 -   [Python](/docs/products/dragonfly/howto/connect-python)
+
+## Migration limitations at General Availability (GA)
+
+As Aiven for Dragonfly moves to General Availability (GA), the focus is on delivering
+the most valuable features to you, guided by your feedback. During the initial phase of
+GA, automatic migration of Users, Access Control Lists (ACLs), and service configurations
+from Redis to Dragonfly will not be included.
+
+What this means:
+
+- **Users and ACLs:** Custom user settings and access controls must be manually
+configured in Dragonfly.
+- **Service configurations:** If you’ve customized your Redis service with
+specific settings, you must manually apply these settings to Dragonfly. Automatic
+transfer of these custom configurations is not available during the initial phase of GA.
 
 ## Explore other resources
 

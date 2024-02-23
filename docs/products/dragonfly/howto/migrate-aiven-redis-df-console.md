@@ -3,12 +3,7 @@ title: Migrate Aiven for Redis®* to Aiven for Dragonfly®
 limited: true
 ---
 
-Transition Aiven for Redis® databases seamlessly to Aiven for Dragonfly
-using the [Aiven Console](https://console.aiven.io/). This article
-provides detailed instructions for the migration process.
-
-The Aiven Console migration tool simplifies the process of migrating
-databases to the Aiven for Dragonfly managed service.
+Migrate your Aiven forRedis®* databases to Aiven for Dragonfly using the Aiven Console migration tool. Learn about compatibility and prerequisites, and follow the streamlined migration process for a smooth upgrade to the managed Aiven for Dragonfly service.
 
 ## Compatibility overview
 
@@ -16,7 +11,7 @@ Before migrating an external Redis database to Aiven for Dragonfly,
 carefully review your current Redis setup.
 
 -   **Review database setup:** Examine your Redis database's data
-    structures, storage patterns, and configurations.Identify any unique
+    structures, storage patterns, and configurations. Identify any unique
     features, custom settings, and specific configurations.
 -   **API compatibility:** While Dragonfly closely mirrors Redis API
     commands, there may be variations, especially with newer versions of
@@ -38,12 +33,26 @@ The Aiven Console migration tool automatically uses connection details
 like the hostname, port, and credentials linked to the selected Aiven
 for Redis service.
 
+## Migration limitations at General Availability (GA)
+
+As Aiven for Dragonfly moves to General Availability (GA), the focus is on delivering
+the most valuable features to you, guided by your feedback. During the initial phase of
+GA, automatic migration of Users, Access Control Lists (ACLs), and service configurations
+from Redis to Dragonfly will not be included.
+
+What this means:
+
+- **Users and ACLs:** Custom user settings and access controls must be manually
+configured in Dragonfly.
+- **Service configurations:** If you’ve customized your Redis service with
+specific settings, you must manually apply these settings to Dragonfly. Automatic
+transfer of these custom configurations is not available during the initial phase of GA.
+
 ## Database migration steps
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Dragonfly service to which you want to migrate your
-    Redis database.
-2.  Navigate to **Service settings** from the sidebar.
+    the Aiven for Dragonfly service for your Redis database migration.
+2.  Go to **Service settings** from the sidebar.
 3.  Scroll to the **Service management** section and use the ellipsis to
     view additional menu options.
 4.  Select **Import database** to initiate the import process.
@@ -84,8 +93,8 @@ proceed with the migration process.
 While the migration is in progress:
 
 -   You can close the migration wizard by clicking **Close window** and
-    return later to check the progress. You can keep track of the
-    migration progress by checking the service overview page.
+    return later to monitor the progress. Check the service's **Overview** page to track the
+    migration progress.
 
 -   To stop the migration, clicking **Stop migration**. This action will
     preserve the data already migrated to Aiven.
@@ -98,7 +107,7 @@ While the migration is in progress:
         migration is stopped.
     -   Do not manually change the replication settings of the source
         database.
-    -   Avoid making network or configuration changes that could disrupt
+    -   Avoid making network or configuration changes that can disrupt
         the ongoing connection between the source and target databases,
         such as modifying firewall rules or altering trusted sources.
     :::
