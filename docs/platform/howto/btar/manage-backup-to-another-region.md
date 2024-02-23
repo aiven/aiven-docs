@@ -1,7 +1,7 @@
 ---
 title: Manage a cross-region backup
 sidebar_label: Manage cross-region backup
-pro: true
+enterprise: true
 ---
 
 For a service that has the [backup to another region (BTAR)](/docs/platform/concepts/backup-to-another-region) feature [enabled](/docs/platform/howto/btar/enable-backup-to-another-region), you can check the service backup status, change the backup region, monitor the replication lag, fork and restore using [the cross-region backup](/docs/platform/concepts/backup-to-another-region), or migrate to another cloud or region.

@@ -1,7 +1,7 @@
 ---
 title: Add a backup to another region
 sidebar_label: Add cross-region backup
-pro: true
+enterprise: true
 ---
 
 Enable [the backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) and create an additional cross-region service backup on top of a regular backup stored in the region where your service is hosted.
@@ -15,7 +15,7 @@ To add an additional service backup for your service, you can use the Aiven
 
 ## Prerequisites
 
-- [Pro Platform](/docs/platform/concepts/pro-platform) enabled
+- [Aiven Enterprise](/docs/platform/howto/aiven-enterprise) enabled
 - At least one running Aiven for MySQL® or Aiven for PostgreSQL® service
 - Depending on the tool you choose to use for enabling BTAR
 

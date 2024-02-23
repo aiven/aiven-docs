@@ -1,7 +1,7 @@
 ---
 title: About backup to another region for Aiven services
 sidebar_label: About backup to another region
-pro: true
+enterprise: true
 ---
 
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
@@ -68,6 +68,8 @@ flowchart LR
 
 ## Limitations
 
+- You need [Aiven Enterprise](/docs/platform/howto/aiven-enterprise) to use BTAR.
+- BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL®.
 - The cloud provider for your additional backup region must match the cloud provider for
   your service and the primary backup.
 <!-- - To
