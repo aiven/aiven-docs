@@ -11,16 +11,17 @@ under specific conditions and parameters, which is crucial for high availability
 tolerance in distributed and scalable systems. Aiven for Apache Flink® supports restart
 strategies for both JAR and SQL applications.
 
-## Restart strategy for JAR applications
+## Default restart strategy for JAR and SQL applications
 
-Aiven for Apache Flink® uses the **exponential-delay** as the default restart strategy
-for JAR applications, incrementally increasing the delay time between restarts to a
-specified maximum. After reaching the maximum delay, it remains constant for any
-subsequent restarts. The default strategy is integrated into the
-Aiven for Apache Flink cluster configuration and
-automatically applies to all JAR applications.
+Aiven for Apache Flink® uses the **exponential-delay** strategy as the default
+restart mechanism for both **JAR and SQL applications**. This strategy incrementally
+increases the delay between restarts, reaching a configurable maximum. After reaching
+the maximum, the delay remains constant. The strategy resets the exponential delay after
+a period of successful restarts, preventing it from staying at the maximum indefinitely.
+This default strategy is integrated into the Aiven for Apache Flink cluster configuration
+and automatically applies to JAR and SQL applications.
 
-### View the default strategy
+## View the default strategy
 
 You can view the default restart strategy configurations for your Aiven
 for Apache Flink cluster in the Apache Flink Dashboard. Follow these
@@ -39,20 +40,12 @@ steps to view the current settings:
 1.  Review the configurations and parameters related to the restart
     strategy.
 
-## Restart strategy for SQL applications
-
-In Aiven for Apache Flink®, SQL applications have a simplified approach to
-restart strategies. You can enable or disable restarts on failure during
-application deployment, providing a straightforward way
-to manage applications without complex configurations.
-For more information, see [Create an SQL application](/docs/products/flink/howto/create-sql-application).
-
 ## Disable default restart strategy
 
-While Aiven for Apache Flink® typically recommends using the default
-restart strategy for JAR applications, there are circumstances,
-particularly during testing or debugging, where disabling automatic
-restarts might be necessary.
+While Aiven for Apache Flink® typically recommends following the default restart strategy
+for high availability and fault tolerance, there might be scenarios,
+especially during testing or debugging, where disabling automatic restarts
+might be beneficial.
 
 ### JAR applications
 
@@ -71,8 +64,11 @@ attempts in case of failures.
 
 ### SQL applications
 
-You can disable restarts on failure directly within the deployment dialog while creating
-a new deployment, eliminating the need for complex configurations.
+For SQL applications, you have a simplified approach to
+restart strategies. You can enable or disable restarts on failure during
+application deployment, providing a straightforward way
+to manage applications without complex configurations.
+For more information, see [Create an SQL application](/docs/products/flink/howto/create-sql-application).
 
 ## Key considerations when disabling default restarts
 
