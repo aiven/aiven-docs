@@ -2,7 +2,7 @@
 title: Service and feature releases
 ---
 
-import ProBadge from "@site/src/components/Badges/ProBadge";
+import EnterpriseBadge from "@site/src/components/Badges/EnterpriseBadge";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
