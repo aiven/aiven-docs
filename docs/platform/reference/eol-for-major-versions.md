@@ -93,13 +93,11 @@ after they are made available on the Aiven platform.
 
 ### Aiven for Apache Cassandra® {#h_0f2929c770}
 
-Starting with v4, Aiven for Cassandra® major versions will reach EOL six
-months after they are made available on the Aiven platform.
-
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 | ------- | ---------- | -------------------------------- | ------------------------------- |
 | 3       | 2022-07-27 | 2022-04-27                       | 2018-11-08                      |
-| 4       | N/A        | N/A                              | 2021-12-09                      |
+| 4.0     | 2024-09-30 | To be announced                  | 2021-12-09                      |
+| 4.1     | 2025-09-30 | To be announced                  | 2024-01-18                      |
 
 ### Aiven for M3DB
 
