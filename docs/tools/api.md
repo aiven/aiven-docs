@@ -2,6 +2,8 @@
 title: Aiven API
 ---
 
+import RIP from "@site/static/includes/run-in-postman.md";
+
 Use the Aiven API to programmatically access and automate tasks in the Aiven platform.
 
 Common use cases for the Aiven API:
@@ -11,32 +13,19 @@ Common use cases for the Aiven API:
     complete complex tasks.
 -   Deploy and tear down development or demo platforms on a schedule.
 
-## API quickstart
+## Get started
 
--   View the [API documentation and OpenAPI
-    description](https://api.aiven.io/doc/).
--   Try the [Aiven API on
-    Postman](https://www.postman.com/aiven-apis/workspace/aiven/documentation/21112408-1f6306ef-982e-49f8-bdae-4d9fdadbd6cd).
+Use the [Postman workspace](https://www.postman.com/aiven-apis/workspace/aiven/overview)
+to try the Aiven API.
 
-## Authentication
+1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
+1. Fork the Postman **collection** and **environment**.
 
-Most endpoints require authentication.
-[Create an authentication token](docs/platform/howto/create_authentication_token.md)
-and send it in the header.
+   <RIP/>
 
-You can use a structure like this:
-
-```bash
-Authorization: aivenv1 TOKEN
-```
-
-Where `TOKEN` is your authentication token.
-
-## Handling JSON responses
-
-The Aiven API returns information in JSON format. To get
-information in an easier-to-read format, you can use a tool like
-[`jq`](https://stedolan.github.io/jq/).
+1. Insert the token in the `authToken` in the Postman environment.
+1. See the [API documentation](https://api.aiven.io/doc/).
+1. Send your requests via Postman.
 
 ## API examples
 
@@ -163,7 +152,6 @@ You can use the `cloud_name` from this response as an input for other endpoints.
 
 ## Related pages
 
--   Read about
-    [authentication tokens](/docs/platform/concepts/authentication-tokens).
--   See more [API examples](https://aiven.io/blog/your-first-aiven-api-call).
--   Learn about the [Aiven CLI](/docs/tools/cli).
+- [Authentication tokens](/docs/platform/concepts/authentication-tokens)
+- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+- [API reference docs](https://api.aiven.io/doc/)
