@@ -2,22 +2,33 @@
 title: Event and processing times
 ---
 
-Event time refers to when events actually happen, while processing time
-refers to when events are observed within a system. Various factors
-affect how events are processed, including shared hardware resources and
-network congestion, distributed system logic, and variances in the data
-throughput and order. Because of this, there can be significant
-differences between the event time and processing time for an event,
-even though ideally they would be equal.
+Event time refers to when events occur, and processing time is when a system observes or processes these events. Understanding the difference between these two is essential for data processing and streaming. It affects data handling, analysis, and storage.
 
-In Apache Flink®, the streamed data does not always arrive in the same
-order as the events occurred. This means that using processing time in
-your applications can cause issues in system behavior. For this reason,
-we recommend that you use event time to process data, as it allows your
-applications to maintain the correct event sequence throughout the data
-streaming pipeline. In addition, using event time to process your data
-allows you to reprocess the data later on with consistent results.
+## Factors affecting processing
 
-For more information, see the [Apache Flink® documentation on event time
+Several factors can cause differences between event time and processing time,
+including:
+
+- Shared hardware resources can lead to variable processing capabilities.
+- Changes in network traffic can delay data transmission, affecting when data is processed.
+- The complexities of distributed systems can introduce delays or reorder data.
+- Variations in the volume of data and the order in which it arrives can further
+complicate processing times.
+
+Ideally, event time and processing time would be the same, but this is rarely the
+case in practice.
+
+## Use event time
+
+In Apache Flink®, data might not always arrive in the order in which the events occurred.
+Relying on processing time can lead to inaccuracies and issues in system behavior.
+To mitigate these issues, Aiven recommends using **event time** when processing data.
+This approach maintains the correct sequence of events throughout the data streaming
+pipeline. Additionally, event time allows for consistent data reprocessing,
+improving reliability and system resilience.
+
+## Related pages
+
+- [Apache Flink® event time
 and processing
-time](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/ops/state/checkpoints/).
+time](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/concepts/time/)
