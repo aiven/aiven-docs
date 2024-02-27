@@ -26,3 +26,4 @@
 /products/influxdb/howto/migrate-data-self-hosted-influxdb-aiven   https://aiven.io/docs/products/services
 /products/influxdb/reference                          https://aiven.io/docs/products/services
 /products/influxdb/reference/advanced-params          https://aiven.io/docs/products/services
+/products/postgresql/reference/high-cpu-load-of-pgbouncer https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
