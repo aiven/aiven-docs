@@ -161,5 +161,15 @@
     "scope": "markdown",
     "prefix": ["contact", "support"],
     "body": ["contact the [support team](mailto:support@aiven.io)"]
+  },
+  "Insert figma illustration": {
+    "scope": "markdown",
+    "prefix": ["figma", "image", "png"],
+    "body": [
+      "import ${1:MyImg} from \"@site/static/images/figma/$2.png\";",
+      "",
+      "<img src={$1} class=\"centered\" alt=\"$3\" width=\"${4:60%}\" />",
+      ""
+    ]
   }
 }
