@@ -117,12 +117,14 @@ workload networks
                 "ec2:DescribeInternetGateways",
                 "ec2:DescribeNatGateways",
                 "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribePrefixLists",
                 "ec2:DescribeRouteTables",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSecurityGroupRules",
                 "ec2:DescribeStaleSecurityGroups",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
+                "ec2:DescribeVpcEndpoints",
                 "ec2:DescribeVpcAttribute",
                 "ec2:DescribeTags"
             ],
@@ -137,14 +139,6 @@ workload networks
                 "ec2:CreateTags"
             ],
             "Condition": {
-                "ForAllValues:StringEquals": {
-                    "aws:TagKeys": [
-                        "Name",
-                        "aiven_custom_cloud_environment_id",
-                        "aiven_security_group",
-                        "aiven_subnet"
-                    ]
-                },
                 "StringEquals": {
                     "ec2:CreateAction": [
                         "AllocateAddress",
@@ -154,20 +148,14 @@ workload networks
                         "CreateRouteTable",
                         "CreateSecurityGroup",
                         "CreateSubnet",
-                        "CreateVpc"
+                        "CreateVpc",
+                        "CreateVpcEndpoint"
                     ]
                 }
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:natgateway/*",
-                "arn:aws:ec2:*:*:route-table/*",
-                "arn:aws:ec2:*:*:security-group/*",
-                "arn:aws:ec2:*:*:security-group-rule/*",
-                "arn:aws:ec2:*:*:subnet/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "CreateTag"
         },
@@ -175,16 +163,6 @@ workload networks
             "Action": [
                 "ec2:DeleteTags"
             ],
-            "Condition": {
-                "ForAllValues:StringEquals": {
-                    "aws:TagKeys": [
-                        "Name",
-                        "aiven_custom_cloud_environment_id",
-                        "aiven_security_group",
-                        "aiven_subnet"
-                    ]
-                }
-            },
             "Effect": "Allow",
             "Resource": [
                 "arn:aws:ec2:*:*:elastic-ip/*",
@@ -211,9 +189,7 @@ workload networks
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "Create"
         },
@@ -357,6 +333,16 @@ workload networks
         },
         {
             "Action": [
+                "ec2:CreateVpcEndpoint"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "*"
+            ],
+            "Sid": "CreateVpcEndpoint"
+        },
+        {
+            "Action": [
                 "ec2:AssociateAddress",
                 "ec2:AssociateRouteTable",
                 "ec2:AssociateSubnetCidrBlock",
@@ -369,6 +355,7 @@ workload networks
                 "ec2:ModifySecurityGroupRules",
                 "ec2:ModifySubnetAttribute",
                 "ec2:ModifyVpcAttribute",
+                "ec2:ModifyVpcEndpoint",
                 "ec2:ReplaceRoute",
                 "ec2:ReplaceRouteTableAssociation",
                 "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
@@ -381,14 +368,7 @@ workload networks
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:natgateway/*",
-                "arn:aws:ec2:*:*:route-table/*",
-                "arn:aws:ec2:*:*:security-group/*",
-                "arn:aws:ec2:*:*:security-group-rule/*",
-                "arn:aws:ec2:*:*:subnet/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "Modify"
         },
@@ -432,6 +412,7 @@ workload networks
                 "ec2:DeleteSecurityGroup",
                 "ec2:DeleteSubnet",
                 "ec2:DeleteVpc",
+                "ec2:DeleteVpcEndpoints",
                 "ec2:ReleaseAddress",
                 "ec2:RevokeSecurityGroupEgress",
                 "ec2:RevokeSecurityGroupIngress",
@@ -444,15 +425,7 @@ workload networks
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:natgateway/*",
-                "arn:aws:ec2:*:*:network-interface/*",
-                "arn:aws:ec2:*:*:route-table/*",
-                "arn:aws:ec2:*:*:security-group/*",
-                "arn:aws:ec2:*:*:security-group-rule/*",
-                "arn:aws:ec2:*:*:subnet/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "Delete"
         }
