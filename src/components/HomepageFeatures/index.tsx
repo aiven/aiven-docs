@@ -13,7 +13,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Get started',
-    Svg: require('@site/static/icons/rocket.svg').default,
+    Svg: require('@site/static/images/icons/home/rocket.svg').default,
     to: '/docs/get-started',
     description: (
       <>Your first steps to set up your account and your platform.</>
@@ -21,25 +21,25 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Managed services',
-    Svg: require('@site/static/icons/database.svg').default,
+    Svg: require('@site/static/images/icons/home/database.svg').default,
     to: '/docs/products/services',
     description: <>Discover our managed services and how to set them up.</>,
   },
   {
     title: 'Aiven platform',
-    Svg: require('@site/static/icons/console.svg').default,
+    Svg: require('@site/static/images/icons/home/console.svg').default,
     to: '/docs/platform/concepts/projects_accounts_access',
     description: <>Manage your organization and your users.</>,
   },
   {
     title: 'Aiven dev tools',
-    Svg: require('@site/static/icons/tool.svg').default,
+    Svg: require('@site/static/images/icons/home/tool.svg').default,
     to: '/docs/tools',
     description: <>Learn how to use the Aiven tools, such as the Aiven CLI.</>,
   },
   {
     title: 'Integrations',
-    Svg: require('@site/static/icons/integrations.svg').default,
+    Svg: require('@site/static/images/icons/home/integrations.svg').default,
     to: '/docs/integrations',
     description: (
       <>
@@ -51,7 +51,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'API documentation',
-    Svg: require('@site/static/icons/tool.svg').default,
+    Svg: require('@site/static/images/icons/home/tool.svg').default,
     to: '/docs/tools/api',
     description: (
       <>

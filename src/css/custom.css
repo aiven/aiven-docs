@@ -162,3 +162,9 @@ ol ul ol {
   color: var(--ifm-font-color-base);
   vertical-align: middle;
 }
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
