@@ -2,29 +2,33 @@
 title: Windows
 ---
 
-Apache Flink® uses *windows* to split the streamed data into segments
-that can be processed. Due to the unbounded nature of data streams,
-there is never a situation where *all* of the data is available, because
-you would be waiting indefinitely for new data points to arrive - so
-instead, windowing offers a way to define a subset of data points that
-you can then process and analyze.
+Apache Flink® uses the concept of *windows* to manage the continuous flow of data in streams by segmenting it into manageable chunks. This approach is essential due to the continuous and unbounded nature of data streams, where waiting for all data to arrive is impractical.
 
-A window is created when the first element matching the criteria that is
-set for it appears. The window'strigger defines when the window is
-considered ready for processing, and the function set for the window
-specifies how to process the data. Each window also has an allowed
-lateness value - this indicates how long new events are accepted for
-inclusion in the window after the trigger closes it.
+## How windows work
 
-For example, you can set 15:00 as the start time for a time-based
-window, with the end timestamp set to 15:10 and an allowed lateness of 1
-minute. The first event with a timestamp between 15:00 and 15:10 creates
-the window, and any event that arrives between 15:10 and 15:11 with a
-timestamp between 15:00 and 15:10 is still included in the window.
+Windows in Apache Flink® is defined to segment the data stream into subsets for
+processing and analysis. A window is created when the first element that meets
+the specified criteria arrives.
 
-Events may still arrive after the allowed lateness for the window, so
-your application should include a means of handling those events, for
-example by logging them separately and then discarding them.
+The trigger of a window determines when the window is ready for processing.
+Once the window is ready, the processing function determines how the data within the
+window is analyzed or manipulated. Additionally, each window has an **allowed lateness**
+value, indicating how long new events are accepted into the window after the
+trigger has closed it.
 
-For more information, see the [Apache Flink® documentation on
-windows](https://ci.apache.org/projects/flink/flink-docs-release-1.15/docs/dev/datastream/operators/windows/).
+### Example scenario
+
+Consider setting a time-based window from 15:00 to 15:10 with an allowed lateness
+of one minute. The window is created upon the arrival of the first event within this
+interval. Events arriving between 15:10 and 15:11, but still within the window's
+time range, are included. This mechanism allows for flexibility in handling data that
+arrives slightly out of order or delayed.
+
+### Handling late events
+
+Events that arrive after the allowed lateness should be managed separately, such as by
+logging and discarding them. This is done to ensure the integrity of windowed processing.
+
+## Further reading
+
+- [Apache Flink® windows](https://ci.apache.org/projects/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)

@@ -20,4 +20,4 @@ allows you to reprocess the data later on with consistent results.
 
 For more information, see the [Apache Flink® documentation on event time
 and processing
-time](https://ci.apache.org/projects/flink/flink-docs-release-1.15/docs/concepts/time/).
+time](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/ops/state/checkpoints/).

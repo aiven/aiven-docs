@@ -2,57 +2,50 @@
 title: Use Apache Flink® with Aiven for Apache Kafka®
 ---
 
-[Apache Flink®](https://flink.apache.org/) is an open source platform
-for processing distributed streaming and batch data. Where Apache Kafka®
-excels at receiving and sending event streams, Flink consumes,
-transforms, aggregates, and enriches your data.
+[Apache Flink®](https://flink.apache.org/) is an open-source platform for handling distributed streaming and batch data. It enhances Apache Kafka's® event streaming abilities by offering advanced features for consuming, transforming, aggregating, and enriching data.
 
 :::note
-If you want to experience the power of streaming SQL transformations
+To experience the power of streaming SQL transformations
 with Flink, Aiven provides a managed
 [Aiven for Apache Flink®](/docs/products/flink) with built-in data
 flow integration with Aiven for Apache Kafka®.
 :::
 
-The example in this article shows you how to create a simple Java Flink
-job that reads data from a Kafka topic, processes it, and then pushes it
-to a different Kafka topic. It uses the Java API on a [local
-installation of Apache Flink
-1.15.1](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/try-flink/local_installation/),
-but it can be applied to use Aiven for Apache Kafka with any self-hosted
-cluster.
+The following example demonstrates how to create a simple Java Flink job. This job
+reads data from a Apache Kafka topic, processes it,and sends it to another Apache Kafka
+topic. It uses the Java API on a
+[local installation of Apache Flink 1.16](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/try-flink/local_installation/). However, the same approach can be applied to use
+Aiven for Apache Kafka with any self-hosted cluster.
 
 ## Prerequisites {#kafka-flink-java-prereq}
 
-You need an Aiven for Apache Kafka service up and running with two
-topics, named `test-flink-input` and `test-flink-output`, already
-[created](https://docs.aiven.io/docs/products/kafka/howto/create-topic.html).
-Furthermore, for the example, you need to collect the following
-information about the Aiven for Apache Kafka service:
+Before you start, make sure you have the following:
 
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
--   `APACHE_KAFKA_PORT`: The port of the Apache Kafka service
-
-You need to have [Apache Maven™](https://maven.apache.org/install.html)
-installed to build the example.
+- An active **Aiven for Apache Kafka** service with two topics: `test-flink-input` and `test-flink-output`.
+  To create topics, see [Create an Apache Kafka topic](https://docs.aiven.io/docs/products/kafka/howto/create-topic.html).
+- Gather the following details about your Aiven for Apache Kafka service:
+   - `APACHE_KAFKA_HOST`: The hostname of your Apache Kafka service.
+   - `APACHE_KAFKA_PORT`: The port number of your Apache Kafka service.
+- [**Apache Maven™**](https://maven.apache.org/install.html) installed on your machine
+    build the example.
 
 ### Setup the truststore and keystore
 
 Create a
-[Java keystore and truststore](keystore-truststore) for the Aiven for Apache Kafka service. For the following
-example we assume:
+[Java keystore and truststore](keystore-truststore) for the Aiven for Apache Kafka service.
+For this example, the configuration is as follows:
 
--   The keystore is available at `KEYSTORE_PATH/client.keystore.p12`
--   The truststore is available at
-    `TRUSTSTORE_PATH/client.truststore.jks`
--   For simplicity, the same secret (password) is used for both the
-    keystore and the truststore, and is shown here as `KEY_TRUST_SECRET`
+- The keystore is available at `KEYSTORE_PATH/client.keystore.p12`
+- The truststore is available at
+  `TRUSTSTORE_PATH/client.truststore.jks`
+- For simplicity, use  the same secret (password) for both the
+  keystore and the truststore, referred to as `KEY_TRUST_SECRET`
 
 ## Use Apache Flink with Aiven for Apache Kafka
 
 The following example shows how to customise the `DataStreamJob`
 generated from the
-[Quickstart](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/dev/configuration/overview/)
+[Quickstart](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/configuration/overview/)
 to work with Aiven for Apache Kafka.
 
 :::note
@@ -68,14 +61,14 @@ repository](https://github.com/aiven/aiven-examples/tree/master/kafka/flink-capi
     mvn archetype:generate -DinteractiveMode=false  \
       -DarchetypeGroupId=org.apache.flink           \
       -DarchetypeArtifactId=flink-quickstart-java   \
-      -DarchetypeVersion=1.15.1                     \
+      -DarchetypeVersion=1.16.0                     \
       -DgroupId=io.aiven.example                    \
       -DartifactId=flink-capitalizer                \
       -Dpackage=io.aiven.example.flinkcapitalizer   \
       -Dversion=0.0.1-SNAPSHOT
     ```
 
-2.  Uncomment the Kafka connector in \`pom.xml\`:
+1.  Uncomment the Kafka connector in \`pom.xml\`:
 
     ```xml
     <dependency>
@@ -93,8 +86,8 @@ with the cluster for your processing.
 
 1.  Create a new class called
     `io.aiven.example.flinkcapitalizer.StringCapitalizer` which performs
-    a simple `MapFunction` transformation on incoming records with every
-    incoming string will be emitted as uppercase.
+    a simple `MapFunction` transformation on incoming records, emitting every incoming
+    string in uppercase.
 
     ```java
     package io.aiven.example.flinkcapitalizer;
@@ -108,7 +101,7 @@ with the cluster for your processing.
     }
     ```
 
-2.  Import the following classes in the `DataStreamJob`
+1.  Import the following classes in the `DataStreamJob`
 
     ```java
     import java.util.Properties;
@@ -121,8 +114,8 @@ with the cluster for your processing.
     import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
     ```
 
-3.  Modify the `main` method in `DataStreamJob` to read and write from
-    the Kafka topics, replacing the `APACHE_KAFKA_HOST`,
+1.  Modify the `main` method in `DataStreamJob` to read and write from
+    the Apache Kafka topics, replacing the `APACHE_KAFKA_HOST`,
     `APACHE_KAFKA_PORT`, `KEYSTORE_PATH`, `TRUSTSTORE_PATH` and
     `KEY_TRUST_SECRET` placeholders with the values from the
     [prerequisites](/docs/products/kafka/howto/flink-with-aiven-for-kafka#kafka-flink-java-prereq).
@@ -165,7 +158,7 @@ with the cluster for your processing.
     }
     ```
 
-4.  Tie the Kafka sources and sinks together with the
+1.  Tie the Apache Kafka sources and sinks together with the
     `StringCapitalizer` in a single processing pipeline.
 
     ```java
@@ -192,7 +185,7 @@ The above command should create a `jar` file named
 ### Run the applications
 
 If you have installed a [local cluster installation of Apache Flink
-1.15.1](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/try-flink/local_installation/),
+1.16](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/try-flink/local_installation/),
 you can launch the job on your local machine. `$FLINK_HOME` is the Flink
 installation directory.
 
@@ -203,6 +196,6 @@ $FLINK_HOME/bin/flink run target/flink-capitalizer-0.0.1-SNAPSHOT.jar
 You can see that the job is running in the Flink web UI at
 `http://localhost:8081`.
 
-By following the article
-[Aiven for Apache Flink®](/docs/products/flink), you can send string events to the input topic and verify
-that the messages are forwarded to the output topic in upper case.
+By integrating [Aiven for Apache Flink®](/docs/products/flink) with
+Aiven for Apache Kafka®, you can process string events and transform
+them to uppercase before forwarding them to the output topic.
