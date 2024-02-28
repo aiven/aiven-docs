@@ -15,8 +15,12 @@ memory limit.
 
 A server (or node) **usable memory** can be calculated as:
 
+$$
+{ RAM - overhead }
+$$
+
 :::important
-`overhead` is calculated as: .
+`overhead` is 350 MiB (≈ 0.34 GiB).
 :::
 
 Services may utilize optional components, service integrations,
