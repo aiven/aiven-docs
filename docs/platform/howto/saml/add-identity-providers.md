@@ -2,7 +2,7 @@
 title: Add identity providers
 ---
 
-import ProBadge from "@site/src/components/Badges/ProBadge";
+import EnterpriseBadge from "@site/src/components/Badges/EnterpriseBadge";
 
 You can give your organization users access to Aiven through an identity
 provider (IdP).
@@ -76,7 +76,7 @@ draft, you can open the settings by clicking the name of the IdP.
     -   **Extend active sessions**: This resets the session duration every time the token
         is used.
 1. Optional: Select a user group to add all users who sign up with this IdP to.
-1. <ProBadge/> To enable user provisioning with Okta, click the toggle.
+1. <EnterpriseBadge/> To enable user provisioning with Okta, click the toggle.
 
    1. Copy the **Base URL** and **Access token**.
    1. Add the URL and token to your
