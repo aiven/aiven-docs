@@ -3,8 +3,6 @@ title: Carbon footprint
 early: true
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
-
 You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
 
 The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage per project in your organization.
