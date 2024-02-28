@@ -30,8 +30,8 @@ steps to view the current settings:
 1. Access the [Aiven Console](https://console.aiven.io/) and select the
    Aiven for Apache Flink service.
 1. From the **Connection information** section on the overview page,
-    copy the **Service URI** and paste it into your web browser's
-    address bar.
+   copy the **Service URI** and paste it into your web browser's
+   address bar.
 1. When prompted, log in using the **User** and **Password**
    credentials specified in the **Connection information** section.
 1. Once in the **Apache Flink Dashboard**, click the **Job Manager**
