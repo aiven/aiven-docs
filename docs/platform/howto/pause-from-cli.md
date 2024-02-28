@@ -5,11 +5,9 @@ sidebar_label: Pause or terminate service
 
 Cloud services can be created, paused, or destroyed as needed, to optimize costs. For example, you can power the service off temporarily to save credits.
 
-:::important
-Static IP addresses are not disassociated/deleted when a service is powered off or
-deleted. They continue to generate the usual costs. To remove static IP addresses, see
-[Manage static IP addresses](/docs/platform/howto/static-ip-addresses).
-:::
+import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
+
+<StaticIp/>
 
 You can update the state of your service either through the service
 overview page in [Aiven Console](https://console.aiven.io) or by using
