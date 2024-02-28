@@ -9,12 +9,13 @@ Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR 
 
 - Custom JARs for Aiven for Apache Flink is a **limited availability** feature.
   To try this feature, request access by contacting the [sales team](mailto:sales@aiven.io).
-- Once activated on your Aiven account, create a new Aiven for Apache Flink service and
-toggle the option for **Upload and deploy custom JARs** to enable custom JARs during
-service creation.
+- Create a new Aiven for Apache Flink service and click **Upload and deploy custom JARs**
+  to enable custom JARs during service creation.
 
 :::note
-Enabling Custom JARs for existing services is currently not possible. If you did not enable this feature during service creation, you must create a new service with Custom JARs enabled.
+Enabling Custom JARs for existing services is currently not possible. If you did not
+enable this feature during service creation, you must create a new service with
+Custom JARs enabled.
 :::
 
 ## Create and deploy application
@@ -45,21 +46,21 @@ Enabling Custom JARs for existing services is currently not possible. If you did
     page.
 1.  To deploy the application, click **Create deployment**. In the
     **Create new deployment** dialog:
-    1.   Select the application version to deploy.
-    1.   Select a
-        [savepoint](/docs/products/flink/concepts/savepoints) if you wish to deploy from
-        a specific state. No
-        savepoints are available for the first application deployment.
-    1.   Toggle **Restart on failure** to automatically restart Flink
-        jobs upon failure. See [Restart strategy in SQL and JAR applications](/docs/products/flink/howto/restart-strategy-jar-applications)
-        for details.
-    1.   In the **Program args** field, provide command-line arguments
-        consisting of variables and configurations relevant to your
-        application'slogic upon submission. Each argument is limited
-        to 64 characters, with a total limit of 32 separate items.
-    1.   Specify the number of [parallel
-        instances](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/execution/parallel/)
-        you require for the task.
+    1. Select the application version to deploy.
+    1. Select a
+       [savepoint](/docs/products/flink/concepts/savepoints) if you wish to deploy from
+       a specific state. No
+       savepoints are available for the first application deployment.
+    1. Toggle **Restart on failure** to automatically restart Flink
+       jobs upon failure. See [Restart strategy in SQL and JAR applications](/docs/products/flink/howto/restart-strategy-jar-applications)
+       for details.
+    1. In the **Program args** field, provide command-line arguments
+       consisting of variables and configurations relevant to your
+       application'slogic upon submission. Each argument is limited
+       to 64 characters, with a total limit of 32 separate items.
+    1. Specify the number of [parallel
+       instances](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/execution/parallel/)
+       you require for the task.
 1.  Click **Deploy without a savepoint** to begin the deployment
     process.
 1.  While deploying, the application status shows **Initializing**. Once

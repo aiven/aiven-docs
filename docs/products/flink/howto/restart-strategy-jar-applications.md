@@ -27,18 +27,18 @@ You can view the default restart strategy configurations for your Aiven
 for Apache Flink cluster in the Apache Flink Dashboard. Follow these
 steps to view the current settings:
 
-1.  Access the [Aiven Console](https://console.aiven.io/) and select the
-    Aiven for Apache Flink service.
-1.  From the **Connection information** section on the overview page,
+1. Access the [Aiven Console](https://console.aiven.io/) and select the
+   Aiven for Apache Flink service.
+1. From the **Connection information** section on the overview page,
     copy the **Service URI** and paste it into your web browser's
     address bar.
-1.  When prompted, log in using the **User** and **Password**
-    credentials specified in the **Connection information** section.
-1.  Once in the **Apache Flink Dashboard**, click the **Job Manager**
-    from the menu.
-1.  Switch to the **Configuration** tab.
-1.  Review the configurations and parameters related to the restart
-    strategy.
+1. When prompted, log in using the **User** and **Password**
+   credentials specified in the **Connection information** section.
+1. Once in the **Apache Flink Dashboard**, click the **Job Manager**
+   from the menu.
+1. Switch to the **Configuration** tab.
+1. Review the configurations and parameters related to the restart
+   strategy.
 
 ## Disable default restart strategy
 
@@ -75,20 +75,20 @@ For more information, see [Create an SQL application](/docs/products/flink/howto
 Before disabling the default restart strategy for your applications, consider the
 following:
 
--   **Persistent failures**: Disabling restarts means that if a Flink
-    Job fails, it will not attempt to recover it, leading to
-    permanent job failure.
--   **Testing and debugging**: Disabling is beneficial when identifying
-    issues in the application code, as it prevents the masking of errors
-    through automatic restarts.
--   **External factors**: Jobs can fail due to external factors, such as
-    infrastructure changes or maintenance activities. If you disable
-    restarts, your Flink jobs will become vulnerable to failures.
--   **Operational risks**: In production environments, it is generally
-    advisable to use the default restart strategy to ensure high
-    availability and fault tolerance.
+- **Persistent failures**: Disabling restarts means that if a Flink
+  Job fails, it will not attempt to recover it, leading to
+  permanent job failure.
+- **Testing and debugging**: Disabling is beneficial when identifying
+  issues in the application code, as it prevents the masking of errors
+  through automatic restarts.
+- **External factors**: Jobs can fail due to external factors, such as
+  infrastructure changes or maintenance activities. If you disable
+  restarts, your Flink jobs will become vulnerable to failures.
+- **Operational risks**: In production environments, it is generally
+  advisable to use the default restart strategy to ensure high
+  availability and fault tolerance.
 
 ## Related pages
 
--   [Restart strategies in Apache
-    Flink®](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/task_failure_recovery/#restart-strategies)
+- [Restart strategies in Apache
+  Flink®](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/task_failure_recovery/#restart-strategies)
