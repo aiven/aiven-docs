@@ -50,14 +50,15 @@ preferred method.
 ### Step 3: Download Apache Kafka certificate
 
 Download the necessary Apache Kafka credentials certificate using your
-preferred method and save it in a secure yet easily accessible location
+preferred method and save it in a secure and accessible location
 on your system.
 
 ### Step 4: Create an external Apache Kafka endpoint
 
 To integrate external Apache Kafka with Aiven for Apache Flink, you need
 to create an external Apache Kafka endpoint. You can use the
-[avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) command with the required parameters. This command will
+[avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) command with the required
+parameters. This command will
 create a new integration endpoint that can be used to connect to an
 external Apache Kafka service.
 
@@ -77,7 +78,7 @@ avn service integration-endpoint-create
 
 Where :
 
--   `--endpoint-name`: Name of the endpoint you want to create.
+-   `--endpoint-name`: Name of the endpoint to create.
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 -   `--user-config-json`: The configuration for the endpoint in JSON
@@ -106,25 +107,24 @@ avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 
 Where:
 
--   `--endpoint-name`: Name of the endpoint you want to create.
+-   `--endpoint-name`: Name of the endpoint to create.
 
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 
--
+-   `--user-config-json`:The configuration for the endpoint in JSON format, which
+    includes the following attributes:
 
-    `--user-config-json`:The configuration for the endpoint in JSON format, which includes the following attributes:
-
-    :   -   `bootstrap_servers`: List of Apache Kafka broker addresses
-            and ports to connect to.
-        -   `security_protocol`: The type of security protocol to use
-            for the connection, which is `SASL` in this case.
-        -   `ssl_ca_cert`: The path to the SSL CA certificate.
-        -   `ssl_client_cert`: The path to the SSL client certificate.
-        -   `ssl_client_key`: The path to the SSL client key.
-        -   `ssl_endpoint_identification_algorithm`: The endpoint
-            identification algorithm to use for SSL verification. For
-            example, `https`.
+    -   `bootstrap_servers`: List of Apache Kafka broker addresses
+        and ports to connect to.
+    -   `security_protocol`: The type of security protocol to use
+        for the connection, which is `SASL` in this case.
+    -   `ssl_ca_cert`: The path to the SSL CA certificate.
+    -   `ssl_client_cert`: The path to the SSL client certificate.
+    -   `ssl_client_key`: The path to the SSL client key.
+    -   `ssl_endpoint_identification_algorithm`: The endpoint
+        identification algorithm to use for SSL verification. For
+        example, `https`.
 
 #### SASL_PLAINTEXT
 
@@ -145,26 +145,25 @@ avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 
 where:
 
--   `--endpoint-name`: Name of the endpoint you want to create.
+-   `--endpoint-name`: Name of the endpoint to create.
 
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 
--
+-   `--user-config-json`:The configuration for the endpoint in JSON format,
+    which includes the following attributes:
 
-    `--user-config-json`:The configuration for the endpoint in JSON format, which includes the following attributes:
-
-    :   -   `bootstrap_servers`: List of Apache Kafka broker addresses
-            and ports to connect to.
-        -   `security_protocol`: The type of security protocol to use
-            for the connection, which is `SASL_PLAINTEXT` in this case.
-        -   `sasl_mechanism`: The type of SASL mechanism to use for
-            authentication, which is **PLAIN** in this case.
-        -   `sasl_plain_username`: The username for SASL authentication.
-        -   `sasl_plain_password`: The password for SASL authentication.
-        -   `ssl_endpoint_identification_algorithm`: The endpoint
-            identification algorithm to use for SSL verification. For
-            example, `https`.
+     -   `bootstrap_servers`: List of Apache Kafka broker addresses
+         and ports to connect to.
+     -   `security_protocol`: The type of security protocol to use
+         for the connection, which is `SASL_PLAINTEXT` in this case.
+     -   `sasl_mechanism`: The type of SASL mechanism to use for
+         authentication, which is **PLAIN** in this case.
+     -   `sasl_plain_username`: The username for SASL authentication.
+     -   `sasl_plain_password`: The password for SASL authentication.
+     -   `ssl_endpoint_identification_algorithm`: The endpoint
+         identification algorithm to use for SSL verification. For
+         example, `https`.
 
 #### SASL_SSL
 
@@ -186,28 +185,27 @@ avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
 
 where:
 
--   `--endpoint-name`: Name of the endpoint you want to create.
+-   `--endpoint-name`: Name of the endpoint to create.
 
 -   `--endpoint-type`: The type of endpoint, which should be
     `external_kafka`.
 
--
+-   `--user-config-json`:The configuration for the endpoint in JSON format, which
+    includes the following attributes:
 
-    `--user-config-json`:The configuration for the endpoint in JSON format, which includes the following attributes:
-
-    :   -   `bootstrap_servers`: List of Apache Kafka broker addresses
-            and ports to connect to.
-        -   `security_protocol`: The type of security protocol to use
-            for the connection, which is `SASL_SSL` in this case.
-        -   `sasl_mechanism`: The type of SASL mechanism to use for
-            authentication, which is **PLAIN** in this case.
-        -   `sasl_plain_username`: The username for SASL authentication.
-        -   `sasl_plain_password`: The password for SASL authentication.
-        -   `ssl_ca_cert`: The path to the SSL CA certificate downloaded
-            for SSL authentication.
-        -   `ssl_endpoint_identification_algorithm`: The endpoint
-            identification algorithm to use for SSL verification. For
-            example, `https`.
+    -   `bootstrap_servers`: List of Apache Kafka broker addresses
+        and ports to connect to.
+    -   `security_protocol`: The type of security protocol to use
+        for the connection, which is `SASL_SSL` in this case.
+    -   `sasl_mechanism`: The type of SASL mechanism to use for
+        authentication, which is **PLAIN** in this case.
+    -   `sasl_plain_username`: The username for SASL authentication.
+    -   `sasl_plain_password`: The password for SASL authentication.
+    -   `ssl_ca_cert`: The path to the SSL CA certificate downloaded
+        for SSL authentication.
+    -   `ssl_endpoint_identification_algorithm`: The endpoint
+        identification algorithm to use for SSL verification. For
+        example, `https`.
 
 ### Step 5: Integrate Aiven for Apache Flink with endpoints
 
@@ -239,7 +237,7 @@ where:
 -   `--dest-service`: The name of the Aiven for Apache Flink service you
     want to integrate with the external Apache Kafka endpoint. In this
     example, the service name is `flink-1`.
--   `-t`: The type of integration you want to create. In this case, the
+-   `-t`: The type of integration to create. In this case, the
     `flink_external_kafka` integration type is used to integrate Aiven
     for Apache Flink with an external Apache Kafka endpoint.
 
@@ -266,9 +264,9 @@ avn service integration-list --project systest-project flink-1
 where:
 
 -   `--project`: The name of the Aiven project that contains the Aiven
-    service you want to list integrations for. In this example, the
+    service to list integrations for. In this example, the
     project name is `systest-project`.
--   `flink-1`: The name of the Aiven service you want to list
+-   `flink-1`: The name of the Aiven service to list
     integrations for. In this example, the service name is `flink-1`,
     which is an Aiven for Apache Flink service.
 
@@ -291,32 +289,33 @@ Console](https://console.aiven.io/) by following these steps:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.
-2.  From the **Services** page, you can either
-    [create a new Aiven for Apache Flink](/docs/platform/howto/create_new_service) service or select an existing service.
-3.  Next, configure an external Apache Kafka service integration
+1.  From the **Services** page, you can either
+    [create a new Aiven for Apache Flink](/docs/platform/howto/create_new_service) ]
+    service or select an existing service.
+1.  Next, configure an external Apache Kafka service integration
     endpoint:
-    -   Navigate to the Projects screen where all the services are
+    -   Go to the Projects screen where all the services are
         listed.
     -   From the left sidebar, select **Integration endpoints**.
-    -   Select **External Apache Kafka** from the list, and then select
+    -   Select **External Apache Kafka** from the list, and select
         **Add new endpoint**.
     -   Enter an *Endpoint name* and the *Bootstrap servers*. Then,
-        choose a *Security protocol* from the dropdown list and select
-        **Create**.
-4.  Select **Services** from the left sidebar, and access the Aiven for
+        choose a *Security protocol* and select **Create**.
+1.  Select **Services** from the left sidebar, and access the Aiven for
     Apache Flink service where you plan to integrate the external Apache
     Kafka endpoint.
-5.  If you're integrating with Aiven for Apache Flink for the first
+1.  If you're integrating with Aiven for Apache Flink for the first
     time, on the **Overview** page and select **Get Started**.
     Alternatively, you can add a new integration in the **Data Flow**
-    section by using the plus (+) button.
-6.  On the **Data Service integrations** screen, select the **Create
+    section by clicking **Plus (+)**.
+1.  On the **Data Service integrations** screen, select the **Create
     external integration endpoint** tab.
-7.  Select the checkbox next to **Apache Kafka**, and choose the
+1.  Select the checkbox next to **Apache Kafka**, and choose the
     external Apache Kafka endpoint from the list to integrate.
-8.  Select **Integrate**.
+1.  Select **Integrate**.
 
 Once you have completed these steps, the integration will be ready, and
 you can start creating
-[Aiven for Apache Flink applications](/docs/products/flink/howto/create-flink-applications) that use the external Apache Kafka service as either a
+[Aiven for Apache Flink applications](/docs/products/flink/howto/create-flink-applications)
+that use the external Apache Kafka service as either a
 source or sink.
