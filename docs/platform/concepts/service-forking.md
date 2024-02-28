@@ -57,7 +57,6 @@ When forking a service with Point in Time Recovery (PITR), you can
 choose to fork from the latest transaction or select a specific point in
 the past to fork from.
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+<ElasticSearch/>

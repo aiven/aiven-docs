@@ -98,6 +98,8 @@ you'd like to have it installed to.
 
 ------------------------------------------------------------------------
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.* *Couchbase is a trademark of Couchbase,
-Inc.*
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
+
+<ElasticSearch/>
+
+*Couchbase is a trademark of Couchbase, Inc.*

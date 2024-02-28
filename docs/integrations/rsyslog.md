@@ -209,10 +209,8 @@ avn service integration-endpoint-create --project your-project \
     -c logline='<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% YOUR_TOKEN %msg%'
 ```
 
-------------------------------------------------------------------------
-
-The Loggly trademark is the exclusive property of SolarWinds Worldwide,
+_The Loggly trademark is the exclusive property of SolarWinds Worldwide,
 LLC or its affiliates, is registered with the U.S. Patent and Trademark
 Office, and may be registered or pending registration in other
 countries. All other SolarWinds trademarks, service marks, and logos may
-be common law marks or are registered or pending registration.
+be common law marks or are registered or pending registration._

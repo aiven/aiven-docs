@@ -41,7 +41,6 @@ to run DSL and SQL queries.
 -   Other
     [helpful resources](/docs/products/opensearch/dashboards/howto)
 
-------------------------------------------------------------------------
+import Kibana from "@site/static/includes/trademark-kibana.md"
 
-*Kibana is a trademark of Elasticsearch BV, registered in the U.S. and
-in other countries.*
+<Kibana/>

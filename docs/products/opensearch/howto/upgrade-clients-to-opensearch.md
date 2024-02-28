@@ -71,7 +71,6 @@ dependencies and the `require` or `import` statements. You can check an
 code](https://github.com/aiven/opensearch-migration-examples/tree/main/python-client-migration)
 in our repository.
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+<ElasticSearch/>
