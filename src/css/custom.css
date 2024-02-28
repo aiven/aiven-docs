@@ -33,7 +33,7 @@
   --ifm-global-radius: var(--aiven-radius);
   --ifm-heading-font-family: 'Poppins', 'Montserrat', helvetica, system-ui,
     sans-serif;
-  --ifm-list-left-padding: 1.3em;
+  --ifm-list-left-padding: 2em;
   --ifm-list-item-margin: 0.4em; /* li padding top  */
   --ifm-list-paragraph-margin: 0.4; /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
