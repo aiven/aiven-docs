@@ -7,7 +7,7 @@ import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
 You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
 
-The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage in your organization.
+The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage per project in your organization.
 
 Emissions are measured in metric tons of carbon dioxide-equivalent, which includes
 multiple greenhouse gasses. The following information is shown on the dashboard:
