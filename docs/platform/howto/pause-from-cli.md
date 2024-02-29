@@ -1,8 +1,13 @@
 ---
 title: Pause or terminate your service
+sidebar_label: Pause or terminate service
 ---
 
 Cloud services can be created, paused, or destroyed as needed, to optimize costs. For example, you can power the service off temporarily to save credits.
+
+import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
+
+<StaticIp/>
 
 You can update the state of your service either through the service
 overview page in [Aiven Console](https://console.aiven.io) or by using

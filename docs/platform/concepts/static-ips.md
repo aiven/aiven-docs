@@ -41,7 +41,6 @@ The `static_ip` configuration can only be enabled when enough static IP
 addresses have been created and associated with the service.
 :::
 
-:::important
-Static IP addresses are not disassociated/ deleted when a service is powered off or
-deleted. They continue to generate the usual costs.
-:::
+import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
+
+<StaticIp/>
