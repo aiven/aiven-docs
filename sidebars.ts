@@ -53,6 +53,7 @@ const sidebars: SidebarsConfig = {
         'platform/howto/add-project-members',
         'platform/reference/project-member-privileges',
         'platform/howto/manage-unassigned-projects',
+        'platform/concepts/carbon-footprint',
       ],
     },
     {
