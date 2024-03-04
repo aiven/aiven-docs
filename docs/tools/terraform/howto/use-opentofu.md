@@ -40,23 +40,23 @@ Set up the OpenTofu project in an empty folder:
     }
     ```
 
-1. Create a file named `project.tf` and add the following code to create an Aiven project
-   in your organization:
+1.  Create a file named `project.tf` and add the following code to create an Aiven project
+    in your organization:
 
-   ```terraform
-    # Get information about your organization
-    data "aiven_organization" "main" {
+    ```terraform
+     # Get information about your organization
+     data "aiven_organization" "main" {
       name = "ORGANIZATION_NAME"
-    }
-    # Create a new project in your organization
-    resource "aiven_project" "example_project" {
+     }
+     # Create a new project in your organization
+     resource "aiven_project" "example_project" {
       project    = "ORGANIZATION_NAME-example-project"
       parent_id = data.aiven_organization.main.id
-    }
-   ```
+     }
+    ```
 
-   Where `ORGANIZATION_NAME` is your
-   [Aiven organization](/docs/platform/concepts/projects_accounts_access) name.
+    Where `ORGANIZATION_NAME` is your
+    [Aiven organization](/docs/platform/concepts/projects_accounts_access) name.
 
 1.  Create a file named `service.tf` and add the following code to define the configuration
     of an [Aiven for PostgreSQL®](/docs/products/postgresql) service:
