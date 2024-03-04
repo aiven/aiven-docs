@@ -444,6 +444,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/promote-to-master-pg-rr',
             'tools/terraform/howto/config-postgresql-provider',
+            'tools/terraform/howto/use-opentofu',
             {
               type: 'category',
               label: 'Upgrade Aiven provider',
