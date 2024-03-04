@@ -1,14 +1,20 @@
 ---
 title: Migrate Aiven for Redis®* to Aiven for Dragonfly®
-limited: true
 ---
 
 Transition Aiven for Redis® databases seamlessly to Aiven for Dragonfly
-using the [Aiven Console](https://console.aiven.io/). This article
-provides detailed instructions for the migration process.
+using the [Aiven Console](https://console.aiven.io/).
 
 The Aiven Console migration tool simplifies the process of migrating
 databases to the Aiven for Dragonfly managed service.
+
+:::note
+Aiven for Dragonfly is fully supported by Aiven's service level agreements (SLAs),
+ensuring its capability to manage production workloads. As the latest addition to
+Aiven services, we recommend initiating a proof of concept (PoC)
+with Aiven for Dragonfly to thoroughly evaluate its capabilities and confirm its
+fit for your production requirements.
+:::
 
 ## Compatibility overview
 
@@ -16,13 +22,14 @@ Before migrating an external Redis database to Aiven for Dragonfly,
 carefully review your current Redis setup.
 
 -   **Review database setup:** Examine your Redis database's data
-    structures, storage patterns, and configurations.Identify any unique
+    structures, storage patterns, and configurations. Identify any unique
     features, custom settings, and specific configurations.
 -   **API compatibility:** While Dragonfly closely mirrors Redis API
     commands, there may be variations, especially with newer versions of
     Redis. For detailed insights on command compatibility, refer to the
     [Dragonfly API compatibility
     documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
+
 
 ## Prerequisites
 
@@ -41,9 +48,9 @@ for Redis service.
 ## Database migration steps
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Dragonfly service to which you want to migrate your
+    the Aiven for Dragonfly service to migrate your
     Redis database.
-2.  Navigate to **Service settings** from the sidebar.
+2.  Go to **Service settings** from the sidebar.
 3.  Scroll to the **Service management** section and use the ellipsis to
     view additional menu options.
 4.  Select **Import database** to initiate the import process.
@@ -98,7 +105,7 @@ While the migration is in progress:
         migration is stopped.
     -   Do not manually change the replication settings of the source
         database.
-    -   Avoid making network or configuration changes that could disrupt
+    -   Avoid making network or configuration changes that can disrupt
         the ongoing connection between the source and target databases,
         such as modifying firewall rules or altering trusted sources.
     :::

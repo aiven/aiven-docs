@@ -1,16 +1,17 @@
 ---
 title: Get started with Aiven for Dragonfly®
 sidebar_label: Get started
-limited: true
 ---
 
 Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
-## Prerequisites
-
-Aiven for Dragonfly® is currently a **limited-availability** service that requires activation
-on your Aiven account. To explore this offering and request access to your account,
-contact [sales team](mailto:sales@aiven.io).
+:::note
+Aiven for Dragonfly is fully supported by Aiven's service level agreements (SLAs),
+ensuring its capability to manage production workloads. As the latest addition to
+Aiven services, we recommend initiating a proof of concept (PoC)
+with Aiven for Dragonfly to thoroughly evaluate its capabilities and confirm its
+fit for your production requirements.
+:::
 
 ## Create a service using the Aiven Console
 
@@ -27,7 +28,7 @@ of minutes.
 efficient way to create an Aiven for Dragonfly® service. If you prefer
 launching a new service from the CLI, follow these steps:
 
-1.  Determine the service plan, cloud provider, and region you want to
+1.  Determine the service plan, cloud provider, and region to
     use for your Dragonfly service.
 1.  Run the following command to create Dragonfly service named
     dragonfly-demo:
