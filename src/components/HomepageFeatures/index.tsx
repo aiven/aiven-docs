@@ -35,7 +35,12 @@ const FeatureList: FeatureItem[] = [
     title: 'Aiven dev tools',
     Svg: require('@site/static/images/icons/home/tool.svg').default,
     to: '/docs/tools',
-    description: <>Learn how to use the Aiven tools, such as the Aiven CLI.</>,
+    description: (
+      <>
+        Manage your Aiven infrastructure with the API, Terraform, Kubernetes, or
+        CLI.
+      </>
+    ),
   },
   {
     title: 'Integrations',
