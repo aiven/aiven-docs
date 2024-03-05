@@ -45,6 +45,7 @@ connect
 Coralogix
 Couchbase
 CPU/MS
+cqlsh
 CRD
 cron
 cURL
@@ -78,6 +79,7 @@ downsampling
 Dragonfly
 DSBulk
 DZone
+ECEs?
 Elasticsearch
 enablement
 Epicurious
@@ -142,6 +144,7 @@ JWT's
 Kafdrop
 kafka
 Kafka
+Kaggle
 Kaggle/M
 Karapace
 keypair
@@ -302,7 +305,6 @@ vectorizing
 virtualized
 VM
 VMs
-ECEs?
 VNet
 VPC/MS
 VPCs?

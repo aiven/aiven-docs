@@ -1,83 +1,153 @@
 ---
-title: Service power cycle
+title: Power a service on/off
 ---
 
-Aiven service power off and on is more than stopping and starting a service on nodes. For better utilisation of resources on Aiven platform, idle resources will be released and only the necessary data will be kept after power off. The impact on the service is different depending on the service type and plan.
+import Services from "@site/static/images/icons/cog.svg";
+import ActionsIcon from "@site/static/images/icons/more.svg";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
+import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 
-:::warning
-Depending on service type and plan, data loss may happen during a
-service power off, so it is important for users to understand the
-consequences before powering off a service.
-:::
+Controlling when to power your Aiven services on and off allows you to control the use of resources and save credits.
+Idle resources are released and only the necessary data is kept after a power off.
+The impact on the service is different depending on the service type and plan.
 
 Aiven service power off and power on can be done on [Aiven
 Console](https://console.aiven.io) or through
-[Aiven CLI](/docs/platform/howto/pause-from-cli).
+[Aiven CLI](/docs/platform/concepts/service-power-cycle).
 
-## Power off
+## Power off a service
 
-Whenever an Aiven service is powered off:
+:::warning[Kafka services]
+- For Kafka services with backups: Topic configuration, schemas and connectors are all
+  backed up, but not the data in topics. All topic data is lost on power off.
 
--   All virtual machines of the service will be **removed** from the
-    public cloud.
--   The service information and configuration will be stored on Aiven
-    Platform, while service data will be lost if there's no backup
-    available.
--   If the service has **time-based** or **PITR (point in time
-    recovery)** backups, they will be kept on Aiven Platform. The
-    backups are listed on the **Backups** page of the service in [Aiven
-    Console](https://console.aiven.io). Absence of the **Backups** view
-    means the service has no backups. For details on backups for
-    different Aiven services on different plans, refer to
-    [Backups at Aiven](/docs/platform/concepts/service_backups).
-
-:::warning
-Aiven does periodic cleanup of powered-off services on services powered
-off for longer than **180** consecutive days. Notification emails will
-be sent before actions are taken.
+- For Kafka services without backups: Topic configurations including all
+  topic data is lost on power off.
 :::
 
--   The message in the **Confirm power off** window will give some hints
-    on the consequence of the power off. For example, powering off an
-    Aiven service can erase data since the latest backup because the
-    service only has time-based but not PITR backups.
--   On the **Backups** page, hovering over the help
-    icon displays some details on the content of
-    the backups including what can be restored if the
-    service is powered on later.
+<Tabs groupId="sync">
+<TabItem value="Console" label="Console" default>
 
-:::warning
-For backup enabled Aiven for Apache Kafka® services, topic
-configuration, schemas and connectors are all backed up, but not the
-data in topics. Therefore all topic data will be lost on power off. For
-Kafka services without backups, topic configurations including all
-topic data will be lost on power off.
+1. From your project, on the left-side menu, click <Services className="icon"/> **Services**.
+1. For each the service to power, click <ActionsIcon className="icon"/> **Actions** >
+   **Power off service**
+
+</TabItem>
+<TabItem value="CLI" label="CLI">
+
+1. Run:
+
+   ```bash
+   avn service update <your service name> --power-off
+   ```
+
+</TabItem>
+</Tabs>
+
+Whenever a service is powered off:
+
+- All virtual machines of the service are **removed** from the
+  public cloud.
+- The service information and configuration are stored on Aiven
+  Platform. All service data is lost if there's no backup available.
+- If the service has **time-based** or **PITR (point in time
+  recovery)** backups, the backups are kept on the Aiven Platform.
+
+  See [Backups at Aiven][backup].
+
+:::important
+<AutoDelete/>
 :::
 
-## Power on
+<StaticIp/>
+
+When a service is powered off, you can [delete it]
+
+## Power on a service
+
+<Tabs groupId="sync">
+<TabItem value="Console" label="Console" default>
+
+1. From your project, on the left-side menu, click <Services className="icon"/> **Services**.
+1. For each the service to power, click <ActionsIcon className="icon"/> **Actions** >
+   **Power on service**
+
+</TabItem>
+<TabItem value="CLI" label="CLI">
+
+When you're ready to continue using the service run the command to
+power it on.
+
+1. Run:
+
+   ```bash
+   avn service update <your service name> --power-on
+   ```
+
+1. Use the `wait` command to see when the service is running:
+
+   ```bash
+   avn service wait <your service name>
+   ```
+
+</TabItem>
+</Tabs>
 
 When a service is powered on:
 
--   New virtual machines will be created on the specified public cloud
-    for the service.
--   Service will be started with the stored configuration parameters.
--   The latest time-based backup that is available will be restored. The
-    restore time depends on the network bandwidth and disk IOPS
-    allocated to the service plan as well as the size of the backup. It
-    takes from a few minutes to a few hours. Smaller plans with larger backups
-    take longer time than bigger plans with smaller backups. Restore
-    progress can be checked by Aiven support with Aiven Admin CLI.
--   If PITR backup is available, the database transaction log (for example,
-    `WAL` for PostgreSQL®, `binlog` for MySQL) will be replayed to
-    recover the service data to a specific point in time.
--   Service will be ready for serving.
+-   New virtual machines are created on the service's specified public cloud.
+-   The service starts with the stored configuration parameters.
+-   The latest time-based [backup][backup] is restored.
+    The restoration takes from a few minutes
+    to a few hours, depending on:
+    - The network bandwidth
+    - Disk IOPS allocated to the service plan
+    - The size of the backup.
 
-:::warning
-Depending on the service plan, backups have different retention periods.
-Data will be lost after the retention period.
-:::
+    Smaller plans with larger backups take longer time than bigger plans with smaller backups.
+
+    Contact the [support team](mailto:support@aiven.io) to inquire about the progress.
+
+-   If PITR backup is available, the database transaction log (for example,
+    `WAL` for PostgreSQL®, `binlog` for MySQL) are replayed to
+    recover the service data to a specific point in time.
 
 :::note
 Maintenance updates are automatically applied when a service is powered
 on as new virtual machines are created for the service to run on.
 :::
+
+## Delete a service
+
+You can only delete powered-off services. This action cannot be undone.
+
+<Tabs groupId="sync">
+<TabItem value="Console" label="Console" default>
+
+1.  From your project, on the left-side menu, click <Services className="icon"/> **Services**.
+1.  On the **Services** page, use the search bar to locate a specific
+    powered off service or the filter to display a list of services with
+    status **Powered off**.
+1.  Click the service to display its details.
+1.  On the top-right corner, click <ActionsIcon className="icon"/> **Actions** >
+    **Delete service** and confirm.
+
+</TabItem>
+<TabItem value="CLI" label="CLI">
+
+1. Run:
+
+   ```bash
+   avn service terminate <your service name>
+   ```
+
+</TabItem>
+</Tabs>
+
+## Related pages
+
+- [Backups at Aiven][backup]
+
+[backup]: /docs/platform/concepts/service_backups

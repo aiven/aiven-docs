@@ -20,10 +20,12 @@
 /products/influxdb                                    https://aiven.io/docs/products/services
 /products/influxdb/concepts                           https://aiven.io/docs/products/services
 /products/influxdb/concepts/continuous-queries        https://aiven.io/docs/products/services
-/products/influxdb/concepts/influxdb-retention-policy   https://aiven.io/docs/products/services
+/products/influxdb/concepts/influxdb-retention-policy https://aiven.io/docs/products/services
 /products/influxdb/get-started                        https://aiven.io/docs/products/services
 /products/influxdb/howto                              https://aiven.io/docs/products/services
 /products/influxdb/howto/migrate-data-self-hosted-influxdb-aiven   https://aiven.io/docs/products/services
 /products/influxdb/reference                          https://aiven.io/docs/products/services
 /products/influxdb/reference/advanced-params          https://aiven.io/docs/products/services
 /products/postgresql/reference/high-cpu-load-of-pgbouncer https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
+/platform/howto/pause-from-cli                        https://aiven.io/docs/platform/concepts/service-power-cycle
+/platform/howto/cleanup-powered-off-services          https://aiven.io/docs/platform/concepts/service-power-cycle

@@ -8,4 +8,4 @@ title: Cluster management
 - [Resize a managed service](/docs/platform/howto/scale-services)
 - [Migrate a managed service](/docs/platform/howto/migrate-services-cloud-region)
 - [Fork a managed service](/docs/platform/howto/console-fork-service)0
-- [Power off & delete a managed service](/docs/platform/howto/pause-from-cli)
+- [Power off & delete a managed service](/docs/platform/concepts/service-power-cycle)

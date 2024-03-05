@@ -35,7 +35,7 @@ an Aiven service and terminate it after 40 minutes, you will be charged
 for one full hour. Likewise, if you terminate a service after 40.5
 hours, you will be charged for 41 hours.
 
-[Terminating or pausing a service](/docs/platform/howto/pause-from-cli) stops
+[Terminating or pausing a service](/docs/platform/concepts/service-power-cycle) stops
 the accumulation of new charges immediately.
 However, the minimum hourly charge unit still applies prior to terminating or pausing
 a service.

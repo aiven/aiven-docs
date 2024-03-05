@@ -17,7 +17,7 @@
     "prefix": "Required access",
     "body": [
       "## Required access",
-      "You must be a ${1|[super admin](/docs/platform/howto/make-super-admin),[project admin](/docs/platform/reference/project-member-privileges),[project operator](/docs/platform/reference/project-member-privileges)|} to access this feature.",
+      "You must be a ${1|[super admin](/docs/platform/howto/make-super-admin),[project admin](/docs/platform/reference/project-member-privileges),[project operator](/docs/platform/reference/project-member-privileges)|} to access this feature."
     ],
     "description": "Inserts a section with information on what role is needed to access a feature"
   },
@@ -107,14 +107,22 @@
       ""
     ]
   },
+  "Import reusable comp": {
+    "prefix": ["reuse", "import", "include"],
+    "body": [
+      "import ${1:MySnippet} from \"@site/static/includes/$2\"",
+      "",
+      "<$1/>"
+    ]
+  },
   "Tabs": {
     "prefix": "tabs",
     "body": [
       "import Tabs from '@theme/Tabs';",
       "import TabItem from '@theme/TabItem';",
       "",
-      "<Tabs>",
-      "<TabItem value=\"$1\" label=\"$1\" groupId=\"group1\" default>",
+      "<Tabs groupId=\"group1\">",
+      "<TabItem value=\"$1\" label=\"$1\" default>",
       "$2",
       "</TabItem>",
       "<TabItem value=\"$3\" label=\"$3\">",

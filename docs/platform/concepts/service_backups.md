@@ -2,6 +2,8 @@
 title: Backups at Aiven
 ---
 
+import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
+
 On top of general rules for handling service backups in Aiven, there are service-specific backup details, such as backup frequency and retention period per service. Backup policies for service power-off/on and service deletion are common for all the services, similarly as the backup access policy.
 
 ## About backups at Aiven
@@ -10,7 +12,7 @@ All Aiven services, except for Apache Kafka® and M3
 Aggregator/Coordinator, have time-based backups that are encrypted and
 securely stored. Backups at Aiven are stored in the object storage of
 the cloud region where the service is first created (for example, S3 for
-AWS or GCS for GCP). You can check the location of your service's
+AWS or GCS for GCP). See the location of your service's
 backups in [Aiven Console](https://console.aiven.io/) > your service's
 homepage > **Backups**.
 
@@ -28,18 +30,12 @@ its backups are not migrated from their original location.
 
 ## Service power-off/on backup policy
 
-Whenever a service is powered on from a powered-off state, the latest
-available backup is restored.
+Whenever a service is powered on from a powered-off state, the latest available
+backup is restored.
 
-Services that have been powered off for more than 180 days are reviewed.
-A notification email will be sent to you to provide time for taking
-action before the service and backup are deleted as part of the
-[periodic cleanup of powered-off services](/docs/platform/howto/cleanup-powered-off-services).
+<AutoDelete/>
 
-If you wish to keep the powered-off service for more than 180 days:
-
-1. Power on the service
-1. Power it off again to avoid the routine cleanup.
+See [Power a service on/off](/docs/platform/concepts/service-power-cycle).
 
 ## Service backup deletion policy
 
@@ -79,7 +75,7 @@ data.
 ## Backup profile per service
 
 Depending on the service plan, each service provides different backups
-with different retention periods. Check out the hourly and daily backups
+with different retention periods. See the hourly and daily backups
 with the number of days of retention provided in the table.
 
 <table>
