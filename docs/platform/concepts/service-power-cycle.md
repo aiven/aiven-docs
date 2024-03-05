@@ -63,7 +63,7 @@ Whenever a service is powered off:
 
 <StaticIp/>
 
-When a service is powered off, you can [delete it]
+When a service is powered off, you can [delete it](#delete-service).
 
 ## Power on a service
 
@@ -119,7 +119,7 @@ Maintenance updates are automatically applied when a service is powered
 on as new virtual machines are created for the service to run on.
 :::
 
-## Delete a service
+## Delete a service {#delete-service}
 
 You can only delete powered-off services. This action cannot be undone.
 
