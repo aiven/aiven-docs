@@ -14,4 +14,4 @@ title: Manage your Aiven for Apache Cassandra® cluster
 
 [Fork a managed service](/docs/platform/howto/console-fork-service)
 
-[Power off & delete a managed service](/docs/platform/howto/pause-from-cli)
+[Power off & delete a managed service](/docs/platform/concepts/service-power-cycle)

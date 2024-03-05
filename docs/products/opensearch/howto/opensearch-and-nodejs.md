@@ -69,7 +69,7 @@ Now you're ready to start querying the data.
 
 ## Query the data
 
-Now that we have data in the OpenSearch cluster, we\'re ready to
+Now that we have data in the OpenSearch cluster, we're ready to
 construct and run search queries. We will use `search` method which is
 provided by the OpenSearch JavaScript client. The following code goes
 into `search.js`, you'll need connection configuration and helpers
@@ -84,8 +84,7 @@ const { logTitles } = require("./helpers");
 The `search` method expects three optional parameters: `params`,
 `options` and `callback`.
 
-The query details are placed into the `params` object. Here we can
-specify a variety of parameters, such as the name of the index
+The query details are into the `params` object, which contains the name of the index
 (`index`), the maximum number of results to be returned (`size`), if the
 response is paginated (`size` and `from`), by which fields to sort the
 data (`sort`) and others.
@@ -95,11 +94,13 @@ defined in the Lucene query string syntax and `body` - a query based on
 Query DSL (Domain Specific Language). These are two main methods to
 construct a query.
 
+<!-- vale off -->
 The query string syntax is a powerful tool which can be used for a
 variety of requests. It is especially convenient for cURL requests,
 since it is a very compact string. However, as the complexity of a
 request grows, it becomes more difficult to read and maintain these
 types of queries.
+<!-- vale on -->
 
 ```javascript
 //example of using a query syntax
@@ -126,7 +127,7 @@ variety of granular parameters.
  })
 ```
 
-In this tutorial we'll focus on Query DSL and its three main groups of
+Let's focus on Query DSL and its three main groups of
 requests: term-level, full-text and boolean. You will also see how to
 use the Lucene query string syntax inside Query DSL.
 
@@ -259,8 +260,9 @@ module.exports.fuzzy = (field, value, fuzziness) => {
   );
 };
 ```
-
+<!-- vale off -->
 See if you can find recipes with misspelled pineapple 🍍
+<!-- vale on -->
 
 ```
 run-func search fuzzy title pinapple 2
@@ -469,15 +471,15 @@ module.exports.boolean = () => {
 run-func search boolean
 ```
 
-Now it's your turn to experiment! Create your own boolean query, using
+Now create your own boolean query, using
 what we learned to find recipes with particular nutritional values and
 ingredients. Experiment using different clauses to see how they affects
 the results.
 
 ## Related pages
-
+<!-- vale off -->
 -   [Aggregation tutorial](opensearch-aggregations-and-nodejs).
--   [Pausing the service](/docs/platform/howto/pause-from-cli).
+-   [Pausing the service](/docs/platform/concepts/service-power-cycle).
 -   [Demo
     repository](https://github.com/aiven/demo-open-search-node-js). All
     the examples we run in this tutorial can be found in:
