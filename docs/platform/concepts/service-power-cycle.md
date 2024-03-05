@@ -1,5 +1,5 @@
 ---
-title: Power a service on/off
+title: Power on/off a service
 ---
 
 import Services from "@site/static/images/icons/cog.svg";
