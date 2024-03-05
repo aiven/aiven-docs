@@ -16,11 +16,6 @@ create a new project:
     [billing group](/docs/platform/concepts/billing-groups). The costs from all services within this project will be
     charted to the payment method for that billing group.
 
-:::note
-You can also
-[create a project using the Aiven CLI](/docs/tools/cli/project#avn-create-update-project).
-:::
-
 ## Rename a project
 
 :::important
@@ -38,22 +33,17 @@ To rename a project in the [Aiven Console](https://console.aiven.io/):
 1. Edit the **Project name**.
 1. Click **Save changes**.
 
-:::note
-You can also
-[rename a project using the Aiven CLI](/docs/tools/cli/project#avn-create-update-project).
-:::
-
 ## Move a project
 
 To move a project from one organizational unit to another in the [Aiven
 Console](https://console.aiven.io/):
 
 1.  Click **Admin** and select the organizational unit with the project
-    you want to move.
+    to move.
 
 1.  In the project to be moved, click <ActionsIcon className="icon"/> **Actions** > **Move project**.
 
-1.  Select the organizational unit that you want to move the project to.
+1.  Select the organizational unit to move the project to.
     You can also move the project up a level to the organization.
 
     :::note
@@ -71,8 +61,3 @@ To delete a project in the [Aiven Console](https://console.aiven.io/):
 
 1. Delete all the services in the project.
 1. Click **Settings** > **Delete** > **Confirm**.
-
-:::note
-You can also
-[delete a project using the Aiven CLI](/docs/tools/cli/project#avn-delete-project).
-:::
