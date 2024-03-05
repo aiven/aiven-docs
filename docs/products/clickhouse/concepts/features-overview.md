@@ -50,7 +50,7 @@ choice.
     your production data and schema. For example, you can use them to
     test upgrades, new schema migrations, or load test your app with a
     different plan. Learn how to
-    [fork an Aiven service](/docs/platform/howto/console-fork-service).
+    [fork an Aiven service](/docs/platform/concepts/service-forking).
 
 ## Effective maintenance
 

@@ -104,6 +104,6 @@ Cluster management
 -   [Tag a managed Aiven for PostgreSQL® service](/docs/platform/howto/tag-resources)
 -   [Power off and delete a managed Aiven for PostgreSQL® service](/docs/platform/concepts/service-power-cycle)
 -   [Migrate a managed Aiven for PostgreSQL® service](/docs/platform/howto/migrate-services-cloud-region)
--   [Fork a managed Aiven for PostgreSQL® service](/docs/platform/howto/console-fork-service)
+-   [Fork a managed Aiven for PostgreSQL® service](/docs/platform/concepts/service-forking)
 
 </details>

@@ -1,62 +1,63 @@
 ---
-title: Create a new service
+title: Create a service
 ---
 
-Start setting up your Aiven account by creating a new service via the [Aiven Console](https://console.aiven.io/).
+import Services from "@site/static/images/icons/cog.svg";
+import ActionsIcon from "@site/static/images/icons/more.svg";
 
-1.  Log in to [Aiven Console](https://console.aiven.io/).
-1.  Using the top navigation bar, go to the organization and the project
-    that you want to create a service in.
-1.  On the project's page, make sure your in the **Services** view and
-    select **Create service**.
-1.  From the **Select service** page, select the service that you want
-    to create.
-1.  On the **Create service** page
-    1.  Select the cloud provider and region that you want to run your
-        service on.
+Create the service of your choice at any point.
 
-        :::note
-        The pricing for the same service may vary between different
-        providers and regions. The service summary shows you the pricing
-        for your selected options.
-        :::
+1. Log in to [Aiven Console](https://console.aiven.io/) and open your project.
 
-    1.  Select a service plan.
+1. From your project, on the left-side menu, click <Services className="icon"/>
+   **Services** > **Create service**.
 
-        :::note
-        This determines the number of servers and what kind of memory,
-        CPU, and disk resources are allocated to your service. Check out
-        [Plans & Pricing](https://aiven.io/pricing?product=pg) for
-        details.
-        :::
+1. From the **Select service** page, click a service type.
 
-    1.  Add
-        [disk storage](/docs/platform/concepts/dynamic-disk-sizing) for your service by
-        using the slider, if needed. The
-        cost for the additional storage is in the service summary
-        section.
+1. Select the cloud provider and region to host your service on.
 
-        :::note
-        It's not possible to add storage space for all cloud
-        environments and service plans.
-        :::
+   :::note
+   The pricing for the same service can vary between different
+   providers and regions. The service summary shows you the pricing
+   for your selected options.
+   :::
 
-    1.  Enter a name for your service.
+1. Select a service plan.
 
-    1.  Select **Create service** from the right-side **Service
-        Summary** card.
+   :::note
+   This determines the number of servers and the memory,
+   CPU, and disk resources allocated to your service. See
+   [Plans & Pricing](https://aiven.io/pricing).
+   :::
+
+1. (Optional) Add [disk storage](/docs/platform/concepts/dynamic-disk-sizing).
+
+1. Enter a name for your service.
+
+   :::important
+   You cannot change the name after you create the service. You can
+   [fork the service][fork] with a new name instead.
+   :::
+
+1. (Optional) Add [tags](/docs/platform/howto/tag-resources).
+
+1. Click **Create service**.
 
 The new service opens on the **Overview** page, which shows
 the connection parameters for your service, its current status, and the
 configuration options.
 
+The status of the service is **Rebuilding** during its creation.
+When the status becomes **Running**, you can start using it.
+
 :::note
-The service is in the **Rebuilding** status while it is being created.
-Once the service is ready, the status changes to **Running**. While
-services typically start up in a couple of minutes, the performance
-varies between cloud providers and regions, and it may take longer.
+Services typically start up in a couple of minutes. It can vary between
+cloud providers and regions.
 :::
 
 ## Related pages
 
 - [Create a service using the Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create)
+- [Rename a service][fork]
+
+[fork]: /docs/platform/concepts/service-forking
