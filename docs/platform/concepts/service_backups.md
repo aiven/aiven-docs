@@ -1,59 +1,49 @@
 ---
-title: Backups at Aiven
+title: Service backups
 ---
 
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
+import Database from "@site/static/images/icons/db-backup.svg";
 
-On top of general rules for handling service backups in Aiven, there are service-specific backup details, such as backup frequency and retention period per service. Backup policies for service power-off/on and service deletion are common for all the services, similarly as the backup access policy.
+Most services have automatic time-based backups that are encrypted and securely stored.
 
-## About backups at Aiven
+**Backed up services:** All Aiven services, except for Apache Kafka® and M3
+Aggregator/Coordinator.
 
-All Aiven services, except for Apache Kafka® and M3
-Aggregator/Coordinator, have time-based backups that are encrypted and
-securely stored. Backups at Aiven are stored in the object storage of
-the cloud region where the service is first created (for example, S3 for
-AWS or GCS for GCP). See the location of your service's
-backups in [Aiven Console](https://console.aiven.io/) > your service's
-homepage > **Backups**.
+**Backup location:**: Backups are stored in the object storage of the cloud region
+where the service is first created, for example, S3 for AWS or GCS for GCP.
 
-The backup retention times vary based on the service and the selected
-service plan.
+## Display service backups
 
-Aiven takes service backups for managing purposes. These backups are
-compressed and encrypted by the Aiven management platform and, as such,
-are not available for download for any service type.
+1. In the Aiven Console, open the service of your choice.
+1. Click <Database className="icon"/> **Backups**.
 
 :::note
-If you change a cloud provider or an availability zone for your service,
+Backups are encrypted and not available for download.
+
+If you change a service's cloud provider or an availability zone,
 its backups are not migrated from their original location.
 :::
 
 ## Service power-off/on backup policy
 
 Whenever a service is powered on from a powered-off state, the latest available
-backup is restored.
+backup is automatically restored.
 
+:::note
 <AutoDelete/>
 
 See [Power a service on/off](/docs/platform/concepts/service-power-cycle).
+:::
 
 ## Service backup deletion policy
 
-For services that have been deleted for over 41 days, all the backups
-are automatically deleted and, hence, no longer available.
+A service's backups are automatically deleted 41 days after the service's deletion date.
 
 ## Access to backups
 
-The Aiven platform takes care of all maintenance operations required for
-running complex software at scale, allowing you to focus on using your
-services. The open-source tools used for service backups can be
-leveraged in your own infrastructure.
-
-Since service backups are encrypted and stored in the object storage,
-accessing them is not possible. If you do need to backup your service,
-use the standard tooling for this service.
-
-Recommended backup tools per service are as follows:
+Backups are encrypted and not available for download, but you can create your own
+backups with the appropriate tooling:
 
 -   [PostgreSQL®](https://www.postgresql.org/docs/14/app-pgdump.html):
     `pgdump`
@@ -67,16 +57,12 @@ Recommended backup tools per service are as follows:
     `elasticdump`
 
 :::note
-The listed backup tools are recommendations and are not intended
+These tools are recommendations and are not intended
 to create a snapshot of your Aiven service but to provide access to the
 data.
 :::
 
-## Backup profile per service
-
-Depending on the service plan, each service provides different backups
-with different retention periods. See the hourly and daily backups
-with the number of days of retention provided in the table.
+## Backup retention profile per service
 
 <table>
   <thead>
