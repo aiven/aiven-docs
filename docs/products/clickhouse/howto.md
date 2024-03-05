@@ -35,7 +35,7 @@ Cluster management
 -   [Schedule automatic maintenance updates](/docs/platform/howto/prepare-for-high-load)
 -   [Upgrade a managed Aiven for ClickHouse® service](/docs/platform/howto/scale-services)
 -   [Tag a managed Aiven for ClickHouse® service](/docs/platform/howto/tag-resources)
--   [Power-off and delete a managed Aiven for ClickHouse® service](/docs/platform/concepts/service-power-cycle)
+-   [Power off and delete a managed Aiven for ClickHouse® service](/docs/platform/concepts/service-power-cycle)
 -   [Migrate a managed Aiven for ClickHouse® service](/docs/platform/howto/migrate-services-cloud-region)
 -   [Fork a managed Aiven for ClickHouse® service](/docs/platform/howto/console-fork-service)
 
