@@ -7,6 +7,11 @@ import Services from "@site/static/images/icons/cog.svg";
 
 Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 
+Typical uses include:
+
+- Tagging for governance to deploy services with specific tags only.
+- Tagging for internal cost reporting, ownership, allocation, accountability, etc.
+
 A tag is a key/value pair, where:
 
 - **key**: A case-sensitive string that much match
