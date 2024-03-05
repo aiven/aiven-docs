@@ -207,10 +207,16 @@ const sidebars: SidebarsConfig = {
         'platform/concepts/service-memory-limits',
         'platform/concepts/out-of-memory-conditions',
         'platform/howto/prepare-for-high-load',
-        'platform/howto/scale-services',
-        'platform/concepts/dynamic-disk-sizing',
-        'platform/howto/disk-autoscaler',
-        'platform/howto/add-storage-space',
+
+        {
+          type: 'category',
+          label: 'Service scaling',
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+          ],
+        },
         'platform/howto/access-service-logs',
         'platform/howto/service-metrics',
         'platform/howto/migrate-services-cloud-region',

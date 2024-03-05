@@ -1,5 +1,5 @@
 ---
-title: Scale your Aiven service disks automatically
+title: Adjust disk storage automatically
 limited: true
 ---
 
@@ -60,8 +60,7 @@ the available disk storage capacity and depends on a service type:
     [limited availability feature](/docs/platform/concepts/beta_services). To try it out,
     contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 -   Aiven organization, project, and service up and running
--   [Dynamic disk sizing (DDS)](/docs/platform/concepts/dynamic-disk-sizing) supported
-    for the service plan and the cloud hosting the
+-   [Dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space) supported for the service plan and the cloud hosting the
     service
 -   Role of the operator for your Aiven organization, project, and
     service
@@ -382,4 +381,4 @@ running the commands to delete the following:
 
 ## Related pages
 
-[Dynamic disk sizing (DDS)](/docs/platform/concepts/dynamic-disk-sizing)
+[Dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space)
