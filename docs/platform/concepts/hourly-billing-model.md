@@ -1,5 +1,5 @@
 ---
-title: Billing overview
+title: Billing
 ---
 
 In the **Billing** section of the [Aiven
