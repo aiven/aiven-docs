@@ -237,10 +237,9 @@ const sidebars: SidebarsConfig = {
           label: 'Bring your own cloud',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-byoc',
+            id: 'platform/concepts/byoc',
           },
           items: [
-            'platform/concepts/byoc',
             'platform/howto/byoc/enable-byoc',
             'platform/howto/byoc/create-custom-cloud',
             'platform/howto/byoc/assign-project-custom-cloud',
