@@ -3,7 +3,7 @@ title: Migrate Aiven for Redis®* to Aiven for Dragonfly®
 limited: true
 ---
 
-Migrate your Aiven forRedis®* databases to Aiven for Dragonfly using the Aiven Console migration tool. Learn about compatibility and prerequisites, and follow the streamlined migration process for a smooth upgrade to the managed Aiven for Dragonfly service.
+Migrate your Aiven for Redis®* databases to Aiven for Dragonfly using the Aiven Console migration tool. Learn about compatibility and prerequisites, and follow the streamlined migration process for a smooth upgrade to the managed Aiven for Dragonfly service.
 
 ## Compatibility overview
 
