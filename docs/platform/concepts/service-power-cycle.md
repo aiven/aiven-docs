@@ -10,7 +10,7 @@ import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 
 Controlling when to power on and off your Aiven services allows you to control the use of resources and save credits.
-Idle resources are released and only the necessary data is kept after a power off.
+Idle resources are released and only the necessary data is kept after a power-off.
 The impact on the service is different depending on the service type and plan.
 
 Aiven service power off and power on can be done on [Aiven
