@@ -6,7 +6,18 @@
   padding: 4px 8px;
   font-size: 80%;
   vertical-align: middle;
+  white-space: nowrap;
+
 }
+
+article .aivenTooltip {
+  font-size: 13px;
+  font-weight: 400;
+  z-index: 100;
+  font-family: inter;
+  padding: 0.8em;
+}
+
 
 h1 .badge,
 h2 .badge,

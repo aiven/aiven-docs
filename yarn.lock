@@ -6699,6 +6699,7 @@ __metadata:
     react: "npm:^18.0.0"
     react-dom: "npm:^18.0.0"
     react-loadable: "npm:^5.5.0"
+    react-tooltip: "npm:^5.26.3"
     rehype-katex: "npm:7"
     remark-math: "npm:6"
     search-insights: "npm:^2.13.0"
