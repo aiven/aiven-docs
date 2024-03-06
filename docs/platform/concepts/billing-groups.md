@@ -1,5 +1,5 @@
 ---
-title: Billing groups overview
+title: Billing groups
 ---
 
 Billing groups let you set up common billing profiles in an organization

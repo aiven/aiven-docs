@@ -43,10 +43,9 @@ const sidebars: SidebarsConfig = {
       label: 'Organizations, units, and projects',
       link: {
         type: 'doc',
-        id: 'platform/howto/list-account',
+        id: 'platform/concepts/projects_accounts_access',
       },
       items: [
-        'platform/concepts/projects_accounts_access',
         'tools/aiven-console/howto/create-accounts',
         'platform/howto/manage-organizations',
         'platform/howto/manage-project',
@@ -61,10 +60,9 @@ const sidebars: SidebarsConfig = {
       label: 'Billing and payment',
       link: {
         type: 'doc',
-        id: 'platform/concepts/list-billing',
+        id: 'platform/concepts/hourly-billing-model',
       },
       items: [
-        'platform/concepts/hourly-billing-model',
         'platform/concepts/corporate-billing',
         'platform/concepts/tax-information',
         'platform/howto/update-tax-status',
@@ -97,10 +95,9 @@ const sidebars: SidebarsConfig = {
           label: 'Billing groups',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-billing-groups',
+            id: 'platform/concepts/billing-groups',
           },
           items: [
-            'platform/concepts/billing-groups',
             'platform/howto/create-billing-groups',
             'platform/howto/use-billing-groups',
             'platform/howto/billing-assign-projects',
@@ -240,10 +237,9 @@ const sidebars: SidebarsConfig = {
           label: 'Bring your own cloud',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-byoc',
+            id: 'platform/concepts/byoc',
           },
           items: [
-            'platform/concepts/byoc',
             'platform/howto/byoc/enable-byoc',
             'platform/howto/byoc/create-custom-cloud',
             'platform/howto/byoc/assign-project-custom-cloud',
