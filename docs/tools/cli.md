@@ -44,7 +44,7 @@ You can authenticate using your password or an
 ### Token authentication
 
 1. Create an
-[authentication token](/docs/platform/howto/create_authentication_token).
+   [authentication token](/docs/platform/howto/create_authentication_token).
 
 1. To authenticate with a token, run:
 
