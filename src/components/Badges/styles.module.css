@@ -1,0 +1,16 @@
+.badge {
+  border-radius: var(--badge-radius);
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 4px 8px;
+  font-size: 80%;
+  vertical-align: middle;
+}
+
+h1 .badge,
+h2 .badge,
+h3 .badge {
+  font-size: 43%;
+}
