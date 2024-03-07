@@ -23,13 +23,9 @@ with more than 10 times the throughput performance of Redis OSS, along
 with reduced latency. This makes it an ideal solution for enterprises
 with growing data needs.
 
-:::note
-Aiven for Dragonfly is fully supported by Aiven's service level agreements (SLAs),
-ensuring its capability to manage production workloads. As the latest addition to
-Aiven services, we recommend initiating a proof of concept (PoC)
-with Aiven for Dragonfly to thoroughly evaluate its capabilities and confirm its
-fit for your production requirements.
-:::
+import Note from "@site/static/includes/dragonflysla-note.md"
+
+<Note/>
 
 ## Features and benefits
 

@@ -5,13 +5,9 @@ sidebar_label: Get started
 
 Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
-:::note
-Aiven for Dragonfly is fully supported by Aiven's service level agreements (SLAs),
-ensuring its capability to manage production workloads. As the latest addition to
-Aiven services, we recommend initiating a proof of concept (PoC)
-with Aiven for Dragonfly to thoroughly evaluate its capabilities and confirm its
-fit for your production requirements.
-:::
+import Note from "@site/static/includes/dragonflysla-note.md"
+
+<Note/>
 
 ## Create a service using the Aiven Console
 
