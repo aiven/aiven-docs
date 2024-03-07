@@ -377,14 +377,11 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/cli/account',
-            'tools/cli/account/account-team',
             'tools/cli/billing-group',
             'tools/cli/cloud',
             'tools/cli/credits',
             'tools/cli/events',
             'tools/cli/mirrormaker',
-            'tools/cli/project',
             {
               type: 'category',
               label: 'avn service',
