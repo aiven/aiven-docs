@@ -4,15 +4,10 @@ title: Create a Debezium source connector from PostgreSQL® to Apache Kafka®
 
 The Debezium source connector extracts the changes committed to the transaction log in a relational database, such as PostgreSQL®, and writes them to an Apache Kafka® topic in a standard format where they can be transformed and read by multiple consumers.
 
-:::note
-**Breaking changes in Debezium 2.5**:
-Debezium version 2.5 introduces significant changes to the connector's configuration
-and behavior. New setups [defaults to version 2.5](https://debezium.io/releases/2.5/release-notes)
-while existing setups using version 1.9 remain on that version for stability.
-Test configurations with version 2.5 before upgrading. The `wal2json` plugin is
-deprecated in this version; consider transitioning to `pgoutput` or `decoderbufs`.
-For help with upgrades or queries, contact Aiven support.
-:::
+import Note from "@site/static/includes/debezium-breakingchange.md"
+
+<Note/>
+
 
 ## Prerequisites {#connect_debezium_pg_source_prereq}
 

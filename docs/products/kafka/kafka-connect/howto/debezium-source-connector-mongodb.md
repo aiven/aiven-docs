@@ -4,15 +4,10 @@ title: Create a Debezium source connector from MongoDB to Apache Kafka®
 
 Track and write MongoDB database changes to an Apache Kafka® topic in a standard format with the Debezium source connector, enabling transformation and access by multiple consumers using a MongoDB replica set or sharded cluster.
 
-:::note
-**Breaking changes in Debezium 2.5**:
-Debezium version 2.5 introduces significant changes to the connector's configuration
-and behavior. New setups [defaults to version 2.5](https://debezium.io/releases/2.5/release-notes)
-while existing setups using version 1.9 remain on that version for stability.
-Test configurations with version 2.5 before upgrading. Review the specific
-changes to the MongoDB connector in Debezium 2.5.
-For help with upgrades or queries, contact Aiven support.
-:::
+import Note from "@site/static/includes/debezium-breakingchange.md"
+
+<Note/>
+
 
 ## Prerequisites {#connect_debezium_mongodb_source_prereq}
 
@@ -119,14 +114,13 @@ To create a Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
-1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service where
-    you want to define the connector.
+1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service
+    to define the connector.
 
 1.  Select **Connectors** from the sidebar.
 
-1.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+1.  Select **Create New Connector**, which is available only for
+    services [that have Apache Kafka Connect enabled](enable-connect).
 
 1.  Select **Debezium - MongoDB**.
 

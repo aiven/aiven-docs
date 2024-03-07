@@ -3,15 +3,10 @@ title: Create a Debezium source connector from MySQL to Apache Kafka®
 ---
 The MySQL Debezium source connector extracts the changes committed to the database binary log (binlog), and writes them to an Apache Kafka® topic in a standard format where they can be transformed and read by multiple consumers.
 
-:::note
-**Breaking changes in Debezium 2.5**:
-Debezium version 2.5 introduces significant changes to the connector's configuration
-and behavior. New setups [defaults to version 2.5](https://debezium.io/releases/2.5/release-notes)
-while existing setups using version 1.9 remain on that version for stability.
-Test configurations with version 2.5 before upgrading. For MySQL, review any
-specific deprecations or recommended plugin transitions in this version.
-For help with upgrades or queries, contact Aiven support.
-:::
+import Note from "@site/static/includes/debezium-breakingchange.md"
+
+<Note/>
+
 
 ## Schema versioning {#connect_debezium_mysql_schema_versioning}
 
@@ -181,13 +176,13 @@ To create a Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
-1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service where
-    you want to define the connector.
+1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service
+    to define the connector.
 
 1. Select **Connectors** from the sidebar.
 
-1. Select **Create New Connector**, the button is enabled only for
-   services [with Apache Kafka Connect enabled](enable-connect).
+1. Select **Create New Connector**, which is available only for
+   services [that have Apache Kafka Connect enabled](enable-connect).
 
 1. Select the **Debezium - MySQL**.
 

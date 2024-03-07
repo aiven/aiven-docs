@@ -1,22 +1,11 @@
 ---
 title: Create a Debezium source connector from SQL Server to Apache Kafka® with CDC
 ---
+The SQL Server Debezium source connector uses the [change data capture (CDC) ](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-2017) feature to extract database changes from designated tables and write them to Apache Kafka® topic in a standard format for multiple consumers to read and transform.
 
-The SQL Server Debezium source connector uses the
-[change data capture (CDC)
-](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-2017)
-feature to extract database changes from designated tables and write them to
-Apache Kafka® topic in a standard format for multiple consumers to read and transform.
+import Note from "@site/static/includes/debezium-breakingchange.md"
 
-:::note
-**Breaking changes in Debezium 2.5**:
-Debezium version 2.5 introduces significant changes to the connector's configuration
-and behavior. New setups [defaults to version 2.5](https://debezium.io/releases/2.5/release-notes)
-while existing setups using version 1.9 remain on that version for stability.
-Test configurations with version 2.5 before upgrading. Review the specific changes to the
-SQL Server connector in Debezium 2.5. For help with upgrades or queries, contact
-Aiven support.
-:::
+<Note/>
 
 ## Enable CDC in SQL Server {#connect_debezium_sql_server_schema_versioning}
 
@@ -247,13 +236,13 @@ To create a Kafka Connect connector, follow these steps:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 
-1. Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service where
-   you want to define the connector.
+1. Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service
+   to define the connector.
 
 1. Select **Connectors** from the  sidebar.
 
-1. Select **Create New Connector**, the button is enabled only for
-    services [with Kafka Connect enabled](enable-connect).
+1. Select **Create New Connector**, which is available only for
+   services [that have Apache Kafka Connect enabled](enable-connect).
 
 1. Select **Debezium - SQL Server**.
 
