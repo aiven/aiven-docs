@@ -4,10 +4,7 @@ sidebar_label: Enable tiered storage
 early: true
 ---
 
-Tiered storage significantly improves the storage efficiency of your
-Aiven for Apache Kafka® service. You can enable this feature for your
-service using either the [Aiven console](https://console.aiven.io/) or
-the [Aiven CLI](/docs/tools/cli).
+Tiered storage significantly improves the storage efficiency of your Aiven for Apache Kafka® service. You can enable this feature for your service using either the [Aiven console](https://console.aiven.io/) or the [Aiven CLI](/docs/tools/cli).
 
 ## Prerequisites
 
@@ -18,11 +15,6 @@ the [Aiven CLI](/docs/tools/cli).
     page](https://aiven.io/pricing?product=kafka) for a comprehensive
     list of supported plans and regions.
 -   Aiven CLI
--   The tiered storage for Aiven for Apache Kafka® is an **early availability**
-    feature and requires activation on your Aiven account.
-    Contact [our sales team](mailto:sales@aiven.io) to request activation. Once activated,
-    enable tiered storage from the [feature preview](/docs/platform/howto/feature-preview)
-    page in your user profile to start using it.
 
 ## Enable tiered storage via Aiven Console
 
@@ -31,18 +23,17 @@ Aiven Console.
 
 1. Log in to the [Aiven console](https://console.aiven.io/), and select
     your project.
-1. Either create a new Aiven for Apache Kafka service or select an
+1. Choose to either create a new Aiven for Apache Kafka service or select an
    existing one.
    -   For [a new service](/docs/platform/howto/create_new_service):
 
        1.  On the **Create Apache Kafka® service** page, scroll down to
            the **Tiered storage** section.
-       1.  Turn on the **Enable tiered storage** toggle to activate
-           tiered storage.
+       1.  Click **Enable tiered storage**.
        1.  In the **Service summary**, you can view the pricing for
            tiered storage.
    -   For an existing service:
-       1.  Go to the service's **Overview** page, select **Service
+       1.  Go to the service's **Overview** page, click **Service
            settings** from the sidebar.
        1.  In the Service plan section, click **Enable tiered storage**
            to activate it.
@@ -89,7 +80,7 @@ Additionally, you can configure the retention policies from the
 
 For optimal performance and reduced risk of broker interruptions when
 using tiered storage, it is recommended to update the client-side
-parameter `fetch.max.wait.ms` from its default value of 500ms to 5000ms.
+parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
 
 ## Enable tiered storage via Aiven CLI
 

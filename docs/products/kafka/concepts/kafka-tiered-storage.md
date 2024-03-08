@@ -31,7 +31,7 @@ Tiered storage offers multiple benefits, including:
     storage and computing are effectively decoupled, enabling them to
     scale independently. This flexibility ensures that while the storage
     capacity can expand almost infinitely with cloud solutions, compute
-    resources can also be adjusted based on demand, thus eliminating any
+    resources can also be adjusted based on demand, thereby eliminating any
     concerns about storage or processing limitations.
 -   **Cost efficiency:** By moving less frequently accessed data to a
     cost-effective storage tier, you can achieve significant financial
