@@ -1,6 +1,5 @@
 ---
 title: High availability in Aiven for Dragonfly®
-limited: true
 ---
 
 Aiven for Dragonfly® offers different plans with varying levels of high availability.
@@ -46,8 +45,15 @@ summary of these plans:
 
 ## Failure handling
 
-- **Minor failures**: Aiven automatically handles minor failures, such as service process crashes or temporary loss of network access, without any significant changes to the service deployment. In all plans, the service automatically restores regular operation by restarting crashed processes or restoring network access when available.
-- **Severe failures**: In case of severe hardware or software problems, such as losing an entire node, more drastic recovery measures are required. Aiven's monitoring infrastructure automatically detects a failing node when it reports problems with its self-diagnostics or stops communicating altogether. The monitoring infrastructure then schedules the creation of a new replacement node.
+- **Minor failures**: Aiven automatically handles minor failures, such as service process
+  crashes or temporary loss of network access, without any significant changes to the
+  service deployment. In all plans, the service automatically restores regular operation
+  by restarting crashed processes or restoring network access when available.
+- **Severe failures**: In case of severe hardware or software problems, such as losing
+  an entire node, more drastic recovery measures are required. Aiven's monitoring
+  infrastructure automatically detects a failing node when it reports problems with its
+  self-diagnostics or stops communicating altogether. The monitoring infrastructure then
+  schedules the creation of a new replacement node.
 
 :::note
 In case of database failover, your service's
@@ -69,7 +75,7 @@ the standby. However, during this transition, there may be a brief service inter
 If the primary and standby nodes fail simultaneously, new nodes are created
 automatically to replace them. However, this may lead to data loss as the primary
 node is restored from the latest backup. As a result, any database writes made since
-the last backup could be lost.
+the last backup can be lost.
 
 :::note
 The duration for replacing a failed node depends mainly on the **cloud region**

@@ -42,7 +42,7 @@ print(f'The value of key is: {value.decode()}')
 ```
 
 This code connects to Dragonfly, sets a key named `key` with the value
-`hello world` (without expiration), and then retrieves and prints the
+`hello world` (without expiration), and retrieves and prints the
 value of this key.
 
 ## Run the code
