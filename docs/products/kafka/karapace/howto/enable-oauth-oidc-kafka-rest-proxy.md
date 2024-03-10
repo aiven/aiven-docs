@@ -2,11 +2,7 @@
 title: Enable OAuth2/OIDC support for Apache Kafka® REST proxy
 ---
 
-Secure your Apache Kafka® resources by integrating OAuth 2.0/OpenID
-Connect (OIDC) with the Karapace REST proxy and enabling REST proxy
-authorization. This setup ensures that only authorized individuals can
-manage Apache Kafka resources through both token-based authentication
-and access control rules.
+Secure your Apache Kafka® resources by integrating OAuth 2.0/OpenID Connect (OIDC) with the Karapace REST proxy and enabling REST proxy authorization. This setup ensures that only authorized individuals can manage Apache Kafka resources through both token-based authentication and access control rules.
 
 ## OAuth2/OIDC token handling
 
@@ -68,8 +64,8 @@ complete the following prerequisites and configuration steps:
 
 ### Configuration via Aiven Console
 
-1.  In [Aiven Console](https://console.aiven.io/), select your project
-    and then choose your Aiven for Apache Kafka® service.
+1. In [Aiven Console](https://console.aiven.io/), select your project,
+   and choose your Aiven for Apache Kafka® service.
 1. In the service page, select **Service settings** from the sidebar.
 1. On the **Service settings** page, scroll down to the **Advanced configuration**
    section, and click **Configure**.

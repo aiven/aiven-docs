@@ -33,3 +33,4 @@
 /platform/concepts/list-billing                       https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/howto/list-billing-groups                   https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                             https://aiven.io/docs/platform/concepts/byoc
+/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   https://aiven.io/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
