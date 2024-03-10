@@ -19,7 +19,8 @@ performed without any restrictions.
 
 ### Configure via Aiven Console
 
-1. In the [Aiven Console](https://console.aiven.io/), select your project and choose your Aiven for Apache Kafka® service.
+1. In the [Aiven Console](https://console.aiven.io/), select your project and
+   choose your Aiven for Apache Kafka® service.
 1. Click **Service settings** from the sidebar.
 1. Scroll down to the **Advanced configuration** section, and click **Configure**.
 1. In the **Advanced configuration** dialog, click **Add configuration options**.
