@@ -68,10 +68,10 @@ languages:
 
 ## Limitations at General Availability (GA)
 
-As Aiven for Dragonfly moves to General Availability (GA), the focus is on delivering
-the most valuable features to you, guided by your feedback. During the initial phase of
-GA, automatic migration of Users, Access Control Lists (ACLs), and service configurations
-from Redis to Dragonfly will not be included.
+As Aiven for Dragonfly transitions to General Availability (GA), the focus is to deliver
+the most valuable features based on feedback. Currently, automatic migration of Users,
+Access Control Lists (ACLs), and service configurations from Redis to Aiven for Dragonfly
+is not supported.
 
 What this means:
 
