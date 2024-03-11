@@ -4,13 +4,14 @@ title: Service backups
 
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import Database from "@site/static/images/icons/db-backup.svg";
+import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
 **Backed up services:** All Aiven services, except for Apache Kafka® and M3
 Aggregator/Coordinator.
 
-**Backup location:**: Backups are stored in the object storage of the cloud region
+**Backup location:** Backups are stored in the object storage of the cloud region
 where the service is first created, for example, S3 for AWS or GCS for GCP.
 
 ## Display service backups
@@ -207,7 +208,7 @@ are constantly archived to the cloud object storage. In case of node
 failure,
 
 - For a business or premium plan, Aiven can reconstruct the latest
-  state from a replica
+  state from a replica.
 - For a startup plan, Aiven can reconstruct the latest state from the
   latest base backup and replay the latest WAL segments on top of
   that.
@@ -216,11 +217,9 @@ You can supplement this with a remote read-only replica service, which
 you can run in a different cloud region or with another cloud provider
 and promote to master if needed.
 
-To shift the backup schedule to a new time, you can modify the backup
-time configuration option in **Advanced configuration** in [Aiven
-Console](https://console.aiven.io/) (the service's **Service settings**
-page). If a recent backup has been taken, it may take another backup
-cycle before the new backup time takes effect.
+#### Edit the backup schedule
+
+<EditBackUpSchedule/>
 
 For more information, refer to:
 
@@ -236,14 +235,11 @@ with the open source [myhoard](https://github.com/aiven/myhoard)
 software. Myhoard uses [Percona XtraBackup](https://www.percona.com/)
 internally for taking full (or incremental) snapshots for MySQL.
 
-To shift the backup schedule to a new time, you can modify the backup
-time configuration option in **Advanced configuration** in [Aiven
-Console](https://console.aiven.io/) (the service's **Service settings**
-page). If a recent backup has been taken, it may take another backup
-cycle before the new backup time takes effect.
+#### Edit the backup schedule
 
-For more information, refer to [MySQL
-Backups](/docs/products/mysql/concepts/mysql-backups).
+<EditBackUpSchedule/>
+
+For more information, refer to [MySQL Backups](/docs/products/mysql/concepts/mysql-backups).
 
 ### Aiven for OpenSearch®
 
