@@ -144,7 +144,7 @@ schedule. After the EOL date:
     latest version.
 1.  If the service is powered off, it's deleted.
 
-Aiven offers [database forking](/docs/platform/howto/console-fork-service) as an efficient
+Aiven offers [database forking](/docs/platform/concepts/service-forking) as an efficient
 tool to test the version upgrade before upgrading their production services.
 
 ## Aiven tools

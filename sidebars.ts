@@ -196,13 +196,11 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'platform/howto/create_new_service',
-        'platform/howto/rename-a-service',
         'platform/howto/tag-resources',
         'platform/howto/search-services',
         'platform/howto/recover-a-deleted-service',
         'platform/howto/create_new_service_user',
         'platform/concepts/service-forking',
-        'platform/howto/console-fork-service',
         'platform/concepts/service_backups',
         'platform/concepts/service-power-cycle',
         'platform/concepts/service-resources',

@@ -29,6 +29,8 @@
 /products/postgresql/reference/high-cpu-load-of-pgbouncer https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
 /platform/howto/pause-from-cli                        https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/cleanup-powered-off-services          https://aiven.io/docs/platform/concepts/service-power-cycle
+/platform/howto/console-fork-service                  https://aiven.io/docs/platform/concepts/service-forking
+/platform/howto/rename-a-service                      https://aiven.io/docs/platform/concepts/service-forking
 /platform/howto/list-account                          https://aiven.io/docs/platform/concepts/projects_accounts_access
 /platform/concepts/list-billing                       https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/howto/list-billing-groups                   https://aiven.io/docs/platform/concepts/billing-groups
