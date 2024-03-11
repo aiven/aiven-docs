@@ -1,6 +1,6 @@
 ---
 title: Cross-cluster replication
-pro: true
+enterprise: true
 limited: true
 ---
 

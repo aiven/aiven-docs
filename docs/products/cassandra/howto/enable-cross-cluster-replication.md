@@ -1,6 +1,6 @@
 ---
 title: Enable cross-cluster replication in Aiven for Apache Cassandra®
-pro: true
+enterprise: true
 limited: true
 ---
 
@@ -51,11 +51,11 @@ Using [Aiven Console](https://console.aiven.io/), you can enable CCR for
     1.  Optionally, add an additional disk storage for your services.
     1.  Enter names for your services.
 
-:::note[Datacenters names]
-Notice that the service names you enter are automatically copied as the
-names for datacenters for the services. The datacenters names can be
-required when executing statements on your databases.
-:::
+    :::note[Datacenter names]
+    The service names you enter are automatically copied as the
+    names for datacenters for the services. The datacenters names can be
+    required when executing statements on your databases.
+    :::
 
 1.  Verify your choices in the **Services summary** card on the right
     and, if your configuration turns out as expected, select **+Create

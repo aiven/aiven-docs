@@ -1,6 +1,6 @@
 ---
 title: Cross-cluster replication with Aiven for Apache Cassandra®
-pro: true
+enterprise: true
 limited: true
 ---
 

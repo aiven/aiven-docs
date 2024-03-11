@@ -1,6 +1,6 @@
 ---
 title: Disable cross-cluster replication in Aiven for Apache Cassandra®
-pro: true
+enterprise: true
 limited: true
 ---
 
@@ -58,7 +58,7 @@ your services for CCR purposes.
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 
 1.  From the **Services** page, select an Aiven for Apache Cassandra
-    service on which you'd like to enable CCR.
+    service on which you'd like to disable CCR.
 
 1.  In the **Overview** page of the service, navigate to the **Cross
     Cluster Replication** section and select the name of the service
