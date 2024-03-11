@@ -985,6 +985,7 @@ const sidebars: SidebarsConfig = {
                     'products/flink/howto/create-integration',
                     'products/flink/howto/ext-kafka-flink-integration',
                     'products/flink/howto/connect-bigquery',
+                    'products/flink/howto/ext-pg-flink-integration',
                   ],
                 },
                 {

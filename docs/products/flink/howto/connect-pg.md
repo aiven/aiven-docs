@@ -80,7 +80,7 @@ page](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table
 The Aiven for PostgreSQL® service named `pg-demo` contains a table named
 `students` in the `public` schema with the following structure:
 
-``` 
+```
 CREATE TABLE students_tbl (
   student_id INT,
   student_name VARCHAR
@@ -88,7 +88,7 @@ CREATE TABLE students_tbl (
   'connector' = 'jdbc',
   'url' = 'jdbc:postgresql://',
   'table-name' = 'public.students'
-  )  
+  )
 ```
 
 The `url` will be substituted with the appropriate address during
