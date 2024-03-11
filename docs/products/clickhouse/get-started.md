@@ -3,6 +3,9 @@ title: Get started with Aiven for ClickHouse®
 sidebar_label: Get started
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Start using Aiven for ClickHouse® by creating a service, adding a database, and connecting using [Docker](https://www.docker.com/).
 
 ## Create a ClickHouse service
@@ -20,11 +23,8 @@ Create a database either in the [Aiven Console](https://console.aiven.io/) or
 programmatically using the [Aiven API](/docs/tools/api).
 
 :::important
-Do not create a database using SQL.
+You cannot create a database using ClickHouse's SQL.
 :::
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="1" label="Aiven Console" groupId="group1" default>
