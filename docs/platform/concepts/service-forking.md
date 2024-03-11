@@ -88,7 +88,7 @@ Apply any integrations required by the fork.
 
 ## Rename a service
 
-A service cannot be renamed after creation. Instead:
+A service cannot be renamed after creation. Instead, use a fork:
 
 1. Stop service writes on the service to rename.
 1. Fork the service under a different name.
@@ -97,7 +97,6 @@ A service cannot be renamed after creation. Instead:
 
 ## Related pages
 
-- [Fork a service](/docs/platform/concepts/service-forking)
 - [Create a service](/docs/platform/howto/create_new_service)
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
