@@ -20,19 +20,18 @@ sizes, the connections between the tables and columns in the query.
 
 To optimize a query:
 
-1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL service.
+1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for
+   PostgreSQL service.
 1. Click <Insights className="icon"/> **AI insights**.
 1. For the query of your choice, click **Optimize**.
-   A window displays the query.
-1. In the **Query optimization report** window, see the optimization suggestion.
+1. In the **Query optimization report** window, see the optimization suggestion and apply
+   the suggestion by running the provided SQL queries.
 
    <!-- :::note
    - To display alternative optimization recommendations, click **Advanced options**.
    - To display the diff view, click **Query diff**.
    - To display explanations about the optimization, click **optimization details**.
    ::: -->
-
-1. To apply the suggestion, run the SQL queries provided in the window.
 
 ## Manual optimization
 
