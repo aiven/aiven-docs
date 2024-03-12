@@ -4,6 +4,8 @@ sidebar_label: Collect audit logs
 enterprise: true
 ---
 
+import AuditLogsOpenSearchDashboards from "@site/static/images/content/products/postgresql/pgaudit-logs-in-os-dashboards.png";
+
 Enable and configure the [Aiven for PostgreSQL® audit logging feature](/docs/products/postgresql/concepts/pg-audit-logging) on your service. Access and visualize your logs to monitor activities on your databases.
 
 ## Prerequisites
@@ -19,10 +21,10 @@ Enable and configure the [Aiven for PostgreSQL® audit logging feature](/docs/pr
 
 ## Enable audit logging
 
-Enable audit logging by setting the `pgaudit.featureEnabled` parameter to
+Enable audit logging by setting the `pgaudit.feature_enabled` parameter to
 `true` in your service's advanced configuration. Using the Aiven
-[console](https://console.aiven.io/), [API](https://api.aiven.io/doc/),
-[CLI](/docs/tools/cli), or [psql](https://www.postgresql.org/docs/current/app-psql.html).
+[console](https://console.aiven.io/), [CLI](/docs/tools/cli), or
+[psql](https://www.postgresql.org/docs/current/app-psql.html).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -43,40 +45,18 @@ level only. To enable it on a database or for a user, you need to use
 1. On the **Service settings** page, navigate to the **Advanced configuration** section
    and select **Configure**.
 1. In the **Advanced configuration** window, select **Add configuration options**, add
-   the `pgaudit.featureEnabled` parameter, set it to `true`, and select
+   the `pgaudit.feature_enabled` parameter, set it to `true`, and select
    **Save configuration**.
 </TabItem>
-<TabItem value="2" label="Aiven API">
-### Enable with Aiven API
-
-You can use the `curl` command line tool to interact with the
-[Aiven API](/docs/tools/api). Call the
-[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint to
-update your service's configuration by passing `{"pgaudit.featureEnabled": "true"}` in
-the `user_config` object.
-
-```bash
-curl --request PUT                                                                      \
-   --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service/YOUR_SERVICE_NAME    \
-   --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                                   \
-   --header 'content-type: application/json'                                            \
-   --data
-      '{
-         "user_config": {
-            "pgaudit.featureEnabled": "true"
-         }
-      }'
-```
-</TabItem>
-<TabItem value="3" label="Aiven CLI">
+<TabItem value="2" label="Aiven CLI">
 ### Enable with Aiven CLI
 
 Use the [Aiven CLI client](/docs/tools/cli) to run the
 [avn service update](/docs/tools/cli/service-cli) command. Update your service by setting
-the `pgaudit.featureEnabled` parameter's value to `true`.
+the `pgaudit.feature_enabled` parameter's value to `true`.
 
 ```bash
-avn service update -c pgaudit.featureEnabled=true SERVICE_NAME
+avn service update -c pgaudit.feature_enabled=true SERVICE_NAME
 ```
 
 :::important
@@ -85,7 +65,7 @@ and start receiving audit records, configure audit logging parameters as detaile
 [Configure audit logging](#configure-audit-logging).
 :::
 </TabItem>
-<TabItem value="4" label="psql">
+<TabItem value="3" label="psql">
 ### Enable with psql
 
 :::note
@@ -117,9 +97,8 @@ or for a database-role combination.
 
 Configure audit logging by setting
 [its parameters](https://github.com/pgaudit/pgaudit/tree/6afeae52d8e4569235bf6088e983d95ec26f13b7#readme)
-in the [Aiven Console](https://console.aiven.io/), programmatically with the
-[Aiven API](https://api.aiven.io/doc/), with the [Aiven CLI](/docs/tools/cli), or using
-[psql](https://www.postgresql.org/docs/current/app-psql.html).
+in the [Aiven Console](https://console.aiven.io/), with the [Aiven CLI](/docs/tools/cli),
+or using [psql](https://www.postgresql.org/docs/current/app-psql.html).
 
 :::important
 
@@ -151,30 +130,7 @@ service only. To enable it on a database or for a user, use
    desired parameter (all prefixed with `pgaudit.log`), set its value as needed, and
    select **Save configuration**.
 </TabItem>
-<TabItem value="2" label="Aiven API">
-### Configure with Aiven API
-
-Use the [Aiven API](https://api.aiven.io/doc/) to configure audit logging on your
-service. Call the
-[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint
-passing desired audit logging parameters in the `user_config` object.
-
-```bash
-curl --request PUT                                                                      \
-   --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service/YOUR_SERVICE_NAME    \
-   --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                                   \
-   --header 'content-type: application/json'                                            \
-   --data
-      '{
-         "user_config": {
-            "pgaudit": {
-               "PARAMETER_NAME": "PARAMETER_VALUE"
-            }
-         }
-         }'
-```
-</TabItem>
-<TabItem value="3" label="Aiven CLI">
+<TabItem value="2" label="Aiven CLI">
 ### Configure with Aiven CLI
 
 Use the [Aiven CLI client](/docs/tools/cli) to configure audit logging on
@@ -184,7 +140,7 @@ your service by running the following command:
 avn service update -c pgaudit.PARAMETER_NAME=PARAMETER_VALUE SERVICE_NAME
 ```
 </TabItem>
-<TabItem value="4" label="psql">
+<TabItem value="3" label="psql">
 ### Configure with psql
 
 :::note
@@ -308,7 +264,7 @@ logs.
 To preview your audit logs in OpenSearch Dashboards, use the filtering tool: select
 `AIVEN_AUDIT_FROM`, set its value to `pg`, and apply the filter.
 
-![Audit logging logs in OpenSearch Dashboards](/images/products/postgresql/pgaudit-logs-in-os-dashboards.png)
+<img src={AuditLogsOpenSearchDashboards} class="image"/>
 
 :::note
 If the index pattern in OpenSearch Dashboards had been configured before you enabled the
@@ -319,10 +275,10 @@ filtering. Refresh the fields list for the index in OpenSearch Dashboards under
 
 ## Disable audit logging
 
-Disable audit logging by setting the `pgaudit.featureEnabled` parameter to
+Disable audit logging by setting the `pgaudit.feature_enabled` parameter to
 `false` in your service's advanced configuration. Use the Aiven
-[console](https://console.aiven.io/), [API](https://api.aiven.io/doc/),
-[CLI](/docs/tools/cli), or [psql](https://www.postgresql.org/docs/current/app-psql.html).
+[console](https://console.aiven.io/), [CLI](/docs/tools/cli), or
+[psql](https://www.postgresql.org/docs/current/app-psql.html).
 
 :::important
 Audit logging is disabled automatically if you unsubscribe from
@@ -345,42 +301,21 @@ service only. To disable it on a database or for a user, use
 1. On the **Service settings** page, navigate to the **Advanced configuration** section
    and select **Configure**.
 1. In the **Advanced configuration** window, select **Add configuration options**, add the
-   `pgaudit.featureEnabled` parameter, set it to `false`, and select
+   `pgaudit.feature_enabled` parameter, set it to `false`, and select
    **Save configuration**.
 </TabItem>
-<TabItem value="2" label="Aiven API">
-### Disable with Aiven API
-
-Use the `curl` command line tool to call the
-[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint.
-Update your service's configuration by passing `{"pgaudit.featureEnabled": "false"}` in
-the `user_config` object.
-
-```bash
-curl --request PUT                                                                      \
-   --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service/YOUR_SERVICE_NAME    \
-   --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                                   \
-   --header 'content-type: application/json'                                            \
-   --data
-      '{
-         "user_config": {
-            "pgaudit.featureEnabled": "false"
-         }
-      }'
-```
-</TabItem>
-<TabItem value="3" label="Aiven CLI">
+<TabItem value="2" label="Aiven CLI">
 ### Disable with Aiven CLI
 
 Use the [Aiven CLI client](/docs/tools/cli) to run the
 [avn service update](/docs/tools/cli/service-cli) command. Update your service by setting
-the `pgaudit.featureEnabled` parameter's value to `false`.
+the `pgaudit.feature_enabled` parameter's value to `false`.
 
 ```bash
-avn service update -c pgaudit.featureEnabled=false SERVICE_NAME
+avn service update -c pgaudit.feature_enabled=false SERVICE_NAME
 ```
 </TabItem>
-<TabItem value="4" label="psql">
+<TabItem value="3" label="psql">
 ### Disable with psql
 
 :::note
