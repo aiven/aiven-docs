@@ -8,7 +8,7 @@ import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
-**Backed up services:** All Aiven services, except for Apache Kafka® and M3
+**Backed-up services:** All Aiven services, except for Apache Kafka® and M3
 Aggregator/Coordinator.
 
 **Backup location:** Backups are stored in the object storage of the cloud region
