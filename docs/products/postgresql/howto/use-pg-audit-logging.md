@@ -13,8 +13,6 @@ Enable and configure the [Aiven for PostgreSQL® audit logging feature](/docs/pr
 - `avnadmin` superuser role
 - Dev tool of your choice to interact with the feature
   - [Aiven Console](https://console.aiven.io/)
-  - [Aiven API](https://api.aiven.io/doc/)
-    ([Aiven API Postman collection](https://www.postman.com/aiven-apis/workspace/aiven/collection/21112408-1f6306ef-982e-49f8-bdae-4d9fdadbd6cd))
   - [Aiven CLI client](/docs/tools/cli)
   - [psql](https://www.postgresql.org/docs/current/app-psql.html) for advanced
     configuration
@@ -112,15 +110,6 @@ or for a database-role combination.
    ```sql
    SELECT aiven_extras.set_pgaudit_role_parameter('log', ROLE_NAME, 'ddl');
    ```
-
-#### Enable on a DB for a user
-
-1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
-1. Run the following query:
-
-   ```sql
-   SELECT aiven_extras.set_pgaudit_parameter('log', DATABASE_NAME, ROLE_NAME, 'ddl');
-   ```
 </TabItem>
 </Tabs>
 
@@ -209,7 +198,7 @@ psql allows for fine-grained configuration of audit logging: on a database, for 
 1. Run the following query:
 
    ```sql
-   ALTER DATABASE DATABASE_NAME SET pgaudit.log_PARAMETER_NAME = PARAMETER_VALUE
+   SELECT aiven_extras.set_pgaudit_parameter(PARAMETER_NAME, DATABASE_NAME, ROLE_NAME, PARAMETER_VALUE);
    ```
 
 #### Configure for a user
@@ -218,16 +207,7 @@ psql allows for fine-grained configuration of audit logging: on a database, for 
 1. Run the following query:
 
    ```sql
-   ALTER ROLE ROLE_NAME SET pgaudit.log_PARAMETER_NAME = PARAMETER_VALUE
-   ```
-
-#### Configure on a DB for a user
-
-1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
-1. Run the following query:
-
-   ```sql
-   ALTER ROLE ROLE_NAME IN DATABASE DATABASE_NAME SET pgaudit.log_PARAMETER_NAME = PARAMETER_VALUE
+   SELECT aiven_extras.set_pgaudit_role_parameter(PARAMETER_NAME, ROLE_NAME, PARAMETER_VALUE);
    ```
 </TabItem>
 </Tabs>
@@ -258,8 +238,8 @@ For more details on how to set up, configure, and use session audit logging, che
 
 ## Access your logs
 
-You can access your Aiven for PostgreSQL audit logs either [directly in the log output of
-your service](#access-pg-log) or by
+You can access your Aiven for PostgreSQL audit logs either
+[directly in the log output of your service](#access-pg-log) or by
 [integrating with another service that allows monitoring and analyzing logs, such as Aiven for OpenSearch®](#access-in-integration).
 
 ### Access in Aiven for PostgreSQL {#access-pg-log}
@@ -414,7 +394,7 @@ database-role combination.
 1. Run the following query:
 
    ```sql
-   ALTER DATABASE DATABASE_NAME set pgaudit.featureEnabled = 'off'
+   SELECT aiven_extras.set_pgaudit_parameter('log', DATABASE_NAME, ROLE_NAME, 'none');
    ```
 
 #### Disable for a user
@@ -423,16 +403,7 @@ database-role combination.
 1. Run the following query:
 
    ```sql
-   ALTER ROLE ROLE_NAME SET pgaudit.featureEnabled = 'off'
-   ```
-
-#### Disable on a DB for a user
-
-1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
-1. Run the following query:
-
-   ```sql
-   ALTER ROLE ROLE_NAME IN DATABASE DATABASE_NAME SET pgaudit.featureEnabled = 'off'
+   SELECT aiven_extras.set_pgaudit_role_parameter('log', ROLE_NAME, 'none');
    ```
 </TabItem>
 </Tabs>

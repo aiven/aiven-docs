@@ -118,8 +118,7 @@ Aiven for PostgreSQL® audit logging requires the following:
 To use the audit logging on your service (database) for collecting logs in Aiven for
 PostgreSQL, you need to
 [enable and configure this feature](/docs/products/postgresql/howto/use-pg-audit-logging)
-using the [Aiven Console](https://console.aiven.io), the
-[Aiven API](https://api.aiven.io/doc/), the [Aiven CLI](/docs/tools/cli), or
+using the [Aiven Console](https://console.aiven.io), the [Aiven CLI](/docs/tools/cli), or
 [psql](https://www.postgresql.org/docs/current/app-psql.html).
 
 ### Configuration options
@@ -187,8 +186,7 @@ use [OpenSearch Dashboards](/docs/products/opensearch/dashboards).
 To
 [disable the audit logging on your service (database)](/docs/products/postgresql/howto/use-pg-audit-logging),
 you need to modify your service's advanced configuration with the
-[Aiven Console](https://console.aiven.io), the [Aiven API](https://api.aiven.io/doc/), the
-[Aiven CLI](/docs/tools/cli), or
+[Aiven Console](https://console.aiven.io), the [Aiven CLI](/docs/tools/cli), or
 [psql](https://www.postgresql.org/docs/current/app-psql.html).
 
 ## What's next
