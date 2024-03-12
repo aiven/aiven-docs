@@ -1022,6 +1022,7 @@ const sidebars: SidebarsConfig = {
                         'products/flink/howto/connect-pg',
                         'products/flink/howto/connect-opensearch',
                         'products/flink/howto/pg-cdc-connector',
+                        'products/flink/howto/ext-pg-cdc-jdbc-connector',
                         'products/flink/howto/slack-connector',
                         'products/flink/howto/datagen-connector',
                       ],

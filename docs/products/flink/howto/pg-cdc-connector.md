@@ -2,6 +2,8 @@
 title: Create a PostgreSQL® CDC connector-based Apache Flink®
 ---
 
+Learn how to create a PostgreSQL CDC connector-based Apache Flink® table.
+
 Change Data Capture (CDC) is a technique that enables the tracking and
 capturing of changes made to data within a PostgreSQL® database. By
 identifying and capturing changes at the granular row level, CDC enables
@@ -14,9 +16,6 @@ power of the PostgreSQL CDC Connector to stream and process real-time
 data changes from PostgreSQL databases. Integrated with the Debezium
 engine, the CDC connector captures changes at the granular level of each
 table within an event stream.
-
-This article provides you with information on how to create a PostgreSQL
-CDC connector-based Apache Flink® table.
 
 ## Prerequisites
 
@@ -46,14 +45,14 @@ source PostgreSQL database:
     authentication.
 -   `Schema name`: The schema name where the source table is located
     within the database.
--   `Table name`: The name of the source table from which you want to
+-   `Table name`: The name of the source table from which to
     capture data changes.
 -   `Decoding plugin name`: The decoding plugin name to use for
     capturing the changes. For PostgreSQL CDC, set it as `pgoutput`.
 
 :::important
 To create a PostgreSQL CDC source connector in Aiven for Apache Flink
-with Aiven for PostgreSQL using the pgoutput plugin, you need to have
+with Aiven for PostgreSQL using the `pgoutput` plugin, you must have the
 superuser privileges.
 
 For more information, see [Troubleshooting](#Troubleshooting).
@@ -89,7 +88,7 @@ Console](https://console.aiven.io/):
 
     For example:
 
-    ``` 
+    ```
     CREATE TABLE test_table (
         column1 INT,
         column2 VARCHAR
@@ -132,7 +131,7 @@ Console](https://console.aiven.io/):
     connecting user must have enough privileges to create it.
     :::
 
-7.  Select **Next** to add the sink table, and then select **Add your
+7.  Select **Next** to add the sink table, and select **Add your
     first sink table**. Select *Aiven for Apache Kafka®* as the
     integrated service from the drop-down list.
 
@@ -159,14 +158,14 @@ using the `pgoutput` plugin, follow these steps to resolve the issue:
 
 1.  Install the `aiven-extras` extension by executing the SQL command:
 
-    ``` 
+    ```
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
 2.  Create a publication for all tables in the source database: Execute
     the SQL command:
 
-    ``` 
+    ```
     SELECT * FROM aiven_extras.pg_create_publication_for_all_tables(
        'dbz_publication',
        'INSERT,UPDATE,DELETE'
