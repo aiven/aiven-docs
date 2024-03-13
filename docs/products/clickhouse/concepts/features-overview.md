@@ -2,19 +2,18 @@
 title: Aiven for ClickHouse® features overview
 ---
 
-Aiven for ClickHouse® is designed for developers to try out ClickHouse
-quickly and easily and develop analytics apps. Discover Aiven for
-ClickHouse's key features and attributes which let you focus on turning
-business data into actionable insights while Aiven takes care of
-managing ClickHouse.
+Aiven for ClickHouse® is designed for developers to develop analytics apps.
+
+Discover Aiven for ClickHouse's key features and attributes which let you focus
+on turning business data into actionable insights.
 
 ## About the core functionality
 
 Aiven for ClickHouse is a fully managed distributed columnar database
-which is built on the open source ClickHouse solution. It is a fast
-highly-scalable fault-tolerant database designed for online analytical
+which is built on the open source ClickHouse solution. ClickHouse is a
+highly scalable fault-tolerant database designed for online analytical
 processing (OLAP) and data warehousing. Aiven for ClickHouse enables you
-to execute complex SQL queries on large datasets quickly and effectively
+to execute complex SQL queries on large datasets effectively
 to process large amounts of data in real time. On top of that, it
 supports built-in data integrations for Aiven for Kafka® and Aiven for
 PostgreSQL®.
@@ -29,9 +28,7 @@ your shoulders.
 
 **Pre-configured settings:** The managed ClickHouse service is
 pre-configured with a rational set of parameters and settings
-appropriate for the plan you have selected. You can easily launch
-production-ready ClickHouse clusters in minutes in a cloud of your
-choice.
+appropriate for the plan you have selected.
 
 ## Easy management
 
@@ -62,7 +59,7 @@ choice.
     times that do not affect productivity.
 -   **Backups and disaster recovery:** Aiven for ClickHouse has
     automatic backups taken every 24 hours. The retention period depends
-    on your plan tier. Check out the details on [Plan
+    on your plan tier. See the details on [Plan
     comparison](https://aiven.io/pricing?product=clickhouse&tab=plan-comparison).
 
 ## Intelligent observability
@@ -83,26 +80,25 @@ choice.
 
 ## Security and compliance
 
--   **Single tenancy:** Your service runs on dedicated instances, thus
-    offering true data isolation that contributes to the optimal
+-   **Single tenancy:** Your service runs on dedicated instances.
+    This offers true data isolation that contributes to the optimal
     protection and an increased security.
 -   **Network isolation:** Aiven platform supports VPC peering as a
     mechanism for connecting directly to your ClickHouse service via
-    private IP, thus providing a more secure network setup. The platform
+    private IP. This provides a more secure network setup. The platform
     also supports PrivateLink connectivity.
 -   **Regulatory compliance:** ClickHouse runs on Aiven platform that is
     ISO 27001:2013, SOC2, GDPR, HIPAA, and PCI/DSS compliant.
 
-Role based Access Control (RBAC) To learn what kind of granular access
-is possible in Aiven for ClickHouse, check out
-[RBAC with Zookeeper](/docs/products/clickhouse/concepts/service-architecture#zookeeper).
-
+-   **Role based Access Control (RBAC)**. To learn what kind of granular access
+    is possible in Aiven for ClickHouse, see
+    [RBAC with Zookeeper](/docs/products/clickhouse/concepts/service-architecture#zookeeper).
 
 -   **Zero lock-in:** Aiven for ClickHouse offers compatibility with
     open source software (OSS), which protects you from software and
-    vendor lock-in. You can easily migrate between clouds and regions.
+    vendor lock-in. You can migrate between clouds and regions.
 
-Check out more details on security and compliance in Aiven for
+See more details on security and compliance in Aiven for
 ClickHouse in
 [Secure a managed ClickHouse® service](/docs/products/clickhouse/howto/secure-service).
 
