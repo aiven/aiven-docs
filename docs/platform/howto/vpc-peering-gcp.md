@@ -5,7 +5,7 @@ sidebar_label: Set up VPC peering on GCP
 
 Once you've created a [VPC on the Aiven platform](manage-vpc-peering), you can set up VPC peering on GCP.
 
-## Set up a VPC peering connection
+## Set up a VPC peering connection {#set-up-vcp-peering}
 
 1.  Open your GCP Console.
 
@@ -51,8 +51,10 @@ Console](https://console.aiven.io) and your GCP Console.
 
 ## Set up multiple VPC peering connections
 
-You can peer multiple GCP VPCs to your Aiven-managed project VPC.
-You can set up multiple VPC peering connections between your Aiven services and GCP using
-the [Aiven Console](https://console.aiven.io).
-For
-the limit on the number of the VPC peering connetions allowed, see the GCP documentation.
+To peer multiple GCP VPC networks to your Aiven-managed project VPC, see
+[Set up a VPC peering connection](#set-up-vcp-peering), and add desired peering
+connections one by one in the [Aiven Console](https://console.aiven.io) > **Services** >
+**VPCs** > **VPC Peering connections**.
+
+For the limit on the number of the VPC peering connections allowed, see the GCP
+documentation.
