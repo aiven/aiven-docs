@@ -1990,6 +1990,7 @@ const sidebars: SidebarsConfig = {
                 'products/redis/concepts/lua-scripts-redis',
                 'products/redis/concepts/memory-usage',
                 'products/redis/concepts/restricted-redis-commands',
+                'products/redis/concepts/redis-ccr',
               ],
             },
             {
@@ -2040,6 +2041,7 @@ const sidebars: SidebarsConfig = {
                 'products/redis/howto/manage-ssl-connectivity',
                 'products/redis/howto/warning-overcommit_memory',
                 'products/redis/howto/benchmark-performance',
+                'products/redis/howto/enable-redis-ccr',
               ],
             },
             {
