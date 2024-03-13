@@ -2,7 +2,7 @@
 title: Set authentication policies for organization users
 ---
 
-The authentication policy for your organization specifies the ways that users in your organization can access the organization on the Aiven platform.
+The authentication policy for your organization specifies the ways that users in your organization and their personal tokens can access the organization on the Aiven platform.
 
 ## Authentication types
 
