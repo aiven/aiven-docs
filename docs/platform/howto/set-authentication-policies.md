@@ -35,14 +35,17 @@ for any of those organizations.
 
 You can further restrict access by requiring users to log in with one of your
 organization’s identity providers. This means that they cannot log in to your organization
-using another Aiven organization's identity provider.
+using another Aiven organization's identity provider. It's strongly recommended to
+enable this if you only have one Aiven organization.
 
 ### Personal tokens
 
-Users can generate their own personal
-[authentication tokens](/docs/platform/howto/create_authentication_token).
-Tokens are used to access the Aiven platform through the API, CLI, Terraform, or
-other applications.
+Users can generate their own
+[personal tokens](/docs/platform/howto/create_authentication_token) for use with
+the Aiven API.
+
+To regularly manage your resources programmatically with the API, CLI, Terraform,
+or other applications, it's best to create an [application user](/docs/platform/howto/manage-application-users) with its own tokens.
 
 Personal tokens are generated with the authentication method that the user logged in with.
 Tokens are linked to the authentication method they are created with. You can ensure that
