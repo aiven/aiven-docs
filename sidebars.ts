@@ -1478,6 +1478,30 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Metrics',
+          link: {
+            type: 'doc',
+            id: 'products/metrics',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/concepts',
+              },
+              items: [
+                'products/metrics/concepts/metrics-overview',
+                'products/metrics/concepts/storage-resource-scaling',
+                // Add the paths for your two topics here
+              ],
+            },
+            // Since there are no other contents yet, other sections are not included
+          ],
+        },
+        {
+          type: 'category',
           label: 'MySQL',
           link: {
             type: 'doc',
