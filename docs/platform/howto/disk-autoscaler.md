@@ -4,8 +4,15 @@ limited: true
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import IntegrationIcon from "@site/static/images/icons/code-block.svg";
+import ServicesIcon from "@site/static/images/icons/cog.svg";
+import IntegrationsIcon from "@site/static/images/icons/integrations.svg";
+import TrashIcon from "@site/static/images/icons/trash.svg";
+import EditIcon from "@site/static/images/icons/edit.svg";
 
-Service disk autoscaler increases disk storage capacity automatically when the disk is running out of space.
+Service disk autoscaler allows you to scale your services by increasing disk storage capacity automatically when the disk is running out of space.
 
 :::note[Pricing]
 The disk autoscaler base pricing depends on your service type and plan.
@@ -17,10 +24,6 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
 
 ## Why use disk autoscaling
 
-:::note
-Currently, service disk autoscaler doesn't support scaling down.
-:::
-
 -   Disk autoscaling allows you to improve the cost-efficiency of
     operating your Aiven services: You can start with a regular-sized
     disk and only have it scaled up when needed with no risk of running
@@ -30,6 +33,10 @@ Currently, service disk autoscaler doesn't support scaling down.
     running out of disk space. Use disk autoscaling to make sure your
     service remains operational in case of unexpected high demand for
     disk space.
+
+:::note
+Service disk autoscaler doesn't support scaling down.
+:::
 
 ## How it works
 
@@ -70,41 +77,32 @@ the available disk storage capacity and depends on a service type:
     -   [Aiven API](https://api.aiven.io/doc/)
     -   [Aiven CLI client](/docs/tools/cli)
 
-## Enable disk autoscaler
+## Enable disk autoscaling
 
 To enable disk autoscaling on your Aiven service, create an
 autoscaler integration endpoint and enable autoscaler integration with
-your service using the new endpoint. You can set up disk autoscaling in
-[Aiven Console](https://console.aiven.io/), using Aiven API, or Aiven
-CLI client.
+your service using the new endpoint.
 
-### Enable in Aiven Console
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-#### Create an autoscaler endpoint
+Create an autoscaler endpoint:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
     a desired organization and project.
-1.  On the **Services** page of your project, select **Integration
-    endpoints** from the sidebar.
-1.  On the **Integration endpoints** page, select **Disk autoscaler** >
-    **Add new endpoint**.
-1.  In the **Create new autoscaler endpoint** window, enter an endpoint
-    name, specify a maximum additional disk storage to
-    allow for disk autoscaling purposes, and select **Create**.
+1.  On the left sidebar, click <IntegrationIcon className="icon"/> **Integration endpoints**.
+1.  Click **Aiven Autoscaler** > **Add new endpoint**.
+1.  Set the details of the endpoint and click **Add endpoint**.
 
-#### Enable on a service
+Enable on a service:
 
-1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
-    a desired organization, project, and service.
-1.  On the **Overview** page of your service, select **Integrations**
-    from the sidebar.
-1.  On the **Integrations** page, go to **Endpoint integrations**
-    and select **Disk autoscaler**.
-1.  In the **Autoscaler integration** window, select the newly created
-    autoscaler integration endpoint and select
-    **Enable**.
+1.  On the left sidebar, click <ServicesIcon className="icon"/> **Services** and open your service.
+1.  On the left sidebar, click <IntegrationsIcon className="icon"/> **Integrations** and in **Endpoint integrations**,
+    click **Aiven autoscaler**.
+1.  Select the appropriate endpoint name and click **Enable**.
 
-### Enable with Aiven API
+</TabItem>
+<TabItem value="api" label="API">
 
 To enable disk autoscaler on your service via [Aiven
 API](https://api.aiven.io/doc/), call the
@@ -163,7 +161,8 @@ endpoint to create an autoscaler integration on your service.
          }'
     ```
 
-### Enable with Aiven CLI
+</TabItem>
+<TabItem value="cli" label="CLI">
 
 You can enable disk autoscaler for your service with the
 [Aiven CLI client](/docs/tools/cli) by
@@ -200,27 +199,29 @@ run the commands to create the following:
        --source-endpoint-id ID_OF_AUTOSCALER_INTEGRATION_ENDPOINT
     ```
 
+</TabItem>
+</Tabs>
+
 ## Configure disk autoscaler
 
-After enabling disk autoscaler, any time later you can update the
+After enabling disk autoscaler, you can always update the
 maximum additional disk storage allowed for autoscaling purposes. You
 can use [Aiven Console](https://console.aiven.io/), Aiven API, or Aiven
 CLI to do that.
 
-### Configure in Aiven Console
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
     a desired organization and project.
-1.  On the **Services** page of your project, select **Integration
-    endpoints** from the sidebar.
-1.  On the **Integration endpoints** page, select **Disk autoscaler**,
-    find your endpoint on the list of the existing autoscaler endpoints,
-    select the **Edit endpoint** icon.
-1.  In the **Edit endpoint** window, specify a new value for the maximum
-    additional disk storage to be allowed for autoscaling, and select
-    **Update**.
+1.  On the left sidebar, click <IntegrationIcon className="icon"/> **Integration endpoints**.
+1.  Click **Aiven Autoscaler**.
+1.  Find your endpoint on the list, and click <EditIcon className="icon"/>.
+1.  Specify a new value for the maximum additional disk storage to be allowed for
+    autoscaling, and click **Update**.
 
-### Configure with Aiven API
+</TabItem>
+<TabItem value="api" label="API">
 
 You can use [Aiven API](https://api.aiven.io/doc/) to configure the
 maximum additional disk storage allowed for autoscaling purposes on your
@@ -249,7 +250,8 @@ curl --request PUT \
       }'
 ```
 
-### Configure with Aiven CLI
+</TabItem>
+<TabItem value="cli" label="CLI">
 
 You can use the [Aiven CLI client](/docs/tools/cli) to configure the maximum
 additional disk storage allowed for autoscaling purposes on your service.
@@ -264,41 +266,36 @@ avn service integration-endpoint-update AUTOSCALER_ENDPOINT_ID
    --user-config-json '{"max_additional_storage":"PARAMETER_VALUE_IN_GB"}'
 ```
 
+</TabItem>
+</Tabs>
+
 ## Disable disk autoscaler
 
 To disable disk autoscaling on your Aiven service,
 disconnect the service from the autoscaler integration endpoint. You can
 also delete the integration endpoint itself if you don't need it for
-future purposes. You can disable disk autoscaling in [Aiven
-Console](https://console.aiven.io/), using Aiven API, or Aiven CLI
-client.
+future purposes.
 
-### Disable in Aiven Console
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-#### Disable on a service
-
-1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
-    a desired organization, project, and service.
-1.  On the **Overview** page of your service, select **Integrations**
-    from the sidebar.
-1.  On the **Integrations** page, find your autoscaler service
-    integration at the top, click <ActionsIcon className="icon"/> **Actions** >
-    **Disconnect**.
-1.  In the **Disconnect service integration** window, select
-    **Disconnect**.
-
-#### Delete an autoscaler endpoint
+Update the service:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
-    a desired organization and project.
-1.  On the **Services** page of your project, select **Integration
-    endpoints** from the sidebar.
-1.  On the **Integration endpoints** page, select **Disk autoscaler**,
-    find your endpoint on the list of the existing autoscaler endpoints,
-    select the **Delete endpoint** icon and **Delete** in the
-    **Confirmation** window.
+    a desired organization, project.
+1.  On the left sidebar, click <ServicesIcon className="icon"/> **Services** and open your service.
+1.  On the left sidebar, click <IntegrationsIcon className="icon"/> **Integrations** and in **Endpoint integrations**,
+    find your autoscaler service and click <ActionsIcon className="icon"/> **Actions** > **Disconnect**.
 
-### Disable with Aiven API
+Delete the autoscaler endpoint:
+
+1.  Open your project.
+1.  On the left sidebar, click <IntegrationIcon className="icon"/> **Integration endpoints**.
+1.  On the **Integration endpoints** page, select **Disk autoscaler**.
+1.  Find your endpoint on the list and click <TrashIcon className="icon"/>.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 To disable disk autoscaler on your service via [Aiven
 API](https://api.aiven.io/doc/), call the
@@ -343,7 +340,8 @@ endpoint passing `{"service disk autoscaler": {"enabled": true}}` in the
       --header 'Authorization: Bearer REPLACE_WITH_YOUR_BEARER_TOKEN'
     ```
 
-### Disable with Aiven CLI
+</TabItem>
+<TabItem value="cli" label="CLI">
 
 You can disable disk autoscaler on your service with the
 [Aiven CLI client](/docs/tools/cli) by
@@ -378,6 +376,9 @@ running the commands to delete the following:
     ```bash
     avn service integration-endpoint-delete ENDPOINT_ID
     ```
+
+</TabItem>
+</Tabs>
 
 ## Related pages
 

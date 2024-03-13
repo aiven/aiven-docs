@@ -30,7 +30,7 @@ state switches to **Running**, your new service plan is active.
   available for this service.
 
 :::
-
+<!-- vale off -->
 ## Related pages
 
 - [Adjust disk storage][storage]
