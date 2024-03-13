@@ -30,11 +30,18 @@ retrieval processes in the background, keeping the system efficient and cost-eff
 
 ## Benefits of Aiven for Metrics
 
-- **Scalability**: Aiven for Metrics can scale to handle large data volumes due to the
-  distributed nature of Thanos components and the scalability of object storage.
-- **Reliability**: The service ensures high availability and durability, with data
-  replicated across multiple locations within the object storage.
-- **Cost-effectiveness**: Thanos Metrics Compact reduces storage requirements and
-  costs by compacting and downsampling data.
-- **Simplicity**: Aiven for Metrics provides a simplified operational model by
-  integrating all necessary components into a single cluster managed by Aiven.
+- **Centralized monitoring**: Query and analyze metrics from multiple Prometheus
+  servers and clusters through a global query view, simplifying monitoring
+  across your infrastructure.
+- **Unlimited retention and scalability**: With scalable object storage solutions,
+  you can store unlimited metric data for any duration.
+- **Prometheus compatibility**: Aiven for Metrics is compatible with Prometheus,
+  allowing you to seamlessly use familiar tools like Grafana.
+- **Cost-effective and efficient**: Downsampling and compacting data reduces storage
+  needs and improves query performance, resulting in greater efficiency and cost savings.
+- **Simplified operations**: Reduce the complexity of your metrics system with a managed
+  service that provides a pre-configured and optimized Thanos setup.
+
+## Related pages
+
+- [Thanos documentation](https://thanos.io/v0.34/thanos/getting-started.md/)
