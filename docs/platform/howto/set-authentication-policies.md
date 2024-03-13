@@ -40,7 +40,7 @@ using another Aiven organization's identity provider.
 ### Personal tokens
 
 Users can generate their own personal
-[authentication tokens](docs/platform/howto/create_authentication_token).
+[authentication tokens](/docs/platform/howto/create_authentication_token).
 Tokens are used to access the Aiven platform through the API, CLI, Terraform, or
 other applications.
 
