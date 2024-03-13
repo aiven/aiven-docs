@@ -26,7 +26,7 @@ might stop working.
 
 Users can choose to log in using Google, Microsoft, or GitHub.
 
-### SSO with an organization identity providers
+### SSO with an organization identity provider
 
 Users that are part of multiple Aiven organizations can log in using single sign-on (SSO)
 and access your organization’s resources with an
