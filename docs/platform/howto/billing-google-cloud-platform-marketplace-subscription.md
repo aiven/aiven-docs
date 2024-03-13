@@ -41,7 +41,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
 
 :::note
 
-- The URL to log into your AWS subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
+- The URL to log into your GCP subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
   Do not confuse it with Aiven Console URL: [console.aiven.io](https://console.aiven.io).
 
 - If you have an existing Aiven account, create a new Aiven GCP account using the
