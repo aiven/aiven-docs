@@ -10,15 +10,16 @@ Aiven for Metrics incorporates several core Thanos components:
 
 - **Thanos Metrics Query**: Allows users to query and visualize metrics from real-time
   and historical data sources, aggregating data from various sources for a unified view.
-- **Thanos Receiver**: Handles metrics ingestion into the system, acting as a receiver
+- **Thanos Metrics Receiver**: Handles metrics ingestion into the system, acting as a receiver
   for Prometheus remote write requests to enable real-time metrics collection.
-- **Thanos Metric Store**: Interfaces with object storage to provide access to historical
+- **Thanos Metrics Store**: Interfaces with object storage to provide access to historical
   data, ensuring scalable and reliable long-term storage.
 - **Thanos Metrics Compact**: Enhances storage usage and query efficiency by compacting
   and downsampling data stored in object storage, improving performance and
   reducing costs.
-- **Object Storage**: Serves as the primary storage solution, offering a durable and
-  scalable way to store extensive amounts of metric data.
+- **Thanos Query Frontend**: Caches query results and splits large queries into
+smaller sub-queries for efficient execution across multiple Thanos Query instances.
+
 
 ## Unified cluster architecture
 
@@ -27,6 +28,23 @@ This setup ensures a seamless data flow from ingestion (via Thanos Metrics Recei
 long-term storage (in object storage through Thanos Metrics Store) and efficient querying
 (through Thanos Metrics Query). The Thanos Compact component optimizes data storage and
 retrieval processes in the background, keeping the system efficient and cost-effective.
+
+Aiven for Metrics combines these components into a cohesive cluster architecture,
+enhancing metrics management:
+
+- **Data collection and storage**: Thanos Metrics Receivers collect metrics in real-time,
+  writing this data to object storage once the TSDB (Time Series Database)  block is
+  full, typically every 2 hours.
+- **Query processing**: The Thanos Query Frontend receives requests and optimizes
+  load distribution by forwarding requests to Thanos Metrics Query. Depending on
+  the query's time range, this component retrieves real-time data from
+  Thanos Metrics Receivers or historical data from the Thanos Metrics Store,
+  directly querying object storage. To maintain data integrity, the system
+  removes duplicate samples received from multiple Thanos Metric Receivers.
+  After processing, Thanos Metrics Query responds to the
+  Query Frontend, which caches the results to speed up future queries before
+  delivering them to the client.
+
 
 ## Benefits of Aiven for Metrics
 

@@ -8,10 +8,11 @@ Aiven for Metrics® leverages various storage and resource types to optimize you
 
 ### Object storage
 
-The primary storage for metrics and metadata, offering scalability and
-cost-effectiveness for long-term retention. Aiven manages this infrastructure,
-ensuring data security and reliability. Metrics are uploaded periodically
-(typically every 2 hours) for historical analysis.
+The primary storage for metrics and metadata, offering scalability and cost-effectiveness
+for long-term retention. Aiven manages this infrastructure, ensuring data security
+and reliability. Metrics are uploaded to object storage at regular intervals
+(typically every 2 hours) for historical analysis and remain accessible for
+ queries, ensuring continuous data availability for real-time decision-making.
 
 ### Disk storage
 
