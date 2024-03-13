@@ -91,7 +91,7 @@ adding storage space for CCR-enabled services.
 
 1. Select **Save changes**.
 
-You\'ve added extra disk storage space for your CCR-enabled service and
+You've added extra disk storage space for your CCR-enabled service and
 its CCR-replica service.
 
 ## Set up the replication factor {#set-up-replication-factor}
@@ -225,15 +225,13 @@ session.execute(SimpleStatement("LIST ROLES", consistency_level=ConsistencyLevel
 
 :::
 
-You\'ve set up the consistency level for your service. Now operations on
+You've set up the consistency level for your service. Now operations on
 your data are considered as successfully completed according to the
 consistency level you specified.
 
-:::note[See also]
 For more details on consistency levels for Apache Cassandra, see
 [CONSISTENCY](https://cassandra.apache.org/doc/4.1/cassandra/tools/cqlsh.html#consistency)
 in the Apache Cassandra documentation.
-:::
 
 ## More on Apache Cassandra CCR
 
