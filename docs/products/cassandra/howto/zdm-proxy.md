@@ -94,6 +94,7 @@ export ZDM_TARGET_PORT=12345
 export ZDM_TARGET_TLS_SERVER_CA_PATH="/tmp/ca.pem"
 
 export ZDM_TARGET_ENABLE_HOST_ASSIGNMENT=false
+export ZDM_ORIGIN_ENABLE_HOST_ASSIGNMENT=false
 
 ./zdm-proxy-v2.1.0
 ```
