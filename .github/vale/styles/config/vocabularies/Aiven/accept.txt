@@ -282,6 +282,7 @@ Telegraf
 Tenant
 Terraform
 Terraforming
+Thanos
 TimescaleDB
 toolchain
 Transport Layer Security

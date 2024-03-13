@@ -1,0 +1,8 @@
+extends: conditional
+message: "At least one 'Aiven for Metrics' or 'Thanos Metrics' must be marked as ®"
+level: error
+scope: text
+ignorecase: false
+
+first: '\b(Aiven for Metrics|Thanos Metrics)(?!®)'
+second: '(Aiven for Metrics|Thanos Metrics)(?:®)'
