@@ -7,7 +7,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
 ## Google Cloud Marketplace setup
 
 1.  Go to [Aiven Managed Database Services on the Google Cloud
-    Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven).
+    Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven)
     to list available Aiven services and see how the marketplace subscription works.
 1.  Click **Subscribe**.
 1.  Select your desired billing account, then read and agree to the
