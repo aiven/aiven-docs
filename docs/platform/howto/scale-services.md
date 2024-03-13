@@ -5,11 +5,11 @@ title: Change a service plan
 import ActionsIcon from "@site/static/images/icons/more.svg";
 import ServiceIcon from "@site/static/images/icons/cog.svg";
 
-You can adjust the plan of your services at any time to scale your services as needed and optimize costs.
+Adjust the plan of your services at any time to scale your services as needed and optimize costs.
 You can also [adjust disk storage][storage] without changing your plan.
 
 1. In your project, click <ServiceIcon className="icon"/> **Services** and open a service.
-1. On the left-side menu, Click <ServiceIcon className="icon"/> **Service settings**.
+1. On the left-side menu, click <ServiceIcon className="icon"/> **Service settings**.
 1. In the **Service plan** section, click <ActionsIcon className="icon"/> **Actions** >
    **Change plan**.
 1. In the **Change service plan** dialog, choose the new service plan and tier.
@@ -33,7 +33,7 @@ state switches to **Running**, your new service plan is active.
 
 ## Related pages
 
-- [Adjust disk storage](/docs/platform/howto/add-storage-space)
-- [Scale service disks automatically](/docs/platform/howto/disk-autoscaler)
+- [Adjust disk storage][storage]
+- [Adjust disks storage automatically](/docs/platform/howto/disk-autoscaler)
 
 [storage]: /docs/platform/howto/add-storage-space

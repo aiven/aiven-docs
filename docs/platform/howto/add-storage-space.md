@@ -5,13 +5,13 @@ title: Adjust disk storage
 import ActionsIcon from "@site/static/images/icons/more.svg";
 import ServiceIcon from "@site/static/images/icons/cog.svg";
 
-With dynamic disk sizing (DDS), you can update service disk storage, by a factor of 10 Gi, without upgrading your plan.
+Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service by updating service disk storage, by a factor of 10 Gi, without upgrading your plan.
 
-This operation does not disrupting your running service. You pay only for the
+This operation does not disrupt your running service. You pay only for the
 additional storage, not for the compute resources that are part of an upgraded
 service plan.
 
-:::note[Avilability]
+:::note[Availability]
 DDS is available for the following services:
 
 - Aiven for Apache Kafka®
@@ -48,7 +48,7 @@ storage.
 It is unlikely that any performance degradation from additional disk
 storage would be noticeable in your clients, but it is possible.
 
-## Pricing
+:::note[Pricing]
 
 If you add storage when you create a service, the cost is included as
 part of your service's total cost and is shown in the service summary.
@@ -57,6 +57,8 @@ The cost of adding storage to a running service is shown in [Aiven
 Console](https://console.aiven.io/) when you add it. The total price you
 see is the cost of the additional storage and any backups associated
 with it. You can also see these storage usage costs in your invoices.
+
+:::
 
 ## Update service storage via Aiven Console
 

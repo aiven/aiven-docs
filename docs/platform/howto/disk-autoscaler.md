@@ -8,11 +8,11 @@ import ActionsIcon from "@site/static/images/icons/more.svg";
 Service disk autoscaler increases disk storage capacity automatically when the disk is running out of space.
 
 :::note[Pricing]
-Costs of using disk autoscaler depend on your service type and plan.
-you're only charged for additional storage space actually provisioned
-for your service. Costs of using disk autoscaler correspond to costs of
-using dynamic disk sizing (DDS), which you can check in [Aiven Plans and
-Pricing](https://aiven.io/pricing?product=kafka).
+The disk autoscaler base pricing depends on your service type and plan.
+
+You're only charged for additional storage space actually provisioned
+for your service, just like the [dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space) feature
+listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
 :::
 
 ## Why use disk autoscaling
@@ -43,7 +43,7 @@ Currently, service disk autoscaler doesn't support scaling down.
     service, disk autoscaler increases available storage space by 10%
     every time taking the used disk space as a baseline.
 
-:::note[AUTOSCALE THRESHOLDS PER SERVICE TYPE]
+:::note[Autoscale thresholds per service type]
 The threshold at which disk autoscaling is triggered is a percentage of
 the available disk storage capacity and depends on a service type:
 
@@ -59,11 +59,11 @@ the available disk storage capacity and depends on a service type:
 -   This is a
     [limited availability feature](/docs/platform/concepts/beta_services). To try it out,
     contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
--   Aiven organization, project, and service up and running
--   [Dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space) supported for the service plan and the cloud hosting the
-    service
+-   Aiven organization, project, and service up and running.
+-   [Dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space) supported for
+    the service plan and the cloud hosting the service.
 -   Role of the operator for your Aiven organization, project, and
-    service
+    service.
 -   Depending on what interface you'd like to use for interacting with
     disk autoscaler:
     -   Access to [Aiven Console](https://console.aiven.io/)

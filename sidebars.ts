@@ -211,6 +211,13 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Service scaling',
+          link: {
+            type: 'generated-index',
+            description:
+              'Aiven offers the following features to scale your services.',
+            title: 'Service scaling',
+            slug: '/platform/concepts/service-scaling',
+          },
           items: [
             'platform/howto/scale-services',
             'platform/howto/add-storage-space',
