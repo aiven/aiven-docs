@@ -34,9 +34,10 @@ and access your organization’s resources with an
 for any of those organizations.
 
 You can further restrict access by requiring users to log in with one of your
-organization’s identity providers. This means that they cannot log in to your organization
-using another Aiven organization's identity provider. It's strongly recommended to
-enable this if you only have one Aiven organization.
+organization’s identity providers and
+[verified domains](/docs/platform/howto/manage-domains). This means that they cannot
+log in to your organization using another Aiven organization's identity provider. It's
+strongly recommended to enable this if you only have one Aiven organization.
 
 ### Personal tokens
 
