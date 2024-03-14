@@ -36,4 +36,5 @@
 /platform/howto/list-billing-groups                   https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                             https://aiven.io/docs/platform/concepts/byoc
 /products/postgresql/reference/list-of-advanced-params https://aiven.io/docs/products/postgresql/reference/advanced-params
-/products/mysql/reference/list-of-advanced-params https://aiven.io/docs/products/mysql/reference/advanced-params
+/products/mysql/reference/list-of-advanced-params      https://aiven.io/docs/products/mysql/reference/advanced-params
+/platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space

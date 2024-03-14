@@ -30,7 +30,7 @@ Create the service of your choice at any point.
    [Plans & Pricing](https://aiven.io/pricing).
    :::
 
-1. (Optional) Add [disk storage](/docs/platform/concepts/dynamic-disk-sizing).
+1. (Optional) Add [disk storage](/docs/platform/howto/add-storage-space).
 
 1. Enter a name for your service.
 
@@ -54,7 +54,7 @@ When the status becomes **Running**, you can start using it.
 Services typically start up in a couple of minutes. It can vary between
 cloud providers and regions.
 :::
-
+<!-- vale off -->
 ## Related pages
 
 - [Create a service using the Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create)
