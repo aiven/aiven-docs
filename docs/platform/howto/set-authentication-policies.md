@@ -6,6 +6,10 @@ The authentication policy for your organization specifies the ways that users in
 
 ## Authentication types
 
+When creating an authentication policy, you select the authentication methods to allow
+for all users in your organization. For increased security, it's a good idea to always
+[verify your organization's domains](/docs/platform/howto/manage-domains).
+
 ### Passwords and two-factor authentication
 
 With password authentication enabled, users log in with their email
@@ -34,8 +38,7 @@ and access your organization’s resources with an
 for any of those organizations.
 
 You can further restrict access by requiring users to log in with one of your
-organization’s identity providers and
-[verified domains](/docs/platform/howto/manage-domains). This means that they cannot
+organization’s identity providers. This means that they cannot
 log in to your organization using another Aiven organization's identity provider. It's
 strongly recommended to enable this if you only have one Aiven organization.
 
