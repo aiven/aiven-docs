@@ -54,6 +54,7 @@ application table, using either CDC or JDBC:
         'username' = '<db_user>',
         'password' = '<db_password>',
         'decoding.plugin.name' = 'your_decoding_plugin'
+        'slot.name' = '<your_slot_name>'
       );
      ```
 
@@ -74,6 +75,8 @@ application table, using either CDC or JDBC:
        resides, which is set to `defaultdb` in the example.
      - `decoding.plugin.name`: The decoding plugin to be used by the
        CDC connector, which is set to `pgoutput` in the example.
+     - `slot.name`: The identifier for the replication slot, used to track and
+       stream database changes for CDC operations.
 
    - For a **JDBC connector**:
 
