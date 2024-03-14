@@ -53,7 +53,7 @@ application table, using either CDC or JDBC:
         'table-name' = '<your_table>',
         'username' = '<db_user>',
         'password' = '<db_password>',
-        'decoding.plugin.name' = 'your_decoding_plugin'
+        'decoding.plugin.name' = 'your_decoding_plugin',
         'slot.name' = '<your_slot_name>'
       );
      ```
