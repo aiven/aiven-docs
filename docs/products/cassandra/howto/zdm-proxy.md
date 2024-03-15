@@ -78,8 +78,14 @@ LICENSE  zdm-proxy-linux-amd64-v2.1.0.tgz  zdm-proxy-v2.1.0
 
 ### Run ZDM Proxy
 
-To run ZDM Proxy, specify connection information by setting `ZDM_TARGET_*` and `ZDM_ORIGIN_*` 
-environment variables using the `export` command, **ORIGIN** refers to the SOURCE service. Next, run the binary.
+1. Specify connection information by setting `ZDM_TARGET_*` and `ZDM_ORIGIN_*` environment
+   variables using the `export` command.
+
+   :::note
+   `ORIGIN` refers to the source service.
+   :::
+
+3. Run the binary.
 
 ```bash
 export ZDM_ORIGIN_CONTACT_POINTS=localhost
