@@ -25,8 +25,8 @@ step by step.
 
 1.  From the **Topics** page, select **Add topic**.
 
-1.  Enable advanced configurations by setting the **Do you want to
-    enable advanced configuration?** option to **Yes**.
+1.  Set the "Do you want to enable advanced configuration?" option to Yes to enable
+advanced configurations.
 
 1.  In the **Topic advanced configuration** drop-down, choose
     `remote_storage_enable`. This action will reveal the **Remote
@@ -83,7 +83,7 @@ step by step.
 
 For optimal performance and reduced risk of broker interruptions when
 using tiered storage, it is recommended to update the client-side
-parameter `fetch.max.wait.ms` from its default value of 500ms to 5000ms.
+parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
 
 ## Enable tiered storage for topics via Aiven CLI
 
