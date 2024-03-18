@@ -141,9 +141,14 @@ operating system, as well as packages installed by the service itself.
 
 SBOM reports are being widely adopted and may eventually be required for
 compliance or security assessments. We provide these reports as a file
-download via our [CLI](/docs/tools/cli/project), in CSV or SPDX format.
+download via the [Aiven CLI](/docs/tools/cli), in CSV or SPDX format. To  get the SBOM
+report download link for a project, run:
 
-SBOM reports are only available to customers who have an enterprise
+```bash
+avn project generate-sbom --project PROJECT_NAME --output csv
+```
+
+SBOM reports are only available to customers who have an Enterprise
 support contract and all services within the project must have the
 latest maintenance patches applied.
 

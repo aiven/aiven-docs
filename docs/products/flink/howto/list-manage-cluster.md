@@ -16,4 +16,4 @@ scale, and your cluster to ensure optimal performance and efficiency.
 
 [Migrate a managed service](/docs/platform/howto/migrate-services-cloud-region)
 
-[Power off & delete a managed service](/docs/platform/howto/pause-from-cli)
+[Power off & delete a managed service](/docs/platform/concepts/service-power-cycle)

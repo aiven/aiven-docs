@@ -753,5 +753,6 @@ avn service wait pg-doc
 
 ------------------------------------------------------------------------
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
+
+<ElasticSearch/>

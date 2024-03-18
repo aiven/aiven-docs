@@ -7,7 +7,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
 ## Google Cloud Marketplace setup
 
 1.  Go to [Aiven Managed Database Services on the Google Cloud
-    Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven).
+    Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven)
     to list available Aiven services and see how the marketplace subscription works.
 1.  Click **Subscribe**.
 1.  Select your desired billing account, then read and agree to the
@@ -41,7 +41,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
 
 :::note
 
-- The URL to log into your AWS subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
+- The URL to log into your GCP subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
   Do not confuse it with Aiven Console URL: [console.aiven.io](https://console.aiven.io).
 
 - If you have an existing Aiven account, create a new Aiven GCP account using the

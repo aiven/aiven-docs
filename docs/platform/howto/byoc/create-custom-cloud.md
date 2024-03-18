@@ -1,5 +1,6 @@
 ---
 title: Create an AWS custom cloud in Aiven
+sidebar_label: Create custom cloud
 ---
 
 Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization to better address your specific business needs or project requirements.
@@ -31,12 +32,12 @@ infrastructure and Aiven services within the custom cloud.
 
 ## About creating a custom cloud
 
-Before creating a custom cloud, make sure you understand all the
-[limitations](/docs/platform/howto/byoc/create-custom-cloud#byoc-limitations) and meet
-all the [prerequisites](/docs/platform/howto/byoc/create-custom-cloud#byoc-prerequisites).
+Before creating a custom cloud, take note of the
+[limitations](/docs/platform/howto/byoc/create-custom-cloud#byoc-limitations) and
+the [prerequisites](/docs/platform/howto/byoc/create-custom-cloud#byoc-prerequisites).
 
 The process of creating a custom cloud in Aiven differs depending on the
-cloud provider you want to integrate with:
+cloud provider to integrate with:
 
 -   To use the AWS cloud provider, create your custom cloud
     yourself in [Aiven Console](https://console.aiven.io/).
@@ -82,7 +83,8 @@ contacts for your custom cloud.
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
 -   You have AWS credentials set up on your machine so that your user or
     role has required Terraform permissions
-    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)) as follows:
+    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws))
+    as follows:
 
 <details><summary>
 Show permissions required for creating resources for bastion and
@@ -117,12 +119,14 @@ workload networks
                 "ec2:DescribeInternetGateways",
                 "ec2:DescribeNatGateways",
                 "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribePrefixLists",
                 "ec2:DescribeRouteTables",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSecurityGroupRules",
                 "ec2:DescribeStaleSecurityGroups",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
+                "ec2:DescribeVpcEndpoints",
                 "ec2:DescribeVpcAttribute",
                 "ec2:DescribeTags"
             ],
@@ -137,14 +141,6 @@ workload networks
                 "ec2:CreateTags"
             ],
             "Condition": {
-                "ForAllValues:StringEquals": {
-                    "aws:TagKeys": [
-                        "Name",
-                        "aiven_custom_cloud_environment_id",
-                        "aiven_security_group",
-                        "aiven_subnet"
-                    ]
-                },
                 "StringEquals": {
                     "ec2:CreateAction": [
                         "AllocateAddress",
@@ -154,20 +150,14 @@ workload networks
                         "CreateRouteTable",
                         "CreateSecurityGroup",
                         "CreateSubnet",
-                        "CreateVpc"
+                        "CreateVpc",
+                        "CreateVpcEndpoint"
                     ]
                 }
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:natgateway/*",
-                "arn:aws:ec2:*:*:route-table/*",
-                "arn:aws:ec2:*:*:security-group/*",
-                "arn:aws:ec2:*:*:security-group-rule/*",
-                "arn:aws:ec2:*:*:subnet/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "CreateTag"
         },
@@ -175,16 +165,6 @@ workload networks
             "Action": [
                 "ec2:DeleteTags"
             ],
-            "Condition": {
-                "ForAllValues:StringEquals": {
-                    "aws:TagKeys": [
-                        "Name",
-                        "aiven_custom_cloud_environment_id",
-                        "aiven_security_group",
-                        "aiven_subnet"
-                    ]
-                }
-            },
             "Effect": "Allow",
             "Resource": [
                 "arn:aws:ec2:*:*:elastic-ip/*",
@@ -211,9 +191,7 @@ workload networks
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "Create"
         },
@@ -357,6 +335,16 @@ workload networks
         },
         {
             "Action": [
+                "ec2:CreateVpcEndpoint"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "*"
+            ],
+            "Sid": "CreateVpcEndpoint"
+        },
+        {
+            "Action": [
                 "ec2:AssociateAddress",
                 "ec2:AssociateRouteTable",
                 "ec2:AssociateSubnetCidrBlock",
@@ -369,6 +357,7 @@ workload networks
                 "ec2:ModifySecurityGroupRules",
                 "ec2:ModifySubnetAttribute",
                 "ec2:ModifyVpcAttribute",
+                "ec2:ModifyVpcEndpoint",
                 "ec2:ReplaceRoute",
                 "ec2:ReplaceRouteTableAssociation",
                 "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
@@ -381,14 +370,7 @@ workload networks
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:natgateway/*",
-                "arn:aws:ec2:*:*:route-table/*",
-                "arn:aws:ec2:*:*:security-group/*",
-                "arn:aws:ec2:*:*:security-group-rule/*",
-                "arn:aws:ec2:*:*:subnet/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "Modify"
         },
@@ -432,6 +414,7 @@ workload networks
                 "ec2:DeleteSecurityGroup",
                 "ec2:DeleteSubnet",
                 "ec2:DeleteVpc",
+                "ec2:DeleteVpcEndpoints",
                 "ec2:ReleaseAddress",
                 "ec2:RevokeSecurityGroupEgress",
                 "ec2:RevokeSecurityGroupIngress",
@@ -444,15 +427,7 @@ workload networks
             },
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:*:*:elastic-ip/*",
-                "arn:aws:ec2:*:*:internet-gateway/*",
-                "arn:aws:ec2:*:*:natgateway/*",
-                "arn:aws:ec2:*:*:network-interface/*",
-                "arn:aws:ec2:*:*:route-table/*",
-                "arn:aws:ec2:*:*:security-group/*",
-                "arn:aws:ec2:*:*:security-group-rule/*",
-                "arn:aws:ec2:*:*:subnet/*",
-                "arn:aws:ec2:*:*:vpc/*"
+                "*"
             ],
             "Sid": "Delete"
         }
@@ -470,11 +445,13 @@ workload networks
 To use the GCP or Azure cloud providers, you'll have your
 custom cloud created by the Aiven team (not via [Aiven
 Console](https://console.aiven.io/)). Therefore, after
-[enabling the BYOC feature](/docs/platform/howto/byoc/enable-byoc) in [Aiven Console](https://console.aiven.io/), there are no
+[enabling the BYOC feature](/docs/platform/howto/byoc/enable-byoc) in
+[Aiven Console](https://console.aiven.io/), there are no
 further actions required from you to create your custom cloud. we'll
 build your custom cloud for you according to the specifications you
 provided while
-[enabling BYOC](/docs/platform/howto/byoc/enable-byoc) in [Aiven Console](https://console.aiven.io/). We might
+[enabling BYOC](/docs/platform/howto/byoc/enable-byoc) in
+[Aiven Console](https://console.aiven.io/). We might
 reach out to you for more details if needed and follow up with you to
 keep you informed on the progress.
 
@@ -485,18 +462,16 @@ Console](https://console.aiven.io/), deploy the template in your AWS
 account to generate Role ARN, and get back to [Aiven
 Console](https://console.aiven.io/) with your Role ARN to proceed with
 your custom cloud configuration. Finalize the setup by selecting in
-which projects you want to use your custom cloud and assigning a contact
+which projects to use your custom cloud and assigning a contact
 person for your custom cloud.
 
 #### Launch the BYOC setup in Aiven Console
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-2.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-3.  From the top navigation bar, select **Admin**.
-4.  From the left sidebar, select **Bring your own cloud**.
-5.  In the **Bring your own cloud** view, select **Create custom
+    administrator, and go to a desired organization.
+1.  From the top navigation bar, select **Admin**.
+1.  From the left sidebar, select **Bring your own cloud**.
+1.  In the **Bring your own cloud** view, select **Create custom
     cloud**.
 
 #### Generate an infrastructure template {#generate-infra-template}
@@ -550,7 +525,7 @@ In the **Create custom cloud** wizard:
             blocks of VPCs you plan to peer your BYOC VPC with. You
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
-2.  Select **Next**.
+1.  Select **Next**.
 
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
@@ -567,13 +542,14 @@ and run operations such as creating VMs for service nodes in your BYOC
 account.
 
 Use the Terraform template generated in step
-[Generate an infrastructure template](/docs/platform/howto/byoc/create-custom-cloud#generate-infra-template) to create your Role ARN by deploying the template in your
+[Generate an infrastructure template](/docs/platform/howto/byoc/create-custom-cloud#generate-infra-template)
+to create your Role ARN by deploying the template in your
 AWS account. Continue working in the **Create custom cloud** wizard:
 
 1.  Copy or download the template and the variables file from the
     **Create custom cloud** wizard.
 
-2.  Optionally, modify the template as needed.
+1.  Optionally, modify the template as needed.
 
     :::note
     To connect to a custom-cloud service from different security groups
@@ -587,21 +563,21 @@ AWS account. Continue working in the **Create custom cloud** wizard:
     Console](https://console.aiven.io/).
     :::
 
-3.  In your AWS account, run the template with the variables using
-    Terraform.
+1.  Use Terraform to deploy the Infrastructure template in your AWS account with the
+    provided variables.
 
     :::important
     When running `terraform plan` and `terraform apply`, make sure you
     add `-var-file=FILE_NAME.vars` as an option.
     :::
 
-4.  Find the role identifier (Role ARN) in the output script after
+1.  Find the role identifier (Role ARN) in the output script after
     running the template.
 
-5.  Enter Role ARN into the **Role ARN** field in the **Create custom
+1.  Enter Role ARN into the **Role ARN** field in the **Create custom
     cloud** wizard.
 
-6.  Select **Next** to proceed or park your cloud setup and save
+1.  Select **Next** to proceed or park your cloud setup and save
     your current configuration as a draft by selecting **Save draft**.
     You can resume creating your cloud later.
 
@@ -626,10 +602,10 @@ Continue working in the **Create custom cloud** wizard:
     -   **By selection** to pick specific projects or organizational
         units where you want your custom cloud to be available.
 
-2.  If you go for the **By selection** option, dropdown menus **Assign
-    organizational units** and **Assign projects** show up. Use them to
-    select organizational units and/ or projects in which you want to be
-    able to use your custom cloud.
+1.  If you go for the **By selection** option, menus **Assign organizational units** and
+    **Assign projects** show up. Use them to
+    select organizational units and/ or projects in which to use your custom
+    cloud.
 
 :::note
 By selecting an organizational unit, you make your custom cloud
@@ -643,11 +619,11 @@ issue with the custom cloud needs fixing. Continue working in the
 **Create custom cloud** wizard:
 
 1.  In the **Customer contacts** section, select a contact person's
-    role using the **Job title** dropdown menu, and provide their email
+    role using the **Job title** menu, and provide their email
     address in the **Email** field.
-2.  Use **+ Add another contact** to add as many customer contacts as
+1.  Use **+ Add another contact** to add as many customer contacts as
     needed for your custom cloud.
-3.  Select **Create**.
+1.  Select **Create**.
 
 The custom cloud process has been initiated for you, which is
 communicated in the the **Create custom cloud** wizard as **Creating
@@ -673,12 +649,10 @@ You can check the status of your custom cloud by taking the following
 steps:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-2.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-3.  From the top navigation bar, select **Admin**.
-4.  From the left sidebar, select **Bring your own cloud**.
-5.  In the **Bring your own cloud** view, identify your new cloud on the
+    administrator, and go to a desired organization.
+1.  From the top navigation bar, select **Admin**.
+1.  From the left sidebar, select **Bring your own cloud**.
+1.  In the **Bring your own cloud** view, identify your new cloud on the
     list of available clouds and check its status in the **Status**
     column.
 

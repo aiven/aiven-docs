@@ -1,27 +1,15 @@
 ---
-title: Use PostgreSQL® provider for additional PostgreSQL configurations
+title: Use PostgreSQL® Provider to configure Aiven for PostgreSQL services
+sidebar_label: Use PostgreSQL® Provider
 ---
 
-[Aiven Terraform
-provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-can be used to create and manage Aiven for PostgreSQL® service,
-PostgreSQL® databases, and users. If you need to perform additional
-configurations such as setting PostgreSQL default privileges, configure
-PostgreSQL publication, or reuse a PostgreSQL-based sub-module between
-different vendors to make the Terraform code homogeneous, you can
-consider using the [PostgreSQL®
-provider](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
-This article shows how to use the PostgreSQL provider along with the
-Aiven Terraform Provider to create a PostgreSQL role.
+Use the [PostgreSQL Provider for Terraform](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs) to configure settings such as default privileges, publication, or to reuse a submodule between different vendors.
 
-## Configure the required providers
+You can create an Aiven for PostgreSQL® service with the
+[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+and configure it with the PostgreSQL Provider.
 
-The new provider must be added to the `required_providers` block in the
-Terraform code.
-
-1.  This example shows how to add the PostgreSQL provider (source:
-    `cyrilgdn/postgresql`) along with the Aiven Terraform Provider
-    (source: `aiven/aiven`).
+1.  Add the PostgreSQL Provider and Aiven Provider to the `required_providers` block:
 
     ```terraform
     terraform {
@@ -38,63 +26,34 @@ Terraform code.
     }
     ```
 
-2.  If the PostgreSQL provider is used on its own, you can provide the
-    Aiven for PostgreSQL service connection details as follows:
+1.  Set the service connection attributes in the `provider` block:
 
     ```terraform
-    provider "postgresql" {
-      host            = "pg-serivicename-projectname.aivencloud.com"
-      port            = 12691
-      database        = "defaultdb"
-      username        = "avnadmin"
-      password        = "postgres_password"
-      sslmode         = "require"
-      connect_timeout = 15
-    }
-    ```
-
-    Optionally, when the Aiven for PostgreSQL service is created within
-    the same Terraform project, the values required to configure the
-    PostgreSQL provider can be passed using references to the resource,
-    as shown in the code below:
-
-    ```terraform
-    resource "aiven_pg" "demo-pg" {
-      project                 = var.project_name
+    # Create the Aiven service
+    resource "aiven_pg" "example_pg" {
+      project                 = "example-project"
       cloud_name              = "google-asia-southeast1"
       plan                    = "business-8"
-      service_name            = "demo-pg"
+      service_name            = "example-pg"
       termination_protection  = true
     }
 
-    # PostgreSQL provider is configured with references to the aiven_pg.demo-pg resource.
-
+    # Configure the PostgreSQL Provider by referencing the Aiven service resource
     provider "postgresql" {
-      host            = aiven_pg.demo-pg.service_host
-      port            = aiven_pg.demo-pg.service_port
-      database        = aiven_pg.demo-pg.pg.dbname
-      username        = aiven_pg.demo-pg.service_username
-      password        = aiven_pg.demo-pg.service_password
+      host            = aiven_pg.example_pg.service_host
+      port            = aiven_pg.example_pg.service_port
+      database        = aiven_pg.example_pg.pg.dbname
+      username        = aiven_pg.example_pg.service_username
+      password        = aiven_pg.example_pg.service_password
       sslmode         = "require"
       connect_timeout = 15
     }
     ```
 
-3.  Create a PostgreSQL role called `test_role` using the Terraform
-    resource `postgresql_role.my_role`.
+1.  Create a PostgreSQL role using the Terraform resource `postgresql_role.my_role`:
 
     ```terraform
-    resource "postgresql_role" "my_role" {
-      name     = "test_role"
+    resource "postgresql_role" "example_role" {
+      name     = "example-role"
     }
     ```
-
-    :::note
-    For the full documentation of the `Aiven Terraform Provider` refer
-    to [Aiven provider
-    documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
-
-    For the full list of resources available in `PostgreSQL provider`
-    refer to [PostgreSQL provider
-    documentation](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
-    :::

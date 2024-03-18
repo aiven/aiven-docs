@@ -43,16 +43,16 @@ const sidebars: SidebarsConfig = {
       label: 'Organizations, units, and projects',
       link: {
         type: 'doc',
-        id: 'platform/howto/list-account',
+        id: 'platform/concepts/projects_accounts_access',
       },
       items: [
-        'platform/concepts/projects_accounts_access',
         'tools/aiven-console/howto/create-accounts',
         'platform/howto/manage-organizations',
         'platform/howto/manage-project',
         'platform/howto/add-project-members',
         'platform/reference/project-member-privileges',
         'platform/howto/manage-unassigned-projects',
+        'platform/concepts/carbon-footprint',
       ],
     },
     {
@@ -60,10 +60,9 @@ const sidebars: SidebarsConfig = {
       label: 'Billing and payment',
       link: {
         type: 'doc',
-        id: 'platform/concepts/list-billing',
+        id: 'platform/concepts/hourly-billing-model',
       },
       items: [
-        'platform/concepts/hourly-billing-model',
         'platform/concepts/corporate-billing',
         'platform/concepts/tax-information',
         'platform/howto/update-tax-status',
@@ -96,10 +95,9 @@ const sidebars: SidebarsConfig = {
           label: 'Billing groups',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-billing-groups',
+            id: 'platform/concepts/billing-groups',
           },
           items: [
-            'platform/concepts/billing-groups',
             'platform/howto/create-billing-groups',
             'platform/howto/use-billing-groups',
             'platform/howto/billing-assign-projects',
@@ -198,25 +196,34 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'platform/howto/create_new_service',
-        'platform/howto/rename-a-service',
         'platform/howto/tag-resources',
         'platform/howto/search-services',
         'platform/howto/recover-a-deleted-service',
         'platform/howto/create_new_service_user',
         'platform/concepts/service-forking',
-        'platform/howto/console-fork-service',
         'platform/concepts/service_backups',
         'platform/concepts/service-power-cycle',
-        'platform/howto/pause-from-cli',
         'platform/concepts/service-resources',
         'platform/concepts/service-memory-limits',
         'platform/concepts/out-of-memory-conditions',
         'platform/howto/prepare-for-high-load',
-        'platform/howto/scale-services',
-        'platform/concepts/dynamic-disk-sizing',
-        'platform/howto/disk-autoscaler',
-        'platform/howto/cleanup-powered-off-services',
-        'platform/howto/add-storage-space',
+
+        {
+          type: 'category',
+          label: 'Service scaling',
+          link: {
+            type: 'generated-index',
+            description:
+              'Aiven offers the following features to scale your services.',
+            title: 'Service scaling',
+            slug: '/platform/concepts/service-scaling',
+          },
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+          ],
+        },
         'platform/howto/access-service-logs',
         'platform/howto/service-metrics',
         'platform/howto/migrate-services-cloud-region',
@@ -241,10 +248,9 @@ const sidebars: SidebarsConfig = {
           label: 'Bring your own cloud',
           link: {
             type: 'doc',
-            id: 'platform/howto/list-byoc',
+            id: 'platform/concepts/byoc',
           },
           items: [
-            'platform/concepts/byoc',
             'platform/howto/byoc/enable-byoc',
             'platform/howto/byoc/create-custom-cloud',
             'platform/howto/byoc/assign-project-custom-cloud',
@@ -382,14 +388,11 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/cli/account',
-            'tools/cli/account/account-team',
             'tools/cli/billing-group',
             'tools/cli/cloud',
             'tools/cli/credits',
             'tools/cli/events',
             'tools/cli/mirrormaker',
-            'tools/cli/project',
             {
               type: 'category',
               label: 'avn service',
@@ -443,6 +446,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/promote-to-master-pg-rr',
             'tools/terraform/howto/config-postgresql-provider',
+            'tools/terraform/howto/use-opentofu',
             {
               type: 'category',
               label: 'Upgrade Aiven provider',

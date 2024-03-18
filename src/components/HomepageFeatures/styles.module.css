@@ -57,8 +57,8 @@
 .logo {
   padding: 2px;
   margin-right: 16px;
-  background-image: url('/static/icons/background1.svg'),
-    url('/static/icons/background2.svg');
+  background-image: url('/static/images/icons/home/background1.svg'),
+    url('/static/images/icons/home/background2.svg');
   background-repeat: no-repeat, no-repeat;
   background-position: left top, bottom right;
   height: 56px;

@@ -3,4 +3,4 @@ message: "You cannot have only one H2."
 level: error
 formula: |
   heading.h2
-condition: "= 1"
+condition: "== 1.0"

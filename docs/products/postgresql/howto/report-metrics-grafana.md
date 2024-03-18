@@ -6,7 +6,9 @@ As well as offering PostgreSQL-as-a-service, the Aiven platform gives
 you access to monitor the database. The metrics/dashboard integration in
 the Aiven console lets you send PostgreSQL® metrics to an external
 endpoint like Datadog or to create an integration and a
-[prebuilt dashboard](/docs/products/postgresql/reference/pg-metrics) in Aiven for Grafana®. Get detailed information about the
+[prebuilt dashboard](/docs/products/postgresql/reference/pg-metrics) in Aiven for Grafana®.
+
+Get detailed information about the
 metrics and dashboard sections in
 [PostgreSQL® metrics exposed in Grafana®](/docs/products/postgresql/reference/pg-metrics).
 
@@ -22,9 +24,10 @@ collected metrics.
     description.
 2.  Choose either a new or existing M3DB, or PostgreSQL
     service.
+
     -   A new service will ask you to select the cloud, region and plan
         to use. You should also give your service a name. The service
-        overview page shows the nodes rebuilding, and then indicates
+        overview page shows the nodes rebuilding, and indicates
         when they are ready.
     -   If you're already using M3DB, or PostgreSQL on Aiven,
         you can submit your PostgreSQL metrics to the existing service.
@@ -43,17 +46,15 @@ of the metrics in case of problems with the service.
     **Grafana Metrics Dashboard** option to make the metrics available on
     that platform.
 
-2.
+2.  Choose either a new or existing Grafana service.
 
-    Choose either a new or existing Grafana service.
-
-    :   -   A new service will ask you to select the cloud, region and
-            plan to use. You should also give your service a name. The
-            service overview page shows the nodes rebuilding, and then
-            indicates when they are ready.
-        -   If you're already using Grafana on Aiven, you can integrate
-            your M3DB as an additional data source for that existing
-            Grafana.
+    -   A new service will ask you to select the cloud, region and
+        plan to use. You should also give your service a name. The
+        service overview page shows the nodes rebuilding, and
+        indicates when they are ready.
+    -   If you're already using Grafana on Aiven, you can integrate
+        your M3DB as an additional data source for that existing
+        Grafana.
 
 3.  On the **Overview** page for your Aiven for Grafana service, select
     the **Service URI** link. The username and password for your Grafana
@@ -64,8 +65,8 @@ can go ahead and visualize your PostgreSQL metrics.
 
 ## Open PostgreSQL metrics prebuilt dashboard
 
-In Grafana, go to **Dashboards** and **Manage**, and double click on the
-dashboard that bears name of the metrics database.
+In Grafana, go to **Dashboards** and **Manage**, and double click the
+dashboard named after the metrics database.
 
 ![Screenshot of a Grafana Manage Dashboards panel](/images/products/postgresql/metrics-dashboard-manage.png)
 

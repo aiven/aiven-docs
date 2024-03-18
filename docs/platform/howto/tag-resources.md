@@ -1,36 +1,27 @@
 ---
-title: Tag your Aiven resources
+title: Use resource tags
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
+import Services from "@site/static/images/icons/cog.svg";
 
-Tags can add metadata to Aiven resources like projects and services.
-Adding tags can be useful to categorize services, store specific
-information for your application or business, and group services or
-bills based on custom logic.
+Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 
-## Tag details
+Typical uses include:
 
-A tag can be attached to any project or service and consists of the
-following:
+- Tagging for governance to deploy services with specific tags only.
+- Tagging for internal cost reporting, ownership, allocation, accountability, etc.
 
--   String **key**, which is case-sensitive and must consists of
-    characters `[A-Za-z0-9_-]` and start with a letter. The maximum
-    length for a key is 64 characters.
--   Single **value**, which can be at most 64 UTF-8-character-long.
+A tag is a key/value pair, where:
+
+- **key**: A case-sensitive string that much match
+  `[A-Za-z0-9_-]` and start with a letter. The maximum
+  length for a key is 64 characters.
+- **value**: A string value limited to 64 UTF-8 characters.
 
 :::note
-Any single Aiven resource can have at most 10 tags attached. Within a
-resource, the tag keys must be unique.
+An Aiven resource can have up to 10 tags. Within a resource, the tag keys must be unique.
 :::
-
-To work with tags, you can use the following:
-
--   [Aiven Console](https://console.aiven.io/)
--   Aiven client: Aiven-client version 1.11.0 or later is required for
-    tagging support.
--   APIs (for example,
-    [ProjectUpdate](https://api.aiven.io/doc/#tag/Project/operation/ProjectUpdate))
 
 ## Add tags to resources in Aiven Console
 
@@ -38,10 +29,10 @@ To work with tags, you can use the following:
 
 You can add the following types of tags to projects:
 
-- Billing reference tags - returned in the Invoice API and displayed
-  on PDF invoices for the project
-- Project tags - returned for resources in the API and displayed in
-  the list of projects
+|       Tag type        |                                Description                                |
+|-----------------------|---------------------------------------------------------------------------|
+| Billing reference tag | Returned in the Invoice API and displayed on PDF invoices for the project |
+| Project tag           | Returned for resources in the API and displayed in the list of projects   |
 
 To add tags to a project:
 
@@ -56,8 +47,6 @@ To add tags to a project:
 You can see the tags listed in the table on the **Projects** page.
 
 ### Add tags to services
-
-To add tags to a service, follow these steps:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    your organization and your project from the top navigation bar.
@@ -135,3 +124,15 @@ too, and work the same way:
     ===  ==========
     env  smoke_test
     ```
+
+## Reading tags
+
+After you've added tags, you can read them from:
+
+- The [Aiven Console](https://console.aiven.io/).
+- Aiven-client version 1.11.0 or later.
+- APIs, such as the [ProjectUpdate endpoint](https://api.aiven.io/doc/#tag/Project/operation/ProjectUpdate).
+
+## Related pages
+
+- [Create a service](/docs/platform/howto/create_new_service)

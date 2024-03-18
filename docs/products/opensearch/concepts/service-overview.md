@@ -83,10 +83,11 @@ and working with your OpenSearch service:
 -   Got a question about the OpenSearch project itself? They have an
     [FAQ](https://opensearch.org/faq/) for that.
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
+import Kibana from "@site/static/includes/trademark-kibana.md"
 
-*Apache Lucene is a registered trademark or trademark of the Apache
-Software Foundation in the United States and/or other countries*
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.* *Kibana is a trademark of Elasticsearch
-B.V., registered in the U.S. and in other countries.*
+<ElasticSearch/>
+<Kibana/>
+
+_Apache Lucene is a registered trademark or trademark of the Apache Software Foundation
+in the United States and/or other countries._

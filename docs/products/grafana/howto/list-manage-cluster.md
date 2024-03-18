@@ -12,6 +12,6 @@ title: Manage your Aiven for Grafana® cluster
 
 [Migrate a managed service](/docs/platform/howto/migrate-services-cloud-region)
 
-[Fork a managed service](/docs/platform/howto/console-fork-service)
+[Fork a managed service](/docs/platform/concepts/service-forking)
 
-[Power off & delete a managed service](/docs/platform/howto/pause-from-cli)
+[Power off & delete a managed service](/docs/platform/concepts/service-power-cycle)

@@ -29,8 +29,8 @@ more:
 -   Our code samples repository, to get you started quickly:
     [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.* *Couchbase is a trademark of Couchbase,
-Inc.*
+<ElasticSearch/>
+
+Couchbase is a trademark of Couchbase, Inc.
