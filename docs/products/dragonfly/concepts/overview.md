@@ -9,7 +9,6 @@ preferred cloud environment. It provides lightning-fast data storage and
 retrieval capabilities, making it ideal for businesses that handle
 large-scale data operations.
 
-
 Dragonfly is designed to overcome the limitations of Redis Open Source
 Software (Redis OSS), especially under high-load conditions. While
 renowned for its speed and adaptability as an in-memory data repository,
