@@ -91,12 +91,12 @@ Parameters:
 
 To create an Aiven for Apache Flink application, retrieve the `integration_id` for
 your Aiven for Apache Flink service from the
-[integration list](docs/tools/cli/service/integration)
+[integration list](/docs/tools/cli/service/integration#avn_service_integration_list)
 and use it to connect your application to an external PostgreSQL database as
 either a source or a sink.
 
 For information on how to create Aiven for Apache Flink applications, see
-[avn service flink create-application](/docs/tools/cli/service/flink#avn%20service%20flink%20create-application).
+[avn service flink create-application](/docs/products/flink/howto/create-flink-applications).
 
 ## Configure integration using Aiven Console
 
