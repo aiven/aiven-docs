@@ -24,12 +24,12 @@ application table, using either CDC or JDBC:
 
 1. Go to the **Aiven for Apache Flink** service page and
    click **Application** in the sidebar.
-1. Click **Create new application**, enter a name your application, and
+1. Click **Create new application**, enter a name for your application, and
    click **Create application**.
 
    :::note
-    If modifying an existing application, create a new version for source or s
-    ink table changes.
+    If modifying an existing Flink application, create a new version of the application
+    for changes to source or sink tables.
    :::
 
 1. Click **Create first version** to create the first version of your application.
