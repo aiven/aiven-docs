@@ -107,32 +107,32 @@ via the Aiven Console by following these steps:
 1. [Create a new Aiven for Apache Flink](/docs/platform/howto/create_new_service)
     service or select an existing service.
 1. Configure an external PostgreSQL integration endpoint:
-   - Go to the **Projects > Integration endpoints**
-   - Click **External PostgreSQL** from the list, then click **Add new endpoint**.
-   - Enter the following details:
+   1. Go to the **Projects > Integration endpoints**
+   1. Click **External PostgreSQL** from the list, then click **Add new endpoint**.
+   1. Enter the following details:
 
-     - **Endpoint name**: Name your endpoint.
-     - **Host**: PostgreSQL server's hostname or IP.
-     - **Port**: PostgreSQL server's port.
-     - **Database name**: Name of the database to connect.
-     - **Username**: Username for database access.
-     - **Password**: Password for the username.
-     - For SSL-encrypted databases:
+      - **Endpoint name**: Name your endpoint.
+      - **Host**: PostgreSQL server's hostname or IP.
+      - **Port**: PostgreSQL server's port.
+      - **Database name**: Name of the database to connect.
+      - **Username**: Username for database access.
+      - **Password**: Password for the username.
+      - For SSL-encrypted databases:
 
-       - **SSL Mode**: Choose `require`, `verify-ca`, or `verify-full`.
-       - **SSL Root Certificate**: Upload the SSL root certificate.
-   - Click **Create**.
+        - **SSL Mode**: Choose `require`, `verify-ca`, or `verify-full`.
+        - **SSL Root Certificate**: Upload the SSL root certificate.
+   1. Click **Create**.
 1. Create Integration:
-   - Return to the **Project** page and open your Aiven for Apache Flink service
+   1. Return to the **Project** page and open your Aiven for Apache Flink service
      from the list of services.
-   - For first-time integration, click **Get Started** on the **Overview page**.
+   1. For first-time integration, click **Get Started** on the **Overview page**.
      Otherwise, add a new integration in the **Data Flow** section by clicking **Plus (+)**.
-   - On the **Data Service integrations screen**, go to the
+   1. On the **Data Service integrations screen**, go to the
      **Create external integration endpoint** tab.
 
-   - Select the checkbox next to **PostgreSQL**, and select the external PostgreSQL
+   1. Select the checkbox next to **PostgreSQL**, and select the external PostgreSQL
      endpoint from the list to integrate.
-   - Click **Integrate**.
+   1. Click **Integrate**.
 
 After completing these steps, the integration is set up,
 enabling you to start creating [Aiven for Apache Flink applications](/docs/products/flink/howto/create-flink-applications)
