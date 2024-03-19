@@ -38,8 +38,7 @@ Before starting the migration process, ensure you have the following:
 - Source database information:
   - **Hostname or connection string:** The public hostname,
     connection string, or IP address used to connect to the
-    database, which can be
-    [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
+    database, [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
   - **Port:** The port number used for connecting to the database.
   - **Username:** The username with appropriate permissions for
     accessing the database data you intend to migrate.
