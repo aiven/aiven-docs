@@ -105,8 +105,9 @@ via the Aiven Console by following these steps:
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and choose your project.
 1. [Create a new Aiven for Apache Flink](/docs/platform/howto/create_new_service)
-    service or select an existing service.
+   service or select an existing service.
 1. Configure an external PostgreSQL integration endpoint:
+
    1. Go to the **Projects > Integration endpoints**
    1. Click **External PostgreSQL** from the list, then click **Add new endpoint**.
    1. Enter the following details:
