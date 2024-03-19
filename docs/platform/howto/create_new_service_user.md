@@ -19,6 +19,8 @@ To increase the maximum number of users allowed for a service,
 [create a support ticket](/docs/platform/howto/project-support-center) to request an increase.
 :::
 
+## Create a service user
+
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 1.  On the **Services** page, select your service.
 1.  From the sidebar, click <Users className="icon"/> **Users**.
