@@ -20,7 +20,7 @@ Use the following steps to complete the upgrade safely:
     This is the equivalent to clicking the migrate button in the
     console.
 
-    ``` 
+    ```
     # Existing Elasticsearch Resource
     resource "aiven_elasticsearch" "es" {
       project = "project-name"
@@ -34,7 +34,7 @@ Use the following steps to complete the upgrade safely:
     }
     ```
 
-    ``` 
+    ```
     # Modified Elasticsearch Resource, upgrades to OpenSearch v1
     resource "aiven_elasticsearch" "es" {
       project = "project-name"
@@ -51,13 +51,13 @@ Use the following steps to complete the upgrade safely:
     Once you have updated your configuration, check that the change
     looks correct:
 
-    ``` 
+    ```
     terraform plan
     ```
 
     Apply the upgrade:
 
-    ``` 
+    ```
     terraform apply
     ```
 
@@ -67,14 +67,14 @@ Use the following steps to complete the upgrade safely:
 2.  After the migration you will need to remove the Elasticsearch
     service from the Terraform state.
 
-    ``` 
+    ```
     terraform state rm 'aiven_elasticsearch.<service-name>'
     ```
 
 3.  Update the resource configuration to be an OpenSearch resource type,
     the example shown above would then look like this:
 
-    ``` 
+    ```
     resource "aiven_opensearch" "os" {
       project = "project-name"
       cloud_name = "google-us-east4"
@@ -90,7 +90,7 @@ Use the following steps to complete the upgrade safely:
 4.  Bring the Terraform state back in sync with your OpenSearch service
     by importing the service.
 
-    ``` 
+    ```
     terraform import 'aiven_opensearch.os' <project-name>/<service-name>
     ```
 
@@ -101,13 +101,12 @@ of OpenSearch.
 If you have had any Elasticsearch ACLs and users, do not forget to
 import OpenSearch counterparts to the Terraform state.
 
-``` 
+```
 terraform import 'aiven_opensearch_acl_config.os-acl-config' <project-name>/<service-name>
 terraform import 'aiven_opensearch_acl_rule.os-acl-rule' <project-name>/<service-name>/<username>/<index>
 terraform import 'aiven_opensearch_user.os-user' <project-name>/<service-name>/<username>
 ```
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+<ElasticSearch/>

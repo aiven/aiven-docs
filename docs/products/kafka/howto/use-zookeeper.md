@@ -28,7 +28,7 @@ Latest versions of Apache Kafka allow ZooKeeper-less mode, however, you
 can continue using the advanced configuration settings as before.
 :::
 
-------------------------------------------------------------------------
-
-*Apache ZooKeeper is a trademark of the Apache Software Foundation in
-the United States and/or other countries*
+:::note
+Apache ZooKeeper is a trademark of the Apache Software Foundation in
+the United States and/or other countries
+:::

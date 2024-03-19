@@ -197,7 +197,6 @@ three-node cluster, the maximum `number_of_replicas` value is 2, which
 means that all shards on the index are replicated to all three nodes.
 :::
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+<ElasticSearch/>

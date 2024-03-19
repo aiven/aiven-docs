@@ -17,5 +17,3 @@ that your platforms can continue to receive upgrades in the future.
 
 To start exploring Aiven for OpenSearch®, check out the
 [Get Started with Aiven for OpenSearch®](/docs/products/opensearch/get-started).
-
-------------------------------------------------------------------------

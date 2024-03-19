@@ -31,8 +31,7 @@ These are the placeholders you will need to replace in the code sample:
 
 :::tip
 The Aiven for Cassandra CA certificate can be downloaded from [Aiven
-Console](https://console.aiven.io/), on the service detail page or with
-the [dedicated Aiven CLI command](/docs/tools/cli/project#avn_project_ca_get).
+Console](https://console.aiven.io/) on the service detail page.
 :::
 
 ## Connect to the database

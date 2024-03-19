@@ -1,26 +1,31 @@
 ---
 title: Extensions on Aiven for PostgreSQL®
+sidebar_label: Extensions
 ---
 
-The following PostgreSQL® extensions are available. Please note that
-some of the extensions have dependencies and they need to be created in
-the proper order. Some extensions may require disconnecting the client
-connection and reconnecting before they are fully available.
+PostgreSQL® extensions allow you to extend the functionality by adding more capabilities to your Aiven for PostgreSQL.
 
-To check the details, including the version number of the extension, run
-`select * from pg_available_extensions` in your Aiven for PostgreSQL
-server.
+:::important
+Some extensions:
+
+- Have dependencies and need to be created in a predetermined order.
+- Require resetting the client connection before they are fully available.
+
+:::
+
+To list the extensions and their details, such as extension version numbers,
+run `select * from pg_available_extensions` in your Aiven for PostgreSQL server.
 
 :::note
-Not all extensions listed in `pg_available_extensions` are able to be
-installed. See
-[Superuser-only Extensions](/docs/products/postgresql/reference/list-of-extensions#avn_superuser_only_extensions) for more.
+Not all extensions listed in `pg_available_extensions` can be installed. See
+[Superuser-only extensions](/docs/products/postgresql/reference/list-of-extensions#avn_superuser_only_extensions)
+for more information.
 :::
 
 ## Data types
 
--   [chkpass](https://www.postgresql.org/docs/10/chkpass.html). Data
-    type for auto-encrypted passwords. `PG10 only`
+<!-- vale off -->
+
 -   [citext](https://www.postgresql.org/docs/current/citext.html). Data
     type for case-insensitive character strings.
 -   [cube](https://www.postgresql.org/docs/current/cube.html). Data type
@@ -98,16 +103,10 @@ installed. See
 
 ## Procedural language
 
--   [plcoffee](https://github.com/plv8/plv8). PL/CoffeeScript (v8)
-    trusted procedural language. `PG10 only`
--   [plls](https://github.com/plv8/plv8). PL/LiveScript (v8) trusted
-    procedural language. `PG10 only`
 -   [plperl](https://www.postgresql.org/docs/current/plperl.html).
     PL/Perl procedural language.
 -   [plpgsql](https://www.postgresql.org/docs/current/plpgsql.html).
     PL/pgSQL procedural language.
--   [plv8](https://github.com/plv8/plv8). PL/JavaScript (v8) trusted
-    procedural language. `PG10 only`
 
 ## Connectivity
 
@@ -175,8 +174,6 @@ not generally available**.
     Functions for verifying relation integrity.
 -   [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html).
     Functions for auto-incrementing fields.
--   [bool_plperlu](https://www.postgresql.org/docs/current/plperl-funcs.html).
-    Transform between `bool` and `plperlu`.
     `PG13 and newer`
 -   [dict_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html).
     Text search dictionary template for extended synonym processing.
@@ -184,12 +181,8 @@ not generally available**.
     Foreign-data wrapper for flat file access.
 -   [hstore_plperl](https://www.postgresql.org/docs/current/hstore.html).
     Transform between `hstore` and `plperl`.
--   [hstore_plperlu](https://www.postgresql.org/docs/current/hstore.html).
-    Transform between `hstore` and `plperlu`.
 -   [insert_username](https://www.postgresql.org/docs/current/contrib-spi.html).
     Functions for tracking who changed a table.
--   [jsonb_plperlu](https://www.postgresql.org/docs/current/datatype-json.html).
-    Transform between `jsonb` and `plperlu`.
 -   [moddatetime](https://www.postgresql.org/docs/10/contrib-spi.html).
     Functions for tracking last modification time.
 -   [old_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html).
@@ -204,7 +197,7 @@ not generally available**.
     `PG14 only`
 -   [pg_visibility](https://www.postgresql.org/docs/current/pgvisibility.html).
     Examine the visibility map (VM) and page-level visibility info.
--   [plperlu](https://www.postgresql.org/docs/current/plperl-trusted.html).
-    PL/PerlU untrusted procedural language.
 -   [refint](https://www.postgresql.org/docs/current/contrib-spi.html).
     Functions for implementing referential integrity (obsolete).
+
+<!-- vale off -->

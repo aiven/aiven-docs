@@ -2,15 +2,7 @@
 title: Prepare services for high load
 ---
 
-<!-- vale off -->
-When you expect higher than usual traffic on your Aiven services, follow these recommendations and best practices.
-<!-- vale on -->
-
-:::tip
-If your services are already experiencing high load, under-performing or
-requiring extra resource, read [short term suggestion to handle the
-load](https://help.aiven.io/en/articles/4660372-reacting-to-high-load).
-:::
+Prepare your services for higher than usual traffic to avoid service outages.
 
 ## Monitor service health
 
@@ -50,8 +42,8 @@ updates on incidents directly from
 
 ## Monitor the services
 
-Monitoring helps you prepare for high load. Check out how to setup adequate monitoring
-for your needs in [Monitoring services](/docs/platform/howto/monitoring-services).
+Monitoring helps you prepare for high load, see
+[Monitoring services](/docs/platform/howto/monitoring-services).
 
 ## Modify the service plan
 
@@ -97,12 +89,9 @@ them yourself or a mandatory update is created.
 
 ## Run load test on service forks
 
-To test the impact on high traffic on a service, you can run load tests
-against copies of your production service using the
-[fork service option](console-fork-service) option in
-[Aiven Console](https://console.aiven.io/) > your
-service's **Overview** page > **Fork Database** > **New database
-fork**.
+To test the impact of high traffic on a production service,
+[fork the service to test](/docs/platform/concepts/service-forking) and run your load
+test on the fork.
 
 ## Perform service specific optimizations
 

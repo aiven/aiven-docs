@@ -2,20 +2,16 @@
 title: Out of memory conditions
 ---
 
-**Many processes request more memory from the kernel then they will ever
-use or need.**
-
-Because of this the kernel over allocates memory (heuristic overcommit),
-which allows it to satisfy multiple processes requesting more memory
-then is available, in the knowledge that either they will never use it,
-or that they will have freed it by the time any other process actually
-needs it.
+Many processes request more memory from the kernel then they will ever use or need, because of this the kernel over allocates memory (heuristic overcommit).
+This allows it to satisfy multiple processes requesting more memory then is available, in the knowledge that either they will never use it, or that they will have freed it by the time any other process actually needs it.
 
 However, if enough processes start using all their allocated memory
 simultaneously there may not be enough physical memory available and an
 `Out Of Memory` (`OOM`) condition occurs.
 
-*This situation is critical and must be resolved immediately.*
+:::warning
+This situation is critical and must be resolved immediately.
+:::
 
 ## The Out of Memory Killer
 
@@ -24,7 +20,7 @@ The solution that the Linux kernel employs is to invoke the
 reviews all running processes and kills one or more of them in order to
 free up system memory in order keep the system running.
 
-## Which process will be killed?
+## Process that will be killed
 
 The `OOM Killer` selects process to kill based on an `oom_score`; a
 calculation that balances how much memory the process is using with how
@@ -70,7 +66,7 @@ Out of Memory conditions can still lead to unexpected behavior,
 including data unavailable or data loss conditions.
 :::
 
-## How to avoid the OOM Killer
+## Avoid the OOM Killer
 
 The OOM killer only runs when the system is critically low on memory.
 To prevent it from running, either reduce your memory usage or

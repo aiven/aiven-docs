@@ -5,11 +5,20 @@ level: error
 action:
   name: replace
 swap:
-  spin up: start
-  if you want to: to
-  you need to: imperative
-  pre-requisites: prerequisite
-  (?:take|apply)? ?(?:the )?following steps: nothing
+  (?:if )?you want to: to
+  (?:take |apply )?(?:the )?following steps: nothing
   and then: and
-  to see a list: to list
+  check it out: see
+  check out: see
+  click (?:in|on): click
+  navigate to: go to
+  pre-requisites: prerequisites
   proceed as follows: nothing
+  see a list: to list
+  spin up: start
+  view a list: list
+  you need to: imperative
+  whilst: while
+  amongst: among
+  thus: so
+  create a new: create a

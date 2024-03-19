@@ -3,6 +3,8 @@ title: Manage application users
 limited: true
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 Application users give non-human users programmatic access to Aiven.
 
 :::info
@@ -26,7 +28,7 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 1.  Click **Admin**.
 1.  Click **Application users**.
-1.  Find the user and open the **Actions** menu.
+1.  Find the user and click <ActionsIcon className="icon"/> **Actions**.
 1.  Select **View profile**.
 1.  In the **Authentication tokens** section, click **Generate token**.
 1.  (Optional) Enter a description and session duration.
@@ -41,15 +43,12 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 ## Revoke a token for an application user
 
-1.  Click **Admin**.
-1.  Click **Application users**.
-1.  Find the user, open the **Actions** menu and select **View profile**.
+1.  Click **Admin** > **Application users**.
+1.  Find the user, click <ActionsIcon className="icon"/> **Actions** > **View profile**.
 1.  In the **Authentication tokens** section, open the **Actions** menu.
 1.  Select **Revoke** and confirm that you want to revoke the token.
 
 ## Delete an application user
 
-1.  Click **Admin**.
-1.  Click **Application users**.
-1.  Find the user and open the **Actions** menu.
-1.  Click **Delete**.
+1.  Click **Admin** > **Application users**.
+1.  Find the user and click <ActionsIcon className="icon"/> **Actions** > **Delete**.

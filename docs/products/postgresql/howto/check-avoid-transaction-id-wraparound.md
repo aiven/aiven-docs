@@ -46,9 +46,7 @@ controls this behavior, and changing the value from 1500000000
 (1,500,000,000 or 1.5 billion) to 500000000 (500,000,000 or 500 million)
 would make it warn you when appropriate.
 
-------------------------------------------------------------------------
-
-For more information, see the PostgreSQL® documentation:
+## Related pages
 
 -   [25.1.5. Preventing Transaction ID Wraparound
     Failures](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND)

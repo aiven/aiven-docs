@@ -35,7 +35,7 @@ service/mysql:
 
 service/postgre:
   - changed-files:
-      - any-glob-to-any-file: 'docs/products/postgre/**'
+      - any-glob-to-any-file: 'docs/products/postgresql/**'
 
 service/redis:
   - changed-files:

@@ -243,5 +243,6 @@ plugins, please reach out to our support team at [support@aiven.io](mailto:suppo
     [GitHub](https://github.com/alexanderzobnin/grafana-zabbix):
     Visualizes your Zabbix metrics.
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
+
+<ElasticSearch/>

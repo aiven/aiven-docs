@@ -2,7 +2,7 @@
 title: Create service integrations
 ---
 
-Create [Service integration](/docs/platform/concepts/service-integration) between different Aiven services and move telemetry data using these integrations.
+Create [service integrations](/docs/platform/concepts/service-integration) between different Aiven services and move telemetry data using these integrations.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ Ensure you have these services:
     **Overview** page of your service.
 
     1.  Select to **Integrations** from the sidebar.
-    1.  Under **Aiven solutions**, click **Grafana Metrics Dashboard**.
+    1.  Under **Aiven services**, click **Grafana Metrics Dashboard**.
     1.  In the **Datasource integration** window, select the **Existing
-        service** radio button and choose the Aiven for Grafana service
+        service** and choose the Aiven for Grafana service
         you created.
     1.  Click **Enable**.
 
@@ -38,9 +38,9 @@ Ensure you have these services:
     **Overview** page of your Aiven for PostgreSQL service.
 
     1.  Select **Service integrations** from the sidebar.
-    1.  Under **Aiven solutions**, select **Receive Metrics**.
+    1.  Under **Aiven services**, select **Receive Metrics**.
     1.  In the **Metrics integration** window, ensure the **Existing
-        service** radio button is selected and choose the Aiven for
+        service** is selected and choose the Aiven for
         Apache Kafka service.
     1.  Click **Enable**.
 

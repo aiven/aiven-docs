@@ -330,7 +330,6 @@ The configuration file contains the following peculiarities:
 The OpenSearch document ID is set as the message key
 :::
 
-------------------------------------------------------------------------
+import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
-*Elasticsearch is a trademark of Elasticsearch B.V., registered in the
-U.S. and in other countries.*
+<ElasticSearch/>

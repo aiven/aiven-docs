@@ -13,6 +13,7 @@ It is loosely based on [Google's style guide](https://developers.google.com/styl
 - [Titles](#titles)
 - [Links](#links)
 - [Full stops](#full-stops)
+- [Writing UI instructions](#writing-ui-instructions)
 - [Quotes, bold, italics, and inline code](#quotes-bold-italics-and-inline-code)
 - [Politeness](#politeness)
 - [Trademarks](#trademarks)
@@ -88,8 +89,8 @@ You can use the passive form for actions performed by the system.
 1. The past is possible in certain cases but should be kept to a minimum.
 1. Do not use might / shall / ought / could. Knowing things that only _might_ happen is not helpful.
 
-| Type            | Do                                | Don't                                  | Comments                                                                       |
-| --------------- | --------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------ |
+|      Type       |                Do                 |                 Don't                  |                                    Comments                                    |
+|-----------------|-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------|
 | **Future**      | Click ABC to start the import.    | Click ABC and the import will start    | When?                                                                          |
 | **Future**      | Define a filter.                  | You will now define a filter.          | _now_ is useless, especially mixed with a future tense (is it now or later?)   |
 | **Future**      | Click ABC...                      | You will need to click ABC...          |                                                                                |
@@ -144,6 +145,16 @@ a full stop. For example, dialog titles or section titles:
 - `Confirm selection`
 - `Integrating with the product`
 
+## Writing UI instructions
+
+- Use **click** for buttons.
+- Use **select** for checkboxes, radio buttons, item in dropdown lists.
+- Use short click chains in the order of the UI.
+
+|        Example         |                 Do                 |                    Don\'t                     |
+|------------------------|------------------------------------|-----------------------------------------------|
+| **Short click chains** | Click **Action** > **Delete**.      | Click **Delete** in the **Actions** menu.    |
+
 ## Quotes, bold, italics, and inline code
 
 Never use double-quotes (`"`) or single quotes (`'`) for anything.
@@ -166,7 +177,7 @@ Do not use **please** or any unnecessary politeness.
 ## Trademarks
 
 1. Ensure the registered trademark symbol (®) is used with service names, at least for their first occurrence within the documents.
-2. Use complete service names, like _Aiven for Apache Flink_, instead of _Apache Flink_ when referring to anything specific to Aiven for Apache Flink.
+1. Use complete service names, like _Aiven for Apache Flink_, instead of _Apache Flink_ when referring to anything specific to Aiven for Apache Flink.
 
 ## Documentation text styles
 

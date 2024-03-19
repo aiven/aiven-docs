@@ -40,9 +40,9 @@ To enable Jolokia integration for a specific service, follow these
 steps:
 
 1. Access the `Aiven Console <https://console.aiven.io/>`_ and click the service
-   for which you want to enable Jolokia integration.
+   the Jolokia integration should be enabled for.
 1. On the **Overview** page of your service, click **Integrations** in the sidebar.
-1. On the **Integrations** page, in **External Integrations**, click **Jolokia**.
+1. On the **Integrations** page, in **Endpoint integrations**, click **Jolokia**.
 1. Choose the Jolokia endpoint you created and click **Enable**. The system configures
    the Jolokia endpoint on all service nodes, providing access to the metrics.
 

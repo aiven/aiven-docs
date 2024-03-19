@@ -2,6 +2,8 @@
 title: Manage users in an organization
 ---
 
+import ActionsIcon from "@site/static/images/icons/more.svg";
+
 Adding users to your organization lets you give them access to specific organizational units, projects, and services within that organization.
 
 ## Invite users to an organization
@@ -27,8 +29,8 @@ To remove a user from an organization:
 
 1.  Click **Admin**.
 1.  Click **Users**.
-1.  Find the user that you want to remove and click the **Actions**
-    menu.
+1.  Find the user that you want to remove and click
+    <ActionsIcon className="icon"/> **Actions**.
 1.  Select **Remove**.
 1.  Confirm you want to remove the user by clicking **Remove user**.
 
@@ -38,8 +40,8 @@ To resend an invite to a user:
 
 1.  Click **Admin**.
 1.  Click **Users**.
-1.  Find the email address that you want to resend an invite to and
-    click the **Actions** menu.
+1.  Find the email address that you want to resend an invite to and click
+    <ActionsIcon className="icon"/> **Actions**.
 1.  Select **Resend invite**.
 
 They receive a new email with instructions for signing up or accepting the

@@ -64,7 +64,7 @@ func main() {
 ```
 
 This code connects to Dragonfly, sets a key named `key` with the value
-`hello world` (with no expiration), and then retrieves and prints the
+`hello world` (with no expiration), and retrieves and prints the
 value of this key.
 
 ## Run the code

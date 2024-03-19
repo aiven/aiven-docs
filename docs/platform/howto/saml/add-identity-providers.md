@@ -117,6 +117,7 @@ existing users.
     1. Click **Login**.
     1. Log in to the Aiven Console. You are redirected to your IdP's authentication page.
     1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
+
 -   For new users without an Aiven user account
     1. Click **Sign up**. You are redirected to your IdP's authentication page.
     1. Log in to the IdP.
