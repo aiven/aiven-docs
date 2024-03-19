@@ -85,13 +85,13 @@ Confirm compatibility with Dragonfly and follow these steps:
 Enter the required details to establish a connection with your source
 Redis database:
 
--   **Hostname:** The public hostname, connection string, or IP address
-    for the database connection.
--   **Port:** The port number used for connections.
--   **Username:** The username required to access your database.
--   **Password:** The password for database access.
--   Select the SSL encryption option for a secure migration and click
-    **Run check** to verify the connection.
+- **Hostname:** The public hostname, connection string, or IP address
+  for the database connection.
+- **Port:** The port number used for connections.
+- **Username:** The username required to access your database.
+- **Password:** The password for database access.
+- Select the SSL encryption option for a secure migration and click
+  **Run check** to verify the connection.
 
 :::important
 Address issues to ensure a smooth migration. The migration does not include all
