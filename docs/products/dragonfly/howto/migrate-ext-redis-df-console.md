@@ -129,8 +129,8 @@ During the migration, you can:
 - Stopping this migration immediately halts the ongoing
   replication process, preserving the data already transferred to
   Aiven. You can initiate a new database migration at any time in the future.
-  This migration overwrites the entire database and its contents on Aiven with
-  the latest data from the source.
+  This migration overwrites the entire database and its contents on Aiven
+  with the latest data from the source.
 - Avoid actions that can disrupt the replication process, such as
   changing replication configurations or firewall settings.
 
