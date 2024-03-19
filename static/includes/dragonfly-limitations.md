@@ -8,5 +8,5 @@ from Redis to Dragonflyare not included.
 What this means:
 
 - **Service configurations:** If you’ve customized your Redis service with
-specific settings, you must manually apply these settings to Dragonfly. Automatic
-transfer of these custom configurations is not available during the initial phase of GA.
+  specific settings, you must manually apply these settings to Dragonfly. Automatic
+  transfer of these custom configurations is not available during the initial phase of GA.
