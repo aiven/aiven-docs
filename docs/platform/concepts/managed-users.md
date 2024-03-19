@@ -8,9 +8,8 @@ The managed users feature lets you centrally manage your organization's users an
 
 With managed users, you can:
 
-- Control how users log in with [
-  authentication policies](/docs/platform/howto/set-authentication-policies), not just how
-  they access the organization
+- Control how users log in with [authentication policies](/docs/platform/howto/set-authentication-policies),
+  not just how they access the organization
 - Have visibility of all users in your domain even if they weren't added to the Aiven
   organization
 - Set their state, including deactivating and deleting user accounts
