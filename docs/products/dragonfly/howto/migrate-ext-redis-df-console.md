@@ -44,7 +44,7 @@ Before starting the migration process, ensure you have the following:
   - **Username:** The username with appropriate permissions for
     accessing the database data you intend to migrate.
   - **Password:** The password associated with the username.
-- Ensure firewall rules allow traffic between databases or turn off them
+- Ensure firewall rules allow traffic between databases or turn them off
   temporarily.
 - Using an SSL-secured connection for data transfer is highly
   recommended during the source Redis database migration.
@@ -105,24 +105,24 @@ and ongoing commands or scripts. However, it does transfer all your database dat
 Once all the necessary checks have been completed successfully, you can
 proceed with the migration process.
 
--   Click **Start migration** to initiate the data migration process to
-    Aiven for Dragonfly.
+- Click **Start migration** to initiate the data migration process to
+  Aiven for Dragonfly.
 
 #### Migration in progress
 
 During the migration, you can:
 
--   Close the migration wizard by clicking **Close window** and later
-    return to monitor the migration status from the service overview
-    page.
--   The duration of the migration depends on the size of your database.
-    During migration, the target database are in a read-only state.
-    Writing to the database is only possible once the migration is
-    stopped.
--   Certain managed database features are disabled while the
-    migration is in progress.
--   If needed, halt the migration by selecting **Stop migration**.
-    Data already transferred to Aiven for Dragonfly is preserved.
+- Close the migration wizard by clicking **Close window** and later
+  return to monitor the migration status from the service overview
+  page.
+- The duration of the migration depends on the size of your database.
+  During migration, the target database are in a read-only state.
+  Writing to the database is only possible once the migration is
+  stopped.
+- Certain managed database features are disabled while the
+  migration is in progress.
+- If needed, halt the migration by selecting **Stop migration**.
+  Data already transferred to Aiven for Dragonfly is preserved.
 
 :::warning
 
@@ -140,8 +140,8 @@ During the migration, you can:
 
 Once the migration is complete:
 
--   Click **Close connection** to end replication.
--   Click **Keep replicating** to maintain ongoing data synchronization.
+- Click **Close connection** to end replication.
+- Click **Keep replicating** to maintain ongoing data synchronization.
 
 :::warning
 System updates or any configuration changes during replication can
@@ -156,6 +156,4 @@ with continuous synchronization of new writes from the source database.
 
 ## Related pages
 
--   Migrating to Aiven for Dragonfly
--   Aiven for Dragonfly documentation
-    \</docs/products/dragonfly/index\>\`
+- [Aiven for Dragonfly overview](/docs/products/dragonfly/concepts/overview)

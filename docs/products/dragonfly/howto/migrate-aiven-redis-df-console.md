@@ -83,8 +83,8 @@ proceed with the migration process.
 While the migration is in progress:
 
 - You can close the migration wizard by clicking **Close window** and
-  return later to monitor the progress. Check the service's **Overview** page to track the
-  migration progress.
+  return later to monitor the progress. Check the service's **Overview** page to track
+  the migration progress.
 
 - To stop the migration, click **Stop migration**. The data already transferred
   to Aiven for Dragonfly is preserved.
@@ -130,4 +130,4 @@ with continuous synchronization of new writes from the source database.
 ## Related pages
 
 - [Aiven for Redis®* documentation](/docs/products/redis/get-started)
-- [Aiven for Dragonfly documentation](/docs/products/dragonfly/get-started)
+- [Aiven for Dragonfly overview](/docs/products/dragonfly/concepts/overview)

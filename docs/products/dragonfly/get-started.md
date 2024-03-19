@@ -23,12 +23,12 @@ of minutes.
 
 [Aiven CLI](https://github.com/aiven/aiven-client) provides a simple and
 efficient way to create an Aiven for Dragonfly® service. If you prefer
-launching a new service from the CLI, follow these steps:
+creating a new service from the CLI, follow these steps:
 
 1. Determine the service plan, cloud provider, and region to
-   use for your Dragonfly service.
+   use for your Aiven for Dragonfly service.
 
-1. Run the following command to create Dragonfly service named
+1. Run the following command to create Aiven for Dragonfly service named
    dragonfly-demo:
 
 ```text
@@ -40,8 +40,7 @@ avn service create dragonfly-demo   \
 ```
 
 :::note
-There are additional options available to you, which you can view by
-running the following commands:
+View additional options by running the following commands:
 
 - For a full list of default flags: `avn service create -h`
 - For type-specific options: `avn service types -v`
