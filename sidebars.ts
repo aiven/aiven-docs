@@ -119,7 +119,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/howto/manage-org-users',
         'platform/howto/make-super-admin',
-        'platform/concepts/managed-users',
         'platform/concepts/application-users',
         'platform/howto/manage-application-users',
         'platform/howto/delete-user',
@@ -159,6 +158,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/howto/list-identity-providers',
           },
           items: [
+            'platform/concepts/managed-users',
             'platform/howto/manage-domains',
             'platform/howto/saml/add-identity-providers',
             'platform/howto/saml/add-auth0-idp',

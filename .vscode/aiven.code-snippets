@@ -99,11 +99,11 @@
     ]
   },
   "Pro-platform badge": {
-    "prefix": ["pro", "badge"],
+    "prefix": ["enterprise", "badge"],
     "body": [
-      "import ProBadge from \"@site/src/components/Badges/ProBadge\";",
+      "import EnterpriseBadge from \"@site/src/components/Badges/EnterpriseBadge\";",
       "",
-      "<ProBadge/>",
+      "<EnterpriseBadge/>",
       ""
     ]
   },
