@@ -53,15 +53,13 @@ BYOC:
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. Meet a few requirements to be eligible for BYOC:
 
--   You use one of the following public clouds: Amazon Web Services
-    (AWS), Google Cloud Platform (GCP), or Microsoft Azure (excluding
+-   You use Amazon Web Services (AWS), Google Cloud, or Microsoft Azure (excluding
     Azure Germany).
 -   You have a commitment deal with Aiven.
--   You use at least the [Priority tier of Aiven support
-    services](https://aiven.io/support-services).
+-   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
     :::note
-    Check out [Aiven support tiers](https://aiven.io/support-services) and
+    View the [Aiven support tiers](https://aiven.io/support-services) and
     [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC. Contact
     the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support tier.
     :::
@@ -117,10 +115,12 @@ You are able to integrate your services using standard VPC peering techniques.
 
 :::note
 Although the bastion host and the service nodes reside in the VPC under
-your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone outside Aiven.
+your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone
+outside Aiven.
 
 The bastion and workload nodes require outbound access to the Internet
-to work properly (supporting HA signaling to the Aiven management node and RPM download from Aiven repositories).
+to work properly (supporting HA signaling to the Aiven management node and RPM download
+from Aiven repositories).
 :::
 
 Depending on the service used, Aiven takes regular backups to enable

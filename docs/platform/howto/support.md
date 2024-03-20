@@ -2,15 +2,10 @@
 title: Support
 ---
 
-All customers using paid service plans have access to the Basic support tier. Aiven also offers three paid support tiers with faster response times, phone support, and other services.
+All customers using paid service plans have access to the Basic support tier. Aiven also offers [paid support tiers](https://aiven.io/support-services) with faster response times, phone support, and other services.
 
-More information about the support tiers is available on the
-[Aiven support services page](https://aiven.io/support-services). You can read the Aiven
-service level agreement (SLA) on [the SLA page](https://aiven.io/sla). Custom SLAs are
-available for premium plans.
-
-For more information on the support tiers or custom SLAs contact
-the [sales team](mailto:sales@aiven.io).
+Custom [service level agreements](https://aiven.io/sla) are available for the Premium
+support tier.
 
 ## Upgrade your support tier {#upgrade-support-tier}
 
@@ -22,8 +17,7 @@ To upgrade your organization's support tier in the
 
 1.  In the organization, click **Support**.
 
-1.  In the **Current support tier** section, click **Upgrade to
-    Premium**.
+1.  In the **Current support tier** section, click **Upgrade to Premium**.
 
 1.  Click **Choose tier**.
 
@@ -51,7 +45,7 @@ can view the status of your request on the support page under **Current support 
 
 Create a ticket for issues or problems with the platform. For other services included
 in your support tier like business reviews or disaster recovery planning, contact
-the [sales team](mailto:sales@aiven.io)
+the [sales team](mailto:sales@aiven.io).
 
 1.  In the [Aiven Console](https://console.aiven.io/), click **Support**.
 
@@ -59,12 +53,12 @@ the [sales team](mailto:sales@aiven.io)
 
 1.  Click **Create ticket**.
 
-1.  Enter email addresses to CC in the support ticket. The emails receive all new comments
+1.  Enter email addresses to CC in the support ticket. They receive all new comments
     and updates.
 
 1.  Enter a **Subject**.
 
-1.  Select a **Severity** level:
+1.  Select a **Severity** level.
 
 1.  Optional: Enter the ID of the affected projects and services.
 
@@ -133,9 +127,9 @@ If the support team asks for a HAR file:
 1.  Use your browser to create the HAR file while you go through the
     steps to reproduce the problem:
     -   Follow the
-    -   [instructions for Internet Explorer/Edge, Firefox, and Chrome](https://toolbox.googleapps.com/apps/har_analyzer/).
+        [instructions for Internet Explorer/Edge, Firefox, and Chrome](https://toolbox.googleapps.com/apps/har_analyzer/).
     -   For Safari, make sure you can access the
-    -   [developer tools](https://support.apple.com/en-ie/guide/safari/sfri20948/mac)
+        [developer tools](https://support.apple.com/en-ie/guide/safari/sfri20948/mac)
         and [export the HAR file](https://webkit.org/web-inspector/network-tab/).
 1.  Replace sensitive data in the file with placeholders while retaining
     the JSON structure and format. Examples of sensitive data include:

@@ -1,8 +1,8 @@
 ---
-title: Disaster recovery testing scenarios
+title: Disaster recovery testing
 ---
 
-Aiven provides disaster recovery testing services to help you plan for data center or platform outages.
+Aiven provides disaster recovery testing services to help you plan for data center or service outages.
 
 An Aiven specialist simulates an issue with the virtual machines for a test
 service in your environment. For example, they can test failovers when a primary
@@ -11,10 +11,10 @@ a complete outage.
 
 ## Prerequisites
 
-- At least 7 working days' notice.
+- The [Premium support tier](/docs/platform/howto/support)
+- At least 7 working days' notice
 - A service created specifically for disaster recovery testing. This cannot be
   a service that's used in production.
-- A [Premium support contract](/docs/platform/howto/support).
 
 ## Request a disaster recovery test
 
