@@ -39,3 +39,4 @@
 /products/mysql/reference/list-of-advanced-params      https://aiven.io/docs/products/mysql/reference/advanced-params
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
 /platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
+/platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
