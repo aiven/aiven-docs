@@ -59,5 +59,6 @@ cloud providers and regions.
 
 - [Create a service using the Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create)
 - [Rename a service via a fork][fork]
+- [Create service user](/docs/platform/howto/create_new_service_user)
 
 [fork]: /docs/platform/concepts/service-forking
