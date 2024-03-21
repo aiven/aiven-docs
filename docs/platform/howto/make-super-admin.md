@@ -6,7 +6,9 @@ import ActionsIcon from "@site/static/images/icons/more.svg";
 
 The super admin role has full access to an organization, its billing and settings, and all its organizational units, projects, and services.
 
-To make a user a super admin:
+## Make a user a super admin
+
+To give a user full access to your organization:
 
 1.  In the organization, click **Admin**.
 1.  Click **Users**.
@@ -14,3 +16,8 @@ To make a user a super admin:
 
 To revoke super admin privileges for a user, follow the same steps and
 select **Revoke super admin**.
+
+## Related pages
+
+- [Manage organization users](/docs/platform/howto/manage-org-users)
+- [Project member roles](/docs/platform/reference/project-member-privileges)
