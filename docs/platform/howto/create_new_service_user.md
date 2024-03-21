@@ -13,7 +13,7 @@ Flink® and Aiven for Grafana®.
 By default, the maximum amount of users allowed on a service is 50.
 
 To increase the maximum number of users allowed for a service,
-[create a support ticket](/docs/platform/howto/project-support-center) to request an increase.
+[create a support ticket](/docs/platform/howto/support) to request an increase.
 :::
 
 ## Create a service user
