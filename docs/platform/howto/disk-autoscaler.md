@@ -7,7 +7,7 @@ import ActionsIcon from "@site/static/images/icons/more.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import IntegrationIcon from "@site/static/images/icons/code-block.svg";
-import ServicesIcon from "@site/static/images/icons/cog.svg";
+import ServicesIcon from "@site/static/images/icons/database.svg";
 import IntegrationsIcon from "@site/static/images/icons/integrations.svg";
 import TrashIcon from "@site/static/images/icons/trash.svg";
 import EditIcon from "@site/static/images/icons/edit.svg";

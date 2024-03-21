@@ -3,7 +3,8 @@ title: Adjust disk storage
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
-import ServiceIcon from "@site/static/images/icons/cog.svg";
+import ServiceIcon from "@site/static/images/icons/database.svg";
+import SettingsIcon from "@site/static/images/icons/cog.svg";
 
 Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service by updating service disk storage, by a factor of 10 Gi, without upgrading your plan.
 
@@ -82,7 +83,7 @@ You can update storage to your running service in
 [Aiven Console](https://console.aiven.io/) without interrupting the service:
 
 1. In your project, click <ServiceIcon className="icon"/> **Services** and open a service.
-1. On the sidebar, Click <ServiceIcon className="icon"/> **Service settings**.
+1. On the sidebar, Click <SettingsIcon className="icon"/> **Service settings**.
 1. In the **Service plan** section, click <ActionsIcon className="icon"/> **Actions** >
    **Change plan** > **Manage additional storage**.
 1.  In the **Upgrade service storage** dialog, click **Change plan**
