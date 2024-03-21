@@ -20,10 +20,10 @@ consists of version updates to your Aiven for OpenSearch service.
 OpenSearch Dashboards come with three demonstration datasets included.
 To add sample data follow these steps:
 
-1.  On the OpenSearch Dashboards landing page click on **Add sample
+1.  On the OpenSearch Dashboards landing page click **Add sample
     data**.
 2.  Choose one of the available datasets and click **Add data**.
-3.  Click on **View data** to open the dashboard.
+3.  Click **View data** to open the dashboard.
 
 ## Tools and pages
 

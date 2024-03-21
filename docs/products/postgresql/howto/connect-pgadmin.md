@@ -39,7 +39,7 @@ website](https://www.pgadmin.org/download/)
 
 4.  In the **SSL** tab, set **SSL mode** to `Require`
 
-5.  Click on **Save**
+5.  Click **Save**
 
 :::tip
 If you experience a SSL error while connecting, add the service CA

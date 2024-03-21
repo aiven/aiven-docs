@@ -41,7 +41,7 @@ To download the new certificate,
 1.  Access the [Aiven Console](https://console.aiven.io/)
 2.  Select the Aiven for Apache Kafka service for which you want to
     download the new certificate.
-3.  Click on the **Users** from the sidebar.
+3.  Click the **Users** from the sidebar.
 4.  Select the required user and click **Show access key** and **Show
     access cert** to download the new certificate.
 
@@ -71,7 +71,7 @@ The same can be achieved with the Aiven API, using the \"Modify service
 user credentials\"
 [endpoint](https://api.aiven.io/doc/#operation/ServiceUserCredentialsModify):
 
-``` 
+```
 curl --request PUT \
     --url https://api.aiven.io/v1/project/<project>/service/<service>/user/<username> \
     --header 'Authorization: Bearer <bearer token>' \

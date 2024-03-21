@@ -29,7 +29,7 @@ Create an API Key in your FusionAuth instance:
 
     ![Creating API Key.](/images/platform/howto/saml/fusionauth/create-api-key.png)
 
-1. On the **API Keys** page, find your new key and click on the value
+1. On the **API Keys** page, find your new key and click the value
     in the **Key** column.
 
 1. Copy the whole key. You'll use this for the script.

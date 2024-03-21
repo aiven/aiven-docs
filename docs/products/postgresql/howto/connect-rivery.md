@@ -31,6 +31,6 @@ PostgreSQL® connection information:
     -   **Database** to `DATABASE`
     -   **User name** to `USERNAME`
     -   **Password** to `PASSWORD`
-4.  Click on **SSL Options** to expand the settings and set:
+4.  Click **SSL Options** to expand the settings and set:
     -   **SSL** Mode set to `Require`
-5.  Click on **Save**.
+5.  Click **Save**.

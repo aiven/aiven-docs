@@ -30,10 +30,10 @@ connection information:
     -   **User ID** to `USERNAME`
     -   **Password** to `PASSWORD`
     -   **Database** to `DATABASE`
-4.  Click on **Advanced Settings** to expand the settings and set:
+4.  Click **Advanced Settings** to expand the settings and set:
     -   **SSL** Mode set to `Require`
     -   In **SSL CA Cert** copy and paste `CA Certificate` from the
         [Aiven Console](https://console.aiven.io/)
     -   **SSL Cert** and **SSL Key** empty.
     -   **SSL TLS Protocol** to `1.2`.
-5.  Click on **Save Connection**.
+5.  Click **Save Connection**.

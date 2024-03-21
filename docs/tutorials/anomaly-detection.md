@@ -415,16 +415,16 @@ the Aiven console and look for the `cpu_load_stats_real` topic:
 
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 
-2.  Click on the Aiven for Apache Kafka service name `demo-kafka`.
+2.  Click the Aiven for Apache Kafka service name `demo-kafka`.
 
-3.  Click on the **Topics** from the left sidebar.
+3.  Click the **Topics** from the left sidebar.
 
 4.  On the `cpu_load_stats_real` line, select the `...` symbol and then
-    click on **Topic messages**.
+    click **Topic messages**.
 
     ![Aiven for Apache Kafka Topic tab, showing the \`\`cpu_load_stats_real\`\` topic being created and the location of the \`\`\...\`\` icon](/images/tutorials/anomaly-detection/view-kafka-topic-messages.png)
 
-5.  Click on the **Fetch Messages** button.
+5.  Click the **Fetch Messages** button.
 
 6.  Toggle the **Decode from base64** option.
 
@@ -540,7 +540,7 @@ below:
 
 11. Click **Create deployment**.
 
-12. Accept the default deployment parameters and click on **Deploy
+12. Accept the default deployment parameters and click **Deploy
     without a savepoint**.
 
     ![Detail of the new deployment screen showing the default version, savepoint and parallelism parameters](/images/tutorials/anomaly-detection/filtering-application-deployment.png)
@@ -635,17 +635,17 @@ instructions below:
 1.  In the [Aiven Console](https://console.aiven.io/), open the Aiven
     for Apache Flink service and go to the **Applications** tab.
 
-2.  Click on **Create new application** and name it `cpu_agg`.
+2.  Click **Create new application** and name it `cpu_agg`.
 
-3.  Click on **Create first version**.
+3.  Click **Create first version**.
 
 4.  To import the source `CPU_IN` table from the previously created
     `filtering` application:
 
-    1.  Click on **Import existing source table**
+    1.  Click **Import existing source table**
     2.  Select `filtering` as application, `Version 1` as version,
         `CPU_IN` as table and click **Next**
-    3.  Click on **Add table**
+    3.  Click **Add table**
 
 5.  Navigate to the **Add sink tables** tab.
 
@@ -676,7 +676,7 @@ instructions below:
 
 10. Click **Create deployment**.
 
-11. Accept the default deployment parameters and click on **Deploy
+11. Accept the default deployment parameters and click **Deploy
     without a savepoint**.
 
 12. The new application deployment status will show **Initializing** and
@@ -774,14 +774,14 @@ yourself or follow the steps below:
 1.  In the [Aiven Console](https://console.aiven.io/), open the Aiven
     for Apache Flink service and go to the **Applications** tab.
 
-2.  Click on **Create new application** and name it `cpu_notification`.
+2.  Click **Create new application** and name it `cpu_notification`.
 
-3.  Click on **Create first version**.
+3.  Click **Create first version**.
 
 4.  To create a source table `CPU_IN_AGG` pointing to the Apache Kafka
     topic `cpu_agg_stats`:
 
-    -   Click on **Add your first source table**.
+    -   Click **Add your first source table**.
 
     -   Select `Aiven for Apache Kafka - demo-kafka` as *Integrated
         service*.
@@ -795,7 +795,7 @@ yourself or follow the steps below:
 5.  To create a source table `CPU_THRESHOLDS` pointing to the PostgreSQL
     table `cpu_thresholds`:
 
-    -   Click on **Add new table**.
+    -   Click **Add new table**.
 
     -   Select `Aiven for PostgreSQL - demo-postgresql` as *Integrated
         service*.
@@ -811,7 +811,7 @@ yourself or follow the steps below:
 7.  To create a sink table `SLACK_SINK` pointing to a Slack channel for
     notifications:
 
-    -   Click on **Add your first sink table**.
+    -   Click **Add your first sink table**.
 
     -   Select **No integrated service** as **Integrated service**.
 
@@ -838,7 +838,7 @@ yourself or follow the steps below:
 
 11. Click **Create deployment**.
 
-12. Accept the default deployment parameters and click on **Deploy
+12. Accept the default deployment parameters and click **Deploy
     without a savepoint**.
 
 13. The new application deployment status will show **Initializing** and
