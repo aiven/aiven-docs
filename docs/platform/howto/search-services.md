@@ -2,7 +2,7 @@
 title: Search for services
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
+import Services from "@site/static/images/icons/database.svg";
 import Filter from "@site/static/images/icons/settings.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

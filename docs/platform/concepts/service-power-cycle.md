@@ -2,7 +2,7 @@
 title: Power on/off a service
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
+import Services from "@site/static/images/icons/database.svg";
 import ActionsIcon from "@site/static/images/icons/more.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
