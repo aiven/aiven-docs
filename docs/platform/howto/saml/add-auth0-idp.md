@@ -19,7 +19,7 @@ Add Auth0 as an
 5.  Choose **Regular Web Applications** and click **Create**.
 6.  After your application is created, go to the **Addons** tab.
 7.  Enable the **SAML 2 WEB APP** option.
-8.  Click on the **SAML 2 WEB APP** option. The **Settings** tab opens.
+8.  Click the **SAML 2 WEB APP** option. The **Settings** tab opens.
 9.  Set the `Application Callback URL` to the `ACS URL` from the Aiven
     Console.
 10. In the **Settings** section for the Application Callback URL, remove

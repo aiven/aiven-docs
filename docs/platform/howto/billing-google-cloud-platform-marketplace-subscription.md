@@ -32,7 +32,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
 1.  You should now be on a signup page at Aiven, asking you for your
     email address to create a new account.
 1.  After entering your email address, you will be sent an email to
-    confirm your registration. Click on the link.
+    confirm your registration. Click the link.
 1.  You can now proceed to the [Aiven console for
     GCP](https://console.gcp.aiven.io/), where you can manage your Aiven
     services as normal.

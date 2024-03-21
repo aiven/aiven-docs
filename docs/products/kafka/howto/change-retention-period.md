@@ -66,7 +66,7 @@ To change the retention period for a single topic, follow these steps:
     -   Alternatively, if you prefer to limit the amount of data
         retained based on storage usage, you can specify the value for
         `kafka.log_retention_bytes`.
-6.  Click on **Save configuration**.
+6.  Click **Save configuration**.
 
 ## Unlimited retention
 
