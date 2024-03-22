@@ -11,7 +11,7 @@ Use metrics, logs, alerts, and dashboards to monitor the health of your services
 - Logs: Available for services and integrations.
 - Alerts: Receive emails and in-app [notifications](/docs/platform/howto/technical-emails).
 
-## Display service metrics
+## View service metrics
 
 The service metrics available in [Aiven
 Console](https://console.aiven.io/) include the following:
@@ -41,7 +41,7 @@ To view the metrics:
 To retrieve service logs with the CLI,
 use [service metrics](/docs/tools/cli/service-cli#avn-service-metrics).
 
-## Display service logs
+## View service logs
 
 1. Open the service.
 1. Click <Logs className="icon"/> **Logs**.

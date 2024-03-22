@@ -101,8 +101,7 @@ avn service integration-endpoint-create \
 
 where:
 
--   `--project`: Name of the Google project where to create the
-    integration endpoint.
+-   `--project`: Name of the Google project to create the integration endpoint in.
 -   `--endpoint-name`: Name of the integration endpoint you are
     creating. Replace `your_endpoint_name` with your desired endpoint
     name.
