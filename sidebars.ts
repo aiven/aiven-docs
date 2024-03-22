@@ -300,7 +300,7 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
-          label: 'Metrics integrations',
+          label: 'Metric and log integrations',
           link: {
             type: 'generated-index',
             slug: 'platform/howto/metrics-integrations',
