@@ -27,7 +27,7 @@ Service management
 Cluster management
 </summary>
 
--   [Monitor a managed Aiven for Apache Cassandra service](/docs/platform/howto/monitoring-services)
+-   [Monitor a managed Aiven for Apache Cassandra service](/docs/platform/howto/list-monitoring)
 -   [Resize a managed Aiven for Apache Cassandra service](/docs/platform/howto/scale-services)
 -   [Schedule automatic maintenance updates](/docs/platform/howto/prepare-for-high-load)
 -   [Upgrade a managed Aiven for Apache Cassandra service](/docs/platform/howto/scale-services)

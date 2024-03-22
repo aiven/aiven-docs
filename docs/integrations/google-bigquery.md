@@ -1,5 +1,6 @@
 ---
 title: Integrate Google BigQuery endpoints with Aiven services
+sidebar_label: Google BigQuery
 ---
 
 Google BigQuery is a serverless, highly scalable data warehouse that can
@@ -72,7 +73,7 @@ Console](https://console.aiven.io/) or by using the
 
 ### Step 1. Create integration endpoints
 
-To create a new integration endpoint that can be used to connect to a
+To create an integration endpoint that can be used to connect to a
 BigQuery service, use the
 [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) command with the required parameters.
 
@@ -100,7 +101,7 @@ avn service integration-endpoint-create \
 
 where:
 
--   `--project`: Name of the Google project where you want to create the
+-   `--project`: Name of the Google project where to create the
     integration endpoint.
 -   `--endpoint-name`: Name of the integration endpoint you are
     creating. Replace `your_endpoint_name` with your desired endpoint

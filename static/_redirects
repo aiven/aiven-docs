@@ -40,3 +40,8 @@
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
 /platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
+/platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/service-metrics                        https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/monitoring-services                    https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
+/tutorials/anomaly-detection                           https://aiven.io/developer
