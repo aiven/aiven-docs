@@ -1,11 +1,11 @@
 ---
-title: Metrics, logs and alerts
+title: Metrics, logs, and alerts
 ---
 
 import Metrics from "@site/static/images/icons/timeline-area-chart.svg";
 import Logs from "@site/static/images/icons/properties.svg";
 
-Use metrics, logs, alerts and dashboards to monitor the health of your services and integrations.
+Use metrics, logs, alerts, and dashboards to monitor the health of your services and integrations.
 
 - Metrics: Real-time information about your services.
 - Logs: Available for services and integrations.
@@ -33,18 +33,18 @@ Console](https://console.aiven.io/) include the following:
 -   **Network transmitted:** Indicates the amount of network traffic
     transmitted by the service, also measured in bytes per second.
 
-To display the metrics:
+To view the metrics:
 
-1. Open the service of your choice.
-1. In the sidebar, click <Metrics className="icon"/> **Metrics**.
+1. Open the service.
+1. Click <Metrics className="icon"/> **Metrics**.
 
 To retrieve service logs with the CLI,
 use [service metrics](/docs/tools/cli/service-cli#avn-service-metrics).
 
 ## Display service logs
 
-1. Open the service of your choice.
-1. In the sidebar, click <Logs className="icon"/> **Logs**.
+1. Open the service.
+1. Click <Logs className="icon"/> **Logs**.
 
 :::note[Log retention]
 Service logs are generally retained for a few days, and for some Aiven services

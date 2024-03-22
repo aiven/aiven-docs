@@ -21,38 +21,37 @@ Collect these values for the connection:
 Start by setting up an external service integration for Elasticsearch.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  Go to **Service Integration** from the menu on the left.
+1.  In the project, click **Integration endpoints**.
 1.  Select **External Elasticsearch** from the list.
 1.  Select **Add new endpoint**.
-1.  Set a preferred *endpoint name*, we'll call it `CONNECTION_NAME`
+1.  Set a preferred endpoint name, we'll call it `CONNECTION_NAME`
     later.
 1.  In the connection URL field set the connection string in a format
     `https://ELASTICSEARCH_USER:ELASTICSEARCH_PASSWORD@ELASTICSEARCH_HOST:ELASTICSEARCH_PORT`,
     using your own values for those parameters.
 1.  Set desired index prefix, that doesn't overlap with any of already
     existing indexes in your Elasticsearch service.
-1.  If you need a certificate to access the endpoint, add the body of
-    your CA certificate in PEM format. This field is optional.
+1.  Optional: Add the body of your CA certificate in PEM format. 
 1.  Set other fields based on your requirements, or leave the default
     values there.
-1.  Select **Create**.
+1.  Click **Create**.
 
 A new service integration will be added. You can now reference your
 service by the `CONNECTION_NAME` you chose.
 
 ## Send logs to an external service
 
-1.  Go to **Services** from the menu on the left.
+1.  Go to **Services**.
 1.  Select the service which logs to send to the external
     Elasticsearch service.
 1.  On the **Overview** page of your service, go to the **Service
     integrations** section.
 1.  Select **Manage integrations**.
 1.  Select **Elasticsearch Logs** from the list.
-1.  In the newly appeared modal window, select the endpoint with name
-    `CONNECTION_NAME` from the list and select **ENABLE**. Close the
+1.  Select the **Endpoint name**
+    and click **Enable**.
     modal window.
-1.  Observe the status change for newly added integration in the
+You can view the status of the integration at the top of the page.
     **Service integrations** section on the **Overview** page of your
     service.
 1.  Verify that the logs are flowing into your Elasticsearch.
