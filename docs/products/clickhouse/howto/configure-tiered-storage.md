@@ -1,6 +1,7 @@
 ---
 title: Configure data retention thresholds in Aiven for ClickHouse®'s tiered storage
 limited: true
+sidebar_label: Set up data retention
 ---
 
 Learn to control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Check out how to configure tables so that your data is automatically written either to SSD or object storage as needed.
@@ -31,23 +32,18 @@ For data retention control purposes, the TTL clause uses the following:
 
 ## Prerequisites
 
--   Tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on the project level
-    and on the table level
-
-    :::note
-    This feature is in [limited availability](/docs/platform/concepts/beta_services).
+-   This feature is in [limited availability](/docs/platform/concepts/beta_services).
     [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
-
--   Aiven organization
--   Command line tool
+-   [Enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage on
+    the table level.
+-   Command line tool installed
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 
 ## Configure time-based data retention {#time-based-retention-config}
 
 1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
 
-2.  Select a database for operations you intend to perform.
+1.  Select a database for operations you intend to perform.
 
     ```bash
     USE database-name
@@ -56,7 +52,8 @@ For data retention control purposes, the TTL clause uses the following:
 ### Add TTL to a new table
 
 Create a new table with the `storage_policy` setting set to `tiered` (to
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL (time-to-live) configured to add a
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL
+(time-to-live) configured to add a
 time-based data retention threshold on the table.
 
 ```shell
