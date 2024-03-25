@@ -52,6 +52,7 @@ Database administration
 -   [Enable and use pgvector on Aiven for PostgreSQL®](/docs/products/postgresql/howto/use-pgvector)
 -   [Check size of a database, a table or an index](/docs/products/postgresql/howto/pg-object-size)
 -   [Restrict access to databases or tables in Aiven for PostgreSQL®".](/docs/products/postgresql/howto/readonly-user)
+-   [Collect audit logs in Aiven for PostgreSQL®](/docs/products/postgresql/howto/use-pg-audit-logging)
 
 </details>
 
