@@ -59,7 +59,7 @@ the guidelines on how to use the `destroy` command in [Command:
 destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 :::
 
-## Check it out
+## Verify the update
 
 To ensure a cloud was successfully deleted:
 
