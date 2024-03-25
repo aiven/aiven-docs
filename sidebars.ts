@@ -266,6 +266,20 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/delete-custom-cloud',
           ],
         },
+        {
+          type: 'category',
+          label: 'Backup to another region',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-btar',
+          },
+          items: [
+            'platform/concepts/backup-to-another-region',
+            'platform/howto/btar/enable-backup-to-another-region',
+            'platform/howto/btar/manage-backup-to-another-region',
+            'platform/howto/btar/disable-backup-to-another-region',
+          ],
+        },
         'platform/concepts/enhanced-compliance-env',
         'platform/concepts/aiven-node-firewall-configuration',
         'platform/concepts/cloud-security',
