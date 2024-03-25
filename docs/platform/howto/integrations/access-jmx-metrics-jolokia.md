@@ -64,7 +64,7 @@ kafka-67bd7c5-myproject.aivencloud.com has address 35.228.157.197
 ## Example cURL requests
 
 Before executing the cURL
-request,[download the CA certificate](/docs/platform/howto/download-ca-cert) specific
+request,[download the CA certificate](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates) specific
 to your project. The CA certificate file is
 identical for all endpoints and services within the same project.
 Performing a cURL request to read a specific metric:

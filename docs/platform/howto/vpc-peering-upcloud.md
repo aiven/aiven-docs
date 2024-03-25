@@ -1,5 +1,5 @@
 ---
-title: Set up network peering between Aiven and UpCloud
+title: Set up VPC peering on UpCloud
 ---
 
 Network peerings enable traffic between two networks from different accounts or platforms.

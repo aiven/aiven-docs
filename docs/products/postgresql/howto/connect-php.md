@@ -20,7 +20,7 @@ These are the placeholders you will need to replace in the code sample:
 
 For this example you will need:
 
--   [Download CA certificates](/docs/platform/howto/download-ca-cert) from the service overview page, this example assumes it
+-   [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates) from the service overview page, this example assumes it
     is in a local file called `ca.pem`.
 
 :::note

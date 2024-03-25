@@ -1,5 +1,5 @@
 ---
-title: Manage Virtual Private Cloud (VPC) peering
+title: Manage VPC peering
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";

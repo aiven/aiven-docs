@@ -1,5 +1,5 @@
 ---
-title: Set up Virtual Private Cloud (VPC) peering on AWS
+title: Set up VPC peering on AWS
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
