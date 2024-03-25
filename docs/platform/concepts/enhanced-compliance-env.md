@@ -3,14 +3,14 @@ title: Enhanced compliance environments (ECE)
 ---
 
 Aiven collects, manages, and operates on sensitive data that is protected by privacy and compliance rules and regulations. Aiven meets the needs of its customers by providing specialized enhanced compliance environments (ECE) that comply with many of the most common compliance requirements.
-The vendors that assist with this collection, management and operation are subject to the same rules and regulations.
+The vendors that assist with this collection, management, and operation are subject to the same rules and regulations.
 
-An enhanced compliance environment will run on Aiven managed
+An enhanced compliance environment runs on Aiven managed
 infrastructure with the additional compliance requirement that no ECE
 VPC is shared and the managed environment is logically separated from
 the standard Aiven deployment environment. This decreases the blast
 radius of the environment to prevent inadvertent data sharing.
-Furthermore, users of an ECE **must** encrypt all data prior to reaching
+Furthermore, users of an ECE **must** encrypt all data before reaching
 an Aiven service. As part of the increased compliance of the
 environment, enhanced logging is enabled for - `stderr`, `stout`, and
 `stdin`.
@@ -23,9 +23,8 @@ following are requirements to utilize an ECE:
 
 -   A BAA signed with Aiven
 -   Plan to operate in one or more of Amazon Web Services (AWS), Google
-    Cloud Platform (GCP), or Microsoft Azure
+    Cloud, or Microsoft Azure
 -   Total monthly spend is greater than \$5,000
--   An active Enterprise Support Contract
 
 ## Cost of ECE
 
@@ -41,8 +40,8 @@ accordingly.
 In many ways, an ECE is the same as a standard Aiven deployment.
 Aiven's tooling, such as [CLI](/docs/tools/cli) and [Terraform](/docs/tools/terraform),
 interact with ECEs seamlessly, you will still be able to take advantage of Aiven's
-service integrations, and access to the environment
-can be achieved through VPC peering or Privatelink (on AWS or Azure).
+service integrations, and you can access the environment
+through VPC peering or Privatelink (on AWS or Azure).
 
 However, there are some key differences from standard environments as
 well:
@@ -103,4 +102,5 @@ to request help.
 To migrate an existing Aiven service to an ECE, the Aiven network team creates a VPN
 tunnel between your non-compliant VPC and your ECE VPC to enable a one-click migration.
 The migration is then performed in an automated and zero-downtime fashion.
+Once the migration is complete, the VPN tunnel is removed.
 Once the migration is complete, the VPN tunnel is removed.

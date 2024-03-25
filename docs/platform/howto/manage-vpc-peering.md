@@ -32,8 +32,8 @@ To set up VPC peering for your Aiven project:
 
 1.  In the **Create a VPC for this project** window:
 
-    1. Select a cloud provider and region from the dropdown list.
-    1. Enter the IP range that you want to use for the VPC connection.
+    1. Select a cloud provider and region.
+    1. Enter the IP range to use for the VPC connection.
        Use an IP range that does not overlap with any networks that you
        want to connect via VPC peering.
 
@@ -60,7 +60,7 @@ set up a corresponding VPC peering connection to Aiven.
 
 ## Deploy new services to a VPC
 
-When you create a new service, your peered VPC is available as a new
+When you create a service, your peered VPC is available as a new
 geolocation on the **VPC** tab under **Select service region**. It can
 take a few minutes for a newly created VPC to appear for service
 deployments.
@@ -76,7 +76,7 @@ belong to the project where that specific VPC was created.
 
 Before deleting an existing VPC from [Aiven
 Console](https://console.aiven.io/), you should move out any active
-services from that VPC. To delete a VPC, navigate to [Aiven
+services from that VPC. To delete a VPC, go to [Aiven
 Console](https://console.aiven.io/) > **VPCs**. Find your VPC and
 select **Delete** from the meatballs menu for this VPC. Once the VPC is
 deleted, the cloud provider side of the peering connection will go to an
@@ -92,8 +92,7 @@ You can migrate any Aiven service to a different VPC:
 1. On the **Service settings** page, in the **Cloud and
    network** section, click <ActionsIcon className="icon"/> **Actions** >  **Change cloud or region**.
 1. In the **Migrate service to another cloud** window > the **Region**
-   section, select the **VPCs** tab, select the VPC that you want to
-   use, and select **Migrate**.
+   section, select the **VPCs** tab, select the VPC, and click **Migrate**.
 
 ## Access VPC services from the public internet
 
@@ -144,8 +143,3 @@ To refresh your VCP connections:
 
 The platform checks the VPC peering connection and rebuilds the peering
 connection state if there are any changes detected.
-
-For any other issues, open a support ticket from [Aiven
-Console](https://console.aiven.io/) to get in touch with the support
-team and/or see
-[Get support in the Aiven Console](/docs/platform/howto/project-support-center).
