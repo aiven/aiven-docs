@@ -1,6 +1,5 @@
 ---
-title: Set up Virtual Private Cloud (VPC) peering on Google Cloud Platform (GCP)
-sidebar_label: Set up VPC peering on GCP
+title: Set up VPC peering on GCP
 ---
 
 Once you've created a [VPC on the Aiven platform](manage-vpc-peering), you can set up VPC peering on GCP.
@@ -9,8 +8,7 @@ Once you've created a [VPC on the Aiven platform](manage-vpc-peering), you can s
 
 1.  Open your GCP Console.
 
-1.  Select **VPC Networks** and find the VPC that you want to connect
-    to.
+1.  Select **VPC Networks** and find the VPC to connect to.
 
 1.  Click the project name, and make note of the **Project ID**.
 

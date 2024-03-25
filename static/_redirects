@@ -46,3 +46,4 @@
 /platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
 /tutorials/anomaly-detection                           https://aiven.io/developer
 /platform/howto/download-ca-cert                       https://aiven.io/docs/platform/concepts/tls-ssl-certificates
+/platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips

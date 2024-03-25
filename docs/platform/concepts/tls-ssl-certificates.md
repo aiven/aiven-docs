@@ -2,8 +2,12 @@
 title: TLS/SSL certificates
 ---
 
+<!-- vale off -->
+
 import DLicon from "@site/static/images/icons/download.svg";
 import Overviewicon from "@site/static/images/icons/speedometer.svg";
+
+<!-- vale on -->
 
 All traffic to Aiven services is always protected by TLS. It ensures that third parties can't eavesdrop or modify the data while in transit between Aiven services and the clients accessing them.
 

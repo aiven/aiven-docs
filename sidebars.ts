@@ -276,14 +276,27 @@ const sidebars: SidebarsConfig = {
             slug: 'platform/vpc',
           },
           items: [
-            'platform/howto/public-access-in-vpc',
             'platform/howto/manage-vpc-peering',
+            'platform/howto/public-access-in-vpc',
             'platform/howto/vpc-peering-gcp',
             'platform/howto/vpc-peering-aws',
             'platform/howto/vnet-peering-azure',
             'platform/howto/vpc-peering-upcloud',
             'platform/howto/google-cloud-functions',
             'platform/howto/attach-vpc-aws-tgw',
+            {
+              type: 'category',
+              label: 'Private link',
+              link: {
+                type: 'generated-index',
+                slug: 'platform/privatelink',
+              },
+              items: [
+                'platform/howto/use-aws-privatelinks',
+                'platform/howto/use-azure-privatelink',
+                'platform/howto/use-google-private-service-connect',
+              ],
+            },
           ],
         },
         {
@@ -296,17 +309,14 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/reference/service-ip-address',
             'platform/concepts/static-ips',
-            'platform/howto/static-ip-addresses',
             'platform/howto/restrict-access',
             'platform/howto/private-ip-resolution',
           ],
         },
         'platform/concepts/aiven-node-firewall-configuration',
-        'platform/concepts/disaster-recovery-test-scenarios',
         'platform/concepts/tls-ssl-certificates',
-        'platform/howto/use-aws-privatelinks',
-        'platform/howto/use-azure-privatelink',
-        'platform/howto/use-google-private-service-connect',
+
+        'platform/concepts/disaster-recovery-test-scenarios',
       ],
     },
     {
