@@ -16,7 +16,7 @@ Aiven also offer the ability to define
 [static IP addresses](/docs/platform/concepts/static-ips) if you need them in a service.
 For more information about obtaining a static IP and assigning it to a particular service,
 see the
-[related guide](/docs/platform/howto/static-ip-addresses).
+[related guide](/docs/platform/concepts/static-ips).
 :::
 
 If you have your own cloud account and want to keep your Aiven services

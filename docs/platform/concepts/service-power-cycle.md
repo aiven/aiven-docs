@@ -65,7 +65,7 @@ Whenever a service is powered off:
 <StaticIp/>
 
 To remove static IP addresses, see
-[Manage static IP addresses](/docs/platform/howto/static-ip-addresses).
+[Manage static IP addresses](/docs/platform/concepts/static-ips).
 :::
 
 When a service is powered off, you can [delete it](#delete-service).
