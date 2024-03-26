@@ -2,14 +2,13 @@
 title: Settings for Apache Kafka® connectors
 ---
 
-This article outlines the required settings for standard and upsert
-Kafka connectors in Aiven for Apache Flink®.
+Explore the necessary settings for standard and upsert Kafka connectors in Aiven for Apache Flink®.
 
 :::note
 Aiven for Apache Flink® supports the following data formats: JSON
 (default), Apache Avro, Confluent Avro, Debezium CDC. For more
 information on these, see the [Apache Flink® documentation on
-formats](https://ci.apache.org/projects/flink/flink-docs-release-1.15/docs/connectors/table/formats/overview/).
+formats](https://ci.apache.org/projects/flink/flink-docs-release-1.16/docs/connectors/table/formats/overview/).
 :::
 
 <table>

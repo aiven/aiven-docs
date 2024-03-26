@@ -4,7 +4,7 @@ title: Create a PostgreSQL®-based Apache Flink® table
 
 To build data pipelines, Apache Flink® requires source and target data
 structures to [be mapped as Flink
-tables](https://ci.apache.org/projects/flink/flink-docs-release-1.15/docs/dev/table/sql/create/#create-table).
+tables](https://ci.apache.org/projects/flink/flink-docs-release-1.16/docs/dev/table/sql/create/#create-table).
 This functionality can be achieved via the [Aiven
 console](https://console.aiven.io/) or
 [Aiven CLI](/docs/tools/cli/service/flink).
@@ -26,10 +26,10 @@ one or more Aiven for PostgreSQL® services.
 To create a Flink table based on Aiven for PostgreSQL® via Aiven
 console:
 
-1.  In the Aiven for Apache Flink service page, select **Application**
+1.  In the Aiven for Apache Flink service page, click **Application**
     from the left sidebar.
 
-2.  Create a new application or select an existing one with Aiven for
+1.  Create a new application or select an existing one with Aiven for
     PostgreSQL® integration.
 
     :::note
@@ -37,34 +37,31 @@ console:
     changes to the source or sink tables.
     :::
 
-3.  In the **Create new version** screen, select **Add source tables**.
+1.  In the **Create new version** screen, click **Add source tables**.
 
-4.  Select **Add new table** or select **Edit** if you want to edit an
-    existing source table.
+1.  Click **Add new table** or click **Edit** to edit an existing source table.
 
-5.  In the **Add new source table** or **Edit source table** screen,
+1.  In the **Add new source table** or **Edit source table** screen,
     select the Aiven for PostgreSQL® service as the integrated service.
 
-6.  In the **Table SQL** section, enter the SQL statement to create the
+1.  In the **Table SQL** section, enter the SQL statement to create the
     PostgreSQL-based Apache Flink table with the following details:
 
-    -   Write the PostgreSQL® table name in the **JDBC table** field
-        with the format `schema_name.table_name`
+    - Write the PostgreSQL® table name in the **JDBC table** field
+      with the format `schema_name.table_name`
 
     :::warning
-    When using a PostgreSQL® table as target of a Flink data pipeline,
-    the table needs to exist before starting the Flink application
-    otherwise it will fail.
+    Before you create an Apache Flink application, ensure that the PostgreSQL®
+    table used as the target exists; otherwise, the application will fail.
     :::
 
-    -   Define the **Flink table name**; this name will represents the
-        Flink reference to the topic and will be used during the data
-        pipeline definition
+    - Define the **Flink table name**. This name is used as a reference to the
+      Apache Flink topic and in the definition of the data pipeline.
 
-7.  To create a sink table, select **Add sink tables** and repeat steps
+1.  To create a sink table, click **Add sink tables** and repeat steps
     4-6 for sink tables.
 
-8.  In the **Create statement** section, write the SQL schema that
+1.  In the **Create statement** section, write the SQL schema that
     defines the fields retrieved from the PostgreSQL® table and any
     additional transformations, such as format casting or timestamp
     extraction.
@@ -80,7 +77,7 @@ page](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table
 The Aiven for PostgreSQL® service named `pg-demo` contains a table named
 `students` in the `public` schema with the following structure:
 
-``` 
+```sql
 CREATE TABLE students_tbl (
   student_id INT,
   student_name VARCHAR
@@ -88,8 +85,7 @@ CREATE TABLE students_tbl (
   'connector' = 'jdbc',
   'url' = 'jdbc:postgresql://',
   'table-name' = 'public.students'
-  )  
+  )
 ```
 
-The `url` will be substituted with the appropriate address during
-runtime.
+The `url` parameter is dynamically updated at runtime.

@@ -2,21 +2,19 @@
 title: Watermarks
 ---
 
-Another concept closely related to windows and event time in Apache
-Flink® is *watermarks*. Flink uses watermarks as a mechanism to measure
-progress in event time; they flow as part of the data stream, carrying a
-timestamp that declares the minimum event time reached in the data
-stream.
+Apache Flink® uses watermarks to synchronize and process events in data streams accurately. These watermarks are timestamps embedded in the data stream that track the progression of event time.
 
-This allows Flink to set points in the stream when all events up to a
-certain timestamp should have arrived, so that operators can set their
-internal event time to the value of the watermarks that reach them.
+## Role of watermarks
 
-Flink uses *watermark strategies* and *watermark generators* to define
-how the watermark logic is implemented. For example, you can set Flink
-to generate watermarks either periodically at specific intervals or when
-triggered by an event or element with a specific marker.
+Watermarks signal when all events up to a certain time have arrived, allowing
+Apache Flink operators to synchronize their event time clocks with these timestamps.
+This mechanism is crucial for timely and accurate event processing.
 
-For more information on watermarks, see the [Apache Flink® documentation
-on generating
-watermarks](https://ci.apache.org/projects/flink/flink-docs-release-1.15/docs/dev/datastream/event-time/generating_watermarks/).
+Apache Flink® defines the watermark logic using watermark strategies and watermark
+generators. For example, you can configure Apache Flink to generate
+watermarks either periodically at specific intervals or when an event or element
+with a specific marker triggers it.
+
+## Related pages
+
+For detailed information on watermarks and how to generate them in Apache Flink®, visit the [official documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.16/docs/dev/datastream/event-time/generating_watermarks/).
