@@ -61,7 +61,12 @@ Whenever a service is powered off:
 <AutoDelete/>
 :::
 
+:::note
 <StaticIp/>
+
+To remove static IP addresses, see
+[Manage static IP addresses](/docs/platform/concepts/static-ips).
+:::
 
 When a service is powered off, you can [delete it](#delete-service).
 

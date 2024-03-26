@@ -18,7 +18,7 @@ These are the placeholders you need to replace in the code sample:
 
 ## Prerequisites
 
--   [Download CA certificates](/docs/platform/howto/download-ca-cert) from [Aiven Console](https://console.aiven.io/) > the
+-   [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates) from [Aiven Console](https://console.aiven.io/) > the
     **Overview** page of your service. This example assumes it is in a
     local file called `ca.pem`.
 

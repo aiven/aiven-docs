@@ -2,12 +2,12 @@
 title: Availability zones
 ---
 
-## About availability zones
+Availability zones (AZs) are physically isolated locations (data centers) where cloud services operate.
 
-Availability zones (AZs) are physically isolated locations (data
-centers) where cloud services operate. There are multiple AZs within a
-region, each with independent power, cooling, and network
-infrastructure. The choice of AZs is usually affected by the
+There are multiple AZs within a region, each with independent power, cooling, and network
+infrastructure.
+
+The choice of AZs is usually affected by the
 latency/proximity to customers, compliance, SLA, redundancy/data
 security requirements, and cost. All AZs in a region are interconnected
 for an easy resource replication and application partitioning.
@@ -24,7 +24,7 @@ and reliability of workloads.
 ## Aiven services across availability zones
 
 For Aiven services, nodes automatically spread across multiple
-availability zones (AZs). All Aiven's multi-node service plans are
+AZs. All Aiven's multi-node service plans are
 automatically spread among AZs of a region as long as the underlying
 cloud provider supports it.
 
@@ -42,7 +42,7 @@ the following:
 -   Microsoft Azure
 -   UpCloud
 
-## List of supported availability zones
+## Supported availability zones
 
 To learn what availability zones per cloud provider and region are supported for
 Aiven-managed services, check the **Cloud** column in
@@ -58,7 +58,7 @@ the other in `fi-hel2`.
 
 ## Smart availability zones for Apache Kafka®
 
-On top of spreading service's nodes across the availability zones (AZs)
+On top of spreading service's nodes across the availability zones
 of a cloud region, Aiven automatically balances replicas of your Apache
 Kafka® partitions into different AZs. Since Aiven automatically
 rebalances the data in your Apache Kafka® cluster, your data remains
