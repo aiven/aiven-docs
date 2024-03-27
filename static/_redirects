@@ -47,3 +47,4 @@
 /tutorials/anomaly-detection                           https://aiven.io/developer
 /platform/howto/download-ca-cert                       https://aiven.io/docs/platform/concepts/tls-ssl-certificates
 /platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
+/tools/terraform/concepts/data-sources                 https://aiven.io/docs/tools/terraform
