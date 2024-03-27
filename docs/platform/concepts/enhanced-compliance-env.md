@@ -1,5 +1,6 @@
 ---
 title: Enhanced compliance environments (ECE)
+enterprise: true
 ---
 
 Aiven collects, manages, and operates on sensitive data that is protected by privacy and compliance rules and regulations. Aiven meets the needs of its customers by providing specialized enhanced compliance environments (ECE) that comply with many of the most common compliance requirements.
@@ -21,11 +22,12 @@ Enhanced compliance environments, although similar to standard
 environments, involve added setup and maintenance complexity. The
 following are requirements to utilize an ECE:
 
--   A BAA signed with Aiven
--   Plan to operate in one or more of Amazon Web Services (AWS), Google
-    Cloud Platform (GCP), or Microsoft Azure
--   Total monthly spend is greater than \$5,000
--   An active Enterprise Support Contract
+- [Aiven Enterprise](/docs/platform/howto/aiven-enterprise) enabled
+- A BAA signed with Aiven
+- Plan to operate in one or more of Amazon Web Services (AWS), Google
+  Cloud Platform (GCP), or Microsoft Azure
+- Total monthly spend is greater than \$5,000
+- An active Enterprise Support Contract
 
 ## Cost of ECE
 
@@ -86,16 +88,15 @@ Although not exhaustive, Aiven is capable of supporting both the Health
 Insurance Portability and Accountability Act (HIPAA) and the Payment
 Card Industry Data Security Standard (PCI DSS) compliances.
 
-If you require compliance beyond these compliances, contact the [sales
-team](mailto:sales@aiven.io) so we can better understand your specific needs.
+If you have other compliance requirements, contact the [sales team](mailto:sales@aiven.io)
+so we can better understand your specific needs.
 
-Additionally, we offer an alternative deployment option. See
-[Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc).
+Aiven also offers [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc), which is an
+alternative deployment option.
 
 ## Migrate to an ECE
 
-Migrations to Aiven are a standard procedure, but migrating
-to an ECE can add complexity.
+Migrations to Aiven are a standard procedure, but migrating to an ECE can add complexity.
 
 To migrate a new service to an ECE, contact [the sales team](mailto:sales@aiven.io)
 to request help.

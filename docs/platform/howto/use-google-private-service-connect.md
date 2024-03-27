@@ -1,5 +1,6 @@
 ---
 title: Use Google Private Service Connect with Aiven services
+enterprise: true
 limited: true
 ---
 
@@ -19,17 +20,12 @@ in Aiven tools. This applies to all clouds, including Google Cloud.
 
 ## Prerequisites
 
-This feature is in [limited availability](/docs/platform/concepts/beta_services).
-[Contact the sales team](mailto:sales@aiven.io) to enable it.
-
-Your Aiven service is hosted in
-[a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the
-region where the connecting endpoint will be created.
-
-:::note
-Private Service Connect endpoints are service specific. For each service
-you wish to connect to, create a separate endpoint.
-:::
+- This feature requires [Aiven Enterprise](/docs/platform/howto/aiven-enterprise).
+- This feature is in [limited availability](/docs/platform/concepts/beta_services).
+  [Contact the sales team](mailto:sales@aiven.io) to enable it.
+- Make sure your Aiven service is hosted in
+  [a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the
+  region where the connecting endpoint will be created.
 
 ## Set up a Private Service Connect connection
 
@@ -79,6 +75,11 @@ the client side to the Aiven service.
 You can now create an PSC endpoint and connection to the Aiven service
 within the [Google
 Console](https://console.cloud.google.com/net-services/psc/addConsumer).
+
+:::note
+Private Service Connect endpoints are service specific. For each service
+you want to connect to, create a separate endpoint.
+:::
 
 1.  Select **Published service** as **Target type**.
 
@@ -192,7 +193,11 @@ Finally, enable Private Link access on your Aiven services using either
 the [Aiven CLI](/docs/tools/cli) or
 [Aiven Console](https://console.aiven.io/).
 
-**Aiven CLI**
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="1" label="Aiven CLI" groupId="group1" default>
 
 To enable Private Service Connect access for your service in the Aiven
 CLI, set `user_config.privatelink_access.<service component>` to `true`
@@ -203,10 +208,10 @@ example for Apache Kafka:
 avn service update -c privatelink_access.kafka=true MY_SERVICE_NAME
 ```
 
-**Aiven Console**
+</TabItem>
+<TabItem value="2" label="Aiven Console">
 
 To enable Private Link access in [Aiven Console](https://console.aiven.io/):
-
 
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
@@ -222,6 +227,9 @@ To enable Private Link access in [Aiven Console](https://console.aiven.io/):
     1.  Select the toggle switches for the selected components to enable
         them.
     1.  Select **Save configuration**.
+
+</TabItem>
+</Tabs>
 
 :::tip
 Each service component can be controlled separately. For example, you
@@ -249,7 +257,8 @@ Service Connect connection.
 
 Each endpoint (connection) has PRIVATELINK_CONNECTION_ID, which you can
 check using the
-[avn service privatelink google connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
+[avn service privatelink google connection list SERVICE_NAME](/docs/tools/cli/service/privatelink)
+command.
 
 To acquire connection information for your service component using
 Private Service Connect, run the

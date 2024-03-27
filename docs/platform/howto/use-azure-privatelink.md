@@ -1,5 +1,6 @@
 ---
 title: Use Azure Private Link with Aiven services
+enterprise: true
 limited: true
 ---
 
@@ -21,15 +22,16 @@ Azure Private Link is supported for the following services:
 
 ## Prerequisites
 
-- This feature is in [limited availability](/docs/platform/concepts/beta_services).
-  [Contact the sales team](mailto:sales@aiven.io) to enable it.
+-   This feature requires [Aiven Enterprise](/docs/platform/howto/aiven-enterprise).
 
-- [Aiven CLI](/docs/tools/cli) is
-  installed.
+-   This feature is in [limited availability](/docs/platform/concepts/beta_services).
+    [Contact the sales team](mailto:sales@aiven.io) to enable it.
 
-- The Aiven service is in
-  [a project VPC](/docs/platform/howto/manage-vpc-peering). This ensures the service is not accessible from the
-  public internet.
+- [Aiven CLI](/docs/tools/cli) is installed.
+
+-   The Aiven service is in
+    [a project VPC](/docs/platform/howto/manage-vpc-peering). This ensures the service is
+    not accessible from the public Internet.
 
   :::note
   If you are not using regular VNet peerings, any private IP range can
@@ -56,7 +58,7 @@ Azure Private Link is supported for the following services:
 | `SUBSCRIPTION_ID` | Azure subscription ID      |
 | `AIVEN_SERVICE`   | Name of your Aiven service |
 
-## Set up a Private Link connection
+## Set up an Azure Private Link connection
 
 There are three steps to setting up an Azure Private Link with your
 Aiven service:
@@ -231,7 +233,8 @@ PrivateLink connection.
 
 Each endpoint (connection) has PRIVATELINK_CONNECTION_ID, which you can
 check using the
-[avn service privatelink azure connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
+[avn service privatelink azure connection list SERVICE_NAME](/docs/tools/cli/service/privatelink)
+command.
 
 To acquire connection information for your service component using Azure
 Private Link, run the
