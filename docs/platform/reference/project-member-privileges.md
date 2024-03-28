@@ -13,7 +13,7 @@ When you add users to a project individually or as part of a [group](/docs/platf
 
 - **Admin**: Full access to the project and its services.
   -   Every project has at least one admin user. This role is automatically granted to
-  -   users who create a project.
+      users who create a project.
   -   Does not have access to organization settings such as billing unless they are also
       a [super admin](/docs/platform/howto/make-super-admin).
   -   Can add and remove project members.
