@@ -57,9 +57,11 @@ You can use the following variables in the code samples provided:
     (you can substitute `%` in the below command with the IP address of
     the Aiven for MySQL database, if already existing):
 
-        create user 'SRC_USERNAME'@'%' identified by 'SRC_PASSWORD';
-        grant replication slave on *.* TO 'SRC_USERNAME'@'%';
-        grant select, process, event on *.* to 'SRC_USERNAME'@'%'
+    ```
+    create user 'SRC_USERNAME'@'%' identified by 'SRC_PASSWORD';
+    grant replication slave on *.* TO 'SRC_USERNAME'@'%';
+    grant select, process, event on *.* to 'SRC_USERNAME'@'%'
+    ```
 
 2.  If you don't have an Aiven for MySQL database yet, create it via
     [Aiven Console](/docs/products/mysql/get-started) or the dedicated
