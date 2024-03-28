@@ -8,7 +8,7 @@ By respecting Aiven for ClickHouse® restrictions and quotas, you can improve th
 ## Limitations
 
 From the information about restrictions on using Aiven for ClickHouse,
-you can easily draw conclusions on how to get your service to operate
+you can draw conclusions on how to get your service to operate
 closer to its full potential. Use **Recommended approach** as guidelines
 on how to work around specific restrictions.
 
