@@ -36,7 +36,7 @@ editor** from the sidebar of your service's page.
 
 ### When to use the query editor
 
-The query editor is convenient if you want to run queries directly from
+The query editor is convenient to run queries directly from
 the console on behalf of the default user. The requests that you run
 through the query editor rely on the permissions granted to this user.
 
@@ -67,7 +67,7 @@ You can access it from a web browser over the HTTPS protocol.
 
 ### When to use the play UI
 
-Use the play UI if you want to run requests using a non-default user or
+Use the play UI to run requests using a non-default user or
 if you expect a large size of the response.
 
 ### Use the play UI
