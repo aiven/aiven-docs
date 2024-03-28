@@ -4,19 +4,18 @@ title: Manage domains
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
 
-Verified domains let you manage users in your organization.
+Adding a verified domain in Aiven adds an extra layer of security to managing your organization's users. When you verify a domain, your organization users automatically become
+[managed users](/docs/platform/concepts/managed-users).
+
 
 There are two ways you can verify a domain:
 
 -   by adding a DNS TXT record to the domain (recommended)
 -   by uploading an HTML file to your website
 
-After adding a domain, organization users automatically become
-[managed users](/docs/platform/concepts/managed-users).
-
 ## Add a domain using a DNS TXT record
 
-1. In the organization you want to add a domain to, click **Admin**.
+1. In the organization, click **Admin**.
 
 1. Click **Domains**.
 
@@ -55,8 +54,7 @@ can retry it by repeating the last step.
 
 ## Add a domain using an HTML file
 
-1. In the organization that you want to add a domain to, click
-    **Admin**.
+1. In the organization, click **Admin**.
 1. Click **Domains**.
 1. Click **Add domain**.
 1. Enter a **Domain name**.
@@ -74,8 +72,7 @@ can retry it by repeating the last step.
 Removing a domain is an irreversible action.
 :::
 
-1. In the organization that you want to remove a domain from, click
-    **Admin**.
+1. In the organization, click **Admin**.
 1. Click **Domains**.
-1. Find the domain you want to remove and click <ActionsIcon className="icon"/>
+1. Find the domain and click <ActionsIcon className="icon"/>
    **Actions** > **Remove** and confirm.
