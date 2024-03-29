@@ -4,7 +4,7 @@ title: Create service integrations
 
 Create [service integrations](/docs/platform/concepts/service-integration) between different Aiven services and move telemetry data using these integrations.
 
-:::Tip
+:::tip
 For help with setting up a service integration or to request an integration type or
 endpoint not yet available, contact the [support team](mailto:support@aiven.io)
 :::
