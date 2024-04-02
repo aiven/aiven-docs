@@ -14,9 +14,6 @@ execution details, along with query and host metrics correlation.
 
 ## Prerequisites
 
-To use Datadog Database Monitoring with your Aiven for PostgreSQL®
-services, you must perform the following steps:
-
 -   Apply any outstanding maintenance updates mentioning the Datadog
     integration.
 -   Ensure the
@@ -43,7 +40,7 @@ monitor.
 
 Using the `avn service integration-list`
 [Aiven CLI command](/docs/tools/cli/service/integration#avn_service_integration_list),
-you can obtain the Datadog Metric integration you want to
+you can obtain the Datadog Metric integration to
 monitor and enable the Datadog Database monitoring functionality by
 using the `datadog_dbm_enabled` configuration parameter. For example:
 
@@ -84,8 +81,8 @@ Monitoring for your service.
 
 ## Related pages
 
--   Learn more about
-    [Datadog and Aiven](/docs/integrations/datadog).
--   Learn more about [Datadog Deep Database
-    Monitoring](https://www.datadoghq.com/product/database-monitoring/)
-    from their product page.
+- Learn more about [Datadog and Aiven](/docs/integrations/datadog).
+- [Expose PgBouncer statistics to Datadog](/docs/products/postgresql/howto/pgbouncer-stats-datadog).
+- Learn more about
+  [Datadog Deep Database Monitoring](https://www.datadoghq.com/product/database-monitoring/)
+  from their product page.

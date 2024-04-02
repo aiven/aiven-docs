@@ -1,51 +1,78 @@
 ---
-title: Access PgBouncer statistics in Datadog
+title: Expose PgBouncer statistics to Datadog
+sidebar_label: PgBouncer stats in Datadog
 ---
 
-PgBouncer is used at Aiven for
-[Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling).
+Connect PgBouncer with Datadog to display [PgBouncer statistics](/docs/products/postgresql/howto/pgbouncer-stats) on the Datadog platform.
 
-## Get PgBouncer URL
+## Prerequisites
 
-PgBouncer URL can be checked under **Pools** in [Aiven
-Console](https://console.aiven.io/) > your Aiven for PostgreSQL®
-service's page > **Pools** view (available from the sidebar).
-Alternatively, it can be extracted via
-[Aiven Command Line interface](/docs/tools/cli), using `jq` ([https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)) to parse the
-JSON response.
+- Your service plan is Startup or higher.
+- [Datadog metrics integration](/docs/integrations/datadog/datadog-metrics) is
+  enabled on your service.
+- You applied outstanding service maintenance updates affecting the Datadog metrics
+  integration.
 
-Execute the following command replacing the `INSTANCE_NAME` parameter
-with the name of your instance:
+## Expose PgBouncer statistics
 
+You can expose PgBouncer statistics for your Aiven for PostgreSQL service both if the
+service already has a Datadog Metrics integration and if it doesn't.
+
+### Expose PgBouncer stats if the integration exists
+
+1. Obtain the SERVICE_INTEGRATION_ID of the Datadog Metrics integration for your Aiven for
+   PostgreSQL service by running the
+   [avn service integration-list](/docs/tools/cli/service/integration#avn_service_integration_list)
+   command:
+
+   ```bash
+   avn service integration-list --project PROJECT_NAME SERVICE_NAME
+   ```
+
+1. To enable PgBouncer statistics in Datadog, set up the ``datadog_pgbouncer_enabled``
+   parameter to ``true``:
+
+   ```bash
+   avn service integration-update --project PROJECT_NAME --user-config '{"datadog_pgbouncer_enabled": true}' SERVICE_INTEGRATION_ID
+   ```
+
+   Replace SERVICE_INTEGRATION_ID with the service integration identifier acquired in the
+   preceding step.
+
+### Create the integration and expose PgBouncer stats
+
+With no Datadog Metrics integration in place,
+[create the integration for your service](/docs/tools/cli/service/integration#avn_service_integration_create)
+and enable PgBouncer statistics in Datadog by running:
+
+```bash
+avn service integration-create INTEGRATION_CREATE_PARAMETERS --user-config-json '{"datadog_pgbouncer_enabled": true}'
 ```
-avn service get INSTANCE_NAME --project PROJECT_NAME --json | jq -r '.connection_info.pgbouncer'
+
+Replace INTEGRATION_CREATE_PARAMETERS with [the parameters required to create the Datadog Metrics integration](/docs/tools/cli/service/integration#avn_service_integration_create).
+
+## Verify the changes
+
+Check that the ``datadog_pgbouncer_enabled`` user-config is set correctly:
+
+```bash
+avn service integration-list SERVICE_NAME \
+   --project PROJECT_NAME  \
+   --json | jq '.[] | select(.integration_type=="datadog").user_config'
 ```
 
-The output will be similar to the below:
+Expect the following output confirming that ``datadog_pgbouncer_enabled`` is set to
+``true``:
 
-```
-postgres://avnadmin:xxxxxxxxxxx@demo-pg-dev-advocates.aivencloud.com:13040/pgbouncer?sslmode=require
-```
-
-## Connect to PgBouncer
-
-Connect to PgBouncer using the URL extracted above and show the
-statistics with:
-
-```
-pgbouncer=# SHOW STATS;
+```bash
+{
+  "datadog_pgbouncer_enabled": true
+}
 ```
 
-Depending on the load of your database, the output will be similar to:
+## Related pages
 
-```
-database  | total_xact_count | total_query_count | total_received | total_sent | total_xact_time | total_query_time | total_wait_time | avg_xact_count | avg_query_count | avg_recv | avg_sent | avg_xact_time | avg_query_time | avg_wait_time
-----------+------------------+-------------------+----------------+------------+-----------------+------------------+-----------------+----------------+-----------------+----------+----------+---------------+----------------+---------------
-pgbouncer |                1 |                 1 |              0 |          0 |               0 |                0 |               0 |              0 |               0 |        0 |        0 |             0 |              0 |             0
-(1 row)
-```
-
-:::tip
-Run `SHOW HELP` to see all available commands. Only read-only access is
-available, as PgBouncer pools are automatically managed by Aiven.
-:::
+- [Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog)
+- [Access PgBouncer statistics](/docs/products/postgresql/howto/pgbouncer-stats)
+- [Datadog and Aiven](/docs/integrations/datadog)
+- [Create service integrations](/docs/platform/howto/create-service-integration)
