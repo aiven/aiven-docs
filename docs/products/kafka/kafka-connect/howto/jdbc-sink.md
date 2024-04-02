@@ -334,4 +334,4 @@ Apache Kafka topic and includes the `student_id`, `student_name`, `exam`, and
 
 ## Related pages
 
-- View [Database migration with Apache Kafka® and Apache Kafka® Connect](https://aiven.io/blog/db-technology-migration-with-apache-kafka-and-kafka-connect) blog post
+- View the [Database migration with Apache Kafka® and Apache Kafka® Connect](https://aiven.io/blog/db-technology-migration-with-apache-kafka-and-kafka-connect) blog post
