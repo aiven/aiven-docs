@@ -111,7 +111,7 @@ The configuration file contains the following entries:
 
   - `insert`: Standard `INSERT` statements.
   - `upsert`: Upsert semantics supported by the target database.
-    See [dedicated GitHub repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
+    See the [dedicated GitHub repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
   - `update`: Update semantics supported by the target database.
     See [dedicated GitHub repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
 
