@@ -1932,6 +1932,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/claim-public-schema-ownership',
                     'products/postgresql/howto/manage-pool',
                     'products/postgresql/howto/pgbouncer-stats',
+                    'products/postgresql/howto/pgbouncer-stats-datadog',
                     'products/postgresql/howto/use-dblink-extension',
                     'products/postgresql/howto/use-pg-repack-extension',
                     'products/postgresql/howto/use-pg-cron-extension',
