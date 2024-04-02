@@ -151,7 +151,8 @@ When using Avro as source data format, set the following parameters:
   and password access to the schema registry.
 - `value.converter.schema.registry.basic.auth.user.info`: Enter the required schema registry
   credentials in the `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` format, using
-  the `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters [retrieved earlier in the prerequisites](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
+  the `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
+  [retrieved earlier in the prerequisites](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
 
 :::
 
