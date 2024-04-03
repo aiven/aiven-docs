@@ -82,7 +82,7 @@ Monitoring for your service.
 ## Related pages
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
-- [Expose PgBouncer statistics to Datadog](/docs/products/postgresql/howto/pgbouncer-stats-datadog).
+- [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
 - Learn more about
-  [Datadog Deep Database Monitoring](https://www.datadoghq.com/product/database-monitoring/)
-  from their product page.
+  [Database monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/)
+  from the Datadog product page.

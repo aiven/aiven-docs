@@ -59,8 +59,8 @@ metric tracking in Datadog, follow these steps:
 ## Related pages
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
-- [Expose PgBouncer statistics to Datadog](/docs/products/postgresql/howto/pgbouncer-stats-datadog).
-- For information on how to enable [Datadog Deep Database
-  Monitoring](https://www.datadoghq.com/product/database-monitoring/) for
-  specific Datadog Metrics integration, see
+- [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
+- For information on how to enable
+  [database monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/)
+  for a specific Datadog Metrics integration, see
   [Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).
