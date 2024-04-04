@@ -26,6 +26,34 @@ enabled.
   For additional details, see
   [Certificate requirements](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
 
+### For CloudSQL PostgreSQL databases
+
+If you're integrating with a Cloud SQL database, perform these additional steps:
+
+- **IP whitelisting**: Ensure you whitelist Aiven's IP addresses to allow connections
+   from Apache Kafka Connect to reach your Cloud SQL database.
+- **Configure WAL and logical decoding**:
+  - To capture database change events, `set cloudsql.logical_decoding` to `on`.
+  - To configure the Write-Ahead Log (WAL) for logical replication, set
+    `cloudsql.enable_pglogical` to` on`.
+  - Restart the CloudSQL instance to apply changes.
+- **Activate the `pgoutput` extension**: Execute CREATE EXTENSION pgoutput; in your
+  CloudSQL instance to enable the extension Debezium uses for logical decoding.
+- **Verify SSL certificates**: After whitelisting IPs, ensure your SSL configuration is
+  correct by testing the database connection:
+
+```bash
+psql "sslmode=verify-ca sslrootcert=server-ca.pem sslcert=client-cert.pem sslkey=client-key.pem hostaddr=<YOUR_IP_ADDRESS> port=5432 user=<YOUR_USER> dbname=<YOUR_DB_NAME>"
+```
+
+- **Set Debezium output plugin**: Use `pgoutput` or `decoderbufs` as the `plugin.name` in
+  your Debezium connector for logical decoding.
+
+     :::note
+     Starting with Debezium 2.5, the wal2json plugin is deprecated. The recommended
+     replacements are `pgoutput` and `decoderbufs`.
+     :::
+
 ## Variables
 
 The following table lists the variables for the configuration steps. Replace them with
@@ -130,10 +158,11 @@ Replace the placeholders with your PostgreSQL and Apache Kafka Connect informati
 
    After successfully deploying the setup:
 
-   - Apache Kafka Connect will establish a secure SSL connection with the PostgreSQL
+   - Apache Kafka Connect establishes a secure SSL connection with the PostgreSQL
 database.
    - Apache Kafka topics are automatically created, provided that the auto-creation
 feature is enabled.
+
      :::note
      You must create Apache Kafka topics manually if auto-creation option is
      not enabled before starting the connector.
@@ -151,3 +180,7 @@ the integration to the operational use of the keys.
 - The Apache Kafka setup does not support mutual authentication in `verify-full` SSL mode.
 However, the `verify-ca` mode is secure since the Certificate Authority (CA) is
 specific to the instance.
+- For CloudSQL PostgreSQL databases, ensure logical decoding and the pgoutput extension
+  are enabled for replication compatibility.
+- As of Debezium 2.5, `wal2json` is deprecated. It is recommended to use `pgoutput` or `decoderbufs`
+  for WAL output plugins.

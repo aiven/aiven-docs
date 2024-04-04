@@ -124,6 +124,7 @@ hypertable
 hypertables
 IdP
 IdPs
+IPs
 InfluxDB
 InnoDB
 inodes
