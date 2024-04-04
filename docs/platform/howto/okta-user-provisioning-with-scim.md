@@ -7,6 +7,7 @@ This means you can manage your users and their profiles in one place, Okta, and 
 those changes to the Aiven platform.
 
 Aiven’s integration with Okta supports these features:
+
 - **Push new users**  - Users created in Okta are automatically created as managed users
   in Aiven.
 - **Push profile updates** - User profile updates in Okta are pushed to Aiven. Profiles
@@ -27,7 +28,7 @@ Aiven’s integration with Okta supports these features:
 1. Click **Settings** > **Integration** > **Configure API Integration**.
 1. Select **Enable API Integration**.
 1. In the **API Token field**, paste the **Access token** from the Aiven Console.
-1. Click **Test API Credentials** to check the connection is working
+1. Click **Test API Credentials** to confirm the connection is working
    and save the configuration.
 1. Click **Sign On**.
 1. In the **Credentials Details** section, select **Email** as the
