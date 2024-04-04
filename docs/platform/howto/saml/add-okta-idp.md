@@ -3,6 +3,9 @@ title: Add Okta as an identity provider
 ---
 
 Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven.
+Aiven also supports
+[user provisioning for Okta](/docs/platform/howto/okta-user-provisioning-with-scim)
+with SCIM.
 
 ## Prerequisite steps in Aiven Console
 

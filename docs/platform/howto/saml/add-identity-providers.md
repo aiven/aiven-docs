@@ -79,8 +79,9 @@ draft, you can open the settings by clicking the name of the IdP.
 1. <LimitedBadge/> To enable user provisioning with Okta, click the toggle.
 
    1. Copy the **Base URL** and **Access token**.
-   1. Add the URL and token to your
-      [Okta app integration](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm).
+   1. Use the URL and token to configure
+      [user provisioning for Okta](/docs/platform/howto/okta-user-provisioning-with-scim)
+      with SCIM.
 
 1. Click **Finish** to complete the setup.
 
