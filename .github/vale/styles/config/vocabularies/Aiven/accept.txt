@@ -95,6 +95,7 @@ Forecast
 Forecasted
 FusionAuth
 Gantt
+GBs
 geocoder
 geocoding
 geohash
@@ -187,6 +188,7 @@ Opensearch_acl_config
 Opensearch_acl_rule
 Opensearch_user
 operator
+ORMs
 overcommit
 overcommitted
 Pagerduty
