@@ -1497,7 +1497,15 @@ const sidebars: SidebarsConfig = {
                 // Add the paths for your two topics here
               ],
             },
-            // Since there are no other contents yet, other sections are not included
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/howto',
+              },
+              items: ['products/metrics/howto/storage-overview-page'],
+            },
           ],
         },
         {
