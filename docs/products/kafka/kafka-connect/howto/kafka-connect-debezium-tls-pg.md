@@ -70,10 +70,10 @@ your actual environment values in the provided code snippets:
 | `<integration_endpoint_id>` | ID of the created PostgreSQL endpoint |
 | `<connector_config>` | JSON configuration for Debezium connector |
 
-## Configuration via CLI
+## Configuration via Aiven CLI
 
-1. If you already have an Aiven for Apache Kafka service, make sure it's running and
-accessible. Otherwise, create a new Kafka cluster using this command:
+1. Verify that your existing Aiven for Apache Kafka service is active and accessible.
+   If you don’t have one, create a Kafka cluster using this command:
 
    ```bash
    avn service create <kafka_cluster_name> \
