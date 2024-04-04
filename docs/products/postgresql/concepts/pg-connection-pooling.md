@@ -2,27 +2,38 @@
 title: Connection pooling
 ---
 
-Connection pooling in Aiven for PostgreSQL® services allows you to
-maintain very large numbers of connections to a database while
-minimizing the consumption of server resources.
+Connection pooling in Aiven for PostgreSQL® services allows you to maintain very large numbers of connections to a database while minimizing the consumption of server resources.
+
+## About connection pooling
 
 Aiven for PostgreSQL connection pooling uses
 [PgBouncer](https://www.pgbouncer.org/) to manage the database
 connection.
-
-:::note
-Each pool can handle from a minimum of 5000 client connections to a
-maximum defined by the lower threshold between:
-
--   500 for each GB of RAM in the service plan
--   A total of 50000 client connections
-:::
 
 Unlike when you connect directly to the PostgreSQL® server, each client
 connection does not require a separate backend process on the server.
 PgBouncer automatically inserts the client queries and only uses a
 limited number of actual backend connections, leading to lower resource
 usage on the server and better total performance.
+
+## Maximum number of client connections
+
+Each pool can handle at least 5000 connections. This number increases for a pool by 500
+for each GB of RAM as per your service plan. To check the maximum number of client
+connections for your service, take into account the number of the connection pools and RAM
+GBs your service uses. Follow the sample calculation for a service using Business-4 plan
+with 4 GB of RAM and two connection pools:
+
+- Pool 1: 5000 + (500 x 4) = 7000
+- Pool 2: 5000 + (500 x 4) = 7000
+- Pool 1 + Pool 2 = 14000
+
+This Business-4 service can handle 14000 client connections.
+
+:::note
+50000 is the maximum number of client connections per service and applies every time your
+calculated connection number exceeds 50000.
+:::
 
 ## Why connection pooling?
 
