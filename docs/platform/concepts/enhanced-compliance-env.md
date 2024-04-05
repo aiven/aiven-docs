@@ -10,7 +10,7 @@ infrastructure with the additional compliance requirement that no ECE
 VPC is shared and the managed environment is logically separated from
 the standard Aiven deployment environment. This decreases the blast
 radius of the environment to prevent inadvertent data sharing.
-Furthermore, users of an ECE **must** encrypt all data prior to reaching
+Furthermore, users of an ECE **must** encrypt all the protected data prior to reaching
 an Aiven service. As part of the increased compliance of the
 environment, enhanced logging is enabled for - `stderr`, `stout`, and
 `stdin`.
