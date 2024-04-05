@@ -97,8 +97,8 @@ your actual environment values in the provided code snippets:
        avn service create <kafka_connect_name> \
         --service-type kafka_connect \
         --cloud <cloud_provider_and_region> \
-         --plan <plan> \
-         --project $PROJECT
+        --plan <plan> \
+        --project $PROJECT
     ```
 
 1. Create an external PostgreSQL integration endpoint to represent your PostgreSQL
@@ -119,9 +119,9 @@ your actual environment values in the provided code snippets:
     )
 
     avn service integration-endpoint-create \
-	    --project $PROJECT \
-	    -d external_postgresql \
-	    --user-config "$INTEGRATION_CONFIG"
+	   --project $PROJECT \
+	   -d external_postgresql \
+	   --user-config "$INTEGRATION_CONFIG"
 
    ```
 
