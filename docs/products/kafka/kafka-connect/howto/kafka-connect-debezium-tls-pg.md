@@ -128,21 +128,21 @@ your actual environment values in the provided code snippets:
 1. Retrieve endpoint ID of the integration endpoint you just created using this command:
 
     ```bash
-    INTEGRATION_ENDPOINT_ID=$(
-	    avn service integration-endpoint-list --project $PROJECT \
-	     | grep external_postgresql \
-	     | awk '{print $1}'
+       INTEGRATION_ENDPOINT_ID=$(
+	      avn service integration-endpoint-list --project $PROJECT \
+	      | grep external_postgresql \
+	      | awk '{print $1}'
 	   )
     ```
 
 1. Connect PostgreSQL endpoint to Apache Kafka Connect:
 
    ```bash
-    avn service integration-create \
-      --project $PROJECT \
-      -t kafka_connect_postgresql \
-	    -S $INTEGRATION_ENDPOINT_ID \
-      -d <kafka_connect_name>
+      avn service integration-create \
+       --project $PROJECT \
+       -t kafka_connect_postgresql \
+	     -S $INTEGRATION_ENDPOINT_ID \
+       -d <kafka_connect_name>
    ```
 
 1. Create the Debezium connector configuration to monitor your PostgreSQL database.
