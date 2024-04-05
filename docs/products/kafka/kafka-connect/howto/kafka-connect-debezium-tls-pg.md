@@ -31,7 +31,7 @@ enabled.
 If you're integrating with a Cloud SQL database, perform these additional steps:
 
 - **IP whitelisting**: Ensure you whitelist Aiven's IP addresses to allow connections
-   from Apache Kafka Connect to reach your Cloud SQL database.
+  from Apache Kafka Connect to reach your Cloud SQL database.
 - **Configure WAL and logical decoding**:
   - To capture database change events, `set cloudsql.logical_decoding` to `on`.
   - To configure the Write-Ahead Log (WAL) for logical replication, set
@@ -56,10 +56,10 @@ If you're integrating with a Cloud SQL database, perform these additional steps:
 - **Set Debezium output plugin**: Use `pgoutput` or `decoderbufs` as the `plugin.name` in
   your Debezium connector for logical decoding.
 
-     :::note
-     Starting with Debezium 2.5, the wal2json plugin is deprecated. The recommended
-     replacements are `pgoutput` and `decoderbufs`.
-     :::
+    :::note
+      Starting with Debezium 2.5, the wal2json plugin is deprecated. The recommended
+      replacements plugins are `pgoutput` and `decoderbufs`.
+    :::
 
 ## Variables
 
@@ -82,86 +82,94 @@ your actual environment values in the provided code snippets:
 1. Verify that your existing Aiven for Apache Kafka service is active and accessible.
    If you don’t have one, create a Kafka cluster using this command:
 
-   ```bash
-   avn service create <kafka_cluster_name> \
-   --service-type kafka \
-   --cloud <cloud_provider_and_region> \
-   --plan <plan> \
-   --project <project_name>
-   ```
+    ```bash
+      avn service create <kafka_cluster_name> \
+       --service-type kafka \
+       --cloud <cloud_provider_and_region> \
+       --plan <plan> \
+       --project <project_name>
+    ```
 
 1. Create an Apache Kafka Connect service and configure it to communicate with your
-Aiven for Apache Kafka service:
+   Aiven for Apache Kafka service:
 
-   ```bash
-   avn service create <kafka_connect_name> --service-type kafka_connect \
-   --cloud <cloud_provider_and_region> --plan <plan> --project $PROJECT
-   ```
+    ```bash
+    avn service create <kafka_connect_name> --service-type kafka_connect \
+    --cloud <cloud_provider_and_region> --plan <plan> --project $PROJECT
+    ```
 
 1. Create an external PostgreSQL integration endpoint to represent your PostgreSQL
-database. Use the following JSON configuration and replace the placeholders:
+   database. Use the following JSON configuration and replace the placeholders:
 
-   ```bash
-   INTEGRATION_CONFIG=$(cat <<-END
-   {
-    "ssl_mode": "verify-ca",
-    "host": "<postgresql_host>",
-    "port": <postgresql_port>,
-    "user": "<postgresql_user>",
-    "ssl_client_certificate": "$(cat /path/to/your/client-cert.pem)",
-    "ssl_root_cert": "$(cat /path/to/your/ca.pem)",
-    "ssl_client_key": "$(cat /path/to/your/client-key.pem)"
-   }
-   END
-   )
+    ```bash
+    INTEGRATION_CONFIG=$(cat <<-END
+    {
+      "ssl_mode": "verify-ca",
+      "host": "<postgresql_host>",
+      "port": <postgresql_port>,
+      "user": "<postgresql_user>",
+      "ssl_client_certificate": "$(cat /path/to/your/client-cert.pem)",
+      "ssl_root_cert": "$(cat /path/to/your/ca.pem)",
+      "ssl_client_key": "$(cat /path/to/your/client-key.pem)"
+    }
+    END
+    )
 
-   avn service integration-endpoint-create --project $PROJECT -d external_postgresql \
-   --user-config "$INTEGRATION_CONFIG"
+    avn service integration-endpoint-create \
+	    --project $PROJECT \
+	    -d external_postgresql \
+	    --user-config "$INTEGRATION_CONFIG"
 
    ```
 
 1. Retrieve endpoint ID of the integration endpoint you just created using this command:
 
-   ```bash
-   INTEGRATION_ENDPOINT_ID=$(avn service integration-endpoint-list --project $PROJECT |
-   grep external_postgresql | awk '{print $1}')
-   ```
+    ```bash
+    INTEGRATION_ENDPOINT_ID=$(
+	    avn service integration-endpoint-list --project $PROJECT \
+	     | grep external_postgresql \
+	     | awk '{print $1}'
+	   )
+    ```
 
 1. Connect PostgreSQL endpoint to Apache Kafka Connect:
 
    ```bash
-   avn service integration-create --project $PROJECT -t kafka_connect_postgresql \
-   -S $INTEGRATION_ENDPOINT_ID -d <kafka_connect_name>
+    avn service integration-create \
+      --project $PROJECT \
+      -t kafka_connect_postgresql \
+	    -S $INTEGRATION_ENDPOINT_ID \
+      -d <kafka_connect_name>
    ```
 
 1. Create the Debezium connector configuration to monitor your PostgreSQL database.
-Replace the placeholders with your PostgreSQL and Apache Kafka Connect information:
+   Replace the placeholders with your PostgreSQL and Apache Kafka Connect information:
 
-   ```bash
-      CONNECTOR_CONFIG=$(cat <<-END
-      {
-        "name": "debezium-postgres-connector",
-        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-         // Omit "database.hostname", "database.port", and "database.user" if provided by
-            external integration
-        "database.password": "<postgresql_password>",
-        "database.dbname": "<database_name>",
-        "database.server.name": "<kafka_connect_server_name>",
-        "plugin.name": "pgoutput",
-        "publication.name": "debezium_publication",
-        "publication.autocreate.mode": "all_tables",
-        "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
-        "transforms": "unwrap",
-        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
-      }
-      END
-    )
+    ```bash
+        CONNECTOR_CONFIG=$(cat <<-END
+        {
+          "name": "debezium-postgres-connector",
+          "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+          // Omit "database.hostname", "database.port", and "database.user" if provided
+          by external integration
+          "database.password": "<postgresql_password>",
+          "database.dbname": "<database_name>",
+          "database.server.name": "<kafka_connect_server_name>",
+          "plugin.name": "pgoutput",
+          "publication.name": "debezium_publication",
+          "publication.autocreate.mode": "all_tables",
+          "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
+          "transforms": "unwrap",
+          "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+        }
+        END
+        )
 
-      avn service connector create \
-        --project $PROJECT \
-        --service <kafka_connect_name> \
-        --config "$CONNECTOR_CONFIG"
-   ```
+        avn service connector create \
+          --project $PROJECT \
+          --service <kafka_connect_name> \
+          --config "$CONNECTOR_CONFIG"
+    ```
 
    After successfully deploying the setup:
 
@@ -170,10 +178,10 @@ Replace the placeholders with your PostgreSQL and Apache Kafka Connect informati
    - Apache Kafka topics are automatically created, provided that the auto-creation
      feature is enabled.
 
-     :::note
-     You must create Apache Kafka topics manually if auto-creation option is
-     not enabled before starting the connector.
-     :::
+      :::note
+        You must create Apache Kafka topics manually if auto-creation option is
+        not enabled before starting the connector.
+      :::
 
    - Apache Kafka Connect streams data into topics using the naming
    pattern: `{connector_name}.{database_name}.{table_name}`.
