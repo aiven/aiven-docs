@@ -27,14 +27,14 @@ Create an API Key in your FusionAuth instance:
 1. Toggle on **POST**.
 1. Click the **Save** icon.
 
-    ![Creating API Key.](/images/platform/howto/saml/fusionauth/create-api-key.png)
+    ![Creating API Key.](/images/content/platform/howto/saml/fusionauth/create-api-key.png)
 
 1. On the **API Keys** page, find your new key and click the value
     in the **Key** column.
 
 1. Copy the whole key. You'll use this for the script.
 
-    ![Grabbing API Key.](/images/platform/howto/saml/fusionauth/grab-api-key.png)
+    ![Grabbing API Key.](/images/content/platform/howto/saml/fusionauth/grab-api-key.png)
 
 1. Clone [the FusionAuth example scripts GitHub
     repository](https://github.com/FusionAuth/fusionauth-example-scripts).

@@ -82,7 +82,7 @@ replication lag, indicating how far behind the consumers are in
 consuming messages from a topic. This graph provides information about
 consumer behavior, enabling you to take appropriate action if necessary.
 
-![Image of consumer group replication lag](/images/products/kafka/consumer-group-graphs-for-kafka-dashboards.png)
+![Image of consumer group replication lag](/images/content/products/kafka/consumer-group-graphs-for-kafka-dashboards.png)
 
 ### Consumer group offset telemetry
 

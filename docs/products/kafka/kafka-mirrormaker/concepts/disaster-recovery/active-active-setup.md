@@ -10,7 +10,7 @@ form of **\<cluster alias\>.\<topic name\>**
 In this setup, there are two actively used Apache Kafka® clusters:
 Cluster K1 and cluster K2. Topic exists in both clusters.
 
-![MirrorMaker 2 Active-Active Setup](/images/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Active.png)
+![MirrorMaker 2 Active-Active Setup](/images/content/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Active.png)
 
 Each cluster has its producers and consumers. Producers produce to a
 topic, while consumers consume from the same topic using the same

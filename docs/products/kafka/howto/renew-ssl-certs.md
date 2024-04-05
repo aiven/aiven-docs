@@ -20,7 +20,7 @@ If your Aiven for Apache Kafka service has a certificate about
 to expire, the [Aiven Console](https://console.aiven.io/) will display a notification on
 the service page, prompting you to download the new certificate.
 
-![Apache Kafka service user SSL certificate expiring message](/images/products/kafka/ssl-cert-renewal.png)
+![Apache Kafka service user SSL certificate expiring message](/images/content/products/kafka/ssl-cert-renewal.png)
 
 To download the new certificate,
 
@@ -30,7 +30,7 @@ To download the new certificate,
 1. Select the required user and click **Show access key** and **Show access cert** to
    download the new certificate.
 
-![Apache Kafka service user SSL certificate and access key download](/images/products/kafka/new-ssl-cert-download.png)
+![Apache Kafka service user SSL certificate and access key download](/images/content/products/kafka/new-ssl-cert-download.png)
 
 :::note
 You can also use the Aiven CLI command [`avn service user-creds-download`](/docs/tools/cli/service/user#avn_service_user_creds_download) to download the renewed SSL certificate and key.

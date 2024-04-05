@@ -33,7 +33,7 @@ Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for PostgreSQL® se
    [Aiven Console](https://console.aiven.io/).
 1. Select **Finish** to create and save the connection.
 
-![Connect to Aiven for PostgreSQL with DBeaver](/images/products/postgresql/dbeaver-create-connection.png)
+![Connect to Aiven for PostgreSQL with DBeaver](/images/content/products/postgresql/dbeaver-create-connection.png)
 
 The connection to your Aiven for PostgreSQL service has been established and is visible in
 DBeaver > **Database Navigator**.

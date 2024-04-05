@@ -71,7 +71,7 @@ To send logs to Datadog:
 1.  On the **Overview** page of your service, select **Integrations**
     from the sidebar, and select the **Rsyslog** option.
 
-    ![Screenshot of system integrations including rsyslog](/images/integrations/rsyslog-service-integration.png)
+    ![Screenshot of system integrations including rsyslog](/images/content/integrations/rsyslog-service-integration.png)
 
 1.  Pick the log integration you created earlier from the dropdown and
     choose **Enable**.

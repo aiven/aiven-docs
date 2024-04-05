@@ -105,7 +105,7 @@ downloaded:
 By adding the values you know about the nodes and RAM in your setup, you
 can get some recommended starter values to use for your setup.
 
-![Screenshot of the spreadsheet: enter your information and get recommendations.](/images/products/opensearch/opensearch-plan-calculator.png)
+![Screenshot of the spreadsheet: enter your information and get recommendations.](/images/content/products/opensearch/opensearch-plan-calculator.png)
 
 Yellow cells such as `data node count`, `CPUs`, `RAM`, `Max Shard Size`
 and etc. are input values to calculate recommendation values for plan

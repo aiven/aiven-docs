@@ -16,7 +16,7 @@ the process.
 
 1. Click **View purchase options**.
 
-   ![AWS Marketplace purchase options button for Aiven Managed Database Services](/images/platform/howto/aws-marketplace-listing.png)
+   ![AWS Marketplace purchase options button for Aiven Managed Database Services](/images/content/platform/howto/aws-marketplace-listing.png)
 
 1. Click **Subscribe**. You
    will NOT be charged by clicking this button; this only sets up a

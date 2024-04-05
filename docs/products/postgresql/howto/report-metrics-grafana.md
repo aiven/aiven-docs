@@ -68,10 +68,10 @@ can go ahead and visualize your PostgreSQL metrics.
 In Grafana, go to **Dashboards** and **Manage**, and double click the
 dashboard named after the metrics database.
 
-![Screenshot of a Grafana Manage Dashboards panel](/images/products/postgresql/metrics-dashboard-manage.png)
+![Screenshot of a Grafana Manage Dashboards panel](/images/content/products/postgresql/metrics-dashboard-manage.png)
 
 Browse the prebuilt dashboard or create your own monitoring views. More
 info about the dashboard and pushed metrics can be found at
 [PostgreSQL® metrics exposed in Grafana®](/docs/products/postgresql/reference/pg-metrics)
 
-![Screenshot of the PostgreSQL Metrics Dashboard for Grafana](/images/products/postgresql/metrics-dashboard-global.png)
+![Screenshot of the PostgreSQL Metrics Dashboard for Grafana](/images/content/products/postgresql/metrics-dashboard-global.png)

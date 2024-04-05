@@ -16,7 +16,7 @@ integrate.
 This can be configured from the **Integration endpoints** page in the
 Aiven Console.
 
-!["Create new Syslog endpoint" dialog](/images/integrations/remote-syslog-endpoint.png)
+!["Create new Syslog endpoint" dialog](/images/content/integrations/remote-syslog-endpoint.png)
 
 Another option is to use the [Aiven
 Client](https://github.com/aiven/aiven-client) .
@@ -70,7 +70,7 @@ by navigating to the **Overview** page of the target service > the
 You should be able to select your previously configured Rsyslog service
 integration by selecting **Enable** in the modal window.
 
-![The page that shows the integrations available for a service](/images/integrations/rsyslog-service-integration.png)
+![The page that shows the integrations available for a service](/images/content/integrations/rsyslog-service-integration.png)
 
 Alternately, with the Aiven Client, first you need the id of the
 endpoint previously created.
