@@ -32,7 +32,7 @@ PostgreSQL® service.
    the [Aiven Console](https://console.aiven.io/).
 1. Select **OK** to create and save the connection.
 
-![Connect to Aiven for PostgreSQL with DataGrip](/images/products/postgresql/datagrip-create-connection.png)
+![Connect to Aiven for PostgreSQL with DataGrip](/images/content/products/postgresql/datagrip-create-connection.png)
 
 The connection to your Aiven for PostgreSQL service has been established and is visible in
 DataGrip > **Database Explorer**.

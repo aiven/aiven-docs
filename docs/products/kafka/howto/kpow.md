@@ -112,7 +112,7 @@ docker run -p 3000:3000 -m2G \
 
 Once Kpow starts, access the interface at `localhost:3000`.
 
-![Kpow in action](/images/products/kafka/kpow.jpg)
+![Kpow in action](/images/content/products/kafka/kpow.jpg)
 
 You can perform the following tasks with Kpow over an Aiven for Apache
 Kafka® service:

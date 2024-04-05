@@ -24,7 +24,7 @@ To set up a remote replica:
     replica.
 3.  In the **Overview** page of your service, select **Create replica**.
 
-![Create replica button](/images/products/postgresql/replica-create.png)
+![Create replica button](/images/content/products/postgresql/replica-create.png)
 
 4.  Enter a name for the remote replica and select the cloud provider,
     region, and Aiven for PostgreSQL service plan that you want to use,

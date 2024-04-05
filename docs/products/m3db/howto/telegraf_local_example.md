@@ -119,17 +119,17 @@ Now to what we all have been waiting for, the **Metrics**!
 
 In the Grafana dashboard, click the **Explore** tab.
 
-![Grafana Explore](/images/products/m3db/telegraf-m3-example/m3_telegraph_11.png)
+![Grafana Explore](/images/content/products/m3db/telegraf-m3-example/m3_telegraph_11.png)
 
 Select your M3 service as the data source from the drop down menu at the
 top of the page. Click the metrics browser, select `cpu_usage_user`, and
 then click the "Use Query" button.
 
-![Grafana Explore for M3](/images/products/m3db/telegraf-m3-example/m3_telegraph_12.png)
+![Grafana Explore for M3](/images/content/products/m3db/telegraf-m3-example/m3_telegraph_12.png)
 
 The chart displayed below represents the CPU of the MacBook.
 
-![Grafana Metrics for M3](/images/products/m3db/telegraf-m3-example/m3_telegraph_13.png)
+![Grafana Metrics for M3](/images/content/products/m3db/telegraf-m3-example/m3_telegraph_13.png)
 
 Tear Down At the terminal, press `Ctrl+C` to stop the Telegraf agent.
 Then, delete your M3 and Grafana services within the Aiven Console.

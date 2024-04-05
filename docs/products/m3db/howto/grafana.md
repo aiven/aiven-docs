@@ -52,7 +52,7 @@ If no metrics are shown, check that there is data in the database
 Once you are happy with your panel, give it a title and click **Save**
 in the top right hand corner.
 
-![Screenshot of a Grafana panel](/images/products/m3db/m3db-grafana.png)
+![Screenshot of a Grafana panel](/images/content/products/m3db/m3db-grafana.png)
 
 To get to know Grafana better, try the [Grafana
 Fundamentals](https://grafana.com/tutorials/grafana-fundamentals/?pg=docs)

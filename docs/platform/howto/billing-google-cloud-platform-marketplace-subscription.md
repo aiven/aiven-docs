@@ -25,7 +25,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
     sent to Aiven_. Click **Go to product page**.
 1.  Click **Manage on provider** to go to the Aiven console to complete the process.
 
-    ![Google Cloud Marketplace page after subscribing, showing the **Manage on provider** button](/images/platform/howto/gcp-manage-on-provider.png)
+    ![Google Cloud Marketplace page after subscribing, showing the **Manage on provider** button](/images/content/platform/howto/gcp-manage-on-provider.png)
 
 ## Aiven account setup
 
@@ -37,7 +37,7 @@ Aiven makes its services available through the Google Cloud Marketplace on Googl
     GCP](https://console.gcp.aiven.io/), where you can manage your Aiven
     services as normal.
 
-![The GCP version of the Aiven web console](/images/platform/howto/gcp-console.png)
+![The GCP version of the Aiven web console](/images/content/platform/howto/gcp-console.png)
 
 :::note
 
@@ -66,4 +66,4 @@ show your usage per service:
 -   `container_name`: The name of the Aiven project
 -   `resource_name`: The name of Aiven service
 
-![Sample view of Google cloud billing page](/images/platform/howto/gcp-billing.png)
+![Sample view of Google cloud billing page](/images/content/platform/howto/gcp-billing.png)

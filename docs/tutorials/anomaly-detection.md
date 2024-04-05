@@ -172,7 +172,7 @@ IoT sensor readings. Create the service with the following steps:
 
     This opens a new page with the available service options.
 
-    ![Aiven Console view for creating a new service](/images/platform/concepts/console_create_service.png)
+    ![Aiven Console view for creating a new service](/images/content/platform/concepts/console_create_service.png)
 
 3.  Select **Apache Kafka®**.
 
@@ -286,7 +286,7 @@ You can define the service integrations, on the Aiven for Apache Flink®
 Once the above steps are completed, your **Data Flow** section should be
 similar to the below:
 
-![Aiven for Apache Flink Overview tab, showing the Integrations to Aiven for Apache Kafka and Aiven for PostgreSQL](/images/tutorials/anomaly-detection/flink-integrations-done.png)
+![Aiven for Apache Flink Overview tab, showing the Integrations to Aiven for Apache Kafka and Aiven for PostgreSQL](/images/content/tutorials/anomaly-detection/flink-integrations-done.png)
 
 ## Set up the IoT metrics streaming dataset
 
@@ -319,7 +319,7 @@ You can create an authentication token with the following steps:
     token. Leave the *Max age hours* field empty if you do not want the
     token to expire.
 
-    ![Aiven Console showing the authentication tokens](/images/tutorials/anomaly-detection/generate-token.png)
+    ![Aiven Console showing the authentication tokens](/images/content/tutorials/anomaly-detection/generate-token.png)
 
 6.  Click **Generate token**.
 
@@ -422,7 +422,7 @@ the Aiven console and look for the `cpu_load_stats_real` topic:
 4.  On the `cpu_load_stats_real` line, select the `...` symbol and then
     click **Topic messages**.
 
-    ![Aiven for Apache Kafka Topic tab, showing the \`\`cpu_load_stats_real\`\` topic being created and the location of the \`\`\...\`\` icon](/images/tutorials/anomaly-detection/view-kafka-topic-messages.png)
+    ![Aiven for Apache Kafka Topic tab, showing the \`\`cpu_load_stats_real\`\` topic being created and the location of the \`\`\...\`\` icon](/images/content/tutorials/anomaly-detection/view-kafka-topic-messages.png)
 
 5.  Click the **Fetch Messages** button.
 
@@ -430,7 +430,7 @@ the Aiven console and look for the `cpu_load_stats_real` topic:
 
 7.  You should see the messages being pushed to the Apache Kafka topic:
 
-    ![detail of the messages in the \`\`cpu_load_stats_real\`\` topic including both key and value in JSON format](/images/tutorials/anomaly-detection/kafka-messages-detail.png)
+    ![detail of the messages in the \`\`cpu_load_stats_real\`\` topic including both key and value in JSON format](/images/content/tutorials/anomaly-detection/kafka-messages-detail.png)
 
 8.  Click again on the **Fetch Messages** button to refresh the
     visualization with new messages.
@@ -472,12 +472,12 @@ below:
 
 2.  Click **Create new application** to create your Flink application.
 
-    ![The Apache Flink \*\*Application\*\* tab with the \*\*Create Application\*\* button](/images/tutorials/anomaly-detection/create-application.png)
+    ![The Apache Flink \*\*Application\*\* tab with the \*\*Create Application\*\* button](/images/content/tutorials/anomaly-detection/create-application.png)
 
 3.  Name the new application `filtering` and click **Create
     application**.
 
-    ![The Apache Flink \*\*Application\*\* named \`\`filtering\`\`](/images/tutorials/anomaly-detection/filtering-application-name.png)
+    ![The Apache Flink \*\*Application\*\* named \`\`filtering\`\`](/images/content/tutorials/anomaly-detection/filtering-application-name.png)
 
 4.  Create the first version of the application by clicking on **Create
     first version** button.
@@ -495,13 +495,13 @@ below:
 
     Once created, the source table tab should look like the following:
 
-    ![Source table tab with \`\`CPU_IN\`\` table defined](/images/tutorials/anomaly-detection/CPU_IN_source.png)
+    ![Source table tab with \`\`CPU_IN\`\` table defined](/images/content/tutorials/anomaly-detection/CPU_IN_source.png)
 
     Before saving the source table definition, you can check if it
     matches the data in the topic by clicking on the triangle next to
     **Run**. You should see the populated data.
 
-    ![The Apache Flink source definition with SQL preview of the data](/images/tutorials/anomaly-detection/cpu_in_table_preview.png)
+    ![The Apache Flink source definition with SQL preview of the data](/images/content/tutorials/anomaly-detection/cpu_in_table_preview.png)
 
 6.  Navigate to the **Add sink table** tab.
 
@@ -520,7 +520,7 @@ below:
 
     Once created, the sink table tab should look like the following:
 
-    ![Sink table tab with \`\`CPU_OUT\`\` table defined](/images/tutorials/anomaly-detection/CPU_OUT_target.png)
+    ![Sink table tab with \`\`CPU_OUT\`\` table defined](/images/content/tutorials/anomaly-detection/CPU_OUT_target.png)
 
 8.  Navigate to the **Create statement** tab.
 
@@ -534,7 +534,7 @@ below:
     by clicking on the triangle next to the **Run** section, the *Create
     statement* window should be similar to the following image.
 
-    ![The Apache Flink data transformation with SQL preview of the data](/images/tutorials/anomaly-detection/filtering-preview.png)
+    ![The Apache Flink data transformation with SQL preview of the data](/images/content/tutorials/anomaly-detection/filtering-preview.png)
 
 10. Click **Save and deploy later**.
 
@@ -543,7 +543,7 @@ below:
 12. Accept the default deployment parameters and click **Deploy
     without a savepoint**.
 
-    ![Detail of the new deployment screen showing the default version, savepoint and parallelism parameters](/images/tutorials/anomaly-detection/filtering-application-deployment.png)
+    ![Detail of the new deployment screen showing the default version, savepoint and parallelism parameters](/images/content/tutorials/anomaly-detection/filtering-application-deployment.png)
 
 13. The new application deployment status will show **Initializing** and
     then **Running: version 1**.
@@ -552,7 +552,7 @@ Once the application is running, you should start to see messages
 indicating hosts with high CPU loads in the `cpu_load_stats_real_filter`
 topic of your `demo-kafka` Apache Kafka service.
 
-![The Apache Flink data transformation with SQL preview of the data](/images/tutorials/anomaly-detection/filtering-topic-preview.png)
+![The Apache Flink data transformation with SQL preview of the data](/images/content/tutorials/anomaly-detection/filtering-topic-preview.png)
 
 :::important
 Congratulations! You created your first streaming anomaly detection
@@ -848,7 +848,7 @@ When the application is running, you should start to see notifications
 about the IoT devices having CPU usage going over the defined thresholds
 in the Slack channel.
 
-![A list of Slack notifications driven by the anomaly detection data pipeline](/images/tutorials/anomaly-detection/slack-notifications.png)
+![A list of Slack notifications driven by the anomaly detection data pipeline](/images/content/tutorials/anomaly-detection/slack-notifications.png)
 
 You created an advanced streaming data pipeline
 including windowing, joining data coming from different technologies and

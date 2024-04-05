@@ -131,7 +131,7 @@ currently support AWS PrivateLink.
             select the names of the components that you want to switch
             on.
 
-            ![Aiven Console private link configuration](/images/platform/howto/use-aws-privatelink_image1.png)
+            ![Aiven Console private link configuration](/images/content/platform/howto/use-aws-privatelink_image1.png)
 
         1.  Select the toggle switches for the selected components to
             switch them on. Select **Save configuration**.

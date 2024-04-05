@@ -38,7 +38,7 @@ transient errors, such as network connectivity issues, the local storage
 might temporarily hold more data than specified by the local retention
 threshold.
 
-![Diagram depicting the concept of local vs. remote data retention in a tiered storage system.](/images/products/kafka/tiered-storage/data-retention.png)
+![Diagram depicting the concept of local vs. remote data retention in a tiered storage system.](/images/content/products/kafka/tiered-storage/data-retention.png)
 
 ## Segment management
 

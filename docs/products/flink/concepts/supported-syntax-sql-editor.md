@@ -15,4 +15,4 @@ table or job without outputting the rows to a sink table. This is useful
 for testing and debugging your Flink application since it allows you to
 view the data that your application is processing.
 
-![Image of the SQL editor in the Aiven for Apache Flink® data table view](/images/products/flink/flink_sql_editor.png)
+![Image of the SQL editor in the Aiven for Apache Flink® data table view](/images/content/products/flink/flink_sql_editor.png)
