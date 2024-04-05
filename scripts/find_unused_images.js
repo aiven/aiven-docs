@@ -89,7 +89,7 @@ function deleteUnusedImages(imagesDict, unusedImages) {
 }
 
 const scriptDir = __dirname;
-const imagesFolder = path.join(scriptDir, '../static/images');
+const imagesFolder = path.join(scriptDir, '../static/images/content');
 const imagesDictionary = findPNGFiles(imagesFolder);
 
 const contentPath = path.join(scriptDir, '../docs');
