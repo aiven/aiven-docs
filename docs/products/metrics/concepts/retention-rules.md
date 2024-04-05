@@ -12,30 +12,21 @@ specific data storage strategies, compliance needs, and cost management goals.
 
 ## Define retention rules
 
-In Aiven for Metrics, the Thanos Metrics Compactor component manages retention settings.
-You can modify these settings by accessing the Advanced configuration options in the
-Aiven Console or using Aiven API.
+Aiven for Metrics uses the Thanos Metrics Compactor to simplify retention settings.
+A single parameter, `compactor.retention.days`, sets the same retention period for all
+types of data: `raw`, 5`-minute downsampled`, and `1-hour downsampled`.
 
-Available configuration options:
-
-- **Raw data**: Retains your metrics data at the highest level of detail,
-  which is crucial for comprehensive analysis where each data point matters.
-- **5-minute downsampled data**: This approach aggregates metrics into 5-minute
-  intervals. It balances detail and storage efficiency, facilitating straightforward
-  analysis over extended periods without significantly affecting data fidelity.
-- **1-hour downsampled data**: This view groups metrics into 1-hour intervals, suitable
-  for tracking long-term trends. It is less detailed but ideal for strategic insights
-  and broad analyses.
-
+To adjust the `compactor.retention.days` parameter, access the **Advanced configuration**
+options in the Aiven Console or use the Aiven API.This unified approach streamlines data
+lifecycle management, supporting your storage, compliance, and cost management strategies.
 
 ## Downsampling
 
-Downsampling in Aiven for Metrics restructures data series to lower resolution without
-losing accuracy. This approach improves the efficiency of queries spanning large
-time frames. Aiven for Metrics systematically uses this process to aggregate data
-into broader intervals (5 minutes and 1 hour). This method makes query operations
-more efficient over lengthy durations and contributes to more effective storage
-utilization.
+Downsampling in Aiven for Metrics transforms data series to lower resolution without
+compromising accuracy. This technique enhances the performance of queries over large
+time frames. Aiven for Metrics systematically aggregates data into resolutions of
+5 minutes and 1 hour. This aggregation process significantly improves query performance
+over extended periods and increases storage efficiency.
 
 ## Related pages
 
