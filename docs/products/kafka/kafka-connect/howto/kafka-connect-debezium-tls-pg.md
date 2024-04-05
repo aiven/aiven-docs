@@ -42,9 +42,16 @@ If you're integrating with a Cloud SQL database, perform these additional steps:
 - **Verify SSL certificates**: After whitelisting IPs, ensure your SSL configuration is
   correct by testing the database connection:
 
-```bash
-psql "sslmode=verify-ca sslrootcert=server-ca.pem sslcert=client-cert.pem sslkey=client-key.pem hostaddr=<YOUR_IP_ADDRESS> port=5432 user=<YOUR_USER> dbname=<YOUR_DB_NAME>"
-```
+  ```bash
+    psql "sslmode=verify-ca \
+      sslrootcert=server-ca.pem \
+      sslcert=client-cert.pem \
+      sslkey=client-key.pem \
+      hostaddr=<YOUR_IP_ADDRESS> \
+      port=5432 \
+      user=<YOUR_USER> \
+      dbname=<YOUR_DB_NAME>"
+  ```
 
 - **Set Debezium output plugin**: Use `pgoutput` or `decoderbufs` as the `plugin.name` in
   your Debezium connector for logical decoding.
@@ -131,55 +138,56 @@ database. Use the following JSON configuration and replace the placeholders:
 Replace the placeholders with your PostgreSQL and Apache Kafka Connect information:
 
    ```bash
-   CONNECTOR_CONFIG=$(cat <<-END
-   {
-    "name": "debezium-postgres-connector",
-    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-    "database.hostname": "<postgresql_host>",
-    "database.port": "<postgresql_port>",
-    "database.user": "<postgresql_user>",
-    "database.password": "<postgresql_password>",
-    "database.dbname": "<database_name>",
-    "database.server.name": "<kafka_connect_server_name>",
-    "plugin.name": "pgoutput",
-    "publication.name": "debezium_publication",
-    "publication.autocreate.mode": "all_tables",
-    "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
-    "transforms": "unwrap",
-    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
-   }
-   END
-   )
+      CONNECTOR_CONFIG=$(cat <<-END
+      {
+        "name": "debezium-postgres-connector",
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+         // Omit "database.hostname", "database.port", and "database.user" if provided by
+            external integration
+        "database.password": "<postgresql_password>",
+        "database.dbname": "<database_name>",
+        "database.server.name": "<kafka_connect_server_name>",
+        "plugin.name": "pgoutput",
+        "publication.name": "debezium_publication",
+        "publication.autocreate.mode": "all_tables",
+        "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
+        "transforms": "unwrap",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+      }
+      END
+    )
 
-   avn service connector create --project $PROJECT --service <kafka_connect_name> \
-   --config "$CONNECTOR_CONFIG"
-
+      avn service connector create \
+        --project $PROJECT \
+        --service <kafka_connect_name> \
+        --config "$CONNECTOR_CONFIG"
    ```
 
    After successfully deploying the setup:
 
    - Apache Kafka Connect establishes a secure SSL connection with the PostgreSQL
-database.
+     database.
    - Apache Kafka topics are automatically created, provided that the auto-creation
-feature is enabled.
+     feature is enabled.
 
      :::note
      You must create Apache Kafka topics manually if auto-creation option is
      not enabled before starting the connector.
      :::
+
    - Apache Kafka Connect streams data into topics using the naming
-pattern: `{connector_name}.{database_name}.{table_name}`.
+   pattern: `{connector_name}.{database_name}.{table_name}`.
 
 ## Limitations
 
 Consider the following limitations:
 
 - The process of delivering SSL keys to Apache Kafka Connect is asynchronous.
-Therefore, a delay of approximately five minutes may occur from the creation of
-the integration to the operational use of the keys.
+  Therefore, a delay of approximately five minutes may occur from the creation of
+  the integration to the operational use of the keys.
 - The Apache Kafka setup does not support mutual authentication in `verify-full` SSL mode.
-However, the `verify-ca` mode is secure since the Certificate Authority (CA) is
-specific to the instance.
+  However, the `verify-ca` mode is secure since the Certificate Authority (CA) is
+  specific to the instance.
 - For CloudSQL PostgreSQL databases, ensure logical decoding and the pgoutput extension
   are enabled for replication compatibility.
 - As of Debezium 2.5, `wal2json` is deprecated. It is recommended to use `pgoutput` or `decoderbufs`
