@@ -32,7 +32,7 @@ To **enable** REST proxy authorization, use the following command in the Aiven C
 replacing `SERVICE_NAME` with your actual service name:
 
 ```bash
-avn service update -c kafka_rest_authorization=true SERVICE_NAME
+avn service update -c kafka_rest=true SERVICE_NAME
 ```
 
 To disable REST proxy authorization, use:
