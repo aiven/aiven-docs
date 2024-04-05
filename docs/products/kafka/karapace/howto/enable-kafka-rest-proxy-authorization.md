@@ -38,5 +38,5 @@ avn service update -c kafka_rest=true SERVICE_NAME
 To disable REST proxy authorization, use:
 
 ```bash
-avn service update -c kafka_rest_authorization=false SERVICE_NAME
+avn service update -c kafka_rest=false SERVICE_NAME
 ```
