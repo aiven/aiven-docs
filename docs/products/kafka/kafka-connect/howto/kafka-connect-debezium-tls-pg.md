@@ -14,15 +14,15 @@ enhances data security by requiring the client and server to authenticate each o
 Before you begin, ensure you have the following:
 
 - Access to an Aiven for Apache Kafka service with
-[Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/enable-connect)
-enabled.
+  [Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/enable-connect)
+  enabled.
 - Administrative access to a PostgreSQL database with SSL enabled.
 - The following SSL certificates and keys obtained from your PostgreSQL database:
   - SSL client certificate: The public certificate for client authentication.
   - SSL root certificate: The certificate of the Certificate Authority (CA) that signed
-  the servers' and clients' certificates.
+    the servers' and clients' certificates.
   - SSL client key: The client's private key is used to encrypt the data sent to the
-  server.
+    server.
   For additional details, see
   [Certificate requirements](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
 
@@ -94,8 +94,11 @@ your actual environment values in the provided code snippets:
    Aiven for Apache Kafka service:
 
     ```bash
-    avn service create <kafka_connect_name> --service-type kafka_connect \
-    --cloud <cloud_provider_and_region> --plan <plan> --project $PROJECT
+       avn service create <kafka_connect_name> \
+        --service-type kafka_connect \
+        --cloud <cloud_provider_and_region> \
+         --plan <plan> \
+         --project $PROJECT
     ```
 
 1. Create an external PostgreSQL integration endpoint to represent your PostgreSQL
@@ -198,5 +201,5 @@ Consider the following limitations:
   specific to the instance.
 - For CloudSQL PostgreSQL databases, ensure logical decoding and the pgoutput extension
   are enabled for replication compatibility.
-- As of Debezium 2.5, `wal2json` is deprecated. It is recommended to use `pgoutput` or `decoderbufs`
-  for WAL output plugins.
+- As of Debezium 2.5, `wal2json` is deprecated. It is recommended to use `pgoutput`
+  or `decoderbufs` for WAL output plugins.
