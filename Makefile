@@ -47,3 +47,6 @@ service-type-config-redis:
 
 cloud-list:
 	node "$(SCRIPTS)/clouds_parser.js" "$(INCLUDESDIR)/clouds-list.md"
+
+delete-unused-images:
+	node "$(SCRIPTS)/delete_unused_images.js"
