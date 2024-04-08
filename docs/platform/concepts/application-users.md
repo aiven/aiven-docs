@@ -1,6 +1,5 @@
 ---
 title: Application users
-limited: true
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
@@ -49,7 +48,9 @@ Regularly audit your list of application users to delete unused users.
 To list all application users and the last time they were used,
 click **Admin** > <UsersIcon className="icon"/> **Users**.
 
-To see a user's tokens, in the <UsersIcon className="icon"/> **Users** page, click <ActionsIcon className="icon"/> **Actions** > <UsersIcon className="icon"/> **View profile**.
+To see a user's tokens, on the <UsersIcon className="icon"/> **Users** page, click
+<ActionsIcon className="icon"/> **Actions** >
+<UsersIcon className="icon"/> **View profile**.
 
 You can [delete unused users](/docs/platform/howto/manage-application-users#delete-an-application-user)
 or [revoke specific tokens](/docs/platform/howto/manage-application-users#revoke-a-token-for-an-application-user).
