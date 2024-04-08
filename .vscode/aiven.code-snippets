@@ -84,7 +84,7 @@
     "prefix": ["service", "menu", "svg", "icon"],
     "description": "Insert the services menu label and icon",
     "body": [
-      "import Services from \"@site/static/images/icons/cog.svg\";",
+      "import Services from \"@site/static/images/icons/database.svg\";",
       "",
       "<Services className=\"icon\"/> **Services**",
       ""

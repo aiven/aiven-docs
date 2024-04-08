@@ -1,5 +1,6 @@
 ---
 title: Restrict network access to services
+sidebar_label: Restrict access
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
@@ -7,12 +8,20 @@ import ActionsIcon from "@site/static/images/icons/more.svg";
 By default, Aiven services are publicly accessible, but you can restrict access to your service to a single IP, an address block, or any combination of both.
 
 :::important
-IP filters apply to publicly accessible endpoints only.
+IP filters apply to inbound traffic coming from specified IP addresses / network ranges to
+Aiven service ports.
 :::
+
+:::tip
+To access a non-publicly-accessible service from another service, use a
+[service integration](/docs/platform/concepts/service-integration).
+:::
+
+## Restrict access
 
 1. Log in to [Aiven Console](https://console.aiven.io).
 
-1. On the **Services** page, select the service you want to restrict.
+1. On the **Services** page, select the service to restrict.
 
 1. On the **Overview** page of your service, select **Service
     settings** from the sidebar.
@@ -36,7 +45,8 @@ Now your service can be accessed from the specified IP addresses only.
 
 :::note[Alternative method]
 You can also use the
-[dedicated service update function](/docs/tools/cli/service-cli#avn-cli-service-update) to create or update the IP filter for your service via the [Aiven CLI](/docs/tools/cli).
+[dedicated service update function](/docs/tools/cli/service-cli#avn-cli-service-update) to
+create or update the IP filter for your service via the [Aiven CLI](/docs/tools/cli).
 :::
 
 ## Related pages

@@ -56,7 +56,7 @@ the average. Node-specific values are shown in the **system metrics**
 section.
 :::
 
-![Grafana Dashboard for PostgreSQL Overview Section](/images/products/postgresql/metrics-dashboard-overview.png)
+![Grafana Dashboard for PostgreSQL Overview Section](/images/content/products/postgresql/metrics-dashboard-overview.png)
 
 The following metrics are shown:
 
@@ -72,7 +72,7 @@ The following metrics are shown:
 This section shows a more detailed listing of various generic
 system-related metrics.
 
-![Grafana Dashboard for PostgreSQL System Metrics Section](/images/products/postgresql/metrics-dashboard-system.png)
+![Grafana Dashboard for PostgreSQL System Metrics Section](/images/content/products/postgresql/metrics-dashboard-system.png)
 
 The following metrics are shown:
 
@@ -111,7 +111,7 @@ values from other metrics.
 The metrics in the PostgreSQL overview section are grouped by logical
 database. In addition, some metrics are grouped by host.
 
-![Grafana Dashboard for PostgreSQL database Overview Section](/images/products/postgresql/metrics-dashboard-pg-overview.png)
+![Grafana Dashboard for PostgreSQL database Overview Section](/images/content/products/postgresql/metrics-dashboard-pg-overview.png)
 
 |            Parameter Name             |                                                   Parameter Definition                                                    |                                                                                                                                                                   Additional Notes                                                                                                                                                                    |
 |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -140,7 +140,7 @@ indexes. For example, for the size graph, you might want to include only
 indexes that are above `X` megabytes in size.
 :::
 
-![Grafana Dashboard for PostgreSQL database Indexes Section](/images/products/postgresql/metrics-dashboard-pg-indexes.png)
+![Grafana Dashboard for PostgreSQL database Indexes Section](/images/content/products/postgresql/metrics-dashboard-pg-indexes.png)
 
 | Parameter Name              | Parameter Definition                                       | Additional Notes |
 | --------------------------- | ---------------------------------------------------------- | ---------------- |
@@ -156,7 +156,7 @@ As with indexes, the graph will be convoluted for complex databases, and
 you may want to make a copy of the dashboard to add additional filters
 that exclude uninteresting tables.
 
-![Grafana Dashboard for PostgreSQL database Indexes Section](/images/products/postgresql/metrics-dashboard-pg-tables.png)
+![Grafana Dashboard for PostgreSQL database Indexes Section](/images/content/products/postgresql/metrics-dashboard-pg-tables.png)
 
 | Parameter Name                      | Parameter Definition                                                                                                                                                                                                                                      | Additional Notes                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -176,7 +176,7 @@ operations. The graphs are grouped by table and, for complex databases,
 you probably want to add additional filter criteria to only show results
 where values are outside the expected range.
 
-![Grafana Dashboard for PostgreSQL database Vacuum and Analyse Section](/images/products/postgresql/metrics-dashboard-pg-vacuum.png)
+![Grafana Dashboard for PostgreSQL database Vacuum and Analyse Section](/images/content/products/postgresql/metrics-dashboard-pg-vacuum.png)
 
 |     Parameter Name     |                       Parameter Definition                        | Additional Notes |
 |------------------------|-------------------------------------------------------------------|------------------|
@@ -191,7 +191,7 @@ where values are outside the expected range.
 This section contains PostgreSQL metrics graphs that are not covered by
 the previous sections.
 
-![Grafana Dashboard for PostgreSQL database Miscellaneous Section](/images/products/postgresql/metrics-dashboard-pg-miscellaneous.png)
+![Grafana Dashboard for PostgreSQL database Miscellaneous Section](/images/content/products/postgresql/metrics-dashboard-pg-miscellaneous.png)
 
 | Parameter Name           | Parameter Definition                                                                 | Additional Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------ | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

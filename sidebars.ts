@@ -238,8 +238,6 @@ const sidebars: SidebarsConfig = {
         'platform/howto/create_new_service_user',
         'platform/concepts/service-forking',
         'platform/howto/prepare-for-high-load',
-        'platform/howto/access-service-logs',
-        'platform/howto/service-metrics',
       ],
     },
     {
@@ -250,8 +248,10 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-network',
       },
       items: [
+        'platform/concepts/cloud-security',
         'platform/reference/list_of_clouds',
         'platform/concepts/availability-zones',
+        'platform/concepts/enhanced-compliance-env',
         {
           type: 'category',
           label: 'Bring your own cloud',
@@ -268,28 +268,55 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/delete-custom-cloud',
           ],
         },
-        'platform/concepts/enhanced-compliance-env',
+        {
+          type: 'category',
+          label: 'VPCs',
+          link: {
+            type: 'generated-index',
+            slug: 'platform/vpc',
+          },
+          items: [
+            'platform/howto/manage-vpc-peering',
+            'platform/howto/public-access-in-vpc',
+            'platform/howto/vpc-peering-gcp',
+            'platform/howto/vpc-peering-aws',
+            'platform/howto/vnet-peering-azure',
+            'platform/howto/vpc-peering-upcloud',
+            'platform/howto/google-cloud-functions',
+            'platform/howto/attach-vpc-aws-tgw',
+            {
+              type: 'category',
+              label: 'Private link',
+              link: {
+                type: 'generated-index',
+                slug: 'platform/privatelink',
+              },
+              items: [
+                'platform/howto/use-aws-privatelinks',
+                'platform/howto/use-azure-privatelink',
+                'platform/howto/use-google-private-service-connect',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'IP addresses',
+          link: {
+            type: 'generated-index',
+            slug: 'platform/ip-addresses',
+          },
+          items: [
+            'platform/reference/service-ip-address',
+            'platform/concepts/static-ips',
+            'platform/howto/restrict-access',
+            'platform/howto/private-ip-resolution',
+          ],
+        },
         'platform/concepts/aiven-node-firewall-configuration',
-        'platform/concepts/cloud-security',
-        'platform/concepts/disaster-recovery-test-scenarios',
         'platform/concepts/tls-ssl-certificates',
-        'platform/howto/download-ca-cert',
-        'platform/howto/restrict-access',
-        'platform/howto/public-access-in-vpc',
-        'platform/concepts/static-ips',
-        'platform/reference/service-ip-address',
-        'platform/howto/static-ip-addresses',
-        'platform/howto/private-ip-resolution',
-        'platform/howto/attach-vpc-aws-tgw',
-        'platform/howto/manage-vpc-peering',
-        'platform/howto/vpc-peering-gcp',
-        'platform/howto/google-cloud-functions',
-        'platform/howto/vpc-peering-aws',
-        'platform/howto/vnet-peering-azure',
-        'platform/howto/vpc-peering-upcloud',
-        'platform/howto/use-aws-privatelinks',
-        'platform/howto/use-azure-privatelink',
-        'platform/howto/use-google-private-service-connect',
+
+        'platform/concepts/disaster-recovery-test-scenarios',
       ],
     },
     {
@@ -300,75 +327,82 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-monitoring',
       },
       items: [
-        'platform/howto/monitoring-services',
-        'platform/concepts/logs-metrics-alerts',
-        'tutorials/anomaly-detection',
         {
           type: 'category',
-          label: 'Amazon CloudWatch and Aiven',
+          label: 'Metric and log integrations',
           link: {
-            type: 'doc',
-            id: 'integrations/cloudwatch',
+            type: 'generated-index',
+            slug: 'platform/howto/metrics-integrations',
           },
           items: [
-            'integrations/cloudwatch/cloudwatch-metrics',
+            {
+              type: 'category',
+              label: 'Amazon CloudWatch',
+              link: {
+                type: 'doc',
+                id: 'integrations/cloudwatch',
+              },
+              items: [
+                'integrations/cloudwatch/cloudwatch-metrics',
+                {
+                  type: 'category',
+                  label: 'CloudWatch logs',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
+                  },
+                  items: [
+                    'integrations/cloudwatch/cloudwatch-logs-console',
+                    'integrations/cloudwatch/cloudwatch-logs-cli',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Datadog',
+              link: {
+                type: 'doc',
+                id: 'integrations/datadog',
+              },
+              items: [
+                'integrations/datadog/datadog-metrics',
+                'platform/howto/integrations/datadog-increase-metrics-limit',
+                'integrations/datadog/datadog-logs',
+                'integrations/datadog/add-custom-tags-to-datadog',
+              ],
+            },
+            'integrations/send-logs-to-elasticsearch',
+            'integrations/cloudlogging',
+            'integrations/google-bigquery',
+            {
+              type: 'category',
+              label: 'Remote Syslog',
+              link: {
+                type: 'doc',
+                id: 'integrations/rsyslog',
+              },
+              items: [
+                'integrations/rsyslog/logtail',
+                'integrations/rsyslog/loggly',
+              ],
+            },
+            'platform/howto/integrations/access-jmx-metrics-jolokia',
 
             {
               type: 'category',
-              label: 'CloudWatch logs',
+              label: 'Prometheus',
               link: {
+                id: 'platform/howto/integrations/prometheus-metrics',
                 type: 'doc',
-                id: 'integrations/cloudwatch/list-cloudwatch-logs',
               },
-              items: [
-                'integrations/cloudwatch/cloudwatch-logs-console',
-                'integrations/cloudwatch/cloudwatch-logs-cli',
-              ],
+              items: ['integrations/prometheus-system-metrics'],
             },
           ],
         },
-        {
-          type: 'category',
-          label: 'Datadog and Aiven',
-          link: {
-            type: 'doc',
-            id: 'integrations/datadog',
-          },
-          items: [
-            'integrations/datadog/datadog-metrics',
-            'platform/howto/integrations/datadog-increase-metrics-limit',
-            'integrations/datadog/datadog-logs',
-            'integrations/datadog/add-custom-tags-to-datadog',
-          ],
-        },
-        'integrations/send-logs-to-elasticsearch',
-        'integrations/cloudlogging',
-        'integrations/google-bigquery',
-        {
-          type: 'category',
-          label: 'Remote Syslog',
-          link: {
-            type: 'doc',
-            id: 'integrations/rsyslog',
-          },
-          items: [
-            'integrations/rsyslog/logtail',
-            'integrations/rsyslog/loggly',
-          ],
-        },
-        'platform/howto/integrations/access-jmx-metrics-jolokia',
-
-        {
-          type: 'category',
-          label: 'Prometheus',
-          link: {
-            id: 'platform/howto/integrations/prometheus-metrics',
-            type: 'doc',
-          },
-          items: ['integrations/prometheus-system-metrics'],
-        },
       ],
     },
+
     {
       type: 'category',
       label: 'Integrations',
@@ -450,8 +484,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'tools/terraform/get-started',
-            'tools/terraform/concepts/data-sources',
-            'tools/terraform/howto/terraform-logging',
             'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/promote-to-master-pg-rr',
             'tools/terraform/howto/config-postgresql-provider',

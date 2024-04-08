@@ -48,7 +48,7 @@ API](https://docs.confluent.io/platform/current/connect/references/restapi.html#
 You can get the service URI from the [Aiven
 Console](https://console.aiven.io/), in the service detail page.
 
-![The Aiven Console page showing the Debezium connector error](/images/products/postgresql/pg-debezium-cdc_image.png)
+![The Aiven Console page showing the Debezium connector error](/images/content/products/postgresql/pg-debezium-cdc_image.png)
 
 :::tip
 For automatically restarting tasks, you can set

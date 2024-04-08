@@ -20,7 +20,7 @@ Aiven offers a selection of
 The **Connection information** at the top of the **Overview** page will
 now offer the ability to connect via SASL or via Client Certificate.
 
-![Choose between SASL and certificate connection details](/images/products/kafka/sasl-connect.png)
+![Choose between SASL and certificate connection details](/images/content/products/kafka/sasl-connect.png)
 
 :::note
 Although these connections use a different port, the host, CA, and user

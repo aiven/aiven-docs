@@ -3,7 +3,8 @@ title: Adjust disk storage
 ---
 
 import ActionsIcon from "@site/static/images/icons/more.svg";
-import ServiceIcon from "@site/static/images/icons/cog.svg";
+import ServiceIcon from "@site/static/images/icons/database.svg";
+import SettingsIcon from "@site/static/images/icons/cog.svg";
 
 Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service by updating service disk storage, by a factor of 10 Gi, without upgrading your plan.
 
@@ -60,7 +61,7 @@ with it. You can also see these storage usage costs in your invoices.
 
 :::
 
-## Update service storage via Aiven Console
+## Update service storage via the console
 
 You cannot add or remove storage when service nodes are in the
 rebuilding state, for example, during a maintenance update or a
@@ -82,7 +83,7 @@ You can update storage to your running service in
 [Aiven Console](https://console.aiven.io/) without interrupting the service:
 
 1. In your project, click <ServiceIcon className="icon"/> **Services** and open a service.
-1. On the sidebar, Click <ServiceIcon className="icon"/> **Service settings**.
+1. On the sidebar, Click <SettingsIcon className="icon"/> **Service settings**.
 1. In the **Service plan** section, click <ActionsIcon className="icon"/> **Actions** >
    **Change plan** > **Manage additional storage**.
 1.  In the **Upgrade service storage** dialog, click **Change plan**
@@ -102,7 +103,9 @@ You can update storage to your running service in
 1. Click **Save Changes**.
 
 If you added storage, the additional storage is available for immediate use.
-If you removed storage, the service becomes unavailable during its rebuild phase.
+If you removed additional storage, the service nodes go through a rolling restart.
+Depending on the service type and plan, there might be a short downtime for services with
+no HA capabilities.
 
 :::note
 Storage optimization is performed at the next maintenance update after a
@@ -116,7 +119,8 @@ maintenance update for performance optimization. Plan increases to avoid reachin
 
 You can use [Aiven CLI](/docs/tools/cli)
 to add or remove additional storage by
-[updating the service configuration](/docs/tools/cli/service-cli#avn-cli-service-update) using command `avn service update` with flag
+[updating the service configuration](/docs/tools/cli/service-cli#avn-cli-service-update)
+using command `avn service update` with flag
 `--disk-space-gib`. Specify the value for the flag as the total disk
 space that you need for your service. For example, if you use a
 `Startup-4` plan with a 80-GiB disk by default and you would like to add

@@ -2,72 +2,63 @@
 title: Create a JDBC sink connector from Apache Kafka® to another database
 ---
 
-The JDBC (Java Database Connectivity) sink connector enables you to move
-data from an Aiven for Apache Kafka® cluster to any relational database
-offering JDBC drivers like PostgreSQL® or MySQL.
+The JDBC (Java Database Connectivity) sink connector enables you to move data from an Aiven for Apache Kafka® cluster to any relational database offering JDBC drivers like PostgreSQL® or MySQL.
 
 :::warning
-Since the JDBC sink connector is pushing data to relational databases,
-it can work only with topics having a schema, either defined in every
-message or in the schema registry features offered by
-[Karapace](/docs/products/kafka/karapace).
+The JDBC sink connector requires topics to have a schema to transfer data to
+relational databases. You can define or manage this schema for each topic through
+the [Karapace](/docs/products/kafka/karapace) schema registry.
 :::
 
-:::note
-You can check the full set of available parameters and configuration
-options in the [connector's
-documentation](https://github.com/aiven/aiven-kafka-connect-jdbc/blob/master/docs/sink-connector.md).
-:::
+For a complete list of parameters and configuration options, see the
+[connector's documentation](https://github.com/aiven/aiven-kafka-connect-jdbc/blob/master/docs/sink-connector.md).
+
 
 ## Prerequisites {#connect_jdbc_sink_prereq}
 
-To setup a JDBC sink connector, you need an Aiven for Apache Kafka
-service [with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- Aiven for Apache Kafka service [with Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
-target database service upfront:
+- Gather the following information about your target database service:
 
--   `DB_CONNECTION_URL`: The database JDBC connection URL, the following
-    are few examples based on different technologies:
-    -   PostgreSQL:
-        `jdbc:postgresql://HOST:PORT/DB_NAME?sslmode=SSL_MODE`
-    -   MySQL: `jdbc:mysql://HOST:PORT/DB_NAME?ssl-mode=SSL_MODE`
--   `DB_USERNAME`: The database username to connect
--   `DB_PASSWORD`: The password for the username selected
--   `TOPIC_LIST`: The list of topics to sink divided by comma
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+  - `DB_CONNECTION_URL`: The database JDBC connection URL. Examples for PostgreSQL
+    and MySQL:
+    - PostgreSQL: `jdbc:postgresql://HOST:PORT/DB_NAME?sslmode=SSL_MODE`.
+    - MySQL: `jdbc:mysql://HOST:PORT/DB_NAME?ssl-mode=SSL_MODE`.
+  - `DB_USERNAME`: The database username to connect.
+  - `DB_PASSWORD`: The password for the username selected.
+  - `TOPIC_LIST`: The list of topics to sink divided by comma.
+  - `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service.
+    Required only when using Avro as the data format.
+  - `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port.
+    Required only when using Avro as data format.
+  - `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
+    username. Required only when using Avro as data format.
+  - `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
+    password. Required only when using Avro as data format.
+
+For Aiven for PostgreSQL® and Aiven for MySQL®, access the connection
+details (URL, username, and password) on the **Overview** page of your service in
+the [Aiven Console](https://console.aiven.io/), or retrieve them using
+the `avn service get` command in the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
+
+Locate the `SCHEMA_REGISTRY` parameters in the **Schema Registry** tab under
+**Connection information** on the service **Overview** page.
 
 :::note
-If you're using Aiven for PostgreSQL® and Aiven for MySQL® the above
-details are available in the [Aiven console](https://console.aiven.io/)
-service *Overview tab* or via the dedicated `avn service get` command
-with the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
-
-The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
-Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
-
-As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
-Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://help.aiven.io/en/articles/5651983)
+As of Apache Kafka version 3.0, Aiven for Apache Kafka no longer supports
+Confluent Schema Registry. Consider using [Karapace](/docs/products/kafka/karapace) instead.
 :::
 
 ## Setup a JDBC sink connector with Aiven Console
 
-The following example demonstrates how to setup a JDBC sink connector
+The following example demonstrates setting up a JDBC sink connector
 for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we'll refer to it with
-the name `jdbc_sink.json`) with the following content:
+Define a Kafka Connect configuration file, such as `jdbc_sink.json`, with
+the following connector settings:
 
 ```json
 {
@@ -81,7 +72,6 @@ the name `jdbc_sink.json`) with the following content:
     "auto.create": "true",
     "auto.evolve": "true",
     "insert.mode": "upsert",
-    "delete.enabled": "true",
     "pk.mode": "record_key",
     "pk.fields": "field1,field2",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
@@ -97,140 +87,111 @@ the name `jdbc_sink.json`) with the following content:
 
 The configuration file contains the following entries:
 
--   `name`: the connector name
+- `name`: The connector name.
+- `connector.class`: Specifies the class Kafka Connect will use to create the
+  connector. For JDBC sink connectors, use `io.aiven.connect.jdbc.JdbcSinkConnector`.
 
--   `connection.url`, `connection.username`, `connection.password`: sink
-    JDBC parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq) phase.
+- `connection.url`, `connection.username`, `connection.password`: JDBC parameters for
+  the sink, collected in the
+  [prerequisite](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq)
+  phase.
 
--   `tasks.max`: maximum number of tasks to execute in parallel. The
-    maximum is 1 per topic and partition.
+- `topics`: List the Kafka topics you wish to sink into the database.
 
--   `auto.create`: boolean flag enabling the target table creation if it
-    doesn't exists.
+- `tasks.max`: The maximum number of tasks to execute in parallel. The
+  maximum is 1 per topic and partition.
 
--   `auto.evolve`: boolean flag enabling the target table modification
-    in cases of schema modification of the messages in the topic.
+- `auto.create`: Enables automatic creation of the target table in the database
+  if it doesn't exist.
 
--   `insert.mode`: defines the insert mode, it can be:
+- `auto.evolve`: Enables automatic modification of the target table schema to
+  match changes in the Kafka topic messages.
 
-    -   `insert`: uses standard `INSERT` statements.
-    -   `upsert`: uses the upsert semantics supported by the target
-        database, more information in the [dedicated GitHub
-        repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
-    -   `update`: uses the update semantics supported by the target
-        database. for example, `UPDATE`, more information in the [dedicated
-        GitHub
-        repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
+- `insert.mode`: Defines how data is inserted into the database:
 
--   `delete.enabled`: boolean flag enabling the deletion of rows in the
-    target table on tombstone messages.
+  - `insert`: Standard `INSERT` statements.
+  - `upsert`: Upsert semantics supported by the target database.
+    See the [dedicated GitHub repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
+  - `update`: Update semantics supported by the target database.
+    See [dedicated GitHub repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
 
-    :::note
-    A tombstone message has:
+- `pk.mode`: Defines how the connector identifies rows in the target table (primary key):
 
-    -   a not null **key**
-    -   a null **value**
+  -   `none`: No primary key is used.
+  -   `kafka`: Apache Kafka coordinates are used.
+  -   `record_key`: Entire or part of the message key is
+      used.
+  -   `record_value`: Entire or part of the message value is
+      used.
 
-    In case of tombstone messages and `delete.enabled` set to `true`,
-    the JDBC sink connector will delete the row referenced by the
-    message key. If set to `true`, it requires the `pk.mode` to be
-    `record_key` to be able to identify the rows to delete.
-    :::
+  For more information, see the [dedicated GitHub repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
 
--   `pk.mode`: defines the fields to use as primary key. Allowed options are:
+- `pk.fields`: Defines which fields of the composite key or value to
+  use as record key in the database.
 
-    -   `none`: no primary key is used.
-    -   `kafka`: the Apache Kafka coordinates are used.
-    -   `record_key`: the entire (or part of the) message key is
-        used.
-    -   `record_value`: the entire (or part of the) message value is
-        used.
-
-    More information are available in the [dedicated GitHub
-    repository](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md).
-
--   `pk.fields`: defines which fields of the composite key or value to
-    use as record key in the database.
-
--   `key.converter` and `value.converter`: defines the messages data
-    format in the Apache Kafka topic. The
-    `io.confluent.connect.avro.AvroConverter` converter translates
-    messages from the Avro format. To retrieve the messages schema we
-    use Aiven's [Karapace schema
-    registry](https://github.com/aiven/karapace) as specified by the
-    `schema.registry.url` parameter and related credentials.
+- `key.converter` and `value.converter`: Defines the data format of messages within
+  the Apache Kafka topic. The `io.confluent.connect.avro.AvroConverter` translates
+  messages from the Avro format. The message schemas are retrieved from
+  Aiven’s [Karapace schema registry](https://github.com/aiven/karapace),
+  as specified by the `schema.registry.url` parameter and related credentials.
 
 :::note
-The `key.converter` and `value.converter` sections define how the topic
-messages will be parsed and needs to be included in the connector
-configuration.
 
-When using Avro as source data format, you need to set following
-parameters
+The `key.converter` and `value.converter` settings in the connector configuration
+define how the connector parses messages.
 
--   `value.converter.schema.registry.url`: pointing to the Aiven for
-    Apache Kafka schema registry URL in the form of
-    `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` with the
-    `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
--   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you're going to login to the schema registry
-    using username and password.
--   `value.converter.schema.registry.basic.auth.user.info`: passing the
-    required schema registry credentials in the form of
-    `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` with the
-    `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
+When using Avro as source data format, set the following parameters:
+
+- `value.converter.schema.registry.url`: Points to the Aiven for
+  Apache Kafka schema registry URL. Use the format
+  `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` where
+  `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` are the values
+  [retrieved earlier in the prerequisites](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
+- `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to enable username
+  and password access to the schema registry.
+- `value.converter.schema.registry.basic.auth.user.info`: Enter the required schema registry
+  credentials in the `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` format, using
+  the `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
+  [retrieved earlier in the prerequisites](/docs/products/kafka/kafka-connect/howto/jdbc-sink#connect_jdbc_sink_prereq).
+
 :::
 
 ### Create a Kafka Connect connector with the Aiven Console
 
 To create a Kafka Connect connector, follow these steps:
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
-2.  Select **Connectors** from the left sidebar.
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
-4.  Select **JDBC sink**.
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
-6.  Paste the connector configuration (stored in the `jdbc_sink.json`
-    file) in the form.
-7.  Select **Apply**.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and select
+   the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
+   service where the connector needs to be defined.
+1. Click **Connectors** from the sidebar.
+1. Click **Create connector** to start setting up a new connector. This option is visible
+   only if [Kafka Connect](enable-connect) is enabled for your service.
+1. On the **Select connector** page, locate **JDBC Sink** and click **Get started**.
+1. In the **Common** tab, find the **Connector configuration** text box.
+1. Click **Edit** to modify the connector configuration.
+1. Paste the configuration details from your `jdbc_sink.json` file into the text box.
+1. Click **Apply**.
 
-:::note
-The Aiven Console parses the configuration file and fills the relevant
-UI fields. You can review the UI fields across the various tab and
-change them if necessary. The changes will be reflected in JSON format
-in the **Connector configuration** text box.
-:::
+   :::note
+   The Aiven Console automatically populates the UI fields with the data from the
+   configuration file. You can review and edit these fields across the
+   different tabs. Any modifications you make are updated in the
+   **Connector configuration** text box in JSON format.
+   :::
 
-8.  After all the settings are correctly configured, select **Create
-    connector**.
-9.  Verify the connector status under the **Connectors** screen.
-10. Verify the presence of the data in the target Database service, the
-    table name is equal to the Apache Kafka topic name
+1. Once you've entered all the required settings, click **Create connector**.
+1. Verify the connector status in the **Connectors** page.
+1. Confirm that the data has appeared in the target database service.
+   The table name should match the Apache Kafka topic name.
 
-:::note
 You can also create connectors using the
 [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-:::
 
-:::tip
-Check the [dedicated blog
-post](https://aiven.io/blog/db-technology-migration-with-apache-kafka-and-kafka-connect)
-for an end-to-end example of the JDBC sink connector in action with
-MySQL.
-:::
 
 ## Example: Create a JDBC sink connector to PostgreSQL® on a topic with a JSON schema
 
-If you have a topic named `iot_measurements` containing the following
-data in JSON format, with a defined JSON schema:
+Suppose you have a topic named `iot_measurements` that contains data in
+JSON format with a defined JSON schema as follows:
 
 ```json
 {
@@ -274,17 +235,14 @@ data in JSON format, with a defined JSON schema:
 ```
 
 :::note
-Since the JSON schema needs to be defined in every message, there is a
-big overhead to transmit the information. To achieve a better
-performance in term of information-message ratio you should use the Avro
-format together with the [Karapace schema
-registry](https://karapace.io/) provided by Aiven
+Embedding a JSON schema in every message can increase the data size.
+For a more efficient size-to-content ratio, consider using the Avro format
+with the [Karapace schema registry](https://karapace.io/).
 :::
 
-You can sink the `iot_measurements` topic to PostgreSQL with the
-following connector configuration, after replacing the placeholders for
-`DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_SSL_MODE`, `DB_USERNAME` and
-`DB_PASSWORD`:
+To sink the `iot_measurements` topic to PostgreSQL, use the following connector
+configuration. Replace the placeholders for `DB_HOST`, `DB_PORT`, `DB_NAME`,
+`DB_SSL_MODE`, `DB_USERNAME`, and `DB_PASSWORD`:
 
 ```json
 {
@@ -298,50 +256,47 @@ following connector configuration, after replacing the placeholders for
     "auto.create": "true",
     "auto.evolve": "true",
     "insert.mode": "upsert",
-    "delete.enabled": "false",
     "pk.mode": "record_value",
     "pk.fields": "iot_id",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter"
 }
 ```
 
-The configuration file contains the following peculiarities:
+Key aspects of the configuration:
 
--   `"topics": "iot_measurements"`: setting the topic to sink
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
-    the message value is in plain JSON format without a schema, there is
-    not converter defined for the key since it's empty
--   `"pk.mode": "record_value"`: the connector is using the message
-    value to set the target database key
--   `"pk.fields": "iot_id"`: the connector is using the field `iot_id`
-    on the message value to set the target database key
--   `"delete.enabled": "false"`: the connector is not enabling deletes
-    on tombstones since they would require to have the valid record key
-    and the `pk.mode` set to `record_key`
+- `"topics": "iot_measurements"`: Identifies `iot_measurements` topic as the data source
+  for the sink operation.
+- `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`: Indicates
+  that the message value is in plain JSON format without a schema. Since the key is
+  empty, no converter is defined for it.
+- `"pk.mode": "record_value"`: Indicates the connector is using the message
+  value to set the target database key.
+- `"pk.fields": "iot_id"`: Indicates the connector is using the field `iot_id`
+  on the message value to set the target database key.
+
 
 ## Example: Create a JDBC sink connector to MySQL on a topic using Avro and schema registry
 
-If you have a topic named `students` containing data in Avro format with
-the schema stored in the schema registry provided by
-[Karapace](https://help.aiven.io/en/articles/5651983) with the following
-structure:
+Suppose you have a topic named `students` that contains data in Avro format. The schema
+is stored in the schema registry provided by [Karapace](/docs/products/kafka/karapace)
+and has the following structure:
 
 ```text
 key: {"student_id": 1234}
 value: {"student_name": "Mary", "exam": "Math", "exam_result":"A"}
 ```
 
-You can sink the `students` topic to MySQL with the following connector
-configuration, after replacing the placeholders for `DB_HOST`,
-`DB_PORT`, `DB_NAME`, `DB_SSL_MODE`, `DB_USERNAME`, `DB_PASSWORD`,
-`APACHE_KAFKA_HOST`, `SCHEMA_REGISTRY_PORT`, `SCHEMA_REGISTRY_USER` and
-`SCHEMA_REGISTRY_PASSWORD`:
+To sink the `students` topic to MySQL, use the following connector configuration.
+Make sure to replace the placeholders for `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_SSL_MODE`,
+DB_USERNAME, DB_PASSWORD, APACHE_KAFKA_HOST, SCHEMA_REGISTRY_PORT,
+`SCHEMA_REGISTRY_USER`, and `SCHEMA_REGISTRY_PASSWORD`:
+
 
 ```json
 {
     "name": "sink_students_avro_schema",
     "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",
-    "topics": "my_pgnordics2022_pgsource.public.pasta",
+    "topics": "students",
     "connection.url": "jdbc:mysql://DB_HOST:DB_PORT/DB_NAME?ssl-mode=DB_SSL_MODE",
     "connection.user": "DB_USERNAME",
     "connection.password": "DB_PASSWORD",
@@ -351,7 +306,6 @@ configuration, after replacing the placeholders for `DB_HOST`,
     "pk.fields": "student_id",
     "auto.create": "true",
     "auto.evolve": "true",
-    "delete.enabled": "true",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
     "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
     "key.converter.basic.auth.credentials.source": "USER_INFO",
@@ -363,22 +317,22 @@ configuration, after replacing the placeholders for `DB_HOST`,
 }
 ```
 
-The configuration file contains the following peculiarities:
+Key aspects of the configuration:
 
--   `"topics": "students"`: setting the topic to sink
--   `"pk.mode": "record_key"`: the connector is using the message key to
-    set the target database key
--   `"pk.fields": "student_id"`: the connector is using the field
-    `student_id` on the message key to set the target database key
--   `"delete.enabled": "true"`: the connector is enabling deletes on
-    tombstones
--   `key.converter` and `value.converter`: defining the Avro data format
-    with `io.confluent.connect.avro.AvroConverter`, the URL, and
-    credentials to connect to the
-    [Karapace](https://help.aiven.io/en/articles/5651983) schema
-    registry
+-   `"topics": "students"`: Identifies `students` topic as the data source for
+    the sink operation.
+-   `"pk.mode": "record_key"`: Uses the message key as the database key.
+-   `"pk.fields": "student_id"`: Sets the database key using the `student_id` field
+    from the message key.
+-   `key.converter` and `value.converter`: Defines the Avro data format with
+    `io.confluent.connect.avro.AvroConverter` and provides the URL and credentials
+    for the [Karapace](/docs/products/kafka/karapace) schema registry.
 
-The connector will automatically create `"auto.create": "true"` a table
-in the target MySQL database called `students` with `student_id`,
-`student_name`, `exam` and `exam_result` as columns and populate it with
-the data coming from the `students` Apache Kafka topic.
+With `"auto.create": "true"`, the connector automatically creates a `students` table
+in the MySQL database. This table is populated with data from the `students`
+Apache Kafka topic and includes the `student_id`, `student_name`, `exam`, and
+`exam_result` columns.
+
+## Related pages
+
+- View the [Database migration with Apache Kafka® and Apache Kafka® Connect](https://aiven.io/blog/db-technology-migration-with-apache-kafka-and-kafka-connect) blog post

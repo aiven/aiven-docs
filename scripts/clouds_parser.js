@@ -29,6 +29,7 @@ const CLOUD_ENTRIES_TEMPLATE = `
 {{/each}}
 </tbody>
 </table>
+
 {{/each}}
 `;
 

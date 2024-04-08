@@ -30,7 +30,7 @@ perform PITR for Aiven for Grafana:
     -   Choose your cloud provider, preferred cloud region, and the
         service plan accordingly.
 
-    ![popup for setting specifics of the service restore.](/images/products/grafana/grafana-pitr-new-db-fork-popup.png)
+    ![popup for setting specifics of the service restore.](/images/content/products/grafana/grafana-pitr-new-db-fork-popup.png)
 
 4.  Click **Create fork** to create the new forked service.
 
@@ -39,4 +39,4 @@ perform PITR for Aiven for Grafana:
     being created. Once the service is ready, the status changes to
     **Running**.
 
-    ![restore is rebuilding after clicking \'create fork\'](/images/products/grafana/grafana-pitr-after-fork.png)
+    ![restore is rebuilding after clicking \'create fork\'](/images/content/products/grafana/grafana-pitr-after-fork.png)

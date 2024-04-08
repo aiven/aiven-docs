@@ -6,7 +6,7 @@ This section provides the resources needed to manage your Aiven for
 Apache Flink® cluster effectively. You will learn to monitor, configure,
 scale, and your cluster to ensure optimal performance and efficiency.
 
-[Monitor a managed service](/docs/platform/howto/monitoring-services)
+[Monitor a managed service](/docs/platform/howto/list-monitoring)
 
 [Tag a managed service](/docs/platform/howto/tag-resources)
 

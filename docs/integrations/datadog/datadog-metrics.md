@@ -27,7 +27,7 @@ integration endpoint.
     entering the API key you copied earlier. Ensure that the correct
     region is selected.
 
-    ![Screenshot of the Datadog configuration screen](/images/integrations/configure-datadog-service-integration.png)
+    ![Screenshot of the Datadog configuration screen](/images/content/integrations/configure-datadog-service-integration.png)
 
 1.  Optionally, include additional tags that will be used when sending
     metrics to Datadog. Refer to

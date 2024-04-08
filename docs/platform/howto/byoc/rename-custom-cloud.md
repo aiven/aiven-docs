@@ -41,7 +41,7 @@ specified.
 
 The name of your custom cloud has been updated.
 
-## Check it out
+## Verify the update
 
 Preview the updated name of your cloud:
 

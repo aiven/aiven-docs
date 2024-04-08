@@ -68,7 +68,7 @@ service Overview page.
 
 Once Kafdrop starts, you should be able to access it at `localhost:9000`
 
-![Kafdrop in action](/images/products/kafka/kafdrop.gif)
+![Kafdrop in action](/images/content/products/kafka/kafdrop.gif)
 
 You can perform the following tasks with Kafdrop over an Aiven for
 Apache Kafka® service:

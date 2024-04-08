@@ -12,7 +12,7 @@ Aiven makes its services available through the Microsoft Azure Marketplace, you 
 
 1. Click **Subscribe**.
 
-   ![Azure Marketplace listing tile for Aiven Managed Database Services](/images/platform/howto/azure-marketplace-listing.png)
+   ![Azure Marketplace listing tile for Aiven Managed Database Services](/images/content/platform/howto/azure-marketplace-listing.png)
 
 1. Select your desired Azure subscription resource group to organize
    your resources, give the subscription a name, and make sure that

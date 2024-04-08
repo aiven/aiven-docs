@@ -13,22 +13,22 @@ using the [Aiven client](/docs/tools/cli).
 -   An Aiven account with a service running.
 -   An AWS account, and which region it is in.
 -   An AWS Access Key and Secret Key. Generate the credentials by
-    visiting **IAM dashboard** then click in **Users**, open the
+    visiting **IAM dashboard** then click **Users**, open the
     **Security credentials** tab, and choose **Create access key**.
-    Click on **Download** and keep the file.
+    Click **Download** and keep the file.
 
 :::important
 Your AWS credentials should have appropriate access rights. According to
 the official AWS documentation, the access rights required for the
 credentials are:
 
--   \"logs:DescribeLogStreams\" which lists the log streams for the
+-   `inlogs:DescribeLogStreams` which lists the log streams for the
     specified log group endpoint.
--   \"logs:CreateLogGroup\" which creates a log group with the specified
+-   `logs:CreateLogGroup` which creates a log group with the specified
     name endpoint.
--   \"logs:CreateLogStream\" which creates a log stream for the
+-   `logs:CreateLogStream` which creates a log stream for the
     specified log group.
--   \"logs:PutLogEvents\" which uploads a batch of log events to the
+-   `logs:PutLogEvents` which uploads a batch of log events to the
     specified log stream.
 :::
 
@@ -39,7 +39,7 @@ API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Op
 
 1.  Open the Aiven client, and log in:
 
-    ```
+    ```bash
     avn user login <you@example.com> --token
     ```
 
@@ -57,7 +57,6 @@ API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Op
     | `AWS_ACCESS_KEY_ID`     | Your AWS access key ID.                                                                                                              |
     | `AWS_SECRET_ACCESS_KEY` | Your AWS secret access key.                                                                                                          |
     | `ENDPOINT_NAME`         | Reference name for this log integration when linking it to other Aiven services.                                                     |
-
 
 1.  Create the endpoint between your Aiven account and AWS CloudWatch.
 
@@ -77,12 +76,11 @@ API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Op
     avn service integration-endpoint-list --project PROJECT
     ```
 
-
-```bash title="Output example"
-ENDPOINT_ID                           ENDPOINT_NAME        ENDPOINT_TYPE
-====================================  ===================  ===============================
-50020216-61dc-60ca-b72b-000d3cd726cb  ENDPOINT_NAME        external_aws_cloudwatch_logs
-```
+    ```bash title=`Output example`
+    ENDPOINT_ID                           ENDPOINT_NAME        ENDPOINT_TYPE
+    ====================================  ===================  ===============================
+    50020216-61dc-60ca-b72b-000d3cd726cb  ENDPOINT_NAME        external_aws_cloudwatch_logs
+    ```
 
 The output will provide you with the `ENDPOINT_ID` to identify your
 endpoint, your customized endpoint name and the endpoint type.
@@ -92,12 +90,11 @@ endpoint, your customized endpoint name and the endpoint type.
 1.  Collect the following information for sending the service logs of an
     Aiven service to your CloudWatch:
 
-    | Variable             | Description                                                                      |
-    | -------------------- | -------------------------------------------------------------------------------- |
+    |       Variable       |                                   Description                                    |
+    |----------------------|----------------------------------------------------------------------------------|
     | `PROJECT`            | The Aiven project where your endpoint is saved.                                  |
     | `ENDPOINT_ID`        | Reference name for this log integration when linking it to other Aiven services. |
-    | `AIVEN_SERVICE_NAME` | The Aiven service name that you want to send the logs from.                      |
-
+    | `AIVEN_SERVICE_NAME` | The Aiven service name that you want send the logs from.                         |
 
 1.  Send logs from the Aiven service to AWS CloudWatch by running:
 

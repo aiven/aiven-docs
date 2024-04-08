@@ -1,10 +1,10 @@
 ---
-title: Set up Azure virtual network peering
+title: Set up VPC peering on Azure
 ---
 
 Create an isolated Microsoft Azure virtual network in your Aiven deployment where you can create services instead of using Aiven Cloud's public network.
 
-See the [Using VPC peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
+See the [Using VPC peering](/docs/platform/howto/manage-vpc-peering)
 for how to set up a Project VPC.
 
 :::note
@@ -326,3 +326,7 @@ has taken up to 15 minutes for the state to update:
 ```
 avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cloud-account $user_subscription_id --peer-resource-group $user_resource_group --peer-vpc $user_vnet_name
 ```
+
+## Related pages
+
+- [Manage VPC peering](/docs/platform/howto/manage-vpc-peering)

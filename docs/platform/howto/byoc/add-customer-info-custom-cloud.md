@@ -52,7 +52,7 @@ a mandatory role that is always required as a primary support contact.
 
 The list of contacts for your cloud has been updated.
 
-## Check it out
+## Verify the update
 
 Preview the updated list of contacts:
 

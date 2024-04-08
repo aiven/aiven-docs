@@ -104,7 +104,7 @@ With BYOC, you can use any standard Aiven method (for example,
 manage your services and generally have the same user experience as with
 the regular Aiven deployment model.
 
-![Overview architecture diagram with VPC set up](/images/platform/byoc-one-vpc-arch.png)
+![Overview architecture diagram with VPC set up](/images/content/platform/byoc-one-vpc-arch.png)
 
 The standard BYOC deployment requires you to create a Virtual Private Cloud
 (**BYOC VPC**) dedicated to Aiven-managed services within a cloud region you

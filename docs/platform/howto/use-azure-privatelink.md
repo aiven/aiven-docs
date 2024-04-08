@@ -39,7 +39,7 @@ Azure Private Link is supported for the following services:
   :::
 
 - The Aiven service is using
-  [static IP addresses](/docs/platform/howto/static-ip-addresses).
+  [static IP addresses](/docs/platform/concepts/static-ips).
 
   :::note
   Even though services in a VPC only communicate using private IP

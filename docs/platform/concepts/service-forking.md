@@ -1,9 +1,11 @@
 ---
-title: Fork a service
+title: Service forking
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
+import Services from "@site/static/images/icons/database.svg";
 import ActionsIcon from "@site/static/images/icons/more.svg";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 [Fork your Aiven service](/docs/platform/concepts/service-forking) to make a copy of the service, for example to create a snapshot to analyze an issue.
 
@@ -50,13 +52,15 @@ You can fork the following Aiven services:
 -   M3DB
 -   Grafana®
 
+## Fork a service
+
 When forking a service with Point in Time Recovery (PITR), you can
 choose to fork from the latest transaction or select a specific point in
 the past to fork from.
 Fork your Aiven service to make a copy of the service.
 
-## Fork a service using the Console
-
+<Tabs groupId="group1">
+<TabItem value="Console" label="Console" default>
 1. Log in to [Aiven Console](https://console.aiven.io/).
 1. In your project, click <Services className="icon"/> **Services** and click the service to fork.
 1. On the **Overview** page of your service, click **New database fork**.
@@ -65,7 +69,8 @@ Fork your Aiven service to make a copy of the service.
 
 Apply any integrations required by the fork.
 
-## Fork a service using the Aiven client
+</TabItem>
+<TabItem value="API" label="API">
 
 1.  Prepare the command to create a new service, this will contain the
     new copy of your data store.
@@ -85,6 +90,9 @@ avn service create forked --project PROJECT_NAME --cloud CLOUD_NAME -t pg --plan
 ```
 
 Apply any integrations required by the fork.
+
+</TabItem>
+</Tabs>
 
 ## Rename a service
 

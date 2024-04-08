@@ -2,6 +2,13 @@
 title: TLS/SSL certificates
 ---
 
+<!-- vale off -->
+
+import DLicon from "@site/static/images/icons/download.svg";
+import Overviewicon from "@site/static/images/icons/speedometer.svg";
+
+<!-- vale on -->
+
 All traffic to Aiven services is always protected by TLS. It ensures that third parties can't eavesdrop or modify the data while in transit between Aiven services and the clients accessing them.
 
 Every Aiven project has its own private Certificate Authority (CA) which
@@ -40,7 +47,7 @@ are exceptions:
   certificate, and also the client key and certificate.
 
 For these services you can
-[Download CA certificates](/docs/platform/howto/download-ca-cert)
+[Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates)
 from **Overview** page of your service.
 
 :::note
@@ -48,3 +55,17 @@ Older/existing services may be using the Aiven project's CA, you can
 request switching to a browser-recognized certificate by opening support
 ticket and letting us know.
 :::
+
+## Download CA certificates
+
+If your service needs a CA certificate, download one:
+
+1. Open your service's <Overviewicon className="icon"/> **Overview** page.
+1. In the **Connection information** section, find **CA Certificate** and
+   click <DLicon className="icon"/> **Download**.
+
+You can also use the `avn service user-creds-download` [CLI](/docs/tools/cli/service/user#avn_service_user_creds_download):
+
+```bash
+avn service user-creds-download --username <username> <service-name>
+```

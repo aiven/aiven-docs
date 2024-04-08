@@ -74,7 +74,7 @@ have the older syntax, follow these steps to get the updated syntax:
 
 5.  Run `terraform init -upgrade`
 
-    ![Screenshot of the upgrade command in action](/images/tools/terraform/terraform-upgrade.jpg)
+    ![Screenshot of the upgrade command in action](/images/content/tools/terraform/terraform-upgrade.jpg)
 
     You may see warnings or errors like the above, these will point
     towards changes made between the release you are running and the

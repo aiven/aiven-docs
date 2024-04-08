@@ -26,7 +26,7 @@ connect, this is outlined in the steps below.
     -   The three files downloaded: access key, access certificate and
         CA certificate
 
-    ![Screenshot of the cluster configuration screen](/images/products/kafka/conduktor-config.png)
+    ![Screenshot of the cluster configuration screen](/images/content/products/kafka/conduktor-config.png)
 
     Conduktor will create the keystore and truststore files in the
     folder that you specified, or you can choose an alternative

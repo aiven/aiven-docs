@@ -85,7 +85,7 @@ custom cloud, you can:
   configuration allows it. For more information, contact the
   [sales team](mailto:sales@aiven.io).
 
-## Check it out
+## Verify the update
 
 To verify if the cloud availability changes you made are live:
 

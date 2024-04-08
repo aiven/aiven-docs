@@ -91,4 +91,4 @@ available in Aiven for PostgreSQL, so it is to be expected that some
 dashboards are either empty or display error symbols.
 :::
 
-![Screenshot of a pgwatch2 Dashboard](/images/products/postgresql/pgwatch2.png)
+![Screenshot of a pgwatch2 Dashboard](/images/content/products/postgresql/pgwatch2.png)

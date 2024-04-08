@@ -2,7 +2,7 @@
 title: Create a service
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
+import Services from "@site/static/images/icons/database.svg";
 import ActionsIcon from "@site/static/images/icons/more.svg";
 
 Create the service of your choice at any point.

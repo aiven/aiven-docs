@@ -2,6 +2,10 @@
 title: Apache Kafka® upgrade procedure
 ---
 
+import MyImg from "@site/static/images/figma/kafka-cluster-overview.png";
+import MyImg2 from "@site/static/images/figma/kafka-cluster-overview-upgraded.png";
+import MyImg3 from "@site/static/images/figma/kafka-cluster-overview-final.png";
+
 One of the benefits of using a managed service like Aiven for Apache
 Kafka® is the automated upgrade procedure.
 
@@ -21,76 +25,28 @@ To demonstrate what steps are taken during the automated upgrade
 procedure, we'll look at the example for a 3-node Apache Kafka service
 visualised below:
 
-```mermaid
-flowchart TD;
-  subgraph KafkaCluster
-      subgraph Node1
-          PartitionA1([Partition A])
-          PartitionB1([Partition B])
-      end
-      subgraph Node2
-          PartitionA2([Partition A])
-          PartitionC1([Partition C])
-      end
-      subgraph Node3
-          PartitionB2([Partition B])
-          PartitionC2([Partition C])
-      end
-  end
-```
+<img src={MyImg} class="centered" alt="" width="65%" />
 
 The following set of steps are executed during an upgrade procedure:
 
 1.  New Apache Kafka® nodes are started alongside the existing nodes
 
-2.  Once the new nodes are running, they join the Apache Kafka cluster
+1.  Once the new nodes are running, they join the Apache Kafka cluster
 
     :::note
     The Apache Kafka cluster now contains a mix of old and new nodes
     :::
 
-3.  The partition data and leadership is transferred to new nodes
+1.  The partition data and leadership is transferred to new nodes
 
-    ```mermaid
-
-          flowchart TD;
-
-            subgraph KafkaCluster
-                subgraph Node1
-                    PartitionA1([Partition A])
-                    PartitionB1([Partition B])
-                end
-                subgraph Node2
-                    PartitionA2([Partition A])
-                    PartitionC1([Partition C])
-                end
-                subgraph Node3
-                    PartitionB2([Partition B])
-                    PartitionC2([Partition C])
-                end
-                subgraph NewNode1
-                    PartitionNewA1([Partition A])
-                    PartitionNewC1([Partition C])
-                end
-                subgraph NewNode2
-                    PartitionNewB1([Partition B])
-                    PartitionNewC2([Partition C])
-                end
-                subgraph NewNode3
-                    PartitionNewA2([Partition A])
-                    PartitionNewB2([Partition B])
-                end
-            end
-
-
-    ```
+    <img src={MyImg2} class="centered" alt="" width="65%" />
 
     :::warning
     This step is CPU intensive due to the additional data movement
     overhead.
     :::
 
-4.  Once old nodes don't have any partition data, they are retired from
+1.  Once old nodes don't have any partition data, they are retired from
     the cluster.
 
     :::note
@@ -98,27 +54,10 @@ The following set of steps are executed during an upgrade procedure:
     up to 6 nodes at a time are replaced)
     :::
 
-5.  The process is completed once the last old node has been removed
+1.  The process is completed once the last old node has been removed
     from the cluster:
 
-    ```mermaid
-    flowchart TD;
-
-      subgraph KafkaCluster
-          subgraph NewNode1
-                PartitionNewA1([Partition A])
-                PartitionNewC1([Partition C])
-          end
-          subgraph NewNode2
-              PartitionNewB1([Partition B])
-              PartitionNewC2([Partition C])
-          end
-          subgraph NewNode3
-              PartitionNewA2([Partition A])
-              PartitionNewB2([Partition B])
-          end
-      end
-     ```
+    <img src={MyImg3} class="centered" alt="" width="65%" />
 
 ## Zero upgrade downtime
 
