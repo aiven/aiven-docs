@@ -1,9 +1,15 @@
 ---
 title: Transfer data between storage devices in Aiven for ClickHouse®'s tiered storage
 limited: true
+sidebar_label: Move data between storage devices
 ---
 
-After [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, you can move your data from SSD to object storage. Next, you may want to size down your SSD by selecting a service plan with less SSD capacity. Later, you can move your data from object storage back to your SSD if needed. Both operations can be performed using SQL statements against your tables directly.
+After [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, you can move your data from SSD to object storage.
+
+Next, you may want to size down your SSD by selecting
+a service plan with less SSD capacity. Later, you can move your data
+from object storage back to your SSD if needed. Both operations can be
+performed using SQL statements against your tables directly.
 
 ## Prerequisites
 
@@ -29,14 +35,15 @@ of its capacity. You can also
 
 1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
 
-2.  Run the following query:
+1.  Run the following query:
 
     ```bash
     ALTER TABLE database-name.tablename MODIFY SETTING storage_policy = 'tiered'
     ```
 
 Now, with the tiered storage feature
-[enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your data is moved from SSD to object storage when the SSD
+[enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your data is moved
+from SSD to object storage when the SSD
 reaches 80% of its capacity.
 
 ## Transfer data from object storage to SSD
@@ -47,13 +54,13 @@ to transfer data to your SSD.
 
 1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
 
-2.  Select a database for operations you intend to perform.
+1.  Select a database for operations you intend to perform.
 
     ```bash
     USE database-name
     ```
 
-3.  Run the following query:
+1.  Run the following query:
 
     ```bash
     ALTER TABLE table_name MOVE PARTITION partition_expr TO VOLUME 'default'
