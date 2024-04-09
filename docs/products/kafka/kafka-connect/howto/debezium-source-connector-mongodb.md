@@ -39,8 +39,8 @@ Before you begin, gather the necessary information about your source MongoDB dat
     password, only needed when using Avro as data format
 
 :::note
-When Aiven for Apache Kafka, you can gather the necessary Apache Kafka
-details from the service's Overview page on  [Aiven
+With Aiven for Apache Kafka, you can gather the necessary Apache Kafka
+details from the service's Overview page on the [Aiven
 console](https://console.aiven.io/)  or by using the `avn service get` command with
 the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::
