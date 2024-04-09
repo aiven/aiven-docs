@@ -120,59 +120,59 @@ your actual environment values in the provided code snippets:
 
     avn service integration-endpoint-create \
 	   --project $PROJECT \
-	   -d external_postgresql \
+	   --endpoint-name external_postgresql \
 	   --user-config "$INTEGRATION_CONFIG"
 
    ```
 
 1. Retrieve endpoint ID of the integration endpoint you just created using this command:
 
-    ```bash
-    INTEGRATION_ENDPOINT_ID=$(
-	    avn service integration-endpoint-list --project $PROJECT \
-	    | grep external_postgresql \
-	    | awk '{print $1}'
-	   )
-    ```
+   ```bash
+   INTEGRATION_ENDPOINT_ID=$(
+	   avn service integration-endpoint-list --project $PROJECT \
+	   | grep external_postgresql \
+	   | awk '{print $1}'
+	  )
+   ```
 
 1. Connect PostgreSQL endpoint to Apache Kafka Connect:
 
    ```bash
    avn service integration-create \
      --project $PROJECT \
-     -t kafka_connect_postgresql \
-     -S $INTEGRATION_ENDPOINT_ID \
-     -d <kafka_connect_name>
+     --integration-type kafka_connect_postgresql \
+     --source-endpoint-id $INTEGRATION_ENDPOINT_ID \
+     --dest-service <kafka_connect_name>
    ```
 
 1. Create the Debezium connector configuration to monitor your PostgreSQL database.
    Replace the placeholders with your PostgreSQL and Apache Kafka Connect information:
 
-    ```bash
-    CONNECTOR_CONFIG=$(cat <<-END
-    {
-      "name": "debezium-postgres-connector",
-      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-      // Omit "database.hostname", "database.port", and "database.user" if provided
-      by external integration
-      "database.password": "<postgresql_password>",
-      "database.dbname": "<database_name>",
-      "database.server.name": "<kafka_connect_server_name>",
-      "plugin.name": "pgoutput",
-      "publication.name": "debezium_publication",
-      "publication.autocreate.mode": "all_tables",
-      "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
-      "transforms": "unwrap",
-      "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
-    }
-    END
-    )
+   ```bash
+   CONNECTOR_CONFIG=$(cat <<-END
+   {
+     "name": "debezium-postgres-connector",
+     "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+     // Omit "database.hostname", "database.port", and "database.user" if provided
+     by external integration
+     "database.password": "<postgresql_password>",
+     "database.dbname": "<database_name>",
+     "database.server.name": "<kafka_connect_server_name>",
+     "plugin.name": "pgoutput",
+     "publication.name": "debezium_publication",
+     "publication.autocreate.mode": "all_tables",
+     "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
+     "transforms": "unwrap",
+     "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+   }
+   END
+   )
 
-    avn service connector create \
-      --project $PROJECT \
-      --service <kafka_connect_name> \
-      --config "$CONNECTOR_CONFIG"
-    ```
+   avn service connector create \
+     --project $PROJECT \
+     --service <kafka_connect_name> \
+     --config "$CONNECTOR_CONFIG"
+   ```
 
    After successfully deploying the setup:
 
