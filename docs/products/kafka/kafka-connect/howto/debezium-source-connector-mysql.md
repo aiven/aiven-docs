@@ -125,7 +125,7 @@ The configuration file contains the following entries:
     want to use for the connector.
 
 -   `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_DATABASE_NAME`, `SSL_MODE`,
-    `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_TABLES`:Source database
+    `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_TABLES`: Source database
     parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_source_prereq) phase.
 
