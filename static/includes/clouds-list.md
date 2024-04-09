@@ -530,6 +530,11 @@
     <td>Europe, France: Paris</td>
   </tr>
   <tr>
+    <td>europe</td>
+    <td>google-europe-west10</td>
+    <td>Europe, Germany: Berlin</td>
+  </tr>
+  <tr>
     <td>middle east</td>
     <td>google-me-central1</td>
     <td>Middle East, Qatar: Doha</td>
