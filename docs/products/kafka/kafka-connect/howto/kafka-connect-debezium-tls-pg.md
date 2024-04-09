@@ -28,10 +28,10 @@ Before you begin, ensure you have the following:
 
 ### For CloudSQL PostgreSQL databases
 
-If you're integrating with a Cloud SQL database, perform these additional steps:
+If you're integrating with a CloudSQL database, perform these additional steps:
 
 - **IP whitelisting**: Ensure you whitelist Aiven's IP addresses to allow connections
-  from Apache Kafka Connect to reach your Cloud SQL database.
+  from Apache Kafka Connect to reach your CloudSQL database.
 - **Configure WAL and logical decoding**:
   - To capture database change events, `set cloudsql.logical_decoding` to `on`.
   - To configure the Write-Ahead Log (WAL) for logical replication, set
