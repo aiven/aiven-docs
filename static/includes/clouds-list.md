@@ -147,6 +147,7 @@
   </tr>
 </tbody>
 </table>
+
 ## Azure
 
 <table>
@@ -350,6 +351,7 @@
   </tr>
 </tbody>
 </table>
+
 ## DigitalOcean
 
 <table>
@@ -408,6 +410,7 @@
   </tr>
 </tbody>
 </table>
+
 ## Google Cloud
 
 <table>
@@ -493,6 +496,11 @@
     <td>europe</td>
     <td>google-europe-west1</td>
     <td>Europe, Belgium: Belgium</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west10</td>
+    <td>Europe, Germany: Berlin</td>
   </tr>
   <tr>
     <td>europe</td>
@@ -611,6 +619,7 @@
   </tr>
 </tbody>
 </table>
+
 ## UpCloud
 
 <table>
@@ -689,62 +698,4 @@
   </tr>
 </tbody>
 </table>
-## Oracle Cloud Infrastructure
 
-:::important
-Oracle Cloud Infrastructure (OCI) is supported on the Aiven platform as a
-[limited availability feature](/docs/platform/concepts/beta_services). For more
-information or access, contact the [sales team](mailto:sales@aiven.io).
-:::
-
-<table>
-  <thead>
-  <tr>
-    <th>Region</th>
-    <th>Cloud</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-mumbai-1</td>
-    <td>India, India West: Mumbai</td>
-  </tr>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-sydney-1</td>
-    <td>Australia, Australia East: Sydney</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>eu-frankfurt-1</td>
-    <td>Germany, Germany Central: Frankfurt</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>uk-london-1</td>
-    <td>United Kingdom, UK South: London</td>
-  </tr>
-  <tr>
-    <td>Middle East</td>
-    <td>me-dubai-1</td>
-    <td>UAE, UAE East: Dubai</td>
-  </tr>
-  <tr>
-    <td>North America</td>
-    <td>us-ashburn-1</td>
-    <td>US East, Virginia: Ashburn</td>
-  </tr>
-  <tr>
-    <td>North America</td>
-    <td>us-phoenix-1</td>
-    <td>US West, Arizona: Phoenix</td>
-  </tr>
-  <tr>
-    <td>South America</td>
-    <td>sa-saopaulo-1</td>
-    <td>Brazil, Brazil East: São Paulo</td>
-  </tr>
-</tbody>
-</table>
