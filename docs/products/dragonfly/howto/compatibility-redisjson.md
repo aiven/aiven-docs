@@ -2,12 +2,11 @@
 title: RedisJSON v2 syntax compatibility
 ---
 
-Learn how to optimize your experience with RedisJSON in Aiven for Dragonfly with the v2
-JSONPath syntax using the $ root node.
+Learn how to optimize your experience with RedisJSON in Aiven for Dragonfly® with the v2 JSONPath syntax using the $ root node.
 
 ## JSONPath syntax versions
 
-Aiven for Dragonfly services uses the v2 JSONPath syntax, ensuring compatibility with
+Aiven for Dragonfly services use the v2 JSONPath syntax, ensuring compatibility with
 RedisJSON. This syntax designates the dollar sign (`$`) as the root node for JSON paths,
 moving away from the previously used dot (`.`) notation. This modification improves JSON
 command standardization for seamless integration between Aiven for Dragonfly and
@@ -24,7 +23,7 @@ see [Dragonfly documentation](https://www.dragonflydb.io/docs/category/json).
 - **Adjust JSONPath expressions:** Update your JSONPath expressions to use the `$` root
   node. Convert dot notation paths (`.path.to.element`) to the v2
   syntax (`$.path.to.element`).
-- **Testing:** Thoroughly test your application after making these adjustments to
+- **Testing:** Test your application after making these adjustments to
   confirm that interactions with RedisJSON operate as expected, particularly in
   areas that rely heavily on JSONPath expressions.
 
