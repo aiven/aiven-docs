@@ -13,7 +13,8 @@ moving away from the previously used dot (`.`) notation. This modification impro
 command standardization for seamless integration between Aiven for Dragonfly and
 RedisJSON.
 
-For a comprehensive list of these JSON commands, see [Dragonfly documentation](https://www.dragonflydb.io/docs/category/json).
+For a comprehensive list of these JSON commands,
+see [Dragonfly documentation](https://www.dragonflydb.io/docs/category/json).
 
 ## Ensure compatibility with RedisJSON v2
 
