@@ -8,7 +8,9 @@ Learn how to set up Apache Kafka Connect with PostgreSQL and Debezium using mutu
 ## Overview
 
 Integrating Apache Kafka Connect with PostgreSQL using Debezium and mutual TLS (mTLS)
-enhances data security by requiring the client and server to authenticate each other.
+enhances data security by enforcing mutual authentication between the client and server.
+The configuration process establishes a secure and efficient data synchronization channel
+between Apache Kafka Connect and a PostgreSQL database.
 
 ## Prerequisites
 
@@ -94,6 +96,12 @@ your actual environment values in the provided code snippets:
       --project <project_name>
     ```
 
+    :::note
+    Ensure [topic auto-creation](/docs/products/kafka/howto/create-topics-automatically)
+    is enabled to automatically generate required Apache Kafka topics. If disabled,
+    manually create topics before starting the connector.
+    :::
+
 1. Create an Apache Kafka Connect service and configure it to communicate with your
    Aiven for Apache Kafka service:
 
@@ -178,20 +186,16 @@ your actual environment values in the provided code snippets:
      --config "$CONNECTOR_CONFIG"
    ```
 
-   After successfully deploying the setup:
+## Verification
 
-   - Apache Kafka Connect establishes a secure SSL connection with the PostgreSQL
-     database.
-   - Apache Kafka topics are automatically created, provided that the auto-creation
-     feature is enabled.
+After successfully configuring the setup, verify the following:
 
-      :::note
-        You must create Apache Kafka topics manually if auto-creation option is
-        not enabled before starting the connector.
-      :::
+1. Apache Kafka Connect establishes a secure SSL connection with the PostgreSQL database.
+1. Apache Kafka topics exist as expected, whether created automatically or manually.
+1. Data is correctly streaming into topics using the naming pattern
+   `{connector_name}.{database_name}.{table_name}`.
 
-   - Apache Kafka Connect streams data into topics using the naming
-   pattern: `{connector_name}.{database_name}.{table_name}`.
+
 
 ## Limitations
 
