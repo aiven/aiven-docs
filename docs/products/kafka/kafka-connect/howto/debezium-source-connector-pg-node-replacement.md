@@ -4,7 +4,7 @@ title: Handle PostgreSQL® node replacements when using Debezium for change data
 
 When running a
 [Debezium source connector for PostgreSQL®](debezium-source-connector-pg) to capture changes from an Aiven for PostgreSQL® service,
-there are some activities on the database side that could impact the
+there are some activities on the database side that can impact the
 correct functionality of the connector.
 
 As example, when the source PostgreSQL service undergoes any operation
@@ -17,10 +17,8 @@ PostgreSQL replication slot used by Debezium can start lagging and
 therefore cause a growing amount of WAL logs.
 
 :::tip
-There is a GitHub repository where you can easily spin up a Debezium -
-PostgreSQL setup to test the node replacement scenario and also follow
-along this [Aiven Debezium help
-article](https://github.com/aiven/debezium-pg-kafka-connect-test).
+Use the GitHub repository to set up and test a Debezium - PostgreSQL node replacement
+scenario. For guidance, follow the [Aiven Debezium help article](https://github.com/aiven/debezium-pg-kafka-connect-test).
 :::
 
 ## Common Debezium errors related to PostgreSQL node replacement
@@ -39,7 +37,7 @@ org.PostgreSQL.util.PSQLException: ERROR: replication slot "SLOT_NAME" is active
 ```
 
 The above errors are unrecoverable, meaning that they require a restart
-of the connector task(s) in order to resume operations again.
+of the connector tasks to resume operations again.
 
 A restart can be performed manually either through the [Aiven
 Console](https://console.aiven.io/), in under the `Connectors` tab
@@ -66,9 +64,9 @@ docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.h
 there are two main reasons why growing replication lag can happen after
 the Debezium connector is restarted:
 
-1.  Too many updates are happening in the tracked database but only a
-    tiny number of updates are related to the table(s) and schema(s) for
-    which the connector is capturing changes.
+1.  Too many updates are happening in the tracked database, but only a few of these
+    updates pertain to the tables and schemas that the connector
+    is monitoring for changes.
 
     Such issue can be resolved by enabling periodic heartbeat events and
     setting the (`heartbeat.interval.ms`) connector configuration
@@ -87,10 +85,10 @@ the Debezium connector is restarted:
 During the Aiven testing, the above situations have been observed to
 happen in 2 scenarios:
 
-1.  The table(s) which the Debezium connector is tracking has not had
+1.  The tables which the Debezium connector is tracking has not had
     any changes, and heartbeats are not enabled in the connector.
 
-2.  The table(s) which the Debezium connector is tracking has not had
+2.  The tables which the Debezium connector is tracking has not had
     any changes, heartbeats are enabled (via `heartbeat.interval.ms` and
     `heartbeat.action.query`), but the connector is not sending the
     heartbeat.
@@ -124,7 +122,7 @@ PoistgreSQL database.
 
     After a node replacement, replication slots are not recreated
     automatically in the newly promoted database. When Debezium
-    recovers, it will recreate the replication slot.If there were
+    recovers, it will recreate the replication slot. If there were
     changes made to the database before the replication slot is
     recreated on the new primary server, then Debezium will not be able
     to capture them, resulting in data loss.
@@ -136,11 +134,11 @@ PoistgreSQL database.
     once the snapshot finishes to avoid regenerating snapshot on every
     restart.
 
-2.  Manually restart the failed task(s)
+2.  Manually restart the failed tasks.
 
 3.  Confirm that the connector has created a new replication slot and
     that it is in active state by querying the `pg_replication_slots`
-    table
+    table.
 
 4.  Resume the write operations on the database.
 
@@ -184,10 +182,8 @@ also suggest:
 Verify that Debezium was able to read all changes in the slot before
 the old primary failed.
 
-To ensure that client applications that depend on events captured by
-Debezium get all the events, you need to implement a method to verify
-that all changes made to the tables that Debezium is capturing from are
-recorded.
+To ensure client applications receive all events captured by Debezium,
+implement a verification method to confirm all changes to the monitored tables are recorded.
 
 :::tip
 The example contained in the [dedicated Aiven
