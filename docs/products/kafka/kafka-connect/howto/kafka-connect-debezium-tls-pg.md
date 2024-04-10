@@ -1,5 +1,6 @@
 ---
 title: Integrate Apache Kafka Connect with PostgreSQL using Debezium and mutual TLS
+limited: true
 ---
 
 Learn how to set up Apache Kafka Connect with PostgreSQL and Debezium using mutual TLS for secure data synchronization.
@@ -30,15 +31,18 @@ Before you begin, ensure you have the following:
 
 If you're integrating with a CloudSQL database, perform these additional steps:
 
-- **IP whitelisting**: Ensure you whitelist Aiven's IP addresses to allow connections
+- **IP whitelisting**: Whitelist Aiven's IP addresses to allow connections
   from Apache Kafka Connect to reach your CloudSQL database.
 - **Configure WAL and logical decoding**:
   - To capture database change events, `set cloudsql.logical_decoding` to `on`.
   - To configure the Write-Ahead Log (WAL) for logical replication, set
     `cloudsql.enable_pglogical` to` on`.
   - Restart the CloudSQL instance to apply changes.
-- **Activate the `pgoutput` extension**: Execute CREATE EXTENSION pgoutput; in your
+- **Activate the `pgoutput` extension**: Execute this command in your
   CloudSQL instance to enable the extension Debezium uses for logical decoding.
+  ```SQL
+  CREATE EXTENSION pgoutput;
+  ```
 - **Verify SSL certificates**: After whitelisting IPs, ensure your SSL configuration is
   correct by testing the database connection:
 
@@ -79,8 +83,8 @@ your actual environment values in the provided code snippets:
 
 ## Configuration via Aiven CLI
 
-1. Verify that your existing Aiven for Apache Kafka service is active and accessible.
-   If you don’t have one, create a Kafka cluster using this command:
+1. Verify your existing Aiven for Apache Kafka service is active and accessible.
+   If you don’t have one, create an Apache Kafka cluster using this command:
 
     ```bash
     avn service create <kafka_cluster_name> \
@@ -199,7 +203,7 @@ Consider the following limitations:
 - The Apache Kafka setup does not support mutual authentication in `verify-full` SSL mode.
   However, the `verify-ca` mode is secure since the Certificate Authority (CA) is
   specific to the instance.
-- For CloudSQL PostgreSQL databases, ensure logical decoding and the pgoutput extension
+- For CloudSQL PostgreSQL databases, ensure logical decoding and the `pgoutput` extension
   are enabled for replication compatibility.
 - As of Debezium 2.5, `wal2json` is deprecated. It is recommended to use `pgoutput`
   or `decoderbufs` for WAL output plugins.
