@@ -57,8 +57,8 @@ If you're integrating with a CloudSQL database, perform these additional steps:
   your Debezium connector for logical decoding.
 
     :::note
-      Starting with Debezium 2.5, the wal2json plugin is deprecated. The recommended
-      replacements plugins are `pgoutput` and `decoderbufs`.
+      Starting with Debezium 2.5, the `wal2json` plugin is deprecated. You can use
+      either `pgoutput` or `decoderbufs` as the recommended replacement plugin.
     :::
 
 ## Variables
