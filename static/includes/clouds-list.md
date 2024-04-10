@@ -147,6 +147,7 @@
   </tr>
 </tbody>
 </table>
+
 ## Azure
 
 <table>
@@ -350,6 +351,7 @@
   </tr>
 </tbody>
 </table>
+
 ## DigitalOcean
 
 <table>
@@ -408,6 +410,7 @@
   </tr>
 </tbody>
 </table>
+
 ## Google Cloud
 
 <table>
@@ -493,6 +496,11 @@
     <td>europe</td>
     <td>google-europe-west1</td>
     <td>Europe, Belgium: Belgium</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>google-europe-west10</td>
+    <td>Europe, Germany: Berlin</td>
   </tr>
   <tr>
     <td>europe</td>
@@ -611,6 +619,7 @@
   </tr>
 </tbody>
 </table>
+
 ## UpCloud
 
 <table>
@@ -689,6 +698,7 @@
   </tr>
 </tbody>
 </table>
+
 ## Oracle Cloud Infrastructure
 
 :::important
