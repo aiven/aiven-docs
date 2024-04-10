@@ -58,8 +58,9 @@ However, monitoring these resources can help identify potential bottlenecks.
 
 ## Using Dynamic Disk Sizing (DDS)
 
-Aiven offers Dynamic Disk Sizing (DDS) as a flexible option if you require
-additional disk space beyond the standard plan allocation. DDS allows you to:
+Aiven offers [Dynamic Disk Sizing (DDS)] (/docs/platform/howto/add-storage-space) as
+a flexible option if you require additional disk space beyond the standard plan
+allocation. DDS allows you to:
 
 - **Scale up**: Increase disk space on demand for bursts of metrics or high cardinality.
 - **Scale down**: Reduce disk space when needs change, optimizing costs.
