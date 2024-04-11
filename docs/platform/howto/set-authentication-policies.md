@@ -46,7 +46,9 @@ strongly recommended to enable this if you only have one Aiven organization.
 
 Users can generate their own
 [personal tokens](/docs/platform/howto/create_authentication_token) for use with
-the Aiven API.
+the Aiven API. When you turn off personal tokens, managed users can't create
+personal tokens. Non-managed users can still create personal tokens, but they can't use
+them to access the organization's resources.
 
 To regularly manage your resources programmatically with the API, CLI, Terraform,
 or other applications, it's best to create an [application user](/docs/platform/howto/manage-application-users) with its own tokens.
