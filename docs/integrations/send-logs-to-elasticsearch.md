@@ -3,6 +3,9 @@ title: Send logs to Elasticsearch®
 sidebar_label: Elasticsearch
 ---
 
+import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
+import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+
 You can store logs from one of your Aiven services in an external Elasticsearch service.
 
 Collect these values for the connection:
@@ -21,7 +24,7 @@ Collect these values for the connection:
 Start by setting up an external service integration for Elasticsearch.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  In the project, click **Integration endpoints**.
+1.  In the project,  click <IntegrationsIcon className="icon"/> **Integration endpoints**.
 1.  Select **External Elasticsearch** from the list.
 1.  Select **Add new endpoint**.
 1.  Set a preferred endpoint name, we'll call it `CONNECTION_NAME`
@@ -37,7 +40,7 @@ Start by setting up an external service integration for Elasticsearch.
 ## Send service logs to Elasticsearch
 
 1.  Click **Services** and open a a service.
-1.  Click **Integrations**..
+1.  On the sidebar, click <ServiceIntegrationsIcon className="icon"/> **Integrations**.
 1.  Select **Elasticsearch Logs** from the list.
 1.  Select the **Endpoint name** and click **Enable**.
 
@@ -51,9 +54,9 @@ prefix and a date in a format year-month-day, for example
 You can also set up the integration using Aiven CLI and the following
 commands:
 
--   [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create)
--   [avn service integration-endpoint-list](/docs/tools/cli/service/integration#avn_service_integration_endpoint_list)
--   [avn service integration-create](/docs/tools/cli/service/integration#avn_service_integration_create)
+- [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create)
+- [avn service integration-endpoint-list](/docs/tools/cli/service/integration#avn_service_integration_endpoint_list)
+- [avn service integration-create](/docs/tools/cli/service/integration#avn_service_integration_create)
 
 :::
 

@@ -76,7 +76,7 @@ API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Op
     avn service integration-endpoint-list --project PROJECT
     ```
 
-    ```bash title=`Output example`
+    ```bash title="Output example"
     ENDPOINT_ID                           ENDPOINT_NAME        ENDPOINT_TYPE
     ====================================  ===================  ===============================
     50020216-61dc-60ca-b72b-000d3cd726cb  ENDPOINT_NAME        external_aws_cloudwatch_logs
