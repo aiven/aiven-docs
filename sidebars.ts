@@ -167,6 +167,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/saml/add-google-idp',
             'platform/howto/saml/add-jumpcloud-idp',
             'platform/howto/saml/add-okta-idp',
+            'platform/howto/okta-user-provisioning-with-scim',
             'platform/howto/saml/add-onelogin-idp',
           ],
         },
