@@ -14,10 +14,11 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 ## Application user permissions
 
 You [create and manage application users](/docs/platform/howto/manage-application-users)
-at the organization level. Unlike organization users, application users can't log in to
-the Aiven Console. However, application users are granted access to projects
+at the organization level. Application users are granted access to projects
 and services in the same way as organization users by adding them to
-[projects](/docs/platform/howto/add-project-members) and assigning them a role.
+[projects](/docs/platform/howto/add-project-members) and assigning them a role. However,
+unlike organization users, application users can't log in to the Aiven Console and the
+authentication policies don't apply to them.
 
 ## Security best practices
 
