@@ -3,8 +3,6 @@ title: Bring your own cloud (BYOC)
 sidebar_label: Bring your own cloud
 ---
 
-## About BYOC
-
 Aiven services are usually deployed on Aiven-managed infrastructure,
 using Aiven-managed security protocols, and backed by Aiven-managed
 storage and backups. This provides the most seamless straightforward
