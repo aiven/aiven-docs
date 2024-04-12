@@ -12,6 +12,7 @@ It is loosely based on [Google's style guide](https://developers.google.com/styl
 - [Capitalization](#capitalization)
 - [Titles](#titles)
 - [Links](#links)
+- [Tasks and steps](#tasks-and-steps)
 - [Full stops](#full-stops)
 - [Writing UI instructions](#writing-ui-instructions)
 - [Quotes, bold, italics, and inline code](#quotes-bold-italics-and-inline-code)
@@ -131,6 +132,16 @@ Anything else is generally inefficient and more difficult to read.
 | ------------------- | ------------------------------------------------------------- | --------------------------------------------- |
 | **Using the title** | To learn more about API documentation, see [API reference](). | Click [here]() to see the API docs.           |
 | **Call to action**  | Before you start, [install ABC]().                            | Before you start, you can read [this page](). |
+
+## Tasks and steps
+
+- Prefix opttional steps with `Optional:`.
+- Use step results only when necessary.
+- Click chains start with the first click in the UI, not the last click.
+
+|     Example      |                 Do                 |                     Don\'t                      |
+|------------------|------------------------------------|-------------------------------------------------|
+| **Click chains** | Click **File** > **Save** > **OK** | Click **Save** > **OK** from the **File** menu. |
 
 ## Full stops
 
