@@ -21,10 +21,11 @@ Enhanced compliance environments, although similar to standard
 environments, involve added setup and maintenance complexity. The
 following are requirements to utilize an ECE:
 
--   A BAA signed with Aiven
--   Plan to operate in one or more of Amazon Web Services (AWS), Google
-    Cloud, or Microsoft Azure
--   Total monthly spend is greater than \$5,000
+-   You use Amazon Web Services (AWS), Google Cloud, or Microsoft Azure (excluding
+    Azure Germany).
+-   You have a commitment deal with Aiven.
+-   You have Aiven Enterprise.
+-   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
 ## Cost of ECE
 
