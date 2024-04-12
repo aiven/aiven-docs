@@ -17,9 +17,13 @@ machines behind the scenes. You don't need to remember using
 `ON CLUSTER` for every query.
 
 :::important
-There are limits on the number of queries that you can run concurrently in Aiven for
-ClickHouse. Depending on your service plan, ``max_concurrent_queries`` ranges from ``25``
-to ``300``. See
+There are limitations on the number of concurrent queries and the number of concurrent
+connections in Aiven for ClickHouse. Depending on your service plan:
+
+- `max_concurrent_queries` ranges from `25` to `400`.
+- `max_concurrent_connections` ranges from `1000` to `4000`.
+
+See
 [Aiven for ClickHouse® limits and limitations](/docs/products/clickhouse/reference/limitations)
 for details.
 :::
