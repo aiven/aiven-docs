@@ -25,11 +25,11 @@ creating a new service from the CLI, follow these steps:
 1. Run the following command to create an Aiven for Metrics service named
    metrics-demo:
 
-```text
+```bash
 avn service create metrics-demo   \
- --service-type metrics                  \
- --cloud aws-europe-west1                \
- --plan startup-4                        \
+ --service-type thanos           \
+ --cloud aws-europe-west1         \
+ --plan startup-4                 \
  --project dev-sandbox
 ```
 
