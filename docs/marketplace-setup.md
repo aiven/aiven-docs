@@ -84,7 +84,7 @@ Aiven makes its services available through the various Marketplaces and you can 
 1. Choose or create an Aiven
    organization to use the AWS subscription for.
 
-To move existing Aiven projects to this AWS subscription, see [Move from Aiven direct billing to AWS Marketplace](/docs/platform/howto/move-to-aws-marketplace-billing).
+To move existing Aiven projects to this AWS subscription, see [Move from Aiven direct billing to AWS Marketplace](/docs/platform/howto/list-marketplace-payments).
 
 If you have any issues linking Aiven to your AWS subscription, repeat the process
 in the AWS web console by finding the Aiven subscription and clicking
@@ -155,4 +155,4 @@ show your usage per service:
 
 ## Related pages
 
-- [Move from Aiven direct billing to AWS Marketplace](/docs/platform/howto/move-to-aws-marketplace-billing)
+- [Use marketplace subscriptions to pay for Aiven services](/docs/platform/howto/list-marketplace-payments)
