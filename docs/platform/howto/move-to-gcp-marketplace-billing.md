@@ -4,7 +4,7 @@ title: Move from Aiven direct billing to Google Cloud Platform Marketplace
 
 Aiven makes its services available through the Google Cloud Platform Marketplace. If you already have some services running in a project, which is billed directly through Aiven, you can move to a Google Cloud Platform Marketplace subscription without disrupting your services.
 
-1. [Set up Google Cloud Platform Marketplace for Aiven Services](billing-google-cloud-platform-marketplace-subscription).
+1. [Set up Google Cloud Platform Marketplace for Aiven Services](/docs/marketplace-setup).
    The new Aiven organization will contain your projects.
 
 1. Collect the required information:

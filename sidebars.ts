@@ -20,19 +20,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/free-plan',
         'platform/concepts/free-trial',
-        {
-          type: 'category',
-          label: 'Set up marketplace subscriptions',
-          link: {
-            type: 'doc',
-            id: 'marketplace-setup',
-          },
-          items: [
-            'platform/howto/billing-aws-marketplace-subscription',
-            'platform/howto/billing-azure-marketplace-subscription',
-            'platform/howto/billing-google-cloud-platform-marketplace-subscription',
-          ],
-        },
+        'marketplace-setup',
         'tools/aiven-console',
         'platform/concepts/beta_services',
         'platform/howto/feature-preview',
