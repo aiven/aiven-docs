@@ -12,9 +12,7 @@ Aiven makes its services available through the various Marketplaces and you can 
 <Tabs groupId="group1">
 <TabItem value="AWS" label="AWS Marketplace" default>
 
-1. Search for _Aiven Managed Database Services_
-   on the [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vylwtm6t2c7fk)
-   to list available Aiven services and see how the marketplace subscription works.
+1. Go to [Aiven Managed Database on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vylwtm6t2c7fk).
 
 1. Click **View purchase options**.
 
@@ -29,9 +27,8 @@ Aiven makes its services available through the various Marketplaces and you can 
 </TabItem>
 <TabItem value="Azure" label="Azure Marketplace">
 
-1. Search for _Aiven Managed Database Services_ on the [Azure
-   Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).
-   to list available Aiven services and see how the marketplace subscription works.
+1. Go to [Aiven Managed Database Services on the Azure
+   Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aivenltd1590663507662.aiven_managed_database_services?tab=Overview).
 
 1. Click **Subscribe**.
 
@@ -40,8 +37,7 @@ Aiven makes its services available through the various Marketplaces and you can 
    **Recurring billing** is turned on. There is only one plan available
    because the costs are managed by Aiven based on what you use
    during the month.
-1. Progress to the **Review + subscribe** screen, then read and agree
-   to the terms of use.
+1. Read and agree to the terms of use.
 1. Click **Subscribe**.
 
    :::important
@@ -60,13 +56,10 @@ Aiven makes its services available through the various Marketplaces and you can 
 </TabItem>
 <TabItem value="Google" label="Google Cloud Marketplace">
 
-1.  Go to [Aiven Managed Database Services on the Google Cloud
-    Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven)
-    to list available Aiven services and see how the marketplace subscription works.
+1.  Go to [Aiven Managed Database and Streaming Services on the Google Cloud
+    Marketplace](https://console.cloud.google.com/marketplace/product/aiven-public/aiven).
 1.  Click **Subscribe**.
-1.  Select your desired billing account, then read and agree to the
-    terms and conditions.
-1.  Click **Subscribe**.
+1.  Select your desired billing account and click **Subscribe**.
 
     :::important
      You won't be charged. This only
@@ -113,7 +106,7 @@ Do not confuse it with Aiven Console URL: [https://console.aiven.io](https://con
    Click **Activate now** to join your Aiven account to your Azure account.
 
 :::note
-The URL to log into your Azure subscription is [https://console.azure.aiven.io](https://console.aws.aiven.io).
+The URL to log into your Azure subscription is [https://console.azure.aiven.io](https://console.azure.aiven.io).
 Do not confuse it with Aiven Console URL: [https://console.aiven.io](https://console.aiven.io).
 :::
 
@@ -122,7 +115,6 @@ SaaS Account on publisher's site** to complete the subscription process if
 anything goes wrong during the previous steps.
 
 </TabItem>
-
 <TabItem value="Google" label="Google Cloud Marketplace">
 
 1.  You should now be on a signup page at Aiven, asking you for your
@@ -147,8 +139,6 @@ anything goes wrong during the previous steps.
   you to the Aiven GCP Console at [https://console.gcp.aiven.io](https://console.gcp.aiven.io).
 
 :::
-
-## Billing
 
 Services you deploy through your subscription are billed per hour and
 metering is sent from Aiven to Google. You can view this in the
