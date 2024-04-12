@@ -63,19 +63,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'platform/howto/manage-payment-card',
-            {
-              type: 'category',
-              label: 'Marketplace subscriptions',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/list-marketplace-payments',
-              },
-              items: [
-                'platform/howto/move-to-aws-marketplace-billing',
-                'platform/howto/move-to-azure-marketplace-billing',
-                'platform/howto/move-to-gcp-marketplace-billing',
-              ],
-            },
+            'platform/howto/list-marketplace-payments',
           ],
         },
         {
