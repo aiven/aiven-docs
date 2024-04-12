@@ -16,7 +16,7 @@ Get complete insights into your storage usage with Aiven for Metrics. This overv
 - **Current billing expenses**: Shows the current cost incurred for the storage used.
 - **Forecasted monthly cost**: Provides an estimate of the expected cost for the
   upcoming month based on usage.
-- **Object storage used**: Indicates the amount of storage used in MiB.
+- **Object storage used**: Indicates the amount of storage currently in use.
 - **Retention rule**: Displays the current data retention setting, which by default is
   set to **Keep data forever**.
 
