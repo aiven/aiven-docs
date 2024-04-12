@@ -4,7 +4,7 @@ title: Move from Aiven direct billing to Azure Marketplace
 
 Aiven makes its services available through the Azure Marketplace. If you already have some services running in a project, which is billed directly through Aiven, you can move to an Azure Marketplace subscription without disrupting your services.
 
-1. [Set up Azure Marketplace for Aiven services](/docs/platform/howto/billing-azure-marketplace-subscription).
+1. [Set up Azure Marketplace for Aiven services](/docs/marketplace-setup).
    The new Aiven organization will contain your projects.
 
 1. Collect the required information:

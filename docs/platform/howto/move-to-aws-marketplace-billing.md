@@ -4,7 +4,7 @@ title: Move from Aiven direct billing to AWS Marketplace
 
 Aiven makes its services available through the AWS Marketplace. If you already have some services running in a project, which is billed directly through Aiven, you can move to an AWS Marketplace subscription without disrupting your services.
 
-1. [Set up AWS Marketplace for Aiven services](/docs/platform/howto/billing-aws-marketplace-subscription).
+1. [Set up AWS Marketplace for Aiven services](/docs/marketplace-setup).
    The new Aiven organization will contain your projects.
 
 1. Collect the required information:
