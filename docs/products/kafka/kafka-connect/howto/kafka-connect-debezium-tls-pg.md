@@ -31,7 +31,8 @@ Before you begin, ensure you have the following:
 
 ### For CloudSQL PostgreSQL databases
 
-If you're integrating with a CloudSQL database, perform these additional steps:
+If you're integrating with a CloudSQL database, perform these additional steps only if
+they are not already configured:
 
 - **IP whitelisting**: Whitelist Aiven's IP addresses to allow connections
   from Apache Kafka Connect to reach your CloudSQL database.
@@ -42,9 +43,11 @@ If you're integrating with a CloudSQL database, perform these additional steps:
   - Restart the CloudSQL instance to apply changes.
 - **Activate the `pgoutput` extension**: Execute this command in your
   CloudSQL instance to enable the extension Debezium uses for logical decoding.
+
   ```SQL
   CREATE EXTENSION pgoutput;
   ```
+
 - **Verify SSL certificates**: After whitelisting IPs, ensure your SSL configuration is
   correct by testing the database connection:
 
@@ -122,10 +125,11 @@ your actual environment values in the provided code snippets:
       "ssl_mode": "verify-ca",
       "host": "<postgresql_host>",
       "port": <postgresql_port>,
-      "user": "<postgresql_user>",
+      "username": "<postgresql_user>",
       "ssl_client_certificate": "$(cat /path/to/your/client-cert.pem)",
       "ssl_root_cert": "$(cat /path/to/your/ca.pem)",
-      "ssl_client_key": "$(cat /path/to/your/client-key.pem)"
+      "ssl_client_key": "$(cat /path/to/your/client-key.pem)",
+      "password": my_password
     }
     END
     )
@@ -165,15 +169,18 @@ your actual environment values in the provided code snippets:
    {
      "name": "debezium-postgres-connector",
      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-     // Omit "database.hostname", "database.port", and "database.user" if provided
-     by external integration
-     "database.password": "<postgresql_password>",
-     "database.dbname": "<database_name>",
+     // Omitted as provided by external PostgreSQL integration:
+     // "database.hostname", "database.port", "database.user", "database.password",
+     // "database.dbname", "database.sslcert", "database.sslkey", "database.sslmode",
+     // "database.sslrootcert"
      "database.server.name": "<kafka_connect_server_name>",
      "plugin.name": "pgoutput",
      "publication.name": "debezium_publication",
      "publication.autocreate.mode": "all_tables",
      "endpoint_id": "$INTEGRATION_ENDPOINT_ID",
+     "topic.prefix": "my_prefix",
+     // Topics will be named as "{prefix}.{database_name}.{table_name}"
+     "database.tcpKeepAlive": "true",
      "transforms": "unwrap",
      "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
    }
@@ -186,6 +193,24 @@ your actual environment values in the provided code snippets:
      --config "$CONNECTOR_CONFIG"
    ```
 
+where,
+
+- `name`: The connector instance name. For example, `debezium-postgres-connector`.
+- `connector.class`: The class of the PostgreSQL connector.
+  For example, `io.debezium.connector.postgresql.PostgresConnector`.
+- `database.server.name`: The identifier for the database server within
+  Apache Kafka Connect.
+- `plugin.name`: The PostgreSQL logical decoding plugin.
+- `publication.name`: The PostgreSQL publication for tracking database changes.
+- `publication.autocreate.mode`: If set to `all_tables`, it captures changes for
+  all tables automatically.
+- `endpoint_id`: The unique ID for the PostgreSQL endpoint managed externally.
+- `topic.prefix`: The prefix for Kafka topics receiving database change events.
+- `database.tcpKeepAlive`: If set to `true`, it prevents database connection timeouts
+  during inactivity.
+- `transforms` and `transforms.unwrap.type`: he data transformations.
+  `ExtractNewRecordState` extracts the latest data state.
+
 ## Verification
 
 After successfully configuring the setup, verify the following:
@@ -194,8 +219,6 @@ After successfully configuring the setup, verify the following:
 1. Apache Kafka topics exist as expected, whether created automatically or manually.
 1. Data is correctly streaming into topics using the naming pattern
    `{connector_name}.{database_name}.{table_name}`.
-
-
 
 ## Limitations
 
