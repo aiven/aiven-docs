@@ -181,8 +181,9 @@ your actual environment values in the provided code snippets:
      "topic.prefix": "my_prefix",
      // Topics will be named as "{prefix}.{database_name}.{table_name}"
      "database.tcpKeepAlive": "true",
-     "transforms": "unwrap",
-     "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+     // Optional Transforms (uncomment if needed)
+     //"transforms": "unwrap",
+     //"transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
    }
    END
    )
@@ -209,7 +210,8 @@ your actual environment values in the provided code snippets:
     - `database.tcpKeepAlive`: If set to `true`, it prevents database connection timeouts
       during inactivity.
     - `transforms` and `transforms.unwrap.type`: he data transformations.
-      `ExtractNewRecordState` extracts the latest data state.
+      `ExtractNewRecordState` extracts the latest data state. These transformations are
+      optional and should be used based on your specific requirements.
 
 ## Verification
 
