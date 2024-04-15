@@ -193,23 +193,23 @@ your actual environment values in the provided code snippets:
      --config "$CONNECTOR_CONFIG"
    ```
 
-  where,
+   where,
 
-  - `name`: The connector instance name. For example, `debezium-postgres-connector`.
-  - `connector.class`: The class of the PostgreSQL connector.
-    For example, `io.debezium.connector.postgresql.PostgresConnector`.
-  - `database.server.name`: The identifier for the database server within
-    Apache Kafka Connect.
-  - `plugin.name`: The PostgreSQL logical decoding plugin.
-  - `publication.name`: The PostgreSQL publication for tracking database changes.
-  - `publication.autocreate.mode`: If set to `all_tables`, it captures changes for
-    all tables automatically.
-  - `endpoint_id`: The unique ID for the PostgreSQL endpoint managed externally.
-  - `topic.prefix`: The prefix for Kafka topics receiving database change events.
-  - `database.tcpKeepAlive`: If set to `true`, it prevents database connection timeouts
-    during inactivity.
-  - `transforms` and `transforms.unwrap.type`: he data transformations.
-    `ExtractNewRecordState` extracts the latest data state.
+    - `name`: The connector instance name. For example, `debezium-postgres-connector`.
+    - `connector.class`: The class of the PostgreSQL connector.
+      For example, `io.debezium.connector.postgresql.PostgresConnector`.
+    - `database.server.name`: The identifier for the database server within
+      Apache Kafka Connect.
+    - `plugin.name`: The PostgreSQL logical decoding plugin.
+    - `publication.name`: The PostgreSQL publication for tracking database changes.
+    - `publication.autocreate.mode`: If set to `all_tables`, it captures changes for
+      all tables automatically.
+    - `endpoint_id`: The unique ID for the PostgreSQL endpoint managed externally.
+    - `topic.prefix`: The prefix for Kafka topics receiving database change events.
+    - `database.tcpKeepAlive`: If set to `true`, it prevents database connection timeouts
+      during inactivity.
+    - `transforms` and `transforms.unwrap.type`: he data transformations.
+      `ExtractNewRecordState` extracts the latest data state.
 
 ## Verification
 
