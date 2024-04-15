@@ -34,18 +34,13 @@ follows:
 <SERVICE_NAME>-<PROJECT_NAME>.*.aivencloud.com
 ```
 
-where
+Where:
 
--   `<SERVICE_NAME>` is the name of the service
--   `<PROJECT_NAME>` is the name of the project
+-   `<SERVICE_NAME>` is the name of the service.
+-   `<PROJECT_NAME>` is the name of the project.
 -   `*` is a variable component consisting of one or more levels of
     alphanumeric subdomains for the purpose of load balancing between
     DNS zones.
-
-:::note
-Second-level domain part of `aivencloud.com` can change to another
-name in the future if the domain becomes unavailable for updates.
-:::
 
 :::important
 Always use a fully qualified domain name returned by Aiven API. Make
@@ -54,8 +49,10 @@ of the returned service hostname.
 :::
 
 :::note
-If the `<SERVICE_NAME>` is too short or was recently used (for example,
-if you drop and recreate a service with the same name), the hostname
-format can be
-`<SERVICE_NAME><3RANDOMLETTERS>-<PROJECT_NAME>.*.aivencloud.com`.
+- Second-level domain part of `aivencloud.com` can change to another
+  name in the future if the domain becomes unavailable for updates.
+- If the `<SERVICE_NAME>` is too short or was recently used (for example,
+  if you drop and recreate a service with the same name), the hostname
+  format can be
+  `<SERVICE_NAME><3RANDOMLETTERS>-<PROJECT_NAME>.*.aivencloud.com`.
 :::

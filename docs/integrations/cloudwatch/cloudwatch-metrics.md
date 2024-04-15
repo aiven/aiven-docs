@@ -2,6 +2,9 @@
 title: Send metrics to Amazon CloudWatch
 ---
 
+import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
+import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+
 Aiven enables you to send your service metrics to your [Amazon (AWS) CloudWatch](https://aws.amazon.com/cloudwatch/).
 
 ## Prerequisites
@@ -23,9 +26,11 @@ To generate your AWS credentials:
 Your first step is to create the endpoint to be used between the Aiven
 service and the AWS CloudWatch. This setup only needs to be done once.
 
-1. Click **Integration endpoints** in the web console, then choose
-    **AWS CloudWatch Metrics** and **Add a new endpoint** or **Create
-    new**.
+1. In your project,
+   click <IntegrationsIcon className="icon"/> **Integration endpoints**.
+
+1. Click **AWS CloudWatch Metrics** and **Add a new endpoint** or **Create
+   new**.
 
 1. Configure the settings for the new endpoint:
     -   **Endpoint name** is how you will refer to the AWS CloudWatch
@@ -39,15 +44,15 @@ service and the AWS CloudWatch. This setup only needs to be done once.
 ## Send metrics from an Aiven service to AWS CloudWatch
 
 For each of the services whose metrics should be sent to your AWS CloudWatch:
-<!-- vale off -->
-1. From the **Overview** page of your service, click **Integrations**
+
+1. From your service, click <ServiceIntegrationsIcon className="icon"/> **Integrations**
    and choose the **Amazon CloudWatch Metrics** option.
 
 1. Choose the endpoint by the **Endpoint name** you created earlier
    and choose **Continue**.
 
 1. Customize which metrics to send to the CloudWatch. To do
-   this, toggle a metric group or individual metric field.
+   this, select a metric group or individual metric field.
 
 1. Go to your AWS account and check the **CloudWatch** service. You can
    go to the **Metrics** section to see your Aiven service metrics

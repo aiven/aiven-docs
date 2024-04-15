@@ -76,11 +76,12 @@ draft, you can open the settings by clicking the name of the IdP.
     -   **Extend active sessions**: This resets the session duration every time the token
         is used.
 1. Optional: Select a user group to add all users who sign up with this IdP to.
-1. <LimitedBadge/> To enable user provisioning with Okta, click the toggle.
+1. Optional: <LimitedBadge/> Enable user provisioning with Okta:
 
    1. Copy the **Base URL** and **Access token**.
-   1. Add the URL and token to your
-      [Okta app integration](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm).
+   1. Use the URL and token to configure
+      [user provisioning for Okta](/docs/platform/howto/okta-user-provisioning-with-scim)
+      with SCIM.
 
 1. Click **Finish** to complete the setup.
 
@@ -99,7 +100,7 @@ manually using URLs:
 1. On the **Identity providers** page, click the name of the IdP.
 1. In the **Overview** section there are two URLs:
     -   **Signup URL**: Users that don't have an Aiven user account can
-        use this to create a new Aiven user linked to this IdP.
+        use this to create an Aiven user linked to this IdP.
     -   **User account link URL**: Users that already have an Aiven user
         account can link their existing Aiven user with this IdP.
 1. Send the appropriate URL to your organization users. If you set up a

@@ -20,19 +20,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/free-plan',
         'platform/concepts/free-trial',
-        {
-          type: 'category',
-          label: 'Set up marketplace subscriptions',
-          link: {
-            type: 'doc',
-            id: 'marketplace-setup',
-          },
-          items: [
-            'platform/howto/billing-aws-marketplace-subscription',
-            'platform/howto/billing-azure-marketplace-subscription',
-            'platform/howto/billing-google-cloud-platform-marketplace-subscription',
-          ],
-        },
+        'marketplace-setup',
         'tools/aiven-console',
         'platform/concepts/beta_services',
         'platform/howto/feature-preview',
@@ -75,19 +63,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'platform/howto/manage-payment-card',
-            {
-              type: 'category',
-              label: 'Marketplace subscriptions',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/list-marketplace-payments',
-              },
-              items: [
-                'platform/howto/move-to-aws-marketplace-billing',
-                'platform/howto/move-to-azure-marketplace-billing',
-                'platform/howto/move-to-gcp-marketplace-billing',
-              ],
-            },
+            'platform/howto/list-marketplace-payments',
           ],
         },
         {
@@ -167,6 +143,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/saml/add-google-idp',
             'platform/howto/saml/add-jumpcloud-idp',
             'platform/howto/saml/add-okta-idp',
+            'platform/howto/okta-user-provisioning-with-scim',
             'platform/howto/saml/add-onelogin-idp',
           ],
         },
@@ -1389,6 +1366,7 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/dragonfly/howto/eviction-policy-df',
+                'products/dragonfly/howto/compatibility-redisjson',
               ],
             },
             {

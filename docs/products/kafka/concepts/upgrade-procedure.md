@@ -2,9 +2,9 @@
 title: Apache Kafka® upgrade procedure
 ---
 
-import MyImg from "@site/static/images/figma/kafka-cluster-overview.png";
-import MyImg2 from "@site/static/images/figma/kafka-cluster-overview-upgraded.png";
-import MyImg3 from "@site/static/images/figma/kafka-cluster-overview-final.png";
+import MyImg from "@site/static/images/content/figma/kafka-cluster-overview.png";
+import MyImg2 from "@site/static/images/content/figma/kafka-cluster-overview-upgraded.png";
+import MyImg3 from "@site/static/images/content/figma/kafka-cluster-overview-final.png";
 
 One of the benefits of using a managed service like Aiven for Apache
 Kafka® is the automated upgrade procedure.
