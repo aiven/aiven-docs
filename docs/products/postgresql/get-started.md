@@ -32,7 +32,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``provider.tf``, where you specify the version in the ``required_providers`` block
 
-      ```terraform
+      ```json
         terraform {
           required_providers {
             aiven = {
@@ -49,7 +49,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``postgresql.tf``, where you include the ``aiven_pg`` resource
 
-      ```terraform
+      ```json
         resource "aiven_pg" "pg" {
           project                = data.aiven_project.my_project.project
           service_name           = "postgresql"
@@ -65,7 +65,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``variables.tf``, where you declare the API token and project name variables
 
-      ```terraform
+      ```json
       variable "aiven_api_token" {
         description = "Aiven console API token"
         type        = string
@@ -79,7 +79,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``terraform.tfvars``, where you add the Aiven access token and project name
 
-      ```terraform
+      ```json
         aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
         project_name    = "AIVEN_PROJECT_NAME"
         admin_username  = "YOUR_SERVICE_USERNAME"
@@ -93,7 +93,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
 ## Configure a service
 
-Configure your service if the default service setup doesn't meet your needs.
+Edit your service settings if the default service configuration doesn't meet your needs.
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
@@ -108,7 +108,7 @@ configuration.
 
 Configure service parameters by updating the ``aiven_pg`` resource, for example:
 
-```terraform
+```json
 resource "aiven_pg" "pg" {
   project                = data.aiven_project.my_project.project
   service_name           = "postgresql"
@@ -171,9 +171,22 @@ See the available configuration options in
 ## Connect to the service
 
 <Tabs groupId="group1">
+<TabItem value="Console" label="Console" default>
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
+   organization > project > Aiven for PostgreSQL service.
+1. On the <DashboardIcon className="icon"/> **Overview** page of your service, click
+   **Quick connect**.
+1. In the **Connect** window, select a tool or language to connect to your service, follow
+   the connection instructions, and click **Done**.
+
+   ```sql
+   psql 'postgres://ADMIN_PASSWORD@vine-pg-test.a.aivencloud.com:12691/defaultdb?sslmode=require'
+   ```
+
+</TabItem>
 <TabItem value="psql" label="psql" default>
-[Connect to your new service](/docs/products/postgresql/howto/connect-psql) with, for
-example, [psql](https://www.postgresql.org/download/) CLI tool.
+[Connect to your new service](/docs/products/postgresql/howto/connect-psql) with
+[psql](https://www.postgresql.org/download/) CLI tool.
 </TabItem>
 <TabItem value="Terraform" label="Terraform">
 
@@ -329,8 +342,9 @@ SELECT * FROM customers WHERE firstname = 'John';
 
 ## Related pages
 
+- [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling) and
+  [Pgbouncer](/docs/products/postgresql/howto/pgbouncer-stats)
 - [High availability](/docs/products/postgresql/concepts/high-availability)
 - [Restrict access](/docs/products/postgresql/howto/readonly-user)
-- [Code examples for connecting to PostgreSQL from your application](/docs/products/postgresql/howto/list-code-samples)
 - [Migrate your PostgreSQL to Aiven](concepts/aiven-db-migrate)
 - [Aiven Service Level Agreement](https://aiven.io/sla)
