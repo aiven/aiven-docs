@@ -16,4 +16,4 @@ Aiven for Apache Kafka® services.
 ## Related pages
 
 -   [Enable OAuth2/OIDC support for Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
--   [Enable Apache Kafka® REST proxy authorization](/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization)
+-   [Manage Apache Kafka® REST proxy authorization](/docs/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization)

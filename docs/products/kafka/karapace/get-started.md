@@ -2,7 +2,7 @@
 title: Get started with Karapace
 ---
 
-To use Karapace, enable **Karapace Schema registry** and
+To use Karapace, you need to enable **Karapace Schema registry** and
 **REST APIs** on your Aiven for Apache Kafka® service. This can be
 enabled through the Aiven console. To know how to enable it, see
 [Enable Karapace schema registry and REST APIs](/docs/products/kafka/karapace/howto/enable-karapace).
@@ -17,7 +17,7 @@ enabled through the Aiven console. To know how to enable it, see
     [manage Karapace schema registry authorization](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
 -   Learn more about how to enable
     [Apache Kafka REST proxy authorization](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy) and how to
-    [Enable Karapace Kafka REST authorization](//docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization).
+    [manage Karapace Kafka REST authorization](/docs/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization).
 
 ## More resources
 
