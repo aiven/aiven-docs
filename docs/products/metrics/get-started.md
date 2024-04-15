@@ -49,6 +49,9 @@ running the following commands:
 
 :::
 
+ </TabItem>
+</Tabs>
+
 ## Create service integrations
 
 Integrate Aiven for Metrics with other Aiven services, including OpenSearch for
