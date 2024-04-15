@@ -13,7 +13,7 @@ Console](https://console.aiven.io/) (the **Overview** page of your
 service > the **Connection information** section) and also download the
 SSL CA certificate and specify the file on SSL page.
 
-![Screenshot of the MySQL Workbench settings screen](/images/products/mysql/mysql-workbench.png)
+![Screenshot of the MySQL Workbench settings screen](/images/content/products/mysql/mysql-workbench.png)
 
 :::important
 Using SSL is strongly recommended. In order to make a properly secure

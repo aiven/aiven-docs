@@ -2,7 +2,7 @@
 title: Power on/off a service
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
+import Services from "@site/static/images/icons/database.svg";
 import ActionsIcon from "@site/static/images/icons/more.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -61,7 +61,12 @@ Whenever a service is powered off:
 <AutoDelete/>
 :::
 
+:::note
 <StaticIp/>
+
+To remove static IP addresses, see
+[Manage static IP addresses](/docs/platform/concepts/static-ips).
+:::
 
 When a service is powered off, you can [delete it](#delete-service).
 

@@ -1,14 +1,14 @@
 ---
 title: Integrate Google BigQuery endpoints with Aiven services
+sidebar_label: Google BigQuery
 ---
 
-Google BigQuery is a serverless, highly scalable data warehouse that can
-be used to store and analyze large amounts of data. By integrating
-Google BigQuery endpoints with Aiven services, you can combine
-powerful data analysis from BigQuery with the convenience of Aiven's
-managed cloud platform. You can achieve this using the [Aiven
-Console](https://console.aiven.io/) or by using the
-[Aiven CLI](/docs/tools/cli) commands.
+import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
+import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+
+Google BigQuery is a serverless data warehouse that can be used to store and analyze large amounts of data.
+By integrating Google BigQuery endpoints with Aiven services, you can combine powerful
+data analysis from BigQuery with the convenience of Aiven's managed cloud platform.
 
 ## Prerequisites
 
@@ -29,26 +29,26 @@ Console](https://console.aiven.io/) or by using the
 
 ### Step 1: Create integration endpoints
 
-1.  In the [Aiven Console](https://console.aiven.io/), choose your
-    project.
+1. In the [Aiven Console](https://console.aiven.io/), choose your
+   project.
 
-2.  Select **Integration endpoints** on the left sidebar.
+1. On the sidebar, click <IntegrationsIcon className="icon"/> **Integration endpoints**.
 
-3.  Choose Google BigQuery, and click **Add new point** or **Create
-    new**.
+1. Choose Google BigQuery, and click **Add new point** or **Create
+   new**.
 
-4.  Enter the following details:
+1. Enter the following details:
 
-    -   **Endpoint name**: Enter a name for the integration endpoint.
-        For example, `BigQuery_Aiven_Integration`.
-    -   **GCP Project ID**: The identifier associated with your Google
-        Cloud Project where BigQuery is set up. For example,
-        `my-gcp-project-12345`.
-    -   **Google Service Account Credentials**: The JSON formatted
-        credentials obtained from your Google Cloud Console for service
-        account authentication. For example:
+   -   **Endpoint name**: Enter a name for the integration endpoint.
+       For example, `BigQuery_Aiven_Integration`.
+   -   **GCP Project ID**: The identifier associated with your Google
+       Cloud Project where BigQuery is set up. For example,
+       `my-gcp-project-12345`.
+   -   **Google Service Account Credentials**: The JSON formatted
+       credentials obtained from your Google Cloud Console for service
+       account authentication. For example:
 
-    ```
+    ```json
     {
         "type": "service_account",
         "project_id": "my-gcp-project-12345",
@@ -57,22 +57,22 @@ Console](https://console.aiven.io/) or by using the
     }
     ```
 
-5.  Click **Create**.
+1.  Click **Create**.
 
 ### Step 2: Link the integration endpoint to your service
 
 1.  In the [Aiven Console](https://console.aiven.io/), access the
     service where you plan to integrate Google BigQuery.
-2.  Choose **Integrations** from the left sidebar.
-3.  Select **Google BigQuery**.
-4.  Choose the endpoint that you created.
-5.  Click **Enable**.
+1.  Click <ServiceIntegrationsIcon className="icon"/> **Integrations** from the left sidebar.
+1.  Select **Google BigQuery**.
+1.  Choose the endpoint that you created.
+1.  Click **Enable**.
 
 ## Integration using Aiven CLI
 
 ### Step 1. Create integration endpoints
 
-To create a new integration endpoint that can be used to connect to a
+To create an integration endpoint that can be used to connect to a
 BigQuery service, use the
 [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) command with the required parameters.
 
@@ -100,8 +100,7 @@ avn service integration-endpoint-create \
 
 where:
 
--   `--project`: Name of the Google project where you want to create the
-    integration endpoint.
+-   `--project`: Name of the Google project to create the integration endpoint in.
 -   `--endpoint-name`: Name of the integration endpoint you are
     creating. Replace `your_endpoint_name` with your desired endpoint
     name.

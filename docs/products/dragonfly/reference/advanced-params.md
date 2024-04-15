@@ -2,5 +2,8 @@
 title: Advanced parameters for Aiven for Dragonfly®
 ---
 
-Below you can find a summary of every configuration option available for
-Aiven for Dragonfly® service:
+Summary of all configuration options available for Aiven for Dragonfly® service:
+
+import Reference from '@site/static/includes/config-dragonfly.md';
+
+<Reference />

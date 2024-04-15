@@ -12,7 +12,7 @@ In the Aiven Console follow these steps:
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     Aiven for Apache Kafka service.
 2.  Select **Topics** from the left sidebar.
-3.  Select a specific topic in the **Topics** screen or click on the
+3.  Select a specific topic in the **Topics** screen or click the
     ellipsis (More options).
 4.  On the **Topics info** screen, select **Partitions** to view
     detailed information about the partitions.

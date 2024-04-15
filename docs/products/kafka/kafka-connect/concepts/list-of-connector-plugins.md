@@ -69,7 +69,7 @@ available sink connectors:
 
 ## Preview connectors
 
-![Preview icon next to an OpenSearch® Apache Kafka® Connect connector](/images/products/kafka/kafka-connect/preview-kafka-connect-connectors.png)
+![Preview icon next to an OpenSearch® Apache Kafka® Connect connector](/images/content/products/kafka/kafka-connect/preview-kafka-connect-connectors.png)
 
 Some of the available connectors have the tag next to the name.
 **Preview connectors do not come under our SLA**, consider this before

@@ -8,7 +8,7 @@ secondary clusters. The primary cluster contains the *topic* topic. The
 \"passive\" cluster serves as a replica of the \"active\" cluster
 without running any applications against it.
 
-![MirrorMaker 2 Active-Passive Setup](/images/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Passive.png)
+![MirrorMaker 2 Active-Passive Setup](/images/content/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Passive.png)
 
 -   All the clients (producers and consumers) work with primary.
     MirrorMaker 2 replicates the topic from primary to secondary (the

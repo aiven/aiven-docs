@@ -76,7 +76,6 @@ Consider using DDS if:
 - While Aiven's plans work for most workloads, consider using DDS if you
   anticipate a recent large data migration or a significant increase in metric volume.
 
-
 ## Related pages
 
 - [Thanos Receiver](https://thanos.io/tip/components/receive.md/)

@@ -72,11 +72,21 @@
   },
   "Actions menu": {
     "prefix": ["action", "menu", "svg", "icon"],
-    "description": "Insert the actiosn menu label and icon",
+    "description": "Insert the action menu label and icon",
     "body": [
       "import ActionsIcon from \"@site/static/images/icons/more.svg\";",
       "",
       "<ActionsIcon className=\"icon\"/> **Actions**",
+      ""
+    ]
+  },
+  "Services icon": {
+    "prefix": ["service", "menu", "svg", "icon"],
+    "description": "Insert the services menu label and icon",
+    "body": [
+      "import Services from \"@site/static/images/icons/database.svg\";",
+      "",
+      "<Services className=\"icon\"/> **Services**",
       ""
     ]
   },
@@ -99,11 +109,11 @@
     ]
   },
   "Pro-platform badge": {
-    "prefix": ["pro", "badge"],
+    "prefix": ["enterprise", "badge"],
     "body": [
-      "import ProBadge from \"@site/src/components/Badges/ProBadge\";",
+      "import EnterpriseBadge from \"@site/src/components/Badges/EnterpriseBadge\";",
       "",
-      "<ProBadge/>",
+      "<EnterpriseBadge/>",
       ""
     ]
   },

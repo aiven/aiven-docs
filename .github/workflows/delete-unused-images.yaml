@@ -1,0 +1,35 @@
+name: Delete unused images
+
+on:
+  schedule:
+    - cron: '0 8 1 * *'
+  workflow_dispatch:
+
+jobs:
+  cloud_list:
+    name: Delete unused images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Delete unused images
+        run: make delete-unused-images
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: delete unused images
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          title: Delete unused images
+          body: Update list of clouds
+          base: main
+          labels: automated-pr
+          branch: delete-unused-images
+          delete-branch: true

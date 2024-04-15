@@ -27,7 +27,7 @@ Add Azure as an
     the **All applications** filter to see the new application.
     :::
 
-1. Click on the name of the new application. The configuration opens.
+1. Click the name of the new application. The configuration opens.
 1. Select **Single sign-on** configuration.
 1. Select **SAML** as the single sign-on method.
 1. Add the following parameters to the **Basic SAML Configuration**:

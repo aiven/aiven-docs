@@ -1,6 +1,10 @@
 ---
 title: Send logs to Elasticsearch®
+sidebar_label: Elasticsearch
 ---
+
+import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
+import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
 
 You can store logs from one of your Aiven services in an external Elasticsearch service.
 
@@ -20,43 +24,25 @@ Collect these values for the connection:
 Start by setting up an external service integration for Elasticsearch.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  Navigate to **Service Integration** from the menu on the left.
-3.  You'll see a list of external services you can integrate with
-    Aiven.
-4.  Select **External Elasticsearch** from the list.
-5.  Select **Add new endpoint**.
-6.  Set a preferred *endpoint name*, we'll call it `CONNECTION_NAME`
+1.  In the project,  click <IntegrationsIcon className="icon"/> **Integration endpoints**.
+1.  Select **External Elasticsearch** from the list.
+1.  Select **Add new endpoint**.
+1.  Set a preferred endpoint name, we'll call it `CONNECTION_NAME`
     later.
-7.  In the connection URL field set the connection string in a format
+1.  In the connection URL field set the connection string in a format
     `https://ELASTICSEARCH_USER:ELASTICSEARCH_PASSWORD@ELASTICSEARCH_HOST:ELASTICSEARCH_PORT`,
     using your own values for those parameters.
-8.  Set desired index prefix, that doesn't overlap with any of already
+1.  Set desired index prefix, that doesn't overlap with any of already
     existing indexes in your Elasticsearch service.
-9.  If you need a certificate to access the endpoint, add the body of
-    your CA certificate in PEM format. This field is optional.
-10. Set other fields based on your requirements, or leave the default
-    values there.
-11. Select **Create**.
+1.  Optional: Add the body of your CA certificate in PEM format.
+1.  Click **Create**.
 
-A new service integration will be added. You can now reference your
-service by the `CONNECTION_NAME` you chose.
+## Send service logs to Elasticsearch
 
-## Send logs to an external service
-
-1.  Navigate to **Services** from the menu on the left.
-2.  Select the service which logs you want to send to the external
-    Elasticsearch service.
-3.  On the **Overview** page of your service, navigate to the **Service
-    integrations** section.
-4.  Select **Manage integrations**.
-5.  Select **Elasticsearch Logs** from the list.
-6.  In the newly appeared modal window, select the endpoint with name
-    `CONNECTION_NAME` from the list and select **ENABLE**. Close the
-    modal window.
-7.  Observe the status change for newly added integration in the
-    **Service integrations** section on the **Overview** page of your
-    service.
-8.  Verify that the logs are flowing into your Elasticsearch.
+1.  Click **Services** and open a a service.
+1.  On the sidebar, click <ServiceIntegrationsIcon className="icon"/> **Integrations**.
+1.  Select **Elasticsearch Logs** from the list.
+1.  Select the **Endpoint name** and click **Enable**.
 
 :::note
 Logs are split per day with index name consisting of your desired index
@@ -68,9 +54,9 @@ prefix and a date in a format year-month-day, for example
 You can also set up the integration using Aiven CLI and the following
 commands:
 
--   [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create)
--   [avn service integration-endpoint-list](/docs/tools/cli/service/integration#avn_service_integration_endpoint_list)
--   [avn service integration-create](/docs/tools/cli/service/integration#avn_service_integration_create)
+- [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create)
+- [avn service integration-endpoint-list](/docs/tools/cli/service/integration#avn_service_integration_endpoint_list)
+- [avn service integration-create](/docs/tools/cli/service/integration#avn_service_integration_create)
 
 :::
 

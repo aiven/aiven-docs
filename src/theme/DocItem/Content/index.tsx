@@ -5,7 +5,7 @@ import {useDoc} from '@docusaurus/theme-common/internal';
 import Heading from '@theme/Heading';
 import MDXContent from '@theme/MDXContent';
 import type {Props} from '@theme/DocItem/Content';
-import ProBadge from '@site/src/components/Badges/ProBadge';
+import EnterpriseBadge from '@site/src/components/Badges/EnterpriseBadge';
 import LimitedBadge from '@site/src/components/Badges/LimitedBadge';
 import EarlyBadge from '@site/src/components/Badges/EarlyBadge';
 
@@ -37,7 +37,7 @@ export default function DocItemContent({children}: Props): JSX.Element {
       {syntheticTitle && (
         <header>
           <Heading as="h1">
-            {syntheticTitle} {frontMatter.pro && <ProBadge />}{' '}
+            {syntheticTitle} {frontMatter.enterprise && <EnterpriseBadge />}{' '}
             {frontMatter.limited && <LimitedBadge />}{' '}
             {frontMatter.early && <EarlyBadge />}{' '}
           </Heading>

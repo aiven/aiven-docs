@@ -1,5 +1,6 @@
 ---
 title: Bring your own cloud (BYOC)
+sidebar_label: Bring your own cloud
 ---
 
 ## About BYOC
@@ -55,10 +56,15 @@ not all cloud providers support it yet. Meet a few requirements to be eligible f
 -   You use one of the following public clouds: Amazon Web Services
     (AWS), Google Cloud Platform (GCP), or Microsoft Azure (excluding
     Azure Germany).
--   Your total monthly spend is at least $5,000.00 for at least 12
-    months.
+-   You have a commitment deal with Aiven.
 -   You use at least the [Priority tier of Aiven support
     services](https://aiven.io/support-services).
+
+    :::note
+    Check out [Aiven support tiers](https://aiven.io/support-services) and
+    [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC. Contact
+    the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support tier.
+    :::
 
 ## When to use the regular Aiven deployment
 
@@ -72,7 +78,7 @@ utilizing a regular Aiven deployment or
 
 :::tip
 If you would like to understand BYOC better or are unsure which
-deployment model is the best fit for you, contact [sales@aiven.io](mailto:sales@aiven.io).
+deployment model is the best fit for you, contact [the sales team](mailto:sales@aiven.io).
 :::
 
 ## BYOC pricing and billing
@@ -100,7 +106,7 @@ With BYOC, you can use any standard Aiven method (for example,
 manage your services and generally have the same user experience as with
 the regular Aiven deployment model.
 
-![Overview architecture diagram with VPC set up](/images/platform/byoc-one-vpc-arch.png)
+![Overview architecture diagram with VPC set up](/images/content/platform/byoc-one-vpc-arch.png)
 
 The standard BYOC deployment requires you to create a Virtual Private Cloud
 (**BYOC VPC**) dedicated to Aiven-managed services within a cloud region you

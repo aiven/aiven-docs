@@ -45,7 +45,7 @@ Grafana service:
     previews are rendered as thumbnails and can be sorted
     alphabetically.
 
-    ![Dashboard previews on Grafana](/images/products/grafana/dashboard-previews-on-grafana.png)
+    ![Dashboard previews on Grafana](/images/content/products/grafana/dashboard-previews-on-grafana.png)
 
 ## Limitations
 

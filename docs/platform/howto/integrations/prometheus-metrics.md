@@ -76,7 +76,7 @@ feature:
 1. Next, navigate to the service's **Overview** page, and locate
    the **Connection information** section.
 
-1. Click on the **Prometheus** tab.
+1. Click the **Prometheus** tab.
 
 1. Copy **Service URI**, and use it in your browser to access the
    Prometheus dashboard.

@@ -2,6 +2,8 @@
 title: Add identity providers
 ---
 
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+
 You can give your organization users access to Aiven through an identity
 provider (IdP).
 
@@ -47,7 +49,8 @@ If your provider isn't listed, contact the support team at
 
 ## Step 3. Finish the configuration in Aiven {#configure-idp-aiven-console}
 
-Go back to the Aiven Console to complete setting up the IdP:
+Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
+draft, you can open the settings by clicking the name of the IdP.
 
 1. Enter the **IDP URL** and **Entity Id** details.
 
@@ -60,20 +63,27 @@ Go back to the Aiven Console to complete setting up the IdP:
 1. Optional: Paste or upload a JSON file with configuration details
    for your IdP.
 1. Click **Next**.
-1. Configure the security options for this IdP:
-    -   Require authentication context: This lets the IdP enforce
+1. Configure the security options for this IdP and click **Next**.
+    -   **Require authentication context**: This lets the IdP enforce
         stricter security measures to help prevent unauthorized access,
         such as requiring multi-factor authentication.
-    -   Require assertion to be signed: The IdP will check for a digital
+    -   **Require assertion to be signed**: The IdP checks for a digital
         signature. This security measure ensures the integrity and
         authenticity of the assertions by verifying that they were
         issued by a trusted party and have not been tampered with.
-    -   Sign authorization request sent to IdP: A digital signature is
+    -   **Sign authorization request sent to IdP**: A digital signature is
         added to the request to verify its authenticity and integrity.
-1. Click **Next** and complete the setup.
+    -   **Extend active sessions**: This resets the session duration every time the token
+        is used.
+1. Optional: Select a user group to add all users who sign up with this IdP to.
+1. Optional: <LimitedBadge/> Enable user provisioning with Okta:
 
-If you saved your IdP as a draft, you can open the settings by clicking
-the name of the IdP.
+   1. Copy the **Base URL** and **Access token**.
+   1. Use the URL and token to configure
+      [user provisioning for Okta](/docs/platform/howto/okta-user-provisioning-with-scim)
+      with SCIM.
+
+1. Click **Finish** to complete the setup.
 
 :::note
 If you set up a SAML authentication method before and are now switching
@@ -90,7 +100,7 @@ manually using URLs:
 1. On the **Identity providers** page, click the name of the IdP.
 1. In the **Overview** section there are two URLs:
     -   **Signup URL**: Users that don't have an Aiven user account can
-        use this to create a new Aiven user linked to this IdP.
+        use this to create an Aiven user linked to this IdP.
     -   **User account link URL**: Users that already have an Aiven user
         account can link their existing Aiven user with this IdP.
 1. Send the appropriate URL to your organization users. If you set up a
@@ -98,29 +108,22 @@ manually using URLs:
     users need to log in with the new account link URL to finish the
     setup.
 
-When a user clicks on the link, they will be redirected to a page to
-link their Aiven user account with the IdP:
+The process for users to link their Aiven user account with the IdP varies for new and
+existing users.
 
--   For existing users that are already logged into the Aiven Console
-    1. Click **Link profile**. You are redirected to your
-        IdP's authentication page.
-    1. Once logged in to the provider, you will be redirected back to
-        the Aiven Console and the IdP is linked to your profile. You can
-        use the IdP for all future logins.
+-   For existing users that are already logged in to the Aiven Console
+    1. Click **Link profile** to go to your IdP's authentication page.
+    1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
 -   For existing users that are not logged into the Aiven Console
     1. Click **Login**.
-    1. On the login page of the Aiven Console, log in as usual. You are
-        redirected to your IdP's authentication page.
-    1. Once logged in to the provider, you are redirected back to the
-        Aiven Console and the IdP is linked to your profile. You can use
-        the IdP for all future logins.
+    1. Log in to the Aiven Console. You are redirected to your IdP's authentication page.
+    1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
+
 -   For new users without an Aiven user account
-    1. Click **Sign up**. You are redirected to your IdP's
-        authentication page.
-    1. Once logged in to the provider, you are redirected back to the
-        Aiven sign up page.
-    1. Complete the sign up process. The IdP is linked to your profile
-        and you can use it for all future logins.
+    1. Click **Sign up**. You are redirected to your IdP's authentication page.
+    1. Log in to the IdP.
+    1. Complete the sign up process in the Aiven Console. The IdP is automatically linked
+       to your Aiven user account and you can use it for all future logins.
 
 ## Troubleshooting
 

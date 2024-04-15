@@ -1,15 +1,9 @@
 ---
 title: Delete your AWS custom cloud in Aiven
+sidebar_label: Delete custom clouds
 ---
 
-Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven
-organizations, units, or projects.
-
-:::important
-Custom cloud configuration in Aiven is an
-[early availability feature](/docs/platform/concepts/beta_services). You cover the costs associated with building and
-maintaining your custom cloud payments for your integrated AWS infrastructure and Aiven services within the custom cloud.
-:::
+Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
 ## About deleting custom clouds
 
@@ -48,7 +42,7 @@ them earlier, you're advised to do that if deleting your cloud.
 1.  From the left sidebar, select **Bring your own cloud**.
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-1.  In the selected cloud's page, use the ellipsis (**...**) menu in
+1.  In the selected cloud's page, use the **Actions** menu in
     the top right corner to select **Delete**.
 1.  Make sure you understand the impact and, if so, confirm that you
     want to delete the cloud by selecting **Delete** in the **Warning**
@@ -65,7 +59,7 @@ the guidelines on how to use the `destroy` command in [Command:
 destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 :::
 
-## Check it out
+## Verify the update
 
 To ensure a cloud was successfully deleted:
 

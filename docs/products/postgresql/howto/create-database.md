@@ -9,7 +9,7 @@ data per application.
 To create a new PostgreSQL® database:
 
 1.  In the [Aiven Console](https://console.aiven.io/), on the
-    **Services** page, click on the Aiven for PostgreSQL service name
+    **Services** page, click the Aiven for PostgreSQL service name
     for which you want to create a new database.
 
 2.  In your service's page, select **Databases** from the sidebar.

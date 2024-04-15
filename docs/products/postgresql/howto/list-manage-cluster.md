@@ -2,7 +2,7 @@
 title: Cluster management
 ---
 
-- [Monitor a managed service](/docs/platform/howto/monitoring-services)
+- [Monitor a managed service](/docs/platform/howto/list-monitoring)
 - [Tag a managed service](/docs/platform/howto/tag-resources)
 - [Schedule maintenance updates](/docs/platform/howto/prepare-for-high-load)
 - [Resize a managed service](/docs/platform/howto/scale-services)

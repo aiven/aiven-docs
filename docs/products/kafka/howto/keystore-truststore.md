@@ -19,14 +19,14 @@ client that interacts with the service. To create these files:
     Certificate**. The files \"service.key\", \"service.cert\", and
     \"ca.pem\" are necessary for the following steps.
 
-    ![Access Key, Access Certificate, and CA Certificate download from Aiven Console](/images/products/kafka/ssl-certificates-download.png)
+    ![Access Key, Access Certificate, and CA Certificate download from Aiven Console](/images/content/products/kafka/ssl-certificates-download.png)
 
 ## Create the keystore
 
 -   Use the `openssl` utility to create a keystore using the downloaded
     `service.key` and `service.cert`:
 
-    ``` 
+    ```
     openssl pkcs12 -export      \
       -inkey service.key        \
       -in service.cert          \
@@ -45,7 +45,7 @@ client that interacts with the service. To create these files:
 -   In the directory containing the certificates, use the `keytool`
     utility to create a truststore with the `ca.pem` file:
 
-    ``` 
+    ```
     keytool -import            \
       -file ca.pem             \
       -alias CA                \

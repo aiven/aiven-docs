@@ -30,7 +30,7 @@ To access OpenSearch Dashboards, follow these steps:
 
 1.  On the **Overview** page of your Aiven for OpenSearch service, click
     **OpenSearch Dashboards**.
-2.  Copy or click on the Service URI to open OpenSearch Dashboards in
+2.  Copy or click the Service URI to open OpenSearch Dashboards in
     your browser.
 3.  Enter the username and password from the connection information
     screen when prompted.

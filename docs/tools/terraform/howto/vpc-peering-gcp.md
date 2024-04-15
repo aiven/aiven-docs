@@ -5,7 +5,7 @@ title: Set up Google Cloud Platform virtual network peering with Terraform
 This help article provides step-by-step instructions for setting up a
 VPC peering connection between Aiven and Google Cloud Platform (GCP)
 using Terraform. See the [Using VPC
-peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
+peering](/docs/platform/howto/manage-vpc-peering)
 article for how to set up a Project VPC.
 
 Before you start, make sure you have an Aiven authentication token and

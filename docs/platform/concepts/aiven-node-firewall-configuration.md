@@ -2,24 +2,24 @@
 title: Firewall configuration for service nodes
 ---
 
-Aiven nodes are built using Linux. Firewall configuration is managed
-using native Linux kernel-level iptables rules that limit connectivity
-to nodes. The iptables configuration is generated dynamically at runtime
-depending on service type, deployment parameters, and user preferences.
-Rules are updated when required; for example, when deploying multi-node
-clusters of services. Intra-node connections are limited to
-point-to-point connections to specific IP addresses. All traffic to
-ports that are not required for the service to function is rejected
-instead of dropped to avoid timeouts. Service ports that you can connect
-to depend on the service type and deployment type. The configuration can
-also affect the ports that are available:
+Aiven nodes are built using Linux. Firewall configuration is managed using native Linux kernel-level iptables rules that limit connectivity to nodes.
+
+The iptables configuration is generated dynamically at runtime depending on
+service type, deployment parameters, and user preferences. Rules are updated
+when required, for example, when deploying multi-node clusters of services.
+
+Intra-node connections are limited to point-to-point connections to specific IP
+addresses. All traffic to ports that are not required for the service to
+function is rejected instead of dropped to avoid timeouts. Service ports that
+you can connect to depend on the service type and deployment type. The
+configuration can also affect the ports that are available:
 
 -   Is the service in a public network,
     [dedicated VPC](/docs/platform/howto/manage-vpc-peering), virtual cloud account, or a
-    [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc) setup ?
--   Have you configured IP ranges in user_config.ip_filter?
+    [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc) setup?
+-   Have you configured IP ranges in `user_config.ip_filter`?
 -   Have you
-    [enabled public internet access for services in a VPC](/docs/platform/howto/public-access-in-vpc)?
+    [enabled public Internet access for services in a VPC](/docs/platform/howto/public-access-in-vpc)?
 
 ## Commonly opened ports
 

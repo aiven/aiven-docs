@@ -1,15 +1,17 @@
 ---
 title: Optimize Aiven for PostgreSQL® slow queries
+keywords: ["AI", "Artificial intelligence"]
 ---
 
 import Insights from "@site/static/images/icons/performance.svg";
 import ActionsIcon from "@site/static/images/icons/more.svg";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
 
-## Artificial intelligence recommendations
+## Artificial intelligence recommendations <EarlyBadge/>
 
-Use Aiven's artificial intelligence (AI) capabilities to suggest optimizations to
+Use Aiven's artificial intelligence (<abbr>AI</abbr>) capabilities to suggest optimizations to
 your databases and queries.
 
 Aiven considers various aspects to suggest optimization, for example query

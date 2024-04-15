@@ -74,7 +74,7 @@ Follow the instructions below for each operation:
     duplicate and select the icon next to their row.
 2.  Select **Duplicate user** from the options in the drop-down menu.
 3.  Enter a name for the new user in the **Duplicate user** screen.
-4.  Click on the **Add user** button to create a duplicate user.
+4.  Click the **Add user** button to create a duplicate user.
 
 ### Delete user
 
@@ -94,14 +94,14 @@ steps:
 2.  Create a user named `mynewuser` with read-only access to the
     `mykeys.*` keys using the following command:
 
-    ``` 
+    ```
     avn service user-create --project myproject myservicename --username mynewuser --redis-acl-keys 'mykeys.*' --redis-acl-commands '+get' --redis-acl-categories ''
     ```
 
 3.  Confirm the ACL is applied by connecting to the service using the
     new username and password:
 
-    ``` 
+    ```
     redis-cli --user mynewuser --pass ... --tls -h myservice-myproject.aivencloud.com -p 12719
 
     myservice-myproject.aivencloud.com:12719> get mykeys.hello

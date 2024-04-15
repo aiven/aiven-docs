@@ -10,7 +10,7 @@ You can customise this functionality by navigating to your PostgreSQL®
 service on the [Aiven Console](https://console.aiven.io/).
 
 From the sidebar on your service's page, select **Service settings**.
-On the **Service settings** page, navigate to the **Advanced
+On the **Service settings** page, go to the **Advanced
 configuration** section, and select **Configure** > **Add configuration
 options**. Next, you can select the `pg.log_line_prefix` parameter and a
 desired format based on a pre-fixed list.
@@ -41,7 +41,7 @@ output:
 
 After selecting one of the available log formats from the drop down
 menu, select **Save configuration** to have the change take effect. Once
-the setting has been enabled, you can navigate to the logs tab on your
+the setting has been enabled, you can go to the logs tab on your
 service page to check if the log format has been successfully changed.
 
 At the moment, the formats available are known to be compatible with
@@ -49,4 +49,4 @@ majority of the log analysis tools.
 
 For additional information on how to check the service logs, you can
 visit our
-[access service logs](/docs/platform/howto/access-service-logs) documentation.
+[access service logs](/docs/platform/howto/list-monitoring) documentation.

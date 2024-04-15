@@ -20,19 +20,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/free-plan',
         'platform/concepts/free-trial',
-        {
-          type: 'category',
-          label: 'Set up marketplace subscriptions',
-          link: {
-            type: 'doc',
-            id: 'marketplace-setup',
-          },
-          items: [
-            'platform/howto/billing-aws-marketplace-subscription',
-            'platform/howto/billing-azure-marketplace-subscription',
-            'platform/howto/billing-google-cloud-platform-marketplace-subscription',
-          ],
-        },
+        'marketplace-setup',
         'tools/aiven-console',
         'platform/concepts/beta_services',
         'platform/howto/feature-preview',
@@ -75,19 +63,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'platform/howto/manage-payment-card',
-            {
-              type: 'category',
-              label: 'Marketplace subscriptions',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/list-marketplace-payments',
-              },
-              items: [
-                'platform/howto/move-to-aws-marketplace-billing',
-                'platform/howto/move-to-azure-marketplace-billing',
-                'platform/howto/move-to-gcp-marketplace-billing',
-              ],
-            },
+            'platform/howto/list-marketplace-payments',
           ],
         },
         {
@@ -119,7 +95,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/howto/manage-org-users',
         'platform/howto/make-super-admin',
-        'platform/concepts/managed-users',
         'platform/concepts/application-users',
         'platform/howto/manage-application-users',
         'platform/howto/delete-user',
@@ -159,6 +134,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/howto/list-identity-providers',
           },
           items: [
+            'platform/concepts/managed-users',
             'platform/howto/manage-domains',
             'platform/howto/saml/add-identity-providers',
             'platform/howto/saml/add-auth0-idp',
@@ -167,6 +143,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/saml/add-google-idp',
             'platform/howto/saml/add-jumpcloud-idp',
             'platform/howto/saml/add-okta-idp',
+            'platform/howto/okta-user-provisioning-with-scim',
             'platform/howto/saml/add-onelogin-idp',
           ],
         },
@@ -195,29 +172,49 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-service',
       },
       items: [
+        {
+          type: 'category',
+          label: 'Concepts',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/concepts/service-resources',
+            'platform/concepts/service-memory-limits',
+            'platform/concepts/out-of-memory-conditions',
+            'platform/concepts/maintenance-window',
+            'platform/reference/eol-for-major-versions',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Migrations',
+          items: [
+            'platform/howto/migrate-services-cloud-region',
+            'platform/howto/migrate-services-vpc',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Service scaling',
+          link: {
+            type: 'generated-index',
+            description:
+              'Aiven offers the following features to scale your services.',
+            title: 'Service scaling',
+            slug: '/platform/concepts/service-scaling',
+          },
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+          ],
+        },
         'platform/howto/create_new_service',
+        'platform/concepts/service-power-cycle',
         'platform/howto/tag-resources',
         'platform/howto/search-services',
-        'platform/howto/recover-a-deleted-service',
         'platform/howto/create_new_service_user',
         'platform/concepts/service-forking',
-        'platform/concepts/service_backups',
-        'platform/concepts/service-power-cycle',
-        'platform/concepts/service-resources',
-        'platform/concepts/service-memory-limits',
-        'platform/concepts/out-of-memory-conditions',
         'platform/howto/prepare-for-high-load',
-        'platform/howto/scale-services',
-        'platform/concepts/dynamic-disk-sizing',
-        'platform/howto/disk-autoscaler',
-        'platform/howto/add-storage-space',
-        'platform/howto/access-service-logs',
-        'platform/howto/service-metrics',
-        'platform/howto/migrate-services-cloud-region',
-        'platform/howto/migrate-services-vpc',
-        'platform/reference/eol-for-major-versions',
-        'platform/concepts/maintenance-window',
-        'platform/concepts/choosing-timeseries-database',
       ],
     },
     {
@@ -228,8 +225,10 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-network',
       },
       items: [
+        'platform/concepts/cloud-security',
         'platform/reference/list_of_clouds',
         'platform/concepts/availability-zones',
+        'platform/concepts/enhanced-compliance-env',
         {
           type: 'category',
           label: 'Bring your own cloud',
@@ -246,28 +245,55 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/delete-custom-cloud',
           ],
         },
-        'platform/concepts/enhanced-compliance-env',
+        {
+          type: 'category',
+          label: 'VPCs',
+          link: {
+            type: 'generated-index',
+            slug: 'platform/vpc',
+          },
+          items: [
+            'platform/howto/manage-vpc-peering',
+            'platform/howto/public-access-in-vpc',
+            'platform/howto/vpc-peering-gcp',
+            'platform/howto/vpc-peering-aws',
+            'platform/howto/vnet-peering-azure',
+            'platform/howto/vpc-peering-upcloud',
+            'platform/howto/google-cloud-functions',
+            'platform/howto/attach-vpc-aws-tgw',
+            {
+              type: 'category',
+              label: 'Private link',
+              link: {
+                type: 'generated-index',
+                slug: 'platform/privatelink',
+              },
+              items: [
+                'platform/howto/use-aws-privatelinks',
+                'platform/howto/use-azure-privatelink',
+                'platform/howto/use-google-private-service-connect',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'IP addresses',
+          link: {
+            type: 'generated-index',
+            slug: 'platform/ip-addresses',
+          },
+          items: [
+            'platform/reference/service-ip-address',
+            'platform/concepts/static-ips',
+            'platform/howto/restrict-access',
+            'platform/howto/private-ip-resolution',
+          ],
+        },
         'platform/concepts/aiven-node-firewall-configuration',
-        'platform/concepts/cloud-security',
-        'platform/concepts/disaster-recovery-test-scenarios',
         'platform/concepts/tls-ssl-certificates',
-        'platform/howto/download-ca-cert',
-        'platform/howto/restrict-access',
-        'platform/howto/public-access-in-vpc',
-        'platform/concepts/static-ips',
-        'platform/reference/service-ip-address',
-        'platform/howto/static-ip-addresses',
-        'platform/howto/private-ip-resolution',
-        'platform/howto/attach-vpc-aws-tgw',
-        'platform/howto/manage-vpc-peering',
-        'platform/howto/vpc-peering-gcp',
-        'platform/howto/google-cloud-functions',
-        'platform/howto/vpc-peering-aws',
-        'platform/howto/vnet-peering-azure',
-        'platform/howto/vpc-peering-upcloud',
-        'platform/howto/use-aws-privatelinks',
-        'platform/howto/use-azure-privatelink',
-        'platform/howto/use-google-private-service-connect',
+
+        'platform/concepts/disaster-recovery-test-scenarios',
       ],
     },
     {
@@ -278,75 +304,82 @@ const sidebars: SidebarsConfig = {
         id: 'platform/howto/list-monitoring',
       },
       items: [
-        'platform/howto/monitoring-services',
-        'platform/concepts/logs-metrics-alerts',
-        'tutorials/anomaly-detection',
         {
           type: 'category',
-          label: 'Amazon CloudWatch and Aiven',
+          label: 'Metric and log integrations',
           link: {
-            type: 'doc',
-            id: 'integrations/cloudwatch',
+            type: 'generated-index',
+            slug: 'platform/howto/metrics-integrations',
           },
           items: [
-            'integrations/cloudwatch/cloudwatch-metrics',
+            {
+              type: 'category',
+              label: 'Amazon CloudWatch',
+              link: {
+                type: 'doc',
+                id: 'integrations/cloudwatch',
+              },
+              items: [
+                'integrations/cloudwatch/cloudwatch-metrics',
+                {
+                  type: 'category',
+                  label: 'CloudWatch logs',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
+                  },
+                  items: [
+                    'integrations/cloudwatch/cloudwatch-logs-console',
+                    'integrations/cloudwatch/cloudwatch-logs-cli',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Datadog',
+              link: {
+                type: 'doc',
+                id: 'integrations/datadog',
+              },
+              items: [
+                'integrations/datadog/datadog-metrics',
+                'platform/howto/integrations/datadog-increase-metrics-limit',
+                'integrations/datadog/datadog-logs',
+                'integrations/datadog/add-custom-tags-to-datadog',
+              ],
+            },
+            'integrations/send-logs-to-elasticsearch',
+            'integrations/cloudlogging',
+            'integrations/google-bigquery',
+            {
+              type: 'category',
+              label: 'Remote Syslog',
+              link: {
+                type: 'doc',
+                id: 'integrations/rsyslog',
+              },
+              items: [
+                'integrations/rsyslog/logtail',
+                'integrations/rsyslog/loggly',
+              ],
+            },
+            'platform/howto/integrations/access-jmx-metrics-jolokia',
 
             {
               type: 'category',
-              label: 'CloudWatch logs',
+              label: 'Prometheus',
               link: {
+                id: 'platform/howto/integrations/prometheus-metrics',
                 type: 'doc',
-                id: 'integrations/cloudwatch/list-cloudwatch-logs',
               },
-              items: [
-                'integrations/cloudwatch/cloudwatch-logs-console',
-                'integrations/cloudwatch/cloudwatch-logs-cli',
-              ],
+              items: ['integrations/prometheus-system-metrics'],
             },
           ],
         },
-        {
-          type: 'category',
-          label: 'Datadog and Aiven',
-          link: {
-            type: 'doc',
-            id: 'integrations/datadog',
-          },
-          items: [
-            'integrations/datadog/datadog-metrics',
-            'platform/howto/integrations/datadog-increase-metrics-limit',
-            'integrations/datadog/datadog-logs',
-            'integrations/datadog/add-custom-tags-to-datadog',
-          ],
-        },
-        'integrations/send-logs-to-elasticsearch',
-        'integrations/cloudlogging',
-        'integrations/google-bigquery',
-        {
-          type: 'category',
-          label: 'Remote Syslog',
-          link: {
-            type: 'doc',
-            id: 'integrations/rsyslog',
-          },
-          items: [
-            'integrations/rsyslog/logtail',
-            'integrations/rsyslog/loggly',
-          ],
-        },
-        'platform/howto/integrations/access-jmx-metrics-jolokia',
-
-        {
-          type: 'category',
-          label: 'Prometheus',
-          link: {
-            id: 'platform/howto/integrations/prometheus-metrics',
-            type: 'doc',
-          },
-          items: ['integrations/prometheus-system-metrics'],
-        },
       ],
     },
+
     {
       type: 'category',
       label: 'Integrations',
@@ -428,8 +461,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'tools/terraform/get-started',
-            'tools/terraform/concepts/data-sources',
-            'tools/terraform/howto/terraform-logging',
             'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/promote-to-master-pg-rr',
             'tools/terraform/howto/config-postgresql-provider',
@@ -909,9 +940,9 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/karapace/howto/enable-karapace',
                     'products/kafka/karapace/howto/enable-schema-registry-authorization',
+                    'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
                     'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                     'products/kafka/karapace/howto/manage-schema-registry-authorization',
-                    'products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization',
                   ],
                 },
               ],
@@ -1335,6 +1366,7 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/dragonfly/howto/eviction-policy-df',
+                'products/dragonfly/howto/compatibility-redisjson',
               ],
             },
             {

@@ -2,6 +2,9 @@
 title: Send logs to AWS CloudWatch from Aiven web console
 ---
 
+import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
+import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+
 Send your Aiven service logs to the AWS CloudWatch using the [Aiven web console](https://console.aiven.io).
 
 ## Prerequisites
@@ -9,18 +12,17 @@ Send your Aiven service logs to the AWS CloudWatch using the [Aiven web console]
 -   An AWS account, and which region it is in.
 -   An Aiven account with a service running.
 -   An AWS Access Key and Secret Key. Generate the credentials by
-    visiting **IAM dashboard** then click in **Users**, open the
+    visiting **IAM dashboard** then click **Users**, open the
     **Security credentials** tab, and choose **Create access key**.
-    Click on **Download** and keep them for a later instruction.
+    Click **Download** and keep them for a later instruction.
 
 ## Configure the integration
 
 Start by configuring the link between the Aiven service and the AWS
 CloudWatch. This setup only needs to be done once.
 
-1.  Select **Integration endpoints** in the [Aiven
-    Console](https://console.aiven.io/), then choose **AWS CloudWatch
-    Logs**.
+1.  Select <IntegrationsIcon className="icon"/> **Integration endpoints** in
+    the [Aiven Console](https://console.aiven.io/), then choose **AWS CloudWatch Logs**.
 1.  Select **Add new endpoint** or **Create new**.
 1.  Configure the settings for the new endpoint:
     -   **Endpoint name** is how you will refer to this logs integration
@@ -34,11 +36,8 @@ CloudWatch. This setup only needs to be done once.
 
 ## Send logs from an Aiven service to AWS CloudWatch
 
-1.  On the **Overview** page of your service, select **Integrations**
+1.  In your service, select <ServiceIntegrationsIcon className="icon"/> **Integrations**
     and choose the **Amazon CloudWatch Logs** option.
-
-    ![Screenshot of system integrations including AWS CloudWatch Logs](/images/integrations/cloudwatch-overview-integrations.png)
-
 1.  Pick the endpoint by the **Endpoint name** you created earlier from
     the dropdown and choose **Enable**.
 1.  Visit your AWS account and look under **CloudWatch** and explore the

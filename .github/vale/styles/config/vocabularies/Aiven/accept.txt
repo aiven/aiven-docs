@@ -137,6 +137,7 @@ java_lang_Memory
 JMX
 JobManager
 Jolokia
+jq
 json
 JumpCloud
 JVM's

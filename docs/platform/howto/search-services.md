@@ -1,10 +1,13 @@
 ---
-title: Search for services in Aiven Console
+title: Search for services
 ---
 
-On the **Services** page in [Aiven Console](https://console.aiven.io/),
-you can search for services by keywords and narrow down the results
-using filters.
+import Services from "@site/static/images/icons/database.svg";
+import Filter from "@site/static/images/icons/settings.svg";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+On the <Services className="icon"/> **Services** page in [Aiven Console](https://console.aiven.io/), you can search for services by keywords and narrow down the results using filters.
 
 ## Search by keyword
 
@@ -12,38 +15,40 @@ When you search by keyword, [Aiven Console](https://console.aiven.io/)
 shows all services that have the matching words in the service name,
 plan, cloud provider, and tags.
 
-## Filter search results
+## Filter search results with the UI
 
-You can narrow down your search results by selecting **Filter list** and
-selecting the services, statuses, and providers to filter by.
+To filter search results:
 
-You can also add filters to the search field yourself. The supported
-filters are the following:
+1. Click <Filter className="icon"/> **Filter list**.
+1. Select the filters of your choice.
+
+## Filter with a query
+
+You can type filter queries. The supported filters are the following:
 
 -   `service`
 -   `status`
 -   `provider`
 -   `region`
 
-You can add multiple values to filters separated by a comma. For
-example, this is how you would view all running PostgreSQL® services
-that are hosted on AWS or Google Cloud:
+Use several filters by separating them by a comma.
+You can use these filters alongside keyword searches.
 
-```
+:::note[Examples]
+
+```text title="All running PostgreSQL® services that are hosted on AWS or Google Cloud"
 service:pg status:running provider:aws,google
 ```
 
-You can use these filters alongside keyword searches. For example, to
-see all powered off Kafka® services with *production* in the name. Example output:
-
-```
+```text title="All powered off Kafka® services with 'production' in the name"
 production service:kafka status:poweroff
 ```
 
+:::
+
 ### Filter by service type
 
-To filter the services by service type, use the filter values in this
-table.
+To filter the services by service type, use these filter values:
 
 | Service name                | Filter value    |
 | --------------------------- | --------------- |
@@ -66,8 +71,9 @@ table.
 ### Filter by status
 
 You can filter the services to show only those that are running, powered
-off, rebuilding, or rebalancing. The values supported for the `status`
-filter are the following:
+off, rebuilding, or rebalancing.
+
+Supported `status` values:
 
 -   `running`
 -   `poweroff`
@@ -76,24 +82,26 @@ filter are the following:
 
 ### Filter by cloud provider
 
-To filter the services by the cloud provider they are hosted on, use the
-filter values in this table.
+To filter the services by the cloud provider they are hosted on, use these filter values:
 
- | Cloud provider              | Filter value |
- | --------------------------- | ------------ |
- | Amazon Web Services (AWS)   | `aws`        |
- | Azure                       | `azure`      |
- | Digital Ocean               | `do`         |
- | Google Cloud Provider (GCP) | `google`     |
- | UpCloud                     | `upcloud`    |
+| Cloud provider              | Filter value |
+| --------------------------- | ------------ |
+| Amazon Web Services (AWS)   | `aws`        |
+| Azure                       | `azure`      |
+| Digital Ocean               | `do`         |
+| Google Cloud Provider (GCP) | `google`     |
+| UpCloud                     | `upcloud`    |
 
 ### Filter by cloud region
 
-Find the supported values for the `region` filter in the *Cloud* column
+Find the supported values for the `region` filter in the **Cloud** column
 of the tables in
-[List of available cloud regions](/docs/platform/reference/list_of_clouds). For example, to see all services in the AWS `eu-central-1`
-region, you use this filter:
+[List of available cloud regions](/docs/platform/reference/list_of_clouds).
 
-```
+:::note[Example]
+
+```text title="All services in the AWS 'eu-central-1' region"
 region:aws-eu-central-1
 ```
+
+:::

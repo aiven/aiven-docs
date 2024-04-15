@@ -35,3 +35,27 @@
 /platform/concepts/list-billing                       https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/howto/list-billing-groups                   https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                             https://aiven.io/docs/platform/concepts/byoc
+/products/postgresql/reference/list-of-advanced-params https://aiven.io/docs/products/postgresql/reference/advanced-params
+/products/mysql/reference/list-of-advanced-params      https://aiven.io/docs/products/mysql/reference/advanced-params
+/platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
+/platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
+/platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
+/platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/service-metrics                        https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/monitoring-services                    https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
+/tutorials/anomaly-detection                           https://aiven.io/developer
+/platform/howto/download-ca-cert                       https://aiven.io/docs/platform/concepts/tls-ssl-certificates
+/platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
+/tools/terraform/concepts/data-sources                 https://aiven.io/docs/tools/terraform
+/tools/terraform/howto/terraform-logging               https://aiven.io/docs/tools/terraform
+
+/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   https://aiven.io/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
+
+/platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
+/platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
+/platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
+/platform/howto/move-to-azure-marketplace-billing      https://aiven.io/docs/platform/howto/list-marketplace-payments
+/platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
+/platform/howto/move-to-aws-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
+

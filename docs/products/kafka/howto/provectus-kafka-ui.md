@@ -37,13 +37,13 @@ the following steps (see example commands below):
 
 1.  Create separate directory for secrets:
 
-    ``` 
+    ```
     mkdir SSL_STORE_FOLDER
     ```
 
 2.  Restrict the directory to current user:
 
-    ``` 
+    ```
     chmod 700 SSL_STORE_FOLDER
     ```
 
@@ -51,13 +51,13 @@ the following steps (see example commands below):
     `SSL_TRUSTSTORE_FILE_NAME` with the keystores and truststores file
     names):
 
-    ``` 
+    ```
     cp SSL_KEYSTORE_FILE_NAME SSL_TRUSTSTORE_FILE_NAME SSL_STORE_FOLDER
     ```
 
 4.  Give read permissions for secret files for everyone:
 
-    ``` 
+    ```
     chmod +r SSL_STORE_FOLDER/*
     ```
 
@@ -74,7 +74,7 @@ with the following command, by replacing the placeholders for:
 -   `SSL_TRUSTSTORE_FILE_NAME`
 -   `SSL_TRUSTSTORE_PASSWORD`
 
-``` 
+```
 docker run -p 8080:8080 \
     -v SSL_STORE_FOLDER/SSL_TRUSTSTORE_FILE_NAME:/client.truststore.jks:ro \
     -v SSL_STORE_FOLDER/SSL_KEYSTORE_FILE_NAME:/client.keystore.p12:ro \
@@ -93,4 +93,4 @@ docker run -p 8080:8080 \
 Once Provectus® UI for Apache Kafka® starts, you should be able to
 access it at `localhost:8080`.
 
-![Provectus in action](/images/products/kafka/provectus-ui.jpg)
+![Provectus in action](/images/content/products/kafka/provectus-ui.jpg)

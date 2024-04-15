@@ -69,7 +69,7 @@ service:
 Read through the guidelines on the Redis migration wizard and select
 **Get started** to proceed with the database migration.
 
-![Screenshot of the database migration wizard](/images/products/redis/redis-db-migration-get-started.png)
+![Screenshot of the database migration wizard](/images/content/products/redis/redis-db-migration-get-started.png)
 
 ### Step 2: Validation
 
@@ -89,14 +89,14 @@ Read through the guidelines on the Redis migration wizard and select
     returns any warning, resolve the issues before proceeding with the
     migration process.
 
-    ![Connect to database](/images/products/redis/redis-migration-validation.png)
+    ![Connect to database](/images/content/products/redis/redis-migration-validation.png)
 
 ### Step 3: Migration
 
 On the **Database migration** screen, select **Start Migration** to
 begin the migration.
 
-![Start database migration](/images/products/redis/redis-start-migration.png)
+![Start database migration](/images/content/products/redis/redis-start-migration.png)
 
 While the migration is in progress, you can
 
@@ -134,7 +134,7 @@ can choose one of the following options:
     wish to maintain the connection open for continuous data
     synchronization.
 
-    ![Close database connection](/images/products/redis/redis-migration-complete.png)
+    ![Close database connection](/images/content/products/redis/redis-migration-complete.png)
 
 :::note[Replication mode active?]
 Your data has been successfully migrated to the designated Aiven for
