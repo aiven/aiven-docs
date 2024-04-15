@@ -5,6 +5,9 @@ sidebar_label: Get started
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CogIcon from "@site/static/images/icons/cog.svg";
+import DashboardIcon from "@site/static/images/icons/speedometer.svg";
+import DatabaseIcon from "@site/static/images/icons/database.svg";
 
 Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
@@ -101,18 +104,46 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
 Configure your service if the default service setup doesn't meet your needs.
 
-Select the new service from the list of services on the **Services** page.
-On the **Overview** page, select **Service settings** from the sidebar.
-In the **Advanced configuration** section, make changes to the service
+<Tabs groupId="group1">
+<TabItem value="1" label="Console" default>
+1. Select the new service from the list of services on
+   the <DatabaseIcon className="icon"/> **Services** page.
+1. On the <DashboardIcon className="icon"/> **Overview** page, select <CogIcon className="icon"/>
+   **Service settings** from the sidebar.
+1. In the **Advanced configuration** section, make changes to the service
 configuration.
+</TabItem>
+<TabItem value="2" label="Terraform">
+
+</TabItem>
+</Tabs>
 
 See the available configuration options in
 [Advanced parameters for Aiven for PostgreSQL](/docs/products/postgresql/reference/advanced-params).
 
 ## Connect to the service
 
+<Tabs groupId="group1">
+<TabItem value="psql" label="psql" default>
 [Connect to your new service](/docs/products/postgresql/howto/connect-psql) with, for
 example, [psql](https://www.postgresql.org/download/) CLI tool.
+</TabItem>
+<TabItem value="Terraform" label="Terraform">
+
+Access your new service with ``psql`` using the ``postgresql_service_uri`` output you
+received after runing ``terraform apply --auto-approve``.
+
+```sql
+psql "$(terraform output -raw postgresql_service_uri)"
+psql (13.2)
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+defaultdb=>
+```
+
+</TabItem>
+</Tabs>
 
 :::tip
 Check more tools for connecting to Aiven for PostgreSQL in
