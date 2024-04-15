@@ -49,9 +49,13 @@
 /platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
 /tools/terraform/concepts/data-sources                 https://aiven.io/docs/tools/terraform
 /tools/terraform/howto/terraform-logging               https://aiven.io/docs/tools/terraform
+
+/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   https://aiven.io/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
+
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/move-to-azure-marketplace-billing      https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-aws-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
+
