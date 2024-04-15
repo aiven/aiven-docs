@@ -2,7 +2,7 @@
 title: HowTo
 ---
 
-Get started with Aiven for Metrics in your own projects.
+Discover step-by-step procedures to optimize the use of Aiven for Metrics in your projects.
 
 import DocCardList from '@theme/DocCardList';
 
