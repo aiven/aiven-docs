@@ -5,7 +5,13 @@ sidebar_label: Get started
 
 Get started with Aiven for Metrics by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
-## Create a service using the Aiven Console
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Create a service
+
+<Tabs groupId="setup">
+<TabItem value="Console" label="Console" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 2. [Create a Metrics service](/docs/platform/howto/create_new_service).
@@ -14,7 +20,8 @@ Once the service is ready, the status changes to *Running*. Depending on
 your selected cloud provider and region, this generally takes a couple
 of minutes.
 
-## Create a service using the Aiven CLI
+</TabItem>
+<TabItem value="CLI" label="CLI">
 
 The [Aiven CLI](https://github.com/aiven/aiven-client) provides a simple and
 efficient way to create an Aiven for Metrics service. If you prefer
