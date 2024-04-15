@@ -15,7 +15,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 - [Terraform installed](https://developer.hashicorp.com/terraform/install) if you prefer
   to get started using code
 
-## Set up a service
+## Create a service
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
@@ -97,19 +97,17 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 </TabItem>
 </Tabs>
 
-<details>
-  <summary>Configure your service if the default service setup doesn't meet your needs.</summary>
-  <div>
-    <ol>
-      <li>Select the new service from the list of services on the **Services** page.</li>
-      <li>On the **Overview** page, select **Service settings** from the sidebar.</li>
-      <li>In the **Advanced configuration** section, make changes to the service
-      configuration.</li>
-    </ol>
-    <div>See the available configuration options in [Advanced parameters for Aiven for
-    PostgreSQL](/docs/products/postgresql/reference/advanced-params).</div>
-  </div>
-</details>
+## Configure a service
+
+Configure your service if the default service setup doesn't meet your needs.
+
+Select the new service from the list of services on the **Services** page.
+On the **Overview** page, select **Service settings** from the sidebar.
+In the **Advanced configuration** section, make changes to the service
+configuration.
+
+See the available configuration options in
+[Advanced parameters for Aiven for PostgreSQL](/docs/products/postgresql/reference/advanced-params).
 
 ## Connect to the service
 
