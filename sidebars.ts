@@ -1516,6 +1516,7 @@ const sidebars: SidebarsConfig = {
             id: 'products/metrics',
           },
           items: [
+            'products/metrics/get-started',
             {
               type: 'category',
               label: 'Concepts',
