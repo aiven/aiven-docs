@@ -19,7 +19,7 @@ Aiven for Metrics incorporates several core Thanos components:
   and downsampling data stored in object storage, improving performance and
   reducing costs.
 - **Thanos Query Frontend**: Caches query results and splits large queries into
-smaller sub-queries for efficient execution across multiple Thanos Query instances.
+  smaller sub-queries for efficient execution across multiple Thanos Query instances.
 
 ## Unified cluster architecture
 
