@@ -770,6 +770,7 @@ const sidebars: SidebarsConfig = {
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
+                        'products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg',
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-mysql',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server',
