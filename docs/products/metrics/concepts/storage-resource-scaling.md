@@ -12,7 +12,7 @@ The primary storage for metrics and metadata, offering scalability and cost-effe
 for long-term retention. Aiven manages this infrastructure, ensuring data security
 and reliability. Metrics are uploaded to object storage at regular intervals
 (typically every 2 hours) for historical analysis and remain accessible for
- queries, ensuring continuous data availability for real-time decision-making.
+queries, ensuring continuous data availability for real-time decision-making.
 
 ### Disk storage
 
