@@ -20,6 +20,7 @@ DDS is available for the following services:
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for Apache Cassandra®
+- Aiven for Metrics®
 - Aiven for M3DB®
 
 DDS is not supported on custom plans.
