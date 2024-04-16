@@ -15,13 +15,13 @@ Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for MySQL® service
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and navigate to your organization
    \> project > Aiven for MySQL service.
-1. On the service **Overview** page, select **Quick connect**.
-1. In the **Connect** window
+1. On the service **Overview** page, click **Quick connect**.
+1. In the **Connect** window:
 
    1. Choose to connect with Java using the **Connect with**
       dropdown menu.
    1. Copy the generated JDBC URI.
-   1. Select **Done**.
+   1. Click **Done**.
 
 ## Connect to JDBC URI from DBeaver
 
@@ -31,14 +31,14 @@ Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for MySQL® service
 1. In the **Connection Settings** window > **Main** tab > **Server** section,
    choose to connect with URL and paste the URI copied from the
    [Aiven Console](https://console.aiven.io/).
-1. Select **Finish** to create and save the connection.
+1. Click **Finish** to create and save the connection.
 
 The connection to your Aiven for MySQL service has been established and is visible in
 DBeaver > **Database Navigator**.
 
 ## Related pages
 
-- [Connect to Aiven for MySQL](/docs/products/mysql/howto/list-code-samples) for
-more tools you can use for connecting to your service
+- [Connect to Aiven for MySQL](/docs/products/mysql/howto/list-code-samples) for more
+  tools you can use for connecting to your service
 - [DBeaver](https://dbeaver.com/)
 - [DBeaver Community](https://dbeaver.io/)

@@ -3,8 +3,7 @@ title: Connect to Aiven for MySQL® with DataGrip
 sidebar_label: Connect with DataGrip
 ---
 
-Use [DataGrip](https://www.jetbrains.com/datagrip/) to connect to your Aiven for
-MySQL® service.
+Use [DataGrip](https://www.jetbrains.com/datagrip/) to connect to your Aiven for MySQL® service.
 
 ## Prerequisites
 
@@ -16,13 +15,13 @@ MySQL® service.
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and navigate to your organization
    \> project > Aiven for MySQL service.
-1. On the service **Overview** page, select **Quick connect**.
-1. In the **Connect** window
+1. On the service **Overview** page, click **Quick connect**.
+1. In the **Connect** window:
 
    1. Choose to connect with Java using the **Connect with**
       dropdown menu.
    1. Copy the generated JDBC URI.
-   1. Select **Done**.
+   1. Click **Done**.
 
 ## Connect to JDBC URI from DataGrip
 
@@ -30,14 +29,14 @@ MySQL® service.
    **MySQL** from the top navigation menu.
 1. In the **Data Sources and Drivers** window > **General** tab, paste the URI copied from
    the [Aiven Console](https://console.aiven.io/).
-1. Select **OK** to create and save the connection.
+1. Click **OK** to create and save the connection.
 
 The connection to your Aiven for MySQL service has been established and is visible in
 DataGrip > **Database Explorer**.
 
 ## Related pages
 
-- [Connect to Aiven for MySQL](/docs/products/mysql/howto/list-code-samples) for
-more tools you can use for connecting to your service
+- [Connect to Aiven for MySQL](/docs/products/mysql/howto/list-code-samples) for more
+  tools you can use for connecting to your service
 - [DataGrip](https://www.jetbrains.com/datagrip/)
 - [DataGrip download](https://www.jetbrains.com/datagrip/download/)
