@@ -22,7 +22,7 @@ and [if it doesn't](#create-the-integration-and-enable-monitoring).
 Enable monitoring PgBouncer metrics for an Aiven for PostgreSQL service that already
 has a Datadog Metrics integration:
 
-1. Obtain the SERVICE_INTEGRATION_ID of the Datadog Metrics integration for your Aiven for
+1. Obtain the `SERVICE_INTEGRATION_ID` of the Datadog Metrics integration for your Aiven for
    PostgreSQL service by running the
    [avn service integration-list](/docs/tools/cli/service/integration#avn_service_integration_list)
    command:
@@ -32,8 +32,8 @@ has a Datadog Metrics integration:
       --project PROJECT_NAME
    ```
 
-1. To enable PgBouncer monitoring in Datadog, set up the ``datadog_pgbouncer_enabled``
-   parameter to ``true``:
+1. To enable PgBouncer monitoring in Datadog, set up the `datadog_pgbouncer_enabled`
+   parameter to `true`:
 
    ```bash
    avn service integration-update SERVICE_INTEGRATION_ID \
@@ -60,7 +60,7 @@ Replace INTEGRATION_CREATE_PARAMETERS with [the parameters required to create th
 
 ## Verify the changes
 
-Check that the ``datadog_pgbouncer_enabled`` user-config is set correctly:
+Check that the `datadog_pgbouncer_enabled` user-config is set correctly:
 
 ```bash
 avn service integration-list SERVICE_NAME \
@@ -68,8 +68,8 @@ avn service integration-list SERVICE_NAME \
    --json | jq '.[] | select(.integration_type=="datadog").user_config'
 ```
 
-Expect the following output confirming that ``datadog_pgbouncer_enabled`` is set to
-``true``:
+Expect the following output confirming that `datadog_pgbouncer_enabled` is set to
+`true`:
 
 ```bash
 {
