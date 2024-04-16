@@ -32,7 +32,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``provider.tf``, where you specify the version in the ``required_providers`` block
 
-      ```json
+      ```hcl
         terraform {
           required_providers {
             aiven = {
@@ -49,7 +49,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``postgresql.tf``, where you include the ``aiven_pg`` resource
 
-      ```json
+      ```hcl
         resource "aiven_pg" "pg" {
           project                = data.aiven_project.my_project.project
           service_name           = "postgresql"
@@ -65,7 +65,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``variables.tf``, where you declare the API token and project name variables
 
-      ```json
+      ```hcl
       variable "aiven_api_token" {
         description = "Aiven console API token"
         type        = string
@@ -79,7 +79,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
    - ``terraform.tfvars``, where you add the Aiven access token and project name
 
-      ```json
+      ```hcl
         aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
         project_name    = "AIVEN_PROJECT_NAME"
         admin_username  = "YOUR_SERVICE_USERNAME"
@@ -108,7 +108,7 @@ configuration.
 
 Configure service parameters by updating the ``aiven_pg`` resource, for example:
 
-```json
+```hcl
 resource "aiven_pg" "pg" {
   project                = data.aiven_project.my_project.project
   service_name           = "postgresql"
@@ -171,7 +171,7 @@ See the available configuration options in
 ## Connect to the service
 
 <Tabs groupId="group1">
-<TabItem value="Console" label="Console" default>
+<TabItem value="1" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for PostgreSQL service.
 1. On the <DashboardIcon className="icon"/> **Overview** page of your service, click
@@ -184,11 +184,7 @@ See the available configuration options in
    ```
 
 </TabItem>
-<TabItem value="psql" label="psql" default>
-[Connect to your new service](/docs/products/postgresql/howto/connect-psql) with
-[psql](https://www.postgresql.org/download/) CLI tool.
-</TabItem>
-<TabItem value="Terraform" label="Terraform">
+<TabItem value="2" label="Terraform">
 
 Access your new service with ``psql`` using the ``postgresql_service_uri`` output you
 received after running ``terraform apply --auto-approve``.
@@ -202,6 +198,10 @@ Type "help" for help.
 defaultdb=>
 ```
 
+</TabItem>
+<TabItem value="3" label="psql">
+[Connect to your new service](/docs/products/postgresql/howto/connect-psql) with
+[psql](https://www.postgresql.org/download/) CLI tool.
 </TabItem>
 </Tabs>
 
