@@ -1525,12 +1525,19 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/metrics/concepts/metrics-overview',
-                'products/metrics/concepts/retention-rules',
                 'products/metrics/concepts/storage-resource-scaling',
                 // Add the paths for your two topics here
               ],
             },
-            // Since there are no other contents yet, other sections are not included
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/howto',
+              },
+              items: ['products/metrics/howto/storage-usage'],
+            },
           ],
         },
         {
