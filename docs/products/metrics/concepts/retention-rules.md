@@ -1,6 +1,6 @@
 ---
 title: Retention rules in Aiven for Metrics
-side_label: Retention rules
+sidebar_label: Retention rules
 ---
 Retention rules in Aiven for Metrics® define how long your metrics data is stored.
 

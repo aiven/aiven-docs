@@ -1528,7 +1528,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/metrics/concepts/metrics-overview',
                 'products/metrics/concepts/storage-resource-scaling',
-                // Add the paths for your two topics here
+                'products/metrics/concepts/retention-rules',
               ],
             },
             {
