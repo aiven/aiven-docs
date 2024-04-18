@@ -1,7 +1,6 @@
 ---
 title: Add a backup to another region
 sidebar_label: Add cross-region backup
-enterprise: true
 ---
 
 Enable [the backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) and create an additional cross-region service backup on top of a regular backup stored in the region where your service is hosted.

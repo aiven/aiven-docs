@@ -1,7 +1,6 @@
 ---
 title: About backup to another region for Aiven services
 sidebar_label: About backup to another region
-enterprise: true
 ---
 
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
