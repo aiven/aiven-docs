@@ -59,6 +59,7 @@ Datagen
 datasource
 Datastax
 datastore
+DBeaver
 DBMS
 DBMSs
 deallocation

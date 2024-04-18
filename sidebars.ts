@@ -1591,6 +1591,8 @@ const sidebars: SidebarsConfig = {
                     'products/mysql/howto/connect-with-java',
                     'products/mysql/howto/connect-with-php',
                     'products/mysql/howto/connect-from-mysql-workbench',
+                    'products/mysql/howto/connect-with-datagrip',
+                    'products/mysql/howto/connect-with-dbeaver',
                   ],
                 },
                 {
