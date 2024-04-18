@@ -208,6 +208,16 @@ const sidebars: SidebarsConfig = {
             'platform/howto/disk-autoscaler',
           ],
         },
+        {
+          type: 'category',
+          label: 'Backup to another region',
+          items: [
+            'platform/concepts/backup-to-another-region',
+            'platform/howto/btar/enable-backup-to-another-region',
+            'platform/howto/btar/manage-backup-to-another-region',
+            'platform/howto/btar/disable-backup-to-another-region',
+          ],
+        },
         'platform/howto/create_new_service',
         'platform/concepts/service-power-cycle',
         'platform/howto/tag-resources',
