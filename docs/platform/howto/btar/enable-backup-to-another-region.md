@@ -10,7 +10,7 @@ BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL®.
 :::
 
 To add an additional service backup for your service, you can use the Aiven
-[console](#enable-btar-console), [CLI](#enable-btar-cli), or [API](#enable-btar-api).
+[Console](#enable-btar-console), [CLI](#enable-btar-cli), or [API](#enable-btar-api).
 
 ## Prerequisites
 
