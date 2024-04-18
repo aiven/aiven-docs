@@ -72,7 +72,7 @@ As output, you get metrics including replication lags at specific points in time
 
 You can use the [Aiven Console](https://console.aiven.io/) to recover your service from a
 backup in another region. To restore your service using BTAR,
-[create a fork](/docs/platform/howto/console-fork-service) of the original service in the
+[create a fork](/docs/platform/concepts/service-forking) of the original service in the
 region where the secondary backup resides.
 
 :::note

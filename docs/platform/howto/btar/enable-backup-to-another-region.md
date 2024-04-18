@@ -29,8 +29,8 @@ To add an additional service backup for your service, you can use the Aiven
 1. On your service's page, select **Backups** from the sidebar.
 1. On the **Backups** page, select the actions (**...**) menu > **Secondary backup
    location**.
-1. In the **Secondary backup location** window, use the **Secondary location** dropdown
-   menu to select a region for your additional backup. Confirm your choice by selecting
+1. In the **Secondary backup location** window, use the **Secondary location** menu to
+   select a region for your additional backup. Confirm your choice by selecting
    **Enable**.
 
    :::tip
