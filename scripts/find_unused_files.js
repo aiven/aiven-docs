@@ -6,16 +6,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const PATH_DOCS_REPO = process.env.PATH_DOCS_REPO;
+const scriptDir = __dirname;
+const PATH_DOCS = path.join(scriptDir, '..');
 
-if (!PATH_DOCS_REPO) {
+if (!PATH_DOCS) {
   console.error(
-    'Please provide a documentation folder path using the PATH_DOCS_REPO environment variable.',
+    'Please provide a documentation folder path using the PATH_DOCS environment variable.',
   );
   process.exit(1);
 }
 
-const PATH_SIDEBAR_TS = path.join(PATH_DOCS_REPO, 'sidebars.ts');
+const PATH_SIDEBAR_TS = path.join(PATH_DOCS, 'sidebars.ts');
 
 if (!fs.existsSync(PATH_SIDEBAR_TS)) {
   console.error(
@@ -28,7 +29,7 @@ const sidebarContent = fs.readFileSync(PATH_SIDEBAR_TS, 'utf8');
 const ids = extractIds(sidebarContent);
 
 const files = {};
-const DOCS_FOLDER = path.join(PATH_DOCS_REPO, 'docs');
+const DOCS_FOLDER = path.join(PATH_DOCS, 'docs');
 browseDocsFolder(DOCS_FOLDER);
 
 // Compare ids array and files dictionary
