@@ -15,9 +15,15 @@ To add an additional service backup for your service, you can use the Aiven
 
 ## Prerequisites
 
-- [Aiven Enterprise](/docs/platform/howto/aiven-enterprise) enabled
+- Aiven Enterprise enabled
+
+  :::note
+  To enable Aiven Enterprise for your organization,
+  [contact the sales team](mailto:sales@aiven.io).
+  :::
+
 - At least one running Aiven for MySQL® or Aiven for PostgreSQL® service
-- Depending on the tool you choose to use for enabling BTAR
+- Depending on the tool you choose to enable BTAR with:
 
   - Access to the [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI client](/docs/tools/cli)

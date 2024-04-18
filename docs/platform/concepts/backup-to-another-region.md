@@ -68,7 +68,8 @@ flowchart LR
 
 ## Limitations
 
-- You need [Aiven Enterprise](/docs/platform/howto/aiven-enterprise) to use BTAR.
+- You need Aiven Enterprise to use BTAR. To enable Aiven Enterprise for your organization,
+  [contact the sales team](mailto:sales@aiven.io).
 - BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL®.
 - The cloud provider for your additional backup region must match the cloud provider for
   your service and the primary backup.
