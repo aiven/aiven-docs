@@ -213,9 +213,9 @@ const sidebars: SidebarsConfig = {
           label: 'Backup to another region',
           items: [
             'platform/concepts/backup-to-another-region',
-            'platform/howto/enable-backup-to-another-region',
-            'platform/howto/manage-backup-to-another-region',
-            'platform/howto/disable-backup-to-another-region',
+            'platform/howto/btar/enable-backup-to-another-region',
+            'platform/howto/btar/manage-backup-to-another-region',
+            'platform/howto/btar/disable-backup-to-another-region',
           ],
         },
         'platform/howto/create_new_service',
