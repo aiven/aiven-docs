@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Service disk autoscaler allows for automatically increasing the storage capacity of the service disk when the disk is running out of space.
+Service disk autoscaler enables you to automatically increase the storage capacity of the service disk when the disk is running out of space.
 
 :::note[Pricing]
 The disk autoscaler base pricing depends on your service type and plan.
@@ -59,15 +59,18 @@ the available disk storage capacity and depends on a service type:
 
 ## Limits and limitations
 
-- Disk autoscaling is limited by both the limit set in the autoscaler endpoint
-  configuration and plan DDS disk limit (Dynamic disk sizing (DDS)/Aiven Plans and Pricing).
-- When triggered, the autoscalling process takes a moment. Meanwhile, the service disk
+- The maximum storage capacity that Aiven Autoscaler can allocate for your service is
+  determined by:
+  - Maximum disk capacity set in the Aiven Autoscaler endpoint configuration
+  - Maximum [DDS](/docs/platform/howto/add-storage-space) storage capacity supported by
+    your service plan
+- When triggered, the autoscaling process takes a moment. Meanwhile, the service disk
   might get full, and your service might enter the read-only mode. In such cases, the
-  service is back to normal as soon as the autoscalling process completes unless Aiven
+  service is back to normal as soon as the autoscaling process completes unless Aiven
   Autoscaler's limits are exceeded.
-- Aiven Autoscaler works on fully-running services only. It doesn't work for a service
+- Aiven Autoscaler works on fully running services only. It doesn't work for a service
   that is being applied a maintenance update.
-- If you've made a change to disk space recently, the autoscalling might be delayed.
+- If you've made a change to disk space recently, the autoscaling might be delayed.
 
 ## Prerequisites
 
