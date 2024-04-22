@@ -59,14 +59,15 @@ the available disk storage capacity and depends on a service type:
 
 ## Limits and limitations
 
-- Disk autoscaling is limited by both limit set in autoscaler endpoint configuration and plan
-  DDS disk limit (Dynamic disk sizing (DDS) / Aiven Plans and Pricing).
-- There are technical limits on how quickly the autoscaling can happen. This means that it
-  is possible to fill the disk by writing data quickly so that the normal disk full alerts
-  trigger and eventually the service goes read-only and so stops working. In such a case,
-  the autoscaling should trigger as long as the autoscaler limits are not met.
-- During a maintenance update, AS won’t work, only for fully running service.
-- If a user makes a change to disk space, the autoscaler might be delayed.
+- Disk autoscaling is limited by both the limit set in the autoscaler endpoint
+  configuration and plan DDS disk limit (Dynamic disk sizing (DDS)/Aiven Plans and Pricing).
+- When triggered, the autoscalling process takes a moment. Meanwhile, the service disk
+  might get full, and your service might enter the read-only mode. In such cases, the
+  service is back to normal as soon as the autoscalling process completes unless Aiven
+  Autoscaler's limits are exceeded.
+- Aiven Autoscaler works on fully-running services only. It doesn't work for a service
+  that is being applied a maintenance update.
+- If you've made a change to disk space recently, the autoscalling might be delayed.
 
 ## Prerequisites
 
