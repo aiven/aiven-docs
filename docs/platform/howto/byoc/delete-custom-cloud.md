@@ -4,6 +4,8 @@ sidebar_label: Delete custom clouds
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
@@ -18,42 +20,45 @@ cloud, make sure there are no active services using this cloud.
 The deletion impacts mostly resources on the Aiven site, such as cloud
 configuration files.
 
-### Impact on your AWS account resources
+### Impact on your remote cloud account resources
 
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+A bastion service and the corresponding EC2 instance are deleted as a
+consequence of your custom cloud's removal. As for resources created
+when applying the Terraform template to create the custom cloud, they
+are not removed after deleting the custom cloud. Unless you've removed
+them earlier, you're advised to do that after deleting your cloud.
+</TabItem>
+<TabItem value="2" label="GCP">
 A bastion service and the corresponding EC2 instance are deleted as a
 consequence of your custom cloud's removal. As for resources created
 when applying the Terraform template to create the custom cloud, they
 are not removed after deleting your custom cloud. Unless you've removed
-them earlier, you're advised to do that if deleting your cloud.
+them earlier, you're advised to do that after deleting your cloud.
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
--   Administrator's role for your Aiven organization
+-   [Super admin](/docs/platform/howto/make-super-admin) role for your Aiven organization
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
--   No running services that uses a custom cloud to be deleted
--   Access to [Aiven Console](https://console.aiven.io/)
+-   No running services that use a custom cloud to be deleted
+-   Access to the [Aiven Console](https://console.aiven.io/)
 
 ## Delete your cloud
 
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-1.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-1.  In the **Bring your own cloud** view, select one of the clouds
-    available on the list.
-1.  In the selected cloud's page, use the **Actions** menu in
-    the top right corner to select **Delete**.
-1.  Make sure you understand the impact and, if so, confirm that you
-    want to delete the cloud by selecting **Delete** in the **Warning**
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
+1.  In the **Bring your own cloud** view, select a desired cloud.
+1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Delete**.
+1.  Confirm that you intend to delete the cloud by clicking **Delete** in the **Warning**
     window.
 
-Your custom cloud has been deleted.
-
 :::important
-Remember to remove the resources created in your AWS account when
+Remember to remove the resources created in your remote cloud account when
 applying the Terraform template to create the custom cloud. They are not
 removed automatically after deleting the cloud. Unless you've removed
 them earlier, use the `terraform destroy` command to delete them. See
@@ -61,24 +66,11 @@ the guidelines on how to use the `destroy` command in [Command:
 destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 :::
 
-## Verify the update
-
-To ensure a cloud was successfully deleted:
-
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-1.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-1.  In the **Bring your own cloud** view, see the list of the available
-    clouds to make sure the cloud you intended to delete is actually
-    gone.
-
 ## Related pages
 
--   [Bring your own cloud](/docs/platform/concepts/byoc)
+-   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)

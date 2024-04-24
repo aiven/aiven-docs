@@ -1,10 +1,12 @@
 ---
-title: Create an AWS custom cloud in Aiven
+title: Create a custom cloud
 sidebar_label: Create custom clouds
 keywords: [bring your own cloud, byoc, custom cloud]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
@@ -27,20 +29,14 @@ Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven org
 
 ## About creating a custom cloud
 
-Before creating a custom cloud, take note of the
-[limitations](/docs/platform/howto/byoc/create-custom-cloud#byoc-limitations) and
-the [prerequisites](/docs/platform/howto/byoc/create-custom-cloud#byoc-prerequisites).
-
 The process of creating a custom cloud in Aiven differs depending on the
 cloud provider to integrate with:
 
--   To use the AWS cloud provider, create your custom cloud
-    yourself in [Aiven Console](https://console.aiven.io/).
-
-:::note[BYOC self-service in Aiven Console]
-You configure your custom cloud setup in [Aiven
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+You configure your custom cloud setup in the [Aiven
 Console](https://console.aiven.io/) and prepare your own AWS account so
-that Aiven can access it. In [Aiven Console](https://console.aiven.io/),
+that Aiven can access it. In the [Aiven Console](https://console.aiven.io/),
 you follow the **Create custom cloud** workflow to generate a Terraform
 infrastructure-as-code (IaC) template. Next, you deploy this template in
 your AWS account to acquire IAM Role ARN (Amazon Resource Name). You
@@ -49,10 +45,34 @@ gives Aiven the permissions to securely access your AWS account, create
 resources, and manage them onward. Finally, you select projects that can
 use your new custom clouds for creating services, and you add customer
 contacts for your custom cloud.
-:::
+</TabItem>
+<TabItem value="2" label="GCP">
+You configure your custom cloud setup in the [Aiven
+Console](https://console.aiven.io/) and prepare your own GCP account so
+that Aiven can access it. In the [Aiven Console](https://console.aiven.io/),
+you follow the **Create custom cloud** workflow to generate a Terraform
+infrastructure-as-code (IaC) template. Next, you deploy this template in
+your GCP account to acquire a service account ID. You
+supply your service account ID into the **Create custom cloud** wizard, which
+gives Aiven the permissions to securely access your GCP account, create
+resources, and manage them onward. Finally, you select projects that can
+use your new custom clouds for creating services, and you add customer
+contacts for your custom cloud.
+</TabItem>
+<TabItem value="3" label="Azure">
 
--   To use the GCP or Azure cloud providers, request the
-    Aiven team to create the cloud.
+### Request a custom cloud{#request-custom-cloud}
+
+If you use Azure as a cloud provider, you'll have your
+custom cloud created by the Aiven team (not via the
+[Aiven Console](https://console.aiven.io/)). Just
+[enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc) and specify your
+requirements. We'll build your custom cloud for you according to the specifications you
+provide. There are no further actions required from you to create your custom cloud, and
+you can ignore the [Create a custom cloud](#create-cloud) instructions. We might reach out
+to you for more details, and we'll follow up with you to keep you informed on the progress.
+</TabItem>
+</Tabs>
 
 ## Limitations {#byoc-limitations}
 
@@ -66,33 +86,31 @@ contacts for your custom cloud.
     tier.
     :::
 
--   To build your custom cloud with a cloud provider other
-    than AWS, request it as detailed in
-    [Enable bring your own cloud (BYOC) with Aiven](/docs/platform/howto/byoc/enable-byoc).
--   BYOC is supported with the
-    [standard deployment](/docs/platform/concepts/byoc#byoc-deployment) model only.
--   Only organization's administrators can create custom clouds.
+-   You can create custom clouds yourself in the [Aiven Console](https://console.aiven.io/)
+    (via the BYOC self-service) if your cloud provider is AWS or GCP.
+    For Azure, request creating a custom cloud as detailed in
+    [Request a custom cloud](#request-custom-cloud).
+-   Only [super admins](/docs/platform/howto/make-super-admin) can create custom clouds.
 
 ## Prerequisites {#byoc-prerequisites}
 
--   You have
-    [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
+-   You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 -   You have an active account with your cloud provider.
--   You have access to [Aiven Console](https://console.aiven.io/)
-    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
--   You have administrator's role in your Aiven organization
-    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
--   You have Terraform installed
-    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
+-   You have access to the [Aiven Console](https://console.aiven.io/).
+-   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
+    organization.
+-   You have Terraform installed.
 
 ### AWS IAM permissions
 
-You need AWS credentials set up on your machine so that your user or role has required
-Terraform permissions [to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws).
+You need AWS cloud account credentials set up on your machine so that your user or role has
+required Terraform permissions
+[to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws).
 
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS permissions" default>
 <details><summary>
-Show permissions required for creating resources for bastion and
-workload networks
+Show permissions required for creating resources for bastion and workload networks
 </summary>
 
 ```bash
@@ -441,50 +459,77 @@ workload networks
 ```
 
 </details>
+</TabItem>
+<TabItem value="2" label="GCP permissions">
+<details><summary>
+Show permissions to be granted to Aiven
+</summary>
+- `get` on the GCP project to retrieve project-level quotas
+
+- `list` all the regions in the project
+
+- `get` on each region to retrieve region-level quotas
+
+- `ListTimeSeriesRequest` using the Google `monitoring_v3.MetricServiceClient` for the
+  following metrics:
+
+  - `compute.googleapis.com/quota/static_routes_per_vpc_network/usage`
+  - `compute.googleapis.com/quota/static_routes_per_vpc_network/limit`
+
+</details>
+</TabItem>
+</Tabs>
 
 ## Create a custom cloud {#create-cloud}
 
-### Create a custom cloud with GCP or Azure {#create-cloud-non-aws}
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+Create your infrastructure template in the [Aiven Console](https://console.aiven.io/),
+deploy the template in your own AWS cloud account to generate Role ARN, and get back to
+the [Aiven Console](https://console.aiven.io/) with your
+Role ARN to proceed with the custom cloud configuration. Finalize the
+setup by selecting in which Aiven projects to use your custom cloud and by assigning a
+contact person for your custom cloud.
+</TabItem>
+<TabItem value="2" label="GCP">
+Create your infrastructure template in the [Aiven Console](https://console.aiven.io/),
+deploy the template in your own GCP cloud account to generate a service account ID, and
+get back to the [Aiven Console](https://console.aiven.io/) with your
+service account ID to proceed with the custom cloud configuration. Finalize the
+setup by selecting in which Aiven projects to use your custom cloud and by assigning a
+contact person for your custom cloud.
+</TabItem>
+<TabItem value="3" label="Azure">
+If you want a custom cloud integrated with the Azure cloud provider,
+request it from [the Aiven team](mailto:sales@aiven.io) as detailed in
+[Enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
+</TabItem>
+</Tabs>
 
-To use the GCP or Azure cloud providers, you'll have your
-custom cloud created by the Aiven team (not via [Aiven
-Console](https://console.aiven.io/)). Therefore, after
-[enabling the BYOC feature](/docs/platform/howto/byoc/enable-byoc) in
-[Aiven Console](https://console.aiven.io/), there are no
-further actions required from you to create your custom cloud. we'll
-build your custom cloud for you according to the specifications you
-provided while
-[enabling BYOC](/docs/platform/howto/byoc/enable-byoc) in
-[Aiven Console](https://console.aiven.io/). We might
-reach out to you for more details if needed and follow up with you to
-keep you informed on the progress.
+### Launch the BYOC setup
 
-### Create a custom cloud with AWS {#create-cloud-aws}
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to a desired organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
+1.  In the **Bring your own cloud** view, select **Create custom cloud**.
 
-Create your infrastructure template in [Aiven
-Console](https://console.aiven.io/), deploy the template in your AWS
-account to generate Role ARN, and get back to [Aiven
-Console](https://console.aiven.io/) with your Role ARN to proceed with
-your custom cloud configuration. Finalize the setup by selecting in
-which projects to use your custom cloud and assigning a contact
-person for your custom cloud.
+### Generate an infrastructure template {#generate-infra-template}
 
-#### Launch the BYOC setup in Aiven Console
-
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator, and go to a desired organization.
-1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-1.  In the **Bring your own cloud** view, select **Create custom
-    cloud**.
-
-#### Generate an infrastructure template {#generate-infra-template}
-
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
 In this step, an IaC template is generated in the Terraform format. In
-[the next step](/docs/platform/howto/byoc/create-custom-cloud#acquire-role-arn),
+[the next step](/docs/platform/howto/byoc/create-custom-cloud#deploy-template),
 you'll deploy this template in your AWS account to acquire Role ARN
 (Amazon Resource Name), which Aiven needs for accessing your AWS
 account.
+</TabItem>
+<TabItem value="2" label="GCP">
+In this step, an IaC template is generated in the Terraform format. In
+[the next step](/docs/platform/howto/byoc/create-custom-cloud#deploy-template),
+you'll deploy this template in your GCP account to acquire a service account ID, which
+Aiven needs for accessing your GCP account.
+</TabItem>
+</Tabs>
 
 In the **Create custom cloud** wizard:
 
@@ -492,14 +537,14 @@ In the **Create custom cloud** wizard:
 
     -   Custom cloud name
 
-    -   Cloud provider (AWS only)
+    -   Cloud provider
 
     -   Region
 
     -   CIDR
 
         The **CIDR** block defines the IP address range of the VPC that
-        Aiven creates in your AWS account. Any Aiven service created in
+        Aiven creates in your own cloud account. Any Aiven service created in
         the custom cloud will be placed in the VPC and will get an IP
         address within this address range.
 
@@ -531,14 +576,36 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
+    -   Deployment model: Choose between
+        [the private architecture and the public architecture](/docs/platform/concepts/byoc).
+
+        - Private model routes traffic through a proxy for additional security utilizing
+          a bastion host physically separated from the Aiven services.
+        - Public model allows the Aiven control plane to connect to the service nodes
+          via the public Internet.
+
+    -   Infrastructure tags: Select key-value pairs to
+        [tag your custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources).
+
 1.  Select **Next**.
 
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
-[acquire Role ARN](/docs/platform/howto/byoc/create-custom-cloud#acquire-role-arn).
+[acquire Role ARN](/docs/platform/howto/byoc/create-custom-cloud#deploy-template).
+</TabItem>
+<TabItem value="2" label="GCP">
+Your IaC Terraform template gets generated based on your inputs. You can
+view, copy, or download it. Now, you can use the template to
+acquire a service account ID.
+</TabItem>
+</Tabs>
 
-#### Deploy the template to acquire `Role ARN` {#acquire-role-arn}
+### Deploy the template{#deploy-template}
 
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
 Role ARN is an [identifier of the
 role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
 created when running the infrastructure template in your AWS account.
@@ -587,7 +654,60 @@ AWS account. Continue working in the **Create custom cloud** wizard:
     your current configuration as a draft by selecting **Save draft**.
     You can resume creating your cloud later.
 
-#### Set up your custom cloud's availability
+</TabItem>
+<TabItem value="2" label="GCP">
+The service account ID is an [identifier of the
+role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
+created when running the infrastructure template in your GCP account.
+Aiven uses the service account ID to [assume the
+role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)
+and run operations such as creating VMs for service nodes in your BYOC
+account.
+
+Use the Terraform template generated in step
+[Generate an infrastructure template](/docs/platform/howto/byoc/create-custom-cloud#generate-infra-template)
+to create your service account ID by deploying the template in your
+GCP account. Continue working in the **Create custom cloud** wizard:
+
+1.  Copy or download the template and the variables file from the
+    **Create custom cloud** wizard.
+
+1.  Optionally, modify the template as needed.
+
+    :::note
+    To connect to a custom-cloud service from different security groups
+    (other than the one dedicated for the custom cloud) or from IP
+    address ranges, add specific ingress rules before you apply a
+    Terraform infrastructure template in your GCP account in the process
+    of creating a custom cloud resources.
+
+    Before adding ingress rules, see the examples provided in the
+    Terraform template you generated and downloaded from [Aiven
+    Console](https://console.aiven.io/).
+    :::
+
+1.  Use Terraform to deploy the infrastructure template in your GCP account with the
+    provided variables.
+
+    :::important
+    When running `terraform plan` and `terraform apply`, make sure you
+    add `-var-file=FILE_NAME.vars` as an option.
+    :::
+
+1.  Find the role identifier (service account ID) in the output script after
+    running the template.
+
+1.  Enter the service account ID into the **Service account ID** field in the
+    **Create custom cloud** wizard.
+
+1.  Select **Next** to proceed or park your cloud setup and save
+    your current configuration as a draft by selecting **Save draft**.
+    You can resume creating your cloud later.
+
+</TabItem>
+</Tabs>
+
+### Set up your custom cloud's availability
 
 Select in what projects you'll be able to use your new custom cloud as a hosting cloud for
 services. In the projects where you enable your custom cloud, you can create new
@@ -625,7 +745,7 @@ By selecting an organizational unit, you make your custom cloud
 available from all the projects in this unit.
 :::
 
-#### Add customer contacts
+### Add customer contacts
 
 Select at least one person whom Aiven can contact in case any technical
 issues with your custom cloud need fixing.
@@ -645,7 +765,7 @@ The custom cloud process has been initiated for you, which is
 communicated in the the **Create custom cloud** wizard as **Creating
 your custom cloud**.
 
-#### Complete the cloud setup
+### Complete the cloud setup
 
 Select **Close** to close the **Create custom cloud** wizard.
 
@@ -659,7 +779,7 @@ Your new custom cloud is ready to use only after its status changes to
 **Active**.
 :::
 
-#### Check your cloud's status
+### Check your cloud's status
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator, and go to a desired organization.
@@ -676,10 +796,10 @@ migrate your existing services to the custom cloud if your service and networkin
 configuration allows it. For more information on migrating your existing services to the
 custom cloud, contact the [sales team](mailto:sales@aiven.io).
 
-#### Destroy the Terraform resources
+### Destroy the Terraform resources
 
 As soon as you new custom cloud gets the **Active** status, remove the
-Terraform resources your created in your AWS account while creating the
+Terraform resources your created in your own cloud account while creating the
 cloud. See the guidelines on how to use the `destroy` command in
 [Command: destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 
@@ -706,4 +826,5 @@ information.
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)

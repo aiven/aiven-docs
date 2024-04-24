@@ -9,56 +9,37 @@ Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About renaming custom clouds
 
-With the BYOC feature enabled, you can
+With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
 organizations. While
-[setting up a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud), you
-specify its name, which is a part of the initial custom
+[setting up a custom cloud](/docs/platform/howto/byoc/create-custom-cloud) on the Aiven
+platform, you specify the cloud name as a part of the initial custom
 cloud's configuration. Later, you can come back to the **Rename**
-setting in your cloud's page in [Aiven
+setting in your cloud's page in the [Aiven
 Console](https://console.aiven.io/) and update the name you initially
 specified.
 
 ## Prerequisites
 
--   Administrator's role for your Aiven organization
+-   [Super admin](/docs/platform/howto/make-super-admin) role for your Aiven organization
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
--   Access to [Aiven Console](https://console.aiven.io/)
+-   Access to the [Aiven Console](https://console.aiven.io/)
 
 ## Rename your cloud
 
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-1.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-1.  In the **Bring your own cloud** view, select one of the clouds
-    available on the list.
-1.  In the selected cloud's page, use the **Actions** menu in
-    the top right corner to select **Rename**.
-1.  In the **Rename custom cloud** window, enter a new name into the
-    **Custom cloud name** field and select **Rename**.
-
-The name of your custom cloud has been updated.
-
-## Verify the update
-
-Preview the updated name of your cloud:
-
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-1.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-1.  In the **Bring your own cloud** view, see the list of the available
-    clouds and identify the cloud with the name you updated.
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
+1.  In the **Bring your own cloud** view, select a desired cloud.
+1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Rename**.
+1.  In the **Rename custom cloud** window, enter a new name, and click **Rename**.
 
 ## Related pages
 
--   [Bring your own cloud](/docs/platform/concepts/byoc)
+-   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
+-   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
