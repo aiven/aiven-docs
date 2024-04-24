@@ -1,29 +1,29 @@
 ---
-title: Memory Management and persistence in Aiven for Redis®*
+title: Memory Management and persistence in Aiven for Caching
 ---
 
-Learn how Aiven for Redis®\* addresses the challenges of high memory usage and high change rate in Redis®\*.
+Learn how Aiven for Caching addresses the challenges of high memory usage and high change rate in Redis®*.
 
-Redis®\* is commonly used as a database cache, where data is written to
+Redis is commonly used as a database cache, where data is written to
 Redis whenever it is fetched from a database. As a result, the system
 experiences high memory usage and a high rate of change. In this topic,
-explore how Aiven for Redis®\* solves these issues by implementing
+explore how Aiven for Caching solves these issues by implementing
 robust memory management and persistence strategies.
 
-One of the main ways Redis®\* is used is as a database cache. Data is
+One of the main ways Redis is used is as a database cache. Data is
 written to Redis whenever it is fetched from a database, and the
 following queries with the same parameters first try to look data up in
 Redis, skipping the database query if the data is found. This results in
 high memory usage, and can result in a high change rate.
 
-## Data eviction policy in Aiven for Redis
+## Data eviction policy in Aiven for Caching
 
-Data eviction policy is one of the most important Redis settings and it
-is available in the Aiven web console.
+Data eviction policy is one of the most important caching settings and it
+is available in the Aiven Console.
 
 Redis has a `maxmemory` setting which controls how much data is allowed
 to be stored, and the data eviction policy controls what happens when
-that maximum is reached. All Aiven for Redis services have the eviction
+that maximum is reached. All Aiven for Caching services have the eviction
 policy set to *No eviction* by default. This means that if you keep
 storing values, and never remove anything, the write operations will
 start failing when the maximum memory is reached.
@@ -43,7 +43,7 @@ reach the `maxmemory` setting.
 
 ## High memory and high change rate behavior
 
-For all new Aiven for Redis services the `maxmemory` is set to **70% of
+For all new Aiven for Caching services the `maxmemory` is set to **70% of
 available RAM** (minus management overhead) plus 10% for replication
 log. The memory usage is limited to below 100% because of the following
 situations when Redis performs operations that can require additional
@@ -53,7 +53,7 @@ memory:
     forks a copy of itself, and sends current memory contents to the
     other node.
 -   Similar forking is done when Redis persists its current state on
-    disk. Currently, for an Aiven for Redis service this happens **every
+    disk. Currently, for an Aiven for Caching service this happens **every
     10 minutes**.
 
 :::note
