@@ -15,7 +15,7 @@ To connect Aiven for Apache Kafka® and Quix, you need to have the following set
 -   A running Aiven for Apache Kafka® service. See [Getting started with Aiven for Apache
     Kafka](/docs/products/kafka/get-started) for more information.
 -   A CA certificate file for your Kafka instance. See [Use SASL authentication with Aiven
-    for Apache Kafka®](kafka-sasl-auth.md).
+    for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth).
 -   An account with Quix. If you don't yet have an account, you can [sign up for a free
     trial](https://portal.platform.quix.io/self-sign-up).
 
