@@ -2652,10 +2652,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify/react@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@iconify/react@npm:4.1.1"
+  dependencies:
+    "@iconify/types": "npm:^2.0.0"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10c0/636fd1d953abd7562d7c4d9c60b5a5c6b202c5b59b0cfb7dab58c4cf5f66334f66d6736f5fe9cdc0e1b6b0c3a7d713f284a296c7fb154dbd20efd339fe0e5f6c
+  languageName: node
+  linkType: hard
+
 "@iconify/types@npm:^1.0.12":
   version: 1.1.0
   resolution: "@iconify/types@npm:1.1.0"
   checksum: 10c0/8974f44585b50ca2de495e82165078bd2b55c0384ef8560ba2f8e9a6e8bf85e4d8f24300aa6f1e8031491f30873ab83e9f17088e6436744eeadeb675935a7186
+  languageName: node
+  linkType: hard
+
+"@iconify/types@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@iconify/types@npm:2.0.0"
+  checksum: 10c0/65a3be43500c7ccacf360e136d00e1717f050b7b91da644e94370256ac66f582d59212bdb30d00788aab4fc078262e91c95b805d1808d654b72f6d2072a7e4b2
   languageName: node
   linkType: hard
 
@@ -5764,13 +5782,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4":
-  version: 4.17.0
-  resolution: "@types/lodash@npm:4.17.0"
-  checksum: 10c0/4c5b41c9a6c41e2c05d08499e96f7940bcf194dcfa84356235b630da920c2a5e05f193618cea76006719bec61c76617dff02defa9d29934f9f6a76a49291bd8f
-  languageName: node
-  linkType: hard
-
 "@types/mdast@npm:^3.0.0":
   version: 3.0.15
   resolution: "@types/mdast@npm:3.0.15"
@@ -6311,8 +6322,8 @@ __metadata:
     "@docusaurus/theme-mermaid": "npm:^3.2.1"
     "@docusaurus/tsconfig": "npm:^3.2.0"
     "@docusaurus/types": "npm:^3.2.0"
+    "@iconify/react": "npm:^4.1.1"
     "@mdx-js/react": "npm:^3.0.0"
-    "@types/lodash": "npm:^4"
     "@types/react": "npm:^18.2.48"
     algoliasearch: "npm:^4.22.1"
     axios: "npm:^1.6.2"
@@ -6321,7 +6332,6 @@ __metadata:
     dotenv: "npm:^16.3.1"
     glob: "npm:^10.3.10"
     handlebars: "npm:^4.7.8"
-    lodash: "npm:^4.17.21"
     prism-react-renderer: "npm:^2.1.0"
     raw-loader: "npm:^4.0.2"
     react: "npm:^18.0.0"
