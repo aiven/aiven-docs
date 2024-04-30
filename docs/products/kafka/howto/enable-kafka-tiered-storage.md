@@ -9,11 +9,14 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
 ## Prerequisites
 
 -   Aiven account and a project set up in the Aiven Console
--   Aiven for Apache Kafka® service with Apache Kafka version 3.6.
+-   Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later
+
     Tiered storage on Aiven for Apache Kafka is currently not available
     on all plans and regions. View the [plans and pricing
     page](https://aiven.io/pricing?product=kafka) for a comprehensive
     list of supported plans and regions.
+
+-   [Feature preview enabled](/docs/platform/howto/feature-preview) for tiered storage
 -   Aiven CLI
 
 ## Enable tiered storage via Aiven Console
@@ -23,7 +26,7 @@ Aiven Console.
 
 1. Log in to the [Aiven console](https://console.aiven.io/), and select
     your project.
-1. Choose to either create a new Aiven for Apache Kafka service or select an
+1. Choose to either create an Aiven for Apache Kafka service or select an
    existing one.
    -   For [a new service](/docs/platform/howto/create_new_service):
 
