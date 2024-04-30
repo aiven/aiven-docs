@@ -3,8 +3,7 @@ title: Send logs to Elasticsearch®
 sidebar_label: Elasticsearch
 ---
 
-import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
-import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 You can store logs from one of your Aiven services in an external Elasticsearch service.
 
@@ -24,7 +23,7 @@ Collect these values for the connection:
 Start by setting up an external service integration for Elasticsearch.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  In the project,  click <IntegrationsIcon className="icon"/> **Integration endpoints**.
+1.  In the project,  click <ConsoleLabel name="integration endpoints"/>.
 1.  Select **External Elasticsearch** from the list.
 1.  Select **Add new endpoint**.
 1.  Set a preferred endpoint name, we'll call it `CONNECTION_NAME`
@@ -40,7 +39,7 @@ Start by setting up an external service integration for Elasticsearch.
 ## Send service logs to Elasticsearch
 
 1.  Click **Services** and open a a service.
-1.  On the sidebar, click <ServiceIntegrationsIcon className="icon"/> **Integrations**.
+1.  On the sidebar, click <ConsoleLabel name="integrations"/>.
 1.  Select **Elasticsearch Logs** from the list.
 1.  Select the **Endpoint name** and click **Enable**.
 

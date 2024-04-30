@@ -8,7 +8,7 @@ Adjust the plan of your services at any time to scale your services as needed an
 You can also [adjust disk storage][storage] without changing your plan.
 
 1. In your project, click <ConsoleLabel name="services"/> and open a service.
-1. On the left-side menu, click <ConsoleLabel name="service settings"/> .
+1. On the left-side menu, click <ConsoleLabel name="service settings"/>.
 1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
    **Change plan**.
 1. In the **Change service plan** dialog, choose the new service plan and tier.

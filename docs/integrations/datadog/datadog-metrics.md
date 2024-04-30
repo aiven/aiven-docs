@@ -2,8 +2,7 @@
 title: Send metrics to Datadog
 ---
 
-import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
-import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Send metrics from your Aiven service to your Datadog account.
 
@@ -23,7 +22,7 @@ you intend to use. Afterward, multiple services can use this service
 integration endpoint.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  In your project, click <IntegrationsIcon className="icon"/> **Integration endpoints**.
+1.  In your project, click <ConsoleLabel name="integration endpoints"/>.
 1.  Select **Datadog** > **Add new endpoint** or **Create new**.
 1.  Configure the endpoint by providing a name for this integration and
     entering the API key you copied earlier. Ensure that the correct

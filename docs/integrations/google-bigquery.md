@@ -3,8 +3,7 @@ title: Integrate Google BigQuery endpoints with Aiven services
 sidebar_label: Google BigQuery
 ---
 
-import IntegrationsIcon from "@site/static/images/icons/code-block.svg";
-import ServiceIntegrationsIcon from "@site/static/images/icons/integrations.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Google BigQuery is a serverless data warehouse that can be used to store and analyze large amounts of data.
 By integrating Google BigQuery endpoints with Aiven services, you can combine powerful
@@ -32,7 +31,7 @@ data analysis from BigQuery with the convenience of Aiven's managed cloud platfo
 1. In the [Aiven Console](https://console.aiven.io/), choose your
    project.
 
-1. On the sidebar, click <IntegrationsIcon className="icon"/> **Integration endpoints**.
+1. On the sidebar, click <ConsoleLabel name="integration endpoints"/>.
 
 1. Choose Google BigQuery, and click **Add new point** or **Create
    new**.
@@ -63,7 +62,7 @@ data analysis from BigQuery with the convenience of Aiven's managed cloud platfo
 
 1.  In the [Aiven Console](https://console.aiven.io/), access the
     service where you plan to integrate Google BigQuery.
-1.  Click <ServiceIntegrationsIcon className="icon"/> **Integrations** from the left sidebar.
+1.  Click <ConsoleLabel name="integrations"/>  from the left sidebar.
 1.  Select **Google BigQuery**.
 1.  Choose the endpoint that you created.
 1.  Click **Enable**.

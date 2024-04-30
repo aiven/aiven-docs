@@ -120,7 +120,7 @@ connections.
 
 To refresh your VCP connections:
 
-1. In [Aiven Console](https://console.aiven.io/), select <ConsoleLabel name="vpcs"/> .
+1. In [Aiven Console](https://console.aiven.io/), select <ConsoleLabel name="vpcs"/>.
 1. Find the ID of the affected VPC and select it from the **Internal
    ID** column.
 1. Select **Refresh VPC connections**.
