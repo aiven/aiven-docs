@@ -2,7 +2,7 @@
 title: Enable public access in VPCs
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 To enable public access for a service running within a virtual private cloud (VPC):
 
@@ -13,8 +13,7 @@ To enable public access for a service running within a virtual private cloud (VP
    settings** from the sidebar.
 
 1. On the **Service settings** page, in the **Cloud and
-   network** section, click <ActionsIcon className="icon"/>
-   **Actions** > **More network configurations**.
+   network** section, click <ConsoleLabel name="actions"/> > **More network configurations**.
 
 1. In the **Network configuration** window, select **Add configuration
    options**. In the search field, enter `public_access`. From the

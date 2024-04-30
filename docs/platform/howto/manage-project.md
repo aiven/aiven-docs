@@ -2,7 +2,7 @@
 title: Manage projects
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 ## Create a project
 
@@ -41,7 +41,7 @@ Console](https://console.aiven.io/):
 1.  Click **Admin** and select the organizational unit with the project
     to move.
 
-1.  In the project to be moved, click <ActionsIcon className="icon"/> **Actions** > **Move project**.
+1.  In the project to be moved, click <ConsoleLabel name="actions"/> > **Move project**.
 
 1.  Select the organizational unit to move the project to.
     You can also move the project up a level to the organization.

@@ -2,10 +2,10 @@
 title: Service forking
 ---
 
-import Services from "@site/static/images/icons/database.svg";
-import ActionsIcon from "@site/static/images/icons/more.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 [Fork your Aiven service](/docs/platform/concepts/service-forking) to make a copy of the service, for example to create a snapshot to analyze an issue.
 
@@ -62,7 +62,7 @@ Fork your Aiven service to make a copy of the service.
 <Tabs groupId="group1">
 <TabItem value="Console" label="Console" default>
 1. Log in to [Aiven Console](https://console.aiven.io/).
-1. In your project, click <Services className="icon"/> **Services** and click the service to fork.
+1. In your project, click <ConsoleLabel name="services"/> and click the service to fork.
 1. On the **Overview** page of your service, click **New database fork**.
 1. In the **New Database Fork** window, set the details for the new service.
 1. Click **Create fork**.

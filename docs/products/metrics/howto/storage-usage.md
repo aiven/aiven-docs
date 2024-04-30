@@ -2,7 +2,8 @@
 title: Manage storage
 sidebar_label: Storage
 ---
-import ActionsIcon from "@site/static/images/icons/more.svg";
+
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Get a comprehensive view of your storage usage with Aiven for Metrics. The Storage page in the [Aiven console](https://console.aiven.io/) provides valuable data to help you effectively manage and understand your object storage consumption and associated costs.
 
@@ -27,15 +28,13 @@ Adjust your data retention settings and set up alerts to keep your storage in ch
 
 ### Edit retention rules
 
-1. In **Storage** page, click
-   **<ActionsIcon className="icon"/> Actions > Edit retention rule.**.
+1. In **Storage** page, click <ConsoleLabel name="actions"/> > Edit retention rule.
 1. Select **Keep data forever** or **Keep data for (days)** and enter the number of days.
 1. Click **Save**.
 
 ### Set or edit storage alert threshold
 
-1. In **Storage** page, click **<ActionsIcon className="icon"/>
-   Actions > Set storage alert threshold** or **Edit storage alert threshold**.
+1. In **Storage** page, click <ConsoleLabel name="actions"/> > **Set storage alert threshold** or **Edit storage alert threshold**.
 1. To set a new threshold, click **Set storage alert threshold**. To change an existing
    one, click **Edit storage alert threshold**.
 1. Set your threshold in GiB.

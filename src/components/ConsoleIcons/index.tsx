@@ -189,6 +189,25 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Add groups</b>
         </>
       );
+    case 'actions':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.more} /> <b>Actions</b>
+        </>
+      );
+    case 'applicationusers':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.appUsers} /> <b>Users</b>
+        </>
+      );
+    case 'viewprofile':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.appUsers} />{' '}
+          <b>View profile</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>

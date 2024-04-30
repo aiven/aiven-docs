@@ -3,7 +3,7 @@ title: Restrict network access to services
 sidebar_label: Restrict access
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 By default, Aiven services are publicly accessible, but you can restrict access to your service to a single IP, an address block, or any combination of both.
 
@@ -27,8 +27,7 @@ To access a non-publicly-accessible service from another service, use a
     settings** from the sidebar.
 
 1. On the **Service settings** page, in the **Cloud and
-   network** section, click <ActionsIcon className="icon"/>
-   **Actions** > **Set public IP filters**.
+   network** section, click <ConsoleLabel name="actions"/> > **Set public IP filters**.
 
 1. In the **Allowed inbound IP addresses** window, enter your address
    or address block using the CIDR notation, and select the **+** icon

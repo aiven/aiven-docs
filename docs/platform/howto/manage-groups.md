@@ -2,7 +2,7 @@
 title: Create and manage groups in an organization
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Create groups of users in your organization to make it easier to [give users with similar roles access to projects](/docs/platform/howto/add-groups-projects).
 
@@ -34,7 +34,7 @@ To add users to a group:
 
 1.  Click **Admin** > **Groups**.
 1.  Find the group that you want to rename and
-    click <ActionsIcon className="icon"/> **Actions** > **Rename**.
+    click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Save changes**.
 
 ## Remove a group
@@ -45,4 +45,4 @@ group with that access.
 
 1.  Click **Admin** > **Groups**.
 1.  Find the group that you want to remove and
-    click <ActionsIcon className="icon"/> **Actions** > **Remove** and confirm.
+    click <ConsoleLabel name="actions"/> > **Remove** and confirm.

@@ -3,7 +3,9 @@ title: Use Azure Private Link with Aiven services
 limited: true
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+
 
 Azure Private Link lets you bring your Aiven services into your virtual network (VNet) over a private endpoint. The endpoint creates a network interface into one of the VNet subnets, and receives a private IP address from its IP range. The private endpoint is routed to your Aiven service.
 
@@ -185,7 +187,7 @@ Console](https://console.aiven.io/):
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 1.  On the **Service settings** page, in the **Cloud and
-    network** section, click <ActionsIcon className="icon"/> **Actions** > **More network configurations**.
+    network** section, click <ConsoleLabel name="actions" /> > **More network configurations**.
 1.  In the **Network configuration** window, take the following actions:
     1.  Select **Add configuration options**.
     1.  In the search field, enter `privatelink_access`.
