@@ -208,6 +208,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>View profile</b>
         </>
       );
+    case 'filterlist':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.settings} /> <b>Filter list</b>
+        </>
+      );
+    case 'download':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.download} /> <b>Download</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>

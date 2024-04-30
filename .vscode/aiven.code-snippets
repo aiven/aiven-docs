@@ -61,7 +61,7 @@
     ]
   },
   "Insert icon": {
-    "prefix": ["image", "console", "img", "svg", "icon"],
+    "prefix": ["image", "console", "svg", "icon"],
     "description": "Insert an image as component. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
       "import {ConsoleIcon} from \"@site/src/components/ConsoleIcons\"",

@@ -2,7 +2,7 @@
 title: Create service users
 ---
 
-import Users from "@site/static/images/icons/people.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Service users are users that only exist in the scope of the corresponding Aiven service.
 They are unique to this service and not shared with any other services,
@@ -21,7 +21,7 @@ To increase the maximum number of users allowed for a service,
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 1.  On the **Services** page, select your service.
-1.  From the sidebar, click <Users className="icon"/> **Users**.
+1.  From the sidebar, click <ConsoleLabel name="users"/>.
 1.  Click **Add service user**:
 
     1.  Enter a name for your service user.
@@ -32,7 +32,7 @@ To increase the maximum number of users allowed for a service,
     1.  Set up all the other configuration options, such as
         authentication, roles, or replication, and
         click **Add service user**.
-
+<!-- vale off -->
 ## Related pages
 
 - [Create a service user using the Aiven CLI](/docs/tools/cli/service/user#avn-service-user-create)

@@ -5,8 +5,6 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-
-
 Azure Private Link lets you bring your Aiven services into your virtual network (VNet) over a private endpoint. The endpoint creates a network interface into one of the VNet subnets, and receives a private IP address from its IP range. The private endpoint is routed to your Aiven service.
 
 Azure Private Link is supported for the following services:
@@ -172,7 +170,7 @@ the Aiven CLI or [Aiven Console](https://console.aiven.io/).
 
 To enable Private Link access for your service in the Aiven CLI, set
 `user_config.privatelink_access.<service component>` to true for the
-components you want to enable. For example, for PostgreSQL the command
+components to enable. For example, for PostgreSQL the command
 is:
 
 ```shell
@@ -192,10 +190,9 @@ Console](https://console.aiven.io/):
     1.  Select **Add configuration options**.
     1.  In the search field, enter `privatelink_access`.
     1.  From the displayed component names, select the names of the
-        components that you want to enable
+        components to enable
         (`privatelink_access.<service component>`).
-    1.  Select the toggle switches for the selected components to enable
-        them.
+    1.  Enable the required components.
     1.  Select **Save configuration**.
 
 :::tip

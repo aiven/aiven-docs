@@ -20,3 +20,8 @@ permission level by assigning the group a
 
 You can change a group's role or remove it from a project later from
 the <ConsoleLabel name="actions"/> for that group.
+
+## Related pages
+
+- [Manage projects](/docs/platform/howto/manage-project)
+- [User roles](/docs/platform/reference/project-member-privileges)

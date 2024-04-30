@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 ## Create a project
 
 In the [Aiven Console](https://console.aiven.io/), follow these steps to
-create a new project:
+create a project:
 
 1.  Click **Project** and select **Create project**.
 2.  Enter a name for the project.

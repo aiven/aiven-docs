@@ -28,7 +28,7 @@ OpenSearch® from another Aiven service:
 1.  Select **Logs** from the left sidebar, and select **Enable logs
     integration**.
 
-1.  Select an existing OpenSearch instance or create a new one, then select **Continue**.
+1.  Select an existing OpenSearch instance or create one, then select **Continue**.
 
     -   When creating a new service you will need to select the
         cloud, region and plan to use. You should also give your

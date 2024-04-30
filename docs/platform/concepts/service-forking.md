@@ -72,7 +72,7 @@ Apply any integrations required by the fork.
 </TabItem>
 <TabItem value="API" label="API">
 
-1.  Prepare the command to create a new service, this will contain the
+1.  Prepare the command to create service, this will contain the
     new copy of your data store.
 1.  Add the `service_to_fork_from` parameter to specify the service to
     use as the source. Change service type accordingly with `-t`, run
