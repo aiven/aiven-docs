@@ -34,12 +34,34 @@ const sidebars: SidebarsConfig = {
         id: 'platform/concepts/projects_accounts_access',
       },
       items: [
-        'tools/aiven-console/howto/create-accounts',
-        'platform/howto/manage-organizations',
-        'platform/howto/manage-project',
-        'platform/howto/add-project-members',
-        'platform/reference/project-member-privileges',
-        'platform/howto/manage-unassigned-projects',
+        {
+          type: 'category',
+          label: 'Organizations and units',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/orgs-and-units',
+          },
+          items: [
+            'tools/aiven-console/howto/create-accounts',
+            'platform/howto/manage-organizations',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Projects',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/projects',
+          },
+          items: [
+            'platform/howto/manage-project',
+            'platform/howto/add-project-members',
+            'platform/reference/project-member-privileges',
+            'platform/howto/technical-emails',
+            'platform/howto/manage-unassigned-projects',
+            'platform/howto/reactivate-suspended-project',
+          ],
+        },
         'platform/concepts/carbon-footprint',
       ],
     },
@@ -160,8 +182,6 @@ const sidebars: SidebarsConfig = {
             'tools/aiven-console/howto/create-manage-teams',
           ],
         },
-        'platform/howto/technical-emails',
-        'platform/howto/reactivate-suspended-project',
       ],
     },
     {
