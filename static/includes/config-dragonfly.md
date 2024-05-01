@@ -187,7 +187,7 @@
 
 **Title:** Dragonfly persistence
 
-**Description:** When persistence is set to 'rdb', Dragonfly performs RDB dumps every 10 minutes. Additionally, RDB dumps occur according to the backup schedule for backup purposes. When persistence is set to 'off', Dragonfly does not perform RDB dumps or backups, which means data may be lost at any time if the service is restarted or powered off. Furthermore, the service cannot be forked.
+**Description:** When persistence is 'rdb', Dragonfly does RDB dumps each 10 minutes. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is 'off', no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can't be forked.
 
 **Type:** `string`
 
