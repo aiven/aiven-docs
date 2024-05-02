@@ -43,12 +43,12 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 ## Revoke a token for an application user
 
-1.  Click **Admin** > **Application users**.
+1.  Click **Admin** > <ConsoleLabel name="application users"/>.
 1.  Find the user, click <ConsoleLabel name="actions"/> > **View profile**.
 1.  In the **Authentication tokens** section, open the **Actions** menu.
 1.  Select **Revoke** and confirm.
 
 ## Delete an application user
 
-1.  Click **Admin** > **Application users**.
+1.  Click **Admin** > <ConsoleLabel name="application users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> > **Delete**.

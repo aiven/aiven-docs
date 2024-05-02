@@ -48,7 +48,8 @@ Regularly audit your list of application users to delete unused users.
 To list all application users and the last time they were used,
 click **Admin** > <ConsoleLabel name="Application users"/>.
 
-To see a user's tokens, in the **Users** page, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="view profile"/>.
+To see a user's tokens, in the <ConsoleLabel name="Application users"/> page,
+click <ConsoleLabel name="actions"/> > <ConsoleLabel name="view profile"/>.
 
 You can [delete unused users](/docs/platform/howto/manage-application-users#delete-an-application-user)
 or [revoke specific tokens](/docs/platform/howto/manage-application-users#revoke-a-token-for-an-application-user).
