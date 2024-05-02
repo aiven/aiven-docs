@@ -61,33 +61,21 @@
     ]
   },
   "Insert icon": {
-    "prefix": ["image", "img", "svg", "icon"],
-    "description": "Insert an image as component",
+    "prefix": ["image", "console", "svg", "icon"],
+    "description": "Insert an image as component. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
-      "import ${1:MyImg} from \"@site/static/images/icons/$2.svg\";",
+      "import {ConsoleIcon} from \"@site/src/components/ConsoleIcons\"",
       "",
-      "<$1 className=\"icon\"/>",
-      ""
+      "<ConsoleIcon name=\"$1\"/> $2"
     ]
   },
-  "Actions menu": {
-    "prefix": ["action", "menu", "svg", "icon"],
-    "description": "Insert the action menu label and icon",
+  "Insert label": {
+    "prefix": ["label", "console", "ui"],
+    "description": "Insert a label with its icon. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
-      "import ActionsIcon from \"@site/static/images/icons/more.svg\";",
+      "import ConsoleLabel from \"@site/src/components/ConsoleIcons\"",
       "",
-      "<ActionsIcon className=\"icon\"/> **Actions**",
-      ""
-    ]
-  },
-  "Services icon": {
-    "prefix": ["service", "menu", "svg", "icon"],
-    "description": "Insert the services menu label and icon",
-    "body": [
-      "import Services from \"@site/static/images/icons/database.svg\";",
-      "",
-      "<Services className=\"icon\"/> **Services**",
-      ""
+      "<ConsoleLabel name=\"$1\"/> $2"
     ]
   },
   "Early access badge": {

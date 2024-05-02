@@ -3,14 +3,10 @@ title: Adjust disk storage automatically
 limited: true
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import IntegrationIcon from "@site/static/images/icons/code-block.svg";
-import ServicesIcon from "@site/static/images/icons/database.svg";
-import IntegrationsIcon from "@site/static/images/icons/integrations.svg";
-import TrashIcon from "@site/static/images/icons/trash.svg";
-import EditIcon from "@site/static/images/icons/edit.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
 Service disk autoscaler allows you to scale your services by increasing disk storage capacity automatically when the disk is running out of space.
 
@@ -90,14 +86,14 @@ Create an autoscaler endpoint:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
     a desired organization and project.
-1.  On the left sidebar, click <IntegrationIcon className="icon"/> **Integration endpoints**.
+1.  On the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
 1.  Click **Aiven Autoscaler** > **Add new endpoint**.
 1.  Set the details of the endpoint and click **Add endpoint**.
 
 Enable on a service:
 
-1.  On the left sidebar, click <ServicesIcon className="icon"/> **Services** and open your service.
-1.  On the left sidebar, click <IntegrationsIcon className="icon"/> **Integrations** and in **Endpoint integrations**,
+1.  On the left sidebar, click <ConsoleLabel name="services"/>and open your service.
+1.  On the left sidebar, click <ConsoleLabel name="integrations"/> and in **Endpoint integrations**,
     click **Aiven autoscaler**.
 1.  Select the appropriate endpoint name and click **Enable**.
 
@@ -214,9 +210,9 @@ CLI to do that.
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
     a desired organization and project.
-1.  On the left sidebar, click <IntegrationIcon className="icon"/> **Integration endpoints**.
+1.  On the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
 1.  Click **Aiven Autoscaler**.
-1.  Find your endpoint on the list, and click <EditIcon className="icon"/>.
+1.  Find your endpoint on the list, and click <ConsoleIcon name="edit"/>.
 1.  Specify a new value for the maximum additional disk storage to be allowed for
     autoscaling, and click **Update**.
 
@@ -283,16 +279,16 @@ Update the service:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and go to
     a desired organization, project.
-1.  On the left sidebar, click <ServicesIcon className="icon"/> **Services** and open your service.
-1.  On the left sidebar, click <IntegrationsIcon className="icon"/> **Integrations** and in **Endpoint integrations**,
-    find your autoscaler service and click <ActionsIcon className="icon"/> **Actions** > **Disconnect**.
+1.  On the left sidebar, click <ConsoleLabel name="services"/> and open your service.
+1.  On the left sidebar, click <ConsoleLabel name="integrations"/> and in **Endpoint integrations**,
+    find your autoscaler service and click <ConsoleLabel name="actions"/> > **Disconnect**.
 
 Delete the autoscaler endpoint:
 
 1.  Open your project.
-1.  On the left sidebar, click <IntegrationIcon className="icon"/> **Integration endpoints**.
-1.  On the **Integration endpoints** page, select **Disk autoscaler**.
-1.  Find your endpoint on the list and click <TrashIcon className="icon"/>.
+1.  On the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
+1.  On the **Integration endpoints** page, click **Disk autoscaler**.
+1.  Find your endpoint on the list and click <ConsoleIcon name="trash"/>.
 
 </TabItem>
 <TabItem value="api" label="API">

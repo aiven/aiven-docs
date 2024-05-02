@@ -2,8 +2,7 @@
 title: Metrics, logs, and alerts
 ---
 
-import Metrics from "@site/static/images/icons/timeline-area-chart.svg";
-import Logs from "@site/static/images/icons/properties.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Use metrics, logs, alerts, and dashboards to monitor the health of your services and integrations.
 
@@ -36,7 +35,7 @@ Console](https://console.aiven.io/) include the following:
 To view the metrics:
 
 1. Open the service.
-1. Click <Metrics className="icon"/> **Metrics**.
+1. Click <ConsoleLabel name="metrics"/>.
 
 To retrieve service logs with the CLI,
 use [service metrics](/docs/tools/cli/service-cli#avn-service-metrics).
@@ -44,7 +43,7 @@ use [service metrics](/docs/tools/cli/service-cli#avn-service-metrics).
 ## View service logs
 
 1. Open the service.
-1. Click <Logs className="icon"/> **Logs**.
+1. Click <ConsoleLabel name="logs"/>.
 
 :::note[Log retention]
 Service logs are generally retained for a few days, and for some Aiven services

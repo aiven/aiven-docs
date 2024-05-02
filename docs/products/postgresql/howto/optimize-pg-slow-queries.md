@@ -3,9 +3,8 @@ title: Optimize Aiven for PostgreSQL® slow queries
 keywords: ["AI", "Artificial intelligence"]
 ---
 
-import Insights from "@site/static/images/icons/performance.svg";
-import ActionsIcon from "@site/static/images/icons/more.svg";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
 
@@ -24,7 +23,7 @@ To optimize a query:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for
    PostgreSQL service.
-1. Click <Insights className="icon"/> **AI insights**.
+1. Click <ConsoleLabel name="AI insights"/>.
 1. For the query of your choice, click **Optimize**.
 1. In the **Query optimization report** window, see the optimization suggestion and apply
    the suggestion by running the provided SQL queries.

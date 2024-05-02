@@ -2,7 +2,7 @@
 title: Manage VPC peering
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Virtual Private Cloud (VPC) peering is a method of connecting separate AWS, Google Cloud, or Azure private networks with each other.
 It allows virtual machines in the different private networks to talk to each
@@ -17,8 +17,8 @@ for VPC peering across multiple projects.
 
 To set up VPC peering for your Aiven project:
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), and select
-    **VPCs** from the sidebar on the **Services** page.
+1.  Log in to [Aiven Console](https://console.aiven.io/), and click
+    <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
 
 1.  Click **Create VPC**.
 
@@ -74,11 +74,9 @@ becomes `inactive` or `deleted`.
 
 You can migrate any Aiven service to a different VPC:
 
-1. In [Aiven Console](https://console.aiven.io/), go to your service.
-1. On the **Overview** page of your service, select **Service
-   settings** from the sidebar.
-1. On the **Service settings** page, in the **Cloud and
-   network** section, click <ActionsIcon className="icon"/> **Actions** >  **Change cloud or region**.
+1. In [Aiven Console](https://console.aiven.io/), open your service and click <ConsoleLabel name="Service settings"/>.
+1. In the **Cloud and
+   network** section, click <ConsoleLabel name="actions"/> >  **Change cloud or region**.
 1. In the **Region** section, select the **VPCs** tab, select the VPC and click **Migrate**.
 
 ## Access VPC services from the public internet
@@ -106,8 +104,8 @@ service.
 
 To edit a service IP filtering:
 
-1. Open the **Service settings** page.
-1. Click **Cloud and network** > <ActionsIcon className="icon"/> **Actions** > **Set public IP filters**.
+1. Open the <ConsoleLabel name="service settings"/> page.
+1. Click **Cloud and network** > <ConsoleLabel name="actions"/> > **Set public IP filters**.
 
 ## Troubleshoot VPC connection issues
 
@@ -123,7 +121,7 @@ connections.
 
 To refresh your VCP connections:
 
-1. In [Aiven Console](https://console.aiven.io/), select **VPCs**.
+1. In [Aiven Console](https://console.aiven.io/), select <ConsoleLabel name="vpcs"/>.
 1. Find the ID of the affected VPC and select it from the **Internal
    ID** column.
 1. Select **Refresh VPC connections**.

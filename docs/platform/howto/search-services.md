@@ -2,12 +2,11 @@
 title: Search for services
 ---
 
-import Services from "@site/static/images/icons/database.svg";
-import Filter from "@site/static/images/icons/settings.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On the <Services className="icon"/> **Services** page in [Aiven Console](https://console.aiven.io/), you can search for services by keywords and narrow down the results using filters.
+On the <ConsoleLabel name="services"/> page in [Aiven Console](https://console.aiven.io/), you can search for services by keywords and narrow down the results using filters.
 
 ## Search by keyword
 
@@ -19,7 +18,7 @@ plan, cloud provider, and tags.
 
 To filter search results:
 
-1. Click <Filter className="icon"/> **Filter list**.
+1. Click <ConsoleLabel name="filter list"/>.
 1. Select the filters of your choice.
 
 ## Filter with a query

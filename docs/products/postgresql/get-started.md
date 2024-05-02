@@ -5,9 +5,7 @@ sidebar_label: Get started
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CogIcon from "@site/static/images/icons/cog.svg";
-import DashboardIcon from "@site/static/images/icons/speedometer.svg";
-import DatabaseIcon from "@site/static/images/icons/database.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
@@ -98,9 +96,8 @@ Edit your service settings if the default service configuration doesn't meet you
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
 1. Select the new service from the list of services on
-   the <DatabaseIcon className="icon"/> **Services** page.
-1. On the <DashboardIcon className="icon"/> **Overview** page, select <CogIcon className="icon"/>
-   **Service settings** from the sidebar.
+   the <ConsoleLabel name="Services"/> page.
+1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/> from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service
 configuration.
 </TabItem>
@@ -174,7 +171,7 @@ See the available configuration options in
 <TabItem value="1" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for PostgreSQL service.
-1. On the <DashboardIcon className="icon"/> **Overview** page of your service, click
+1. On the <ConsoleLabel name="overview"/> page of your service, click
    **Quick connect**.
 1. In the **Connect** window, select a tool or language to connect to your service, follow
    the connection instructions, and click **Done**.

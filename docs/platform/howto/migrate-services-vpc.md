@@ -2,7 +2,7 @@
 title: Migrate a public service to a Virtual Private Cloud (VPC)
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 When operating your Aiven service over the public Internet, you might
 consider enhancing security or connectivity by transitioning to a
@@ -107,7 +107,7 @@ Console](https://console.aiven.io/) .
     project and select the service.
 1.  On the service page, select **Service settings** from the sidebar.
 1.  In the **Cloud and network** section, click
-    <ActionsIcon className="icon"/> **Actions** > **Change cloud or region**.
+    <ConsoleLabel name="actions"/> > **Change cloud or region**.
 1.  In the **Migrate service to another cloud** window, select the
     **VPC** tab and choose the appropriate region for your project's
     dedicated VPC. The `Public Internet` tag is displayed.

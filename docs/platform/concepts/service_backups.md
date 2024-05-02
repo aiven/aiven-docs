@@ -2,8 +2,8 @@
 title: Service backups
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
-import Database from "@site/static/images/icons/db-backup.svg";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
 import Variables from "@site/static/variables.json"
 
@@ -18,7 +18,7 @@ where the service is first created, for example, S3 for AWS or GCS for GCP.
 ## Display service backups
 
 1. In the Aiven Console, open the service of your choice.
-1. Click <Database className="icon"/> **Backups**.
+1. Click <ConsoleLabel name="backups"/>.
 
 :::note
 Backups are encrypted and not available for download.

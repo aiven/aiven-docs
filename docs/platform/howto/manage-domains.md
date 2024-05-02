@@ -2,7 +2,7 @@
 title: Manage domains
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Verified domains let you manage users in your organization.
 
@@ -16,7 +16,7 @@ After adding a domain, organization users automatically become
 
 ## Add a domain using a DNS TXT record
 
-1. In the organization you want to add a domain to, click **Admin**.
+1. In the organization where to add a domain to, click **Admin**.
 
 1. Click **Domains**.
 
@@ -47,7 +47,7 @@ After adding a domain, organization users automatically become
    | Record value | The TXT record value you copied in the format `token=<random_string>,expiry=never` |
    | Type         | `TXT`                                                                              |
 
-1. In the Aiven Console, click <ActionsIcon className="icon"/> **Actions** > **Verify**.
+1. In the Aiven Console, click <ConsoleLabel name="actions"/> > **Verify**.
 
 It can take up to 72 hours for your DNS records to update the domain to
 be verified. If the domain is still not verified after that time, you
@@ -55,7 +55,7 @@ can retry it by repeating the last step.
 
 ## Add a domain using an HTML file
 
-1. In the organization that you want to add a domain to, click
+1. In the organization where to add a domain to, click
     **Admin**.
 1. Click **Domains**.
 1. Click **Add domain**.
@@ -66,7 +66,7 @@ can retry it by repeating the last step.
 1. Download the HTML file.
 1. Upload the HTML file to your website in the path
     `/.well-known/aiven`.
-1. In the Aiven Console, open the <ActionsIcon className="icon"/> **Actions** > **Verify**.
+1. In the Aiven Console, open the <ConsoleLabel name="actions"/> > **Verify**.
 
 ## Remove a domain
 
@@ -74,8 +74,7 @@ can retry it by repeating the last step.
 Removing a domain is an irreversible action.
 :::
 
-1. In the organization that you want to remove a domain from, click
+1. In the organization to remove a domain from, click
     **Admin**.
 1. Click **Domains**.
-1. Find the domain you want to remove and click <ActionsIcon className="icon"/>
-   **Actions** > **Remove** and confirm.
+1. Find the domain to remove and click <ConsoleLabel name="actions"/> > **Remove** and confirm.
