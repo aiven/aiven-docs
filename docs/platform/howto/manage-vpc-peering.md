@@ -31,6 +31,7 @@ To set up VPC peering for your Aiven project:
 1.  In the **Create a VPC for this project** window:
 
     1. Select a cloud provider and region.
+
     1. Enter the IP range.
        Use an IP range that does not overlap with any networks that you
        want to connect via VPC peering.
@@ -127,8 +128,3 @@ To refresh your VCP connections:
 
 The platform checks the VPC peering connection and rebuilds the peering
 connection state if there are any changes detected.
-
-For any other issues, open a support ticket from [Aiven
-Console](https://console.aiven.io/) to get in touch with the support
-team and/or see
-[Get support in the Aiven Console](/docs/platform/howto/project-support-center).

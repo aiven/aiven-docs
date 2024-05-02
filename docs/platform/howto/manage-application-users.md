@@ -1,6 +1,5 @@
 ---
 title: Manage application users
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -27,11 +26,10 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 ## Create a token for an application user
 
 1.  Click **Admin**.
-1.  Click **Application users**.
-1.  Find the user and click <ConsoleLabel name="actions"/>.
-1.  Select **View profile**.
+1.  Click <ConsoleLabel name="application users"/>.
+1.  Find the user and click <ConsoleLabel name="actions"/> > **View profile**.
 1.  In the **Authentication tokens** section, click **Generate token**.
-1.  (Optional) Enter a description and session duration.
+1.  Optional: Enter a description and session duration.
 1.  Click **Generate token**.
 1.  Click the **Copy** icon and save your token somewhere safe.
 

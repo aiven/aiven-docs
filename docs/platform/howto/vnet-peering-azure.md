@@ -63,7 +63,7 @@ is not needed if there's only one subscription:
 az account set --subscription <subscription name or id>
 ```
 
-### 2. create application object
+### 2. create application object{#create-app-object}
 
 Create an application object in your AD tenant. Using the Azure CLI,
 this can be done with:
@@ -94,7 +94,7 @@ output - this will be referred to as `$user_sp_id` . Notice that this is
 different from the `$user_app_id` value earlier, which is also shown in
 the output.
 
-### 4. set a password for your app object
+### 4. set a password for your app object{#set-app-object-password}
 
 ```
 az ad app credential reset --id $user_app_id
@@ -276,14 +276,14 @@ Log out the Azure user you logged in with in step 1 using
 az account clear
 ```
 
-Log in the application object you created with in step 2 to your AD
-tenant with
+Log in the application object you created in [step 2](#create-app-object) to your AD
+tenant using the password you created in [step 4](#set-app-object-password):
 
 ```
 az login --service-principal -u $user_app_id -p $user_app_secret --tenant $user_tenant_id
 ```
 
-Log in the same application object to the Aiven AD tenant
+Log in the same application object to the Aiven AD tenant:
 
 ```
 az login --service-principal -u $user_app_id -p $user_app_secret --tenant $aiven_tenant_id

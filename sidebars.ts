@@ -2146,7 +2146,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'doc',
       label: 'Support',
-      id: 'platform/howto/project-support-center',
+      id: 'platform/howto/support',
     },
   ],
 };
