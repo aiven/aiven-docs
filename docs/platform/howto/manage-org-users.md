@@ -35,7 +35,7 @@ To remove a user from an organization:
 To resend an invite to a user:
 
 1.  Click **Admin** > **Users**.
-1.  Find the email address that to resend an invite to and click
+1.  Find the email address to resend an invite to and click
     <ConsoleLabel name="actions"/> > **Resend invite**.
 
 They receive a new email with instructions for signing up or accepting the

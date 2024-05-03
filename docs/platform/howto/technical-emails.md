@@ -57,5 +57,5 @@ email address to the technical contacts for an Aiven project:
 
 Alternatively, you can [set up a Slackbot forwarding
 address](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WE06MBF06BBHQNZ1G0H2K5)
-and use that to automatically forward Aiven's email notifications from
+and use to automatically forward Aiven's email notifications from
 your email client.
