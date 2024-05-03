@@ -79,7 +79,7 @@ To rename an application, follow these steps:
 2.  On the **Applications** landing page, click the application name
     you want to rename.
 3.  In the application's overview page, click the **Application action
-    menu (\...)** , and click **Update application** from the menu
+    menu (\...)**, and click **Update application** from the menu
     options.
 4.  In the **Update Application** dialog, enter the new name for the
     application and select **Save changes** to confirm the new name and

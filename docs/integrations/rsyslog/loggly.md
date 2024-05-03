@@ -14,7 +14,7 @@ can be done using through Aiven console or command line using
 ## Prerequisites
 
 Before creating the integration, you will need to generate a Loggly
-**customer token** . From the Loggly dashboard:
+**customer token**. From the Loggly dashboard:
 
 -   Go to **Source Setup** tab
 -   Select **Customer Token** tab underneath it.

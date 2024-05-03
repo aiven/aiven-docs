@@ -13,7 +13,7 @@ Consider creating a new index per customer/project/entity when
     data related to a single entity.
 
 For example, storing logs or other events on per-date indexes (
-`logs_2018-07-20` , `logs_2018-07-21` etc.) adds value assuming old
+`logs_2018-07-20`, `logs_2018-07-21` etc.) adds value assuming old
 indexes are cleaned up. If you have low-volume logging and want to keep
 indexes for very long time (years?), consider per-week or per-month
 indexes instead.
@@ -28,7 +28,7 @@ customer/project/entity if
 -   you have no other reason than separating different entities from
     each other;
 
-Instead of creating something like `items_project_a` , consider using a
+Instead of creating something like `items_project_a`, consider using a
 single `items` index with a field for project identifier, and query the
 data with OpenSearch® filtering. This will be far more efficient usage
 of your OpenSearch service.

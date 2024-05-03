@@ -90,7 +90,7 @@ az ad sp create --id $user_app_id
 
 This creates a service principal to your subscription that may given
 permissions to peer your VNet. Save the `id` field from the JSON
-output - this will be referred to as `$user_sp_id` . Notice that this is
+output - this will be referred to as `$user_sp_id`. Notice that this is
 different from the `$user_app_id` value earlier, which is also shown in
 the output.
 
@@ -112,7 +112,7 @@ your network > **JSON View** > **Resource ID**, or using
 az network vnet list
 ```
 
-Save the `id` field which will be referred to as `$user_vnet_id` . Also
+Save the `id` field which will be referred to as `$user_vnet_id`. Also
 grab
 
 -   the Azure Subscription ID (**Properties** > **Subscription ID**) or
@@ -190,7 +190,7 @@ az role definition create --role-definition '{"Name": "<name of your choosing>",
 ```
 
 Creating a custom role must include your subscription's id in
-`AssignableScopes` . This in itself does not give permissions to your
+`AssignableScopes`. This in itself does not give permissions to your
 subscription. It restricts which scopes a role assignment can
 include. Save the `id` field from the output - this will be referred to
 as `$aiven_role_id`
@@ -246,7 +246,7 @@ peering connection is being set up by the Aiven platform.
 
 ### 12. wait for the Aiven platform to set up the connection
 
-Run the following command until the state is no longer `APPROVED` , but
+Run the following command until the state is no longer `APPROVED`, but
 `PENDING_PEER` :
 
 ```
@@ -317,9 +317,9 @@ The client '<random uuid>' with object id '<another random uuid>' does not have 
 The Aiven platform polls peering connections in state `PENDING_PEER`
 regularly to see if the peer (your subscription) has created a peering
 connection to the Aiven Project VPC's VNet. Once this is detected, the
-state changes from `PENDING_PEER` to `ACTIVE` . After this services in
+state changes from `PENDING_PEER` to `ACTIVE`. After this services in
 the Project VPC can be reached through the peering. To check if the
-peering connection is `ACTIVE` , run the same Aiven CLI
+peering connection is `ACTIVE`, run the same Aiven CLI
 `avn vpc peering-connection get` command from step 12. In some cases it
 has taken up to 15 minutes for the state to update:
 

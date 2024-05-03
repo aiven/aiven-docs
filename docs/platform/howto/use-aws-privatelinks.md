@@ -83,7 +83,7 @@ currently support AWS PrivateLink.
 
     Alternatively, you can create the VPC endpoint in [AWS
     Console](https://console.aws.amazon.com) under **VPC** >
-    **Endpoints** > **Create endpoint** . See the [AWS
+    **Endpoints** > **Create endpoint**. See the [AWS
     documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)
     for details.
 
@@ -96,7 +96,7 @@ currently support AWS PrivateLink.
     It takes a while before the endpoint is ready to use as AWS
     provisions network interfaces to each of the subnets and connects
     them to the Aiven VPC endpoint service. Once the AWS endpoint state
-    changes to `available` , the connection is visible in Aiven.
+    changes to `available`, the connection is visible in Aiven.
     :::
 
 1.  Enable PrivateLink access for Aiven service components:
@@ -134,7 +134,7 @@ currently support AWS PrivateLink.
             ![Aiven Console private link configuration](/images/content/platform/howto/use-aws-privatelink_image1.png)
 
         1.  Click the toggle switches for the selected components to
-            switch them on. click **Save configuration**.
+            switch them on. Click **Save configuration**.
 
     It takes a couple of minutes before connectivity is available after
     you enable a service component. This is because AWS requires an AWS
@@ -234,7 +234,7 @@ allowed to connect a VPC endpoint:
         actions (**...**) menu.
     1.  In the **Edit AWS PrivateLink** window, enter the principals
         to include in the **Principal ARNs** field and
-        click **Save** .
+        click **Save**.
 
 ## Deleting a privatelink connection {#h_8de68d5894}
 
@@ -258,6 +258,6 @@ allowed to connect a VPC endpoint:
     1.  On the **Service settings** page, go to the **Cloud and
         network** section and click **Delete AWS PrivateLink** from the
         actions (**...**) menu.
-    1.  In the **Confirmation** window, click **Delete** .
+    1.  In the **Confirmation** window, click **Delete**.
 
 This deletes the AWS load balancer and VPC service endpoint.
