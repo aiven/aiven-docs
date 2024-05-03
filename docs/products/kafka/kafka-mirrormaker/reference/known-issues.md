@@ -20,7 +20,7 @@ version 3.3.0. See
 ## MirrorMaker 2 is always set `min.insync.replicas = 1` in destination cluster topics
 
 If a topic on the destination cluster is updated or pre-created with
-`min.insync.replicas > 1` , MirrorMaker 2 would always be overwritten
+`min.insync.replicas > 1`, MirrorMaker 2 would always be overwritten
 with `min.insync.replicas = 1` in target topics. The replication factor
 of target topics does not match the replication factor of source topics
 either when they are newly created by MirrorMaker 2, or when they exist

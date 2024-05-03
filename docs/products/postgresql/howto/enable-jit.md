@@ -25,7 +25,7 @@ the following steps:
     service where you want to enable JIT.
 3.  From the sidebar on your service's page, select **Service
     settings**.
-4.  On the **Service settings** page, navigate to the **Advanced
+4.  On the **Service settings** page, go to the **Advanced
     configuration** section, and select **Configure**.
 5.  In the **Advanced configuration** window, select **Add configuration
     options**.

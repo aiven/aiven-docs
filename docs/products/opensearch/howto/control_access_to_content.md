@@ -37,7 +37,7 @@ permissions and patterns.
 ## Enable access control
 
 To enable access control for the Aiven for OpenSearch service through
-the [Aiven Console](https://console.aiven.io), navigate to the **Users**
+the [Aiven Console](https://console.aiven.io), go to the **Users**
 tab and toggle the **Access Control** switch to enable it.
 
 ## Create user with access control
@@ -69,7 +69,7 @@ Aiven for OpenSearch provides several additional operations you can
 perform on service users, such as viewing, copying, resetting passwords,
 editing ACL rules, and deleting users.
 
-To access the additional operations, navigate to the **Users** tab
+To access the additional operations, go to the **Users** tab
 within your Aiven for OpenSearch service, select the ellipsis (More
 options) in the respective user row, and choose the desired operation.
 

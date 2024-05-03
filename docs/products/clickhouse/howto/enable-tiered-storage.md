@@ -7,9 +7,10 @@ Find out how to enable the tiered storage feature on your project and activate i
 
 ## About enabling tiered storage
 
-To use the tiered storage feature, you need to enable it at project
-level by contacting the sales team at [sales@aiven.io](mailto:sales@aiven.io) and set it up at
-table level using SQL (via CLI, for example).
+To use the tiered storage feature:
+
+1. Contact the [sales team](mailto:sales@aiven.io) to enable it at project level
+1. Set it up at table level using SQL.
 
 ### Limitations
 
@@ -17,7 +18,7 @@ table level using SQL (via CLI, for example).
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage feature cannot be deactivated.
 
     :::tip
-    As a workaround, you can create a new table (without enabling tiered
+    As a workaround, you can create a table (without enabling tiered
     storage on it) and copy the data from the original table (with the
     tiered storage
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table. As soon as the data is copied to the

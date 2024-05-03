@@ -37,7 +37,7 @@ all your existing Flink services, use the following command:
 avn service list --project <project_name> --service-type flink
 ```
 
-Alternatively, if you need to create a new Aiven for Apache Flink
+Alternatively, if you need to create an Aiven for Apache Flink
 service, you can use the following command:
 
 ```
@@ -61,10 +61,10 @@ where:
 To be able to sink data from Aiven for Apache Flink to Google BigQuery,
 you need to perform the following steps in the GCP console:
 
--   Create a new [Google service account and generate a JSON service
+-   Create a [Google service account and generate a JSON service
     key](https://cloud.google.com/docs/authentication/client-libraries).
 -   Verify that BigQuery API is enabled.
--   Create a new BigQuery dataset or define an existing one where the
+-   Create a BigQuery dataset or define an existing one where the
     data is going to be stored.
 -   Grant [dataset access to the service
     account](https://cloud.google.com/bigquery/docs/control-access-to-resources-iam).
@@ -74,7 +74,7 @@ you need to perform the following steps in the GCP console:
 To integrate Google BigQuery with Aiven for Apache Flink, you need to
 create an external BigQuery endpoint. You can use the
 [avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) command with the required parameters. This command will
-create a new integration endpoint that can be used to connect to a
+create a integration endpoint that can be used to connect to a
 BigQuery service.
 
 ```
@@ -264,9 +264,9 @@ Console](https://console.aiven.io/), follow these steps:
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.
 2.  From the **Services** page, you can either
-    [create a new Aiven for Apache Flink](/docs/platform/howto/create_new_service) service or select an existing service.
+    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service) service or select an existing service.
 3.  Next, configure Google BigQuery service integration endpoint:
-    -   Navigate to the **Projects** screen where all the services are
+    -   Go to the **Projects** screen where all the services are
         listed.
     -   From the left sidebar, select **Integration endpoints**.
     -   Select **Google Cloud BigQuery** from the list, and then select

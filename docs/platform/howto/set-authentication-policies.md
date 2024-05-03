@@ -36,9 +36,10 @@ Organization users are restricted to logging in using SSO through an
 ## Set an authentication policy
 
 To set an authentication policy for all users in an organization:
-
+<!-- vale off -->
 1.  In the organization, click **Admin**.
-2.  Click **Authentication**.
-3.  Click the toggle for each authentication method that you want to
+1.  Click **Authentication**.
+1.  Click the toggle for each authentication method to
     allow.
-4.  Click **Save changes**.
+1.  Click **Save changes**.
+<!-- vale on -->

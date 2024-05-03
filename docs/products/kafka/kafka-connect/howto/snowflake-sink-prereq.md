@@ -24,7 +24,7 @@ The following procedure guides you in the necessary steps:
 
 1.  Generate the private key using `openssl`:
 
-    ``` 
+    ```
     openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out rsa_key.p8
     ```
 
@@ -35,7 +35,7 @@ it\'ll be required in the following steps
 
 2.  Generate the public key using `openssl`:
 
-    ``` 
+    ```
     openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
     ```
 
@@ -50,13 +50,13 @@ You need to associate the public key generated at the previous with a
 new or existing Snowflake user. The following steps define how to create
 a new user and associate the public key to it.
 
-1.  In the Snowflake UI, navigate to the **Worksheets** panel, and
+1.  In the Snowflake UI, go to the **Worksheets** panel, and
     ensure to use a role with enough privileges (**SECURITYADMIN** or
     **ACCOUNTADMIN**)
 
 2.  Run the following query to create a user:
 
-    ``` 
+    ```
     CREATE USER aiven;
     ```
 
@@ -67,7 +67,7 @@ a new user and associate the public key to it.
 :::note
 The generated public key is usually stored on various lines, like:
 
-``` 
+```
 -----BEGIN PUBLIC KEY-----
 YXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -79,7 +79,7 @@ The output for the following command is the content between
 `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` in one line,
 like:
 
-``` 
+```
 YXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXY
@@ -90,7 +90,7 @@ XXXXXXY
     user the public key, by replacing the `PUBLIC_KEY` placeholder with
     the output of the above command:
 
-    ``` 
+    ```
     alter user aiven set RSA_PUBLIC_KEY='PUBLIC_KEY';
     ```
 
@@ -100,27 +100,27 @@ Creating a new role is strongly suggested to provide the minimal amount
 of privileges needed to the connector to operate. The following steps
 define what needs to be included:
 
-1.  In the Snowflake UI, navigate to the **Worksheets** panel, and
+1.  In the Snowflake UI, go to the **Worksheets** panel, and
     ensure to use a role with enough privileges (**SECURITYADMIN** or
     **ACCOUNTADMIN**)
 
 2.  Run the following query to create a role:
 
-    ``` 
+    ```
     create role aiven_snowflake_sink_connector_role;
     ```
 
 3.  Run the following query to grant the role to the previously created
     user:
 
-    ``` 
+    ```
     grant role aiven_snowflake_sink_connector_role to user aiven;
     ```
 
 4.  Run the following query to alter the user making the new role
     default when logging in:
 
-    ``` 
+    ```
     alter user aiven set default_role=aiven_snowflake_sink_connector_role;
     ```
 
@@ -131,7 +131,7 @@ schema within a database. The following steps define the required grants
 that need to be associated to newly created role to write to the
 `TESTSCHEMA` schema in the `TESTDATABASE` database:
 
-1.  In the Snowflake UI, navigate to the **Worksheets** panel, and
+1.  In the Snowflake UI, go to the **Worksheets** panel, and
     ensure to use a role with enough privileges (**SECURITYADMIN** or
     **ACCOUNTADMIN**)
 

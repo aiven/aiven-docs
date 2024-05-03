@@ -6,7 +6,7 @@ To begin your journey with Aiven for M3DB, there are two M3-related
 services available in the [Aiven console](https://console.aiven.io).
 Start with an **M3DB** service, which is responsible for data storage.
 Follow
-[these instructions](/docs/platform/howto/create_new_service) to create a new Aiven for M3DB service.
+[these instructions](/docs/platform/howto/create_new_service) to create an Aiven for M3DB service.
 
 For initial experimentation with M3DB, you can opt for a single-node
 setup using our startup plans. However, it is important to note that

@@ -80,7 +80,7 @@ Apache Kafka service Overview tab.
 
 1.  Enable the **Schema Registry (Karapace)** and **Apache Kafka REST
     API (Karapace)**
-2.  In the **Topic** tab, create a new topic called `jdbc_sink`, the
+2.  In the **Topic** tab, create a topic called `jdbc_sink`, the
     topic will be used by the Apache Kafka Connect connector
 
 ### Download the required binaries

@@ -21,7 +21,7 @@ Console](https://console.aiven.io):
 2.  In the **Organizational units** section, click **Create
     organizational unit**.
 3.  Enter a name for the unit.
-4.  Optional: Select any projects that you want to assign to this
+4.  Optional: Select any projects to assign to this
     organizational unit. You can search for projects by name.
 5.  Click **Create organizational unit**.
 
@@ -53,6 +53,6 @@ Console](https://console.aiven.io):
 3.  Select the checkbox to confirm that you understand the effects of
     creating an organization.
 4.  Enter a name for the organization.
-5.  Optional: Select any projects that you want to assign to this
+5.  Optional: Select any projects to assign to this
     organization. You can search for projects by name.
 6.  Click **Create organization**.

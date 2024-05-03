@@ -47,7 +47,7 @@ Count rows:
 SELECT COUNT(*) FROM transactions.accounts
 ```
 
-Create a new role:
+Create a role:
 
 ```
 CREATE ROLE accountant
@@ -69,7 +69,7 @@ if you expect a large size of the response.
     right project, and select your Aiven for ClickHouse service.
 2.  In the **Overview** page of your service, find the **Connection
     information** section and select **ClickHouse HTTPS & JDBC**.
-3.  Copy **Service URI** and navigate to `YOUR_SERVICE_URI/play` from a
+3.  Copy **Service URI** and go to `YOUR_SERVICE_URI/play` from a
     web browser.
 4.  Set the name and the password of the user on whose behalf you want
     to run the queries.

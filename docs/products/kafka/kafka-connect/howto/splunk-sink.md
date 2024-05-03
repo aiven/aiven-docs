@@ -94,7 +94,7 @@ certification validation.
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Apache Kafka Connect connector, follow these steps:
+To create an Apache Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
@@ -137,7 +137,7 @@ To create a Apache Kafka Connect connector, follow these steps:
 
 ## Example: Create a simple Splunk sink connector
 
-If you have a topic named `data_logs` that you want to sink to a Splunk
+If you have a topic named `data_logs` to sink to a Splunk
 server in the `kafka_logs` index:
 
 ```json

@@ -14,13 +14,13 @@ advantages:
 
 ## Create an Apache Kafka® topic
 
-To create a new topic using the [Aiven
+To create a topic using the [Aiven
 Console](https://console.aiven.io/), follow these steps:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select the
     Aiven for Apache Kafka® service where you want to create the topic.
 2.  From the left sidebar, select **Topics**.
-3.  Select **Create topic** to create a new topic and enter a name for
+3.  Select **Create topic** to create a topic and enter a name for
     the topic.
 4.  If required, set the advanced configuration option to **Yes**.
 5.  In the **Topic advanced configuration** section, you can set
@@ -30,5 +30,5 @@ Console](https://console.aiven.io/), follow these steps:
     but may take a few minutes before you can update its settings.
 
 You can also use the
-[topic-create](/docs/tools/cli/service/topic#avn_cli_service_topic_create) command to create a new topic using
+[topic-create](/docs/tools/cli/service/topic#avn_cli_service_topic_create) command to create a topic using
 [Aiven CLI](/docs/tools/cli).

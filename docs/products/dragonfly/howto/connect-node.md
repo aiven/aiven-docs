@@ -26,7 +26,7 @@ npm install --save ioredis
 
 ## Code
 
-Create a new file named `index.js`, add the following content and
+Create a file named `index.js`, add the following content and
 replace the `DRAGONFLY_URI` placeholder with your Dragonfly instance's
 connection URI:
 

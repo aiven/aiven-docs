@@ -2,7 +2,7 @@
 title: Change your email address
 ---
 
-You can't change your login email address directly. Instead, you can create a new user with the new email address and remove the user with the old email address.
+You can't change your login email address directly. Instead, you can create a user with the new email address and remove the user with the old email address.
 
 You must be an organization admin to do this.
 

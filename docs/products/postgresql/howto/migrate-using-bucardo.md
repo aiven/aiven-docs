@@ -78,7 +78,7 @@ To migrate your data using Bucardo:
     bucardo add db destdb dbhost=cg-pg-dev-sandbox.aivencloud.com dbport=21691 dbname=all_your_base dbuser=$DBUSER dbpass=$DBPASS
     ```
 
-1.  Add the tables that you want to replicate:
+1.  Add the tables to replicate:
 
     ```
     bucardo add table belong to us herd=$HERD db=srcdb
@@ -110,7 +110,7 @@ To migrate your data using Bucardo:
     ```
 
 1.  Start Bucardo and run the `status` command. When `Current state` is
-    `Good` , the data is flowing to your Aiven database.
+    `Good`, the data is flowing to your Aiven database.
 
 1.  Log in to the [Aiven web console](https://console.aiven.io), select
     your Aiven for PostgreSQL service from the **Services** list, and

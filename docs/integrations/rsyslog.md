@@ -46,7 +46,7 @@ Conditional (required if `format` == `custom`):
 
 -   `logline` - syslog log line template for a custom format, supporting
     limited rsyslog style templating (using `%tag%` ). Supported tags
-    are: `HOSTNAME`, `app-name`, `msg`, `msgid` , `pri`, `procid`,
+    are: `HOSTNAME`, `app-name`, `msg`, `msgid`, `pri`, `procid`,
     `structured-data`, `timestamp` and `timestamp:::date-rfc3339`.
 
 Optional:
@@ -187,7 +187,7 @@ on the server and port you only need to copy the appropriate values from
 the "Log Destinations" page and use those as the values for `server`
 and `port` respectively. You **do not need** the ca-bundle as the
 Papertrail servers use certificates signed by a known CA. You also need
-to set the format to `rfc3164` .
+to set the format to `rfc3164`.
 
 ```bash
 avn service integration-endpoint-create --project your-project \

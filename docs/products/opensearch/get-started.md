@@ -14,7 +14,7 @@ OpenSearch® service.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create a new Aiven for OpenSearch service.
+    [these instructions](/docs/platform/howto/create_new_service) to create an Aiven for OpenSearch service.
 
 Once the service is ready, the status changes to *Running*. Depending on
 your selected cloud provider and region, this generally takes a couple
@@ -23,8 +23,8 @@ of minutes.
 ## Access OpenSearch Dashboards
 
 When you create an Aiven for OpenSearch service, you will automatically
-get access to OpenSearch Dashboards. This enables you to quickly and
-easily visualize data from your OpenSearch service with minimal effort.
+get access to OpenSearch Dashboards. This enables you to visualize data from your
+OpenSearch service.
 
 To access OpenSearch Dashboards, follow these steps:
 

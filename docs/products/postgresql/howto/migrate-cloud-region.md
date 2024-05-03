@@ -14,7 +14,7 @@ To migrate a PostgreSQL service to a new cloud provider/region
     PostgreSQL instance you want to move.
 2.  From the sidebar on your service's page, select **Service
     settings**.
-3.  On the **Service settings** page, navigate to the **Cloud and
+3.  On the **Service settings** page, go to the **Cloud and
     network** section, and select **Change cloud or region**.
 4.  In the **Migrate service to another cloud** window, select the new
     cloud provider and region where you want to deploy the PostgreSQL

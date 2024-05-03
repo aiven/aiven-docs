@@ -62,7 +62,7 @@ After creating a tenant, you need to assign it to a role. A role is a
 collection of permissions for a specific tenant that can be granted to
 users. To assign a tenant to a role, follow these steps:
 
-1.  In the OpenSearch dashboard, navigate to the **Security** section in
+1.  In the OpenSearch dashboard, go to the **Security** section in
     the left-hand navigation menu, then select **Roles**.
 2.  Choose whether to create a new role or modify an existing one to
     include the tenant.
@@ -93,7 +93,7 @@ determined by their assigned role.
 
 To map roles to internal users, follow these steps:
 
-1.  In the OpenSearch dashboard, navigate to the **Security** section in
+1.  In the OpenSearch dashboard, go to the **Security** section in
     the left-hand navigation menu, then select **Roles**.
 2.  Search for the role you want to assign a user and select it to view
     its details.
@@ -113,7 +113,7 @@ service, you can use SAML integration to map users roles.
 To manage tenants in the OpenSearch dashboard, you can follow these
 steps:
 
--   **Access the tenant list**: Navigate to the Security section in the
+-   **Access the tenant list**: Go to the Security section in the
     OpenSearch dashboard and select the Tenant option to view the
     available tenants and create new ones.
 -   **Switch between tenants**: Besides creating new tenants, you can

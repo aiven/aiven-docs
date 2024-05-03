@@ -14,7 +14,7 @@ Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR 
 
 :::note
 Enabling Custom JARs for existing services is currently not possible. If you did not
-enable this feature during service creation, you must create a new service with
+enable this feature during service creation, you must create a service with
 Custom JARs enabled.
 :::
 

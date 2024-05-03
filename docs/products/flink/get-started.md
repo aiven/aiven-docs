@@ -17,7 +17,7 @@ analyzing your data in real-time.
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 
 2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create a new Aiven for Apache Flink service.
+    [these instructions](/docs/platform/howto/create_new_service) to create an Aiven for Apache Flink service.
 
     Once the service is ready, the status changes to *Running*.
     Depending on your selected cloud provider and region, this generally

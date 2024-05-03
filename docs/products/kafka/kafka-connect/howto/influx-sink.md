@@ -144,7 +144,7 @@ parameters
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Apache Kafka Connect connector, follow these steps:
+To create an Apache Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
@@ -189,7 +189,7 @@ You can also create connectors using the
 ## Example: Create a InfluxDB sink connector
 
 If you have a topic named `measurements` containing the following data
-in AVRO format that you want to move to InfluxDB:
+in AVRO format to move to InfluxDB:
 
 ```
 {

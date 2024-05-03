@@ -83,7 +83,7 @@ account to automation services that may only need read access.
 
 It is also good practice to rotate your authorization tokens on a
 regular basis, for example each month. You can have as many tokens
-active at one time as you need, so you can create a new token, replace
+active at one time as you need, so you can create a token, replace
 it as needed, check everything works, and remove the old token once
 you are confident that all changes have completed successfully.
 

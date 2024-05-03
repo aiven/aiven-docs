@@ -18,7 +18,7 @@ You have at least one
 1. On the **Backups** page, select the actions (**...**) menu > **Secondary backup
    location**.
 1. In the **Edit secondary backup location** window, use the **Secondary location**
-   dropdown menu to select a region for your additional backup. Confirm your choice by
+   menu to select a region for your additional backup. Confirm your choice by
    selecting **Save**.
 
 :::important
@@ -40,8 +40,8 @@ BTAR:
 
 ### Check BTAR status in the console
 
-To check out the availability, the status, and the target region of a secondary (BTAR)
-backup in the [Aiven Console](https://console.aiven.io/), navigate to your
+To see the availability, the status, and the target region of a secondary (BTAR)
+backup in the [Aiven Console](https://console.aiven.io/), go to your
 **service's page** > **Backups** view > **Secondary backup location** column.
 
 ### Determine replication lag with API
@@ -82,7 +82,7 @@ plan that the primary service uses. Backups of the fork service are located in t
 where this new service is hosted.
 :::
 
-1. Open the [Aiven Console](https://console.aiven.io/) and navigate to your service
+1. Open the [Aiven Console](https://console.aiven.io/) and go to your service
    homepage.
 1. Select **Backups** from the sidebar.
 1. On the **Backups** page, select **Fork & restore**.

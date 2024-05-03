@@ -151,9 +151,11 @@ You can also create connectors using the
 
 ## Example: Create a MongoDB source connector
 
+<!-- vale off -->
 If you have in MongoDB a collection named `students` in a database named
 `districtA` containing the following data that you want to move to
 Apache Kafka:
+<!-- vale on -->
 
 ```json
 {"name":"carlo", "age": 77}

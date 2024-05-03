@@ -12,7 +12,7 @@ title: Manage organizations
     **Delete** to delete it.
 5.  After all the organizational units have been deleted, on the
     **Organization** page click **Delete**.
-6.  Confirm that you want to delete the organization by clicking
+6.  Confirm to delete the organization by clicking
     **Delete**.
 
 ## Rename an organization

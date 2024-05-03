@@ -29,12 +29,12 @@ following steps:
 1.  Download the [Apache Kafka
     binaries](https://kafka.apache.org/downloads) and unpack the archive
 
-2.  Navigate to the `bin` folder containing the Apache Kafka client
+2.  Go to the `bin` folder containing the Apache Kafka client
     tools commonly used
 
 3.  Create a
     [Java keystore and truststore](keystore-truststore) for the Aiven for Apache Kafka service where you want to
-    create a new topic
+    create a topic
 
 4.  Create a
     [client configuration file](kafka-tools-config-file) pointing at the keystore and truststore created at the
@@ -54,7 +54,7 @@ following steps:
 
     If successful, the above command lists all the available topics
 
-6.  Run the following command to create a new topic named
+6.  Run the following command to create a topic named
     `new-test-topic` with a retention rate of 30 minutes. Use the
     kafka-topics script for this and set the retention value in
     milliseconds `((100 * 60) * 30 = 180000)`.
