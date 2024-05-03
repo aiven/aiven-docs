@@ -2,7 +2,7 @@
 
 <!-- vale off -->
 
-The Aiven docs repo generates the content located at [www.aiven.io/docs](www.aiven.io/docs).
+The Aiven docs repo generates the content located at [www.aiven.io/docs](https://www.aiven.io/docs).
 We use [Docusaurus](https://docusaurus.io/) to build the docs.
 
 ## 🤲 Contributing
