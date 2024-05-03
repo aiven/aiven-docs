@@ -2,6 +2,13 @@
 title: Manage Aiven for ClickHouse® integration databases
 ---
 
+You can set up and manage integration databases from the the **Databases and tables** view of your Aiven for ClickHouse service.
+
+By adding integrations databases in Aiven for ClickHouse, you create
+streaming data pipelines across services. From Aiven for ClickHouse, you
+can add integration databases connecting to Aiven for Kafka® and Aiven
+for PostgreSQL®.
+
 Aiven for ClickHouse supports
 [regular integrations](/docs/products/clickhouse/howto/list-integrations) and
 [data service integrations](/docs/products/clickhouse/howto/data-service-integration).
@@ -11,20 +18,9 @@ You can create Aiven for ClickHouse® integrations databases in the
 [creating a new data service integration](/docs/products/clickhouse/howto/integration-databases#create-integ-db) or from the the **Databases and tables** view of your
 service.
 
-This article details how to set up and manage integration databases from
-the the **Databases and tables** view of your Aiven for ClickHouse
-service.
-
 For information on how to set up integration databases when creating a
 new data service integration, see
 [Manage Aiven for ClickHouse® data service integrations](/docs/products/clickhouse/howto/data-service-integration).
-
-## About integration databases
-
-By adding integrations databases in Aiven for ClickHouse, you create
-streaming data pipelines across services. From Aiven for ClickHouse, you
-can add integration databases connecting to Aiven for Kafka® and Aiven
-for PostgreSQL®.
 
 ## Prerequisites
 
@@ -142,7 +138,7 @@ Your integration database and/or its tables have been updated.
 3.  In your service's page, select **Databases & Tables** from the
     sidebar to find the **Databases and tables** list.
 4.  From the **Databases and tables** list, select the trash bin icon
-    for the integration database you want to remove.
+    for the integration database to remove.
 5.  In the **Delete database confirmation** popup, study the impact and
     select **Confirm** if you accept removing the database along with
     the tables inside it.

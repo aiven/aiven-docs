@@ -3,24 +3,25 @@ title: Enable cross-cluster replication in Aiven for Apache Cassandra®
 limited: true
 ---
 
-Enabling the cross-cluster replication (CCR) feature requires building a CCR setup in the Aiven platform and, next, configuring the replication on the Apache Cassandra side. This article covers the first part only by providing instructions on how to set up CCR for your Aiven for Apache Cassandra® service on the Aiven side.
+Enabling the cross-cluster replication (CCR) feature requires building a CCR setup in the Aiven platform and, next, configuring the replication on the Apache Cassandra side.
 
-For the other part (the configuration of the replication factor on the
-Apache Cassandra side), which ultimately makes the replication work, see
-the instruction in
-[Set up the replication factor](/docs/products/cassandra/howto/manage-cross-cluster-replication#set-up-replication-factor).
-
-## About enabling CCR
+:::note
+<!-- vale off -->
+This article covers the first part only by providing instructions on how to set up CCR for your Aiven for Apache Cassandra® service on the Aiven side.
+<!-- vale on -->
+The other part about configuring the replication factor on the Apache Cassandra side,
+see [Set up the replication factor](/docs/products/cassandra/howto/manage-cross-cluster-replication#set-up-replication-factor).
+:::
 
 You can enable CCR either when creating a new Aiven for Apache Cassandra
 service or for an existing service.
 
-### Limitations
+## Limitations
 
 See [CCR limitations](/docs/products/cassandra/concepts/cross-cluster-replication#ccr-limitations)
 for limitations that apply to CCR on Aiven for Apache Cassandra.
 
-### Tools
+## Tools
 
 To enable CCR, you can use the following tools:
 
@@ -317,6 +318,7 @@ curl --request POST                                                   \
 
 ## What's next
 
+- [Set up the replication factor](/docs/products/cassandra/howto/manage-cross-cluster-replication#set-up-replication-factor)
 -   [Manage CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/manage-cross-cluster-replication)
 -   [Disable CCR on Aiven for Apache Cassandra](/docs/products/cassandra/howto/disable-cross-cluster-replication)
 

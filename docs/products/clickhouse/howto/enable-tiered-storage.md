@@ -7,9 +7,10 @@ Find out how to enable the tiered storage feature on your project and activate i
 
 ## About enabling tiered storage
 
-To use the tiered storage feature, you need to enable it at project
-level by contacting the sales team at [sales@aiven.io](mailto:sales@aiven.io) and set it up at
-table level using SQL (via CLI, for example).
+To use the tiered storage feature:
+
+1. Contact the [sales team](mailto:sales@aiven.io) to enable it at project level
+1. Set it up at table level using SQL.
 
 ### Limitations
 

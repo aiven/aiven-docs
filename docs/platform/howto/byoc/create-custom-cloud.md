@@ -57,7 +57,7 @@ contacts for your custom cloud.
     eligible for activating BYOC.
 
     :::note
-    Check out [Aiven support tiers](https://aiven.io/support-services) and
+    See [Aiven support tiers](https://aiven.io/support-services) and
     [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC.
     Contact the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support
     tier.

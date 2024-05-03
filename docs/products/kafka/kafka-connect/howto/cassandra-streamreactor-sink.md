@@ -133,7 +133,7 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to use for the connector.
 -   `connect.cassandra.*`: sink parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-sink#connect_cassandra_lenses_sink_prereq) phase.
 -   `key.converter` and `value.converter`: defines the messages data
@@ -149,8 +149,7 @@ The `key.converter` and `value.converter` sections define how the topic
 messages will be parsed and needs to be included in the connector
 configuration.
 
-When using Avro as source data format, you need to set following
-parameters
+When using Avro as source data format, set the following parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of

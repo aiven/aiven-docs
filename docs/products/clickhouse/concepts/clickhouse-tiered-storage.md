@@ -3,16 +3,10 @@ title: Tiered storage in Aiven for ClickHouse®
 limited: true
 ---
 
-Discover the tiered storage capability in Aiven for ClickHouse®. Learn how it works and explore its use cases. Check out why you might need it and what benefits you get using it.
+The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's local disk usage.
 
-## Overview
-
-The tiered storage feature introduces a method of organizing and storing
-data in two tiers for improved efficiency and cost optimization. The
-data is automatically moved to an appropriate tier based on your
-database's local disk usage. On top of this default data allocation
-mechanism, you can control the tier your data is stored in using custom
-data retention periods.
+On top of this default data allocation mechanism, you can control the tier your
+data is stored in using custom data retention periods.
 
 The tiered storage in Aiven for ClickHouse consists of the following two
 layers:
@@ -66,8 +60,8 @@ storage.
 ## Typical use case
 
 In your Aiven for ClickHouse service, there is a significant amount of
-data that is there for a while and is hardly ever accessed. It's stored
-on SSD and, thus, high-priced. You decide to
+data that is there for a while and is rarely accessed. It's stored
+on SSD and high-priced. You decide to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage for your service to make your data storage
 more efficient and reduce the costs. For that purpose, you contact the
 sales team at [sales@aiven.io](mailto:sales@aiven.io) to have it enabled on your project, and

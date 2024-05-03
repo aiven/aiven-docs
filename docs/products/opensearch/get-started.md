@@ -23,8 +23,8 @@ of minutes.
 ## Access OpenSearch Dashboards
 
 When you create an Aiven for OpenSearch service, you will automatically
-get access to OpenSearch Dashboards. This enables you to quickly and
-easily visualize data from your OpenSearch service with minimal effort.
+get access to OpenSearch Dashboards. This enables you to visualize data from your
+OpenSearch service.
 
 To access OpenSearch Dashboards, follow these steps:
 

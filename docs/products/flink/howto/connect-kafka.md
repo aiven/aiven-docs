@@ -83,7 +83,7 @@ topic via the [Aiven Console](https://console.aiven.io/):
         for Apache Kafka integration definition
 
     -   `topic`: the topic to be used as a source for the data pipeline.
-        If you want to use a new topic that does not yet exist, write
+        To use a new topic that does not yet exist, write
         the topic name.
 
         :::warning

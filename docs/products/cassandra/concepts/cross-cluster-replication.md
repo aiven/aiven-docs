@@ -111,7 +111,7 @@ CREATE KEYSPACE test WITH replication =  /
 ```
 
 Where `service-1` and `service-2` are the names of Apache Cassandra
-datacenter, which you can find in the Aiven console.
+datacenter that appear in the Aiven console.
 
 ### CCR in action
 

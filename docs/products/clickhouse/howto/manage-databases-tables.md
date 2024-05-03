@@ -2,9 +2,9 @@
 title: Manage ClickHouse® databases and tables
 ---
 
-Databases and tables are at the core of any Database Management System.
-ClickHouse® is no different. In this article, we will look at how to
-create and work with databases and tables in Aiven for ClickHouse®.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+Create and work with databases and tables in Aiven for ClickHouse®.
 
 ## Create a database {#create-a-clickhouse-database}
 
@@ -26,7 +26,7 @@ console](https://console.aiven.io/):
 4.  In the **Create ClickHouse database** window, enter a name for your
     database and select **Create database**.
 
-    You\'ll see the name of the database appear in the list of databases
+    The name of the database appears in the list of databases
     in the **Databases and tables** page. On our side, we enable
     necessary customizations and run secondary queries to grant access
     to the admin user.
@@ -42,7 +42,7 @@ tables** page.
 :::note
 If you try adding or removing a database in for your Aiven for
 ClickHouse service through the command line, you'll encounter an
-exception `Not enough privileges.(ACCESS_DENIED)`. Please use the Aiven
+exception `Not enough privileges.(ACCESS_DENIED)`. Use the Aiven
 web interface to add or remove a database.
 :::
 
@@ -66,14 +66,13 @@ ENGINE = ReplicatedMergeTree ORDER BY Date;
 
 ### Select a table engine
 
-Part of the table definition includes a targeted table engine. The full
-list of supported table engines in Aiven for ClickHouse can be found
-[in this article](/docs/products/clickhouse/reference/supported-table-engines). Aiven for ClickHouse uses `replicated` variants of table
+Part of the table definition includes a targeted table engine. See the full
+[list of supported table engines](/docs/products/clickhouse/reference/supported-table-engines)
+in Aiven for ClickHouse.
+
+Aiven for ClickHouse uses `replicated` variants of table
 engines to ensure high availability. Even if you select `MergeTree`
 engine, we will automatically use the replicated variant on our side.
-
-With this knowledge, try out an example dataset described
-[over here](/docs/products/clickhouse/howto/load-dataset).
 
 ## Remove a table
 
@@ -100,8 +99,7 @@ DROP TABLE NAME_OF_YOUR_DATABASE.NAME_OF_YOUR_TABLE;
 To remove your table in [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  Go to the table you want to remove: organization > project >
+2.  Go to the table to remove: organization > project >
     service > **Databases and tables**.
 3.  In the **Databases and tables** view, go to the table and
-    select **Actions** menu (**...**) > **Remove** > **Delete
-    table**.
+    select <ConsoleLabel name="actions"/>  > **Remove** > **Delete table**.

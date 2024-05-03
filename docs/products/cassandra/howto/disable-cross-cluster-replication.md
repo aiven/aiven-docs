@@ -3,7 +3,7 @@ title: Disable cross-cluster replication in Aiven for Apache Cassandra®
 limited: true
 ---
 
-This article provides you with instructions on how to discontinue the cross-cluster replication (CCR) for your Aiven for Apache Cassandra® service.
+Learn how to discontinue the cross-cluster replication (CCR) for your Aiven for Apache Cassandra® service.
 
 ## About disabling CCR
 
@@ -38,7 +38,7 @@ service.
 ## Disable CCR in the console
 
 In the console, use either of the two following methods to disable CCR
-on your service(s): split the services or delete one of them.
+on your services, split the services or delete one of them.
 
 ### Split the services
 
@@ -48,7 +48,7 @@ on your service(s): split the services or delete one of them.
 3.  In the **Overview** page of the service, go to **Cross Cluster
     Replication** and select **Split cluster**.
 4.  In the **Warning** popup, get familiar with the consequences of
-    splitting the cluster, make sure you understand the impact, and
+    splitting the cluster, consider the impact, and
     select **Split cluster**.
 
 You service no longer replicates to the other service since the services
@@ -78,7 +78,7 @@ your services for CCR purposes.
     between regions.
     :::
 
-5.  When in the **Delete confirmation** popup, make sure you understand
+5.  When in the **Delete confirmation** popup, consider
     the impact, copy-paste the service name, and select **Delete**.
 
 You've disabled CCR on your service by deleting one of the peer
@@ -90,7 +90,7 @@ You can disable CCR for your Aiven for Apache Cassandra service using
 the Aiven CLI to delete one of the services constituting the CCR pair.
 
 :::tip
-Check out how to get started with the Aiven CLI in
+See how to get started with the Aiven CLI in
 [Aiven CLI](/docs/tools/cli).
 :::
 
@@ -104,7 +104,7 @@ avn service terminate --project PROJECT_NAME ccr_peer_service_name
 
 ## Disable CCR with API
 
-You can disable CCR for your Aiven for Apache Cassandra service(s) by
+You can disable CCR for your Aiven for Apache Cassandra services by
 calling the
 [ServiceDelete](https://api.aiven.io/doc/#tag/Service/operation/ServiceDelete)
 endpoint to delete one of the services that constitute the CCR pair.
@@ -115,8 +115,7 @@ with Aiven APIs.
 :::
 
 :::tip
-Check out how to get started with Aiven APIs in
-[Aiven API](/docs/tools/api).
+See how to get started with Aiven APIs in [Aiven API](/docs/tools/api).
 :::
 
 To call the
