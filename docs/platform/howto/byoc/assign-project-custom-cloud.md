@@ -28,7 +28,7 @@ the settings you configured during the
 1.  If you go for the **By selection** option, the **Assign
     organizational units** field and the **Assign projects** field show
     up. Enter the names of organizational units and/ or projects in
-    which you want to be able to use your custom cloud.
+    which to be able to use your custom cloud.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ the settings you configured during the
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
 
-1.  Select the organization you want to use from the dropdown menu in
+1.  Select the organization to use from the menu in
     the top right corner.
 
 1.  From the top navigation bar, select **Admin**.
@@ -53,7 +53,7 @@ the settings you configured during the
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 
-1.  In the selected cloud's page, navigate to the **Available
+1.  In the selected cloud's page, go to the **Available
     projects** tab and modify the settings provided as needed:
 
     -   Select **Set availability** to decide if your custom cloud is
@@ -97,7 +97,7 @@ To verify if the cloud availability changes you made are live:
 1.  From the left sidebar, select **Bring your own cloud**.
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
-1.  In the selected cloud's page, navigate to the **Available
+1.  In the selected cloud's page, go to the **Available
     projects** tab and check the available projects and organizational
     units list for the updates you made.
 

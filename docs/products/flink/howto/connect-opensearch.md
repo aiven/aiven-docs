@@ -33,11 +33,11 @@ via Aiven console:
 1.  In the Aiven for Apache Flink service page, select **Application**
     from the left sidebar.
 
-2.  Create a new application or select an existing one with Aiven for
+2.  Create an application or select an existing one with Aiven for
     OpenSearch® integration.
 
     :::note
-    If editing an existing application, create a new version to make
+    If editing an existing application, create a version to make
     changes to the source or sink tables.
     :::
 

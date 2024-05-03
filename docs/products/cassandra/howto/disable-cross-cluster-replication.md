@@ -22,7 +22,7 @@ It's recommended to use Aiven Console for disabling CCR.
 As soon as you split the cluster, the two services constituting the CCR
 pair become independent. It's not possible to recreate the CCR pair
 connecting back to the same service. To enable CCR on your service
-again, you can create a new service and CCR-connect it to your existing
+again, you can create a service and CCR-connect it to your existing
 service.
 :::
 
@@ -45,7 +45,7 @@ on your service(s): split the services or delete one of them.
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 2.  From the **Services** page, select the service for which you'd like
     to disable CCR.
-3.  In the **Overview** page of the service, navigate to **Cross Cluster
+3.  In the **Overview** page of the service, go to **Cross Cluster
     Replication** and select **Split cluster**.
 4.  In the **Warning** popup, get familiar with the consequences of
     splitting the cluster, make sure you understand the impact, and
@@ -64,7 +64,7 @@ your services for CCR purposes.
 2.  From the **Services** page, select an Aiven for Apache Cassandra
     service on which you'd like to enable CCR.
 
-3.  In the **Overview** page of the service, navigate to the **Cross
+3.  In the **Overview** page of the service, go to the **Cross
     Cluster Replication** section and select the name of the service
     provided in the CCR description, which is supposed to take you to
     the service's page.

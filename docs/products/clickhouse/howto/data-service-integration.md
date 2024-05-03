@@ -56,7 +56,7 @@ service any time later. See
 1.  In the **Data service integrations** wizard, select one of the
     following options:
 
-    **Option 1: Create a new service and integrate it**
+    **Option 1: Create a service and integrate it**
 
     To create an integration with a **new service**:
 

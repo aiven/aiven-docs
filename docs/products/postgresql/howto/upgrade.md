@@ -31,13 +31,13 @@ replica can help reduce this risk.
 To upgrade a PostgreSQL service:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select the
-    instance that you want to upgrade.
+    instance to upgrade.
 1.  Select **Service settings** from the sidebar of your service's
     page.
-1.  Navigate to the **Service management** section, and select **Upgrade
+1.  Go to the **Service management** section, and select **Upgrade
     versioin** from the **Actions** (**...**) menu.
 1.  In the **Upgrade Aiven for PostgreSQL Confirmation** window, select
-    the version that you want to upgrade to from the dropdown menu.
+    the version to upgrade to from the dropdown menu.
 
     :::note
     When you select the version, the system checks the compatibility of the

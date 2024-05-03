@@ -10,7 +10,7 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 1.  Click **Billing**.
 2.  Click **Billing groups**.
-3.  Select the billing group that you want to update.
+3.  Select the billing group to update.
 4.  Click **Billing information**.
 5.  In the **Billing details** section, click **Edit**.
 6.  Enter your **VAT ID** and click **Save**.

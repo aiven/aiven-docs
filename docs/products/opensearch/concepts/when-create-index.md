@@ -1,8 +1,8 @@
 ---
-title: When to create a new index
+title: When to create an index
 ---
 
-This article will help you determine weather to create a new index per
+This article will help you determine weather to create an index per
 customer/project/entity or to look for alternatives.
 
 Consider creating a new index per customer/project/entity when
@@ -18,7 +18,7 @@ indexes are cleaned up. If you have low-volume logging and want to keep
 indexes for very long time (years?), consider per-week or per-month
 indexes instead.
 
-It is **not** recommended to create a new index per
+It is **not** recommended to create an index per
 customer/project/entity if
 
 -   you have potentially a very large number of entities (thousands), or

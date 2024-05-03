@@ -19,7 +19,7 @@ redirect to the Aiven Console's login page:
 
 1.  Log in to the [Okta administrator console](https://login.okta.com/).
 1.  Go to the **Applications** tab.
-1.  Click **Create a new app integration**.
+1.  Click **Create an app integration**.
 1.  Select **SAML 1.0** for the **Sign on method** and click **Next**.
 1.  Enter a name for the app and add a logo.
 1.  Set its visibility for your Okta users and click **Next**.

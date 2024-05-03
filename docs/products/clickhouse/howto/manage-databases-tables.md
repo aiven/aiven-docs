@@ -11,7 +11,7 @@ create and work with databases and tables in Aiven for ClickHouse®.
 Creating databases in an Aiven for ClickHouse service can only be done
 via the Aiven platform; the `admin` user is not allowed to create
 databases directly for security and reliability reasons. However, you
-can create a new database through the web interface of [Aiven
+can create a database through the web interface of [Aiven
 console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
@@ -100,8 +100,8 @@ DROP TABLE NAME_OF_YOUR_DATABASE.NAME_OF_YOUR_TABLE;
 To remove your table in [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  Navigate to the table you want to remove: organization > project >
+2.  Go to the table you want to remove: organization > project >
     service > **Databases and tables**.
-3.  In the **Databases and tables** view, navigate to the table and
+3.  In the **Databases and tables** view, go to the table and
     select **Actions** menu (**...**) > **Remove** > **Delete
     table**.

@@ -14,7 +14,7 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 To assign projects to a billing group:
 
 1.  Go to **Billing** > **Billing groups**.
-1.  Select the billing group you want to assign the project to.
+1.  Select the billing group to assign the project to.
 1.  On the **Projects** tab, click **Assign projects**.
 1.  Select the projects and click **Assign projects**.
 1.  Click **Cancel** to close the dialog box.

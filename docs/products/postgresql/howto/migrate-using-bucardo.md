@@ -78,7 +78,7 @@ To migrate your data using Bucardo:
     bucardo add db destdb dbhost=cg-pg-dev-sandbox.aivencloud.com dbport=21691 dbname=all_your_base dbuser=$DBUSER dbpass=$DBPASS
     ```
 
-1.  Add the tables that you want to replicate:
+1.  Add the tables to replicate:
 
     ```
     bucardo add table belong to us herd=$HERD db=srcdb

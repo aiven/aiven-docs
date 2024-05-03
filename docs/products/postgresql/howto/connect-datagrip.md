@@ -14,7 +14,7 @@ PostgreSQL® service.
 
 ## Get JDBC URI from Aiven Console
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and navigate to your
+1. Log in to [Aiven Console](https://console.aiven.io/) and go to your
    organization > project > Aiven for PostgreSQL service.
 1. On the service **Overview** page, select **Quick connect**.
 1. In the **Connect** window

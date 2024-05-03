@@ -260,7 +260,7 @@ follow and go straight to
     database is located.
 1.  From the sidebar on your service's page, select **Service
     settings**.
-1.  On the **Service settings** page, navigate to the **Service
+1.  On the **Service settings** page, go to the **Service
     management** section, and select **Import database**.
 1.  Guided by the migration wizard, go through all the migration steps.
 

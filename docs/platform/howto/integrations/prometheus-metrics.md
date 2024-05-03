@@ -57,7 +57,7 @@ feature:
 1. In the **Create new Prometheus endpoint** window, enter the details
    for the endpoint, and select **Create**.
 
-1. Select **Services** from the sidebar, and navigate to the service
+1. Select **Services** from the sidebar, and go to the service
    that you would like to monitor.
 
 1. On the **Overview** page of your service, go to the **Service
@@ -73,7 +73,7 @@ feature:
    integration listed and status `active`.
    :::
 
-1. Next, navigate to the service's **Overview** page, and locate
+1. Next, go to the service's **Overview** page, and locate
    the **Connection information** section.
 
 1. Click the **Prometheus** tab.

@@ -38,7 +38,7 @@ console](https://console.aiven.io/):
     your Aiven for PostgreSQL service.
 2.  Select **Service settings** from the sidebar of your service's
     page.
-3.  Navigate to the **Service plan** section, and select **Change plan**
+3.  Go to the **Service plan** section, and select **Change plan**
     from the **Actions** (**...**) menu.
 4.  In the **Change service plan** window, select a new plan with a
     higher capacity, and select **Change**.
@@ -64,7 +64,7 @@ limited amount of time over the full database.
 
 ### Enable database writes for a specific session
 
-If you want to enable writes for a session, login to the required
+To enable writes for a session, login to the required
 database and execute the following command:
 
 ```

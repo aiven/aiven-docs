@@ -14,7 +14,7 @@ help you connect the two services.
 ## Variables
 
 You\'ll need a few variables for the setup. To get their values, go to
-[Aiven Console](https://console.aiven.io/) and navigate to **Overview**
+[Aiven Console](https://console.aiven.io/) and go to **Overview**
 of your Aiven for ClickHouse® service (**Connection information** >
 **ClickHouse HTTPS & JDBC**).
 

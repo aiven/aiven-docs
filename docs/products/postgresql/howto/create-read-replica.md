@@ -18,17 +18,20 @@ node.
 ## Create a replica
 
 To set up a remote replica:
+<!-- vale off -->
 
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 2.  Select the PostgreSQL instance for which you want to create a remote
     replica.
 3.  In the **Overview** page of your service, select **Create replica**.
 
-![Create replica button](/images/content/products/postgresql/replica-create.png)
+    ![Create replica button](/images/content/products/postgresql/replica-create.png)
 
 4.  Enter a name for the remote replica and select the cloud provider,
     region, and Aiven for PostgreSQL service plan that you want to use,
     then select **Create**.
+
+<!-- vale on -->
 
 The read-only replica is created and added to the list of services in
 your project. The **Overview** page of the replica indicates the name of

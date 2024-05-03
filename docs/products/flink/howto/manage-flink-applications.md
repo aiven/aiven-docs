@@ -7,13 +7,13 @@ Flink® applications.
 
 ## Creating a new version of an application
 
-To create a new version of the application deployed, follow these steps:
+To create a version of the application deployed, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your Aiven for Apache Flink® service.
 2.  From the left sidebar, select **Applications**.
 3.  On the **Applications** landing page, click the application name
-    for which you want to create a new version.
+    for which you want to create a version.
 
 ### For SQL application
 

@@ -23,7 +23,7 @@ Within your existing Aiven project, create a new M3 service.
 
 1.  Log in to the [Aiven web console](https://console.aiven.io/).
 2.  Follow
-    [create a new Aiven for M3DB®](/docs/platform/howto/create_new_service).
+    [create an Aiven for M3DB®](/docs/platform/howto/create_new_service).
 
 Open the newly created M3 service and select the **InfluxDB®** tab in
 the **Connection information** section. You will use several values from

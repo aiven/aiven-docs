@@ -39,7 +39,7 @@ Aiven for OpenSearch:
 
 -   `OUTPUT_SERVICE_URI`: your output OpenSearch service URI. You can
     find it in Aiven's dashboard.
--   `OUTPUT_INDEX_NAME`: the index that you want to have in your output
+-   `OUTPUT_INDEX_NAME`: the index to have in your output
     with the copied data.
 
 :::note

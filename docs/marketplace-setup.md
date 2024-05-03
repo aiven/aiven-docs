@@ -118,7 +118,7 @@ anything goes wrong during the previous steps.
 <TabItem value="Google" label="Google Cloud Marketplace">
 
 1.  You should now be on a signup page at Aiven, asking you for your
-    email address to create a account.
+    email address to create an account.
 1.  After entering your email address, you will be sent an email to
     confirm your registration. Click the link.
 1.  You can now proceed to the [Aiven console for
@@ -130,7 +130,7 @@ anything goes wrong during the previous steps.
 - The URL to log into your GCP subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
   Do not confuse it with Aiven Console URL: [console.aiven.io](https://console.aiven.io).
 
-- If you have an existing Aiven account, create a Aiven GCP account using the
+- If you have an existing Aiven account, create an Aiven GCP account using the
   Aiven GCP console. When coming back to Aiven in the future, use
   [https://console.gcp.aiven.io](https://console.gcp.aiven.io) to log in.
 

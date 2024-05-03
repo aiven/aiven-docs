@@ -8,7 +8,7 @@ control.
 
 ## Add a new user
 
-To create a new user account for your service,
+To create a user account for your service,
 
 1.  Log in to the [Aiven web console](https://console.aiven.io/) and,
     select your ClickHouse® service.
@@ -26,7 +26,7 @@ To create a new user account for your service,
 
 3.  In the **Users and roles** page, select **Add user**.
 
-4.  In the **Create a new service user** window, enter a name for the
+4.  In the **Create a service user** window, enter a name for the
     new user and select a role.
 
     The role that you select defines the access grants that are assigned
@@ -53,9 +53,9 @@ privileges. The ClickHouse documentation includes [detailed
 documentation for access
 rights](https://clickhouse.com/docs/en/operations/access-rights/).
 
-### Create a new role
+### Create a role
 
-To create a new role named **auditor**, run the following command:
+To create a role named **auditor**, run the following command:
 
 ```
 CREATE ROLE auditor;

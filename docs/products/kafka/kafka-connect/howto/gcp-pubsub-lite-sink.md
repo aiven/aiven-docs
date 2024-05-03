@@ -128,7 +128,7 @@ page](https://github.com/googleapis/java-pubsub-group-kafka-connector/).
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Apache Kafka Connect connector, follow these steps:
+To create an Apache Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
@@ -167,10 +167,12 @@ To create a Apache Kafka Connect connector, follow these steps:
 
 ## Example: Create a Google Pub/Sub sink connector
 
+<!-- vale off -->
 You have an Apache Kafka topic `iot_metrics` that you want to push to a
 Google Pub/Sub Lite topic `iot_metrics_pubsub`, you can create a sink
 connector with the following configuration, after replacing the
 placeholders for `GCP_PROJECT_NAME` and `GCP_PUBSUB_LOCATION`:
+<!-- vale on -->
 
 ```json
 {

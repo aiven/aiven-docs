@@ -31,7 +31,7 @@ go get github.com/gocql/gocql
 
 ## Code
 
-1.  Create a new file named `main.go` and add the following content:
+1.  Create a file named `main.go` and add the following content:
 
     <CodeBlock language='go'>{MyComponentSource1}</CodeBlock>
 

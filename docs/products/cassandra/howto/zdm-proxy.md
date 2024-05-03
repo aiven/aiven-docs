@@ -23,7 +23,7 @@ Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introducti
 
 ## Prerequisites
 
--   Apache Cassandra instance that you want to migrate to the Aiven
+-   Apache Cassandra instance to migrate to the Aiven
     platform (migration source)
 -   Aiven for Apache Cassandra service where you want to migrate your
     external instance (migration target)

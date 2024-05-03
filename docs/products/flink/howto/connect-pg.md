@@ -29,11 +29,11 @@ console:
 1.  In the Aiven for Apache Flink service page, select **Application**
     from the left sidebar.
 
-2.  Create a new application or select an existing one with Aiven for
+2.  Create an application or select an existing one with Aiven for
     PostgreSQL® integration.
 
     :::note
-    If editing an existing application, create a new version to make
+    If editing an existing application, create a version to make
     changes to the source or sink tables.
     :::
 
@@ -80,7 +80,7 @@ page](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table
 The Aiven for PostgreSQL® service named `pg-demo` contains a table named
 `students` in the `public` schema with the following structure:
 
-``` 
+```
 CREATE TABLE students_tbl (
   student_id INT,
   student_name VARCHAR
@@ -88,7 +88,7 @@ CREATE TABLE students_tbl (
   'connector' = 'jdbc',
   'url' = 'jdbc:postgresql://',
   'table-name' = 'public.students'
-  )  
+  )
 ```
 
 The `url` will be substituted with the appropriate address during

@@ -48,7 +48,7 @@ Using [Aiven Console](https://console.aiven.io/), you can enable CCR for
 -   Existing Aiven for Apache Cassandra service by
     [adding a CCR peer service in another region to an existing service](/docs/products/cassandra/howto/enable-cross-cluster-replication#new-peer).
 
-### Create a new CCR service pair {#new-pair}
+### Create a CCR service pair {#new-pair}
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 2.  From the **Services** page, select **+Create service**.
@@ -85,7 +85,7 @@ from the sidebar and going to the **Cross Cluster replication** section.
 2.  From the **Services** page, select an Aiven for Apache Cassandra
     service on which you'd like to enable CCR.
 
-3.  In the **Overview** page of your service, navigate to the **Cross
+3.  In the **Overview** page of your service, go to the **Cross
     Cluster Replication** section and select **Migrate to Cross
     Cluster**.
 
@@ -134,10 +134,10 @@ used to interact with Aiven APIs.
     service. It's recommended to set it equal to the service name.
 :::
 
-### Create a new CCR service pair {#new-ccr-service-pair}
+### Create a CCR service pair {#new-ccr-service-pair}
 
 1.  Use the
-    [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a new service (`service_1`).
+    [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a service (`service_1`).
 
     ```bash
     avn service create                                   \
@@ -172,7 +172,7 @@ used to interact with Aiven APIs.
 
 ### Add a CCR peer to an existing service {#new-ccr-peer-service}
 
-Use the [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a new service with CCR enabled. Use the
+Use the [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command to create a service with CCR enabled. Use the
 `service_to_join_with` parameter to connect your new service to an
 existing service creating a CCR pair. Set the value of the
 `service_to_join_with` parameter to the name of the existing service.
@@ -221,17 +221,17 @@ with Aiven APIs.
     service. It's recommended to set it equal to the service name.
 :::
 
-### Create a new CCR service pair {#new-ccr-pair}
+### Create a CCR service pair {#new-ccr-pair}
 
 Use the
 [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
-API to create a new service with CCR enabled. When constructing the API
+API to create a service with CCR enabled. When constructing the API
 request, add the `user_config` object to the request body and nest
 inside it the `service_to_join_with` and `datacenter` fields.
 
 1.  Use the
     [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
-    API to create a new service (`service_1`).
+    API to create a service (`service_1`).
 
     ```bash
     curl --request POST                                                   \
@@ -283,7 +283,7 @@ inside it the `service_to_join_with` and `datacenter` fields.
 
 Use the
 [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
-API to create a new service with CCR enabled. When constructing the API
+API to create a service with CCR enabled. When constructing the API
 request, add the `user_config` object to the request body and nest
 inside it the `service_to_join_with` and `datacenter` fields. Set the
 value of the `service_to_join_with` parameter to the name of your

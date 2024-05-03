@@ -16,7 +16,7 @@ Some of the operations you can perform on a table include:
 
 :::important
 Before performing any operation on a table in a Flink application, you
-must **stop** the application. To stop an application, navigate to the
+must **stop** the application. To stop an application, go to the
 **Applications** from the left sidebar on your Aiven for Apache Flink®
 service, select the desired application from the list, and select **Stop
 Deployment**.
@@ -33,7 +33,7 @@ Console](https://console.aiven.io/) :
 
 2.  Select **Create new version**.
 
-3.  On the **Create new version** screen, navigate to the **Add source
+3.  On the **Create new version** screen, go to the **Add source
     tables** or **Add sink tables** screen within your application.
 
 4.  Select **Add new table** to add a new table to your application.

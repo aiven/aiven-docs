@@ -685,7 +685,7 @@ cloud. See the guidelines on how to use the `destroy` command in
 
 To create a service in [Aiven Console](https://console.aiven.io/) in your new custom
 cloud, follow the guidelines in
-[Create a new service](/docs/platform/howto/create_new_service).
+[Create a service](/docs/platform/howto/create_new_service).
 
 When creating a service in the [Aiven Console](https://console.aiven.io/), at the
 **Select service region** step, select **Custom clouds** from the available regions.

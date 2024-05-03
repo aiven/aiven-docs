@@ -31,7 +31,7 @@ To start using the generator:
 
 2.  Copy the file `conf/env.conf.sample` to `conf/env.conf`
 
-3.  Create a new access token via the [Aiven
+3.  Create an access token via the [Aiven
     Console](https://console.aiven.io/) or the following command in the
     [Aiven CLI](/docs/tools/cli),
     changing the `max-age-seconds` appropriately for the duration of

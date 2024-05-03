@@ -18,7 +18,7 @@ Creates a new access token for the logged-in user.
 | `--max-age-seconds`  | Maximum age of the token in seconds, if any, after which it will expire(30 days by default) |
 | `--extend-when-used` | Extend token's expiry time when used (only applicable if token is set to expire)            |
 
-**Example:** Create a new access token.
+**Example:** Create an access token.
 
 ```
 avn user access-token create --description "To be used with Python Notebooks"

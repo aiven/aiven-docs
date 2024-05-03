@@ -6,7 +6,7 @@ Move your data from a source, standalone Redis®\* data store to an
 Aiven-managed Redis service. The migration first attempts to use the
 `replication` method, and if it fails, it uses `scan`.
 
-In the following steps, we show you how to create a new Aiven for Redis
+In the following steps, we show you how to create an Aiven for Redis
 service, and migrate data from AWS ElastiCache Redis. The Aiven project
 name is `test`, and the service name for the target Aiven for Redis is
 `redis`.

@@ -146,7 +146,7 @@ in the Apache Cassandra documentation.
     pair. But you still can:
 
     -   Create a CCR pair from scratch or,
-    -   Add a new region to an existing service (create a new service
+    -   Add a new region to an existing service (create a service
         that replicates from your existing service).
 
 -   Enabling CCR on an existing service is only possible if this service

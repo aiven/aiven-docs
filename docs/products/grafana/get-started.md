@@ -14,7 +14,7 @@ Grafana service and how to log in to Aiven for Grafana®.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create a new Aiven for Grafana service.
+    [these instructions](/docs/platform/howto/create_new_service) to create an Aiven for Grafana service.
 
 Once the service is ready, the status changes to *Running*. Depending on
 your selected cloud provider and region, this generally takes a couple

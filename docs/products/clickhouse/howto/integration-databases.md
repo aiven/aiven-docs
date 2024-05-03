@@ -113,12 +113,12 @@ You can only edit Apache Kafka integration databases and tables.
 4.  From the **Databases and tables** list, select a pencil icon for an
     Apache Kafka integration database you want to edit.
 
-5.  In the **Edit database** wizard, find a table that you want to edit
+5.  In the **Edit database** wizard, find a table to edit
     in the **Configured tables** list and expand its details by
     selecting the angle brackets icon.
 
     :::note
-    You can also create a new table for the database you are editing by
+    You can also create a table for the database you are editing by
     selecting **Add another table**.
     :::
 

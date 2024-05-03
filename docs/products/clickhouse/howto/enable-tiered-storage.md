@@ -17,7 +17,7 @@ table level using SQL (via CLI, for example).
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage feature cannot be deactivated.
 
     :::tip
-    As a workaround, you can create a new table (without enabling tiered
+    As a workaround, you can create a table (without enabling tiered
     storage on it) and copy the data from the original table (with the
     tiered storage
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table. As soon as the data is copied to the

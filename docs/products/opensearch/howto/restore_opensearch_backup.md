@@ -15,10 +15,10 @@ To restore a backup:
 3.  Select **Fork & restore**.
 
     This opens the *New Database Fork* view where you can create the
-    fork for the backup that you want to restore.
+    fork for the backup to restore.
 
 4.  Fill in the required details, select the cloud provider, region, and
-    service plan, then click **Create fork**.
+    service plan and click **Create fork**.
 
 5.  Once the new service is running, change your application's
     connection settings to point to it and power off the original

@@ -72,7 +72,7 @@ Console](https://console.aiven.io/):
     application, and select **Create application**.
 
     :::note
-    If editing an existing application, create a new version to make
+    If editing an existing application, create a version to make
     changes to the source or sink tables.
     :::
 
@@ -89,7 +89,7 @@ Console](https://console.aiven.io/):
 
     For example:
 
-    ``` 
+    ```
     CREATE TABLE test_table (
         column1 INT,
         column2 VARCHAR
@@ -159,14 +159,14 @@ using the `pgoutput` plugin, follow these steps to resolve the issue:
 
 1.  Install the `aiven-extras` extension by executing the SQL command:
 
-    ``` 
+    ```
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
 2.  Create a publication for all tables in the source database: Execute
     the SQL command:
 
-    ``` 
+    ```
     SELECT * FROM aiven_extras.pg_create_publication_for_all_tables(
        'dbz_publication',
        'INSERT,UPDATE,DELETE'
