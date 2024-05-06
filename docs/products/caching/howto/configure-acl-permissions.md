@@ -3,7 +3,8 @@ title: Configure ACL permissions in Aiven for Caching
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 
 Aiven for Caching  uses [Access Control Lists (ACLs)](https://redis.io/docs/management/security/acl/) o manage the usage of commands and keys based on specific username and password combinations.
 Direct use of [ACL commands](https://redis.io/commands/acl-list/) is restricted to
@@ -82,14 +83,14 @@ Follow these steps for various user management tasks:
 
 1. Click **Users** from the left sidebar.
 1. Find the user whose password needs to be reset and
-   click <ActionsIcon className="icon"/> **Actions** > **Reset password**.
+   click <ConsoleLabel name="actions"/> > **Reset password**.
 1. Confirm the password reset by clicking **Reset** on the confirmation dialog.
 
 ### Edit ACL rules
 
 1. Click **Users** from the left sidebar.
 1. Find the user whose ACL rules require editing and
-   click <ActionsIcon className="icon"/> **Actions** > **Edit ACL rules**.
+   click <ConsoleLabel name="actions"/> > **Edit ACL rules**.
 1. Make the necessary changes to the ACL rules on the **Edit access control** dialog.
 1. Click **Save**.
 
@@ -97,7 +98,7 @@ Follow these steps for various user management tasks:
 
 1. Click **Users** from the left sidebar.
 1. Locate the user you wish to duplicate and
-   click <ActionsIcon className="icon"/> **Actions** > **Duplicate user**.
+   click <ConsoleLabel name="actions"/> > **Duplicate user**.
 1. Enter a name for the new user in the **Duplicate user** dialog.
 1. Click **Add user**.
 
@@ -105,5 +106,5 @@ Follow these steps for various user management tasks:
 
 1. Click **Users** from the left sidebar.
 1. Find the user you intend to delete and
-   click <ActionsIcon className="icon"/> **Actions** > **Delete user**.
+   click <ConsoleLabel name="actions"/> > **Delete user**.
 1. Confirm the deletion by clicking **Delete** on the confirmation dialog.

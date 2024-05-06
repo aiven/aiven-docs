@@ -2073,44 +2073,47 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Redis',
+          label: 'Caching',
           link: {
-            id: 'products/redis',
+            id: 'products/caching',
             type: 'doc',
           },
           items: [
-            'products/redis/concepts/overview',
-            'products/redis/get-started',
+            'products/caching/concepts/overview',
+            'products/caching/get-started',
             {
               type: 'category',
               label: 'Concepts',
-              link: {type: 'generated-index', slug: 'products/redis/concepts'},
+              link: {
+                type: 'generated-index',
+                slug: 'products/caching/concepts',
+              },
               items: [
-                'products/redis/concepts/high-availability-redis',
-                'products/redis/concepts/lua-scripts-redis',
-                'products/redis/concepts/memory-usage',
-                'products/redis/concepts/restricted-redis-commands',
+                'products/caching/concepts/high-availability-redis',
+                'products/caching/concepts/lua-scripts-caching',
+                'products/caching/concepts/memory-usage',
+                'products/caching/concepts/restricted-redis-commands',
               ],
             },
             {
               type: 'category',
               label: 'How to',
-              link: {type: 'generated-index', slug: 'products/redis/howto'},
+              link: {type: 'generated-index', slug: 'products/caching/howto'},
               items: [
                 {
                   type: 'category',
                   label: 'Connect to service',
                   link: {
                     type: 'doc',
-                    id: 'products/redis/howto/list-code-samples',
+                    id: 'products/caching/howto/list-code-samples',
                   },
                   items: [
-                    'products/redis/howto/connect-redis-cli',
-                    'products/redis/howto/connect-go',
-                    'products/redis/howto/connect-node',
-                    'products/redis/howto/connect-php',
-                    'products/redis/howto/connect-python',
-                    'products/redis/howto/connect-java',
+                    'products/caching/howto/connect-redis-cli',
+                    'products/caching/howto/connect-go',
+                    'products/caching/howto/connect-node',
+                    'products/caching/howto/connect-php',
+                    'products/caching/howto/connect-python',
+                    'products/caching/howto/connect-java',
                   ],
                 },
                 {
@@ -2118,35 +2121,38 @@ const sidebars: SidebarsConfig = {
                   label: 'Administer database',
                   link: {
                     type: 'doc',
-                    id: 'products/redis/howto/list-dba-tasks',
+                    id: 'products/caching/howto/list-dba-tasks',
                   },
                   items: [
-                    'products/redis/howto/configure-acl-permissions',
+                    'products/caching/howto/configure-acl-permissions',
                     {
                       type: 'category',
                       label: 'Data migration',
                       link: {
                         type: 'doc',
-                        id: 'products/redis/howto/migrate-redis-db',
+                        id: 'products/caching/howto/migrate-redis-db',
                       },
                       items: [
-                        'products/redis/howto/migrate-aiven-redis',
-                        'products/redis/howto/migrate-redis-aiven-via-console',
+                        'products/caching/howto/migrate-aiven-redis',
+                        'products/caching/howto/migrate-redis-aiven-via-console',
                       ],
                     },
                   ],
                 },
-                'products/redis/howto/estimate-max-number-of-connections',
-                'products/redis/howto/manage-ssl-connectivity',
-                'products/redis/howto/warning-overcommit_memory',
-                'products/redis/howto/benchmark-performance',
+                'products/caching/howto/estimate-max-number-of-connections',
+                'products/caching/howto/manage-ssl-connectivity',
+                'products/caching/howto/warning-overcommit_memory',
+                'products/caching/howto/benchmark-performance',
               ],
             },
             {
               type: 'category',
               label: 'Reference',
-              link: {type: 'generated-index', slug: 'products/redis/reference'},
-              items: ['products/redis/reference/advanced-params'],
+              link: {
+                type: 'generated-index',
+                slug: 'products/caching/reference',
+              },
+              items: ['products/caching/reference/advanced-params'],
             },
             {
               type: 'category',
@@ -2154,10 +2160,10 @@ const sidebars: SidebarsConfig = {
               link: {
                 type: 'generated-index',
                 title: 'Troubleshooting',
-                slug: 'products/redis/troubleshooting',
+                slug: 'products/caching/troubleshooting',
               },
               items: [
-                'products/redis/troubleshooting/troubleshoot-redis-connection-issues',
+                'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
               ],
             },
           ],
