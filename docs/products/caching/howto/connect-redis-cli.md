@@ -2,19 +2,21 @@
 title: Connect with redis-cli
 ---
 
-This example connects to a Redis®\* service from `redis-cli`.
+Learn how to establish a connection to an Aiven for Caching service using the `redis-cli`.
+
 
 ## Variables
 
-These are the placeholders you will need to replace in the code sample:
+Replace the following placeholders in the code sample with actual values
+from your service overview page:
 
 | Variable    | Description                                              |
 | ----------- | -------------------------------------------------------- |
-| `REDIS_URI` | URL for Redis connection, from the service overview page |
+| `CACHING_URI` | URI for the Aiven for Caching service connection  |
 
 ## Prerequisites
 
-For this example you will need:
+For this example, you will need:
 
 1.  The `redis-cli` client installed. You can install this as part of
     the [Redis server
@@ -23,21 +25,21 @@ For this example you will need:
 
 ## Code
 
-Execute the following from a terminal window:
+Execute the following command from a terminal window to connect:
 
-```
+```shell
 redis-cli -u REDIS_URI
 ```
 
-This code connects to the Redis®\* database.
+This command initiates a connection to the Aiven for Caching service.
 
-To check the connection is working, execute the following code:
+To verify the connection, execute:
 
-```
+```shell
 INFO
 ```
 
-The command returns all the Redis parameters:
+This command displays all server parameters, ensuring the connection is active:
 
 ```text
 # Server
@@ -55,7 +57,7 @@ To set a key, execute the following command:
 SET mykey mykeyvalue123
 ```
 
-The command should output a confirmation `OK` statement.
+You should see a confirmation `OK` upon successful execution.
 
 To retrieve the key value, execute the following command:
 
@@ -63,5 +65,4 @@ To retrieve the key value, execute the following command:
 GET mykey
 ```
 
-The result is the value of the key, in the above example
-`"mykeyvalue123"`.
+This will display the value of `mykey`, in this case,`"mykeyvalue123"`.

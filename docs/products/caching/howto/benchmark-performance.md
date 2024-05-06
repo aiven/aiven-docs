@@ -1,11 +1,9 @@
 ---
-title: Benchmark performance
+title: Benchmarking Aiven for Caching performance
 ---
+Aiven for Caching uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
 
-Redis®\* `memtier_benchmark*` is a command line utility developed by
-Redis Labs for load generation and performing benchmark NoSQL key-value
-databases. It is recommended for performing benchmark of Aiven for
-Redis®\* services.
+
 
 :::warning
 `redis-benchmark` is not supported to work with Aiven services, since
@@ -14,54 +12,49 @@ Redis®\* services.
 
 ## Prerequisites
 
--   An Aiven for Redis service running.
--   `memtier_benchmark` installed. To install the tool, first download
-    the source code from
+-   An Aiven for Caching service running.
+-   `memtier_benchmark` installed. To install the tool, download the source code from
     [GitHub](https://github.com/RedisLabs/memtier_benchmark), and follow
     the instructions in the
     [README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md)
-    to install all the dependencies, then build and install the tool.
-    Now it's ready to go.
+    to install all the dependencies. Next build and install the tool.
 
 :::note
-The `Testing` section in
-[README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md)
-is not mandatory, can be skipped.
+The `Testing` section within the
+[README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md) is optional.
 :::
 
 ## Running benchmark
 
-Before using `memtier_benchmark`, read the help from
-`mentier_benchmark -h` or this [Redis
-article](https://redis.com/blog/memtier_benchmark-a-high-throughput-benchmarking-tool-for-redis-memcached/)
-to understand what the tool can offer.
+Before using `memtier_benchmark`, explore its capabilities with `mentier_benchmark -h` or
+this [Redis article](https://redis.com/blog/memtier_benchmark-a-high-throughput-benchmarking-tool-for-redis-memcached/).
 
-The following variables need to be substituted when running the
-commands. You can find the information in the **Overview** tab of your
-Aiven for Redis service.
+Substitute the following variables in the commands. The **Overview** page of
+your Aiven for Caching service contains this information.
+
 
  | Variable   | Description                             |
  | ---------- | --------------------------------------- |
- | `USERNAME` | User name of Aiven for Redis connection |
- | `PASSWORD` | Password of Aiven for Redis connection  |
- | `HOST`     | Hostname for Redis connection           |
- | `PORT`     | Port for Redis connection               |
+ | `USERNAME` | User name of Aiven for Caching connection |
+ | `PASSWORD` | Password of Aiven for Caching connection  |
+ | `HOST`     | Hostname for Caching connection           |
+ | `PORT`     | Port for Caching connection               |
 
-Below is a sample command from the [Redis
-blog](https://redis.com/blog/benchmark-shared-vs-dedicated-redis-instances/).
-Each run of the benchmarking tool consists of executing
-`10000 (-n 10000)` SET & GET operations with `1:1 ratio (--ratio 1:1)`
-by launching `4 threads (-t 4)` and each thread opening
-`25 connections (-c 25)`. The tool does `10 iterations (-x 10)` of each
-run to collect meaningful aggregate averages.
+The following is a sample command from the
+[Redis blog](https://redis.com/blog/benchmark-shared-vs-dedicated-redis-instances/). This
+command executes `10000 (-n 10000)` SET & GET operations with a `1:1 ratio (--ratio 1:1)`.
+It launches `4 threads (-t 4)`, with each thread opening `25 connections (-c 25)`. The
+tool performs `10 iterations (-x 10)` of each run to collect meaningful aggregate
+averages.
 
-```
+```bash
 memtier_benchmark -a 'USERNAME:PASSWORD' -s 'HOST' -p 'PORT' --tls --tls-skip-verify -t 4 -n 10000 --ratio 1:1 -c 25 -x 10 -d 100 --key-pattern S:S
 ```
 
-Your output may be similar to this:
+The output provides detailed metrics on operations per second, latency, and throughput for
+each test run. Below is an example output for a single benchmark cycle:
 
-```
+```plaintext
 Writing results to stdout
 [RUN #1] Preparing benchmark client...
 [RUN #1] Launching threads now...
@@ -133,15 +126,13 @@ GET     712.703      100.000
 WAIT      0.000      100.000
 ```
 
-This example demonstrates what performance data `memtier_benchmark` can
-collect. The beginning sections are the data of the `10` runs executed.
-The following sections present, among the 10 runs, the `BEST RUN`,
+This demonstrates the performance data obtainable with `memtier_benchmark`. The initial
+sections present data from the  `10` runs. The following sections present the `BEST RUN`,
 `WORST RUN` and `AGGREGATED AVERAGE` results as well as the
 `Request Latency Distribution` of the operations.
 
-Running the same command on different Redis services or on the same
-service in different conditions can effectively benchmark the
-performance.
+Running this command on various Aiven for Caching services or the same service under
+different conditions allows for effective performance comparisons
 
 :::note
 Aiven has `rate limit` on services. By default it's `200` new
@@ -149,4 +140,8 @@ connections per 0.5 second per CPU core. Also be aware of the connection
 limit depending on memory size as explained in [Estimate maximum number
 of
 connection](https://docs.aiven.io/docs/products/redis/howto/estimate-max-number-of-connections.html).
+
+Aiven enforces a `rate limit` on services. By default, it's set to `200` new connections
+per 0.5 seconds per CPU core. Additionally, consider the connection limit based on memory
+size as explained in [Estimate maximum number of connection](/docs/products/redis/howto/estimate-max-number-of-connections).
 :::
