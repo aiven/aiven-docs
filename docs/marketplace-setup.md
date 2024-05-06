@@ -12,7 +12,7 @@ Aiven makes its services available through the various Marketplaces and you can 
 <Tabs groupId="group1">
 <TabItem value="AWS" label="AWS Marketplace" default>
 
-1. Go to [Aiven Managed Database on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vylwtm6t2c7fk).
+1. Go to [Aiven Managed Database on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-fx7pxfq5uaxha.
 
 1. Click **View purchase options**.
 
