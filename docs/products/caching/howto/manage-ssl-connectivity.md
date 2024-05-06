@@ -34,7 +34,7 @@ Not every Redis client supports SSL-encrypted connections. In such cases, turnin
 bypassing SSL is possible but **not recommended**. Use one of the following options to
 achieve this.
 
-### Set up `stunnel` process
+## Set up `stunnel` process
 
 Set up a `stunnel` process on the client to manage SSL settings on the database
 side while hiding it from the client.
@@ -82,7 +82,7 @@ users. If you allow very long Redis timeouts, this SSL-terminating
 HAProxy may end up closing the connection before the Redis timeout has
 expired. This timeout is independent of Redis timeout.
 
-### Allow plain-text connections
+## Allow plain-text connections
 
 An alternative is disable database SSL allowing allow plain-text
 connections. To allow plain-text connections, you can change this
