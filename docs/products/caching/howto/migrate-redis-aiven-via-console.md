@@ -1,12 +1,12 @@
 ---
-title: Migrate from Redis®* to Aiven for Redis®* using Aiven Console
+title: Migrate from Redis®* to Aiven for Caching using Aiven Console
 ---
 
-Redis®\* is an open-source, in-memory data structure store used as a
+Redis®* is an open-source, in-memory data structure store used as a
 database, cache, message broker, and streaming engine.
 
-Migrating your Redis®\* databases, whether on-premise or cloud-hosted,
-to Aiven for Redis®\* managed service is straightforward. The Aiven
+Migrating your Redis®* databases, whether on-premise or cloud-hosted,
+to Aiven for Redis®* managed service is straightforward. The Aiven
 console provides a guided wizard to assist you with the migration
 process.
 
@@ -15,15 +15,15 @@ Migrating from Google Cloud Memorystore for Redis is not currently
 supported.
 
 The version of the source Redis service cannot be higher than the version
-of the target Aiven for Redis®* service.
+of the target Aiven for Caching service.
 :::
 
 ## Prerequisites
 
 Before starting the migration process, ensure you have the following:
 
--   A target Aiven for Redis®\* service. To create one, see
-    [Get started with Aiven for Redis®*](/docs/products/redis/get-started).
+-   A target Aiven for Caching service. To create one, see
+    [Get started with Aiven for Caching](/docs/products/redis/get-started).
 -   Source database information:
     -   **Hostname or connection string:** This is the public hostname,
         connection string, or IP address used to connect to the
@@ -31,42 +31,39 @@ Before starting the migration process, ensure you have the following:
         [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
     -   **Port:** The port used to connect to the database.
     -   **Username:** The username used to connect to the database.
-        Ensure this user has sufficient permissions to access the data
-        you want to migrate.
+        Ensure this user has sufficient permissions to access the data to migrate.
     -   **Password:** The password used to connect to the database.
 -   To enable traffic and connection between the source and target
     databases, ensure that you update or disable the firewalls that
     protect them. If necessary, you can temporarily disable the
     firewalls.
--   A source Redis®\* service that is secured with SSL is a default
+-   A source Redis®* service that is secured with SSL is a default
     migration requirement.
--   A publicly accessible source Redis®\* service or a service with a
+-   A publicly accessible source Redis®* service or a service with a
     VPC peering connection between private networks. The VPC ID and
     cloud name are required for the migration process.
 
 :::note
-AWS ElastiCache for Redis®\* instances cannot have public IP addresses
-and thus require project VPC and peering connection.
+AWS ElastiCache for Redis®* instances cannot have public IP addresses
+and require project VPC and peering connection.
 :::
 
-## Migrate a Redis®\* database
+## Migrate a Redis database
 
-Follow these steps to migrate a Redis®\* database to Aiven for Redis®\*
-service:
+Follow these steps to migrate a Redis database to Aiven for Caching service:
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
-    the target Aiven for Redis®\* service to which you want to migrate
-    the Redis®\* database.
-2.  Click **Service settings** on the sidebar.
-3.  Scroll to the **Service management** section, and click **Actions**
-    (**...**) menu.
-4.  Click **Import database** to initiate the import process.
-5.  You will see a wizard that guides you through the database migration
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and select the target
+    Aiven for Caching service for migrating the Redis® database.
+1.  Click **Service settings** on the sidebar.
+1.  Scroll to the **Service management** section, and
+    click <ActionsIcon className="icon"/> **Actions** > **Import database**
+    to initiate the import process.
+1.  You will see a wizard that guides you through the database migration
     process.
 
 ### Step 1: Configure
 
-Read through the guidelines on the Redis migration wizard and select
+Read through the guidelines on the Redis migration wizard and click
 **Get started** to proceed with the database migration.
 
 ![Screenshot of the database migration wizard](/images/content/products/redis/redis-db-migration-get-started.png)
@@ -83,9 +80,9 @@ Read through the guidelines on the Redis migration wizard and select
     -   **Username:** The username used to connect to the database.
     -   **Password:** The password used to connect to the database.
 
-2.  Select the **SSL encryption recommended** checkbox.
+1.  Select the **SSL encryption recommended** checkbox.
 
-3.  Select the **Run check** to validate the connection. If the check
+1.  Click the **Run check** to validate the connection. If the check
     returns any warning, resolve the issues before proceeding with the
     migration process.
 
@@ -93,7 +90,7 @@ Read through the guidelines on the Redis migration wizard and select
 
 ### Step 3: Migration
 
-On the **Database migration** screen, select **Start Migration** to
+On the **Database migration** screen, click **Start Migration** to
 begin the migration.
 
 ![Start database migration](/images/content/products/redis/redis-start-migration.png)
@@ -108,10 +105,10 @@ While the migration is in progress, you can
     data will be retained, and you can start a new migration.
 
 :::note
-If you choose to stop the migration, this action will immediately halt
+If you choose to stop the migration, this action immediately halts
 the replication of your data. However, any data that has already been
-migrated to Aiven will be retained. You can initiate a new migration
-later, and this process will overwrite any previously migrated
+migrated to Aiven is retained. You can initiate a new migration
+later, and this process overwrites any previously migrated
 databases.
 :::
 
@@ -127,10 +124,10 @@ choosing **Start over**.
 When the wizard informs you about the completion of the migration, you
 can choose one of the following options:
 
--   Select **Close connection** to disconnect the databases and stop the
+-   Click **Close connection** to disconnect the databases and stop the
     replication process if it is still active.
 
--   Select **Keep replicating** if the replication is ongoing and you
+-   Click **Keep replicating** if the replication is ongoing and you
     wish to maintain the connection open for continuous data
     synchronization.
 
@@ -138,10 +135,10 @@ can choose one of the following options:
 
 :::note[Replication mode active?]
 Your data has been successfully migrated to the designated Aiven for
-Redis database, and any subsequent additions to the connected databases
+Caching database, and any subsequent additions to the connected databases
 are being continuously synchronized.
 :::
 
 ## Related pages
 
--   [Get started with Aiven for Redis®*](/docs/products/redis/get-started)
+-   [Get started with Aiven for Caching](/docs/products/redis/get-started)

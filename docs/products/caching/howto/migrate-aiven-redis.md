@@ -1,15 +1,11 @@
 ---
-title: Migrate from Redis®* to Aiven for Redis®* using the CLI
+title: Migrate from Redis®* to Aiven for Caching using the CLI
 ---
 
-Move your data from a source, standalone Redis®\* data store to an
-Aiven-managed Redis service. The migration first attempts to use the
-`replication` method, and if it fails, it uses `scan`.
+Move your data from a source, standalone Redis®* data store to an Aiven-managed Caching service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.
 
-In the following steps, we show you how to create an Aiven for Redis
-service, and migrate data from AWS ElastiCache Redis. The Aiven project
-name is `test`, and the service name for the target Aiven for Redis is
-`redis`.
+Create an Aiven for Caching service and migrate data from AWS ElastiCache Redis. The Aiven project
+name is `test`, and the service name for the target Aiven for Redis is `redis`.
 
 :::important
 Migrating from Google Cloud Memorystore for Redis is not currently
@@ -19,52 +15,48 @@ The version of the source Redis service cannot be higher than the version
 of the target Aiven for Redis®* service.
 :::
 
-## What you'll need
+## Prerequisites
 
--   A target Aiven for Redis service. See
-    [Get started with Aiven for Redis®*](/docs/products/redis/get-started) to
-    create one, or follow the instructions below.
--   The hostname, port and password of the source Redis service.
--   The source Redis service secured with SSL which is the default for
-    migration.
--   Publicly accessible source Redis service or a service with a VPC
-    peering between the private networks. The migration process requires
-    VPC ID and the cloud name.
+- A target [Aiven for Caching](/docs/products/caching/get-started) service.
+- The hostname, port, and password of the source Redis service.
+- The source Redis service secured with SSL, which is the default for migration.
+- Publicly accessible source Redis service or a service with a VPC peering between the
+  private networks. The migration process requires VPC ID and the cloud name.
 
 :::note
-AWS ElastiCache for Redis instances cannot have public IP addresses, and
-thus require project VPC and peering connection.
+AWS ElastiCache for Redis instances cannot have public IP addresses and
+require project VPC and peering connection.
 :::
 
 ## Create a service and perform the migration
 
-1.  Check the Aiven configuration options and Redis connection details:
+1.  Check the Aiven configuration options and connection details
 
-    -   For Aiven configuration options, type:
+    - To view Aiven configuration options, enter:
 
-        ```
-        avn service types -v
+      ```bash
+      avn service types -v
 
-        ...
-        Service type 'redis' options:
-        ...
-        Remove migration
-            => --remove-option migration
-        Hostname or IP address of the server where to migrate data from
-            => -c migration.host=<string>
-        Password for authentication with the server where to migrate data from
-            => -c migration.password=<string>
-        Port number of the server where to migrate data from
-            => -c migration.port=<integer>
-        The server where to migrate data from is secured with SSL
-            => -c migration.ssl=<boolean>  (default=True)
-        User name for authentication with the server where to migrate data from
-            => -c migration.username=<string>
-        ```
+      ...
+      Service type 'redis' options:
+      ...
+      Remove migration
+        => --remove-option migration
+      Hostname or IP address of the server where to migrate data from
+        => -c migration.host=<string>
+      Password for authentication with the server where to migrate data from
+        => -c migration.password=<string>
+      Port number of the server where to migrate data from
+        => -c migration.port=<integer>
+      The server where to migrate data from is secured with SSL
+        => -c migration.ssl=<boolean>  (default=True)
+      User name for authentication with the server where to migrate data from
+        => -c migration.username=<string>
+      ```
 
-    -   for the VPC information, type:
+    - For the VPC information, enter:
 
-        ```
+        ```bash
         avn vpc list --project test
 
         PROJECT_VPC_ID                        CLOUD_NAME     ...
@@ -73,26 +65,25 @@ thus require project VPC and peering connection.
         ```
 
         :::note
-        Here are your required values for the hostname, port and
-        password of the source Redis service, as well as the VPD ID and
-        cloud name.
+        Note the hostname, port, and password of the source Redis service, as well as
+        the VPC ID and cloud name. You need these details to complete the migration.
         :::
 
-2.  Create the Aiven for Redis service (if you don't have one yet), and
-    migrate:
+1.  Create the Aiven for Redis service and start the migration. If you do not have
+    a service already, create one with:
 
-    ```
+    ```bash
     avn service create --project test -t redis -p hobbyist --cloud aws-eu-west-1 --project-vpc-id 40ddf681-0e89-4bce-bd89-25e246047731 -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> redis
     ```
 
     :::tip
-    If the source Redis server is publicly accessible, the
-    project-vpc-id and cloud parameters are not needed.
+    You can skip specifying the project-vpc-id and cloud if the source Redis server is
+    publicly accessible.
     :::
 
-3.  Check the migration status:
+1.  Check the migration status:
 
-    ```
+    ```bash
     avn service migration-status --project test redis
 
     STATUS  METHOD  ERROR
@@ -104,7 +95,7 @@ thus require project VPC and peering connection.
     Status can be one of `done`, `failed` or `running`. In case of
     failure, the error contains the error message:
 
-    ```
+    ```bash
     avn service migration-status --project test redis
 
     STATUS  METHOD  ERROR
@@ -115,8 +106,7 @@ thus require project VPC and peering connection.
 
 ## Migrate to an existing Aiven for Redis service
 
-Migrate to an existing Aiven for Redis service by updating the service
-configuration:
+To update an existing service, run:
 
 ```
 avn service update --project test -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> redis
@@ -124,11 +114,10 @@ avn service update --project test -c migration.host="master.jappja-redis.kdrxxz.
 
 ## Remove migration from configuration
 
-Migration is one-time operation - once the status is `done`, the
-migration cannot be restarted. If you need to run migration again, you
-should first remove it from the configuration, and then configure it
-again:
+Migration is one-time operation. Once completed and the status is `done`, you cannot
+restart the same migration. To perform the migration again, first remove the existing
+configuration and reconfigure the settings to initiate a new migration:
 
-```
+```bash
 avn service update --project test --remove-option migration redis
 ```

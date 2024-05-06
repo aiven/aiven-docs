@@ -1,48 +1,48 @@
 ---
 title: Connect with Go
 ---
-
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.go';
 
-This example connects to Redis® service from Go, making use of the
-`go-redis/redis` library.
+Learn how to establish a connection to an Aiven for Caching service using Go.
+This example demonstrates how to establish a connection to an Aiven for Caching service
+from Go using the `go-redis/redis` library, which is compatible with the Redis protocol.
 
 ## Variables
 
-These are the placeholders you will need to replace in the code sample:
+Replace the following placeholders in the code sample with actual values
+from your service overview page:
 
 | Variable    | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
-| `REDIS_URI` | URL for the Redis connection, from the service overview page |
+| `CACHING_URI` | URI for the Aiven for Caching service connection |
 
 ## Prerequisites
 
-Get the `go-redis/redis` library:
+Install the `go-redis/redis` library with the following command:
 
-```
+```shell
 go get github.com/go-redis/redis/v8
 ```
 
 ## Code
 
-Create a new file named `main.go`, add the following content and replace
-the placeholder with the Redis URI:
+Create a file named `main.go` and insert the code below, substituting the placeholder
+with your Aiven for Caching URI:
 
 <CodeBlock language='go'>{MyComponentSource1}</CodeBlock>
 
-This code creates a key named `key` with the value `hello world` and no
-expiration time. Then, it gets the key back from Redis and prints its
-value.
+This code creates a key named `key` with the value `hello world` without an expiration.
+It then retrieves this key from the caching service and outputs its value.
 
-Run the code:
+Execute the script with:
 
-```
+```shell
 go run main.go
 ```
 
-If the script runs successfully, the outputs should be:
+You will see the following output after successful execution:
 
-```
+```plaintext
 The value of key is: hello world
 ```

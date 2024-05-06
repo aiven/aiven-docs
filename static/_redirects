@@ -55,7 +55,32 @@
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
-/platform/howto/move-to-azure-marketplace-billing      https://aiven.io/docs/platform/howto/list-marketplace-payments
-/platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
-/platform/howto/move-to-aws-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
 
+
+# Redis to Caching
+
+/products/redis/concepts/overview
+/products/redis/get-started
+/products/redis/concepts/high-availability-redis
+/products/redis/concepts/lua-scripts-redis
+/products/redis/concepts/memory-usage
+/products/redis/concepts/restricted-redis-commands
+/products/redis/howto/list-code-samples
+/products/redis/howto/connect-redis-cli
+/products/redis/howto/connect-go
+/products/redis/howto/connect-node
+/products/redis/howto/connect-php
+/products/redis/howto/connect-python
+/products/redis/howto/connect-java
+/products/redis/howto/list-dba-tasks
+/products/redis/howto/configure-acl-permissions
+/products/redis/howto/migrate-redis-db
+/products/redis/howto/migrate-aiven-redis
+/products/redis/howto/migrate-redis-aiven-via-console
+/products/redis/howto/estimate-max-number-of-connections
+/products/redis/howto/manage-ssl-connectivity
+/products/redis/howto/warning-overcommit_memory
+/products/redis/howto/benchmark-performance
+/products/redis/reference/advanced-params
+/products/redis/troubleshooting
+/products/redis/troubleshooting/troubleshoot-redis-connection-issues

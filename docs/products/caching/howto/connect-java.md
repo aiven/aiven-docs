@@ -5,51 +5,51 @@ title: Connect with Java
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.java';
 
-This example connects to Redis®\* service from Java, making use of the
-`jredis`.
+Learn how to establish a connection to your Aiven for Caching service using Java and the `jedis` library.
 
 ## Variables
 
-These are the placeholders you will need to replace in the code sample:
+Replace the following placeholders in the code sample with actual values
+from your service overview page:
 
  | Variable    | Description                                                  |
  | ----------- | ------------------------------------------------------------ |
- | `REDIS_URI` | URL for the Redis connection, from the service overview page |
+ | `CACHING_URI` | URI for the Redis connection, from the service overview page |
 
 ## Prerequisites
 
-If there is `maven` installed then download of `jredis` and dependencies
-and putting it to `lib` folder could be done:
+With `maven` installed, use the following commands to download `jedis` and its
+dependencies into the `lib` folder:
 
-```
+```shell
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=redis.clients:jedis:4.1.1:jar -Ddest=lib/jedis-4.1.1.jar \
 && mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=org.apache.commons:commons-pool2:2.11.1:jar -Ddest=lib/commons-pool2-2.11.1.jar \
 && mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=org.slf4j:slf4j-api:1.7.35:jar -Ddest=lib/slf4j-api-1.7.35.jar \
 && mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=com.google.code.gson:gson:2.8.9:jar -Ddest=lib/gson-2.8.9.jar
 ```
 
-If there is no maven then download these dependencies from [Maven
-Central Repository](https://search.maven.org) and put them to `lib`
-folder
+If Maven is not installed, download the dependencies from the
+[Maven Central Repository](https://search.maven.org) and place them in the `lib`
+folder manually.
 
 ## Code
 
-Create a new file named `RedisExample.java`:
+Create a file named `RedisExample.java` and insert the code below,
+substituting the placeholder with your Aiven for Caching URI:
 
 <CodeBlock language='java'>{MyComponentSource1}</CodeBlock>
 
-This code creates a key named `key` with the value `hello world` and no
-expiration time. Then, it gets the key back from Redis and prints its
-value.
+This code creates a key named `key` with the value `hello world` without an expiration.
+It then retrieves this key from the caching service and outputs its value.
 
-Replace the placeholder with the **Redis URI** and compile and run the
+Replace the placeholder with the **CACHING_URI**, compile and run the
 code:
 
 ```
 javac -cp lib/*:. RedisExample.java && java -cp lib/*:. RedisExample REDIS_URI
 ```
 
-If the command runs successfully, the outputs should be:
+You will see the following output after successful execution:
 
 ```
 The value of key is: hello world

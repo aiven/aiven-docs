@@ -1,5 +1,5 @@
 ---
-title: Connect to Aiven for Redis®*
+title: Connect to Aiven for Caching
 ---
 
-Connect to Aiven for Redis® using various programming languages.
+Connect to Aiven for Caching using various programming languages.

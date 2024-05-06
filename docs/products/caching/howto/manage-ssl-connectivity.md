@@ -2,48 +2,47 @@
 title: Manage SSL connectivity
 ---
 
+Manage SSL connectivity for your Aiven for Caching service, including enabling secure connections and configuring stunnel for clients without SSL support.
+
 ## Client support for SSL-encrypted connections
 
 ### Default support
 
-Aiven for Redis®\* uses SSL encrypted connections by default. This is
+Aiven for Caching uses SSL encrypted connections by default. This is
 shown by the use of `rediss://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
 :::tip
-You can find the `Service URI` on [Aiven
-console](https://console.aiven.io/).
+The `Service URI` is available on the [Aiven console](https://console.aiven.io/).
 :::
 
 Since **Redis 6**, the `redis-cli` tool itself supports SSL connections;
 therefore, you can connect directly to your service using:
 
-```
+
+```bash
 redis-cli -u rediss://username:password@host:port
 ```
 
-Alternatively, you can use the third-party [Redli
-tool](https://github.com/IBM-Cloud/redli):
+Alternatively, you can use the third-party [Redli tool](https://github.com/IBM-Cloud/redli):
 
-```
+```bash
 redli -u rediss://username:password@host:port
 ```
 
-Not every Redis client supports SSL-encrypted connections. In such
-cases, you would have to turn off or bypass the SSL to use these
-clients, which is allowed but **not recommended**. You can use one of
-the following option to achieve this.
+Not every Redis client supports SSL-encrypted connections. In such cases, turning off or
+bypassing SSL is possible but **not recommended**. Use one of the following options to
+achieve this.
 
 ### Set up `stunnel` process
 
-If you want to keep SSL settings on database side, but hide it from the
-client side, you can set up a `stunnel` process on the client to handle
-encryption.
+Set up a `stunnel` process on the client to manage SSL settings on the database
+side while hiding it from the client.
 
-You can use the following `stunnel` configuration, for example
+Use the following `stunnel` configuration, for example
 `stunnel.conf`, to set up a `stunnel` process.
 
-```
+```plaintext
 client = yes
 foreground = yes
 debug = info
@@ -59,29 +58,27 @@ TIMEOUTclose = 0
 ; CAfile = /path/to/optional/project/cacert/that/you/can/download/from/aiven/console
 ```
 
-To understand the global options of the `stunnel` configuration, please
-check [Stunnel Global
-Options](https://www.stunnel.org/static/stunnel.html#GLOBAL-OPTIONS).
-Also, you can find out more details about how to setup such a process on
-the [Stunnel website page](https://www.stunnel.org/index.html).
+For details about the global options of the stunnel configuration, see the
+[Stunnel Global Options](https://www.stunnel.org/static/stunnel.html#GLOBAL-OPTIONS).
+More details about setting up such a process are available on the
+[Stunnel website page](https://www.stunnel.org/index.html).
 
 For `service-level option`, the following parameters are configured:
 
--   `accept => *[host:]port*`: Accept connections on the specified
-    address.
--   `connect => *[host:]port*`: Connect to a remote address.
--   `TIMEOUTclose => *seconds*`: Time to wait for close_notify.
+- `accept => *[host:]port*`: Accept connections on the specified
+  address.
+- `connect => *[host:]port*`: Connect to a remote address.
+- `TIMEOUTclose => *seconds*`: Time to wait for `close_notify`.
 
 :::note
-It is important to make changes accordingly to your service. On the
-**Overview** page you can find your **Overview** > **Host** and
-**Overview** > **Port** to configure the `connect` parameter.
+Adjust settings according to your service. The **Overview** page lists your
+**Overview** > **Host** and **Overview** > **Port** for configuring the connect parameter.
 :::
 
 When SSL is in use, HAProxy is responsible for terminating the SSL
 connections before they get forwarded to Redis. This process has a
 connection timeout set to 12 hours which is not configurable by the
-customer. If you allow very long Redis timeouts, this SSL-terminating
+users. If you allow very long Redis timeouts, this SSL-terminating
 HAProxy may end up closing the connection before the Redis timeout has
 expired. This timeout is independent of Redis timeout.
 
@@ -94,20 +91,17 @@ using the
 [Aiven Command Line interface](/docs/tools/cli).
 
 :::warning
-Allowing plain-text connections can have some implications regarding the
-security of your Redis service. If SSL is turned off, anyone who can
-eavesdrop on the traffic can potentially have access to your
-credentials; therefore, your Aiven for Redis service.
+Enabling plain-text connections compromises the security of your Aiven for Caching
+service. Disabling SSL allows potential eavesdroppers to access sensitive credentials and data.
 :::
 
-To disable SSL on an existing Redis instance use the following Aiven CLI
-command substituting the `<my-redis>` with your Redis the name service
-chosen by you when the service was created.
+To disable SSL on an existing caching instance, use the following Aiven CLI
+command substituting `<my-caching>` with your chosen service name when the service was created.
 
 ```console
-avn service update <my-redis> -c "redis_ssl=false"
+avn service update <my-Caching> -c "Caching_ssl=false"
 ```
 
-After executing the command, the `Service URI` points to the new
-location and starts with the `redis://` (removing the extra `s`) prefix
-meaning it's a direct Redis connection which does not use SSL.
+After executing the command, the `Service URI` changes to a new location and starts with
+the `Caching://` prefix (removing the extra 's'), indicating a direct connection to the
+Aiven for Caching service that does not use SSL.
