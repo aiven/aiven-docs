@@ -2,13 +2,9 @@
 title: Migrate from Redis®* to Aiven for Caching using Aiven Console
 ---
 
-Redis®* is an open-source, in-memory data structure store used as a
-database, cache, message broker, and streaming engine.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrating your Redis®* databases, whether on-premise or cloud-hosted,
-to Aiven for Redis®* managed service is straightforward. The Aiven
-console provides a guided wizard to assist you with the migration
-process.
+Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Caching, using Aiven Console's guided wizard.
 
 :::important
 Migrating from Google Cloud Memorystore for Redis is not currently
@@ -23,7 +19,7 @@ of the target Aiven for Caching service.
 Before starting the migration process, ensure you have the following:
 
 -   A target Aiven for Caching service. To create one, see
-    [Get started with Aiven for Caching](/docs/products/redis/get-started).
+    [Get started with Aiven for Caching](/docs/products/caching/get-started).
 -   Source database information:
     -   **Hostname or connection string:** This is the public hostname,
         connection string, or IP address used to connect to the
@@ -56,17 +52,16 @@ Follow these steps to migrate a Redis database to Aiven for Caching service:
     Aiven for Caching service for migrating the Redis® database.
 1.  Click **Service settings** on the sidebar.
 1.  Scroll to the **Service management** section, and
-    click <ActionsIcon className="icon"/> **Actions** > **Import database**
+    click <ConsoleLabel name="actions"/> > **Import database**.
     to initiate the import process.
-1.  You will see a wizard that guides you through the database migration
-    process.
+1.  Follow the wizard to guide you through the database migration process.
 
 ### Step 1: Configure
 
 Read through the guidelines on the Redis migration wizard and click
 **Get started** to proceed with the database migration.
 
-![Screenshot of the database migration wizard](/images/content/products/redis/redis-db-migration-get-started.png)
+![Screenshot of the database migration wizard](/images/content/products/caching/redis-db-migration-get-started.png)
 
 ### Step 2: Validation
 
@@ -86,23 +81,23 @@ Read through the guidelines on the Redis migration wizard and click
     returns any warning, resolve the issues before proceeding with the
     migration process.
 
-    ![Connect to database](/images/content/products/redis/redis-migration-validation.png)
+    ![Connect to database](/images/content/products/caching/redis-migration-validation.png)
 
 ### Step 3: Migration
 
 On the **Database migration** screen, click **Start Migration** to
 begin the migration.
 
-![Start database migration](/images/content/products/redis/redis-start-migration.png)
+![Start database migration](/images/content/products/caching/redis-start-migration.png)
 
 While the migration is in progress, you can
 
--   Close the wizard by selecting **Close window** and check the
-    migration status anytime by returning to the wizard from the
+-   Close the wizard by clicking **Close window**. To check the
+    migration status anytime,return to the wizard from the
     service's overview page.
--   Continue to write to the target database.
--   Stop the migration by selecting **Stop migration**. The migrated
-    data will be retained, and you can start a new migration.
+-   Continue writing to the target database.
+-   Stop the migration by clicking **Stop migration**. Data that has already been
+    migrated is retained, and you can initiate a new migration at any time
 
 :::note
 If you choose to stop the migration, this action immediately halts
@@ -131,7 +126,7 @@ can choose one of the following options:
     wish to maintain the connection open for continuous data
     synchronization.
 
-    ![Close database connection](/images/content/products/redis/redis-migration-complete.png)
+    ![Close database connection](/images/content/products/caching/redis-migration-complete.png)
 
 :::note[Replication mode active?]
 Your data has been successfully migrated to the designated Aiven for
@@ -141,4 +136,4 @@ are being continuously synchronized.
 
 ## Related pages
 
--   [Get started with Aiven for Caching](/docs/products/redis/get-started)
+-   [Get started with Aiven for Caching](/docs/products/caching/get-started)
