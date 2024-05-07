@@ -34,11 +34,9 @@ Free plans include:
 -   Backups
 -   Integrations between different Aiven services including free, paid,
     and trial services
--   DigitalOcean hosting in a limited number of regions:
-    -   EMEA: do-ams (Amsterdam), do-ldn (London), do-fra (Frankfurt)
-    -   Americas: do-nyc (New York), do-sfo (San Francisco), do-tor
-        (Toronto)
-    -   APAC: do-blr (Bangalore)
+-   DigitalOcean hosting in a limited number of regions across EMEA,
+    AMER, and APAC. (Full list available during the
+    [signup](https://console.aiven.io/signup) process.)
 
 There are some limitations of the free plan services:
 
