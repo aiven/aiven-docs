@@ -1380,7 +1380,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/dragonfly/howto/list-migrate-data',
                   },
                   items: [
-                    'products/dragonfly/howto/migrate-aiven-redis-df-console',
+                    'products/dragonfly/howto/migrate-aiven-caching-df-console',
                     'products/dragonfly/howto/migrate-ext-redis-df-console',
                   ],
                 },
@@ -2111,20 +2111,18 @@ const sidebars: SidebarsConfig = {
                     type: 'doc',
                     id: 'products/caching/howto/list-dba-tasks',
                   },
+                  items: ['products/caching/howto/configure-acl-permissions'],
+                },
+                {
+                  type: 'category',
+                  label: 'Data migration',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/migrate-redis-db',
+                  },
                   items: [
-                    'products/caching/howto/configure-acl-permissions',
-                    {
-                      type: 'category',
-                      label: 'Data migration',
-                      link: {
-                        type: 'doc',
-                        id: 'products/caching/howto/migrate-redis-db',
-                      },
-                      items: [
-                        'products/caching/howto/migrate-aiven-redis',
-                        'products/caching/howto/migrate-redis-aiven-via-console',
-                      ],
-                    },
+                    'products/caching/howto/migrate-redis-aiven-cli',
+                    'products/caching/howto/migrate-redis-aiven-via-console',
                   ],
                 },
                 'products/caching/howto/estimate-max-number-of-connections',

@@ -1,9 +1,10 @@
 ---
-title: Migrate Aiven for Redis®* to Aiven for Dragonfly®
+title: Migrate Aiven for Caching to Aiven for Dragonfly®
 ---
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate your Aiven for Redis®* databases to Aiven for Dragonfly using the Aiven Console migration tool.
+Migrate your Aiven for Caching databases to Aiven for Dragonfly using the Aiven Console migration tool.
 
 import Note from "@site/static/includes/dragonflysla-note.md"
 
@@ -24,12 +25,12 @@ carefully review your current Redis setup.
 
 ## Prerequisites
 
-Before starting the migration from an Aiven for Redis service:
+Before starting the migration from an Aiven for Caching service:
 
--   Confirm the Aiven for Redis service is accessible over the Internet.
+-   Confirm the Aiven for Caching service is accessible over the Internet.
     For more information, see
     [Public internet access](/docs/platform/howto/public-access-in-vpc).
--   Make a note of the Aiven project and Aiven for Redis service names
+-   Make a note of the Aiven project and Aiven for Caching service names
     for migration in the Aiven Console.
 
 The Aiven Console migration tool automatically uses connection details
@@ -43,17 +44,18 @@ for Redis service.
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    the Aiven for Dragonfly service for your Redis database migration.
 1. Go to **Service settings** from the sidebar.
-1. Scroll to the **Service management** section and use the ellipsis to
-   view additional menu options.
-1. Select **Import database** to initiate the import process.
+1. Scroll to the **Service management** section, and
+   click <ConsoleLabel name="actions"/> > **Import database**.
+   to initiate the import process.
+1. Follow the wizard to guide you through the database migration process.
 
 ### Step 1: Configure
 
-Begin the migration process by selecting **Import an Aiven for Redis
+Begin the migration process by selecting **Import an Aiven for Caching
 service**:
 
 1. From the drop-down menu, select your project name.
-1. From the subsequent drop-down, select the Aiven for Redis database
+1. From the subsequent drop-down, select the Aiven for Caching database
    you intend to migrate.
 1. Click **Get started** to proceed with the migration.
 
@@ -129,5 +131,5 @@ with continuous synchronization of new writes from the source database.
 
 ## Related pages
 
-- [Aiven for Redis®* documentation](/docs/products/redis/get-started)
+- [Aiven for Caching* documentation](/docs/products/redis/get-started)
 - [Aiven for Dragonfly overview](/docs/products/dragonfly/concepts/overview)

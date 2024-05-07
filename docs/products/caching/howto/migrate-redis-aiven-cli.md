@@ -104,7 +104,7 @@ require project VPC and peering connection.
     ```
     :::
 
-## Migrate to an existing Aiven for Redis service
+## Migrate to an existing Aiven for Caching service
 
 To update an existing service, run:
 
