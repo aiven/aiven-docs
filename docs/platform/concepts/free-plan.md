@@ -34,9 +34,8 @@ Free plans include:
 -   Backups
 -   Integrations between different Aiven services including free, paid,
     and trial services
--   DigitalOcean hosting in a limited number of regions across EMEA,
-    AMER, and APAC. (Full list available during the
-    [signup](https://console.aiven.io/signup) process.)
+-   [DigitalOcean hosting](https://aiven.io/docs/platform/reference/list_of_clouds#digitalocean)
+    in a limited number of regions
 
 There are some limitations of the free plan services:
 
