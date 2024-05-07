@@ -5,14 +5,14 @@ title: Migrate from Redis®* to Aiven for Caching using the CLI
 Move your data from a source, standalone Redis®* data store to an Aiven-managed Caching service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.
 
 Create an Aiven for Caching service and migrate data from AWS ElastiCache Redis. The Aiven project
-name is `test`, and the service name for the target Aiven for Redis is `redis`.
+name is `test`, and the service name for the target Aiven for Caching is `redis`.
 
 :::important
 Migrating from Google Cloud Memorystore for Redis is not currently
 supported.
 
 The version of the source Redis service cannot be higher than the version
-of the target Aiven for Redis®* service.
+of the target Aiven for Caching service.
 :::
 
 ## Prerequisites
@@ -69,7 +69,7 @@ require project VPC and peering connection.
         the VPC ID and cloud name. You need these details to complete the migration.
         :::
 
-1.  Create the Aiven for Redis service and start the migration. If you do not have
+1.  Create the Aiven for Caching service and start the migration. If you do not have
     a service already, create one with:
 
     ```bash
