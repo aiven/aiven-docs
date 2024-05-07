@@ -31,7 +31,7 @@ const sidebars: SidebarsConfig = {
       label: 'Organizations, units, and projects',
       link: {
         type: 'doc',
-        id: 'platform/concepts/projects_accounts_access',
+        id: 'platform/concepts/orgs-units-projects',
       },
       items: [
         {

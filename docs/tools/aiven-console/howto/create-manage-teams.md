@@ -5,7 +5,12 @@ title: Create and manage teams
 **Teams** let you create user groups and assign different access levels to specific projects.
 
 Users must be part of an organization before being added to a team. To create and manage
-teams, click **Admin** and then select **Teams**.
+teams, click **Admin** and select **Teams**.
+
+The members of the Account Owners team are automatically made super admin. Adding other
+users to this team makes them a super admin with full access to your organization,
+its units, and projects. Likewise, when you make a user a super admin, they are added
+to the account owners team.
 
 :::important
 **Teams are becoming groups**
@@ -15,7 +20,7 @@ projects and services for a group of users.
 [Migrate your teams to groups](#migrate_teams_to_groups).
 :::
 
-## Create a new team
+## Create a team
 
 1.  Click **Create new team**.
 1.  Enter a **Team Name**.
