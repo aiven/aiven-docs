@@ -46,7 +46,7 @@ of the page. You can switch to another organization or organizational
 unit by clicking the name to open the drop-down menu.
 
 If you don't have an organization, click **Create organization** to
-[create your first organization](/docs/tools/aiven-console/howto/create-accounts).
+[create your first organization](/docs/tools/aiven-console/howto/create-orgs-and-units).
 
 :::note
 We strongly recommend creating an organization. It makes managing your

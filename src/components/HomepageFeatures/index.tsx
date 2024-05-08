@@ -28,7 +28,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Aiven platform',
     Svg: require('@site/static/images/icons/home/console.svg').default,
-    to: '/docs/platform/concepts/projects_accounts_access',
+    to: '/docs/platform/concepts/orgs-units-projects',
     description: <>Manage your organization and your users.</>,
   },
   {
