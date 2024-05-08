@@ -126,13 +126,13 @@ hypertable
 hypertables
 IdP
 IdPs
-IPs
 InfluxDB
 InnoDB
 inodes
 Instana
 io
 iops
+IPs
 IPsec
 iptables
 Java
@@ -221,6 +221,7 @@ Protobuf
 Provectus
 psql
 Python
+Quix
 rebalance
 rebalances
 rebalancing
