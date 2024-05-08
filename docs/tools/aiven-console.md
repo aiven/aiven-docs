@@ -2,21 +2,13 @@
 title: Aiven Console overview
 ---
 
-The [Aiven Console](https://console.aiven.io) gives you access to create
-and manage Aiven services, update your user profile, manage settings
-across organizations and projects, set up billing groups, view invoices,
-and more. This article provides an overview of the main areas in the
-console:
+In the [Aiven Console](https://console.aiven.io) you can create and manage Aiven services, update your user profile, manage settings across organizations and projects, set up billing groups, view invoices, and more.
 
--   User profile
--   Organization and organizational unit settings
--   Projects and services
--   Billing groups
 
 ## User profile
 
 To view your personal information, authentication settings, and
-organizations you belong to, click the **User information** profile icon
+organizations you belong to, click the label **User information** profile icon
 in the top right. The user profile is also the place where you can
 enable
 [feature previews](/docs/platform/howto/feature-preview) to test upcoming features and get referral links.
@@ -27,7 +19,7 @@ You can
 [update your name and other personal details](/docs/platform/howto/edit-user-profile) in your user profile.
 
 :::note
-You cannot edit your email address here. Instead, you can
+You cannot edit your email address. Instead, you can
 [migrate your Aiven resources to another email address](/docs/platform/howto/change-your-email-address) within specific projects.
 :::
 
@@ -48,7 +40,8 @@ revoke
 ## Organization and organizational unit settings {#orgs-units-settings}
 
 The
-[organization or organizational unit](/docs/platform/concepts/projects_accounts_access) that you are currently working with is displayed at the top
+[organization or organizational unit](/docs/platform/concepts/orgs-units-projects)
+that you are currently working with is displayed at the top
 of the page. You can switch to another organization or organizational
 unit by clicking the name to open the drop-down menu.
 
@@ -62,7 +55,7 @@ groups, billing groups, and SAML authentication.
 :::
 
 Organization and organizational unit settings are available on the
-**Admin** page. Here you can:
+**Admin** page where you can:
 
 -   [Manage your groups](/docs/platform/howto/manage-groups)
 -   Create new projects under an organization or organizational unit
@@ -78,7 +71,7 @@ To navigate between different projects or view all projects click the
 **Projects** drop-down menu. This menu shows only the projects within
 the organization or organizational unit that you are currently working
 in. Selecting a project opens the **Services** page with a list of all
-services in that project. Here you can view the status of the services
+services in that project. You can view the status of the services
 and
 [create new services](/docs/platform/howto/create_new_service).
 

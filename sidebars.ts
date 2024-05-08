@@ -42,7 +42,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/concepts/orgs-and-units',
           },
           items: [
-            'tools/aiven-console/howto/create-accounts',
+            'tools/aiven-console/howto/create-orgs-and-units',
             'platform/howto/manage-organizations',
           ],
         },

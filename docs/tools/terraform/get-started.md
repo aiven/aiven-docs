@@ -2,9 +2,7 @@
 title: Get started with Aiven Provider for Terraform
 ---
 
-This example shows you how to use the Aiven Provider to set up your data
-infrastructure by creating a single Aiven for Redis®\* service in an
-[Aiven project](/docs/platform/concepts/projects_accounts_access).
+Use the Aiven Provider to set up a single Aiven for Redis®* service in an [Aiven project](/docs/platform/concepts/orgs-units-projects).
 
 :::caution
 Recreating stateful services with Terraform may delete the service and
@@ -39,13 +37,12 @@ file, but it's ideal to put them in separate files.
 
 Set up the Terraform project in an empty folder:
 
-1.  Create a new Terraform file, `provider.tf`, to declare a dependency
+1.  Create a Terraform file, `provider.tf`, to declare a dependency
     on the Aiven Provider for Terraform.
 
     Add the following code to the file and specify the version in the
-    `required_providers` block. You can find the latest version on the
-    [Aiven Provider
-    page](https://registry.terraform.io/providers/aiven/aiven/latest).
+    `required_providers` block. The latest version is shown on the
+    [Aiven Provider page](https://registry.terraform.io/providers/aiven/aiven/latest).
 
     ```terraform
     terraform {

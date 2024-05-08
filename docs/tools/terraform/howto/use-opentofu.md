@@ -21,7 +21,7 @@ you can [migrate your Terraform resources to OpenTofu](https://opentofu.org/docs
 
 Set up the OpenTofu project in an empty folder:
 
-1.  Create a new file, `provider.tf`, and add the following code to declare a dependency
+1.  Create a file, `provider.tf`, and add the following code to declare a dependency
     on the Aiven Provider, specifying the
     [version](https://registry.terraform.io/providers/aiven/aiven/latest).
 
@@ -56,7 +56,7 @@ Set up the OpenTofu project in an empty folder:
     ```
 
     Where `ORGANIZATION_NAME` is your
-    [Aiven organization](/docs/platform/concepts/projects_accounts_access) name.
+    [Aiven organization](/docs/platform/concepts/orgs-units-projects) name.
 
 1.  Create a file named `service.tf` and add the following code to define the configuration
     of an [Aiven for PostgreSQL®](/docs/products/postgresql) service:
