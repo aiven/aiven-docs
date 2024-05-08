@@ -23,6 +23,8 @@ testing workloads into different organizational units.
 Grouping your projects in organizations and units lets
 you centrally manage settings like:
 
+- [Domains and identity providers](/docs/platform/howto/list-identity-providers):
+   Only available at the organization level
 - [Authentication policies](/docs/platform/howto/set-authentication-policies):
    Only available on the organization level
 - Access control lists (ACLs): Can be set on all levels (organization,
@@ -35,9 +37,8 @@ you centrally manage settings like:
    apply to all units, projects, and services within that organization. They cannot be
    shared between organizations.
 - [Billing information](/docs/platform/concepts/hourly-billing-model): Managed at the
-   organization level. They can be used for all
-   projects in the organization and its units. They cannot cannot be shared
-   between organizations.
+   organization level. They can be used for all projects in the organization
+   and its units. They cannot cannot be shared between organizations.
 
 ## Projects
 
@@ -46,7 +47,8 @@ Projects are collections of services and user permissions. You can
 or in organizational units.
 
 Projects help you group your services based on your organization's structure or processes.
-The following are some examples of how customers organize their services:
+They also let you apply uniform network security settings across all services within
+the project. The following are some examples of how customers organize their services:
 
 -   Single project: One project containing services that are
     distinguished by their names. For example, services have names based
@@ -54,8 +56,7 @@ The following are some examples of how customers organize their services:
     `demo_pg_project.postgres-staging`.
 -   Environment-based: Each project represents a deployment environment,
     for example: `dev`, `qa`, and `production`. This can make it easier to apply
-    uniform network security settings and manage user permissions,
-    such as developer access to production infrastructure.
+    uniform user permissions, such as developer access to production infrastructure.
 -   Project-based: Each project contains all the services for an
     internal project, with naming that highlights the relevant
     environment. For example: `customer-success-prod` and `business-analytics-test`.
