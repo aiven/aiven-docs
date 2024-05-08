@@ -1,18 +1,15 @@
 ---
 title: Aiven for ClickHouse® limits and limitations
+sidebar_label: Limits and limitations
 ---
 
-This article covers quotas for the Aiven for ClickHouse® service and
-restrictions on its use. This information helps you make right choices
-when working with Aiven for ClickHouse, for example, on your
-infrastructure design, tools, modes of interactions, potential
-integrations, or handling concurrent workloads.
+By respecting Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 
 ## Limitations
 
 From the information about restrictions on using Aiven for ClickHouse,
-you can easily draw conclusions on how to get your service to operate
-closer to its full potential. Use *Recommended approach* as guidelines
+you can draw conclusions on how to get your service to operate
+closer to its full potential. Use **Recommended approach** as guidelines
 on how to work around specific restrictions.
 
 <table>
@@ -165,12 +162,14 @@ on how to work around specific restrictions.
 
 Service limits are determined by a plan that this service uses.
 
-| Plan     | VMs    | CPU per VM         | RAM per VM | Total storage   |
-| -------- | ------ | ------------------ | ---------- | --------------- |
-| Hobbyist | 1      | 1 (2 for AWS only) | 4 GB       | 180 GB          |
-| Startup  | 1      | 2                  | 16 GB      | 1150 GB         |
-| Business | 3      | 2 - 8              | 16 - 64 GB | 1150 - 4600 GB  |
-| Premium  | 6 - 30 | 2 - 8              | 16 - 64 GB | 2300 - 46000 GB |
+| Aiven for ClickHouse           | Hobbyist                   | Startup                      | Business                     | Premium                      |
+| ------------------------------ | -------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
+| VMs                            | 1                          | 1                            | 3                            | 6 - 30                       |
+| CPU per VM                     | 1 (2 for AWS only)         | 2                            | 2 - 8                        | 2 - 8                        |
+| RAM per VM                     | 4 GB                       | 16 GB                        | 16 - 64 GB                   | 16 - 64 GB                   |
+| Total storage                  | 180 GB                     | 1150 GB                      | 1150 - 4600 GB               | 2300 - 46000 GB              |
+| Maximum concurrent queries     | 25 queries per 4 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM |
+| Maximum concurrent connections | 1000 connections per node  | 4000 connections per node    | 4000 connections per node    | 4000 connections per node    |
 
 :::tip
 If you need a custom plan with capacity beyond the listed limits,
