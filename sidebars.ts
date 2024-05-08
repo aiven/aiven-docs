@@ -632,6 +632,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/provectus-kafka-ui',
                     'products/kafka/howto/kpow',
                     'products/kafka/howto/kafka-klaw',
+                    'products/kafka/howto/kafka-quix',
                   ],
                 },
                 {
