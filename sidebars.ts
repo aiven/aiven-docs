@@ -1817,6 +1817,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
+                    'products/opensearch/howto/custom-dictionary-files',
                     'products/opensearch/howto/opensearch-alerting-api',
                     'products/opensearch/howto/handle-low-disk-space',
                     'products/opensearch/howto/resolve-shards-too-large',

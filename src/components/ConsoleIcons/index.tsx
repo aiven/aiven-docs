@@ -220,6 +220,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.download} /> <b>Download</b>
         </>
       );
+    case 'replacefile':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Replace file</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
