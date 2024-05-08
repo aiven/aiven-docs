@@ -81,10 +81,12 @@ contacts for your custom cloud.
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
 -   You have Terraform installed
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
--   You have AWS credentials set up on your machine so that your user or
-    role has required Terraform permissions
-    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws))
-    as follows:
+
+### Permissions
+
+You need AWS credentials set up on your machine so that your user or role has required
+Terraform permissions
+([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
 
 <details><summary>
 Show permissions required for creating resources for bastion and
