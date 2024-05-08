@@ -1,5 +1,6 @@
 ---
 title: Custom dictionay files
+enterprise: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -163,6 +164,7 @@ Parameters:
 
 ## Limitations
 
+- This feature requires Aiven Enterprise.
 - Files cannot be deleted. They can only be replaced.
 - The file location is fixed and cannot be customized.
 - If you move to a different cloud or project, files will be copied or moved accordingly.
