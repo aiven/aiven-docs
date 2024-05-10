@@ -1,5 +1,5 @@
 ---
-title: Custom dictionay files
+title: Custom dictionary files
 enterprise: true
 ---
 
@@ -19,8 +19,6 @@ Custom dictionary files are categorized into three types:
 :::note
 Ensure your custom dictionary files are in plain text (UTF-8 encoded) format.
 :::
-
-
 
 ## Upload files
 
@@ -76,9 +74,11 @@ latest upload timestamp.
 <TabItem value="CLI" label="CLI">
 
 Run:
+
 ```bash
   avn service custom-file list --project <project> <service_name>
 ```
+
 Parameters:
 
 - `<project>`: Your Aiven project name.
@@ -172,7 +172,6 @@ Parameters:
   both services manually.
 - Use alphanumeric characters and underscores only for file names.
 
-
 ## Example: How to use custom dictionary files with indexes
 
 After uploading a custom dictionary file, you can use it in your index settings by
@@ -184,7 +183,6 @@ index that uses a custom stopwords file.
 Create a file named `demo_stopwords.txt` with your stopwords.
 
 ```plaintext
-cat <<EOF > demo_stopwords.txt
 a
 fox
 jumps
@@ -198,44 +196,63 @@ EOF
 
 ### Create an index that uses the stopwords file
 
-Create an index using the stopwords file via the Aiven Console or CLI.
+Create an index using the stopwords file via the OpenSearch Dashboards or the API.
 
 <Tabs groupId="create-index-method">
-<TabItem value="Console" label="Console" default>
+<TabItem value="OpenSearch Dashboards" label="OpenSearch Dashboards" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io), select your project,
    and select your Aiven for OpenSearch service.
-1. Click **Indexes** from the sidebar.
-1. In the **Index retention patterns** section, click **Add pattern**.
-1. Enter the pattern to use and the maximum index count for the pattern.
+1. Access the **OpenSearch Dashboards** tab in the **Connection information** section.
+1. Use the **Service URI** to access OpenSearch Dashboards in a browser.
+1. Log in with the provided **User** and **Password**.
+1. Click **Index Management** > **Indices** > **Create Index**.
+1. Enter the details for the index.
+1. Expand the **Advanced settings** section and insert the following JSON
+   configuration to use the stopwords file:
+
+   ```json
+   {
+     "index.analysis.analyzer.default.filter": [
+       "custom_stop_words_filter"
+     ],
+     "index.analysis.analyzer.default.tokenizer": "whitespace",
+     "index.analysis.filter.custom_stop_words_filter.ignore_case": "true",
+     "index.analysis.filter.custom_stop_words_filter.stopwords_path": "custom/stopwords/nofox",
+     "index.analysis.filter.custom_stop_words_filter.type": "stop",
+     "index.number_of_replicas": "1",
+     "index.number_of_shards": "1"
+   }
+   ```
+
 1. Click **Create**.
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="API" label="API">
 
-Replace `<service_url>` with your service's URL and run the following command to
-create the index:
+Alternatively, you can use the API by replacing `${SERVICE_URL}` with your service URL
+and running the following command:
 
-```curl
-  curl -X PUT -H "Content-Type: application/json" -d'{
-    "settings": {
-      "analysis": {
-        "analyzer": {
-          "default": {
-            "tokenizer": "whitespace",
-            "filter": ["custom_stop_words_filter"]
-          }
-        },
-        "filter": {
-          "custom_stop_words_filter": {
-            "type": "stop",
-            "ignore_case": true,
-            "stopwords_path": "custom/stopwords/nofox"
-          }
+```bash
+curl -X PUT -H "Content-Type: application/json" -d'{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "default": {
+          "tokenizer": "whitespace",
+          "filter": ["custom_stop_words_filter"]
+        }
+      },
+      "filter": {
+        "custom_stop_words_filter": {
+          "type": "stop",
+          "ignore_case": true,
+          "stopwords_path": "custom/stopwords/nofox"
         }
       }
     }
-}' `<service_url>/demo-index?pretty`
+  }
+}' ${SERVICE_URL}/demo-index?pretty
 
 ```
 
@@ -244,18 +261,39 @@ create the index:
 
 ### Verify the stopwords filter
 
-Use the `_analyze ` API to verify that the stopwords filter is working.
-Replace `<service_url>` with your service's URL.
+Verify the stopwords filter by using the `_analyze` API.
+
+<Tabs groupId="verify-filter-method">
+<TabItem value="OpenSearch Dashboards" label="OpenSearch Dashboards" default>
+
+1. Go to **Dev Tools** in OpenSearch Dashboards.
+1. Use the `_analyze` API to verify that the stopwords filter is working.
 
 ```bash
-  curl -H 'Content-Type: application/json' -d'{
-    "text": "a quick brown fox jumps over the lazy dog"
-  } ' <service_url>/demo-index/_analyze?pretty
+POST customdictionarytest/_analyze
+{
+  "text": "a quick brown fox jumps over the lazy dog"
+}
 ```
 
-Expected output tokens: "quick," "brown," "over," "lazy," and "dog."
+</TabItem>
+<TabItem value="API" label="API">
 
+Alternatively, use the API by replacing `${SERVICE_URL}` with your service URL and
+running the following command:
+
+```curl
+curl -H 'Content-Type: application/json' -d'{
+  "text": "a quick brown fox jumps over the lazy dog"
+} ' ${SERVICE_URL}/demo-index/_analyze?pretty
+
+```
+
+</TabItem>
+</Tabs>
 
 ## Related pages
 
+- [Indices](/docs/products/opensearch/concepts/indices)
 - [OpenSearch text analysis](https://opensearch.org/docs/2.13/analyzers/)
+- [Analyze API](https://opensearch.org/docs/latest/api-reference/analyze-apis/)
