@@ -23,7 +23,7 @@ To define index retention policies for your OpenSearch indices:
 </TabItem>
 <TabItem value="API" label="API">
 
-Alternatively, you can use our [API](https://api.aiven.io/doc/) with a request similar
+Alternatively, you can use the [API](https://api.aiven.io/doc/) with a request similar
 to the following:
 
 ```bash
