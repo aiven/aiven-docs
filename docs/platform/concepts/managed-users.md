@@ -4,7 +4,7 @@ title: Managed users
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The managed users feature lets you centrally manage your organization's users, including editing their profiles, resetting passwords, and [setting authentication policies](/docs/platform/howto/set-authentication-policies).
+The managed users feature lets you centrally manage your organization's users, including editing their profiles and resetting passwords.
 
 A managed user cannot create new organizations
 unless they are a [super admin](/docs/platform/howto/make-super-admin) of the organization.
