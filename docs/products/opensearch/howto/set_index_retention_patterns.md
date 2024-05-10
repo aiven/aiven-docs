@@ -1,5 +1,5 @@
 ---
-title: Set index retention patterns
+title: Index retention patterns
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Learn to set index retention patterns and manage maximum indices in your Aiven for OpenSearch® instance.
 
+## Set index retention patterns
 To define index retention policies for your OpenSearch indices:
 
 <Tabs groupId="retention-method">
@@ -48,6 +49,7 @@ Parameters:
 
 </TabItem>
 </Tabs>
+
 
 ## Related pages
 
