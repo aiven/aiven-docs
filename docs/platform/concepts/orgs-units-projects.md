@@ -2,26 +2,28 @@
 title: Organizations, units, and projects
 ---
 
-The Aiven platform uses organizations, organizational units, and projects to organize services and manage access.
+The Aiven platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
 
 import Overview from "@site/static/images/content/figma/organizations-overview.png";
 
 <img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" class="centered"/>
 
-## Organizations and organizational units
+There are three levels in this hierarchy:
 
-Organizations and organizational units are collections of projects. When
-you sign up to Aiven, an organization is created for you.
+1. Organization: Contains all of your projects and services. It's recommended to have one
+    Aiven organization.
+1. Organizational units: Added to the organization, giving you greater flexibility to
+   organize your infrastructure based on your specific use cases. For example, you can
+   split production and testing workloads into different organizational units.
+1. Projects: Created in the organization or organizational units to group your services
+    together.
 
-You can use your organization to create a hierarchical structure that
-fits your needs. Organizational units can be nested within an
-organization, adding another level to group your projects. This gives
-you greater flexibility to organize your infrastructure based on your
-specific use cases. For example, you can split production and
-testing workloads into different organizational units.
+## Organizations
 
-Grouping your projects in organizations and units lets
-you centrally manage settings like:
+When you sign up to Aiven, an organization is created for you. You can use your
+organization to create a hierarchical structure that fits your needs.
+
+Organizations also let you centrally manage settings like:
 
 - [Domains and identity providers](/docs/platform/howto/list-identity-providers):
    Only available at the organization level
@@ -39,6 +41,16 @@ you centrally manage settings like:
 - [Billing information](/docs/platform/concepts/hourly-billing-model): Managed at the
    organization level. They can be used for all projects in the organization
    and its units. They cannot cannot be shared between organizations.
+
+## Organizational units
+
+Organizational units are collections of projects. Customers often use these to group
+projects based on things like:
+- Departments in their company like finance, marketing, and engineering
+- Environments such as development, testing, and production
+
+You can create as many units as you need in your organization, but you cannot
+create units in other units.
 
 ## Projects
 
