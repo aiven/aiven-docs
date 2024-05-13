@@ -102,4 +102,6 @@ import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
 <ElasticSearch/>
 
-*Couchbase is a trademark of Couchbase, Inc.*
+import CouchBase from "@site/static/includes/trademark-couchbase.md"
+
+<CouchBase/>

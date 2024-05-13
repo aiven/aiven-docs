@@ -30,7 +30,7 @@ more:
     [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
+import CouchBase from "@site/static/includes/trademark-couchbase.md"
 
 <ElasticSearch/>
-
-Couchbase is a trademark of Couchbase, Inc.
+<CouchBase/>
