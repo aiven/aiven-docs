@@ -1,5 +1,6 @@
 ---
 title: Firewall configuration for service nodes
+sidebar_label: Firewall configuration
 ---
 
 Aiven nodes are built using Linux. Firewall configuration is managed using native Linux kernel-level iptables rules that limit connectivity to nodes.
@@ -61,6 +62,10 @@ deployed without any special configuration:
     <tr>
       <td>500, 4500 (UDP)</td>
       <td>IPsec (IKE, IPsec NAT-T)</td>
+    </tr>
+    <tr>
+      <td>4501 (UDP)</td>
+      <td>WireGuard</td>
     </tr>
   </tbody>
 </table>
