@@ -132,7 +132,13 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'users':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Users</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>Users</b>
+        </>
+      );
+    case 'groups':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Groups</b>
         </>
       );
     case 'billing':
@@ -198,7 +204,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'applicationusers':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.appUsers} /> <b>Users</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.appUsers} />{' '}
+          <b>Application users</b>
         </>
       );
     case 'viewprofile':
