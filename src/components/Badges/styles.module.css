@@ -1,6 +1,5 @@
 .badge {
   border-radius: var(--badge-radius);
-  color: white;
   font-weight: 400;
   text-transform: uppercase;
   margin: 0;
