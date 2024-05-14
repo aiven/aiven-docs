@@ -39,7 +39,7 @@ website](https://www.pgadmin.org/download/)
 
 4.  In the **SSL** tab, set **SSL mode** to `Require`
 
-5.  Click on **Save**
+5.  Click **Save**
 
 :::tip
 If you experience a SSL error while connecting, add the service CA
@@ -53,4 +53,4 @@ certificate as the **Root certificate**.
 Your connection to PostgreSQL should now be opened, with a **Dashboard**
 page showing activity metrics on your PostgreSQL database.
 
-![Screenshot of a pgAdmin Dashboard window](/images/products/postgresql/pg-pgadmin-activity.png)
+![Screenshot of a pgAdmin Dashboard window](/images/content/products/postgresql/pg-pgadmin-activity.png)

@@ -2,7 +2,7 @@
 title: Manage billing groups
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 To view and update your billing groups in the [Aiven Console](https://console.aiven.io/) go to the organization and click **Billing**.
 
@@ -12,9 +12,9 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 
 ## Rename billing groups
 
-1.  On the **Billing** page, find the billing group that you want to
+1.  On the **Billing** page, find the billing group to
     rename.
-1.  Click <ActionsIcon className="icon"/> **Actions** > **Rename**.
+1.  Click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Rename**.
 
 ## Update your billing information
@@ -22,13 +22,13 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 To change the payment card, address, billing contacts, or other billing
 details:
 
-1.  Select the name of the billing group that you want to update.
+1.  Select the name of the billing group to update.
 1.  On the **Billing information** tab click **Edit** to update the
     details for that section.
 
 ## Assign projects to a billing group
 
-1.  Select the name of the billing group that you want to assign
+1.  Select the name of the billing group to assign
     projects to.
 1.  On the **Projects** tab, click **Assign projects**.
 1.  Select the projects to assign to the billing group and click
@@ -42,13 +42,13 @@ will unassign it from that billing group.
 ## Move a project to another billing group
 
 1.  Select the name of the billing group.
-1.  On the **Projects** tab, find the project that you want to move.
+1.  On the **Projects** tab, find the project to move.
 1.  Click the three dots for that project and select the billing group
-    you want to move it to.
+    to move it to.
 
 ## Delete billing groups
 
-1.  Select the name of the billing group that you want to delete.
+1.  Select the name of the billing group to delete.
 1.  On the **Projects** tab, confirm that no projects are assigned to
     this billing group. If there are projects listed, move them to a
     different billing group.

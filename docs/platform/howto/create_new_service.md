@@ -2,15 +2,13 @@
 title: Create a service
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Create the service of your choice at any point.
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and open your project.
 
-1. From your project, on the left-side menu, click <Services className="icon"/>
-   **Services** > **Create service**.
+1. From your project, on the left-side menu, click <ConsoleLabel name="services"/> > **Create service**.
 
 1. From the **Select service** page, click a service type.
 
@@ -30,7 +28,7 @@ Create the service of your choice at any point.
    [Plans & Pricing](https://aiven.io/pricing).
    :::
 
-1. (Optional) Add [disk storage](/docs/platform/concepts/dynamic-disk-sizing).
+1. Optional: Add [disk storage](/docs/platform/howto/add-storage-space).
 
 1. Enter a name for your service.
 
@@ -39,7 +37,7 @@ Create the service of your choice at any point.
    [fork the service][fork] with a new name instead.
    :::
 
-1. (Optional) Add [tags](/docs/platform/howto/tag-resources).
+1. Optional: Add [tags](/docs/platform/howto/tag-resources).
 
 1. Click **Create service**.
 
@@ -54,10 +52,11 @@ When the status becomes **Running**, you can start using it.
 Services typically start up in a couple of minutes. It can vary between
 cloud providers and regions.
 :::
-
+<!-- vale off -->
 ## Related pages
 
 - [Create a service using the Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create)
 - [Rename a service via a fork][fork]
+- [Create service user](/docs/platform/howto/create_new_service_user)
 
 [fork]: /docs/platform/concepts/service-forking

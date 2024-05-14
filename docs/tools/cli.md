@@ -4,21 +4,31 @@ title: Aiven CLI
 
 The Aiven command line interface (CLI) lets you use the Aiven platform and services in a scriptable way through the API.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Get started
 
 ### Install
 
-1. The `avn` utility is a Python package that you can install using `pip`:
+1. The `avn` utility is a [Python package](https://pypi.org/project/aiven-client/):
+
+   <Tabs groupId="group1">
+   <TabItem value="PIP" label="pip" default>
 
    ```bash
    pip install aiven-client
    ```
 
-   You can also use [Homebrew](https://formulae.brew.sh/formula/aiven-client) to install it:
+   </TabItem>
+   <TabItem value="Brew" label="Homebrew">
 
    ```bash
    brew install aiven-client
    ```
+
+   </TabItem>
+   </Tabs>
 
 1. To check your installation, run:
 

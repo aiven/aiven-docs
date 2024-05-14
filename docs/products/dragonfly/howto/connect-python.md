@@ -26,7 +26,7 @@ pip install redis
 
 ## Code
 
-Create a new file named `main.py`, add the following content and replace
+Create a file named `main.py`, add the following content and replace
 the `DRAGONFLY_URI` placeholder with your Dragonfly instance's
 connection URI:
 

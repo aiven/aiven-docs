@@ -1,0 +1,21 @@
+.badge {
+  background-color: var(--aiven-primary-orange);
+  border-radius: var(--badge-radius);
+  color: white;
+  font-weight: 400;
+  margin: 0;
+  padding: 4px 8px;
+  font-size: 80%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.badge:first-letter {
+  text-transform: uppercase;
+}
+
+h1 .badge,
+h2 .badge,
+h3 .badge {
+  font-size: 43%;
+}

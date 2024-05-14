@@ -2,7 +2,7 @@
 title: Migrate service to another cloud or region
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 When migrating a service, the migration happens in the background and
 does not affect your service until the service has been rebuilt at the
@@ -25,7 +25,7 @@ within the same provider, or both.
     cloud or region.
 1.  On the service page, click **Service settings** from the sidebar.
 1.  In the **Cloud and network** section, click
-    <ActionsIcon className="icon"/> **Actions** > **Change cloud or region**.
+    <ConsoleLabel name="actions"/> > **Change cloud or region**.
 1.  In the **Migrate service to another cloud** window, select new cloud
     provider and region and click **Migrate**.
 

@@ -2,14 +2,7 @@
 title: Set up AWS virtual network peering with Terraform
 ---
 
-This help article provides step-by-step instructions for setting up a
-VPC peering connection between Aiven and Amazon Web Services Platform
-(AWS) using Terraform. See the [Using VPC
-peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
-article for how to set up a Project VPC.
-
-Before you start, make sure you have an Aiven authentication token and
-have set up the AWS CLI.
+Setting up a VPC peering connection between Aiven and Amazon Web Services Platform (AWS) using Terraform.
 
 ## Prerequisites:
 

@@ -30,8 +30,8 @@ go install github.com/aiven/aiven-string-replacer-for-grafana
  | `GRAFANA_API_KEY`       | The API key for accessing Grafana             |
  | `GRAFANA_DASHBOARD_URL` | The URL for the Grafana dashboard             |
  | `GRAFANA_DASHBOARD_UID` | The UID that identifies the Grafana dashboard |
- | `OLD_STRING`            | The old string, that you want to replace      |
- | `NEW_STRING`            | The new string, that you want to use instead  |
+ | `OLD_STRING`            | The old stringto replace      |
+ | `NEW_STRING`            | The new stringto use instead  |
 
 ### Get the Grafana API key
 
@@ -97,11 +97,11 @@ The change will be visible in the *Query* panel:
 
 -   Before running the command, metrics start with `elasticsearch_`:
 
-    ![A screenshot of the Grafana Dashboard query showing metrics with prefix](/images/products/grafana/query-with-elasticsearch-prefix.png)
+    ![A screenshot of the Grafana Dashboard query showing metrics with prefix](/images/content/products/grafana/query-with-elasticsearch-prefix.png)
 
 -   After running the command, metrics start with `opensearch_`:
 
-    ![A screenshot of the Grafana Dashboard query showing metrics with prefix](/images/products/grafana/query-with-opensearch-prefix.png)
+    ![A screenshot of the Grafana Dashboard query showing metrics with prefix](/images/content/products/grafana/query-with-opensearch-prefix.png)
 
 ## Use the version history to revert
 
@@ -113,4 +113,4 @@ change to a specific version.
 -   This will show your Dashboard changelog, and you can use this to
     revert to an earlier version of the dashboard.
 
-![A screenshot of the Grafana Dashboard version changelog after conversion](/images/products/grafana/grafana-version-changelog.png)
+![A screenshot of the Grafana Dashboard version changelog after conversion](/images/content/products/grafana/grafana-version-changelog.png)

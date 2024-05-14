@@ -2,7 +2,7 @@
 title: Manage OpenSearch® log integration
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Aiven provides a service integration that allows you to send your logs
 from several services, such as Aiven for Apache Kafka®, PostgreSQL®,
@@ -28,7 +28,7 @@ OpenSearch® from another Aiven service:
 1.  Select **Logs** from the left sidebar, and select **Enable logs
     integration**.
 
-1.  Select an existing OpenSearch instance or create a new one, then select **Continue**.
+1.  Select an existing OpenSearch instance or create one, then select **Continue**.
 
     -   When creating a new service you will need to select the
         cloud, region and plan to use. You should also give your
@@ -74,7 +74,7 @@ You can change the configuration of the `index prefix` and
     the Aiven for OpenSearch service.
 1.  Click **Integrations** on the sidebar.
 1.  Identify the service to configure in the Integrations page.
-1.  Click <ActionsIcon className="icon"/> **Actions** > **Edit**.
+1.  Click <ConsoleLabel name="actions"/> > **Edit**.
 1.  After making the changes, click **Edit** again to save them.
 
 ## Disable logs integration
@@ -85,7 +85,7 @@ follow these steps to disable the integration:
 1.  In your Aiven for OpenSearch service, go to the
     **Integrations** screen and locate the
     service to modify.
-1.  Click <ActionsIcon className="icon"/> **Actions** > **Disconnect**.
+1.  Click <ConsoleLabel name="actions"/> > **Disconnect**.
 1.  In the confirmation window, click **Disconnect** again to confirm
     and save the changes.
 

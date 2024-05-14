@@ -2,6 +2,8 @@
 title: Prevent full disks
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 To ensure the smooth functioning of your **Aiven for Apache Kafka®**
 services, preventing disk space from running low is important. The Aiven
 platform actively monitors the available disk space, and if the usage
@@ -33,7 +35,7 @@ TopicAuthorizationFailedError: [Error 29] TopicAuthorizationFailedError: your-to
     project and then choose your Aiven for Apache Kafka® service.
 2.  In the service page, select **Service settings** from the sidebar.
 3.  On the **Service settings** page, scroll to **Service plan** and
-    select **Change plan** from the **Actions (...)** menu.
+    click <ConsoleLabel name="actions"/> > **Change plan**.
 4.  In the **Change service plan** dialog, select your new service plan
     and select **Change**.
 
@@ -55,9 +57,8 @@ Follow the steps from our article on
 1.  In the [Aiven Console](https://console.aiven.io/), select your
     project and then choose your Aiven for Apache Kafka® service.
 2.  Select **Topics** from the sidebar.
-3.  Select the topic you want to remove, and in the **Topic info**
-    screen, select **Remove**.
-4.  Select **Delete** to confirm that you want to delete the topic.
+3.  Select the topic to remove, and in the **Topic info**
+    screen, select **Remove** and **Delete** to delete the topic.
 
 Deleting a topic frees up the disk space it previously used. The log
 cleaner process may take a few minutes to remove the associated data

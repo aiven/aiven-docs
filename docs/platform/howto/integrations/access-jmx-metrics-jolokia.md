@@ -11,7 +11,7 @@ Only Aiven for Apache Kafka® has support for Jolokia integration.
 ## Jolokia endpoint configuration
 
 To enable Jolokia integration for Aiven services, follow these steps to
-create a new Jolokia endpoint configuration:
+create a Jolokia endpoint configuration:
 
 1.  Log in to the [Aiven console](https://console.aiven.io/) , and from
     the **Services** page, select **Integration endpoints** on the left
@@ -25,13 +25,9 @@ create a new Jolokia endpoint configuration:
     password for authentication. Usually, you can reuse the same
     Jolokia endpoint configuration for all services within a project.
 
-    ![Jolokia service integration endpoint](/images/integrations/jolokia-service-integration-image-1.png)
-
-    ![Jolokia integration endpoint details](/images/integrations/jolokia-service-integration-image-2.png)
-
 :::note
 You can
-[create a new service endpoint using the Aiven CLI](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) as well.
+[create a service endpoint using the Aiven CLI](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) as well.
 :::
 
 ## Enabling Jolokia integration
@@ -68,7 +64,7 @@ kafka-67bd7c5-myproject.aivencloud.com has address 35.228.157.197
 ## Example cURL requests
 
 Before executing the cURL
-request,[download the CA certificate](/docs/platform/howto/download-ca-cert) specific
+request,[download the CA certificate](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates) specific
 to your project. The CA certificate file is
 identical for all endpoints and services within the same project.
 Performing a cURL request to read a specific metric:

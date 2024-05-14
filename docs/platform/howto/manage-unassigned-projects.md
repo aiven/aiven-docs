@@ -21,12 +21,18 @@ Console](https://console.aiven.io/):
 
 1. Click **Projects**.
 1. Click **View unassigned projects** to list all projects unassigned
-   to an organization or organizational unit. If you don't
+   to an organization or organizational unit.
+   <!-- vale off -->
+   :::note
+   If you don't
    see **View unassigned projects** in the dropdown menu, you
    don't have any unassigned projects.
+   :::
+   <!-- vale on -->
+
 1. On the **Unassigned projects** page, click **Assign project** for a
-   project you want to assign.
-1. Add any other projects that you want to assign to the same
+   project to assign.
+1. Add any other projects to assign to the same
    organization or unit.
 1. Select the organization or organizational unit.
 1. Click **Assign projects**.
@@ -38,6 +44,8 @@ only one organization and creating organizational units to group your
 projects.
 
 To create an organization:
+
+<!-- vale off -->
 
 1. At the top-right side, click **Create organization**.
 
@@ -56,6 +64,8 @@ To create an organization:
    :::
 
 1. Click **Create organization**.
+
+<!-- vale on -->
 
 The **Admin** page opens, where you can add organizational units, and
 manage users, groups, and other settings.

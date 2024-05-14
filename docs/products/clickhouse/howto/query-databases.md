@@ -2,10 +2,10 @@
 title: Query ClickHouse® databases
 ---
 
-There are a few tools that enable querying ClickHouse databases. Find
-out which of them are supported in Aiven and how to use them.
+There are a few tools that enable querying ClickHouse® databases. Find out which of them are supported in Aiven and how to use them.
 
-:::note
+## About querying Aiven for ClickHouse®
+
 To ensure data security, stability, and its proper replication, we equip
 our managed Aiven for ClickHouse® service with specific features, some
 of them missing from the standard ClickHouse offer. Aiven for
@@ -15,6 +15,17 @@ the entire cluster. In the standard ClickHouse, the queries `CREATE`,
 In contrast, we ensure the proper distribution across all cluster
 machines behind the scenes. You don't need to remember using
 `ON CLUSTER` for every query.
+
+:::important
+There are limitations on the number of concurrent queries and the number of concurrent
+connections in Aiven for ClickHouse. Depending on your service plan:
+
+- `max_concurrent_queries` ranges from `25` to `400`.
+- `max_concurrent_connections` ranges from `1000` to `4000`.
+
+See
+[Aiven for ClickHouse® limits and limitations](/docs/products/clickhouse/reference/limitations)
+for details.
 :::
 
 For querying your ClickHouse® databases, you can choose between our
@@ -29,7 +40,7 @@ editor** from the sidebar of your service's page.
 
 ### When to use the query editor
 
-The query editor is convenient if you want to run queries directly from
+The query editor is convenient to run queries directly from
 the console on behalf of the default user. The requests that you run
 through the query editor rely on the permissions granted to this user.
 
@@ -37,19 +48,19 @@ through the query editor rely on the permissions granted to this user.
 
 Retrieve a list of current databases:
 
-```
+```sql
 SHOW DATABASES
 ```
 
 Count rows:
 
-```
+```sql
 SELECT COUNT(*) FROM transactions.accounts
 ```
 
-Create a new role:
+Create a role:
 
-```
+```sql
 CREATE ROLE accountant
 ```
 
@@ -60,21 +71,21 @@ You can access it from a web browser over the HTTPS protocol.
 
 ### When to use the play UI
 
-Use the play UI if you want to run requests using a non-default user or
+Use the play UI to run requests using a non-default user or
 if you expect a large size of the response.
 
 ### Use the play UI
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), choose the
     right project, and select your Aiven for ClickHouse service.
-2.  In the **Overview** page of your service, find the **Connection
+1.  In the **Overview** page of your service, find the **Connection
     information** section and select **ClickHouse HTTPS & JDBC**.
-3.  Copy **Service URI** and navigate to `YOUR_SERVICE_URI/play` from a
+1.  Copy **Service URI** and go to `YOUR_SERVICE_URI/play` from a
     web browser.
-4.  Set the name and the password of the user on whose behalf you want
+1.  Set the name and the password of the user on whose behalf you want
     to run the queries.
-5.  Enter the body of the query.
-6.  Select **Run**.
+1.  Enter the body of the query.
+1.  Select **Run**.
 
 :::note
 The play interface is only available if you can connect directly to

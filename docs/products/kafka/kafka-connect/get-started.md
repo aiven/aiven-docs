@@ -10,7 +10,7 @@ services, you must create one by following the instructions in the
 
 ## Create a dedicated Aiven for Apache Kafka® Connect service {#apache_kafka_connect_dedicated_cluster}
 
-To create a new Aiven for Apache Kafka Connect dedicated service:
+To create an Aiven for Apache Kafka Connect dedicated service:
 
 1.  Log into [Aiven Console](https://console.aiven.io) and select the
     **Aiven for Apache Kafka** service for which you want to create a

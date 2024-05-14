@@ -1,8 +1,8 @@
 ---
-title: Set up Virtual Private Cloud (VPC) peering on AWS
+title: Set up VPC peering on AWS
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Learn how to set up VPC peering on AWS.
 
@@ -17,8 +17,7 @@ Create a
 
 1.  Go to **My Account** and make note of your account ID.
 
-1.  Go to the VPC service to find the VPC that you want to connect and
-    copy the ID for that VPC.
+1.  Go to the VPC service to find the VPC to connect and copy its ID.
 
 1.  In [Aiven Console](https://console.aiven.io/), select **VPCs** from
     the sidebar on the **Services** page.
@@ -35,9 +34,9 @@ Create a
     is added in your AWS Console.
     :::
 
-1.  In your AWS Console, check that the account ID and VPC ID match
+1.  In your AWS Console, ensure the account ID and VPC ID match
     those listed in the [Aiven Console](https://console.aiven.io/) and,
-    if so, click <ActionsIcon className="icon"/> **Actions** > **Accept Request**.
+    if so, click <ConsoleLabel name="actions"/> > **Accept Request**.
 
 1.  Update [your AWS route
     tables](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html)

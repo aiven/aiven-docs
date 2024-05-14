@@ -2,7 +2,7 @@
 title: Managed users
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 The managed users feature lets you centrally manage your organization's users and helps you to secure your organization in Aiven.
 
@@ -31,6 +31,6 @@ Users in an organization with a verified domain automatically become managed use
 
 1. Click **Admin**.
 1. Select **Users**.
-1. Find the user and click <ActionsIcon className="icon"/> **Actions** > **Deactivate**.
+1. Find the user and click <ConsoleLabel name="actions"/> > **Deactivate**.
 
 You can follow the same process to reactivate the user.

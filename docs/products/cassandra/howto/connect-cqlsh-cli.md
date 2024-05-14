@@ -46,7 +46,7 @@ the `[ssl]` section by setting the the `certfile` parameter in
 `~/.cassandra/cqlshrc`
 :::
 
-Navigate to the directory of your local Cassandra installation and
+Go to the directory of your local Cassandra installation and
 execute the following from a terminal window:
 
 ```

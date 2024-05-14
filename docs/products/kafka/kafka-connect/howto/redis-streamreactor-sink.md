@@ -146,7 +146,7 @@ parameters
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Apache Kafka Connect connector, follow these steps:
+To create an Apache Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
@@ -154,7 +154,7 @@ To create a Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, this is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

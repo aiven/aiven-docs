@@ -77,7 +77,7 @@ The configuration file contains the following entries:
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Apache Kafka Connect connector, follow these steps:
+To create an Apache Kafka Connect connector, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
@@ -148,6 +148,6 @@ With the above configuration stored in a `couchbase-sink.json` file, you
 can create the connector in the `demo-kafka` instance and you should see
 the data landing in an Couckbase bucket topic named `travel-sample`.
 
-------------------------------------------------------------------------
+import CouchBase from "@site/static/includes/trademark-couchbase.md"
 
-*Couchbase is a trademark of Couchbase, Inc.*
+<CouchBase/>

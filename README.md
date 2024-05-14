@@ -2,7 +2,7 @@
 
 <!-- vale off -->
 
-The Aiven docs repo generates the content located at [www.aiven.io/docs](www.aiven.io/docs).
+The Aiven docs repo generates the content located at [www.aiven.io/docs](https://www.aiven.io/docs).
 We use [Docusaurus](https://docusaurus.io/) to build the docs.
 
 ## 🤲 Contributing
@@ -28,9 +28,9 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    yarn
    ```
 
-1. (Optional) Install [Vale](https://vale.sh/docs/vale-cli/installation/).
+1. Optional: Install [Vale](https://vale.sh/docs/vale-cli/installation/).
 
-1. (Optional) Install [Husky](https://typicode.github.io/husky/):
+1. Optional: Install [Husky](https://typicode.github.io/husky/):
 
    ```bash
    yarn dlx husky

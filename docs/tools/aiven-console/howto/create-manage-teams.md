@@ -23,7 +23,7 @@ projects and services for a group of users.
 
 ## Add users to a team
 
-1.  Click the name of the team that you want to add users to.
+1.  Click the name of the team to add users to.
 1.  On the **Team Members** tab, click **Invite users**.
 1.  Enter the email address of the user and click **Invite users**.
 

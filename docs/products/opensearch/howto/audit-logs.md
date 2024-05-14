@@ -121,7 +121,7 @@ below:
 
 1.  **Create an index pattern**: In the **Stack Management** section,
     establish an index pattern to organize your log data.
-2.  **Create a visualization**: Navigate to the **Visualize** section,
+2.  **Create a visualization**: Go to the **Visualize** section,
     where you can design and tailor visualizations to suit your analysis
     needs.
 3.  **Save and modify visualization**: Once you've created a

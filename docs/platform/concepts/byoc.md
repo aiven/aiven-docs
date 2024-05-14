@@ -1,8 +1,7 @@
 ---
 title: Bring your own cloud (BYOC)
+sidebar_label: Bring your own cloud
 ---
-
-## About BYOC
 
 Aiven services are usually deployed on Aiven-managed infrastructure,
 using Aiven-managed security protocols, and backed by Aiven-managed
@@ -52,13 +51,16 @@ BYOC:
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. Meet a few requirements to be eligible for BYOC:
 
--   You use one of the following public clouds: Amazon Web Services
-    (AWS), Google Cloud Platform (GCP), or Microsoft Azure (excluding
+-   You use Amazon Web Services (AWS), Google Cloud, or Microsoft Azure (excluding
     Azure Germany).
--   Your total monthly spend is at least $5,000.00 for at least 12
-    months.
--   You use at least the [Priority tier of Aiven support
-    services](https://aiven.io/support-services).
+-   You have a commitment deal with Aiven.
+-   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
+
+    :::note
+    View the [Aiven support tiers](https://aiven.io/support-services) and
+    [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC. Contact
+    the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support tier.
+    :::
 
 ## When to use the regular Aiven deployment
 
@@ -72,7 +74,7 @@ utilizing a regular Aiven deployment or
 
 :::tip
 If you would like to understand BYOC better or are unsure which
-deployment model is the best fit for you, contact [sales@aiven.io](mailto:sales@aiven.io).
+deployment model is the best fit for you, contact [the sales team](mailto:sales@aiven.io).
 :::
 
 ## BYOC pricing and billing
@@ -100,7 +102,7 @@ With BYOC, you can use any standard Aiven method (for example,
 manage your services and generally have the same user experience as with
 the regular Aiven deployment model.
 
-![Overview architecture diagram with VPC set up](/images/platform/byoc-one-vpc-arch.png)
+![Overview architecture diagram with VPC set up](/images/content/platform/byoc-one-vpc-arch.png)
 
 The standard BYOC deployment requires you to create a Virtual Private Cloud
 (**BYOC VPC**) dedicated to Aiven-managed services within a cloud region you
@@ -111,10 +113,12 @@ You are able to integrate your services using standard VPC peering techniques.
 
 :::note
 Although the bastion host and the service nodes reside in the VPC under
-your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone outside Aiven.
+your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone
+outside Aiven.
 
 The bastion and workload nodes require outbound access to the Internet
-to work properly (supporting HA signaling to the Aiven management node and RPM download from Aiven repositories).
+to work properly (supporting HA signaling to the Aiven management node and RPM download
+from Aiven repositories).
 :::
 
 Depending on the service used, Aiven takes regular backups to enable

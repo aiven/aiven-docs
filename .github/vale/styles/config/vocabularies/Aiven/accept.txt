@@ -25,6 +25,7 @@ Azure
 binlog
 boolean
 boot
+BTAR
 Bucardo
 business
 BYOC
@@ -59,6 +60,7 @@ Datagen
 datasource
 Datastax
 datastore
+DBeaver
 DBMS
 DBMSs
 deallocation
@@ -95,6 +97,7 @@ Forecast
 Forecasted
 FusionAuth
 Gantt
+GBs
 geocoder
 geocoding
 geohash
@@ -130,6 +133,7 @@ inodes
 Instana
 io
 iops
+IPs
 IPsec
 iptables
 Java
@@ -137,6 +141,7 @@ java_lang_Memory
 JMX
 JobManager
 Jolokia
+jq
 json
 JumpCloud
 JVM's
@@ -186,6 +191,7 @@ Opensearch_acl_config
 Opensearch_acl_rule
 Opensearch_user
 operator
+ORMs
 overcommit
 overcommitted
 Pagerduty
@@ -217,6 +223,7 @@ Protobuf
 Provectus
 psql
 Python
+Quix
 rebalance
 rebalances
 rebalancing
@@ -281,6 +288,7 @@ Telegraf
 Tenant
 Terraform
 Terraforming
+Thanos
 TimescaleDB
 toolchain
 Transport Layer Security

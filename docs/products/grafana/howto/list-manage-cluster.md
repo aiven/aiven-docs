@@ -2,7 +2,7 @@
 title: Manage your Aiven for Grafana® cluster
 ---
 
-[Monitor a managed service](/docs/platform/howto/monitoring-services)
+[Monitor a managed service](/docs/platform/howto/list-monitoring)
 
 [Tag a managed service](/docs/platform/howto/tag-resources)
 

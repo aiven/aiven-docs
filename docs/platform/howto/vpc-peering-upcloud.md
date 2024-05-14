@@ -1,5 +1,5 @@
 ---
-title: Set up network peering between Aiven and UpCloud
+title: Set up VPC peering on UpCloud
 ---
 
 Network peerings enable traffic between two networks from different accounts or platforms.
@@ -55,7 +55,7 @@ UpCloud API endpoint. In the response, you'll get the network's UUID.
 You can establish a peering connection from Aiven to UpCloud using
 [Aiven Console](https://console.aiven.io/).
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), navigate to
+1.  Log in to [Aiven Console](https://console.aiven.io/), go to
     the organization and project you want to use.
 1.  On the **Services** page, select **VPCs** from the sidebar.
 1.  On the **Virtual private clouds** page, select the ID of the VPC

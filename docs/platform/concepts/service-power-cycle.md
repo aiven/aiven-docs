@@ -2,12 +2,11 @@
 title: Power on/off a service
 ---
 
-import Services from "@site/static/images/icons/cog.svg";
-import ActionsIcon from "@site/static/images/icons/more.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Controlling when to power on and off your Aiven services allows you to control the use of resources and save credits.
 Idle resources are released and only the necessary data is kept after a power-off.
@@ -30,8 +29,8 @@ Console](https://console.aiven.io) or through
 <Tabs groupId="sync">
 <TabItem value="Console" label="Console" default>
 
-1. From your project, on the left-side menu, click <Services className="icon"/> **Services**.
-1. For each the service to power, click <ActionsIcon className="icon"/> **Actions** >
+1. From your project, on the left-side menu, click <ConsoleLabel name="services"/>.
+1. For each the service to power, click <ConsoleLabel name="actions"/> >
    **Power off service**
 
 </TabItem>
@@ -61,7 +60,12 @@ Whenever a service is powered off:
 <AutoDelete/>
 :::
 
+:::note
 <StaticIp/>
+
+To remove static IP addresses, see
+[Manage static IP addresses](/docs/platform/concepts/static-ips).
+:::
 
 When a service is powered off, you can [delete it](#delete-service).
 
@@ -70,8 +74,8 @@ When a service is powered off, you can [delete it](#delete-service).
 <Tabs groupId="sync">
 <TabItem value="Console" label="Console" default>
 
-1. From your project, on the left-side menu, click <Services className="icon"/> **Services**.
-1. For each the service to power, click <ActionsIcon className="icon"/> **Actions** >
+1. From your project, on the left-side menu, click <ConsoleLabel name="services"/>.
+1. For each the service to power, click <ConsoleLabel name="actions"/> >
    **Power on service**
 
 </TabItem>
@@ -126,12 +130,12 @@ You can only delete powered-off services. This action cannot be undone.
 <Tabs groupId="sync">
 <TabItem value="Console" label="Console" default>
 
-1.  From your project, on the left-side menu, click <Services className="icon"/> **Services**.
+1.  From your project, on the left-side menu, click <ConsoleLabel name="services"/>.
 1.  On the **Services** page, use the search bar to locate a specific
     powered off service or the filter to display a list of services with
     status **Powered off**.
 1.  Click the service to display its details.
-1.  On the top-right corner, click <ActionsIcon className="icon"/> **Actions** >
+1.  On the top-right corner, click <ConsoleLabel name="actions"/> >
     **Delete service** and confirm.
 
 </TabItem>

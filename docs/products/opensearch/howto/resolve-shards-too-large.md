@@ -69,7 +69,7 @@ POST _reindex
 ### 3. Re-index into a new index with increased shard count
 
 Another strategy involves re-indexing data into a fresh index while
-increasing the number of shards. To create a new index with 2 shards,
+increasing the number of shards. To create an index with 2 shards,
 use the following commands:
 
 ```python

@@ -11,7 +11,7 @@ Users can be added individually or as part of a user
 
 1. Click **Add users** and select **Add users** or **Add groups**.
 
-1. Select the users or groups that you want to add to the project.
+1. Select the users or groups to add to the project.
 
 1. Select a **Role**. The [role](/docs/platform/reference/project-member-privileges)
    will be assigned to all users in all selected groups.

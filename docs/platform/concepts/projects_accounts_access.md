@@ -4,7 +4,7 @@ title: Organization hierarchy and access
 
 The Aiven platform uses organizations, organizational units, and projects to organize services and manage access to those services.
 
-import Overview from "@site/static/images/figma/organizations-overview.png";
+import Overview from "@site/static/images/content/figma/organizations-overview.png";
 
 <img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" class="centered"/>
 

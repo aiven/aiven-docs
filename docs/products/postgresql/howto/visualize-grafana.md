@@ -33,7 +33,7 @@ In Grafana, create a new dashboard and add a panel to it.
 The datasource dropdown shows `--Grafana--` by default, but you will
 also find your PostgreSQL service listed here.
 
-![Screenshot of a Grafana panel showing PostgreSQL logo](/images/products/postgresql/grafana-pg-logo.png)
+![Screenshot of a Grafana panel showing PostgreSQL logo](/images/content/products/postgresql/grafana-pg-logo.png)
 
 With your PostgreSQL service selected, the \"Query\" section will show
 the metrics from the database in its dropdown.
@@ -45,7 +45,7 @@ If no metrics are shown, check that there is data in the database
 Once you are happy with your panel, give it a title and click \"Save\"
 in the top right hand corner.
 
-![Screenshot of a Grafana panel](/images/products/postgresql/view-data-postgresql-grafana.png)
+![Screenshot of a Grafana panel](/images/content/products/postgresql/view-data-postgresql-grafana.png)
 
 :::tip
 Grafana expects a Time column in the query, if you don't have any, use

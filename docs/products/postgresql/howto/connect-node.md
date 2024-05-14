@@ -30,7 +30,7 @@ For this example you will need:
     npm install pg --save
     ```
 
--   [Download CA certificates](/docs/platform/howto/download-ca-cert) from the service overview page, this example assumes it
+-   [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates) from the service overview page, this example assumes it
     is in a local file called `ca.pem`.
 
 ## Code

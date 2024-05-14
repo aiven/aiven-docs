@@ -19,7 +19,7 @@ using the Aiven console. Follow these steps:
 2.  Select **Integration endpoints** from the left sidebar, and then
     **External Apache Kafka** from the list of available services.
 3.  Select **Add a new endpoint**.
-4.  Provide an **Endpoint name**, specify the **Bootstrap servers** ,
+4.  Provide an **Endpoint name**, specify the **Bootstrap servers**,
     and configure the necessary security settings. Then, select
     **Create**.
 5.  Fill the **Endpoint name**, **Bootstrap servers** and the security

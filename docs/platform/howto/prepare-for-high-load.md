@@ -43,7 +43,7 @@ updates on incidents directly from
 ## Monitor the services
 
 Monitoring helps you prepare for high load, see
-[Monitoring services](/docs/platform/howto/monitoring-services).
+[Monitoring services](/docs/platform/howto/list-monitoring).
 
 ## Modify the service plan
 

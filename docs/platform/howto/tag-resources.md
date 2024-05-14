@@ -2,8 +2,7 @@
 title: Use resource tags
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
-import Services from "@site/static/images/icons/cog.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 
@@ -50,11 +49,10 @@ You can see the tags listed in the table on the **Projects** page.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    your organization and your project from the top navigation bar.
-1. On the **Services** page of your project, select the service you
-   wish to tag.
-1. On the service page, select **Service settings** from the sidebar.
+1. On the **Services** page of your project, select the service to tag.
+1. On the service page, select <ConsoleLabel name="service settings"/> from the sidebar.
 1. In the **Service status** section, click
-   <ActionsIcon className="icon"/> **Actions** > **Add service tags**.
+   <ConsoleLabel name="actions"/> > **Add service tags**.
 1. In the **Tag this service** dialog, enter a key and its value in the
    **Service Tags** fields.
 1. Click **Add tag** to add additional tags.

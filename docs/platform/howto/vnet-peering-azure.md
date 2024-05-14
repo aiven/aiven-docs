@@ -1,10 +1,10 @@
 ---
-title: Set up Azure virtual network peering
+title: Set up VPC peering on Azure
 ---
 
 Create an isolated Microsoft Azure virtual network in your Aiven deployment where you can create services instead of using Aiven Cloud's public network.
 
-See the [Using VPC peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
+See the [Using VPC peering](/docs/platform/howto/manage-vpc-peering)
 for how to set up a Project VPC.
 
 :::note
@@ -63,7 +63,7 @@ is not needed if there's only one subscription:
 az account set --subscription <subscription name or id>
 ```
 
-### 2. create application object
+### 2. create application object{#create-app-object}
 
 Create an application object in your AD tenant. Using the Azure CLI,
 this can be done with:
@@ -90,11 +90,11 @@ az ad sp create --id $user_app_id
 
 This creates a service principal to your subscription that may given
 permissions to peer your VNet. Save the `id` field from the JSON
-output - this will be referred to as `$user_sp_id` . Notice that this is
+output - this will be referred to as `$user_sp_id`. Notice that this is
 different from the `$user_app_id` value earlier, which is also shown in
 the output.
 
-### 4. set a password for your app object
+### 4. set a password for your app object{#set-app-object-password}
 
 ```
 az ad app credential reset --id $user_app_id
@@ -112,7 +112,7 @@ your network > **JSON View** > **Resource ID**, or using
 az network vnet list
 ```
 
-Save the `id` field which will be referred to as `$user_vnet_id` . Also
+Save the `id` field which will be referred to as `$user_vnet_id`. Also
 grab
 
 -   the Azure Subscription ID (**Properties** > **Subscription ID**) or
@@ -190,7 +190,7 @@ az role definition create --role-definition '{"Name": "<name of your choosing>",
 ```
 
 Creating a custom role must include your subscription's id in
-`AssignableScopes` . This in itself does not give permissions to your
+`AssignableScopes`. This in itself does not give permissions to your
 subscription. It restricts which scopes a role assignment can
 include. Save the `id` field from the output - this will be referred to
 as `$aiven_role_id`
@@ -246,7 +246,7 @@ peering connection is being set up by the Aiven platform.
 
 ### 12. wait for the Aiven platform to set up the connection
 
-Run the following command until the state is no longer `APPROVED` , but
+Run the following command until the state is no longer `APPROVED`, but
 `PENDING_PEER` :
 
 ```
@@ -276,14 +276,14 @@ Log out the Azure user you logged in with in step 1 using
 az account clear
 ```
 
-Log in the application object you created with in step 2 to your AD
-tenant with
+Log in the application object you created in [step 2](#create-app-object) to your AD
+tenant using the password you created in [step 4](#set-app-object-password):
 
 ```
 az login --service-principal -u $user_app_id -p $user_app_secret --tenant $user_tenant_id
 ```
 
-Log in the same application object to the Aiven AD tenant
+Log in the same application object to the Aiven AD tenant:
 
 ```
 az login --service-principal -u $user_app_id -p $user_app_secret --tenant $aiven_tenant_id
@@ -317,12 +317,16 @@ The client '<random uuid>' with object id '<another random uuid>' does not have 
 The Aiven platform polls peering connections in state `PENDING_PEER`
 regularly to see if the peer (your subscription) has created a peering
 connection to the Aiven Project VPC's VNet. Once this is detected, the
-state changes from `PENDING_PEER` to `ACTIVE` . After this services in
+state changes from `PENDING_PEER` to `ACTIVE`. After this services in
 the Project VPC can be reached through the peering. To check if the
-peering connection is `ACTIVE` , run the same Aiven CLI
+peering connection is `ACTIVE`, run the same Aiven CLI
 `avn vpc peering-connection get` command from step 12. In some cases it
 has taken up to 15 minutes for the state to update:
 
 ```
 avn vpc peering-connection get -v --project-vpc-id $aiven_project_vpc_id --peer-cloud-account $user_subscription_id --peer-resource-group $user_resource_group --peer-vpc $user_vnet_name
 ```
+
+## Related pages
+
+- [Manage VPC peering](/docs/platform/howto/manage-vpc-peering)

@@ -33,7 +33,7 @@ following parameters from your IdP:
 -   **Client Secret**: Credentials your IdP provides when you register
     Aiven for OpenSearch as a client application.
 -   **Scope**: The scope of the authentication request specifies the
-    permissions that you want to request from the Identity Provider
+    permissions to request from the Identity Provider
     (IdP). The available and required scopes may vary depending on the
     IdP you are using. Some common scopes include `openid`, `profile`,
     `email`.

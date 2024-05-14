@@ -23,7 +23,7 @@ Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introducti
 
 ## Prerequisites
 
--   Apache Cassandra instance that you want to migrate to the Aiven
+-   Apache Cassandra instance to migrate to the Aiven
     platform (migration source)
 -   Aiven for Apache Cassandra service where you want to migrate your
     external instance (migration target)
@@ -54,8 +54,8 @@ In your target service, create the same keyspaces and tables you have in
 your source Apache Cassandra cluster.
 
 ```bash
-create keyspace SOURCE_KEYSPACE_NAME with replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
-create table SOURCE_TABLE_NAME.SOURCE_DATABASE_NAME (n_id int, value int, primary key (n_id));
+create keyspace KEYSPACE_NAME with replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+create table KEYSPACE_NAME.TABLE_NAME (n_id int, value int, primary key (n_id));
 ```
 
 ### Download the binary
@@ -78,14 +78,20 @@ LICENSE  zdm-proxy-linux-amd64-v2.1.0.tgz  zdm-proxy-v2.1.0
 
 ### Run ZDM Proxy
 
-To run ZDM Proxy, specify connection information by setting `ZDM_*`
-environment variables using the `export` command. Next, run the binary.
+1. Specify connection information by setting `ZDM_TARGET_*` and `ZDM_ORIGIN_*` environment
+   variables using the `export` command.
+
+   :::note
+   `ORIGIN` refers to the source service.
+   :::
+
+3. Run the binary.
 
 ```bash
-export ZDM_SOURCE_CONTACT_POINTS=localhost
-export ZDM_SOURCE_USERNAME=cassandra
-export ZDM_SOURCE_PASSWORD=cassandra
-export ZDM_SOURCE_PORT=1234
+export ZDM_ORIGIN_CONTACT_POINTS=localhost
+export ZDM_ORIGIN_USERNAME=cassandra
+export ZDM_ORIGIN_PASSWORD=cassandra
+export ZDM_ORIGIN_PORT=1234
 
 export ZDM_TARGET_CONTACT_POINTS=cassandra-target-cluster-name.a.avns.net
 export ZDM_TARGET_USERNAME=avnadmin
@@ -94,6 +100,7 @@ export ZDM_TARGET_PORT=12345
 export ZDM_TARGET_TLS_SERVER_CA_PATH="/tmp/ca.pem"
 
 export ZDM_TARGET_ENABLE_HOST_ASSIGNMENT=false
+# ZDM_ORIGIN_ENABLE_HOST_ASSIGNMENT=false  # (may be needed, see note)
 
 ./zdm-proxy-v2.1.0
 ```
@@ -102,7 +109,7 @@ export ZDM_TARGET_ENABLE_HOST_ASSIGNMENT=false
 Make sure you set the ZDM_TARGET_ENABLE_HOST_ASSIGNMENT variable.
 Otherwise, ZDM Proxy tries to connect to one of internal addresses of
 the cluster nodes, which are unavailable from outside. If this occurs to
-your source cluster, set `ZDM_SOURCE_ENABLE_HOST_ASSIGNMENT=false`.
+your source cluster, set `ZDM_ORIGIN_ENABLE_HOST_ASSIGNMENT=false`.
 :::
 
 ## Verify that it works
@@ -134,7 +141,7 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
 1.  Check data in the table.
 
     ```bash
-    select * from TABLE_NAME.DATABASE_NAME;
+    select * from KEYSPACE_NAME.TABLE_NAME;
     ```
 
     You can expect to receive output similar to the following:
@@ -153,14 +160,14 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
     request.
 
     ```bash
-    insert into TABLE_NAME.DATABASE_NAME (n_id, value) values (4, 48);
-    insert into TABLE_NAME.DATABASE_NAME (n_id, value) values (5, 50);
+    insert into KEYSPACE_NAME.TABLE_NAME (n_id, value) values (4, 48);
+    insert into KEYSPACE_NAME.TABLE_NAME (n_id, value) values (5, 50);
     ```
 
 1.  Check again data inside the table.
 
     ```bash
-    select * from TABLE_NAME.DATABASE_NAME;
+    select * from KEYSPACE_NAME.TABLE_NAME;
     ```
 
     You can expect to receive output similar to the following:
@@ -195,7 +202,7 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
 1.  Check data in the table:
 
     ```bash
-    select * from SOURCE_TABLE_NAME.SOURCE_DATABASE_NAME;
+    select * from KEYSPACE_NAME.TABLE_NAME;
     ```
 
     You can expect to receive output similar to the following:
@@ -235,7 +242,7 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
 1.  Check data in the table.
 
     ```bash
-    select * from TARGET_TABLE_NAME.TARGET_DATABASE_NAME;
+    select * from KEYSPACE_NAME.TABLE_NAME;
     ```
 
     You can expect to receive output similar to the following:

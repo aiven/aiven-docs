@@ -45,7 +45,7 @@ walk-through configuration of each section.
 Destination is a location for notifications to be delivered when an
 action is triggered.
 
-1.  Open the **Destination** tab and click on **Add destination**
+1.  Open the **Destination** tab and click **Add destination**
 
 2.  Fill in the fields under **Destination**
 
@@ -101,7 +101,7 @@ before configuring an email destination that requires authentication.
     Select `Email` under **Type**
 
     In this step we assume that no senders exist yet. So, click first on
-    **Manage Senders**, then click on **New sender** link.
+    **Manage Senders**, then click **New sender** link.
 
     Assign a name to the sender. Please note that this name should match
     the property `email_sender_name` from step 1.
@@ -117,7 +117,7 @@ before configuring an email destination that requires authentication.
 Monitor is a job that runs on a defined schedule and queries OpenSearch
 indices.
 
-1.  Open the **Monitors** tab and click on **Create monitor**
+1.  Open the **Monitors** tab and click **Create monitor**
 
 2.  Fill in the fields under **Monitor details**
 
@@ -149,10 +149,10 @@ Schedule Frequency can be `By internal`, `Daily` `Weekly` `Monthly`,
     Query defines the fields to query from indices and how to evaluate
     the results.
 
-    Under **Metrics** click on **Add metric**
+    Under **Metrics** click **Add metric**
 
     Select `average()` under **Aggregation** and `cpu_usage_percentage`
-    under **Field**, click on **Save**
+    under **Field**, click **Save**
 
     Fill `3` under **Time range for the last** and select `minutes`
 

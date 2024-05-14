@@ -3,7 +3,7 @@ title: Configure data retention thresholds in Aiven for ClickHouse®'s tiered st
 limited: true
 ---
 
-Learn to control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Check out how to configure tables so that your data is automatically written either to SSD or object storage as needed.
+Learn to control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
 
 ## About data retention control
 
@@ -55,7 +55,7 @@ For data retention control purposes, the TTL clause uses the following:
 
 ### Add TTL to a new table
 
-Create a new table with the `storage_policy` setting set to `tiered` (to
+Create a table with the `storage_policy` setting set to `tiered` (to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL (time-to-live) configured to add a
 time-based data retention threshold on the table.
 

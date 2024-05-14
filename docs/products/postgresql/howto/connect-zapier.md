@@ -32,4 +32,4 @@ These are the placeholders you will need to replace in the code sample:
     -   **Schema** to `SCHEMA`
     -   **Username** to `USERNAME`
     -   **Password** to `PASSWORD`
-4.  Click on **Yes, Continue**.
+4.  Click **Yes, Continue**.

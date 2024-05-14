@@ -19,12 +19,12 @@ To create cleanup patterns for OpenSearch indices:
 
 3.  Select **Add pattern**.
 
-4.  Enter the pattern that you want to use and the maximum index count
+4.  Enter the pattern to use and the maximum index count
     for the pattern, then select **Create**.
 
 Alternatively, you can use our [API](https://api.aiven.io/doc/) with a
 request similar to the following:
 
-``` 
+```
 curl -X PUT --data '{"user_config":{"index_patterns": [{"pattern": "logs*", "max_index_count": 2},{"pattern":"test.?", "max_index_count": 3}]}' header "content-type: application-json" --header "authorization: aivenv1 <YOUR TOKEN HERE>" https://api.aiven.io/v1beta/project/<project>/service/<service_name>
 ```

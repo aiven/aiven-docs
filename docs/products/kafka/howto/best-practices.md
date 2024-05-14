@@ -13,7 +13,7 @@ data in each topic is and make sure that replication is set high enough
 for it.
 
 You can set the replication factor in [Aiven web
-console](https://console.aiven.io/) when you create a new topic or edit
+console](https://console.aiven.io/) when you create a topic or edit
 an existing one.
 
 :::note

@@ -389,6 +389,14 @@
 
 **Type:** `boolean`
 
+### plugins_alerting_filter_by_backend_roles
+
+**Title:** plugins.alerting.filter_by_backend_roles
+
+**Description:** Enable or disable filtering of alerting by backend roles. Requires Security plugin. Defaults to false
+
+**Type:** `boolean`
+
 ### auth_failure_listeners
 
 **Title:** Opensearch Security Plugin Settings

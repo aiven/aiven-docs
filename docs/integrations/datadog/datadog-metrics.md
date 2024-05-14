@@ -2,6 +2,8 @@
 title: Send metrics to Datadog
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 Send metrics from your Aiven service to your Datadog account.
 
 ## Prepare your Datadog account
@@ -20,14 +22,11 @@ you intend to use. Afterward, multiple services can use this service
 integration endpoint.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  In the **Services** screen, select **Integration endpoints** on the
-    left sidebar.
+1.  In your project, click <ConsoleLabel name="integration endpoints"/>.
 1.  Select **Datadog** > **Add new endpoint** or **Create new**.
 1.  Configure the endpoint by providing a name for this integration and
     entering the API key you copied earlier. Ensure that the correct
     region is selected.
-
-    ![Screenshot of the Datadog configuration screen](/images/integrations/configure-datadog-service-integration.png)
 
 1.  Optionally, include additional tags that will be used when sending
     metrics to Datadog. Refer to
@@ -45,7 +44,7 @@ metric tracking in Datadog, follow these steps:
 1.  From the **Overview** page of your service, scroll to **Service
     integrations** and select **Manage integrations**.
 1.  In the **Integrations** screen, select **Datadog Metrics**.
-1.  Select the Datadog endpoint you want to use from the drop-down list
+1.  Select the Datadog endpoint to use from the drop-down list
     and select **Enable**.
 
     :::tip
@@ -59,7 +58,8 @@ metric tracking in Datadog, follow these steps:
 ## Related pages
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
-- For information on how to enable [Datadog Deep Database
-  Monitoring](https://www.datadoghq.com/product/database-monitoring/) for
-  specific Datadog Metrics integration, see
+- [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
+- For information on how to enable
+  [database monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/)
+  for a specific Datadog Metrics integration, see
   [Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).

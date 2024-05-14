@@ -77,7 +77,7 @@ columns `language_id` and `original_language_id`. With that information,
 you know that you can join both tables to get the language of each film,
 or to list all films for a specific language.
 
-![A entity-relation model diagram for the Pagila databases, containing all the tables, fields and views.](/images/products/postgresql/pagila-erm.png)
+![A entity-relation model diagram for the Pagila databases, containing all the tables, fields and views.](/images/content/products/postgresql/pagila-erm.png)
 
 ## Sample queries {#sample_queries}
 

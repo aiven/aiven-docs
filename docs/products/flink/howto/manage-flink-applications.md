@@ -7,13 +7,13 @@ Flink® applications.
 
 ## Creating a new version of an application
 
-To create a new version of the application deployed, follow these steps:
+To create a version of the application deployed, follow these steps:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your Aiven for Apache Flink® service.
 2.  From the left sidebar, select **Applications**.
-3.  On the **Applications** landing page, click on the application name
-    for which you want to create a new version.
+3.  On the **Applications** landing page, click the application name
+    for which you want to create a version.
 
 ### For SQL application
 
@@ -53,7 +53,7 @@ To stop a deployment for your Flink application, follow these steps:
 
 1.  In your Aiven for Apache Flink service, select **Applications** from
     the left sidebar.
-2.  On the **Applications** landing page, click on the application name
+2.  On the **Applications** landing page, click the application name
     you want to stop.
 3.  In the application's overview page, click **Stop deployment**.
 4.  In the **Stop deployment** dialog, enable the option to **Create a
@@ -76,10 +76,10 @@ To rename an application, follow these steps:
 
 1.  In your Aiven for Apache Flink service, select **Applications** from
     the left sidebar.
-2.  On the **Applications** landing page, click on the application name
+2.  On the **Applications** landing page, click the application name
     you want to rename.
 3.  In the application's overview page, click the **Application action
-    menu (\...)** , and click **Update application** from the menu
+    menu (\...)**, and click **Update application** from the menu
     options.
 4.  In the **Update Application** dialog, enter the new name for the
     application and select **Save changes** to confirm the new name and
@@ -100,7 +100,7 @@ these steps:
 
 1.  In your Aiven for Apache Flink service, select **Applications** from
     the left sidebar.
-2.  On the **Applications** landing page, click on the application name
+2.  On the **Applications** landing page, click the application name
     for which you want to view the deployment history.
 3.  In the application landing page, click **Deployment History** to
     view the deployment history.
@@ -114,7 +114,7 @@ Before deleting an application, it is necessary to remove all associated
 
 1.  In your Aiven for Apache Flink service, select **Applications** from
     the left sidebar.
-2.  On the **Applications** landing page, click on the application name
+2.  On the **Applications** landing page, click the application name
     you want to delete.
 3.  In the application's overview page, click the **Application action
     menu (\...)**, and click **Delete application** from the menu

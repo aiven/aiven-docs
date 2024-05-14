@@ -81,7 +81,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'main',
           position: 'left',
-          label: 'Getting started',
+          label: 'Docs',
         },
 
         {
@@ -224,7 +224,7 @@ const config: Config = {
       theme: prismThemes.nightOwl,
       darkTheme: prismThemes.dracula,
       defaultLanguage: 'bash',
-      additionalLanguages: ['bash', 'json', 'php'],
+      additionalLanguages: ['bash', 'json', 'php', 'hcl'],
     },
     mermaid: {
       options: {

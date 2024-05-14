@@ -2,12 +2,7 @@
 title: Copy data from Aiven for OpenSearch® to AWS S3 using elasticsearch-dump
 ---
 
-It is a good practice to perform backups of your OpenSearch® data to
-another storage service. This way you can access your data and restore
-it if something unexpected happens to it.
-
-In this article, you can find out how to dump your OpenSearch data to
-AWS S3 bucket.
+Backup your OpenSearch® data into an AWS S3 bucket.
 
 To copy the index data, we will be using `elasticsearch-dump`
 [tool](https://github.com/elasticsearch-dump/elasticsearch-dump). You
@@ -47,7 +42,7 @@ documentation](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.
 
 Use `elasticsearch-dump` command to copy the data from your **Aiven for
 OpenSearch cluster** to your **AWS S3 bucket**. Use your Aiven for
-OpenSearch `SERVICE_URI` for the `input` . For the `output`, choose an
+OpenSearch `SERVICE_URI` for the `input`. For the `output`, choose an
 AWS S3 file path including the file name that you want for your
 document.
 

@@ -1,29 +1,27 @@
 ---
-title: Scale your service
+title: Change a service plan
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-When creating a new Aiven service, you are not tied to a plan. Your services can be adjusted to better match your needs. Services can be moved to a higher or lower plan, and to a different tier.
+Adjust the plan of your services at any time to scale your services as needed and optimize costs.
+You can also [adjust disk storage][storage] without changing your plan.
 
-1. Log into the [Aiven Console](https://console.aiven.io/), select your
-   project and select the service you want to scale.
-1. On the service page, click **Service settings** from the sidebar.
-1. In the **Service plan** section, click <ActionsIcon className="icon"/> **Actions** >
+1. In your project, click <ConsoleLabel name="services"/> and open a service.
+1. On the left-side menu, click <ConsoleLabel name="service settings"/>.
+1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
    **Change plan**.
-1. In the **Change service plan** dialog, choose the new service plan and tier,
-   if required.
+1. In the **Change service plan** dialog, choose the new service plan and tier.
 1. Click **Change**.
 
-Your service is in the **Rebuilding** state. Once the rebuilding is over,
-your new service plan will be active on your service. The service is
-still accessible through the plan-change process.
+Your service's state becomes **Rebuilding** and remains accessible. When the
+state switches to **Running**, your new service plan is active.
 
 :::note
 
 - You can also use the
-  [dedicated service update function](/docs/tools/cli/service-cli#avn-cli-service-update) to scale your service plan via the
-  [Aiven CLI](/docs/tools/cli).
+  [service update CLI](/docs/tools/cli/service-cli#avn-cli-service-update) to
+  scale your service plan via the [Aiven CLI](/docs/tools/cli).
 - When you perform a service upgrade or downgrade horizontally,
   remember to include all additional disks the service uses. For
   example, when switching from `Startup-4` to `Business-4` or from
@@ -31,3 +29,10 @@ still accessible through the plan-change process.
   available for this service.
 
 :::
+<!-- vale off -->
+## Related pages
+
+- [Adjust disk storage][storage]
+- [Adjust disks storage automatically](/docs/platform/howto/disk-autoscaler)
+
+[storage]: /docs/platform/howto/add-storage-space

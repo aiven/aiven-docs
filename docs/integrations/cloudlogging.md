@@ -2,17 +2,9 @@
 title: Google Cloud Logging
 ---
 
-You can send your service logs to Google Cloud Logging to store, search,
-analyze, monitor, and alert on log data from your Aiven services.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-There are two steps to setting up this integration:
-
-1.  Create the Google Cloud Logging integration.
-2.  Create the integration endpoint.
-
-You can do this using either the [Aiven
-Console](https://console.aiven.io/) or the
-[CLI](/docs/tools/cli).
+You can send your service logs to Google Cloud Logging to store, search, analyze, monitor, and alert on log data from your Aiven services.
 
 ## Prerequisites
 
@@ -32,7 +24,7 @@ Console](https://console.aiven.io/) or the
 
 ### Step 1. Create the integration endpoint
 
-1.  Go to **Integration Endpoints**.
+1.  Go to <ConsoleLabel name="integration endpoints"/>.
 2.  Select **Google Cloud Logging**.
 3.  Click **Add new endpoint**.
 4.  Enter a name.
@@ -42,8 +34,8 @@ Console](https://console.aiven.io/) or the
 
 ### Step 2. Add the integration endpoint to your service
 
-1.  Go to the service you want to add the logs integration to.
-2.  Select the **Integrations** from the left sidebar.
+1.  Go to the service to add the logs integration to.
+2.  On the sidebar, click <ConsoleLabel name="integrations"/>.
 3.  Select **Google Cloud Logging**.
 4.  Choose the endpoint that you created.
 5.  Click **Enable**.

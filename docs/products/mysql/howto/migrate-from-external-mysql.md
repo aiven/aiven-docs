@@ -23,11 +23,11 @@ following requirements need to be satisfied:
     privileges to create a user for the replication process.
 -   [GTID](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html)
     is enabled on the source database. To review the current GTID
-    setting, run the following command on the source cluster:
+    setting, run the following command hon the source cluster:
 
-```
-show global variables like 'gtid_mode';
-```
+    ```bash
+    show global variables like 'gtid_mode';
+    ```
 
 :::note
 If you are migrating from MySQL in GCP, you need to enable backups with
@@ -57,9 +57,11 @@ You can use the following variables in the code samples provided:
     (you can substitute `%` in the below command with the IP address of
     the Aiven for MySQL database, if already existing):
 
-        create user 'SRC_USERNAME'@'%' identified by 'SRC_PASSWORD';
-        grant replication slave on *.* TO 'SRC_USERNAME'@'%';
-        grant select, process, event on *.* to 'SRC_USERNAME'@'%'
+    ```
+    create user 'SRC_USERNAME'@'%' identified by 'SRC_PASSWORD';
+    grant replication slave on *.* TO 'SRC_USERNAME'@'%';
+    grant select, process, event on *.* to 'SRC_USERNAME'@'%'
+    ```
 
 2.  If you don't have an Aiven for MySQL database yet, create it via
     [Aiven Console](/docs/products/mysql/get-started) or the dedicated

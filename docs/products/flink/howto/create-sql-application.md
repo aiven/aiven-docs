@@ -70,7 +70,7 @@ Console](https://console.aiven.io/):
    view and access the application you created on the application
    overview page.
 
-   ![Application landing page with a view of the source table, SQL statement, and sink table](/images/products/flink/application_landingpage_view.png)
+   ![Application landing page with a view of the source table, SQL statement, and sink table](/images/content/products/flink/application_landingpage_view.png)
 
 1. To deploy the application, click **Create deployment**. In the
    **Create new deployment** dialog:

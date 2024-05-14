@@ -2,9 +2,10 @@
 title: Service backups
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
-import Database from "@site/static/images/icons/db-backup.svg";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
+import Variables from "@site/static/variables.json"
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
@@ -17,7 +18,7 @@ where the service is first created, for example, S3 for AWS or GCS for GCP.
 ## Display service backups
 
 1. In the Aiven Console, open the service of your choice.
-1. Click <Database className="icon"/> **Backups**.
+1. Click <ConsoleLabel name="backups"/>.
 
 :::note
 Backups are encrypted and not available for download.
@@ -37,9 +38,15 @@ backup is automatically restored.
 See [Power a service on/off](/docs/platform/concepts/service-power-cycle).
 :::
 
-## Service backup deletion policy
+## Service backup deletion policy and service recovery
 
-A service's backups are automatically deleted 41 days after the service's deletion date.
+A service's backups are automatically deleted <strong>{Variables.backup_policy} days</strong> after the service's deletion date.
+
+To recover a service, contact [support@aiven.io](mailto:support@aiven.io).
+
+:::note
+This operation may incur an additional cost to your project.
+:::
 
 ## Access to backups
 
@@ -52,7 +59,7 @@ backups with the appropriate tooling:
     `mysqldump`
 -   [Redis®\*](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
     `redis-cli`
--   [Cassandra®](https://docs.datastax.com/en/archived/cql/3.3/cql/cql_reference/cqlshCopy.html):
+-   [Cassandra®](https://docs.datastax.com/en/archived/cql/3.3/cql/cql_reference/cqlshCopy.html)
     `cqlsh`
 -   [OpenSearch®](https://github.com/elasticsearch-dump/elasticsearch-dump):
     `elasticdump`

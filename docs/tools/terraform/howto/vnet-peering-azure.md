@@ -4,7 +4,7 @@ title: Set up Azure virtual network peering with Terraform
 
 This help article contains step-by-step instructions for setting up
 peering in Azure. See the [Using VPC
-peering](https://docs.aiven.io/docs/platform/howto/manage-vpc-peering.html)
+peering](/docs/platform/howto/manage-vpc-peering)
 article for how to set up a Project VPC.
 
 While most Terraform manifestos can be applied in one go, we'll have to

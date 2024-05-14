@@ -46,6 +46,7 @@
   --nav-btn-primary-text-color: var(--ifm-button-color);
   --nav-btn-secondary-text-color-hover: var(--aiven-primary-90);
   --nav-btn-secondary-text-color: var(--aiven-primary-70);
+  --ifm-tabs-color-active-border: var(--ifm-link-color);
 }
 
 [data-theme='dark'] {
@@ -177,4 +178,13 @@ ul + div {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.tabs {
+  border-bottom: 1px solid var(--aiven-grey-20);
+}
+
+[data-theme='dark'] .tabs {
+  border-bottom: 1px solid var(--aiven-grey-60);
 }

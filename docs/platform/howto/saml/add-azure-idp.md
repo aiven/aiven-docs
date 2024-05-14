@@ -27,7 +27,7 @@ Add Azure as an
     the **All applications** filter to see the new application.
     :::
 
-1. Click on the name of the new application. The configuration opens.
+1. Click the name of the new application. The configuration opens.
 1. Select **Single sign-on** configuration.
 1. Select **SAML** as the single sign-on method.
 1. Add the following parameters to the **Basic SAML Configuration**:
@@ -54,7 +54,7 @@ Add Azure as an
 1. Download the **Certificate (Base64)** from the **SAML Signing
    Certificate** section.
 1. Go to **Users and groups** and click **Add user**.
-1. Select the users that you want to use Azure AD to log in to Aiven.
+1. Select the users that will use Azure AD to log in to Aiven.
 1. Click **Assign**.
 
 ## Finish the configuration in Aiven

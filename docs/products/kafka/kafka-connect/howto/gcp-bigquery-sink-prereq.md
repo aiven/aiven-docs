@@ -31,8 +31,8 @@ The JSON service key will be used in the connector configuration
 The BigQuery sink connector uses the API to push the data. To enable
 them:
 
--   Navigate to the [GCP API & Services
-    dashboard](https://console.cloud.google.com/apis) and click on the
+-   Go to the [GCP API & Services
+    dashboard](https://console.cloud.google.com/apis) and click the
     **BigQuery API**
 -   Verify the BigQuery API is already enabled or follow the steps given
     to enable it

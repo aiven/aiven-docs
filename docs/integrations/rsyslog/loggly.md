@@ -7,16 +7,16 @@ systems that support rsyslog protocol, including
 [Loggly](https://www.loggly.com/).
 
 To integrate your service with Loggly, a new endpoint needs to be added
-into the project that contains the service you want to integrate. This
+into the project that contains the service to integrate. This
 can be done using through Aiven console or command line using
 [Aiven CLI](/docs/tools/cli).
 
 ## Prerequisites
 
 Before creating the integration, you will need to generate a Loggly
-**customer token** . From the Loggly dashboard:
+**customer token**. From the Loggly dashboard:
 
--   Navigate to **Source Setup** tab
+-   Go to **Source Setup** tab
 -   Select **Customer Token** tab underneath it.
 -   Generate a new custom token (or use a previously generated one) and
     copy its value.
@@ -28,7 +28,7 @@ Console](https://console.aiven.io):
 
 -   Select the Project where the integration needs to be defined
 -   Select **Integration endpoints**
--   Navigate to **Syslog** configuration
+-   Go to **Syslog** configuration
 -   Define a new endpoint with the following parameters
     -   **Endpoint name** - the name for the endpoint (for example
         `Loggly`)

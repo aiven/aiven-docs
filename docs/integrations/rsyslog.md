@@ -1,5 +1,6 @@
 ---
 title: Remote syslog integration
+sidebar_label: Rsyslog
 ---
 
 In addition to using Aiven for OpenSearch® to store the logs from your Aiven services, you can also integrate with an external monitoring system that supports the rsyslog protocol.
@@ -15,7 +16,7 @@ integrate.
 This can be configured from the **Integration endpoints** page in the
 Aiven Console.
 
-!["Create new Syslog endpoint" dialog](/images/integrations/remote-syslog-endpoint.png)
+!["Create new Syslog endpoint" dialog](/images/content/integrations/remote-syslog-endpoint.png)
 
 Another option is to use the [Aiven
 Client](https://github.com/aiven/aiven-client) .
@@ -45,7 +46,7 @@ Conditional (required if `format` == `custom`):
 
 -   `logline` - syslog log line template for a custom format, supporting
     limited rsyslog style templating (using `%tag%` ). Supported tags
-    are: `HOSTNAME`, `app-name`, `msg`, `msgid` , `pri`, `procid`,
+    are: `HOSTNAME`, `app-name`, `msg`, `msgid`, `pri`, `procid`,
     `structured-data`, `timestamp` and `timestamp:::date-rfc3339`.
 
 Optional:
@@ -58,6 +59,7 @@ Optional:
 -   `key` - (PEM format) client key if the server requires client
     authentication
 -   `cert` - (PEM format) client cert to use
+-   `max_message_size` - Rsyslog maximum message size; default value: 8192
 
 ### Add rsyslog integration to service {#add_rsyslog_integration}
 
@@ -68,19 +70,20 @@ by navigating to the **Overview** page of the target service > the
 You should be able to select your previously configured Rsyslog service
 integration by selecting **Enable** in the modal window.
 
-![The page that shows the integrations available for a service](/images/integrations/rsyslog-service-integration.png)
+![The page that shows the integrations available for a service](/images/content/integrations/rsyslog-service-integration.png)
 
 Alternately, with the Aiven Client, first you need the id of the
-endpoint previously created
+endpoint previously created.
 
-```text
+```bash
 avn service integration-endpoint-list --project your-project
+
 ENDPOINT_ID                           ENDPOINT_NAME   ENDPOINT_TYPE
 ====================================  ==============  =============
 618fb764-5832-4636-ba26-0d9857222cfd  example-syslog  rsyslog
 ```
 
-Then you can link the service to the endpoint
+Then you can link the service to the endpoint.
 
 ```bash
 avn service integration-create --project your-project \
@@ -91,7 +94,8 @@ avn service integration-create --project your-project \
 ## Example configurations
 
 Rsyslog is a standard integration so you can use it with any external
-system.
+system. We have collected some examples of how to integrate with popular
+third party platforms to get you started quickly.
 
 :::note
 All integrations can be configured using the Aiven Console or the Aiven
@@ -129,7 +133,7 @@ avn service integration-endpoint-create --project your-project \
 For [Loggly](hthtps://www.loggly.com/) integration, use a
 custom `logline` format with your token.
 
-```bas
+```bash
 avn service integration-endpoint-create --project your-project \
     -d loggly -t rsyslog \
     -c server=logs-01.loggly.com -c port=6514 \
@@ -183,7 +187,7 @@ on the server and port you only need to copy the appropriate values from
 the "Log Destinations" page and use those as the values for `server`
 and `port` respectively. You **do not need** the ca-bundle as the
 Papertrail servers use certificates signed by a known CA. You also need
-to set the format to `rfc3164` .
+to set the format to `rfc3164`.
 
 ```bash
 avn service integration-endpoint-create --project your-project \

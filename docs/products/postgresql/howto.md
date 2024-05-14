@@ -41,6 +41,7 @@ Database administration
 -   [Claim public schema ownership](/docs/products/postgresql/howto/claim-public-schema-ownership)
 -   [Manage connection pooling](/docs/products/postgresql/howto/manage-pool)
 -   [Access PgBouncer statistics](/docs/products/postgresql/howto/pgbouncer-stats)
+-   [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog)
 -   [Use the PostgreSQL® dblink extension](/docs/products/postgresql/howto/use-dblink-extension)
 -   [Use the PostgreSQL® pg_repack extension](/docs/products/postgresql/howto/use-pg-repack-extension)
 -   [Enable JIT in PostgreSQL®](/docs/products/postgresql/howto/enable-jit)
@@ -97,7 +98,7 @@ Integration
 Cluster management
 </summary>
 
--   [Monitor a managed Aiven for PostgreSQL® service](/docs/platform/howto/monitoring-services)
+-   [Monitor a managed Aiven for PostgreSQL® service](/docs/platform/howto/list-monitoring)
 -   [Resize a managed Aiven for PostgreSQL® service](/docs/platform/howto/scale-services)
 -   [Schedule automatic maintenance updates](/docs/platform/howto/prepare-for-high-load)
 -   [Upgrade a managed Aiven for PostgreSQL® service](/docs/platform/howto/scale-services)

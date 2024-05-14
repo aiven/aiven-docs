@@ -3,7 +3,9 @@ title: Use Azure Private Link with Aiven services
 limited: true
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Azure Private Link lets you bring your Aiven services into your virtual network (VNet) over a private endpoint. The endpoint creates a network interface into one of the VNet subnets, and receives a private IP address from its IP range. The private endpoint is routed to your Aiven service.
 
@@ -39,7 +41,7 @@ Azure Private Link is supported for the following services:
   :::
 
 - The Aiven service is using
-  [static IP addresses](/docs/platform/howto/static-ip-addresses).
+  [static IP addresses](/docs/platform/concepts/static-ips).
 
   :::note
   Even though services in a VPC only communicate using private IP
@@ -65,7 +67,7 @@ Aiven service:
 1.  Create a private endpoint
 1.  Enable Private Link access service components
 
-### Step 1. Create a Private Link service
+### Step 1: Create a Private Link service
 
 1.  In the Aiven CLI, create a Private Link resource on your Aiven
     service:
@@ -96,7 +98,7 @@ Aiven service:
     avn service privatelink azure get AIVEN_SERVICE
     ```
 
-### Step 1. Create a private endpoint
+### Step 2: Create a private endpoint
 
 Azure resources in the Aiven service are now ready to be connected to
 your Azure subscription and virtual network.
@@ -161,23 +163,25 @@ Once the endpoint IP address is added, the connection's status changes
 to `active`. A DNS name for the service is registered pointing to that
 IP address.
 
-### Step 1. Enable Private Link access for Aiven service components
+### Step 3: Enable Private Link access for Aiven service components
 
-Finally, enable Private Link access on your Aiven services using either
+Enable Private Link access on your Aiven services using either
 the Aiven CLI or [Aiven Console](https://console.aiven.io/).
 
-**Aiven CLI**
+<Tabs groupId="group1">
+<TabItem value="cli" label="Aiven CLI" default>
 
 To enable Private Link access for your service in the Aiven CLI, set
 `user_config.privatelink_access.<service component>` to true for the
-components you want to enable. For example, for PostgreSQL the command
+components to enable. For example, for PostgreSQL the command
 is:
 
 ```shell
 avn service update -c privatelink_access.pg=true AIVEN_SERVICE
 ```
 
-**Aiven Console**
+</TabItem>
+<TabItem value="Console" label="Console">
 
 To enable Private Link access in [Aiven
 Console](https://console.aiven.io/):
@@ -185,15 +189,14 @@ Console](https://console.aiven.io/):
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 1.  On the **Service settings** page, in the **Cloud and
-    network** section, click <ActionsIcon className="icon"/> **Actions** > **More network configurations**.
+    network** section, click <ConsoleLabel name="actions" /> > **More network configurations**.
 1.  In the **Network configuration** window, take the following actions:
     1.  Select **Add configuration options**.
     1.  In the search field, enter `privatelink_access`.
     1.  From the displayed component names, select the names of the
-        components that you want to enable
+        components to enable
         (`privatelink_access.<service component>`).
-    1.  Select the toggle switches for the selected components to enable
-        them.
+    1.  Enable the required components.
     1.  Select **Save configuration**.
 
 :::tip
@@ -211,6 +214,10 @@ endpoint must allow ingress in the port range `10000-31000`. This is to
 accommodate the pool of Kafka broker ports used in the Private Link
 implementation.
 :::
+
+</TabItem>
+</Tabs>
+
 
 ## Acquire connection information
 

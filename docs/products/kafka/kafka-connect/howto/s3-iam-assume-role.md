@@ -39,7 +39,7 @@ The following is a sample IAM user and External ID:
 
 To create a cross-account access role:
 
-1.  Log in to the AWS Console and navigate to **IAM** > **Roles** >
+1.  Log in to the AWS Console and go to **IAM** > **Roles** >
     **Create role**
 
 2.  Select **Another AWS account** as a type of trusted entity
@@ -72,7 +72,7 @@ To create a cross-account access role:
     newly created role to a unique full **IAM user** name.
 
     You can do so, by editing the newly created role
-    (`AivenKafkaConnectSink`) and navigate to **Trust relationships** > **Edit trust relationship**
+    (`AivenKafkaConnectSink`) and go to **Trust relationships** > **Edit trust relationship**
 
 9.  In a policy document, the **IAM user** should be specified as
     `Principal`.

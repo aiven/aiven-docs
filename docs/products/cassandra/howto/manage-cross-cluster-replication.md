@@ -45,12 +45,12 @@ changing the plan for a CCR-enabled service.
 1. Log in to [Aiven Console](https://console.aiven.io/).
 
 1. From the **Services** page, select a CCR-enabled Aiven for Apache
-    Cassandra service that you want to update.
+    Cassandra service to update.
 
 1. On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 
-1. On the **Service settings** page of your service, navigate to the
+1. On the **Service settings** page of your service, go to the
     **Service plan** section, and select **Change plan** from the
     **Actions** (**...**) menu.
 
@@ -82,12 +82,12 @@ adding storage space for CCR-enabled services.
 1. Log in to [Aiven Console](https://console.aiven.io/).
 
 1. From the **Services** page, select a CCR-enabled Aiven for Apache
-    Cassandra service that you want to update.
+    Cassandra service to update.
 
 1. On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 
-1. On the **Service settings** page of your service, navigate to the
+1. On the **Service settings** page of your service, go to the
     **Service plan** section, and select **Add additional storage** from
     the **Actions** (**...**) menu.
 

@@ -14,7 +14,7 @@ PostgreSQL® service.
 
 ## Get JDBC URI from Aiven Console
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and navigate to your
+1. Log in to [Aiven Console](https://console.aiven.io/) and go to your
    organization > project > Aiven for PostgreSQL service.
 1. On the service **Overview** page, select **Quick connect**.
 1. In the **Connect** window
@@ -32,7 +32,7 @@ PostgreSQL® service.
    the [Aiven Console](https://console.aiven.io/).
 1. Select **OK** to create and save the connection.
 
-![Connect to Aiven for PostgreSQL with DataGrip](/images/products/postgresql/datagrip-create-connection.png)
+![Connect to Aiven for PostgreSQL with DataGrip](/images/content/products/postgresql/datagrip-create-connection.png)
 
 The connection to your Aiven for PostgreSQL service has been established and is visible in
 DataGrip > **Database Explorer**.

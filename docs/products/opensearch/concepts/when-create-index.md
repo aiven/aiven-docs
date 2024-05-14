@@ -1,8 +1,8 @@
 ---
-title: When to create a new index
+title: When to create an index
 ---
 
-This article will help you determine weather to create a new index per
+This article will help you determine weather to create an index per
 customer/project/entity or to look for alternatives.
 
 Consider creating a new index per customer/project/entity when
@@ -13,12 +13,12 @@ Consider creating a new index per customer/project/entity when
     data related to a single entity.
 
 For example, storing logs or other events on per-date indexes (
-`logs_2018-07-20` , `logs_2018-07-21` etc.) adds value assuming old
+`logs_2018-07-20`, `logs_2018-07-21` etc.) adds value assuming old
 indexes are cleaned up. If you have low-volume logging and want to keep
 indexes for very long time (years?), consider per-week or per-month
 indexes instead.
 
-It is **not** recommended to create a new index per
+It is **not** recommended to create an index per
 customer/project/entity if
 
 -   you have potentially a very large number of entities (thousands), or
@@ -28,7 +28,7 @@ customer/project/entity if
 -   you have no other reason than separating different entities from
     each other;
 
-Instead of creating something like `items_project_a` , consider using a
+Instead of creating something like `items_project_a`, consider using a
 single `items` index with a field for project identifier, and query the
 data with OpenSearch® filtering. This will be far more efficient usage
 of your OpenSearch service.

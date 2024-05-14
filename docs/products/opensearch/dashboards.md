@@ -28,7 +28,7 @@ OpenSearch Dashboards is ideal for data visualisation and monitoring. It
 allows building dashboards using visual tools and provides an interface
 to run DSL and SQL queries.
 
-![A screenshot of the OpenSearch Dashboard for flights example dataset.](/images/products/opensearch/dashboard-example.png)
+![A screenshot of the OpenSearch Dashboard for flights example dataset.](/images/content/products/opensearch/dashboard-example.png)
 
 ## OpenSearch Dashboards resources
 

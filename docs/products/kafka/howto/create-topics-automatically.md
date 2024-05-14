@@ -45,7 +45,7 @@ these steps:
 Even when you enable automatic topic creation, the user account that
 produces a message to a non-existing topic must have `admin`
 permissions. Aiven for Apache Kafka validates the access control list
-(ACL) before creating the topic. To change user permissions, navigate to
+(ACL) before creating the topic. To change user permissions, go to
 the **Users** tab in your service detail page in the [Aiven web
 console](https://console.aiven.io/).
 :::

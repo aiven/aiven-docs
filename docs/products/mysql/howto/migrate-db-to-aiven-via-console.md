@@ -163,7 +163,7 @@ The console migration tool provides 2 migration methods:
     database is located.
 1.  From the sidebar on your service's page, select **Service
     settings**.
-1.  On the **Service settings** page, navigate to the **Service
+1.  On the **Service settings** page, go to the **Service
     management** section, and select **Import database**.
 1.  Guided by the migration wizard, go through all the migration steps.
 
@@ -216,8 +216,8 @@ To avoid conflicts and replication issues while the migration is ongoing
 -   Do not write to any tables in the target database that are being
     processed by the migration tool.
 -   Do not change the replication configuration of the source database
-    manually. Don't modify `wal_level` or reduce
-    `max_replication_slots`.
+    manually. Don't modify `binlog_format` or reduce
+    `max_connections`.
 -   Do not make database changes that could disrupt or prevent the
     connection between the source database and the target database. Do
     not change the source database's listen address and do not modify

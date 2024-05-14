@@ -38,7 +38,7 @@ Termination Protection has no effect on service migrations or upgrades.
     your ClickHouse® service from the **Services** view.
 2.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
-3.  On the **Service settings** page, navigate to the **Service status**
+3.  On the **Service settings** page, go to the **Service status**
     section, and select **Enable termination protection** from the
     **Actions** (**...**) menu.
 

@@ -32,4 +32,4 @@ An aggregated namespace has some data, usually downsampled to a lower
 resolution, and retained for a different period of time. You can see a
 screenshot of the configuration options below:
 
-![Namespace configuration screenshot, showing the namespace name, retention and resolution fields](/images/products/m3db/configure-namespace.png)
+![Namespace configuration screenshot, showing the namespace name, retention and resolution fields](/images/content/products/m3db/configure-namespace.png)

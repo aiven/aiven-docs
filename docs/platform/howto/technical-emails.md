@@ -30,7 +30,7 @@ service.
 1.  In the service, click **Service settings**.
 2.  In the **Service status** section, open the menu in the top right
     and select **Change service contacts**.
-3.  Select the contacts that you want to receive email notifications for
+3.  Select the contacts that should receive email notifications for
     this service.
 4.  Click **Save**.
 
@@ -49,7 +49,7 @@ email address to the technical contacts for an Aiven project:
     :::
 
 2.  In the [Aiven Console](https://console.aiven.io/), go to the project
-    or service that you want to get notifications for.
+    or service to get notifications for.
 
 3.  Follow the instructions to set the Slack email address as a
     [project contact](/docs/platform/howto/technical-emails#set-project-contacts) or
@@ -57,5 +57,5 @@ email address to the technical contacts for an Aiven project:
 
 Alternatively, you can [set up a Slackbot forwarding
 address](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WE06MBF06BBHQNZ1G0H2K5)
-and use that to automatically forward Aiven's email notifications from
+and use to automatically forward Aiven's email notifications from
 your email client.

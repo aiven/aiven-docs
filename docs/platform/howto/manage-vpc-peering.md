@@ -1,14 +1,12 @@
 ---
-title: Manage Virtual Private Cloud (VPC) peering
+title: Manage VPC peering
 ---
 
-import ActionsIcon from "@site/static/images/icons/more.svg";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Virtual Private Cloud (VPC) peering is a method of connecting separate
-AWS, Google Cloud, or Azure private networks with each other. This makes
-it possible for the virtual machines in the different private networks
-to talk to each other directly without going through the public
-internet.
+Virtual Private Cloud (VPC) peering is a method of connecting separate AWS, Google Cloud, or Azure private networks with each other.
+It allows virtual machines in the different private networks to talk to each
+other directly without going through the public Internet.
 
 ## Configure VPC peering {#platform_howto_setup_vpc_peering}
 
@@ -19,8 +17,8 @@ for VPC peering across multiple projects.
 
 To set up VPC peering for your Aiven project:
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), and select
-    **VPCs** from the sidebar on the **Services** page.
+1.  Log in to [Aiven Console](https://console.aiven.io/), and click
+    <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
 
 1.  Click **Create VPC**.
 
@@ -32,8 +30,9 @@ To set up VPC peering for your Aiven project:
 
 1.  In the **Create a VPC for this project** window:
 
-    1. Select a cloud provider and region from the dropdown list.
-    1. Enter the IP range that you want to use for the VPC connection.
+    1. Select a cloud provider and region.
+
+    1. Enter the IP range.
        Use an IP range that does not overlap with any networks that you
        want to connect via VPC peering.
 
@@ -46,21 +45,9 @@ To set up VPC peering for your Aiven project:
 
 The state of the VPC is shown in the table.
 
-## Cloud-specific VPC peering instructions
-
--   [Set up VPC peering on Amazon Web Services (AWS)](/docs/platform/howto/vpc-peering-aws)
--   [Set up VPC peering on Google Cloud Platform (GCP)](/docs/platform/howto/vpc-peering-gcp)
--   [Set up VNet (VPC) peering on Microsoft Azure](/docs/platform/howto/vnet-peering-azure)
-
-:::note
-Depending on the cloud provider that you selected for the VPC
-connection, you also have to accept a VPC peering connection request or
-set up a corresponding VPC peering connection to Aiven.
-:::
-
 ## Deploy new services to a VPC
 
-When you create a new service, your peered VPC is available as a new
+When you create a service, your peered VPC is available as a new
 geolocation on the **VPC** tab under **Select service region**. It can
 take a few minutes for a newly created VPC to appear for service
 deployments.
@@ -76,24 +63,21 @@ belong to the project where that specific VPC was created.
 
 Before deleting an existing VPC from [Aiven
 Console](https://console.aiven.io/), you should move out any active
-services from that VPC. To delete a VPC, navigate to [Aiven
+services from that VPC. To delete a VPC, go to [Aiven
 Console](https://console.aiven.io/) > **VPCs**. Find your VPC and
-select **Delete** from the meatballs menu for this VPC. Once the VPC is
-deleted, the cloud provider side of the peering connection will go to an
-inactive or deleted state.
+select **Delete** from the meatballs menu for this VPC.
+
+Once the VPC is deleted, the cloud provider side of the peering connection's
+becomes `inactive` or `deleted`.
 
 ## Migrate a public service to a VPC
 
 You can migrate any Aiven service to a different VPC:
 
-1. In [Aiven Console](https://console.aiven.io/), go to your service.
-1. On the **Overview** page of your service, select **Service
-   settings** from the sidebar.
-1. On the **Service settings** page, in the **Cloud and
-   network** section, click <ActionsIcon className="icon"/> **Actions** >  **Change cloud or region**.
-1. In the **Migrate service to another cloud** window > the **Region**
-   section, select the **VPCs** tab, select the VPC that you want to
-   use, and select **Migrate**.
+1. In [Aiven Console](https://console.aiven.io/), open your service and click <ConsoleLabel name="Service settings"/>.
+1. In the **Cloud and
+   network** section, click <ConsoleLabel name="actions"/> >  **Change cloud or region**.
+1. In the **Region** section, select the **VPCs** tab, select the VPC and click **Migrate**.
 
 ## Access VPC services from the public internet
 
@@ -120,8 +104,8 @@ service.
 
 To edit a service IP filtering:
 
-1. Open the **Service settings** page.
-1. Click **Cloud and network** > <ActionsIcon className="icon"/> **Actions** > **Set public IP filters**.
+1. Open the <ConsoleLabel name="service settings"/> page.
+1. Click **Cloud and network** > <ConsoleLabel name="actions"/> > **Set public IP filters**.
 
 ## Troubleshoot VPC connection issues
 
@@ -137,15 +121,10 @@ connections.
 
 To refresh your VCP connections:
 
-1. In [Aiven Console](https://console.aiven.io/), select **VPCs**.
+1. In [Aiven Console](https://console.aiven.io/), select <ConsoleLabel name="vpcs"/>.
 1. Find the ID of the affected VPC and select it from the **Internal
    ID** column.
 1. Select **Refresh VPC connections**.
 
 The platform checks the VPC peering connection and rebuilds the peering
 connection state if there are any changes detected.
-
-For any other issues, open a support ticket from [Aiven
-Console](https://console.aiven.io/) to get in touch with the support
-team and/or see
-[Get support in the Aiven Console](/docs/platform/howto/project-support-center).
