@@ -16,6 +16,9 @@
 .env.test.local
 .env.production.local
 
+# JetBrains IDEs
+.idea
+
 # Yarn
 !.yarn/patches
 !.yarn/plugins
