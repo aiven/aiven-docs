@@ -15,7 +15,7 @@ from your service overview page:
 
 | Variable    | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
-| `CACHING_URI` | URI for the Aiven for Caching service connection |
+| `SERVICE_URI` | URI for the Aiven for Caching service connection |
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Execute the script with:
 go run main.go
 ```
 
-You will see the following output after successful execution:
+Successful execution results in the following output:
 
 ```plaintext
 The value of key is: hello world

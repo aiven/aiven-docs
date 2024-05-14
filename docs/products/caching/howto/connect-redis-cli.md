@@ -12,7 +12,7 @@ from your service overview page:
 
 | Variable    | Description                                              |
 | ----------- | -------------------------------------------------------- |
-| `CACHING_URI` | URI for the Aiven for Caching service connection  |
+| `SERVICE_URI` | URI for the Aiven for Caching service connection  |
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ For this example, you will need:
 Execute the following command from a terminal window to connect:
 
 ```shell
-redis-cli -u REDIS_URI
+redis-cli -u SERVICE_URI
 ```
 
 This command initiates a connection to the Aiven for Caching service.
@@ -53,15 +53,15 @@ redis_mode:standalone
 
 To set a key, execute the following command:
 
-```
+```bash
 SET mykey mykeyvalue123
 ```
 
-You should see a confirmation `OK` upon successful execution.
+Following successful execution, a confirmation message `OK` appears.
 
 To retrieve the key value, execute the following command:
 
-```
+```bash
 GET mykey
 ```
 

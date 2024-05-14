@@ -14,7 +14,7 @@ from your service overview page:
 
  | Variable    | Description                                                  |
  | ----------- | ------------------------------------------------------------ |
- | `CACHING_URI` | URI for the Redis connection, from the service overview page |
+ | `SERVICE_URI`| URI for the Redis connection, from the service overview page |
 
 ## Prerequisites
 
@@ -45,12 +45,12 @@ It then retrieves this key from the caching service and outputs its value.
 Replace the placeholder with the **CACHING_URI**, compile and run the
 code:
 
-```
+```bash
 javac -cp lib/*:. RedisExample.java && java -cp lib/*:. RedisExample REDIS_URI
 ```
 
-You will see the following output after successful execution:
+Successful execution results in the following output:
 
-```
+```plaintext
 The value of key is: hello world
 ```

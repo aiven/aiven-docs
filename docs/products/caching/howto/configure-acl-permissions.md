@@ -83,14 +83,14 @@ Follow these steps for various user management tasks:
 
 1. Click **Users** from the left sidebar.
 1. Find the user whose password needs to be reset and
-   click <ConsoleLabel name="actions"/> > **Reset password**.
+   Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="reset password"/>.
 1. Confirm the password reset by clicking **Reset** on the confirmation dialog.
 
 ### Edit ACL rules
 
 1. Click **Users** from the left sidebar.
 1. Find the user whose ACL rules require editing and
-   click <ConsoleLabel name="actions"/> > **Edit ACL rules**.
+   Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="edit ACL rules"/>.
 1. Make the necessary changes to the ACL rules on the **Edit access control** dialog.
 1. Click **Save**.
 
@@ -98,7 +98,7 @@ Follow these steps for various user management tasks:
 
 1. Click **Users** from the left sidebar.
 1. Locate the user you wish to duplicate and
-   click <ConsoleLabel name="actions"/> > **Duplicate user**.
+   click <ConsoleLabel name="actions"/> > <ConsoleLabel name="duplicate user"/>.
 1. Enter a name for the new user in the **Duplicate user** dialog.
 1. Click **Add user**.
 
@@ -106,5 +106,5 @@ Follow these steps for various user management tasks:
 
 1. Click **Users** from the left sidebar.
 1. Find the user you intend to delete and
-   click <ConsoleLabel name="actions"/> > **Delete user**.
+   click <ConsoleLabel name="actions"/> > <ConsoleLabel name="delete user"/>.
 1. Confirm the deletion by clicking **Delete** on the confirmation dialog.
