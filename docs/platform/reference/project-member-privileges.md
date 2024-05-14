@@ -1,15 +1,17 @@
 ---
-title: Project member roles
+title: Project member roles and permissions
+sidebar_label: Project member roles
+keywords: [user roles, roles, RBAC, access control]
 ---
 
 When you add users to a project individually or as part of a [group](/docs/platform/howto/manage-groups) you also assign them a role for that project.
 
-|     Role      | View services | Create services | Manage services | Connect | Power services on/off | Edit members and roles |
-| ------------- | ------------- | --------------- | --------------- | ------- | --------------------- | ---------------------- |
-| Administrator | ✅             | ✅               | ✅               | ✅       | ✅                     | ✅                      |
-| Operator      | ✅             | ✅               | ✅               | ✅       | ✅                     |                        |
-| Developer     | ✅             |                 | ✅               | ✅       |                       |                        |
-| Read Only     | ✅             |                 |                 |         |                       |                        |
+| Role              | View services | Create services | Manage services | Connect | Power services on/off | Edit members and roles |
+| ----------------- | ------------- | --------------- | --------------- | ------- | --------------------- | ---------------------- |
+| **Administrator** | ✅             | ✅               | ✅               | ✅       | ✅                     | ✅                      |
+| **Operator**      | ✅             | ✅               | ✅               | ✅       | ✅                     |                        |
+| **Developer**     | ✅             |                 | ✅               | ✅       |                       |                        |
+| **Read Only**     | ✅             |                 |                 |         |                       |                        |
 
 - **Admin**: Full access to the project and its services.
   -   Every project has at least one admin user. This role is automatically granted to
