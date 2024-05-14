@@ -15,7 +15,7 @@ from your service overview page:
 
  | Variable    | Description                                                  |
  | ----------- | ------------------------------------------------------------ |
- | `CACHING_URI`| URI for the Aiven for Caching service connection |
+ | `SERVICE_URI`| URI for the Aiven for Caching service connection |
 
 ## Prerequisites
 
@@ -37,12 +37,12 @@ It then retrieves this key from the caching service and outputs its value.
 
 Execute the script with:
 
-```
+```bash
 node index.js
 ```
 
-You will see the following output after successful execution:
+Successful execution results in the following output:
 
-```
+```plaintext
 The value of key is: hello world
 ```

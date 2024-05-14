@@ -25,7 +25,7 @@ Make sure to convert the memory figure `m` to megabytes.
 
 This number is an estimate based on the available memory, so it varies between plans
 and cloud providers. To see the exact maximum connections allowed for your
-specific service, use the [redis-cli](/docs/products/redis/howto/connect-redis-cli)
+specific service, use the [redis-cli](/docs/products/caching/howto/connect-redis-cli)
 with the `info` command as follows:
 
 ```shell

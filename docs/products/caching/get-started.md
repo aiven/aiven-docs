@@ -84,7 +84,7 @@ languages or through `redis-cli`:
     Learn how estimate the max number of simultaneous connections in
     Aiven for Caching service.
 
--   [Lua scripts with Aiven for Caching](/docs/products/caching/concepts/lua-scripts-redis).
+-   [Lua scripts with Aiven for Caching](/docs/products/caching/concepts/lua-scripts-caching).
 
     Learn about inbuilt support for running Lua scripts in Aiven for
     Caching service.

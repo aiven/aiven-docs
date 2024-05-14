@@ -82,7 +82,7 @@ and the specifics of the Aiven plan.
 
 :::tip
 Writing at about 5 megabytes per second is manageable in most situations. However,
-attempting to write at about 50 megabytes per second will likely lead to failures,
+attempting to write at about 50 megabytes per second is likely lead to failures,
 particularly when memory usage approaches the allowed maximum or during the
 initialization of a new node.
 :::
@@ -108,8 +108,8 @@ memory the underlying Redis technology can use. For a 28 gigabyte plan, this is 
 under 2 gigabytes.
 
 If the volume of changes during the 6 minute initial sync exceeds the replication
-log size, the new node cannot start following the replication stream and must
-undergo another initial sync.
+log size, the new node cannot start following the replication stream and undergoes
+another initial sync.
 
 :::tip
 Writing new changes at 5 megabytes per second, totaling 1.8 gigabytes over 6 minutes,

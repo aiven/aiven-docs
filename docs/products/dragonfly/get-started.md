@@ -71,6 +71,6 @@ languages:
 - Learn about how Aiven for Dragonfly supports
   [high availability](/docs/products/dragonfly/concepts/ha-dragonfly).
 - Migrate data from
-  [Aiven for Redis®* to Aiven for Dragonfly](/docs/products/dragonfly/howto/migrate-aiven-redis-df-console).
+  [Aiven for Caching to Aiven for Dragonfly](/docs/products/dragonfly/howto/migrate-aiven-caching-df-console).
 - Migrate data from
   [external Dragonfly to Aiven for Dragonfly](/docs/products/dragonfly/howto/migrate-ext-redis-df-console).

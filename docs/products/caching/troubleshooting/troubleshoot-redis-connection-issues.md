@@ -20,7 +20,7 @@ things to check:
   documentation for the Redis®* client being used to ensure SSL connections
   are supported.
 - If you notice older connections terminating, check the value configured for the
-  [redis_timeout advanced parameter](/docs/products/redis/reference/advanced-params).
+  [redis_timeout advanced parameter](/docs/products/caching/reference/advanced-params).
   This parameter controls the timeout value for idle connections. Once the timeout is
   reached, the connection is terminated.
 

@@ -108,7 +108,7 @@ require project VPC and peering connection.
 
 To update an existing service, run:
 
-```
+```bash
 avn service update --project test -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> redis
 ```
 

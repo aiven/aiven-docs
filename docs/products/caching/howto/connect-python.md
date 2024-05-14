@@ -14,7 +14,7 @@ from your service overview page:
 
 | Variable    | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
-| `CACHING_URI` | URI for the Aiven for Caching service connection |
+| `SERVICE_URI` | URI for the Aiven for Caching service connection |
 
 ## Prerequisites
 
@@ -36,18 +36,17 @@ It then retrieves this key from the caching service and outputs its value.
 
 Execute the script with:
 
-```
+```bash
 python main.py
 ```
 
 :::note
-Note that on some systems you will need to use `python3` to get Python3
-rather than the previous Python2
+On some systems, using `python3` is necessary to access Python 3 instead of the
+earlier Python 2.
 :::
 
+Successful execution results in the following output:
 
-You will see the following output after successful execution:
-
-```
+```plaintext
 The value of key is: hello world
 ```

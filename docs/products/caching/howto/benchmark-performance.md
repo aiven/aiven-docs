@@ -137,11 +137,10 @@ different conditions allows for effective performance comparisons
 :::note
 Aiven has `rate limit` on services. By default it's `200` new
 connections per 0.5 second per CPU core. Also be aware of the connection
-limit depending on memory size as explained in [Estimate maximum number
-of
-connection](https://docs.aiven.io/docs/products/redis/howto/estimate-max-number-of-connections.html).
+limit depending on memory size as explained in
+[Estimate maximum number of connection](/docs/products/caching/howto/benchmark-performance).
 
 Aiven enforces a `rate limit` on services. By default, it's set to `200` new connections
 per 0.5 seconds per CPU core. Additionally, consider the connection limit based on memory
-size as explained in [Estimate maximum number of connection](/docs/products/redis/howto/estimate-max-number-of-connections).
+size as explained in [Estimate maximum number of connection](/docs/products/caching/howto/benchmark-performance).
 :::
