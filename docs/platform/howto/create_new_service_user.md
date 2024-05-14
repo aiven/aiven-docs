@@ -23,17 +23,12 @@ To increase the maximum number of users allowed for a service,
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 1.  On the **Services** page, select your service.
-1.  From the sidebar, click <ConsoleLabel name="users"/>.
-1.  Click **Add service user**:
-
-    1.  Enter a name for your service user.
-
-        If a password is required, a new random password is
-        generated automatically. This can be modified later.
-
-    1.  Set up all the other configuration options, such as
-        authentication, roles, or replication, and
-        click **Add service user**.
+1.  From the sidebar, click <ConsoleLabel name="serviceusers"/>.
+1.  Click **Add service user** or **Create user**.
+1.  Enter a name for your service user.
+1.  Set up all the other configuration options. If a password is required,
+    a random password is generated automatically. You can modify it later.
+1.  Click **Add service user**.
 <!-- vale off -->
 ## Related pages
 
