@@ -57,38 +57,38 @@ running the following commands:
 Learn how to connect to Aiven for Caching using different programming
 languages or through `redis-cli`:
 
--   [redis-cli](howto/connect-redis-cli)
--   [Go](howto/connect-go)
--   [Node](howto/connect-node)
--   [PHP](howto/connect-php)
--   [Python](howto/connect-python)
+-   [redis-cli](/docs/products/caching/howto/connect-redis-cli)
+-   [Go](/docs/products/caching/howto/connect-go)
+-   [Node](/docs/products/caching/howto/connect-node)
+-   [PHP](/docs/products/caching/howto/connect-php)
+-   [Python](/docs/products/caching/howto/connect-python)
 
 ## Explore other resources for Aiven for Caching
 
--   [High availability in Aiven for Caching](concepts/high-availability-redis).
+-   [High availability in Aiven for Caching](/docs/products/caching/concepts/high-availability-redis).
 
     Learn about how Aiven for Caching supports high availability.
 
--   [Manage SSL connectivity](howto/manage-ssl-connectivity).
+-   [Manage SSL connectivity](/docs/products/caching/howto/manage-ssl-connectivity).
 
     Check how Aiven for Caching supports SSL connections and how can be
     configured.
 
--   [Memory usage, on-disk persistence and replication in Aiven for Caching](concepts/memory-usage).
+-   [Memory usage, on-disk persistence and replication in Aiven for Caching](/docs/products/caching/concepts/memory-usage).
 
     See how Aiven for Caching solves the challenges related to high memory
     usage and high change rate.
 
--   [Estimate maximum number of connections in Aiven for Caching](howto/estimate-max-number-of-connections).
+-   [Estimate maximum number of connections in Aiven for Caching](/docs/products/caching/howto/estimate-max-number-of-connections).
 
     Learn how estimate the max number of simultaneous connections in
     Aiven for Caching service.
 
--   [Lua scripts with Aiven for Caching](concepts/lua-scripts-redis).
+-   [Lua scripts with Aiven for Caching](/docs/products/caching/concepts/lua-scripts-redis).
 
     Learn about inbuilt support for running Lua scripts in Aiven for
     Caching service.
 
--   [Benchmark performance](howto/benchmark-performance)
+-   [Benchmark performance](/docs/products/caching/howto/benchmark-performance)
 
     Learn how to benchmark the performance of Aiven for Caching service.
