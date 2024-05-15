@@ -59,28 +59,33 @@
 
 # Redis to Caching
 
-/products/redis/concepts/overview
-/products/redis/get-started
-/products/redis/concepts/high-availability-redis
-/products/redis/concepts/lua-scripts-redis
-/products/redis/concepts/memory-usage
-/products/redis/concepts/restricted-redis-commands
-/products/redis/howto/list-code-samples
-/products/redis/howto/connect-redis-cli
-/products/redis/howto/connect-go
-/products/redis/howto/connect-node
-/products/redis/howto/connect-php
-/products/redis/howto/connect-python
-/products/redis/howto/connect-java
-/products/redis/howto/list-dba-tasks
-/products/redis/howto/configure-acl-permissions
-/products/redis/howto/migrate-redis-db
-/products/redis/howto/migrate-aiven-redis
-/products/redis/howto/migrate-redis-aiven-via-console
-/products/redis/howto/estimate-max-number-of-connections
-/products/redis/howto/manage-ssl-connectivity
-/products/redis/howto/warning-overcommit_memory
-/products/redis/howto/benchmark-performance
-/products/redis/reference/advanced-params
-/products/redis/troubleshooting
-/products/redis/troubleshooting/troubleshoot-redis-connection-issues
+/products/redis                                            https://aiven.io/docs/products/caching
+/products/redis/concepts/overview                          https://aiven.io/docs/products/caching/concepts/overview
+/docs/products/redis/concepts                              https://aiven.io/docs/products/caching/concepts
+/products/redis/concepts/high-availability-redis           https://aiven.io/docs/products/caching/concepts/high-availability-redis
+/products/redis/concepts/lua-scripts-redis                 https://aiven.io/docs/products/caching/concepts/lua-scripts-caching
+/products/redis/concepts/memory-usage                      https://aiven.io/docs/products/caching/concepts/memory-usage
+/products/redis/concepts/restricted-redis-commands         https://aiven.io/docs/products/caching/concepts/restricted-redis-commands
+/products/redis/howto                                      https://aiven.io/docs/products/caching/howto
+/products/redis/howto/list-code-samples                    https://aiven.io/docs/products/caching/howto/list-code-samples
+/products/redis/howto/connect-redis-cli                    https://aiven.io/docs/products/caching/howto/connect-redis-cli
+/products/redis/howto/connect-go                           https://aiven.io/docs/products/caching/howto/connect-go
+/products/redis/howto/connect-node                         https://aiven.io/docs/products/caching/howto/connect-node
+/products/redis/howto/connect-php                          https://aiven.io/docs/products/caching/howto/connect-php
+/products/redis/howto/connect-python                       https://aiven.io/docs/products/caching/howto/connect-python
+/products/redis/howto/connect-java                         https://aiven.io/docs/products/caching/howto/connect-java
+/products/redis/howto/list-dba-tasks                       https://aiven.io/docs//products/caching/howto/list-dba-tasks
+/products/redis/howto/configure-acl-permissions            https://aiven.io/docs/products/caching/howto/configure-acl-permissions
+/products/redis/howto/migrate-redis-db                     https://aiven.io/docs/products/caching/howto/migrate-redis-db
+/products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
+/products/redis/howto/migrate-redis-aiven-via-console      https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
+/products/redis/howto/estimate-max-number-of-connections   https://aiven.io/docs/products/caching/howto/estimate-max-number-of-connections
+/products/redis/howto/manage-ssl-connectivity              https://aiven.io/docs/products/caching/howto/manage-ssl-connectivity
+/products/redis/howto/warning-overcommit_memory            https://aiven.io/docs/products/caching/howto/warning-overcommit_memory
+/products/redis/howto/benchmark-performance                https://aiven.io/docs/products/caching/howto/benchmark-performance
+/products/redis/reference                                  https://aiven.io/docs/products/caching/reference
+/products/redis/reference/advanced-params                  https://aiven.io/docs/products/caching/reference/advanced-params
+/products/redis/troubleshooting                            https://aiven.io/docs/products/caching/troubleshooting
+/products/redis/troubleshooting/troubleshoot-redis-connection-issues  https://aiven.io/docs/products/caching/troubleshooting/troubleshoot-redis-connection-issues
+
+/products/dragonfly/howto/migrate-aiven-redis-df-console   https://aiven.io/docs/products/dragonfly/howto/migrate-aiven-caching-df-console
