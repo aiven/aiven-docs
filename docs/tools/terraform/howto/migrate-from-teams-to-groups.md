@@ -17,7 +17,7 @@ To get started using organization groups, replace your existing teams with group
     sample creates a group using the
     [`aiven_organization_user_group` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_user_group).
 
-    ```terraform
+    ```hcl
     resource "aiven_organization_user_group" "admin" {
       organization_id = data.aiven_organization.ORGANIZATION_RESOURCE_NAME.id
       name       = "Admin user group"
@@ -34,7 +34,7 @@ To get started using organization groups, replace your existing teams with group
 1.  To add the users to the groups, use the
     [`aiven_organization_user_group_member` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_user_group_member):
 
-    ```terraform
+    ```hcl
     resource "aiven_organization_user_group_member" "admin_members" {
       group_id      = aiven_organization_user_group.admin.group_id
       organization_id = data.aiven_organization.ORGANIZATION_RESOURCE_NAME.id
@@ -45,7 +45,7 @@ To get started using organization groups, replace your existing teams with group
 1.  To add each new group to the same projects that the teams are assigned to, use the
     [`aiven_organization_group_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_group_project):
 
-    ```terraform
+    ```hcl
     resource "aiven_organization_group_project" "admin_project1" {
       group_id      = aiven_organization_user_group.admin.group_id
       project = aiven_project.PROJECT_RESOURCE_NAME.project
