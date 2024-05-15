@@ -264,7 +264,8 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
-
+           </>
+      ); 
     case 'replacefile':
       return (
         <>
