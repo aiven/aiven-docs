@@ -13,9 +13,6 @@ To get started using organization groups, replace your existing teams with group
     -   which projects the team is assigned to
     -   the team's role for each project
 
-1. To use the resources related to groups, set the `PROVIDER_AIVEN_ENABLE_BETA`
-   environment variable to `true`.
-
 1.  For each team in your organization, create a group with the same name. The following
     sample creates a group using the
     [`aiven_organization_user_group` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_user_group).
