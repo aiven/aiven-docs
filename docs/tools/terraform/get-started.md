@@ -47,7 +47,7 @@ Set up the Terraform project in an empty folder:
     [Aiven Provider
     page](https://registry.terraform.io/providers/aiven/aiven/latest).
 
-    ```terraform
+    ```hcl
     terraform {
       required_providers {
         aiven = {
@@ -67,7 +67,7 @@ Set up the Terraform project in an empty folder:
     Add the following code to define the configuration of a single-node
     Aiven for Redis®\* service:
 
-    ```terraform
+    ```hcl
     # Redis service
 
     resource "aiven_redis" "single-node-aiven-redis" {
@@ -94,7 +94,7 @@ Set up the Terraform project in an empty folder:
     Add the following code to declare the API token and project name
     variables:
 
-    ```terraform
+    ```hcl
     variable "aiven_api_token" {
       description = "Aiven console API token"
       type        = string
@@ -113,7 +113,7 @@ Set up the Terraform project in an empty folder:
     your API token and `AIVEN_PROJECT_NAME` with the name of your
     project:
 
-    ```terraform
+    ```hcl
     aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
     project_name    = "AIVEN_PROJECT_NAME"
     ```
