@@ -58,4 +58,5 @@
 /platform/howto/move-to-azure-marketplace-billing      https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-aws-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
-
+/tools/terraform/reference/troubleshooting             https://aiven.io/docs/tools/terraform
+/tools/terraform/reference/troubleshooting/private-access-error https://aiven.io/docs/tools/terraform
