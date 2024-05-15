@@ -102,7 +102,7 @@ For a cost estimate and analysis, contact [the sales team](mailto:sales@aiven.io
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS private" default>
 
-![AWS private model architecture diagram](/images/content/platform/concepts/byoc-aws-priv-arch.png)
+<img src={byocAwsPrivate} class="centered" alt="BYOC AWS private architecture" width="100%" />
 
 The AWS private deployment requires you to create a Virtual Private Cloud
 (**BYOC VPC**) dedicated to Aiven-managed services within a cloud region to operate in.
@@ -129,7 +129,7 @@ from Aiven repositories).
 </TabItem>
 <TabItem value="2" label="AWS public">
 
-![AWS public model architecture diagram](/images/content/platform/concepts/byoc-aws-pub-arch.png)
+<img src={byocAwsPublic} class="centered" alt="BYOC AWS public architecture" width="100%" />
 
 The AWS public deployment model requires you to create a Virtual Private Cloud (VPC)
 dedicated to Aiven-managed services within a cloud region to operate in (**BYOC VPC**).
@@ -144,7 +144,7 @@ peering techniques.
 </TabItem>
 <TabItem value="3" label="GCP private">
 
-![GCP private model architecture diagram](/images/content/platform/concepts/byoc-gcp-priv-arch.png)
+<img src={byocGcpPrivate} class="centered" alt="BYOC GCP private architecture" width="100%" />
 
 The GCP private deployment model requires you to create two Virtual Private Clouds (VPCs)
 within a cloud region to operate in:
@@ -173,7 +173,7 @@ from Aiven repositories).
 </TabItem>
 <TabItem value="4" label="GCP public">
 
-![GCP public model architecture diagram](/images/content/platform/concepts/byoc-gcp-pub-arch.png)
+<img src={byocGcpPublic} class="centered" alt="BYOC GCP public architecture" width="100%" />
 
 The GCP public deployment requires you to create a Virtual Private Cloud (VPC)
 dedicated to Aiven-managed services within a cloud region to operate in (**Workload VPC**).
