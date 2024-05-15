@@ -1191,6 +1191,7 @@ const sidebars: SidebarsConfig = {
                 'products/cassandra/reference/advanced-params',
                 'products/cassandra/reference/cassandra-metrics-prometheus',
                 'products/cassandra/reference/cassandra-metrics-datadog',
+                'products/cassandra/reference/cassandra-alerts',
               ],
             },
           ],
