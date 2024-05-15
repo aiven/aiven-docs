@@ -239,6 +239,7 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.download} /> <b>Download</b>
         </>
       );
+
     case 'resetpassword':
       return (
         <>
@@ -263,6 +264,11 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
+
+    case 'replacefile':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Replace file</b>
         </>
       );
     default:
