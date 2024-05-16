@@ -40,22 +40,23 @@ Service disk autoscaler doesn't support scaling down.
     project setting the maximum additional storage at the same time.
 1.  You enable a disk autoscaler integration for your service using the
     new disk autoscaler integration endpoint.
-1.  From that point onward, the evaluation of disk space availability
-    for your service is done every 30 seconds.
+1.  From that point onward, the disk space availability of your service is monitored by
+    Aiven Autoscaler.
 1.  When disk storage consumption reaches the threshold for a specific
-    service, disk autoscaler increases available storage space by 10%
-    every time taking the used disk space as a baseline.
+    service, usually within minutes Aiven Autoscaler increases available storage space
+    by 10% every time taking the used disk space as a baseline.
 
-:::note[Autoscale thresholds per service type]
-The threshold at which disk autoscaling is triggered is a percentage of
-the available disk storage capacity and depends on a service type:
+    :::note[Autoscale thresholds per service type]
+    The threshold at which disk autoscaling is triggered is a percentage of
+    the available disk storage capacity and depends on a service type:
+    -   Aiven for Apache Cassandra®: 35% of the available disk storage
+        capacity
+    -   Aiven for OpenSearch®: 75% of the available disk storage capacity
+    -   All other Aiven service types: 85% of the available disk storage capacity
+    :::
 
--   Aiven for Apache Cassandra®: 35% of the available disk storage
-    capacity
--   Aiven for OpenSearch®: 75% of the available disk storage capacity
--   All other Aiven service types: 85% of the available disk storage capacity
-
-:::
+1.  The disk increase is recorded in the project event log, and you receive a notification
+    about the added disk space.
 
 ## Limits and limitations
 
@@ -72,6 +73,8 @@ the available disk storage capacity and depends on a service type:
 - Disk autoscaling works on fully running services only and cannot happen during
   maintenance updates.
 - If you change disk space manually, you might delay an autoscaling process.
+- When using Aiven Autoscaler, don't try to control your disk space with Terraform
+  so that you avoid potential conflicts between those two tools.
 
 ## Prerequisites
 
