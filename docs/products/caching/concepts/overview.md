@@ -2,7 +2,10 @@
 title: Aiven for Caching overview
 ---
 
-Aiven for Caching, a fully managed **in-memory NoSQL database**, offers efficient storage and quick data access in your preferred cloud. Compatible with legacy Redis® OSS, this service facilitates seamless transitions and compatibility.
+Aiven for Caching, a fully managed **in-memory NoSQL database**, offers efficient storage and quick data access in your preferred cloud. This service is compatible with legacy Redis® OSS up to version 7.2.4, facilitating seamless transitions and compatibility.
+
+For insights into he service name change and the latest updates, read the
+[blog post](https://aiven.io/blog/aiven-for-redis-becomes-aiven-for-caching).
 
 With Aiven, you can leverage the power of this in-memory database to improve the
 performance of your applications by setting up high-performance data caching.
@@ -18,10 +21,9 @@ geospatial indexes, and streams.
 Aiven for Caching has many features that make it easy and stress-free to
 use:
 
--   **Managed service:** Fully managed service, so you don't
-    have to worry about setup, management, or updates. Aiven provides
-    tools and integrations to help you use Redis in your data
-    pipelines.
+-   **Managed service:** Fully managed service, so you don't have to worry about
+    setup, management, or updates. Aiven provides tools and integrations to help you
+    use this in-memory data store in your data pipelines.
 -   **Fast and easy deployment:** Launch a production-ready Redis-based service
     within minutes. Choose from multiple public clouds across numerous global regions,
     using high-performance clusters with optimally selected instance types and storage
@@ -36,7 +38,7 @@ use:
     using [Aiven Console](https://console.aiven.io/),
     [Aiven CLI](https://github.com/aiven/aiven-client), or
     [Terraform](/docs/tools/terraform) .
-    Features like scaling, forking, and upgrading your Redis-based cluster
+    Features like scaling, forking, and upgrading your Aiven for Caching cluster
     are simple and efficient. Compatible with open-source software, it integrates
     with your existing applications and facilitates cloud and regional migrations.
 -   **Backups and disaster recovery:** Automatic and configurable backups ensure data
@@ -45,11 +47,11 @@ use:
 
 ## Ways to use Aiven for Caching
 
-- Use Redis technology as a supplementary data store alongside a primary database
-  like PostgreSQL®.
+- Use Aiven for Caching and its in-memory data store technology as a supplementary
+  data system alongside primary databases like PostgreSQL®.
 - Ideal for transient data, caching values for quick access, and data that can be
-  reestablished, such as session data. While Redis is not inherently a persistent storage
-  solution, it can be configured for persistence.
+  reestablished, such as session data. While this service is not inherently a
+  persistent storage solution, it can be configured for persistence.
 
 ## Related pages
 
