@@ -117,7 +117,7 @@ manually using URLs:
        1. Log in to the IdP to link the accounts. You can use the IdP
           for all future logins.
 
-   -   For existing users that are not logged into the Aiven Console
+   -   For existing users that are not logged into the Aiven Console:
        1. Click the account link URL.
        1. Click **Login**.
        1. Log in to the Aiven Console. You are redirected to your IdP's authentication page.
