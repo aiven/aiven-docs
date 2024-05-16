@@ -13,7 +13,7 @@ between services to accomplish the task.
 Let's create Aiven for PostgreSQL® primary and a read-only replica
 using the following Terraform file:
 
-```terraform
+```hcl
 resource "aiven_pg" "demo-postgresql-primary" {
   project                 = var.project_name
   service_name            = "demo-postgresql-primary"
@@ -57,7 +57,7 @@ resource `aiven_service_integration`, the code blocks
 `demo-postgresql-read-replica` resource above. Once you remove these
 code blocks, your Terraform script will look something like this:
 
-```terraform
+```hcl
 resource "aiven_pg" "demo-postgresql-primary" {
   project                 = var.project_name
   service_name            = "demo-postgresql-primary"
