@@ -30,7 +30,7 @@ You update the Aiven Terraform Provider by editing the providers block
 of your script. If the version was already set to `>= 3.0.0` then the
 upgrade is automatic.
 
-```terraform
+```hcl
 terraform {
   required_providers {
     aiven = {
