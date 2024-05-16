@@ -75,12 +75,13 @@ Adjust settings according to your service. The **Overview** page lists your
 **Overview** > **Host** and **Overview** > **Port** for configuring the connect parameter.
 :::
 
-When SSL is in use, HAProxy is responsible for terminating the SSL
-connections before they get forwarded to Redis. This process has a
-connection timeout set to 12 hours which is not configurable by the
-users. If you allow very long Redis timeouts, this SSL-terminating
-HAProxy may end up closing the connection before the Redis timeout has
-expired. This timeout is independent of Redis timeout.
+
+When SSL is in use, HAProxy is responsible for terminating the SSL connections before
+they get forwarded to Aiven for Caching. This process has a connection timeout set to
+12 hours, which is not configurable by users. If you allow long timeouts in
+Aiven for Caching, this SSL-terminating HAProxy may close the connection before
+the Aiven for Caching timeout expires. This timeout is independent of the
+Aiven for Caching timeout.
 
 ## Allow plain-text connections
 

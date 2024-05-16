@@ -2,9 +2,9 @@
 title: Lua scripts with Aiven for Caching
 ---
 
-Learn how to leverage the inbuilt support for Lua scripting in Redis®* using Aiven for Caching.
+Learn how to leverage the built-in support for Lua scripting in Aiven for Caching.
 
-Redis has inbuilt support for running Lua scripts to perform various
+Aiven for Caching has inbuilt support for running Lua scripts to perform various
 actions directly on the Redis server. Scripting is typically controlled
 using the `EVAL`, `EVALSHA` and `SCRIPT LOAD` commands.
 

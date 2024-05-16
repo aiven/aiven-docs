@@ -2,14 +2,14 @@
 title: Memory Management and persistence in Aiven for Caching
 ---
 
-Learn how Aiven for Caching, compatible with legacy Redis® OSS, addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
+Learn how Aiven for Caching, compatible with legacy Redis® OSS up to version 7.2.4, addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
 
-Aiven for Caching, compatible with legacy Redis® OSS, primarily functions as a
-database cache. Data fetched from a database is written to the caching system.
-Subsequent queries with the same parameters first look for the data in the caching
-system, bypassing the database query if found. This process can lead to challenges
-such as high memory usage and a high rate of change. Aiven for Caching is designed
-to resolve these issues.
+Aiven for Caching functions primarily as a database cache. Data fetched from a database
+is stored in the caching system. Subsequent queries with the same parameters first check
+this cache, bypassing the need for a repeat database query. This efficiency can lead to
+challenges such as increased memory usage and frequent data changes, which
+Aiven for Caching is specifically designed to manage.
+
 
 ## Data eviction policy in Aiven for Caching
 

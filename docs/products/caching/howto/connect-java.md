@@ -14,7 +14,7 @@ from your service overview page:
 
  | Variable    | Description                                                  |
  | ----------- | ------------------------------------------------------------ |
- | `SERVICE_URI`| URI for the Redis connection, from the service overview page |
+ | `SERVICE_URI`| URI for the Aiven for Caching connection, from the service overview page |
 
 ## Prerequisites
 
@@ -28,25 +28,25 @@ mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=redis.cl
 && mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=com.google.code.gson:gson:2.8.9:jar -Ddest=lib/gson-2.8.9.jar
 ```
 
-If Maven is not installed, download the dependencies from the
+If `maven` is not installed, download the dependencies from the
 [Maven Central Repository](https://search.maven.org) and place them in the `lib`
 folder manually.
 
 ## Code
 
-Create a file named `RedisExample.java` and insert the code below,
+Create a file named `CachingExample.java` and insert the code below,
 substituting the placeholder with your Aiven for Caching URI:
 
 <CodeBlock language='java'>{MyComponentSource1}</CodeBlock>
 
-This code creates a key named `key` with the value `hello world` without an expiration.
-It then retrieves this key from the caching service and outputs its value.
+This code connects to Aiven for Caching, sets a `key` named key with the value
+`hello world` (without expiration), then retrieves and prints the value of this key.
 
-Replace the placeholder with the **CACHING_URI**, compile and run the
+Replace the placeholder with the **SERVICE_URI**, compile and run the
 code:
 
 ```bash
-javac -cp lib/*:. RedisExample.java && java -cp lib/*:. RedisExample REDIS_URI
+javac -cp lib/*:. CachingExample.java && java -cp lib/*:. CachingExample SERVICE_URI
 ```
 
 Successful execution results in the following output:

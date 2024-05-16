@@ -7,8 +7,7 @@ This section aims to provide you with a list of disabled/restricted commands.
 
 ## Disabled commands
 
-The Aiven for Caching service has disabled the following commands, which pertain to
-the underlying Redis technology:
+For optimal performance and security, Aiven for Caching disables the following commands:
 
 -   `bgrewriteaof`: Initiates a background append-only file rewrite.
 -   `cluster`: Manages Caching cluster commands.
