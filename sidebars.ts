@@ -472,17 +472,6 @@ const sidebars: SidebarsConfig = {
                 'tools/terraform/howto/vpc-peering-gcp',
               ],
             },
-            {
-              type: 'category',
-              label: 'Troubleshooting',
-              link: {
-                type: 'doc',
-                id: 'tools/terraform/reference/troubleshooting',
-              },
-              items: [
-                'tools/terraform/reference/troubleshooting/private-access-error',
-              ],
-            },
           ],
         },
         'tools/kubernetes',
