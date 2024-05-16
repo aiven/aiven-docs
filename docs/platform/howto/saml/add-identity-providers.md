@@ -111,7 +111,7 @@ manually using URLs:
 1. The process for users to link their Aiven user account with the IdP varies for new and
    existing users.
 
-   -   For existing users that are already logged in to the Aiven Console
+   -   For existing users that are already logged in to the Aiven Console:
        1. Click the account link URL.
        1. Click **Link profile** to go to your IdP's authentication page.
        1. Log in to the IdP to link the accounts. You can use the IdP
