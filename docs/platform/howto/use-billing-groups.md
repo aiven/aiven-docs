@@ -7,7 +7,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 To view and update your billing groups in the [Aiven Console](https://console.aiven.io/) go to the organization and click **Billing**.
 
 :::info
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
+You must be a [super admin](/docs/platform/howto/make-super-admin) to access this
+feature in the Aiven Console.
 :::
 
 ## Rename billing groups
@@ -49,11 +50,8 @@ will unassign it from that billing group.
 ## Delete billing groups
 
 1.  Select the name of the billing group to delete.
-1.  On the **Projects** tab, confirm that no projects are assigned to
-    this billing group. If there are projects listed, move them to a
-    different billing group.
-1.  Click the three dots next to the current accumulated monthly bill
+1.  On the **Projects** tab, confirm that the billing group has no projects.
+    If there are projects listed, move them to a different billing group.
+1.  Click <ConsoleLabel name="actions"/> next to the current accumulated monthly bill
     amount.
-1.  Select **Delete** and **Confirm**.
-
-You are taken back to the Billing page.
+1.  Click **Delete** and **Confirm**.

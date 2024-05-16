@@ -99,7 +99,6 @@ const sidebars: SidebarsConfig = {
             'platform/howto/create-billing-groups',
             'platform/howto/use-billing-groups',
             'platform/howto/billing-assign-projects',
-            'platform/howto/change-billing-contact',
           ],
         },
         'platform/howto/payment-issues-plan-upgrades',
