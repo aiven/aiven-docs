@@ -123,8 +123,8 @@ manually using URLs:
        1. Log in to the Aiven Console. You are redirected to your IdP's authentication page.
        1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
 
-   -   For new users without an Aiven user account
-       1.  Click the signup URL.
+   -   For new users without an Aiven user account:
+       1. Click the signup URL.
        1. Select the identity provider on the signup page. You are redirected to your
           IdP's authentication page.
        1. Log in to the IdP.
