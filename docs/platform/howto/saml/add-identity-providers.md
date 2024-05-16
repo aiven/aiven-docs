@@ -108,22 +108,28 @@ manually using URLs:
     users need to log in with the new account link URL to finish the
     setup.
 
-The process for users to link their Aiven user account with the IdP varies for new and
-existing users.
+1. The process for users to link their Aiven user account with the IdP varies for new and
+   existing users.
 
--   For existing users that are already logged in to the Aiven Console
-    1. Click **Link profile** to go to your IdP's authentication page.
-    1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
--   For existing users that are not logged into the Aiven Console
-    1. Click **Login**.
-    1. Log in to the Aiven Console. You are redirected to your IdP's authentication page.
-    1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
+   -   For existing users that are already logged in to the Aiven Console
+       1. Click the account link URL.
+       1. Click **Link profile** to go to your IdP's authentication page.
+       1. Log in to the IdP to link the accounts. You can use the IdP
+          for all future logins.
 
--   For new users without an Aiven user account
-    1. Click **Sign up**. You are redirected to your IdP's authentication page.
-    1. Log in to the IdP.
-    1. Complete the sign up process in the Aiven Console. The IdP is automatically linked
-       to your Aiven user account and you can use it for all future logins.
+   -   For existing users that are not logged into the Aiven Console
+       1. Click the account link URL.
+       1. Click **Login**.
+       1. Log in to the Aiven Console. You are redirected to your IdP's authentication page.
+       1. Log in to the IdP to link the accounts. You can use the IdP for all future logins.
+
+   -   For new users without an Aiven user account
+       1.  Click the signup URL.
+       1. Select the identity provider on the signup page. You are redirected to your
+          IdP's authentication page.
+       1. Log in to the IdP.
+       1. Complete the sign up process in the Aiven Console. The IdP is automatically linked
+          to your Aiven user account and you can use it for all future logins.
 
 ## Troubleshooting
 
