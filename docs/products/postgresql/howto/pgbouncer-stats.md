@@ -1,14 +1,13 @@
 ---
 title: Access PgBouncer statistics
 ---
-
-PgBouncer is used at Aiven for [connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling).
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 ## Get PgBouncer URL
 
-PgBouncer URL can be checked under **Pools** in [Aiven Console](https://console.aiven.io/)
-\> your Aiven for PostgreSQL® service's page > **Pools** view (available from the sidebar).
-Alternatively, it can be extracted via [Aiven Command Line interface](/docs/tools/cli),
+You can get the PgBouncer URL in [Aiven Console](https://console.aiven.io/) >
+your Aiven for PostgreSQL® service's page > <ConsoleLabel name="pools"/> in the sidebar.
+Alternatively, you can get it with the [Aiven Command Line interface](/docs/tools/cli),
 using [jq](https://stedolan.github.io/jq/) to parse the JSON response.
 
 Execute the following command replacing the `INSTANCE_NAME` parameter
@@ -18,7 +17,7 @@ with the name of your instance:
 avn service get INSTANCE_NAME --project PROJECT_NAME --json | jq -r '.connection_info.pgbouncer'
 ```
 
-The output will be similar to the below:
+The output is similar to the following:
 
 ```text
 postgres://avnadmin:xxxxxxxxxxx@demo-pg-dev-advocates.aivencloud.com:13040/pgbouncer?sslmode=require
@@ -46,7 +45,7 @@ Show the statistics by running:
 pgbouncer=# SHOW STATS;
 ```
 
-Depending on the load of your database, the output will be similar to:
+Depending on the load of your database, the output is similar to:
 
 ```text
 database  | total_xact_count | total_query_count | total_received | total_sent | total_xact_time | total_query_time | total_wait_time | avg_xact_count | avg_query_count | avg_recv | avg_sent | avg_xact_time | avg_query_time | avg_wait_time

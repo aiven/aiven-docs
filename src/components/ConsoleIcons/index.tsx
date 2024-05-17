@@ -90,7 +90,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'pools':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.pools} /> <b>Pools</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.pools} /> <b>Connection pools</b>
         </>
       );
     case 'backups':

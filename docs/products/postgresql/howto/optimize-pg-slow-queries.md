@@ -10,8 +10,8 @@ Optimize slow queries to ensure maximum service performance. Use Aiven's AI capa
 
 ## Artificial intelligence recommendations <EarlyBadge/>
 
-Use Aiven's artificial intelligence (<abbr>AI</abbr>) capabilities to suggest optimizations to
-your databases and queries.
+Use Aiven's artificial intelligence (<abbr>AI</abbr>) capabilities to suggest
+optimizations to your databases and queries.
 
 Aiven considers various aspects to suggest optimization, for example query
 structure, table size, existing indexes and their cardinality, column types and
@@ -36,8 +36,10 @@ To optimize a query:
 
 ## Manual optimization
 
-Aiven for PostgreSQL allows you to [identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries) using the `pg_stat_statements` view. To improve slow running
-queries, use one of the manual optimization techniques.
+Aiven for PostgreSQL allows you to
+[identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
+using the `pg_stat_statements` view. To improve slow running queries, use one
+of the manual optimization techniques.
 
 It is worth knowing that many database indexes on a table can also cause
 problems for write performance due to the overhead of maintaining them.
@@ -56,13 +58,13 @@ In such cases, you can use the
 [connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling),
 based on [PgBouncer](https://www.pgbouncer.org), to handle
 an increase in database connections. You can add and configure the
-connection pooling for your service in the **Pools** view in [Aiven
+connection pooling for your service in the <ConsoleLabel name="pools"/> view in [Aiven
 Console](https://console.aiven.io/).
 
 ### Move read-only queries to standby nodes
 
-If your Aiven for PostgreSQL® service is running a *Business* or
-*Premium* plan, you have one or more standby nodes available in a high
+If your Aiven for PostgreSQL® service is running a Business or
+Premium plan, you have one or more standby nodes available in a high
 availability setup in the same cloud region.
 
 To reduce the effect of slow queries on the primary node, you can
@@ -73,9 +75,9 @@ directly connecting via the **read-only replica URL**.
 ### Move read-only queries to a remote read-only replica
 
 You can also create a
-[remote read-only replica](create-read-replica) services in the same or different cloud/region providing a
-dedicated read-only service that you can use to reduce the query load on
-the primary service for read-only queries.
+[remote read-only replica](create-read-replica) service in the same or a different
+cloud or region that you can use to reduce the query load on the primary service
+for read-only queries.
 
 ## Related pages
 
