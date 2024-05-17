@@ -1,11 +1,9 @@
 ---
-title: Delete your AWS custom cloud in Aiven
+title: Delete a custom cloud
 sidebar_label: Delete custom clouds
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
@@ -20,24 +18,13 @@ cloud, make sure there are no active services using this cloud.
 The deletion impacts mostly resources on the Aiven site, such as cloud
 configuration files.
 
-### Impact on your remote cloud account resources
+### Impact on your remote cloud resources
 
-<Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
-A bastion service and the corresponding EC2 instance are deleted as a
+A bastion service and the corresponding compute instance are deleted as a
 consequence of your custom cloud's removal. As for resources created
 when applying the Terraform template to create the custom cloud, they
 are not removed after deleting the custom cloud. Unless you've removed
 them earlier, you're advised to do that after deleting your cloud.
-</TabItem>
-<TabItem value="2" label="GCP">
-A bastion service and the corresponding EC2 instance are deleted as a
-consequence of your custom cloud's removal. As for resources created
-when applying the Terraform template to create the custom cloud, they
-are not removed after deleting your custom cloud. Unless you've removed
-them earlier, you're advised to do that after deleting your cloud.
-</TabItem>
-</Tabs>
 
 ## Prerequisites
 

@@ -105,7 +105,7 @@ to you for more details, and we'll follow up with you to keep you informed on th
 
 You need AWS cloud account credentials set up on your machine so that your user or role has
 required Terraform permissions
-[to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws).
+[to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
 
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS permissions" default>
