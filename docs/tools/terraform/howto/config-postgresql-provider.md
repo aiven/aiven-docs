@@ -11,7 +11,7 @@ and configure it with the PostgreSQL Provider.
 
 1.  Add the PostgreSQL Provider and Aiven Provider to the `required_providers` block:
 
-    ```terraform
+    ```hcl
     terraform {
       required_providers {
         aiven = {
@@ -28,7 +28,7 @@ and configure it with the PostgreSQL Provider.
 
 1.  Set the service connection attributes in the `provider` block:
 
-    ```terraform
+    ```hcl
     # Create the Aiven service
     resource "aiven_pg" "example_pg" {
       project                 = "example-project"
@@ -52,7 +52,7 @@ and configure it with the PostgreSQL Provider.
 
 1.  Create a PostgreSQL role using the Terraform resource `postgresql_role.my_role`:
 
-    ```terraform
+    ```hcl
     resource "postgresql_role" "example_role" {
       name     = "example-role"
     }

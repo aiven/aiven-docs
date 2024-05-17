@@ -2,27 +2,75 @@
 title: Connection pooling
 ---
 
-Connection pooling in Aiven for PostgreSQL® services allows you to
-maintain very large numbers of connections to a database while
-minimizing the consumption of server resources.
+Connection pooling in Aiven for PostgreSQL® services allows you to maintain very large numbers of connections to a database while minimizing the consumption of server resources.
+
+## About connection pooling
 
 Aiven for PostgreSQL connection pooling uses
 [PgBouncer](https://www.pgbouncer.org/) to manage the database
 connection.
-
-:::note
-Each pool can handle from a minimum of 5000 client connections to a
-maximum defined by the lower threshold between:
-
--   500 for each GB of RAM in the service plan
--   A total of 50000 client connections
-:::
 
 Unlike when you connect directly to the PostgreSQL® server, each client
 connection does not require a separate backend process on the server.
 PgBouncer automatically inserts the client queries and only uses a
 limited number of actual backend connections, leading to lower resource
 usage on the server and better total performance.
+
+## Maximum number of client connections
+
+How many client connections your service can handle depends on the RAM size that your
+service plan supports.
+
+- Each gigabyte of RAM allows 500 connections.
+- Minimum number of client connections per service is 5000.
+- Maximum number of client connections per service is 50000.
+
+### Calculate `max_client_connections`
+
+Use the following formula to calculate how many client connections your service can handle:
+
+$$min(max(n * 500, 5000), 50000)$$
+
+Where:
+
+- `n` is the number of RAM GB that a service plan supports.
+- $$n * 500$$ is `intermedia_max_connections`.
+- $$5000 \leq intermedia\_max\_connections \leq 50000$$
+
+  - If `intermedia_max_connections` is less than 5000, lower bound 5000 applies.
+  - If `intermedia_max_connections` is greater than 50000, upper bound 50000 applies.
+
+### Examples
+
+- Startup-4 service plan (4 GB RAM)
+
+  $$n = 4$$
+
+  $$n * 500 = 2000$$
+
+  $$min(max(2000, 5000), 50000) = 5000$$
+
+  For a startup-4 machine, `pgbouncer_max_client_connections` is 5000.
+
+- Business-16 service plan (16 GB RAM)
+
+  $$n = 16$$
+
+  $$n * 500 = 8000$$
+
+  $$min(max(8000, 5000), 50000) = 8000$$
+
+  For a business-16 machine, `pgbouncer_max_client_connections` is 8000.
+
+- Business-120 service plan (120 GB RAM)
+
+  $$n = 120$$
+
+  $$n * 500 = 60000$$
+
+  $$min(max(60000, 5000), 50000) = 50000$$
+
+  For a business-120 machine, `pgbouncer_max_client_connections` is 50000.
 
 ## Why connection pooling?
 
@@ -40,7 +88,8 @@ server has something to do (each connection can only utilise a single
 CPU core), but a hundred connections per CPU core may be too much. All
 this is workload-specific, but often a good number of connections to
 have is roughly 3-5 times the CPU core count. Aiven enforces
-[connection limits](/docs/products/postgresql/reference/pg-connection-limits) to avoid overloading the PostgreSQL database.
+[connection limits](/docs/products/postgresql/reference/pg-connection-limits) to avoid
+overloading the PostgreSQL database.
 
 :::note
 Since 9.6, PostgreSQL offers parallelization support enabling to [run

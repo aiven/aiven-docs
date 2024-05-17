@@ -188,6 +188,6 @@ see the data landing in an Apache Kafka topic named
 landing topic logic by modifying the `couchbase.topic` parameter
 definition.
 
-------------------------------------------------------------------------
+import CouchBase from "@site/static/includes/trademark-couchbase.md"
 
-*Couchbase is a trademark of Couchbase, Inc.*
+<CouchBase/>

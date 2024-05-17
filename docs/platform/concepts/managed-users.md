@@ -4,10 +4,19 @@ title: Managed users
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The managed users feature lets you centrally manage your organization's users, including editing their profiles, resetting passwords, and [setting authentication policies](/docs/platform/howto/set-authentication-policies).
+The managed users feature lets you centrally manage your organization's users and helps you to secure your organization in Aiven.
 
-A managed user cannot create new organizations
-unless they are a [super admin](/docs/platform/howto/make-super-admin) of the organization.
+With managed users, you can:
+
+- Control how users log in with [authentication policies](/docs/platform/howto/set-authentication-policies),
+  not just how they access the organization
+- Have visibility of all users in your domain even if they weren't added to the Aiven
+  organization
+- Set their state, including deactivating and deleting user accounts
+
+Managed users are also restricted from making changes to their profiles and creating new
+organizations. Only [super admin](/docs/platform/howto/make-super-admin)
+can create organizations.
 
 ## Make organizations user managed users
 
@@ -22,6 +31,6 @@ Users in an organization with a verified domain automatically become managed use
 
 1. Click **Admin**.
 1. Select **Users**.
-1. Next to the user to deactivate, click <ConsoleLabel name="actions"/> > **Deactivate**.
+1. Find the user and click <ConsoleLabel name="actions"/> > **Deactivate**.
 
 You can follow the same process to reactivate the user.

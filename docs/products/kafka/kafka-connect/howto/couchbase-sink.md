@@ -148,6 +148,6 @@ With the above configuration stored in a `couchbase-sink.json` file, you
 can create the connector in the `demo-kafka` instance and you should see
 the data landing in an Couckbase bucket topic named `travel-sample`.
 
-------------------------------------------------------------------------
+import CouchBase from "@site/static/includes/trademark-couchbase.md"
 
-*Couchbase is a trademark of Couchbase, Inc.*
+<CouchBase/>

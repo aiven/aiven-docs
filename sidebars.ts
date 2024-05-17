@@ -424,63 +424,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Aiven tools',
+      label: 'Aiven dev tools',
       link: {
         id: 'tools',
         type: 'doc',
       },
       items: [
-        {
-          type: 'category',
-          label: 'CLI',
-          link: {
-            id: 'tools/cli',
-            type: 'doc',
-          },
-          items: [
-            'tools/cli/billing-group',
-            'tools/cli/cloud',
-            'tools/cli/credits',
-            'tools/cli/events',
-            'tools/cli/mirrormaker',
-            {
-              type: 'category',
-              label: 'avn service',
-              link: {
-                id: 'tools/cli/service-cli',
-                type: 'doc',
-              },
-              items: [
-                'tools/cli/service/acl',
-                'tools/cli/service/connection-info',
-                'tools/cli/service/connection-pool',
-                'tools/cli/service/connector',
-                'tools/cli/service/database',
-                'tools/cli/service/es-acl',
-                'tools/cli/service/flink',
-                'tools/cli/service/integration',
-                'tools/cli/service/m3',
-                'tools/cli/service/privatelink',
-                'tools/cli/service/schema-registry-acl',
-                'tools/cli/service/service-index',
-                'tools/cli/service/tags',
-                'tools/cli/service/topic',
-                'tools/cli/service/user',
-              ],
-            },
-            'tools/cli/ticket',
-            {
-              type: 'category',
-              label: 'avn user',
-              link: {
-                id: 'tools/cli/user',
-                type: 'doc',
-              },
-              items: ['tools/cli/user/user-access-token'],
-            },
-            'tools/cli/vpc',
-          ],
-        },
         'tools/api',
         {
           type: 'category',
@@ -523,20 +472,59 @@ const sidebars: SidebarsConfig = {
                 'tools/terraform/howto/vpc-peering-gcp',
               ],
             },
-            {
-              type: 'category',
-              label: 'Troubleshooting',
-              link: {
-                type: 'doc',
-                id: 'tools/terraform/reference/troubleshooting',
-              },
-              items: [
-                'tools/terraform/reference/troubleshooting/private-access-error',
-              ],
-            },
           ],
         },
         'tools/kubernetes',
+        {
+          type: 'category',
+          label: 'CLI',
+          link: {
+            id: 'tools/cli',
+            type: 'doc',
+          },
+          items: [
+            'tools/cli/billing-group',
+            'tools/cli/cloud',
+            'tools/cli/credits',
+            'tools/cli/events',
+            'tools/cli/mirrormaker',
+            {
+              type: 'category',
+              label: 'avn service',
+              link: {
+                id: 'tools/cli/service-cli',
+                type: 'doc',
+              },
+              items: [
+                'tools/cli/service/acl',
+                'tools/cli/service/connection-info',
+                'tools/cli/service/connection-pool',
+                'tools/cli/service/connector',
+                'tools/cli/service/database',
+                'tools/cli/service/es-acl',
+                'tools/cli/service/flink',
+                'tools/cli/service/integration',
+                'tools/cli/service/m3',
+                'tools/cli/service/privatelink',
+                'tools/cli/service/schema-registry-acl',
+                'tools/cli/service/service-index',
+                'tools/cli/service/tags',
+                'tools/cli/service/topic',
+                'tools/cli/service/user',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'avn user',
+              link: {
+                id: 'tools/cli/user',
+                type: 'doc',
+              },
+              items: ['tools/cli/user/user-access-token'],
+            },
+            'tools/cli/vpc',
+          ],
+        },
       ],
     },
     {
@@ -632,6 +620,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/provectus-kafka-ui',
                     'products/kafka/howto/kpow',
                     'products/kafka/howto/kafka-klaw',
+                    'products/kafka/howto/kafka-quix',
                   ],
                 },
                 {
@@ -1817,6 +1806,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
+                    'products/opensearch/howto/custom-dictionary-files',
                     'products/opensearch/howto/opensearch-alerting-api',
                     'products/opensearch/howto/handle-low-disk-space',
                     'products/opensearch/howto/resolve-shards-too-large',

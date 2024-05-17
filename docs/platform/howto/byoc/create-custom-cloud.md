@@ -1,15 +1,16 @@
 ---
 title: Create an AWS custom cloud in Aiven
 sidebar_label: Create custom clouds
+keywords: [bring your own cloud, byoc, custom cloud]
 ---
 
-Create a [custom cloud](/docs/platform/concepts/byoc) in your Aiven organization to better address your specific business needs or project requirements.
+Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
 :::note
 
 -   Creating and using custom clouds in your Aiven organization requires
     enabling
-    [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc). Check the
+    [the _bring your own cloud (BYOC)_ feature](/docs/platform/concepts/byoc). Check the
     availability of the feature in
     [Who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc). To
     activate BYOC in your Aiven organization, follow
@@ -81,10 +82,11 @@ contacts for your custom cloud.
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
 -   You have Terraform installed
     ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)).
--   You have AWS credentials set up on your machine so that your user or
-    role has required Terraform permissions
-    ([to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws))
-    as follows:
+
+### AWS IAM permissions
+
+You need AWS credentials set up on your machine so that your user or role has required
+Terraform permissions [to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws).
 
 <details><summary>
 Show permissions required for creating resources for bastion and

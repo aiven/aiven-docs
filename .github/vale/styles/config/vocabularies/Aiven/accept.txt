@@ -97,6 +97,7 @@ Forecast
 Forecasted
 FusionAuth
 Gantt
+GBs
 geocoder
 geocoding
 geohash
@@ -126,13 +127,13 @@ hypertable
 hypertables
 IdP
 IdPs
-IPs
 InfluxDB
 InnoDB
 inodes
 Instana
 io
 iops
+IPs
 IPsec
 iptables
 Java
@@ -190,6 +191,7 @@ Opensearch_acl_config
 Opensearch_acl_rule
 Opensearch_user
 operator
+ORMs
 overcommit
 overcommitted
 Pagerduty
@@ -221,6 +223,7 @@ Protobuf
 Provectus
 psql
 Python
+Quix
 rebalance
 rebalances
 rebalancing

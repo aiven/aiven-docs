@@ -25,7 +25,7 @@ Set up the OpenTofu project in an empty folder:
     on the Aiven Provider, specifying the
     [version](https://registry.terraform.io/providers/aiven/aiven/latest).
 
-    ```terraform
+    ```hcl
     terraform {
       required_providers {
         aiven = {
@@ -43,7 +43,7 @@ Set up the OpenTofu project in an empty folder:
 1.  Create a file named `project.tf` and add the following code to create an Aiven project
     in your organization:
 
-    ```terraform
+    ```hcl
      # Get information about your organization
      data "aiven_organization" "main" {
       name = "ORGANIZATION_NAME"
@@ -61,7 +61,7 @@ Set up the OpenTofu project in an empty folder:
 1.  Create a file named `service.tf` and add the following code to define the configuration
     of an [Aiven for PostgreSQL®](/docs/products/postgresql) service:
 
-    ```terraform
+    ```hcl
     resource "aiven_pg" "pg" {
       project                 = aiven_project.example_project.project
       cloud_name              = "google-europe-west1"
@@ -82,7 +82,7 @@ Set up the OpenTofu project in an empty folder:
 1.  Create a file named `variables.tf` and add the following code to declare the Aiven
     authentication token variable:
 
-    ```terraform
+    ```hcl
     variable "aiven_token" {
       description = "Aiven authentication token"
       type        = string
@@ -92,7 +92,7 @@ Set up the OpenTofu project in an empty folder:
 1.  Create a file named `terraform.tfvars` with the following code to store the
     token value:
 
-    ```terraform
+    ```hcl
     aiven_token = "AIVEN_AUTHENTICATION_TOKEN"
     ```
 
