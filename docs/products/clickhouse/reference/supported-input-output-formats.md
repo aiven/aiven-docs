@@ -5,8 +5,6 @@ title: Formats for ClickHouse®-Kafka® data exchange
 When connecting ClickHouse® to Kafka® using Aiven integrations, data
 exchange is possible with the following formats only:
 
-Here's the modified HTML with backticks enclosed in `<code>` and asterisks enclosed in `<strong>`:
-
 | Format name                   | Notes                                                                                                                      |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | **Avro**                      | Binary Avro format with embedded schema. Libraries and documentation: [https://avro.apache.org/](https://avro.apache.org/) |
