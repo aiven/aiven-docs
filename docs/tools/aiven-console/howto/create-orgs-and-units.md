@@ -2,12 +2,13 @@
 title: Create organizations and organizational units
 ---
 
-Organizations and organizational units can be used to group projects and
-apply common settings like authentication and access for groups of
-users. For details and recommendations on creating hierarchical
+Organizations and organizational units help you group projects and apply common settings like authentication and access.
+
+When you sign up for Aiven, an organization is
+automatically created for you. For details and recommendations on creating hierarchical
 organizations in Aiven, see the article on
-[organizations, units, and projects](/docs/platform/concepts/projects_accounts_access). When you sign up for Aiven, an organization is
-automatically created for you.
+[organizations, units, and projects](/docs/platform/concepts/orgs-units-projects).
+
 
 ## Create an organizational unit
 
@@ -16,8 +17,7 @@ your projects by, for example, your departments or environments. To
 create an organizational unit in the [Aiven
 Console](https://console.aiven.io):
 
-1.  In the organization where you want to create an organizational unit,
-    click **Admin**.
+1.  In the organization, click **Admin**.
 2.  In the **Organizational units** section, click **Create
     organizational unit**.
 3.  Enter a name for the unit.
@@ -41,7 +41,7 @@ to group your projects.
 
 Creating a new organization requires you to manually configure
 organization-level settings again such as
-[billing groups, authentication settings, and groups](/docs/platform/concepts/projects_accounts_access).
+[billing groups, authentication settings, and groups](/docs/platform/concepts/orgs-units-projects).
 :::
 
 To create an organization in the [Aiven
@@ -49,10 +49,8 @@ Console](https://console.aiven.io):
 
 1.  Click the user information icon in the top right and select
     **Organizations**.
-2.  Click **Create organization**.
-3.  Select the checkbox to confirm that you understand the effects of
-    creating an organization.
-4.  Enter a name for the organization.
-5.  Optional: Select any projects to assign to this
+1.  Click **Create organization**.
+1.  Enter a name for the organization.
+1.  Optional: Select any projects to assign to this
     organization. You can search for projects by name.
-6.  Click **Create organization**.
+1.  Click **Create organization**.
