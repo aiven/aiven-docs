@@ -2,27 +2,36 @@
 title: Integrate Aiven for Apache Flink® with Google BigQuery
 ---
 
-Aiven for Apache Flink® is a fully managed service that provides
-distributed, stateful stream processing capabilities. Google BigQuery is
-a cloud-based data warehouse that is easy to use, can handle large
-amounts of data without needing servers, and is cost-effective. By
-connecting Aiven for Apache Flink® with Google BigQuery, you can stream
-data from Aiven for Apache Flink® to Google BigQuery, where it can be
-stored and analyzed.
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Aiven for Apache Flink® uses [BigQuery Connector for Apache
-Flink](https://github.com/aiven/bigquery-connector-for-apache-flink) as
-the connector to connect to Google BigQuery.
+Connect Aiven for Apache Flink® with Google BigQuery as a sink using the [Aiven client](/docs/tools/cli) or the [Aiven Console](https://console.aiven.io/).
 
-Learn how to connect Aiven for Apache Flink® with Google BigQuery as a
-sink using [Aiven client](/docs/tools/cli) and [Aiven Console](https://console.aiven.io/).
+Aiven for Apache Flink® is a fully managed service that provides distributed stateful
+stream processing capabilities. Google BigQuery is a cost-effective cloud-based data
+warehouse that can handle large amounts of data without servers. By connecting Aiven for
+Apache Flink® with Google BigQuery, you can stream data from Aiven for Apache Flink® to
+Google BigQuery, where it can be stored and analyzed. Aiven for Apache Flink® uses
+[BigQuery Connector for Apache Flink](https://github.com/aiven/bigquery-connector-for-apache-flink)
+as a connector to connect to Google BigQuery.
 
 ## Prerequisites
 
 -   Aiven for Apache Flink service
--   A Google Cloud Platform (GCP) account.
+-   Google Cloud Platform (GCP) account
 -   Necessary permissions to create resources and manage integrations in
-    GCP.
+    GCP
+-   **Google Project ID**: You have a Google Project ID. For more
+    information, see [Google Cloud
+    documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+-   **Google Cloud Service Account Credentials**: You have Google Cloud
+    service account credentials in JSON format to authenticate with the
+    Google Cloud Platform. For instructions on how to create and get
+    service account credentials, see [Google Cloud's
+    documentation](https://developers.google.com/workspace/guides/create-credentials).
+-   **Service account permissions**: Your service account is granted the
+    necessary permissions to create log entries. For information on
+    access control with IAM, see [Google Cloud's access control
+    documentation](https://cloud.google.com/logging/docs/access-control).
 
 ## Configure integration using Aiven CLI
 
@@ -31,16 +40,15 @@ To configure integration using Aiven CLI, follow these steps:
 ### Step 1: Create or use an Aiven for Apache Flink service
 
 You can use an existing Aiven for Apache Flink service. To get a list of
-all your existing Flink services, use the following command:
+all your existing Flink services, use:
 
-```
+```bash
 avn service list --project <project_name> --service-type flink
 ```
 
-Alternatively, if you need to create an Aiven for Apache Flink
-service, you can use the following command:
+Alternatively, to create an Aiven for Apache Flink service, you can use:
 
-```
+```bash
 avn service create -t flink -p <project-name> --cloud <cloud-name> <flink-service-name>
 ```
 
@@ -59,7 +67,7 @@ where:
 ### Step 2: Configure GCP for a Google BigQuery sink connector
 
 To be able to sink data from Aiven for Apache Flink to Google BigQuery,
-you need to perform the following steps in the GCP console:
+go the GCP console to configure GCP for a Google BigQuery sink connector:
 
 -   Create a [Google service account and generate a JSON service
     key](https://cloud.google.com/docs/authentication/client-libraries).
@@ -71,13 +79,14 @@ you need to perform the following steps in the GCP console:
 
 ### Step 3: Create an external Google BigQuery endpoint
 
-To integrate Google BigQuery with Aiven for Apache Flink, you need to
-create an external BigQuery endpoint. You can use the
-[avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create) command with the required parameters. This command will
+To integrate Google BigQuery with Aiven for Apache Flink, create an external BigQuery
+endpoint. You can use the
+[avn service integration-endpoint-create](/docs/tools/cli/service/integration#avn_service_integration_endpoint_create)
+command with the required parameters. This command will
 create a integration endpoint that can be used to connect to a
 BigQuery service.
 
-```
+```bash
 avn service integration-endpoint-create \
 --project <project_name> \
 --endpoint-name <endpoint_name> \
@@ -101,16 +110,16 @@ avn service integration-endpoint-create \
 
 where:
 
--   `--project`: Specify the name of the project where you want to
+-   `--project`: Specify the name of the project where to
     create the integration endpoint.
 -   `--endpoint-name`: Set the name of the integration endpoint you are
-    creating.. Replace your_endpoint_name with your desired endpoint
+    creating. Replace `your_endpoint_name` with your desired endpoint
     name.
 -   `--endpoint-type`: Specify the type of integration endpoint. For
-    example, if it'san external BigQuery service, enter
+    example, if it's an external BigQuery service, enter
     `external_bigquery`.
 -   `--user-config-json`: This parameter allows you to provide a JSON
-    object with custom configurations for the integration endpoint.The
+    object with custom configurations for the integration endpoint. The
     JSON object should include the following fields:
     -   `project_id`: Your actual Google Cloud Platform project ID.
     -   `service_account_credentials`: An object that holds the
@@ -139,7 +148,7 @@ where:
 **Aiven CLI Example: Creating an external BigQuery integration
 endpoint**
 
-```
+```bash
 avn service integration-endpoint-create --project aiven-test --endpoint-name my-bigquery-endpoint
 --endpoint-type external_bigquery
 --user-config-json '{
@@ -164,7 +173,7 @@ avn service integration-endpoint-create --project aiven-test --endpoint-name my-
 Now, create an integration between your Aiven for Apache Flink service
 and your BigQuery endpoint:
 
-```
+```bash
 avn service integration-create
     --source-endpoint-id <source-endpoint-id>
     --dest-service <flink-service-name>
@@ -173,7 +182,7 @@ avn service integration-create
 
 For example,
 
-```
+```bash
 avn service integration-create
     --source-endpoint-id eb870a84-b91c-4fd7-bbbc-3ede5fafb9a2
     --dest-service flink-1
@@ -186,10 +195,10 @@ where:
     to use as the source. In this case, it is the ID of the external
     Google BigQuery integration endpoint. In this example, the ID is
     `eb870a84-b91c-4fd7-bbbc-3ede5fafb9a2`.
--   `--dest-service`: The name of the Aiven for Apache Flink service you
-    want to integrate with the external BigQuery endpoint. In this
+-   `--dest-service`: The name of the Aiven for Apache Flink service to integrate with the
+    external BigQuery endpoint. In this
     example, the service name is `flink-1`.
--   `-t`: The type of integration you want to create. In this case, the
+-   `-t`: The type of integration to create. In this case, the
     `flink_external_bigquery` integration type is used to integrate
     Aiven for Apache Flink with an external BigQuery endpoint.
 
@@ -200,31 +209,29 @@ Google BigQuery, the next step is to verify that the integration has
 been created successfully and create Aiven for Apache Flink applications
 that use the integration.
 
-To verify that the integration has been created successfully, run the
-following command:
+To verify that the integration has been created successfully, run:
 
-```
+```bash
 avn service integration-list --project <project-name> <flink-service-name>
 ```
 
 For example:
 
-```
+```bash
 avn service integration-list --project systest-project flink-1
 ```
 
 where:
 
 -   `--project`: The name of the Aiven project that contains the Aiven
-    service you want to list integrations for. In this example, the
+    service to list integrations for. In this example, the
     project name is `systest-project`.
--   `flink-1`: The name of the Aiven service you want to list
+-   `flink-1`: The name of the Aiven service to list
     integrations for. In this example, the service name is `flink-1`,
     which is an Aiven for Apache Flink service.
 
-To create Aiven for Apache Flink applications, you will need the
-integration ID of the Aiven for Apache Flink service. Obtain the
-`integration_id` from the integration list.
+To create Aiven for Apache Flink applications, obtain the
+`integration_id` of the Aiven for Apache Flink service from the integration list.
 
 ### Step 6: Create Aiven for Apache Flink applications
 
@@ -263,13 +270,14 @@ Console](https://console.aiven.io/), follow these steps:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.
-2.  From the **Services** page, you can either
-    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service) service or select an existing service.
-3.  Next, configure Google BigQuery service integration endpoint:
-    -   Go to the **Projects** screen where all the services are
+1.  From the **Services** page, you can either
+    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service) service or
+    select an existing service.
+1.  Next, configure Google BigQuery service integration endpoint:
+    -   Go to the **Projects** page where all the services are
         listed.
     -   From the left sidebar, select **Integration endpoints**.
-    -   Select **Google Cloud BigQuery** from the list, and then select
+    -   Select **Google Cloud BigQuery** from the list, and select
         **Add new endpoint** or **Create new**.
     -   Enter the following details to set up the integration:
         -   **Endpoint name**: Enter a name for the integration
@@ -283,7 +291,7 @@ Console](https://console.aiven.io/), follow these steps:
             credentials obtained from your Google Cloud Console for
             service account authentication. For example:
 
-            ```
+            ```json
             {
                 "type": "service_account",
                 "project_id": "my-gcp-project-12345",
@@ -292,22 +300,20 @@ Console](https://console.aiven.io/), follow these steps:
             }
             ```
 
-            For more information, see
-            [Integrate Google BigQuery endpoints with Aiven services](/docs/integrations/google-bigquery).
-
         -   Select **Create**.
-4.  Select **Services** and access the Aiven for Apache Flink service
+1.  Select **Services** and access the Aiven for Apache Flink service
     where you plan to integrate the Google BigQuery endpoint.
-5.  If you're integrating with Aiven for Apache Flink for the first
+1.  If you're integrating with Aiven for Apache Flink for the first
     time, select **Create data pipeline** on the **Overview** page.
     Alternatively, you can add a new integration in the **Data Flow**
-    section by using the plus (+) button.
-6.  On the **Data Service integrations** screen, select the **Create
-    external integration endpoint** tab.
-7.  Select the checkbox next to BigQuery, and choose the BigQuery
+    section by using <ConsoleIcon name="plus"/>.
+1.  On the **Data Service integrations** page, select **Create
+    external integration endpoint**.
+1.  Select the checkbox next to BigQuery, and choose the BigQuery
     endpoint from the list to integrate.
-8.  Select **Integrate**.
+1.  Select **Integrate**.
 
 Once you have completed these steps, the integration will be ready. You
 can now start creating
-[Aiven for Apache Flink applications](/docs/products/flink/howto/create-flink-applications) that use Google BigQuery as a sink.
+[Aiven for Apache Flink applications](/docs/products/flink/howto/create-flink-applications)
+that use Google BigQuery as a sink.
