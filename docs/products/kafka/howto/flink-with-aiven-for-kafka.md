@@ -86,7 +86,7 @@ with the cluster for your processing.
 
 1.  Create a new class called
     `io.aiven.example.flinkcapitalizer.StringCapitalizer` which performs
-    a simple `MapFunction` transformation on incoming records, emitting every incoming
+    a `MapFunction` transformation on incoming records, emitting every incoming
     string in uppercase.
 
     ```java
