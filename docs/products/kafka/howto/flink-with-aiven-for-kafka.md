@@ -27,7 +27,7 @@ Before you start, make sure you have the following:
    - `APACHE_KAFKA_HOST`: The hostname of your Apache Kafka service.
    - `APACHE_KAFKA_PORT`: The port number of your Apache Kafka service.
 - [**Apache Maven™**](https://maven.apache.org/install.html) installed on your machine
-    build the example.
+  build the example.
 
 ### Setup the truststore and keystore
 
@@ -84,7 +84,7 @@ In the generated code, `DataStreamJob` is the main entry point, and has
 already been configured with all of the context necessary to interact
 with the cluster for your processing.
 
-1.  Create a new class called
+1.  Create a class called
     `io.aiven.example.flinkcapitalizer.StringCapitalizer` which performs
     a `MapFunction` transformation on incoming records, emitting every incoming
     string in uppercase.

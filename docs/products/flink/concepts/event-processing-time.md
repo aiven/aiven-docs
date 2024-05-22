@@ -13,7 +13,7 @@ including:
 - Changes in network traffic can delay data transmission, affecting when data is processed.
 - The complexities of distributed systems can introduce delays or reorder data.
 - Variations in the volume of data and the order in which it arrives can further
-complicate processing times.
+  complicate processing times.
 
 Ideally, event time and processing time would be the same, but this is rarely the
 case in practice.
@@ -29,6 +29,4 @@ improving reliability and system resilience.
 
 ## Related pages
 
-- [Apache Flink® event time
-and processing
-time](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/concepts/time/)
+- [Apache Flink® event time and processing time](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/concepts/time/)

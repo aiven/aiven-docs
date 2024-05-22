@@ -21,8 +21,8 @@ trigger has closed it.
 Consider setting a time-based window from 15:00 to 15:10 with an allowed lateness
 of one minute. The window is created upon the arrival of the first event within this
 interval. Events arriving between 15:10 and 15:11, but still within the window's
-time range, are included. This mechanism allows for flexibility in handling data that
-arrives slightly out of order or delayed.
+time range, are included. This mechanism provides flexibility in managing data that is
+slightly out of order or arrives later than expected.
 
 ### Handling late events
 
