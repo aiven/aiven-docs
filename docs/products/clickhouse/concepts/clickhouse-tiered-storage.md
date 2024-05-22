@@ -13,26 +13,36 @@ layers:
 
 - SSD - the first tier: Fast storage device with limited capacity, better suited for fresh
   and frequently queried data, relatively costly to use
-- Object storage - the second tier: Affordable storage device with unlimited capability, better suited
-  for historical and more rarely queried data, relatively slower
+- Object storage - the second tier: Affordable storage device with unlimited capability,
+  better suited for historical and more rarely queried data, relatively slower
+
+On the Aiven tenant (in non-[BYOC](/docs/platform/concepts/byoc) environments), Aiven for
+ClickHouse tiered storage is supported on the following cloud platforms:
+
+- Microsoft Azure
+- Amazon Web Services (AWS)
+- Google Cloud Platform (GCP)
 
 ## Why use it
 
 By
 [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) and properly
-[configuring](/docs/products/clickhouse/howto/configure-tiered-storage) the tiered storage feature in Aiven for ClickHouse, you can
+[configuring](/docs/products/clickhouse/howto/configure-tiered-storage) the tiered storage
+feature in Aiven for ClickHouse, you can
 use storage resources efficiently and, therefore, significantly reduce
 storage costs of your Aiven for ClickHouse instance.
 
 ## How it works
 
 After you
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, Aiven for ClickHouse by default
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature,
+Aiven for ClickHouse by default
 stores data on SSD until it reaches 80% of its capacity. After exceeding
 this size-based threshold, data is stored in object storage.
 
 Optionally, you can
-[configure the time-based threshold](/docs/products/clickhouse/howto/configure-tiered-storage) for your storage. Based on the time-based threshold, the
+[configure the time-based threshold](/docs/products/clickhouse/howto/configure-tiered-storage)
+for your storage. Based on the time-based threshold, the
 data is moved from your SSD to object storage after a specified time
 period.
 
@@ -62,29 +72,38 @@ storage.
 In your Aiven for ClickHouse service, there is a significant amount of
 data that is there for a while and is rarely accessed. It's stored
 on SSD and high-priced. You decide to
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage for your service to make your data storage
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage for your
+service to make your data storage
 more efficient and reduce the costs. For that purpose, you contact the
-sales team at [sales@aiven.io](mailto:sales@aiven.io) to have it enabled on your project, and
-you
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature on tables you want to optimize. You
-[configure](/docs/products/clickhouse/howto/configure-tiered-storage) the time-based threshold to control how your data is stored
+sales team at [sales@aiven.io](mailto:sales@aiven.io) to have it enabled on your project,
+and you
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature on tables to
+be optimized. You
+[configure](/docs/products/clickhouse/howto/configure-tiered-storage) the time-based
+threshold to control how your data is stored
 between the two layers.
 
 ## Limitations {#tiered-storage-limitations}
 
+-   You can enable tiered storage on the Aiven tenant
+    (in non-[BYOC](/docs/platform/concepts/byoc) environments) if your Aiven for
+    ClickHouse service is hosted on Azure, AWS, or GCP.
 -   When
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage feature cannot be deactivated.
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage
+    feature cannot be deactivated.
 
     :::tip
     As a workaround, you can create a table (without enabling tiered
     storage on it) and copy the data from the original table (with the
     tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table. As soon as the data is copied to the
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table. As
+    soon as the data is copied to the
     new table, you can remove the original table.
     :::
 
 -   With the tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to connect to an external existing
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to
+    connect to an external existing
     object storage or cloud storage bucket.
 
 ## What's next
