@@ -48,7 +48,7 @@ There are some limitations of the free plan services:
 -   Only a limited number of DigitalOcean regions, no other cloud
     providers
 -   Only one service per service type per user and
-    [organization](/docs/platform/concepts/projects_accounts_access)
+    [organization](/docs/platform/concepts/orgs-units-projects)
 -   Not covered under Aiven's 99.99% SLA
 
 Free plans do not have any time limitations. However, Aiven reserves the

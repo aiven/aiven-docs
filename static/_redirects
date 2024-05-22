@@ -62,3 +62,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error https://aiven.io/docs/tools/terraform
 /tools/cli/ticket                                      https://aiven.io/docs/platform/howto/support
 /integrations/google-bigquery                          https://aiven.io/docs/products/flink/howto/connect-bigquery
+/platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/concepts/orgs-units-projects
+/tools/aiven-console/howto/create-accounts             https://aiven.io/docs/tools/aiven-console/howto/create-orgs-and-units
+

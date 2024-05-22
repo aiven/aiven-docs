@@ -21,7 +21,8 @@
   "markdown.extension.orderedList.marker": "one",
   "files.associations": {
     "config": "properties",
-    "_redirects": "ini"
+    "_redirects": "ini",
+    "CODEOWNERS": "ini"
   },
   "[properties]": {
     "editor.formatOnSave": false
