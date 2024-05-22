@@ -2,7 +2,7 @@
 title: Use Kpow with Aiven for Apache Kafka®
 ---
 
-[Kpow by Operatr.IO](https://kpow.io/start) is a popular Web UI for
+[Kpow by Factor House](https://factorhouse.io/kpow) is a popular Web UI for
 Apache Kafka® that allows you to monitor a cluster, view topics and
 consumer groups, produce and consume data with integration into the
 Schema Registry.
@@ -105,7 +105,7 @@ containing the Java keystore and truststore:
 ```
 docker run -p 3000:3000 -m2G \
     -v SSL_STORE_FOLDER:/ssl \
-    --env-file ./kpow.env operatr/kpow:latest
+    --env-file ./kpow.env factorhouse/kpow-ee:latest
 ```
 
 ## Use Kpow
