@@ -381,7 +381,6 @@ const sidebars: SidebarsConfig = {
             },
             'integrations/send-logs-to-elasticsearch',
             'integrations/cloudlogging',
-            'integrations/google-bigquery',
             {
               type: 'category',
               label: 'Remote Syslog',
