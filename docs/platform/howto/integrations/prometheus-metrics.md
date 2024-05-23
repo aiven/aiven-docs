@@ -26,8 +26,7 @@ service, verify if the project for this service has a
 Prometheus integration endpoint created:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), go to
-   **Projects** in the top navigation bar, and select your project from
-   the dropdown list.
+   **Projects** in the top navigation bar, and select your project.
 1. On the **Services** page, select **Integration endpoints** from the
    left sidebar.
 1. On the **Integration endpoints** page, select **Prometheus** from
@@ -44,8 +43,7 @@ Aiven offers Prometheus endpoints for your services. To enable this
 feature:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), go to
-   **Projects** in the top navigation bar, and select your project from
-   the dropdown list.
+   **Projects** in the top navigation bar, and select your project.
 
 1. On the **Services** page, select **Integration endpoints** from the
    left sidebar.
@@ -66,7 +64,7 @@ feature:
 1. On the **Integrations** page, select **Prometheus**.
 
 1. In the **Prometheus integration** window, select the endpoint name
-   you created from the dropdown list, and select **Enable**.
+   you created, and select **Enable**.
 
    :::note
    At the top of the **Integrations** page, you will see the Prometheus
@@ -95,7 +93,7 @@ If you use a VPC in your project, follow these steps to access
 Prometheus:
 
 1. Access [Aiven Console](https://console.aiven.io/).
-1. Select your project, and select the service you want to monitor
+1. Select your project, and select the service to monitor
    using Prometheus.
 1. Click **Service settings** from the sidebar.
 1. In the **Cloud and network** section, click the actions
@@ -109,7 +107,7 @@ Prometheus:
 ## Configure Prometheus
 
 After enabling Prometheus on your project, add a scrape configuration to
-Prometheus for the servers you want to pull data from. The examples in
+Prometheus for the servers to pull data from. The examples in
 this section show how to set up the scrape configuration for both
 single-node and multi-node services.
 
@@ -119,11 +117,11 @@ For single-node services, configure the following in your
 `scrape_config` job entry in `prometheus.yml`:
 
 -   `basic_auth` details: Check your service's the **Overview** page >
-    the **Connection information** section > the **Prometheus** tab).
+    the **Connection information** section > the **Prometheus** tab.
 
 -   `PROMETHEUS_SERVICE_URI`: Check **Service URI** on your service's
     the **Overview** page > the **Connection information** section >
-    the **Prometheus** tab).
+    the **Prometheus** tab.
 
 -   `ca_file`: Download the CA certificate from your service's the
     **Overview** page, and specify its location (the certificates are
@@ -192,7 +190,7 @@ your service.
    sure to include the replica DNS names in the list. If you have
    `<PROMETHEUS_SERVICE_URI>` as `public-example.aivencloud.com`, then you
    will need to add `public-replica-example.aivencloud.com`. This applies
-   to PostgreSQL®, MySQL®, Apache Kafka®, and Redis®\* services.
+   to PostgreSQL®, MySQL®, Apache Kafka®, and Caching® services.
    :::
 
 ### View full list of metrics

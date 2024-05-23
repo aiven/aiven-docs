@@ -154,4 +154,4 @@ the process. Always equip your client applications with failure and
 retry logic to adapt to changes in servers and IP addresses. While this
 is typically straightforward for clustered services like Apache Kafka®
 and OpenSearch®, additional configurations might be necessary for
-services like PostgreSQL® and Redis®.
+services like PostgreSQL® and Caching®.

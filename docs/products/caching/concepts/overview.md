@@ -24,7 +24,7 @@ use:
 -   **Managed service:** Fully managed service, so you don't have to worry about
     setup, management, or updates. Aiven provides tools and integrations to help you
     use this in-memory data store in your data pipelines.
--   **Fast and easy deployment:** Launch a production-ready Redis-based service
+-   **Fast and easy deployment:** Launch a production-ready service
     within minutes. Choose from multiple public clouds across numerous global regions,
     using high-performance clusters with optimally selected instance types and storage
     options.

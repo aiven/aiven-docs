@@ -4,5 +4,5 @@ level: error
 scope: text
 ignorecase: false
 
-first: '\b(Redis)(?!®\*)'
-second: '(Redis)(?:®\*)'
+first: '\b(Caching)(?!®\*)'
+second: '(Caching)(?:®\*)'
