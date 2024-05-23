@@ -112,6 +112,13 @@ platform.
 | 1.2     | 2023-09-01 | 2023-06-01                       | 2021-10-11                      |
 | 1.5     | N/A        | N/A                              | 2022-05-05                      |
 
+### Aiven for Apache Flink® {#aiven-for-flink}
+
+| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
+|---------|------------|----------------------------------| ------------------------------- |
+| 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
+| 1.19    | N/A        | N/A                              | 2024-05-21                      |
+
 ### EOL policy for major versions
 
 The Aiven EOL policy is applicable only for services whose major
