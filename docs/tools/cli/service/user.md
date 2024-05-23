@@ -15,12 +15,12 @@ Creates a new user for the selected service.
 | `service_name`           | The name of the service                                                    |
 | `--username`             | The new username to be created                                             |
 | `--m3-group`             | The name of the group the user belongs to (for Aiven for M3 services only) |
-| `--redis-acl-keys`       | The ACL rules for keys (Aiven for Redis®\* services only)                  |
-| `--redis-acl-commands`   | The ACL rules for commands (Aiven for Redis®\* services only)              |
-| `--redis-acl-categories` | The ACL rules for categories (Aiven for Redis®\* services only)            |
-| `--redis-acl-channels`   | The ACL rules for channels (Aiven for Redis®\* services only)              |
+| `--redis-acl-keys`       | The ACL rules for keys (Aiven for Caching services only)                  |
+| `--redis-acl-commands`   | The ACL rules for commands (Aiven for Caching services only)              |
+| `--redis-acl-categories` | The ACL rules for categories (Aiven for Caching services only)            |
+| `--redis-acl-channels`   | The ACL rules for channels (Aiven for Caching services only)              |
 
-**Example:** Create a new user named `janedoe` for a service named
+**Example:** Create new user named `janedoe` for a service named
 `pg-demo`.
 
 ```
@@ -167,4 +167,4 @@ avn service user-password-reset pg-doc --username avnadmin --new-password VerySe
 
 ### `avn service user-set-access-control`
 
-Set Redis®\* service user access control
+Set Caching® service user access control

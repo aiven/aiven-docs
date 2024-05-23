@@ -33,7 +33,7 @@ You can fork the following Aiven services:
 
 -   PostgreSQL®
 -   MySQL
--   Redis®\*
+-   Caching
 -   Apache Cassandra® (Limitation: you cannot fork to a lower amount of
     nodes)
 -   Elasticsearch
