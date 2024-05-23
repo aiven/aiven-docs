@@ -1,7 +1,7 @@
 ---
-title: Benchmarking Aiven for Caching performance
+title: Benchmarking Aiven for Caching® performance
 ---
-Aiven for Caching uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
+Aiven for Caching® uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
 
 
 

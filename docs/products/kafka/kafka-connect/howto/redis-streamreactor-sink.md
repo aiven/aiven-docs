@@ -27,7 +27,7 @@ To setup a Redis sink connector, you need an Aiven for Apache Kafka
 service [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Furthermore to collect the following information about the
 target Redis database upfront:
 
 -   `REDIS_HOSTNAME`: The Redis hostname
@@ -60,7 +60,7 @@ target Redis database upfront:
     password, only needed when using Avro as data format
 
 :::note
-If you're using Aiven for Caching and Aiven for Apache Kafka, the above
+If you're using Aiven for Caching® and Aiven for Apache Kafka, the above
 details are available in the [Aiven console](https://console.aiven.io/)
 service *Overview tab* or via the dedicated `avn service get` command
 with the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
@@ -110,7 +110,7 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to use for the connector.
 -   `connect.redis.*`: sink parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/redis-streamreactor-sink#connect_redis_lenses_sink_prereq) phase.
 -   `key.converter` and `value.converter`: defines the messages data
@@ -126,7 +126,7 @@ The `key.converter` and `value.converter` sections define how the topic
 messages will be parsed and needs to be included in the connector
 configuration.
 
-When using Avro as source data format, you need to set following
+When using Avro as source data format, to set following
 parameters
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
@@ -190,7 +190,7 @@ You can also create connectors using the
 ## Example: Create a Redis sink connector
 
 If you have a topic named `students` containing the following data that
-you want to move to Redis:
+to move to Redis:
 
 ```
 {"id":1, "name":"carlo", "age": 77}
@@ -234,9 +234,9 @@ Once the connector is created successfully, you should see the following
 three entries in the target Redis database.
 
 ```
-1) "students-1" containing "{\"name\":\"carlo\",\"id\":1,\"age\":77}"
-2) "students-2" containing "{\"name\":\"lucy\",\"id\":2,\"age\":21}"
-3) "students-3" containing "{\"name\":\"carlo\",\"id\":3,\"age\":33}"
+1. "students-1" containing "{\"name\":\"carlo\",\"id\":1,\"age\":77}"
+2. "students-2" containing "{\"name\":\"lucy\",\"id\":2,\"age\":21}"
+3. "students-3" containing "{\"name\":\"carlo\",\"id\":3,\"age\":33}"
 ```
 
 There are only three keys in Redis since there were two messages in the

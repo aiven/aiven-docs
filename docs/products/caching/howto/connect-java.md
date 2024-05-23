@@ -5,7 +5,7 @@ title: Connect with Java
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.java';
 
-Learn how to establish a connection to your Aiven for Caching service using Java and the `jedis` library.
+Learn how to establish a connection to your Aiven for Caching® service using Java and the `jedis` library.
 
 ## Variables
 

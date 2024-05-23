@@ -115,7 +115,7 @@ Creates a new service.
 | `--enable-termination-protection` | Enables termination protection for the service                                                                                                                                                                                              |
 | `-c KEY=VALUE`                    | Any additional configuration settings for your service; check our documentation for more information, or use the [service types command](/docs/tools/cli/service-cli#avn-cli-service-type) which has a verbose mode that shows all options. |
 
-**Example:** Create a new Aiven for Kafka® service named `kafka-demo` in
+**Example:** Create new Aiven for Kafka® service named `kafka-demo` in
 the region `google-europe-west3` with:
 
 -   the `business-4` plan
@@ -612,7 +612,7 @@ m3db               M3DB - Distributed time series database
 mysql              MySQL - Relational Database Management System
 opensearch         OpenSearch - Search & Analyze Data in Real Time, derived from Elasticsearch v7.10.2
 pg                 PostgreSQL - Object-Relational Database Management System
-caching            Caching - Compatible with legacy Redis® OSS
+caching            Caching® - Compatible with legacy Redis® OSS
 ```
 
 The service types command in verbose mode also shows all the

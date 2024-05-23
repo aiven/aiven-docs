@@ -1,10 +1,10 @@
 ---
-title: Migrate from Redis®* to Aiven for Caching using the CLI
+title: Migrate from Redis®* to Aiven for Caching® using the CLI
 ---
 
-Move your data from a source, standalone Redis®* data store to an Aiven-managed Caching service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.
+Move your data from a source, standalone Redis®* data store to an Aiven-managed Caching® service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.
 
-Create an Aiven for Caching service and migrate data from AWS ElastiCache Redis. The Aiven project
+Create an Aiven for Caching® service and migrate data from AWS ElastiCache Redis. The Aiven project
 name is `test`, and the service name for the target Aiven for Caching is `redis`.
 
 :::important

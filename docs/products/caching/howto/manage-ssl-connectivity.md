@@ -2,7 +2,7 @@
 title: Manage SSL connectivity
 ---
 
-Manage SSL connectivity for your Aiven for Caching service, including enabling secure connections and configuring stunnel for clients without SSL support.
+Manage SSL connectivity for your Aiven for Caching® service, including enabling secure connections and configuring stunnel for clients without SSL support.
 
 ## Client support for SSL-encrypted connections
 

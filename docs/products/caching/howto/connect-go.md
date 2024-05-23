@@ -4,7 +4,7 @@ title: Connect with Go
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.go';
 
-Learn how to establish a connection to an Aiven for Caching service using Go.
+Learn how to establish a connection to an Aiven for Caching® service using Go.
 This example demonstrates how to establish a connection to an Aiven for Caching service
 from Go using the `go-redis/redis` library, which is compatible with the Redis protocol.
 

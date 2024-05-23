@@ -57,7 +57,7 @@ backups with the appropriate tooling:
     `pgdump`
 -   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html):
     `mysqldump`
--   [Caching](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
+-   [Caching®](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
     `redis-cli`
 -   [Cassandra®](https://docs.datastax.com/en/archived/cql/3.3/cql/cql_reference/cqlshCopy.html)
     `cqlsh`
@@ -115,7 +115,7 @@ data.
       <td>Single day backup</td>
     </tr>
     <tr>
-      <td>Aiven for Caching</td>
+      <td>Aiven for Caching®</td>
       <td>Single backup only for disaster recovery</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
@@ -268,9 +268,9 @@ point-in-time recovery (PITR) feature is currently not available.
 To be notified once the PITR feature is available for Cassandra, contact the Aiven support.
 :::
 
-### Aiven for Caching
+### Aiven for Caching®
 
-Aiven for Caching backups are taken every 12 hours.
+Aiven for Caching® backups are taken every 12 hours.
 
 For persistence, Aiven supports Redis Database Backup (RDB).
 
@@ -288,7 +288,7 @@ You can control the persistence feature using `redis_persistence` under
 
 :::note
 AOF persistence is currently not supported by Aiven for the managed
-Aiven for Caching service.
+Aiven for Caching® service.
 :::
 
 ### Aiven for ClickHouse®

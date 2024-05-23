@@ -2,7 +2,7 @@
 title: Estimate maximum number of connection
 ---
 
-The number of simultaneous connections for Aiven for Caching depends on the total available memory on the server.
+The number of simultaneous connections for Aiven for Caching® depends on the total available memory on the server.
 
 
 You can use the following to estimate:

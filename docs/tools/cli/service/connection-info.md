@@ -130,7 +130,7 @@ psql postgres://avnadmin:XXXXXXXXXXXX@demo-pg-dev-advocates.aivencloud.com:13039
 
 ### `avn service connection-info redis uri`
 
-Retrieves the connection URI needed to connect to an Aiven for Caching
+Retrieves the connection URI needed to connect to an Aiven for Caching®
 service.
 
 | Parameter                     | Information                                                                                                   |
@@ -143,7 +143,7 @@ service.
 | `--db`                        | The database name to use to connect                                                                           |
 
 **Example:** Retrieve the connection URI needed to connect to an Aiven
-for Caching service named `demo-redis`:
+for Caching® service named `demo-redis`:
 
 ```
 avn service connection-info redis uri demo-redis

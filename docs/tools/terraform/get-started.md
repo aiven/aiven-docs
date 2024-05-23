@@ -4,7 +4,7 @@ title: Get started with Aiven Provider for Terraform
 
 This example shows you how to use the Aiven Provider to set up your data
 infrastructure by creating a single Aiven for Caching® service in an
-[Aiven project](/docs/platform/concepts/projects_accounts_access).
+[Aiven project](/docs/platform/concepts/orgs-units-projects).
 
 :::caution
 Recreating stateful services with Terraform may delete the service and

@@ -1,8 +1,8 @@
 ---
-title: High availability in Aiven for Caching
+title: High availability in Aiven for Caching®
 ---
 
-Explore high availability with Aiven for Caching across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
+Explore high availability with Aiven for Caching® across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
 
 Compare Aiven for Caching plans in the table below. Each plan offers unique
 configurations and features. Choose what best fits your needs.

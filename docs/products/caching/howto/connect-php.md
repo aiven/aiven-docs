@@ -5,7 +5,7 @@ title: Connect with PHP
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.php';
 
-Learn how to connect to an Aiven for Caching service using PHP and the `predis` library, complete with code examples and setup instructions.
+Learn how to connect to an Aiven for Caching® service using PHP and the `predis` library, complete with code examples and setup instructions.
 
 ## Variables
 

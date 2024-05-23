@@ -2,7 +2,7 @@
 title: Connect with redis-cli
 ---
 
-Learn how to establish a connection to an Aiven for Caching service using the `redis-cli`.
+Learn how to establish a connection to an Aiven for Caching® service using the `redis-cli`.
 
 
 ## Variables
