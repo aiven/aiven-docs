@@ -2,7 +2,7 @@
 title: Handle warning overcommit_memory
 ---
 
-When starting a Redis®\* service on [Aiven
+When starting a Aiven for Caching® service on [Aiven
 console](https://console.aiven.io/), you may notice on **Logs** the
 following **warning** `overcommit_memory`:
 

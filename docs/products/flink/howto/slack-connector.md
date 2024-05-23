@@ -35,7 +35,7 @@ Flink, follow these steps:
     [data service integration](/docs/products/flink/howto/create-integration).
 
 :::note
-If you are editing an existing application, you need to create a new
+If you are editing an existing application, create new
 version of the application to make changes to the source or sink table.
 :::
 

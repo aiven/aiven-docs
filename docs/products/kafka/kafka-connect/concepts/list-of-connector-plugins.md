@@ -65,7 +65,7 @@ available sink connectors:
 -   [Stream Reactor
     MQTT](https://docs.lenses.io/5.1/connectors/sinks/mqttsinkconnector/)
 -   [Stream Reactor
-    Redis®\*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
+    Redis®*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
 
 ## Preview connectors
 
@@ -79,7 +79,7 @@ owner directly.
 ## Requesting new connectors
 
 If you know about new and interesting connectors you'd like us to
-support, please open a support request about it to help us shaping the
+support, open a support request about it to help us shaping the
 future roadmap. You can request adding support of a new connector by
 creating a support ticket. We will evaluate the requested connector and
 might add support for it.
