@@ -31,4 +31,4 @@ logging and discarding them. This is done to ensure the integrity of windowed pr
 
 ## Further reading
 
-- [Apache Flink® windows](https://ci.apache.org/projects/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
+- [Apache Flink® windows](https://ci.apache.org/projects/flink/flink-docs-release-1.19/docs/dev/datastream/operators/windows/)

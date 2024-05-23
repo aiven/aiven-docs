@@ -29,4 +29,4 @@ improving reliability and system resilience.
 
 ## Related pages
 
-- [Apache Flink® event time and processing time](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/concepts/time/)
+- [Apache Flink® event time and processing time](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/concepts/time/)

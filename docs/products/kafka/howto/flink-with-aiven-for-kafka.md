@@ -45,7 +45,7 @@ For this example, the configuration is as follows:
 
 The following example shows how to customise the `DataStreamJob`
 generated from the
-[Quickstart](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/configuration/overview/)
+[Quickstart](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/configuration/overview/)
 to work with Aiven for Apache Kafka.
 
 :::note
@@ -185,7 +185,7 @@ The above command should create a `jar` file named
 ### Run the applications
 
 If you have installed a [local cluster installation of Apache Flink
-1.16](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/try-flink/local_installation/),
+1.16](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/try-flink/local_installation/),
 you can launch the job on your local machine. `$FLINK_HOME` is the Flink
 installation directory.
 

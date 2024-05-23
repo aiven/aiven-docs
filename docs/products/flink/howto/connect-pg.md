@@ -4,7 +4,7 @@ title: Create a PostgreSQL®-based Apache Flink® table
 
 To build data pipelines, Apache Flink® requires source and target data
 structures to [be mapped as Flink
-tables](https://ci.apache.org/projects/flink/flink-docs-release-1.16/docs/dev/table/sql/create/#create-table).
+tables](https://ci.apache.org/projects/flink/flink-docs-release-1.19/docs/dev/table/sql/create/#create-table).
 This functionality can be achieved via the [Aiven
 console](https://console.aiven.io/) or
 [Aiven CLI](/docs/tools/cli/service/flink).

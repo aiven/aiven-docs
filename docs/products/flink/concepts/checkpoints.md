@@ -36,4 +36,4 @@ graph TD;
 ## Related pages
 
 - [Apache Flink® documentation on
-checkpoints](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/ops/state/checkpoints/)
+checkpoints](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/checkpoints/)
