@@ -3,9 +3,9 @@ title: Free plans
 ---
 
 The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL,
-and Aiven for Caching® services. You don't need a credit card to sign
+and Aiven for Caching services. You don't need a credit card to sign
 up and you can create one free service for each type. This means you can
-create one free PostgreSQL, one free MySQL, and one free Caching® service.
+create one free PostgreSQL, one free MySQL, and one free Caching service.
 
 To try a different service, you may want to consider a
 30-day

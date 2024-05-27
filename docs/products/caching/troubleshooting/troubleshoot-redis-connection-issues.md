@@ -2,7 +2,7 @@
 title: Troubleshoot Caching connection issues
 ---
 
-Learn troubleshooting techniques for your Aiven for Caching® service and resolve common connection issues.
+Learn troubleshooting techniques for your Aiven for Caching service and resolve common connection issues.
 
 ## Important notes
 By default,

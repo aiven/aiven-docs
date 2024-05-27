@@ -60,7 +60,7 @@ target Redis database upfront:
     password, only needed when using Avro as data format
 
 :::note
-If you're using Aiven for Caching® and Aiven for Apache Kafka, the above
+If you're using Aiven for Caching and Aiven for Apache Kafka, the above
 details are available in the [Aiven console](https://console.aiven.io/)
 service *Overview tab* or via the dedicated `avn service get` command
 with the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).

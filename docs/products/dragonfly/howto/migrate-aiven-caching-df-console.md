@@ -1,10 +1,10 @@
 ---
-title: Migrate Aiven for Caching® to Aiven for Dragonfly®
+title: Migrate Aiven for Caching to Aiven for Dragonfly®
 ---
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate your Aiven for Caching® databases to Aiven for Dragonfly using the Aiven Console migration tool.
+Migrate your Aiven for Caching databases to Aiven for Dragonfly using the Aiven Console migration tool.
 
 import Note from "@site/static/includes/dragonflysla-note.md"
 

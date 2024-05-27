@@ -19,7 +19,7 @@ Azure Private Link is supported for the following services:
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®
-- Aiven for Caching®
+- Aiven for Caching
 
 ## Prerequisites
 
