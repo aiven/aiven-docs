@@ -2,6 +2,7 @@
 title: Migrate external Redis®* databases to Aiven for Dragonfly®
 ---
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Migrate your external Redis® databases to Aiven for Dragonfly® using the Aiven Console's intuitive wizard for a smooth transition, enhancing your data storage and management capabilities.
 
@@ -25,8 +26,7 @@ carefully review your current Redis setup.
 -   **API compatibility:** While Dragonfly closely mirrors Redis API
     commands, there may be variations, especially with newer versions of
     Redis. For detailed insights on command compatibility, refer to the
-    [Dragonfly API compatibility
-    documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
+    [Dragonfly API compatibility documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
 
 ## Prerequisites
 
@@ -68,9 +68,10 @@ To migrate a Redis database to Aiven for Dragonfly:
    the Aiven for Dragonfly service for your Redis database migration.
 
 1. Go to **Service settings** from the sidebar.
-1. Scroll to the **Service management** section and use the ellipsis to
-   view additional menu options.
-1. Click **Import database** to initiate the import process.
+1. Scroll to the **Service management** section, and
+   click <ConsoleLabel name="actions"/> > **Import database**.
+   to initiate the import process.
+1. Follow the wizard to guide you through the database migration process.
 
 ### Step 1: Configure
 

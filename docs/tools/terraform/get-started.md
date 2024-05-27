@@ -2,7 +2,9 @@
 title: Get started with Aiven Provider for Terraform
 ---
 
-Use the Aiven Provider to set up a single Aiven for Redis®* service in an [Aiven project](/docs/platform/concepts/orgs-units-projects).
+This example shows you how to use the Aiven Provider to set up your data
+infrastructure by creating a single Aiven for Caching® service in an
+[Aiven project](/docs/platform/concepts/orgs-units-projects).
 
 :::caution
 Recreating stateful services with Terraform may delete the service and
@@ -62,10 +64,10 @@ Set up the Terraform project in an empty folder:
 2.  Create a file named `redis.tf`.
 
     Add the following code to define the configuration of a single-node
-    Aiven for Redis®\* service:
+    Aiven for Caching service:
 
     ```hcl
-    # Redis service
+    # Caching service
 
     resource "aiven_redis" "single-node-aiven-redis" {
       project                 = var.project_name
@@ -145,7 +147,7 @@ The output will be similar to the following:
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-You can also see the new Redis service in the [Aiven
+You can also see the new Caching service in the [Aiven
 Console](https://console.aiven.io).
 
 ## Clean up

@@ -8,7 +8,7 @@ through the Kubernetes® API by using [Custom Resource Definitions
 
 :::note
 Only Aiven for PostgreSQL®, Aiven for Apache Kafka®, Aiven for
-ClickHouse®, Aiven for Redis®\*, and Aiven for OpenSearch® are supported
+ClickHouse®, Aiven for Caching®, and Aiven for OpenSearch® are supported
 at this time.
 
 Kubernetes, also known as K8s, is an open-source system for automating

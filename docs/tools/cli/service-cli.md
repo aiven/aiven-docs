@@ -58,7 +58,7 @@ avn service ca get kafka-doc --target-filepath /tmp/ca.pem
 
 Opens the appropriate interactive shell, such as `psql` or `redis-cli`,
 to the given service. Supported only for Aiven for PostgreSQL®, Aiven
-for Redis®*.
+for Caching.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
@@ -74,7 +74,7 @@ avn service cli pg-doc
 ### `avn service connection-info`
 
 Retrieves the connection information for Aiven for Apache Kafka®, Aiven
-for PostgreSQL® and Aiven for Redis®\* in a variety of formats.
+for PostgreSQL® and Aiven for Caching® in a variety of formats.
 
 More information on `connection-info` can be found in
 [the dedicated page](service/connection-info).
@@ -115,7 +115,7 @@ Creates a new service.
 | `--enable-termination-protection` | Enables termination protection for the service                                                                                                                                                                                              |
 | `-c KEY=VALUE`                    | Any additional configuration settings for your service; check our documentation for more information, or use the [service types command](/docs/tools/cli/service-cli#avn-cli-service-type) which has a verbose mode that shows all options. |
 
-**Example:** Create a new Aiven for Kafka® service named `kafka-demo` in
+**Example:** Create new Aiven for Kafka® service named `kafka-demo` in
 the region `google-europe-west3` with:
 
 -   the `business-4` plan
@@ -149,7 +149,7 @@ avn service credentials-reset kafka-demo
 ### `avn service current-queries`
 
 List current service connections/queries for an Aiven for PostgreSQL®,
-Aiven for MySQL or Aiven for Redis®\* service.
+Aiven for MySQL or Aiven for Caching® service.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
@@ -612,7 +612,7 @@ m3db               M3DB - Distributed time series database
 mysql              MySQL - Relational Database Management System
 opensearch         OpenSearch - Search & Analyze Data in Real Time, derived from Elasticsearch v7.10.2
 pg                 PostgreSQL - Object-Relational Database Management System
-redis              Redis - In-Memory Data Structure Store
+caching            Caching® - Compatible with legacy Redis® OSS
 ```
 
 The service types command in verbose mode also shows all the

@@ -50,8 +50,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'serviceusers':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.people} />{' '}
-          <b>Users</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Users</b>
         </>
       );
     case 'services':
@@ -145,8 +144,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'viewuserprofile':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.user} />{' '}
-          <b>View profile</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>View profile</b>
         </>
       );
     case 'groups':
@@ -241,10 +239,30 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.download} /> <b>Download</b>
         </>
       );
-    case 'replacefile':
+    case 'resetpassword':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Replace file</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} />{' '}
+          <b>Reset password</b>
+        </>
+      );
+    case 'editaclrules':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit ACL rules </b>
+        </>
+      );
+    case 'duplicateuser':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.duplicate} />{' '}
+          <b>Duplicate user</b>
+        </>
+      );
+    case 'deleteuser':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
         </>
       );
     default:
