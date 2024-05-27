@@ -89,7 +89,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'pools':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.pools} /> <b>Connection pools</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.pools} />{' '}
+          <b>Connection pools</b>
         </>
       );
     case 'backups':
@@ -263,6 +264,19 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
+        </>
+      );
+    case 'pluscircle':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
+          <b>Plus Circle</b>
+        </>
+      );
+    case 'plus':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
         </>
       );
     default:
