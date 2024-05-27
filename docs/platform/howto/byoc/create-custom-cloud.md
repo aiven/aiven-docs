@@ -52,8 +52,18 @@ Console](https://console.aiven.io/) and prepare your own GCP account so
 that Aiven can access it. In the [Aiven Console](https://console.aiven.io/),
 you follow the **Create custom cloud** workflow to generate a Terraform
 infrastructure-as-code (IaC) template. Next, you deploy this template in
-your GCP account to acquire a service account ID. You
-supply your service account ID into the **Create custom cloud** wizard, which
+your GCP account to acquire a privilege-bearing service account (SA).
+
+:::note
+Privilege-bearing SA is an
+[identifier](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account#id)
+of the [service account](https://cloud.google.com/iam/docs/service-account-types#user-managed)
+created when running the IaC template in your Google account. Aiven [impersonates this
+service account](https://cloud.google.com/iam/docs/create-short-lived-credentials-direct)
+and runs operations, such as creating VMs for service nodes, in your BYOC account.
+:::
+
+You supply the privilege-bearing SA into the **Create custom cloud** wizard, which
 gives Aiven the permissions to securely access your GCP account, create
 resources, and manage them onward. Finally, you select projects that can
 use your new custom clouds for creating services, and you add customer
@@ -100,12 +110,13 @@ to you for more details, and we'll follow up with you to keep you informed on th
 -   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
     organization.
 -   You have Terraform installed.
+-   You have required [IAM permissions](#iam-permissions)
 
-### AWS IAM permissions
+## IAM permissions{#iam-permissions}
 
-You need AWS cloud account credentials set up on your machine so that your user or role has
+You need cloud account credentials set up on your machine so that your user or role has
 required Terraform permissions
-[to integrate with AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
+[to integrate with your cloud provider](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
 
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS permissions" default>
@@ -488,15 +499,15 @@ Create your infrastructure template in the [Aiven Console](https://console.aiven
 deploy the template in your own AWS cloud account to generate Role ARN, and get back to
 the [Aiven Console](https://console.aiven.io/) with your
 Role ARN to proceed with the custom cloud configuration. Finalize the
-setup by selecting in which Aiven projects to use your custom cloud and by assigning a
+setup: select in which Aiven projects to use your custom cloud and assign a
 contact person for your custom cloud.
 </TabItem>
 <TabItem value="2" label="GCP">
 Create your infrastructure template in the [Aiven Console](https://console.aiven.io/),
-deploy the template in your own GCP cloud account to generate a service account ID, and
-get back to the [Aiven Console](https://console.aiven.io/) with your
-service account ID to proceed with the custom cloud configuration. Finalize the
-setup by selecting in which Aiven projects to use your custom cloud and by assigning a
+deploy the template in your own GCP cloud account to generate a privilege-bearing service
+account (SA), and get back to the [Aiven Console](https://console.aiven.io/) with
+your SA to proceed with the custom cloud configuration. Finalize the
+setup: select in which Aiven projects to use your custom cloud and assign a
 contact person for your custom cloud.
 </TabItem>
 <TabItem value="3" label="Azure">
@@ -526,8 +537,8 @@ account.
 <TabItem value="2" label="GCP">
 In this step, an IaC template is generated in the Terraform format. In
 [the next step](/docs/platform/howto/byoc/create-custom-cloud#deploy-template),
-you'll deploy this template in your GCP account to acquire a service account ID, which
-Aiven needs for accessing your GCP account.
+you'll deploy this template in your GCP account to acquire a privilege-bearing service
+account (SA), which Aiven needs for accessing your GCP account.
 </TabItem>
 </Tabs>
 
@@ -598,7 +609,7 @@ view, copy, or download it. Now, you can use the template to
 <TabItem value="2" label="GCP">
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
-acquire a service account ID.
+acquire a privilege-bearing service account (SA).
 </TabItem>
 </Tabs>
 
@@ -656,17 +667,16 @@ AWS account. Continue working in the **Create custom cloud** wizard:
 
 </TabItem>
 <TabItem value="2" label="GCP">
-The service account ID is an [identifier of the
-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
-created when running the infrastructure template in your GCP account.
-Aiven uses the service account ID to [assume the
-role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)
-and run operations such as creating VMs for service nodes in your BYOC
-account.
+Privilege-bearing service account (SA) is an
+[identifier](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account#id)
+of the [service account](https://cloud.google.com/iam/docs/service-account-types#user-managed)
+created when running the IaC template in your Google account. Aiven [impersonates this
+service account](https://cloud.google.com/iam/docs/create-short-lived-credentials-direct)
+and runs operations, such as creating VMs for service nodes, in your BYOC account.
 
 Use the Terraform template generated in step
 [Generate an infrastructure template](/docs/platform/howto/byoc/create-custom-cloud#generate-infra-template)
-to create your service account ID by deploying the template in your
+to create your privilege-bearing SA by deploying the template in your
 GCP account. Continue working in the **Create custom cloud** wizard:
 
 1.  Copy or download the template and the variables file from the
@@ -694,11 +704,11 @@ GCP account. Continue working in the **Create custom cloud** wizard:
     add `-var-file=FILE_NAME.vars` as an option.
     :::
 
-1.  Find the role identifier (service account ID) in the output script after
+1.  Find the privilege-bearing service account (SA) in the output script after
     running the template.
 
-1.  Enter the service account ID into the **Service account ID** field in the
-    **Create custom cloud** wizard.
+1.  Enter the privilege-bearing SA into the **Create custom cloud** wizard in the
+    [Aiven Console](https://console.aiven.io/).
 
 1.  Select **Next** to proceed or park your cloud setup and save
     your current configuration as a draft by selecting **Save draft**.
