@@ -2,10 +2,9 @@
 title: Manage connection pooling
 ---
 
-Connection Pooling allows you to maintain very large numbers of
-connections to a database while minimizing the consumption of server
-resources. Read more about it on
-[Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling).
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+[Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling) lets you maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 
 ## Connection pooling tips
 
@@ -13,12 +12,10 @@ You can connect directly to the PostgreSQL® server using the **Service
 URI** setting listed on the **Overview** page. However, this URI
 doesn't make use of the PgBouncer pooling. PgBouncer pools use a
 different port number than the regular PostgreSQL server port. The
-PgBouncer **Service URI** for a particular pool can be found in [Aiven
-Console](https://console.aiven.io/) > your service's page > **Pools**
-view (available from the sidebar). You can also view the generic
-PgBouncer **Service URI** for your pools in [Aiven
-Console](https://console.aiven.io/): your service's page >
-**Overview** page > **PgBouncer** tab > **Service URI**.
+PgBouncer **Service URI** for a particular pool is in [Aiven
+Console](https://console.aiven.io/) > your service's page > <ConsoleLabel name="pools"/>.
+You can also view the generic PgBouncer service URI for your pools on your service's
+**Overview** page > **Connection information** > **PgBouncer** tab.
 
 You can use both pooled and non-pooled connections at the same time.
 
@@ -30,19 +27,19 @@ for new connection pools when you create them.
 
 ## Manage connection pools
 
-To manage the connection pools, take the following steps:
+To manage the connection pools:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     Aiven for PostgreSQL service.
 
-2.  In your service's page, select **Pools** from the sidebar.
+1.  Click <ConsoleLabel name="pools"/> from the sidebar.
 
-3.  In the **Pools** view, you can check the available connection pools
+1.  In the **Connection pools** view, you can check the available connection pools
     and add or remove them.
 
     The settings available are as follows:
 
-    -   **Pool name**: Enter a name for your connection pool here. This
+    -   **Pool name**: Enter a name for your connection pool. This
         also becomes the `database` or `dbname` connection parameter for
         your pooled client connections. This parameter must be equal to
         the `Database` parameter.
@@ -50,8 +47,8 @@ To manage the connection pools, take the following steps:
         Each pool can only connect to a single database.
     -   **Username**: Select the database username to use
         when connecting to the backend database.
-    -   **Pool Mode**: Select the pooling mode as described in more
-        detail above.
+    -   **Pool Mode**: Select the
+        [pooling mode](/docs/products/postgresql/concepts/pg-connection-pooling#pooling-modes).
     -   **Pool Size**: Select how many PostgreSQL server connections
         this pool can use at a time.
 
@@ -66,9 +63,8 @@ To manage the connection pools, take the following steps:
     -   A total of 50000 client connections
     :::
 
-4.  Select **Info** on an existing pool.
-
-    This shows you the database connection settings for the pool.
+1.  To view the database connection settings for a pool, click
+    <ConsoleLabel name="actions"/> > **Info**.
 
 ## Connection pools for replicas
 

@@ -3,6 +3,7 @@ title: Access PgBouncer statistics
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 PgBouncer is used at Aiven as a [connection pooler](/docs/products/postgresql/concepts/pg-connection-pooling) to lower the performance impact of opening new connections to Aiven for PostgreSQL®.
 
@@ -37,7 +38,7 @@ To get the PgBouncer URI, you can use either the
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to a desired
    organization, project, and service.
-1. Click **Pools**, and find a desired pool.
+1. Click <ConsoleLabel name="pools"/>, and find a desired pool.
 1. Click <ConsoleIcon name="actions"/> > **Info** > **Primary Connection URI**.
 
 ### PgBouncer URI with the Aiven CLI
