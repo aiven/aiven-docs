@@ -3,6 +3,8 @@ title: Rename your AWS custom cloud in Aiven
 sidebar_label: Rename custom clouds
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About renaming custom clouds
@@ -31,7 +33,7 @@ specified.
 1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 1.  In the selected cloud's page, use the **Actions** menu in
@@ -50,7 +52,7 @@ Preview the updated name of your cloud:
 1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, see the list of the available
     clouds and identify the cloud with the name you updated.
 

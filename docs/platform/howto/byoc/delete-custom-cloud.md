@@ -3,6 +3,8 @@ title: Delete your AWS custom cloud in Aiven
 sidebar_label: Delete custom clouds
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
 ## About deleting custom clouds
@@ -39,7 +41,7 @@ them earlier, you're advised to do that if deleting your cloud.
 1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 1.  In the selected cloud's page, use the **Actions** menu in
@@ -68,7 +70,7 @@ To ensure a cloud was successfully deleted:
 1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, see the list of the available
     clouds to make sure the cloud you intended to delete is actually
     gone.

@@ -3,6 +3,8 @@ title: Enable your AWS custom cloud in Aiven organizations, units, or projects
 sidebar_label: Attach projects
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Configure the availability of your [custom cloud](/docs/platform/concepts/byoc) to access
 it in all the projects, selected organizational units, or specific projects only.
 
@@ -48,7 +50,7 @@ the settings you configured during the
 
 1.  From the top navigation bar, select **Admin**.
 
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
@@ -94,7 +96,7 @@ To verify if the cloud availability changes you made are live:
 1.  Select the organization you want to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 1.  In the selected cloud's page, go to the **Available

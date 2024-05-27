@@ -4,6 +4,8 @@ sidebar_label: Create custom clouds
 keywords: [bring your own cloud, byoc, custom cloud]
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
 :::note
@@ -472,7 +474,7 @@ person for your custom cloud.
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator, and go to a desired organization.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, select **Create custom
     cloud**.
 
@@ -662,7 +664,7 @@ Your new custom cloud is ready to use only after its status changes to
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator, and go to a desired organization.
 1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select **Bring your own cloud**.
+1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, identify your new cloud on the
     list of available clouds and check its status in the **Status**
     column.

@@ -3,6 +3,8 @@ title: Enable bring your own cloud (BYOC)
 sidebar_label: Enable BYOC
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization.
 
 :::note
@@ -45,7 +47,7 @@ BYOC is supported with the
 
 1.  Click **Admin**.
 
-1.  Click **Bring your own cloud**.
+1.  Click <ConsoleLabel name="bringyourowncloud"/>.
 
 1.  In the **Bring your own cloud** view, click **Contact us**.
 
