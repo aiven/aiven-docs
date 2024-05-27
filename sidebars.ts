@@ -31,7 +31,7 @@ const sidebars: SidebarsConfig = {
       label: 'Organizations, units, and projects',
       link: {
         type: 'doc',
-        id: 'platform/concepts/projects_accounts_access',
+        id: 'platform/concepts/orgs-units-projects',
       },
       items: [
         {
@@ -42,7 +42,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/concepts/orgs-and-units',
           },
           items: [
-            'tools/aiven-console/howto/create-accounts',
+            'tools/aiven-console/howto/create-orgs-and-units',
             'platform/howto/manage-organizations',
           ],
         },
@@ -381,7 +381,6 @@ const sidebars: SidebarsConfig = {
             },
             'integrations/send-logs-to-elasticsearch',
             'integrations/cloudlogging',
-            'integrations/google-bigquery',
             {
               type: 'category',
               label: 'Remote Syslog',

@@ -17,7 +17,7 @@ based on the services running in a project. Each project is charged
 separately, but the charges for multiple projects can be consolidated by
 assigning them to a
 [billing group](/docs/platform/concepts/billing-groups). Likewise,
-[organizations](/docs/platform/concepts/projects_accounts_access) can have multiple billing groups.
+[organizations](/docs/platform/concepts/orgs-units-projects) can have multiple billing groups.
 
 ## Credit card fees
 
@@ -36,7 +36,7 @@ different. The fee may be applied even if the card was charged in the
 card's default currency (USD).
 
 Such fees are not added by Aiven and are not visible to us or our credit
-card processor, and we're thus unable to include them in our prices or
+card processor, so we're unable to include them in our prices or
 waive the fees.
 
 ## Invoice payments

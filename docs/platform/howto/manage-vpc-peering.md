@@ -23,9 +23,9 @@ To set up VPC peering for your Aiven project:
 1.  Click **Create VPC**.
 
     :::note
-    **Admin** and **operator** user roles can create a VPC. For more
-    information about Aiven project members and roles, refer to
-    [Organizations, projects, and managing access permissions](/docs/platform/concepts/projects_accounts_access).
+    **Admin** and **operator**
+    [project member roles](/docs/platform/reference/project-member-privileges)
+    can create a VPC.
     :::
 
 1.  In the **Create a VPC for this project** window:
