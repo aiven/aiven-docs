@@ -1,10 +1,10 @@
 ---
-title: Migrate from Redis®* to Aiven for Caching® using Aiven Console
+title: Migrate from Redis®* to Aiven for Caching using Aiven Console
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Caching®, using Aiven Console's guided wizard.
+Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Caching, using Aiven Console's guided wizard.
 
 :::important
 Migrating from Google Cloud Memorystore for Redis is not currently
@@ -46,7 +46,7 @@ and require project VPC and peering connection.
 
 ## Migrate a Redis database
 
-Follow these steps to migrate a Redis database to Aiven for Caching® service:
+Follow these steps to migrate a Redis database to Aiven for Caching service:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select the target
     Aiven for Caching service for migrating the Redis® database.

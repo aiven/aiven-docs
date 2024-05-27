@@ -65,7 +65,7 @@ To filter the services by service type, use these filter values:
 | MySQL®                      | `mysql`         |
 | OpenSearch®                 | `opensearch`    |
 | PostgreSQL®                 | `pg`            |
-| Caching®                    | `redis`         |
+| Caching                    | `redis`         |
 
 ### Filter by status
 

@@ -1,8 +1,8 @@
 ---
-title: Restricted Aiven for Caching® commands
+title: Restricted Aiven for Caching commands
 ---
 
-To ensure the stability and security of the caching environment, the Aiven for Caching® service restricts certain commands.
+To ensure the stability and security of the caching environment, the Aiven for Caching service restricts certain commands.
 This section aims to provide you with a list of disabled/restricted commands.
 
 ## Disabled commands

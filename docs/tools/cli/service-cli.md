@@ -74,7 +74,7 @@ avn service cli pg-doc
 ### `avn service connection-info`
 
 Retrieves the connection information for Aiven for Apache Kafka®, Aiven
-for PostgreSQL® and Aiven for Caching® in a variety of formats.
+for PostgreSQL® and Aiven for Caching in a variety of formats.
 
 More information on `connection-info` can be found in
 [the dedicated page](service/connection-info).
@@ -149,7 +149,7 @@ avn service credentials-reset kafka-demo
 ### `avn service current-queries`
 
 List current service connections/queries for an Aiven for PostgreSQL®,
-Aiven for MySQL or Aiven for Caching® service.
+Aiven for MySQL or Aiven for Caching service.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
@@ -612,7 +612,7 @@ m3db               M3DB - Distributed time series database
 mysql              MySQL - Relational Database Management System
 opensearch         OpenSearch - Search & Analyze Data in Real Time, derived from Elasticsearch v7.10.2
 pg                 PostgreSQL - Object-Relational Database Management System
-caching            Caching® - Compatible with legacy Redis® OSS
+caching            Caching - Compatible with legacy Redis® OSS
 ```
 
 The service types command in verbose mode also shows all the

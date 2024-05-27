@@ -62,6 +62,7 @@
 
 /products/redis                                            https://aiven.io/docs/products/caching
 /products/redis/concepts/overview                          https://aiven.io/docs/products/caching/concepts/overview
+/docs/products/redis/get-started                           https://aiven.io/docs/products/caching/get-started
 /docs/products/redis/concepts                              https://aiven.io/docs/products/caching/concepts
 /products/redis/concepts/high-availability-redis           https://aiven.io/docs/products/caching/concepts/high-availability-redis
 /products/redis/concepts/lua-scripts-redis                 https://aiven.io/docs/products/caching/concepts/lua-scripts-caching

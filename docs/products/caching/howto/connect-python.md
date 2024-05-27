@@ -5,7 +5,7 @@ title: Connect with Python
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.py';
 
-Learn how to connect to an Aiven for Caching® service using Python and the `redis-py` library.
+Learn how to connect to an Aiven for Caching service using Python and the `redis-py` library.
 
 ## Variables
 

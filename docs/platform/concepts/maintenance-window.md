@@ -23,7 +23,7 @@ Aiven service upgrades are performed in rolling forward style, which
 means that new service nodes are first created alongside with the older
 nodes one at a time, after which the old nodes are retired.
 
-For **MySQL®**, **PostgreSQL®** and **Caching®**, the maintenance
+For **MySQL®**, **PostgreSQL®** and **Caching**, the maintenance
 window usually lasts around several seconds. The downtime comes from old
 master stopping itself in a controlled manner and new master executing
 promotion sequence after this. Once the promotion is complete the old

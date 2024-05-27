@@ -5,7 +5,7 @@ title: Connect with NodeJS
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.js';
 
-Learn how to connect to an Aiven for Caching® service using NodeJS with the `ioredis` library.
+Learn how to connect to an Aiven for Caching service using NodeJS with the `ioredis` library.
 
 
 ## Variables
