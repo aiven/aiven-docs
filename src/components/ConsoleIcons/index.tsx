@@ -89,7 +89,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'pools':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.pools} /> <b>Connection pools</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.pools} />{' '}
+          <b>Connection pools</b>
         </>
       );
     case 'backups':
@@ -121,6 +122,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cloud} /> <b>VPCs</b>
+        </>
+      );
+    case 'bringyourowncloud':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.cloud} />{' '}
+          <b>Bring your own cloud</b>
         </>
       );
     case 'eventlog':

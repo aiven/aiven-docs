@@ -3,6 +3,8 @@ title: Add or remove customer contacts for your AWS custom cloud in Aiven
 sidebar_label: Update customer contacts
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About updating customer contacts
@@ -36,7 +38,7 @@ a mandatory role that is always required as a primary support contact.
 
 3.  From the top navigation bar, select **Admin**.
 
-4.  From the left sidebar, select **Bring your own cloud**.
+4.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
@@ -61,7 +63,7 @@ Preview the updated list of contacts:
 2.  Select the organization you want to use from the dropdown menu in
     the top right corner.
 3.  From the top navigation bar, select **Admin**.
-4.  From the left sidebar, select **Bring your own cloud**.
+4.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 5.  In the **Bring your own cloud** view, select one of the clouds
     available on the list.
 6.  In the selected cloud's page, use the ellipsis (**...**) menu in
