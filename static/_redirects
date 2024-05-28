@@ -98,4 +98,8 @@
 /tools/terraform/reference/troubleshooting             https://aiven.io/docs/tools/terraform
 /tools/terraform/reference/troubleshooting/private-access-error https://aiven.io/docs/tools/terraform
 /tools/cli/ticket                                      https://aiven.io/docs/platform/howto/support
-/platform/howto/change-billing-contact.md              https://aiven.io/docs/platform/howto/use-billing-groups
+/platform/howto/change-billing-contact                 https://aiven.io/docs/platform/howto/use-billing-groups
+/tools/terraform/howto/vpc-peering-aws                 https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking/aws_vpc_peering
+/tools/terraform/howto/vnet-peering-azure              https://github.com/Aiven-Open/terraform-example-projects/blob/main/virtual_private_networking/azure_vnet_peering
+/tools/terraform/howto/vpc-peering-gcp                 https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking/google_vpc_peering
+/tools/terraform/list-vpc-terraform                    https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking
