@@ -27,65 +27,108 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 <TabItem value="2" label="Terraform">
 
 1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
+1. Store the authentication token in an environment variable:
+
+   ```bash
+   export TF_VAR_aiven_api_token=YOUR_AIVEN_API_TOKEN
+   ```
+
 1. Create the following Terraform files:
 
-   - ``provider.tf``, where you specify the version in the ``required_providers`` block
+   - `provider.tf` for the `aiven` provider configuration
 
       ```hcl
-        terraform {
-          required_providers {
-            aiven = {
-              source  = "aiven/aiven"
-              version = ">=4.0.0, < 5.0.0"
-            }
+      terraform {
+        required_providers {
+          aiven = {
+            source  = "aiven/aiven"
+            version = ">=4.0.0, < 5.0.0"
           }
         }
+      }
 
-        provider "aiven" {
-          api_token = var.aiven_api_token
-        }
+      provider "aiven" {
+        api_token = var.aiven_api_token
+      }
       ```
 
-   - ``mysql.tf``, where you include the ``aiven_mysql`` resource
+   - `mysql.tf` including the `aiven_mysql` resource
 
       ```hcl
-        resource "aiven_mysql" "mysql" {
-          project                = data.aiven_project.my_project.project
-          service_name           = "mysql"
-          cloud_name             = "google-europe-west3"
-          plan                   = "startup-4"
-        }
+      resource "aiven_mysql" "mysql" {
+        project      = var.project_name
+        service_name = var.service_name
+        cloud_name   = var.cloud_name
+        plan         = var.service_plan
+      }
 
-        output "mysql_service_uri" {
-          value     = aiven_mysql.mysql.service_uri
-          sensitive = true
-        }
+      output "mysql_service_host" {
+        value = aiven_mysql.mysql.service_host
+      }
+
+      output "mysql_service_port" {
+        value = aiven_mysql.mysql.service_port
+      }
+
+      output "mysql_service_username" {
+        value = aiven_mysql.mysql.service_username
+      }
+
+      output "mysql_service_password" {
+        value     = aiven_mysql.mysql.service_password
+        sensitive = true
+      }
       ```
 
-   - ``variables.tf``, where you declare the API token and project name variables
+   - `variables.tf` for declaring your project variables
 
       ```hcl
       variable "aiven_api_token" {
-        description = "Aiven console API token"
+        description = "Aiven API token"
         type        = string
       }
 
       variable "project_name" {
-        description = "Aiven console project name"
+        description = "Project name"
+        type        = string
+      }
+
+      variable "cloud_name" {
+        description = "Cloud name"
+        type        = string
+      }
+
+      variable "service_name" {
+        description = "Service name"
+        type        = string
+      }
+
+      variable "service_plan" {
+        description = "Service plan"
         type        = string
       }
       ```
 
-   - ``terraform.tfvars``, where you add the Aiven access token and project name
+   - `terraform.tfvars` for assigning actual values to your previously declared variables
 
       ```hcl
-        aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
-        project_name    = "AIVEN_PROJECT_NAME"
-        admin_username  = "YOUR_SERVICE_USERNAME"
-        admin_password  = "YOUR_SERVICE_PASSWORD"
+      project_name = "testproject-o3jb"
+      cloud_name   = "google-europe-west3"
+      service_name = "mysql"
+      service_plan = "startup-4"
       ```
 
-1. Run ``terraform init`` > ``terraform plan`` > ``terraform apply --auto-approve``.
+1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
+
+1. Store Terraform outputs in environment variables so that they can be used for
+   [connecting](#connect-to-service):
+
+   ```bash
+   MYSQL_HOST="$(terraform output -raw mysql_service_host)"
+   MYSQL_PORT="$(terraform output -raw mysql_service_port)"
+   MYSQL_USER="$(terraform output -raw mysql_service_username)"
+   MYSQL_PASSWORD="$(terraform output -raw mysql_service_password)"
+   ```
 
 </TabItem>
 </Tabs>
@@ -108,51 +151,43 @@ Configure service parameters by updating the `aiven_mysql` resource, for example
 
 ```hcl
 resource "aiven_mysql" "mysql" {
-  project                = data.aiven_project.my_project.project
-  service_name           = "mysql"
-  cloud_name             = "google-europe-west3"
-  plan                   = "startup-4"
-  maintenance_window_dow  = "monday"
-  maintenance_window_time = "10:00:00"
-  termination_protection = true
+  project      = var.project_name
+  service_name = var.service_name
+  cloud_name   = var.cloud_name
+  plan         = var.service_plan
++
++  maintenance_window_dow  = "monday"
++  maintenance_window_time = "01:00:00"
++  termination_protection  = true
++
++  mysql_user_config {
++    backup_hour      = 01
++    backup_minute    = 30
++    ip_filter_string = ["10.20.0.0/16"]
++    service_log      = true
++
++    mysql {
++      slow_query_log  = true
++      long_query_time = 5
++    }
++  }
+}
 
-  static_ips = toset([
-    aiven_static_ip.ips[0].static_ip_address_id,
-    aiven_static_ip.ips[1].static_ip_address_id,
-    aiven_static_ip.ips[2].static_ip_address_id,
-    aiven_static_ip.ips[3].static_ip_address_id,
-  ])
+output "mysql_service_host" {
+  value = aiven_mysql.mysql.service_host
+}
 
-  mysql_user_config {
-    mysql_version = 8.0.30
-    backup_hour               = 01
-    backup_minute             = 30
-    shared_buffers_percentage = 40
-    static_ips = true
-    ip_filter_string = ["0.0.0.0/0"]
-    admin_username = var.admin_username
-    admin_password = var.admin_password
+output "mysql_service_port" {
+  value = aiven_mysql.mysql.service_port
+}
 
-    public_access {
-      mysql         = true
-      prometheus = false
-    }
+output "mysql_service_username" {
+  value = aiven_mysql.mysql.service_username
+}
 
-    ## project_to_fork_from  = "source-project-name"
-    ## service_to_fork_from  = "source-mysql-service"
-    ## mysql_read_replica       = true
-
-    mysql {
-      idle_in_transaction_session_timeout = 900
-      log_min_duration_statement          = -1
-      deadlock_timeout                    = 2000
-    }
-  }
-
-  timeouts {
-    create = "20m"
-    update = "15m"
-  }
+output "mysql_service_password" {
+  value     = aiven_mysql.mysql.service_password
+  sensitive = true
 }
 ```
 
@@ -162,7 +197,7 @@ resource "aiven_mysql" "mysql" {
 See the available configuration options in
 [Advanced parameters for Aiven for MySQL](/docs/products/mysql/reference/advanced-params).
 
-## Connect to the service
+## Connect to the service{#connect-to-service}
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
@@ -180,11 +215,11 @@ See the available configuration options in
 </TabItem>
 <TabItem value="2" label="Terraform">
 
-Access your new service with the MySQL client using the `mysql_service_uri` output you
-received after running `terraform apply --auto-approve`.
+Access your new service with the MySQL client using the environment variables assigned to
+Terraform outputs:
 
 ```sql
-mysql "$(terraform output -raw mysql_service_uri)"
+mysql --host=$MYSQL_HOST --port=$MYSQL_PORT --user=$MYSQL_USER --password=$MYSQL_PASSWORD --database defaultdb
 ```
 
 </TabItem>
@@ -204,13 +239,13 @@ Check more tools for connecting to Aiven for MySQL in
 `Sakila` is a sample dataset that represents a DVD rental store. It provides a standard
 schema highlighting MySQL features.
 
-1.  Download the `sakila-db.tar.gz` file from the
+1.  Download the `sakila` database archive (`tar` or `zip` format) from the
     [MySQL example databases](https://dev.mysql.com/doc/sakila/en/sakila-installation.html)
-    page and unzip it.
+    page, and extract it to your desired location (for example `/tmp/`).
 
-1. From the folder where you unzipped the file,
-   [connect to your MySQL service](/docs/products/mysql/howto/connect-from-cli),
-   create a `sakila` database, and connect to it:
+1.  From the folder where you unpacked the archive,
+    [connect to your MySQL service](/docs/products/mysql/howto/connect-from-cli),
+    create a `sakila` database, and connect to it:
 
     ```sql
     CREATE DATABASE sakila;
