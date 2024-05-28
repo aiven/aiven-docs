@@ -482,6 +482,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'tools/cli/billing-group',
+            'tools/cli/byoc',
             'tools/cli/cloud',
             'tools/cli/credits',
             'tools/cli/events',
