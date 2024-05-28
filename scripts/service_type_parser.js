@@ -7,6 +7,10 @@ const axios = require('axios');
 const fs = require('fs');
 const handlebars = require('handlebars');
 
+handlebars.registerHelper('or', function (a, b) {
+  return a || b;
+});
+
 function replaceUnicode(content) {
   const codeMappings = {
     '&#x27;': "'",
@@ -35,34 +39,56 @@ async function fetchData(serviceName, outputFileName) {
     }
 
     const templateSource = `
+<!-- vale off -->
+<table class="service-param">
+  <thead>
+    <tr><th>Parameter</th></tr>
+  </thead>
 {{~#each user_config_schema.properties}}
-## {{@key}}
-
-{{#if title}}
-**Title:** {{title}}
-{{/if}}
-
-{{#if description}}
-**Description:** {{description}}
-{{/if}}
-
-**Type:** \`{{type}}\`
-
-{{#each properties}}
-### {{@key}}
-
-{{#if title}}
-**Title:** {{title}}
-{{/if}}
-
-{{#if description}}
-**Description:** {{description}}
-{{/if}}
-
-**Type:** \`{{type}}\`
-
+<tr>
+  <td>
+    <p class="name">
+      <b>{{@key}}</b>&nbsp;<code class="type">{{type}}</code>
+      {{#if (or minimum maximum)}}
+        <div class="constraints">
+          {{#if minimum}}
+            min: <code>{{minimum}}</code>
+          {{/if}}
+          {{#if maximum}}
+            max: <code>{{maximum}}</code>
+          {{/if}}
+        </div>
+      {{/if}}
+    </p>
+    {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
+    <div class="description">{{description}}</div>
+    <table class="service-param-children">
+      {{#each properties}}
+      <tr>
+        <td>
+          <p class="name">
+            <b>{{@key}}</b>&nbsp;<code class="type">{{type}}</code>
+            {{#if (or minimum maximum)}}
+            <div class="constraints">
+              {{#if minimum}}
+                min: <code>{{minimum}}</code>
+              {{/if}}
+              {{#if maximum}}
+                max: <code>{{maximum}}</code>
+              {{/if}}
+            </div>
+            {{/if}}
+          </p>
+          {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
+          <div class="description">{{description}}</div>
+        </td>
+      </tr>
+      {{/each}}
+</table>
+  </td>
+</tr>
 {{/each}}
-{{/each}}
+</table>
     `;
 
     const template = handlebars.compile(templateSource);

@@ -188,3 +188,8 @@ ul + div {
 [data-theme='dark'] .tabs {
   border-bottom: 1px solid var(--aiven-grey-60);
 }
+
+.constraints {
+  display: inline-block;
+  font-size: 90%;
+}

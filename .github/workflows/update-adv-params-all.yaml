@@ -78,8 +78,14 @@ jobs:
     with:
       service-name: opensearch
 
-  update-adv-params-redis:
-    name: Update parameters - redis
+  update-adv-params-pg:
+    name: Update parameters - PostgreSQL
     uses: ./.github/workflows/update-adv-params.yaml
     with:
-      service-name: redis
+      service-name: pg
+
+  update-adv-params-caching:
+    name: Update parameters - Caching
+    uses: ./.github/workflows/update-adv-params.yaml
+    with:
+      service-name: caching
