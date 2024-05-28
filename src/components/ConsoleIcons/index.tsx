@@ -273,6 +273,19 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
         </>
       );
+    case 'pluscircle':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
+          <b>Plus Circle</b>
+        </>
+      );
+    case 'plus':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>

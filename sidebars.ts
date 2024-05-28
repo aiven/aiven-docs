@@ -1037,10 +1037,13 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Aiven for Apache Flink applications',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/create-flink-applications',
+                  },
                   items: [
                     'products/flink/howto/create-sql-application',
                     'products/flink/howto/create-jar-application',
-                    'products/flink/howto/create-flink-applications',
                     'products/flink/howto/manage-flink-applications',
                     'products/flink/howto/restart-strategy-jar-applications',
                     'products/flink/howto/manage-credentials-jars',
