@@ -37,9 +37,9 @@ service/postgre:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/postgresql/**'
 
-service/redis:
+service/caching:
   - changed-files:
-      - any-glob-to-any-file: 'docs/products/redis/**'
+      - any-glob-to-any-file: 'docs/products/caching/**'
 
 tool/terraform:
   - changed-files:

@@ -2,7 +2,7 @@ SCRIPTS         = ./scripts
 INCLUDESDIR      = ./static/includes
 
 # Generate config listing for a service type
-all-service-type-configs: service-type-config-cassandra service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-m3aggregator service-type-config-m3db service-type-config-mysql service-type-config-opensearch service-type-config-redis service-type-config-dragonfly
+all-service-type-configs: service-type-config-cassandra service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-m3aggregator service-type-config-m3db service-type-config-mysql service-type-config-opensearch service-type-config-caching service-type-config-pg service-type-config-dragonfly
 
 service-type-config-cassandra:
 	node "$(SCRIPTS)/service_type_parser.js" "cassandra" "$(INCLUDESDIR)/config-cassandra.md"
@@ -40,10 +40,11 @@ service-type-config-mysql:
 service-type-config-opensearch:
 	node "$(SCRIPTS)/service_type_parser.js" "opensearch" "$(INCLUDESDIR)/config-opensearch.md"
 
-service-type-config-redis:
-	node "$(SCRIPTS)/service_type_parser.js" "redis" "$(INCLUDESDIR)/config-redis.md"
+service-type-config-pg:
+	node "$(SCRIPTS)/service_type_parser.js" "pg" "$(INCLUDESDIR)/config-pg.md"
 
-# TODO: add automation for "pg". See https://github.com/aiven/devportal/issues/1026
+service-type-config-caching:
+	node "$(SCRIPTS)/service_type_parser.js" "redis" "$(INCLUDESDIR)/config-caching.md"
 
 cloud-list:
 	node "$(SCRIPTS)/clouds_parser.js" "$(INCLUDESDIR)/clouds-list.md"
