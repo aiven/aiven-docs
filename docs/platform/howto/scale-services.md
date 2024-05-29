@@ -33,6 +33,6 @@ state switches to **Running**, your new service plan is active.
 ## Related pages
 
 - [Adjust disk storage][storage]
-- [Adjust disks storage automatically](/docs/platform/howto/disk-autoscaler)
+- [Scale disks storage automatically](/docs/platform/howto/disk-autoscaler)
 
 [storage]: /docs/platform/howto/add-storage-space
