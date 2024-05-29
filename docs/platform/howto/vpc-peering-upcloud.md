@@ -38,7 +38,8 @@ type networks.
 ## Prerequisites
 
 -   You have
-    [created a VPC for your Aiven project](manage-vpc-peering) in [Aiven Console](https://console.aiven.io/).
+    [created a VPC for your Aiven project](manage-vpc-peering) in the
+    [Aiven Console](https://console.aiven.io/).
 -   CIDR ranges of the networks you want to peer do not overlap.
 
 ## Get UpCloud SDN network UUID {#upcloud-uuid}
@@ -70,30 +71,31 @@ You can establish a peering connection from Aiven to UpCloud using
     Aiven VPC network UUID should be available in the **Aiven network
     ID** column of the of the VPC peering connections table.
 
-
 ## Set up VPC peering from UpCloud
 
-VPC peering from UpCloud can be established using either the UpCloud web
-console or the UpCloud API
+VPC peering from UpCloud can be established using either the [UpCloud web
+console](#upcloud-web-console) or the [UpCloud API](#upcloud-api).
 
+### Use the UpCloud web console{#upcloud-web-console}
 
-### Using the UpCloud web console
+1.  Log in to the UpCloud web console.
+1.  Go to **Networks** > **Peering**.
+1.  Click **Create network peering**.
+1.  Specify the peering name, select the source peer network, provide
+    the UUID of the target peer network, and click **Create**.
 
-In the UpCloud web console:
-1.  Go to Networks -> Peering.
-1.  Click “Create network peering” button.
-1.  Specify the name, select one your networks as the source peer, provide
-    the UUID of the target peer network and click “Create”.
-1.  After that your peering will be in the “Pending peer” status which
-    means that now the peering has to be created from the “other side” i.e.
-    from the target network to your source network.
-1.  Only after the peering is created on both sides it becomes active and the
-    traffic is shared.
+    As a result, your peering is in the **Pending peer** status.
+
+1. Create the peering from the target network to your source network.
+
+:::important
+The peering becomes active and the traffic is shared only after you create the peering
+both from the source network and from the target network.
+:::
 
 ![UpCloud Console VPC peering configuration](/images/content/platform/howto/upcloud-vpc-peer.png)
 
-
-### Using the UpCloud API
+### Use the UpCloud API{#upcloud-api}
 
 To establish a VPC peering from UpCloud to Aiven, use [UpCloud
 API](https://developers.upcloud.com/1.3/) to send the following request:
