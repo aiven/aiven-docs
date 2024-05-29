@@ -15,8 +15,11 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 You [create and manage application users](/docs/platform/howto/manage-application-users)
 at the organization level. Application users are granted access to projects
 and services in the same way as organization users by adding them to
-[projects](/docs/platform/howto/add-project-members) and assigning them a role. However,
-unlike organization users, application users can't log in to the Aiven Console and the
+[projects](/docs/platform/howto/add-project-members) and assigning them a role. You can
+also make application users super admin, giving them full access to your organization,
+its organizational units, projects, services, and billing and other settings.
+
+Unlike organization users, application users can't log in to the Aiven Console and the
 authentication policies don't apply to them.
 
 ## Security best practices
@@ -43,13 +46,11 @@ and replaced with new tokens.
 
 ### Delete unused users and tokens
 
-Regularly audit your list of application users to delete unused users.
-
-To list all application users and the last time they were used,
-click **Admin** > <ConsoleLabel name="Application users"/>.
-
-To see a user's tokens, in the <ConsoleLabel name="Application users"/> page,
-click <ConsoleLabel name="actions"/> > <ConsoleLabel name="view profile"/>.
+Regularly audit your list of application users to delete unused users. You can view a
+list of your organization's application users and the last time they were used in
+**Admin** > <ConsoleLabel name="Application users"/>. Click
+<ConsoleLabel name="actions"/> > <ConsoleLabel name="view app user profile"/>
+to see a user's tokens.
 
 You can [delete unused users](/docs/platform/howto/manage-application-users#delete-an-application-user)
-or [revoke specific tokens](/docs/platform/howto/manage-application-users#revoke-a-token-for-an-application-user).
+and [revoke specific tokens](/docs/platform/howto/manage-application-users#revoke-a-token-for-an-application-user).
