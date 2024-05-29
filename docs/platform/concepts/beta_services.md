@@ -6,60 +6,56 @@ import ProBadge from "@site/src/components/Badges/ProBadge";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
-New services and features follow a release lifecycles that promotes feature quality.
+New services and features follow a release lifecycle that promotes quality by giving customers the chance to test them and provide feedback.
 
-The release workflow is:
+The release stages are:
 
-1. **Limited availability** (private beta)
-1. **Early availability** (public beta)
-1. **General availability**
+1. Limited availability
+1. Early availability
+1. General availability
 
-## Limited availability (private beta) <LimitedBadge/>
+## Limited availability <LimitedBadge/>
 
-The limited availability (private beta) stage is an initial release of a
-new functionality that you can try out by invitation only.
+The limited availability stage is an initial release of a
+new feature or service that you can try out by invitation only.
 
-If you are interested in trying a service or feature in this stage, contact the
+To try a service or feature in this stage, contact the
 [sales team](mailto:sales@aiven.io).
 
-## Early availability (public beta) <EarlyBadge/>
+## Early availability <EarlyBadge/>
 
-Features and services in the early availability (public beta) stage are
-released to all users with some restrictions on the functionality and
-[service level agreement](https://aiven.io/sla).
+Features and services in the early availability stage are
+released to all users for testing and feedback. There are some
+restrictions on the functionality and [service level agreement](https://aiven.io/sla).
 
 They are intended for use in non-production environments, but you can test them with
-production-like workloads to gauge their behavior under heavy load.
+production-like workloads to gauge their behavior under heavy load. Support tickets
+for these services and features are considered
+[low severity](https://aiven.io/support-services).
 
-Issues raised for these services and features are considered
-[low severity](https://aiven.io/support-services). You can provide feedback about the
-feature.
-
-You can enable most early availability features yourself
-on the [feature preview page](/docs/platform/howto/feature-preview) in the user profile.
+You can enable most early availability features yourself on the
+[feature preview page](/docs/platform/howto/feature-preview) in the user profile.
 
 :::note
-Using an early availability means that you consent to us contacting
-you to request feedback. The feedback we receive helps us shape the products you use.
+Using an early availability means that you consent to Aiven contacting
+you to request feedback that helps shape the products.
 :::
 
 ## General availability
 
 New services and features become generally available once they are ready
 for production use at scale. The duration of the early and limited
-availability stages depends on the adoption of the service or feature by the users
-and what changes are required to address the key issues that are discovered.
+availability stages depends on customer adoption and the time it takes
+to address any issues discovered during testing.
 
 ## Billing for limited and early availability services
 
-Aiven provides credits for you to try out limited and early availability
+Aiven provides credits for customers to try out limited and early availability
 services. After the credit code expires or after you have used the
 credits, you are charged for the service at the usual rate.
 
 ## Feature roadmap
 
-Use [Aiven Ideas](https://ideas.aiven.io/) to:
-
-- View the status and progress of each feature on the roadmap
-- Submit ideas
-- Vote on and discuss your ideas to shape the future of the product.
+You can see Aiven's public roadmap, track the progress of
+specific features, submit your own suggestions, and vote on other
+suggestions on [Aiven Ideas](https://ideas.aiven.io/).
