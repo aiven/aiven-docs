@@ -1066,6 +1066,7 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/flink/howto/list-manage-cluster',
+                'products/flink/howto/upgrade-flink-version',
                 {
                   type: 'category',
                   label: 'Advanced topics',
