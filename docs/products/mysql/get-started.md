@@ -208,7 +208,7 @@ See the available configuration options in
 1. In the **Connect** window, select a tool or language to connect to your service, follow
    the connection instructions, and click **Done**.
 
-   ```sql
+   ```bash
    mysql --user avnadmin --password=ADMIN_PASSWORD --host mysql-sakila-dev-sandbox.f.aivencloud.com --port 12691 defaultdb
    ```
 
@@ -218,7 +218,7 @@ See the available configuration options in
 Access your new service with the MySQL client using the environment variables assigned to
 Terraform outputs:
 
-```sql
+```bash
 mysql --host=$MYSQL_HOST --port=$MYSQL_PORT --user=$MYSQL_USER --password=$MYSQL_PASSWORD --database defaultdb
 ```
 
@@ -268,7 +268,7 @@ schema highlighting MySQL features.
     <details>
     <summary>Expected output</summary>
     <div>
-        ```sql
+        ```text
         +----------------------------+------------+
         | Tables_in_sakila           | Table_type |
         +----------------------------+------------+
@@ -316,7 +316,7 @@ SELECT * FROM language;
 <details>
 <summary>Expected output</summary>
 <div>
-    ```sql
+    ```text
     +-------------+----------+---------------------+
     | language_id | name     | last_update         |
     +-------------+----------+---------------------+
@@ -345,7 +345,7 @@ INSERT INTO category(category_id,name) VALUES(17,'Thriller');
 <details>
 <summary>Expected output</summary>
 <div>
-    ```sql
+    ```text
     Query OK, 1 row affected
     ```
 </div>
@@ -362,7 +362,7 @@ SELECT * FROM category WHERE name = 'Thriller';
 <details>
 <summary>Expected output</summary>
 <div>
-    ```sql
+    ```text
     +-------------+----------+---------------------+
     | category_id | name     | last_update         |
     +-------------+----------+---------------------+
