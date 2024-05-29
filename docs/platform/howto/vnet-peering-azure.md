@@ -12,9 +12,6 @@ for how to set up a Project VPC.
 - Azure uses the term `Virtual Network` (VNet), which is the
   same as a `Virtual Private Cloud` (VPC). We use the terms
   interchangeably.
-- You can create VPC peering using
-  [Aiven Provider for Terraform](/docs/tools/terraform/howto/vnet-peering-azure) as well.
-
 :::
 
 ## Peer your network with the VPC

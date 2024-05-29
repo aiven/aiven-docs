@@ -457,19 +457,6 @@ const sidebars: SidebarsConfig = {
                 'tools/terraform/howto/update-deprecated-resources',
               ],
             },
-            {
-              type: 'category',
-              label: 'Virtual network peering',
-              link: {
-                type: 'doc',
-                id: 'tools/terraform/list-vpc-terraform',
-              },
-              items: [
-                'tools/terraform/howto/vpc-peering-aws',
-                'tools/terraform/howto/vnet-peering-azure',
-                'tools/terraform/howto/vpc-peering-gcp',
-              ],
-            },
           ],
         },
         'tools/kubernetes',
