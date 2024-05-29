@@ -19,7 +19,8 @@ cannot use a billing group for projects that are in other organizations.
 Aiven credits are also assigned to a billing group and are automatically
 used to cover charges of any project assigned to that billing group.
 
-To access billing groups, you must be a super admin or account owner.
+To access billing groups in the Aiven Console, you must be a
+super admin or account owner.
 
 You can also track spending by exporting cost information to business
 intelligence tools using the [invoice
