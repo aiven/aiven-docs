@@ -40,7 +40,7 @@ extensions are safe to upgrade.
 We are always open to suggestions of additional extensions that could be
 useful to many of our customers, and there are a few that can be enabled
 on request if you need them. For any extensions not on the
-[Extensions on Aiven for PostgreSQL®](/docs/products/postgresql/reference/list-of-extensions) approved list, please make a request through our [Ideas Portal](https://ideas.aiven.io//). Be sure to include:
+[list of approved extensions](/docs/products/postgresql/reference/list-of-extensions), make a request through [Aiven Ideas](https://ideas.aiven.io/). Be sure to include:
 
 -   which extension is requested
 -   which database service and user database should have them
