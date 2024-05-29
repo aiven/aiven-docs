@@ -2,6 +2,8 @@
 title: Set up VPC peering on UpCloud
 ---
 
+import UpcloudVpcPeering from "@site/static/images/content/platform/howto/upcloud-vpc-peer.png";
+
 Network peerings enable traffic between two networks from different accounts or platforms.
 
 A peering needs to be established from both connecting components to be activated.
@@ -93,7 +95,7 @@ The peering becomes active and the traffic is shared only after you create the p
 both from the source network and from the target network.
 :::
 
-![UpCloud Console VPC peering configuration](/images/content/platform/howto/upcloud-vpc-peer.png)
+<img src={UpcloudVpcPeering} class="image"/>
 
 ### Use the UpCloud API{#upcloud-api}
 
