@@ -2,32 +2,43 @@
 title: Create and manage teams
 ---
 
-**Teams** let you create user groups and assign different access levels to specific projects.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Users must be part of an organization before being added to a team. To create and manage
-teams, click **Admin** and select **Teams**.
+Teams are groups of users that you can assign to projects.
 
-The members of the Account Owners team are automatically made super admin. Adding other
-users to this team makes them a super admin with full access to your organization,
-its units, and projects. Likewise, when you make a user a super admin, they are added
-to the account owners team.
+:::important[Teams have been deprecated and are being migrated to groups]
 
-:::important
-**Teams are becoming groups**
+- **On DATE Z the Account Owners team will be removed.**
 
-Groups are an easier way to control access to your organization's
-projects and services for a group of users.
-[Migrate your teams to groups](#migrate_teams_to_groups).
+    The Account Owners and super admin
+    are synced, so the removal of the Account Owners team will have no impact on your
+    operations. [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
+    have full access to organizations.
+
+- **From DATE X you won’t be able to create new teams or update existing ones.**
+
+    To simplify the move, Aiven will also begin migrating your existing teams to groups.
+
+- **After DATE Y, all teams will be migrated to groups and deleted.**
+
+    To make the transition to groups smoother, you can
+    [migrate your teams](#migrate-teams-to-groups) yourself.
 :::
 
 ## Create a team
 
+1.  In the organization, click **Admin**.
+1.  Click **Teams**.
 1.  Click **Create new team**.
 1.  Enter a **Team Name**.
 1.  Click **Create team**.
 
 ## Add users to a team
 
+Users must be part of an organization before being added to a team.
+
+1.  In the organization, click **Admin**.
+1.  Click **Teams**.
 1.  Click the name of the team to add users to.
 1.  On the **Team Members** tab, click **Invite users**.
 1.  Enter the email address of the user and click **Invite users**.
@@ -35,10 +46,6 @@ projects and services for a group of users.
 The user will get an email with an invitation link.
 
 ## Add projects and roles to a team
-
-:::important
-Teams cannot be assigned to units.
-:::
 
 For each team you can specify which projects they can access and the
 level of permissions:
@@ -58,10 +65,7 @@ To add projects and roles to a team:
 1.  Select a **Project Name** and **Permission Level**.
 1.  Click **Add project to team**.
 
-You can edit the permissions or delete the project from this team by
-clicking the more options menu for the project.
-
-## Migrate teams to groups {#migrate_teams_to_groups}
+## Migrate teams to groups
 
 1.  In the organization, click **Admin**.
 
@@ -72,10 +76,10 @@ clicking the more options menu for the project.
     -   the permission level that is assigned for each project
 
     :::note
-    Users on the Account Owners team automatically become super admin with full access to
-    manage the organization. You don't need to create a group for these users or manage
-    this team after the migration. Instead, you can
-    [make users super admin](/docs/platform/howto/make-super-admin).
+    Users on the Account Owners team automatically become
+    [super admin](/docs/platform/howto/make-super-admin) with full access to
+    manage the organization. You don't need to create a group for these users.
+     They will still have this level of access after the migration.
     :::
 
 1.  Click **Groups**.
