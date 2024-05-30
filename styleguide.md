@@ -56,8 +56,8 @@ Think about your international readers and keep your English simple and rather f
    - `on the page` or `on the Features page`
    - `on the left-side menu` or `on the leftmost menu`
 
-| Category               | Do                                            | Don't                                                                    |
-| ---------------------- | --------------------------------------------- | ------------------------------------------------------------------------ |
+|        Category        |                      Do                       |                                  Don't                                   |
+|------------------------|-----------------------------------------------|--------------------------------------------------------------------------|
 | **Simple English**     | Use the Test API.                             | Utilize the Test API.                                                    |
 | **Simple English**     | Import the item when the icon is green.       | The icon has turned green therefore meaning you can now import the item. |
 | **Simple English**     | Import the catalog when the icon is green.    | You need to import the catalog when the icon is green.                   |
@@ -78,8 +78,8 @@ voice, use _you_ as the subject of your sentence.
 
 You can use the passive form for actions performed by the system.
 
-| Do                                  | Don\'t                                     |
-| ----------------------------------- | ------------------------------------------ |
+|                 Do                  |                   Don't                    |
+|-------------------------------------|--------------------------------------------|
 | The message window appears.         | The message window is displayed.           |
 | You can test notifications using... | Testing notifications can be done using... |
 | The catalog is imported.            | You have imported the catalog.             |
@@ -113,11 +113,16 @@ Also use a capital letter after colons (:)
 1. Don't use questions as titles. Example: **How does it work?**
 1. Use **sentence capitalization** (only the first letter is capitalized).
 1. If you have a verb in your title, use the imperative form.
+1. Don't use a CTA-style title, use articles rigorously.
 
-| Type                     | Usage                                           | Example                             |
-| ------------------------ | ----------------------------------------------- | ----------------------------------- |
+|           Type           |                      Usage                      |               Example               |
+|--------------------------|-------------------------------------------------|-------------------------------------|
 | Title **without a verb** | Section explaining what something is.           | _Database sharding_                 |
 | Title **with a verb**    | Usually section explaining how to do something. | _Create a service_, _Delete a pool_ |
+
+|     Do      |     Don't     |           Comments           |
+|-------------|---------------|------------------------------|
+| Delete user | Delete a user | Do not use CTA-style titles. |
 
 ## Links
 
@@ -128,8 +133,8 @@ You have 2 ways to link to a page:
 
 Anything else is generally inefficient and more difficult to read.
 
-| Example             | Do                                                            | Don\'t                                        |
-| ------------------- | ------------------------------------------------------------- | --------------------------------------------- |
+|       Example       |                              Do                               |                     Don't                     |
+|---------------------|---------------------------------------------------------------|-----------------------------------------------|
 | **Using the title** | To learn more about API documentation, see [API reference](). | Click [here]() to see the API docs.           |
 | **Call to action**  | Before you start, [install ABC]().                            | Before you start, you can read [this page](). |
 
@@ -139,7 +144,7 @@ Anything else is generally inefficient and more difficult to read.
 - Use step results only when necessary.
 - Click chains start with the first click in the UI, not the last click.
 
-|     Example      |                 Do                 |                     Don\'t                      |
+|     Example      |                 Do                 |                      Don't                      |
 |------------------|------------------------------------|-------------------------------------------------|
 | **Click chains** | Click **File** > **Save** > **OK** | Click **Save** > **OK** from the **File** menu. |
 
@@ -162,9 +167,9 @@ a full stop. For example, dialog titles or section titles:
 - Use **select** for checkboxes, radio buttons, item in dropdown lists.
 - Use short click chains in the order of the UI.
 
-|        Example         |                 Do                 |                    Don\'t                     |
-|------------------------|------------------------------------|-----------------------------------------------|
-| **Short click chains** | Click **Action** > **Delete**.      | Click **Delete** in the **Actions** menu.    |
+|        Example         |               Do               |                   Don't                   |
+|------------------------|--------------------------------|-------------------------------------------|
+| **Short click chains** | Click **Action** > **Delete**. | Click **Delete** in the **Actions** menu. |
 
 ## Quotes, bold, italics, and inline code
 
@@ -175,8 +180,8 @@ Instead, use the following style in the right context:
 - Italics (`_word_`) for other cases. Use italics rarely.
 - Inline code (`` `word` ``) for technical values or technical values to type.
 
-| Example         | Do                                | Don\'t                              |
-| --------------- | --------------------------------- | ----------------------------------- |
+|     Example     |                Do                 |                Don't                |
+|-----------------|-----------------------------------|-------------------------------------|
 | UI element      | Click **Account** > **Settings**. | Click "Account" and "Settings".     |
 | Code            | Set `db_id` to `ABC`.             | Set the "db_id" parameter to _ABC_. |
 | Strong emphasis | Do **not** click **Delete**.      | Do _not_ click **Delete**.          |
@@ -192,8 +197,8 @@ Do not use **please** or any unnecessary politeness.
 
 ## Documentation text styles
 
-| Information type  | Style       |
-| ----------------- | ----------- |
+| Information type  |    Style    |
+|-------------------|-------------|
 | Interface element | Bold (**)   |
 | User input        | Code (`)    |
 | Quotes            | Italics (_) |
