@@ -106,6 +106,30 @@ between the two layers.
     connect to an external existing
     object storage or cloud storage bucket.
 
+-   There can be a mismatch in the displayed amount of data in object storage between:
+
+    - [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
+      **Tiered storage**
+      and
+    - [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
+      **Databases and tables** > **Storage details** of your table
+
+    This is because:
+
+    - Information in the **Tiered Storage** tab is updated every hour.
+
+    :::tip
+    To check if you successfully transfered data to object storage, go to
+    [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
+    **Databases and tables** > **Storage details** of your table.
+    :::
+
+    - There can be unused data in object storage, which is removed once a day. Exmaples of
+      such unused data to be removed are the following:
+
+      - Data before Aiven for ClickHouse performs a merge of parts
+      - Backup performed before your table changes
+
 ## What's next
 
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)

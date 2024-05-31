@@ -21,41 +21,63 @@ After [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tier
 
 ## Transfer data from SSD to object storage
 
+### Automatic data transfer from SSD to object storage
+
 If you
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature on your table, by default your
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature
+on your table, by default your
 data is moved from SSD to object storage as soon as the SSD reaches 80%
-of its capacity. You can also
-[configure your tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage) so that data is moved to object storage at a specific time.
+of its capacity.
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
+1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service)
+    using, for example, the ClickHouse client (CLI).
 
-2.  Run the following query:
+1.  Run the following query:
 
-    ```bash
+    ```sql
     ALTER TABLE database-name.tablename MODIFY SETTING storage_policy = 'tiered'
     ```
 
 Now, with the tiered storage feature
-[enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your data is moved from SSD to object storage when the SSD
-reaches 80% of its capacity.
+[enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your data is moved from
+SSD to object storage when the SSD reaches 80% of its capacity.
+
+note:::
+You can also
+[configure your tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
+so that data is moved to object storage at a specific time.
+:::
+
+### Move data manually from SSD to object storage
+
+To move data manually from SSD to object storage, run:
+
+```sql
+ALTER TABLE table_name MOVE PARTITION partition_expr TO VOLUME 'remote'
+```
+
+To configure data retention thresholds to automatically move data from SSD to object
+storage, see
+[Configure data retention thresholds in Aiven for ClickHouse®'s tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage).
 
 ## Transfer data from object storage to SSD
 
-Use the MOVE statement [MOVE
-PARTITION\|PART](https://clickhouse.com/docs/en/sql-reference/statements/alter/partition#move-partitionpart)
+Use the MOVE statement
+[MOVE PARTITION\|PART](https://clickhouse.com/docs/en/sql-reference/statements/alter/partition#move-partitionpart)
 to transfer data to your SSD.
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
+1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service)
+    using, for example, the ClickHouse client (CLI).
 
-2.  Select a database for operations you intend to perform.
+1.  Select a database for operations you intend to perform.
 
-    ```bash
+    ```sql
     USE database-name
     ```
 
-3.  Run the following query:
+1.  Run the following query:
 
-    ```bash
+    ```sql
     ALTER TABLE table_name MOVE PARTITION partition_expr TO VOLUME 'default'
     ```
 
