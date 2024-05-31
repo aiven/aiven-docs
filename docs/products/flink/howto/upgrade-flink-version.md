@@ -58,10 +58,10 @@ to a new Flink service. Follow these steps:
  [Apache Flink release notes](https://nightlies.apache.org/flink/flink-docs-release-1.19/release-notes/flink-1.19/).
 :::
 
-### Step 3: Verify and decommission
+### Step 3: Verify and power off service
 
 To complete the migration:
 
 1. Verify that the applications are operating correctly on the new
    Aiven for Apache Flink service.
-1. Decommission the old service after confirming the new service is running smoothly.
+1. Power off and delete the old service after confirming the new service is running.
