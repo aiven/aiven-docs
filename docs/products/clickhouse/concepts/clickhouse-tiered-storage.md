@@ -3,6 +3,8 @@ title: Tiered storage in Aiven for ClickHouse®
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's local disk usage.
 
 On top of this default data allocation mechanism, you can control the tier your
@@ -110,25 +112,26 @@ between the two layers.
 
     - [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
       **Tiered storage**
+
       and
+
     - [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
-      **Databases and tables** > **Storage details** of your table
+      **Databases and tables** > <ConsoleLabel name="actions"/> > **View details** >
+      **Storage details**
 
     This is because:
 
-    - Information in the **Tiered Storage** tab is updated every hour.
+    - Information in **Tiered Storage** is updated every hour.
 
-    :::tip
-    To check if you successfully transferred data to object storage, go to
-    [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
-    **Databases and tables** > **Storage details** of your table.
-    :::
+      :::tip
+      To check if you successfully transferred data to object storage, go to
+      [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
+      **Databases and tables** > **Storage details** of your table.
+      :::
 
-    - There can be unused data in object storage, which is removed once a day. Examaples of
-      such unused data to be removed are the following:
-
-      - Data before Aiven for ClickHouse performs a merge of parts
-      - Backup performed before your table changes
+    - There can be unused data in object storage, for example before Aiven for ClickHouse
+      performs a merge of parts or when a backup is performed before your table changes.
+      Such unused data is removed once a day.
 
 ## What's next
 

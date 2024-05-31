@@ -50,7 +50,7 @@ so that data is moved to object storage at a specific time.
 
 ### Move data manually from SSD to object storage
 
-To move data manually from SSD to object storage, run:
+To move data manually from SSD to object storage, run
 
 ```sql
 ALTER TABLE table_name MOVE PARTITION partition_expr TO VOLUME 'remote'
