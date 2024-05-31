@@ -119,12 +119,12 @@ between the two layers.
     - Information in the **Tiered Storage** tab is updated every hour.
 
     :::tip
-    To check if you successfully transfered data to object storage, go to
+    To check if you successfully transferred data to object storage, go to
     [Aiven Console](https://console.aiven.io/) > Aiven for ClickHouse service >
     **Databases and tables** > **Storage details** of your table.
     :::
 
-    - There can be unused data in object storage, which is removed once a day. Exmaples of
+    - There can be unused data in object storage, which is removed once a day. Examaples of
       such unused data to be removed are the following:
 
       - Data before Aiven for ClickHouse performs a merge of parts
