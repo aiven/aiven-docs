@@ -132,7 +132,7 @@ Run the above commands on your own PostgreSQL® to gather more information about
 recent queries are performing.
 
 :::tip
-To discard the `pg_stat_statements` previously gathered statisticsm, run
+To discard the `pg_stat_statements` previously gathered statistics, run
 
 ```sql
 SELECT pg_stat_statements_reset()
