@@ -7,7 +7,8 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Service disk autoscaler enables you to automatically increase the storage capacity of the service disk when the disk is running out of space.
+Use disk autoscaler to automatically increase the storage capacity of the service disk when the disk is running out of space.
+Service disk autoscaler doesn't support scaling down.
 
 :::note[Pricing]
 The disk autoscaler base pricing depends on your service type and plan.
@@ -29,10 +30,6 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
     running out of disk space. Use disk autoscaling to make sure your
     service remains operational in case of unexpected high demand for
     disk space.
-
-:::note
-Service disk autoscaler doesn't support scaling down.
-:::
 
 ## How it works
 
@@ -398,4 +395,4 @@ running the commands to delete the following:
 
 ## Related pages
 
-[Dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space)
+[Scaling service disks manually](/docs/platform/howto/add-storage-space)
