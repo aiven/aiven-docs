@@ -1045,7 +1045,6 @@ const sidebars: SidebarsConfig = {
                     id: 'products/flink/howto/list-flink-tables',
                   },
                   items: [
-                    'products/flink/howto/manage-flink-tables',
                     {
                       type: 'category',
                       label: 'Create tables with data source',
@@ -1063,6 +1062,7 @@ const sidebars: SidebarsConfig = {
                         'products/flink/howto/datagen-connector',
                       ],
                     },
+                    'products/flink/howto/manage-flink-tables',
                   ],
                 },
                 'products/flink/howto/list-manage-cluster',
