@@ -33,12 +33,12 @@ to the Aiven Console's login page:
     necessary for IdP-initiated login to function correctly.
     :::
 
-1.  Add an entry to **Attribute statements** with:
+1.  Add 2 entries to the **Attribute statements** with the following:
 
-    | Parameter | Value        |
-    | --------- | ------------ |
-    | `name`    | `email`      |
-    | `value`   | `user.email` |
+    | **Name** | **Name format** |  **Value**   |
+    | -------- | --------------- | ------------ |
+    | `name`   | `Unspecified`   | `email`      |
+    | `value`  | `Unspecified`   | `user.email` |
 
 1.  Click **Next** and **Finish**. You are redirected to your
     application in Okta.
