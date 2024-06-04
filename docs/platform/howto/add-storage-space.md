@@ -146,4 +146,4 @@ this limit.
 ## Related pages
 
 - [Update service plan](/docs/platform/howto/scale-services)
-- [Automatic scaling using disk auto-scaler](/docs/platform/howto/disk-autoscaler)
+- [Automatic disk scaling](/docs/platform/howto/disk-autoscaler)
