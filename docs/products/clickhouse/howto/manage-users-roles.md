@@ -3,7 +3,7 @@ title: Manage Aiven for ClickHouse® users and roles
 sidebar_label: Manage users and roles
 ---
 
-Create Aiven for ClickHouse® users and roles and grant them specific permissions to efficiently control or restrict access to your service.
+Create Aiven for ClickHouse® users and roles and grant them specific privileges to efficiently control or restrict access to your service.
 
 ## Add a user
 
@@ -30,7 +30,7 @@ To create a user account for your service,
 
     The role that you select defines the access grants that are assigned
     to the user. For more information on roles, see
-    [Manage roles and permissions](/docs/products/clickhouse/howto/manage-users-roles#manage-roles-and-permissions).
+    [Manage roles and privileges](/docs/products/clickhouse/howto/manage-users-roles#manage-roles-and-privileges).
 
 1.  Select **Add user**.
 
@@ -40,7 +40,7 @@ To create a user account for your service,
 1.  Copy the password on screen to a safe place. It can't be accessed
     again in future, however it can be reset if needed.
 
-## Manage roles and permissions
+## Manage roles and privileges
 
 Aiven for ClickHouse has no predefined roles. All roles you create are custom roles you
 design for your purposes by granting specific privileges to particular roles.
@@ -66,18 +66,18 @@ CREATE ROLE auditor;
 Find more information on creating roles in the
 [upstream ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/create/role/).
 
-### Grant permissions
+### Grant privileges
 
-You can grant permissions both to specific roles and to individual
+You can grant privileges both to specific roles and to individual
 users. The grants can be also granular, targeting specific databases,
 tables, columns, or rows.
 
 :::important
-You cannot grant privileges to the main service user. Aiven may grant privileges to the
-main service user during maintenance updates when adding new features for the service.
+You cannot grant additional privileges to the main service user. Aiven may grant privileges
+to the main service user during maintenance updates when adding new features for the service.
 :::
 
-As an example, the following request grants the `auditor` role permissions
+As an example, the following request grants the `auditor` role privileges
 to select data from the `transactions` database:
 
 ```sql
@@ -112,12 +112,12 @@ There are a variety of privileges that you can grant. Find the full list in the
 [upstream ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/grant/#privileges).
 
 :::note
-You can grant permissions to a table that does not yet exist.
+You can grant privileges to a table that does not yet exist.
 :::
 
 :::note
-Users can grant permissions according to their privileges. If the user
-lacks the required permissions for a requested operation, they receive a
+Users can grant privileges according to their privileges. If the user
+lacks the required privileges for a requested operation, they receive a
 `Not enough privileges` exception.
 :::
 
@@ -155,7 +155,7 @@ If you no longer need a role, you can remove it:
 DROP ROLE auditor;
 ```
 
-### Revoke permissions
+### Revoke privileges
 
 Remove all or specific privileges from users or roles:
 
@@ -172,7 +172,7 @@ REVOKE ALL PRIVILEGES ON database.table FROM external;
 See the ClickHouse documentation [for more information on revoking
 privileges](https://clickhouse.com/docs/en/sql-reference/statements/revoke/).
 
-### Check permissions
+### Check privileges
 
 Run the following commands to see all available grants, users, and
 roles:
@@ -191,7 +191,7 @@ SHOW ROLES;
 
 ### Preview users and roles in the console
 
-You can also see the users, their roles, and permissions in the [Aiven
+You can also see the users, their roles, and privileges in the [Aiven
 Console](https://console.aiven.io/).
 
 1.  Log in to the [Aiven web console](https://console.aiven.io/), and
