@@ -1666,6 +1666,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/mysql/concepts/max-number-of-connections',
                 'products/mysql/concepts/mysql-backups',
+                'products/mysql/concepts/mysql-upgrade-failover',
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-replication',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',

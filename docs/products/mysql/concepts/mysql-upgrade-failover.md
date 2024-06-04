@@ -1,12 +1,14 @@
 ---
-title: Aiven for PostgreSQL® upgrade and failover procedures
+title: Aiven for MySQL® upgrade and failover procedures
 sidebar_label: Upgrade and failover
 ---
 
-Aiven for PostgreSQL® Business and Premium plans include **standby read-replica** servers. If the primary server fails, a standby replica server is automatically promoted as new primary server.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+Aiven for MySQL® Business and Premium plans include **standby read-replica** servers. If the primary server fails, a standby replica server is automatically promoted as new primary server.
 
 :::warning
-Standby read-replica servers available on PostgreSQL Business and
+Standby read-replica servers available on MySQL Business and
 Premium plans are substantially different from manually created
 read-replica services since the latter are not promoted if the primary
 server fails.
@@ -53,7 +55,7 @@ a **60-second timeout** before marking the server as down and creating a
 new replica server.
 
 :::note
-Each Aiven for PostgreSQL® Business plan supports one replica server
+Each Aiven for MySQL® Business plan supports one replica server
 only, which is why the service's read replica endpoint
 `replica-SERVICE_NAME-PROJECT_NAME.aivencloud.com` remains unavailable
 and queries to this endpoint time-out until a new replica is available.
@@ -72,13 +74,14 @@ recovery of the replica server.
 ## Controlled switchover during upgrades or migrations
 
 :::note
-The below doesn't apply to major version upgrade with `pg_upgrade`, for
-major version upgrade, read the related
-[how-to](/docs/products/postgresql/howto/upgrade).
+This procedure doesn't apply to major version upgrades, which can be performed from the
+[Aiven Console](https://console.aiven.io): service page >
+<ConsoleLabel name="servicesettings"/> > **Service management** >
+<ConsoleLabel name="actions"/> > **Upgrade version**.
 :::
 
-During maintenance updates, cloud migrations, or plan changes, the below
-procedure is followed:
+During maintenance updates, cloud migrations, or plan changes, the following
+procedure is performed:
 
 1.  For each of the **replica** nodes (available only on Business and
     Premium plans), a new server is created, and data restored from a
@@ -107,6 +110,7 @@ procedure is followed:
 - The old primary server is kept alive for a short period of time (minimum
 60 seconds) with a TCP forwarding setup pointing to the new primary
 server allowing clients to connect before learning the new IP address.
+
 - If the service plan is changed from a business plan that has two nodes
 to a startup plan which only has one node of the same tier (for example,
 business-8 to startup-8), the standby node is removed while the primary
@@ -119,7 +123,7 @@ to the primary node are unaffected.
 
 ## Recreation of replication slots
 
-In case of failover or controlled switchover of an Aiven for PostgreSQL
+In case of failover or controlled switchover of an Aiven for MySQL
 service, the replication slots from the old primary server are
 automatically recreated in the new primary server.
 
@@ -127,13 +131,12 @@ automatically recreated in the new primary server.
 The recreation of replication slots feature is enabled automatically and
 doesn't require restarting the nodes for services that have been
 created or updated as of January 2023. Additional details are outlined
-in [our blog
-post](https://aiven.io/blog/aiven-for-pg-recreates-logical-replication-slots).
+in [MySQL replication](/docs/products/mysql/concepts/mysql-replication).
 :::
 
 :::important
 Replication slots are not recovered after major version upgrades of
-Aiven for PostgreSQL.
+Aiven for MySQL.
 :::
 
 ### One-node cluster
@@ -174,7 +177,7 @@ from the primary.
 
 -   The position of recovered replication slots might be up to several
     seconds older than on the original primary. Therefore, when
-    re-connecting to PostgreSQL and reading from replication slots,
+    re-connecting to MySQL and reading from replication slots,
     it's recommended to use start positions known to the client until
     which the data was already received. Otherwise, the client might
     receive duplicate entries.
