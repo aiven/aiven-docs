@@ -20,7 +20,6 @@ import TabItem from '@theme/TabItem';
 - You can only create a maximum of **5 read replicas** per primary service.
 - Read replicas can only be created on the **Startup-4** plan.
 
-
 ## Create a read replica
 
 <Tabs>
@@ -47,12 +46,12 @@ avn service create -t redis -p startup-4 --project PROJECT_NAME \
     --read-replica-for PRIMARY_SERVICE_NAME REPLICA_SERVICE_NAME
 ```
 
-Replace the placeholders with your actual values:
+Parameters:
 
-   - `PROJECT_NAME`: The name of your project.
-   - `CLOUD_NAME`: The name of the cloud to use.
-   - `PRIMARY_SERVICE_NAME`: The name of your primary service.
-   - `REPLICA_SERVICE_NAME`: The name of your replica service.
+- `PROJECT_NAME`: The name of your project.
+- `CLOUD_NAME`: The name of the cloud to use.
+- `PRIMARY_SERVICE_NAME`: The name of your primary service.
+- `REPLICA_SERVICE_NAME`: The name of your replica service.
 
 </TabItem>
 <TabItem value="3" label="Aiven API" groupId="group1">
@@ -79,7 +78,7 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
      }'
 ```
 
-Replace the placeholders with your actual values:
+Parameters:
 
 - `PROJECT_NAME`: The name of your project.
 - `YOUR_AUTH_TOKEN`: Your API authentication token.
@@ -124,9 +123,9 @@ To promote the replica to primary using the Aiven CLI, follow these steps:
 
 1. Delete the service integration using the following command:
 
-   ...:::note
-   Deleting the service integration breaks the replication link between the primary and
-   the replica, promoting the replica to act as a standalone primary service.
+   :::note
+   Deleting the service integration breaks the replication link, promoting the replica
+   to a standalone primary service.
    :::
 
    ```bash
@@ -163,6 +162,11 @@ To promote the replica to primary using the Aiven API, follow these steps:
    - `service_integration_id`: Extracts the integration ID.
 
 1. Delete the service integration using the retrieved integration ID.
+
+   :::note
+   Deleting the service integration breaks the replication link, promoting the replica
+   to a standalone primary service.
+   :::
 
    ```shell
    curl -X DELETE -H "Authorization: bearer YOUR_AUTH_TOKEN" "https://api.aiven.io/v1/project/<project_name>/integration/<integration_id>"
