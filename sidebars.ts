@@ -2146,6 +2146,113 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Caching',
+          link: {
+            id: 'products/caching',
+            type: 'doc',
+          },
+          items: [
+            'products/caching/concepts/overview',
+            'products/caching/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'generated-index',
+                slug: 'products/caching/concepts',
+              },
+              items: [
+                'products/caching/concepts/high-availability-redis',
+                'products/caching/concepts/lua-scripts-caching',
+                'products/caching/concepts/memory-usage',
+                'products/caching/concepts/restricted-redis-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {type: 'generated-index', slug: 'products/caching/howto'},
+              items: [
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/list-code-samples',
+                  },
+                  items: [
+                    'products/caching/howto/connect-redis-cli',
+                    'products/caching/howto/connect-go',
+                    'products/caching/howto/connect-node',
+                    'products/caching/howto/connect-php',
+                    'products/caching/howto/connect-python',
+                    'products/caching/howto/connect-java',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Administer database',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/list-dba-tasks',
+                  },
+                  items: ['products/caching/howto/configure-acl-permissions'],
+                },
+                {
+                  type: 'category',
+                  label: 'Data migration',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/migrate-redis-db',
+                  },
+                  items: [
+                    'products/caching/howto/migrate-redis-aiven-cli',
+                    'products/caching/howto/migrate-redis-aiven-via-console',
+                  ],
+                },
+                'products/caching/howto/estimate-max-number-of-connections',
+                'products/caching/howto/manage-ssl-connectivity',
+                'products/caching/howto/warning-overcommit_memory',
+                'products/caching/howto/benchmark-performance',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'generated-index',
+                slug: 'products/caching/reference',
+              },
+              items: ['products/caching/reference/advanced-params'],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              link: {
+                type: 'generated-index',
+                title: 'Troubleshooting',
+                slug: 'products/caching/troubleshooting',
+              },
+              items: [
+                'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Valkey',
+          link: {
+            id: 'products/valkey',
+            type: 'doc',
+          },
+          items: [
+            'products/valkey/concepts/overview',
+            'products/valkey/get-started',
+          ],
+        },
       ],
     },
     {
