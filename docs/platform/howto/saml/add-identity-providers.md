@@ -1,5 +1,6 @@
 ---
 title: Add identity providers
+keywords: [SAML, SSO]
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
