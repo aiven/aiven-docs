@@ -10,7 +10,7 @@ There are a few ways of classifying integration types supported in Aiven for Cli
 [by purpose](/docs/products/clickhouse/concepts/data-integration-overview#observability-integrations-vs-data-source-integrations),
 [by scope](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration),
 or
-[by location](/docs/products/clickhouse/concepts/data-integration-overview#in-Aiven-integrations-vs-external-integrations).
+[by location](/docs/products/clickhouse/concepts/data-integration-overview#in-aiven-integrations-vs-external-integrations).
 
 ## Observability integrations vs data source integrations
 
@@ -73,7 +73,7 @@ For more information on ClickHouse database engines, see
 [Database engines](https://clickhouse.com/docs/en/engines/database-engines).
 :::
 
-## Limitations {#integration-limitations}
+## Limitations
 
 - Aiven for ClickHouse supports data service integrations with Apache Kafka® and
 PostgreSQL®, both in-Aiven and external.
