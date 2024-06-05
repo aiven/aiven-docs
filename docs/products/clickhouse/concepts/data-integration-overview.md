@@ -3,12 +3,19 @@ title: Aiven for ClickHouse® data service integration
 sidebar_label: Data integration
 ---
 
-Connect an Aiven for ClickHouse® service with another Aiven service or external data source to make your data available in the Aiven for ClickHouse service. Depending on your use case, select either the managed-database integration or the managed-credentials integration.
+Aiven for ClickHouse® supports different types of integration allowing you to efficiently
+connect with other services or data sources and access the data to be processed.
 
-## About data service integrations
+There are a few ways of classifying integration types supported in Aiven for ClickHouse:
+[by purpose](/docs/products/clickhouse/concepts/data-integration-overview#observability-integrations-vs-data-source-integrations),
+[by scope](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration),
+or
+[by location](/docs/products/clickhouse/concepts/data-integration-overview#in-Aiven-integrations-vs-external-integrations).
 
-Depending on objectives and actual objects of the integration, Aiven for ClickHouse
-supports two types of integrations:
+## Observability integrations vs data source integrations
+
+Aiven for ClickHouse supports observability integrations and data source integrations,
+which have different purposes:
 
 - [Observability integrations](/docs/products/clickhouse/howto/list-integrations):
   connecting to other services (either in-Aiven or external) to expose and process logs
@@ -16,7 +23,7 @@ supports two types of integrations:
 - Data service integrations: connecting to other services (either in-Aiven or external) to
 use them as data sources
 
-### In-Aiven integrations vs external integrations
+## In-Aiven integrations vs external integrations
 
 By enabling data service integrations, you create streaming data pipelines across
 services. Depending on where the services are located, you can have either in-Aiven
@@ -29,7 +36,7 @@ data service integrations:
 - Managed databases
 - Managed credentials
 
-### Managed credentials integration {#managed-credentials-integration}
+## Managed credentials integration {#managed-credentials-integration}
 
 The managed credentials integration uses the
 [ClickHouse named collections](https://clickhouse.com/docs/en/operations/named-collections)
@@ -43,13 +50,12 @@ data from external sources. For that purpose, you create tables using table engi
 
 :::note[See also]
 For information on how table engines work in Aiven for ClickHouse services, preview
-*Engines: database and table* in
-[Aiven for ClickHouse® service architecture](/docs/products/clickhouse/concepts/service-architecture).
+[Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).
 For the list of table engines available in Aiven for ClickHouse, check
 [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines).
 :::
 
-### Managed databases integration {#managed-databases-integration}
+## Managed databases integration {#managed-databases-integration}
 
 The managed databases integration allows using a database engine for handling your
 external data. When enabled, this type of integration provides you with an automatically
@@ -62,9 +68,8 @@ managed databases.
 
 :::note[See also]
 For information on how database engines work in Aiven for ClickHouse services, preview
-*Engines: database and table* in
-[Aiven for ClickHouse® service architecture](/docs/products/clickhouse/concepts/service-architecture).
-For more information on ClickHouse database engines, check out
+[Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).
+For more information on ClickHouse database engines, see
 [Database engines](https://clickhouse.com/docs/en/engines/database-engines).
 :::
 
