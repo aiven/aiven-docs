@@ -310,6 +310,7 @@ upsert
 URIs?
 UUID
 UUIDs
+Valkey
 vectorizing
 virtualized
 VM
