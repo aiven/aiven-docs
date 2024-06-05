@@ -61,3 +61,4 @@ destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+-   [Use tiered storage in custom clouds](/docs/platform/howto/byoc/use-byoc-tiered-storage)

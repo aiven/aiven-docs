@@ -84,6 +84,16 @@ to you for more details, and we'll follow up with you to keep you informed on th
 </TabItem>
 </Tabs>
 
+Each new custom cloud has tiered storage enabled by default. See
+[Use tiered storage in custom clouds](/docs/platform/howto/byoc/use-byoc-tiered-storage)
+for more information.
+
+:::note
+BYOC supports
+[tiered storage for Aiven for Apache Kafka®](/docs/products/kafka/howto/kafka-tiered-storage-get-started)
+only.
+:::
+
 ## Limitations {#byoc-limitations}
 
 -   You need at least the Priority tier of Aiven support services to be
@@ -837,4 +847,5 @@ information.
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+-   [Use tiered storage in custom clouds](/docs/platform/howto/byoc/use-byoc-tiered-storage)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)

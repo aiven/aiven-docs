@@ -82,4 +82,5 @@ custom cloud, you can:
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+-   [Use tiered storage in custom clouds](/docs/platform/howto/byoc/use-byoc-tiered-storage)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)

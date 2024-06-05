@@ -87,3 +87,4 @@ Any change to infrastructure tags requires reapplying the Terraform template.
 -   [Enable your AWS custom cloud in Aiven organizations, units, or projects](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Use tiered storage in custom clouds](/docs/platform/howto/byoc/use-byoc-tiered-storage)

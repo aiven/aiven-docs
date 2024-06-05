@@ -270,6 +270,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/create-custom-cloud',
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/use-byoc-tiered-storage',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/rename-custom-cloud',
             'platform/howto/byoc/delete-custom-cloud',

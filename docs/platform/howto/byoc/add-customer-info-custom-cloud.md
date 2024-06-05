@@ -49,4 +49,5 @@ a mandatory role that is always required as a primary support contact.
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+-   [Use tiered storage in custom clouds](/docs/platform/howto/byoc/use-byoc-tiered-storage)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
