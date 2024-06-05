@@ -17,7 +17,7 @@ To set up single sign-on through an IdP for your organization:
 1. Click **Add identity provider**.
 1. Select SAML and enter a name.
 1. Select a [verified domain](/docs/platform/howto/manage-domains) to link
-    this IdP to. Users see linked IdPs on the login page.
+   this IdP to. Users see linked IdPs on the login page.
 
 On the **Configuration** step are two parameters that you use to set up the SAML
 authentication in your IdP:

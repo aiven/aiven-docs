@@ -21,13 +21,13 @@ Add Okta as an
 ## Configure SAML on Okta {#configure-saml-okta}
 
 1.  In the [Okta administrator console](https://login.okta.com/), go to
-     **Applications** > **Applications**.
+    **Applications** > **Applications**.
 1.  Click **Browse App Catalog**.
 1.  Search for and open the Aiven app.
 1.  Click **Add Integration** and **Done**.
 1.  On the **Sign On** tab, click **Edit**.
 1. In the **Advanced Sign-on Settings** set the **Metadata URL** and **ACS URL** to
-    the URLs copied from Aiven.
+   the URLs copied from Aiven.
 1. Optional: In the **SAML 2.0** section, click **Attributes** and add an entry to the
    **Attribute Statements** with the following. These
     [statements](https://help.okta.com/en-us/content/topics/apps/define-attribute-statements.htm)
