@@ -1,5 +1,5 @@
 ---
-title: Setup cross cluster replication for Aiven for OpenSearch®
+title: Setup cross-cluster replication for Aiven for OpenSearch®
 limited: true
 ---
 Set up cross-cluster replication (CCR) for your Aiven for OpenSearch service to ensure efficient data synchronization across different regions and cloud providers.
@@ -11,8 +11,7 @@ Cross cluster replication is not available for the Hobbyist and Startup plans.
 ## Steps to set up CCR
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
-    the Aiven for OpenSearch service for which to set up cross
-    cluster replication.
+    the Aiven for OpenSearch service for which to set up cross-cluster replication.
 
 2.  In the service's **Overview** page, scroll to the **Cross cluster
     replications** section and click **Create follower**.
@@ -60,7 +59,7 @@ integration](https://api.aiven.io/doc/#tag/Service_Integrations).
 
 ## Setup cross-cluster replication via Terraform provider
 
-You can set up the cross cluster replication for Aiven for OpenSearch
+You can set up the cross-cluster replication for Aiven for OpenSearch
 service via the
 [Aiven Terraform provider](/docs/tools/terraform). Set the `integration-type` to
 `opensearch_cross_cluster_replication` in the [Service Integration

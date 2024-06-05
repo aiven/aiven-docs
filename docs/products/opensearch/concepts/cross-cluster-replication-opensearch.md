@@ -28,7 +28,7 @@ new data entries, metadata, and configurations are replicated automatically.
     service plan as the leader cluster service. This ensures the
     follower cluster service has as much memory as the leader cluster.
     Service plans can be changed later as needed.
--   To delete the cross cluster replication integration,
+-   To delete the cross-cluster replication integration,
     **delete** the follower cluster service.
 -   Maintenance upgrade and major version upgrades must be performed manually
     on leader and follower services.
