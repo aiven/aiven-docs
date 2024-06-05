@@ -41,7 +41,7 @@ Add Okta as an
 [configure the IdP](/docs/platform/howto/saml/add-identity-providers#configure-idp-aiven-console)
 and complete the setup.
 
-## SP-initiated login with Okta
+## Log in with Okta
 
 To log in to the Aiven Console using Okta:
 
