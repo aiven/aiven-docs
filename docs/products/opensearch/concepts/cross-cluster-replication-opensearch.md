@@ -5,7 +5,7 @@ limited: true
 
 Cross-cluster replication (CCR) in Aiven for OpenSearch allows you to replicate an entire cluster, including all indexes, mappings, and metadata, from one service to another across different regions and cloud providers.
 
-This an `active-passive` model, where the follower service pulls all data and
+This is an `active-passive` model, where the follower service pulls all data and
 indexes from the leader service. Once you have a
 [cross-cluster replication setup](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch), the leader cluster automatically
 replicates data to all follower clusters. Follower clusters can be set up in various

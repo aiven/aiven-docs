@@ -1,5 +1,5 @@
 ---
-title: Setup cross-cluster replication for Aiven for OpenSearch®
+title: Set up cross-cluster replication for Aiven for OpenSearch®
 limited: true
 ---
 Set up cross-cluster replication (CCR) for your Aiven for OpenSearch service to ensure efficient data synchronization across different regions and cloud providers.
