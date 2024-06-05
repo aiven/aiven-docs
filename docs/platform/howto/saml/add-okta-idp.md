@@ -10,7 +10,8 @@ Use [Okta](https://www.okta.com/) to give your organization users single sign-on
 * Identity provider (IdP) initiated SSO
 * Service provider (SP) initiated SSO
 
-For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
+For more information on the listed features, visit the
+[Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 
 ## Prerequisite steps in Aiven Console
 
@@ -35,6 +36,7 @@ Add Okta as an
     | **Name** | **Name format** |  **Value**   |
     | -------- | --------------- | ------------ |
     | `email`  | `Unspecified`   | `user.email` |
+
 1. Click **Save**.
 1. In the **SAML 2.0** section, click **More details**.
 1. Copy the **Sign on URL**, **Issuer** URL, and the **Signing Certificate**.
@@ -77,5 +79,5 @@ on Okta** section.
 ### The Okta password does not work
 
 Make sure to use the **Account Link URL** to add the Okta IdP to your
-Aiven user account. You can list the authentication methods in
+Aiven user account. You can view all authentication methods in
 **User information** > **Authentication**.
