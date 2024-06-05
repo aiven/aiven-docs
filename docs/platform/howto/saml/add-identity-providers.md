@@ -9,19 +9,12 @@ provider (IdP).
 
 To set up single sign-on through an IdP for your organization:
 
-1. Add the identity provider in the [Aiven
-    Console](https://console.aiven.io/) .
-1. Configure SAML on your IdP.
-1. Finalize the setup in the Aiven Console using information from your
-    IdP.
-1. Link your users to the identity provider.
-
 ## Step 1. Add the IdP in the Aiven Console {#add-idp-aiven-console}
 
 1. In the organization, click **Admin**.
 1. Click **Identity providers**.
 1. Click **Add identity provider**.
-1. Select an IdP and enter a name.
+1. Select SAML and enter a name.
 1. Select a [verified domain](/docs/platform/howto/manage-domains) to link
     this IdP to. Users see linked IdPs on the login page.
 
@@ -54,10 +47,10 @@ draft, you can open the settings by clicking the name of the IdP.
 
 1. Enter the **IDP URL** and **Entity Id** details.
 
-   |     Aiven     |             Auth0             |       Azure AD        | FusionAuth  |   Google    |    JumpCloud    |                  Okta                  |          OneLogin          |
-   | ------------- | ----------------------------- | --------------------- | ----------- | ----------- | --------------- | -------------------------------------- | -------------------------- |
-   | **IdP URL**   | `Identity Provider Login URL` | `Login URL`           | `Login URL` | `SSO URL`   | `IDP URL`       | `Identity Provider Single Sign-On URL` | `SAML 2.0 Endpoint (HTTP)` |
-   | **Entity ID** | `Issuer URN`                  | `Azure AD Identifier` | `Entity ID` | `Entity ID` | `IdP Entity ID` | `Identity Provider Issuer`             | `Issuer URL`               |
+   |     Aiven     |             Auth0             |       Azure AD        | FusionAuth  |   Google    |    JumpCloud    |     Okta      |          OneLogin          |
+   | ------------- | ----------------------------- | --------------------- | ----------- | ----------- | --------------- | ------------- | -------------------------- |
+   | **IdP URL**   | `Identity Provider Login URL` | `Login URL`           | `Login URL` | `SSO URL`   | `IDP URL`       | `Sign on URL` | `SAML 2.0 Endpoint (HTTP)` |
+   | **Entity ID** | `Issuer URN`                  | `Azure AD Identifier` | `Entity ID` | `Entity ID` | `IdP Entity ID` | `Issuer`      | `Issuer URL`               |
 
 1. Paste the certificate from the IdP into the **Certificate** field.
 1. Optional: Paste or upload a JSON file with configuration details
@@ -91,7 +84,7 @@ to a new IdP, existing users need to log in with the new account link
 URL to finish the setup.
 :::
 
-## Step 4. Link your users to the identity provider
+## Step 4. Optional: Link your users to the identity provider
 
 Your organization users should automatically be able to use the identity
 provider to sign up and log in to Aiven. You can also handle this
