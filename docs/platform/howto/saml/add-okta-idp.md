@@ -35,6 +35,7 @@ Add Okta as an
     | **Name** | **Name format** |  **Value**   |
     | -------- | --------------- | ------------ |
     | `email`  | `Unspecified`   | `user.email` |
+1. Click **Save**.
 1. In the **SAML 2.0** section, click **More details**.
 1. Copy the **Sign on URL**, **Issuer** URL, and the **Signing Certificate**.
    You will use these to configure the IdP in Aiven.
