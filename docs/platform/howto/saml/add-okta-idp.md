@@ -47,7 +47,7 @@ To log in to the Aiven Console using Okta:
 
 1. On the [login page](https://console.aiven.io/login),
    enter your Okta email address.
-1. Click **Log in** and **Log in with Aiven Okta**.
+1. Click **Log in** and **Log in with Okta**.
 
 ## Troubleshooting
 
