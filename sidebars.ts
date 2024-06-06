@@ -271,6 +271,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/rename-custom-cloud',
+            'platform/howto/byoc/download-infrastructure-template',
             'platform/howto/byoc/delete-custom-cloud',
           ],
         },
