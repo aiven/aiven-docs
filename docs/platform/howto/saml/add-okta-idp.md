@@ -66,16 +66,6 @@ Login failed. Please contact your account administrator for more details.
 
 Ensure **IdP initiated login** is enabled.
 
-### Invalid `RelayState`
-
-The `Invalid RelayState` error means you are attempting an
-IdP-initiated auth flow. This happens, for example, when you click the
-Aiven SAML app in Okta.
-
-Set the `Default RelayState` in Okta to the
-corresponding console of your account as defined in the **Configure SAML
-on Okta** section.
-
 ### The Okta password does not work
 
 Make sure to use the **Account Link URL** to add the Okta IdP to your
