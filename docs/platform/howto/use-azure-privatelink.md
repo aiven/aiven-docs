@@ -281,7 +281,13 @@ In the Aiven CLI, you can update the list of Azure subscriptions that
 have access to Aiven service endpoints:
 
 ```shell
-avn service privatelink azure update AIVEN_SERVICE SUBSCRIPTION_ID
+avn service privatelink azure update AIVEN_SERVICE --user-subscription-id SUBSCRIPTION_ID
+```
+
+To update a few subscription IDs, repeat the `SUBSCRIPTION_ID` argument, for example:
+
+```shell
+avn service privatelink azure update AIVEN_SERVICE --user-subscription-id SUBSCRIPTION_ID_1 --user-subscription-id SUBSCRIPTION_ID_2
 ```
 
 ## Delete a Private Link service
