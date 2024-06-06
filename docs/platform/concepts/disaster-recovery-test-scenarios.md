@@ -18,8 +18,8 @@ a complete outage.
 
 ## Request a disaster recovery test
 
-To request a test, contact the [sales team](mailto:sales@aiven.io) or your account team
-with the following information:
+To request a test, contact your account team with the following information:
 
-- The date and time, including time zone, of the test
+- A date and time, including time zone, for the test that's within your account team's
+  normal business hours
 - The virtual machine and availability zone to target
