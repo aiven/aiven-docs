@@ -79,19 +79,12 @@ Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups)
 ## Update teams resources
 
 After the automatic migration from teams to groups you will need to
-update your Terraform files with the groups resources.
+update your Terraform files with the groups resources. Groups created during the
+migration have the same name of the teams. They also have the same users
+and projects assigned to them.
 
-Groups created during the migration have the same name of the teams.
-
-
-:::tip
-Backup your Terraform state file `terraform.tfstate` to use in the case
-of a rollback.
-:::
-
-
-The following is an example file with a team that has one member
-and one project.
+The following shows how to change your team resources to groups
+using this example file with a team that has one member and one project.
 
 ```hcl
 terraform {
@@ -138,11 +131,20 @@ resource "aiven_account_team_project" "main" {
   team_type    = "admin"
 }
 ```
+:::tip
+Backup your Terraform state file `terraform.tfstate` to use in the case
+of a rollback.
+:::
 
 1. Replace the `aiven_account_team` resources with
    `aiven_organization_user_group`:
 
    ```hcl
+   # Your organization.
+   data "aiven_organization" "main" {
+    name = "Example organization"
+    }
+
     # The new group created from a team of the same name.
    resource "aiven_organization_user_group" "example_group" {
     description     = "Example group migrated from teams."
@@ -195,25 +197,24 @@ resource "aiven_account_team_project" "main" {
 1.  Add the group resources to Terraform by importing them.
     - For groups, run:
 
-    ```bash
-    terraform import aiven_organization_user_group.EXAMPLE ORGANIZATION_ID/USER_GROUP_ID
-    ```
+      ```bash
+      terraform import aiven_organization_user_group.EXAMPLE ORGANIZATION_ID/USER_GROUP_ID
+      ```
 
     - For group members, run:
-    ```bash
-    terraform import aiven_organization_user_group_member.EXAMPLE ORGANIZATION_ID/USER_GROUP_ID/USER_ID
-    ```
+      ```bash
+      terraform import aiven_organization_user_group_member.EXAMPLE ORGANIZATION_ID/USER_GROUP_ID/USER_ID
+      ```
 
     - For projects assigned to the groups:
 
-    ```bash
-    terraform import aiven_organization_group_project.EXAMPLE PROJECT/USER_GROUP_ID
-    ```
+      ```bash
+      terraform import aiven_organization_group_project.EXAMPLE PROJECT/USER_GROUP_ID
+      ```
 
     Where:
     - `EXAMPLE` is the resource name.
-    - `ORGANIZATION_ID` is the ID of the organization the group is in. Organization is the
-      new name for accounts.
+    - `ORGANIZATION_ID` is the ID of the organization the group is in.
     - `USER_GROUP_ID` is the ID of the user group in the format `ug123a456b7890c`.
     - `USER_ID` is the ID of the user in the format `u123a456b7890c`.
     - `PROJECT` is the name of the project.
@@ -230,7 +231,7 @@ resource "aiven_account_team_project" "main" {
     terraform apply --auto-approve
     ```
 
-1. To confirm the changes, run:
+1. To confirm the changes, list the resources in the state file by running:
 
     ```bash
     terraform state list
