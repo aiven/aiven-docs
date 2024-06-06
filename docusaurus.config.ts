@@ -35,6 +35,10 @@ const config: Config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
+        gtag: {
+          trackingID: 'G-M6D699CJR0',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: [
             './src/css/fonts.css',
