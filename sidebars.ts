@@ -1266,6 +1266,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/copy-data-across-instances',
                     'products/clickhouse/howto/fetch-query-statistics',
                     'products/clickhouse/howto/run-federated-queries',
+                    'products/clickhouse/howto/create-dictionary',
                   ],
                 },
                 'products/clickhouse/howto/list-manage-cluster',

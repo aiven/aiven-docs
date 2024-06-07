@@ -2,16 +2,13 @@
 title: Disaster recovery in Aiven for ClickHouse®
 ---
 
-Disaster recovery is a process of coping with emergencies or crises
-using dedicated methods for protecting resources and/or reestablishing
-their desired status. In the context of data infrastructure,
-well-established disaster recovery methods are of a particular
-importance for preventing data loss or corruption. Software failure,
-loss of an availability zone, or datacenter outage are only a few
-examples of emergencies when disaster recovery comes in. This article
-helps you understand how Aiven for ClickHouse® prevents and mitigates
-such emergencies and what disaster recovery methods it uses to keep your
-data safe and sound.
+Aiven for ClickHouse® prevents and mitigates emergencies or crises with multiple disaster recovery methods to keep your data safe and sound.
+
+Disaster recovery is a process of coping with emergencies or crises using dedicated methods
+for protecting resources and/or reestablishing their desired status. In the context of data
+infrastructure, well-established disaster recovery methods are of a particular importance
+for preventing data loss or corruption. Software failure, loss of an availability zone,
+or datacenter outage are only a few examples of emergencies when disaster recovery comes in.
 
 ## High availability
 
@@ -43,6 +40,7 @@ They cover the following:
 -   Database definitions
 -   Table schemas
 -   Table content (`part files`)
+-   Dictionaries
 
 :::note[Part files]
 With the ClickHouse's ReplicatedMergeTree table engine, each INSERT
