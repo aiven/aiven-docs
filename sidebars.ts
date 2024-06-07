@@ -2251,6 +2251,21 @@ const sidebars: SidebarsConfig = {
           items: [
             'products/valkey/concepts/overview',
             'products/valkey/get-started',
+            {
+              type: 'category',
+              label: 'Connect to service',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/howto/connect-services',
+              },
+              items: [
+                'products/valkey/howto/connect-go',
+                'products/valkey/howto/connect-node',
+                'products/valkey/howto/connect-php',
+                'products/valkey/howto/connect-python',
+                'products/valkey/howto/connect-java',
+              ],
+            },
           ],
         },
       ],
