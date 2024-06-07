@@ -15,7 +15,7 @@ from your service overview page:
 
  | Variable    | Description                                                  |
  | ----------- | ------------------------------------------------------------ |
- | `SERVICE_URI`| URI for the Aiven for Valkey service connection |
+ | `SERVICE_URI`| URI for the Aiven for Caching service connection |
 
 ## Prerequisites
 
