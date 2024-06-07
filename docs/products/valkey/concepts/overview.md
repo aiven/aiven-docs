@@ -27,3 +27,8 @@ using the service.
   retrieval with low latency, ideal for applications requiring real-time data processing.
 - **Managed service**: Aiven handles maintenance, updates, and monitoring,
   freeing you from database management complexities.
+
+## Related pages
+
+- [Valkey GitHub repository](https://github.com/valkey-io/valkey)
+- [Valkey documentation](https://valkey.io/docs/)

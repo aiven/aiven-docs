@@ -51,3 +51,14 @@ Explore additional options by running:
 
 </TabItem>
 </Tabs>
+
+
+## Connect to Aiven for Valkey
+
+Learn how to connect to Aiven for Caching using different programming
+languages:
+
+-   [Go](/docs/products/caching/howto/connect-go)
+-   [Node](/docs/products/caching/howto/connect-node)
+-   [PHP](/docs/products/caching/howto/connect-php)
+-   [Python](/docs/products/caching/howto/connect-python)

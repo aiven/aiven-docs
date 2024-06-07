@@ -2249,7 +2249,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/valkey/concepts/overview',
             'products/valkey/get-started',
             {
               type: 'category',
