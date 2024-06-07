@@ -27,7 +27,7 @@ Add Okta as an
 1.  Click **Add Integration** and **Done**.
 1.  On the **Sign On** tab, click **Edit**.
 1. In the **Advanced Sign-on Settings** set the **Metadata URL** and **ACS URL** to
-   the URLs copied from Aiven.
+   the URLs copied from the Aiven Console.
 1. Optional: In the **SAML 2.0** section, click **Attributes** and add an entry to the
    **Attribute Statements** with the following. These
     [statements](https://help.okta.com/en-us/content/topics/apps/define-attribute-statements.htm)
@@ -37,6 +37,10 @@ Add Okta as an
     | -------- | --------------- | ------------ |
     | `email`  | `Unspecified`   | `user.email` |
 
+1. Set the **Default Relay State** for the console you use:
+   - For the Aiven Console: `https://console.aiven.io`
+   - For the Aiven GCP Marketplace Console: `https://console.gcp.aiven.io/`
+   - For the Aiven AWS Marketplace Console: `https://console.aws.aiven.io/`
 1. Click **Save**.
 1. In the **SAML 2.0** section, click **More details**.
 1. Copy the **Sign on URL**, **Issuer** URL, and the **Signing Certificate**.
@@ -65,6 +69,13 @@ Login failed. Please contact your account administrator for more details.
 ```
 
 Ensure **IdP initiated login** is enabled.
+
+### Invalid relay state
+
+If you get the invalid relay state error, then you are attempting an
+IdP-initiated auth flow. This happens, for example, when you click the
+Aiven SAML app in Okta. Set the **Default Relay State** in Okta to the
+Aiven console that your organization uses.
 
 ### The Okta password does not work
 
