@@ -1,6 +1,5 @@
 ---
-title: Aiven for Valkey overview
-sidebar_label: Overview
+title: Aiven for Valkey
 ---
 
 Aiven for Valkey is a managed, in-memory NoSQL database service that offers high performance, scalability, and security.
@@ -27,6 +26,8 @@ using the service.
   retrieval with low latency, ideal for applications requiring real-time data processing.
 - **Managed service**: Aiven handles maintenance, updates, and monitoring,
   freeing you from database management complexities.
+- **Migration**: Support for a migration path from external Redis® implementations and
+  Aiven for Caching to Aiven for Valkey with minimal downtime.
 
 ## Related pages
 

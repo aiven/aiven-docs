@@ -4,7 +4,7 @@ public class RedisExample {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            throw new IllegalArgumentException("Expected only one argument redis URI");
+            throw new IllegalArgumentException("Expected only one argument service URI");
         } else {
             JedisPooled jedisPooled = new JedisPooled(args[0]);
             jedisPooled.set("key", "hello world");

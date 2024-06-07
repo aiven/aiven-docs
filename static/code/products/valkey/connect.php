@@ -3,9 +3,9 @@
 require 'vendor/autoload.php';
 Predis\Autoloader::register();
 
-$service_uri = 'VALKEY_URI';
+$service_uri = 'SERVICE_URI';
 
-$client = new Predis\Client($valkey_uri);
+$client = new Predis\Client($service_uri);
 
 $client->set('key', 'hello world');
 $value = $client->get('key');
