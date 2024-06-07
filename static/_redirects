@@ -3,8 +3,6 @@
 # See https://developers.cloudflare.com/pages/configuration/redirects/
 #
 
-/community/documentation                              https://aiven.io/community
-/community/documentation/tips-tricks/renaming-files   https://aiven.io/community
 /tools/cli/service                                    https://aiven.io/docs/tools/cli/service-cli
 /tools/terraform/reference/cookbook                   https://aiven.io/docs/tools/terraform/get-started
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  https://aiven.io/docs/tools/terraform/get-started
