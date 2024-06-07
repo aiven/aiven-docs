@@ -24,7 +24,6 @@ following are requirements to utilize an ECE:
 -   You use Amazon Web Services (AWS), Google Cloud, or Microsoft Azure (excluding
     Azure Germany).
 -   You have a commitment deal with Aiven.
--   You have Aiven Enterprise.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
 ## Cost of ECE
