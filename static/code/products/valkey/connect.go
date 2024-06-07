@@ -10,7 +10,7 @@ import (
 var ctx = context.Background()
 
 func main() {
-	valkeyURI := "VALKEY_URI"
+	valkeyURI := "SERVICE_URI"
 
 	client, err := valkey.NewClient(valkey.ClientOption{InitAddress: []string{valkeyURI}})
 	if err != nil {

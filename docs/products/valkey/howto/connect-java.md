@@ -3,7 +3,7 @@ title: Connect with Java
 ---
 
 import CodeBlock from '@theme/CodeBlock';
-import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.java';
+import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.java';
 
 Establish a connection to your Aiven for Valkey service using Java and the `jedis` library.
 
@@ -13,7 +13,7 @@ Replace placeholders in the code sample with values from your service overview p
 
  | Variable    | Description                                                  |
  | ----------- | ------------------------------------------------------------ |
- | `SERVICE_URI`|URI for the Aiven for Caching service connection |
+ | `SERVICE_URI`|URI for the Aiven for Valkey service connection |
 
 ## Prerequisites
 

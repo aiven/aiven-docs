@@ -1,6 +1,6 @@
 const Redis = require('ioredis');
-const serviceUri = 'VALKEY_URI';
-const redis = new Redis(redisUri);
+const serviceUri = 'SERVICE_URI';
+const redis = new Redis(serviceUri);
 
 redis.set('key', 'hello world');
 
