@@ -1008,7 +1008,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/flink/howto',
               },
               items: [
-                'products/flink/howto/list-get-started',
                 {
                   type: 'category',
                   label: 'Integrate service',

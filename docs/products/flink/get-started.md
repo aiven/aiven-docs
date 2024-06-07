@@ -79,7 +79,7 @@ For detailed integration steps with specific services, see the [Integrate servic
 </TabItem>
 <TabItem value="2" label="CLI">
 You can set up your data service integrations using the Aiven CLI
- with the following commands:
+with the following command:
 
 ```bash
 avn service integration-create \
@@ -102,9 +102,9 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Create Aiven for Apache Flink® application
+## Create an Aiven for Apache Flink® application
 
-[Aiven for Apache Flink® application](concepts/flink-applications) act as containers
+An [Aiven for Apache Flink® application](concepts/flink-applications) act as containers
 that encapsulate all aspects of a Flink job. This includes data source and sink
 connections, as well as the data processing logic.
 

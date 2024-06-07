@@ -2,6 +2,7 @@
 title: Create Apache Flink® data service integrations
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 With Aiven for Apache Flink®, you can create streaming data pipelines to connect various services.
 
@@ -16,7 +17,7 @@ Create Aiven for Apache Flink® data service integrations using the
 [Aiven Console](https://console.aiven.io/). Follow these steps to integrate
 either internal and external services.
 
-### Integrate internal services
+### Integrate Aiven services
 
 1. Log in to [Aiven Console](https://console.aiven.io) and access your
    Aiven for Apache Flink service.
@@ -27,7 +28,7 @@ either internal and external services.
    choose the Aiven service to integrate: Aiven for Apache Kafka®,
    Aiven for PostgreSQL®, or Aiven for OpenSearch®.
 1. Click **Integrate**.
-1. To include additional integrations, click <ConsoleLabel name="plus"/> in the
+1. To include additional integrations, click <ConsoleIcon name="plus"/> in the
    **Data pipeline** section.
 
 ### Integrate external services
@@ -45,5 +46,5 @@ either internal and external services.
 1. On the **Data service integrations** page, under
    **Create external integration endpoint** tab, select the checkbox next to the
    external data service type and choose the integration endpoint just created.
-1. To include additional integrations, click <ConsoleLabel name="plus"/> in the
+1. To include additional integrations, click <ConsoleIcon name="plus"/> in the
    **Data pipeline** section.
