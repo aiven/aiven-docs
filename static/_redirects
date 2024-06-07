@@ -38,7 +38,8 @@
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 
-/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
+/products/redis                                        https://aiven.io/docs/products/caching
+/products/redis/*                                      https://aiven.io/docs/products/caching/:splat
 
 /products/dragonfly/howto/migrate-aiven-redis-df-console   https://aiven.io/docs/products/dragonfly/howto/migrate-aiven-caching-df-console
 
