@@ -103,3 +103,5 @@
 /tools/terraform/howto/vnet-peering-azure              https://github.com/Aiven-Open/terraform-example-projects/blob/main/virtual_private_networking/azure_vnet_peering
 /tools/terraform/howto/vpc-peering-gcp                 https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking/google_vpc_peering
 /tools/terraform/list-vpc-terraform                    https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking
+
+/products/flink/howto/list-get-started                 https://aiven.io/docs/products/flink/get-started
