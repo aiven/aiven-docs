@@ -50,4 +50,4 @@ This replaces steps 3 and 4 above.
 
 ## Related pages
 
-- [Log integration with Loggly](docs/integrations/rsyslog/loggly)
+- [Log integration with Loggly](/docs/integrations/rsyslog/loggly)
