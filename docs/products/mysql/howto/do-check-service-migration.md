@@ -2,14 +2,11 @@
 title: Perform pre-migration check
 ---
 
-In this article, we show how to find potential errors before starting
-your database migration process. This can be done by using either the
-[Aiven CLI](https://github.com/aiven/aiven-client) or [Aiven REST
-API](https://api.aiven.io/doc/#section/Introduction).
+Learn how to find potential errors before starting your database migration process. This can be done by using either the [Aiven CLI](https://github.com/aiven/aiven-client) or the [Aiven REST API](https://api.aiven.io/doc/#section/Introduction).
 
-When migrating a database to Aiven, you may find errors such as:
+:::note[Error example]
 
-```shell
+```text
 {
     "migration": {
         "error": "Migration process failed",
@@ -26,13 +23,11 @@ STATUS METHOD ERROR
 done Migration process failed
 ```
 
-To avoid these types of failures during the migration process we
-recommend you run some checks in advance. In this article, we will show
-how you can run those checks for your MySQL migration process.
+:::
 
 ## Aiven CLI
 
-**Step 1: create a task to perform the migration check.**
+**Step 1: Create a task to perform the migration check.**
 
 You can create the task of migration, for example, from a MySQL DB to an
 Aiven service (`project`: `MY_PROJECT_NAME`, `service`: `mysql`):
@@ -50,12 +45,12 @@ mysql_migration_check  null     e2df7736-66c5-4696-b6c9-d33a0fc4cbed
 ```
 
 :::tip
-You can find more options available via the -h menu, for example, to
-ignore certain databases for the check. Please note that filter
+List the options via the -h menu, for example, to
+ignore certain databases for the check. Note that filter
 databases are supported by MySQL only at the moment.
 :::
 
-**Step 2: retrieve your task's status.**
+**Step 2: Retrieve your task's status.**
 
 You can check the status of your task by running:
 
@@ -77,7 +72,5 @@ mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-ch
 The same checks can be performed via the REST API. More details can be
 found here:
 
--   [Create a new task for
-    service](https://api.aiven.io/doc/#operation/ServiceTaskCreate)
--   [Get task
-    result](https://api.aiven.io/doc/#operation/ServiceTaskGet)
+-   [Create a task for service](https://api.aiven.io/doc/#operation/ServiceTaskCreate)
+-   [Get task result](https://api.aiven.io/doc/#operation/ServiceTaskGet)

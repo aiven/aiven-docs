@@ -5,12 +5,11 @@ title: Connect to Aiven for MySQL® with Java
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/mysql/connect.java';
 
-This example connects your Java application to an Aiven for MySQL®
-service.
+This example connects your Java application to an Aiven for MySQL® service.
 
 ## Variables
 
-These are the placeholders you need to replace in the code sample:
+Replace the following placeholders in the code sample:
 
   |     Variable     |                                                                          Description                                                                           |
   |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -22,11 +21,9 @@ These are the placeholders you need to replace in the code sample:
 ## Prerequisites
 
 -   JDK 1.8+
--   MySQL JDBC Driver, which could be downloaded in the following ways:
-    -   Manually from [MySQL Community
-        Downloads](https://dev.mysql.com/downloads/connector/j/)
-
-    -   Or using maven
+-   MySQL JDBC Driver, which you can install:
+    -   Manually from [MySQL Community Downloads](https://dev.mysql.com/downloads/connector/j/)
+    -   Using maven:
 
         ```bash
         mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=mysql:mysql-connector-java:8.0.28:jar -Ddest=mysql-driver-8.0.28.jar
@@ -51,7 +48,7 @@ javac MySqlExample.java && java -cp mysql-driver-8.0.28.jar:. MySqlExample -host
 If the script runs successfully, the output will be the values that were
 inserted into the table:
 
-```
+```text
 Version: 8.0.26
 ```
 

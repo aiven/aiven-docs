@@ -2,11 +2,10 @@
 title: Aiven for Apache Cassandra® metrics available via Prometheus
 ---
 
-This article provides the list of all metrics available via Prometheus
-for Aiven for Apache Cassandra® services.
+This is the list of all metrics available via Prometheus for Aiven for Apache Cassandra® services.
 
 You can retrieve the complete list of available metrics for your service
-by requesting the Prometheus endpoint as follows:
+via the Prometheus endpoint as follows:
 
 ```bash
 curl --cacert ca.pem \
