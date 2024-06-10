@@ -196,7 +196,7 @@ the [Aiven CLI](/docs/tools/cli) or
 
 To enable Private Service Connect access for your service in the Aiven
 CLI, set `user_config.privatelink_access.<service component>` to `true`
-for the components you want to enable. Take the following command as an
+for the components to enable. Take the following command as an
 example for Apache Kafka:
 
 ```shell
@@ -206,7 +206,6 @@ avn service update -c privatelink_access.kafka=true MY_SERVICE_NAME
 **Aiven Console**
 
 To enable Private Link access in [Aiven Console](https://console.aiven.io/):
-
 
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.

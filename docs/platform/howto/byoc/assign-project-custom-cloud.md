@@ -90,10 +90,10 @@ custom cloud, you can:
 ## Verify the update
 
 To verify if the cloud availability changes you made are live:
-
+<!-- vale off -->
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
-1.  Select the organization you want to use from the dropdown menu in
+1.  Select the organization to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
 1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
@@ -102,7 +102,7 @@ To verify if the cloud availability changes you made are live:
 1.  In the selected cloud's page, go to the **Available
     projects** tab and check the available projects and organizational
     units list for the updates you made.
-
+<!-- vale on -->
 ## Related pages
 
 -   [Bring your own cloud](/docs/platform/concepts/byoc)

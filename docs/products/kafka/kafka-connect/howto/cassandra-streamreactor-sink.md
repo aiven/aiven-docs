@@ -2,94 +2,90 @@
 title: Create a stream reactor sink connector from Apache Kafka® to Apache Cassandra®
 ---
 
-**The Apache Cassandra® stream reactor sink connector** enables you to
-move data from **an Aiven for Apache Kafka® cluster** to **a Apache
-Cassandra® database**. The Lenses.io implementation enables you to write
-[KCQL
-transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/cassandrasinkconnector/)
-on the topic data before sending it to the Cassandra database.
+**The Apache Cassandra® stream reactor sink connector** enables you to move data from **an Aiven for Apache Kafka® cluster** to **a Apache Cassandra® database**.
+The Lenses.io implementation enables you to write [KCQL transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/cassandrasinkconnector/) on the topic data before sending it to the Cassandra database.
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.lenses.io/connectors/sink/cassandra.html).
 :::
 
 ## Prerequisites {#connect_cassandra_lenses_sink_prereq}
 
-To setup a Apache Cassandra sink connector, you need an Aiven for Apache
-Kafka service
-[with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache
+  Kafka service
+  [with Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
-target Cassandra database upfront:
+- Collect the following information about the
+  target Cassandra database upfront:
 
--   `CASSANDRA_HOSTNAME`: The Cassandra hostname
--   `CASSANDRA_PORT`: The Cassandra port
--   `CASSANDRA_USERNAME`: The Cassandra username
--   `CASSANDRA_PASSWORD`: The Cassandra password
--   `CASSANDRA_SSL`: The Cassandra SSL setting, can be `true`, `false`
-    or `default`
--   `CASSANDRA_KEYSTORE`: The path to the Keystore containing the CA
-    certificate, used when connection is secured via SSL
--   `CASSANDRA_KEYSTORE_PASSWORD`: The Keystore password, used when
-    connection is secured via SSL
+  -   `CASSANDRA_HOSTNAME`: The Cassandra hostname
+  -   `CASSANDRA_PORT`: The Cassandra port
+  -   `CASSANDRA_USERNAME`: The Cassandra username
+  -   `CASSANDRA_PASSWORD`: The Cassandra password
+  -   `CASSANDRA_SSL`: The Cassandra SSL setting, can be `true`, `false`
+      or `default`
+  -   `CASSANDRA_KEYSTORE`: The path to the Keystore containing the CA
+      certificate, used when connection is secured via SSL
+  -   `CASSANDRA_KEYSTORE_PASSWORD`: The Keystore password, used when
+      connection is secured via SSL
 
-:::note
-If you're using Aiven for Apache Cassandra, you can use the following
-keystore values
+  :::note
+  If you're using Aiven for Apache Cassandra, you can use the following
+  keystore values
 
--   `CASSANDRA_TRUSTSTORE`: `/run/aiven/keys/public.truststore.jks`
--   `CASSANDRA_TRUSTSTORE_PASSWORD`: `password`
-:::
+  -   `CASSANDRA_TRUSTSTORE`: `/run/aiven/keys/public.truststore.jks`
+  -   `CASSANDRA_TRUSTSTORE_PASSWORD`: `password`
+  :::
 
--   `CASSANDRA_KEYSPACE`: The Cassandra keyspace to use to sink the data
+  -   `CASSANDRA_KEYSPACE`: The Cassandra keyspace to use to sink the data
 
-:::warning
-The Cassandra keyspace and destination table need to be created before
-starting the connector, otherwise the connector task will fail.
-:::
+  :::warning
+  The Cassandra keyspace and destination table need to be created before
+  starting the connector, otherwise the connector task will fail.
+  :::
 
--   `TOPIC_LIST`: The list of topics to sink divided by comma
+  -   `TOPIC_LIST`: The list of topics to sink divided by comma
 
--   `KCQL_TRANSFORMATION`: The KCQL syntax to parse the topic data,
-    should be in the format:
+  -   `KCQL_TRANSFORMATION`: The KCQL syntax to parse the topic data,
+      should be in the format:
 
-    ```
-    INSERT INTO CASSANDRA_TABLE
-    SELECT LIST_OF_FIELDS
-    FROM APACHE_KAFKA_TOPIC
-    ```
+      ```
+      INSERT INTO CASSANDRA_TABLE
+      SELECT LIST_OF_FIELDS
+      FROM APACHE_KAFKA_TOPIC
+      ```
 
-:::warning
-The Cassandra destination table `CASSANDRA_TABLE` needs to be created
-before starting the connector, otherwise the connector task will fail.
-:::
+  :::warning
+  The Cassandra destination table `CASSANDRA_TABLE` needs to be created
+  before starting the connector, otherwise the connector task will fail.
+  :::
 
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+  -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
+      needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
+      only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
+      username, only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
+      password, only needed when using Avro as data format
 
-:::note
-If you're using Aiven for Cassandra and Aiven for Apache Kafka, the
-above details are available in the [Aiven
-console](https://console.aiven.io/) service *Overview tab* or via the
-dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
+  :::note
+  If you're using Aiven for Cassandra and Aiven for Apache Kafka, the
+  above details are available in the [Aiven
+  console](https://console.aiven.io/) service *Overview tab* or via the
+  dedicated `avn service get` command with the
+  [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
-The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
-Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
+  The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
+  Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
 
-As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
-Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://help.aiven.io/en/articles/5651983)
-:::
+  As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
+  Schema Registry. For more information, read [the article describing the
+  replacement, Karapace](https://help.aiven.io/en/articles/5651983)
+  :::
 
 ## Setup an Apache Cassandra sink connector with Aiven Console
 
@@ -176,7 +172,7 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, which is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 
@@ -210,12 +206,13 @@ You can also create connectors using the
 :::
 
 ## Example: Create a Cassandra sink connector
-
+<!-- vale off -->
 If you have a topic named `students` containing the following data that
 you want to move to a Cassandra table called `students_tbl` in the
 keyspace `students_keyspace`:
+<!-- vale on -->
 
-```
+```json
 {"id":1, "name":"carlo", "age": 77}
 {"id":2, "name":"lucy", "age": 55}
 {"id":3, "name":"carlo", "age": 33}

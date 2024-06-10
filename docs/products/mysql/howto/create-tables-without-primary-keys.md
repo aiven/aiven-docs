@@ -2,32 +2,21 @@
 title: Create new tables without primary keys
 ---
 
-If your Aiven for MySQL® service was created after 2020-06-03, by
-default it does not allow creating new tables without primary keys. You
-can check this by taking the following steps:
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+If your Aiven for MySQL® service was created after 2020-06-03, by default it does not allow creating new tables without primary keys.
+
+## Verify if new tables require a primary key
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
 
-1.  On the **Services** page, select your Aiven for MySQL service that
-    you want to check.
+1.  Open your MySQL service and in the sidebar, click <ConsoleLabel name="servicesettings"/>.
 
-1.  On your service's page, select **Service settings** from the
-    sidebar.
-
-1.  On the **Service settings** page of your service, scroll down to the
-    **Advanced configuration** section.
-
-1.  Check the **Advanced configuration** section for the
+1.  Scroll down to the **Advanced configuration** section and find the
     `mysql.sql_require_primary_key` parameter and its status.
 
     If `mysql.sql_require_primary_key` is enabled, your Aiven for MySQL
     does not allow you to create new tables without primary keys.
-    Attempts to create tables without primary keys will result in the
-    following error message:
-
-    ```
-    Unable to create or change a table without a primary key, when the system variable 'sql_require_primary_key' is set. Add a primary key to the table or unset this variable to avoid this message. Note that tables without a primary key can cause performance problems in row-based replication, so please consult your DBA before changing this setting.
-    ```
 
     If creating tables without primary keys is prevented and the table
     that you're trying to create is known to be small, you may override
@@ -36,40 +25,36 @@ can check this by taking the following steps:
 Read more about the MySQL replication in the
 [Replication overview](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview) article.
 
+## Create a table without primary keys
+
 You have two options to create the tables:
 
 -   Setting `mysql.sql_require_primary_key` to `0` for the current
-    session with the following command:
+    session, programmatically:
 
-    ```shell
-    SET SESSION sql_require_primary_key = 0; and then execute the CREATE TABLE or ALTER TABLE statement again in the same session.
-    ```
+    1. Run:
 
--   Disabling `mysql.sql_require_primary_key` parameter. To disable the
-    `mysql.sql_require_primary_key` parameter, take the following steps:
+       ```shell
+       SET SESSION sql_require_primary_key = 0;
+       ```
 
-1.  Log in to [Aiven Console](https://console.aiven.io/).
+    1. Execute the CREATE TABLE or ALTER TABLE statement again in the same session.
 
-1.  On the **Services** page, select your Aiven for MySQL service that
-    you want to check.
-
-1.  On your service's page, select **Service settings** from the
-    sidebar.
-
-1.  On the **Service settings** page of your service, scroll down to the
-    **Advanced configuration** section and select **Configure**.
-
-1.  In the **Advanced configuration** window, find
-    `mysql.sql_require_primary_key` and disable it by using the toggle
-    switch. Select **Save configuration**.
+-   Disabling the `mysql.sql_require_primary_key` parameter. To disable the
+    `mysql.sql_require_primary_key` parameter:
 
     :::warning
-    It is only recommended to use this approach when the table is
+    We recommend this approach when the table is
     created by an external application and using the session variable is
     not an option. To prevent more problematic tables from being
-    unexpectedly created in the future you should enable the setting
+    unexpectedly created in the future, you should enable the setting
     again once you finished creating the tables without primary keys.
     :::
+
+    1.  Log in to [Aiven Console](https://console.aiven.io/).
+    1.  Open your MySQL service and in the sidebar, click <ConsoleLabel name="servicesettings"/>.
+    1.  Scroll down to the **Advanced configuration** section and select **Configure**.
+    1.  Find `mysql.sql_require_primary_key` and disable it and click **Save configuration**.
 
 ## Related pages
 

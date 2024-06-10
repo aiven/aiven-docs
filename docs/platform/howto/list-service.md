@@ -27,7 +27,7 @@ Create and configure your service:
 Aiven offers a wide choice of open source time series databases in its
 product portfolio.
 
--   Aiven for PostgreSQL® with the TimescaleDB extension is yur best
+-   Aiven for PostgreSQL® with the TimescaleDB extension is your best
     choice if you already use PostgreSQL, require **SQL compatibility**
     and have a limited time series use case.
 -   Aiven for M3DB is your best choice when you need a **truly

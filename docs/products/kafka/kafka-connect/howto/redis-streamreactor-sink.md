@@ -16,7 +16,7 @@ issue](https://github.com/lensesio/stream-reactor/issues/990).
 :::
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.lenses.io/connectors/sink/redis.html).
 :::

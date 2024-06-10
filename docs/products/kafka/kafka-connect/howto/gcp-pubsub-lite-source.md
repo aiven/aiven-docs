@@ -8,7 +8,7 @@ enables you to push from a Google Pub/Sub subscription to an Aiven for
 Apache Kafka® topic.
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/googleapis/java-pubsub-group-kafka-connector/).
 :::

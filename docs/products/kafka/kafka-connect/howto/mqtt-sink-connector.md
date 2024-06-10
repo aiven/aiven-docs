@@ -7,7 +7,7 @@ connector](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sin
 copies messages from an Apache Kafka® topic to an MQTT queue.
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mqttsinkconnector/).
 :::

@@ -110,8 +110,8 @@ Gradle
 Grafana
 Grafana/M
 GSuite
-hardcoded
 HAProxy
+hardcoded
 HashiCorp
 Heatmap
 Hillyer
@@ -272,6 +272,7 @@ Splunk
 spring
 Sql
 SSD/S
+SSDs
 Stackdriver
 Statusmap
 storages
