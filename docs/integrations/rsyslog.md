@@ -95,7 +95,7 @@ avn service integration-create --project your-project \
 
 Rsyslog is a standard integration so you can use it with any external
 system. We have collected some examples of how to integrate with popular
-third party platforms to get you started quickly.
+third party platforms to get you started.
 
 :::note
 All integrations can be configured using the Aiven Console or the Aiven

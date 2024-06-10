@@ -7,7 +7,7 @@ Apache Kafka® cluster to an InfluxDB instance for further processing and
 analysis.
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.lenses.io/connectors/sink/influx.html).
 :::

@@ -14,7 +14,7 @@ to the source database.
 :::
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/couchbase/kafka-connect-couchbase).
 :::

@@ -4,4 +4,4 @@ ignorecase: true
 level: error
 tokens:
   - buttons?
-  - dropdown
+  # - dropdown

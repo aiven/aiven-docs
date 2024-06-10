@@ -20,7 +20,7 @@ This document refers to the MongoDB sink connector by MongoDB, you can
 browse the Lenses.io implementation in the
 [related document](mongodb-sink-lenses)
 
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.mongodb.com/kafka-connector/current/).
 :::

@@ -2,8 +2,7 @@
 title: Manage payment cards
 ---
 
-You can add a payment card to your organization and use it as the
-payment method for one or more billing groups.
+You can add a payment card to your organization and use it as the payment method for one or more billing groups.
 
 :::info
 You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
@@ -32,5 +31,5 @@ To delete a payment card in the [Aiven Console](https://console.aiven.io/):
 
 1. Click **Billing**.
 1. Click **Payment methods**.
-1. On the **Payment cards** tab, find the card you want to delete.
-1. Click **Delete** and confirm you want to delete the card.
+1. On the **Payment cards** tab, find the card to delete.
+1. Click **Delete** and confirm.

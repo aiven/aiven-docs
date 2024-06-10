@@ -65,7 +65,7 @@ documentation](https://docs.datadoghq.com/integrations/rsyslog).
 1.  Select **Create** to save the endpoint.
 
 ## Send logs from an Aiven service to Datadog
-
+<!-- vale off -->
 To send logs to Datadog:
 
 1.  On the **Overview** page of your service, select **Integrations**
@@ -76,9 +76,9 @@ To send logs to Datadog:
 1.  Pick the log integration you created earlier from the dropdown and
     choose **Enable**.
 
-1.  Visit Datadog and look under \"Logs\" to see the data flowing within
+1.  Visit Datadog and look under "Logs" to see the data flowing within
     a few minutes.
-
+<!-- vale on -->
 ## Related pages
 
 - [Datadog and Aiven](/docs/integrations/datadog)

@@ -2,8 +2,7 @@
 title: Send Aiven logs to Logtail
 ---
 
-[Logtail](https://betterstack.com/logs) is a logging service. You can use the Aiven [Remote syslog integration](/docs/integrations/rsyslog) to send your
-logs to Logtail.
+[Logtail](https://betterstack.com/logs) is a logging service. You can use the Aiven [Remote syslog integration](/docs/integrations/rsyslog) to send your logs to Logtail.
 
 1.  Set up an Rsyslog source on Logtail. Choose **Connect source**, give
     your source a **Name**, and select \"Rsyslog\" as the **Platform**.
@@ -48,3 +47,7 @@ avn service integration-endpoint-create --project your-project \
 ```
 
 This replaces steps 3 and 4 above.
+
+## Related pages
+
+- [Log integration with Loggly](docs/integrations/rsyslog/loggly)

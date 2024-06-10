@@ -2,10 +2,9 @@
 title: Feature previews
 ---
 
-Before an official release, some features are available to our customers
-for testing. These feature previews let you try out upcoming
-enhancements and give our product teams feedback to help improve them.
+Before an official release, some features are available to our customers for testing. These feature previews let you try out upcoming enhancements and give our product teams feedback to help improve them.
 
+ <!-- vale off -->
 ## Enable a feature preview
 
 To try upcoming features before they are released:

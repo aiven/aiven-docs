@@ -9,7 +9,7 @@ collector](https://docs.splunk.com/Documentation/Splunk/latest/Data/Formatevents
 (HEC).
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/splunk/kafka-connect-splunk).
 :::

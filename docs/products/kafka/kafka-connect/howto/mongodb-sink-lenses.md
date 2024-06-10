@@ -21,7 +21,7 @@ This document refers to the MongoDB sink connector by Lenses.io, you can
 browse the MongoDB implementation in the
 [related document](mongodb-sink-mongo)
 
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.lenses.io/connectors/sink/mongo.html).
 :::

@@ -48,7 +48,7 @@ Preview the updated name of your cloud:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
-1.  Select the organization you want to use from the dropdown menu in
+1.  Select the organization to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
 1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
