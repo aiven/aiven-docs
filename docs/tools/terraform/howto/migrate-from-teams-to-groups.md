@@ -117,7 +117,7 @@ resource "aiven_account_team" "example_team" {
 }
 
 # Team member
-resource "aiven_account_team_member" "main" {
+resource "aiven_account_team_member" "example_project_member" {
   account_id = data.aiven_account.main.account_id
   team_id    = aiven_account_team.example_team.team_id
   user_email = "amal@example.com"
@@ -147,9 +147,9 @@ of a rollback.
 
     # The new group created from a team of the same name.
    resource "aiven_organization_user_group" "example_group" {
-    description     = "Example group migrated from teams."
-    organization_id = data.aiven_organization.main.id
     name            = "Example group"
+    description     = ""
+    organization_id = data.aiven_organization.main.id
     }
     ```
 
@@ -181,13 +181,15 @@ of a rollback.
     terraform state list
     ```
 
-1.  Remove Terraform's control of the team resources in this list by running:
+1.  To remove Terraform's control of the team resources in this list run
+    the following command for the `aiven_account_team`, `aiven_account_team_member`,
+    and `aiven_account_team_project` resources in the state file:
 
     ```bash
-    terraform state rm TEAM_RESOURCE
+    terraform state rm aiven_account_team.example_team
+    terraform state rm aiven_account_team_member.main
+    terraform state rm aiven_account_team_project.main
     ```
-
-    Where TEAM_RESOURCE is your resource, for example: `aiven_account_team.example_team`.
 
     :::tip
     Use the `-dry-run` flag to preview the changes without applying
@@ -198,22 +200,21 @@ of a rollback.
     - For groups, run:
 
       ```bash
-      terraform import aiven_organization_user_group.EXAMPLE ORGANIZATION_ID/USER_GROUP_ID
+      terraform import aiven_organization_user_group.example_group ORGANIZATION_ID/USER_GROUP_ID
       ```
 
     - For group members, run:
       ```bash
-      terraform import aiven_organization_user_group_member.EXAMPLE ORGANIZATION_ID/USER_GROUP_ID/USER_ID
+      terraform import aiven_organization_user_group_member.project_admin ORGANIZATION_ID/USER_GROUP_ID/USER_ID
       ```
 
     - For projects assigned to the groups:
 
       ```bash
-      terraform import aiven_organization_group_project.EXAMPLE PROJECT/USER_GROUP_ID
+      terraform import aiven_organization_group_project.main PROJECT/USER_GROUP_ID
       ```
 
     Where:
-    - `EXAMPLE` is the resource name.
     - `ORGANIZATION_ID` is the ID of the organization the group is in.
     - `USER_GROUP_ID` is the ID of the user group in the format `ug123a456b7890c`.
     - `USER_ID` is the ID of the user in the format `u123a456b7890c`.
