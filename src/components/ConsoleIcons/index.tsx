@@ -33,6 +33,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Settings</b>
         </>
       );
+    case 'moveproject':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.moveProject} />{' '}
+          <b>Move project</b>
+        </>
+      );
     case 'integrations':
       return (
         <>
@@ -152,7 +159,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'makesuperadmin':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.superadmin} /> <b>Make super admin</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.superadmin} />{' '}
+          <b>Make super admin</b>
         </>
       );
     case 'viewuserprofile':
