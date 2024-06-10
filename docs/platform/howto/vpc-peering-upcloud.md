@@ -38,12 +38,12 @@ type networks.
 :::
 
 ## Prerequisites
-
+<!-- vale off -->
 -   You have
     [created a VPC for your Aiven project](manage-vpc-peering) in the
     [Aiven Console](https://console.aiven.io/).
--   CIDR ranges of the networks you want to peer do not overlap.
-
+-   The CIDR ranges of the networks you want to peer do not overlap.
+<!-- vale on -->
 ## Get UpCloud SDN network UUID {#upcloud-uuid}
 
 Before establishing a peering connection from Aiven to UpCloud, you need

@@ -8,11 +8,11 @@ In addition to using Aiven for OpenSearch® to store the logs from your Aiven se
 ## Creating rsyslog integration
 
 ### Add rsyslog integration endpoint
-
+<!-- vale off -->
 Add the remote syslog you want to send
 the log to into the project that contains the service you want to
 integrate.
-
+<!-- vale on -->
 This can be configured from the **Integration endpoints** page in the
 Aiven Console.
 
