@@ -2,10 +2,9 @@
 title: Aiven for MySQL® overview
 ---
 
-Aiven for MySQL® is a full managed relational database service,
-deployable in the cloud of your choice. It is available at a size to
-suit your needs, from single-node starter plans to highly-available
-production platforms. MySQL has been a key part of the open source
+Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice. It is available at a size to suit your needs, from single-node starter plans to highly available production platforms.
+
+MySQL has been a key part of the open source
 database landscape for a long time and it's a popular and reliable
 database platform. Aiven takes care of the management side and provides
 a MySQL that you can use.
@@ -18,7 +17,7 @@ of the best open source databases around.
 
 ## Get started with Aiven for MySQL
 
-[The Aiven for MySQL getting started guide](/docs/products/mysql/get-started) will get you up and running quickly.
+See the [Aiven for MySQL getting started guide](/docs/products/mysql/get-started).
 
 ## More MySQL resources
 

@@ -27,7 +27,7 @@ done Migration process failed
 
 ## Aiven CLI
 
-**Step 1: Create a task to perform the migration check.**
+**Step 1: Create a task to perform the migration check**
 
 You can create the task of migration, for example, from a MySQL DB to an
 Aiven service (`project`: `MY_PROJECT_NAME`, `service`: `mysql`):
@@ -50,18 +50,17 @@ ignore certain databases for the check. Note that filter
 databases are supported by MySQL only at the moment.
 :::
 
-**Step 2: Retrieve your task's status.**
+**Step 2: Retrieve your task's status**
 
 You can check the status of your task by running:
 
-```
+```bash
 avn service task-get --project PROJECT_NAME --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project MY_PROJECT_NAME mysql
 ```
 
-You can find whether the operation succeeds and more relevant
-information about the migration.
+It lists whether the operation succeeds and more information about the migration.
 
-```shell
+```text
 TASK_TYPE              SUCCESS  TASK_ID                               RESULT
 =====================  =======  ====================================  ====================================================================================
 mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-checks passed successfully, preferred migration method will be [Replication]
@@ -69,8 +68,7 @@ mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-ch
 
 ## Aiven REST API
 
-The same checks can be performed via the REST API. More details can be
-found here:
+The same checks can be performed via the REST API. Read more:
 
 -   [Create a task for service](https://api.aiven.io/doc/#operation/ServiceTaskCreate)
 -   [Get task result](https://api.aiven.io/doc/#operation/ServiceTaskGet)

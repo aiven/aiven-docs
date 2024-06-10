@@ -87,7 +87,7 @@ You can use the following variables in the code samples provided:
     avn --show-http service migration-status --project PROJECT_NAME DEST_NAME
     ```
 
-Whilst the migration process is ongoing, the `migration_detail.status`
+While the migration process is ongoing, the `migration_detail.status`
 will be `syncing`:
 
 ```json
