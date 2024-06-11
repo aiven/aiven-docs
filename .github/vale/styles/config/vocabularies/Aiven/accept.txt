@@ -46,6 +46,7 @@ connect
 Coralogix
 Couchbase
 CPU/MS
+CPUs?
 cqlsh
 CRD
 cron

@@ -18,7 +18,7 @@ environment, enhanced logging is enabled for - `stderr`, `stout`, and
 `stdin`.
 <!-- vale on -->
 
-## Who is eligible?
+## Eligibility
 
 Enhanced compliance environments, although similar to standard
 environments, involve added setup and maintenance complexity. The

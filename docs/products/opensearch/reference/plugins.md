@@ -2,10 +2,7 @@
 title: Plugins available with Aiven for OpenSearch®
 ---
 
-Aiven for OpenSearch® includes a standard set of plugins. In addition to
-the plugins that were previously available in Aiven for Elasticsearch,
-Aiven for OpenSearch also includes plugins that are designed and
-developed specifically for OpenSearch.
+Aiven for OpenSearch® includes a standard set of plugins. In addition to the plugins that were previously available in Aiven for Elasticsearch, Aiven for OpenSearch also includes plugins that are designed and developed specifically for OpenSearch.
 
 ## Included plugins
 
@@ -57,9 +54,9 @@ The **Notebooks** and **OpenSearch notification** plugins are part of
 **OpenSearch observability**.
 :::
 
-### Can't find the plugin you need?
+### Request a new plugin
 
-If you need a plugin but don't see it here, submit your request through
-our [Aiven Ideas](https://ideas.aiven.io/) portal. We\'re always looking
-to expand our offerings, and your feedback and ideas are important in
+To request a new plugin, submit an new idea through our [Aiven Ideas](https://ideas.aiven.io/)
+portal.
+We're always looking to expand our offerings, and your feedback and ideas are important in
 shaping the future updates of our product.
