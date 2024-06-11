@@ -72,7 +72,7 @@ Where:
 
   For a business-120 machine, `pgbouncer_max_client_connections` is 50000.
 
-## Why connection pooling?
+## Connection pooling benefits
 
 A high number of backend connections can become a problem with
 PostgreSQL, as the resource cost per connection is quite high due to how
