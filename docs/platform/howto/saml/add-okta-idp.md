@@ -28,15 +28,6 @@ Add Okta as an
 1.  On the **Sign On** tab, click **Edit**.
 1. In the **Advanced Sign-on Settings** set the **Metadata URL** and **ACS URL** to
    the URLs copied from the Aiven Console.
-1. Optional: In the **SAML 2.0** section, click **Attributes** and add an entry to the
-   **Attribute Statements** with the following. These
-    [statements](https://help.okta.com/en-us/content/topics/apps/define-attribute-statements.htm)
-    are inserted into the SAML assertions shared with Aiven.
-
-    | **Name** | **Name format** |  **Value**   |
-    | -------- | --------------- | ------------ |
-    | `email`  | `Unspecified`   | `user.email` |
-
 1. Set the **Default Relay State** for the console you use:
    - For the Aiven Console: `https://console.aiven.io`
    - For the Aiven GCP Marketplace Console: `https://console.gcp.aiven.io/`
