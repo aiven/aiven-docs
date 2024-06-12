@@ -33,6 +33,12 @@ The project name in your DNS records will not be updated.
 ## Move a project
 
 You can move a project to another organization or organizational unit.
+Users with admin access to projects can move them to another
+organizational unit or up a level to the organization.
+
+To move a project to a different organization, you must be a super admin
+of both organizations. All project members are removed when you
+move a project to a different organization.
 
 1.  In the organization with the project, click **Admin**.
 1.  Click **Projects** and find the project to move.
