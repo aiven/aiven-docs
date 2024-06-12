@@ -6,7 +6,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Teams are groups of users that you can assign to projects.
 
-:::important[Teams have been deprecated and are being migrated to groups]
+:::important
+**Teams have been deprecated and are being migrated to groups.**
 
 - **On September 2, 2024 the Account Owners team will be removed.**
 

@@ -5,7 +5,8 @@ sidebar_label: Migrate from teams to groups
 
 Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups) are an easier way to control access to your organization's projects and services for a group of users.
 
-:::important[Teams have been deprecated and are being migrated to groups.]
+:::important
+**Teams have been deprecated and are being migrated to groups.**
 
 - **On September 2, 2024 the Account Owners team will be removed.**
 
@@ -131,10 +132,6 @@ resource "aiven_account_team_project" "main" {
   team_type    = "admin"
 }
 ```
-:::tip
-Backup your Terraform state file `terraform.tfstate` to use in the case
-of a rollback.
-:::
 
 1. Replace the `aiven_account_team` resources with
    `aiven_organization_user_group`:
