@@ -22,9 +22,7 @@ Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups)
 - **On December 2, 2024 all teams will be migrated to groups and deleted.**
 
     To make the transition to groups smoother, you can
-    migrate your teams before this date. If you choose not to migrate to groups yourself
-    then you will have to [update your resources](#update-teams-resources)
-    after Aiven removes your teams.
+    migrate your teams before this date.
 :::
 
 ## Migrate teams to groups
