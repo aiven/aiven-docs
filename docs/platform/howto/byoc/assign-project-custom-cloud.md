@@ -84,8 +84,7 @@ custom cloud, you can:
 
 - Create new services in the custom cloud
 - Migrate existing services to your custom cloud if your service and networking
-  configuration allows it. For more information, contact the
-  [sales team](mailto:sales@aiven.io).
+  configuration allows it. For more information, contact your account team.
 
 ## Verify the update
 
