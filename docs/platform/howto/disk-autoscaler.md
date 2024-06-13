@@ -10,7 +10,7 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 <!-- vale off -->
 
 export const Example = () => (
-  <p>If you have a 500 GB plan and want to scale up to 1 TB using the autoscaler, the autoscaler value should be 1000 GB.</p>
+  <p>If you have a 500 GB plan and want to scale up to 1 TB using the autoscaler, the autoscaler value should be 1024 GB.</p>
 );
 
 <!-- vale on -->
@@ -109,7 +109,8 @@ Create an autoscaler endpoint:
     a desired organization and project.
 1.  On the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
 1.  Click **Aiven Autoscaler** > **Add new endpoint**.
-1.  Set the details of the endpoint, and click **Add endpoint**. The **Max. total disk storage (GB)** field includes your plan's storage.
+1.  Set the details of the endpoint, and click **Add endpoint**.
+    **Max. total disk storage (GB)** includes your plan's storage.
 
 :::note[Example]
 <Example/>
