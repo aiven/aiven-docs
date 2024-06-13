@@ -11,19 +11,19 @@ Teams are groups of users that you can assign to projects.
 
 - **On September 2, 2024 the Account Owners team will be removed.**
 
-    The Account Owners and super admin
-    are synced, so the removal of the Account Owners team will have no impact on your
-    operations. [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
-    have full access to organizations.
+  The Account Owners and super admin
+  are synced, so the removal of the Account Owners team will have no impact on your
+  operations. [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
+  have full access to organizations.
 
 - **From November 4, 2024 you won’t be able to create new teams or update existing ones.**
 
-    To simplify the move, Aiven will also begin migrating your existing teams to groups.
+  To simplify the move, Aiven will also begin migrating your existing teams to groups.
 
 - **On December 2, 2024 all teams will be migrated to groups and deleted.**
 
-    To make the transition to groups smoother, you can
-    [migrate your teams](#migrate-teams-to-groups) yourself.
+  To make the transition to groups smoother, you can
+  [migrate your teams](#migrate-teams-to-groups) yourself.
 :::
 
 ## Create a team
