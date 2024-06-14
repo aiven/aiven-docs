@@ -2,83 +2,64 @@
 title: Send logs to Datadog
 ---
 
-Use the Aiven Rsyslog integration to send the logs from your Aiven services to Datadog.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Before you begin, ensure you know:
+Use the Aiven Rsyslog integration to send logs from your Aiven services to your external Datadog account.
 
-- The region of your Datadog account.
-- Your Datadog API key. Generate an API key for your Datadog account
-  in the **Organization settings**, and click **API Keys** > **New Key**. Make sure to
-  copy this key.
-- An Aiven account with a project set up. You'll need the name of the
-  project.
+## Prerequisites
 
-## Configure the integration
+- A Datadog [API key](https://docs.datadoghq.com/account_management/api-app-keys/)
+- A running Aiven service
 
-Start by configuring the link between Aiven and Datadog for logs. This
-setup only needs to be done once.
+## Add a Syslog integration endpoint
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
-    **Integration endpoints** from the left sidebar in the project page.
-1.  Select **Syslog** from the list in the **Integration endpoints**
-    screen, and select **Add new endpoint**.
-1.  Configure the settings for the new endpoint:
-    -   **Endpoint name** is how you will refer to this logs integration
-        when linking it to other Aiven services
-    -   **Server** and **Port** (leave TLS enabled):
-        -   For region USA use `intake.logs.datadoghq.com` and `10516`
-        -   For region EU use `tcp-intake.logs.datadoghq.eu` and `443`
-    -   **Format** set to `custom`.
-1.  Configure the **Log Template** field. You will need to replace the
-    following values:
+You can use this integration endpoint for multiple services.
 
-    | Variable             | Description                        |
-    | -------------------- | ---------------------------------- |
-    | `DATADOG_API_KEY`    | From your Datadog account settings |
-    | `AIVEN_PROJECT_NAME` | Found in the web console           |
+1.  In the project, click <ConsoleLabel name="integration endpoints"/>.
+1.  Select **Syslog** > **Create new** or **Add new endpoint**.
+1.  Enter an **Endpoint name**.
+1.  Configure the **Server**:
+      - For the US region enter `intake.logs.datadoghq.com`.
+      - For the EU region use `tcp-intake.logs.datadoghq.eu`.
+1.  Configure the **Port**:
+      - For the US region enter `10516`.
+      - For the EU region enter `443`.
+1.  Enable **TLS**.
+1.  Set the **Format** to `custom`.
+1.  To configure the **Log Template**, enter:
+    ```text
+    DATADOG_API_KEY <%pri%>1 %timestamp:::date-rfc3339% %HOSTNAME%.AIVEN_PROJECT_NAME %app-name% - - - %msg%
+    ```
+    Where:
+    - `DATADOG_API_KEY` is your Datadog API key.
+    - `AIVEN_PROJECT_NAME` is the name of the project your service is in.
 
-This is the format to use, replacing the variables listed. Don't edit
-the values surrounded by `%` signs, such as `%msg%` as these are used in
-constructing the log line:
+      :::note
+      Datadog correlates metrics and logs by hostname. The integration
+      appends the project name to the hostname to disambiguate between services
+      with the same name in different projects. However, without the project name
+      no log data is lost.
+      :::
 
-```text
-DATADOG_API_KEY <%pri%>1 %timestamp:::date-rfc3339% %HOSTNAME%.AIVEN_PROJECT_NAME %app-name% - - - %msg%
-```
+    Don't edit the values surrounded by `%`, such as `%msg%`, as these are used in
+    constructing the log line.
 
-An example of the correct format, using an example API key and
-`my_project` as the project name:
+    For example:
+    ```text
+    01234567890123456789abcdefabcdef <%pri%>1 %timestamp:::date-rfc3339% %HOSTNAME%.example-project %app-name% - - - %msg%
+    ```
 
-`01234567890123456789abcdefabcdef <%pri%>1 %timestamp:::date-rfc3339% %HOSTNAME%.my_project %app-name% - - - %msg%`
-
-:::note
-Metrics and logs are correlated in Datadog by hostname. The metrics
-integration is currently configured to append the project name to the
-hostname to disambiguate between services that have the same
-name in different projects. Adding the project name to the hostname in
-the syslog integration to Datadog assures that they can be correlated
-again in the Datadog dashboard. Not doing so will not result in missing
-logs, but the logs that appear in Datadog will miss tags that come from
-this correlation with the metrics. See the [Datadog
-documentation](https://docs.datadoghq.com/integrations/rsyslog).
-:::
-
-1.  Select **Create** to save the endpoint.
+1.  Click **Create**.
 
 ## Send logs from an Aiven service to Datadog
-<!-- vale off -->
-To send logs to Datadog:
 
-1.  On the **Overview** page of your service, select **Integrations**
-    from the sidebar, and select the **Rsyslog** option.
+1.  In the service, click **Integrations**.
+1.  In the **Endpoint integrations** select **Rsyslog**.
+1.  Select the integration endpoint you created and click **Enable**.
 
-    ![Screenshot of system integrations including rsyslog](/images/content/integrations/rsyslog-service-integration.png)
-
-1.  Pick the log integration you created earlier from the dropdown and
-    choose **Enable**.
-
-1.  Visit Datadog and look under "Logs" to see the data flowing within
-    a few minutes.
-<!-- vale on -->
 ## Related pages
 
-- [Datadog and Aiven](/docs/integrations/datadog)
+- Learn more about [Datadog and Aiven](/docs/integrations/datadog).
+- [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
+- Enable
+  [database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).

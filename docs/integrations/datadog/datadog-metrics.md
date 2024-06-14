@@ -4,62 +4,43 @@ title: Send metrics to Datadog
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Send metrics from your Aiven service to your Datadog account.
+Send metrics from your Aiven service to your external Datadog account.
 
-## Prepare your Datadog account
+## Prerequisites
 
-Before you begin, ensure you know:
+- A Datadog account
+- A Datadog [API key](https://docs.datadoghq.com/account_management/api-app-keys/)
+- A running Aiven service
 
-- The region of your Datadog account.
-- Your Datadog API key. Generate an API key for your Datadog account
-  in the **Organization settings**, and click **API Keys** > **New Key**. Make sure to
-  copy this key.
+## Add a Datadog integration endpoint
 
-## Configure the service integration endpoint
+You can use the Datadog integration endpoint for multiple services.
 
-This section needs to be completed only once for each Datadog account
-you intend to use. Afterward, multiple services can use this service
-integration endpoint.
+1.  In the project, click <ConsoleLabel name="integration endpoints"/>.
+1.  Select **Datadog** > **Create new** or **Add new endpoint**.
+1.  Enter a name for the endpoint and your Datadog **API key**.
+1.  Select the Datadog **Site** that you use. The site is shown in your
+    [Datadog website URL](https://docs.datadoghq.com/getting_started/site/).
+1.  Optional: Add [custom tags](/docs/integrations/datadog/add-custom-tags-to-datadog)
+    to send with the metrics to Datadog.
+1.  Click **Add endpoint**.
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  In your project, click <ConsoleLabel name="integration endpoints"/>.
-1.  Select **Datadog** > **Add new endpoint** or **Create new**.
-1.  Configure the endpoint by providing a name for this integration and
-    entering the API key you copied earlier. Ensure that the correct
-    region is selected.
+## Add a Datadog metrics integration to an Aiven service
 
-1.  Optionally, include additional tags that will be used when sending
-    metrics to Datadog. Refer to
-    [Add custom tags Datadog integration](/docs/integrations/datadog/add-custom-tags-to-datadog) to learn more about adding tags to the Datadog
-    integration. You can always add or edit tags later.
-1.  Select **Add endpoint** to save this configuration.
+1.  In the service, click **Integrations**.
+1.  In the **Endpoint integrations** select **Datadog Metrics**.
+1.  Select your Datadog integration endpoint and click **Enable**.
 
-## Add Datadog metrics integration to your Aiven service
+:::tip
+For Aiven for Apache Kafka® services you can also
+[customize the metrics sent to Datadog](/docs/products/kafka/howto/datadog-customised-metrics).
+:::
 
-To enable the Datadog metrics integration for each service that requires
-metric tracking in Datadog, follow these steps:
-
-1.  In the [Aiven Console](https://console.aiven.io/), select your
-    service.
-1.  From the **Overview** page of your service, scroll to **Service
-    integrations** and select **Manage integrations**.
-1.  In the **Integrations** screen, select **Datadog Metrics**.
-1.  Select the Datadog endpoint to use from the drop-down list
-    and select **Enable**.
-
-    :::tip
-    If you're using Aiven for Apache Kafka® you can also
-    [customise the metrics sent to Datadog](/docs/products/kafka/howto/datadog-customised-metrics).
-    :::
-
-1.  Return to your Datadog dashboard and after a few minutes, you should
-    see the data start to arrive from your Aiven services.
+You can see the metrics data on your Datadog dashboard.
 
 ## Related pages
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
-- For information on how to enable
-  [database monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/)
-  for a specific Datadog Metrics integration, see
-  [Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).
+- Enable
+  [database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).
