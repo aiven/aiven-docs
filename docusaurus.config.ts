@@ -90,11 +90,15 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-
         {
           label: 'API reference',
           position: 'left',
           href: 'https://api.aiven.io/doc/',
+        },
+        {
+          label: 'Support',
+          to: 'platform/howto/support',
+          position: 'left',
         },
         {
           label: 'Changelog',
