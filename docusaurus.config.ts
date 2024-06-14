@@ -77,8 +77,8 @@ const config: Config = {
       title: 'aiven',
       logo: {
         alt: 'Aiven docs',
-        src: 'images/logo.svg',
-        srcDark: 'images/logoDark.svg',
+        src: 'images/logo-pride.svg',
+        srcDark: 'images/logoDark-pride.svg',
       },
       items: [
         {
