@@ -62,8 +62,7 @@ contacts for your custom cloud.
     :::note
     See [Aiven support tiers](https://aiven.io/support-services) and
     [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC.
-    Contact the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support
-    tier.
+    Contact your account team to learn more or upgrade your support tier.
     :::
 
 -   To build your custom cloud with a cloud provider other
@@ -593,7 +592,7 @@ Select in what projects you'll be able to use your new custom cloud as a hosting
 services. In the projects where you enable your custom cloud, you can create new
 services in the custom cloud or migrate your existing services to the custom cloud if your
 service and networking configuration allows it. For more information on migrating your
-existing services to the custom cloud, contact the [sales team](mailto:sales@aiven.io).
+existing services to the custom cloud, contact your account team.
 
 Your cloud can be available in:
 
@@ -674,7 +673,7 @@ custom cloud is ready to use and you can see it on the list of your custom cloud
 **Bring your own cloud** view. Now you can create new services in the custom cloud or
 migrate your existing services to the custom cloud if your service and networking
 configuration allows it. For more information on migrating your existing services to the
-custom cloud, contact the [sales team](mailto:sales@aiven.io).
+custom cloud, contact your account team.
 
 #### Destroy the Terraform resources
 
@@ -697,7 +696,7 @@ When creating a service in the [Aiven Console](https://console.aiven.io/), at th
 ### Migrate existing services to the custom cloud
 
 Whether you can migrate existing services to the custom cloud depends on your service and
-networking configuration. Contact the [sales team](mailto:sales@aiven.io) for more
+networking configuration. Contact your account team for more
 information.
 
 ## Related pages
