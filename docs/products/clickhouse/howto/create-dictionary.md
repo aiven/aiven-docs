@@ -55,7 +55,7 @@ with two exceptions,`ssd_cache` and `complex_key_ssd_cache`, which are not suppo
 To create a dictionary with specified structure (attributes), source, layout, and lifetime,
 use the following syntax:
 
-```sgl
+```sql
 CREATE [OR REPLACE] DICTIONARY [IF NOT EXISTS] [db.]dictionary_name
 (
     key1 type1  [DEFAULT|EXPRESSION expr1] [IS_OBJECT_ID],
@@ -72,3 +72,149 @@ COMMENT 'Comment'
 ```
 
 ## Examples
+
+### Speeding up `JOIN`s
+
+1. Create tables in your ClickHouse database:
+
+    ```sql
+    CREATE TABLE users
+    (
+        id UInt64,
+        username String,
+        email String,
+        country String
+    )
+    ENGINE = MergeTree()
+    ORDER BY id;
+    ```
+
+    ```sql
+    CREATE TABLE transactions
+    (
+        id UInt64,
+        user_id UInt64,
+        product_id UInt64,
+        quantity Float64,
+        price Float64
+    )
+    ENGINE = MergeTree()
+    ORDER BY id;
+    ```
+
+1. Create a dictionary for the `users` table:
+
+    ```sql
+    CREATE DICTIONARY users_dictionary
+    (
+        id UInt64,
+        username String,
+        email String,
+        country String
+    )
+    PRIMARY KEY id
+    SOURCE(CLICKHOUSE(DB 'default' TABLE 'users'))
+    LAYOUT(FLAT())
+    LIFETIME(100);
+    ```
+
+    You can do the same using the `QUERY` parameter:
+
+    ```sql
+    CREATE DICTIONARY users_dictionary
+    (
+        id UInt64,
+        username String,
+        email String,
+        country String
+    )
+    PRIMARY KEY id
+    SOURCE(CLICKHOUSE(QUERY 'SELECT id, username, email, country FROM default.users'))
+    LAYOUT(FLAT())
+    LIFETIME(100);
+    ```
+
+`JOIN`s are much faster as the data is pre-indexed in memory.
+
+```sql
+SELECT
+    t.id,
+    u.username,
+    t.product_id,
+    t.quantity,
+    t.price
+FROM transactions AS t
+ANY LEFT JOIN users_dictionary AS u
+ON t.user_id = u.id;
+```
+
+### Caching data from an external database / URL
+
+- Create a dictionary for the `pricing` table in your MySQL database using a composite key:
+
+  ```sql
+  CREATE DICTIONARY product_pricing
+  (
+      product_id UInt64,
+      region String,
+      price Float64 DEFAULT 0.0
+  )
+  PRIMARY KEY product_id, region_id
+  SOURCE(MYSQL(NAME mysql_named_collection DB 'product_db' TABLE 'pricing'))
+  LAYOUT(COMPLEX_KEY_HASHED())
+  LIFETIME(MIN 600 MAX 900);
+  ```
+
+  This will periodically query the upstream MySQL and store the data in memory.
+
+- Create a dictionary for the `pricing` table in your PostgreSQL database using the `FLAT`
+  layout:
+
+  ```sql
+  CREATE DICTIONARY product_pricing
+  (
+      product_id UInt64,
+      price Float64 DEFAULT 0.0
+  )
+  PRIMARY KEY product_id
+  SOURCE(POSTGRESQL(NAME psql_named_collection DB 'product_db' SCHEMA 'schema' TABLE 'pricing'))
+  LAYOUT(FLAT())
+  LIFETIME(0);
+  ```
+
+  Because `LIFETIME` is `0`, it has to be manually refreshed as follows:
+
+  ```sql
+  SYSTEM RELOAD DICTIONARY product_pricing;
+  ```
+
+- Create a dictionary with `HTTP` as a source:
+
+  ```sql
+  CREATE DICTIONARY currency_rates
+  (
+      currency_code String,
+      rate Float64 DEFAULT 1.0
+  )
+  PRIMARY KEY currency_code
+  SOURCE(HTTP(URL 'https://example.com/currency_rates.csv' FORMAT CSV))
+  LAYOUT(COMPLEX_KEY_HASHED())
+  LIFETIME(100);
+  ```
+
+- Create a dictionary for the `users` table in your ClickHouse database using the `FLAT`
+  layout:
+
+  ```sql
+  CREATE DICTIONARY users_dictionary_remote
+  (
+      id UInt64,
+      username String,
+      email String,
+      country String
+  )
+  PRIMARY KEY id
+  SOURCE(CLICKHOUSE(NAME remote_clickhouse_named_collection DB 'default' TABLE 'users'))
+  LAYOUT(FLAT())
+  LIFETIME(100);
+  ```
