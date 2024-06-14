@@ -1,30 +1,62 @@
 ---
 title: Get started with Aiven
-sidebar_label: Overview
+sidebar_label: Get started
 ---
 
+import Button from "@site/src/components/Buttons";
+import {ButtonSecondary} from "@site/src/components/Buttons";
+import Card from "@site/src/components/AivenCard";
+import Overview from "@site/static/images/content/platform/platform-overview.webp";
+
+<!-- vale off -->
+
 Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
+All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external 3rd party tools.
 
+<img src={Overview} class="centered" alt="" width="62%" />
 
-## Sign up
+## Discover the Aiven platform
 
-Aiven offers
-[free plans](/docs/platform/concepts/free-plan) and
+**Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
 [30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
 
-[Sign up now](https://console.aiven.io/signup) to start using Aiven for
-free.
 
-You can also use Aiven services through the
-[AWS, Azure, or Google marketplaces](/docs/marketplace-setup).
+<div class="getStarted gap-sm">
+<Button to="https://console.aiven.io/signup">Sign up</Button>
+<ButtonSecondary to="https://aiven.io/changelog">See Product Updates</ButtonSecondary>
+</div>
 
-## What's new
+## First steps with Aiven
 
-Discover the latest features, fixes, and improvements on the [product
-updates page](https://aiven.io/changelog).
+1. [Create an organization](/docs/tools/aiven-console/howto/create-orgs-and-units).
+   An [organization](/docs/platform/concepts/orgs-units-projects) contains your projects and users.
+1. [Create your first service](/docs/platform/howto/create_new_service) and select the
+   plan for your use case.
+1. [Create service integrations](/docs/platform/howto/create-service-integration).
+1. [Start using our dev tools](/docs/tools) to interact with your services.
 
-## Start browsing our docs
+## Learn more
 
-import DocCardList from '@theme/DocCardList';
+<div class="getStarted">
 
-<DocCardList />
+  <Card iconName="dbBackup"
+        to="/docs/platform/concepts/service_backups"
+        title="Backups"
+        description="Learn about backup schedule and retention."
+  />
+
+  <Card iconName="orgUnit"
+        to="/docs/platform/concepts/orgs-units-projects"
+        title="Organizations"
+        description="Learn about managing your organization."
+  />
+
+  <Card iconName="terraform"
+        to="/docs/tools/terraform/get-started"
+        title="Terraform"
+        description="Interact with your services via Terraform."
+  />
+
+
+
+</div>
