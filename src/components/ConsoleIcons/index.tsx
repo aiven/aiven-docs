@@ -152,7 +152,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'makesuperadmin':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.superadmin} /> <b>Make super admin</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.superadmin} />{' '}
+          <b>Make super admin</b>
         </>
       );
     case 'viewuserprofile':
@@ -258,6 +259,12 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.refresh} />{' '}
           <b>Reset password</b>
+        </>
+      );
+    case 'replacefile':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Replace file</b>
         </>
       );
     case 'editaclrules':
