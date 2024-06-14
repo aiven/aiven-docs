@@ -7,7 +7,7 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
 ## Create a project
 
-1.  Click **Projects** and select **Create project**.
+1.  Click <ConsoleLabel name="Projects"/> and select **Create project**.
 2.  Enter a name for the project.
 3.  Select an organization or organizational unit to add the project to.
 4.  Select a [billing group](/docs/platform/concepts/billing-groups).
@@ -36,12 +36,13 @@ You can move a project to another organization or organizational unit.
 Users with admin access to projects can move them to another
 organizational unit or up a level to the organization.
 
-To move a project to a different organization, you must be a super admin
-of both organizations. All project members are removed when you
+To move a project to a different organization, you must be a
+[super admin](/docs/platform/howto/make-super-admin) of both organizations.
+All project members are removed when you
 move a project to a different organization.
 
 1.  In the organization with the project, click **Admin**.
-1.  Click **Projects** and find the project to move.
+1.  Click <ConsoleLabel name="Projects"/> and find the project to move.
 1.  Click <ConsoleIcon name="more"/> > <ConsoleLabel name="Move project"/>.
 1.  Select the organization or organizational unit to move the project to.
 1.  Select a **Billing group**.
