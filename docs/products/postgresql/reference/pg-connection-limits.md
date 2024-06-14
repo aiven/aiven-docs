@@ -9,12 +9,16 @@ follows:
 
 | Plan                                                    | Max Connections |
 | ------------------------------------------------------- | --------------- |
+| Free (DigitalOcean only)                                | 20              |
 | Hobbyist (Google Cloud, DigitalOcean, and UpCloud only) | 25              |
 | Startup/Business/Premium-4                              | 100             |
 | Startup/Business/Premium-8                              | 200             |
 | Startup/Business/Premium-16                             | 400             |
 | Startup/Business/Premium-32                             | 800             |
 | Startup/Business/Premium-64 and above                   | 1000            |
+
+Three connections are reserved for the platform for administrative purposes,
+and others may be used for replication.
 
 When several clients or client threads are connecting to the database,
 Aiven recommends using
