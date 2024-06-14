@@ -517,10 +517,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Services',
-      link: {
-        id: 'products/services',
-        type: 'doc',
-      },
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
       items: [
         {
           type: 'category',
