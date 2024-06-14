@@ -1,13 +1,13 @@
 ---
 title: Connection limits per plan for Aiven for PostgreSQL®
+sidebar_label: Connection limits per plan
 ---
 
-Aiven for PostgreSQL® instances limit the number of allowed connections
-to make sure that the database is able to serve them all. The
-`max_connections` setting varies according to the service plan as
-follows:
+Aiven for PostgreSQL® instances limit the number of allowed connections to make sure that the database is able to serve them all.
 
-| Plan                                                    | Max Connections |
+The `max_connections` setting varies according to the service plan as follows:
+
+| Plan                                                    | Max connections |
 | ------------------------------------------------------- | --------------- |
 | Free (DigitalOcean only)                                | 20              |
 | Hobbyist (Google Cloud, DigitalOcean, and UpCloud only) | 25              |
@@ -16,9 +16,6 @@ follows:
 | Startup/Business/Premium-16                             | 400             |
 | Startup/Business/Premium-32                             | 800             |
 | Startup/Business/Premium-64 and above                   | 1000            |
-
-Three connections are reserved for the platform for administrative purposes,
-and others may be used for replication.
 
 When several clients or client threads are connecting to the database,
 Aiven recommends using
