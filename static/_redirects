@@ -56,3 +56,13 @@
 /tools/terraform/list-vpc-terraform                    https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking
 
 /products/flink/howto/list-get-started                 https://aiven.io/docs/products/flink/get-started
+
+/platform/howto/change-support-tier                        https://aiven.io/docs/platform/howto/support
+/platform/howto/migrate-services                           https://aiven.io/docs/products/postgresql/howto/list-replication-migration
+/products/flink/howto/real-time-alerting-solution          https://aiven.io/docs/products/flink/howto/list-get-started
+/products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
+/products/opensearch/howto/upgrade-to-opensearch           https://aiven.io/docs/products/opensearch/howto/upgrade-clients-to-opensearch
+/tools/terraform/reference/cookbook/kafka-flink-integration-recipe     https://aiven.io/developer/apache-kafka-to-opensearch-terraform
+/platform/howto/enable-aiven-password                                  https://aiven.io/docs/platform/reference/password-policy
+/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe     https://aiven.io/docs/tools/terraform/get-started
+/tools/terraform/reference/cookbook/multicloud-postgresql-recipe       https://aiven.io/developer/multicloud-postgresql-terraform
