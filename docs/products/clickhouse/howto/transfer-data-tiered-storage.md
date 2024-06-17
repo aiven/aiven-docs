@@ -42,7 +42,7 @@ Now, with the tiered storage feature
 [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your data is moved from
 SSD to object storage when the SSD reaches 80% of its capacity.
 
-note:::
+:::note
 You can also
 [configure your tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 so that data is moved to object storage at a specific time.
