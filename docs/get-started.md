@@ -1,6 +1,6 @@
 ---
 title: Get started with Aiven
-sidebar_label: Get started
+sidebar_label: Overview
 ---
 
 Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
