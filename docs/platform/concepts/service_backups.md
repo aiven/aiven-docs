@@ -270,26 +270,34 @@ To be notified once the PITR feature is available for Cassandra, contact the Aiv
 
 ### Aiven for Caching
 
-Aiven for Caching backups are taken every 12 hours.
+Aiven for Caching automatically backs up data every 12 hours and supports configurable
+data persistence using Redis Database Backup (RDB).
 
-For persistence, Aiven supports Redis Database Backup (RDB).
+#### Persistence settings
 
-You can control the persistence feature using `redis_persistence` under
-**Advanced configuration** in [Aiven Console](https://console.aiven.io/)
-(the service's **Service settings** page):
+You can configure the `redis_persistence` settings from the **Advanced configuration**
+section on your **Service settings** page in the [Aiven Console](https://console.aiven.io).
 
-- When `redis_persistence` is set to `rdb`, Aiven for Caching does RDB dumps every
-  10 minutes if any key is changed. Also, RDB dumps are done according
-  to the backup schedule for backup purposes.
-- When `redis_persistence` is `off`, no RDB dumps or backups are done,
-  so data can be lost at any moment if the service is restarted for
-  any reason or if the service is powered off. This also means the
-  service can't be forked.
+- **Enabled (`rdb`)**: When you set `redis_persistence` to `rdb`, Aiven for Caching
+  performs RDB dumps every 10 minutes whenever a key changes. These dumps align with
+  the regular backup schedule to enhance data protection.
+- **Disabled (`off`)**: Setting `redis_persistence` to `off` stops all RDB dumps and
+  backups. If the service restarts or powers off for any reason, you may lose any
+  data not yet backed up. Additionally, you cannot fork or replicate the service,
+  which can affect potential scaling or disaster recovery plans.
+
+  :::warning
+  If you disable `redis_persistence`, the system immediately deletes all existing
+  backups, preventing any data recovery from those backups. Re-enabling persistence
+  starts a new backup cycle, but it won't restore any previously stored data.
+  :::
 
 :::note
-AOF persistence is currently not supported by Aiven for the managed
+The Append Only File (AOF) persistence method is not supported for the managed
 Aiven for Caching service.
 :::
+
+
 
 ### Aiven for ClickHouse®
 
