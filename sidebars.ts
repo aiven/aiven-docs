@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
   main: [
     {
       type: 'category',
-      label: 'Overview',
+      label: 'Get started',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
