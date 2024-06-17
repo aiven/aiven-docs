@@ -15,9 +15,12 @@ const sidebars: SidebarsConfig = {
   main: [
     {
       type: 'category',
-      label: 'Get started',
-      link: {id: 'get-started', type: 'doc'},
+      label: 'Overview',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
       items: [
+        'get-started',
         'platform/concepts/free-plan',
         'platform/concepts/free-trial',
         'marketplace-setup',
