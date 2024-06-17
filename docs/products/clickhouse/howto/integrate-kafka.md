@@ -42,7 +42,7 @@ The following variables will be used later in the code snippets:
 | `KAFKA_SERVICE_NAME`      | Name of the Apache Kafka service you use for the integration.                                              |
 | `PROJECT`                 | Name of Aiven project where your services are located.                                                     |
 | `CONNECTOR_TABLE_NAME`    | Name of the Kafka engine virtual table that is used as a connector.                                        |
-| [DATA_FORMAT`             | Input/output data format in which data is accepted into Aiven for ClickHouse. See [Reference](#reference). |
+| `DATA_FORMAT`             | Input/output data format in which data is accepted into Aiven for ClickHouse. See [Reference](#reference). |
 | `CONSUMER_GROUP_NAME`     | Name of the consumer group. Each message is delivered once per consumer group.                             |
 
 ## Create an integration
@@ -73,11 +73,11 @@ For each table, there are mandatory and optional setting to be defined.
 
 ### Mandatory settings
 
-For each table, you need to define the following:
+For each table, define the following:
 
 -   `name` - name of the connector table
 -   `columns` - array of columns, with names and types
--   `topics` - array of topics, where you want to bring the data from
+-   `topics` - array of topics, where to bring the data from
 -   `data_format` - your preferred format for data input, see
     [Formats for ClickHouse®-Kafka® data exchange](/docs/products/clickhouse/reference/supported-input-output-formats)
 -   `group_name` - consumer group name, that will be created on your
@@ -109,7 +109,7 @@ For each table, you can define the following optional settings:
 | `auto_offset_reset`      | Action to take when there is no initial offset in the offset store or the desired offset is out of range | `earliest` | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` | \--     | \--             |
 | `date_time_input_format` | Method to read `DateTime` from text input formats                                                        | `basic`    | `basic`, `best_effort`, `best_effort_us`                        | \--     | \--             |
 | `handle_error_mode`      | Method to handle errors for the Kafka engine                                                             | `default`  | `default`, `stream`                                             | \--     | \--             |
-| `max_block_size`         | Number of rows collected by poll(s) for flushing data from Kafka                                         | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+| `max_block_size`         | Number of rows collected by a poll for flushing data from Kafka                                         | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
 | `max_rows_per_message`   | Maximum number of rows produced in one Kafka message for row-based formats                               | `1`        | `1` - `1_000_000_000`                                           | `1`     | `1_000_000_000` |
 | `num_consumers`          | Number of consumers per table per replica                                                                | `1`        | `1` - `10`                                                      | `1`     | `10`            |
 | `poll_max_batch_size`    | Maximum amount of messages to be polled in a single Kafka poll                                           | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
