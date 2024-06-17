@@ -81,10 +81,10 @@
   --ifm-toc-border-color: var(--aiven-grey-80) !important;
   --nav-btn-primary-bg-hover: var(--aiven-primary-60);
   --nav-btn-primary-bg: var(--aiven-primary-70);
-  --nav-btn-primary-text-color-hover: var(--aiven-primary-60);
+  --nav-btn-primary-text-color-hover: var(--aiven-primary-80);
   --nav-btn-primary-text-color: var(--ifm-button-color);
   --nav-btn-primary-text-hover-color: var(--aiven-grey-90);
-  --nav-btn-secondary-text-color-hover: var(--aiven-primary-60);
+  --nav-btn-secondary-text-color-hover: var(--aiven-primary-80);
   --nav-btn-secondary-text-color: var(--aiven-primary-70);
 }
 
