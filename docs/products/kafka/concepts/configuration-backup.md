@@ -1,50 +1,47 @@
 ---
-title: Configuration backups for Apache Kafka®
+title: Configuration backups for Aiven for Apache Kafka®
+sidebar_label: Configuration backups
 ---
+Aiven for Apache Kafka® includes **configuration backups** that automatically back up key service configurations at no additional cost.
 
-Aiven for Apache Kafka® includes **configuration backups** that
-automatically back up key Apache Kafka® service configurations for you
-without any additional costs.
+By eliminating the need for manual reconfiguration, Aiven for Apache Kafka® configuration
+backups streamline disaster recovery and service restoration. This ensures a reliable
+way to restore your service configurations after an incident or when powering off/on your
+service, saving you valuable time and resources.
 
-Suppose the Apache Kafka® service is powered off/on or an incident
-causes the Apache Kafka cluster to stop functioning. In that case, the
-configuration backup enables the restoration of your Apache Kafka®
-service to its previous state.
+## What is backed up
 
-## Whats included in configuration backups
+Configuration backups cover the following components of your Aiven for Apache
+Kafka service:
 
-The following data are backed up in the configuration backups:
+- **Apache Kafka topics**: Including related configuration parameters such as
+  retention time and number of partitions.
+- **Apache Kafka users and ACLs**: User permissions and access control lists are included.
+- **Schema Registry data**: Including schema definitions, schema IDs, configurations
+  (such as compatibility level), subjects, and subject versions.
+- **Apache Kafka Connect configurations**: Includes all related settings.
 
--   Apache Kafka® topic-related configurations.
--   Everything related to Schema Registry (schemas, ids, subjects,
-    compatibility levels).
--   Apache Kafka® Connect configurations.
+## How backups work
 
-## Benefits of configuration backups
-
-Some of the key benefits of configuration backups include the following:
-
--   Configuration backups are automatically enabled and stored in the
-    Cloud storage.
-
--   Configurations are backed up in 3 hours intervals.
-
--   It helps with speedy disaster recovery in certain situations.
-
-    :::note
-    In a rare scenario where all the nodes are lost, the configurations
-    are lost and not accessible anymore.
-    :::
-
--   It helps application users with a quick re-creation of Apache Kafka®
-    services, allowing them to focus on development tasks rather than
-    re-configuring the platform.
+- **Automatic backups**: Backups are enabled by default and stored in cloud storage
+  every 3 hours.
+- **Encryption**: Backups are encrypted for security, preventing direct access by
+  users.
+- **Automatic restoration and configuration retention**: Configuration backups are
+  automatically restored (using the latest backup) after a power off/on cycle or cluster
+  failure. This ensures your service configurations are retained and ready for use.
 
 ## Limitations
 
-Configuration backups do not back up the actual data stored in topics,
-consumer groups, and their offsets. Only the Apache Kafka® cluster
-configurations are backed up.
+While configuration backups offer significant benefits, there are some limitations:
 
-For additional support with configuration backups for your Aiven for
-Apache Kafka® services, contact [support@aiven.io](mailto:support@aiven.io).
+- **No data backups**: Configuration backups do not include the actual data stored in
+  topics, consumer groups, and their offsets. Only the cluster configurations are
+  backed up.
+- **Latest backup restoration**: Restoration is always from the latest backup available.
+  You cannot choose a specific backup for restoration.
+
+## Additional support
+
+For additional support with configuration backups for your Aiven for Apache Kafka®
+services, contact [support@aiven.io](mailto:support@aiven.io).
