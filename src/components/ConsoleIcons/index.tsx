@@ -27,10 +27,23 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Service settings</b>
         </>
       );
-    case 'projectsettings':
+    case 'projects':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.projects} /> <b>Projects</b>
+        </>
+      );
+      case 'projectsettings':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Settings</b>
+        </>
+      );
+    case 'moveproject':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.moveProject} />{' '}
+          <b>Move project</b>
         </>
       );
     case 'integrations':
