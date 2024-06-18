@@ -21,7 +21,7 @@
 .buttonPrimary:focus {
   background-color: var(--aiven-button-primary-bg-hover);
   border-color: var(--aiven-button-primary-bg-hover);
-  color: var(--nav-btn-primary-text-color-hover);
+  color: white !important;
 }
 
 .buttonSecondary {

@@ -40,12 +40,12 @@
   --ifm-link-color: var(--aiven-primary-80);
   --ifm-menu-color-active: var(--aiven-primary-80);
   --ifm-menu-color: var(--aiven-grey-60);
-  --nav-btn-primary-bg-hover: var(--aiven-primary-80);
+  --nav-btn-primary-bg-hover: var(--aiven-primary-90);
   --nav-btn-primary-bg: var(--ifm-link-color);
-  --nav-btn-primary-text-color-hover: var(--aiven-primary-90);
+  --nav-btn-primary-text-color-hover: white;
   --nav-btn-primary-text-color: var(--ifm-button-color);
-  --nav-btn-secondary-text-color-hover: var(--aiven-primary-90);
-  --nav-btn-secondary-text-color: var(--aiven-primary-70);
+  --nav-btn-secondary-text-color-hover: var(--nav-btn-primary-bg-hover);
+  --nav-btn-secondary-text-color: var(--nav-btn-primary-bg);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
 }
 
