@@ -14,8 +14,8 @@ service, saving you valuable time and resources.
 Configuration backups cover the following components of your Aiven for Apache
 Kafka service:
 
-- **Apache Kafka topics**: Including related configuration parameters such as
-  retention time and number of partitions.
+- **Apache Kafka topics configurations**: Including related configuration parameters such
+  as retention time and number of partitions.
 - **Apache Kafka users and ACLs**: User permissions and access control lists are included.
 - **Schema Registry data**: Including schema definitions, schema IDs, configurations
   (such as compatibility level), subjects, and subject versions.
@@ -28,8 +28,8 @@ Kafka service:
 - **Encryption**: Backups are encrypted for security, preventing direct access by
   users.
 - **Automatic restoration and configuration retention**: Configuration backups are
-  automatically restored (using the latest backup) after a power off/on cycle or cluster
-  failure. This ensures your service configurations are retained and ready for use.
+  automatically restored (using the latest backup) after a power off/on cycle. This
+  ensures your service configurations are retained and ready for use.
 
 ## Limitations
 
