@@ -3,20 +3,15 @@ title: Manage users and access control in Aiven for OpenSearch®
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Effective access control and permissions management are crucial for
-Aiven for OpenSearch service users. In Aiven for OpenSearch, you can
-manage users and permissions by creating Access Control Lists (ACLs)
-through the Aiven Console.
+Manage users and permissions in Aiven for OpenSearch by creating Access Control Lists (ACLs) through the Aiven Console.
 
-By using the **Users** tab in the [Aiven
-Console](https://console.aiven.io) for your Aiven for OpenSearch
-service, you can manage access control and permissions for your service
-users. You can create new users, modify their details, and assign index
-patterns and permissions for each user.
+Use the **Users** tab in the [Aiven Console](https://console.aiven.io) to manage access
+control and permissions for your Aiven for OpenSearch service. Create users, modify their
+details, and assign index patterns and permissions.
 
 Alternatively, you can enable
-[OpenSearch Security management](/docs/products/opensearch/howto/enable-opensearch-security) for your Aiven for OpenSearch service and manage users and
-permissions via the OpenSearch Security dashboard.
+[OpenSearch Security management](/docs/products/opensearch/howto/enable-opensearch-security)
+to manage users and permissions via the OpenSearch Security dashboard.
 
 :::note
 ACLs apply only to indices and do not control access to other OpenSearch APIs,

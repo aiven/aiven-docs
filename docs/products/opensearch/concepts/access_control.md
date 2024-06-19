@@ -2,10 +2,7 @@
 title: Access control in Aiven for OpenSearch®
 ---
 
-Access control is a crucial security measure that allows you to control
-who can access your data and resources. By setting up access control
-rules, you can restrict access to sensitive data and prevent
-unauthorized changes or deletions.
+Access control is a crucial security measure that allows you to control who can access your data and resources. By setting up access control rules, you can restrict access to sensitive data and prevent unauthorized changes or deletions.
 
 Aiven for OpenSearch® provides the following ways to manage user
 accounts and access control in OpenSearch®.
