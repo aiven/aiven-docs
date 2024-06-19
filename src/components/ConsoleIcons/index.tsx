@@ -59,7 +59,6 @@ export default function ConsoleLabel({name}): ReactElement {
         </>
       );
     case 'projectsettings':
-    case 'projectsettings':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Settings</b>
@@ -389,6 +388,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.award} /> <b>Approvals</b>
+        </>
+      );
+    case 'showpassword':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} />{' '}
+          <b>Show password</b>
         </>
       );
     default:

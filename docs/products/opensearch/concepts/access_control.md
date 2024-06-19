@@ -26,6 +26,11 @@ for each user by setting up individual \"pattern/permission\" rules. The
 applies and uses glob-style matching, where \* matches any number of
 characters (including none) and ? matches any single character.
 
+:::note
+ACLs apply only to indices and do not control access to other OpenSearch APIs,
+including OpenSearch Dashboards.
+:::
+
 For more information about access control, patterns and permissions, see
 [Understanding access control in Aiven for OpenSearch®](/docs/products/opensearch/concepts/users-access-controls).
 

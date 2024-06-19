@@ -1,6 +1,7 @@
 ---
 title: Manage users and access control in Aiven for OpenSearch®
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Effective access control and permissions management are crucial for
 Aiven for OpenSearch service users. In Aiven for OpenSearch, you can
@@ -13,23 +14,26 @@ service, you can manage access control and permissions for your service
 users. You can create new users, modify their details, and assign index
 patterns and permissions for each user.
 
-:::note
 Alternatively, you can enable
 [OpenSearch Security management](/docs/products/opensearch/howto/enable-opensearch-security) for your Aiven for OpenSearch service and manage users and
 permissions via the OpenSearch Security dashboard.
+
+:::note
+ACLs apply only to indices and do not control access to other OpenSearch APIs,
+including OpenSearch Dashboards.
 :::
 
-## Create user without access control
+## Create a user without access control
 
 To create a service new user without any access control in Aiven
 Console:
 
-1.  In the [Aiven Console](https://console.aiven.io), open the Aiven for
-    OpenSearch service where you want to add a user.
-2.  Select **Users** from the left sidebar.
-3.  Select **Create users**, enter a username, and select **Save**.
+1.  In the [Aiven Console](https://console.aiven.io), open the Aiven for OpenSearch
+    service to add a user.
+1.  Click **Users** from the left sidebar.
+1.  Click **Create users**, enter a username, and click **Save**.
 
-By default, newly created users will be granted **full access rights**.
+By default, newly created users are granted **full access rights**.
 However, to limit their access, you can enable access control and
 specify an Access Control List (ACL) for them, defining the relevant
 permissions and patterns.
@@ -40,54 +44,57 @@ To enable access control for the Aiven for OpenSearch service through
 the [Aiven Console](https://console.aiven.io), go to the **Users**
 tab and toggle the **Access Control** switch to enable it.
 
-## Create user with access control
+## Create a user with access control
 
 To create a service new user with access control:
 
-1.  In your Aiven for OpenSearch service, select **Users** from the left
+1.  In your Aiven for OpenSearch service, click **Users** from the left
     sidebar.
-2.  Select **Create user**.
-3.  In the **Create service user** screen, enter a **username**.
-4.  Specify an **index** pattern and set the desired **permissions**.
-5.  Add multiple rules to the user by selecting **Add another rule**.
-6.  Select **Save** to finish, and view the new user in the list.
+1.  Click **Create user**.
+1.  In the **Create service user** screen, enter a **username**.
+1.  Specify an **Index pattern** and set the desired **permissions**.
+1.  To add multiple rules to the user,click **Add another rule**.
+1.  Click **Save**.
 
 :::note
 The password for service users is automatically generated and can be
 reset if necessary.
 :::
 
-After creating a new service user, the next step is for them to log in
-to the
-[OpenSearch Dashboard](/docs/products/opensearch/dashboards) using their assigned credentials. This will grant them
-access to the dashboard, where they can perform various actions based on
-their assigned permissions.
+After creating a new service user, log in to the
+[OpenSearch Dashboard](/docs/products/opensearch/dashboards) with the assigned
+credentials. This grants access to the dashboard, where they can perform actions
+based on their permissions.
 
 ## Manage users
 
-Aiven for OpenSearch provides several additional operations you can
-perform on service users, such as viewing, copying, resetting passwords,
-editing ACL rules, and deleting users.
+Aiven for OpenSearch provides several additional operations you can perform on
+service users.
 
-To access the additional operations, go to the **Users** tab
-within your Aiven for OpenSearch service, select the ellipsis (More
-options) in the respective user row, and choose the desired operation.
+To access these operations:
 
-:::note
-Deleting a service user will terminate all existing database sessions,
-and the user will lose access immediately.
+1. In your Aiven for OpenSearch service, click **Users** from the left sidebar.
+1. Click <ConsoleLabel name="actions"/> in the respective user row and
+   choose the desired operation:
+
+   - Click <ConsoleLabel name="show password"/> to view the password.
+   - Click <ConsoleLabel name="reset password"/> to reset the password.
+   - Click <ConsoleLabel name="reset password"/> to reset the password.
+   - Click <ConsoleLabel name="delete user"/> to delete the user.
+
+:::warning
+Deleting a service user terminates all existing database sessions, and the user
+loses access immediately.
 :::
 
 ## Disable access control
 
-Disabling access control for your Aiven for OpenSearch service will
-grant admin access to all users and override any previously defined user
-permissions. Therefore, it is essential to carefully consider the
-outcomes of disabling access control before proceeding.
+Disabling access control for your Aiven for OpenSearch service grants admin access to
+all users and overrides any previously defined user
+permissions. Carefully consider the outcomes of disabling access control
+before proceeding.
 
 To disable access control:
 
-1.  Select **Users** from the left sidebar within your Aiven for
-    OpenSearch service, toggle the **Access Control** switch to off.
-2.  Confirm the decision to disable access control by clicking
-    **Disable** when prompted.
+1.  In the **Users** tab, toggle the **Access Control** switch off.
+1.  Click **Disable** to confirm.
