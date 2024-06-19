@@ -2169,6 +2169,18 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/howto/connect-java',
               ],
             },
+            {
+              type: 'category',
+              label: 'Data migration',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/howto/data-migration-valkey',
+              },
+              items: [
+                'products/valkey/howto/migrate-redis-valkey',
+                'products/valkey/howto/migrate-valkey-aiven-for-valkey',
+              ],
+            },
           ],
         },
       ],
