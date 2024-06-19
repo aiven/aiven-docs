@@ -11,7 +11,7 @@ including OpenSearch Dashboards.
 
 ## Patterns and permissions
 
-Access control in OpenSearch uses patterns and permissions to manage access to indices.
+Access control for OpenSearch uses patterns and permissions to manage access to indices.
 Patterns are glob-style strings that specify the indices to which the permission applies,
 and permissions define the level of access granted to the user for the matching indices.
 

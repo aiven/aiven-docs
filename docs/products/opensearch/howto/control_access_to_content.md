@@ -48,7 +48,7 @@ To create a service new user with access control:
 1.  Click **Create user**.
 1.  In the **Create service user** screen, enter a **username**.
 1.  Specify an **Index pattern** and set the desired **permissions**.
-1.  To add multiple rules to the user,click **Add another rule**.
+1.  To add multiple rules to the user, click **Add another rule**.
 1.  Click **Save**.
 
 :::note
