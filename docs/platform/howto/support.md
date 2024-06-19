@@ -2,31 +2,21 @@
 title: Support
 ---
 
-All customers using paid service plans have access to the Basic support tier. Aiven also offers [paid support tiers](https://aiven.io/support-services) with faster response times, phone support, and other services.
+All customers using paid service plans have access to the Basic support tier. Aiven also offers [paid support tiers](https://aiven.io/support-services) with faster response times, phone support, and other services. Custom [service level agreements](https://aiven.io/sla) are available for the Premium support tier.
 
-Custom [service level agreements](https://aiven.io/sla) are available for the Premium
-support tier.
+Customers who use only free services can ask questions in
+the [Aiven Community Forum](https://aiven.io/community/forum/).
 
-## Upgrade your support tier {#upgrade-support-tier}
+## Change your support tier {#upgrade-support-tier}
 
-If you have questions or want to downgrade your support tier, contact
-your account team.
+To change your organization's support tier, you must be a
+[super admin](/docs/platform/howto/make-super-admin).
 
-To upgrade your organization's support tier in the
-[Aiven Console](https://console.aiven.io/):
+1.  In the organization, click **Admin**.
 
-1.  In the organization, click **Support**.
+1.  In the **Support tier** section, click **View details or change tier**.
 
-1.  In the **Current support tier** section, click **Upgrade to Premium**.
-
-1.  Click **Choose tier**.
-
-1.  Select a **Start date**.
-
-    :::note
-    If you select the current month, you will be charged a percentage of
-    the total service spend for the whole month, starting from the first of the month.
-    :::
+1.  Click **Change tier** and choose a tier.
 
 1.  Select a **Billing group**.
 
@@ -36,10 +26,9 @@ To upgrade your organization's support tier in the
     added to the invoice for this billing group.
     :::
 
-1.  Click **Upgrade tier**.
+1.  Click **Change tier**.
 
-It typically takes 1-2 business days to set up the new support tier. You
-can view the status of your request on the support page under **Current support tier**.
+It typically takes 1-2 business days to set up the new support tier.
 
 ## Create a support ticket
 
@@ -47,9 +36,8 @@ Create a ticket for issues or problems with the platform. For other services inc
 in your support tier like business reviews or disaster recovery planning, contact
 your account team.
 
-1.  In the [Aiven Console](https://console.aiven.io/), click **Support**.
-
-1.  Click **Go to Aiven Support Center**.
+1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
+    to open the Aiven Support Center.
 
 1.  Click **Create ticket**.
 
@@ -99,6 +87,8 @@ tickets in your organization contact your account team.
 
 To add Aiven users to a support ticket:
 
+1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
+    to open the Aiven Support Center.
 1.  On the **My tickets** page, open the ticket.
 1.  Click **Add to conversation**.
 1.  Add the email addresses in the **CC** field separated by a space.
@@ -110,10 +100,12 @@ To add Aiven users to a support ticket:
 [Super admin](/docs/platform/howto/make-super-admin) can get notifications for
 updates on all tickets in their organization.
 
+1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
+    to open the Aiven Support Center.
 1.  Click **My tickets**.
 1.  On the **Tickets in my organization** tab, click **Follow all tickets**.
 
-You will get email notifications for all updates on both existing and
+You get email notifications for all updates on both existing and
 new tickets. You can unfollow them at any time.
 
 ## Create HAR files
@@ -121,8 +113,6 @@ new tickets. You can unfollow them at any time.
 The support team occasionally needs information about the network requests that
 are generated in your browser. Browsers can capture a log of these network requests
 in a HAR (HTTP Archive) file.
-
-If the support team asks for a HAR file:
 
 1.  Use your browser to create the HAR file while you go through the
     steps to reproduce the problem:
