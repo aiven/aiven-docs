@@ -208,6 +208,6 @@ ORDER by (shared_blks_hit+shared_blks_dirtied) DESC limit 10;
 Once you have identified slow queries:
 
 - Inspect the query plan and execution using
-[EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/using-explain.html) to
-understand how to optimise your design to improve the performance.
+  [EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/using-explain.html) to
+  understand how to optimise your design to improve the performance.
 - [Optimize slow PostgreSQL® queries](/docs/products/postgresql/howto/optimize-pg-slow-queries).
