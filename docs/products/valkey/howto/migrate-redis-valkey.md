@@ -1,6 +1,6 @@
 ---
 title: Migrate from Redis®* to Aiven for Valkey using Aiven Console
-sidebar_label: Mirgrate Redis®* to Valkey
+sidebar_label: Mirgrate from Redis®*
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

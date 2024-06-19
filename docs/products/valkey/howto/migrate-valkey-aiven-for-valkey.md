@@ -1,10 +1,11 @@
 ---
 title: Migrate from Valkey to Aiven for Valkey
+sidebar_label: Migration from Valkey
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate your Valkey databases, whether on-premise or cloud-hosted, to Aiven for Valkey using the Aiven Console's guided wizard.
+Migrate your Valkey databases to Aiven for Valkey using the Aiven Console's guided wizard.
 
 ## Prerequisites
 
