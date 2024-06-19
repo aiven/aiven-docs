@@ -85,6 +85,8 @@ for more information.
     `Address standardizer` US dataset example.
 -   [earthdistance](https://www.postgresql.org/docs/current/earthdistance.html).
     Calculate great-circle distances on the surface of the Earth.
+-   [h3-pg](https://github.com/zachasme/h3-pg). PostgreSQL bindings for H3, a hierarchical
+    hexagonal geospatial indexing system.
 -   [pgrouting](https://github.com/pgRouting/pgrouting). Extends the
     PostGIS/PostgreSQL geospatial database to provide geospatial routing
     and other network analysis functionality.
