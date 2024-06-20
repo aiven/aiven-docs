@@ -12,7 +12,7 @@ Migrate your Valkey databases to Aiven for Valkey using the Aiven Console's guid
 Before starting the migration process, ensure you have the following:
 
 - A target Aiven for Valkey service. To create one, see
-  [Get started with Aiven for Valkey](/docs/products/caching/get-started).
+  [Get started with Aiven for Valkey](/docs/products/valkey/get-started).
 - Source database details:
   -   **Hostname or connection string:** The public hostname, connection string,
       or IP address used to connect to the database. See
