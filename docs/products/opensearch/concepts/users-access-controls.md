@@ -108,7 +108,7 @@ When working with aliases in OpenSearch, remember how access control rules apply
 
 The access control for top-level APIs depends on whether the security plugin is
 enabled. If the security plugin is
-[enabled](docs/products/opensearch/howto/enable-opensearch-security),
+[enabled](/docs/products/opensearch/howto/enable-opensearch-security),
 ACLs are not used to control top-level APIs.
 Instead, the security plugin handles access control.
 
