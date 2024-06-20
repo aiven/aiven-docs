@@ -279,25 +279,27 @@ You can configure the `redis_persistence` settings from the **Advanced configura
 section on your **Service settings** page in the [Aiven Console](https://console.aiven.io).
 
 - **Enabled (`rdb`)**: When you set `redis_persistence` to `rdb`, Aiven for Caching
-  performs RDB dumps every 10 minutes whenever a key changes. These dumps align with
-  the regular backup schedule to enhance data protection.
-- **Disabled (`off`)**: Setting `redis_persistence` to `off` stops all RDB dumps and
-  backups. If the service restarts or powers off for any reason, you may lose any
-  data not yet backed up. Additionally, you cannot fork or replicate the service,
+  performs RDB dumps every 10 minutes whenever a key changes. These dumps provide
+  additional data protection against Caching service incidents, limiting potential data
+  loss to a maximum of 10 minutes. However, full backups are created only according to
+  the backup schedule (every 12 hours) or when the service is shut down.
+- **Disabled (`off`)**: When you set `redis_persistence` to `off`, Aiven for Caching
+  stops all Redis RDB dumps and backups If the service restarts or powers off for
+  any reason, you may lose any data not yet backed up. Additionally, you cannot
+  fork or replicate the service,
   which can affect potential scaling or disaster recovery plans.
 
   :::warning
   If you disable `redis_persistence`, the system immediately deletes all existing
-  backups, preventing any data recovery from those backups. Re-enabling persistence
-  starts a new backup cycle, but it won't restore any previously stored data.
+  backups, preventing any data recovery from those backups. When you re-enable
+  persistence, it starts a new backup cycle, but it won't restore any previously
+  stored data.
   :::
 
 :::note
 The Append Only File (AOF) persistence method is not supported for the managed
 Aiven for Caching service.
 :::
-
-
 
 ### Aiven for ClickHouse®
 
