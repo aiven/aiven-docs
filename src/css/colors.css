@@ -31,8 +31,4 @@
   --aquarium-colors-error-70: #d80005;
   --aquarium-colors-success-70: #00b300;
   --aquarium-colors-warning-90: #ff9003;
-  --aiven-button-primary-bg: var(--nav-btn-primary-bg);
-  --aiven-button-primary-bg-hover: var(--nav-btn-primary-bg-hover);
-  --aiven-button-secondary-bg: var(--aiven-primary-80);
-  --aiven-button-secondary-bg-hover: var(--nav-btn-secondary-text-color-hover);
 }
