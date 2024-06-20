@@ -284,7 +284,7 @@ section on your **Service settings** page in the [Aiven Console](https://console
   loss to a maximum of 10 minutes. However, full backups are created only according to
   the backup schedule (every 12 hours) or when the service is shut down.
 - **Disabled (`off`)**: When you set `redis_persistence` to `off`, Aiven for Caching
-  stops all Redis RDB dumps and backups If the service restarts or powers off for
+  stops all Redis RDB dumps and backups. If the service restarts or powers off for
   any reason, you may lose any data not yet backed up. Additionally, you cannot
   fork or replicate the service,
   which can affect potential scaling or disaster recovery plans.
