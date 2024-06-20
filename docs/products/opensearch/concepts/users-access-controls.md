@@ -34,7 +34,9 @@ The available permissions in Aiven for OpenSearch®, ordered by importance, are:
 
 ### API access
 
-The permission also determines which index APIs the user can access:
+The permission determines which index APIs the user can access, controlling
+specific actions such as reading, writing, updating, and deleting documents
+within those indices:
 
 -   `deny`: No access
 -   `admin`: No restrictions
@@ -104,8 +106,11 @@ When working with aliases in OpenSearch, remember how access control rules apply
 
 ## Access to top-level APIs
 
-You can control access to top-level APIs in addition to indices using ACLs. To manage
-access to these APIs, create an API-specific rule.
+The access control for top-level APIs depends on whether the security plugin is
+enabled. If the security plugin is
+[enabled](docs/products/opensearch/howto/enable-opensearch-security),
+ACLs are not used to control top-level APIs.
+Instead, the security plugin handles access control.
 
 ### Service controlled APIs
 
@@ -119,32 +124,15 @@ and not by the ACLs defined by you:
 - `_snapshot`
 - `_nodes`
 
+[Enabling OpenSearch Security management](/docs/products/opensearch/howto/enable-opensearch-security)
+provides control over the
+top-level APIs: `_mget`, `_msearch`, and `_bulk`.
+
 :::note
-Enabling OpenSearch Security management provides control over the
-top-level APIs - `_mget`, `_msearch`, and `_bulk`.
-:::
-
-### Using ACLs to control access
-
-Only rules starting with `_` are considered for controlling access to top-level APIs,
-and standard index rules do not grant access to these APIs. For example,
-a rule like `*search/admin` only grants access to indices that match the pattern,
-not to `_msearch`.
-
-Example:
-
--   `_*/admin` grants unlimited access to all top-level APIs
--   `_msearch/admin` grants unlimited access to the `_msearch` API only
-
-ACLs **only control access to the API** and not its usage. Granting
-access to the top-level API will effectively bypass index-specific
-rules. For example, granting `_msearch/admin` access allows searching
-any index via the API, as the indices to search are defined in the
-request body itself.
-
-:::warning
-When granting top-level API access via an explicit ACL, the requested
-content is not examined.
+**Deprecated _ * patterns**
+With the security plugin enabled, `_ *` patterns for controlling top-level API
+access are ignored. Access is managed by the security plugin settings. You do not
+need to configure these patterns manually.
 :::
 
 ## Access control and OpenSearch Dashboards
@@ -156,7 +144,7 @@ the current user's ACLs.
 :::note
 You might encounter `HTTP 500` internal server errors when you try to
 view dashboards as a service user with read-only access to certain
-indices, as these dashboards call the `_msearch` API. o prevent this,
+indices, as these dashboards call the `_msearch` API. To prevent this,
 add a new ACL rule that grants `admin` access to `_msearch` for that
 service user.
 :::
