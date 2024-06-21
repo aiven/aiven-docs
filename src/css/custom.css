@@ -214,3 +214,12 @@ ul + div {
 .expandedSection > div.menu__list-item-collapsible:hover {
   background-color: transparent;
 }
+
+.getStarted {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.gap-sm {
+  gap: 1em;
+}

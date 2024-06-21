@@ -20,7 +20,11 @@ All services run reliably and securely in the clouds of your choice, are observa
 **Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
 [30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
 
+
+<div class="getStarted gap-sm">
 <Button to="https://console.aiven.io/signup">Sign up</Button>
+<ButtonSecondary to="https://aiven.io/changelog">See Product Updates</ButtonSecondary>
+</div>
 
 ## First steps with Aiven
 
@@ -28,16 +32,31 @@ All services run reliably and securely in the clouds of your choice, are observa
    An [organization](/docs/platform/concepts/orgs-units-projects) contains your projects and users.
 1. [Create your first service](/docs/platform/howto/create_new_service) and select the
    plan for your use case.
-1.
+1. [Create service integrations](/docs/platform/howto/create-service-integration).
+1. [Start using our dev tools](/docs/tools) to interact with your services.
 
 ## Learn more
 
-<Card iconName="person" link="/docs/platform/concepts/service_backups" title="Backups" description="Learn about backup schedule and retetions."/>
+<div class="getStarted">
 
-<Card iconName="person" link="/docs/platform/concepts/service_backups" title="Backups" description="Learn about backup schedule and retetions."/>
+  <Card iconName="dbBackup"
+        to="/docs/platform/concepts/service_backups"
+        title="Backups"
+        description="Learn about backup schedule and retention."
+  />
 
-## What's new
+  <Card iconName="orgUnit"
+        to="/docs/platform/concepts/orgs-units-projects"
+        title="Organizations"
+        description="Learn about managing your organization."
+  />
 
-Discover the latest features, fixes, and improvements.
+  <Card iconName="terraform"
+        to="/docs/tools/terraform/get-started"
+        title="Terraform"
+        description="Interact with your services via Terraform."
+  />
 
-<ButtonSecondary to="https://aiven.io/changelog">Product updates</ButtonSecondary>
+
+
+</div>
