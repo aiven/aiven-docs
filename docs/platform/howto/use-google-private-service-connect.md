@@ -5,12 +5,18 @@ limited: true
 
 Discover Google Private Service Connect and benefits of using it with your Aiven services. Learn how to enable Google Private Service Connect for Aiven services.
 
+:::important
+Google Private Service Connect is not supported for Aiven for PostgreSQL®.
+:::
+
 ## About Private Service Connect
 
 Private Service Connect lets you bring your Aiven services into your
 networks (virtual private clouds) over a private endpoint. The endpoint
 receives a private IP address from a range that you assign. Next,
 connectivity over the private endpoint is routed to your Aiven service.
+
+
 
 :::note
 For consistency, Google Private Service Connect is called *privatelink*
