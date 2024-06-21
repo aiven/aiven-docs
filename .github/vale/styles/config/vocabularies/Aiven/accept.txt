@@ -80,6 +80,7 @@ dockerized
 downsampled
 downsampling
 Dragonfly
+datagrams
 DSBulk
 DZone
 ECEs?
@@ -177,6 +178,7 @@ MongoDB
 myhoard
 myhoard
 MySQL
+multicast
 namespace/MS
 namespaces?
 netmask
