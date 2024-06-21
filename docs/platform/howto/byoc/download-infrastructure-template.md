@@ -5,18 +5,41 @@ keywords: [Terraform, deployment, deploy, byoc, bring your own cloud, custom clo
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Download a Terraform template that defines the infrastructure of your [custom cloud](/docs/platform/concepts/byoc). Use the [Aiven Console](#download-the-template-via-console) or the [Aiven CLI](#download-the-template-via-cli).
+Download a Terraform template that defines the infrastructure of your [custom cloud](/docs/platform/concepts/byoc).
 
 ## Prerequisites
 
--   [Super admin](/docs/platform/howto/make-super-admin) role for your Aiven organization
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
--   Access to the [Aiven Console](https://console.aiven.io/) or the
-    [Aiven CLI](/docs/tools/cli) installed
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+-   Depending on the dev tool to use, you have:
+    - Access to the [Aiven Console](https://console.aiven.io/) or
+    - [Aiven CLI client](/docs/tools/cli) installed
+</TabItem>
+<TabItem value="2" label="GCP">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+-   You have the [Aiven CLI client](/docs/tools/cli) installed.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+</TabItem>
+</Tabs>
 
-## Download the template via console
+## Download an infrastructure template
+
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+
+#### Via the Aiven Console
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
@@ -24,10 +47,19 @@ Download a Terraform template that defines the infrastructure of your [custom cl
 1.  Select a cloud, and find the **Infrastructure template** on the **Overview**.
 1.  Click <ConsoleLabel name="download"/>.
 
-## Download the template via CLI
+#### Via the Aiven CLI client
 
 [Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
 to download your infrastructure template.
+</TabItem>
+<TabItem value="2" label="GCP">
+[Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
+to download your infrastructure template.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+Reach out to your account team to request the infrastructure template of your custom cloud.
+</TabItem>
+</Tabs>
 
 ## Related pages
 

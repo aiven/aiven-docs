@@ -1,111 +1,111 @@
 ---
-title: Enable your AWS custom cloud in Aiven organizations, units, or projects
+title: Enable a custom cloud in Aiven organizations, units, or projects
 sidebar_label: Attach projects
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Configure the availability of your [custom cloud](/docs/platform/concepts/byoc) to access
-it in all the projects, selected organizational units, or specific projects only.
+Select your organizations, units, or project that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About making custom clouds available from your projects
 
-With the BYOC feature enabled, you can
+With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
 organization. As a part of the
-[initial custom cloud's setup in the Aiven Console](/docs/platform/howto/byoc/create-custom-cloud),
+[initial custom cloud's setup](/docs/platform/howto/byoc/create-custom-cloud),
 you select in what projects you'll be able to use your new custom cloud to host Aiven
-services. Later, you can come back to the **Available projects** tab in your
-cloud's page in [Aiven Console](https://console.aiven.io/) and update
-the settings you configured during the
-[initial custom cloud's setup](/docs/platform/howto/byoc/create-custom-cloud).
+services. You can update this setting any time later by following
+by following
+[Enable projects to use your custom cloud](#enable-projects-to-use-your-custom-cloud).
 
-1.  In the **Custom cloud's availability in your organization**
-    section, select either:
-    -   **By default for all projects** to make your custom cloud
-        available in all existing and future projects in the
-        organization, or;
-    -   **By selection** to pick specific projects or organizational
-        units where you want your custom cloud to be available.
-1.  If you go for the **By selection** option, the **Assign
-    organizational units** field and the **Assign projects** field show
-    up. Enter the names of organizational units and/ or projects in
-    which to be able to use your custom cloud.
+You can make your custom cloud available by default in all existing and future projects,
+or you can pick specific projects and/or organizational units where you want your custom
+cloud to be available.
 
 ## Prerequisites
 
--   Administrator's role for your Aiven organization
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization
--   Access to [Aiven Console](https://console.aiven.io/)
+    organization.
+-   Depending on the dev tool to use, you have:
+    - Access to the [Aiven Console](https://console.aiven.io/) or
+    - [Aiven CLI client](/docs/tools/cli) installed
+</TabItem>
+<TabItem value="2" label="GCP">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+-   You have the [Aiven CLI client](/docs/tools/cli) installed.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+</TabItem>
+</Tabs>
 
 ## Enable projects to use your custom cloud
 
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
+1.  In the **Bring your own cloud** view, select a cloud.
+1.  On the selected cloud's page, go to the **Available projects** tab, and modify the
+    settings:
 
-1.  Select the organization to use from the menu in
-    the top right corner.
+    -   Click **Set availability** to decide if your custom cloud is
+        available in all projects in your organization or in
+        selected projects only.
 
-1.  From the top navigation bar, select **Admin**.
+        - In the **Custom cloud's availability in your organization** window, choose between:
+          - **By default for all projects**
+          - **By selection**
+            - **Assign organizational units**: select organizational units
+            - **Assign projects**: select projects
 
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
+        - Click **Save**.
 
-1.  In the **Bring your own cloud** view, select one of the clouds
-    available on the list.
+        :::note
+        By selecting an organizational unit, you make your custom cloud
+        available from all the projects in this unit.
+        :::
 
-1.  In the selected cloud's page, go to the **Available
-    projects** tab and modify the settings provided as needed:
+    -   Click **Assign projects** to enable your custom cloud in
+        specific organizational units and/or projects.
 
-    -   Select **Set availability** to decide if your custom cloud is
-        available in all the projects in your organization or in
-        selected projects only. In the **Custom cloud's availability in
-        your organization** window, select either **By default for all
-        projects** or **By selection**. If you go for the **By
-        selection** option, dropdown menus **Assign organizational
-        units** and **Assign projects** show up. Use them to select
-        desired organizational units and/ or projects and confirm your
-        choice by selecting **Save**.
+        - In the **Assign projects** window, use the available menus to select
+          units and/or projects.
 
-    :::note
-    By selecting an organizational unit, you make your custom cloud
-    available from all the projects in this unit.
-    :::
+        - Click **Assign projects**.
+</TabItem>
+<TabItem value="2" label="GCP">
+Use the [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add)
+command to enable your custom cloud in organizations, projects, or units.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+Reach out to your account team to request enabling your custom cloud in organizations,
+projects, or units.
+</TabItem>
+</Tabs>
 
-    -   Select **Assign projects** to enable your custom cloud in
-        specific organizational units and/ or projects. In the **Assign
-        projects** window, use the available dropdown menus to select
-        desired units and/ or projects as needed. Confirm your choice by
-        selecting **Assign projects**.
-
-As a result, in the projects and/or organizational units for which you enable your
+In the organizations projects, or organizational units for which you enable your
 custom cloud, you can:
 
-- Create new services in the custom cloud
+- Create services in the custom cloud
 - Migrate existing services to your custom cloud if your service and networking
   configuration allows it. For more information, contact your account team.
 
-## Verify the update
-
-To verify if the cloud availability changes you made are live:
-<!-- vale off -->
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-1.  Select the organization to use from the dropdown menu in
-    the top right corner.
-1.  From the top navigation bar, select **Admin**.
-1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-1.  In the **Bring your own cloud** view, select one of the clouds
-    available on the list.
-1.  In the selected cloud's page, go to the **Available
-    projects** tab and check the available projects and organizational
-    units list for the updates you made.
-<!-- vale on -->
 ## Related pages
 
--   [Bring your own cloud](/docs/platform/concepts/byoc)
+-   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
 -   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
