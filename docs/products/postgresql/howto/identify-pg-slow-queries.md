@@ -2,17 +2,14 @@
 title: Identify PostgreSQL® slow queries
 ---
 
-PostgreSQL® allows you to keep track of queries with certain performance
-metrics and statistics, which comes in handy when identifying slow
-queries.
+Use the PostgreSQL® `pg_stat_statements` [extension](https://www.postgresql.org/docs/current/pgstatstatements.html) to find slow queries.
 
-The `pg_stat_statements`
-[extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is a module
-that provides a means for tracking the planning and execution
-statistics of all SQL statements executed by your PostgreSQL® server to provide you with
-the basic information that can be useful for identifying slow queries.
+## Identify slow queries in the Console
 
-## Query statistics
+Use **Aiven AI Database Optimizer** to list and optimize slow queries.
+[Learn more](/docs/products/postgresql/howto/optimize-pg-slow-queries).
+
+## Use `pg_stat_statements`
 
 Query statistics deduced via the `pg_stat_statements` are the following:
 
