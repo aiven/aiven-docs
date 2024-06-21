@@ -10,11 +10,12 @@ ensures full compatibility with Redis OSS 7.2.4 and Aiven for Caching, making it
 for users to transition their existing applications without disruption.
 
 :::tip
-Since Aiven for Valkey is the new open-source fork of Redis®, and Aiven for Caching
-is essentially the same NoSQL service with a new name, users can continue to
-refer to the Aiven for Caching documentation for detailed instructions on
-using the service.
-:::
+Aiven for Valkey is the new open-source fork of Redis®, and Aiven for Caching is Redis®
+with a new name. Valkey version 7.2.5 remains fully compatible with Aiven for Caching,
+and you can continue to refer to the Aiven for Caching documentation for
+ detailed instructions and more information.
+ :::
+
 
 ## Key Features
 

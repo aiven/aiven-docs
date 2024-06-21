@@ -1,6 +1,6 @@
 import redis.clients.jedis.JedisPooled;
 
-public class RedisExample {
+public class ValkeyExample {
 
     public static void main(String[] args) {
         if (args.length != 1) {
