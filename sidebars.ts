@@ -2073,6 +2073,7 @@ const sidebars: SidebarsConfig = {
                 'products/caching/concepts/lua-scripts-caching',
                 'products/caching/concepts/memory-usage',
                 'products/caching/concepts/restricted-redis-commands',
+                'products/caching/concepts/caching-read-replica',
               ],
             },
             {
@@ -2121,6 +2122,7 @@ const sidebars: SidebarsConfig = {
                 'products/caching/howto/manage-ssl-connectivity',
                 'products/caching/howto/warning-overcommit_memory',
                 'products/caching/howto/benchmark-performance',
+                'products/caching/howto/create-caching-read-replica',
               ],
             },
             {
