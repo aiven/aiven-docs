@@ -1,20 +1,24 @@
 ---
-title: Add or remove customer contacts for your AWS custom cloud in Aiven
+title: Manage customer contacts for a custom cloud
 sidebar_label: Update customer contacts
 ---
 
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 
 ## About updating customer contacts
 
-With the BYOC feature enabled, you can
+With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-organizations. While creating a custom cloud in Aiven, add at least the
-**Admin** contact. Later, you can come back to the the **Customer contact**
-setting in your cloud's page in [Aiven Console](https://console.aiven.io/) and update the
-contacts list you initially created for your cloud.
+organizations. While
+[creating a custom cloud](/docs/platform/howto/byoc/create-custom-cloud), you add at least
+the **Admin** contact so that the Aiven team can reach out to them if needed. You can change
+the provided contacts any time later by following
+[Update the contacts list](#update-the-contacts-list).
 
 :::important
 While you can add multiple different customer contacts for your custom cloud, **Admin** is
@@ -23,54 +27,59 @@ a mandatory role that is always required as a primary support contact.
 
 ## Prerequisites
 
--   Administrator's role for your Aiven organization
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization
--   Access to [Aiven Console](https://console.aiven.io/)
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+-   Depending on the dev tool to use, you have:
+    - Access to the [Aiven Console](https://console.aiven.io/) or
+    - [Aiven CLI client](/docs/tools/cli) installed
+</TabItem>
+<TabItem value="2" label="GCP">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+-   You have the [Aiven CLI client](/docs/tools/cli) installed.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    organization.
+</TabItem>
+</Tabs>
 
 ## Update the contacts list
-<!-- vale off -->
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
 
-2.  Select the organization to use from the dropdown menu in
-    the top right corner.
-
-3.  From the top navigation bar, select **Admin**.
-
-4.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-
-5.  In the **Bring your own cloud** view, select one of the clouds
-    available on the list.
-
-6.  In the selected cloud's page, click <ConsoleLabel name="actions"/> > **Customer contact**.
-
-7.  In the **Customer contact** window, select a new contact's role
-    from the dropdown menu, enter the email address, and select **+** to
-    add the provided contact's details.
-
-8.  When you're done adding all the contacts, select **Save changes**.
-
-The list of contacts for your cloud has been updated.
-<!-- vale off -->
-## Verify the update
-
-Preview the updated list of contacts:
-
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-2.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
-3.  From the top navigation bar, select **Admin**.
-4.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
-5.  In the **Bring your own cloud** view, select one of the clouds
-    available on the list.
-6.  In the selected cloud's page, click <ConsoleLabel name="actions"/> in
-    the top right corner and select **Customer contact**.
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
+1.  In the **Bring your own cloud** view, select a cloud.
+1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Customer contact**.
+1.  In the **Customer contact** window, select a new contact's role
+    from the menu, enter the email address, and click <ConsoleIcon name="plus"/> to add
+    the provided contact's details.
+1.  When you're done adding all the contacts, select **Save changes**.
+</TabItem>
+<TabItem value="2" label="GCP">
+Use the
+[avn byoc update](/docs/tools/cli/byoc#avn-byoc-update)
+command to edit the list of individuals from your organization to be contacted by the Aiven
+team if needed.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+Reach out to your account team to update the list of individuals from your organization
+to be contacted by the Aiven team if needed.
+</TabItem>
+</Tabs>
 
 ## Related pages
 
--   [Bring your own cloud](/docs/platform/concepts/byoc)
+-   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
+-   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
