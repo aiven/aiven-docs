@@ -4,15 +4,10 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import {ConsoleIcon} from '../ConsoleIcons';
 
-export default function Card({
-  iconName,
-  title,
-  description,
-  link,
-}): JSX.Element {
+export default function Card({iconName, title, description, to}): JSX.Element {
   return (
     <div className={styles.card}>
-      <Link to="{link}">
+      <Link to={to}>
         <div className={styles.icon}>
           <ConsoleIcon name={iconName} />
         </div>
