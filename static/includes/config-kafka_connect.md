@@ -239,6 +239,17 @@
 <tr>
   <td>
     <p class="name">
+      <b>secret_providers</b>&nbsp;<code class="type">array</code>
+    </p>
+    <p class="title">Kafka Connect secret providers</p>
+    <div class="description">Configure external secret providers in order to reference external secrets in connector configuration. Currently Hashicorp Vault (provider: vault, auth_method: token) and AWS Secrets Manager (provider: aws, auth_method: credentials) are supported. Secrets can be referenced in connector config with $\{&lt;provider_name&gt;:&lt;secret_path&gt;:&lt;key_name&gt;\}</div>
+    <table class="service-param-children">
+</table>
+  </td>
+</tr>
+<tr>
+  <td>
+    <p class="name">
       <b>private_access</b>&nbsp;<code class="type">object</code>
     </p>
     <p class="title">Allow access to selected service ports from private networks</p>
