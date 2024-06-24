@@ -46,6 +46,9 @@ service-type-config-pg:
 service-type-config-caching:
 	node "$(SCRIPTS)/service_type_parser.js" "redis" "$(INCLUDESDIR)/config-caching.md"
 
+service-type-config-valkey:
+	node "$(SCRIPTS)/service_type_parser.js" "valkey" "$(INCLUDESDIR)/config-valkey.md"
+
 cloud-list:
 	node "$(SCRIPTS)/clouds_parser.js" "$(INCLUDESDIR)/clouds-list.md"
 
