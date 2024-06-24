@@ -11,12 +11,12 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 
 ## Prerequisites
 
+Depending on a dev tool to use for working with Aiven for ClickHouse:
+
 - Access to the [Aiven Console](https://console.aiven.io)
 - [ClickHouse CLI client](https://clickhouse.com/docs/en/install)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-  if you prefer to get started using this tool
-- [Aiven Operator for Kubernetes](https://aiven.github.io/aiven-operator/installation/helm.html)
-  if you prefer to get started using this tool
+- [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/helm.html)
 
 ## Create a service
 
@@ -114,7 +114,7 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 
       ```hcl
       project_name = "testproject-o3jb"
-      cloud_name   = "google-europe-west10"
+      cloud_name   = "google-europe-west1"
       service_name = "clickhouse"
       service_plan = "startup-16"
       ```
@@ -133,57 +133,64 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 
 </TabItem>
 <TabItem value="3" label="K8s">
-1. Create file `pg-sample.yaml` with the following content:
+
+Create an Aiven for ClickHouse service using
+[Aiven Operator for Kubernetes](https://aiven.github.io/aiven-operator/api-reference/clickhouse.html).
+
+1. Create file `example.yaml` with the following content:
 
    ```yaml
    apiVersion: aiven.io/v1alpha1
-   kind: ClickHouse
+   kind: Clickhouse
    metadata:
-   name: clickhouse-sample
+     name: my-clickhouse
    spec:
-   # gets the authentication token from the `aiven-token` Secret
-   authSecretRef:
+     authSecretRef:
        name: aiven-token
        key: token
 
-   # outputs the ClickHouse connection on the `clickhouse-connection` Secret
-   connInfoSecretTarget:
-       name: clickhouse-connection
+     connInfoSecretTarget:
+       name: my-clickhouse-connection
+       annotations:
+         foo: bar
+       labels:
+         baz: egg
 
-   # add your Project name here
-   project: <your-project-name>
+     tags:
+       env: test
+       instance: foo
 
-   # cloud provider and plan of your choice
-   # you can check all of the possibilities here https://aiven.io/pricing
-   cloudName: google-europe-west10
-   plan: startup-16
+     userConfig:
+       ip_filter:
+         - network: 0.0.0.0/32
+           description: bar
+         - network: 10.20.0.0/16
 
-   # general Aiven configuration
-   maintenanceWindowDow: friday
-   maintenanceWindowTime: 23:00:00
+     project: my-aiven-project
+     cloudName: google-europe-west1
+     plan: startup-16
 
-   # specific ClickHouse configuration
-   userConfig:
-       clickhouse_version: "23.8"
-   ```
+     maintenanceWindowDow: friday
+     maintenanceWindowTime: 23:00:00
+     ```
 
 1. Create the service by applying the configuration:
 
    ```go
-   kubectl apply -f clickhouse-sample.yaml
+   kubectl apply -f example.yaml
    ```
 
 1. Review the resource you created with the following command:
 
    ```go
-   kubectl get clickhouse.aiven.io clickhouse-sample
+   kubectl get clickhouses my-clickhouse
    ```
 
 The output is similar to the following:
 
 ```text
-NAME                PROJECT        REGION                PLAN        STATE
-clickhouse-sample   your-project   google-europe-west10  startup-16  RUNNING
+Name             Project             Region                 Plan          State
+my-clickhouse    my-aiven-project    google-europe-west1    startup-16    RUNNING
 ```
 
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
@@ -214,8 +221,8 @@ resource "aiven_clickhouse" "clickhouse" {
   cloud_name   = var.cloud_name
   plan         = var.service_plan
 +
-+  maintenance_window_dow  = "monday"
-+  maintenance_window_time = "01:00:00"
++  maintenance_window_dow  = "sunday"
++  maintenance_window_time = "22:00:00"
 +  termination_protection  = true
 +
 +  clickhouse_user_config {
@@ -248,59 +255,69 @@ output "clickhouse_service_password" {
 
 </TabItem>
 <TabItem value="3" label="K8s">
-1. Update file `clickhouse-sample.yaml` with the following content:
+1. Update file `example.yaml`:
+
+   - Add `service_log: true` and `terminationProtection: true`.
+   - Update `maintenanceWindowDow: sunday` and `maintenanceWindowTime: 22:00:00`.
 
    ```yaml
    apiVersion: aiven.io/v1alpha1
-   kind: ClickHouse
+   kind: Clickhouse
    metadata:
-   name: clickhouse-sample
+     name: my-clickhouse
    spec:
-   authSecretRef:
+     authSecretRef:
        name: aiven-token
        key: token
 
-   connInfoSecretTarget:
-       name: clickhouse-connection
+     connInfoSecretTarget:
+       name: my-clickhouse-connection
+       annotations:
+         foo: bar
+       labels:
+         baz: egg
 
-   project: <your-project-name>
+     tags:
+       env: test
+       instance: foo
 
-   cloudName: google-europe-west12
-   plan: business-16
+     userConfig:
+       ip_filter:
+         - network: 0.0.0.0/32
+           description: bar
+         - network: 10.20.0.0/16
+       service_log: true
 
-   maintenanceWindowDow: friday
-   maintenanceWindowTime: 23:00:00
+     project: my-aiven-project
+     cloudName: google-europe-west1
+     plan: startup-16
 
-   userConfig:
-       clickhouse_version: "23.8"
-   ```
+     maintenanceWindowDow: sunday
+     maintenanceWindowTime: 22:00:00
+     terminationProtection: true
+     ```
 
 1. Update the service by applying the configuration:
 
    ```go
-   kubectl apply -f clickhouse-sample.yaml
+   kubectl apply -f example.yaml
    ```
 
 1. Review the resource you updated with the following command:
 
    ```go
-   kubectl get clickhouse.aiven.io clickhouse-sample
+   kubectl get clickhouses my-clickhouse
    ```
-
-The output is similar to the following:
-
-```text
-NAME                PROJECT        REGION                PLAN        STATE
-clickhouse-sample   your-project   google-europe-west12  business-16 RUNNING
-```
 
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
 </TabItem>
 </Tabs>
 
-See the available configuration options in
-[Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
+See the available configuration options in:
+
+- [Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/api-reference/clickhouse.html)
+- [Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 
 ## Connect to the service{#connect-to-service}
 
@@ -343,7 +360,7 @@ docker run -it \
 You can verify your Aiven for ClickHouse connection from a Kubernetes workload by deploying
 a Pod that runs the `clickhouse-client` command.
 
-1. Create a file named pod-clickhouse-client.yaml
+1. Create file `pod-clickhouse-client.yaml`:
 
     ```yaml
     apiVersion: v1
@@ -356,11 +373,9 @@ a Pod that runs the `clickhouse-client` command.
         - image: clickhouse-server:23.8
           name: clickhouse
           command: ["clickhouse-client", "$(DATABASE_URI)", "-c", "SELECT version();"]
-
-          # the clickhouse-connection Secret becomes environment variables
           envFrom:
             - secretRef:
-                name: clickhouse-connection
+                name: my-clickhouse-connection
     ```
 
    It runs once and stops due to the `restartPolicy: Never` flag.
