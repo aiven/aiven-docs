@@ -2178,7 +2178,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/valkey/howto/migrate-redis-valkey',
-                'products/valkey/howto/migrate-caching-valkey',
                 'products/valkey/howto/migrate-valkey-aiven-for-valkey',
               ],
             },
