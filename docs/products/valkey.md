@@ -16,7 +16,7 @@ and you can continue to refer to the Aiven for Caching documentation for
  detailed instructions and more information.
  :::
 
-## Key Features
+## Key features
 
 - **Open source**: Valkey is licensed under the permissive BSD-3 license,
   ensuring open-source availability.
@@ -26,8 +26,8 @@ and you can continue to refer to the Aiven for Caching documentation for
   retrieval with low latency, ideal for applications requiring real-time data processing.
 - **Managed service**: Aiven handles maintenance, updates, and monitoring,
   freeing you from database management complexities.
-- **Migration**: Support for a migration path from external Redis® implementations and
-  Valkey databases to Aiven for Valkey with minimal downtime.
+- **Migration**: Supports data migration from external Redis® implementations and Valkey
+  databases to Aiven for Valkey with minimal downtime.
 
 ## Related pages
 
