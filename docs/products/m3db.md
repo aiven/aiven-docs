@@ -2,10 +2,7 @@
 title: Aiven for M3
 ---
 
-Aiven for M3 is a fully managed **distributed time series database**,
-deployable in the cloud of your choice which can bring unlimited
-scalability and high-availability to your monitoring environment and
-other time series applications.
+Aiven for M3 is a fully managed **distributed time series database**, deployable in the cloud of your choice which can bring unlimited scalability and high-availability to your monitoring environment and other time series applications.
 
 Aiven for M3 consists of `n` number of **M3DB** and **M3 Coordinator**
 pairs (where `n` is the number of nodes as chosen for your Aiven plan).
@@ -18,7 +15,7 @@ of time series.
 
 :::note
 Aiven offers M3 because we ourselves needed a solution that would work
-with the size of our own metrics - and we love it!
+with the size of our own metrics.
 :::
 
 Read more about [the M3
@@ -46,8 +43,7 @@ tasks:
 -   To create dashboards and query available features using Grafana® and
     PromQL.
 
-Check out all the features on our [M3 product
-page](https://aiven.io/m3).
+See all the features on our [M3 product page](https://aiven.io/m3).
 
 ## Ways to use Aiven for M3
 

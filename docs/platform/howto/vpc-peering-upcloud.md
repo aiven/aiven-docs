@@ -38,12 +38,12 @@ type networks.
 :::
 
 ## Prerequisites
-
+<!-- vale off -->
 -   You have
     [created a VPC for your Aiven project](manage-vpc-peering) in the
     [Aiven Console](https://console.aiven.io/).
--   CIDR ranges of the networks you want to peer do not overlap.
-
+-   The CIDR ranges of the networks you want to peer do not overlap.
+<!-- vale on -->
 ## Get UpCloud SDN network UUID {#upcloud-uuid}
 
 Before establishing a peering connection from Aiven to UpCloud, you need
@@ -59,10 +59,10 @@ You can establish a peering connection from Aiven to UpCloud using
 [Aiven Console](https://console.aiven.io/).
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), go to
-    the organization and project you want to use.
+    the organization and project of your choice.
 1.  On the **Services** page, select **VPCs** from the sidebar.
 1.  On the **Virtual private clouds** page, select the ID of the VPC
-    connection you want to use for the peering.
+    connection to use for the peering.
 1.  On the **VPC peering connections** page, in the **Add peering
     connection** section, populate **Peer network ID** field with your
     UpCloud SDN network UUIDs.

@@ -2,7 +2,7 @@
 title: Advanced parameters for Aiven for Apache Cassandra®
 ---
 
-Below you can find a summary of every configuration option available for
+See the configuration option available for
 Aiven for Apache Cassandra® service:
 
 import Reference from '@site/static/includes/config-cassandra.md';

@@ -2,64 +2,58 @@
 title: Create a sink connector from Apache Kafka® to Google BigQuery
 ---
 
-The [Google BigQuery sink
-connector](https://github.com/confluentinc/kafka-connect-bigquery)
-enables you to move data from an Aiven for Apache Kafka® cluster to a
-set of Google BigQuery tables for further processing and analysis.
+The [Google BigQuery sink connector](https://github.com/confluentinc/kafka-connect-bigquery) enables you to move data from an Aiven for Apache Kafka® cluster to a set of Google BigQuery tables for further processing and analysis.
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/confluentinc/kafka-connect-bigquery).
 :::
 
 ## Prerequisites {#connect_bigquery_sink_prereq}
 
-To setup an Google BigQuery sink connector, you need an Aiven for Apache
-Kafka service
-[with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- an Aiven for Apache Kafka service [with Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to follow the steps
-[to prepare the GCP account](gcp-bigquery-sink-prereq) and collect the following information about the target
-BigQuery upfront:
+- [Prepare the GCP account](gcp-bigquery-sink-prereq) and collect the following information about the target
+  BigQuery:
 
--   `GCP_PROJECT_NAME`: The GCP project name where the target Google
-    BigQuery is located
+  -   `GCP_PROJECT_NAME`: The GCP project name where the target Google
+      BigQuery is located
 
--   `GCP_SERVICE_KEY`: A valid GCP service account key for the
-    `GCP_PROJECT_NAME`. To create the project key review the
-    [dedicated document](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-google-account)
+  -   `GCP_SERVICE_KEY`: A valid GCP service account key for the
+      `GCP_PROJECT_NAME`. To create the project key review the
+      [dedicated document](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-google-account)
 
-    :::warning
-    The GCP BigQuery sink connector accepts the `GCP_SERVICE_KEY` JSON
-    service key as a string, therefore all `"` symbols within it must be
-    escaped `\"`.
+      :::warning
+      The GCP BigQuery sink connector accepts the `GCP_SERVICE_KEY` JSON
+      service key as a string, therefore all `"` symbols within it must be
+      escaped `\"`.
 
-    The `GCP_SERVICE_KEY` parameter should be in the format
-    `{\"type\": \"service_account\",\"project_id\": \"XXXXXX\", ...}`
+      The `GCP_SERVICE_KEY` parameter should be in the format
+      `{\"type\": \"service_account\",\"project_id\": \"XXXXXX\", ...}`
 
-    Additionally, any `\n` symbols contained in the `private_key` field
-    need to be escaped (by substituting with `\\n`)
-    :::
+      Additionally, any `\n` symbols contained in the `private_key` field
+      need to be escaped (by substituting with `\\n`)
+      :::
 
--   `BIGQUERY_DATASET_NAME`: The BigQuery dataset name, as defined in
-    the
-    [dedicated pre-requisite step](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-bigquery-dataset)
+  -   `BIGQUERY_DATASET_NAME`: The BigQuery dataset name, as defined in
+      the
+      [dedicated pre-requisite step](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-bigquery-dataset)
 
--   `TOPIC_LIST`: The list of topics to sink divided by comma
+  -   `TOPIC_LIST`: The list of topics to sink divided by comma
 
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
+  -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
+      needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
+      only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
+      username, only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
+      password, only needed when using Avro as data format
 
 :::note
 The `SCHEMA_REGISTRY` related parameters are available in the Aiven for

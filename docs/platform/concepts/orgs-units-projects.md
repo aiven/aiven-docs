@@ -75,21 +75,21 @@ the project. The following are some examples of how customers organize their ser
 
 ## Users and roles
 
-To add users to your organization, you send them an invite. Organization users can be
-made super admin or they can be added to specific projects. They can also be [added to
-groups](/docs/platform/howto/manage-groups) to control access to the services in a project.
+To add users to your organization, you send them an invite. With a verified domain
+these users become [managed users](/docs/platform/concepts/managed-users),
+which gives you greater control to manage access to your organization's resources.
 
 Super admin have full access to the organization, including all organizational units,
 projects, and services. Users are automatically made super admin when they create an
-organization, and they can [make other users super admin](/docs/platform/howto/make-super-admin).
+organization, and they can
+[make other users super admin](/docs/platform/howto/make-super-admin).
 
-You grant other users access to services at the project level by
+For projects, the Aiven platform lets you use a mix of group and individual access rights.
+You grant users access to projects by
 [adding them as project members](/docs/platform/howto/add-project-members),
-either individually or in groups. You give project members a role that defines the
-level of access they have to all services in the project.
-
-The Aiven platform lets you use a mix of group and individual access
-rights for projects.
+either individually or in groups. Project members have a role that defines the
+level of access they have to the project and its services. Alternatively, you can
+[add users to specific services](/docs/platform/howto/create_new_service_user).
 
 ## Best practices for organizations
 
@@ -106,16 +106,16 @@ etc., at the beginning of project names.
 
 ### Medium organizations
 
-For more complex cases, take advantage of the
-organizational units. Organizational units group related projects.
+For more complex cases, take advantage of the organizational units to
+group related projects.
 
-You can, for example, group projects into organizational units that
-correspond to your internal departments. Alternatively, you can group
-them by categories like testing, staging, and production environments.
+You can, for example, group projects into units that correspond to your internal
+departments. Alternatively, you can group them by categories like testing, staging,
+and production environments.
 
 ### Large organizations
 
-For large organizations, keep your projects in
-organizational units instead of organizations. By keeping your
-projects in organizational units you can centrally manage things like
+For large organizations, keep all projects in
+organizational units instead of the organization. By keeping your
+projects in units you can centrally manage things like
 support contracts and billing groups for each group of projects.

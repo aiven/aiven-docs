@@ -2,11 +2,7 @@
 title: Prevent running out of disk space
 ---
 
-In the event that your MySQL server runs out of disk space, the service
-starts malfunctioning. Running out of disk space also prevents backups
-from being properly created. Check out how Aiven prevents those from
-happening and how you can make more space available on your disk when
-needed.
+Learn how Aiven prevents running out of disk space from happening and how you can make more space available on your disk when needed. Running out of disk space makes the service start malfunctioning and prevents backups from being properly created.
 
 ## Switch to the read-only mode
 
@@ -51,13 +47,13 @@ restriction.
 
 You can use our API and send a POST request to:
 
-```
+```text
 https://api.aiven.io/v1/project/<PROJECT>/service/<SERVICE_NAME>/enable-writes
 ```
 
 The output of a successful operation is:
 
-```
+```json
 {
   "message": "Writes temporarily enabled",
   "until": "2022-04-22T13:42:05.385432Z"
@@ -68,4 +64,4 @@ This way you can free up space within the next 15 minutes.
 
 ## Related pages
 
-See [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.
+See [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with a full disk.

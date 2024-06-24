@@ -45,7 +45,7 @@ can view the status of your request on the support page under **Current support 
 
 Create a ticket for issues or problems with the platform. For other services included
 in your support tier like business reviews or disaster recovery planning, contact
-the [sales team](mailto:sales@aiven.io).
+your account team.
 
 1.  In the [Aiven Console](https://console.aiven.io/), click **Support**.
 

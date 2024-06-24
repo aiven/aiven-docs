@@ -1,10 +1,10 @@
-const Redis = require('ioredis');
+const Valkey = require('ioredis');
 const serviceUri = 'SERVICE_URI';
-const redis = new Redis(serviceUri);
+const valkey = new Valkey(serviceUri);
 
-redis.set('key', 'hello world');
+valkey.set('key', 'hello world');
 
-redis.get('key').then(function (result) {
+valkey.get('key').then(function (result) {
   console.log(`The value of key is: ${result}`);
-  redis.disconnect();
+  valkey.disconnect();
 });

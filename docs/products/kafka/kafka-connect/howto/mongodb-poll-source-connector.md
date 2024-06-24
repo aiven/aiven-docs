@@ -18,7 +18,7 @@ instead.
 :::
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.mongodb.com/kafka-connector/current/).
 :::

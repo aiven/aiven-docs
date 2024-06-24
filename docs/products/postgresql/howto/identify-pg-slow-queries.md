@@ -2,28 +2,16 @@
 title: Identify PostgreSQL® slow queries
 ---
 
-PostgreSQL® allows you to keep track of queries with certain performance
-metrics and statistics, which comes in handy when identifying slow
-queries.
+Use the PostgreSQL® `pg_stat_statements` [extension](https://www.postgresql.org/docs/current/pgstatstatements.html) to find slow queries.
 
-:::tip
-When using Aiven for PostgreSQL®, you can check the **Query statistics**
-page for your service in the [Aiven Console](https://console.aiven.io/)
-to identify long running queries.
-:::
+## Identify slow queries in the Console
 
-Under the hood, the **Query statistics** page uses the
-`pg_stat_statements`
-[extension](https://www.postgresql.org/docs/current/pgstatstatements.html),
-a module that provides a means for tracking the planning and execution
-statistics of all SQL statements executed by your PostgreSQL® server, to
-provide you with the basic information that can be useful for
-identifying slow queries.
+Use **Aiven AI Database Optimizer** to list and optimize slow queries.
+[Learn more](/docs/products/postgresql/howto/optimize-pg-slow-queries).
 
-## Query statistics
+## Use `pg_stat_statements`
 
-These are the entries provided by **Query statistics** which are deduced
-via the `pg_stat_statements`:
+Query statistics deduced via the `pg_stat_statements` are the following:
 
 | Column Type   | Description                                                         |
 | ------------- | ------------------------------------------------------------------- |
@@ -37,31 +25,29 @@ via the `pg_stat_statements`:
 | `Total (ms)`  | Total time spent executing the statement                            |
 
 You can also create custom queries using the `pg_stat_statements` view
-and use all the [available
-columns](https://www.postgresql.org/docs/current/pgstatstatements.html)
+and use
+all the [available columns](https://www.postgresql.org/docs/current/pgstatstatements.html)
 to investigate your use case.
 
 ## Prerequisites
 
-To query the `pg_stat_statements` view, you'll need to create the
-`pg_stat_statements` extension (included in the
-[list of available extensions](/docs/products/postgresql/reference/list-of-extensions)) that can be done via the following `CREATE EXTENSION`
-command:
+To query the `pg_stat_statements` view, create the `pg_stat_statements` extension
+(included in the
+[list of available extensions](/docs/products/postgresql/reference/list-of-extensions)):
 
-```
+```bash
 CREATE EXTENSION pg_stat_statements;
 ```
 
 ## Discover slow queries
 
-You can run the following command to display the `pg_stat_statements`
-view and all the columns contained:
+Display the `pg_stat_statements` view and all the columns contained:
 
 ```shell
 \d pg_stat_statements;
 ```
 
-With the result being for PostgreSQL 13:
+For PostgreSQL 13, expect to recevice the following output:
 
 ```text
 View "public.pg_stat_statements"
@@ -102,7 +88,7 @@ wal_fpi             | bigint           |           |          |
 wal_bytes           | numeric          |           |          |
 ```
 
-On older PostgreSQL versions you might find different column names (for example,
+On older PostgreSQL versions, you might find different column names (for example,
 the column previously named `max_time` is now `max_exec_time`). Always
 refer to the [PostgreSQL® official
 documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)
@@ -115,13 +101,13 @@ recently run queries in your database.
 
 ## Sort database queries based on `total_exec_time`
 
-The following query, inspired by a [GitHub
-repository](https://github.com/heroku/heroku-pg-extras/blob/ece431777dd34ff6c2a8dfb790b24db99f114165/commands/outliers.js),
-uses the `pg_stat_statements` view, shows the running queries sorted
-descending by `total_exec_time`, re-formats the `calls` column and
-deduces the `prop_exec_time` and `sync_io_time`:
+The following query, inspired by a
+[GitHub repository](https://github.com/heroku/heroku-pg-extras/blob/ece431777dd34ff6c2a8dfb790b24db99f114165/commands/outliers.js),
+uses the `pg_stat_statements` view, shows the running queries sorted descending by
+`total_exec_time`, re-formats the `calls` column, and deduces the `prop_exec_time` and
+`sync_io_time`:
 
-```postgresql
+```sql
 SELECT interval '1 millisecond' * total_exec_time AS total_exec_time,
     to_char((total_exec_time/sum(total_exec_time) OVER()) * 100, 'FM90D0') || '%'  AS prop_exec_time,
     to_char(calls, 'FM999G999G999G990') AS calls,
@@ -139,26 +125,26 @@ ORDER BY total_exec_time DESC
 LIMIT 10;
 ```
 
-You can run the above commands on your own PostgreSQL® to gather more
-information about how the recent queries are performing.
+Run the above commands on your own PostgreSQL® to gather more information about how the
+recent queries are performing.
 
 :::tip
-It is possible to discard the `pg_stat_statements` previously gathered
-statistics by using the following command:
+To discard the `pg_stat_statements` previously gathered statistics, run
 
 ```sql
 SELECT pg_stat_statements_reset()
 ```
+
 :::
 
 ## Find top queries with high I/O activity
 
 The following SQL shows queries with their `id` and mean time in
 seconds. The result set is ordered based on the sum of `blk_read_time`
-and `blk_write_time` meaning that queries with the highest read/write
+and `blk_write_time` so that queries with the highest read/write
 are shown at the top.
 
-```postgresql
+```sql
 SELECT userid::regrole,
     dbid,
     query,
@@ -171,14 +157,18 @@ LIMIT 10;
 
 ## See top time-consuming queries
 
-Aside from the relevant information to the database, the following SQL
-retrieves the number of calls, consumption time in milliseconds as
-`total_time_seconds`, and the minimum, maximum, and mean times such
-query has ever been executed in milliseconds. The result set is ordered
-in descending order by `mean_time` showing the queries with most
-consumption time first.
+Aside from relevant information about the database, the following SQL
+retrieves
 
-```postgresql
+- Number of calls
+- Consumption time as `total_time_seconds` (in milliseconds)
+- Minimum time (in milliseconds)
+- Maximum time (in milliseconds)
+- Mean times (in milliseconds)
+The result set is ordered in descending order by `mean_time`, showing the queries with
+the longest consumption time first.
+
+```sql
 SELECT userid::regrole,
     dbid,
     query,
@@ -195,14 +185,13 @@ LIMIT 10;
 ## Check queries with high memory usage
 
 The following SQL retrieves the query, its `id`, and relevant
-information about the database. The result set in this case is ordered
+information about the database. The result set is ordered
 by showing the queries with the highest memory usage at the top, summing
 the number of shared memory blocks returned from the cache
-(`shared_blks_hit`), and the number of shared memory blocks marked as
-\"dirty\" during a request needed to be written to disk
-(`shared_blks_dirtied`).
+(`shared_blks_hit`) and the number of shared memory blocks marked as
+\"dirty\" during a request needed to be written to the disk (`shared_blks_dirtied`).
 
-```postgresql
+```sql
 SELECT userid::regrole,
     dbid,
     queryid,
@@ -211,12 +200,11 @@ FROM pg_stat_statements
 ORDER by (shared_blks_hit+shared_blks_dirtied) DESC limit 10;
 ```
 
-:::tip
-Once you have identified slow queries, you can inspect the query plan
-and execution using [EXPLAIN
-ANALYZE](https://www.postgresql.org/docs/current/using-explain.html) to
-understand how you can optimise your design to improve the performance.
+## Next steps
 
-The
-[how to optimize slow PostgreSQL® queries](/docs/products/postgresql/howto/optimize-pg-slow-queries) contains some common suggestion for query optimisation.
-:::
+Once you have identified slow queries:
+
+- Inspect the query plan and execution using
+  [EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/using-explain.html) to
+  understand how to optimise your design to improve the performance.
+- [Optimize slow PostgreSQL® queries](/docs/products/postgresql/howto/optimize-pg-slow-queries).

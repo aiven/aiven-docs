@@ -35,10 +35,10 @@ them earlier, you're advised to do that if deleting your cloud.
 -   Access to [Aiven Console](https://console.aiven.io/)
 
 ## Delete your cloud
-
+<!-- vale off -->
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
-1.  Select the organization you want to use from the dropdown menu in
+1.  Select the organization to use from the dropdown menu in
     the top right corner.
 1.  From the top navigation bar, select **Admin**.
 1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
@@ -46,10 +46,10 @@ them earlier, you're advised to do that if deleting your cloud.
     available on the list.
 1.  In the selected cloud's page, use the **Actions** menu in
     the top right corner to select **Delete**.
-1.  Make sure you understand the impact and, if so, confirm that you
+1.  Consider the impact and confirm that you
     want to delete the cloud by selecting **Delete** in the **Warning**
     window.
-
+<!-- vale on -->
 Your custom cloud has been deleted.
 
 :::important
@@ -64,17 +64,16 @@ destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 ## Verify the update
 
 To ensure a cloud was successfully deleted:
-
+<!-- vale off -->
 1.  Log in to [Aiven Console](https://console.aiven.io/) as an
     administrator.
-1.  Select the organization you want to use from the dropdown menu in
-    the top right corner.
+1.  In the top right corner, select the organization to use from the dropdown menu .
 1.  From the top navigation bar, select **Admin**.
 1.  From the left sidebar, select <ConsoleLabel name="bringyourowncloud"/>.
 1.  In the **Bring your own cloud** view, see the list of the available
     clouds to make sure the cloud you intended to delete is actually
     gone.
-
+<!-- vale on -->
 ## Related pages
 
 -   [Bring your own cloud](/docs/platform/concepts/byoc)

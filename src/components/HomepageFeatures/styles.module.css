@@ -22,11 +22,7 @@
   background-color: var(--feature-background-color);
 }
 .feature:hover {
-  --ifm-link-color: var(--ifm-color-emphasis-800);
-  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
-  --ifm-link-hover-decoration: none;
-  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--feature-border-color-hover);
   transition: all var(--ifm-transition-fast) ease;
   transition-property: border, box-shadow;
 }

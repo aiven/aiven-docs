@@ -22,13 +22,13 @@ no direct tax needs to be withheld from payments by American entities to
 Aiven. Although a W-8 form is not required to confirm this status,
 we're happy to provide a W-8BEN-E form describing Aiven's status.
 Contact the [sales team](mailto:sales@aiven.io) to request one.
-<!-- vale on -->
+
 Aiven charges American sales taxes in several states in the United-States. The
 applicability of these taxes depends on various factors, such as the
 taxability of Aiven services, tax thresholds, amongst others.
 
 ## Rest of the world
-<!-- vale off -->
+
 No European Uninion value-added tax is applied to services sold outside the
 European Union as described in the Value-Added Tax Act of Finland section 69h.
 Finland has tax treaties with most countries in the world affirming this status.

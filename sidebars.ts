@@ -898,6 +898,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
+                    'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                   ],
                 },
                 {
@@ -1009,7 +1010,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/flink/howto',
               },
               items: [
-                'products/flink/howto/list-get-started',
                 {
                   type: 'category',
                   label: 'Integrate service',
@@ -1046,7 +1046,6 @@ const sidebars: SidebarsConfig = {
                     id: 'products/flink/howto/list-flink-tables',
                   },
                   items: [
-                    'products/flink/howto/manage-flink-tables',
                     {
                       type: 'category',
                       label: 'Create tables with data source',
@@ -1064,9 +1063,11 @@ const sidebars: SidebarsConfig = {
                         'products/flink/howto/datagen-connector',
                       ],
                     },
+                    'products/flink/howto/manage-flink-tables',
                   ],
                 },
                 'products/flink/howto/list-manage-cluster',
+                'products/flink/howto/upgrade-flink-version',
                 {
                   type: 'category',
                   label: 'Advanced topics',
@@ -1169,6 +1170,101 @@ const sidebars: SidebarsConfig = {
                 'products/cassandra/reference/advanced-params',
                 'products/cassandra/reference/cassandra-metrics-prometheus',
                 'products/cassandra/reference/cassandra-metrics-datadog',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Caching',
+          link: {
+            id: 'products/caching',
+            type: 'doc',
+          },
+          items: [
+            'products/caching/concepts/overview',
+            'products/caching/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'generated-index',
+                slug: 'products/caching/concepts',
+              },
+              items: [
+                'products/caching/concepts/high-availability-redis',
+                'products/caching/concepts/lua-scripts-caching',
+                'products/caching/concepts/memory-usage',
+                'products/caching/concepts/restricted-redis-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {type: 'generated-index', slug: 'products/caching/howto'},
+              items: [
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/list-code-samples',
+                  },
+                  items: [
+                    'products/caching/howto/connect-redis-cli',
+                    'products/caching/howto/connect-go',
+                    'products/caching/howto/connect-node',
+                    'products/caching/howto/connect-php',
+                    'products/caching/howto/connect-python',
+                    'products/caching/howto/connect-java',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Administer database',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/list-dba-tasks',
+                  },
+                  items: ['products/caching/howto/configure-acl-permissions'],
+                },
+                {
+                  type: 'category',
+                  label: 'Data migration',
+                  link: {
+                    type: 'doc',
+                    id: 'products/caching/howto/migrate-redis-db',
+                  },
+                  items: [
+                    'products/caching/howto/migrate-redis-aiven-cli',
+                    'products/caching/howto/migrate-redis-aiven-via-console',
+                  ],
+                },
+                'products/caching/howto/estimate-max-number-of-connections',
+                'products/caching/howto/manage-ssl-connectivity',
+                'products/caching/howto/warning-overcommit_memory',
+                'products/caching/howto/benchmark-performance',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'generated-index',
+                slug: 'products/caching/reference',
+              },
+              items: ['products/caching/reference/advanced-params'],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              link: {
+                type: 'generated-index',
+                title: 'Troubleshooting',
+                slug: 'products/caching/troubleshooting',
+              },
+              items: [
+                'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
               ],
             },
           ],
@@ -1960,9 +2056,9 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pg-repack-extension',
                     'products/postgresql/howto/use-pg-cron-extension',
                     'products/postgresql/howto/enable-jit',
+                    'products/postgresql/howto/optimize-pg-slow-queries',
                     'products/postgresql/howto/identify-pg-slow-queries',
                     'products/postgresql/howto/pg-long-running-queries',
-                    'products/postgresql/howto/optimize-pg-slow-queries',
                     'products/postgresql/howto/check-avoid-transaction-id-wraparound',
                     'products/postgresql/howto/prevent-full-disk',
                     'products/postgresql/howto/use-pgvector',
@@ -2052,74 +2148,26 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Caching',
+          label: 'Valkey',
           link: {
-            id: 'products/caching',
+            id: 'products/valkey',
             type: 'doc',
           },
           items: [
-            'products/caching/concepts/overview',
-            'products/caching/get-started',
+            'products/valkey/get-started',
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Connect to service',
               link: {
-                type: 'generated-index',
-                slug: 'products/caching/concepts',
+                type: 'doc',
+                id: 'products/valkey/howto/connect-services',
               },
               items: [
-                'products/caching/concepts/high-availability-redis',
-                'products/caching/concepts/lua-scripts-caching',
-                'products/caching/concepts/memory-usage',
-                'products/caching/concepts/restricted-redis-commands',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {type: 'generated-index', slug: 'products/caching/howto'},
-              items: [
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/list-code-samples',
-                  },
-                  items: [
-                    'products/caching/howto/connect-redis-cli',
-                    'products/caching/howto/connect-go',
-                    'products/caching/howto/connect-node',
-                    'products/caching/howto/connect-php',
-                    'products/caching/howto/connect-python',
-                    'products/caching/howto/connect-java',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Administer database',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/list-dba-tasks',
-                  },
-                  items: ['products/caching/howto/configure-acl-permissions'],
-                },
-                {
-                  type: 'category',
-                  label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/migrate-redis-db',
-                  },
-                  items: [
-                    'products/caching/howto/migrate-redis-aiven-cli',
-                    'products/caching/howto/migrate-redis-aiven-via-console',
-                  ],
-                },
-                'products/caching/howto/estimate-max-number-of-connections',
-                'products/caching/howto/manage-ssl-connectivity',
-                'products/caching/howto/warning-overcommit_memory',
-                'products/caching/howto/benchmark-performance',
+                'products/valkey/howto/connect-go',
+                'products/valkey/howto/connect-node',
+                'products/valkey/howto/connect-php',
+                'products/valkey/howto/connect-python',
+                'products/valkey/howto/connect-java',
               ],
             },
             {
@@ -2127,21 +2175,9 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               link: {
                 type: 'generated-index',
-                slug: 'products/caching/reference',
+                slug: 'products/valkey/reference',
               },
-              items: ['products/caching/reference/advanced-params'],
-            },
-            {
-              type: 'category',
-              label: 'Troubleshooting',
-              link: {
-                type: 'generated-index',
-                title: 'Troubleshooting',
-                slug: 'products/caching/troubleshooting',
-              },
-              items: [
-                'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
-              ],
+              items: ['products/valkey/reference/advanced-params'],
             },
           ],
         },

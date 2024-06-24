@@ -2,10 +2,9 @@
 title: Automatic adjustment of replication factors
 ---
 
-Aiven for OpenSearch® automatically adjusts index replication factors to
-ensure data availability and service functionality.
+Aiven for OpenSearch® automatically adjusts index replication factors to ensure data availability and service functionality.
 
-## When is the replication factor automatically adjusted?
+## Automatic adjustment of the replication factor
 
 The maximum value for `number_of_replicas` is the number of nodes in the
 cluster - 1, as it is not possible to replicate indexes (shards) to a

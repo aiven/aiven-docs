@@ -1,6 +1,6 @@
 ---
 title: Optimize Aiven for PostgreSQL® slow queries
-keywords: ["AI", "Artificial intelligence"]
+keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
@@ -10,16 +10,13 @@ Optimize slow queries to ensure maximum service performance. Use Aiven's AI capa
 
 ## Artificial intelligence recommendations <EarlyBadge/>
 
-Use Aiven's artificial intelligence (<abbr>AI</abbr>) capabilities to suggest
-optimizations to your databases and queries.
+Use **Aiven AI Database Optimizer** to suggest optimizations to your databases and queries.
 
 Aiven considers various aspects to suggest optimization, for example query
 structure, table size, existing indexes and their cardinality, column types and
 sizes, the connections between the tables and columns in the query.
 
-### Display optimization recommendations
-
-To optimize a query:
+To optimize a query automatically:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for
    PostgreSQL service.
@@ -38,11 +35,12 @@ To optimize a query:
 
 Aiven for PostgreSQL allows you to
 [identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
-using the `pg_stat_statements` view. To improve slow running queries, use one
-of the manual optimization techniques.
+using the `pg_stat_statements` view.
 
-It is worth knowing that many database indexes on a table can also cause
-problems for write performance due to the overhead of maintaining them.
+### Limit the number of indexes
+
+Having many database indexes on a table can reduce write performance
+due to the overhead of maintaining them.
 
 ### Handle an increase in database connections
 

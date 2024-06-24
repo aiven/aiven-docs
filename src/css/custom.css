@@ -15,6 +15,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --feature-background-color: none;
   --feature-border-color: var(--aiven-grey-05);
+  --feature-border-color-hover: var(--aiven-grey-20);
   --ifm-breadcrumb-border-radius: var(--aiven-radius);
   --ifm-breadcrumb-color-active: var(--ifm-link-color);
   --ifm-button-color: white;
@@ -40,13 +41,19 @@
   --ifm-link-color: var(--aiven-primary-80);
   --ifm-menu-color-active: var(--aiven-primary-80);
   --ifm-menu-color: var(--aiven-grey-60);
-  --nav-btn-primary-bg-hover: var(--aiven-primary-80);
+  --nav-btn-primary-bg-hover: var(--aiven-primary-90);
   --nav-btn-primary-bg: var(--ifm-link-color);
-  --nav-btn-primary-text-color-hover: var(--aiven-primary-90);
+  --nav-btn-primary-text-color-hover: white;
   --nav-btn-primary-text-color: var(--ifm-button-color);
-  --nav-btn-secondary-text-color-hover: var(--aiven-primary-90);
-  --nav-btn-secondary-text-color: var(--aiven-primary-70);
+  --nav-btn-secondary-text-color-hover: var(--nav-btn-primary-bg-hover);
+  --nav-btn-secondary-text-color: var(--nav-btn-primary-bg);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
+  --aiven-button-primary-bg: var(--nav-btn-primary-bg);
+  --aiven-button-primary-bg-hover: var(--nav-btn-primary-bg-hover);
+  --aiven-button-secondary-bg: var(--aiven-primary-80);
+  --aiven-button-secondary-bg-hover: var(--nav-btn-primary-bg-hover);
+  --ifm-button-background-color: var(--nav-btn-primary-bg);
+  --ifm-button-border-color: var(--ifm-button-background-color);
 }
 
 [data-theme='dark'] {
@@ -58,11 +65,12 @@
   --aiven-adm-text-color: var(--aiven-grey-05);
   --aiven-adm-title-color: var(--aiven-grey-05);
   --aiven-announcement-banner-bg: var(--aiven-grey-90);
-  --aiven-hero-bg: var(--aiven-grey-80);
+  --aiven-hero-bg: var(--aiven-grey-90);
   --aiven-nav-active-bg: var(--aiven-grey-90);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --feature-background-color: var(--ifm-card-background-color);
   --feature-border-color: var(--ifm-color-emphasis-200);
+  --feature-border-color-hover: var(--ifm-color-emphasis-300);
   --ifm-background-color: var(--aiven-grey-100);
   --ifm-background-surface-color: var(--aiven-grey-100);
   --ifm-color-content: var(--aiven-grey-20);
@@ -81,11 +89,10 @@
   --ifm-toc-border-color: var(--aiven-grey-80) !important;
   --nav-btn-primary-bg-hover: var(--aiven-primary-60);
   --nav-btn-primary-bg: var(--aiven-primary-70);
-  --nav-btn-primary-text-color-hover: var(--aiven-primary-60);
   --nav-btn-primary-text-color: var(--ifm-button-color);
   --nav-btn-primary-text-hover-color: var(--aiven-grey-90);
-  --nav-btn-secondary-text-color-hover: var(--aiven-primary-60);
-  --nav-btn-secondary-text-color: var(--aiven-primary-70);
+  --nav-btn-secondary-text-color: var(--nav-btn-primary-bg);
+  --nav-btn-secondary-text-color-hover: var(--nav-btn-primary-bg-hover);
 }
 
 .markdown h1:first-child {

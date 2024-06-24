@@ -176,5 +176,15 @@
       "<img src={$1} class=\"centered\" alt=\"$3\" width=\"${4:60%}\" />",
       ""
     ]
+  },
+  "Insert button": {
+    "scope": "markdown",
+    "prefix": ["button", "cta"],
+    "body": [
+      "import Button from \"@site/src/components/Buttons\";",
+      "",
+      "<Button to=\"$1\">$2</Button>",
+      ""
+    ]
   }
 }

@@ -3,5 +3,5 @@ message: "Do not describe UI elements, just use their label."
 ignorecase: true
 level: error
 tokens:
-  - buttons?
-  - dropdown
+  - (?<!import )button
+  # - dropdown

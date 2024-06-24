@@ -1,0 +1,35 @@
+.button {
+  font-weight: 600;
+  margin: 0;
+  padding: 10px;
+  font-size: 110%;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+.button:hover,
+.button:focus {
+  text-decoration: none;
+  color: unset !important;
+}
+
+.buttonPrimary {
+  background-color: var(--aiven-button-primary-bg);
+  color: white;
+  border: 1px solid var(--aiven-button-primary-bg);
+}
+.buttonPrimary:hover,
+.buttonPrimary:focus {
+  background-color: var(--aiven-button-primary-bg-hover);
+  border-color: var(--aiven-button-primary-bg-hover);
+  color: white !important;
+}
+
+.buttonSecondary {
+  color: var(--aiven-button-primary-bg);
+  border: 1px solid var(--aiven-button-primary-bg);
+}
+.buttonSecondary:hover,
+.buttonSecondary:focus {
+  color: var(--aiven-button-secondary-bg-hover) !important;
+  border-color: var(--aiven-button-secondary-bg-hover);
+}

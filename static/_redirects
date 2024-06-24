@@ -3,29 +3,11 @@
 # See https://developers.cloudflare.com/pages/configuration/redirects/
 #
 
-/community/documentation                              https://aiven.io/community
-/community/documentation/tips-tricks/renaming-files   https://aiven.io/community
 /tools/cli/service                                    https://aiven.io/docs/tools/cli/service-cli
 /tools/terraform/reference/cookbook                   https://aiven.io/docs/tools/terraform/get-started
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe  https://aiven.io/docs/tools/terraform/get-started
-/platform/howto/list-saml                             https://aiven.io/docs/platform/howto/list-identity-providers
-/platform/howto/saml/saml-authentication              https://aiven.io/docs/platform/howto/saml/add-identity-providers
-/platform/howto/saml/setup-saml-auth0                 https://aiven.io/docs/platform/howto/saml/add-auth0-idp
-/platform/howto/saml/setup-saml-azure                 https://aiven.io/docs/platform/howto/saml/add-azure-idp
-/platform/howto/saml/setup-saml-fusionauth            https://aiven.io/docs/platform/howto/saml/add-fusionauth-idp
-/platform/howto/saml/setup-saml-google                https://aiven.io/docs/platform/howto/saml/add-google-idp
-/platform/howto/saml/setup-saml-jumpcloud             https://aiven.io/docs/platform/howto/saml/add-jumpcloud-idp
-/platform/howto/saml/setup-saml-okta                  https://aiven.io/docs/platform/howto/saml/add-okta-idp
-/platform/howto/saml/setup-saml-onelogin              https://aiven.io/docs/platform/howto/saml/add-onelogin-idp
 /products/influxdb                                    https://aiven.io/docs/products/services
-/products/influxdb/concepts                           https://aiven.io/docs/products/services
-/products/influxdb/concepts/continuous-queries        https://aiven.io/docs/products/services
-/products/influxdb/concepts/influxdb-retention-policy https://aiven.io/docs/products/services
-/products/influxdb/get-started                        https://aiven.io/docs/products/services
-/products/influxdb/howto                              https://aiven.io/docs/products/services
-/products/influxdb/howto/migrate-data-self-hosted-influxdb-aiven   https://aiven.io/docs/products/services
-/products/influxdb/reference                          https://aiven.io/docs/products/services
-/products/influxdb/reference/advanced-params          https://aiven.io/docs/products/services
+/products/influxdb/*                                  https://aiven.io/docs/products/services
 /products/postgresql/reference/high-cpu-load-of-pgbouncer https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
 /platform/howto/pause-from-cli                        https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/cleanup-powered-off-services          https://aiven.io/docs/platform/concepts/service-power-cycle
@@ -56,39 +38,8 @@
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 
-
-
-# Redis to Caching
-
-/products/redis                                            https://aiven.io/docs/products/caching
-/products/redis/concepts/overview                          https://aiven.io/docs/products/caching/concepts/overview
-/docs/products/redis/get-started                           https://aiven.io/docs/products/caching/get-started
-/docs/products/redis/concepts                              https://aiven.io/docs/products/caching/concepts
-/products/redis/concepts/high-availability-redis           https://aiven.io/docs/products/caching/concepts/high-availability-redis
-/products/redis/concepts/lua-scripts-redis                 https://aiven.io/docs/products/caching/concepts/lua-scripts-caching
-/products/redis/concepts/memory-usage                      https://aiven.io/docs/products/caching/concepts/memory-usage
-/products/redis/concepts/restricted-redis-commands         https://aiven.io/docs/products/caching/concepts/restricted-redis-commands
-/products/redis/howto                                      https://aiven.io/docs/products/caching/howto
-/products/redis/howto/list-code-samples                    https://aiven.io/docs/products/caching/howto/list-code-samples
-/products/redis/howto/connect-redis-cli                    https://aiven.io/docs/products/caching/howto/connect-redis-cli
-/products/redis/howto/connect-go                           https://aiven.io/docs/products/caching/howto/connect-go
-/products/redis/howto/connect-node                         https://aiven.io/docs/products/caching/howto/connect-node
-/products/redis/howto/connect-php                          https://aiven.io/docs/products/caching/howto/connect-php
-/products/redis/howto/connect-python                       https://aiven.io/docs/products/caching/howto/connect-python
-/products/redis/howto/connect-java                         https://aiven.io/docs/products/caching/howto/connect-java
-/products/redis/howto/list-dba-tasks                       https://aiven.io/docs//products/caching/howto/list-dba-tasks
-/products/redis/howto/configure-acl-permissions            https://aiven.io/docs/products/caching/howto/configure-acl-permissions
-/products/redis/howto/migrate-redis-db                     https://aiven.io/docs/products/caching/howto/migrate-redis-db
-/products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
-/products/redis/howto/migrate-redis-aiven-via-console      https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
-/products/redis/howto/estimate-max-number-of-connections   https://aiven.io/docs/products/caching/howto/estimate-max-number-of-connections
-/products/redis/howto/manage-ssl-connectivity              https://aiven.io/docs/products/caching/howto/manage-ssl-connectivity
-/products/redis/howto/warning-overcommit_memory            https://aiven.io/docs/products/caching/howto/warning-overcommit_memory
-/products/redis/howto/benchmark-performance                https://aiven.io/docs/products/caching/howto/benchmark-performance
-/products/redis/reference                                  https://aiven.io/docs/products/caching/reference
-/products/redis/reference/advanced-params                  https://aiven.io/docs/products/caching/reference/advanced-params
-/products/redis/troubleshooting                            https://aiven.io/docs/products/caching/troubleshooting
-/products/redis/troubleshooting/troubleshoot-redis-connection-issues  https://aiven.io/docs/products/caching/troubleshooting/troubleshoot-redis-connection-issues
+/products/redis                                        https://aiven.io/docs/products/caching
+/products/redis/*                                      https://aiven.io/docs/products/caching/:splat
 
 /products/dragonfly/howto/migrate-aiven-redis-df-console   https://aiven.io/docs/products/dragonfly/howto/migrate-aiven-caching-df-console
 
@@ -103,3 +54,15 @@
 /tools/terraform/howto/vnet-peering-azure              https://github.com/Aiven-Open/terraform-example-projects/blob/main/virtual_private_networking/azure_vnet_peering
 /tools/terraform/howto/vpc-peering-gcp                 https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking/google_vpc_peering
 /tools/terraform/list-vpc-terraform                    https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking
+
+/products/flink/howto/list-get-started                 https://aiven.io/docs/products/flink/get-started
+
+/platform/howto/change-support-tier                        https://aiven.io/docs/platform/howto/support
+/platform/howto/migrate-services                           https://aiven.io/docs/products/postgresql/howto/list-replication-migration
+/products/flink/howto/real-time-alerting-solution          https://aiven.io/docs/products/flink/howto/list-get-started
+/products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
+/products/opensearch/howto/upgrade-to-opensearch           https://aiven.io/docs/products/opensearch/howto/upgrade-clients-to-opensearch
+/tools/terraform/reference/cookbook/kafka-flink-integration-recipe     https://aiven.io/developer/apache-kafka-to-opensearch-terraform
+/platform/howto/enable-aiven-password                                  https://aiven.io/docs/platform/reference/password-policy
+/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe     https://aiven.io/docs/tools/terraform/get-started
+/tools/terraform/reference/cookbook/multicloud-postgresql-recipe       https://aiven.io/developer/multicloud-postgresql-terraform

@@ -2,44 +2,34 @@
 title: Create a sink connector from Apache Kafka® to Elasticsearch
 ---
 
-The Elasticsearch sink connector enables you to move data from an Aiven
-for Apache Kafka® cluster to an Elasticsearch instance for further
-processing and analysis.
-
-:::warning
-This article describes how to create a sink connector to Elasticsearch.
-Similar instructions are available also for OpenSearch® in the
-[dedicated article](opensearch-sink).
-:::
+The Elasticsearch sink connector enables you to move data from an Aiven for Apache Kafka® cluster to an Elasticsearch instance for further processing and analysis.
 
 :::note
-You can check the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.confluent.io/current/connect/kafka-connect-elasticsearch/index.html).
+- To see the equivalent instructions for OpenSearch®, see [Create a sink connector to OpenSearch®](/docs/products/kafka/kafka-connect/howto/opensearch-sink).
+
+- See the full set of available parameters and configuration options in the [connector's
+  documentation](https://docs.confluent.io/current/connect/kafka-connect-elasticsearch/index.html).
 :::
 
 ## Prerequisites {#connect_elasticsearch_sink_prereq}
 
-To setup an Elasticsearch sink connector, you need an Aiven for Apache
-Kafka service
-[with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- an Aiven for Apache Kafka service [with Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
-target Elasticsearch service upfront:
+- Collect the following information about the target Elasticsearch service:
 
--   `ES_CONNECTION_URL`: The Elasticsearch connection URL, in the form
+  - `ES_CONNECTION_URL`: The Elasticsearch connection URL, in the form
     of `https://HOST:PORT`
--   `ES_USERNAME`: The Elasticsearch username to connect
--   `ES_PASSWORD`: The password for the username selected
--   `TOPIC_LIST`: The list of topics to sink divided by comma
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
+  - `ES_USERNAME`: The Elasticsearch username to connect
+  - `ES_PASSWORD`: The password for the username selected
+  - `TOPIC_LIST`: The list of topics to sink divided by comma
+  - `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
     needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
+  - `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
     only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
+  - `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
     username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
+  - `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
     password, only needed when using Avro as data format
 
 :::note
@@ -330,4 +320,6 @@ The configuration file contains the following peculiarities:
 The Elasticsearch document ID is set as the message key
 :::
 
-------------------------------------------------------------------------
+## Related pages
+
+- [Create a sink connector to OpenSearch®](/docs/products/kafka/kafka-connect/howto/opensearch-sink).

@@ -8,7 +8,7 @@ parameters and setup details is available in the [dedicated GitHub
 repository](https://github.com/aiven/http-connector-for-apache-kafka/).
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/aiven/aiven-kafka-connect-http).
 :::

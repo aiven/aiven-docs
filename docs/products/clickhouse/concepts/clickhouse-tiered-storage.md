@@ -3,6 +3,8 @@ title: Tiered storage in Aiven for ClickHouse®
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's local disk usage.
 
 On top of this default data allocation mechanism, you can control the tier your
@@ -105,6 +107,28 @@ between the two layers.
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to
     connect to an external existing
     object storage or cloud storage bucket.
+
+-   In the [Aiven Console](https://console.aiven.io/), there can be a mismatch in the
+    displayed amount of data in object storage between what's showed in
+    [Tiered storage](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+    and
+    [Storage details](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details).
+
+    This is because:
+
+    - Information in
+      [Tiered storage](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+      is updated every hour.
+
+      :::tip
+      To check if you successfully transferred data to object storage, display
+      [Storage details](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+      of your table in the [Aiven Console](https://console.aiven.io/).
+      :::
+
+    - There can be unused data in object storage, for example before Aiven for ClickHouse
+      performs a merge of parts or when a backup is performed before your table changes.
+      Such unused data is removed once a day.
 
 ## What's next
 

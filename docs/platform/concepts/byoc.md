@@ -57,7 +57,7 @@ not all cloud providers support it yet. Meet a few requirements to be eligible f
     :::note
     View the [Aiven support tiers](https://aiven.io/support-services) and
     [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC. Contact
-    the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support tier.
+    your account team to learn more or upgrade your support tier.
     :::
 
 ## When to use the regular Aiven deployment
@@ -72,7 +72,7 @@ utilizing a regular Aiven deployment or
 
 :::tip
 If you would like to understand BYOC better or are unsure which
-deployment model is the best fit for you, contact [the sales team](mailto:sales@aiven.io).
+deployment model is the best fit for you, contact your account team.
 :::
 
 ## BYOC pricing and billing
@@ -89,7 +89,7 @@ may have and potentially leverage committed use discounts (CUDs) in
 certain cases.
 
 :::note
-For a cost estimate and analysis, contact [the sales team](mailto:sales@aiven.io).
+For a cost estimate and analysis, contact your account team.
 :::
 
 ## BYOC AWS private deployment {#byoc-deployment}
