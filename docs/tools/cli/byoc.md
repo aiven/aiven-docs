@@ -111,7 +111,7 @@ other than the ones you've just granted using this command.
 
 Manage a custom cloud Terraform infrastructure template.
 
-### `avn byoc templete terraform get-template`
+### `avn byoc template terraform get-template`
 
 Downloads a custom cloud Terraform template.
 
@@ -120,7 +120,7 @@ Downloads a custom cloud Terraform template.
 | `--organization-id` | Yes      | Identifier of an organization where the custom cloud is located           |
 | `--byoc-id`         | Yes      | Identifier of the custom cloud for which to download a Terraform template |
 
-### `avn byoc templete terraform get-vars`
+### `avn byoc template terraform get-vars`
 
 Downloads a custom cloud Terraform variables file.
 
