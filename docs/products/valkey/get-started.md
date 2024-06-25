@@ -16,8 +16,8 @@ Begin your journey with Aiven for Valkey, the versatile in-memory data store off
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  [Create Aiven for Valkey service](/docs/platform/howto/create_new_service).
+1. Log in to the [Aiven Console](https://console.aiven.io/).
+1. [Create Aiven for Valkey service](/docs/platform/howto/create_new_service).
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
@@ -42,7 +42,7 @@ Begin your journey with Aiven for Valkey, the versatile in-memory data store off
    - `--service-type valkey`: Specifies the service type as Aiven for Valkey.
    - `--cloud CLOUD_AND_REGION`: Specifies the cloud provider and region for deployment.
    - `--plan PLAN`: Specifies the service plan or tier.
-   -` --project PROJECT_NAME`: Specifies the project where the service will be created.
+   - `--project PROJECT_NAME`: Specifies the project where the service will be created.
 
 Explore additional options by running:
 
@@ -52,13 +52,12 @@ Explore additional options by running:
 </TabItem>
 </Tabs>
 
-
 ## Connect to Aiven for Valkey
 
 Learn how to connect to Aiven for Caching using different programming
 languages:
 
--   [Go](/docs/products/caching/howto/connect-go)
--   [Node](/docs/products/caching/howto/connect-node)
--   [PHP](/docs/products/caching/howto/connect-php)
--   [Python](/docs/products/caching/howto/connect-python)
+- [Go](/docs/products/caching/howto/connect-go)
+- [Node](/docs/products/caching/howto/connect-node)
+- [PHP](/docs/products/caching/howto/connect-php)
+- [Python](/docs/products/caching/howto/connect-python)
