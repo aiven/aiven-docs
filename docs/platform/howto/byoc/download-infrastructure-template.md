@@ -26,7 +26,7 @@ Download a Terraform template that defines the infrastructure of your [custom cl
 
 ## Download the template via CLI
 
-[Run the `avn byoc templete terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-templete-terraform-get-template)
+[Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
 to download your infrastructure template.
 
 ## Related pages
