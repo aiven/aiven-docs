@@ -10,7 +10,7 @@ transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-react
 on the topic data before sending it to the Apache Kafka cluster.
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.lenses.io/connectors/source/cassandra.html).
 :::

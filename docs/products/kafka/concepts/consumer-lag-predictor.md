@@ -4,11 +4,9 @@ sidebar_label: Consumer lag predictor
 limited: true
 ---
 
-The **consumer lag predictor** for Aiven for Apache Kafka estimates the
-delay between the time a message is produced and when it's eventually
-consumed by a consumer group. This information can be used to improve
-the performance, scalability, and cost-effectiveness of your Kafka
-cluster.
+The **consumer lag predictor** for Aiven for Apache Kafka estimates the delay between the time a message is produced and when it's eventually consumed by a consumer group.
+This information can be used to improve the performance, scalability, and
+cost-effectiveness of your Kafka cluster.
 
 To use the **consumer lag predictor** effectively, set up
 [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) with your
@@ -16,7 +14,7 @@ Aiven for Apache Kafka® service. The Prometheus
 integration enables the extraction of key metrics necessary for lag
 prediction and monitoring.
 
-## Why use consumer lag predictor?
+## Consumer lag predictor benefits
 
 By periodically analyzing the Kafka cluster, including topic and
 consumer group offsets, this *Consumer Lag Predictor* provides insights
@@ -47,8 +45,8 @@ consider the following:
 ## Metrics
 
 Metrics offer a tangible way to measure and understand consumer lag.
-These metrics can be viewed and analyzed using monitoring tools like
-Prometheus. Here are the key metrics provided:
+The following metrics can be viewed and analyzed using monitoring tools like
+Prometheus:
 
 -   `kafka_lag_predictor_topic_produced_records`: Represents the number
     of records produced, categorized by topic and partition.

@@ -4,6 +4,8 @@ sidebar_label: Bring your own cloud
 keywords: [byoc, bring your own cloud, custom cloud]
 ---
 
+import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.png";
+
 _Bring your own cloud_ (BYOC) allows you to use your own cloud infrastructure instead of relying on the Aiven-managed infrastructure.
 
 Aiven services are usually deployed on Aiven-managed infrastructure, using
@@ -55,7 +57,7 @@ not all cloud providers support it yet. Meet a few requirements to be eligible f
     :::note
     View the [Aiven support tiers](https://aiven.io/support-services) and
     [Aiven responsibility matrix](https://aiven.io/responsibility-matrix) for BYOC. Contact
-    the [sales team](mailto:sales@aiven.io) to learn more or upgrade your support tier.
+    your account team to learn more or upgrade your support tier.
     :::
 
 ## When to use the regular Aiven deployment
@@ -70,7 +72,7 @@ utilizing a regular Aiven deployment or
 
 :::tip
 If you would like to understand BYOC better or are unsure which
-deployment model is the best fit for you, contact [the sales team](mailto:sales@aiven.io).
+deployment model is the best fit for you, contact your account team.
 :::
 
 ## BYOC pricing and billing
@@ -87,10 +89,10 @@ may have and potentially leverage committed use discounts (CUDs) in
 certain cases.
 
 :::note
-For a cost estimate and analysis, contact [the sales team](mailto:sales@aiven.io).
+For a cost estimate and analysis, contact your account team.
 :::
 
-## Standard BYOC architecture {#byoc-deployment}
+## BYOC AWS private deployment {#byoc-deployment}
 
 With BYOC, you can use any standard Aiven method (for example,
 [CLI](/docs/tools/cli) or
@@ -98,9 +100,9 @@ With BYOC, you can use any standard Aiven method (for example,
 manage your services and generally have the same user experience as with
 the regular Aiven deployment model.
 
-![Overview architecture diagram with VPC set up](/images/content/platform/byoc-one-vpc-arch.png)
+<img src={byocAwsPrivate} class="centered" alt="BYOC AWS private architecture" width="100%" />
 
-The standard BYOC deployment requires you to create a Virtual Private Cloud
+The BYOC AWS private deployment requires you to create a Virtual Private Cloud
 (**BYOC VPC**) dedicated to Aiven-managed services within a cloud region you
 want to operate in. Aiven accesses this VPC from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven

@@ -13,7 +13,7 @@ Similar instructions are available also for Elasticsearch® in the
 :::
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/aiven/opensearch-connector-for-apache-kafka/blob/main/docs/opensearch-sink-connector-config-options.rst).
 :::

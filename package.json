@@ -17,20 +17,22 @@
   "dependencies": {
     "@aivenio/aquarium": "^1.65.2",
     "@algolia/client-search": "^4.22.1",
-    "@docusaurus/core": "^3.3.2",
-    "@docusaurus/plugin-client-redirects": "^3.3.2",
-    "@docusaurus/preset-classic": "^3.3.2",
-    "@docusaurus/theme-mermaid": "^3.3.2",
+    "@docusaurus/core": "^3.4.0",
+    "@docusaurus/plugin-client-redirects": "^3.4.0",
+    "@docusaurus/plugin-google-gtag": "^3.4.0",
+    "@docusaurus/preset-classic": "^3.4.0",
+    "@docusaurus/theme-mermaid": "^3.4.0",
     "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
     "@types/react": "^18.2.48",
-    "algoliasearch": "^4.22.1",
+    "algoliasearch": "^4.23.3",
     "axios": "^1.6.2",
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^1.2.1",
     "dotenv": "^16.3.1",
     "glob": "^10.3.10",
     "handlebars": "^4.7.8",
+    "lodash": "^4.17.21",
     "prism-react-renderer": "^2.1.0",
     "raw-loader": "^4.0.2",
     "react": "^18.0.0",
@@ -42,9 +44,10 @@
     "webpack": "^5.89.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.2.0",
-    "@docusaurus/tsconfig": "^3.2.0",
-    "@docusaurus/types": "^3.2.0"
+    "@docusaurus/module-type-aliases": "^3.4.0",
+    "@docusaurus/tsconfig": "^3.4.0",
+    "@docusaurus/types": "^3.4.0",
+    "@types/lodash": "^4"
   },
   "browserslist": {
     "production": [

@@ -17,9 +17,11 @@ function replaceUnicode(content) {
     '&#x60;': '`',
   };
 
-  const replacedContent = content.replace(/&#x[0-9a-fA-F]+;/g, (match) => {
+  let replacedContent = content.replace(/&#x[0-9a-fA-F]+;/g, (match) => {
     return codeMappings[match] || match;
   });
+  replacedContent = replacedContent.replace(/{/g, '\\{');
+  replacedContent = replacedContent.replace(/}/g, '\\}');
 
   return replacedContent;
 }

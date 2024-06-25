@@ -4,6 +4,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+const currentMonth = new Date().getMonth();
+const isJune = currentMonth === 5;
+
 const config: Config = {
   title: 'Aiven docs',
   tagline: 'The trusted open source data platform for everyone',
@@ -34,6 +37,10 @@ const config: Config = {
           editUrl: 'https://github.com/aiven/aiven-docs/blob/main',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+        },
+        gtag: {
+          trackingID: 'G-M6D699CJR0',
+          anonymizeIP: true,
         },
         theme: {
           customCss: [
@@ -73,8 +80,8 @@ const config: Config = {
       title: 'aiven',
       logo: {
         alt: 'Aiven docs',
-        src: 'images/logo.svg',
-        srcDark: 'images/logoDark.svg',
+        src: isJune ? 'images/logo-pride.svg' : 'images/logo.svg',
+        srcDark: isJune ? 'images/logoDark-pride.svg' : 'images/logoDark.svg',
       },
       items: [
         {

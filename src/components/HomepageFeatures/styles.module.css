@@ -22,11 +22,7 @@
   background-color: var(--feature-background-color);
 }
 .feature:hover {
-  --ifm-link-color: var(--ifm-color-emphasis-800);
-  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
-  --ifm-link-hover-decoration: none;
-  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--feature-border-color-hover);
   transition: all var(--ifm-transition-fast) ease;
   transition-property: border, box-shadow;
 }
@@ -57,10 +53,9 @@
 .logo {
   padding: 2px;
   margin-right: 16px;
-  background-image: url('/static/images/icons/home/background1.svg'),
-    url('/static/images/icons/home/background2.svg');
-  background-repeat: no-repeat, no-repeat;
-  background-position: left top, bottom right;
+  background-image: url('/static/images/icons/home/background.svg');
+  background-repeat: no-repeat;
+  background-position: left top;
   height: 56px;
   width: 56px;
   display: flex;

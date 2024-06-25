@@ -77,10 +77,13 @@ To add projects and roles to a team:
     -   the permission level that is assigned for each project
 
     :::note
-    Users on the Account Owners team automatically become
-    [super admin](/docs/platform/howto/make-super-admin) with full access to
-    manage the organization. You don't need to create a group for these users.
-     They will still have this level of access after the migration.
+    Users on the Account Owners team are automatically made super admin
+    with full access to manage the organization. You don't need to create a
+    group for these users.
+
+    If you create a group named Account Owners, users you add to that group won't
+    automatically become super admin. Instead, you can
+    [make them super admin](/docs/platform/howto/make-super-admin).
     :::
 
 1.  Click **Groups**.

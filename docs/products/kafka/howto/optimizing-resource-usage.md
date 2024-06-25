@@ -2,16 +2,15 @@
 title: Optimizing resource usage for Aiven for Apache Kafka®
 ---
 
-Aiven for Apache Kafka® service plans with CPUs of 2 or less are
-optimized for lightweight operations, making them suitable for
-applications that handle fewer messages per second and do not require
-high throughput. However, you might sometimes encounter an alert showing
-high resource usage. These alerts typically arise when the Kafka broker
-memory drops too low, and the CPU idle time is less than 15%.
-Understanding the reasons behind these alerts and their mitigation
-ensures optimized Kafka usage and consistent application performance.
+Aiven for Apache Kafka® service plans with CPUs of 2 or less are optimized for lightweight operations, making them suitable for applications that handle fewer messages per second and do not require high throughput.
 
-## What triggers high resource usage?
+However, you might sometimes encounter an alert showing high resource usage.
+These alerts typically arise when the Kafka broker memory drops too low, and the
+CPU idle time is less than 15%. Understanding the reasons behind these alerts
+and their mitigation ensures optimized Kafka usage and consistent application
+performance.
+
+## What triggers high resource usage
 
 Several factors can lead to high resource usage across Aiven for Apache
 Kafka plans:
@@ -46,7 +45,7 @@ Kafka plans:
 -   **Reduce Topic Partition Limit:** Decreasing the number of topic
     partitions reduces the load on the Kafka service.
 -   **Disable Datadog Integration:** If Datadog sends too many metrics,
-    it could affect the reliability of the service and hinder the backup
+    it can affect the reliability of the service and hinder the backup
     of topic configurations. It is recommended to turn off the
     integration of the Datadog service.
 -   **Enable Quotas:** Quotas can manage the resources consumed by

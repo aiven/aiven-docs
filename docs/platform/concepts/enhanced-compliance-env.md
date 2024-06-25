@@ -10,12 +10,15 @@ infrastructure with the additional compliance requirement that no ECE
 VPC is shared and the managed environment is logically separated from
 the standard Aiven deployment environment. This decreases the blast
 radius of the environment to prevent inadvertent data sharing.
-Furthermore, users of an ECE **must** encrypt all data before reaching
+
+<!-- vale off -->
+Users of an ECE **must** encrypt all data before reaching
 an Aiven service. As part of the increased compliance of the
 environment, enhanced logging is enabled for - `stderr`, `stout`, and
 `stdin`.
+<!-- vale on -->
 
-## Who is eligible?
+## Eligibility
 
 Enhanced compliance environments, although similar to standard
 environments, involve added setup and maintenance complexity. The
@@ -24,7 +27,6 @@ following are requirements to utilize an ECE:
 -   You use Amazon Web Services (AWS), Google Cloud, or Microsoft Azure (excluding
     Azure Germany).
 -   You have a commitment deal with Aiven.
--   You have Aiven Enterprise.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
 ## Cost of ECE
@@ -64,21 +66,11 @@ provision an Enhanced Compliance Environment:
 The necessary peering information to enable the peer from our end. This
 differs between clouds:
 
-**AWS:**
-
-- AWS account ID
-- VPC ID
-
-**GCP:**
-
-- GCP Project ID
-- VPC Network Name
-
-**Azure:**
-
-- Azure Tenant ID
-- Azure App ID
-- Azure VNet ID
+| Cloud name |                           Required peering information                           |
+|------------|----------------------------------------------------------------------------------|
+| AWS        | <ul><li>AWS account ID</li><li>VPC ID</li></ul>                                  |
+| GCP        | <ul><li>GCP Project ID</li><li>VPC Network Name</li></ul>                        |
+| Azure      | <ul> <li>Azure Tenant ID</li> <li>Azure App ID</li> <li>Azure VNet ID</li> </ul> |
 
 ## Compliances
 

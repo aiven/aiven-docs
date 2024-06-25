@@ -29,7 +29,7 @@ The advanced telemetry feature brings much more detailed,
 service-specific metrics to the Aiven user, who can then drill down into
 the service behavior and identify issues and performance bottlenecks.
 
-### How are the service integrations billed?
+### Service integrations billing
 
 The advanced telemetry data and predefined dashboards do not cost
 anything extra, but they require you to have an Aiven for PostgreSQL®

@@ -27,9 +27,9 @@
   border: 1px solid var(--nav-btn-primary-bg);
 }
 .navbar-button-primary:hover {
-  background-color: var(--nav-btn-primary-text-color-hover);
-  border: 1px solid var(--nav-btn-primary-text-color-hover);
-  color: var(--nav-btn-primary-text-color);
+  background-color: var(--nav-btn-primary-bg-hover);
+  border: 1px solid var(--nav-btn-primary-bg-hover);
+  color: var(--nav-btn-primary-text-color-hover);
 }
 
 .navbar__link--active {

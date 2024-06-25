@@ -7,7 +7,16 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Service disk autoscaler enables you to automatically increase the storage capacity of the service disk when the disk is running out of space.
+<!-- vale off -->
+
+export const Example = () => (
+  <p>If you have a 500 GB plan and want to scale up to 1 TB using the autoscaler, the autoscaler value should be 1024 GB.</p>
+);
+
+<!-- vale on -->
+
+Use disk autoscaler to automatically increase the storage capacity of the service disk when the disk is running out of space.
+Service disk autoscaler doesn't support scaling down.
 
 :::note[Pricing]
 The disk autoscaler base pricing depends on your service type and plan.
@@ -30,14 +39,10 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
     service remains operational in case of unexpected high demand for
     disk space.
 
-:::note
-Service disk autoscaler doesn't support scaling down.
-:::
-
 ## How it works
 
 1.  You create a disk autoscaler integration endpoint in your Aiven
-    project setting the maximum additional storage at the same time.
+    project setting the maximum storage at the same time.
 1.  You enable a disk autoscaler integration for your service using the
     new disk autoscaler integration endpoint.
 1.  From that point onward, the disk space availability of your service is monitored by
@@ -105,13 +110,18 @@ Create an autoscaler endpoint:
 1.  On the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
 1.  Click **Aiven Autoscaler** > **Add new endpoint**.
 1.  Set the details of the endpoint, and click **Add endpoint**.
+    **Max. total disk storage (GB)** includes your plan's storage.
 
-Enable on a service:
+:::note[Example]
+<Example/>
+:::
+
+Enable the autoscaler on a service:
 
 1.  On the left sidebar, click <ConsoleLabel name="services"/>, and open your service.
 1.  On the left sidebar, click <ConsoleLabel name="integrations"/>.
 1.  In **Endpoint integrations**, click **Aiven autoscaler**.
-1.  Select the appropriate endpoint name, and click **Enable**.
+1.  Select an endpoint name, and click **Enable**.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -232,8 +242,11 @@ CLI to do that.
 1.  On the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
 1.  On the **Integration endpoints** page, click **Aiven Autoscaler**.
 1.  Find your endpoint on the list, and click <ConsoleIcon name="edit"/>.
-1.  Specify a new value for the maximum additional disk storage to be allowed for
-    autoscaling, and click **Save changes**.
+1.  Specify a new value for the maximum disk storage, and click **Save changes**.
+
+:::note[Example]
+<Example/>
+:::
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -259,11 +272,15 @@ curl --request PUT \
      '{
         "user_config": {
           "autoscaler": {
-            "max_additional_storage": "REPLACE_WITH_DESIRED_VALUE_IN_GB"
+            "max_additional_storage": "TOTAL_DESIRED_DISK_SPACE_IN_GB"
           }
         }
       }'
 ```
+
+:::note[Example]
+<Example/>
+:::
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -273,13 +290,17 @@ additional disk storage allowed for autoscaling purposes on your service.
 
 Run
 [avn service integration-endpoint-update](/docs/tools/cli/service/integration#avn-service-integration-endpoint-update)
-passing a desired maximum additional disk storage as
-`PARAMETER_VALUE_IN_GB`:
+passing a desired maximum disk storage as
+`TOTAL_DESIRED_DISK_SPACE_IN_GB`:
 
 ```bash
 avn service integration-endpoint-update AUTOSCALER_ENDPOINT_ID
-   --user-config-json '{"max_additional_storage":"PARAMETER_VALUE_IN_GB"}'
+   --user-config-json '{"max_additional_storage":"TOTAL_DESIRED_DISK_SPACE_IN_GB"}'
 ```
+
+:::note[Example]
+<Example/>
+:::
 
 </TabItem>
 </Tabs>
@@ -398,4 +419,4 @@ running the commands to delete the following:
 
 ## Related pages
 
-[Dynamic disk sizing (DDS)](/docs/platform/howto/add-storage-space)
+[Scaling service disks manually](/docs/platform/howto/add-storage-space)

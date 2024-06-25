@@ -2,32 +2,29 @@
 title: Create a sink connector from Apache Kafka® to Google Cloud Storage
 ---
 
-The Apache Kafka Connect® Google Cloud Storage (GCS) sink connector by
-Aiven enables you to move data from an Aiven for Apache Kafka® cluster
-to a Google Cloud Storage bucket for long term storage. The full
-connector documentation is available in the dedicated [GitHub
-repository](https://github.com/aiven/gcs-connector-for-apache-kafka).
+The Apache Kafka Connect® Google Cloud Storage (GCS) sink connector by Aiven enables you to move data from an Aiven for Apache Kafka® cluster to a Google Cloud Storage bucket for long term storage.
+
+The full connector documentation is available in the dedicated
+[GitHub repository](https://github.com/aiven/gcs-connector-for-apache-kafka).
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/aiven/aiven-kafka-connect-gcs).
 :::
 
 ## Prerequisites
 
-To setup the Google Cloud Storage sink connector by Aiven, you need an
-Aiven for Apache Kafka® service
+- An Aiven for Apache Kafka® service
 [with Apache Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to follow the steps
-[to prepare the GCP account and GCS sink](gcs-sink-prereq) and collect the following information about the target GCS
-bucket upfront:
+- [Prepare the GCP account and GCS sink](gcs-sink-prereq) and collect the following information about the target GCS
+  bucket:
 
--   `GCS_NAME`: The name of the GCS bucket
--   `GCS_CREDENTIALS`: The Google service account JSON service key
-    [created during the prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcs-sink-prereq#gcs-sink-connector-google-account)
+  -   `GCS_NAME`: The name of the GCS bucket
+  -   `GCS_CREDENTIALS`: The Google service account JSON service key
+      [created during the prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcs-sink-prereq#gcs-sink-connector-google-account)
 
 :::warning
 The GCS sink connector accepts the `GCS_CREDENTIALS` JSON service key as
@@ -50,7 +47,7 @@ GCS sink connector using the [Aiven Console](https://console.aiven.io/).
 Define the connector configurations in a file (we'll refer to it with
 the name `gcs_sink.json`) with the following content:
 
-```
+```json
 {
     "name": "my-gcs-connector",
     "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",
@@ -90,7 +87,7 @@ You can define GCS sink connector naming and data formats by setting the
 [dedicated parameters](/docs/products/kafka/kafka-connect/reference/gcs-sink-formats).
 :::
 
-Check out the [GitHub repository parameters
+See the [GitHub repository parameters
 documentation](https://github.com/aiven/gcs-connector-for-apache-kafka)
 for the full list of configuration options.
 
@@ -154,7 +151,7 @@ The example creates an GCS sink connector with the following properties:
 
 The connector configuration is the following:
 
-```
+```json
 {
     "name": "my_gcs_sink",
     "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",

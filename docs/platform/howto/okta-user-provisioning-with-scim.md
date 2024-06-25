@@ -14,6 +14,8 @@ Aiven’s integration with Okta supports these features:
 - **Push user deactivation**: Users that are deactivated or removed in Okta are
   deactivated in Aiven. You can manually delete users in Aiven after they are deactivated.
 - **Push groups**: Groups created or updated in Okta are created and updated in Aiven.
+- **Sync passwords**: Automatically synchronizes users' Aiven passwords with their
+  Okta passwords.
 
 ## Prerequisites
 

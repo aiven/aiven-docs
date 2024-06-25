@@ -43,4 +43,13 @@
 }
 .buttonHome {
   padding: 8px 12px;
+  background-color: var(--aiven-button-primary-bg);
+  border-color: var(--aiven-button-primary-bg);
+  color: white;
+}
+.buttonHome:hover,
+.buttonHome:focus {
+  background-color: var(--aiven-button-primary-bg-hover);
+  border-color: var(--aiven-button-primary-bg-hover);
+  color: white;
 }

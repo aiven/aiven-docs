@@ -2,13 +2,11 @@
 title: Migrate to Aiven for MySQL from an external MySQL
 ---
 
-Aiven for MySQL offers a managed process for migrating from an external
-MySQL into the Aiven-hosted database. It supports both a one-off
-dump-and-restore process and using the ongoing replication functionality
-built-in to MySQL. The process will first do a `mysqldump` to seed the
-schema and bulk-copy the data; if the preconditions are met for ongoing
-replication then it will configure MySQL as a replica of the external
-database.
+Aiven for MySQL offers a managed process for migrating from an external MySQL into the Aiven-hosted database. It supports both a one-off dump-and-restore process and using the ongoing replication functionality built-in to MySQL.
+
+The process will first do a `mysqldump` to seed the schema and bulk-copy the
+data, if the preconditions are met for ongoing replication then it will
+configure MySQL as a replica of the external database.
 
 ## Requirements
 
@@ -30,7 +28,7 @@ following requirements need to be satisfied:
     ```
 
 :::note
-If you are migrating from MySQL in GCP, you need to enable backups with
+If you are migrating from MySQL in GCP, enable backups with
 [PITR](https://cloud.google.com/sql/docs/mysql/backup-recovery/pitr) for
 GTID to be set to `on`
 :::
@@ -89,7 +87,7 @@ You can use the following variables in the code samples provided:
     avn --show-http service migration-status --project PROJECT_NAME DEST_NAME
     ```
 
-Whilst the migration process is ongoing, the `migration_detail.status`
+While the migration process is ongoing, the `migration_detail.status`
 will be `syncing`:
 
 ```json
@@ -113,7 +111,7 @@ will be `syncing`:
 ```
 
 :::note
-The migration will initially do a bulk-copy of your data, and then
+The migration will initially do a bulk-copy of your data, and
 several minutes after that has finished it will use the built-in
 replication feature of MySQL to commence ongoing data copying. You can
 see MySQL's internal status by running `show replica status` on the
@@ -127,6 +125,6 @@ happen, you can remove the configuration from the destination service
 via the `avn service update`
 [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update):
 
-```
+```shell
 avn service update --project PROJECT_NAME --remove-option migration DEST_NAME
 ```

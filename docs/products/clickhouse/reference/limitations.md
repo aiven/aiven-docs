@@ -55,13 +55,12 @@ on how to work around specific restrictions.
       <td><p>-</p></td>
     </tr>
     <tr>
-      <td><p>Table engines availability</p></td>
+      <td><p>Table engines support</p></td>
       <td>
         <ul>
-          <li><p>Log engine is not supported in Aiven for ClickHouse.</p></li>
           <li>
             <p>
-              Some special table engines and the Log engine are not supported in
+              Some special table engines are not supported in
               Aiven for ClickHouse.
             </p>
           </li>
@@ -76,37 +75,50 @@ on how to work around specific restrictions.
         </ul>
       </td>
       <td>
-        <ul>
-          <li>
-            <p>
-              For storing data, use the
-              <a href="https://clickhouse.com/docs/en/engines/table-engines/special/buffer/">Buffer engine</a>
-              instead of the Log engine.
-            </p>
-          </li>
-          <li>
-            <p>
-              Use the available table engines listed in
-              <a href="/docs/products/clickhouse/reference/supported-table-engines"><span>Supported table engines in Aiven for ClickHouse</span></a>.
-            </p>
-          </li>
-        </ul>
+        <p>
+          Use the available table engines listed in
+          <a href="/docs/products/clickhouse/reference/supported-table-engines"><span>Supported table engines in Aiven for ClickHouse</span></a>.
+        </p>
       </td>
     </tr>
     <tr>
-      <td><p>Cloud availability</p></td>
-      <td><p>Available on AWS, GCP, and Azure only</p></td>
-      <td><p>Use the available cloud providers.</p></td>
+      <td><p>Log table engine support</p></td>
+      <td>
+        <p>Log engine is not supported in Aiven for ClickHouse.</p>
+      </td>
+      <td>
+        <p>
+          For storing data, use the
+          <a href="https://clickhouse.com/docs/en/engines/table-engines/special/buffer/">Buffer engine</a>
+          instead of the Log engine.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>Kafka table engine support</p></td>
+      <td>
+        <p>
+          The Kafka table engine is supported via
+          [integration](/docs/products/clickhouse/howto/integrate-kafka) only,
+          not by creating a table in SQL.
+        </p>
+      </td>
+      <td><p>-</p></td>
     </tr>
     <tr>
       <td><p>Kafka Schema Registry</p></td>
       <td>
         <p>
-          Aiven for ClickHouse doesn't support Kafka Schema Registry, which
-          allows to build stream processing pipelines with schemas.
+          Kafka Schema Registry is supported with Aiven for Apache Kafka® and not with an
+          external Kafka endpoint.
         </p>
       </td>
       <td><p>-</p></td>
+    </tr>
+    <tr>
+      <td><p>Cloud availability</p></td>
+      <td><p>Available on AWS, GCP, and Azure only</p></td>
+      <td><p>Use the available cloud providers.</p></td>
     </tr>
     <tr>
       <td><p>Querying all shards at once</p></td>

@@ -60,12 +60,10 @@ BYOC is supported with the
     request.
 
 1.  Using the scheduling assistant, select a date and time when you want
-1.  Using the scheduling assistant, select a date and time when you want
     to talk to our sales team to share your requirements and make sure
     BYOC suits your needs. Confirm the selected time, make sure you add
     the call to your calendar, and close the the scheduling assistant.
 
-1.  Join the scheduled call with our sales team to follow up with them
 1.  Join the scheduled call with our sales team to follow up with them
     on enabling BYOC in your environment.
 

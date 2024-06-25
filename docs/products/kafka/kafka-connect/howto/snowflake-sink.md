@@ -2,75 +2,72 @@
 title: Create a sink connector from Apache Kafka® to Snowflake
 ---
 
-The Apache Kafka Connect® Snowflake sink connector enables you to move
-data from an Aiven for Apache Kafka® cluster to a Snowflake database.
-The full connector documentation is available in the dedicated [GitHub
-repository](https://docs.snowflake.com/en/user-guide/kafka-connector.html).
+The Apache Kafka Connect® Snowflake sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a Snowflake database.  The full connector documentation is available in the dedicated [GitHub repository](https://docs.snowflake.com/en/user-guide/kafka-connector.html).
 
 :::note
-You can check the full set of available parameters and configuration
+See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://docs.snowflake.net/manuals/user-guide/kafka-connector.html).
 :::
 
 ## Prerequisites {#connect_sink_snowflake_prereq}
 
-To setup the Snowflake sink connector, you need an Aiven for Apache
-Kafka® service
-[with Apache Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache Kafka® service
+  [with Apache Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to follow the steps
-[to prepare the Snowflake account](snowflake-sink-prereq) and collect the following information about the target
-Snowflake database upfront:
+- [Prepare the Snowflake account](snowflake-sink-prereq) and collect the following
+  information about the target
+  Snowflake database:
 
-- `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where:
+  - `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of
+    `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where:
 
-  -   `ACCOUNT_LOCATOR` is the name of the account, more
-      information are available in the dedicated [Snowflake
-      documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
-  -   `REGION_ID` is the Id of the region where the Snowflake
-      service is available, you can review the region Ids in the
-      [dedicated
-      documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
+    -   `ACCOUNT_LOCATOR` is the name of the account, more
+        information are available in the dedicated [Snowflake
+        documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
+    -   `REGION_ID` is the Id of the region where the Snowflake
+        service is available, you can review the region Ids in the
+        [dedicated
+        documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
 
-  :::tip
-  The Snowflake account Id and region name can be obtained in the
-  Snowflake UI by issuing the following query in a worksheet:
+    :::tip
+    The Snowflake account Id and region name can be obtained in the
+    Snowflake UI by issuing the following query in a worksheet:
 
-  ```
-  select current_account(), current_region()
-  ```
+    ```
+    select current_account(), current_region()
+    ```
 
-  :::
+    :::
 
--   `SNOWFLAKE_USERNAME`: A valid Snowflake username with enough
-    privileges to write data in the target database as mentioned in the
-    [prerequisite document](snowflake-sink-prereq).
+  -   `SNOWFLAKE_USERNAME`: A valid Snowflake username with enough
+      privileges to write data in the target database as mentioned in the
+      [prerequisite document](snowflake-sink-prereq).
 
--   `SNOWFLAKE_PRIVATE_KEY`: The private key associated to the
-    `SNOWFLAKE_USERNAME` as mentioned in the
-    [prerequisite document](snowflake-sink-prereq).
+  -   `SNOWFLAKE_PRIVATE_KEY`: The private key associated to the
+      `SNOWFLAKE_USERNAME` as mentioned in the
+      [prerequisite document](snowflake-sink-prereq).
 
--   `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`: The private key passphrase
+  -   `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`: The private key passphrase
 
--   `SNOWFLAKE_DATABASE`: The target Snowflake database name
+  -   `SNOWFLAKE_DATABASE`: The target Snowflake database name
 
--   `SNOWFLAKE_SCHEMA`: The target Snowflake database schema name
+  -   `SNOWFLAKE_SCHEMA`: The target Snowflake database schema name
 
--   `TOPIC_LIST`: The list of topics to sink divided by comma
+  -   `TOPIC_LIST`: The list of topics to sink divided by comma
 
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
+  -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
+      needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
+      only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
+      username, only needed when using Avro as data format
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+  -   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
+      password, only needed when using Avro as data format
 
 ## Setup a Snowflake sink connector with Aiven Console
 

@@ -2,9 +2,7 @@
 title: Create missing primary keys
 ---
 
-Primary keys are important
-[for MySQL replication process](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview). In this article, you can find strategies to create missing
-primary keys in your Aiven for MySQL® service.
+Learn strategies to create missing primary keys in your Aiven for MySQL® service. They are important [for MySQL replication process](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview).
 
 ## List tables without primary key
 
@@ -94,10 +92,11 @@ encounter an error similar to the following:
 Creating index 'PRIMARY' required more than 'mysql.innodb_online_alter_log_max_size' bytes of modification log. Please try again.
 ```
 
-For the operation to succeed, you need to set a value that is high
-enough. Depending on the table size, this could be a few gigabytes or
-even more for very large tables. You can change
-`mysql.innodb_online_alter_log_max_size` as follows: [Aiven
+For the operation to succeed, set a value that is high
+enough. Depending on the table size, this can be a few gigabytes or
+even more for very large tables.
+
+To edit `mysql.innodb_online_alter_log_max_size` : [Aiven
 Console](https://console.aiven.io/) > your Aiven for MySQL service's
 page > the **Service settings** page of the service > the **Advanced
 configuration** section > **Configure** > **Add configuration

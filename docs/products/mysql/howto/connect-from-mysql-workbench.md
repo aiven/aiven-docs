@@ -2,9 +2,7 @@
 title: Connect to Aiven for MySQL® with MySQL Workbench
 ---
 
-You can use a graphical client like [MySQL
-Workbench](https://www.mysql.com/products/workbench/) to connect to
-Aiven for MySQL® services.
+You can use a graphical client like [MySQL Workbench](https://www.mysql.com/products/workbench/) to connect to Aiven for MySQL® services.
 
 ## Connect to Aiven for MySQL®
 
@@ -16,7 +14,7 @@ SSL CA certificate and specify the file on SSL page.
 ![Screenshot of the MySQL Workbench settings screen](/images/content/products/mysql/mysql-workbench.png)
 
 :::important
-Using SSL is strongly recommended. In order to make a properly secure
+Using SSL is strongly recommended. To secure your
 connection, download the CA certificate and configure it in client
 settings.
 :::
@@ -26,8 +24,8 @@ settings.
 To create more databases, go to the service's page in [Aiven
 Console](https://console.aiven.io/) and select **Databases** from the
 sidebar. In the **Databases** view, select **Create database**, enter a
-name for your database in the **Create a new database** window, and
-select **Add database**.
+name for your database and
+click **Add database**.
 
 ## Add a database user
 
