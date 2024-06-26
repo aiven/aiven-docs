@@ -1271,7 +1271,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Clickhouse',
+          label: 'ClickHouse',
           link: {
             type: 'doc',
             id: 'products/clickhouse',

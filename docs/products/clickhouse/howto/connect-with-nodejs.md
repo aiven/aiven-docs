@@ -58,6 +58,6 @@ Now you have your service connection set up and you can proceed to
 
 ## Related pages
 
-For information on how to connect to the Aiven for Clickhouse service
+For information on how to connect to the Aiven for ClickHouse service
 with the ClickHouse client, see
 [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).

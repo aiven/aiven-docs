@@ -20,7 +20,7 @@ go get github.com/ClickHouse/clickhouse-go/v2
 
 :::note
 If the version of Go is lower than 1.18.4 (visible via `go version`),
-you need to install an older version of `clickhouse-go`. For this
+install an older version of `clickhouse-go`. For this
 purpose, use command
 `go get github.com/ClickHouse/clickhouse-go/v2@v2.2`.
 :::
@@ -191,6 +191,6 @@ configured. You can proceed to
 -   For instructions on how to configure connection settings, see
     [Connection
     Details](https://clickhouse.com/docs/en/integrations/go#connection-details).
--   For information on how to connect to the Aiven for Clickhouse
+-   For information on how to connect to the Aiven for ClickHouse
     service with the ClickHouse client, see
     [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
