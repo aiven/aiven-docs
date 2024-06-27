@@ -89,3 +89,9 @@ jobs:
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: caching
+
+  update-adv-params-valkey:
+    name: Update parameters - Valkey
+    uses: ./.github/workflows/update-adv-params.yaml
+    with:
+      service-name: valkey

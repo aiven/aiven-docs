@@ -2146,6 +2146,41 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Valkey',
+          link: {
+            id: 'products/valkey',
+            type: 'doc',
+          },
+          items: [
+            'products/valkey/get-started',
+            {
+              type: 'category',
+              label: 'Connect to service',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/howto/connect-services',
+              },
+              items: [
+                'products/valkey/howto/connect-go',
+                'products/valkey/howto/connect-node',
+                'products/valkey/howto/connect-php',
+                'products/valkey/howto/connect-python',
+                'products/valkey/howto/connect-java',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'generated-index',
+                slug: 'products/valkey/reference',
+              },
+              items: ['products/valkey/reference/advanced-params'],
+            },
+          ],
+        },
       ],
     },
     {
