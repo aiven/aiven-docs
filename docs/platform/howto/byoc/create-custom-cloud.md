@@ -675,13 +675,6 @@ migrate your existing services to the custom cloud if your service and networkin
 configuration allows it. For more information on migrating your existing services to the
 custom cloud, contact your account team.
 
-#### Destroy the Terraform resources
-
-As soon as you new custom cloud gets the **Active** status, remove the
-Terraform resources your created in your AWS account while creating the
-cloud. See the guidelines on how to use the `destroy` command in
-[Command: destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
-
 ## Manage services in custom clouds
 
 ### Create new services in the custom cloud
