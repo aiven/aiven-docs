@@ -7,15 +7,15 @@ Create dictionaries in Aiven for ClickHouse® to accelerate queries for better e
 
 ## Dictionaries in Aiven for ClickHouse
 
-A dictionary is a key -> attribute mapping useful for low latent lookup queries, when you
-often access reference lists to retrieve attributes from a key. Dictionary data resides
-fully in memory and is accessed using functions, which are faster than regular SQL queries.
+A dictionary is a key -> attribute mapping useful for low latency lookup queries, when
+often looking up attributes for a particular key. Dictionary data resides fully in memory,
+which is why using a dictionary in JOINs is often much faster than using a MergeTree table.
 Dictionaries can be an efficient replacement for regular tables in your JOIN clauses.
 
 Aiven for ClickHouse supports
 [backup and restore](/docs/products/clickhouse/concepts/disaster-recovery#backup-and-restore)
 for dictionaries. Also, dictionaries in Aiven for ClickHouse are automatically replicated
-on all service nodes.
+to all service nodes.
 
 Read more on dictionaries in the
 [upstream ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/dictionaries).
@@ -31,8 +31,37 @@ Read more on dictionaries in the
 ## Limitations
 
 - TLS connections supported only (no non-TLS allowed)
-- In Aiven for ClickHouse, you run queries with the `avnadmin` user by default (as opposed
-  to running queries in the upstream ClickHouse, where you use the `default` user).
+- If no host is specified in a dictionary with a ClickHouse source, the local host is
+  assumed, and the dictionary is filled with data from a query against the local ClickHouse,
+  for example:
+
+  ```sql
+  -- users table
+  CREATE TABLE default.users
+  (
+      id UInt64,
+      username String,
+      email String,
+      country String
+  )
+  ENGINE = MergeTree()
+  ORDER BY id;
+  CREATE DICTIONARY default.users_dictionary
+  (
+      id UInt64,
+      username String,
+      email String,
+      country String
+  )
+  PRIMARY KEY id
+  SOURCE(CLICKHOUSE(DB 'default' TABLE 'users'))
+  LAYOUT(FLAT())
+  LIFETIME(100);
+  ```
+
+  In Aiven for ClickHouse, to fill the dictionary the table users are queried with
+  the permissions of the `avnadmin` user even if another user creates the dictionary.
+  In upstream ClickHouse, the same is true except the `default` user is used.
 
 ### Supported layouts
 
