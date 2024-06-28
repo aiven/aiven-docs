@@ -1,9 +1,15 @@
 ---
 title: About backup to another region for Aiven services
+limited: true
 sidebar_label: About backup to another region
 ---
 
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
+
+:::important
+This feature is in [limited availability](/docs/platform/concepts/beta_services).
+Contact your account team to enable it.
+:::
 
 ## About BTAR
 
