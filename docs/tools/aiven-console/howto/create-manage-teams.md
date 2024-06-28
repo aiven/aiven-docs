@@ -9,11 +9,11 @@ Teams are groups of users that you can assign to projects.
 :::important
 **Teams have been deprecated and are being migrated to groups.**
 
-- **On September 2, 2024 the Account Owners team will be removed.**
+- **On September 30, 2024 the Account Owners team will be removed.**
 
-  The Account Owners and super admin
-  are synced, so the removal of the Account Owners team will have no impact on your
-  operations. [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
+  The Account Owners and super admin are synced, so the removal of the
+  Account Owners team will have no impact on existing permissions.
+  [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
   have full access to organizations.
 
 - **From November 4, 2024 you won’t be able to create new teams or update existing ones.**
