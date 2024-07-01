@@ -1,7 +1,6 @@
 ---
 title: Enable tiered storage for Aiven for Apache Kafka®
 sidebar_label: Enable tiered storage
-early: true
 ---
 
 Tiered storage significantly improves the storage efficiency of your Aiven for Apache Kafka® service. You can enable this feature for your service using either the [Aiven console](https://console.aiven.io/) or the [Aiven CLI](/docs/tools/cli).
@@ -16,7 +15,6 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
     page](https://aiven.io/pricing?product=kafka) for a comprehensive
     list of supported plans and regions.
 
--   [Feature preview enabled](/docs/platform/howto/feature-preview) for tiered storage
 -   Aiven CLI
 
 ## Enable tiered storage via Aiven Console

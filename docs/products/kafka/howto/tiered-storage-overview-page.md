@@ -1,7 +1,7 @@
 ---
 title: Tiered storage overview page in Aiven Console
 sidebar_label: Tiered storage overview page
-early: true
+
 ---
 
 Aiven for Apache Kafka® offers a comprehensive overview of tiered storage, allowing you to understand its usage and make informed decisions.

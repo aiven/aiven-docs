@@ -1,6 +1,5 @@
 ---
 title: How tiered storage works in Aiven for Apache Kafka®
-early: true
 ---
 
 Aiven for Apache Kafka® tiered storage is a feature that optimizes data
@@ -70,7 +69,7 @@ When consumers fetch records stored in remote storage, the Kafka broker
 downloads and caches these records locally. This allows for quicker
 access in subsequent retrieval operations.
 
-Aiven allocates a small amount of disk space, ranging from 2GB to 16GB,
+Aiven allocates a small amount of disk space, ranging from 2 GB to 16 GB,
 equivalent to 5% of the Kafka broker's total available disk, for the
 temporary storage of fetched records.
 
