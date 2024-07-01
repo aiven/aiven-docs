@@ -27,13 +27,38 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Service settings</b>
         </>
       );
+    case 'organization':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.office} /> <b>Organization</b>
+        </>
+      );
+    case 'authenticationpolicy':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.lock} /> <b>Authentication</b>
+        </>
+      );
+    case 'idp':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.idNumber} />{' '}
+          <b>Identity providers</b>
+        </>
+      );
+    case 'domains':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.globeNetwork} /> <b>Domains</b>
+        </>
+      );
     case 'projects':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.projects} /> <b>Projects</b>
         </>
       );
-      case 'projectsettings':
+    case 'projectsettings':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Settings</b>
@@ -173,6 +198,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>View profile</b>
+        </>
+      );
+    case 'authenticationmethod':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>Authentication</b>
         </>
       );
     case 'groups':
