@@ -1,6 +1,5 @@
 ---
 title: Trade-offs and limitations
-early: true
 ---
 
 The main trade-off of tiered storage is the higher latency while

@@ -1,17 +1,15 @@
 ---
 title: Guarantees
-early: true
 ---
 
 With Aiven for Apache Kafka®'s tiered storage, there are two primary
 types of data retention guarantees: *total retention* and *local
 retention*.
 
-**Total retention**: Tiered storage ensures that your data will be
-available up to the limit defined by the total retention threshold,
-regardless of whether it is stored locally or remotely. This means that
-your data will not be deleted until the total retention threshold,
-whether on local or remote storage, is reached.
+**Total retention**: Tiered storage ensures that your data remains available up to the
+limit defined by the total retention threshold, whether stored locally or remotely.
+This means your data is not deleted until reaching the total retention threshold,
+regardless of storage location.
 
 **Local retention**: Log segments are only removed from local storage
 after successfully being uploaded to remote storage, even if the data
@@ -23,16 +21,15 @@ Let's say you have a topic with a **total retention threshold** of
 **1000 GB** and a **local retention threshold** of **200 GB**. This
 means that:
 
--   All data for the topic will be retained, regardless of whether it is
-    stored locally or remotely, as long as the total size of the data
-    does not exceed 1000 GB.
--   If tiered storage is enabled per topic, older segments will be
-    uploaded immediately to remote storage, irrespective of whether the
-    local retention threshold of 200 GB is exceeded. Data will be
-    deleted from local storage only after it has been safely transferred
-    to remote storage.
--   If the total size of the data exceeds 1000 GB, Apache Kafka will
-    begin deleting the oldest data from remote storage.
+- All data for the topic is retained, regardless of whether it is stored locally or
+  remotely, as long as the total size of the data does not exceed 1000 GB.
+- If tiered storage is enabled per topic, older segments are
+  uploaded immediately to remote storage, irrespective of whether the
+  local retention threshold of 200 GB is exceeded. Data is deleted from local storage
+  only after it has been safely transferred
+  to remote storage.
+- If the total size of the data exceeds 1000 GB, Apache Kafka begins deleting the
+  oldest data from remote storage.
 
 ## Related pages
 
