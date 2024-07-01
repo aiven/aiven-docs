@@ -68,6 +68,12 @@ To add projects and roles to a team:
 
 ## Migrate teams to groups
 
+:::important
+You can't delete the Account Owners team. Deleting all other teams in your organization
+will disable the teams feature. You won't be able to create new teams or access your
+Account Owners team.
+:::
+
 1.  In the organization, click **Admin**.
 
 1.  On the **Teams** tab, click each team name to view it and make a note of:
