@@ -5,7 +5,33 @@ sidebar_label: Migrate from teams to groups
 
 Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups) are an easier way to control access to your organization's projects and services for a group of users.
 
-To get started using organization groups, replace your existing teams with groups.
+:::important
+**Teams have been deprecated and are being migrated to groups.**
+
+- **On September 30, 2024 the Account Owners team will be removed.**
+
+  The Account Owners and super admin are synced, so the removal of the
+  Account Owners team will have no impact on existing permissions.
+  [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
+  have full access to organizations.
+
+- **From November 4, 2024 you won’t be able to create new teams or update existing ones.**
+
+  To simplify the move, Aiven will also begin migrating your existing teams to groups.
+
+- **On December 2, 2024 all teams will be migrated to groups and deleted.**
+
+  To make the transition to groups smoother, you can
+  migrate your teams before this date.
+:::
+
+## Migrate teams to groups
+
+:::important
+You can't delete the Account Owners team. **Deleting all other teams in your organization
+will disable the teams feature.** You won't be able to create new teams or access your
+Account Owners team.
+:::
 
 1.  For each team, make a note of:
 
@@ -54,3 +80,7 @@ To get started using organization groups, replace your existing teams with group
     ```
 
 1.  After confirming all users have the correct access, delete the team resources.
+
+## Related pages
+
+- [Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
