@@ -56,7 +56,7 @@ contacts for your custom cloud.
 
 ## Limitations {#byoc-limitations}
 
--   You need the Premium tier of Aiven support services to be
+-   You need at least the Advanced tier of Aiven support services to be
     eligible for activating BYOC.
 
     :::note
