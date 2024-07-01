@@ -28,8 +28,8 @@ Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups)
 ## Migrate teams to groups
 
 :::important
-You can't delete the Account Owners team. Deleting all other teams in your organization
-will disable the teams feature. You won't be able to create new teams or access your
+You can't delete the Account Owners team. **Deleting all other teams in your organization
+will disable the teams feature.** You won't be able to create new teams or access your
 Account Owners team.
 :::
 
