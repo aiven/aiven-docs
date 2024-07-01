@@ -36,7 +36,7 @@ Before enabling BYOC, check
 
 ## Limitations {#byoc-enable-limitations}
 
--   You need at least the Priority tier of
+-   You need at least the Advanced tier of
     [Aiven support services](https://aiven.io/support-services) to be eligible for
     activating BYOC.
 -   Only [super admins](/docs/platform/howto/make-super-admin) can request enabling BYOC.

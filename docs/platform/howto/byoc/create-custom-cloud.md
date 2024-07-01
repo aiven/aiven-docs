@@ -78,7 +78,7 @@ you informed on the progress.
 
 ## Limitations {#byoc-limitations}
 
--   You need the Premium tier of Aiven support services to be
+-   You need at least the Advanced tier of Aiven support services to be
     eligible for activating BYOC.
 
     :::note
@@ -775,7 +775,11 @@ custom cloud is ready to use and you can see it on the list of your custom cloud
 **Bring your own cloud** view. Now you can create new services in the custom cloud or
 migrate your existing services to the custom cloud if your service and networking
 configuration allows it. For more information on migrating your existing services to the
+<<<<<<< HEAD
 custom cloud, contact your account team.
+=======
+custom cloud, contact you account team.
+>>>>>>> 5b5983d (byoc gcp la ms1)
 
 ## Manage services in custom clouds
 
