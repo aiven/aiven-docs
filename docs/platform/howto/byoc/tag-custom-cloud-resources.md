@@ -142,12 +142,98 @@ Any change to infrastructure tags requires reapplying the Terraform template.
 <TabItem value="1" label="AWS" default>
 Use the
 [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
-infrastructure tags for your custom cloud.
+infrastructure tags for your custom cloud. Pass the tags as an option.
+
+```bash
+avn byoc update                                 \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+    --deployment-model "DEPLOYMENT_MODEL_NAME"  \
+    --cloud-provider "CLOUD_PROVIDER_NAME"      \
+    --cloud-region "CLOUD_REGION_NAME"          \
+    --reserved-cidr "CIDR_BLOCK"                \
+    --display-name "CUSTOM_CLOUD_DISPLAY_NAME"  \
+    --tags "TAG_NAME"
+```
+
+<details><summary>
+Show sample output
+</summary>
+
+```json
+{
+    "custom_cloud_environment": {
+        "cloud_provider": "google",
+        "cloud_region": "europe-north1",
+        "contact_emails": [
+            {
+                "email": "firstname.secondname@domain.com",
+                "real_name": "Test User",
+                "role": "Admin"
+            }
+        ],
+        "custom_cloud_environment_id": "018b6442-c602-42bc-b63d-438026133f60",
+        "deployment_model": "standard",
+        "display_name": "My BYOC Cloud on Google",
+        "errors": [],
+        "reserved_cidr": "10.0.0.0/16",
+        "state": "draft",
+        "tags": "TAG_NAME",
+        "update_time": "2024-05-07T14:24:18Z"
+    }
+}
+```
+
+</details>
+
 </TabItem>
 <TabItem value="2" label="GCP">
 Use the
 [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
-infrastructure tags for your custom cloud.
+infrastructure tags for your custom cloud. Pass the tags as an option.
+
+```bash
+avn byoc update                                 \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+    --deployment-model "DEPLOYMENT_MODEL_NAME"  \
+    --cloud-provider "CLOUD_PROVIDER_NAME"      \
+    --cloud-region "CLOUD_REGION_NAME"          \
+    --reserved-cidr "CIDR_BLOCK"                \
+    --display-name "CUSTOM_CLOUD_DISPLAY_NAME"  \
+    --tags "TAG_NAME"
+```
+
+<details><summary>
+Show sample output
+</summary>
+
+```json
+{
+    "custom_cloud_environment": {
+        "cloud_provider": "google",
+        "cloud_region": "europe-north1",
+        "contact_emails": [
+            {
+                "email": "firstname.secondname@domain.com",
+                "real_name": "Test User",
+                "role": "Admin"
+            }
+        ],
+        "custom_cloud_environment_id": "018b6442-c602-42bc-b63d-438026133f60",
+        "deployment_model": "standard",
+        "display_name": "My BYOC Cloud on Google",
+        "errors": [],
+        "reserved_cidr": "10.0.0.0/16",
+        "state": "draft",
+        "tags": "TAG_NAME",
+        "update_time": "2024-05-07T14:24:18Z"
+    }
+}
+```
+
+</details>
+
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
 Reach out to your account team to add or update infrastructure tags for your custom cloud.
