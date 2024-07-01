@@ -2,10 +2,8 @@
 title: Trade-offs and limitations
 ---
 
-The main trade-off of tiered storage is the higher latency while
-accessing and reading data from remote storage compared to local disk
-storage. While adding local caching can partially solve this problem, it
-cannot eliminate the latency completely.
+The main trade-off of tiered storage is the higher latency while accessing and reading data from remote storage compared to local disk
+storage. While adding local caching can partially solve this problem, it cannot eliminate the latency completely.
 
 ## Limitations
 

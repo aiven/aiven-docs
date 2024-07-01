@@ -768,7 +768,6 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/concepts/kafka-tiered-storage',
                   },
                   items: [
-                    'products/kafka/concepts/kafka-tiered-storage',
                     'products/kafka/concepts/tiered-storage-how-it-works',
                     'products/kafka/concepts/tiered-storage-guarantees',
                     'products/kafka/concepts/tiered-storage-limitations',

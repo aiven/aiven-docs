@@ -1,9 +1,9 @@
 ---
 title: How tiered storage works in Aiven for Apache Kafka®
+sidebar_label: How it works
 ---
 
-Aiven for Apache Kafka® tiered storage is a feature that optimizes data
-management across two distinct storage tiers:
+Aiven for Apache Kafka® tiered storage is a feature that optimizes data management across two distinct storage tiers:
 
 -   **Local tier**: Primarily consists of faster and typically more
     expensive storage solutions like solid-state drives (SSDs).
@@ -24,8 +24,8 @@ interact with Apache Kafka in the same way, regardless of whether tiered
 storage is enabled or not.
 
 Administrators can configure tiered storage per topic by defining the
-retention period and retention bytes to specify how much data should be
-retained on the local disk instead of remote storage.
+retention period and retention bytes to specify how much data is retained on the local
+disk instead of remote storage.
 
 ## Local vs. remote data retention
 
@@ -44,19 +44,19 @@ threshold.
 Data is organized into segments, which are uploaded to remote storage
 individually. The active (newest) segment remains in local storage,
 which means that the segment size can also influence local data
-retention. For instance, if the local retention threshold is 1 GB, but
-the segment size is 2 GB, the local storage will exceed the 1 GB limit
-until the active segment is rolled over and uploaded to remote storage.
+retention. For instance, if the local retention threshold is 1 GB, but the segment
+size is 2 GB, the local storage exceeds the 1 GB limit until the active segment is
+rolled over and uploaded to remote storage.
 
 ## Asynchronous uploads and replication
 
 Data is transferred to remote storage asynchronously and does not
 interfere with the producer activity. While the Kafka broker aims to
 move data as swiftly as possible, certain conditions, such as high
-ingestion rate or connectivity issues, may cause more data to be stored
+ingestion rate or connectivity issues, can cause more data to be stored
 in the local storage than the specified local retention policy.
 
-Any data exceeding the local retention threshold will not be purged by
+Any data exceeding the local retention threshold is not be purged by
 the log cleaner until it is successfully uploaded to remote storage. The
 replication factor is not considered during the upload process, and only
 one copy of each segment is uploaded to the remote storage. Most remote
