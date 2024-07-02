@@ -85,8 +85,8 @@ AWS S3. This means you pay for:
 Imagine having a tiered topic with 40 TB of data for local and tiered storage. You set a
 local retention time of 7 days. Consider the following:
 
-- You will pay a fixed monthly cost for the 40 TB of local storage.
-- You will be charged for storing 40 TB of data in S3, even if some data is over 7 days.
+- You pay a fixed monthly cost for the 40 TB of local storage.
+- You are charged for storing 40 TB of data in S3, even if some data is over 7 days.
   This is because data is automatically transferred to S3, and billing is based on the
   highest usage level within each hour.
 
@@ -95,7 +95,6 @@ A tiered topic means all data is eventually stored in S3. If you plan for 80 TB 
 tiered topic, expect to pay for 80 TB on S3 regardless of local retention settings. Even
 if you configure retention to keep 40 TB local and 40 TB tiered, eager loading means up
 to 78 TB of the 80 TB can reside in the object store.
-
 :::
 
 ### BYOC (Bring your own cloud) billing
@@ -103,13 +102,12 @@ to 78 TB of the 80 TB can reside in the object store.
 BYOC billing for tiered storage can vary depending on your specific agreement
 with Aiven. Potential scenarios include:
 
-- **Customer responsibility:** In all BYOC setups, you are responsible for the full
+- **Customer costs:** In all BYOC setups, you are responsible for the full
   cost of the underlying cloud storage used by tiered storage. This includes the
-  entire storage used, regardless of local retention settings (for example,
-  80 TB in this example).
-- **Aiven management fee:** Typically, you also pay the Aiven management fee
-  for the data stored in S3 in addition to the underlying S3 storage costs. However,
-there might be scenarios where the management fee does not apply.
+  entire storage used, regardless of local retention settings (80 TB in this example).
+- **Aiven management fee:** In addition to the underlying S3 storage costs, you also pay
+  an Aiven management fee for the data stored in S3. This fee is based on the amount of
+  storage added via tiered storage
 
 ## Related pages
 
