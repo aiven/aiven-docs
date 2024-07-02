@@ -54,7 +54,7 @@ savings and system performance.
   where tiered storage becomes especially valuable.
 - **High-speed data ingestion**: Tiered storage can manage unpredictable or sudden data
   influxes by supplementing local disks with cloud storage, ensuring optimal performance.
-- **Unlock unexplored opportunities:**Tiered storage in Aiven for Apache Kafka addresses
+- **Unlock unexplored opportunities:** Tiered storage in Aiven for Apache Kafka addresses
   current storage challenges and enables new and innovative use cases that were
   previously impractical or too expensive. By eliminating traditional storage
   limitations, organizations gain the flexibility to support a wide range of
@@ -92,6 +92,15 @@ You set a local retention time of 10 TB. Consider the following:
 - You are charged for storing 40 TB of data in S3, even if some data is available locally
   within the most recent 10 TB.This is because data is automatically transferred to S3,
   and billing is based on the highest usage level within each hour.
+- You are charged for storing **approximately 40 TB** of data in S3, even if some data
+  is available locally within the most recent 10 TB. This is because data is
+  automatically transferred to S3, and billing is based on the highest usage
+  level within each hour.
+
+  :::note
+  The estimated storage size of 40 TB excludes the active log segments, which are only
+  stored locally. For more information, see [local vs. remote data retention](/docs/products/kafka/concepts/tiered-storage-how-it-works#local-vs-remote-data-retention).
+  :::
 
 ### BYOC (Bring your own cloud) billing
 
