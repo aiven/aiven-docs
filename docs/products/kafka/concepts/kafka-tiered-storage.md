@@ -5,10 +5,10 @@ title: Tiered storage in Aiven for Apache Kafka® overview
 Tiered storage in Aiven for Apache Kafka® helps you manage data more effectively by using two different storage types: local disk and remote cloud storage solutions like AWS S3, Google Cloud Storage, and Azure Blob Storage.
 
 This feature lets you allocate frequently accessed data to high-speed local disks while
-moving less critical or infrequently accessed data to more cost-effective remote storage
-solutions. You can store data on specific topics indefinitely without running out of
-space. Once enabled, you configure tiered storage per topic, giving you granular
-control over your data storage needs.
+keeping an extended data retention on more cost-effective remote storage solutions. You
+can store data on specific topics indefinitely without running out of space. Once
+enabled, you configure tiered storage per topic, giving you granular control over
+your data storage needs.
 
 :::note
 
@@ -69,33 +69,29 @@ Charges are based on the highest usage level within each hour.
 
 ### Tiered storage charges
 
-Aiven charges for tiered storage data based on the data transmitted and stored in
+Aiven charges for tiered storage data based on the data stored in remote tier, such as
 AWS S3. This means you pay for:
 
-- **Data transferred to S3:** Aiven automatically transfers data to S3 based on your
-  tier configuration, regardless of local storage retention settings.
 - **Data stored in S3:** Billing is based on the highest amount of data stored in S3
   within each hour, not the total amount stored over the hour.
 - **Local storage on the Aiven platform:** Local storage has a fixed cost based on the
   provisioned capacity. You pay a set amount each month for a fixed amount of
   local storage.
 
+Tiered Storage is designed to transfer **all** topic data to the remote tier, except
+for the active log segment where the latest data is being appended. This transfer occurs
+regardless of local storage retention settings.
+
 #### Example
 
-Imagine having a tiered topic with 40 TB of data for local and tiered storage. You set a
-local retention time of 7 days. Consider the following:
+Imagine having a tiered topic with 40 TB of data and with tiered storage enabled.
+You set a local retention time of 10 TB. Consider the following:
 
-- You pay a fixed monthly cost for the 40 TB of local storage.
-- You are charged for storing 40 TB of data in S3, even if some data is over 7 days.
-  This is because data is automatically transferred to S3, and billing is based on the
-  highest usage level within each hour.
-
-:::note
-A tiered topic means all data is eventually stored in S3. If you plan for 80 TB on a
-tiered topic, expect to pay for 80 TB on S3 regardless of local retention settings. Even
-if you configure retention to keep 40 TB local and 40 TB tiered, eager loading means up
-to 78 TB of the 80 TB can reside in the object store.
-:::
+- You pay a fixed monthly cost for the local storage allocated to your service,
+  which includes the 10 TB retained locally.
+- You are charged for storing 40 TB of data in S3, even if some data is available locally
+  within the most recent 10 TB.This is because data is automatically transferred to S3,
+  and billing is based on the highest usage level within each hour.
 
 ### BYOC (Bring your own cloud) billing
 

@@ -29,13 +29,14 @@ disk instead of remote storage.
 
 ## Local vs. remote data retention
 
-When tiered storage is enabled, data produced to a topic is initially
-stored on the local disk of the Kafka broker. Data is then
-asynchronously transferred to remote storage based on the pre-defined
-local retention threshold. During periods of high data ingestion or
-transient errors, such as network connectivity issues, the local storage
-might temporarily hold more data than specified by the local retention
-threshold.
+When tiered storage is enabled, data produced to a topic is initially stored on the
+local disk of the Kafka broker. All but the active (open) segment is then asynchronously
+and orderly transferred to remote storage, regardless of the local retention settings.
+During periods of high data ingestion or transient errors, such as network connectivity
+issues, local storage might temporarily hold more data than specified by the local
+retention threshold. This continues until the remote tier is back online, at which
+point the excess local data is transferred to remote storage, and local segments
+exceeding the retention threshold are removed.
 
 ![Diagram depicting the concept of local vs. remote data retention in a tiered storage system.](/images/content/products/kafka/tiered-storage/data-retention.png)
 
