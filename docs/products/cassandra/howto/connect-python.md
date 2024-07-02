@@ -27,7 +27,7 @@ These are the placeholders you will need to replace in the code sample:
 | `PORT`         | Port number used for connecting to your Cassandra service                      |
 | `USER`         | Username used for connecting to your Cassandra service. Defaults to `avnadmin` |
 | `PASSWORD`     | Password of the `avnadmin` user                                                |
-| `SSL-CERTFILE` | Path to the `CA Certificate` file of your Cassandra service                    |
+| `SSL_CERTFILE` | Path to the `CA Certificate` file of your Cassandra service                    |
 
 :::tip
 The Aiven for Cassandra CA certificate can be downloaded from [Aiven
@@ -38,6 +38,6 @@ Console](https://console.aiven.io/) on the service detail page.
 
 The following example establishes a SSL connection with your database
 cluster; replace the placeholders for `HOST`, `PORT`, `USER`,
-`PASSWORD`, `SSL-CERTFILE`:
+`PASSWORD`, `SSL_CERTFILE`:
 
 <CodeBlock language='python'>{MyComponentSource1}</CodeBlock>
