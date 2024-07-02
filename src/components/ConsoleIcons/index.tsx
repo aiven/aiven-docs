@@ -306,6 +306,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Plus Circle</b>
         </>
       );
+    case 'addnew':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.add} /> <b>Add new</b>
+        </>
+      );
     case 'plus':
       return (
         <>
