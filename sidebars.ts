@@ -439,6 +439,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
+        'tools',
         'tools/api',
         {
           type: 'category',
