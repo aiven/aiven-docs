@@ -1,0 +1,9 @@
+.gridContainer {
+  display: grid;
+  gap: 10px;
+  column-gap: var(--ifm-spacing-horizontal);
+}
+
+.gridContainer>* {
+  display: grid;
+}

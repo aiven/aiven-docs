@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   gap: 0em;
-  max-width: 300px;
   border-radius: var(--aiven-radius);
   border: solid 1px var(--aiven-card-border);
 }
