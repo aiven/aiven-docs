@@ -1,7 +1,7 @@
 ---
 title: Create a custom cloud
 sidebar_label: Create custom clouds
-keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud]
+keywords: [AWS, Amazon Web Services, Microsoft Azure, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud, OCI, Oracle Cloud Infrastructure]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -50,7 +50,7 @@ You create and configure a custom cloud via CLI, and you prepare your remote GCP
 that Aiven can access it. Using the Aiven CLI, you generate an infrastructure-as-code
 (IaC) template in the Terraform format. You download the template and deploy it in your
 remote GCP cloud account to generate a privilege-bearing service account (SA), which Aiven
-needs for accessing your GCP account.
+needs for accessing your GCP account only with permissions that are required.
 
 :::note
 Privilege-bearing service account (SA) is an
@@ -87,8 +87,9 @@ you informed on the progress.
     Contact your account team to learn more or upgrade your support tier.
     :::
 
--   You can create custom clouds yourself in the [Aiven Console](https://console.aiven.io/)
-    (via the BYOC self-service) if your cloud provider is AWS or GCP.
+-   You can create custom clouds yourself (via the BYOC self-service) if your cloud
+    provider is AWS (in the [Aiven Console](https://console.aiven.io/)) or GCP (via [Aiven
+    CLI client](/docs/tools/cli/byoc)).
     For Azure & OCI, [request creating a custom cloud](/docs/platform/howto/byoc/enable-byoc)
     from the Aiven team.
 -   Only [super admins](/docs/platform/howto/make-super-admin) can create custom clouds.
@@ -134,7 +135,7 @@ required Terraform permissions
 Show permissions required for creating resources for bastion and workload networks
 </summary>
 
-```bash
+```json
 {
     "Statement": [
         {
