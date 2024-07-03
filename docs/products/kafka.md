@@ -51,3 +51,4 @@ If you are new to Apache Kafka, try these resources to learn more:
 -   A lighthearted sample data generator to give you some fun (pizza
     order) data to try out:
     [https://github.com/aiven/python-fake-data-producer-for-apache-kafka](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
+-   [Aiven.io](https://aiven.io/kafka)

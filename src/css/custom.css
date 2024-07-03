@@ -35,8 +35,10 @@
   --ifm-heading-font-family: 'Poppins', 'Montserrat', helvetica, system-ui,
     sans-serif;
   --ifm-list-left-padding: 2em;
-  --ifm-list-item-margin: 0.4em; /* li padding top  */
-  --ifm-list-paragraph-margin: 0.4; /*top margin*/
+  --ifm-list-item-margin: 0.4em;
+  /* li padding top  */
+  --ifm-list-paragraph-margin: 0.4;
+  /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
   --ifm-link-color: var(--aiven-primary-80);
   --ifm-menu-color-active: var(--aiven-primary-80);
@@ -117,6 +119,7 @@ nav .menu__link {
 .footer__links {
   font-size: 85%;
 }
+
 .footer__bottom {
   font-size: 80%;
   margin-top: 3em;
@@ -134,6 +137,7 @@ nav .menu__link {
 [data-theme='dark'] .theme-doc-sidebar-container {
   background-color: var(--aiven-grey-90);
 }
+
 [data-theme='dark'] nav.navbar {
   background-color: var(--aiven-grey-100);
   border-bottom: 1px solid var(--aiven-grey-90);
@@ -144,12 +148,13 @@ div[class^='announcementBar_'] {
   color: var(--ifm-menu-color);
   font-size: 108%;
 }
+
 div[class^='announcementBar_'] a {
   color: var(--ifm-link-color);
 }
+
 [data-theme='dark'] div[class^='announcementBar_'] svg {
-  filter: invert(100%) sepia(94%) saturate(17%) hue-rotate(223deg)
-    brightness(104%) contrast(98%);
+  filter: invert(100%) sepia(94%) saturate(17%) hue-rotate(223deg) brightness(104%) contrast(98%);
 }
 
 .DocSearch-Button {
@@ -172,7 +177,8 @@ ol ul ol {
 li {
   padding-bottom: var(--ifm-list-margin-bottom);
 }
-ul + div {
+
+ul+div {
   margin-top: 1em;
 }
 
@@ -199,4 +205,12 @@ ul + div {
 .constraints {
   display: inline-block;
   font-size: 90%;
+}
+
+.trademark {
+  border-top: 1px solid lightgray;
+  margin-top: 2em;
+  padding-top: 1em;
+  font-size: 90%;
+  font-style: italic;
 }

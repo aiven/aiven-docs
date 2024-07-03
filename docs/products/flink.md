@@ -11,3 +11,9 @@ computation with SQL efficiently.
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
+
+<!-- vale off -->
+## Related pages
+<!-- vale on -->
+
+- [Aiven.io](https://aiven.io/flink)

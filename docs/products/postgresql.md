@@ -7,7 +7,12 @@ database service. It's a high-performance data warehouse that offers
 maximum flexibility and functionality with a variety of advanced
 extensions out of the box.
 
-
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
+
+<!-- vale off -->
+## Related pages
+<!-- vale on -->
+
+- [Aiven.io](https://aiven.io/postgresql)

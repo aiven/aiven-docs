@@ -10,3 +10,9 @@ architecture with asynchronous replication and is highly fault tolerant.
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
+
+<!-- vale off -->
+## Related pages
+<!-- vale on -->
+
+- [Aiven.io](https://aiven.io/cassandra)
