@@ -28,96 +28,67 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
 <TabItem value="2" label="Terraform">
 
 1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
-1. Store the authentication token in an environment variable:
 
-   ```bash
-   export TF_VAR_aiven_api_token=YOUR_AIVEN_API_TOKEN
-   ```
+1. Create the `sample.tf` file for the `aiven` provider configuration and
+   the `aiven_clickhouse` resource.
 
-1. Create the following Terraform files:
+    ```hcl
+    variable "aiven_api_token" {
+      type = string
+    }
 
-   - `provider.tf` for the `aiven` provider configuration
+    variable "aiven_project_name" {
+      type = string
+    }
 
-      ```hcl
-      terraform {
-        required_providers {
-          aiven = {
-            source  = "aiven/aiven"
-            version = ">=4.0.0, < 5.0.0"
-          }
+    terraform {
+      required_providers {
+        aiven = {
+          source  = "aiven/aiven"
+          version = ">=4.0.0, <5.0.0"
         }
       }
+    }
 
-      provider "aiven" {
-        api_token = var.aiven_api_token
-      }
-      ```
+    provider "aiven" {
+      api_token = var.aiven_api_token
+    }
 
-   - `clickhouse.tf` including the `aiven_clickhouse` resource
+    data "aiven_project" "sample" {
+      project = var.aiven_project_name
+    }
 
-      ```hcl
-      resource "aiven_clickhouse" "clickhouse" {
-        project      = var.project_name
-        service_name = var.service_name
-        cloud_name   = var.cloud_name
-        plan         = var.service_plan
-      }
+    resource "aiven_clickhouse" "clickhouse" {
+      project                 = data.aiven_project.sample.project
+      cloud_name              = "google-europe-west1"
+      plan                    = "startup-16"
+      service_name            = "my-clickhouse"
+      maintenance_window_dow  = "friday"
+      maintenance_window_time = "23:00:00"
+    }
 
-      output "clickhouse_service_host" {
-        value = aiven_clickhouse.clickhouse.service_host
-      }
+    output "clickhouse_service_host" {
+      value = aiven_clickhouse.clickhouse.service_host
+    }
+    output "clickhouse_service_port" {
+      value = aiven_clickhouse.clickhouse.service_port
+    }
+    output "clickhouse_service_username" {
+      value = aiven_clickhouse.clickhouse.service_username
+    }
+    output "clickhouse_service_password" {
+      value     = aiven_clickhouse.clickhouse.service_password
+      sensitive = true
+    }
+    ```
 
-      output "clickhouse_service_port" {
-        value = aiven_clickhouse.clickhouse.service_port
-      }
+1. Create the `terraform.tfvars` file for assigning actual values to your previously
+   declared variables.
 
-      output "clickhouse_service_username" {
-        value = aiven_clickhouse.clickhouse.service_username
-      }
-
-      output "clickhouse_service_password" {
-        value     = aiven_clickhouse.clickhouse.service_password
-        sensitive = true
-      }
-      ```
-
-   - `variables.tf` for declaring your project variables
-
-      ```hcl
-      variable "aiven_api_token" {
-        description = "Aiven API token"
-        type        = string
-      }
-
-      variable "project_name" {
-        description = "Project name"
-        type        = string
-      }
-
-      variable "cloud_name" {
-        description = "Cloud name"
-        type        = string
-      }
-
-      variable "service_name" {
-        description = "Service name"
-        type        = string
-      }
-
-      variable "service_plan" {
-        description = "Service plan"
-        type        = string
-      }
-      ```
-
-   - `terraform.tfvars` for assigning actual values to your previously declared variables
-
-      ```hcl
-      project_name = "testproject-o3jb"
-      cloud_name   = "google-europe-west1"
-      service_name = "clickhouse"
-      service_plan = "startup-16"
-      ```
+   ```hcl
+   aiven_api_token    = "AIVEN_API_TOKEN"
+   aiven_project_name = "PROJECT_NAME"
+   ```
 
 1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
 
@@ -206,45 +177,67 @@ Edit your service settings if the default service configuration doesn't meet you
 </TabItem>
 <TabItem value="2" label="Terraform">
 
-Configure service parameters by updating the `aiven_clickhouse` resource, for example:
+1. Updating the `aiven_clickhouse` resource in the `sample.tf` file:
 
-```hcl
-resource "aiven_clickhouse" "clickhouse" {
-  project      = var.project_name
-  service_name = var.service_name
-  cloud_name   = var.cloud_name
-  plan         = var.service_plan
-+
-+  maintenance_window_dow  = "sunday"
-+  maintenance_window_time = "22:00:00"
-+  termination_protection  = true
-+
-+  clickhouse_user_config {
-+    service_log      = true
-+  }
-+
-+  clickhouse {
-+    uris = [Clickhouse-server-URIs]
-+  }
-}
+   - Add `service_log = true` and `termination_protection = true`.
+   - Update `maintenance_window_dow = "sunday"` and `maintenance_window_time = "22:00:00"`.
 
-output "clickhouse_service_host" {
-  value = aiven_clickhouse.clickhouse.service_host
-}
+    ```hcl
+    variable "aiven_api_token" {
+      type = string
+    }
 
-output "clickhouse_service_port" {
-  value = aiven_clickhouse.clickhouse.service_port
-}
+    variable "aiven_project_name" {
+      type = string
+    }
 
-output "clickhouse_service_username" {
-  value = aiven_clickhouse.clickhouse.service_username
-}
+    terraform {
+      required_providers {
+        aiven = {
+          source  = "aiven/aiven"
+          version = ">=4.0.0, <5.0.0"
+        }
+      }
+    }
 
-output "clickhouse_service_password" {
-  value     = aiven_clickhouse.clickhouse.service_password
-  sensitive = true
-}
-```
+    provider "aiven" {
+      api_token = var.aiven_api_token
+    }
+
+    data "aiven_project" "sample" {
+      project = var.aiven_project_name
+    }
+
+    resource "aiven_clickhouse" "clickhouse" {
+      project                 = data.aiven_project.sample.project
+      cloud_name              = "google-europe-west1"
+      plan                    = "startup-16"
+      service_name            = "my-clickhouse"
+      maintenance_window_dow  = "sunday"
+      maintenance_window_time = "22:00:00"
+      termination_protection  = true
+
+      clickhouse_user_config {
+        service_log      = true
+      }
+    }
+
+    output "clickhouse_service_host" {
+      value = aiven_clickhouse.clickhouse.service_host
+    }
+    output "clickhouse_service_port" {
+      value = aiven_clickhouse.clickhouse.service_port
+    }
+    output "clickhouse_service_username" {
+      value = aiven_clickhouse.clickhouse.service_username
+    }
+    output "clickhouse_service_password" {
+      value     = aiven_clickhouse.clickhouse.service_password
+      sensitive = true
+    }
+    ```
+
+1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
 
 </TabItem>
 <TabItem value="3" label="K8s">
@@ -337,10 +330,10 @@ assigned to Terraform outputs:
 ```bash
 docker run -it \
 --rm clickhouse/clickhouse-server clickhouse-client \
---user $CLICKHOUSE_USER \
---password $CLICKHOUSE_PASSWORD \
---host $CLICKHOUSE_HOST \
---port $CLICKHOUSE_PORT \
+--user=$CLICKHOUSE_USER \
+--password=$CLICKHOUSE_PASSWORD \
+--host=$CLICKHOUSE_HOST \
+--port=$CLICKHOUSE_PORT \
 --secure
 ```
 
