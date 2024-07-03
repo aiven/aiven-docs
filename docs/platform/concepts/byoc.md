@@ -104,17 +104,18 @@ For a cost estimate and analysis, contact your account team.
 
 <img src={byocAwsPrivate} class="centered" alt="BYOC AWS private architecture" width="100%" />
 
-The AWS private deployment requires you to create a Virtual Private Cloud
-(**BYOC VPC**) dedicated to Aiven-managed services within a cloud region to operate in.
+In the AWS private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
+services is created within a particular cloud region in your remote cloud account.
 Aiven accesses this VPC from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven
 utilizes a bastion host (**Bastion node**) physically separated from the Aiven services
-you deploy. The service VMs reside in a privately addressed subnet (**Private Subnet**)
-and are accessed by the Aiven management plane via the bastion. All Aiven communication is
-encrypted. In AWS deployment models, firewall rules are enforced on the subnet level. You
-can integrate your services using standard VPC peering techniques.
+you deploy. The service VMs reside in a privately addressed subnet (**Private subnet**)
+and are accessed by the Aiven management plane via the bastion. They are not
+accessible through the Internet.
 
-Aiven services are not accessible through the internet. All Aiven communication is encrypted.
+In AWS deployment models, firewall rules are enforced on the subnet level. You
+can integrate your services using standard VPC peering techniques. All Aiven communication
+is encrypted.
 
 :::note
 Although the bastion host and the service nodes reside in the VPC under
@@ -131,39 +132,45 @@ from Aiven repositories).
 
 <img src={byocAwsPublic} class="centered" alt="BYOC AWS public architecture" width="100%" />
 
-The AWS public deployment model requires you to create a Virtual Private Cloud (VPC)
-dedicated to Aiven-managed services within a cloud region to operate in (**BYOC VPC**).
+In the AWS public deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
+services is created within a particular cloud region in your remote cloud account.
 Aiven accesses this VPC through an Internet gateway. Service VMs reside in a publicly
-addressed subnet (**Public Subnet**), and Aiven services can be accessed
+addressed subnet (**Public subnet**), and Aiven services can be accessed
 through the public Internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
-directly. All Aiven communication is encrypted. In AWS deployment models, firewall rules
-are enforced on the subnet level. You can integrate your services using standard VPC
-peering techniques.
+directly.
+
+In AWS deployment models, firewall rules are enforced on the subnet level. You
+can integrate your services using standard VPC peering techniques. All Aiven communication
+is encrypted.
 
 </TabItem>
 <TabItem value="3" label="GCP private">
 
 <img src={byocGcpPrivate} class="centered" alt="BYOC GCP private architecture" width="100%" />
 
-The GCP private deployment model requires you to create two Virtual Private Clouds (VPCs)
-within a cloud region to operate in:
+In the GCP private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
+services is created within a particular cloud region in your remote cloud account.
+Within the **BYOC VPC**, there are:
 
--  VPC dedicated to Aiven-managed services (**Workload VPC**)
--  VPC dedicated to a bastion host (**Bastion VPC**)
+- **Public subnet** for the bastion node
+- **Private subnet** for the workload node (your Aiven service)
 
-Aiven accesses **Bastion VPC** from a static IP address and routes
+Aiven accesses the **BYOC VPC** from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven
 utilizes a bastion host (**Bastion note**) physically separated from the Aiven services
-you deploy. The service VMs reside in a publicly addressed subnet (**Private Subnet**)
-and are accessed by the Aiven management plane via the bastion. All Aiven communication is
-encrypted. In GCP deployment models, firewall rules are enforced on the VPC level.
+you deploy. The service VMs reside in a privately addressed subnet (**Private subnet**)
+and are accessed by the Aiven management plane via the bastion. They are not
+accessible through the Internet.
+
+In GCP deployment models, firewall rules are enforced on the VPC level.
 You can integrate your services using standard VPC peering techniques.
+All Aiven communication is encrypted.
 
 :::note
-Although the bastion host and the service nodes reside in the VPCs under
-your management (**Bastion VPC** and **Workload VPC**), they are not accessible
-(for example, via SSH) to anyone outside Aiven.
+Although the bastion host and the service nodes reside in the VPC under
+your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone
+outside Aiven.
 
 The bastion and workload nodes require outbound access to the Internet
 to work properly (supporting HA signaling to the Aiven management node and RPM download
@@ -175,15 +182,17 @@ from Aiven repositories).
 
 <img src={byocGcpPublic} class="centered" alt="BYOC GCP public architecture" width="100%" />
 
-The GCP public deployment requires you to create a Virtual Private Cloud (VPC)
-dedicated to Aiven-managed services within a cloud region to operate in (**Workload VPC**).
+In the GCP public deployment model, a Virtual Private Cloud (**Workload VPC**) for your
+Aiven services is created within a particular cloud region in your remote cloud account.
 Aiven accesses this VPC through an Internet gateway. Service VMs reside in a publicly
-addressed subnet (**Public Subnet**), and Aiven services can be accessed
+addressed subnet (**Public subnet**), and Aiven services can be accessed
 through the public Internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
-directly. All Aiven communication is encrypted. In GCP deployment models, firewall
-rules are enforced on the VPC level. You can integrate your services using standard VPC
-peering techniques.
+directly.
+
+In GCP deployment models, firewall rules are enforced on the VPC level.
+You can integrate your services using standard VPC peering techniques.
+All Aiven communication is encrypted.
 
 </TabItem>
 </Tabs>
