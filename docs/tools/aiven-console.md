@@ -77,7 +77,7 @@ and
 [create new services](/docs/platform/howto/create_new_service).
 
 On the **Services** page you can also access the
-[integration endpoints](/docs/integrations), VPCs, project logs, list of project members, and project
+[integration endpoints](/docs/platform/concepts/service-integration), VPCs, project logs, list of project members, and project
 settings.
 
 ## Billing groups
