@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Managed services',
     Svg: require('@site/static/images/icons/home/database.svg').default,
-    to: '/docs/platform/howto/list-service',
+    to: '/docs/products/services',
     description: <>Discover our managed services and how to set them up.</>,
   },
   {

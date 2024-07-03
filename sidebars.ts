@@ -532,6 +532,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       className: 'expandedSection',
       items: [
+        'products/services',
         {
           type: 'category',
           label: 'Aiven for Apache Cassandra®',
