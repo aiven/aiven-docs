@@ -97,15 +97,18 @@ You can define a set of tags for each taggable infrastructure component created 
 Terraform infrastructure template (for example, VPCs, subnets, or security groups). You
 can manage the tags using the [Aiven CLI client](/docs/tools/cli) or directly in the
 variable file used to run the Terraform infrastructure template.
+
+:::note
+Tagging GCP BYOC infrastructure uses
+[Google labels](https://cloud.google.com/resource-manager/docs/labels-overview),
+not [Google tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
+:::
+
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
 Reach out to your account team to add or update infrastructure tags for your custom cloud.
 </TabItem>
 </Tabs>
-
-:::important
-Any change to infrastructure tags requires reapplying the Terraform template.
-:::
 
 ### Limitations
 
@@ -185,7 +188,9 @@ Show sample output
 ```
 
 </details>
-
+:::important
+Any change to infrastructure tags requires reapplying the Terraform template.
+:::
 </TabItem>
 <TabItem value="2" label="GCP">
 Use the
@@ -233,7 +238,9 @@ Show sample output
 ```
 
 </details>
-
+:::important
+Any change to infrastructure tags requires reapplying the Terraform template.
+:::
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
 Reach out to your account team to add or update infrastructure tags for your custom cloud.

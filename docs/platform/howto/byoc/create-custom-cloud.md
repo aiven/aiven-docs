@@ -484,21 +484,23 @@ Show permissions required for creating resources for bastion and workload networ
 </TabItem>
 <TabItem value="2" label="GCP permissions">
 <details><summary>
-Show permissions to be granted to Aiven
+Show permissions needed by your service account that will run the Terraform script in your
+Google project
 </summary>
-- `get` on the GCP project to retrieve project-level quotas
-
-- `list` all the regions in the project
-
-- `get` on each region to retrieve region-level quotas
-
-- `ListTimeSeriesRequest` using the Google `monitoring_v3.MetricServiceClient` for the
-  following metrics:
-
-  - `compute.googleapis.com/quota/static_routes_per_vpc_network/usage`
-  - `compute.googleapis.com/quota/static_routes_per_vpc_network/limit`
-
+- `roles/iam.serviceAccountAdmin` (sets up impersonation to the privilege-bearing service account)
+- `roles/resourcemanager.projectIamAdmin` (provides permissions to the privilege-bearing
+  service account to use your project)
+- `roles/compute.instanceAdmin.v1` (manages networks and instances)
+- `roles/compute.securityAdmin` (creates firewall rules)
+- Enable [Identity and Access Management (IAM) API](https://cloud.google.com/iam/docs/reference/rest)
+  to create the privilege-bearing service account
+- Enable
+  [Cloud Resource Manager (CRM) API](https://cloud.google.com/resource-manager/reference/rest)
+  to set IAM policies to the privilege-bearing service account
 </details>
+For more information on Google Cloud roles, see
+[IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
+in the Goodle Cloud documentation.
 </TabItem>
 <TabItem value="3" label="Azure & OCI permissions">
 The Aiven team will talk to you to determine required permissions.

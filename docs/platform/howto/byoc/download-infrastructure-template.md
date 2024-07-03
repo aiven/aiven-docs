@@ -1,6 +1,6 @@
 ---
-title: Download a custom cloud infrastructure template
-sidebar_label: Download infra template
+title: Download an infrastructure template and a variables file
+sidebar_label: Download TF template & vars file
 keywords: [Terraform, deployment, deploy, byoc, bring your own cloud, custom cloud]
 ---
 
@@ -8,7 +8,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Download a Terraform template that defines the infrastructure of your [custom cloud](/docs/platform/concepts/byoc).
+Download a Terraform template and a variables file that define the infrastructure of your
+[custom cloud](/docs/platform/concepts/byoc).
 
 ## Prerequisites
 
@@ -58,6 +59,33 @@ to download your infrastructure template.
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
 Reach out to your account team to request the infrastructure template of your custom cloud.
+</TabItem>
+</Tabs>
+
+## Download a variable file
+
+<Tabs groupId="group1">
+<TabItem value="1" label="AWS" default>
+
+#### Via the Aiven Console
+
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
+1.  Select a cloud, and find the **Variables file** on the **Overview**.
+1.  Click <ConsoleLabel name="download"/>.
+
+#### Via the Aiven CLI client
+
+[Run the `avn byoc template terraform get-vars` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
+to download your variables file.
+</TabItem>
+<TabItem value="2" label="GCP">
+[Run the `avn byoc template terraform get-vars` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
+to download your variables file.
+</TabItem>
+<TabItem value="3" label="Azure & OCI">
+Reach out to your account team to request the variables file for your custom cloud.
 </TabItem>
 </Tabs>
 
