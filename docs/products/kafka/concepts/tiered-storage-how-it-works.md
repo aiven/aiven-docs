@@ -10,8 +10,8 @@ Aiven for Apache Kafka® tiered storage is a feature that optimizes data managem
 -   **Remote tier**: Relies on slower, cost-effective options like cloud
     object storage.
 
-In Aiven for Apache Kafka's tiered storage architecture, **remote
-storage** refers to storage options external to the Kafka broker's
+In Aiven for Apache Kafka's tiered storage architecture, **remote storage** refers to
+storage options external to the Kafka broker's
 local disk. This typically includes cloud-based or self-hosted object
 storage solutions like AWS S3 and Google Cloud Storage. Although
 network-attached block storage solutions like AWS EBS are technically
@@ -57,12 +57,11 @@ move data as swiftly as possible, certain conditions, such as high
 ingestion rate or connectivity issues, can cause more data to be stored
 in the local storage than the specified local retention policy.
 
-Any data exceeding the local retention threshold is not be purged by
-the log cleaner until it is successfully uploaded to remote storage. The
-replication factor is not considered during the upload process, and only
-one copy of each segment is uploaded to the remote storage. Most remote
-storage options have their own measures, including data replication, to
-ensure data durability.
+The log cleaner does not purge any data exceeding the local retention threshold until
+it is successfully uploaded to remote storage. The replication factor is not considered
+during the upload process, and only one copy of each segment is uploaded to the remote
+storage. Most remote storage options have their own measures, including data
+replication to ensure data durability.
 
 ## Data retrieval
 
@@ -71,7 +70,7 @@ downloads and caches these records locally. This allows for quicker
 access in subsequent retrieval operations.
 
 Aiven allocates a small amount of disk space, ranging from 2 GB to 16 GB,
-equivalent to 5% of the Kafka broker's total available disk, for the
+equivalent to 5% of the Kafka broker's total available disk for the
 temporary storage of fetched records.
 
 ## Security

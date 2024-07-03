@@ -38,7 +38,7 @@ Tiered storage offers multiple benefits, including:
 - **Transparency:** Even older Kafka clients can benefit from tiered
   storage without needing to be explicitly aware of it.
 
-## When to and why use it
+## When and why use it
 
 Understanding when and why to use tiered storage in Aiven for Apache
 Kafka helps you maximize its benefits, particularly around cost
