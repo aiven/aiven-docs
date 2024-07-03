@@ -28,14 +28,15 @@
 }
 
 .icon svg {
-  height: 25px;
   color: var(--ifm-link-color);
+  max-width: 25px;
+  max-height: 25px;
   margin-bottom: 12px;
 }
 
 .title {
-  font-size: 120%;
-  font-weight: 800;
+  font-size: 115%;
+  font-weight: 600;
 }
 
 .card a:hover,
