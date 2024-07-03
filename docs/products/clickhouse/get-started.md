@@ -134,9 +134,9 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
 </TabItem>
 <TabItem value="3" label="K8s">
 
-Create an Aiven for ClickHouse service using
-[Aiven Operator for Kubernetes](https://aiven.github.io/aiven-operator/api-reference/clickhouse.html).
+Create an Aiven for ClickHouse service using the Aiven Operator for Kubernetes.
 
+1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html).
 1. Create file `example.yaml` with the following content:
 
    ```yaml
@@ -159,12 +159,6 @@ Create an Aiven for ClickHouse service using
      tags:
        env: test
        instance: foo
-
-     userConfig:
-       ip_filter:
-         - network: 0.0.0.0/32
-           description: bar
-         - network: 10.20.0.0/16
 
      project: my-aiven-project
      cloudName: google-europe-west1
@@ -226,7 +220,6 @@ resource "aiven_clickhouse" "clickhouse" {
 +  termination_protection  = true
 +
 +  clickhouse_user_config {
-+    ip_filter_string = ["10.20.0.0/16"]
 +    service_log      = true
 +  }
 +
@@ -282,10 +275,6 @@ output "clickhouse_service_password" {
        instance: foo
 
      userConfig:
-       ip_filter:
-         - network: 0.0.0.0/32
-           description: bar
-         - network: 10.20.0.0/16
        service_log: true
 
      project: my-aiven-project
