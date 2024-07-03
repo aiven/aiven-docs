@@ -5,6 +5,7 @@ sidebar_label: Overview
 
 import Card from "@site/src/components/AivenCard";
 import GridContainer from "@site/src/components/GridContainer";
+import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 
 Interact with the Aiven platform with the following tools:
 
@@ -12,8 +13,14 @@ Interact with the Aiven platform with the following tools:
     <Card
       to="/docs/tools/terraform/get-started"
       iconName="terraform"
-      title="Terraform Provider"
-      description="Use Aiven Terraform Provider."
+      title="Aiven Terraform Provider"
+      description="Discover our Terraform Provider."
+    />
+     <Card
+      to="/docs/tools/kubernetes"
+      iconComponent={K8sIcon}
+      title="Aiven Kubernetes Operator"
+      description="Discover our Kubernetes Operator."
     />
     <Card
       to="/docs/tools/api"
@@ -26,11 +33,5 @@ Interact with the Aiven platform with the following tools:
       iconName="tools"
       title="Aiven CLI"
       description="Discover our CLI."
-    />
-    <Card
-      to="/docs/tools/kubernetes"
-      iconName="kubernetes"
-      title="Kubernetes Operator"
-      description="Use our Kubernetes Operator."
     />
 </GridContainer>
