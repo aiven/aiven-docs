@@ -59,11 +59,15 @@ choose to fork from the latest transaction or select a specific point in
 the past to fork from.
 Fork your Aiven service to make a copy of the service.
 
+:::important
+You can only fork services that have at least one [backup](/docs/platform/concepts/service_backups).
+:::
+
 <Tabs groupId="group1">
 <TabItem value="Console" label="Console" default>
 1. Log in to [Aiven Console](https://console.aiven.io/).
 1. In your project, click <ConsoleLabel name="services"/> and click the service to fork.
-1. On the **Overview** page of your service, click **New database fork**.
+1. Click <ConsoleLabel name="Backups"/> and click **Fork & restore**.
 1. In the **New Database Fork** window, set the details for the new service.
 1. Click **Create fork**.
 
