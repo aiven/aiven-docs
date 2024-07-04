@@ -525,6 +525,223 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
+          label: 'Aiven for Apache Cassandra®',
+          link: {
+            type: 'doc',
+            id: 'products/cassandra',
+          },
+          items: [
+            'products/cassandra/overview',
+            'products/cassandra/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/cassandra/concepts',
+              },
+              items: [
+                'products/cassandra/concepts/tombstones',
+                'products/cassandra/concepts/cross-cluster-replication',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/cassandra/howto',
+              },
+              items: [
+                'products/cassandra/howto/list-get-started',
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/cassandra/howto/list-code-samples',
+                  },
+                  items: [
+                    'products/cassandra/howto/connect-cqlsh-cli',
+                    'products/cassandra/howto/connect-python',
+                    'products/cassandra/howto/connect-go',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Manage service',
+                  items: [
+                    'products/cassandra/howto/use-dsbulk-with-cassandra',
+                    'products/cassandra/howto/use-nosqlbench-with-cassandra',
+                    'products/cassandra/howto/zdm-proxy',
+                  ],
+                },
+                'products/cassandra/howto/list-manage-cluster',
+                {
+                  type: 'category',
+                  label: 'Cross-cluster replication',
+                  link: {
+                    type: 'doc',
+                    id: 'products/cassandra/howto/list-cross-cluster-replication',
+                  },
+                  items: [
+                    'products/cassandra/howto/enable-cross-cluster-replication',
+                    'products/cassandra/howto/manage-cross-cluster-replication',
+                    'products/cassandra/howto/disable-cross-cluster-replication',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/cassandra/reference',
+              },
+              items: [
+                'products/cassandra/reference/advanced-params',
+                'products/cassandra/reference/cassandra-metrics-prometheus',
+                'products/cassandra/reference/cassandra-metrics-datadog',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Aiven for Apache Flink®',
+          link: {
+            type: 'doc',
+            id: 'products/flink',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Overview',
+              link: {
+                type: 'doc',
+                id: 'products/flink/list-overview',
+              },
+              items: [
+                'products/flink/concepts/flink-architecture',
+                'products/flink/concepts/flink-features',
+                'products/flink/concepts/managed-service-features',
+                'products/flink/reference/plans-pricing',
+                'products/flink/reference/flink-limitations',
+              ],
+            },
+            'products/flink/get-started',
+            {
+              type: 'category',
+              label: 'Concepts',
+              link: {
+                type: 'doc',
+                id: 'products/flink/concepts',
+              },
+              items: [
+                'products/flink/concepts/flink-applications',
+                'products/flink/concepts/supported-syntax-sql-editor',
+                'products/flink/concepts/custom-jars',
+                'products/flink/concepts/tables',
+                'products/flink/concepts/checkpoints',
+                'products/flink/concepts/savepoints',
+                'products/flink/concepts/event-processing-time',
+                'products/flink/concepts/watermarks',
+                'products/flink/concepts/windows',
+                'products/flink/concepts/kafka-connectors',
+                'products/flink/concepts/kafka-connector-requirements',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              link: {
+                type: 'doc',
+                id: 'products/flink/howto',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Integrate service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/list-integrations',
+                  },
+                  items: [
+                    'products/flink/howto/create-integration',
+                    'products/flink/howto/ext-kafka-flink-integration',
+                    'products/flink/howto/connect-bigquery',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Aiven for Apache Flink applications',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/create-flink-applications',
+                  },
+                  items: [
+                    'products/flink/howto/create-sql-application',
+                    'products/flink/howto/create-jar-application',
+                    'products/flink/howto/manage-flink-applications',
+                    'products/flink/howto/restart-strategy-jar-applications',
+                    'products/flink/howto/manage-credentials-jars',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Apache Flink tables',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/list-flink-tables',
+                  },
+                  items: [
+                    {
+                      type: 'category',
+                      label: 'Create tables with data source',
+                      link: {
+                        id: 'products/flink/howto/list-flink-table-integrations',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/flink/howto/connect-kafka',
+                        'products/flink/howto/flink-confluent-avro',
+                        'products/flink/howto/connect-pg',
+                        'products/flink/howto/connect-opensearch',
+                        'products/flink/howto/pg-cdc-connector',
+                        'products/flink/howto/slack-connector',
+                        'products/flink/howto/datagen-connector',
+                      ],
+                    },
+                    'products/flink/howto/manage-flink-tables',
+                  ],
+                },
+                'products/flink/howto/list-manage-cluster',
+                'products/flink/howto/upgrade-flink-version',
+                {
+                  type: 'category',
+                  label: 'Advanced topics',
+                  link: {
+                    type: 'doc',
+                    id: 'products/flink/howto/advanced-topics',
+                  },
+                  items: ['products/flink/howto/timestamps_opensearch'],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Reference',
+              link: {
+                type: 'doc',
+                id: 'products/flink/reference',
+              },
+              items: ['products/flink/reference/advanced-params'],
+            },
+          ],
+        },
+        {
+          type: 'category',
           label: 'Aiven for Apache Kafka®',
           link: {
             id: 'products/kafka',
@@ -958,223 +1175,7 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-        {
-          type: 'category',
-          label: 'Aiven for Apache Flink®',
-          link: {
-            type: 'doc',
-            id: 'products/flink',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/flink/list-overview',
-              },
-              items: [
-                'products/flink/concepts/flink-architecture',
-                'products/flink/concepts/flink-features',
-                'products/flink/concepts/managed-service-features',
-                'products/flink/reference/plans-pricing',
-                'products/flink/reference/flink-limitations',
-              ],
-            },
-            'products/flink/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/flink/concepts',
-              },
-              items: [
-                'products/flink/concepts/flink-applications',
-                'products/flink/concepts/supported-syntax-sql-editor',
-                'products/flink/concepts/custom-jars',
-                'products/flink/concepts/tables',
-                'products/flink/concepts/checkpoints',
-                'products/flink/concepts/savepoints',
-                'products/flink/concepts/event-processing-time',
-                'products/flink/concepts/watermarks',
-                'products/flink/concepts/windows',
-                'products/flink/concepts/kafka-connectors',
-                'products/flink/concepts/kafka-connector-requirements',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/flink/howto',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Integrate service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/list-integrations',
-                  },
-                  items: [
-                    'products/flink/howto/create-integration',
-                    'products/flink/howto/ext-kafka-flink-integration',
-                    'products/flink/howto/connect-bigquery',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Aiven for Apache Flink applications',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/create-flink-applications',
-                  },
-                  items: [
-                    'products/flink/howto/create-sql-application',
-                    'products/flink/howto/create-jar-application',
-                    'products/flink/howto/manage-flink-applications',
-                    'products/flink/howto/restart-strategy-jar-applications',
-                    'products/flink/howto/manage-credentials-jars',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Apache Flink tables',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/list-flink-tables',
-                  },
-                  items: [
-                    {
-                      type: 'category',
-                      label: 'Create tables with data source',
-                      link: {
-                        id: 'products/flink/howto/list-flink-table-integrations',
-                        type: 'doc',
-                      },
-                      items: [
-                        'products/flink/howto/connect-kafka',
-                        'products/flink/howto/flink-confluent-avro',
-                        'products/flink/howto/connect-pg',
-                        'products/flink/howto/connect-opensearch',
-                        'products/flink/howto/pg-cdc-connector',
-                        'products/flink/howto/slack-connector',
-                        'products/flink/howto/datagen-connector',
-                      ],
-                    },
-                    'products/flink/howto/manage-flink-tables',
-                  ],
-                },
-                'products/flink/howto/list-manage-cluster',
-                'products/flink/howto/upgrade-flink-version',
-                {
-                  type: 'category',
-                  label: 'Advanced topics',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/advanced-topics',
-                  },
-                  items: ['products/flink/howto/timestamps_opensearch'],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/flink/reference',
-              },
-              items: ['products/flink/reference/advanced-params'],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Aiven for Apache Cassandra®',
-          link: {
-            type: 'doc',
-            id: 'products/cassandra',
-          },
-          items: [
-            'products/cassandra/overview',
-            'products/cassandra/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/concepts',
-              },
-              items: [
-                'products/cassandra/concepts/tombstones',
-                'products/cassandra/concepts/cross-cluster-replication',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/howto',
-              },
-              items: [
-                'products/cassandra/howto/list-get-started',
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/cassandra/howto/list-code-samples',
-                  },
-                  items: [
-                    'products/cassandra/howto/connect-cqlsh-cli',
-                    'products/cassandra/howto/connect-python',
-                    'products/cassandra/howto/connect-go',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage service',
-                  items: [
-                    'products/cassandra/howto/use-dsbulk-with-cassandra',
-                    'products/cassandra/howto/use-nosqlbench-with-cassandra',
-                    'products/cassandra/howto/zdm-proxy',
-                  ],
-                },
-                'products/cassandra/howto/list-manage-cluster',
-                {
-                  type: 'category',
-                  label: 'Cross-cluster replication',
-                  link: {
-                    type: 'doc',
-                    id: 'products/cassandra/howto/list-cross-cluster-replication',
-                  },
-                  items: [
-                    'products/cassandra/howto/enable-cross-cluster-replication',
-                    'products/cassandra/howto/manage-cross-cluster-replication',
-                    'products/cassandra/howto/disable-cross-cluster-replication',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/reference',
-              },
-              items: [
-                'products/cassandra/reference/advanced-params',
-                'products/cassandra/reference/cassandra-metrics-prometheus',
-                'products/cassandra/reference/cassandra-metrics-datadog',
-              ],
-            },
-          ],
-        },
+
         {
           type: 'category',
           label: 'Aiven for Caching',
