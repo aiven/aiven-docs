@@ -525,7 +525,7 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
-          label: 'Apache Kafka®',
+          label: 'Aiven for Apache Kafka®',
           link: {
             id: 'products/kafka',
             type: 'doc',
@@ -960,7 +960,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Apache Flink®',
+          label: 'Aiven for Apache Flink®',
           link: {
             type: 'doc',
             id: 'products/flink',
@@ -1093,7 +1093,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Apache Cassandra®',
+          label: 'Aiven for Apache Cassandra®',
           link: {
             type: 'doc',
             id: 'products/cassandra',
@@ -1177,7 +1177,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Caching',
+          label: 'Aiven for Caching',
           link: {
             id: 'products/caching',
             type: 'doc',
@@ -1272,7 +1272,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'ClickHouse',
+          label: 'Aiven for ClickHouse®',
           link: {
             type: 'doc',
             id: 'products/clickhouse',
@@ -1421,7 +1421,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Dragonfly',
+          label: 'Aiven for Dragonfly',
           link: {
             type: 'doc',
             id: 'products/dragonfly',
@@ -1489,7 +1489,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Grafana',
+          label: 'Aiven for Grafana®',
           link: {
             type: 'doc',
             id: 'products/grafana',
@@ -1562,7 +1562,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'M3DB',
+          label: 'Aiven for M3DB',
           link: {
             type: 'doc',
             id: 'products/m3db',
@@ -1617,7 +1617,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Metrics',
+          label: 'Aiven for Metrics',
           link: {
             type: 'doc',
             id: 'products/metrics',
@@ -1650,7 +1650,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'MySQL',
+          label: 'Aiven for MySQL',
           link: {
             type: 'doc',
             id: 'products/mysql',
@@ -1752,7 +1752,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'OpenSearch',
+          label: 'Aiven for OpenSearch®',
           link: {
             type: 'doc',
             id: 'products/opensearch',
@@ -1968,7 +1968,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'PostgreSQL',
+          label: 'Aiven for PostgreSQL®',
           link: {
             type: 'doc',
             id: 'products/postgresql',
@@ -2149,7 +2149,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Valkey',
+          label: 'Aiven for Valkey',
           link: {
             id: 'products/valkey',
             type: 'doc',
