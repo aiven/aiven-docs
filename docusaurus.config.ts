@@ -96,9 +96,10 @@ const config: Config = {
           href: 'https://api.aiven.io/doc/',
         },
         {
-          label: 'Support',
-          to: 'platform/howto/support',
+          type: 'doc',
           position: 'left',
+          docId: 'platform/howto/support',
+          label: 'Support',
         },
         {
           label: 'Changelog',
@@ -163,6 +164,10 @@ const config: Config = {
         {
           title: 'Resources',
           items: [
+            {
+              label: 'Support',
+              href: '/docs/platform/howto/support',
+            },
             {
               label: 'Community forum',
               href: 'https://aiven.io/community/forum/',
