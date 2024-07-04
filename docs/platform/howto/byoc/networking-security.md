@@ -39,9 +39,9 @@ on relevant ports.
 | Bastion subnet | DNS & NTP        | Destination dependant on cloud provider                                                                                                 |
 
 :::note
-Aiven Management and CloudFront IP ranges do occasionally change and are considered dynamic
-for the purposes of firewall policies. To that end, an egress of `0.0.0.0/0` is generally
-required to accommodate traffic to these destinations.
+Aiven Management and CloudFront IP ranges occasionally change and are considered dynamic
+for firewall policies. To accommodate traffic to these destinations, an egress of
+`0.0.0.0/0` is generally required.
 :::
 
 ## Workload nodes networking
@@ -81,9 +81,9 @@ varies depending on the services, features, and plugins being used.
 | Workload subnet | DNS & NTP                | Destination dependant on cloud provider                                                                                    |
 
 :::note
-Aiven Management and CloudFront IP ranges do occasionally change and are considered dynamic
-for the purposes of firewall policies. To that end, an egress of `0.0.0.0/0` is generally
-required to accommodate traffic to these destinations.
+Aiven Management and CloudFront IP ranges occasionally change and are considered dynamic
+for firewall policies. To accommodate traffic to these destinations, an egress of
+`0.0.0.0/0` is generally required.
 :::
 
 ## Security and compliance
@@ -101,7 +101,7 @@ and monitored.
 If required for troubleshooting or incident investigation, SSH connections to the nodes
 can only be performed by specific and approved operators, and can only originate from
 specific Aiven gateway IPs. All access is logged and monitored, and Aiven’s security team
-follows-up on access to ensure approval and validity.
+follows up on access to ensure approval and validity.
 Aiven base system images are routinely updated and patched. During maintenance events,
 service nodes, including the bastion service, are replaced with updated images.
 
