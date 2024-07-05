@@ -294,6 +294,7 @@ Tenant
 Terraform
 Terraforming
 Thanos
+tiering
 TimescaleDB
 toolchain
 Transport Layer Security

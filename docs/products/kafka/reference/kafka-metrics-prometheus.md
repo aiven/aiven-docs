@@ -196,7 +196,6 @@ health of your Kafka controller.
 | `kafka_controller_KafkaController_TopicsIneligibleToDeleteCount_Value`                         | Number of topics ineligible to delete.                                                       |
 | `kafka_controller_KafkaController_TopicsToDeleteCount_Value`                                   | Number of topics to delete.                                                                  |
 
-
 ### `Jolokia` collector collect time
 
 Jolokia is a JMX-HTTP bridge, providing an alternative to native JMX access. The
@@ -206,7 +205,6 @@ to collect metrics.
 | Metric                                    | Description                                                             |
 |-------------------------------------------|-------------------------------------------------------------------------|
 | `kafka_jolokia_collector_collect_time`    | Represents the time taken by the Jolokia collector to collect metrics.  |
-
 
 ### Apache Kafka log
 
@@ -330,6 +328,29 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 | `kafka_server_group_coordinator_metrics_offset_expiration_count`                 | Number of offset expirations. |
 | `kafka_server_group_coordinator_metrics_offset_expiration_rate`                  | Rate of offset expirations. |
 
+### Tiered storage metrics
+
+Aiven for Apache Kafka includes several metrics to monitor the performance and
+health of your Kafka broker's tiered storage operations. You can access these
+metrics through Prometheus to gain detailed insights into various aspects of
+tiered storage, such as data copying, fetching, deleting, and their respective
+lags and errors.
+
+| Metric                                                           | Description                                                                                                      |
+|------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `kafka_server_BrokerTopicMetrics_RemoteCopyBytesPerSec_Count`    | The number of bytes per second being copied to remote storage.                                                   |
+| `kafka_server_BrokerTopicMetrics_RemoteCopyRequestsPerSec_Count` | The number of copy requests per second to remote storage.                                                        |
+| `kafka_server_BrokerTopicMetrics_RemoteCopyErrorsPerSec_Count`   | The number of errors per second encountered during remote copy.                                                  |
+| `kafka_server_BrokerTopicMetrics_RemoteCopyLagBytes_Value`       | The number of bytes in non-active segments eligible for tiering that are not yet uploaded to remote storage.           |
+| `kafka_server_BrokerTopicMetrics_RemoteCopyLagSegments_Value`    | The number of non-active segments eligible for tiering that are not yet uploaded to remote storage.                  |
+| `kafka_server_BrokerTopicMetrics_RemoteFetchBytesPerSec_Count`   | The number of bytes per second being fetched from remote storage.                                                |
+| `kafka_server_BrokerTopicMetrics_RemoteFetchRequestsPerSec_Count`| The number of fetch requests per second from remote storage.                                                     |
+| `kafka_server_BrokerTopicMetrics_RemoteFetchErrorsPerSec_Count`  | The number of errors per second encountered during remote fetch.                                                 |
+| `kafka_server_BrokerTopicMetrics_RemoteDeleteRequestsPerSec_Count`| The number of delete requests per second to remote storage.                                                     |
+| `kafka_server_BrokerTopicMetrics_RemoteDeleteErrorsPerSec_Count` | The number of errors per second encountered during remote delete.                                                |
+| `kafka_server_BrokerTopicMetrics_RemoteDeleteLagBytes_Value`     | The number of bytes in non-active segments marked for deletion but not yet deleted from remote storage.           |
+| `kafka_server_BrokerTopicMetrics_RemoteDeleteLagSegments_Value`  | The number of non-active segments marked for deletion but not yet deleted from remote storage.                   |
+
 ### Kernel
 
 The metrics listed below, such as `kernel_boot_time` and `kernel_context_switches`, provide
@@ -384,7 +405,6 @@ your system’s memory usage:
 | `mem_wired`              | The amount of wired memory.                                    |
 | `mem_write_back`         | The amount of memory being written back to disk.               |
 | `mem_write_back_tmp`     | The amount of temporary memory being written back to disk.     |
-
 
 ### Network
 
