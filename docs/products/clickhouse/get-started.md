@@ -54,17 +54,17 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
       api_token = var.aiven_api_token
     }
 
-    data "aiven_project" "sample" {
-      project = var.aiven_project_name
-    }
-
     resource "aiven_clickhouse" "clickhouse" {
-      project                 = data.aiven_project.sample.project
+      project                 = var.aiven_project_name
       cloud_name              = "google-europe-west1"
       plan                    = "startup-16"
       service_name            = "my-clickhouse"
       maintenance_window_dow  = "friday"
       maintenance_window_time = "23:00:00"
+
+      clickhouse_user_config {
+        service_log = false
+      }
     }
 
     output "clickhouse_service_host" {
@@ -204,12 +204,8 @@ Edit your service settings if the default service configuration doesn't meet you
       api_token = var.aiven_api_token
     }
 
-    data "aiven_project" "sample" {
-      project = var.aiven_project_name
-    }
-
     resource "aiven_clickhouse" "clickhouse" {
-      project                 = data.aiven_project.sample.project
+      project                 = var.aiven_project_name
       cloud_name              = "google-europe-west1"
       plan                    = "startup-16"
       service_name            = "my-clickhouse"
@@ -218,7 +214,7 @@ Edit your service settings if the default service configuration doesn't meet you
       termination_protection  = true
 
       clickhouse_user_config {
-        service_log      = true
+        service_log = true
       }
     }
 
