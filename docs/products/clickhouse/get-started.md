@@ -324,12 +324,12 @@ Access your new service with the ClickHouse client using the environment variabl
 assigned to Terraform outputs:
 
 ```bash
-docker run -it \
---rm clickhouse/clickhouse-server clickhouse-client \
---user=$CLICKHOUSE_USER \
---password=$CLICKHOUSE_PASSWORD \
---host=$CLICKHOUSE_HOST \
---port=$CLICKHOUSE_PORT \
+docker run -it                    \
+--rm clickhouse/clickhouse-client \
+--user=$CLICKHOUSE_USER           \
+--password=$CLICKHOUSE_PASSWORD   \
+--host=$CLICKHOUSE_HOST           \
+--port=$CLICKHOUSE_PORT           \
 --secure
 ```
 
