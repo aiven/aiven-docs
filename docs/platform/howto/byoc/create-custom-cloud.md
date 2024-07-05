@@ -855,16 +855,16 @@ custom cloud, contact your account team.
 ### Create a service in the custom cloud
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
-To create a service in the [Aiven Console](https://console.aiven.io/) in your new AWS
+<TabItem value="1" label="Aiven Console" default>
+To create a service in the [Aiven Console](https://console.aiven.io/) in your new
 custom cloud, follow the guidelines in
 [Create a service](/docs/platform/howto/create_new_service).
 
 When creating a service in the [Aiven Console](https://console.aiven.io/), at the
 **Select service region** step, select **Custom clouds** from the available regions.
 </TabItem>
-<TabItem value="2" label="GCP">
-To create a service hosted in your new GCP custom cloud, run
+<TabItem value="2" label="Aiven CLI">
+To create a service hosted in your new custom cloud, run
 [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) passing your new
 custom cloud name as an option:
 
@@ -877,10 +877,6 @@ avn service create                    \
 "NEW_BYOC_SERVICE_NAME"
 ```
 
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-To create a service hosted in your new Azure or OCI custom cloud, reach out to your
-account team.
 </TabItem>
 </Tabs>
 
