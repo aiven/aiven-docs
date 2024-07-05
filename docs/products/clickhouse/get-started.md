@@ -33,7 +33,7 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
    the `aiven_clickhouse` resource.
 
     ```hcl
-    variable "aiven_api_token" {
+    variable "aiven_token" {
       type = string
     }
 
@@ -51,7 +51,7 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
     }
 
     provider "aiven" {
-      api_token = var.aiven_api_token
+      api_token = var.aiven_token
     }
 
     resource "aiven_clickhouse" "clickhouse" {
@@ -86,7 +86,7 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
    declared variables.
 
    ```hcl
-   aiven_api_token    = "AIVEN_API_TOKEN"
+   aiven_token    = "AIVEN_TOKEN"
    aiven_project_name = "PROJECT_NAME"
    ```
 
@@ -183,7 +183,7 @@ Edit your service settings if the default service configuration doesn't meet you
    - Update `maintenance_window_dow = "sunday"` and `maintenance_window_time = "22:00:00"`.
 
     ```hcl
-    variable "aiven_api_token" {
+    variable "aiven_token" {
       type = string
     }
 
@@ -201,7 +201,7 @@ Edit your service settings if the default service configuration doesn't meet you
     }
 
     provider "aiven" {
-      api_token = var.aiven_api_token
+      api_token = var.aiven_token
     }
 
     resource "aiven_clickhouse" "clickhouse" {
