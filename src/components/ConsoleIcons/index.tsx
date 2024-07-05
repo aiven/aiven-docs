@@ -318,6 +318,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit ACL rules </b>
         </>
       );
+    case 'edittopic':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit topic </b>
+        </>
+      );
     case 'duplicateuser':
       return (
         <>
@@ -349,6 +355,20 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
           <b>Add Advanced Configuration</b>
+        </>
+      );
+    case 'kafkaTopic':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />{' '}
+          <b>Kafka Topic</b>
+        </>
+      );
+    case 'tieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
+          <b>Tiered storage</b>
         </>
       );
     default:

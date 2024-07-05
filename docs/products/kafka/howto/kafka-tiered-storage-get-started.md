@@ -1,41 +1,46 @@
 ---
-title: Get started with tiered storage for Aiven for Apache Kafka®
-early: true
----
-Aiven for Apache Kafka®'s tiered storage optimizes resources by keeping recent data, typically the most
-accessed, on faster local disks. As data becomes less active, it's transferred to more economical,
-slower storage, balancing performance with cost efficiency.
+title: Get started with tiered storage
 
-For an in-depth understanding of tiered storage, how it works, and its
-benefits, see
+---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+
+Aiven for Apache Kafka tiered storage feature optimizes resources by storing recent, frequently accessed data on faster local disks. As data becomes less active, it moves to more economical, slower storage, balancing performance with cost efficiency.
+
+For a detailed understanding of tiered storage, its workings, and benefits, see
 [Tiered storage in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-tiered-storage).
 
-## Enable tiered storage for service
+## Step 1: Enable tiered storage for service
 
-To use tiered storage, [enable](/docs/products/kafka/howto/enable-kafka-tiered-storage)
-it for your Aiven for Apache Kafka service. This foundational step ensures that the
-necessary infrastructure is in place.
+First, enable tiered storage for your Aiven for Apache Kafka service. This
+sets up the necessary infrastructure for using tiered storage.
+
+1. Log in to the [Aiven console](https://console.aiven.io/).
+1. Select your project and the Aiven for Apache Kafka service.
+1. Follow the instructions to [enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
 :::note
-Tiered storage for Aiven for Apache Kafka® is supported starting from
-Apache Kafka® version 3.6 and is not available for startup-2 plans.
+Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
+3.6 or later. However, it is not available for startup-2 plans.
 :::
 
-## Configure tiered storage per topic
+## Step 2: Configure tiered storage per topic
 
-Once the tiered storage is enabled at the service level, you can
-configure it for individual topics. In the Aiven for Apache Kafka Topics
-page, topics using tiered storage will display **Active** in the
-**Tiered storage** column.
+After enabling tiered storage at the service level, you can configure it for
+specific topics. This gives you granular control over your data storage needs.
 
-For detailed instructions, see
-[Configuring tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+- For detailed instructions, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+- In the <ConsoleLabel name="topics" /> page, topics using tiered storage display
+  the status **Active** in the Tiered storage column.
 
-## Tiered storage usage overview
+## Step 3: Monitor tiered storage usage
 
-Gain insights into tiered storage usage from the **Tiered Storage
-Overview** page in your Aiven for Apache Kafka service. This includes
-details on billing, settings, and specific storage aspects.
+Finally, monitor your tiered storage usage to ensure optimal performance and
+cost efficiency.
+
+- Access the <ConsoleLabel name="Tiered storage" /> overviwe page in your
+  Aiven for Apache Kafka service.
+- Review details on billing, settings, and specific storage aspects.
 
 For more information, see
 [Tiered Storage Overview in Aiven Console](/docs/products/kafka/howto/tiered-storage-overview-page).

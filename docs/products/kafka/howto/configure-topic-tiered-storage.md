@@ -2,144 +2,122 @@
 title: Enable and configure tiered storage for topics
 ---
 
-Aiven for Apache Kafka® allows you to configure tiered storage and set retention policies for individual topics.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
+
+Aiven for Apache Kafka® allows you to configure tiered storage and set retention policies for individual topics.
 
 ## Prerequisite
 
--   [Tiered storage enabled for the Aiven for Apache Kafka service](/docs/products/kafka/howto/enable-kafka-tiered-storage).
+- [Tiered storage enabled for the Aiven for Apache Kafka service](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
-## Configure tiered storage for topics via Aiven Console
+## Important information about tiered storage
 
-1.  Access [Aiven console](https://console.aiven.io/), select your
-    project, and select your Aiven for Apache Kafka service.
-1.  Click **Topics** from the sidebar.
-1.  You have the option to either add a new topic with tiered
-    storage configuration or modify an existing topic to use tiered
-    storage.
+When you activate tiered storage for a service, any new topics created in that service
+have tiered storage enabled by default.
 
-### For a new topic
+- **Disable tiered storage for new topics**: You can disable tiered storage by setting
+  **Remote storage enable** to false during the creation of a new topic in the topic
+  advanced configurations. Once you activate tiered storage for a topic, you cannot
+  disable it. Contact Aiven support for assistance.
 
-1.  From the **Topics** page, click **Add topic**.
+- **Tiered storage for existing topics**: For existing topics, tiered storage is disabled.
 
-1.  Set the **"Enable advanced configuration?"** option to **Yes** to enable
-advanced configurations.
+## Enable and configure tiered storage for topics
 
-1.  In the **Topic advanced configuration** drop-down, choose
-    `remote_storage_enable`. This action reveals the **Remote
-    storage enabled** drop-down.
+<Tabs groupId="setup">
+<TabItem value="Console" label="Console" default>
 
-1.  Select **True** to activate tiered storage for the topic.
+1. Access the [Aiven Console](https://console.aiven.io/), select your project,
+   and select your Aiven for Apache Kafka service.
+1. Click <ConsoleLabel name="topics" />.
 
-1.  Additionally, you can also set the values for `local_retention_ms`
-    and `local_retention_bytes` using the respective options from the
-    drop-down list.
+1. On the **Topics** page, either add a new topic with tiered storage or modify an
+   existing one:
+   - **Add a new topic**: Click **Add topic**.
+   - **Modify an existing topic**: Select the topic to modify, then either:
+     - Click the topic name to open the **Topic info** screen, and click **Modify**.
+     - Alternatively, in the topic row, click <ConsoleLabel name="actions"/> >
+       <ConsoleLabel name="Edit topic"/>.
 
-    :::important
-    If the values for `local_retention_bytes` and `local_retention_ms`
-    are not set, they default to -2 or take the configuration from the
-    service level.
+1. The **Enable advanced configuration?** option is set to **Yes** by default.
 
-    When set to -2, the retention in local storage matches the total
-    retention. In this scenario, the data segments sent to remote
-    storage are also retained locally. The remote storage will contain
-    older data segments than in the local storage only when the total
-    retention is set to be greater than the local retention.
-    :::
+1. Ensure the **Remote storage enable** option is set to **True** to activate tiered
+   storage for the topic. To disable it, set it to **False**.
 
-1.  Click **Add topic** to save your changes and add the topic with
-    tiered storage.
+1. Optionally, adjust the default values for `local_retention_ms` and `local_retention_bytes`.
 
-<!-- vale on -->
+   :::important
+   By default, `local_retention_bytes` and `local_retention_ms` are set to `-2` or
+   inherit the configuration from the service level.
 
-### For an existing topic
+   When set to `-2`, the retention in local storage matches the total retention. In this
+   scenario, the data segments sent to remote storage are also retained locally. Remote
+   storage will contain older data segments only if the total retention exceeds the local retention.
+   :::
 
-1.  From the **Topics** page, select the topic for which you wish to
-    enable tiered storage.
-1.  Use the ellipsis or open the topic and choose **Modify**.
-1.  In the **Modify** page, choose `remote_storage_enable` from the
-    drop-down list, followed by selecting **True** from the **Remote
-    storage enable** drop-down.
-1.  Additionally, you can also set the values for `local_retention_ms`
-    and `local_retention_bytes` using the respective options from the
-    drop-down list.
+1. Click **Create topic** or **Update** to save your changes and activate tiered storage.
 
-    :::important
-    If the values for `local_retention_bytes` and `local_retention_ms` are
-    not set, they default to -2 or take the configuration from the service
-    level.
+</TabItem>
+<TabItem value="CLI" label="CLI">
 
-    When set to -2, the retention in local storage matches the total
-    retention. In this scenario, the data segments sent to remote storage
-    are also retained locally. The remote storage will contain older data
-    segments than in the local storage only when the total retention is set
-    to be greater than the local retention.
-    :::
+Using the [Aiven CLI](/docs/tools/cli), you can enable tiered storage for specific
+Apache Kafka® topics and set retention policies.
 
-1.  Click **Update** to save your changes and activate tiered storage.
-
-## (Optional) configure client-side parameter
-
-For optimal performance and reduced risk of broker interruptions when
-using tiered storage, it is recommended to update the client-side
-parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
-
-## Enable tiered storage for topics via Aiven CLI
-
-Using the [Aiven CLI](/docs/tools/cli),
-you can enable tiered storage for specific Apache Kafka® topics and set
-retention policies.
-
-### Enable tiered storage for a topic
-
-To enable tiered storage for a Kafka topic, execute the following
-command:
+To create a topic with tiered storage enabled:
 
 ```bash
 avn service topic-create \
     --project demo-kafka-project \
     --service-name demo-kafka-service \
     --topic exampleTopic \
-    --partitions 1 \
+    --partitions 2 \
     --replication 2 \
     --remote-storage-enable
 ```
 
 In this example:
 
--   `demo-kafka-project` is the name of your project.
--   `demo-kafka-service` is the name of your Aiven for Apache Kafka®
-    service.
--   `exampleTopic` is the name of the topic you are creating with tiered
-    storage enabled.
--   The topic will have 1 partition and a replication factor of 2.
+- `demo-kafka-project` is the name of your project.
+- `demo-kafka-service` is the name of your Aiven for Apache Kafka® service.
+- `exampleTopic` is the name of the topic you are creating with tiered storage enabled.
+- The topic has the partition set to `2` and the replication factor set to `2`
 
-### Configure retention policies for a topic with tiered storage
+### Configure retention policies for a topic
 
-After enabling tiered storage, you can configure the retention policies
-for local storage:
+After enabling tiered storage, you can configure the retention policies for local storage:
 
 ```bash
 avn service topic-update \
-    --project demo-kafka-project \
-    --service-name demo-kafka-service \
-    --topic exampleTopic \
-    --local-retention-ms 100 \
-    --local-retention-bytes 10
+  --project demo-kafka-project \
+  --service-name demo-kafka-service \
+  --topic exampleTopic \
+  --local-retention-ms 100 \
+  --local-retention-bytes 10
 ```
 
-This command sets the local retention time to 100 milliseconds and the
-local retention size to 10 bytes for the topic named `exampleTopic` in
-the `demo-kafka-service` of the `demo-kafka-project`.
+This command sets the local retention time to 100 milliseconds and the local retention
+size to 10 bytes for the topic named `exampleTopic` in the `demo-kafka-service` of
+the `demo-kafka-project`.
 
 :::important
-If the values for `local_retention_bytes` and `local_retention_ms` are
-not set, they default to -2 or inherit the configuration from the
-service level.
 
-When set to -2, the retention in local storage matches the total
-retention. Consequently, data segments sent to remote storage are also
-retained locally. The remote storage will contain older data segments
-than the local storage, only if the total retention exceeds the local
+By default, `local_retention_bytes` and `local_retention_ms` are set to `-2` or
+inherit the configuration from the service level.
+
+When set to `-2`, the retention in local storage matches the total retention. In this
+scenario, the data segments sent to remote storage are also retained locally. Remote
+storage will contain older data segments only if the total retention exceeds the local
 retention.
 :::
+
+</TabItem>
+</Tabs>
+
+## (Optional) configure client-side parameter
+
+For optimal performance and reduced risk of broker interruptions when
+using tiered storage, it is recommended to update the client-side
+parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
