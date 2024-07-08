@@ -3,25 +3,23 @@ title: How tiered storage works in Aiven for Apache Kafka®
 sidebar_label: How it works
 ---
 
-Aiven for Apache Kafka® tiered storage is a feature that optimizes data management across two distinct storage tiers:
+Aiven for Apache Kafka® tiered storage optimizes data management across two distinct storage tiers:
 
--   **Local tier**: Primarily consists of faster and typically more
-    expensive storage solutions like solid-state drives (SSDs).
--   **Remote tier**: Relies on slower, cost-effective options like cloud
-    object storage.
+- **Local tier**: Uses faster, typically more expensive storage solutions
+  like solid-state drives (SSDs).
+- **Remote tier**: Uses slower, cost-effective options like cloud object storage.
 
 In Aiven for Apache Kafka's tiered storage architecture, **remote storage** refers to
 storage options external to the Kafka broker's
 local disk. This typically includes cloud-based or self-hosted object
 storage solutions like AWS S3 and Google Cloud Storage. Although
 network-attached block storage solutions like AWS EBS are technically
-external to the Kafka broker, Apache Kafka considers them local storage
+external to the Apache Kafka broker, Apache Kafka considers them local storage
 within its tiered storage architecture.
 
-Tiered storage operates in a way that is seamless for both Apache Kafka
-producers and consumers. This means that producers and consumers
-interact with Apache Kafka in the same way, regardless of whether tiered
-storage is enabled or not.
+Tiered storage operates seamlessly for both Apache Kafka producers and consumers,
+meaning they interact with Apache Kafka the same way, whether tiered storage is
+enabled or not.
 
 Administrators can configure tiered storage per topic by defining the
 retention period and retention bytes to specify how much data is retained on the local
@@ -30,8 +28,9 @@ disk instead of remote storage.
 ## Local vs. remote data retention
 
 When tiered storage is enabled, data produced to a topic is initially stored on the
-local disk of the Kafka broker. All but the active (open) segment is then asynchronously
-and orderly transferred to remote storage, regardless of the local retention settings.
+local disk of the Apache Kafka broker. All but the active (open) segment is then
+asynchronously and orderly transferred to remote storage, regardless of the
+local retention settings.
 During periods of high data ingestion or transient errors, such as network connectivity
 issues, local storage might temporarily hold more data than specified by the local
 retention threshold. This continues until the remote tier is back online, at which
@@ -45,14 +44,14 @@ exceeding the retention threshold are removed.
 Data is organized into segments, which are uploaded to remote storage
 individually. The active (newest) segment remains in local storage,
 which means that the segment size can also influence local data
-retention. For instance, if the local retention threshold is 1 GB, but the segment
-size is 2 GB, the local storage exceeds the 1 GB limit until the active segment is
-rolled over and uploaded to remote storage.
+retention. For example, if the local retention threshold is 1 GB, but the segment size
+is 2 GB, the local storage exceeds the 1 GB limit until the active segment is rolled
+over and uploaded to remote storage.
 
 ## Asynchronous uploads and replication
 
 Data is transferred to remote storage asynchronously and does not
-interfere with the producer activity. While the Kafka broker aims to
+interfere with the producer activity. While the Apache Kafka broker aims to
 move data as swiftly as possible, certain conditions, such as high
 ingestion rate or connectivity issues, can cause more data to be stored
 in the local storage than the specified local retention policy.
@@ -70,7 +69,7 @@ downloads and caches these records locally. This allows for quicker
 access in subsequent retrieval operations.
 
 Aiven allocates a small amount of disk space, ranging from 2 GB to 16 GB,
-equivalent to 5% of the Kafka broker's total available disk for the
+equivalent to 5% of the Apache Kafka broker's total available disk for the
 temporary storage of fetched records.
 
 ## Security

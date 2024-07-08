@@ -6,9 +6,9 @@ Tiered storage in Aiven for Apache Kafka® helps you manage data more effectivel
 
 This feature lets you allocate frequently accessed data to high-speed local disks while
 keeping an extended data retention on more cost-effective remote storage solutions. You
-can store data on specific topics indefinitely without running out of space. Once
-enabled, you configure tiered storage per topic, giving you granular control over
-your data storage needs.
+can store data on specific topics indefinitely without running out of space. Once enabled,
+you configure tiered storage per topic, which gives you granular control over
+your data storage.
 
 :::note
 
@@ -35,8 +35,8 @@ Tiered storage offers multiple benefits, including:
   faster, making for a smoother operational experience.
 - **Infinite data retention:** Offloading bulk data to remote storage speeds up service
   rebalancing in Aiven for Apache Kafka, enhancing operational efficiency.
-- **Transparency:** Even older Kafka clients can benefit from tiered
-  storage without needing to be explicitly aware of it.
+- **Transparency:** Even older Kafka clients can benefit from tiered storage even
+  if unaware of it.
 
 ## When and why use it
 
@@ -53,7 +53,7 @@ savings and system performance.
   accessible for as long as required at a reasonable cost. This is
   where tiered storage becomes especially valuable.
 - **High-speed data ingestion**: Tiered storage can manage unpredictable or sudden data
-  influxes by supplementing local disks with cloud storage, ensuring optimal performance.
+  influxes by supplementing local disks with cloud storage, to ensure optimal performance.
 - **Unlock unexplored opportunities:** Tiered storage in Aiven for Apache Kafka addresses
   current storage challenges and enables new and innovative use cases that were
   previously impractical or too expensive. By eliminating traditional storage
@@ -109,7 +109,7 @@ with Aiven. Potential scenarios include:
   entire storage used, regardless of local retention settings (80 TB in this example).
 - **Aiven management fee:** In addition to the underlying S3 storage costs, you also pay
   an Aiven management fee for the data stored in S3. This fee is based on the amount of
-  storage added via tiered storage
+  storage added via tiered storage.
 
 ## Related pages
 
