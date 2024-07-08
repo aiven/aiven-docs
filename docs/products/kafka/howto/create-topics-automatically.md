@@ -35,7 +35,6 @@ will have tiered storage enabled by default.
 [Learn more about tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 :::
 
-
 ## Enable automatic topic creation
 
 <Tabs groupId="setup">

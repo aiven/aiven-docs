@@ -147,6 +147,10 @@ For optimal performance and reduced risk of broker interruptions when
 using tiered storage, it is recommended to update the client-side
 parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
 
+However, this consumer configuration is no longer necessary starting from Apache Kafka
+version 3.6.2. Consider upgrading to Apache Kafka version 3.6.2 or later before
+enabling tiered storage.
+
 ## Related pages
 
 - [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)

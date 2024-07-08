@@ -178,7 +178,7 @@ With Aiven for Apache Kafka, topics are not created automatically. You have two 
 
 - Manually create topics using the naming pattern: `database.server.name.schema_name.table_name`.
 - Enable the `Kafka topic auto-creation` feature. See
-  [Enable automatic topic creation with Aiven CLI](/docs/products/kafka/howto/create-topics-automatically#enable-automatic-topic-creation-with-aiven-cli)
+  [Enable automatic topic creation with Aiven CLI](/docs/products/kafka/howto/create-topics-automatically)
 :::
 
 ## Solve the error `must be superuser to create FOR ALL TABLES publication`
