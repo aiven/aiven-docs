@@ -17,6 +17,7 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
 - [ClickHouse CLI client](https://clickhouse.com/docs/en/install)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 - [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/helm.html)
+- [Docker](https://docs.docker.com/desktop/)
 
 ## Create a service
 
@@ -165,7 +166,7 @@ changes to `RUNNING`, you are ready to access it.
 
 ## Configure the service
 
-Edit your service settings if the default service configuration doesn't meet your needs.
+You can change your service settings by updating the service configuration.
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
@@ -176,6 +177,15 @@ Edit your service settings if the default service configuration doesn't meet you
 1. In the **Advanced configuration** section, make changes to the service configuration.
 </TabItem>
 <TabItem value="2" label="Terraform">
+
+:::note
+Your changes can force the recreation of the `aiven_clickhouse` resource.
+:::
+
+:::tip
+For all the attributes available for the `aiven_clickhouse` resource, see
+[the Aiven Provider for Terraform® documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/clickhouse).
+:::
 
 1. Updating the `aiven_clickhouse` resource in the `sample.tf` file:
 
@@ -233,7 +243,7 @@ Edit your service settings if the default service configuration doesn't meet you
     }
     ```
 
-1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
+1. Run `terraform plan` > `terraform apply --auto-approve`.
 
 </TabItem>
 <TabItem value="3" label="K8s">
