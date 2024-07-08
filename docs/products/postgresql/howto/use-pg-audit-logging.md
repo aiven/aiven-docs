@@ -1,7 +1,6 @@
 ---
 title: Collect audit logs in Aiven for PostgreSQL®
 sidebar_label: Collect audit logs
-enterprise: true
 ---
 
 import AuditLogsOpenSearchDashboards from "@site/static/images/content/products/postgresql/pgaudit-logs-in-os-dashboards.png";
@@ -10,7 +9,6 @@ Enable and configure the [Aiven for PostgreSQL® audit logging feature](/docs/pr
 
 ## Prerequisites
 
-- `[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`
 - PostgreSQL version 11 or higher
 - `avnadmin` superuser role
 - Dev tool of your choice to interact with the feature
@@ -35,14 +33,14 @@ import TabItem from '@theme/TabItem';
 
 :::important
 In [Aiven Console](https://console.aiven.io/), you can enable audit logging at the service
-level only. To enable it on a database or for a user, you need to use
+level only. To enable it on a database or for a user, use
 [psql](https://www.postgresql.org/docs/current/app-psql.html).
 :::
 
-1. Log in to [Aiven Console](https://console.aiven.io/), and navigate to your organization
+1. Log in to [Aiven Console](https://console.aiven.io/), and go to your organization
    \> project > Aiven for PostgreSQL service.
 1. On the **Overview** page of your service, select **Service settings** from the sidebar.
-1. On the **Service settings** page, navigate to the **Advanced configuration** section
+1. On the **Service settings** page, go to the **Advanced configuration** section
    and select **Configure**.
 1. In the **Advanced configuration** window, select **Add configuration options**, add
    the `pgaudit.feature_enabled` parameter, set it to `true`, and select
@@ -121,10 +119,10 @@ service only. To enable it on a database or for a user, use
 [psql](https://www.postgresql.org/docs/current/app-psql.html).
 :::
 
-1. Log in to [Aiven Console](https://console.aiven.io/), and navigate to your organization
+1. Log in to [Aiven Console](https://console.aiven.io/), and go to your organization
    \> project > Aiven for PostgreSQL service.
 1. On the **Overview** page of your service, select **Service settings** from the sidebar.
-1. On the **Service settings** page, navigate to the **Advanced configuration** section
+1. On the **Service settings** page, go to the **Advanced configuration** section
    and select **Configure**.
 1. In the **Advanced configuration** window, select **Add configuration options**, find a
    desired parameter (all prefixed with `pgaudit.log`), set its value as needed, and
@@ -200,7 +198,7 @@ You can access your Aiven for PostgreSQL audit logs either
 
 ### Access in Aiven for PostgreSQL {#access-pg-log}
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and navigate to your
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for PostgreSQL service.
 1. On the **Overview** page of your service, select **Logs** from the sidebar.
 
@@ -280,11 +278,6 @@ Disable audit logging by setting the `pgaudit.feature_enabled` parameter to
 [console](https://console.aiven.io/), [CLI](/docs/tools/cli), or
 [psql](https://www.postgresql.org/docs/current/app-psql.html).
 
-:::important
-Audit logging is disabled automatically if you unsubscribe from
-`[Aiven Enterprise](/docs/platform/howto/aiven-enterprise)`.
-:::
-
 <Tabs>
 <TabItem value="1" label="Aiven Console" groupId="group1" default>
 ### Disable in Aiven Console
@@ -295,10 +288,10 @@ service only. To disable it on a database or for a user, use
 [psql](https://www.postgresql.org/docs/current/app-psql.html).
 :::
 
-1. Log in to [Aiven Console](https://console.aiven.io/), and navigate to your organization
+1. Log in to [Aiven Console](https://console.aiven.io/), and go to your organization
    \> project > Aiven for PostgreSQL service.
 1. On the **Overview** page of your service, select **Service settings** from the sidebar.
-1. On the **Service settings** page, navigate to the **Advanced configuration** section
+1. On the **Service settings** page, go to the **Advanced configuration** section
    and select **Configure**.
 1. In the **Advanced configuration** window, select **Add configuration options**, add the
    `pgaudit.feature_enabled` parameter, set it to `false`, and select
