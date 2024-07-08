@@ -89,9 +89,6 @@ You set a local retention time of 10 TB. Consider the following:
 
 - You pay a fixed monthly cost for the local storage allocated to your service,
   which includes the 10 TB retained locally.
-- You are charged for storing 40 TB of data in S3, even if some data is available locally
-  within the most recent 10 TB.This is because data is automatically transferred to S3,
-  and billing is based on the highest usage level within each hour.
 - You are charged for storing **approximately 40 TB** of data in S3, even if some data
   is available locally within the most recent 10 TB. This is because data is
   automatically transferred to S3, and billing is based on the highest usage
