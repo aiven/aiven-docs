@@ -30,69 +30,56 @@ the tag propagates to your own cloud infrastructure.
 ### Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
+    organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   Access to the [Aiven Console](https://console.aiven.io/)
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
+    organization
+-   [Aiven CLI client](/docs/tools/cli) installed
 </TabItem>
 </Tabs>
 
 ### Tag service nodes and VMs
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
-[Create a resource tag](/docs/platform/howto/tag-resources) for a BYOC service the
-same way you create it for a regular Aiven-managed service. The only extra step tagging a
-BYOC service is adding prefix `byoc_resource_tag` to the tag key.
-
-For instructions on how to add, update, remove, or list service tags, see
-[Use resource tags](/docs/platform/howto/tag-resources), where you also find limits and
-limitations that apply to service tags and tagging.
+<TabItem value="1" label="Aiven Console" default>
+[Create a resource tag for a BYOC service the same way you create it for a regular
+Aiven-managed service](/docs/platform/howto/tag-resources#add-tags-to-services). The only
+extra step when tagging a BYOC service is adding prefix `byoc_resource_tag` to the tag key.
 
 For example, to label all VMs running a particular BYOC service with the tag that has
 `my-cost-center` as a key and `12345` as a value, create a resource tag for this service
 with key `byoc_resource_tag:my-cost-center` and value `12345`.
-</TabItem>
-<TabItem value="2" label="GCP">
-[Create a resource tag](/docs/platform/howto/tag-resources) for a BYOC service the
-same way you create it for a regular Aiven-managed service. The only extra step tagging a
-BYOC service is adding prefix `byoc_resource_tag` to the tag key.
 
-For instructions on how to add, update, remove, or list service tags, see
-[Use resource tags](/docs/platform/howto/tag-resources), where you also find limits and
-limitations that apply to service tags and tagging.
-
-For example, to label all VMs running a particular BYOC service with the tag that has
-`my-cost-center` as a key and `12345` as a value, create a resource tag for this service
-with key `byoc_resource_tag:my-cost-center` and value `12345`.
+For instructions on how to add, update, remove, or list service tags in the Aiven Console,
+see [Use resource tags](/docs/platform/howto/tag-resources#add-tags-to-services), where
+you also find limits and limitations that apply to service tags and tagging.
 </TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to add or update tags for services hosted in your custom cloud.
+<TabItem value="2" label="Aiven CLI">
+For your BYOC service, [create tags using the Aiven CLI the same way you create it for a
+regular Aiven-managed service](/docs/platform/howto/tag-resources#add-and-modify-service-tags).
+The only extra step when tagging a BYOC service is adding prefix `byoc_resource_tag` to
+the tag key.
+
+```bash
+avn service tags update SERVICE_NAME
+  --add-tag byoc_resource_tag:business_unit=sales
+  --add-tag byoc_resource_tag:env=smoke_test
+```
+
+For instructions on how to add, update, remove, or list service tags via Aiven CLI, see
+[Use resource tags](/docs/platform/howto/tag-resources#add-and-modify-service-tags), where
+you also find limits and limitations that apply to service tags and tagging.
 </TabItem>
 </Tabs>
 
 ## Tagging infrastructure components{#infrastructure-tagging}
 
-<Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
-You can define a set of tags for each taggable infrastructure component created by the
-Terraform infrastructure template (for example, VPCs, subnets, or security groups). You
-can manage the tags using the [Aiven CLI client](/docs/tools/cli) or directly in the
-variable file used to run the Terraform infrastructure template.
-</TabItem>
-<TabItem value="2" label="GCP">
 You can define a set of tags for each taggable infrastructure component created by the
 Terraform infrastructure template (for example, VPCs, subnets, or security groups). You
 can manage the tags using the [Aiven CLI client](/docs/tools/cli) or directly in the
@@ -104,12 +91,6 @@ Tagging GCP BYOC infrastructure uses
 not [Google tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
 :::
 
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to add or update infrastructure tags for your custom cloud.
-</TabItem>
-</Tabs>
-
 ### Limitations
 
 - Tag keys are in lower case and can include ASCII alphanumeric printable English
@@ -119,133 +100,28 @@ Reach out to your account team to add or update infrastructure tags for your cus
 
 ### Before you start
 
-<Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
 -   You have at least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
     organization.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="2" label="GCP">
--   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
-</TabItem>
-</Tabs>
 
 ### Manage infrastructure tags
 
-<Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
 Use the
 [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
 infrastructure tags for your custom cloud. Pass the tags as an option.
 
 ```bash
-avn byoc update                                 \
+avn byoc tags update                            \
     --organization-id "ORGANIZATION_IDENTIFIER" \
     --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-    --deployment-model "DEPLOYMENT_MODEL_NAME"  \
-    --cloud-provider "CLOUD_PROVIDER_NAME"      \
-    --cloud-region "CLOUD_REGION_NAME"          \
-    --reserved-cidr "CIDR_BLOCK"                \
-    --display-name "CUSTOM_CLOUD_DISPLAY_NAME"  \
-    --tags "TAG_NAME"
+    --add-tag TAG_KEY_A=TAG_VALUE_A             \
+    --add-tag TAG_KEY_B=TAG_VALUE_B
 ```
 
-<details><summary>
-Show sample output
-</summary>
-
-```json
-{
-    "custom_cloud_environment": {
-        "cloud_provider": "google",
-        "cloud_region": "europe-north1",
-        "contact_emails": [
-            {
-                "email": "firstname.secondname@domain.com",
-                "real_name": "Test User",
-                "role": "Admin"
-            }
-        ],
-        "custom_cloud_environment_id": "018b6442-c602-42bc-b63d-438026133f60",
-        "deployment_model": "standard",
-        "display_name": "My BYOC Cloud on Google",
-        "errors": [],
-        "reserved_cidr": "10.0.0.0/16",
-        "state": "draft",
-        "tags": "TAG_NAME",
-        "update_time": "2024-05-07T14:24:18Z"
-    }
-}
-```
-
-</details>
 :::important
 Any change to infrastructure tags requires reapplying the Terraform template.
 :::
-</TabItem>
-<TabItem value="2" label="GCP">
-Use the
-[avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
-infrastructure tags for your custom cloud. Pass the tags as an option.
-
-```bash
-avn byoc update                                 \
-    --organization-id "ORGANIZATION_IDENTIFIER" \
-    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-    --deployment-model "DEPLOYMENT_MODEL_NAME"  \
-    --cloud-provider "CLOUD_PROVIDER_NAME"      \
-    --cloud-region "CLOUD_REGION_NAME"          \
-    --reserved-cidr "CIDR_BLOCK"                \
-    --display-name "CUSTOM_CLOUD_DISPLAY_NAME"  \
-    --tags "TAG_NAME"
-```
-
-<details><summary>
-Show sample output
-</summary>
-
-```json
-{
-    "custom_cloud_environment": {
-        "cloud_provider": "google",
-        "cloud_region": "europe-north1",
-        "contact_emails": [
-            {
-                "email": "firstname.secondname@domain.com",
-                "real_name": "Test User",
-                "role": "Admin"
-            }
-        ],
-        "custom_cloud_environment_id": "018b6442-c602-42bc-b63d-438026133f60",
-        "deployment_model": "standard",
-        "display_name": "My BYOC Cloud on Google",
-        "errors": [],
-        "reserved_cidr": "10.0.0.0/16",
-        "state": "draft",
-        "tags": "TAG_NAME",
-        "update_time": "2024-05-07T14:24:18Z"
-    }
-}
-```
-
-</details>
-:::important
-Any change to infrastructure tags requires reapplying the Terraform template.
-:::
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to add or update infrastructure tags for your custom cloud.
-</TabItem>
-</Tabs>
 
 ## Related pages
 

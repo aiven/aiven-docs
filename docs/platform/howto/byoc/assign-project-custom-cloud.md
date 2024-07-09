@@ -27,31 +27,24 @@ cloud to be available.
 ## Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   Depending on the dev tool to use, you have:
-    - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+    organization
+-   Access to the [Aiven Console](https://console.aiven.io/)
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
+    organization
+-   [Aiven CLI client](/docs/tools/cli) installed
 </TabItem>
 </Tabs>
 
 ## Enable projects to use your custom cloud
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
     in the sidebar.
@@ -84,13 +77,17 @@ cloud to be available.
 
         - Click **Assign projects**.
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 Use the [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add)
 command to enable your custom cloud in organizations, projects, or units.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to request enabling your custom cloud in organizations,
-projects, or units.
+
+    ```bash
+    avn byoc cloud permissions add                \
+      --organization-id "ORGANIZATION_IDENTIFIER" \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+      --account "ACCOUNT_IDENTIFIER"
+    ```
+
 </TabItem>
 </Tabs>
 

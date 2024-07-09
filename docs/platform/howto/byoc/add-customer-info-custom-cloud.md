@@ -28,31 +28,24 @@ a mandatory role that is always required as a primary support contact.
 ## Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   Depending on the dev tool to use, you have:
-    - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+    organization
+-   Access to the [Aiven Console](https://console.aiven.io/)
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
+    organization
+-   [Aiven CLI client](/docs/tools/cli) installed
 </TabItem>
 </Tabs>
 
 ## Update the contacts list
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
     in the sidebar.
@@ -63,15 +56,29 @@ a mandatory role that is always required as a primary support contact.
     the provided contact's details.
 1.  When you're done adding all the contacts, select **Save changes**.
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 Use the
 [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update)
 command to edit the list of individuals from your organization to be contacted by the Aiven
 team if needed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to update the list of individuals from your organization
-to be contacted by the Aiven team if needed.
+
+    ```bash
+    avn byoc update                               \
+      --organization-id "ORGANIZATION_IDENTIFIER" \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+      '
+        {
+          "contact_emails": [
+            {
+              "email": "EMAIL_ADDRESS",
+              "real_name": "John Doe",
+              "role": "Admin"
+            }
+          ]
+        }
+      '
+    ```
+
 </TabItem>
 </Tabs>
 

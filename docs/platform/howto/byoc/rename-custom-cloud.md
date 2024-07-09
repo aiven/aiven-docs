@@ -21,31 +21,24 @@ custom cloud name. You can change this name any time later by following
 ## Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   Depending on the dev tool to use, you have:
-    - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+    organization
+-   Access to the [Aiven Console](https://console.aiven.io/)
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
+    organization
+-   [Aiven CLI client](/docs/tools/cli) installed
 </TabItem>
 </Tabs>
 
 ## Rename your cloud
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
     in the sidebar.
@@ -53,13 +46,18 @@ custom cloud name. You can change this name any time later by following
 1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Rename**.
 1.  In the **Rename custom cloud** window, enter a new name, and click **Rename**.
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 Use the
 [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to change the name of your
 custom cloud.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to change the name of your custom cloud.
+
+    ```bash
+    avn byoc update                               \
+      --organization-id "ORGANIZATION_IDENTIFIER" \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+      --display-name "NAME_OF_CUSTOM_CLOUD"
+    ```
+
 </TabItem>
 </Tabs>
 

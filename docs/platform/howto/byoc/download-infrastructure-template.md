@@ -14,33 +14,24 @@ Download a Terraform template and a variables file that define the infrastructur
 ## Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   Depending on the dev tool to use, you have:
-    - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+    organization
+-   Access to the [Aiven Console](https://console.aiven.io/)
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
+    organization
+-   [Aiven CLI client](/docs/tools/cli) installed
 </TabItem>
 </Tabs>
 
 ## Download an infrastructure template
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
-
-#### Via the Aiven Console
+<TabItem value="1" label="Aiven Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
@@ -48,26 +39,24 @@ Download a Terraform template and a variables file that define the infrastructur
 1.  Select a cloud, and find the **Infrastructure template** on the **Overview**.
 1.  Click <ConsoleLabel name="download"/>.
 
-#### Via the Aiven CLI client
+</TabItem>
+<TabItem value="2" label="Aiven CLI">
+[Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
+to download your infrastructure template.
 
-[Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
-to download your infrastructure template.
-</TabItem>
-<TabItem value="2" label="GCP">
-[Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
-to download your infrastructure template.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to request the infrastructure template of your custom cloud.
+    ```bash
+    avn byoc template terraform get-template        \
+      --organization-id "ORGANIZATION_IDENTIFIER"   \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.tf"
+    ```
+
 </TabItem>
 </Tabs>
 
 ## Download a variable file
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
-
-#### Via the Aiven Console
+<TabItem value="1" label="Aiven Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
@@ -75,17 +64,17 @@ Reach out to your account team to request the infrastructure template of your cu
 1.  Select a cloud, and find the **Variables file** on the **Overview**.
 1.  Click <ConsoleLabel name="download"/>.
 
-#### Via the Aiven CLI client
+</TabItem>
+<TabItem value="2" label="Aiven CLI">
+[Run the `avn byoc template terraform get-vars` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
+to download your variables file.
 
-[Run the `avn byoc template terraform get-vars` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
-to download your variables file.
-</TabItem>
-<TabItem value="2" label="GCP">
-[Run the `avn byoc template terraform get-vars` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
-to download your variables file.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to request the variables file for your custom cloud.
+    ```bash
+    avn byoc template terraform get-vars              \
+      --organization-id "ORGANIZATION_IDENTIFIER"     \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.vars"
+    ```
+
 </TabItem>
 </Tabs>
 
