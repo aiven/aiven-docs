@@ -497,6 +497,8 @@ Google project
 - Enable
   [Cloud Resource Manager (CRM) API](https://cloud.google.com/resource-manager/reference/rest)
   to set IAM policies to the privilege-bearing service account
+- Enable
+  [Compute Engine API](https://console.cloud.google.com/marketplace/product/google/compute.googleapis.com).
 </details>
 For more information on Google Cloud roles, see
 [IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
@@ -824,6 +826,23 @@ Your new custom cloud is ready to use only after its status changes to
 
 1. Add customer contacts for the new cloud by running
    [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update).
+
+    ```bash
+    avn byoc update                               \
+      --organization-id "ORGANIZATION_IDENTIFIER" \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+      '
+        {
+          "contact_emails": [
+            {
+              "email": "EMAIL_ADDRESS",
+              "real_name": "John Doe",
+              "role": "Admin"
+            }
+          ]
+        }
+      '
+    ```
 
 </TabItem>
 <TabItem value="3" label="Azure & OCI">

@@ -31,34 +31,26 @@ them earlier, you're advised to do that after deleting your cloud.
 ## Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
--   At least one
+<TabItem value="1" label="Aiven Console" default>
+-   You have at least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
     organization.
--   No running services that use a custom cloud to be deleted
--   Depending on the dev tool to use, you have:
-    - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+-   You have no running services that use a custom cloud to be deleted.
+-   You have access to the [Aiven Console](https://console.aiven.io/).
 </TabItem>
-<TabItem value="2" label="GCP">
--   At least one
+<TabItem value="2" label="Aiven CLI">
+-   You have at least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
     organization.
--   No running services that use a custom cloud to be deleted
+-   You have no running services that use a custom cloud to be deleted.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
--   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
-    organization.
--   No running services that use a custom cloud to be deleted
 </TabItem>
 </Tabs>
 
 ## Delete your cloud
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS" default>
+<TabItem value="1" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
 1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
     in the sidebar.
@@ -66,12 +58,16 @@ them earlier, you're advised to do that after deleting your cloud.
 1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Delete**.
 1.  Click **Delete** in the **Warning** window.
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Aiven CLI">
 Use the [avn byoc delete](/docs/tools/cli/byoc#avn-byoc-delete) command to delete your
 custom cloud.
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-Reach out to your account team to request deleting your custom cloud.
+
+```bash
+avn byoc delete                               \
+  --organization-id "ORGANIZATION_IDENTIFIER" \
+  --byoc-id "CUSTOM_CLOUD_IDENTIFIER"
+```
+
 </TabItem>
 </Tabs>
 
