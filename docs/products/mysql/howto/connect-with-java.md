@@ -42,7 +42,7 @@ Run the code after replacement of the placeholders with values for your
 project:
 
 ```
-javac MySqlExample.java && java -cp mysql-driver-8.0.28.jar:. MySqlExample -host MYSQL_HOST -port MYSQL_PORT -database MYSQL_DATABASE -username avnadmin -password MYSQL_PASSWORD
+javac MySqlExample.java && java -cp "mysql-driver-8.0.28.jar;." MySqlExample -host MYSQL_HOST -port MYSQL_PORT -database MYSQL_DATABASE -username avnadmin -password MYSQL_PASSWORD
 ```
 
 If the script runs successfully, the output will be the values that were
