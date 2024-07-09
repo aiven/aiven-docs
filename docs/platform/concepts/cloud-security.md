@@ -148,9 +148,8 @@ report download link for a project, run:
 avn project generate-sbom --project PROJECT_NAME --output csv
 ```
 
-SBOM reports are only available to customers who have an Enterprise
-support contract and all services within the project must have the
-latest maintenance patches applied.
+SBOM reports are only available when all services within the project have 
+the latest maintenance patches applied.
 
 ## Time synchronization
 
