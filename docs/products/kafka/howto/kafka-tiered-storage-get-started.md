@@ -5,7 +5,13 @@ title: Get started with tiered storage
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Aiven for Apache Kafka tiered storage feature optimizes resources by storing recent, frequently accessed data on faster local disks. As data becomes less active, it moves to more economical, slower storage, balancing performance with cost efficiency.
+Aiven for Apache Kafka tiered storage optimizes resources by storing recent, frequently accessed data on faster local disks.
+
+As data becomes less active, it moves to more economical, slower storage, balancing
+performance with cost efficiency.
+
+As data becomes less active, it moves to more economical, slower storage, balancing
+performance with cost efficiency.
 
 For a detailed understanding of tiered storage, its workings, and benefits, see
 [Tiered storage in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-tiered-storage).
@@ -21,26 +27,27 @@ sets up the necessary infrastructure for using tiered storage.
 
 :::note
 Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
-3.6 or later. However, it is not available for startup-2 plans.
+3.6 or later. It is not available for startup-2 plans.
 :::
 
 ## Step 2: Configure tiered storage per topic
 
-After enabling tiered storage at the service level, you can configure it for
-specific topics. This gives you granular control over your data storage needs.
+After enabling tiered storage at the service level, configure it for specific
+topics to have granular control over your data storage.
 
-- For detailed instructions, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
-- In the <ConsoleLabel name="topics" /> page, topics using tiered storage display
-  the status **Active** in the Tiered storage column.
+- Follow the detailed instructions to [enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+- On the <ConsoleLabel name="topics" /> page, topics using tiered storage display
+  **Active** in the **Tiered storage** column.
 
 ## Step 3: Monitor tiered storage usage
 
-Finally, monitor your tiered storage usage to ensure optimal performance and
-cost efficiency.
+Monitor your tiered storage usage to ensure optimal performance and cost efficiency.
 
 - Access the <ConsoleLabel name="Tiered storage" /> overviwe page in your
   Aiven for Apache Kafka service.
 - Review details on billing, settings, and specific storage aspects.
 
-For more information, see
-[Tiered Storage Overview in Aiven Console](/docs/products/kafka/howto/tiered-storage-overview-page).
+## Related Pages
+
+- [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage).
+- [Tiered storage usage overview in the Aiven Console](/docs/products/kafka/howto/tiered-storage-overview-page).

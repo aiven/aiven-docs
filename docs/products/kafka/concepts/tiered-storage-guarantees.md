@@ -10,7 +10,7 @@ This means your data is not deleted until reaching the total retention threshold
 regardless of storage location.
 
 **Local retention**: Log segments are only removed from local storage
-after successfully uploaded to remote storage, even if the data exceeds the local
+after being successfully uploaded to remote storage, even if the data exceeds the local
 retention threshold.
 
 ## Example
@@ -26,7 +26,7 @@ means that:
   local retention threshold of 200 GB is exceeded. Data is deleted from local storage
   only after it has been safely transferred
   to remote storage.
-- If the total size of the data exceeds 1000 GB, Apache Kafka begins deleting the
+- If the total size of the data exceeds 1000 GB, Aiven for Apache Kafka begins deleting the
   oldest data from remote storage.
 
 ## Related pages

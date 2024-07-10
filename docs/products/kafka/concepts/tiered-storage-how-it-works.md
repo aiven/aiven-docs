@@ -10,7 +10,7 @@ Aiven for Apache Kafka® tiered storage optimizes data management across two dis
 - **Remote tier**: Uses slower, cost-effective options like cloud object storage.
 
 In Aiven for Apache Kafka's tiered storage architecture, **remote storage** refers to
-storage options external to the Kafka broker's
+storage options external to the Apache Kafka broker's
 local disk. This typically includes cloud-based or self-hosted object
 storage solutions like AWS S3 and Google Cloud Storage. Although
 network-attached block storage solutions like AWS EBS are technically
@@ -43,7 +43,7 @@ exceeding the retention threshold are removed.
 
 Data is organized into segments, which are uploaded to remote storage
 individually. The active (newest) segment remains in local storage,
-which means that the segment size can also influence local data
+so the segment size can also influence local data
 retention. For example, if the local retention threshold is 1 GB, but the segment size
 is 2 GB, the local storage exceeds the 1 GB limit until the active segment is rolled
 over and uploaded to remote storage.
@@ -53,8 +53,8 @@ over and uploaded to remote storage.
 Data is transferred to remote storage asynchronously and does not
 interfere with the producer activity. While the Apache Kafka broker aims to
 move data as swiftly as possible, certain conditions, such as high
-ingestion rate or connectivity issues, can cause more data to be stored
-in the local storage than the specified local retention policy.
+ingestion rate or connectivity issues can temporarily cause local storage to
+exceed the limits set by the local retention policy.
 
 The log cleaner does not purge any data exceeding the local retention threshold until
 it is successfully uploaded to remote storage. The replication factor is not considered
@@ -64,7 +64,7 @@ replication to ensure data durability.
 
 ## Data retrieval
 
-When consumers fetch records stored in remote storage, the Kafka broker
+When consumers fetch records stored in remote storage, the Apache Kafka broker
 downloads and caches these records locally. This allows for quicker
 access in subsequent retrieval operations.
 

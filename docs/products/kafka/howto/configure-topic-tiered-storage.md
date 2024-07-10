@@ -11,9 +11,9 @@ Aiven for Apache Kafka® allows you to configure tiered storage and set retentio
 
 ## Prerequisite
 
-- [Tiered storage enabled for the Aiven for Apache Kafka service](/docs/products/kafka/howto/enable-kafka-tiered-storage).
+[Tiered storage enabled for the Aiven for Apache Kafka service](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
-## Important information about tiered storage
+## Tiered storage status for topics
 
 When you activate tiered storage for a service, any new topics created in that service
 have tiered storage enabled by default.
@@ -21,9 +21,9 @@ have tiered storage enabled by default.
 - **Disable tiered storage for new topics**: You can disable tiered storage by setting
   **Remote storage enable** to false during the creation of a new topic in the topic
   advanced configurations. Once you activate tiered storage for a topic, you cannot
-  disable it. Contact Aiven support for assistance.
+  disable it. Contact [Aiven support](mailto:support@aiven.io) for assistance.
 
-- **Tiered storage for existing topics**: For existing topics, tiered storage is disabled.
+- **Tiered storage for existing topics**: Disabled for existing topics.
 
 ## Enable and configure tiered storage for topics
 
@@ -36,8 +36,8 @@ have tiered storage enabled by default.
 
 1. On the **Topics** page, either add a new topic with tiered storage or modify an
    existing one:
-   - **Add a new topic**: Click **Add topic**.
-   - **Modify an existing topic**: Select the topic to modify, then either:
+   - To add a new topic, click **Add topic**.
+   - To modify an existing topic, select the topic to modify, then either:
      - Click the topic name to open the **Topic info** screen, and click **Modify**.
      - Alternatively, in the topic row, click <ConsoleLabel name="actions"/> >
        <ConsoleLabel name="Edit topic"/>.
@@ -55,7 +55,7 @@ have tiered storage enabled by default.
 
    When set to `-2`, the retention in local storage matches the total retention. In this
    scenario, the data segments sent to remote storage are also retained locally. Remote
-   storage will contain older data segments only if the total retention exceeds the local retention.
+   storage contains older data segments only if the total retention exceeds the local retention.
    :::
 
 1. Click **Create topic** or **Update** to save your changes and activate tiered storage.
@@ -99,7 +99,7 @@ avn service topic-update \
 ```
 
 This command sets the local retention time to 100 milliseconds and the local retention
-size to 10 bytes for the topic named `exampleTopic` in the `demo-kafka-service` of
+size to 10 bytes for the `exampleTopic` topic in the `demo-kafka-service` of
 the `demo-kafka-project`.
 
 :::important
@@ -109,19 +109,19 @@ inherit the configuration from the service level.
 
 When set to `-2`, the retention in local storage matches the total retention. In this
 scenario, the data segments sent to remote storage are also retained locally. Remote
-storage will contain older data segments only if the total retention exceeds the local
+storage contains older data segments only if the total retention exceeds the local
 retention.
 :::
 
 </TabItem>
 </Tabs>
 
-## (Optional) configure client-side parameter
+## (Optional) Configure client-side parameter
 
 For optimal performance and reduced risk of broker interruptions when
 using tiered storage, it is recommended to update the client-side
 parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
 
-However, this consumer configuration is no longer necessary starting from Apache Kafka
+This consumer configuration is no longer necessary starting from Apache Kafka
 version 3.6.2. Consider upgrading to Apache Kafka version 3.6.2 or later before
 enabling tiered storage.

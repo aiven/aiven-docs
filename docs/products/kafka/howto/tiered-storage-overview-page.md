@@ -22,14 +22,12 @@ hourly billing, settings, and storage details.
    your project and select your Aiven for Apache Kafka service.
 1. Click <ConsoleLabel name="Tiered storage" />.
 
-   -   If tiered storage is not yet enabled for your service, you will
-       see the option to enabled it.
-   -   If tiered storage is enabled but not configured for any topics,
-       you have the option to set it up for topics directly. For more
-       details, see
-       [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
-1. Once configured, you can view an overview of tiered storage and its
-   associated details.
+   - If tiered storage is not yet enabled for your service, you see the option to
+     enabled it.
+   - If tiered storage is enabled for the service but not for any topics, you see
+     the option to enable it for topics. For more
+     details, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+1. Once configured, you can view an overview of tiered storage and its details
 
 ## Key insights of tiered storage
 
@@ -38,17 +36,16 @@ tiered storage:
 
 - **Current billing expenses in USD**: Displays your tiered storage
   costs, calculated at hourly rates.
-- **Forecasted month cost in USD**: Estimate your upcoming monthly
-  costs based on current usage.
-- **Remote tier usage in bytes**: View the volume of data that has
-  been tiered.
-- **Storage overview**: View how topics use
+- **Forecasted month cost in USD**: Displays your upcoming monthly costs
+  based on current usage.
+- **Remote tier usage in bytes**: Displays the volume of data that has been tiered.
+- **Storage overview**: Displays an overview of how topics use
   [remote storage](/docs/products/kafka/howto/tiered-storage-overview-page#remote-storage-overview).
 
-## Current tiered storage settings
+## Tiered storage settings
 
-This section provides an overview of the current local cache details and
-retention policy configurations for tiered storage:
+Overview of the current local cache details and retention policy configurations for
+tiered storage:
 
 - **Default local retention time (ms)**: Shows the current local data
   retention set in milliseconds.

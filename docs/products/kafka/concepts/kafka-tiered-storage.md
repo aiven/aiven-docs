@@ -101,7 +101,7 @@ You set a local retention time of 10 TB. Consider the following:
 
 ### BYOC (Bring your own cloud) billing
 
-BYOC billing for tiered storage can vary depending on your specific agreement
+[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on your specific agreement
 with Aiven. Potential scenarios include:
 
 - **Customer costs:** In all BYOC setups, you are responsible for the full
