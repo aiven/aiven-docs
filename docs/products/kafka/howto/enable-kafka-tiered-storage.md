@@ -12,7 +12,7 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
 
 ## Prerequisites
 
-- Access to a project set up in the [Aiven console](https://console.aiven.io/).
+- Access to an Aiven organization and at least one project.
 - Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later.
 
     :::note
