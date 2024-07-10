@@ -10,14 +10,21 @@ Migrate your Aiven for M3DB databases to Aiven for Thanos Metrics using the Aive
 
 Review your current M3DB setup before migrating to Aiven for Metrics.
 
-- **Review database setup:** Examine your M3DB database's data structures, storage
-  patterns, and configurations. Identify any unique features, custom settings, and
-  specific configurations.
-- **API and query language compatibility:** Thanos Metrics uses PromQL, which is
-  different from M3DB's native query language. Update your queries to be
-  compatible with PromQL. For assistance, you can use tools such as the
-  [M3 to PromQL converter](https://github.com/logzio/influxql-to-promql-converter) or
-  Aiven's own [dashboard converter](https://github.com/Aiven-Open/influxql-to-m3-dashboard-converter).
+- **Review database setup:** Examine your M3DB database's data structures,
+  storage patterns, and configurations. Identify any unique features, custom settings,
+  and specific configurations.
+- **API and query language compatibility:** Both Thanos Metrics and M3DB use PromQL,
+  so most existing queries will work as is. However, be aware that the same metric
+  might have a slightly different name when written directly to Thanos compared to its
+  name in M3DB. For example, `prometheus_<metric-name>` in M3DB might be called
+  `<metric-name>` in Thanos. Consequently, after migration, you will have two names
+  for the same metric:
+
+  - `prometheus_<metric-name>{_source=m3db, labels...}` (for time series migrated from M3DB)
+  - `<metric-name>{labels...}` (for time series written to Thanos directly)
+
+  Adjust your queries accordingly. All Aiven-generated built-in dashboards will work
+  out of the box.
 - **Version compatibility:** Ensure your M3DB version supports migration to
   Thanos Metrics. You might need to upgrade your M3DB to a compatible version.
 
@@ -79,9 +86,7 @@ While the migration is in progress:
 :::important
 To prevent conflicts during replication:
 
-- The target database is in a read-only state during migration. Writing to the database
-  is only possible once the migration is stopped.
-- Do not manually change the replication settings of the source database.
+- Avoid creating or deleting databases on the source service during migration.
 - Avoid making network or configuration changes that can disrupt the ongoing
   connection between the source and target databases, such as modifying firewall
   rules or altering trusted sources.
