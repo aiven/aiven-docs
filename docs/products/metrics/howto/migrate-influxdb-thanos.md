@@ -19,6 +19,8 @@ review your current InfluxDB setup.
   compatible with PromQL. For assistance, you can use tools such as the
   [InfluxQL to PromQL converter](https://github.com/logzio/influxql-to-promql-converter)
   or Aiven's own [dashboard converter](https://github.com/Aiven-Open/influxql-to-m3-dashboard-converter).
+  The built-in dashboards provided by Aiven services through integrations will not
+  require any manual changes.
 - **Version compatibility:** Ensure that your InfluxDB version supports migration to
   Thanos Metrics. You might need to upgrade your InfluxDB to a compatible version.
 
