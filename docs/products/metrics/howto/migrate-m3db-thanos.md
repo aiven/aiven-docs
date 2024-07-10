@@ -17,14 +17,14 @@ Review your current M3DB setup before migrating to Aiven for Metrics.
   so most existing queries will work as is. However, be aware that the same metric
   might have a slightly different name when written directly to Thanos compared to its
   name in M3DB. For example, `prometheus_<metric-name>` in M3DB might be called
-  `<metric-name>` in Thanos. Consequently, after migration, you will have two names
+  `<metric-name>` in Thanos. Consequently, after migration, you may encounter two names
   for the same metric:
 
   - `prometheus_<metric-name>{_source=m3db, labels...}` (for time series migrated from M3DB)
   - `<metric-name>{labels...}` (for time series written to Thanos directly)
 
-  Adjust your queries accordingly. All Aiven-generated built-in dashboards will work
-  out of the box.
+  Adjust your queries accordingly. The built-in dashboards provided by Aiven
+  services through integrations do not require any manual changes.
 - **Version compatibility:** Ensure your M3DB version supports migration to
   Thanos Metrics. You might need to upgrade your M3DB to a compatible version.
 
