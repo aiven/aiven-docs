@@ -2,24 +2,21 @@
 title: Enable Apache Kafka® Connect on Aiven for Apache Kafka®
 ---
 
-To enable Apache Kafka® Connect on Aiven for Apache Kafka® services,
-those should be running on business or premium plans.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-:::warning
-Aiven provides the option to run Apache Kafka Connect on the same nodes
-as your Apache Kafka cluster, sharing the resources. This is a low-cost
-way to get started with Apache Kafka Connect. A standalone Aiven for
-Apache Kafka® Connect allows you to scale independently, offers more CPU
-time and memory for the Kafka Connect service and reduces load on nodes,
-making the cluster more stable.
-:::
+For a low-cost way to get started with Aiven for Apache Kafka® Connect, you can run Kafka Connect on the same nodes as your Apache Kafka cluster, sharing the resources. The Kafka service must be running on a business or premium plan.
 
-To enable Apache Kafka Connect on Aiven for Apache Kafka nodes
+To reduce load on the Kafka nodes and make the cluster more stable, you can
+[create a standalone Kafka Connect service](https://aiven.io/docs/products/kafka/kafka-connect/get-started)
+instead. A standalone service offers more CPU time and memory, and allows
+you to scale the service independently.
 
-1.  Log into [Aiven Console](https://console.aiven.io) and select the
-    Aiven for Apache Kafka service where to enable Apache Kafka Connect
-2.  Scroll down the **Service overview** page to the **Apache Kafka
-    Connect** section and turn it on.
+To enable Apache Kafka Connect on Aiven for Apache Kafka nodes:
 
-The Apache Kafka Connect connection information are now available at the
-top of the **Service overview** page in the Kafka Connect tab.
+1.  Select an Aiven for Apache Kafka service.
+1.  Click <ConsoleLabel name="Service settings"/>.
+1.  In the **Service management** section, click
+    <ConsoleLabel name="Actions"/> > **Enable Connect**.
+
+You can view information about the Apache Kafka Connect service on the
+**Connectors** page.
