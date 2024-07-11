@@ -86,7 +86,8 @@ While the migration is in progress:
 :::important
 To prevent conflicts during replication:
 
-- Avoid creating or deleting databases on the source service during migration.
+- Avoid creating, deleting, or modifying namespaces on the source service
+  during migration.
 - Avoid making network or configuration changes that can disrupt the ongoing
   connection between the source and target databases, such as modifying firewall
   rules or altering trusted sources.
