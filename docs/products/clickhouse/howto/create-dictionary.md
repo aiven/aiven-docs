@@ -24,9 +24,13 @@ Read more on dictionaries in the
 
 - Aiven for ClickHouse service created
 - SQL client installed
-- Dictionary source available
+- [Dictionary source](/docs/products/clickhouse/howto/create-dictionary#supported-sources)
+  available
+
+<!--
 - Credentials integration for remote ClickHouse, PostgreSQL®, or MySQL® if to be used as
   sources
+-->
 
 ## Limitations
 
@@ -74,10 +78,13 @@ with two exceptions,`ssd_cache` and `complex_key_ssd_cache`, which are not suppo
 - HTTP(s)
 - Upstream/remote ClickHouse
 - Aiven for ClickHouse
+
+<!--
 - Upstream/remote MySQL®
 - Aiven for MySQL
 - Upstream/remote PostgreSQL®
 - Aiven for PostgreSQL
+-->
 
 ## Create a dictionary
 
@@ -179,6 +186,7 @@ ON t.user_id = u.id;
 
 ### Caching data from an external database / URL
 
+<!--
 - Create a dictionary for the `pricing` table in your MySQL database using a composite key:
 
   ```sql
@@ -216,21 +224,23 @@ ON t.user_id = u.id;
   ```sql
   SYSTEM RELOAD DICTIONARY product_pricing;
   ```
+-->
 
-- Create a dictionary with `HTTP` as a source:
+Create a dictionary with `HTTP` as a source:
 
-  ```sql
-  CREATE DICTIONARY currency_rates
-  (
-      currency_code String,
-      rate Float64 DEFAULT 1.0
-  )
-  PRIMARY KEY currency_code
-  SOURCE(HTTP(URL 'https://example.com/currency_rates.csv' FORMAT CSV))
-  LAYOUT(COMPLEX_KEY_HASHED())
-  LIFETIME(100);
-  ```
+```sql
+CREATE DICTIONARY currency_rates
+(
+    currency_code String,
+    rate Float64 DEFAULT 1.0
+)
+PRIMARY KEY currency_code
+SOURCE(HTTP(URL 'https://example.com/currency_rates.csv' FORMAT CSV))
+LAYOUT(COMPLEX_KEY_HASHED())
+LIFETIME(100);
+```
 
+<!--
 - Create a dictionary for the `users` table in your ClickHouse database using the `FLAT`
   layout:
 
@@ -247,3 +257,4 @@ ON t.user_id = u.id;
   LAYOUT(FLAT())
   LIFETIME(100);
   ```
+-->
