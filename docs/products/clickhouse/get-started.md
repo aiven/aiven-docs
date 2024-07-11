@@ -312,7 +312,7 @@ See the available configuration options in:
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
-   organization > project > Aiven for MySQL service.
+   organization > project > Aiven for ClickHouse service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
    **Quick connect**.
 1. In the **Connect** window, select a tool or language to connect to your service, follow
