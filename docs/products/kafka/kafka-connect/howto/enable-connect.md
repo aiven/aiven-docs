@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 For a low-cost way to get started with Aiven for Apache Kafka® Connect, you can run Kafka Connect on the same nodes as your Apache Kafka cluster, sharing the resources. The Kafka service must be running on a business or premium plan.
 
 To reduce load on the Kafka nodes and make the cluster more stable, you can
-[create a standalone Kafka Connect service](https://aiven.io/docs/products/kafka/kafka-connect/get-started)
+[create a standalone Kafka Connect service](/docs/products/kafka/kafka-connect/get-started)
 instead. A standalone service offers more CPU time and memory, and allows
 you to scale the service independently.
 
