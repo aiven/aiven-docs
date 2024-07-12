@@ -71,12 +71,15 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
     output "clickhouse_service_host" {
       value = aiven_clickhouse.clickhouse.service_host
     }
+
     output "clickhouse_service_port" {
       value = aiven_clickhouse.clickhouse.service_port
     }
+
     output "clickhouse_service_username" {
       value = aiven_clickhouse.clickhouse.service_username
     }
+
     output "clickhouse_service_password" {
       value     = aiven_clickhouse.clickhouse.service_password
       sensitive = true
@@ -123,14 +126,6 @@ Create an Aiven for ClickHouse service using the Aiven Operator for Kubernetes.
 
      connInfoSecretTarget:
        name: my-clickhouse-connection
-       annotations:
-         foo: bar
-       labels:
-         baz: egg
-
-     tags:
-       env: test
-       instance: foo
 
      project: my-aiven-project
      cloudName: google-europe-west1
@@ -231,12 +226,15 @@ For all the attributes available for the `aiven_clickhouse` resource, see
     output "clickhouse_service_host" {
       value = aiven_clickhouse.clickhouse.service_host
     }
+
     output "clickhouse_service_port" {
       value = aiven_clickhouse.clickhouse.service_port
     }
+
     output "clickhouse_service_username" {
       value = aiven_clickhouse.clickhouse.service_username
     }
+
     output "clickhouse_service_password" {
       value     = aiven_clickhouse.clickhouse.service_password
       sensitive = true
@@ -264,14 +262,6 @@ For all the attributes available for the `aiven_clickhouse` resource, see
 
      connInfoSecretTarget:
        name: my-clickhouse-connection
-       annotations:
-         foo: bar
-       labels:
-         baz: egg
-
-     tags:
-       env: test
-       instance: foo
 
      userConfig:
        service_log: true
@@ -405,7 +395,8 @@ Discover more tools for connecting to Aiven for ClickHouse in
    using cURL:
 
    ```bash
-   curl address_to_file_in_format_tsv_xz | unxz --threads=`nproc` > file-name.tsv
+   curl https://datasets.clickhouse.com/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://datasets.clickhouse.com/visits/tsv/visits_v1.tsv.xz | unxz --threads=`nproc` > visits_v1.tsv
    ```
 
    :::note
@@ -416,17 +407,168 @@ Discover more tools for connecting to Aiven for ClickHouse in
 
    Once done, you should have two files: `hits_v1.tsv` and `visits_v1.tsv`.
 
-1. [Create database](/docs/products/clickhouse/howto/manage-databases-tables#create-a-clickhouse-database)
-   `datasets`.
-1. Create tables in the `datasets` database: `hits_v1` and `visits_v1`.
+1. Create tables `hits_v1` and `visits_v1` in the `default` database, which has been
+   created automatically upon the creation of your Aiven for ClickHouse service.
 
-   ```sql
-   CREATE TABLE datasets.hits_v1 [...]
-   ```
+    <!-- vale off -->
+    <details><summary>
+    Expand for the `CREATE TABLE default.hits_v1` sample
+    </summary>
+    ```sql
+    CREATE TABLE default.hits_v1 (
+      WatchID UInt64,
+      JavaEnable UInt8,
+      Title String,
+      GoodEvent Int16,
+      EventTime DateTime,
+      EventDate Date,
+      CounterID UInt32,
+      ClientIP UInt32,
+      ClientIP6 FixedString(16),
+      RegionID UInt32,
+      UserID UInt64,
+      CounterClass Int8,
+      OS UInt8,
+      UserAgent UInt8,
+      URL String,
+      Referer String,
+      URLDomain String,
+      RefererDomain String,
+      Refresh UInt8,
+      IsRobot UInt8,
+      RefererCategories Array(UInt16),
+      URLCategories Array(UInt16),
+      URLRegions Array(UInt32),
+      RefererRegions Array(UInt32),
+      ResolutionWidth UInt16,
+      ResolutionHeight UInt16,
+      ResolutionDepth UInt8,
+      FlashMajor UInt8,
+      FlashMinor UInt8,
+      FlashMinor2 String,
+      NetMajor UInt8,
+      NetMinor UInt8,
+      UserAgentMajor UInt16,
+      UserAgentMinor FixedString(2),
+      CookieEnable UInt8,
+      JavascriptEnable UInt8,
+      IsMobile UInt8,
+      MobilePhone UInt8,
+      MobilePhoneModel String,
+      Params String,
+      IPNetworkID UInt32,
+      TraficSourceID Int8,
+      SearchEngineID UInt16,
+      SearchPhrase String,
+      AdvEngineID UInt8,
+      IsArtifical UInt8,
+      WindowClientWidth UInt16,
+      WindowClientHeight UInt16,
+      ClientTimeZone Int16,
+      ClientEventTime DateTime,
+      SilverlightVersion1 UInt8,
+      SilverlightVersion2 UInt8,
+      SilverlightVersion3 UInt32,
+      SilverlightVersion4 UInt16,
+      PageCharset String,
+      CodeVersion UInt32,
+      IsLink UInt8,
+      IsDownload UInt8,
+      IsNotBounce UInt8,
+      FUniqID UInt64,
+      HID UInt32,
+      IsOldCounter UInt8,
+      IsEvent UInt8,
+      IsParameter UInt8,
+      DontCountHits UInt8,
+      WithHash UInt8,
+      HitColor FixedString(1),
+      UTCEventTime DateTime,
+      Age UInt8,
+      Sex UInt8,
+      Income UInt8,
+      Interests UInt16,
+      Robotness UInt8,
+      GeneralInterests Array(UInt16),
+      RemoteIP UInt32,
+      RemoteIP6 FixedString(16),
+      WindowName Int32,
+      OpenerName Int32,
+      HistoryLength Int16,
+      BrowserLanguage FixedString(2),
+      BrowserCountry FixedString(2),
+      SocialNetwork String,
+      SocialAction String,
+      HTTPError UInt16,
+      SendTiming Int32,
+      DNSTiming Int32,
+      ConnectTiming Int32,
+      ResponseStartTiming Int32,
+      ResponseEndTiming Int32,
+      FetchTiming Int32,
+      RedirectTiming Int32,
+      DOMInteractiveTiming Int32,
+      DOMContentLoadedTiming Int32,
+      DOMCompleteTiming Int32,
+      LoadEventStartTiming Int32,
+      LoadEventEndTiming Int32,
+      NSToDOMContentLoadedTiming Int32,
+      FirstPaintTiming Int32,
+      RedirectCount Int8,
+      SocialSourceNetworkID UInt8,
+      SocialSourcePage String,
+      ParamPrice Int64,
+      ParamOrderID String,
+      ParamCurrency FixedString(3),
+      ParamCurrencyID UInt16,
+      GoalsReached Array(UInt32),
+      OpenstatServiceName String,
+      OpenstatCampaignID String,
+      OpenstatAdID String,
+      OpenstatSourceID String,
+      UTMSource String,
+      UTMMedium String,
+      UTMCampaign String,
+      UTMContent String,
+      UTMTerm String,
+      FromTag String,
+      HasGCLID UInt8,
+      RefererHash UInt64,
+      URLHash UInt64,
+      CLID UInt32,
+      YCLID UInt64,
+      ShareService String,
+      ShareURL String,
+      ShareTitle String,
+      ParsedParams Nested(
+        Key1 String,
+        Key2 String,
+        Key3 String,
+        Key4 String,
+        Key5 String,
+        ValueDouble Float64
+      ),
+      IslandID FixedString(16),
+      RequestNum UInt32,
+      RequestTry UInt8
+    )
+    ENGINE = MergeTree()
+    PARTITION BY toYYYYMM(EventDate)
+    ORDER BY
+      (CounterID, EventDate, intHash32(UserID))
+    SAMPLE BY intHash32(UserID)
+    SETTINGS index_granularity = 8192;
+    ```
+    </details>
+    <!-- vale on -->
 
-   ```sql
-   CREATE TABLE datasets.visits_v1 [...]
-   ```
+    <details><summary>
+    Expand for the `CREATE TABLE default.visits_v1` sample
+    </summary>
+    ```sql
+    CREATE TABLE default.visits_v1 [...]
+    ```
+    </details>
 
 1. Load data into tables `hits_v1` and `visits_v1`.
 
@@ -445,7 +587,7 @@ Discover more tools for connecting to Aiven for ClickHouse in
         --port PORT                         \
         --secure                            \
         --max_insert_block_size=100000      \
-        --query="INSERT INTO datasets.hits_v1 FORMAT TSV"
+        --query="INSERT INTO default.hits_v1 FORMAT TSV"
         ```
 
         ```bash
@@ -458,7 +600,7 @@ Discover more tools for connecting to Aiven for ClickHouse in
         --port PORT                         \
         --secure                            \
         --max_insert_block_size=100000      \
-        --query="INSERT INTO datasets.visits_v1 FORMAT TSV"
+        --query="INSERT INTO default.visits_v1 FORMAT TSV"
         ```
 
 ## Query data
@@ -468,15 +610,15 @@ Once the data is loaded, you can run queries against the sample data you importe
 - Query the number of items in the `hits_v1` table:
 
   ```sql
-  SELECT COUNT(*) FROM datasets.hits_v1
+  SELECT COUNT(*) FROM default.hits_v1
   ```
 
-- Find the longest lasting sessions using additional query features:
+- Find the longest lasting sessions:
 
   ```sql
   SELECT StartURL AS URL,
       MAX(Duration) AS MaxDuration
-  FROM datasets.visits_v1
+  FROM default.visits_v1
   GROUP BY URL
   ORDER BY MaxDuration DESC
   LIMIT 10
