@@ -1,13 +1,13 @@
 ---
 title: Create dictionaries in Aiven for ClickHouse®
-sidebar_label: Create dictionary
+sidebar_label: Create dictionaries
 ---
 
 Create dictionaries in Aiven for ClickHouse® to accelerate queries for better efficiency and performance.
 
 ## Dictionaries in Aiven for ClickHouse
 
-A dictionary is a key -> attribute mapping useful for low latency lookup queries, when
+A dictionary is a key-attribute mapping useful for low latency lookup queries, when
 often looking up attributes for a particular key. Dictionary data resides fully in memory,
 which is why using a dictionary in JOINs is often much faster than using a MergeTree table.
 Dictionaries can be an efficient replacement for regular tables in your JOIN clauses.
@@ -34,7 +34,7 @@ Read more on dictionaries in the
 
 ## Limitations
 
-- TLS connections supported only (no non-TLS allowed)
+- Only TLS connections supported
 - If no host is specified in a dictionary with a ClickHouse source, the local host is
   assumed, and the dictionary is filled with data from a query against the local ClickHouse,
   for example:
@@ -184,7 +184,7 @@ ANY LEFT JOIN users_dictionary AS u
 ON t.user_id = u.id;
 ```
 
-### Caching data from an external database / URL
+### Caching data from an external database or URL
 
 <!--
 - Create a dictionary for the `pricing` table in your MySQL database using a composite key:
