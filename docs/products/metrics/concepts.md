@@ -1,5 +1,5 @@
 ---
-title: Aiven for Mertics®
+title: Aiven for Metrics®
 ---
 
 import DocCardList from '@theme/DocCardList';
