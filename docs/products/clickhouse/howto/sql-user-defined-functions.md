@@ -6,26 +6,15 @@ sidebar_label: SQL UDFs
 Use SQL user defined functions (UDFs) in Aiven for ClickHouse® to speed up your queries
 and optimize your appilication performance.
 
-## About SQL UDFs
-
-An SQL UDF is a function that your write to achieve your specific goals. It is executed by
-the database software in the database. An SQL UDF accepts input, performs actions on the
-input, and returns results of the actions as output. An SQL UDF can be reused across
-multiple queries.
+ClickHouse allows you to define your own functions, called user defined functions (UDFs).
+Aiven for ClickHouse supports SQL UDFs. These are automatically replicated to all nodes in
+the cluster and contained in backups.
 
 :::note
-[Executable user defined functions](https://clickhouse.com/docs/en/sql-reference/functions/udf#executable-user-defined-functions)
-are not supported in Aiven for ClickHouse.
+Aiven for ClickHouse doesn't support
+[executable UDFs](https://clickhouse.com/docs/en/sql-reference/functions/udf#executable-user-defined-functions)
+or other types of UDFs other than SQL UDFs.
 :::
-
-## Why use SQL UDFs
-
-SQL UDFs allows you to:
-
-- Improve application performance by optimization on the database level.
-- Speed up your SQL queries, make them simpler, shorter, and more efficient.
-- Reduce maintenance work on your SQL queries: When you update an SQL UDF, your changes
-  are propagated to all SQL queries using this UDF.
 
 ## Create UDF in SQL
 
@@ -42,4 +31,14 @@ CREATE FUNCTION name AS (parameter0, ...) -> expression
 - Recursive functions are not supported.
 - All variables used by your UDF need to be defined in its parameter list.
 
-## Examples of using SQL UDFs
+## Example of using SQL UDFs
+
+```sql
+CREATE FUNCTION is_weekend AS (date) -> toDayOfWeek(date) IN (6, 7);
+```
+
+```sql
+SELECT AVG(profit)
+FROM sales
+WHERE is_weekend(date)
+```
