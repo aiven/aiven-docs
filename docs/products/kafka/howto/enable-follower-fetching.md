@@ -25,7 +25,7 @@ For mapping AZ names to AZ IDs, see [AWS Knowledge Center article](https://repos
 Enable follower fetching with the [Aiven CLI](/docs/tools/cli):
 
 ```bash
-avn service update <service-name> -c follower_fetching={"enabled": true}
+avn service update <service-name> -c follower_fetching.enabled=true
 ```
 
 Parameters:
