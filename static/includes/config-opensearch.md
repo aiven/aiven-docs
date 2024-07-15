@@ -557,6 +557,28 @@
       <tr>
         <td>
           <p class="name">
+            <b>knn_memory_circuit_breaker_limit</b>&nbsp;<code class="type">integer</code>
+            <div class="constraints">
+                min: <code>3</code>
+                max: <code>100</code>
+            </div>
+          </p>
+          <p class="title">knn.memory.circuit_breaker.limit</p>
+          <div class="description">Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size.</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="name">
+            <b>knn_memory_circuit_breaker_enabled</b>&nbsp;<code class="type">boolean</code>
+          </p>
+          <p class="title">knn.memory.circuit_breaker.enabled</p>
+          <div class="description">Enable or disable KNN memory circuit breaker. Defaults to true.</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="name">
             <b>auth_failure_listeners</b>&nbsp;<code class="type">object</code>
           </p>
           <p class="title">Opensearch Security Plugin Settings</p>
