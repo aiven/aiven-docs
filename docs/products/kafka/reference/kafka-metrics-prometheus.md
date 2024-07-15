@@ -30,9 +30,8 @@ Aiven, see [Use Prometheus with Aiven](/docs/platform/howto/integrations/prometh
 
 ## CPU utilization
 
-CPU utilization metrics provide insights into how the CPU is
-being used. These metrics cover various aspects of CPU activity, including time
-spent on different processes, system load, and overall uptime.
+CPU utilization metrics offer insights into CPU usage. These metrics
+include time spent on different processes, system load, and overall uptime.
 
 | Metric                  | Description                                                                                           |
 |-------------------------|-------------------------------------------------------------------------------------------------------|
@@ -71,9 +70,9 @@ total disk capacity.
 
 ## Disk input and output
 
-Metrics such as `diskio_io_time` and `diskio_iops_in_progress` provide valuable
-insights into disk I/O operations. These metrics cover read/write operations,
-the duration of these operations, bytes read/written, and more.
+Metrics such as `diskio_io_time` and `diskio_iops_in_progress` provide insights into
+disk I/O operations. These metrics cover read/write operations, the duration of these
+operations, and the number of bytes read/written.
 
 | Metric                   | Description                                                                                           |
 |--------------------------|-------------------------------------------------------------------------------------------------------|
@@ -89,12 +88,11 @@ the duration of these operations, bytes read/written, and more.
 | `diskio_write_time`      | Total time spent on write operations.                                                                 |
 | `diskio_writes`          | Total number of write operations.                                                                     |
 
-
 ## Garbage collector `MXBean`
 
 Metrics associated with the `java_lang_GarbageCollector` provide insights
-into the JVM's garbage collection process. These metrics encompass
-details such as the collection count, duration of collections, and more.
+into the JVM's garbage collection process. These metrics include the collection count
+and the duration of collections.
 
 | Metric                                                               | Description                                                                |
 |----------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -122,9 +120,9 @@ see [Apache Kafka® Connect available via Prometheus](../kafka-connect/reference
 
 ## Apache Kafka broker metrics
 
-Apache Kafka brokers expose metrics that provide valuable insights into the health and
-performance of the cluster. Find detailed descriptions for these metrics in
-the [monitoring section of the Apache Kafka documentation](https://kafka.apache.org/documentation/#monitoring).
+Apache Kafka brokers expose metrics that provide insights into the health and
+performance of the Apache Kafka cluster. Find detailed descriptions of these metrics,
+see the [monitoring section of the Apache Kafka documentation](https://kafka.apache.org/documentation/#monitoring).
 
 ### Metric types
 
@@ -152,7 +150,7 @@ functions such as `rate()` in PromQL.
 ### Apache Kafka controller metrics
 
 Apache Kafka offers a range of metrics to help you assess the performance and
-health of your Kafka controller.
+health of your Apache Kafka controller.
 
 - **Percentile Metrics**: Metrics like
   `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_XthPercentile`
@@ -199,9 +197,9 @@ health of your Kafka controller.
 
 ### `Jolokia` collector collect time
 
-Jolokia is a JMX-HTTP bridge, providing an alternative to native JMX access. The
-following metric provides insights into the time taken by the Jolokia collector
-to collect metrics.
+Jolokia is a JMX-HTTP bridge that provides an alternative to native JMX access. The
+following metric provides insights into the time taken by the Jolokia collector to
+collect metrics.
 
 | Metric                                    | Description                                                             |
 |-------------------------------------------|-------------------------------------------------------------------------|
@@ -210,13 +208,13 @@ to collect metrics.
 ### Apache Kafka log
 
 Apache Kafka provides a variety of metrics that offer insights into its operation.
-These metrics are particularly useful for understanding the operation of the log cleaner
-and log flush operations.
+These metrics are useful for understanding the operation of the log cleaner and log
+flush operations.
 
 #### Log cleaner metrics
 
 These metrics provide insights into the log cleaner's operation, which helps in
-compacting the Kafka logs:
+compacting the Apache Kafka logs.
 
 | Metric                                                         | Description                                                        |
 |----------------------------------------------------------------|--------------------------------------------------------------------|
@@ -226,13 +224,12 @@ compacting the Kafka logs:
 
 #### Log flush rate metrics
 
-:::note
 Metrics like `kafka_log_LogFlushStats_LogFlushRateAndTimeMs_XthPercentile` provide the
 time taken to flush logs at various percentiles.
-:::
 
-These metrics give insights into the log flush operations, ensuring that data is written
-from memory to disk. The time taken to flush logs at various percentiles is also provided:
+These metrics offer insights into log flush operations, ensuring that the system writes
+data from memory to disk. They also indicate the time required to flush logs at
+different percentiles.
 
 | Metric                                                         | Description                                                        |
 |----------------------------------------------------------------|--------------------------------------------------------------------|
@@ -254,7 +251,7 @@ from memory to disk. The time taken to flush logs at various percentiles is also
 
 #### Log metrics
 
-These metrics provide general information about log sizes and offsets:
+These metrics provide general information about log sizes and offsets.
 
 | Metric                                        | Description                                        |
 |-----------------------------------------------|----------------------------------------------------|
@@ -264,10 +261,10 @@ These metrics provide general information about log sizes and offsets:
 
 ### Apache Kafka network
 
-Apache Kafka provides  several metrics, such as
+Apache Kafka provides several metrics, such as
 `kafka_network_RequestMetrics_RequestsPerSec_Count` and
 `kafka_network_RequestMetrics_TotalTimeMs_Mean`, to monitor the performance and
-health of network requests made to the Kafka brokers.
+health of network requests made to the Apache Kafka brokers.
 
 | Metric                                                         | Description                                                                      |
 |----------------------------------------------------------------|----------------------------------------------------------------------------------|
@@ -287,7 +284,7 @@ performance and health.
 - **Topic metrics**: `BrokerTopicMetrics` offer insights into various operations related
   to topics, such as bytes in/out and failed fetch/produce requests.
 - **Replica metrics**: `kafka_server_ReplicaManager_LeaderCount_Value` provides
-  insights into the state of replicas within the Kafka cluster.
+  insights into the state of replicas within the Apache Kafka cluster.
 
 The `topic` tag is crucial in these metrics. If you don’t specify it, the system displays
 a combined rate for all topics, along with the rate for each individual topic. To view
@@ -332,10 +329,9 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 ### Tiered storage metrics
 
 Aiven for Apache Kafka includes several metrics to monitor the performance and
-health of your Kafka broker's tiered storage operations. You can access these
-metrics through Prometheus to gain detailed insights into various aspects of
-tiered storage, such as data copying, fetching, deleting, and their respective
-lags and errors.
+health of your Apache Kafka broker's tiered storage operations. Access these metrics
+through Prometheus to gain insights into various aspects of tiered storage, including
+data copying, fetching, deleting, and their associated lags and errors.
 
 | Metric                                                           | Description                                                                                                      |
 |------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -355,7 +351,7 @@ lags and errors.
 ### Kernel
 
 The metrics listed below, such as `kernel_boot_time` and `kernel_context_switches`, provide
-insights into the operations of your system’s kernel:
+insights into the operations of your system’s kernel.
 
 
 | Metric                     | Description                                      |
@@ -368,8 +364,8 @@ insights into the operations of your system’s kernel:
 
 ### Generic memory
 
-The following metrics, including `mem_active` and `mem_available`, offer insights into
-your system’s memory usage:
+The following metrics, including `mem_active` and `mem_available`, provide insights into
+your system’s memory usage.
 
 | Metric                   | Description                                                    |
 |--------------------------|----------------------------------------------------------------|
@@ -409,8 +405,8 @@ your system’s memory usage:
 
 ### Network
 
-The following metrics, including `net_bytes_recv` and `net_packets_sent`, offer insights
-into your system’s network operations:
+The following metrics, including `net_bytes_recv` and `net_packets_sent`, provide insights
+into your system’s network operations.
 
 | Metric                       | Description                                                                     |
 |------------------------------|---------------------------------------------------------------------------------|
@@ -519,7 +515,7 @@ into your system’s network operations:
 
 ### Process
 
-Metrics such as `processes_running` and `processes_zombies` offer insights into the
+Metrics such as `processes_running` and `processes_zombies` provide insights into the
 management of the system’s processes.
 
 | Metric                     | Description                                                                 |
@@ -538,7 +534,7 @@ management of the system’s processes.
 
 ### Swap usage
 
-Metrics such as `swap_free` and `swap_used` offer insights into the usage of the
+Metrics such as `swap_free` and `swap_used` provide insights into the usage of the
 system’s swap memory.
 
 | Metric             | Description                                      |
