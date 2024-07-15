@@ -821,6 +821,26 @@
 <tr>
   <td>
     <p class="name">
+      <b>follower_fetching</b>&nbsp;<code class="type">object</code>
+    </p>
+    <p class="title">Enable follower fetching</p>
+    <div class="description"></div>
+    <table class="service-param-children">
+      <tr>
+        <td>
+          <p class="name">
+            <b>enabled</b>&nbsp;<code class="type">boolean</code>
+          </p>
+          <p class="title">Enabled</p>
+          <div class="description">Whether to enable the follower fetching functionality</div>
+        </td>
+      </tr>
+</table>
+  </td>
+</tr>
+<tr>
+  <td>
+    <p class="name">
       <b>kafka_connect</b>&nbsp;<code class="type">boolean</code>
     </p>
     <p class="title">Enable Kafka Connect service</p>
