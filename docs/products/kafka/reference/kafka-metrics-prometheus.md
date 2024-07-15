@@ -144,7 +144,7 @@ the total number of events per second, not the current rate.
   incoming messages received by the broker.
 
 :::note
-To calculate the rate of change for these `_count` metrics, you can use
+To calculate the rate of change for these `_Count` metrics, you can use
 functions such as `rate()` in PromQL.
 :::
 

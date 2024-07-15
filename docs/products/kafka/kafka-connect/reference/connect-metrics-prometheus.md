@@ -2,7 +2,7 @@
 title: Metrics for Aiven for Apache Kafka® Connect available via Prometheus
 ---
 
-Explore the range of metrics provided through Prometheus for the Aiven for Apache Kafka® Connect service.
+Explore the metrics provided through Prometheus for the Aiven for Apache Kafka® Connect service.
 
 You can review the list
 of metrics available via Prometheus for the Aiven for Apache Kafka®
