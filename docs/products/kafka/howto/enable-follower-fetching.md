@@ -3,7 +3,7 @@ title: Enable follower fetching in Aiven for Apache Kafka
 sidebar_label: Enable follower fetching
 ---
 
-Enable follower fetching in Aiven for Apache Kafka allows your consumers to fetch data from the nearest replica instead of the leader, optimizing data fetching and enhancing performance.
+Enabling follower fetching in Aiven for Apache Kafka allows your consumers to fetch data from the nearest replica instead of the leader, optimizing data fetching and enhancing performance.
 
 ## Prerequisites
 
@@ -45,21 +45,49 @@ Add this example configuration to your consumer properties file:
 client.rack=use1-az1
 ```
 
-### Example scenario
+### Example scenario: follower fetching in different AZs
 
-Assume you have an Aiven for Apache Kafka cluster running in three AZs in
-the `us-east-1` region. The AZ IDs are `use1-az1`, `use1-az2`, and `use1-az3`.
+Assume you have an Aiven for Apache Kafka cluster running in two AZs in the `us-east-1`
+region. The AZ IDs are `use1-az1` and `use1-az2`. You also have consumers distributed
+across three AZs: `use1-az1`, `use1-az2`, and `use1-az3`.
 
-To configure consumers, set the `client.rack` value to the respective AZ ID for each
-consumer. For example, if your consumers are in `use1-az1` and `use1-az2`, use the
-following configuration:
+#### Cluster setup
+
+- Apache Kafka brokers are in:
+  - `use1-az1`
+  - `use1-az2`
+
+- Consumers are in:
+  - `use1-az1`
+  - `use1-az2`
+  - `use1-az3`
+
+#### Consumer configuration
+
+To configure consumers, set the `client.rack` value to the respective
+AZ ID for each consumer:
 
 ```plaintext
+# For consumers in use1-az1
 client.rack=use1-az1
+
+# For consumers in use1-az2
+client.rack=use1-az2
+
+# For consumers in use1-az3
+client.rack=use1-az3
 ```
 
-Consumers in `use1-az1` and `use1-az2` fetch from the nearest replica. Consumers
-in `use1-az3` fetch from the leader.
+#### Fetching behavior
+
+- **Consumers in `use1-az1` and `use1-az2`**:
+  - Fetch from the nearest replica in their respective AZ.
+  - Benefit from reduced latency and network costs.
+
+- **Consumers in `use1-az3`**:
+  - Fetch from the leader.
+  - No matching `broker.rack` exists, so follower fetching isn't possible.
+
 
 ## Verify follower fetching
 
