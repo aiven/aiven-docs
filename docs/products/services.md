@@ -70,7 +70,7 @@ Use our fully managed services to stream, store, or observe your data. Deploy in
   />
 </GridContainer>
 
-## Observe
+## Analyze
 
 <GridContainer>
   <Card
