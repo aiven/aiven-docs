@@ -29,7 +29,7 @@ high availability.
   the `client.rack` setting to specify their AZ, ensuring they fetch data from the
   closest replica.
 
-## `broker.rack` and `client.rack` settings
+### `broker.rack` and `client.rack` settings
 
 - `broker.rack`: This setting corresponds to the AZ where each Apache Kafka broker
   is deployed and helps manage data replication efficiently. Apache Kafka brokers in
@@ -42,7 +42,7 @@ high availability.
   example, if your `client.rack` is set to `use1-az1`, it fetches data from an
   Apache Kafka broker with `broker.rack` set to `use1-az1`.
   [Configure](/docs/products/kafka/howto/enable-follower-fetching#client-side-configuration)
-  this setting to retrieve from the closest replica.
+  this setting to retrieve data from the closest replica.
 
 ## Related pages
 
