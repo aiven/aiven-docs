@@ -127,6 +127,9 @@ Create an Aiven for ClickHouse service using the Aiven Operator for Kubernetes.
      connInfoSecretTarget:
        name: my-clickhouse-connection
 
+     userConfig:
+       service_log: false
+
      project: my-aiven-project
      cloudName: google-europe-west1
      plan: startup-16
@@ -334,49 +337,7 @@ docker run -it                    \
 ```
 
 </TabItem>
-<TabItem value="3" label="K8s">
-You can verify your Aiven for ClickHouse connection from a Kubernetes workload by deploying
-a Pod that runs the `clickhouse-client` command.
-
-1. Create file `pod-clickhouse-client.yaml`:
-
-    ```yaml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: clickhouse-client-test-connection
-    spec:
-      restartPolicy: Never
-      containers:
-        - image: clickhouse-server:23.8
-          name: clickhouse
-          command: ["clickhouse-client", "$(DATABASE_URI)", "-c", "SELECT version();"]
-          envFrom:
-            - secretRef:
-                name: my-clickhouse-connection
-    ```
-
-   It runs once and stops due to the `restartPolicy: Never` flag.
-
-1. Inspect the log:
-
-   ```go
-   kubectl logs clickhouse-client-test-connection
-   ```
-
-   The output is similar to the following:
-
-   ```text
-                                              version
-   ---------------------------------------------------------------------------------------------
-   ClickHouse 23.8 on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6b9244f01a, 64-bit
-   (1 row)
-   ```
-
-You have now connected to your Aiven for ClickHouse service and executed
-the `SELECT version();` query.
-</TabItem>
-<TabItem value="4" label="ClickHouse client">
+<TabItem value="3" label="ClickHouse client">
 [Connect to your new service with CLI](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)
 using the
 [ClickHouse client](https://clickhouse.com/docs/en/integrations/sql-clients/cli).
