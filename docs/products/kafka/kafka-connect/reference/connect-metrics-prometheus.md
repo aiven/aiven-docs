@@ -1,17 +1,8 @@
 ---
-title: Metrics for Aiven for Apache Kafka® Connect available via Prometheus
+title: Aiven for Apache Kafka® Connect metrics available via Prometheus
 ---
 
-Explore the metrics provided through Prometheus for the Aiven for Apache Kafka® Connect service.
-
-You can review the list
-of metrics available via Prometheus for the Aiven for Apache Kafka®
-service in the
-[dedicated document](/docs/products/kafka/reference/kafka-metrics-prometheus).
-
-A full description of the metrics is available in the [Connect
-Monitoring section of the Apache Kafka®
-documentation](https://kafka.apache.org/documentation/#connect_monitoring).
+Discover metrics offered by Prometheus for the Aiven for Apache Kafka® Connect service.
 
 :::note
 The metrics only appear if there is activity in the underlying
@@ -37,3 +28,8 @@ Apache Kafka Connect service.
 | `kafka_connect_connect_worker_rebalance_metrics_rebalance_avg_time_ms`         | The average time in milliseconds spent by this worker to rebalance |
 | `kafka_connect_connect_worker_rebalance_metrics_rebalancing`                   | Whether this worker is currently rebalancing                     |
 | `kafka_connect_connect_worker_rebalance_metrics_time_since_last_rebalance_ms`  | The time in milliseconds since this worker completed the most recent rebalance |
+
+## Related pages
+
+- [Aiven for Apache Kafka® metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus)
+- [Connect Monitoring section of the Apache Kafka® documentation](https://kafka.apache.org/documentation/#connect_monitoring)

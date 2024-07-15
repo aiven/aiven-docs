@@ -6,15 +6,16 @@ Explore common metrics available via Prometheus for your Aiven for Apache KafkaÂ
 
 ## How to retrieve metrics
 
-You can retrieve the complete list of available metrics for your specific service by
-querying the Prometheus endpoint. Follow these steps to get started:
+To get the complete list of available metrics for your service, query the
+Prometheus endpoint. Follow these steps to get started:
 
 1. Ensure you have the following information:
 
-   - The Aiven project certificate: `ca.pem`
-   - The Prometheus credentials: `<PROMETHEUS_USER>:<PROMETHEUS_PASSWORD>`
-   - The Aiven for Apache Kafka hostname: `<KAFKA_HOSTNAME>`
-   - The Prometheus port: `<PROMETHEUS_PORT>`
+   - Aiven project certificate: `ca.pem`. To download the CA certificate, see
+     [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
+   - Prometheus credentials: `<PROMETHEUS_USER>:<PROMETHEUS_PASSWORD>`
+   - Aiven for Apache Kafka hostname: `<KAFKA_HOSTNAME>`
+   - Prometheus port: `<PROMETHEUS_PORT>`
 
 1. Use the curl command to query the Prometheus endpoint:
 
