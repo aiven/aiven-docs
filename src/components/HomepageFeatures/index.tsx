@@ -45,7 +45,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Integrations',
     Svg: require('@site/static/images/icons/home/integrations.svg').default,
-    to: '/docs/integrations',
+    to: '/docs/platform/concepts/service-integration',
     description: (
       <>
         Explore the integrations offered by Aiven to connect your services with

@@ -67,5 +67,5 @@
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe     https://aiven.io/docs/tools/terraform/get-started
 /tools/terraform/reference/cookbook/multicloud-postgresql-recipe       https://aiven.io/developer/multicloud-postgresql-terraform
 
-
 /platform/howto/project-support-center                   https://aiven.io/docs/platform/howto/support
+/integrations                                            https://aiven.io/docs/platform/concepts/service-integration

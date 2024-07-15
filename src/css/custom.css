@@ -35,10 +35,8 @@
   --ifm-heading-font-family: 'Poppins', 'Montserrat', helvetica, system-ui,
     sans-serif;
   --ifm-list-left-padding: 2em;
-  --ifm-list-item-margin: 0.4em;
-  /* li padding top  */
-  --ifm-list-paragraph-margin: 0.4;
-  /*top margin*/
+  --ifm-list-item-margin: 0.4em; /* li padding top  */
+  --ifm-list-paragraph-margin: 0.4; /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
   --ifm-link-color: var(--aiven-primary-80);
   --ifm-menu-color-active: var(--aiven-primary-80);
@@ -205,6 +203,20 @@ ul+div {
 .constraints {
   display: inline-block;
   font-size: 90%;
+}
+
+/* Sidebar section titles */
+.expandedSection > div > a {
+  font-weight: bold;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+.expandedSection > div > a.menu__link.menu__link--active {
+  color: var(--ifm-menu-color);
+}
+
+.expandedSection > div.menu__list-item-collapsible:hover {
+  background-color: transparent;
 }
 
 .trademark {

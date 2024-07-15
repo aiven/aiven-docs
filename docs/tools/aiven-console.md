@@ -1,5 +1,6 @@
 ---
 title: Aiven Console overview
+sidebar_label: Aiven Console
 ---
 
 In the [Aiven Console](https://console.aiven.io) you can create and manage Aiven services, update your user profile, manage settings across organizations and projects, set up billing groups, view invoices, and more.
@@ -76,7 +77,7 @@ and
 [create new services](/docs/platform/howto/create_new_service).
 
 On the **Services** page you can also access the
-[integration endpoints](/docs/integrations), VPCs, project logs, list of project members, and project
+[integration endpoints](/docs/platform/concepts/service-integration), VPCs, project logs, list of project members, and project
 settings.
 
 ## Billing groups

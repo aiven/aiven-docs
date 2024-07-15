@@ -16,8 +16,11 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Get started',
-      link: {id: 'get-started', type: 'doc'},
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
       items: [
+        'get-started',
         'platform/concepts/free-plan',
         'platform/concepts/free-trial',
         'marketplace-setup',
@@ -28,395 +31,402 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Organizations, units, and projects',
-      link: {
-        type: 'doc',
-        id: 'platform/concepts/orgs-units-projects',
-      },
+      label: 'Platform',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
       items: [
         {
           type: 'category',
-          label: 'Organizations and units',
+          label: 'Organizations, units, and projects',
           link: {
             type: 'doc',
-            id: 'platform/concepts/orgs-and-units',
+            id: 'platform/concepts/orgs-units-projects',
           },
           items: [
-            'tools/aiven-console/howto/create-orgs-and-units',
-            'platform/howto/manage-organizations',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Projects',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/projects',
-          },
-          items: [
-            'platform/howto/manage-project',
-            'platform/howto/add-project-members',
-            'platform/reference/project-member-privileges',
-            'platform/howto/technical-emails',
-            'platform/howto/manage-unassigned-projects',
-            'platform/howto/reactivate-suspended-project',
-          ],
-        },
-        'platform/concepts/carbon-footprint',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Billing and payment',
-      link: {
-        type: 'doc',
-        id: 'platform/concepts/hourly-billing-model',
-      },
-      items: [
-        'platform/concepts/corporate-billing',
-        'platform/concepts/tax-information',
-        'platform/howto/update-tax-status',
-        {
-          type: 'category',
-          label: 'Payment methods',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-billing',
-          },
-          items: [
-            'platform/howto/manage-payment-card',
-            'platform/howto/list-marketplace-payments',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Billing groups',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/billing-groups',
-          },
-          items: [
-            'platform/howto/create-billing-groups',
-            'platform/howto/use-billing-groups',
-            'platform/howto/billing-assign-projects',
-          ],
-        },
-        'platform/howto/payment-issues-plan-upgrades',
-        'platform/howto/custom-plans',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'User and access management',
-      link: {
-        type: 'doc',
-        id: 'platform/howto/list-user',
-      },
-
-      items: [
-        'platform/howto/manage-org-users',
-        'platform/howto/make-super-admin',
-        'platform/concepts/application-users',
-        'platform/howto/manage-application-users',
-        'platform/howto/delete-user',
-        {
-          type: 'category',
-          label: 'User profiles',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-user-profile',
-          },
-          items: [
-            'platform/howto/edit-user-profile',
-            'platform/howto/change-your-email-address',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Authentication methods',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-authentication',
-          },
-          items: [
-            'platform/howto/add-authentication-method',
-            'platform/reference/password-policy',
-            'platform/howto/user-2fa',
-            'platform/howto/set-authentication-policies',
-            'platform/concepts/authentication-tokens',
-            'platform/howto/create_authentication_token',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Identity providers and domains',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-identity-providers',
-          },
-          items: [
-            'platform/concepts/managed-users',
-            'platform/howto/manage-domains',
-            'platform/howto/saml/add-identity-providers',
-            'platform/howto/saml/add-auth0-idp',
-            'platform/howto/saml/add-azure-idp',
-            'platform/howto/saml/add-fusionauth-idp',
-            'platform/howto/saml/add-google-idp',
-            'platform/howto/saml/add-jumpcloud-idp',
-            'platform/howto/saml/add-okta-idp',
-            'platform/howto/okta-user-provisioning-with-scim',
-            'platform/howto/saml/add-onelogin-idp',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Groups',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-groups',
-          },
-          items: [
-            'platform/howto/manage-groups',
-            'platform/howto/add-groups-projects',
-            'tools/aiven-console/howto/create-manage-teams',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Service management',
-      link: {
-        type: 'doc',
-        id: 'platform/howto/list-service',
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'Concepts',
-          items: [
-            'platform/concepts/service_backups',
-            'platform/concepts/service-resources',
-            'platform/concepts/service-memory-limits',
-            'platform/concepts/out-of-memory-conditions',
-            'platform/concepts/maintenance-window',
-            'platform/reference/eol-for-major-versions',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Migrations',
-          items: [
-            'platform/howto/migrate-services-cloud-region',
-            'platform/howto/migrate-services-vpc',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Service scaling',
-          link: {
-            type: 'generated-index',
-            description:
-              'Aiven offers the following features to scale your services.',
-            title: 'Service scaling',
-            slug: '/platform/concepts/service-scaling',
-          },
-          items: [
-            'platform/howto/scale-services',
-            'platform/howto/add-storage-space',
-            'platform/howto/disk-autoscaler',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Backup to another region',
-          items: [
-            'platform/concepts/backup-to-another-region',
-            'platform/howto/btar/enable-backup-to-another-region',
-            'platform/howto/btar/manage-backup-to-another-region',
-            'platform/howto/btar/disable-backup-to-another-region',
-          ],
-        },
-        'platform/howto/create_new_service',
-        'platform/concepts/service-power-cycle',
-        'platform/howto/tag-resources',
-        'platform/howto/search-services',
-        'platform/howto/create_new_service_user',
-        'platform/concepts/service-forking',
-        'platform/howto/prepare-for-high-load',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Networking and security',
-      link: {
-        type: 'doc',
-        id: 'platform/howto/list-network',
-      },
-      items: [
-        'platform/concepts/cloud-security',
-        'platform/reference/list_of_clouds',
-        'platform/concepts/availability-zones',
-        'platform/concepts/enhanced-compliance-env',
-        {
-          type: 'category',
-          label: 'Bring your own cloud',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/byoc',
-          },
-          items: [
-            'platform/howto/byoc/networking-security',
-            'platform/howto/byoc/enable-byoc',
-            'platform/howto/byoc/create-custom-cloud',
-            'platform/howto/byoc/assign-project-custom-cloud',
-            'platform/howto/byoc/add-customer-info-custom-cloud',
-            'platform/howto/byoc/rename-custom-cloud',
-            'platform/howto/byoc/download-infrastructure-template',
-            'platform/howto/byoc/delete-custom-cloud',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'VPCs',
-          link: {
-            type: 'generated-index',
-            slug: 'platform/vpc',
-          },
-          items: [
-            'platform/howto/manage-vpc-peering',
-            'platform/howto/public-access-in-vpc',
-            'platform/howto/vpc-peering-gcp',
-            'platform/howto/vpc-peering-aws',
-            'platform/howto/vnet-peering-azure',
-            'platform/howto/vpc-peering-upcloud',
-            'platform/howto/google-cloud-functions',
-            'platform/howto/attach-vpc-aws-tgw',
             {
               type: 'category',
-              label: 'Private link',
+              label: 'Organizations and units',
               link: {
-                type: 'generated-index',
-                slug: 'platform/privatelink',
+                type: 'doc',
+                id: 'platform/concepts/orgs-and-units',
               },
               items: [
-                'platform/howto/use-aws-privatelinks',
-                'platform/howto/use-azure-privatelink',
-                'platform/howto/use-google-private-service-connect',
+                'tools/aiven-console/howto/create-orgs-and-units',
+                'platform/howto/manage-organizations',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Projects',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/projects',
+              },
+              items: [
+                'platform/howto/manage-project',
+                'platform/howto/add-project-members',
+                'platform/reference/project-member-privileges',
+                'platform/howto/technical-emails',
+                'platform/howto/manage-unassigned-projects',
+                'platform/howto/reactivate-suspended-project',
+              ],
+            },
+            'platform/concepts/carbon-footprint',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Billing and payment',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/hourly-billing-model',
+          },
+          items: [
+            'platform/concepts/corporate-billing',
+            'platform/concepts/tax-information',
+            'platform/howto/update-tax-status',
+            {
+              type: 'category',
+              label: 'Payment methods',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-billing',
+              },
+              items: [
+                'platform/howto/manage-payment-card',
+                'platform/howto/list-marketplace-payments',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Billing groups',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/billing-groups',
+              },
+              items: [
+                'platform/howto/create-billing-groups',
+                'platform/howto/use-billing-groups',
+                'platform/howto/billing-assign-projects',
+              ],
+            },
+            'platform/howto/payment-issues-plan-upgrades',
+            'platform/howto/custom-plans',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'User and access management',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-user',
+          },
+
+          items: [
+            'platform/howto/manage-org-users',
+            'platform/howto/make-super-admin',
+            'platform/concepts/application-users',
+            'platform/howto/manage-application-users',
+            'platform/howto/delete-user',
+            {
+              type: 'category',
+              label: 'User profiles',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-user-profile',
+              },
+              items: [
+                'platform/howto/edit-user-profile',
+                'platform/howto/change-your-email-address',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Authentication methods',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-authentication',
+              },
+              items: [
+                'platform/howto/add-authentication-method',
+                'platform/reference/password-policy',
+                'platform/howto/user-2fa',
+                'platform/howto/set-authentication-policies',
+                'platform/concepts/authentication-tokens',
+                'platform/howto/create_authentication_token',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Identity providers and domains',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-identity-providers',
+              },
+              items: [
+                'platform/concepts/managed-users',
+                'platform/howto/manage-domains',
+                'platform/howto/saml/add-identity-providers',
+                'platform/howto/saml/add-auth0-idp',
+                'platform/howto/saml/add-azure-idp',
+                'platform/howto/saml/add-fusionauth-idp',
+                'platform/howto/saml/add-google-idp',
+                'platform/howto/saml/add-jumpcloud-idp',
+                'platform/howto/saml/add-okta-idp',
+                'platform/howto/okta-user-provisioning-with-scim',
+                'platform/howto/saml/add-onelogin-idp',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Groups',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-groups',
+              },
+              items: [
+                'platform/howto/manage-groups',
+                'platform/howto/add-groups-projects',
+                'tools/aiven-console/howto/create-manage-teams',
               ],
             },
           ],
         },
         {
           type: 'category',
-          label: 'IP addresses',
+          label: 'Service management',
           link: {
-            type: 'generated-index',
-            slug: 'platform/ip-addresses',
+            type: 'doc',
+            id: 'platform/howto/list-service',
           },
           items: [
-            'platform/reference/service-ip-address',
-            'platform/concepts/static-ips',
-            'platform/howto/restrict-access',
-            'platform/howto/private-ip-resolution',
-          ],
-        },
-        'platform/concepts/aiven-node-firewall-configuration',
-        'platform/concepts/tls-ssl-certificates',
-
-        'platform/concepts/disaster-recovery-test-scenarios',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Monitoring and logs',
-      link: {
-        type: 'doc',
-        id: 'platform/howto/list-monitoring',
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'Metric and log integrations',
-          link: {
-            type: 'generated-index',
-            slug: 'platform/howto/metrics-integrations',
-          },
-          items: [
+            'platform/howto/byoc/networking-security',
             {
               type: 'category',
-              label: 'Amazon CloudWatch',
+              label: 'Concepts',
+              items: [
+                'platform/concepts/service_backups',
+                'platform/concepts/service-resources',
+                'platform/concepts/service-memory-limits',
+                'platform/concepts/out-of-memory-conditions',
+                'platform/concepts/maintenance-window',
+                'platform/reference/eol-for-major-versions',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Migrations',
+              items: [
+                'platform/howto/migrate-services-cloud-region',
+                'platform/howto/migrate-services-vpc',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Service scaling',
               link: {
-                type: 'doc',
-                id: 'integrations/cloudwatch',
+                type: 'generated-index',
+                description:
+                  'Aiven offers the following features to scale your services.',
+                title: 'Service scaling',
+                slug: '/platform/concepts/service-scaling',
               },
               items: [
-                'integrations/cloudwatch/cloudwatch-metrics',
+                'platform/howto/scale-services',
+                'platform/howto/add-storage-space',
+                'platform/howto/disk-autoscaler',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Backup to another region',
+              items: [
+                'platform/concepts/backup-to-another-region',
+                'platform/howto/btar/enable-backup-to-another-region',
+                'platform/howto/btar/manage-backup-to-another-region',
+                'platform/howto/btar/disable-backup-to-another-region',
+              ],
+            },
+            'platform/howto/create_new_service',
+            'platform/concepts/service-power-cycle',
+            'platform/howto/tag-resources',
+            'platform/howto/search-services',
+            'platform/howto/create_new_service_user',
+            'platform/concepts/service-forking',
+            'platform/howto/prepare-for-high-load',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Networking and security',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-network',
+          },
+          items: [
+            'platform/concepts/cloud-security',
+            'platform/reference/list_of_clouds',
+            'platform/concepts/availability-zones',
+            'platform/concepts/enhanced-compliance-env',
+            {
+              type: 'category',
+              label: 'Bring your own cloud',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/byoc',
+              },
+              items: [
+                'platform/howto/byoc/enable-byoc',
+                'platform/howto/byoc/create-custom-cloud',
+                'platform/howto/byoc/assign-project-custom-cloud',
+                'platform/howto/byoc/add-customer-info-custom-cloud',
+                'platform/howto/byoc/rename-custom-cloud',
+                'platform/howto/byoc/download-infrastructure-template',
+                'platform/howto/byoc/delete-custom-cloud',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'VPCs',
+              link: {
+                type: 'generated-index',
+                slug: 'platform/vpc',
+              },
+              items: [
+                'platform/howto/manage-vpc-peering',
+                'platform/howto/public-access-in-vpc',
+                'platform/howto/vpc-peering-gcp',
+                'platform/howto/vpc-peering-aws',
+                'platform/howto/vnet-peering-azure',
+                'platform/howto/vpc-peering-upcloud',
+                'platform/howto/google-cloud-functions',
+                'platform/howto/attach-vpc-aws-tgw',
                 {
                   type: 'category',
-                  label: 'CloudWatch logs',
+                  label: 'Private link',
                   link: {
-                    type: 'doc',
-                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
+                    type: 'generated-index',
+                    slug: 'platform/privatelink',
                   },
                   items: [
-                    'integrations/cloudwatch/cloudwatch-logs-console',
-                    'integrations/cloudwatch/cloudwatch-logs-cli',
+                    'platform/howto/use-aws-privatelinks',
+                    'platform/howto/use-azure-privatelink',
+                    'platform/howto/use-google-private-service-connect',
                   ],
                 },
               ],
             },
             {
               type: 'category',
-              label: 'Datadog',
+              label: 'IP addresses',
               link: {
-                type: 'doc',
-                id: 'integrations/datadog',
+                type: 'generated-index',
+                slug: 'platform/ip-addresses',
               },
               items: [
-                'integrations/datadog/datadog-metrics',
-                'platform/howto/integrations/datadog-increase-metrics-limit',
-                'integrations/datadog/datadog-logs',
-                'integrations/datadog/add-custom-tags-to-datadog',
+                'platform/reference/service-ip-address',
+                'platform/concepts/static-ips',
+                'platform/howto/restrict-access',
+                'platform/howto/private-ip-resolution',
               ],
             },
-            'integrations/send-logs-to-elasticsearch',
-            'integrations/cloudlogging',
-            {
-              type: 'category',
-              label: 'Remote Syslog',
-              link: {
-                type: 'doc',
-                id: 'integrations/rsyslog',
-              },
-              items: [
-                'integrations/rsyslog/logtail',
-                'integrations/rsyslog/loggly',
-              ],
-            },
-            'platform/howto/integrations/access-jmx-metrics-jolokia',
+            'platform/concepts/aiven-node-firewall-configuration',
+            'platform/concepts/tls-ssl-certificates',
 
+            'platform/concepts/disaster-recovery-test-scenarios',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Monitoring and logs',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-monitoring',
+          },
+          items: [
             {
               type: 'category',
-              label: 'Prometheus',
+              label: 'Metric and log integrations',
               link: {
-                id: 'platform/howto/integrations/prometheus-metrics',
-                type: 'doc',
+                type: 'generated-index',
+                slug: 'platform/howto/metrics-integrations',
               },
-              items: ['integrations/prometheus-system-metrics'],
+              items: [
+                {
+                  type: 'category',
+                  label: 'Amazon CloudWatch',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/cloudwatch',
+                  },
+                  items: [
+                    'integrations/cloudwatch/cloudwatch-metrics',
+                    {
+                      type: 'category',
+                      label: 'CloudWatch logs',
+                      link: {
+                        type: 'doc',
+                        id: 'integrations/cloudwatch/list-cloudwatch-logs',
+                      },
+                      items: [
+                        'integrations/cloudwatch/cloudwatch-logs-console',
+                        'integrations/cloudwatch/cloudwatch-logs-cli',
+                      ],
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Datadog',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/datadog',
+                  },
+                  items: [
+                    'integrations/datadog/datadog-metrics',
+                    'platform/howto/integrations/datadog-increase-metrics-limit',
+                    'integrations/datadog/datadog-logs',
+                    'integrations/datadog/add-custom-tags-to-datadog',
+                  ],
+                },
+                'integrations/send-logs-to-elasticsearch',
+                'integrations/cloudlogging',
+                {
+                  type: 'category',
+                  label: 'Remote Syslog',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/rsyslog',
+                  },
+                  items: [
+                    'integrations/rsyslog/logtail',
+                    'integrations/rsyslog/loggly',
+                  ],
+                },
+                'platform/howto/integrations/access-jmx-metrics-jolokia',
+
+                {
+                  type: 'category',
+                  label: 'Prometheus',
+                  link: {
+                    id: 'platform/howto/integrations/prometheus-metrics',
+                    type: 'doc',
+                  },
+                  items: ['integrations/prometheus-system-metrics'],
+                },
+              ],
             },
           ],
         },
       ],
     },
-
     {
       type: 'category',
       label: 'Integrations',
-      link: {
-        id: 'integrations',
-        type: 'doc',
-      },
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
       items: [
         'platform/concepts/service-integration',
         'platform/howto/create-service-integration',
@@ -425,11 +435,11 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Aiven dev tools',
-      link: {
-        id: 'tools',
-        type: 'doc',
-      },
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
       items: [
+        'tools',
         'tools/api',
         {
           type: 'category',
@@ -518,11 +528,11 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Services',
-      link: {
-        id: 'products/services',
-        type: 'doc',
-      },
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
       items: [
+        'products/services',
         {
           type: 'category',
           label: 'Aiven for Apache Cassandra®',
@@ -2185,11 +2195,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
       ],
-    },
-    {
-      type: 'doc',
-      label: 'Support',
-      id: 'platform/howto/support',
     },
   ],
 };
