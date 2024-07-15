@@ -1375,6 +1375,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/fetch-query-statistics',
                     'products/clickhouse/howto/run-federated-queries',
                     'products/clickhouse/howto/create-dictionary',
+                    'products/clickhouse/howto/sql-user-defined-functions',
                   ],
                 },
                 'products/clickhouse/howto/list-manage-cluster',
