@@ -8,8 +8,8 @@ Migrate your Aiven for M3DB databases to Aiven for Thanos Metrics using the Aive
 
 ## Prerequisites
 
-Review your current M3DB setup before migrating to Aiven for Metrics and ensure you
-meet the following prerequisites:
+Review your current M3DB setup before migrating to Aiven for Metrics, and ensure it
+meets the following prerequisites:
 
 - **Review database setup:** Examine your M3DB database's data structures, storage
   patterns, and configurations. Identify any unique features, custom settings, and

@@ -8,8 +8,8 @@ Migrate your Aiven for InfluxDB databases to Aiven for Thanos Metrics using the 
 
 ## Prerequisites for Migration: Compatibility Considerations
 
-Before migrating an InfluxDB database to Aiven for Metrics, carefully review your
-current InfluxDB setup and ensure you meet the following prerequisites:
+Review your current InfluxDB setup before migrating to Aiven for Metrics, and ensure it
+meets the following prerequisites:
 
 - **Review database setup:** Examine your InfluxDB database's data structures, storage
   patterns, and configurations. Identify any unique features, custom settings, and
