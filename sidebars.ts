@@ -1657,7 +1657,17 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/metrics/howto',
               },
-              items: ['products/metrics/howto/storage-usage'],
+              items: [
+                'products/metrics/howto/storage-usage',
+                {
+                  type: 'category',
+                  label: 'Data migration',
+                  items: [
+                    'products/metrics/howto/migrate-influxdb-thanos',
+                    'products/metrics/howto/migrate-m3db-thanos',
+                  ],
+                },
+              ],
             },
           ],
         },
