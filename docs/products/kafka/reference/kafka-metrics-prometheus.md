@@ -1,5 +1,5 @@
 ---
-title Aiven for Apache Kafka® metrics available via Prometheus
+title: Aiven for Apache Kafka® metrics available via Prometheus
 ---
 
 Explore common metrics available via Prometheus for your Aiven for Apache Kafka® service.
