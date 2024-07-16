@@ -66,6 +66,9 @@ Read more on dictionaries in the
   In Aiven for ClickHouse, to fill the dictionary the table users are queried with
   the permissions of the `avnadmin` user even if another user creates the dictionary.
   In upstream ClickHouse, the same is true except the `default` user is used.
+- In Aiven for ClickHouse, the setting [dictionaries_lazy_load](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#dictionaries_lazy_load)
+  is set to `true`.  This can mean that errors with dictionary source parameters may only
+  become apparent when the dictionary is loaded, rather than when it is created.
 
 ### Supported layouts
 
