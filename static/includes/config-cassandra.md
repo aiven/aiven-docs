@@ -79,6 +79,32 @@
           <div class="description">Name of the datacenter to which nodes of this service belong. Can be set only when creating the service.</div>
         </td>
       </tr>
+      <tr>
+        <td>
+          <p class="name">
+            <b>write_request_timeout_in_ms</b>&nbsp;<code class="type">integer</code>
+            <div class="constraints">
+                min: <code>1000</code>
+                max: <code>10000</code>
+            </div>
+          </p>
+          <p class="title">write_request_timeout_in_ms</p>
+          <div class="description">How long the coordinator waits for write requests to complete with at least one node in the local datacenter. 2 seconds by default.</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="name">
+            <b>read_request_timeout_in_ms</b>&nbsp;<code class="type">integer</code>
+            <div class="constraints">
+                min: <code>1000</code>
+                max: <code>10000</code>
+            </div>
+          </p>
+          <p class="title">read_request_timeout_in_ms</p>
+          <div class="description">How long the coordinator waits for read operations to complete before timing it out. 5 seconds by default.</div>
+        </td>
+      </tr>
 </table>
   </td>
 </tr>
