@@ -8,7 +8,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
 
-## Artificial intelligence recommendations <EarlyBadge/>
+## Artificial intelligence recommendations
 
 Use **Aiven AI Database Optimizer** to suggest optimizations to your databases and queries.
 
