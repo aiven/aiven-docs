@@ -563,7 +563,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/cassandra/howto',
               },
               items: [
-                'products/cassandra/howto/list-get-started',
                 {
                   type: 'category',
                   label: 'Connect to service',
@@ -2027,15 +2026,7 @@ const sidebars: SidebarsConfig = {
               },
 
               items: [
-                {
-                  type: 'category',
-                  label: 'Get started',
-                  link: {
-                    id: 'products/postgresql/howto/list-get-started',
-                    type: 'doc',
-                  },
-                  items: ['products/postgresql/howto/pagila'],
-                },
+                'products/postgresql/howto/pagila',
                 {
                   type: 'category',
                   label: 'Connect to service',

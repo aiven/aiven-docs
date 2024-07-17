@@ -70,4 +70,7 @@
 /platform/howto/project-support-center                   https://aiven.io/docs/platform/howto/support
 /integrations                                            https://aiven.io/docs/platform/concepts/service-integration
 
-/products/mysql/howto/list-get-started      https://aiven.io/docs/products/mysql/get-started
+/products/mysql/howto/list-get-started                   https://aiven.io/docs/products/mysql/get-started
+/products/postgresql/howto/list-get-started              https://aiven.io/docs/products/postgresql/get-started
+
+/products/cassandra/howto/list-get-started               http://aiven.io/docs/products/cassandra/get-started
