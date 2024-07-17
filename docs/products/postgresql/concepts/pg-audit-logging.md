@@ -3,13 +3,13 @@ title: Aiven for PostgreSQL® audit logging
 sidebar_label: Audit logging
 ---
 
-A path to optimal data security, compliance, incident management, and system performance starts with [collecting robust audit logs](/docs/products/postgresql/howto/use-pg-audit-logging).
+The path to optimal data security, compliance, incident management, and system performance starts with [collecting robust audit logs](/docs/products/postgresql/howto/use-pg-audit-logging).
 
 ## About audit logging
 
 The audit logging feature allows you to monitor and track activities within relational
-database systems, such as Aiven for PostgreSQL®. Check multiple applications of this
-feature in [Why use the audit logging](#why-use-pgaudit).
+database systems, such as Aiven for PostgreSQL®. Learn about multiple applications of this
+feature in [Why use audit logging](#why-use-pgaudit).
 
 ## Why use audit logging {#why-use-pgaudit}
 
@@ -22,7 +22,7 @@ Data Security
 
 Compliance
 
-- Use audit logs as a regulatory compliance evidence to demonstrate that the organization
+- Use audit logs as regulatory compliance evidence to demonstrate that the organization
   meets industry or state regulations during audits
 - Track access to sensitive data to comply with data privacy regulations
 
@@ -35,19 +35,18 @@ Accountability
 
 Operational security
 
-- Monitor and analyze audit logs to proactively identify and resolve security incidents
-- Analyze audit logs to detect and respond to potential security threats
+- Proactively identify and resolve security incidents
+- Detect and respond to potential security threats
 
 Incident management and root cause analysis
 
-- Investigate an incident with audit logs as a detailed trail of events leading up to the
-  incidents
+- Investigate an incident with a detailed trail of events leading up to it
 - Analyze the root cause of an incident with audit logs providing data on actions and
   events that may have led to the incident
 
 System performance optimization
 
-- Monitor and analyze system performance to identify bottlenecks.
+- Monitor and analyze system performance to identify bottlenecks
 - Analyzing audit logs to assess resource utilization patterns and optimize the system
   configuration
 
@@ -55,12 +54,12 @@ Data recovery and disaster planning
 
 - Use audit logs for data restoration in case of data loss or system failure
 - Analyze audit logs to improve system resilience and disaster planning strategies by
-  identify potential points of failure
+  identifying potential points of failure
 
 Change management and version control
 
 - Use audit logs to keep a record of changes made to databases, software, and
-  configurations, ensuring a proper version control
+  configurations, ensuring proper version control
 
 ## Use cases
 
@@ -78,7 +77,7 @@ The audit logging feature has application in the following industries:
 
 - Government and public sector
 
-  Tracking changes in critical systems, secure sensitive data, and meet legal and
+  Tracking changes in critical systems, securing sensitive data, and meeting legal and
   regulatory requirements
 
 - Information technology (IT) and software companies
@@ -123,8 +122,7 @@ using the [Aiven Console](https://console.aiven.io), the [Aiven CLI](/docs/tools
 
 When enabled on your service, the audit logging can be
 [configured](/docs/products/postgresql/howto/use-pg-audit-logging) to match your use case.
-[Audit logging parameters](https://github.com/pgaudit/pgaudit/tree/6afeae52d8e4569235bf6088e983d95ec26f13b7#readme)
-for fine-tuning the feature are the following:
+Audit logging parameters for fine-tuning the feature are the following:
 
 - `pgaudit.log` (default: none)
   Classes of statements to be logged by the session audit logging
@@ -151,15 +149,15 @@ for fine-tuning the feature are the following:
 
 - `pgaudit.log_rows`
   Whether the audit logging should include the rows retrieved or affected by a statement
-  (with the rows field located after the parameter field)
+  with the rows field located after the parameter field
 
 - `pgaudit.log_statement` (default: on)
   Whether the audit logging should include the statement text and parameters
 
 - `pgaudit.log_statement_once` (default: off)
   Whether the audit logging should include the statement text and parameters in the first
-  log entry for a statement/ sub-statement combination (as opposed to including them in
-  all the entries)
+  log entry for a statement/sub-statement combination as opposed to including them in
+  all the entries
 
 - `pgaudit.role`
   Master role to use for an object audit logging
