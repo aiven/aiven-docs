@@ -73,4 +73,6 @@
 /products/mysql/howto/list-get-started                   https://aiven.io/docs/products/mysql/get-started
 /products/postgresql/howto/list-get-started              https://aiven.io/docs/products/postgresql/get-started
 
-/products/cassandra/howto/list-get-started               http://aiven.io/docs/products/cassandra/get-started
+/products/cassandra/howto/list-get-started               https://aiven.io/docs/products/cassandra/get-started
+/products/clickhouse/howto/list-get-started              https://aiven.io/docs/products/clickhouse/get-started
+/products/clickhouse/howto/load-dataset                  https://aiven.io/docs/products/clickhouse/get-started#load-a-dataset

@@ -1330,18 +1330,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Get started',
-                  link: {
-                    type: 'doc',
-                    id: 'products/clickhouse/howto/list-get-started',
-                  },
-                  items: [
-                    'products/clickhouse/howto/load-dataset',
-                    'products/clickhouse/howto/secure-service',
-                  ],
-                },
-                {
-                  type: 'category',
                   label: 'Connect to service',
                   link: {
                     type: 'doc',
@@ -1364,6 +1352,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/clickhouse/howto/list-manage-service',
                   },
                   items: [
+                    'products/clickhouse/howto/secure-service',
                     'products/clickhouse/howto/manage-users-roles',
                     'products/clickhouse/howto/manage-databases-tables',
                     'products/clickhouse/howto/query-databases',

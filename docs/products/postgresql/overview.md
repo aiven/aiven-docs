@@ -1,5 +1,6 @@
 ---
 title: Aiven for PostgreSQL® overview
+sidebar_label: Overview
 ---
 
 ## About PostgreSQL®

@@ -1,5 +1,6 @@
 ---
 title: Aiven for MySQL® overview
+sidebar_label: Overview
 ---
 
 Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice. It is available at a size to suit your needs, from single-node starter plans to highly available production platforms.
