@@ -1705,7 +1705,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/mysql/howto',
               },
               items: [
-                'products/mysql/howto/list-get-started',
                 {
                   type: 'category',
                   label: 'Connect to service',
