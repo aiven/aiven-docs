@@ -2,9 +2,7 @@
 title: Create a JDBC source connector from MySQL to Apache Kafka®
 ---
 
-The JDBC source connector pushes data from a relational database, such
-as MySQL, to Apache Kafka® where can be transformed and read by multiple
-consumers.
+The JDBC source connector pushes data from a relational database, such as MySQL, to Apache Kafka® where can be transformed and read by multiple consumers.
 
 :::tip
 Sourcing data from a database into Apache Kafka decouples the database
@@ -26,7 +24,7 @@ for Apache Kafka service
 [with Apache Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 source MySQL database upfront:
 
 -   `MYSQL_HOST`: The database hostname
@@ -88,7 +86,7 @@ The configuration file contains the following entries:
     table defined.
 -   `poll.interval.ms`: query frequency, default 5000 milliseconds
 
-Check out the [dedicated
+See the [dedicated
 documentation](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector-config-options.rst)
 for the full list of parameters.
 

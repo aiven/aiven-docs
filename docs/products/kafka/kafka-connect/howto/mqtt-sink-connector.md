@@ -30,7 +30,7 @@ enable the `auto_create_topic` parameter so that the topic will be
 created automatically.
 :::
 
-Furthermore you need to collect the following information about the sink
+Also collect the following information about the sink
 MQTT server upfront:
 
 -   `USERNAME`: The MQTT username to connect
@@ -89,14 +89,14 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to give to the connector.
 -   `connect.mqtt.hosts`, `connect.mqtt.kcql`, `connect.mqtt.username`
     and `connect.mqtt.password`: sink MQTT parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/mqtt-sink-connector#connect_mqtt_rbmq_sink_prereq) phase.
 -   `key.converter` and `value.converter`: The data converter used for
     this example JSON converter is used.
 
-Check out the [dedicated
+See the [dedicated
 documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mqttsinkconnector/#options)
 for the full list of parameters.
 
@@ -110,7 +110,7 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

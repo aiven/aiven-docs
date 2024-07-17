@@ -2,15 +2,15 @@
 title: Tombstones in Apache Cassandra®
 ---
 
-Apache Cassandra manages deletion of data via a mechanism called
-*tombstones*. Because Cassandra is a distributed system, it cannot
-delete data immediately in the same way as a traditional relational
-database. On a high-level, when a row is deleted, instead of immediately
-deleting it, Cassandra will mark it as a tombstone row. Then, as part of
-regularly scheduled maintenance, the row will actually get deleted. This
-maintenance is called *compaction* and the threshold is controlled by
-the table-level setting `gc_grace_seconds`. Any tombstone older than
-this setting will be removed completely during compaction (with some
+Apache Cassandra manages deletion of data via a mechanism called *tombstones*.
+
+Because Cassandra is a distributed system, it cannot delete data immediately in
+the same way as a traditional relational database. On a high-level, when a row
+is deleted, instead of immediately deleting it, Cassandra will mark it as a
+tombstone row. Then, as part of regularly scheduled maintenance, the row will
+actually get deleted. This maintenance is called *compaction* and the threshold
+is controlled by the table-level setting `gc_grace_seconds`. Any tombstone older
+than this setting will be removed completely during compaction (with some
 caveats - more details in the [Cassandra documentation on
 compaction](https://cassandra.apache.org/doc/latest/cassandra/operating/compaction/index.html#the-gc_grace_seconds-parameter-and-tombstone-removal)).
 The default value for this setting is 864000 seconds (10 days).
@@ -35,7 +35,7 @@ a large part of a table.
 
 -   Full table scans like `SELECT * from inventory.items`
 -   Any query that requires adding `ALLOW FILTERING`
--   Range queries, i.e. queries with `WHERE item_cost > threshold` or
+-   Range queries, which are queries with `WHERE item_cost > threshold` or
     similar
 
 ### Tombstones and disk usage

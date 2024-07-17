@@ -2,8 +2,7 @@
 title: Connect to Aiven for MySQL® from the command line
 ---
 
-Here, you can find how to connect to your MySQL via the command line
-with a choice of tools:
+Connect to your MySQL via the command line with the following tools:
 
 -   [mysqlsh shell](/docs/products/mysql/howto/connect-from-cli#connect-mysqlsh)
 -   [mysql client](/docs/products/mysql/howto/connect-from-cli#connect-mysql)
@@ -12,7 +11,7 @@ with a choice of tools:
 
 ### Variables
 
-These are the placeholders you will need to replace in the code sample:
+These are the placeholders to replace in the code sample:
 
 | Variable      | Description                                                                                                           |
 | ------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +49,7 @@ MySQL ssl defaultdb SQL> select 1 + 2 as three;
 
 ### Variables
 
-These are the placeholders you need to replace in the code sample:
+These are the placeholders to replace in the code sample:
 
 | Variable        | Description                                      |
 | --------------- | ------------------------------------------------ |

@@ -2,12 +2,9 @@
 title: Connect with cqlsh
 ---
 
-This example shows how to connect to an Aiven for Apache Cassandra®
-service using `cqlsh`.
+This example shows how to connect to an Aiven for Apache Cassandra® service using `cqlsh`.
 
 ## Prerequisites
-
-For this example you need to have:
 
 1.  The `clqsh` client installed. You can install this as part of the
     [Cassandra server

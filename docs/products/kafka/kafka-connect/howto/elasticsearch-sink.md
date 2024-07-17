@@ -105,8 +105,8 @@ The `key.converter` and `value.converter` sections are only needed when
 the source data is in Avro format. If omitted the messages will be read
 as binary format.
 
-When using Avro as source data format, you need to set following
-parameters
+When using Avro as source data format, set following
+parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of
@@ -133,7 +133,7 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

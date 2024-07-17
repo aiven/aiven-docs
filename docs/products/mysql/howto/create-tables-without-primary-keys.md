@@ -23,7 +23,7 @@ If your Aiven for MySQL® service was created after 2020-06-03, by default it do
     this setting and create the table anyway.
 
 Read more about the MySQL replication in the
-[Replication overview](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview) article.
+[Replication overview](/docs/products/mysql/concepts/mysql-replication) article.
 
 ## Create a table without primary keys
 

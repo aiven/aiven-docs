@@ -26,7 +26,7 @@ Aiven for Apache Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 source SQL Server database upfront:
 
 -   `SQLSERVER_HOST`: The database hostname
@@ -89,7 +89,7 @@ The configuration file contains the following entries:
     table defined.
 -   `poll.interval.ms`: query frequency, default 5000 milliseconds.
 
-Check out the [dedicated
+See the [dedicated
 documentation](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector-config-options.rst)
 for the full list of parameters.
 

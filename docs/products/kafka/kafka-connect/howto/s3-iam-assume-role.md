@@ -2,9 +2,8 @@
 title: Use AWS IAM assume role credentials provider
 ---
 
-The
-[Apache Kafka® S3 sink connector by Aiven](s3-sink-connector-aiven) allows you to move data from an Aiven for Apache Kafka®
-cluster to Amazon S3 for long term storage. The connection between the
+The [Apache Kafka® S3 sink connector by Aiven](s3-sink-connector-aiven) allows you to move data from an Aiven for Apache Kafka® cluster to Amazon S3 for long term storage.
+The connection between the
 connector and the S3 bucket can be managed either via long-term AWS
 credentials (`ACCESS_KEY_ID` and `SECRET_ACCESS_KEY`), or using [AWS
 Assume role
@@ -84,8 +83,7 @@ To create a cross-account access role:
 
 You can view all the necessary steps to create an S3 sink connector in
 the
-[dedicated documentation](s3-sink-connector-aiven). To use the IAM assume role credentials provider, you simply
-need to remove, in the connector configuration, the references to:
+[dedicated documentation](s3-sink-connector-aiven). To use the IAM assume role credentials provider, in the connector configuration, remove the references to:
 
 -   `aws.access.key.id`
 -   `aws.secret.access.key`
@@ -101,17 +99,17 @@ You can also include the following parameters:
 
 -   `aws.sts.role.session.name`: the id of the session used to identify
     the task. Can be used to separate different tasks from the same
-    project, and it will be visible in AWS Could Trail log
+    project, and it will be visible in AWS Cloud Trail log
 -   `aws.sts.config.endpoint`: the Security Token Service (STS)
     endpoint. Choosing an endpoint close to the s3 bucket location is
     likely going to provide better performances. As example, if the S3
-    bucket is in the AWS region `eu-north-1`, the STS endpoint shoud be
+    bucket is in the AWS region `eu-north-1`, the STS endpoint must be
     set to `https://sts.eu-north-1.amazonaws.com`. You can review the
     list of STS endpoints in the [dedicated AWS
     documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html).
 
 The connector configurations in a file (we'll refer to it with the name
-`s3_sink.json`) should contain at least the following content:
+`s3_sink.json`) must contain at least the following content:
 
 ```json
 {

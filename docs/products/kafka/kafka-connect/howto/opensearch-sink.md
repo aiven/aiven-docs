@@ -6,6 +6,7 @@ The OpenSearch sink connector enables you to move data from an Aiven for
 Apache Kafka® cluster to an OpenSearch® instance for further processing
 and analysis.
 
+<!-- vale off -->
 :::warning
 This article describes how to create a sink connector to OpenSearch®.
 Similar instructions are available also for Elasticsearch® in the
@@ -17,7 +18,7 @@ See the full set of available parameters and configuration
 options in the [connector's
 documentation](https://github.com/aiven/opensearch-connector-for-apache-kafka/blob/main/docs/opensearch-sink-connector-config-options.rst).
 :::
-
+<!-- vale on -->
 ## Prerequisites {#connect_opensearch_sink_prereq}
 
 To setup an OpenSearch sink connector, you need an Aiven for Apache
@@ -25,7 +26,7 @@ Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target OpenSearch service upfront:
 
 -   `OS_CONNECTION_URL`: The OpenSearch connection URL, in the form of
@@ -115,8 +116,8 @@ The `key.converter` and `value.converter` sections are only needed when
 the source data is in Avro format. If omitted the messages will be read
 as binary format.
 
-When using Avro as source data format, you need to set following
-parameters
+When using Avro as source data format, set following
+parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of
@@ -143,7 +144,7 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 
@@ -179,7 +180,7 @@ You can also create connectors using the
 
 ## Create daily OpenSearch indices
 
-You might need to create a new OpenSearch index on daily basis to store
+You might need to create an OpenSearch index on daily basis to store
 the Apache Kafka messages. Adding the following `TimestampRouter`
 transformation in the connector properties file provides a way to define
 the index name as concatenation of the topic name and message date.
@@ -193,7 +194,7 @@ the index name as concatenation of the topic name and message date.
 
 :::warning
 The current version of the OpenSearch sink connector is not able to
-automatically create daily indices in OpenSearch. Therefore you need to
+automatically create daily indices in OpenSearch. Therefore
 create the indices with the correct name before starting the sink
 connector. You can create OpenSearch indices in many ways including
 [CURL commands](/docs/products/opensearch/howto/opensearch-with-curl).

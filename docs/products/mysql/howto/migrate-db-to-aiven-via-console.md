@@ -2,12 +2,9 @@
 title: Migrate MySQL® databases to Aiven using the console
 ---
 
-You can migrate MySQL® databases to Aiven using either
-[CLI](/docs/products/mysql/howto/migrate-from-external-mysql) or [Aiven Console](https://console.aiven.io/). This article
-addresses the latter scenario by providing guidelines on how to use
-Aiven Console to migrate MySQL databases to the Aiven platform.
+You can migrate MySQL® databases to Aiven using the [Aiven Console](https://console.aiven.io/).
 
-For the other migration method (CLI), see
+You can also use the CLI to migrate your database, see
 [Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql).
 
 ## About migrating via console
@@ -23,7 +20,7 @@ following:
 The console migration tool provides 2 migration methods:
 
 -   **(Recommended) Continuous migration:** Used by default in the tool
-    and taken as a method to follow in this guide. This method uses
+    and taken as the reference method. This method uses
     logical replication so that data transfer is possible not only for
     existing data in the source database when triggering the migration
     but also for any data written to the source database during the
@@ -115,7 +112,7 @@ The console migration tool provides 2 migration methods:
 
     To make sure you have GTID enabled, open your `my.cnf` file in
     `/etc/my.cnf` or `/etc/mysql/my.cnf` (if no luck finding the file,
-    check out [more potential locations in the table corresponding to
+    see [more potential locations in the table corresponding to
     your OS in the MySQL
     documentation](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)).
 
@@ -218,7 +215,7 @@ To avoid conflicts and replication issues while the migration is ongoing
 -   Do not change the replication configuration of the source database
     manually. Don't modify `binlog_format` or reduce
     `max_connections`.
--   Do not make database changes that could disrupt or prevent the
+-   Do not make database changes that can disrupt or prevent the
     connection between the source database and the target database. Do
     not change the source database's listen address and do not modify
     or enable firewalls on the databases.

@@ -79,10 +79,10 @@ The following parameters are used:
     the schema of the Cassandra keyspace.
 
 To create client connections and produce data in the keyspace and tables
-created, you need to run the following command line, after substituting
+created, run the following command line, after substituting
 the placeholders for `HOST`, `PORT`, `PASSWORD` and `SSL_CERTFILE`:
 
-```
+```shell
 ./nb start \
   host=HOST                        \
   port=PORT                        \
@@ -141,13 +141,14 @@ replacing the placeholder `WORKLOAD_NAME` with the name of the workload:
 ```
 ./nb --copy WORKLOAD_NAME
 ```
-
+<!-- vale off -->
 The command generates a file called `cql-keyvalue.yaml` containing the
 specifications for the keyvalue workload.
+<!-- vale on -->
 
 ## Create your own workload {#nosqlbench_cassandra}
 
-Workload files can be modified and then executed with `nb` using the
+Workload files can be modified and executed with `nb` using the
 command option `workload=WORKLOAD_NAME`.
 
 The tool expects the file `WORKLOAD_NAME.yaml` to be in the same

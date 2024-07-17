@@ -19,7 +19,7 @@ To setup an HTTP sink connector, you need an Aiven for Apache Kafka
 service [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target server:
 
 -   `SERVER_URL`: The remote server URL that will be called via POST
@@ -83,8 +83,8 @@ The `key.converter` and `value.converter` sections define how the topic
 messages will be parsed and need to be included in the connector
 configuration.
 
-When using Avro as source data format, you need to set the following
-parameters
+When using Avro as source data format, set the following
+parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of
@@ -111,7 +111,7 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

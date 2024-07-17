@@ -8,14 +8,14 @@ transformed and read by multiple consumers. The details of the connector
 are covered in the [Aiven JDBC source connector GitHub
 documentation](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector.md).
 
-This connector type periodically queries the table(s) to extract the
+This connector type periodically queries the tables to extract the
 data, and can be configured in four **modes**.
 
 ## Bulk mode
 
 In `bulk` mode the connector will periodically query the full table
 retrieving all the rows and publishing them into the Apache Kafka topic.
-Thus, if the source table contains `100.000` rows, the connector will
+As a result, if the source table contains `100.000` rows, the connector will
 insert `100.000` new messages in the Apache Kafka topic for every poll,
 no matter how many rows in the database are new or stale.
 
@@ -91,7 +91,7 @@ the polling query will apply the `COALESCENCE` function, parsing the
 value of the second column only when the first column is null.
 
 :::tip
-The timestamp column(s) is passed via the
+The timestamp columns are passed via the
 `timestamp.column.name parameter`.
 :::
 
@@ -141,6 +141,6 @@ and the timestamp column(s) is passed via the
 `timestamp.column.name parameter`.
 :::
 
-Check out the [Aiven JDBC source connector GitHub
+See the [Aiven JDBC source connector GitHub
 documentation](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector.md)
 for more information.
