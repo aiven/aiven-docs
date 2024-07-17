@@ -7,6 +7,7 @@ import Button from "@site/src/components/Buttons";
 import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/AivenCard";
 import Overview from "@site/static/images/content/platform/platform-overview.webp";
+import GridContainer from "@site/src/components/GridContainer";
 
 <!-- vale off -->
 
@@ -20,11 +21,10 @@ All services run reliably and securely in the clouds of your choice, are observa
 **Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
 [30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
 
-
-<div class="getStarted gap-sm">
-<Button to="https://console.aiven.io/signup">Sign up</Button>
-<ButtonSecondary to="https://aiven.io/changelog">See Product Updates</ButtonSecondary>
-</div>
+<GridContainer columns="4">
+  <Button to="https://console.aiven.io/signup">Sign up for free</Button>
+  <ButtonSecondary to="https://aiven.io/changelog">See product updates</ButtonSecondary>
+</GridContainer>
 
 ## First steps with Aiven
 
@@ -37,7 +37,7 @@ All services run reliably and securely in the clouds of your choice, are observa
 
 ## Learn more
 
-<div class="getStarted">
+<GridContainer>
 
   <Card iconName="dbBackup"
         to="/docs/platform/concepts/service_backups"
@@ -57,6 +57,4 @@ All services run reliably and securely in the clouds of your choice, are observa
         description="Interact with your services via Terraform."
   />
 
-
-
-</div>
+</GridContainer>
