@@ -12,6 +12,10 @@ sidebar_label: Follower fetching
 1. **Lower latency:** Fetching from a nearby replica reduces the time it takes to
    receive data, improving overall performance.
 
+:::note
+Follower fetching is currently supported on AWS (Amazon Web Services).
+:::
+
 ## How it works
 
 Aiven for Apache Kafka uses rack awareness to optimize data fetching and ensure

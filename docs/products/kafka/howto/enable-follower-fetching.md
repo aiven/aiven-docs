@@ -11,6 +11,10 @@ Enabling follower fetching in Aiven for Apache Kafka allows your consumers to fe
 - [Availability zone (AZ)](#identify-availability-zone) information for your
   Aiven for Apache Kafka service.
 
+:::note
+Follower fetching is currently supported on AWS (Amazon Web Services).
+:::
+
 ## Identify availability zone
 
 In AWS, availability zone (AZ) names can vary across different accounts. The same
