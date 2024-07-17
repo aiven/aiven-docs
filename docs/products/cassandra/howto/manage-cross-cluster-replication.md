@@ -54,8 +54,7 @@ changing the plan for a CCR-enabled service.
     **Service plan** section, and select **Change plan** from the
     **Actions** (**...**) menu.
 
-1. In the **Change service plan** window, select a new plan you want to
-    use for your service.
+1. In the **Change service plan** window, select a new plan.
 
     :::tip
     You can also add extra disk space for your service by using the
@@ -127,7 +126,7 @@ driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/driver
    pair to set up the replication factor.
    :::
 
-1. From the `cqlsh` shell, check out
+1. From the `cqlsh` shell, see:
 
    - Existing keyspaces with the `DESCRIBE keyspaces;` query (for a
      new service, only system keyspaces are returned)

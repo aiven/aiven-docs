@@ -2,9 +2,8 @@
 title: Create a stream reactor source connector from Apache Cassandra® to Apache Kafka®
 ---
 
-**The Apache Cassandra® stream reactor source connector** enables you to
-move data from **a Apache Cassandra® database** to **an Aiven for Apache
-Kafka® cluster**. The Lenses.io implementation enables you to write
+**The Apache Cassandra® stream reactor source connector** enables you to move data from **a Apache Cassandra® database** to **an Aiven for Apache Kafka® cluster**.
+The Lenses.io implementation enables you to write
 [KCQL
 transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/cassandrasourceconnector/)
 on the topic data before sending it to the Apache Kafka cluster.
@@ -22,7 +21,7 @@ Apache Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target Cassandra database upfront:
 
 -   `CASSANDRA_HOSTNAME`: The Cassandra hostname
@@ -134,7 +133,7 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to give to the connector.
 -   `connect.cassandra.*`: source parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-source#connect_cassandra_lenses_source_prereq) phase.
 -   `key.converter` and `value.converter`: defines the messages data
@@ -150,8 +149,8 @@ The `key.converter` and `value.converter` sections define how the topic
 messages will be parsed and needs to be included in the connector
 configuration.
 
-When using Avro as source data format, you need to set following
-parameters
+When using Avro as source data format, set following
+parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of
@@ -178,9 +177,11 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+3.  Select **Create New Connector**.
+
+    :::note
+    It enabled only for services [with Kafka Connect enabled](enable-connect).
+    :::
 
 4.  Select **Stream Reactor Cassandra Source**.
 
@@ -211,6 +212,7 @@ You can also create connectors using the
 
 ## Example: Create a Cassandra source connector
 
+<!-- vale off -->
 If you have a Cassandra table named `students` in the
 `students_keyspace` keyspace, with four columns (`id`, `name`, `age` and
 `timestamp_added`) and you want to load incrementally an Apache Kafka

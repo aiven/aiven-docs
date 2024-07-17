@@ -7,6 +7,7 @@ move data from an **Aiven for Apache Kafka®** cluster to **Amazon S3**
 for long term storage. The following document describes advanced
 parameters defining the naming and data formats.
 
+<!-- vale off -->
 :::warning
 Aiven provides two version of S3 sink connector: one developed by Aiven,
 another developed by Confluent.
@@ -15,6 +16,7 @@ This article is about the **Aiven** version. Documentation for the
 Confluent version is available at the
 [dedicated page](s3-sink-additional-parameters-confluent).
 :::
+<!-- vale on -->
 
 ## S3 naming format
 
@@ -22,7 +24,7 @@ The Apache Kafka Connect® S3 sink connector by Aiven stores a series of
 files as objects in the specified S3 bucket. By default, each object is
 named using the pattern:
 
-``` 
+```
 [](AWS_S3_PREFIX><TOPIC_NAME>-<PARTITION_NUMBER>-<START_OFFSET>.<FILE_EXTENSION)
 ```
 
@@ -69,8 +71,8 @@ output, are encoded in `Base64`.
 For example, setting `format.output.fields` to `value,key,timestamp`
 results in rows in the S3 files like the following:
 
-``` 
-bWVzc2FnZV9jb250ZW50,cGFydGl0aW9uX2tleQ==,1511801218777 
+```
+bWVzc2FnZV9jb250ZW50,cGFydGl0aW9uX2tleQ==,1511801218777
 ```
 
 :::tip

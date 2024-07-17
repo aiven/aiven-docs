@@ -58,6 +58,7 @@ datacenters
 Datadog
 datagen
 Datagen
+datagrams
 datasource
 Datastax
 datastore
@@ -80,7 +81,6 @@ dockerized
 downsampled
 downsampling
 Dragonfly
-datagrams
 DSBulk
 DZone
 ECEs?
@@ -112,6 +112,7 @@ Gradle
 Grafana
 Grafana/M
 GSuite
+GTID
 HAProxy
 hardcoded
 HashiCorp
@@ -175,10 +176,10 @@ Memorystore
 Mezmo
 MirrorMaker
 MongoDB
+multicast
 myhoard
 myhoard
 MySQL
-multicast
 namespace/MS
 namespaces?
 netmask

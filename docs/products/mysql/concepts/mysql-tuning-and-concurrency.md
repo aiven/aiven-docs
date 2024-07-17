@@ -89,7 +89,7 @@ SELECT ( @@read_buffer_size
 ```
 
 :::important
-The actual amount of memory a query could use is technically unbounded.
+The actual amount of memory a query can use is technically unbounded.
 
 Uncontrolled memory allocations and temporary table usage can adversely
 affect memory allocation. The data dictionary size is based on the

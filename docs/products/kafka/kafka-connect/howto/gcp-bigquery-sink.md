@@ -126,8 +126,8 @@ The configuration file contains the following entries:
     when the source data is in Avro format. If omitted the messages will
     be read as binary format.
 
-    When using Avro as source data format, you need to set following
-    parameters
+    When using Avro as source data format, set following
+    parameters:
 
     -   `value.converter.schema.registry.url`: pointing to the Aiven for
         Apache Kafka schema registry URL in the form of
@@ -166,7 +166,7 @@ The configuration file contains the following entries:
     :::warning
     When the connector automatically performs subsequent schema changes
     on tables, columns, and data type definitions, it reduces the
-    control database users have over these changes. This could lead to
+    control database users have over these changes. This can lead to
     unexpected errors, particularly if message evolution exceeds the
     compatibility limits of BigQuery and its associated applications.
     :::
@@ -219,7 +219,7 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 
@@ -246,7 +246,7 @@ To create a Kafka Connect connector, follow these steps:
 9.  Verify the connector status under the **Connectors** screen.
 
 10. Verify the presence of the data in the target BigQuery dataset, the
-    table name is equal to the Apache Kafka topic name. If you need to
+    table name is equal to the Apache Kafka topic name. To
     change the target table name, you can do so using the Kafka Connect
     `RegexRouter` transformation.
 

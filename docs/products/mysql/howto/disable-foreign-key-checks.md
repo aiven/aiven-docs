@@ -36,8 +36,7 @@ tab.
 
 ## Check the foreign key check flag
 
-To check the foreign key check flag you need to take the following
-steps:
+To check the foreign key check flag:
 
 -   Connect to your Aiven for MySQL service with the following command:
 

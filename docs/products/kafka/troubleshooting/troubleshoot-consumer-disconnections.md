@@ -66,7 +66,7 @@ they exist.
 
 -   Make sure that your consumers are relying on a unique `group.id`.
 -   It is generally a good idea to reduce `max.poll.records` or
-    `max.partition.fetch.bytes`, and then monitor if the situation
+    `max.partition.fetch.bytes`, and monitor if the situation
     improves.
 -   If it is required to stick to large batches (such as in windowing
     and data lake ingestion use-cases), then temporarily increasing

@@ -2,8 +2,7 @@
 title: Create a stream reactor sink connector from Apache Kafka® to Redis®*
 ---
 
-**The Redis stream reactor sink connector** enables you to move data
-from **an Aiven for Apache Kafka® cluster** to **a Redis®\* database**.
+**The Redis stream reactor sink connector** enables you to move data from **an Aiven for Apache Kafka® cluster** to **a Redis®\* database**.
 The Lenses.io implementation enables you to write [KCQL
 transformations](https://docs.lenses.io/connectors/sink/redis.html) on
 the topic data before sending it to the Redis database.
@@ -27,7 +26,7 @@ To setup a Redis sink connector, you need an Aiven for Apache Kafka
 service [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore to collect the following information about the
+Also collect the following information about the
 target Redis database upfront:
 
 -   `REDIS_HOSTNAME`: The Redis hostname

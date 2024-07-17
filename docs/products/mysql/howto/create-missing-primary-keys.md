@@ -2,7 +2,7 @@
 title: Create missing primary keys
 ---
 
-Learn strategies to create missing primary keys in your Aiven for MySQL® service. They are important [for MySQL replication process](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview).
+Learn strategies to create missing primary keys in your Aiven for MySQL® service. They are important [for MySQL replication process](/docs/products/mysql/concepts/mysql-replication).
 
 ## List tables without primary key
 
@@ -33,7 +33,7 @@ SHOW CREATE TABLE database_name.table_name;
 ```
 
 If your table already contains a column or set of columns that can be
-used as primary key or composite key, then using such column(s) is
+used as primary key or composite key, then using such columns is
 recommended.
 
 In the next sections, find examples of tables definitions and the

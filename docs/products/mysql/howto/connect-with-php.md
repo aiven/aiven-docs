@@ -10,7 +10,7 @@ use of the built-in PDO module.
 
 ## Variables
 
-These are the placeholders you need to replace in the code sample:
+These are the placeholders to replace in the code sample:
 
 |  Variable   |                                                        Description                                                        |
 |-------------|---------------------------------------------------------------------------------------------------------------------------|

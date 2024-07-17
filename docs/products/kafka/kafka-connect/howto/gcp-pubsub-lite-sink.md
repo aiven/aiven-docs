@@ -20,7 +20,7 @@ Apache Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target Google Pub/Sub Lite upfront:
 
 -   `GCP_PROJECT_NAME`: The GCP project name where the target Google
@@ -105,8 +105,8 @@ The configuration file contains the following entries:
     when the sink data is in Avro format. If omitted the messages will
     be read as binary format.
 
-    When using Avro as sink data format, you need to set following
-    parameters
+    When using Avro as sink data format, set following
+    parameters:
 
     -   `value.converter.schema.registry.url`: pointing to the Aiven for
         Apache Kafka schema registry URL in the form of
@@ -136,7 +136,7 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

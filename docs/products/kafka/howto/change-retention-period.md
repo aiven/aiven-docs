@@ -2,9 +2,8 @@
 title: Change data retention period
 ---
 
-To avoid running out of disk space, by default, Apache Kafka® drops the
-oldest messages from the beginning of each log after their retention
-period expires. **Aiven for Apache Kafka®** allows you to configure the
+To avoid running out of disk space, by default, Apache Kafka® drops the oldest messages from the beginning of each log after their retention period expires.
+**Aiven for Apache Kafka®** allows you to configure the
 retention period for each topic.
 
 The retention period can be configured at both the service and topic
@@ -18,11 +17,11 @@ retention period of any previously created topics.
 To change the retention period for a single topic, follow these steps:
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and then choose your Aiven for Apache Kafka® service.
+    project and choose your Aiven for Apache Kafka® service.
 
 2.  Select **Topics** from the left sidebar.
 
-3.  Select the topic from the **Topics** screen for which you want to
+3.  Select the topic from the **Topics** screen for which to
     modify the retention period.
 
 4.  In the **Topic info** screen, select **Modify**.
@@ -45,14 +44,14 @@ To change the retention period for a single topic, follow these steps:
     length in milliseconds.
 
     :::tip
-    You can also change **Retention bytes** setting if you want to limit
+    You can also change **Retention bytes** setting to limit
     amount of data retained based on the storage usage.
     :::
 
 ## At a service level
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and then choose your Aiven for Apache Kafka® service.
+    project and choose your Aiven for Apache Kafka® service.
 2.  In the service page, select **Service settings** from the sidebar.
 3.  On the **Service settings** page, scroll down to the **Advanced
     configuration** section, and click **Configure**.

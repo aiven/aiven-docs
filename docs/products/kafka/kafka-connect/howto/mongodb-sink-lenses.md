@@ -2,9 +2,8 @@
 title: Create a sink connector by Lenses.io from Apache Kafka® to MongoDB
 ---
 
-The MongoDB sink connector enables you to move data from an Aiven for
-Apache Kafka® cluster to a MongoDB database. The Lenses.io
-implementation enables you to write [KCQL
+The MongoDB sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a MongoDB database.
+The Lenses.io implementation enables you to write [KCQL
 transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mongosinkconnector/)
 on the topic data before sending it to the MongoDB database.
 
@@ -32,7 +31,7 @@ To setup a MongoDB sink connector, you need an Aiven for Apache Kafka
 service [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target MongoDB database upfront:
 
 -   `MONGODB_USERNAME`: The database username to connect
@@ -116,7 +115,7 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to give To the connector.
 -   `connect.mongo.connection`: sink parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses#connect_mongodb_lenses_sink_prereq) phase.
 -   `key.converter` and `value.converter`: defines the messages data
@@ -132,8 +131,8 @@ The `key.converter` and `value.converter` sections define how the topic
 messages will be parsed and needs to be included in the connector
 configuration.
 
-When using Avro as source data format, you need to set following
-parameters
+When using Avro as source data format, set following
+parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of
@@ -160,9 +159,11 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+3.  Select **Create New Connector**.
+
+    :::note
+    It is enabled only for services [with Kafka Connect enabled](enable-connect).
+    :::
 
 4.  Select **Stream Reactor MongoDB Sink**.
 
@@ -197,9 +198,9 @@ You can also create connectors using the
 ## Example: Create a MongoDB sink connector in insert mode
 
 If you have a topic named `students` containing the following data that
-you want to move to MongoDB:
+to be moved to MongoDB:
 
-```
+```json
 {"name":"carlo", "age": 77}
 {"name":"lucy", "age": 55}
 {"name":"carlo", "age": 33}
@@ -241,11 +242,11 @@ named `studentscol` in the MongoDB database referenced by the
 
 ## Example: Create a MongoDB sink connector in upsert mode
 
-If you have a topic named `students` containing the following data that
-you want to move to MongoDB, but having one document per person `name`
+If you have a topic named `students` containing the following data
+to be moved to MongoDB, but having one document per person `name`
 in the following messages:
 
-```
+```json
 {"name":"carlo", "age": 77}
 {"name":"lucy", "age": 55}
 {"name":"carlo", "age": 33}

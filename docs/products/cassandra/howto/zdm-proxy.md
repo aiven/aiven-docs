@@ -2,10 +2,7 @@
 title: Migrate to Aiven for Apache Cassandra® with no downtime
 ---
 
-Zero Downtime Migration (ZDM) Proxy is an open-source component
-developed in Go and based on client-server architecture. It enables you
-to migrate from one Apache Cassandra® cluster to another without
-downtime or code changes in the application client.
+Zero Downtime Migration (ZDM) Proxy is an open-source component developed in Go and based on client-server architecture. It enables you to migrate from one Apache Cassandra® cluster to another without downtime or code changes in the application client.
 
 For details on ZDM Proxy, see [zdm-proxy
 GitHub](https://github.com/datastax/zdm-proxy).
@@ -25,7 +22,7 @@ Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introducti
 
 -   Apache Cassandra instance to migrate to the Aiven
     platform (migration source)
--   Aiven for Apache Cassandra service where you want to migrate your
+-   Aiven for Apache Cassandra service where to migrate your
     external instance (migration target)
 -   [Aiven CLI client installed](/docs/tools/cli)
 -   `cqlsh`
@@ -221,7 +218,7 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
 
     ZDM Proxy has forwarded both the write request and the read request to
     the source cluster. As a result, all the values are there: both
-    newly-added ones (`50` and `48`) and previously-added ones (`42`, `44`,
+    newly-added ones (`50` and `48`) and previously added ones (`42`, `44`,
     and `46`).
 
 ### Check data in the target

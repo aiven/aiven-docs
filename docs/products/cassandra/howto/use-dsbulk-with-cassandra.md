@@ -2,11 +2,7 @@
 title: Use DSBULK to load, unload and count data on Aiven service for Cassandra®
 ---
 
-[DSBulk](https://docs.datastax.com/en/dsbulk/docs/reference/dsbulkCmd.html)
-is a highly configurable tool used to load, unload and count data in
-Apache Cassandra®. It has configurable consistency levels for loading
-and unloading and offers the most accurate way to count records in
-Cassandra.
+[DSBulk](https://docs.datastax.com/en/dsbulk/docs/reference/dsbulkCmd.html) is a highly configurable tool used to load, unload and count data in Apache Cassandra®. It has configurable consistency levels for loading and unloading and offers the most accurate way to count records in Cassandra.
 
 ## Prerequisites
 
@@ -46,7 +42,7 @@ truststore.
 1.  Go to [Aiven Console](https://console.aiven.io/) and download the
     certificate from the **Overview** page of your Aiven for Apache
     Cassandra service. Save the CA certificate in a file called
-    `cassandra-certificate.pem` in a directory on the linux system where
+    `cassandra-certificate.pem` in a directory on the Linux system where
     `dsbulk` runs.
 
 2.  Run this command line to create a truststore file and import the

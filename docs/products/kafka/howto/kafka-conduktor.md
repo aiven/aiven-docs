@@ -45,7 +45,7 @@ connect, this is outlined in the steps below.
     -   Download the **CA Certificate** file to your computer.
     -   In the Conduktor application, click the settings dropdown in the
         bottom right hand side and choose **Network**.
-    -   On the **Trusted Certificates** tab, select **Import** and then
+    -   On the **Trusted Certificates** tab, select **Import** and
         supply the CA certificate file you downloaded. Save the
         settings.
     :::

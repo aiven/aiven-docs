@@ -54,7 +54,7 @@ An explanation of these various buffers (or code areas) can be found in
 the MySQL documentation: [How MySQL Uses
 Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html).
 
-Using a 4GB service as an example, a view of the global buffers shows
+Using a 4 GB service as an example, a view of the global buffers shows
 what memory has been allocated:
 
 ```sql
@@ -102,7 +102,7 @@ issue**.
 :::
 
 In the above example, the global buffers consume \~1.6 GiB of memory;
-almost half the RAM on a 4GB service. However, this does not denote any
+almost half the RAM on a 4 GB service. However, this does not denote any
 particular issue, but rather, standard operating conditions.
 
 When memory issues are suspected, or the service is encountering

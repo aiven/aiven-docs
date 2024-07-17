@@ -18,7 +18,7 @@ To setup a InfluxDB sink connector, you need an Aiven for Apache Kafka
 service [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target InfluxDB database upfront:
 
 -   `INFLUXDB_USERNAME`: The database username to connect
@@ -107,7 +107,7 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to give to the connector.
 -   `connect.influx.*`: sink parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/influx-sink#connect_influx_lenses_sink_prereq) phase.
 -   `topics`: the comma-separated list of topics to sink
@@ -124,8 +124,8 @@ The `key.converter` and `value.converter` sections define how the topic
 messages will be parsed and needs to be included in the connector
 configuration.
 
-When using Avro as source data format, you need to set following
-parameters
+When using Avro as source data format, set following
+parameters:
 
 -   `value.converter.schema.registry.url`: pointing to the Aiven for
     Apache Kafka schema registry URL in the form of
@@ -152,7 +152,7 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

@@ -2,13 +2,8 @@
 title: MySQL replication
 ---
 
-## MySQL replication overview {#myslq-replication-overview}
-
-MySQL replication is always based on replicating logical changes. This
-means that the replication protocol may contain an actual statement that
-the target server should apply or it may have an entry saying **update
-row with these old attributes to have these new attributes**. These are
-called statement and row formats.
+MySQL replication is always based on replicating logical changes. This means that the replication protocol may contain an actual statement that the target server should apply or it may have an entry saying **update row with these old attributes to have these new attributes**.
+These are called statement and row formats.
 
 The statement format is more compact but can't represent all changes
 because some statements would yield different results if executed as is
@@ -20,7 +15,7 @@ statement based and row based replication on the [Advantages and
 Disadvantages of Statement-Based and Row-Based
 Replication](https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html)
 article.
-
+<!-- vale off -->
 The row based replication works very well as long as the tables being
 replicated have a primary key. MySQL primary key look ups are very fast
 and the target server can find the rows to update and delete very
@@ -28,7 +23,7 @@ quickly. However, when the table being replicated is lacking a primary
 key, the target server needs to make a sequential table scan for each
 individual update or delete statement and the replication can become
 extremely slow if the table is large.
-
+<!-- vale on -->
 ```bash
 DELETE FROM nopk WHERE modified_time > '2022-01-13'
 ```
@@ -37,15 +32,15 @@ If a statement like the above matched 500 rows and the table had a
 million rows altogether, the row based replication format would contain
 500 individual delete operations and the target server needed to do
 sequential scan over the one million rows for each of the individual
-deletions, which could take tens of minutes. If the table had a primary
+deletions, which can take tens of minutes. If the table had a primary
 key, the same statement would likely be replicated in under a second.
 
 ## Replication use in Aiven for MySQL
 
 The considerations presented on the
-[Replication overview](/docs/products/mysql/concepts/mysql-replication#myslq-replication-overview) section are not only valid for services that actually have
+[Replication overview](/docs/products/mysql/concepts/mysql-replication) section are not only valid for services that actually have
 standby nodes or read-only replicas. Whenever the Aiven management
-platform needs to create a new node for a service, the node is first
+platform needs to create a node for a service, the node is first
 initialized from backup to most recent backed up state. This includes
 applying the full replication stream that has been created after the
 most recent full base backup. Once the latest backed up state has been

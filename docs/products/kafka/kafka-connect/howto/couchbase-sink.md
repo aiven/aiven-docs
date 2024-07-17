@@ -2,8 +2,7 @@
 title: Create a sink connector from Apache Kafka® to Couchbase
 ---
 
-The [Couchbase](https://www.couchbase.com/) sink connector pushes Apache
-Kafka® data to the NoSQL database.
+The [Couchbase](https://www.couchbase.com/) sink connector pushes Apache Kafka® data to the NoSQL database.
 
 :::note
 See the full set of available parameters and configuration
@@ -18,7 +17,7 @@ need an Aiven for Apache Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the sink
+Also collect the following information about the sink
 Couchbase database upfront:
 
 -   `COUCHBASE_SEED_NODES`: The database seed nodes
@@ -85,9 +84,11 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+3.  Select **Create New Connector**
+
+    :::note
+    Is is enabled only for services [with Kafka Connect enabled](enable-connect).
+    :::
 
 4.  Select **Couchbase Sink**.
 
@@ -132,7 +133,7 @@ properties:
 
 The connector configuration is the following:
 
-```
+```json
 {
     "name": "couchbase_sink",
     "connector.class": "com.couchbase.connect.kafka.CouchbaseSinkConnector",
@@ -146,7 +147,7 @@ The connector configuration is the following:
 
 With the above configuration stored in a `couchbase-sink.json` file, you
 can create the connector in the `demo-kafka` instance and you should see
-the data landing in an Couckbase bucket topic named `travel-sample`.
+the data landing in an Couchbase bucket topic named `travel-sample`.
 
 import CouchBase from "@site/static/includes/trademark-couchbase.md"
 

@@ -101,7 +101,7 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

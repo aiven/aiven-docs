@@ -20,7 +20,7 @@ To setup an Splunk sink connector, you need an Aiven for Apache Kafka
 service [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target server:
 
 -   `SPLUNK_HEC_TOKEN`: The [HEC authentication
@@ -53,7 +53,7 @@ for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
 ### Define a Kafka Connect configuration file
 
 Create a file (we'll refer to this one as `splunk_sink.json`) to hold
-the connector configuration. As an example, here's some configuration
+the connector configuration. As an example, see the following configuration
 for sending JSON payloads to Splunk:
 
 ```json
@@ -87,7 +87,7 @@ The configuration file contains the following entries:
     format](https://docs.splunk.com/Documentation/KafkaConnect/2.0.2/User/Parameters).
 
 :::tip
-When using Splunk with self service SSL certificates it could be useful
+When using Splunk with self service SSL certificates it can be useful
 to set `splunk.hec.ssl.validate.certs` to `false` to disable HTTPS
 certification validation.
 :::
@@ -102,7 +102,7 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 

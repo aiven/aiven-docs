@@ -2,18 +2,15 @@
 title: Backup and restore Aiven for MySQL® data using mysqldump
 ---
 
-Backing up your Aiven for MySQ® data to another storage service is a
-good way to ensure access to your data in case a failure occurs. This
-article shows you how to copy your Aiven for MySQL data to a file, back
-it up to another Aiven for MySQL database, and restore it using the
-`mysqldump`
-[tool](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html).
+Backing up your Aiven for MySQ® data to another storage service is a good way to ensure access to your data in case a failure occurs.
+Learn how to copy your Aiven for MySQL data to a file, back it up to another Aiven
+for MySQL database, and restore it using [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html).
 
 ## Prerequisites
 
 -   The `mysqldump`
     [tool](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
-    installed. Check out the [official
+    installed. See the [official
     MySQL](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html)
     documentation on how to install it.
 -   A source MySQL database to copy your data from. We will refer to it
@@ -116,7 +113,7 @@ mysqldump \
 
 The password will be requested at the prompt. You can paste
 `TARGET_DB_PASSWORD` into the terminal. Your data should be stored in
-your Aiven for MySQL `target-db`. You can check out `mysqlcheck`
+your Aiven for MySQL `target-db`. See the `mysqlcheck`
 [command](https://dev.mysql.com/doc/refman/8.0/en/mysqlcheck.html) to
 perform further analysis of your current MySQL data.
 

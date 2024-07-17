@@ -2,10 +2,7 @@
 title: Create a Google Pub/Sub source connector to Apache Kafka®
 ---
 
-The [Google Pub/Sub source
-connector](https://github.com/googleapis/java-pubsub-group-kafka-connector)
-enables you to push from a Google Pub/Sub subscription to an Aiven for
-Apache Kafka® topic.
+The [Google Pub/Sub source connector](https://github.com/googleapis/java-pubsub-group-kafka-connector) enables you to push from a Google Pub/Sub subscription to an Aiven for Apache Kafka® topic.
 
 :::note
 See the full set of available parameters and configuration
@@ -20,7 +17,7 @@ Apache Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 target Google Pub/Sub upfront:
 
 -   `GCP_PROJECT_NAME`: The GCP project name where the target Google
@@ -128,8 +125,8 @@ The configuration file contains the following entries:
     when the source data is in Avro format. If omitted the messages will
     be read as binary format.
 
-    When using Avro as source data format, you need to set following
-    parameters
+    When using Avro as source data format, set following
+    parameters:
 
     -   `value.converter.schema.registry.url`: pointing to the Aiven for
         Apache Kafka schema registry URL in the form of
@@ -159,9 +156,11 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+3.  Select **Create New Connector**.
+
+    :::note
+    It is enabled only for services [with Kafka Connect enabled](enable-connect).
+    :::
 
 4.  Select **Google Pub/Sub source**.
 
@@ -186,7 +185,7 @@ To create a Kafka Connect connector, follow these steps:
 9.  Verify the connector status under the **Connectors** screen.
 
 10. Verify the presence of the data in the target Pub/Sub dataset, the
-    table name is equal to the Apache Kafka topic name. If you need to
+    table name is equal to the Apache Kafka topic name. To
     change the target table name, you can do so using the Kafka Connect
     `RegexRouter` transformation.
 

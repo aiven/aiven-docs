@@ -2,9 +2,7 @@
 title: Configure AWS for an S3 sink connector
 ---
 
-To be able to sink data from Apache Kafka® to S3 via the dedicated Aiven
-connector, you need to perform the following steps in the [AWS
-console](https://s3.console.aws.amazon.com/):
+To be able to sink data from Apache Kafka® to S3 via the dedicated Aiven connector, open the [AWS console](https://s3.console.aws.amazon.com/) and:
 
 -   **Create an AWS S3 bucket** where the data is going to be stored
 -   **Define an IAM policy** to enable access to the S3 bucket
@@ -37,7 +35,7 @@ permission to the target S3 bucket:
 The following is an example of AWS inline policy that can be added to
 the IAM user by replacing the `<AWS_S3_BUCKET_NAME>` placeholder:
 
-``` 
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

@@ -26,7 +26,7 @@ need an Aiven for Apache Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Furthermore you need to collect the following information about the
+Also collect the following information about the
 source Couchbase database upfront:
 
 -   `COUCHBASE_SEED_NODES`: The database seed nodes
@@ -107,7 +107,7 @@ To create a Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
+3.  Select **Create New Connector**, it is enabled only for
     services
     [with Kafka Connect enabled](enable-connect).
 
@@ -142,7 +142,7 @@ To create a Kafka Connect connector, follow these steps:
 
 10. Verify the presence of the data in the target Apache Kafka topic
     coming from the MongoDB dataset. The topic name is equal to the
-    concatenation of the database and collection name. If you need to
+    concatenation of the database and collection name. To
     change the target table name, you can do so using the Kafka Connect
     `RegexRouter` transformation.
 

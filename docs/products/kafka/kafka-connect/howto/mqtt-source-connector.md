@@ -34,8 +34,7 @@ enable the `auto_create_topic` parameter so that the topic will be
 created automatically.
 :::
 
-Furthermore you need to collect the following information about the
-source MQTT server upfront:
+Also collect the following information about the source MQTT server upfront:
 
 -   `USERNAME`: The MQTT username to connect
 -   `PASSWORD`: The password for the username selected
@@ -83,7 +82,7 @@ Console](https://console.aiven.io/):
 The configuration file contains the following entries:
 
 -   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    you want to use for the connector.
+    to give to the connector.
 -   `connect.mqtt.hosts`, `connect.mqtt.kcql`, `connect.mqtt.username`
     and `connect.mqtt.password`: source MQTT parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/mqtt-source-connector#connect_mqtt_rbmq_source_prereq) phase.
@@ -92,7 +91,7 @@ The configuration file contains the following entries:
 -   `connect.mqtt.service.quality`: Specifies the `Mqtt` quality of
     service.
 
-Check out the [dedicated
+See the [dedicated
 documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/mqttsourceconnector/#options)
 for the full list of parameters.
 
@@ -106,9 +105,11 @@ To create an Apache Kafka Connect connector, follow these steps:
 
 2.  Select **Connectors** from the left sidebar.
 
-3.  Select **Create New Connector**, the button is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+3.  Select **Create New Connector**,
+
+    :::note
+    It is enabled only for services [with Kafka Connect enabled](enable-connect).
+    :::
 
 4.  Select **Stream Reactor MQTT Source Connector**.
 

@@ -2,8 +2,8 @@
 title: Enable Apache Kafka® Connect connectors auto restart on failures
 ---
 
-If you experience an Apache Kafka® Connect connector failure, restarting
-automatically the task is generally not recommended. Perform a proper
+If you experience an Apache Kafka® Connect connector failure, restarting automatically the task is generally not recommended.
+Perform a proper
 investigation on the problem's cause before attempting the restart to
 avoid experiencing similar problems in the future. However, sometimes a
 task can fail due to a rare problem like the dedicated node going out of
@@ -14,7 +14,7 @@ restart usually solves the issue.
 We observed cases when the Debezium source connector for PostgreSQL®
 stopped working after the PostgreSQL maintenance update, due to
 PostgreSQL inability to create replication slots before failover. In
-such cases the connector automatic restart could be a valid solution to
+such cases the connector automatic restart can be a solution to
 avoid the problem.
 :::
 
