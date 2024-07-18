@@ -4,7 +4,7 @@ title: Aiven for MySQL®
 
 import DocCardList from '@theme/DocCardList';
 
-Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice. With Aiven for MySQL, you can easily store, retrieve, or modify your data.
+Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice. With Aiven for MySQL, you can store, retrieve, or modify your data.
 
 ## Aiven for MySQL overview
 
