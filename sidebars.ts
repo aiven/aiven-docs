@@ -780,6 +780,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/concepts/monitor-consumer-group',
                 'products/kafka/concepts/consumer-lag-predictor',
                 'products/kafka/concepts/kafka-quotas',
+                'products/kafka/concepts/follower-fetching',
                 {
                   type: 'category',
                   label: 'Tiered storage',
@@ -875,6 +876,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/optimizing-resource-usage',
                     'products/kafka/howto/enabled-consumer-lag-predictor',
                     'products/kafka/howto/manage-quotas',
+                    'products/kafka/howto/enable-follower-fetching',
                   ],
                 },
                 {
