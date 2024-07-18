@@ -90,8 +90,7 @@ and network traffic charges.
 You receive two separate monthly invoices, one from Aiven for their
 managed services and another from the cloud service provider for the
 cloud infrastructure costs. This enables you to use any cloud commit you
-may have and potentially leverage committed use discounts (CUDs) in
-certain cases.
+may have and potentially leverage enterprise discounts in certain cases.
 
 :::note
 For a cost estimate and analysis, contact your account team.

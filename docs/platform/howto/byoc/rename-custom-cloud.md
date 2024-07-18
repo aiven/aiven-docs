@@ -26,12 +26,16 @@ custom cloud name. You can change this name any time later by following
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
     organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
+-   [Super admin](/docs/platform/howto/make-super-admin) role in your Aiven
+    organization
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
+-   [Super admin](/docs/platform/howto/make-super-admin) role in your Aiven
+    organization
 </TabItem>
 </Tabs>
 
