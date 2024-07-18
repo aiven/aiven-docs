@@ -541,7 +541,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/cassandra',
           },
           items: [
-            'products/cassandra/overview',
             'products/cassandra/get-started',
             {
               type: 'category',
@@ -1667,7 +1666,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/mysql',
           },
           items: [
-            'products/mysql/overview',
             'products/mysql/get-started',
             {
               type: 'category',
@@ -1984,7 +1982,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/postgresql',
           },
           items: [
-            'products/postgresql/overview',
             'products/postgresql/get-started',
             {
               type: 'category',
