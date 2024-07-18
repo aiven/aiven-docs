@@ -1,6 +1,6 @@
 ---
 title: Get started with Aiven for Apache Cassandra®
-sidebar_labels: Get started
+sidebar_label: Get started
 ---
 
 Start using Aiven for Apache Cassandra® by creating a service either in the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](/docs/tools/cli).

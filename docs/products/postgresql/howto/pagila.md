@@ -1,5 +1,6 @@
 ---
 title: "Sample dataset for PostgreSQL®: Pagila"
+sidebar_label: Sample dataset
 ---
 
 Use an Aiven-provided sample database that you can import in your Aiven for PostgreSQL® service.
