@@ -1,5 +1,6 @@
 ---
 title: Get started with Aiven for M3DB
+sidebar_label: Get started
 ---
 
 To begin your journey with Aiven for M3DB, there are two M3-related

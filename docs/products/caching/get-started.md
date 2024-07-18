@@ -1,5 +1,6 @@
 ---
 title: Get started with Aiven for Caching
+sidebar_label: Get started
 ---
 
 The first step in using Aiven for Caching is to create a service. You can do so either using the [Aiven Web Console](https://console.aiven.io/) or the [Aiven CLI](https://github.com/aiven/aiven-client).
