@@ -1,5 +1,6 @@
 ---
-title: Get Started with Aiven for OpenSearch®
+title: Get started with Aiven for OpenSearch®
+sidebar_label: Get started
 ---
 
 To start using Aiven for OpenSearch®, the first step is to create a

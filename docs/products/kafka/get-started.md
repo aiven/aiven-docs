@@ -1,12 +1,9 @@
 ---
 title: Get started with Aiven for Apache Kafka®
+sidebar_label: Get started
 ---
 
-Aiven services are managed in the Aiven [web
-console](https://console.aiven.io/) . When you first log in to the
-console with your email address and password, you will see the
-**Services** view, which shows you all the services in the currently
-selected project.
+Aiven services are managed in the Aiven [web console](https://console.aiven.io/). When you first log in to the console with your email address and password, you will see the **Services** view, which shows you all the services in the currently selected project.
 
 Aiven for Apache Kafka® is a managed service offered by Aiven. The first
 step in using Aiven for Apache Kafka® is to create a service. You can do
