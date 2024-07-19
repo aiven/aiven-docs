@@ -1640,6 +1640,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Data migration',
+                  link: {
+                    type: 'doc',
+                    id: 'products/metrics/howto/list-data-migration',
+                  },
                   items: [
                     'products/metrics/howto/migrate-influxdb-thanos',
                     'products/metrics/howto/migrate-m3db-thanos',
