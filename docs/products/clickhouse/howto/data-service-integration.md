@@ -47,30 +47,30 @@ ClickHouse® in
 
 ### Integrate with Aiven-managed services {#integrate-aiven-services}
 
+You can integrate either with a new Aiven-managed service or with an exising Aiven-managed
+services:
+
 <Tabs groupId="group1">
 <TabItem value="1" label="Integrate with a new service" default>
 To create an integration with a new service in the **Data service integrations** wizard:
 
-1. Use the **Select data service type** menu to select the blank option for no data
-   service type.
-1. In the **Data service integrations** view, select **Create service**.
+1. Unselect all available data service types.
+1. Click **Create service**.
 1. [Set up the new service](/docs/platform/howto/create_new_service).
-1. Come back to your primary service and create an integration to the newly created
-   service.
-   For that purpose, skip the steps that follow and start over with building your
-   integration using this instruction but now
-   [Integrate with an existing Aiven service](#integrate-existing-aiven-services).
+1. Come back to your Aiven for ClickHouse service (<ConsoleLabel name="overview"/> >
+   **Data pipeline** > **Add data source**), and create an integration to the newly created
+   service following up the instructions in next tab
+   **Integrate with an existing service**.
 </TabItem>
 <TabItem value="2" label="Integrate with an existing service">
 To create an integration with an existing service in the **Data service integrations** wizard:
 
-1. Select a type of an Aiven service to integrate with using the
-   **Select data service type** menu. See
+1. Select a type of an Aiven-managed service to integrate with. See
    [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#limitations)
    for supported service types.
 1. Select a service of the chosen type from the list of services available for
    integration and click **Continue**.
-1. Select either **Enable without databases** or **Add databases**.
+1. Click either **Enable without databases** or **Add databases**.
 
    :::note
    If you prefer to create a data service integration without adding integration databases,
@@ -81,15 +81,14 @@ To create an integration with an existing service in the **Data service integrat
 
    - Enable your integration with databases:
 
-     1. Select **Add databases**.
-     1. Enter database names and schema names and select **Enable**.
+     Click **Add databases**, enter database and schema names, and click **Enable**.
 
-     You can preview the created databases by selecting **Databases and tables** from the
-     sidebar.
+     You can preview the created databases by selecting <ConsoleLabel name="databasestables"/>
+     from the sidebar.
 
    - Enable your integration without databases:
 
-     Select **Enable without databases**.
+     Click **Enable without databases**.
 
      You can preview the created integration by selecting <ConsoleLabel name="overview"/>
      from the sidebar.
@@ -106,15 +105,14 @@ For integration with external data sources, Aiven for ClickHouse offers two meth
 To create an integration with an external data source in the **Data service integrations**
 wizard:
 
-1. Select a type of an external service to integrate with using the **Select data
-   service type** menu.
-1. Select an external service of the chosen type from the list of services available for
-   integration and click **Continue**
+1. Select a type of an external data service to integrate with. See
+   [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#limitations)
+   for supported service types.
+1. Select an external data service of the chosen type from the list of services available
+   for integration and click **Continue**
 1. Select an integration method, either **Managed databases**  or **Managed credentials**,
    and click **Continue**.
-1. [Integrate using managed databases](#integrate-managed-databases) or
-   [integrate using managed credentials](#integrate-managed-credentials) depending on your
-   use case.
+1. Integrate with managed databases or with managed credentials:
 
 <Tabs groupId="group2">
 <TabItem value="1" label="Integrate with managed databases" default>
@@ -122,24 +120,27 @@ The managed databases integration uses databases engines and, when enabled,
 automatically creates databases in your Aiven for ClickHouse, where you can ingest your
 external data.
 
-1. Enable the managed databases integration by selecting **Managed databases** and
-   confirming your choice by selecting **Continue**.
+1. Select **Managed databases**, and click **Continue**.
 1. Click **Add databases** to have custom databases created along with the integration, or
    click **Enable without databases** to integrate with no custom databases created.
-1. Populate your automatically created databases with your external data using the
-   following query:
+
+   :::tip
+   If you choose to have databases created automatically, you can populate them with your
+   external data using a query similar to the following:
 
    ```sql
    SELECT data
    FROM ext-postgresql-resource-name.your-pg-table-name
    ```
+
+   :::
+
 </TabItem>
 <TabItem value="2" label="Integrate with managed credentials">
 The managed credentials integration supports storing connection parameters in Aiven
 and allows you to create tables for your external data.
 
-1. Enable the managed credentials integration by selecting **Managed credentials** and
-   confirming your choice by selecting **Continue** > **Enable**.
+1. Select **Managed credentials**, and click **Continue** > **Enable**.
 1. Create tables using
    [table engines](/docs/products/clickhouse/reference/supported-table-engines).
 
@@ -164,7 +165,7 @@ FROM postgresql(ext-postgresql-resource-name,
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
    and a project.
-1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to check
+1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to display
    integrations for.
 1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline**
    and find your integrations grouped according to service types.
@@ -183,7 +184,7 @@ FROM postgresql(ext-postgresql-resource-name,
 1.  From the **Active data service integrations** list, select the
     service integration that you no longer need, and click **Disconnect integration**.
 1.  Make yourself familiar with the impact of disconnecting from a service explained in
-    **Warning**, and select **Disconnect integration** if you accept erasing all the
+    **Warning**, and click **Disconnect integration** if you accept erasing all the
     databases and configuration information.
 
 As a result, your integration is terminated and all the corresponding databases and
