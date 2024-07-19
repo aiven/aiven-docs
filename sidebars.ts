@@ -780,6 +780,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/concepts/consumer-lag-predictor',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/concepts/follower-fetching',
+                'products/kafka/concepts/topic-catalog-overview',
                 {
                   type: 'category',
                   label: 'Tiered storage',
@@ -908,6 +909,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
                     'products/kafka/howto/change-retention-period',
+                    'products/kafka/howto/use-kafka-topic-catalog',
                   ],
                 },
                 {
