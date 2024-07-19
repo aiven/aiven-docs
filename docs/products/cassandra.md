@@ -6,8 +6,6 @@ import DocCardList from '@theme/DocCardList';
 
 [Apache Cassandra®](https://cassandra.apache.org/_/index.html) is an open source, NoSQL database. It is specifically designed to be highly available, performant, and scalable. It supports a distributed architecture with asynchronous replication and is highly fault tolerant.
 
-## Aiven for Apache Cassandra overview
-
 Apache Cassandra originated from Facebook, and since then has had a
 strong history with some of the most demanding data platforms around
 while being in the care of the Apache project. From this strong history
@@ -20,20 +18,15 @@ your organisation needs to succeed.
 
 Apache Cassandra® is designed to handle large volumes of writes to the
 database; this is one of the key reasons we see for adopting Apache
-Cassandra over some of the other options in a similar problem space.
+Cassandra over other options in a similar problem space.
 
 It is a truly distributed database where the individual nodes can
 communicate with one another without referencing any master node. This
 improves both its scalability and its fault tolerance, two key
 capabilities of Apache Cassandra.
 
-## Get started with Aiven for Apache Cassandra
-
-Take your first steps with Aiven for Apache Cassandra® by following
-[Get started with Aiven for Apache Cassandra](/docs/products/cassandra/get-started).
+<DocCardList />
 
 ## Related pages
 
 Learn more about Aiven for Apache Cassandra on [Aiven.io](https://aiven.io/cassandra).
-
-<DocCardList />

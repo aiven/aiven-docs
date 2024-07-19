@@ -4,28 +4,17 @@ title: Aiven for MySQL®
 
 import DocCardList from '@theme/DocCardList';
 
-Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice. With Aiven for MySQL, you can store, retrieve, or modify your data.
-
-## Aiven for MySQL overview
-
-Aiven for MySQL is fast, reliable, and user-friendly. It is scalable and available at a
-size to suit your needs, from single-node starter plans to highly available production
-platforms.
+Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice.
+With Aiven for MySQL, you can store, retrieve, or
+modify your data. This service is scalable and available at a size to suit your
+needs, from single-node starter plans to highly available production platforms.
 
 MySQL has been a key part of the open source
 database landscape for a long time and it's a popular and reliable
 database platform. Aiven takes care of the management side and provides
 a MySQL that you can use.
 
-MySQL is a traditional open source relational database that interacts
-with many well-established applications. Whether you are building
-something new or looking for a modern platform for your existing
-applications, Aiven for MySQL is a friendly and scalable offering of one
-of the best open source databases around.
-
-## Get started with Aiven for MySQL
-
-See the [Aiven for MySQL getting started guide](/docs/products/mysql/get-started).
+<DocCardList />
 
 ## Related pages
 
@@ -38,5 +27,3 @@ See the [Aiven for MySQL getting started guide](/docs/products/mysql/get-started
     our MySQL backup and restore tool
 -   [GitHub repository for the
     project](https://github.com/aiven/myhoard)
-
-<DocCardList />
