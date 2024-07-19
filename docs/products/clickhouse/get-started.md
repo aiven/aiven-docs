@@ -779,6 +779,7 @@ Once the data is loaded, you can run queries against the sample data you importe
 
 ## Next steps
 
+- [Service architecture](/docs/products/clickhouse/concepts/service-architecture)
 - [Secure an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/secure-service)
 - [Manage Aiven for ClickHouse® users and roles](/docs/products/clickhouse/howto/manage-users-roles)
 - [Manage Aiven for ClickHouse® database and tables](/docs/products/clickhouse/howto/manage-databases-tables)

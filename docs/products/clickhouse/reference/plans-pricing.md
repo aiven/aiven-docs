@@ -1,5 +1,6 @@
 ---
 title: Aiven for ClickHouse® service plans
+sidebar_label: Service plans
 ---
 
 Aiven for ClickHouse® is available in a few variants (plans or tiers),

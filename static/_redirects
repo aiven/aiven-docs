@@ -80,3 +80,6 @@
 /products/cassandra/overview                             https://aiven.io/docs/products/cassandra
 /products/postgresql/overview                            https://aiven.io/docs/products/postgresql
 /products/mysql/overview                                 https://aiven.io/docs/products/mysql
+
+/products/clickhouse/list-overview               https://aiven.io/docs/products/clickhouse
+/products/clickhouse/concepts/features-overview  https://aiven.io/docs/products/clickhouse
