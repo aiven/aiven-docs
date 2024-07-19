@@ -16,7 +16,7 @@ import MySQL from "@site/static/images/logos/mysql.svg";
 import PG from "@site/static/images/logos/pg.svg";
 import Valkey from "@site/static/images/logos/valkey.svg";
 
-Use our fully managed services to stream, store, or observe your data. Deploy individual services and advanced data pipelines in minutes.
+Use our fully managed services to stream, store, or analyze your data. Deploy individual services and advanced data pipelines in minutes.
 
 ## Stream
 
@@ -54,7 +54,7 @@ Use our fully managed services to stream, store, or observe your data. Deploy in
     to="/docs/products/valkey"
     iconComponent={Valkey}
     title="Aiven for Valkey"
-    description="An in-memory NoSQL database with a small hootprint and hig performance."
+    description="An in-memory NoSQL database with a small footprint and high performance."
   />
   <Card
     to="/docs/products/dragonfly"
