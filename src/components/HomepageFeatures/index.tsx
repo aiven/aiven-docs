@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/images/icons/home/rocket.svg').default,
     to: '/docs/get-started',
     description: (
-      <>Your first steps to set up your account and your platform.</>
+      <>Set up your organization and start exploring the Aiven platform.</>
     ),
   },
   {
