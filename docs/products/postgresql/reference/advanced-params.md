@@ -1,5 +1,6 @@
 ---
 title: Advanced parameters for Aiven for PostgreSQL®
+sidebar_label: Advanced parameters
 ---
 
 On creating a PostgreSQL® database, you can customize it using a series

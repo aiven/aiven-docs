@@ -1,5 +1,6 @@
 ---
 title: Apache Kafka® upgrade procedure
+sidebar_label: Upgrade procedure
 ---
 
 import MyImg from "@site/static/images/content/figma/kafka-cluster-overview.png";
