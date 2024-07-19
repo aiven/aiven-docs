@@ -47,7 +47,7 @@ ClickHouse® in
 
 ### Integrate with Aiven-managed services {#integrate-aiven-services}
 
-You can integrate either with a new Aiven-managed service or with an exising Aiven-managed
+You can integrate either with a new Aiven-managed service or with an existing Aiven-managed
 services:
 
 <Tabs groupId="group1">
