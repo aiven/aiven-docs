@@ -1289,21 +1289,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/clickhouse',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/list-overview',
-              },
-              items: [
-                'products/clickhouse/concepts/features-overview',
-                'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/reference/plans-pricing',
-                'products/clickhouse/reference/limitations',
-              ],
-            },
             'products/clickhouse/get-started',
+            'products/clickhouse/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1312,6 +1299,8 @@ const sidebars: SidebarsConfig = {
                 id: 'products/clickhouse/concepts',
               },
               items: [
+                'products/clickhouse/concepts/service-architecture',
+                'products/clickhouse/reference/limitations',
                 'products/clickhouse/concepts/olap',
                 'products/clickhouse/concepts/columnar-databases',
                 'products/clickhouse/concepts/indexing',

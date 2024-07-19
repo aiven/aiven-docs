@@ -1,14 +1,10 @@
 ---
 title: Aiven for ClickHouse® service architecture
+sidebar_label: Service architecture
 ---
 
-Aiven for ClickHouse® is implemented as a multi-master cluster where the
-replication of data is managed by ClickHouse itself, the replication of
-schema and users is managed by ZooKeeper, and data backup and
-restoration is managed by Astacus. Discover the technical design behind
-Aiven for ClickHouse: its structure and operation. This article helps
-you understand how Aiven for ClickHouse is set up and configured to work
-as a managed service.
+Aiven for ClickHouse® is implemented as a multi-master cluster where the replication of data is managed by ClickHouse itself, the replication of schema and users is managed by ZooKeeper, and data backup and restoration is managed by Astacus.
+Discover the technical design behind Aiven for ClickHouse.
 
 ## Deployment modes
 
