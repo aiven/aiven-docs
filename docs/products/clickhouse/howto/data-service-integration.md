@@ -1,48 +1,54 @@
 ---
 title: Set up Aiven for ClickHouse® data service integrations
 sidebar_label: Integrate with data source
+keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Connect an Aiven for ClickHouse® service with another Aiven service or external data source to make your data available in the Aiven for ClickHouse service. Depending on your use case, select either the managed-database integration or the managed-credentials integration.
+Connect your Aiven for ClickHouse® service with another Aiven-managed service or external data source to make your data available in the Aiven for ClickHouse service.
 
-:::note[See also]
-For information on data service integration types and methods available with Aiven for
-ClickHouse®, see
-[About Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview).
+:::tip
+Read about data service integration types and methods available with Aiven for
+ClickHouse® in
+[Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview).
 :::
 
 ## Prerequisites
 
-- Make yourself familiar with the limitations listed in
+- You are familiar with the limitations listed in
   [About Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview#limitations).
 - You have an organization, a project, and an Aiven for ClickHouse service in Aiven.
 - You have access to the [Aiven Console](https://console.aiven.io/).
 
 ## Create data service integrations {#create-data-service-integration}
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to a desired organization
-   and project.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
+   and a project.
 1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to integrate
    with a data source.
-1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline** and click
-   <ConsoleLabel name="addnew"/>.
+1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline** and click one
+   of the following:
+
+   - **Add data source** if you're setting up the first integration for that service
+   - <ConsoleIcon name="plus"/> if you're setting up another integrtion for that service
 
    As a result, the **Data service integrations** wizard opens, showing
    a list of all data sources available for integration. If there are no data sources to
    integrate with, create an Aiven-managed service or an integration endpoint by
-   clicking **Create a service** or **Add external endpoint** respectively.
+   clicking **Create service** or **Add external endpoint** respectively.
 
 1. Depending on your use case, continue as instructed in either
   [Integrate with Aiven-managed services](#integrate-aiven-services) or
   [Integrate with external data sources](#integrate-external-services).
 
-### Integrate with Aiven services {#integrate-aiven-services}
+### Integrate with Aiven-managed services {#integrate-aiven-services}
 
-#### Integrate with a new Aiven service
-
+<Tabs groupId="group1">
+<TabItem value="1" label="Integrate with a new service" default>
 To create an integration with a new service in the **Data service integrations** wizard:
 
 1. Use the **Select data service type** menu to select the blank option for no data
@@ -54,13 +60,14 @@ To create an integration with a new service in the **Data service integrations**
    For that purpose, skip the steps that follow and start over with building your
    integration using this instruction but now
    [Integrate with an existing Aiven service](#integrate-existing-aiven-services).
-
-#### Integrate with an existing Aiven service {#integrate-existing-aiven-services}
-
+</TabItem>
+<TabItem value="2" label="Integrate with an existing service">
 To create an integration with an existing service in the **Data service integrations** wizard:
 
 1. Select a type of an Aiven service to integrate with using the
-   **Select data service type** menu.
+   **Select data service type** menu. See
+   [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#limitations)
+   for supported service types.
 1. Select a service of the chosen type from the list of services available for
    integration and click **Continue**.
 1. Select either **Enable without databases** or **Add databases**.
@@ -84,7 +91,10 @@ To create an integration with an existing service in the **Data service integrat
 
      Select **Enable without databases**.
 
-     You can preview the created integration by selecting **Overview** from the sidebar.
+     You can preview the created integration by selecting <ConsoleLabel name="overview"/>
+     from the sidebar.
+</TabItem>
+</Tabs>
 
 ### Integrate with external data sources {#integrate-external-services}
 
@@ -106,13 +116,13 @@ wizard:
    [integrate using managed credentials](#integrate-managed-credentials) depending on your
    use case.
 
-#### Integrate using managed databases {#integrate-managed-databases}
-
-The **Managed databases** integration uses databases engines and, when enabled,
+<Tabs groupId="group2">
+<TabItem value="1" label="Integrate with managed databases" default>
+The managed databases integration uses databases engines and, when enabled,
 automatically creates databases in your Aiven for ClickHouse, where you can ingest your
 external data.
 
-1. Enable the **Managed databases** integration by selecting **Managed databases** and
+1. Enable the managed databases integration by selecting **Managed databases** and
    confirming your choice by selecting **Continue**.
 1. Click **Add databases** to have custom databases created along with the integration, or
    click **Enable without databases** to integrate with no custom databases created.
@@ -123,13 +133,12 @@ external data.
    SELECT data
    FROM ext-postgresql-resource-name.your-pg-table-name
    ```
-
-#### Integrate using managed credentials {#integrate-managed-credentials}
-
-The **Managed credentials** integration supports storing connection parameters in Aiven
+</TabItem>
+<TabItem value="2" label="Integrate with managed credentials">
+The managed credentials integration supports storing connection parameters in Aiven
 and allows you to create tables for your external data.
 
-1. Enable the **Managed credentials** integration by selecting **Managed credentials** and
+1. Enable the managed credentials integration by selecting **Managed credentials** and
    confirming your choice by selecting **Continue** > **Enable**.
 1. Create tables using
    [table engines](/docs/products/clickhouse/reference/supported-table-engines).
@@ -148,11 +157,13 @@ FROM postgresql(ext-postgresql-resource-name,
    database='defaultdb',
    table='your-pg-table-name')
 ```
+</TabItem>
+</Tabs>
 
 ## View data service integrations
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to a desired organization
-   and project.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
+   and a project.
 1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to check
    integrations for.
 1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline**
@@ -162,8 +173,8 @@ FROM postgresql(ext-postgresql-resource-name,
 
 ## Stop data service integrations
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to a desired organization
-    and project.
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
+    and a project.
 1.  From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service you
     want to stop integrations for.
 1.  In the service <ConsoleLabel name="overview"/>, go to **Data pipeline** and click
