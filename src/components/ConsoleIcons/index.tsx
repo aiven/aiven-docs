@@ -343,6 +343,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
         </>
       );
+    case 'governance':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.governance} />
+          <b>Apache Kafka governance</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
