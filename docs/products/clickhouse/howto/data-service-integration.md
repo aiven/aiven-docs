@@ -138,16 +138,29 @@ external data.
 </TabItem>
 <TabItem value="2" label="Integrate with managed credentials">
 The managed credentials integration supports storing connection parameters in Aiven
-and allows you to create tables for your external data.
+and allows you to create tables for your external data. The stored connection parameters
+are automatically seeded in your external data queries.
 
 1. Select **Managed credentials**, and click **Continue** > **Enable**.
 1. Create tables using
-   [table engines](/docs/products/clickhouse/reference/supported-table-engines).
+   [table engines](/docs/products/clickhouse/reference/supported-table-engines), for
+   example the PostgreSQL engine:
 
-:::note
-The connection parameters for your integration are stored in Aiven and automatically
-seeded in your external data queries.
-:::
+   ```sql
+   CREATE TABLE default.postgresql_table
+   (
+      `float_nullable` Nullable(Float32),
+      `str` String,
+      `int_id` Int32
+   )
+   ENGINE = PostgreSQL(postgres_creds);
+   ```
+
+   :::tip
+   For details on how to use different table engines for integrations with external
+   systems, see the
+   [upstream ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/integrations).
+   :::
 
 You can access your credentials storage by passing your external service name in the
 following query:
