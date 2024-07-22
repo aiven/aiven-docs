@@ -780,6 +780,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/concepts/consumer-lag-predictor',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/concepts/follower-fetching',
+                'products/kafka/concepts/governance-overview',
                 {
                   type: 'category',
                   label: 'Tiered storage',
@@ -922,6 +923,15 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/configure-topic-tiered-storage',
                     'products/kafka/howto/tiered-storage-overview-page',
                   ],
+                },
+                {
+                  type: 'category',
+                  label: 'Governance',
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/kafka/howto/governance',
+                  },
+                  items: ['products/kafka/howto/enable-governance'],
                 },
               ],
             },

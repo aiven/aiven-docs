@@ -33,7 +33,7 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.projects} /> <b>Projects</b>
         </>
       );
-      case 'projectsettings':
+    case 'projectsettings':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Settings</b>
@@ -310,6 +310,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
+        </>
+      );
+    case 'governance':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.governance} />
+          <b>Apache Kafka governance</b>
         </>
       );
     default:
