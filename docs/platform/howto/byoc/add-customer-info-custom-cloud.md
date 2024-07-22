@@ -10,8 +10,6 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 
-## About updating customer contacts
-
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
 organizations. While

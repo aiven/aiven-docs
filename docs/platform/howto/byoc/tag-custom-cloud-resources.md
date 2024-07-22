@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Custom cloud tags propagate to resources on the Aiven platform and in your own cloud infrastructure. Tagging allows resource categorization, which simplifies governance, cost allocation, and system performance review.
+Tagging allows resource categorization, which simplifies governance, cost allocation, and system performance review. Custom cloud tags propagate to resources on the Aiven platform and in your own cloud infrastructure.
 
 :::important
 Since the tags propagate to your own cloud infrastructure, the contents and total number
@@ -53,8 +53,8 @@ the tag propagates to your own cloud infrastructure.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 [Create a resource tag for a BYOC service the same way you create it for a regular
-Aiven-managed service](/docs/platform/howto/tag-resources#add-tags-to-services). The only
-extra step when tagging a BYOC service is adding prefix `byoc_resource_tag` to the tag key.
+Aiven-managed service](/docs/platform/howto/tag-resources#add-tags-to-services).
+Ensure you use the `byoc_resource_tag` prefix in the tag key.
 
 For example, to label all VMs running a particular BYOC service with the tag that has
 `my-cost-center` as a key and `12345` as a value, create a resource tag for this service
@@ -67,8 +67,7 @@ you also find limits and limitations that apply to service tags and tagging.
 <TabItem value="2" label="Aiven CLI">
 For your BYOC service, [create tags using the Aiven CLI the same way you create it for a
 regular Aiven-managed service](/docs/platform/howto/tag-resources#add-and-modify-service-tags).
-The only extra step when tagging a BYOC service is adding prefix `byoc_resource_tag` to
-the tag key.
+Ensure you use the `byoc_resource_tag` prefix in the tag key.
 
 ```bash
 avn service tags update SERVICE_NAME
@@ -112,7 +111,7 @@ not [Google tags](https://cloud.google.com/resource-manager/docs/tags/tags-overv
 ### Manage infrastructure tags
 
 Use the
-[avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
+[`avn byoc update`](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
 infrastructure tags for your custom cloud. Pass the tags as an option.
 
 ```bash

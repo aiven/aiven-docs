@@ -26,8 +26,6 @@ Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven org
 
 :::
 
-## About creating a custom cloud
-
 The process of creating a custom cloud in Aiven differs depending on the
 cloud provider to integrate with:
 

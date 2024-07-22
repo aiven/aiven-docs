@@ -9,8 +9,6 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Select your organizations, units, or project that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 
-## About enabling custom clouds on projects
-
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
 organization. As a part of the
@@ -56,41 +54,44 @@ cloud to be available.
 1.  On the selected cloud's page, go to the **Available projects** tab, and modify the
     settings:
 
-    -   Click **Set availability** to decide if your custom cloud is
-        available in all projects in your organization or in
-        selected projects only.
+    - **Set availability**
 
-        - In the **Custom cloud's availability in your organization** window, choose between:
+      1. Click **Set availability** to decide if your custom cloud is
+         available in all projects in your organization or in selected projects/units only.
+
+      1. In the **Custom cloud's availability in your organization** window, choose between:
           - **By default for all projects**
           - **By selection**
             - **Assign organizational units**: select organizational units
             - **Assign projects**: select projects
 
-        - Click **Save**.
+         :::note
+         By selecting an organizational unit, you make your custom cloud
+         available from all the projects in this unit.
+         :::
 
-        :::note
-        By selecting an organizational unit, you make your custom cloud
-        available from all the projects in this unit.
-        :::
+      1. Click **Save**.
 
-    -   Click **Assign projects** to enable your custom cloud in
-        specific organizational units and/or projects.
+    - **Assign projects**
 
-        - In the **Assign projects** window, use the available menus to select
-          units and/or projects.
+      1. Click **Assign projects** to enable your custom cloud in
+         specific organizational units and/or projects.
 
-        - Click **Assign projects**.
+      1. In the **Assign projects** window, use the available menus to select
+         units and/or projects.
+
+      1. Click **Assign projects**.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
-Use the [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add)
+Use the [`avn byoc cloud permissions add`](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add)
 command to enable your custom cloud in organizations, projects, or units.
 
-    ```bash
-    avn byoc cloud permissions add                \
-      --organization-id "ORGANIZATION_IDENTIFIER" \
-      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-      --account "ACCOUNT_IDENTIFIER"
-    ```
+```bash
+avn byoc cloud permissions add                  \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+    --account "ACCOUNT_IDENTIFIER"
+```
 
 </TabItem>
 </Tabs>

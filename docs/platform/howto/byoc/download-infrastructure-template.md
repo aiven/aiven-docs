@@ -48,11 +48,11 @@ Download a Terraform template and a variables file that define the infrastructur
 [Run the `avn byoc template terraform get-template` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
 to download your infrastructure template.
 
-    ```bash
-    avn byoc template terraform get-template        \
-      --organization-id "ORGANIZATION_IDENTIFIER"   \
-      --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.tf"
-    ```
+```bash
+avn byoc template terraform get-template                       \
+    --organization-id "ORGANIZATION_IDENTIFIER"                \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.tf"
+```
 
 </TabItem>
 </Tabs>
@@ -73,11 +73,11 @@ to download your infrastructure template.
 [Run the `avn byoc template terraform get-vars` command](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
 to download your variables file.
 
-    ```bash
-    avn byoc template terraform get-vars              \
-      --organization-id "ORGANIZATION_IDENTIFIER"     \
-      --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.vars"
-    ```
+```bash
+avn byoc template terraform get-vars                             \
+    --organization-id "ORGANIZATION_IDENTIFIER"                  \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.vars"
+```
 
 </TabItem>
 </Tabs>

@@ -9,8 +9,6 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
-## About renaming custom clouds
-
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
 organizations. While
@@ -52,15 +50,15 @@ custom cloud name. You can change this name any time later by following
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 Use the
-[avn byoc update](/docs/tools/cli/byoc#avn-byoc-update) command to change the name of your
+[`avn byoc update`](/docs/tools/cli/byoc#avn-byoc-update) command to change the name of your
 custom cloud.
 
-    ```bash
-    avn byoc update                               \
-      --organization-id "ORGANIZATION_IDENTIFIER" \
-      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-      --display-name "NAME_OF_CUSTOM_CLOUD"
-    ```
+```bash
+avn byoc update                                 \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+    --display-name "NAME_OF_CUSTOM_CLOUD"
+```
 
 </TabItem>
 </Tabs>

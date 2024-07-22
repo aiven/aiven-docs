@@ -9,8 +9,6 @@ import TabItem from '@theme/TabItem';
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
-## About deleting custom clouds
-
 After deleting a custom cloud, the data co-hosted in this cloud will no
 longer be available from the Aiven platform. Before deleting your custom
 cloud, make sure there are no active services using this cloud.

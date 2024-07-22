@@ -14,12 +14,6 @@ existing Aiven organizations, projects, or services. It only allows you to run A
 services in your cloud provider account.
 :::
 
-## Required access
-
-You must be a [super admin](/docs/platform/howto/make-super-admin) to enable this feature.
-
-## About enabling BYOC
-
 To be able to create custom clouds on the Aiven platform, first you need
 to enable the BYOC feature. The [Aiven Console](https://console.aiven.io/)
 offers a quick and easy way to set up a short call with the Aiven sales
@@ -33,6 +27,10 @@ Before enabling BYOC, check
 [feature limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations) and
 [prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::
+
+## Required access
+
+You must be a [super admin](/docs/platform/howto/make-super-admin) to enable this feature.
 
 ## Limitations {#byoc-enable-limitations}
 
@@ -76,7 +74,7 @@ Before enabling BYOC, check
 With BYOC activated in your Aiven organization, you can create and use custom
 clouds:
 
--   [By yourself via self-service if using AWS or GCP](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
+-   [By yourself if using AWS or GCP](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
 -   By contacting the Aiven team if using Azure or OCI.
 
 ## Related pages
