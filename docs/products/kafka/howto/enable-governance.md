@@ -1,5 +1,7 @@
 ---
 title: Enable governance for Aiven for Apache Kafka®
+sidebar_label: Enable governance
+limited: true
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
