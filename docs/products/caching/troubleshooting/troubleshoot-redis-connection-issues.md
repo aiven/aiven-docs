@@ -4,13 +4,14 @@ title: Troubleshoot Caching connection issues
 
 Learn troubleshooting techniques for your Aiven for Caching service and resolve common connection issues.
 
-## Important notes
+:::important
 By default,
 [Aiven for Caching uses SSL connections](/docs/products/caching/howto/manage-ssl-connectivity),
 and these connections are closed automatically after 12 hours. This is not a parameter
 that can be changed. Aiven also sets the `redis_timeout` advanced parameter to
 300 seconds by default.
 
+:::
 ## Some Caching connections are closed intermittently
 
 When experiencing connection issues with your Aiven for Caching service, some common

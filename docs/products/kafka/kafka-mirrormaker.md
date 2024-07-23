@@ -15,8 +15,6 @@ ways to connect Apache Kafka® clusters deployed in different parts of
 the world and keep their topic data in sync, very useful for disaster
 recovery or in case of particular geo-distribution requirements.
 
-## Get started with Aiven for Apache Kafka® MirrorMaker 2
-
 Take your first steps with Aiven for Apache Kafka® MirrorMaker 2 by
 following our [Getting started](/docs/products/kafka/kafka-mirrormaker/get-started).
 

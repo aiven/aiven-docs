@@ -1,5 +1,6 @@
 ---
 title: Terminology for Aiven for Apache Kafka® MirrorMaker 2
+sidebar_label: Terminology
 ---
 
 -   **Cluster alias**: The name alias defined in MirrorMaker 2 for a
