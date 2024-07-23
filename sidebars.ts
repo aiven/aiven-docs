@@ -1464,19 +1464,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/grafana',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/list-overview',
-              },
-              items: [
-                'products/grafana/concepts/grafana-features',
-                'products/grafana/reference/plans-pricing',
-              ],
-            },
             'products/grafana/get-started',
+            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
