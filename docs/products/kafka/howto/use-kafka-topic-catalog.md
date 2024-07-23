@@ -3,7 +3,7 @@ title: Manage Apache Kafka topics with topic catalog
 limited: true
 ---
 
-The Aiven for Apache Kafka® topic catalog provides a user-friendly interface to manage your Apache Kafka topics.
+The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
 
 ## Access topic catalog
 
@@ -25,7 +25,8 @@ On the Kafka topic catalog page, you can:
 
   - **Project**: Display topics for a specific project.
   - **Service**:  Display topics for a specific Aiven for Apache Kafka service
-  - **Owner group**:  Display topics by ownership group.
+  - **Owner group**:  Display topics by ownership group when governance is
+    enabled for your organization.
 
 ## View and manage Apache Kafka topic details
 
@@ -61,8 +62,12 @@ View a summary of the key details of your Apache Kafka topic:
 - **Topic owner**: Current owner of the topic.
 
 :::note
-The **Claim topic** is active only if governance is enabled for your organization.
-If the topic is not owned by your team, click **Claim topic** to  request ownership.
+
+- The **Claim topic** is active only if governance is enabled for your organization.
+- If the topic is not owned by your team, click **Claim topic** to  request ownership.
+- If a group has claimed this topic, you can view the details on the **Approvals** page
+  under **Governance**.
+
 :::
 
 #### Configuration tab
