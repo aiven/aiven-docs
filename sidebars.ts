@@ -1590,7 +1590,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/metrics/concepts',
               },
               items: [
-                'products/metrics/concepts/metrics-overview',
                 'products/metrics/concepts/storage-resource-scaling',
                 'products/metrics/concepts/retention-rules',
               ],
