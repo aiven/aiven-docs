@@ -130,7 +130,7 @@ external data.
 
    ```sql
    SELECT *
-   FROM external-PostgreSQL-resource-name.your-PostgreSQL-table-name
+   FROM EXTERNAL_PostgreSQL_RESOURCE_NAME.PostgreSQL_TABLE_NAME
    ```
 
    :::
@@ -147,7 +147,7 @@ are automatically seeded in your external data queries.
    example the PostgreSQL engine:
 
    ```sql
-   CREATE TABLE default.postgresql_table
+   CREATE TABLE default.PostgreSQL_table
    (
       `float_nullable` Nullable(Float32),
       `str` String,
@@ -167,9 +167,9 @@ following query:
 
 ```sql
 SELECT *
-FROM PostgreSQL(external-PostgreSQL-resource-name,
+FROM PostgreSQL(EXTERNAL_PostgreSQL_RESOURCE_NAME,
    database='defaultdb',
-   table='your-PostgreSQL-table-name')
+   table='PostgreSQL_TABLE_NAME')
 ```
 </TabItem>
 </Tabs>
