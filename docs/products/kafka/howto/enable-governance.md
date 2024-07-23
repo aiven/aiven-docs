@@ -17,34 +17,36 @@ enable governance.
 ## Enable governance
 
 1. Access the [Aiven Console](https://console.aiven.io/) and click **Admin**.
-1. In the organization administration page, Click <ConsoleLabel name="Apache Kafka governance"/>.
+1. On the organization administration page, click <ConsoleLabel name="Apache Kafka governance"/>.
 1. Click **Enable governance**.
 1. Select or create a user group to manage topics. This group is the default group and
    owns all topics in the organization.
    - If no user group exists, click **Create new user group**.
      - Enter the group name and description.
-     - Assign users to this group by searching for their name or email.
      - Click **Create group**.
    - Select the created user group.
 1. Click **Next**.
 1. Define resource visibility for the topic catalog.
 1. Select **Project** or **Organization** visibility.
 
-   - **Project**: Users can view Apache Kafka resources in the topic catalog if they
-     are project members.
-   - **Organization**: Users can view all Apache Kafka resources of the organization in
-     the topic catalog, regardless of individual project access.
-1. Click **Next** to continue.
+   - **Project**: Users can view Aiven for Apache Kafka resources in the topic catalog
+     if they are project members.
+   - **Organization**: Users can view all Aiven for Apache Kafka resources of the
+     organization in the topic catalog, regardless of individual project access.
+1. Click **Next**.
 1. Set global default topic configurations:
    - Click **Keep defaults**. Review the default values on the confirmation window.
    - Click **Enable governance**.
-   - Alternatively, enter your desired global default topic configurations.
+
+   Alternatively, to customize:
+
+   - Enter your global default topic configurations.
    - Click **Enable governance** to apply your changes.
 
 ### Impact of enabling governance
 
 - **Existing topics**:
-  - The default owner you selected is assigned to all existing topics.
+  - The default owner selected is assigned to all existing topics.
   - Ownership details are be visible in the topic catalog.
   - Users can still claim ownership of individual topics.
   - You can also update the default owner as needed.
@@ -56,7 +58,7 @@ enable governance.
 ## Disable governance
 
 1. In the organization, click **Admin**.
-1. Click **Apache Kafka governance**.
+1. Click <ConsoleLabel name="Apache Kafka governance"/>.
 1. Expand **Governance is enabled for your organization**.
 1. Click **Disable**.
 
