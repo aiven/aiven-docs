@@ -130,7 +130,7 @@ external data.
 
    ```sql
    SELECT *
-   FROM ext-postgresql-resource-name.your-pg-table-name
+   FROM external-PostgreSQL-resource-name.your-PostgreSQL-table-name
    ```
 
    :::
@@ -166,10 +166,10 @@ You can access your credentials storage by passing your external service name in
 following query:
 
 ```sql
-SELECT data
-FROM postgresql(ext-postgresql-resource-name,
+SELECT *
+FROM PostgreSQL(external-PostgreSQL-resource-name,
    database='defaultdb',
-   table='your-pg-table-name')
+   table='your-PostgreSQL-table-name')
 ```
 </TabItem>
 </Tabs>
