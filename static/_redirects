@@ -83,5 +83,8 @@
 
 /products/clickhouse/list-overview               https://aiven.io/docs/products/clickhouse
 /products/clickhouse/concepts/features-overview  https://aiven.io/docs/products/clickhouse
-/products/flink/list-overview http://localhost:3000/docs/products/flink
-/products/flink/concepts/flink-features /http://localhost:3000/docs/products/flink
+
+/products/flink/list-overview                    https://aiven.io//docs/products/flink
+/products/flink/concepts/flink-features          https://aiven.io//docs/products/flink
+
+/products/dragonfly/concepts/overview            https://aiven.io//docs/products/dragonfly

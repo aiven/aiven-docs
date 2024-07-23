@@ -1406,17 +1406,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/dragonfly',
           },
           items: [
-            'products/dragonfly/concepts/overview',
             'products/dragonfly/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/concepts',
-              },
-              items: ['products/dragonfly/concepts/ha-dragonfly'],
-            },
+            'products/dragonfly/concepts/ha-dragonfly',
             {
               type: 'category',
               label: 'How to',
