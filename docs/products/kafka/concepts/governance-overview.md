@@ -10,7 +10,7 @@ and centralize control, helping organizations manage their
 Aiven for Apache Kafka environments effectively.
 
 :::note
-Governance for Aiven for Apache Kafka is currently in limited availability (LA). Only a
+Governance for Aiven for Apache Kafka is in limited availability (LA). Only a
 subset of governance features are available at this stage. More features and
 functionalities are incrementally added as development continues.
 :::
@@ -64,7 +64,6 @@ functionalities are incrementally added as development continues.
 
 - **Notifications:** Provide automated notifications to inform users about changes,
   requests, and approvals.
-
 
 ## Related pages
 
