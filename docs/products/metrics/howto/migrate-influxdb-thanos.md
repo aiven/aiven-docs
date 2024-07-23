@@ -113,4 +113,4 @@ with continuous synchronization of new writes from the source database.
 
 ## Related pages
 
-- [Aiven for Thanos Metrics overview](/docs/products/metrics/concepts/metrics-overview)
+- [Aiven for Thanos Metrics overview](/docs/products/metrics)
