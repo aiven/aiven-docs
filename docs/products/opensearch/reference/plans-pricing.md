@@ -1,5 +1,6 @@
 ---
 title: Aiven for OpenSearch® service plans
+sidebar_label: Service plans
 ---
 
 Aiven for OpenSearch service is available in different service tiers and
