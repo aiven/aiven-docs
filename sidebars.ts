@@ -1182,7 +1182,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/caching/concepts/overview',
             'products/caching/get-started',
             {
               type: 'category',
