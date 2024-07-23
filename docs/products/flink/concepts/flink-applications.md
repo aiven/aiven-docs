@@ -1,10 +1,10 @@
 ---
 title: Aiven for Apache Flink® applications
+sidebar_label: Applications
 ---
 
-An Aiven for Apache Flink® Application is an abstraction layer that
-simplifies building data processing pipelines in Apache Flink. It
-supports two types of applications:
+An Aiven for Apache Flink® Application is an abstraction layer that simplifies building data processing pipelines in Apache Flink.
+It supports two types of applications:
 
 -   **SQL applications:** Built on top of Apache Flink SQL, these
     applications include elements like source and sink table

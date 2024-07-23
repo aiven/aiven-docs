@@ -623,22 +623,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/flink',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/flink/list-overview',
-              },
-              items: [
-                'products/flink/concepts/flink-architecture',
-                'products/flink/concepts/flink-features',
-                'products/flink/concepts/managed-service-features',
-                'products/flink/reference/plans-pricing',
-                'products/flink/reference/flink-limitations',
-              ],
-            },
             'products/flink/get-started',
+            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -647,6 +633,8 @@ const sidebars: SidebarsConfig = {
                 id: 'products/flink/concepts',
               },
               items: [
+                'products/flink/concepts/flink-architecture',
+                'products/flink/reference/flink-limitations',
                 'products/flink/concepts/flink-applications',
                 'products/flink/concepts/supported-syntax-sql-editor',
                 'products/flink/concepts/custom-jars',

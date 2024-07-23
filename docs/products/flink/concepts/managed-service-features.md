@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Flink® managed service features
+sidebar_label: Managed service features
 ---
 
 As a fully managed distributed data stream processing platform,
