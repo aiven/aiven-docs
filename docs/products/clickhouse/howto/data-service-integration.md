@@ -129,7 +129,7 @@ external data.
    external data using a query similar to the following:
 
    ```sql
-   SELECT data
+   SELECT *
    FROM ext-postgresql-resource-name.your-pg-table-name
    ```
 
