@@ -1,10 +1,10 @@
 ---
 title: High availability in Aiven for Dragonfly®
+sidebar_label: High availability
 ---
 
-Aiven for Dragonfly® offers different plans with varying levels of high availability.
-The available features depend on the selected plan. Refer to the table below for a
-summary of these plans:
+Aiven for Dragonfly® offers different plans with varying levels of high availability. The available features depend on the selected plan.
+Refer to the table below for a summary of these plans:
 
 <table>
   <thead>

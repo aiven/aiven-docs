@@ -1,5 +1,6 @@
 ---
 title: High availability in Aiven for OpenSearch®
+sidebar_label: High availability
 ---
 
 Aiven for OpenSearch® is available on a variety of plans, offering

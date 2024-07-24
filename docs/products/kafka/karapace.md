@@ -19,15 +19,6 @@ Karapace REST provides a RESTful interface to your Apache Kafka cluster,
 allowing you to perform tasks such as producing and consuming messages
 and performing administrative cluster work while using the web language.
 
-## Get started with Karapace
-
-Take your first steps Karapace by following our
-[Getting started with Karapace](/docs/products/kafka/karapace/get-started) article, or browse through other articles:
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />
-
 ## Karapace resources
 
 If you are new to Karapace, learn more from the following resources:

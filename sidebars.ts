@@ -623,22 +623,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/flink',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/flink/list-overview',
-              },
-              items: [
-                'products/flink/concepts/flink-architecture',
-                'products/flink/concepts/flink-features',
-                'products/flink/concepts/managed-service-features',
-                'products/flink/reference/plans-pricing',
-                'products/flink/reference/flink-limitations',
-              ],
-            },
             'products/flink/get-started',
+            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -647,6 +633,8 @@ const sidebars: SidebarsConfig = {
                 id: 'products/flink/concepts',
               },
               items: [
+                'products/flink/concepts/flink-architecture',
+                'products/flink/reference/flink-limitations',
                 'products/flink/concepts/flink-applications',
                 'products/flink/concepts/supported-syntax-sql-editor',
                 'products/flink/concepts/custom-jars',
@@ -1194,7 +1182,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/caching/concepts/overview',
             'products/caching/get-started',
             {
               type: 'category',
@@ -1418,17 +1405,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/dragonfly',
           },
           items: [
-            'products/dragonfly/concepts/overview',
             'products/dragonfly/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/concepts',
-              },
-              items: ['products/dragonfly/concepts/ha-dragonfly'],
-            },
+            'products/dragonfly/concepts/ha-dragonfly',
             {
               type: 'category',
               label: 'How to',
@@ -1486,19 +1464,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/grafana',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/list-overview',
-              },
-              items: [
-                'products/grafana/concepts/grafana-features',
-                'products/grafana/reference/plans-pricing',
-              ],
-            },
             'products/grafana/get-started',
+            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
@@ -1623,7 +1590,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/metrics/concepts',
               },
               items: [
-                'products/metrics/concepts/metrics-overview',
                 'products/metrics/concepts/storage-resource-scaling',
                 'products/metrics/concepts/retention-rules',
               ],
@@ -1762,19 +1728,8 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
+            'products/opensearch/reference/plans-pricing',
             'products/opensearch/howto/sample-dataset',
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/list-overview',
-              },
-              items: [
-                'products/opensearch/concepts/service-overview',
-                'products/opensearch/reference/plans-pricing',
-              ],
-            },
             {
               type: 'category',
               label: 'Concepts',
@@ -1918,29 +1873,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/upgrade-clients-to-opensearch',
               ],
             },
-            {
-              type: 'category',
-              label: 'OpenSearch Dashboards',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/dashboards',
-              },
-              items: [
-                'products/opensearch/dashboards/get-started',
-                {
-                  type: 'category',
-                  label: 'HowTo',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/dashboards/howto',
-                  },
-                  items: [
-                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
-                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                  ],
-                },
-              ],
-            },
+
             {
               type: 'category',
               label: 'Reference',
@@ -1958,13 +1891,26 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Troubleshooting',
+              label: 'OpenSearch Dashboards',
               link: {
                 type: 'doc',
-                id: 'products/opensearch/troubleshooting',
+                id: 'products/opensearch/dashboards',
               },
               items: [
-                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+                'products/opensearch/dashboards/get-started',
+                {
+                  type: 'category',
+                  label: 'How to',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/dashboards/howto',
+                  },
+                  items: [
+                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                    'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+                  ],
+                },
               ],
             },
           ],

@@ -15,7 +15,7 @@ To create a version of the application deployed, follow these steps:
 3.  On the **Applications** landing page, click the application name
     for which you want to create a version.
 
-### For SQL application
+### For an SQL application
 
 1.  Click **Create new version**.
 2.  In the **Create new version** page, modify the create statement,
@@ -37,7 +37,7 @@ To create a version of the application deployed, follow these steps:
     -   Click **Deploy from a savepoint** or **Deploy without
         savepoint** depending on your previous selection.
 
-### For JAR application
+### For a JAR application
 
 1.  Click **Upload new version**.
 2.  In the **Upload new version** dialog:
@@ -47,7 +47,7 @@ To create a version of the application deployed, follow these steps:
 3.  In the **Deployment history** you can see the latest version
     running.
 
-## Stop application deployment {#stop-flink-application}
+## Stop an application deployment {#stop-flink-application}
 
 To stop a deployment for your Flink application, follow these steps:
 
@@ -70,7 +70,7 @@ The application status will display `Saving_and_stop_requested` and then
 Additionally, the **Deployment history** provides a record of all the
 application deployments and statuses.
 
-## Rename application
+## Rename an application
 
 To rename an application, follow these steps:
 
@@ -107,7 +107,7 @@ these steps:
 4.  To remove a specific deployment from the history, locate it in the
     deployment history page and click the **Delete** icon next to it.
 
-## Delete application
+## Delete an application
 
 Before deleting an application, it is necessary to remove all associated
 [deployment history](/docs/products/flink/howto/manage-flink-applications#flink-deployment-history).

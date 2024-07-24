@@ -83,3 +83,21 @@
 
 /products/clickhouse/list-overview               https://aiven.io/docs/products/clickhouse
 /products/clickhouse/concepts/features-overview  https://aiven.io/docs/products/clickhouse
+
+/products/flink/list-overview                     https://aiven.io//docs/products/flink
+/products/flink/concepts/flink-features           https://aiven.io//docs/products/flink
+/products/flink/concepts/managed-service-features https://aiven.io//docs/products/flinks
+
+/products/dragonfly/concepts/overview            https://aiven.io//docs/products/dragonfly
+/products/dragonfly/concept                      https://aiven.io//docs/products/dragonfly
+
+/products/caching/concepts/overview              https://aiven.io//docs/products/caching
+
+/products/grafana/concepts/grafana-features      https://aiven.io//docs/products/grafana
+/products/grafana/list-overview                  https://aiven.io//docs/products/grafana
+
+/products/opensearch/list-overview               https://aiven.io//docs/products/opensearch
+/products/opensearch/concepts/service-overview   https://aiven.io//docs/products/opensearch
+/products/opensearch/troubleshooting             https://aiven.io//docs/products/opensearch
+
+/products/metrics/concepts/metrics-overview      https://aiven.io//docs/products/metrics
