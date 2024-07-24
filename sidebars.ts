@@ -634,7 +634,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/flink/concepts/flink-architecture',
-                'products/flink/concepts/managed-service-features',
                 'products/flink/reference/flink-limitations',
                 'products/flink/concepts/flink-applications',
                 'products/flink/concepts/supported-syntax-sql-editor',
