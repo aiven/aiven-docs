@@ -26,7 +26,7 @@ All services run reliably and securely in the clouds of your choice, are observa
   <ButtonSecondary to="https://aiven.io/changelog">See product updates</ButtonSecondary>
 </GridContainer>
 
-## First steps with Aiven
+## First steps
 
 1. [Create an organization](/docs/tools/aiven-console/howto/create-orgs-and-units).
    An [organization](/docs/platform/concepts/orgs-units-projects) contains your projects and users.
@@ -38,6 +38,12 @@ All services run reliably and securely in the clouds of your choice, are observa
 ## Learn more
 
 <GridContainer>
+
+  <Card iconName="aivenEnterprise"
+        to="/docs/products/services"
+        title="Managed services"
+        description="Learn about the services managed by Aiven."
+  />
 
   <Card iconName="dbBackup"
         to="/docs/platform/concepts/service_backups"
