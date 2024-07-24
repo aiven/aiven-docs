@@ -12,30 +12,33 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 - This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
   it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 - You need [super admin](/docs/platform/howto/make-super-admin) permissions to
-enable governance.
+  enable governance.
 
 ## Enable governance
 
 1. Access the [Aiven Console](https://console.aiven.io/) and click **Admin**.
-1. On the organization administration page, click <ConsoleLabel name="Apache Kafka governance"/>.
+1. On the organization page, click <ConsoleLabel name="Apache Kafka governance"/>.
 1. Click **Enable governance**.
-1. Select or create a user group to manage topics. This group is the default group and
+1. Select a user group to manage topics. This group is the default group and
    owns all topics in the organization.
    - If no user group exists, click **Create new user group**.
      - Enter the group name and description.
      - Click **Create group**.
    - Select the created user group.
 1. Click **Next**.
-1. Define resource visibility for the topic catalog.
+1. Define resource visibility for the Apache Kafka topic catalog.
 1. Select **Project** or **Organization** visibility.
 
-   - **Project**: Users can view Aiven for Apache Kafka resources in the topic catalog
-     if they are project members.
-   - **Organization**: Users can view all Aiven for Apache Kafka resources of the
-     organization in the topic catalog, regardless of individual project access.
+   - **Project**: Users can view Aiven for Apache Kafka resources in the Apache Kafka
+     topic catalog if they are project members.
+   - **Organization**: Users can view all Aiven for Apache Kafka resources across the
+     organization in the Apache Kafka topic catalog, regardless of their access to
+     individual projects.
+
 1. Click **Next**.
 1. Set global default topic configurations:
-   - Click **Keep defaults**. Review the default values on the confirmation window.
+   - To use the default settings, click **Keep defaults** and review the default
+     values on the confirmation window.
    - Click **Enable governance**.
 
    Alternatively, to customize:
@@ -46,9 +49,9 @@ enable governance.
 ### Impact of enabling governance
 
 - **Existing topics**:
-  - The default owner selected is assigned to all existing topics.
-  - Ownership details are visible in the topic catalog.
-  - Users can still claim ownership of individual topics.
+  - The selected default group is assigned as the owner of all existing topics.
+  - Ownership details are visible in the Apache Kafka topic catalog.
+  - Users from different groups can still claim ownership of individual topics.
   - You can also update the default owner as needed.
 
 - **Topic creation workflow**:
