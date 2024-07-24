@@ -8,21 +8,21 @@ The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to m
 ## Access topic catalog
 
 1. Log in to the [Aiven console](https://console.aiven.io/).
-1. Click **Tools** in the top menu.
+1. Click **Tools**.
 1. Select **Apache Kafka topic catalog**.
 
 ## Browse the topic catalog
 
 On the Apache Kafka topic catalog page, you can:
 
-- **Table view**: This default view lists all topics in a table format, showing columns
+- **View topics in a table**: This default view lists all topics in a table format, showing columns
   for the topic name, service, project, and owner.
-- **Card view**: Click **Tiles** to switch to the card view and browse topics displayed
+- **Switch to card view**: Click **Tiles** to switch to the card view and browse topics displayed
   as cards.
-- **Search for Apache Kafka topics**: Enter the topic name in the search bar at the top
+- **Search for topics**: Enter the topic name in the search bar at the top
   to find specific topics.
 
-## View and manage Apache Kafka topic details
+## View and manage topic details
 
 Access detailed information and perform advanced operations through the topic details
 pane and topic overview page.
@@ -35,9 +35,11 @@ pane and topic overview page.
 
 :::note
 
-- The **Claim topic** is active only if governance is enabled for your organization.
-- If you are not a member of the project associated with the topic, you receive an error
-   message indicating **Not a project member** when you attempt to access the topic page.
+- The **Claim topic** option is available only if governance is enabled for your organization.
+- If you are not a member of the project associated with the topic, you receive a
+  **Not a project member** error message when you attempt to access the topic page.
+- If a group has claimed this topic, you can view the details on the **Approvals** page
+  under **Governance**.
 
 :::
 
@@ -54,15 +56,6 @@ View a summary of the key details of your Apache Kafka topic:
 - **Replication factor**: Replication factor set for the topic.
 - **Topic tags**: Tags associated with the topic.
 - **Topic owner**: Current owner of the topic.
-
-:::note
-
-- The **Claim topic** is active only if governance is enabled for your organization.
-- If the topic is not owned by your team, click **Claim topic** to request ownership.
-- If a group has claimed this topic, you can view the details on the **Approvals** page
-  under **Governance**.
-
-:::
 
 #### Configuration tab
 
