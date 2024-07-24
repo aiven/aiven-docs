@@ -25,11 +25,11 @@ On the Apache Kafka topic catalog page, you can:
 ## View and manage Apache Kafka topic details
 
 Access detailed information and perform advanced operations through the topic details
-panel and topic overview page.
+pane and topic overview page.
 
-### Topic details panel
+### Topic details pane
 
-1. Click the name of a topic to open the topic details panel.
+1. Click the name of a topic to open the topic details pane.
 1. Review the general information and advanced configurations.
 1. Click **Open topic page** for more details and actions.
 
