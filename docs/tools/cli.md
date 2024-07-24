@@ -7,7 +7,7 @@ The Aiven command line interface (CLI) lets you use the Aiven platform and servi
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Get started
+## Get started with Aiven CLI
 
 ### Install
 

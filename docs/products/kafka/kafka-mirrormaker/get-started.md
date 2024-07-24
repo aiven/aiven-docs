@@ -1,5 +1,6 @@
 ---
-title: Get started
+title: Get started with Apache Kafka® MirrorMaker 2
+sidebar_label: Get started
 ---
 
 Create an Apache Kafka® MirrorMaker 2 service and integrate it with your Aiven for Apache Kafka service.
