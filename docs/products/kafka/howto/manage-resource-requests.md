@@ -6,6 +6,6 @@ sidebar_label: Manage requests
 
 import DocCardList from '@theme/DocCardList';
 
-Streamline Apache Kafka resource creation and ownership requests to improve governance and resource allocation in Aiven for Apache Kafka.
+Streamline the creation and ownership requests of Apache Kafka resources to enhance governance and ensure efficient management within Aiven for Apache Kafka.
 
 <DocCardList />

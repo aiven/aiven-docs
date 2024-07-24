@@ -36,9 +36,15 @@ Alternatively:
 
 ## Claim multiple topics
 
-1. Click the checkbox next to the **Topic** heading to select all topics you can claim.
+1. Select the checkbox next to the **Topic** heading to select all topics you can claim,
+   or individually select the checkboxes for the topics to claim.
 1. Click **Claim ownership**.
 1. In the **User group** field, select the group to be assigned as the owner.
+
+   :::note
+   Users can belong to multiple groups, ensure you select the appropriate group.
+   :::
+
 1. Optionally, enter a message for the approver explaining why you are claiming ownership.
 1. Click **Claim**.
 
