@@ -9,11 +9,11 @@ The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to m
 
 1. Log in to the [Aiven console](https://console.aiven.io/).
 1. Click **Tools** in the top menu.
-1. Select **Kafka topic catalog**.
+1. Select **Apache Kafka topic catalog**.
 
 ## Browse the topic catalog
 
-On the Kafka topic catalog page, you can:
+On the Apache Kafka topic catalog page, you can:
 
 - **Table view**: This default view lists all topics in a table format, showing columns
   for the topic name, service, project, and owner.
@@ -21,12 +21,6 @@ On the Kafka topic catalog page, you can:
   as cards.
 - **Search for Apache Kafka topics**: Enter the topic name in the search bar at the top
   to find specific topics.
-- **Filter Kafka topics**: Use the filter options to narrow down topics by:
-
-  - **Project**: Display topics for a specific project.
-  - **Service**:  Display topics for a specific Aiven for Apache Kafka service
-  - **Owner group**:  Display topics by ownership group when governance is
-    enabled for your organization.
 
 ## View and manage Apache Kafka topic details
 
@@ -64,7 +58,7 @@ View a summary of the key details of your Apache Kafka topic:
 :::note
 
 - The **Claim topic** is active only if governance is enabled for your organization.
-- If the topic is not owned by your team, click **Claim topic** to  request ownership.
+- If the topic is not owned by your team, click **Claim topic** to request ownership.
 - If a group has claimed this topic, you can view the details on the **Approvals** page
   under **Governance**.
 
@@ -103,7 +97,7 @@ Enable and manage schemas for the topic:
 - **Delete subjects**: Remove schemas that are no longer needed.
 
 :::note
-Enable the [schema registry authroization](/docs/products/kafka/concepts/schema-registry-authorization)
+Enable the [schema registry authorization](/docs/products/kafka/concepts/schema-registry-authorization)
 for your Aiven for Apache Kafka service to use the schemas tab.
 :::
 
