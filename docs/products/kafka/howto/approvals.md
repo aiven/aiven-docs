@@ -48,12 +48,12 @@ The approvals page displays the following key elements:
    - To **approve** a request:
      1. Click **Approve**.
      1. (Optional) Enter a message for the requester in the **Approve create request**
-        pop-up window
+        pop-up window.
      1. Click **Approve** again to confirm your decision.
    - To **decline** a request:
      1. Click **Decline**.
      1. Enter a reason for declining the request in the **Decline create request**
-        pop-up window
+        pop-up window.
      1. Click **Decline** again to confirm your decision.
 
 ## Related pages

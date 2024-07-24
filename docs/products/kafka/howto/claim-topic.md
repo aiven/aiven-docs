@@ -38,7 +38,7 @@ Alternatively:
 
 1. Click the checkbox next to the **Topic** heading to select all topics you can claim.
 1. Click **Claim ownership**.
-1. In the **User group** field, select the group that should be assigned as the owner.
+1. In the **User group** field, select the group to be assigned as the owner.
 1. Optionally, enter a message for the approver explaining why you are claiming ownership.
 1. Click **Claim**.
 
