@@ -1,5 +1,6 @@
 ---
-title: Get started
+title: Get started with Aiven for OpenSearch® Dashboards
+sidebar_label: Get started
 ---
 
 To start using **Aiven for OpenSearch® Dashboards**, [create Aiven for OpenSearch® service first](/docs/products/opensearch/get-started) and OpenSearch Dashboards service will be added alongside it.

@@ -16,7 +16,7 @@ Common use cases for the Aiven API:
 - Deploy and tear down development or demo platforms on a schedule.
 - Scale your disks based on specific events.
 
-## Get started
+## Get started with Aiven API
 
 Use the [Postman workspace](https://www.postman.com/aiven-apis/workspace/aiven/overview)
 to try the Aiven API.
