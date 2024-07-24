@@ -47,7 +47,7 @@ enable governance.
 
 - **Existing topics**:
   - The default owner selected is assigned to all existing topics.
-  - Ownership details are be visible in the topic catalog.
+  - Ownership details are visible in the topic catalog.
   - Users can still claim ownership of individual topics.
   - You can also update the default owner as needed.
 

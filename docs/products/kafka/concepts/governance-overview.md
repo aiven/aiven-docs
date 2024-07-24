@@ -31,13 +31,11 @@ functionalities are incrementally added as development continues.
 - **Distribute ownership:** Assign topic ownership to user groups, enabling them to
   manage configurations and access data without direct Apache Kafka cluster access.
   This promotes shared responsibility, enhances control, and aids in accountability
-  tracking during
-  incidents.
+  tracking during incidents.
 
-- **Manage requests:** Enable group members to send and approve requests to create and
+- **Manage requests:** Enable group members to submit and approve requests to create and
   own topics. The request system follows the Four Eyes Principle, requiring another
-  team member to review and approve changes before implementation, maintaining a
-  clear audit trail.
+  team member to review and approve changes, thereby maintaining a clear audit trail.
 
 - **Self-service:** Provide a user-friendly interface for users to manage
   Aiven for Apache Kafka resources. Empower team members to claim ownership of Apache
