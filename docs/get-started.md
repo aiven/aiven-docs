@@ -28,11 +28,11 @@ All services run reliably and securely in the clouds of your choice, are observa
 
 ## First steps
 
-1. [Create an organization](/docs/tools/aiven-console/howto/create-orgs-and-units).
-   An [organization](/docs/platform/concepts/orgs-units-projects) contains your projects and users.
+1. [Sign up](https://console.aiven.io/signup).
 1. [Create your first service](/docs/platform/howto/create_new_service) and select the
    plan for your use case.
 1. [Create service integrations](/docs/platform/howto/create-service-integration).
+1. [Manage your organization](/docs/platform/concepts/orgs-units-projects).
 1. [Start using our dev tools](/docs/tools) to interact with your services.
 
 ## Learn more
