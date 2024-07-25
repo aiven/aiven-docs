@@ -211,7 +211,6 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
-                'platform/reference/eol-for-major-versions',
               ],
             },
             {
@@ -419,6 +418,7 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        'platform/reference/eol-for-major-versions',
       ],
     },
     {

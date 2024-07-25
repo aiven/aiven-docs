@@ -1,5 +1,6 @@
 ---
 title: End of life for major versions of Aiven services and tools
+sidebar_label: End of life for services and tools versions
 ---
 
 End of life (EOL) is the date after which Aiven services and tools are no longer supported or maintained.
