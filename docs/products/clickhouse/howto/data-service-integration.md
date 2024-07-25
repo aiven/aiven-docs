@@ -20,7 +20,7 @@ ClickHouse® in
 ## Prerequisites
 
 - You are familiar with the limitations listed in
-  [About Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview#limitations).
+  [About Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview#supported-data-source-types).
 - You have an organization, a project, and an Aiven for ClickHouse service in Aiven.
 - You have access to the [Aiven Console](https://console.aiven.io/).
 
@@ -66,7 +66,7 @@ To create an integration with a new service in the **Data service integrations**
 To create an integration with an existing service in the **Data service integrations** wizard:
 
 1. Select a type of an Aiven-managed service to integrate with. See
-   [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#limitations)
+   [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#supported-data-source-types)
    for supported service types.
 1. Select a service of the chosen type from the list of services available for
    integration and click **Continue**.
@@ -106,7 +106,7 @@ To create an integration with an external data source in the **Data service inte
 wizard:
 
 1. Select a type of an external data service to integrate with. See
-   [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#limitations)
+   [Limitations](/docs/products/clickhouse/concepts/data-integration-overview#supported-data-source-types)
    for supported service types.
 1. Select an external data service of the chosen type from the list of services available
    for integration and click **Continue**
