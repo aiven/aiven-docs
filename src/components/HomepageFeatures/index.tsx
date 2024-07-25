@@ -15,9 +15,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Get started',
     Svg: require('@site/static/images/icons/home/rocket.svg').default,
     to: '/docs/get-started',
-    description: (
-      <>Your first steps to set up your account and your platform.</>
-    ),
+    description: <>Your first steps to set up your account, for free.</>,
   },
   {
     title: 'Managed services',
