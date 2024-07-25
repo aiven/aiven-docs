@@ -31,7 +31,7 @@ The approvals page displays the following key elements:
   - **Approved**: Request approved and processed
   - **Declined**: Request declined. The topic is now available for another group to claim
   - **Deleted**: Request deleted by the requester
-  - **Failed**: Request could not complete the required action (for example, due to
+  - **Failed**: Request cannot complete the required action  (for example, due to
     Apache Kafka cluster issues or connectivity problems)
   - **Pending**: Request awaiting approval or decline
   - **Provisioning**: Request in progress. Topic is being created on the Apache Kafka
