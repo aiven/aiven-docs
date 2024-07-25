@@ -4,6 +4,8 @@ sidebar_label: Data integration
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+
 Aiven for ClickHouse® supports different types of integration allowing you to efficiently connect with other services or data sources and access the data to be processed.
 
 There are a few ways of classifying integration types supported in Aiven for ClickHouse:
@@ -23,8 +25,15 @@ which have different purposes:
 - [Observability integration](/docs/products/clickhouse/howto/list-integrations) is
   connecting to other services (either in-Aiven or external) to expose and process logs
   and metrics.
-- Data service integration is connecting to other services (either in-Aiven or external) to
-use them as data sources.
+- Data service integration is connecting to other services (either in-Aiven or external)
+  to use them as data sources. In Aiven for ClickHouse, data service integration is
+  possible with the following data source types:
+
+  - Apache Kafka®
+  - PostgreSQL®
+  - MySQL®
+  - ClickHouse®
+  - Amazon S3®
 
 ## In-Aiven integrations vs external integrations
 
@@ -51,6 +60,13 @@ query. They are stored and available from in-Aiven credential storage.
 On top of integrating credentials, the managed credentials integration allows integrating
 data from external sources. For that purpose, you create tables using table engines.
 
+Managed credentials integration in Aiven for ClickHouse is supported with the following
+data source types:
+
+- PostgreSQL®
+- MySQL®
+- Amazon S3®
+
 :::note[See also]
 For information on how table engines work in Aiven for ClickHouse services, preview
 [Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).
@@ -64,6 +80,12 @@ The managed databases integration allows using a database engine for handling yo
 external data. When enabled, this type of integration provides you with an automatically
 created database, where you can have your data ingested.
 
+Managed databases integration in Aiven for ClickHouse is supported with the following
+data source types:
+
+- PostgreSQL®
+- Apache Kafka®
+
 :::note[See also]
 For information on how database engines work in Aiven for ClickHouse services, preview
 [Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).
@@ -71,21 +93,17 @@ For more information on ClickHouse database engines, see
 [Database engines](https://clickhouse.com/docs/en/engines/database-engines).
 :::
 
-## Limitations
+## Supported data souce types
 
-- Aiven for ClickHouse supports data service integrations with **Apache Kafka®** and
-  **PostgreSQL®**, both
-  [in-Aiven and external](/docs/products/clickhouse/concepts/data-integration-overview#in-aiven-integrations-vs-external-integrations).
-- You can set up the
-  [managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
-  with **external PostgreSQL** and **external MySQL®** data stores only.
-- While, **external PostgreSQL®** data sources (endpoints) support both the
-  [managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
-  and the
-  [managed databases integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-databases-integration),
-  **external MySQL** data sources (endpoints) support the
-  [managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
-  only.
+Depending on a data source type, Aiven for ClickHouse supports different integration modes.
+
+| Data source type | Data source integration<br/>(with Aiven service <br/>or external source)| Managed databases integration| Managed credentials integration |
+|------------------|----------------------------|------------------------------|---------------------------------|
+| PostgreSQL       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="tick"/>      |
+| MySQL            | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Apache Kafka     | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="cross"/>     |
+| ClickHouse       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="cross"/>     |
+| Amazon S3        | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
 
 ## Related pages
 
