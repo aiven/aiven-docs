@@ -14,7 +14,7 @@ The group requests page displays the following key elements:
 - **Type**: Indicates the type of request
 - **Status**: Current status of the request
   - **Approved**: Request approved and processed
-  - **Declined**: Request declined, topic available for another group
+  - **Declined**: Request declined. The topic is now available for another group to claim
   - **Deleted**: Request has been deleted by the requester
   - **Failed**: Request was unable to complete the governance action (for example, due to
     Apache Kafka cluster issues or connectivity problems)
