@@ -916,8 +916,8 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Governance',
                   link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/governance',
+                    type: 'doc',
+                    id: 'products/kafka/howto/governance',
                   },
                   items: ['products/kafka/howto/enable-governance'],
                 },
