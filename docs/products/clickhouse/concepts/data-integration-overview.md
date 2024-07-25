@@ -93,7 +93,7 @@ For more information on ClickHouse database engines, see
 [Database engines](https://clickhouse.com/docs/en/engines/database-engines).
 :::
 
-## Supported data souce types
+## Supported data source types
 
 Depending on a data source type, Aiven for ClickHouse supports different integration modes.
 
