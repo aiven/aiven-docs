@@ -75,10 +75,11 @@ To change global topic configurations after enabling governance:
 ### Impact of enabling governance
 
 - **Existing topics**:
-  - The selected default group is assigned as the owner of all existing topics.
-  - Ownership details are visible in the Apache Kafka topic catalog.
-  - Users from different groups can still claim ownership of individual topics.
-  - You can also update the default owner as needed.
+  - The selected default group is assigned as the owner of all existing Apache Kafka
+    resources.
+  - Ownership details for Apache Kafka resources are visible in the
+    Apache Kafka topic catalog.
+  - Users from different groups can still claim ownership of individual resources.
 
 - **Topic creation workflow**:
   - Direct topic creation is replaced by a structured request-and-approval process.
@@ -92,12 +93,13 @@ To change global topic configurations after enabling governance:
 
 ### Impact of disabling governance
 
-- Existing ownership assigned to the topics remains unchanged.
-- Re-enabling governance later preserves the ownership settings from the last time it
-  was disabled.
-- Topics claimed by specific groups retain their ownership.
-- If you select a different user group when re-enabling governance, topics under the
-  previous default group are assigned to the new default governance group.
+- Existing ownership assigned to the Apache Kafka resources remains unchanged.
+- Re-enabling governance later preserves the Apache Kafka resources ownership from
+  the last time it was disabled.
+- Apache Kafka resources claimed by specific groups retain their ownership.
+- If you select a different user group when re-enabling governance,
+  Apache Kafka resources under the previous default group are assigned to the
+  new default governance group.
 
 ## Related pages
 
