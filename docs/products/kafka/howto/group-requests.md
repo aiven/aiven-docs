@@ -2,6 +2,7 @@
 title: Manage group requests
 limited: true
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 The group requests page allows you to view and track requests made by you and other members of your group for Aiven for Apache Kafka resources.
 These requests can include claiming existing topics or creating new topics.
@@ -33,7 +34,7 @@ You can only delete requests you have created. You can view requests from other 
 members but cannot delete them.
 
 1. Access the [Aiven console](https://console.aiven.io/), and click
-   **Governance > Group requests**.
+   **Governance > <ConsoleLabel name="Group requests"/>**.
 1. Click the topic name to delete.
 1. In the **Review request** pane, click **Delete**.
 

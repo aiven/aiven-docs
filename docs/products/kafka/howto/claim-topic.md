@@ -11,7 +11,8 @@ To take ownership of a topic that your group does not currently own, you can sub
 
 ## Claim single topic
 
-1. In the Aiven Console, click **Tools** > **Apache Kafka topic catalog**.
+1. Access the [Aiven console](https://console.aiven.io/), and
+   click **Tools** > **Apache Kafka topic catalog**.
 1. Click the topic name to open the **Topic details** pane.
 1. Click **Claim topic**.
 1. In the **User group** field, select the group to assign as the owner.
@@ -36,7 +37,7 @@ Alternatively:
 
 ## Claim multiple topics
 
-1. Select the checkbox next to the **Topic** heading to select all topics you can claim,
+1. Select the checkbox next to the **Topic** heading to select all claimable topics,
    or individually select the checkboxes for the topics to claim.
 1. Click **Claim ownership**.
 1. In the **User group** field, select the group to be assigned as the owner.
@@ -52,7 +53,7 @@ Alternatively:
 
 1. Click the topic in the topic catalog.
 1. In the **Topic details** pane, under the **Topic owner** section, click
-   **Open group requests**.
+   **Open Group requests**.
 
 Alternatively:
 
@@ -61,7 +62,7 @@ Alternatively:
 
 ## Delete a topic claim request
 
-To withdraw your ownership claim request, follow these steps:
+To delete your topic ownership claim request:
 
 1. Click **Tools** > **Governance** > **Group requests**.
 1. Search for and click the topic to delete the ownership claim request for.

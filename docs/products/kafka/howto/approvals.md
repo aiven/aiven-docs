@@ -3,7 +3,7 @@ title: Manage approvals
 limited: true
 ---
 
-The approvals page allows you to manage requests for Aiven for Apache Kafka resources owned by your group.
+The approvals page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
 These requests can include claims for existing topics or requests to create new topics.
 
 ## Requests flow
