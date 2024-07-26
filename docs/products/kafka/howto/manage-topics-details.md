@@ -1,16 +1,22 @@
 ---
-title: Manage Apache Kafka topics in detail
+title: Manage Apache Kafka® topics in detail
 sidebar_label: Detailed topic management
 limited: true
 ---
 
 Explore advanced topic management features in the Apache Kafka topic catalog. Navigate through various options and configurations for your Apache Kafka topics.
 
-## Topic overview page
+## Access topic overview page
 
 1. In the Apache Kafka topic catalog, click the name of a topic to open the topic details
    pane.
 1. Click **Open topic page** to open the topic overview page.
+
+:::note
+If you are not a member of the project associated with the topic, the
+**Open topic page** option is disabled.
+:::
+
 
 On the topic overview page, you can:
 
@@ -18,11 +24,11 @@ On the topic overview page, you can:
 
 View a summary of the key details of your Apache Kafka topic:
 
-- **Topic size**: Total size of the topic data.
-- **Partitions**: Number of partitions the topic is divided into.
-- **Replication factor**: Replication factor set for the topic.
-- **Topic tags**: Tags associated with the topic.
-- **Topic owner**: Current owner of the topic.
+- **Topic size**: Total size of the topic data
+- **Partitions**: Number of partitions the topic is divided into
+- **Replication factor**: Replication factor set for the topic
+- **Topic tags**: Tags associated with the topic
+- **Topic owner**: Current owner of the topic
 
 ### Configuration tab
 
@@ -58,7 +64,7 @@ Enable and manage schemas for the topic:
 
 :::note
 Enable the [schema registry authorization](/docs/products/kafka/concepts/schema-registry-authorization)
-for your Aiven for Apache Kafka service to use the schemas tab.
+for your Aiven for Apache Kafka service to use the **Schemas** tab.
 :::
 
 ## Edit topic information

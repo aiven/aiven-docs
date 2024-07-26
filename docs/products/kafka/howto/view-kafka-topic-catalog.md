@@ -1,12 +1,12 @@
 ---
-title: Manage Apache Kafka topics with topic catalog
+title: Manage Apache Kafka® topics with topic catalog
 sidebar_label: Manage topic catalog
 limited: true
 ---
 
 The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
 
-## Access topic catalog
+## Access the topic catalog
 
 1. Log in to the [Aiven console](https://console.aiven.io/).
 1. Click **Tools**.
@@ -31,14 +31,15 @@ which goes through an approval process to ensure proper governance.
 To request a new topic:
 
 1. On the Apache Kafka topic catalog page, click **Request new topic**.
-1. Select the project.
-1. Select the Aiven for Apache Kafka service.
-1. Select the group for topic ownership.
-1. Enter a unique topic name.
-1. Set the replication factor (maximum value: 3).
-1. Set the number of partitions (maximum value: 8).
-1. Provide a brief description of the topic.
-1. If needed, enable advanced configuration and complete the additional fields.
+1. On the Request topic form:
+   - Select the project.
+   - Select the Aiven for Apache Kafka service.
+   - Select the group for topic ownership.
+   - Enter a unique topic name.
+   - Set the replication factor.
+   - Set the number of partitions.
+   - Provide a brief description of the topic.
+   - If needed, enable advanced configuration and complete the additional fields.
 1. Click **Submit**.
 
 After submitting a new topic creation request, you can view and track its status on the
@@ -50,10 +51,8 @@ approved or declined.
 Use the topic details pane to view detailed information about a topic and
 its advanced configurations.
 
-### Topic details pane
-
 1. Click the name of a topic to open the topic details pane.
-1. In the topic details pane, users can:
+1. In the topic details pane, you can:
    - View topic details.
    - View advanced configurations.
    - Claim the topic.

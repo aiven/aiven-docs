@@ -26,7 +26,7 @@ even if you aren't a member of all projects.
 - **Claim topic ownership**: Request to claim ownership of individual topics not currently
   owned by your group. Additionally, select multiple topics and submit a batch claim
   request for ownership transfer.
-- **Topic creation requests and approvals**: You can submit requests for creating new
+- **Topic creation requests and approvals**: Submit requests for creating new
   topics, which go through an approval process to ensure proper governance.
 
 ## Related page
