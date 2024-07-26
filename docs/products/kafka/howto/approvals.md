@@ -43,7 +43,7 @@ The approvals page displays the following key elements:
 ## Approve or decline requests
 
 1. Access the [Aiven console](https://console.aiven.io/), and click
-   **Governance** > **Approvals**.
+   **Tools** > **Governance** > **Approvals**.
 1. Click a topic to open the **Review request** pane.
 1. Review the request details.
 1. Do one of the following:

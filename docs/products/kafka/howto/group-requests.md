@@ -33,7 +33,7 @@ The group requests page displays the following key elements:
 To view and track requests made by you and other members of your group:
 
 - Access the [Aiven console](https://console.aiven.io/) and click
-   **Governance** > **<ConsoleLabel name="Group requests"/>**.
+   **Tools** > **Governance** > **<ConsoleLabel name="Group requests"/>**.
 - Use the search bar to find specific requests by topic name.
 - Filter requests by type, status, requester, and group.
 - Click the topic name to view detailed information about the request.
@@ -44,7 +44,7 @@ You can only delete requests you have created. You can view requests from other 
 members but cannot delete them.
 
 1. Access the [Aiven console](https://console.aiven.io/) and click
-   **Governance** > **<ConsoleLabel name="Group requests"/>**.
+   **Tool** > **Governance** > **<ConsoleLabel name="Group requests"/>**.
 1. Click the topic name to delete.
 1. In the **Review request** pane, click **Delete**.
 
