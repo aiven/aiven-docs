@@ -22,9 +22,9 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 1. Select a user group to manage topics. This group is the default group and
    owns all topics in the organization.
    - If no user group exists, click **Create new user group**.
-     - Enter the group name and description.
-     - Click **Create group**.
-   - Select the created user group.
+     1. Enter the group name and description.
+     1. Click **Create group**.
+     1. Select the created user group.
 1. Click **Next**.
 1. Define resource visibility for the Apache Kafka topic catalog.
 1. Select **Project** or **Organization** visibility.
@@ -69,7 +69,7 @@ To change global topic configurations after enabling governance:
 1. On the organization page, click <ConsoleLabel name="Apache Kafka governance"/>.
 1. Click **Change** next to **Global Apache Kafka topic policies**.
 1. Update the global default topic configurations as needed.
-   - Modify retention policies, partition strategies, or other settings.
+1. Modify retention policies, partition strategies, or other settings.
 1. Click **Save**.
 
 ### Impact of enabling governance
@@ -83,7 +83,7 @@ To change global topic configurations after enabling governance:
 
 - **Topic creation workflow**:
   - Direct topic creation is replaced by a structured request-and-approval process.
-  - This ensures all topics align with your organization's data management policies.
+  - All topics align with your organization's data management policies.
 
 ## Disable governance
 
