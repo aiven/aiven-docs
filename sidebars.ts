@@ -336,88 +336,6 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/disaster-recovery-test-scenarios',
           ],
         },
-        {
-          type: 'category',
-          label: 'Monitoring and logs',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-monitoring',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Metric and log integrations',
-              link: {
-                type: 'generated-index',
-                slug: 'platform/howto/metrics-integrations',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Amazon CloudWatch',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/cloudwatch',
-                  },
-                  items: [
-                    'integrations/cloudwatch/cloudwatch-metrics',
-                    {
-                      type: 'category',
-                      label: 'CloudWatch logs',
-                      link: {
-                        type: 'doc',
-                        id: 'integrations/cloudwatch/list-cloudwatch-logs',
-                      },
-                      items: [
-                        'integrations/cloudwatch/cloudwatch-logs-console',
-                        'integrations/cloudwatch/cloudwatch-logs-cli',
-                      ],
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Datadog',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/datadog',
-                  },
-                  items: [
-                    'integrations/datadog/datadog-metrics',
-                    'platform/howto/integrations/datadog-increase-metrics-limit',
-                    'integrations/datadog/datadog-logs',
-                    'integrations/datadog/add-custom-tags-to-datadog',
-                  ],
-                },
-                'integrations/send-logs-to-elasticsearch',
-                'integrations/cloudlogging',
-                {
-                  type: 'category',
-                  label: 'Remote Syslog',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/rsyslog',
-                  },
-                  items: [
-                    'integrations/rsyslog/logtail',
-                    'integrations/rsyslog/loggly',
-                  ],
-                },
-                'platform/howto/integrations/access-jmx-metrics-jolokia',
-
-                {
-                  type: 'category',
-                  label: 'Prometheus',
-                  link: {
-                    id: 'platform/howto/integrations/prometheus-metrics',
-                    type: 'doc',
-                  },
-                  items: ['integrations/prometheus-system-metrics'],
-                },
-              ],
-            },
-          ],
-        },
         'platform/reference/eol-for-major-versions',
       ],
     },
@@ -430,6 +348,78 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/service-integration',
         'platform/howto/create-service-integration',
+        {
+          type: 'category',
+          label: 'Monitoring and logs',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-monitoring',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Amazon CloudWatch',
+              link: {
+                type: 'doc',
+                id: 'integrations/cloudwatch',
+              },
+              items: [
+                'integrations/cloudwatch/cloudwatch-metrics',
+                {
+                  type: 'category',
+                  label: 'CloudWatch logs',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
+                  },
+                  items: [
+                    'integrations/cloudwatch/cloudwatch-logs-console',
+                    'integrations/cloudwatch/cloudwatch-logs-cli',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Datadog',
+              link: {
+                type: 'doc',
+                id: 'integrations/datadog',
+              },
+              items: [
+                'integrations/datadog/datadog-metrics',
+                'platform/howto/integrations/datadog-increase-metrics-limit',
+                'integrations/datadog/datadog-logs',
+                'integrations/datadog/add-custom-tags-to-datadog',
+              ],
+            },
+            'integrations/send-logs-to-elasticsearch',
+            'integrations/cloudlogging',
+            {
+              type: 'category',
+              label: 'Remote Syslog',
+              link: {
+                type: 'doc',
+                id: 'integrations/rsyslog',
+              },
+              items: [
+                'integrations/rsyslog/logtail',
+                'integrations/rsyslog/loggly',
+              ],
+            },
+            'platform/howto/integrations/access-jmx-metrics-jolokia',
+
+            {
+              type: 'category',
+              label: 'Prometheus',
+              link: {
+                id: 'platform/howto/integrations/prometheus-metrics',
+                type: 'doc',
+              },
+              items: ['integrations/prometheus-system-metrics'],
+            },
+          ],
+        },
       ],
     },
     {
