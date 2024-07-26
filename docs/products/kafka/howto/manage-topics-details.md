@@ -1,53 +1,20 @@
 ---
-title: Manage Apache Kafka topics with topic catalog
+title: Manage Apache Kafka topics in detail
+sidebar_label: Detailed topic management
 limited: true
 ---
 
-The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
+Explore advanced topic management features in the Apache Kafka topic catalog. Navigate through various options and configurations for your Apache Kafka topics.
 
-## Access topic catalog
+## Topic overview page
 
-1. Log in to the [Aiven console](https://console.aiven.io/).
-1. Click **Tools**.
-1. Select **Apache Kafka topic catalog**.
-
-## Browse the topic catalog
-
-On the Apache Kafka topic catalog page, you can:
-
-- **View topics in a table**: This default view lists all topics in a table format, showing columns
-  for the topic name, service, project, and owner.
-- **Switch to card view**: Click **Tiles** to switch to the card view and browse topics displayed
-  as cards.
-- **Search for topics**: Enter the topic name in the search bar at the top
-  to find specific topics.
-
-## View and manage topic details
-
-Access detailed information and perform advanced operations through the topic details
-pane and topic overview page.
-
-### Topic details pane
-
-1. Click the name of a topic to open the topic details pane.
-1. Review the general information and advanced configurations.
-1. Click **Open topic page** for more details and actions.
-
-:::note
-
-- The **Claim topic** option is available only if governance is enabled for your organization.
-- If you are not a member of the project associated with the topic, you receive a
-  **Not a project member** error message when you attempt to access the topic page.
-- If a group has claimed this topic, you can view the details on the **Approvals** page
-  under **Governance**.
-
-:::
-
-### Topic overview page
+1. In the Apache Kafka topic catalog, click the name of a topic to open the topic details
+   pane.
+1. Click **Open topic page** to open the topic overview page.
 
 On the topic overview page, you can:
 
-#### Overview tab
+### Overview tab
 
 View a summary of the key details of your Apache Kafka topic:
 
@@ -57,7 +24,7 @@ View a summary of the key details of your Apache Kafka topic:
 - **Topic tags**: Tags associated with the topic.
 - **Topic owner**: Current owner of the topic.
 
-#### Configuration tab
+### Configuration tab
 
 Review and compare the configuration settings of your Apache Kafka topics:
 
@@ -65,7 +32,7 @@ Review and compare the configuration settings of your Apache Kafka topics:
 - **Compare configurations**: Compare the configuration of the current topic with
   another topic by selecting a topic to compare.
 
-#### Users tab
+### Users tab
 
 Manage and view user permissions for the topic:
 
@@ -73,14 +40,14 @@ Manage and view user permissions for the topic:
 - **Filter by permission**: Filter users by permissions.
 - **Compare user permissions**: Compare the permissions of users across different topics.
 
-#### Messages tab
+### Messages tab
 
 Fetch and view messages:
 
 - Use filters like partition, offset, timeout, max bytes, and format.
 - Click **Fetch messages**.
 
-#### Schemas tab
+### Schemas tab
 
 Enable and manage schemas for the topic:
 
@@ -94,6 +61,16 @@ Enable the [schema registry authorization](/docs/products/kafka/concepts/schema-
 for your Aiven for Apache Kafka service to use the schemas tab.
 :::
 
+## Edit topic information
+
+1. Click **Edit topic** to access the topic info screen within the
+   respective Aiven for Apache Kafka service.
+1. On the topic info screen, click **Modify** to edit the topic configurations.
+1. Update the desired configurations and click **Update** to save the changes.
+1. To return to the topic overview page in the Apache Kafka topic catalog,
+   click **Open topic catalog**.
+
 ## Related pages
 
 - [Aiven for Apache Kafka® topic catalog overview](/docs/products/kafka/concepts/topic-catalog-overview)
+- [View and manage Apache Kafka topic catalog](/docs/products/kafka/howto/view-kafka-topic-catalog)

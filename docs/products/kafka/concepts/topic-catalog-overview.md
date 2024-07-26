@@ -31,4 +31,4 @@ even if you aren't a member of all projects.
 
 ## Related page
 
-- [Manage Apache Kafka topics with topic catalog](/docs/products/kafka/howto/use-kafka-topic-catalog)
+- [Manage Apache Kafka topics with topic catalog](/docs/products/kafka/howto/view-kafka-topic-catalog)

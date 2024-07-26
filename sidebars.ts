@@ -909,7 +909,15 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
                     'products/kafka/howto/change-retention-period',
-                    'products/kafka/howto/use-kafka-topic-catalog',
+                    {
+                      type: 'category',
+                      label: 'Manage topic catalog',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/view-kafka-topic-catalog',
+                      },
+                      items: ['products/kafka/howto/manage-topics-details'],
+                    },
                   ],
                 },
                 {
