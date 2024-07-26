@@ -1,5 +1,5 @@
 ---
-title: Group requests
+title: Manage group requests
 limited: true
 ---
 

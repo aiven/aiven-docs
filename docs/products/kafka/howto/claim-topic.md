@@ -3,7 +3,7 @@ title: Claim topic ownership
 limited: true
 ---
 
-To take ownership of a topic that your group does not currently own, you can submit a claim request. Once the request is sent, the current owner can either approve or decline it.
+To take ownership of a topic that your group does not currently own, you can submit a claim request. Once you send the request, the current owner can approve or decline it.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ To take ownership of a topic that your group does not currently own, you can sub
 1. Click the topic name to open the **Topic details** pane.
 1. Click **Claim topic**.
 1. In the **User group** field, select the group to assign as the owner.
-1. Optionally, enter a message for the approver explaining why you are claiming ownership.
+1. (Optionally) Enter a message for the approver explaining why you are claiming ownership.
 1. Click **Claim**.
 
 Alternatively:
@@ -23,7 +23,7 @@ Alternatively:
 1. Click **Open topic page** in  the **Topic details** pane.
 1. From the **Overview** tab, click **Claim topic**.
 1. In the **User group** field, select the group to assign as the owner.
-1. Optionally, enter a message for the approver explaining why you are claiming ownership.
+1. (Optionally) Enter a message for the approver explaining why you are claiming ownership.
 1. Click **Claim**.
 
 :::note
@@ -45,20 +45,21 @@ Alternatively:
    Users can belong to multiple groups, ensure you select the appropriate group.
    :::
 
-1. Optionally, enter a message for the approver explaining why you are claiming ownership.
+1. (Optionally) Enter a message for the approver explaining why you are claiming ownership.
 1. Click **Claim**.
 
-## View and track claim requests
+## View and track topic claim requests
 
 1. Click the topic in the topic catalog.
-1. In the **Topic details** pane, under the **Topic owner** section, click **Open Group requests**.
+1. In the **Topic details** pane, under the **Topic owner** section, click
+   **Open group requests**.
 
 Alternatively:
 
 1. Click **Tools** > **Governance** > **Group requests**.
 1. Search for your topic to view its status.
 
-## Delete a claim request
+## Delete a topic claim request
 
 To withdraw your ownership claim request, follow these steps:
 
