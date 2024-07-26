@@ -4,19 +4,19 @@ limited: true
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The group requests page allows you to view and track requests made by you and other members of your group for Aiven for Apache Kafka resources.
+The group requests page allows you to view and track requests you and other members of your group made for Aiven for Apache Kafka® resources.
 These requests can include claims for existing topics or requests to create new topics.
 
-### Key elements
+## Key elements
 
 The group requests page displays the following key elements:
 
 - **Topic**: Name of the topic
-- **Type**: Indicates the type of request
+- **Type**: Type of request
 - **Status**: Current status of the request
   - **Approved**: Request approved and processed
   - **Declined**: Request declined. The topic is now available for another group to claim
-  - **Deleted**: Request has been deleted by the requester
+  - **Deleted**: Request deleted by the requester
   - **Failed**: Request cannot complete the required action (for example, due to
     Apache Kafka cluster issues or connectivity problems)
   - **Pending**: Request awaiting approval or decline
@@ -28,13 +28,23 @@ The group requests page displays the following key elements:
 - **Filters**: Filter the list by type, status, requester, and group
 - **Search function**: Search for specific topics by name
 
-### Delete requests
+## View and track requests
+
+To view and track requests made by you and other members of your group:
+
+- Access the [Aiven console](https://console.aiven.io/) and click
+   **Governance** > **<ConsoleLabel name="Group requests"/>**.
+- Use the search bar to find specific requests by topic name.
+- Filter requests by type, status, requester, and group.
+- Click the topic name to view detailed information about the request.
+
+## Delete requests
 
 You can only delete requests you have created. You can view requests from other group
 members but cannot delete them.
 
 1. Access the [Aiven console](https://console.aiven.io/) and click
-   **Governance > <ConsoleLabel name="Group requests"/>**.
+   **Governance** > **<ConsoleLabel name="Group requests"/>**.
 1. Click the topic name to delete.
 1. In the **Review request** pane, click **Delete**.
 

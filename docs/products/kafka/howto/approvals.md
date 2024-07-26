@@ -3,7 +3,7 @@ title: Manage approvals
 limited: true
 ---
 
-The approvals page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
+The **Approvals** page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
 These requests can include claims for existing topics or requests to create new topics.
 
 ## Requests flow
@@ -13,10 +13,10 @@ Managing requests involves several key steps:
 - **Request initiation**: Users submit a request from the Apache Kafka topic catalog to
   claim ownership of an existing topic or create a topic.
 - **Request visibility**: All members of the topic's owning group can see the request on
-  the approvals page.
-- **Review and approval**: A group member reviews the request, and either approves or
+  the **Approvals** page.
+- **Review and approval**: A group member reviews the request and either approves or
   declines it.
-- **Completion**: If approved, the requested topic ownership change or topic creation
+- **Completion**: If approved, the requested change of topic ownership or topic creation
   is completed. If declined, the request is not implemented.
 
 ## Key elements
@@ -24,7 +24,7 @@ Managing requests involves several key steps:
 The approvals page displays the following key elements:
 
 - **Topic**: Name of the topic
-- **Type**: Claim or create request
+- **Type**: Type of request
 - **Status**: Current status of the request
   - **Approved**: Request approved and processed
   - **Declined**: Request declined. The topic is now available for another group to claim
@@ -43,7 +43,7 @@ The approvals page displays the following key elements:
 ## Approve or decline requests
 
 1. Access the [Aiven console](https://console.aiven.io/), and click
-   **Governance > Approvals**.
+   **Governance** > **Approvals**.
 1. Click a topic to open the **Review request** pane.
 1. Review the request details.
 1. Do one of the following:

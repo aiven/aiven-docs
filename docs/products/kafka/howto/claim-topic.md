@@ -43,7 +43,7 @@ Alternatively:
 1. In the **User group** field, select the group to be assigned as the owner.
 
    :::note
-   Users can belong to multiple groups, ensure you select the appropriate group.
+   Users can belong to multiple groups. Ensure you select the appropriate group.
    :::
 
 1. (Optionally) Enter a message for the approver explaining why you are claiming ownership.
@@ -66,8 +66,9 @@ To delete your topic ownership claim request:
 
 1. Click **Tools** > **Governance** > **Group requests**.
 1. Search for and click the topic to delete the ownership claim request for.
-1. In the topic details pane, click **Delete**.
-1. The review status updates to **Deleted** in the pane and on the Group requests page.
+1. In the **Topic details** pane, click **Delete**.
+
+The review status updates to **Deleted** in the pane and on the **Group requests** page.
 
 ## Related pages
 
