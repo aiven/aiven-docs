@@ -32,7 +32,7 @@ The approvals page displays the following key elements:
   - **Failed**: Request cannot complete the required action  (for example, due to
     Apache Kafka cluster issues or connectivity problems)
   - **Pending**: Request awaiting approval or decline
-  - **Provisioning**: Request in progress. Topic is being created on the Apache Kafka
+  - **Provisioning**: Request in progress. The topic is being created on the Apache Kafka
     cluster
 - **Requesting group**: Group that made the request
 - **Requester**: User who submitted the request

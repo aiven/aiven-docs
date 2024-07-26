@@ -5,7 +5,7 @@ limited: true
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 The group requests page allows you to view and track requests made by you and other members of your group for Aiven for Apache Kafka resources.
-These requests can include claiming existing topics or creating new topics.
+These requests can include claims for existing topics or requests to create new topics.
 
 ### Key elements
 
@@ -20,7 +20,7 @@ The group requests page displays the following key elements:
   - **Failed**: Request cannot complete the required action (for example, due to
     Apache Kafka cluster issues or connectivity problems)
   - **Pending**: Request awaiting approval or decline
-  - **Provisioning**: Request in progress. Topic is being created on the Apache Kafka
+  - **Provisioning**: Request in progress. The topic is being created on the Apache Kafka
     cluster
 - **Requesting group**: Group that made the request
 - **Requester**: User who submitted the request
@@ -33,7 +33,7 @@ The group requests page displays the following key elements:
 You can only delete requests you have created. You can view requests from other group
 members but cannot delete them.
 
-1. Access the [Aiven console](https://console.aiven.io/), and click
+1. Access the [Aiven console](https://console.aiven.io/) and click
    **Governance > <ConsoleLabel name="Group requests"/>**.
 1. Click the topic name to delete.
 1. In the **Review request** pane, click **Delete**.
