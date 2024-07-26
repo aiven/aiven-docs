@@ -17,7 +17,7 @@ functionalities are incrementally added as development continues.
 
 ## Benefits of governance
 
-- **Enhanced security:** Access control ensures only authorized users can access and
+- **Enhanced security:** Control access to ensure only authorized users can access and
   modify Aiven for Apache Kafka resources.
 - **Increased efficiency:** Decentralize management by allowing teams to manage topics
   independently, reducing manual effort and streamlining operations.
@@ -26,14 +26,14 @@ functionalities are incrementally added as development continues.
 - **Centralized control:** Manage Aiven for Apache Kafka resources centrally,
   simplifying administration across multiple environments.
 
-## Key elements governance
+## Key elements of governance
 
-- **Distribute ownership:** Assign topic ownership to user groups, enabling them to
+- **Ownership distribution:** Assign topic ownership to user groups, enabling them to
   manage configurations and access data without direct Apache Kafka cluster access.
   This promotes shared responsibility, enhances control, and aids in accountability
   tracking during incidents.
 
-- **Manage requests:** Enable group members to submit and approve requests to create and
+- **Request management:** Enable group members to submit and approve requests to create and
   own topics. The request system follows the Four Eyes Principle, requiring another
   team member to review and approve changes, thereby maintaining a clear audit trail.
 
@@ -52,10 +52,10 @@ functionalities are incrementally added as development continues.
 - **Schema management:** Compare schema versions in the topic catalog to help
   maintain data quality and compatibility.
 
-- **Access control:** Implement RBAC for fine-grained permissions to ensure only
-  authorized users can access sensitive data. Enable organization-wide visibility for
-  Apache Kafka topics, allowing teams to discover topics without direct access to
-  Apache Kafka clusters.
+- **Access control:** Implement role-based access control (RBAC) for fine-grained
+  permissions to ensure only authorized users can access sensitive data. Enable
+  organization-wide visibility for Apache Kafka topics, allowing teams to discover
+  topics without direct access to Apache Kafka clusters.
 
 - **Monitoring and auditing:** Implement comprehensive monitoring of clusters, topics,
   and applications. Maintain audit logs for all actions performed on the infrastructure.
