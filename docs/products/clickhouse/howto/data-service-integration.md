@@ -54,7 +54,7 @@ services:
 <TabItem value="1" label="Integrate with a new service" default>
 To create an integration with a new service in the **Data service integrations** wizard:
 
-1. Unselect all available data service types.
+1. Unselect all available data **Service types**.
 1. Click **Create service**.
 1. [Set up the new service](/docs/platform/howto/create_new_service).
 1. Come back to your Aiven for ClickHouse service (<ConsoleLabel name="overview"/> >
@@ -65,11 +65,11 @@ To create an integration with a new service in the **Data service integrations**
 <TabItem value="2" label="Integrate with an existing service">
 To create an integration with an existing service in the **Data service integrations** wizard:
 
-1. Select a type of an Aiven-managed service to integrate with. See
+1. Select **Service types** of Aiven-managed services to integrate with. See
    [supported data source types](/docs/products/clickhouse/concepts/data-integration-overview#supported-data-source-types)
    for supported service types.
-1. Select a service of the chosen type from the list of services available for
-   integration and click **Continue**.
+1. Select **Data service** of the chosen type from the list of services available for
+   integration, and click **Continue**.
 1. Click either **Enable without databases** or **Add databases**.
 
    :::note
@@ -105,11 +105,11 @@ For integration with external data sources, Aiven for ClickHouse offers two meth
 To create an integration with an external data source in the **Data service integrations**
 wizard:
 
-1. Select a type of an external data service to integrate with. See
+1. Select **Service types** of an external data source to integrate with. See
    [supported data source types](/docs/products/clickhouse/concepts/data-integration-overview#supported-data-source-types)
    for supported service types.
-1. Select an external data service of the chosen type from the list of services available
-   for integration and click **Continue**
+1. Select an external **Data service** of the chosen type from the list of services available
+   for integration, and click **Continue**.
 1. Select an integration method, either **Managed databases**  or **Managed credentials**,
    and click **Continue**.
 1. Integrate with managed databases or with managed credentials:
