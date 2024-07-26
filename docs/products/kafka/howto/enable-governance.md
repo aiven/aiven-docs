@@ -46,6 +46,32 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
    - Enter your global default topic configurations.
    - Click **Enable governance** to apply your changes.
 
+    :::note
+    Global topic configurations apply only to new topics created after the policies are
+    updated. Existing topics are not be affected by these changes.
+    :::
+
+### Change the default group
+
+To change the default user group after enabling governance:
+
+1. On the organization page, click <ConsoleLabel name="Apache Kafka governance"/>.
+1. Click **Change** next to **Default user group**.
+1. Select a new user group from the list.
+1. If no suitable group exists, [create a group](/docs/platform/howto/manage-groups#create-a-group)
+   and select it.
+1. Click **Save**.
+
+### Update global topic configurations
+
+To change global topic configurations after enabling governance:
+
+1. On the organization page, click <ConsoleLabel name="Apache Kafka governance"/>.
+1. Click **Change** next to **Global Apache Kafka topic policies**.
+1. Update the global default topic configurations as needed.
+   - Modify retention policies, partition strategies, or other settings.
+1. Click **Save**.
+
 ### Impact of enabling governance
 
 - **Existing topics**:
@@ -60,8 +86,7 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 
 ## Disable governance
 
-1. In the organization, click **Admin**.
-1. Click <ConsoleLabel name="Apache Kafka governance"/>.
+1. On the organization page, click <ConsoleLabel name="Apache Kafka governance"/>.
 1. Expand **Governance is enabled for your organization**.
 1. Click **Disable**.
 
@@ -77,3 +102,4 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 ## Related pages
 
 - [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview)
+- [Project member roles and permissions](/docs/platform/reference/project-member-privileges)
