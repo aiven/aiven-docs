@@ -1,14 +1,16 @@
 ---
 title: Configure data retention thresholds in Aiven for ClickHouse®'s tiered storage
-limited: true
+sidebar_label: Set up data retention
 ---
 
-Learn to control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## About data retention control
+Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
 
 If you have the tiered storage feature
-[enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your Aiven for ClickHouse service, your data is
+[enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your Aiven for
+ClickHouse service, your data is
 distributed between two storage devices (tiers). The data is stored
 either on SSD or in object storage, depending on whether and how you
 configure this behavior. By default, data is moved from SSD to object
@@ -16,7 +18,8 @@ storage when SSD reaches 80% of its capacity (default size-based data
 retention policy).
 
 You may want to change this default data distribution behavior by
-[configuring your table's schema by adding a TTL (time-to-live) clause](/docs/products/clickhouse/howto/configure-tiered-storage#time-based-retention-config). Such a configuration allows ignoring the SSD-capacity
+[configuring your table's schema by adding a TTL (time-to-live) clause](/docs/products/clickhouse/howto/configure-tiered-storage#time-based-retention-config).
+Such a configuration allows ignoring the SSD-capacity
 threshold and moving the data from SSD to object storage based on how
 long the data is there on your SSD.
 
@@ -31,35 +34,30 @@ For data retention control purposes, the TTL clause uses the following:
 
 ## Prerequisites
 
--   Tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on the project level
-    and on the table level
-
-    :::note
-    This feature is in [limited availability](/docs/platform/concepts/beta_services).
-    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
-
--   Aiven organization
--   Command line tool
+-   Tiered storage [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)
+-   Command line tool installed
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 
 ## Configure time-based data retention {#time-based-retention-config}
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
+1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client.
 
-2.  Select a database for operations you intend to perform.
+1.  Select a database for operations you intend to perform.
 
-    ```bash
+    ```sql
     USE database-name
     ```
 
-### Add TTL to a new table
+### Add TTL
 
+<Tabs groupId="group1">
+<TabItem value="1" label="Add TTL to a new table" default>
 Create a table with the `storage_policy` setting set to `tiered` (to
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL (time-to-live) configured to add a
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL
+(time-to-live) configured to add a
 time-based data retention threshold on the table.
 
-```shell
+```sql
 CREATE TABLE example_table (
     SearchDate Date,
     SearchID UInt64,
@@ -72,20 +70,23 @@ TTL SearchDate + INTERVAL 1 WEEK TO VOLUME 'remote'
 SETTINGS storage_policy = 'tiered';
 ```
 
-### Add TTL to an existing table
+</TabItem>
+<TabItem value="2" label="Add TTL to an existing table">
+Use the `MODIFY TTL` clause:
 
-Use the MODIFY TTL clause:
-
-```shell
+```sql
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
-### Update TTL to an existing table
+</TabItem>
+</Tabs>
 
-Change an already configured TTL in an existing table by using the ALTER
-TABLE MODIFY TTL clause:
+### Update TTL
 
-```shell
+Change an already configured TTL in an existing table by using the `ALTER
+TABLE MODIFY TTL` clause:
+
+```sql
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 

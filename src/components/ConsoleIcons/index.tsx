@@ -124,6 +124,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Databases</b>
         </>
       );
+    case 'databasestables':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} />{' '}
+          <b>Databases and tables</b>
+        </>
+      );
     case 'pools':
       return (
         <>
@@ -341,6 +348,26 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
+        </>
+      );
+    case 'viewdetails':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
+        </>
+      );
+    case 'activatetieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.database02} />{' '}
+          <b>Activate tiered storage</b>
+        </>
+      );
+    case 'tieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
+          <b>Tiered storage</b>
         </>
       );
     default:
