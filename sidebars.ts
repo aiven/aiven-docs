@@ -938,8 +938,8 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Manage topic requests',
                       link: {
-                        type: 'generated-index',
-                        slug: 'products/kafka/howto/manage-resource-requests',
+                        type: 'doc',
+                        id: 'products/kafka/howto/manage-resource-requests',
                       },
                       items: [
                         'products/kafka/howto/approvals',

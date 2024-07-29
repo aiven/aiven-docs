@@ -4,7 +4,7 @@ limited: true
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The group requests page allows you to view and track requests you and other members of your group made for Aiven for Apache Kafka® resources.
+The **Group requests** page allows you to view and track requests you and other members of your group made for Aiven for Apache Kafka® resources.
 These requests can include claims for existing topics or requests to create new topics.
 
 ## Key elements
