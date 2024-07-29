@@ -1,5 +1,6 @@
 ---
 title: Get started with Aiven Provider for Terraform
+keywords: [quick start, Terraform]
 ---
 
 This example shows you how to use the Aiven Provider to set up your data

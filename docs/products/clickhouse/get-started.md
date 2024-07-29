@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven for ClickHouse®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 import Tabs from '@theme/Tabs';

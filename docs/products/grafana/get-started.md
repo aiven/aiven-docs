@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven for Grafana®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 To start using Aiven for Grafana®, the first step is to create a service. You can do this in the [Aiven web console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).

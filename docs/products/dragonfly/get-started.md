@@ -1,12 +1,13 @@
 ---
 title: Get started with Aiven for Dragonfly®
 sidebar_label: Get started
+keywords: [quick start]
 ---
+
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
+import Note from "@site/static/includes/dragonflysla-note.md"
 
 Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
-
-import Note from "@site/static/includes/dragonflysla-note.md"
 
 <Note/>
 
@@ -44,7 +45,6 @@ View additional options by running the following commands:
 
 - For a full list of default flags: `avn service create -h`
 - For type-specific options: `avn service types -v`
-
 :::
 
 ## Create service integrations
