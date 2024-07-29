@@ -919,7 +919,22 @@ const sidebars: SidebarsConfig = {
                     type: 'doc',
                     id: 'products/kafka/howto/governance',
                   },
-                  items: ['products/kafka/howto/enable-governance'],
+                  items: [
+                    'products/kafka/howto/enable-governance',
+                    'products/kafka/howto/claim-topic',
+                    {
+                      type: 'category',
+                      label: 'Manage topic requests',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/manage-resource-requests',
+                      },
+                      items: [
+                        'products/kafka/howto/approvals',
+                        'products/kafka/howto/group-requests',
+                      ],
+                    },
+                  ],
                 },
               ],
             },
