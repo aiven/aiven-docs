@@ -162,14 +162,39 @@ are automatically seeded in your external data queries.
    [upstream ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/integrations).
    :::
 
-You can access your credentials storage by passing your external service name in the
-following query:
+Depending on the type of data source you are integrated with, you can access your credentials
+storage by passing your data source name in the following query:
 
 ```sql
+# PostgreSQL data source
+
 SELECT *
-FROM PostgreSQL(EXTERNAL_POSTGRESQL_RESOURCE_NAME,
-   database='default',
-   table='POSTGRESQL_TABLE_NAME')
+FROM postgresql(
+   `service_POSTGRESQL_SOURCE_NAME`,
+   database='defaultdb',
+   table='tables',
+   schema='information_schema'
+)
+```
+
+```sql
+# MySQL data source
+
+SELECT *
+FROM mysql(
+   `service_MYSQL_SOURCE_NAME`,
+   database='defaultdb',
+   table='schemata'
+)
+```
+
+```sql
+# Amazon S3 data source
+
+SELECT * FROM s3(
+   `endpoint_S3_SOURCE_NAME`,
+   filename='*.csv',
+   format='CSVWithNames')
 ```
 
 :::warning
