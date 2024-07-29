@@ -67,6 +67,12 @@ data source types:
 - MySQL®
 - Amazon S3®
 
+:::important
+The managed credentials integration works one-way: It allows to integrate with data source
+and access your data from Aiven for ClickHouse, but it doesn’t allow to access Aiven for
+ClickHouse data from the integrated data source.
+:::
+
 :::note[See also]
 For information on how table engines work in Aiven for ClickHouse services, preview
 [Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).

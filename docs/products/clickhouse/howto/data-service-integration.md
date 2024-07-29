@@ -171,6 +171,11 @@ FROM PostgreSQL(EXTERNAL_POSTGRESQL_RESOURCE_NAME,
    database='default',
    table='POSTGRESQL_TABLE_NAME')
 ```
+
+:::warning
+When you try to run a managed credentials query with a typo, the query fails with an
+error message related to grants.
+:::
 </TabItem>
 </Tabs>
 
@@ -205,6 +210,6 @@ configuration information are deleted.
 
 ## Related pages
 
--   [About Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview)
+-   [Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview)
 -   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)
 -   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)
