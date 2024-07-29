@@ -2,9 +2,3 @@
   background-color: var(--aiven-orange-5);
   color: var(--aiven-grey-70);
 }
-
-h1 .badge,
-h2 .badge,
-h3 .badge {
-  font-size: 43%;
-}

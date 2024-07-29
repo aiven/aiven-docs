@@ -78,8 +78,8 @@
       "<ConsoleLabel name=\"$1\"/> $2"
     ]
   },
-  "Early access badge": {
-    "prefix": ["early access", "badge", "ea"],
+  "Early availability badge": {
+    "prefix": ["early availability", "badge", "ea"],
     "body": [
       "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
       "",
@@ -87,8 +87,8 @@
       ""
     ]
   },
-  "Limited access badge": {
-    "prefix": ["limited access", "badge", "la"],
+  "Limited availability badge": {
+    "prefix": ["limited availability", "badge", "la"],
     "body": [
       "import LimitedBadge from \"@site/src/components/Badges/LimitedBadge\";",
       "",

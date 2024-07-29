@@ -10,12 +10,6 @@
   display: inline-block;
 }
 
-.badge:first-letter {
+.badge {
   text-transform: uppercase;
-}
-
-h1 .badge,
-h2 .badge,
-h3 .badge {
-  font-size: 43%;
 }
