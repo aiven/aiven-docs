@@ -125,8 +125,8 @@ external data.
    click **Enable without databases** to integrate with no custom databases created.
 
    :::tip
-   If you choose to have databases created automatically, you can populate them with your
-   external data using a query similar to the following:
+   If you choose to have databases created automatically, you can query them using a
+   statement similar to the following:
 
    ```sql
    SELECT *
