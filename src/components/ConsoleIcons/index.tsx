@@ -343,6 +343,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
         </>
       );
+    case 'showpassword':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} />{' '}
+          <b>Show password</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
