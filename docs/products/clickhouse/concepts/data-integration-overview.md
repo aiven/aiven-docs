@@ -53,7 +53,7 @@ data service integrations:
 The managed credentials integration uses the
 [ClickHouse named collections](https://clickhouse.com/docs/en/operations/named-collections)
 logic. It allows storing key-value pairs that are to be used as credentials when
-connecting to external data sources. To integrate date, you create tables using table
+connecting to external data sources. To integrate data, you create tables using table
 engines. With the managed credentials integration enabled,
 querying the data is easier and quicker since you no longer need connections parameters in
 each query. They are stored and available from in-Aiven credential storage.
