@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven for Metrics
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 Get started with Aiven for Metrics by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).

@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven for OpenSearch®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 To start using Aiven for OpenSearch®, the first step is to create a service. You can do this on the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).

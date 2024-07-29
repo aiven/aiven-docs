@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven for Apache Kafka® Connect
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 Get started with Aiven for Apache Kafka® Connect and integrate it with your Apache Kafka® service.

@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven for Apache Kafka®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 Aiven services are managed in the Aiven [web console](https://console.aiven.io/). When you first log in to the console with your email address and password, you will see the **Services** view, which shows you all the services in the currently selected project.

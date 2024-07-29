@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 import Button from "@site/src/components/Buttons";
