@@ -2,6 +2,7 @@
 title: Claim topic ownership
 limited: true
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 To take ownership of a topic that your group does not currently own, you can submit a claim request. Once you send the request, the current owner can approve or decline it.
 
@@ -57,7 +58,7 @@ Alternatively:
 
 Alternatively:
 
-1. Click **Tools** > **Governance** > **Group requests**.
+1. Click **Tools** > **Governance** > **<ConsoleLabel name="Group requests"/>**.
 1. Search for your topic to view its status.
 
 ## Delete a topic claim request
