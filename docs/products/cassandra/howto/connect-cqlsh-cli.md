@@ -24,7 +24,7 @@ These are the placeholders to be replaced in the code sample:
 | `SSL_CERTFILE` | Path of the `CA Certificate` for the Cassandra service |
 
 :::tip
-You can find all the variables and the CA client certificate file in
+Find all the variables and the CA client certificate file in
 the [Aiven Console](https://console.aiven.io/)> your service's
 <ConsoleLabel name="overview"/> > **Connection information**.
 :::
