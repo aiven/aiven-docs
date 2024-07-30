@@ -2,19 +2,19 @@
 title: Connect with cqlsh
 ---
 
-This example shows how to connect to an Aiven for Apache Cassandra® service using `cqlsh`.
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
+Connect to an Aiven for Apache Cassandra® service using `cqlsh`.
 
 ## Prerequisites
 
-1.  The `clqsh` client installed. You can install this as part of the
-    [Cassandra server
-    installation](https://cassandra.apache.org/doc/latest/cassandra/getting_started/installing.html).
-2.  Your service's **CA Certificate** downloaded and saved in your file
-    system.
+- `cqlsh` client installed as part of the
+  [Cassandra server installation](https://cassandra.apache.org/doc/latest/cassandra/getting_started/installing.html)
+- Your service's CA certificate downloaded and saved in your file system
 
 ## Variables
 
-These are the placeholders you will need to replace in the code sample:
+These are the placeholders to be replaced in the code sample:
 
 | Variable       | Description                                            |
 | -------------- | ------------------------------------------------------ |
@@ -24,29 +24,29 @@ These are the placeholders you will need to replace in the code sample:
 | `SSL_CERTFILE` | Path of the `CA Certificate` for the Cassandra service |
 
 :::tip
-All the above variables and the CA Certificate file can be found in
-[Aiven Console](https://console.aiven.io/), in the service detail page.
+You can find all the variables and the CA client certificate file in
+the [Aiven Console](https://console.aiven.io/)> your service's
+<ConsoleLabel name="overview"/> > **Connection information**.
 :::
 
 ## Code
 
-Set the `SSL_CERTFILE` environment variable to the location of the *CA
-Certificate* for the Cassandra service:
+Set the `SSL_CERTFILE` environment variable to the location of the CA
+certificate for the Cassandra service:
 
-```
+```bash
 export SSL_CERTFILE=<PATH>
 ```
 
 :::note
-Alternatively, you can provide the path to the CA Certificate file in
+Alternatively, you can provide the path to the CA certificate file in
 the `[ssl]` section by setting the the `certfile` parameter in
-`~/.cassandra/cqlshrc`
+`~/.cassandra/cqlshrc`.
 :::
 
-Go to the directory of your local Cassandra installation and
-execute the following from a terminal window:
+Go to the directory of your local Cassandra installation and run:
 
-```
+```bash
 ./cqlsh --ssl -u avnadmin -p <PASSWORD> <HOST> <PORT>
 ```
 
