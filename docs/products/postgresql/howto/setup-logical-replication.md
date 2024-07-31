@@ -7,9 +7,7 @@ Aiven for PostgreSQL® represents an ideal managed solution for a variety of use
 
 Whether you are migrating or have another use case to keep an existing
 system in sync with an Aiven for PostgreSQL service, you can address that by setting up a
-**logical replica**. This article goes
-through the steps of replicating some tables from a self-managed
-PostgreSQL cluster to Aiven.
+**logical replica** and replicating tables from a self-managed PostgreSQL cluster to Aiven.
 
 :::note
 These instructions work also with AWS RDS PostgreSQL 10+ and [Google
