@@ -2,17 +2,14 @@
 title: Use Provectus® UI for Apache Kafka® with Aiven for Apache Kafka®
 ---
 
-[Provectus® UI for Apache Kafka®](https://github.com/provectus/kafka-ui)
-is a popular Open-Source web GUI for Apache Kafka® management that
-allows you to monitor and manage Apache Kafka® clusters.
+[Provectus® UI for Apache Kafka®](https://github.com/provectus/kafka-ui) is a popular Open-Source web GUI for Apache Kafka® management that allows you to monitor and manage Apache Kafka® clusters.
 
 ## Prerequisites
 
-To connect Provectus® UI for Apache Kafka® to Aiven for Apache Kafka®
-you need to create a
-[Java keystore and truststore containing the service SSL certificates](keystore-truststore).
+To connect Provectus® UI for Apache Kafka® to Aiven for Apache Kafka®, create a
+[Java keystore and truststore containing the service SSL certificates](/docs/products/kafka/howto/keystore-truststore).
 
-Furthermore, you need to collect the following information:
+Also collect the following information:
 
 -   `APACHE_KAFKA_HOST`: The Aiven for Apache Kafka hostname
 -   `APACHE_KAFKA_PORT`: The Aiven for Apache Kafka port
@@ -32,8 +29,7 @@ Furthermore, you need to collect the following information:
 ### Share keystores with non-root user
 
 Since container for Provectus® UI for Apache Kafka® uses non-root user,
-to avoid permission problems, while keeping the secrets safe, perform
-the following steps (see example commands below):
+to avoid permission problems, while keeping the secrets safe:
 
 1.  Create separate directory for secrets:
 
@@ -41,13 +37,13 @@ the following steps (see example commands below):
     mkdir SSL_STORE_FOLDER
     ```
 
-2.  Restrict the directory to current user:
+1.  Restrict the directory to current user:
 
     ```
     chmod 700 SSL_STORE_FOLDER
     ```
 
-3.  Copy secrets there (replace the `SSL_KEYSTORE_FILE_NAME` and
+1.  Copy secrets there (replace the `SSL_KEYSTORE_FILE_NAME` and
     `SSL_TRUSTSTORE_FILE_NAME` with the keystores and truststores file
     names):
 
@@ -55,7 +51,7 @@ the following steps (see example commands below):
     cp SSL_KEYSTORE_FILE_NAME SSL_TRUSTSTORE_FILE_NAME SSL_STORE_FOLDER
     ```
 
-4.  Give read permissions for secret files for everyone:
+1.  Give read permissions for secret files for everyone:
 
     ```
     chmod +r SSL_STORE_FOLDER/*

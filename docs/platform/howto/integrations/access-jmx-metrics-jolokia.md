@@ -10,8 +10,7 @@ Only Aiven for Apache Kafka® has support for Jolokia integration.
 
 ## Jolokia endpoint configuration
 
-To enable Jolokia integration for Aiven services, follow these steps to
-create a Jolokia endpoint configuration:
+To enable Jolokia integration for Aiven services, create a Jolokia endpoint configuration:
 
 1.  Log in to the [Aiven console](https://console.aiven.io/) , and from
     the **Services** page, select **Integration endpoints** on the left

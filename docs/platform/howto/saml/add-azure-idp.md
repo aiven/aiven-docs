@@ -64,8 +64,7 @@ Go back to the Aiven Console to
 
 ## Troubleshooting
 
-If you get an error message suggesting you contact your administrator,
-try these steps:
+If you get an error message suggesting you contact your administrator:
 
 1. Go to the Microsoft Azure AD user profile for the users.
 1. In **Contact Info**, check whether the **Email** field is blank.

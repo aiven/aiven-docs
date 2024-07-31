@@ -2,9 +2,7 @@
 title: Enable slow query logging
 ---
 
-You can identify inefficient or time-consuming queries by enabling [slow
-query log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)
-in your Aiven for MySQL® service.
+You can identify inefficient or time-consuming queries by enabling [slow query log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) in your Aiven for MySQL® service.
 
 :::warning
 Since the output of the slow query log is written to the
@@ -19,22 +17,22 @@ You need an Aiven organization with an Aiven for MySQL service running.
 
 ## Configure slow queries in Aiven Console
 
-Follow these steps to enable your slow queries in your Aiven for MySQL
-service via [Aiven Console](https://console.aiven.io/):
+Enable your slow queries in your Aiven for MySQL service via
+[Aiven Console](https://console.aiven.io/):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/).
-2.  In the **Services** page, select your Aiven for MySQL service.
-3.  In the **Service settings** page of your service, scroll down to the
+1.  In the **Services** page, select your Aiven for MySQL service.
+1.  In the **Service settings** page of your service, scroll down to the
     **Advanced configuration** section and select **Configure**.
-4.  In the **Advanced configuration** window
+1.  In the **Advanced configuration** window
     1.  Select **Add configuration options**. From the unfolded list,
         choose `mysql.slow_query_log`. Enable `mysql.slow_query_log` by
         toggling it to `On`. By default, `mysql.slow_query_log` is
         disabled.
-    2.  Select **Add configuration options**. From the unfolded list,
+    1.  Select **Add configuration options**. From the unfolded list,
         choose `mysql.long_query_time`. Set `mysql.long_query_time`
         according to your specific need.
-    3.  Select **Save configuration**.
+    1.  Select **Save configuration**.
 
 Your Aiven for MySQL service can now log slow queries. To
 simulate slow queries to check this feature, check the next section.

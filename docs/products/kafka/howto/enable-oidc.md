@@ -2,10 +2,8 @@
 title: Enable OAUTH2/OIDC authentication for Aiven for Apache Kafka®
 ---
 
-OpenID Connect (OIDC) is an authentication protocol built on OAuth 2.0.
-Aiven for Apache Kafka supports the client credentials flow of
-OIDC/OAuth2, allowing clients to verify an user's identity using an
-authorization server's authentication. By activating this, you can use
+Aiven for Apache Kafka supports the client credentials flow of OIDC/OAuth2, allowing clients to verify an user's identity using an authorization server's authentication.
+By activating this, you can use
 token-based authentication and integrate with identity providers.
 Setting the JSON Web Key Set (JWKS) JWKS endpoint via the Aiven console
 activates the OIDC mechanism for Kafka, which triggers a rolling restart
@@ -36,7 +34,7 @@ Before proceeding with the setup, ensure you have:
 ## Enable OAuth2/OIDC via Aiven Console {#console-authentication}
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and then choose your Aiven for Apache Kafka® service.
+    project and choose your Aiven for Apache Kafka® service.
 
 1.  In the service page, select **Service settings** from the sidebar.
 
@@ -99,7 +97,7 @@ Before proceeding with the setup, ensure you have:
 To enable OAuth2/OIDC authentication for your Aiven for Apache Kafka
 service using [Aiven CLI](/docs/tools/cli):
 
-1.  Get the name of the Aiven for Apache Kafka service you want to
+1.  Get the name of the Aiven for Apache Kafka service to
     enable OAuth2/OIDC authentication with:
 
     ```bash
