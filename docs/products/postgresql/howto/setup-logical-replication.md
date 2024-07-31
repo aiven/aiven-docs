@@ -190,10 +190,10 @@ subdbid  | subname | subowner | subenabled | subconninfo | subslotname | subsync
 
 ## Manage inactive or lagging replication slots
 
-Inactive or lagging replication could cause problems in a database, like
+Inactive or lagging replication can cause problems in a database, like
 an ever-increasing disk usage not associated to any growth of the amount
 of data in the database. Filling the disk causes the database instance
-to stop serving clients and thus a loss of service.
+to stop serving clients and a loss of service.
 
 1.  Assess the replication slots status via `psql`:
 
