@@ -2,10 +2,7 @@
 title: Use Kafdrop Web UI with Aiven for Apache Kafka®
 ---
 
-[Kafdrop](https://github.com/obsidiandynamics/kafdrop) is a popular Web
-UI for Apache Kafka® that allows you to monitor a cluster, view topics
-and consumer groups with integration into the Schema Registry, with
-support for Avro, JSON and Protobuf.
+[Kafdrop](https://github.com/obsidiandynamics/kafdrop) is a popular Web UI for Apache Kafka® that allows you to monitor a cluster, view topics and consumer groups with integration into the Schema Registry, with support for Avro, JSON and Protobuf.
 
 ## Retrieve Aiven for Apache Kafka® SSL certificate files
 
@@ -19,7 +16,7 @@ in the Aiven console, or via the
 Kafdrop supports both
 [SASL and SSL authentication methods](../concepts/auth-types). The following example shows the SSL version which requires
 a keystore and truststore that can be created following the
-[dedicated documentation](keystore-truststore).
+[dedicated documentation](/docs/products/kafka/howto/keystore-truststore).
 
 Once the keystore and truststore are created, you can define a Kafdrop
 configuration file named `kafdrop.properties` with the following
@@ -61,12 +58,11 @@ the following two lines to the `docker run` command:
 
 Replace, in the above, the `SCHEMA_REGISTRY_PWD` with the schema
 registry password and `SCHEMA_REGISTRY_URI` with the schema registry URI
-that you can find in the [Aiven console](https://console.aiven.io/)
-service Overview page.
+that available in the [Aiven console](https://console.aiven.io/) service **Overview** page.
 
 ## Use Kafdrop
 
-Once Kafdrop starts, you should be able to access it at `localhost:9000`
+Once Kafdrop starts, you should be able to access it at `localhost:9000`:
 
 ![Kafdrop in action](/images/content/products/kafka/kafdrop.gif)
 

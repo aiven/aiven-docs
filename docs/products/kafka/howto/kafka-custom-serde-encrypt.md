@@ -2,8 +2,7 @@
 title: Encrypt client-side with a custom serializer and deserializer
 ---
 
-With the Aiven platform there are several deployment models available to
-meet your security and compliance needs.
+With the Aiven platform, there are several deployment models available to meet your security and compliance needs:
 
 -   VPC peering to securely peer the Aiven services to your cloud VPC
 -   Enhanced Compliance Environments (ECE) to satisfy additional
@@ -32,7 +31,7 @@ benefits for streaming systems such as Apache Kafka.
     management. Asymmetrical algorithms require managing separate
     encryption/decryption keys for all the producers/consumers.
 
-In this example, we will simply hard code the key. This should never be
+In this example, we hard code the key. This should never be
 done in practise. Instead a secure vault service such as HashiVault or
 native cloud vendor solution should be used to manage the keys.
 

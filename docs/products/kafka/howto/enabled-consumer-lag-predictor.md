@@ -3,11 +3,7 @@ title: Enable the consumer lag predictor for Aiven for Apache Kafka®
 limited: true
 ---
 
-The
-[consumer lag predictor](/docs/products/kafka/concepts/consumer-lag-predictor) in Aiven
-for Apache Kafka® provides visibility into the time
-between message production and consumption, allowing for improved
-cluster performance and scalability.
+The [consumer lag predictor](/docs/products/kafka/concepts/consumer-lag-predictor) in Aiven for Apache Kafka® provides visibility into the time between message production and consumption, allowing for improved cluster performance and scalability.
 
 ## Prerequisites
 
@@ -57,9 +53,8 @@ Before you start, ensure you have the following:
 
 ## Enable via Aiven CLI
 
-Follow these steps to enable the consumer lag predictor for your Aiven
-for Apache Kafka service using
-[Aiven CLI](/docs/tools/cli).
+To enable the consumer lag predictor for your Aiven for Apache Kafka service using
+[Aiven CLI](/docs/tools/cli):
 
 1. Ensure the consumer lag predictor feature is activated for your account by contacting
    our sales team at sales@aiven.io. The consumer lag predictor is a limited availability
@@ -120,8 +115,7 @@ for Apache Kafka service using
 
 After enabling the consumer lag predictor, you can use Prometheus to
 access and monitor detailed metrics that offer insights into your Kafka
-cluster's performance. Here are the specific metrics and what they
-represent:
+cluster's performance:
 
 | Metric                                             | Type    | Description                                                                                            |
 | -------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------ |

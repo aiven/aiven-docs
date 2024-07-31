@@ -2,8 +2,7 @@
 title: Get the best from Apache Kafka®
 ---
 
-We recommend to follow these best practices to ensure that your Apache
-Kafka® service is fast and reliable.
+We recommend to follow these best practices to ensure that your Apache Kafka® service is fast and reliable.
 
 ## Check your topic replication factors
 
@@ -37,7 +36,7 @@ partitions per broker, and max 200 000 partitions per cluster
 
 :::note
 Ordering is guaranteed only per partition. If you require relative
-ordering of records, you need to put that subset of data into the same
+ordering of records, put that subset of data into the same
 partition.
 :::
 

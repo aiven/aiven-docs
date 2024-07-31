@@ -2,13 +2,7 @@
 title: Aiven for PostgreSQL® shared buffers
 ---
 
-Learn what Aiven for PostgreSQL® shared buffers are and why use them.
-Find out how using shared buffers impacts performance and how to set
-them up properly. Finally, discover how to inspect the database cache
-performance and and the query cache performance and check out how to put
-data into cache manually.
-
-## About shared buffers
+Use shared buffers to share memory over multiple sessions. Discover how to inspect the database cache performance and the query cache performance and learn how to put data into cache manually.
 
 There are two primary memory allocations in Aiven for PostgreSQL that
 drastically impact the performance of queries: `shared_buffers` (the
@@ -32,7 +26,7 @@ needed.
 
 ### Allocation and setup
 
-`shared_buffers` is allocated only once at startup; thus, it's not
+`shared_buffers` is allocated only once at startup. It's not
 allocated per-session or per-user. It is shared among all sessions and
 useable for each worker and, therefore, each query.
 
@@ -71,7 +65,7 @@ For optimal performance, a `shared_buffers` cache hit rate of 97-99% is
 ideal.
 :::
 
-You can find an overview of `shared_buffers` cache hit rates using
+See an overview of `shared_buffers` cache hit rates using
 `pg_statio_user_tables`:
 
 ```shell
