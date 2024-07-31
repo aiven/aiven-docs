@@ -2,30 +2,33 @@
 title: Get partition details of an Apache Kafka® topic
 ---
 
-Use one of three available approaches to retrieve partition details of
-an Apache Kafka® topic.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## With Aiven console
+Learn how to get partition details of an Apache Kafka® topic.
 
-In the Aiven Console follow these steps:
+<Tabs groupId="group1">
+<TabItem value="Console" label="Console" default>
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     Aiven for Apache Kafka service.
-2.  Select **Topics** from the left sidebar.
-3.  Select a specific topic in the **Topics** screen or click the
+1.  Select **Topics** from the left sidebar.
+1.  Select a specific topic in the **Topics** screen or click the
     ellipsis (More options).
-4.  On the **Topics info** screen, select **Partitions** to view
+1.  On the **Topics info** screen, select **Partitions** to view
     detailed information about the partitions.
 
-## With Aiven API
+</TabItem>
+<TabItem value="API" label="API">
 
 Retrieve topic details with an API call using [the endpoint to get Kafka
 topic info](https://api.aiven.io/doc/#operation/ServiceKafkaTopicGet).
 
-Learn more about API usage in the
-[Aiven API overview](/docs/tools/api).
+Learn more about API usage in the [Aiven API overview](/docs/tools/api).
 
-## With Aiven CLI
+</TabItem>
+
+<TabItem value="CLI" label="CLI">
 
 Retrieve topic details by using Aiven CLI commands. Find the full list
 of commands for `avn service topic` in
@@ -48,3 +51,6 @@ do
    avn service topic-get --project $proj $serv $topic
 done
 ```
+
+</TabItem>
+</Tabs>

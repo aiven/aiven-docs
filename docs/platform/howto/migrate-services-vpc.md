@@ -4,9 +4,8 @@ title: Migrate a public service to a Virtual Private Cloud (VPC)
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-When operating your Aiven service over the public Internet, you might
-consider enhancing security or connectivity by transitioning to a
-Virtual Private Cloud (VPC, also known as VNet). This move allows you to
+When operating your Aiven service over the public Internet, you might consider enhancing security or connectivity by transitioning to a Virtual Private Cloud (VPC, also known as VNet).
+This move allows you to
 restrict access and establish a more controlled environment between your
 VPC and Aiven.
 
@@ -148,7 +147,7 @@ prefixed hostname and port.
 
 ## Conclusion
 
-By following these steps, you can migrate services from public to VPC
+You can migrate services from public to VPC
 with minimal downtime, ensuring safe and tested connections throughout
 the process. Always equip your client applications with failure and
 retry logic to adapt to changes in servers and IP addresses. While this

@@ -2,15 +2,12 @@
 title: Use Kpow with Aiven for Apache Kafka®
 ---
 
-[Kpow by Factor House](https://factorhouse.io/kpow) is a popular Web UI for
-Apache Kafka® that allows you to monitor a cluster, view topics and
-consumer groups, produce and consume data with integration into the
-Schema Registry.
+[Kpow by Factor House](https://factorhouse.io/kpow) is a popular Web UI for Apache Kafka® that allows you to monitor a cluster, view topics and consumer groups, produce and consume data with integration into the Schema Registry.
 
 ## Prerequisites
 
-To connect Kpow to Aiven for Apache Kafka® you need to create a
-[Java keystore and truststore containing the service SSL certificates](keystore-truststore).
+To connect Kpow to Aiven for Apache Kafka®, create a
+[Java keystore and truststore containing the service SSL certificates](/docs/products/kafka/howto/keystore-truststore).
 
 Kpow uses a [set of Apache Kafka
 topics](https://docs.kpow.io/installation/minimum-acl-permissions) to
@@ -18,8 +15,7 @@ store the working information. You can either
 [create the topics manually](create-topic) or enable the
 [automatic creation of topics](create-topics-automatically) for the Aiven for Apache Kafka service.
 
-Furthermore, you need to collect the following information for Apache
-Kafka and Kpow:
+Also collect the following information for Apache Kafka and Kpow:
 
 :::tip
 If you create a Kpow trial, you should receive all the `KPOW` related

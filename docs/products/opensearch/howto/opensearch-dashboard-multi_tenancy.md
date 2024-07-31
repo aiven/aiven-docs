@@ -46,7 +46,7 @@ Global Tenant, and the Private Tenant is exclusively available to a
 single user and cannot be shared.
 
 If you have enabled OpenSearch Security management and wish to create a
-custom tenant, follow these steps:
+custom tenant:
 
 1.  Log in to OpenSearch Dashboard with administrative access.
 2.  From the left navigation menu, select **Security** and select
@@ -60,7 +60,7 @@ custom tenant, follow these steps:
 
 After creating a tenant, you need to assign it to a role. A role is a
 collection of permissions for a specific tenant that can be granted to
-users. To assign a tenant to a role, follow these steps:
+users. To assign a tenant to a role:
 
 1.  In the OpenSearch dashboard, go to the **Security** section in
     the left-hand navigation menu, then select **Roles**.
@@ -91,13 +91,13 @@ them access to the tenant and its resources. The level of access and
 control a user has over the tenant's data and resources will be
 determined by their assigned role.
 
-To map roles to internal users, follow these steps:
+To map roles to internal users:
 
 1.  In the OpenSearch dashboard, go to the **Security** section in
     the left-hand navigation menu, then select **Roles**.
 2.  Search for the role you want to assign a user and select it to view
     its details.
-3.  Select the **Mapped Users** tab and then select **Map users** (or
+3.  Select the **Mapped Users** tab and select **Map users** (or
     **Manage mapping** if users are already mapped).
 4.  In the **Users** section, choose the internal user you wish to
     assign to the role from the dropdown list.

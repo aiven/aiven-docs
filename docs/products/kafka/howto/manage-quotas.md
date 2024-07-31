@@ -16,7 +16,7 @@ documentation](https://api.aiven.io/doc/).
 
 ## Add quota
 
-To add quota to your Aiven for Apache Kafka service, follow these steps:
+To add quota to your Aiven for Apache Kafka service:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select the
     Aiven for Apache Kafka service you want to manage.
@@ -51,7 +51,7 @@ option on the right-side.
 
 ## Update quota
 
-To update an existing quota, follow these steps:
+To update an existing quota:
 
 1.  Select **Quotas** from the left sidebar for your Apache Kafka
     service.
@@ -63,7 +63,7 @@ To update an existing quota, follow these steps:
 
 ## Delete quota
 
-To remove a quota, follow these steps:
+To remove a quota:
 
 1.  Select **Quotas** from the left sidebar for your Apache Kafka
     service.

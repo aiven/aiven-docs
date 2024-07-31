@@ -158,7 +158,7 @@ When using Avro as source data format, set the following parameters:
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Kafka Connect connector, follow these steps:
+To create a Kafka Connect connector:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®

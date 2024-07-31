@@ -2,11 +2,8 @@
 title: JDBC source connector modes
 ---
 
-JDBC source connector extracts data from a relational database, such as
-PostgreSQL® or MySQL, and pushes it to Apache Kafka® where can be
-transformed and read by multiple consumers. The details of the connector
-are covered in the [Aiven JDBC source connector GitHub
-documentation](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector.md).
+JDBC source connector extracts data from a relational database, such as PostgreSQL® or MySQL, and pushes it to Apache Kafka® where can be transformed and read by multiple consumers.
+The details of the connector are covered in the [Aiven JDBC source connector GitHub documentation](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector.md).
 
 This connector type periodically queries the tables to extract the
 data, and can be configured in four **modes**.
@@ -98,11 +95,11 @@ The timestamp columns are passed via the
 If, for example, the database `students` table contains the following
 entries:
 
- | `student_id` | `student_name` | `created_date` | `modified_date` |
- | ------------ | -------------- | -------------- | --------------- |
- | 1            | `Jon Doe`      | 2021-01-01     |                 |
- | 2            | `Mary English` | 2021-03-01     | 2021-04-05      |
- | 3            | `Carol Tunder` | 2021-03-02     | 2021-04-06      |
+| `student_id` | `student_name` | `created_date` | `modified_date` |
+| ------------ | -------------- | -------------- | --------------- |
+| 1            | `Jon Doe`      | 2021-01-01     |                 |
+| 2            | `Mary English` | 2021-03-01     | 2021-04-05      |
+| 3            | `Carol Tunder` | 2021-03-02     | 2021-04-06      |
 
 The columns `created_date` and `modified_date` can be used as timestamp
 columns. On the first poll, the Kafka connector will select all rows
@@ -137,8 +134,7 @@ the incrementing and timestamp functionalities described above.
 
 :::tip
 The incremental column name is passed via the `incrementing.column.name`
-and the timestamp column(s) is passed via the
-`timestamp.column.name parameter`.
+and timestamp columns are passed via the `timestamp.column.name parameter`.
 :::
 
 See the [Aiven JDBC source connector GitHub

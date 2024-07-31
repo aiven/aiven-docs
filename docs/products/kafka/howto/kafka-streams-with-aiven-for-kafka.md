@@ -2,9 +2,7 @@
 title: Use Apache Kafka® Streams with Aiven for Apache Kafka®
 ---
 
-[Apache Kafka® streams](https://kafka.apache.org/documentation/streams/)
-and streams API allows streaming data through the heart of Apache Kafka:
-the brokers.
+[Apache Kafka® streams](https://kafka.apache.org/documentation/streams/) and streams API allows streaming data through the heart of Apache Kafka: the brokers.
 
 As the data, a key-value structure, enters the brokers, it is serialized
 by the streams API to a byte array. The opposite happens when data exits
@@ -33,7 +31,7 @@ format. If you plan to use JSON format, enabling Schema Registry
 :::
 
 Two topics named `song-feed` and `play-events` should be created.
-Furthermore, for the example, you need to collect the following
+For the example, collect the following
 information about the Aiven for Apache Kafka service:
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
@@ -85,7 +83,7 @@ example we assume:
 -   The truststore is available at
     `TRUSTSTORE_PATH/client.truststore.jks`
 -   For simplicity, the same secret (password) is used for both the
-    keystore and the truststore, and is shown here as `KEY_TRUST_SECRET`
+    keystore and the truststore, and is shown as `KEY_TRUST_SECRET`
 
 ### Customizing the Java applications
 
@@ -269,7 +267,7 @@ using the `7.00` release the file name would be
 
 ### Run the applications
 
-To run the applications in parallel you need to have two terminal
+To run the applications in parallel, have two terminal
 sessions pointing at the main `kafka-streams-examples` folder.
 
 From the first terminal session you can start the

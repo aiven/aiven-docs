@@ -89,8 +89,7 @@ metrics become available.
 
 ### Accessing Prometheus in a VPC
 
-If you use a VPC in your project, follow these steps to access
-Prometheus:
+If you use a VPC in your project, access Prometheus:
 
 1. Access [Aiven Console](https://console.aiven.io/).
 1. Select your project, and select the service to monitor

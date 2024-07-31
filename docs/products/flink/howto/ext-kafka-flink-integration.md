@@ -18,7 +18,7 @@ Apache Kafka with Aiven for Apache Flink® using
 
 ## Configure integration using CLI
 
-To configure integration using Aiven CLI, follow these steps:
+To configure integration using Aiven CLI:
 
 ### Step 1. Create a Aiven for Apache Flink service
 

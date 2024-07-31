@@ -21,8 +21,7 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
 
 ## Enable tiered storage via Aiven Console
 
-Follow these steps to enable tiered storage for your service using the
-Aiven Console.
+To enable tiered storage for your service using the Aiven Console:
 
 1. Log in to the [Aiven console](https://console.aiven.io/), and select
     your project.
@@ -87,7 +86,7 @@ parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
 
 ## Enable tiered storage via Aiven CLI
 
-Follow these steps to enable tiered storage for your Aiven for Apache
+To enable tiered storage for your Aiven for Apache
 Kafka service using the [Aiven CLI](/docs/tools/cli):
 
 1. Ensure the tiered storage feature is activated for your account by contacting [our sales

@@ -35,7 +35,7 @@ as a connector to connect to Google BigQuery.
 
 ## Configure integration using Aiven CLI
 
-To configure integration using Aiven CLI, follow these steps:
+To configure integration using Aiven CLI:
 
 ### Step 1: Create or use an Aiven for Apache Flink service
 
@@ -266,7 +266,7 @@ them back as shown in the example above).
 If you're using Google BigQuery for your data storage and analysis, you
 can seamlessly integrate it as a sink for Aiven for Apache Flink
 streams. To achieve this via the [Aiven
-Console](https://console.aiven.io/), follow these steps:
+Console](https://console.aiven.io/):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.

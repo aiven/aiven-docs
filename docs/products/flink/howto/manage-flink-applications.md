@@ -7,7 +7,7 @@ Flink® applications.
 
 ## Creating a new version of an application
 
-To create a version of the application deployed, follow these steps:
+To create a version of the application deployed:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your Aiven for Apache Flink® service.
@@ -49,7 +49,7 @@ To create a version of the application deployed, follow these steps:
 
 ## Stop an application deployment {#stop-flink-application}
 
-To stop a deployment for your Flink application, follow these steps:
+To stop a deployment for your Flink application:
 
 1.  In your Aiven for Apache Flink service, select **Applications** from
     the left sidebar.
@@ -64,7 +64,7 @@ To stop a deployment for your Flink application, follow these steps:
     savepoint**.
 5.  Click **Create savepoint & stop** to initiate the stopping process.
 
-The application status will display `Saving_and_stop_requested` and then
+The application status will display `Saving_and_stop_requested` and
 `Finished` once the stopping process is completed.
 
 Additionally, the **Deployment history** provides a record of all the
@@ -72,7 +72,7 @@ application deployments and statuses.
 
 ## Rename an application
 
-To rename an application, follow these steps:
+To rename an application:
 
 1.  In your Aiven for Apache Flink service, select **Applications** from
     the left sidebar.

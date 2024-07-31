@@ -11,7 +11,7 @@ Apache ®Flink application.
 ## Configure Datagen as source for Flink application
 
 To configure DataGen as the source using the DataGen built-in connector
-for Apache Flink, follow these steps:
+for Apache Flink:
 
 1.  In the Aiven for Apache Flink service page, select **Application**
     from the left sidebar.

@@ -69,7 +69,7 @@ scrape_configs:
 
 :::note
 The `basic_auth` and `tls_config` are specified twice - first for
-scraping the HTTP SD response and then to retrieve service metrics. This
+scraping the HTTP SD response and to retrieve service metrics. This
 duplication is necessary because the same authentication and security
 settings are used to retrieve the service discovery information and
 scrape the metrics.

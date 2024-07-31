@@ -2,11 +2,10 @@
 title: Connect to Aiven for Apache Kafka® with Python
 ---
 
-These examples show how to connect to an Aiven for Apache Kafka® service
-using the `kafka-python`\_ library, as either a producer or consumer.
+These examples show how to connect to an Aiven for Apache Kafka® service using the `kafka-python` library, as either a producer or consumer.
 
 :::note
-The examples given here provide different options for the different
+These examples provide different options for the different
 authentication methods. For more information on the supported methods,
 see [our article on Kafka authentication
 types](https://docs.aiven.io/docs/products/kafka/concepts/auth-types).
@@ -20,25 +19,25 @@ Install the Python `kafka-python`\_ library:
 pip install kafka-python
 ```
 
-Go to the *Overview* page of your Aiven for Apache Kafka service.
+Go to the **Overview** page of your Aiven for Apache Kafka service.
 
 -   If you are going to connect with SSL authentication:
-    -   In the *Connection information* section:
+    -   In the **Connection information** section:
         1.  If **Authentication Method** is shown, choose **Client
             Certificate**
-        2.  Next to *Access Key*, click **Download** and save the
+        2.  Next to **Access Key**, click **Download** and save the
             `service.key` file.
-        3.  Next to *Access Certificate*, click **Download** and save
+        3.  Next to **Access Certificate**, click **Download** and save
             the `service.cert` file.
-        4.  Next to *CA Certificate*, click **Download** and save the
+        4.  Next to **CA Certificate**, click **Download** and save the
             `ca.pem` file.
 -   If you are going to connect using SASL authentication:
     1.  Follow the instructions at [Use SASL Authentication with Apache
         Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
         to enable SASL.
-    2.  In the *Connection Information* section
+    2.  In the **Connection Information** section
         1.  Select **SASL** as the **Authentication Method**
-        2.  Next to *CA Certificate*, click **Download** and save the
+        2.  Next to **CA Certificate**, click **Download** and save the
             `ca.pem` file
 
 Note that the *CA Certificate* `ca.pem` file has the same contents by
@@ -80,10 +79,10 @@ If you are using SASL (**Authentication Method** should be **SASL**):
 
 For consumers you will also need:
 
-| Variable     | Description                                                                                                                                                                                                                                                                           |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TOPIC_NAME` | The name of the topic to read from                                                                                                                                                                                                                                                    |
-| `START_FROM` | The value to use for the `auto_offset_reset` parameter. Indicates the message to start consuming from.  Allowed values are: <ul><li>`latest` (default): Consume from the end of the topic partition.</li><li>`earliest`: Consume from the beginning of the topic partition.</li></ul> |
+|   Variable   |                                                                                                                                     Description                                                                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `TOPIC_NAME` | The name of the topic to read from                                                                                                                                                                                                                                                   |
+| `START_FROM` | The value to use for the `auto_offset_reset` parameter. Indicates the message to start consuming from. Allowed values are: <ul><li>`latest` (default): Consume from the end of the topic partition.</li><li>`earliest`: Consume from the beginning of the topic partition.</li></ul> |
 
 For more information on `auto_offset_reset`, see the Kafka documentation
 on

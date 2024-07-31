@@ -2,14 +2,11 @@
 title: Avoid OutOfMemoryError errors in Aiven for Apache Kafka®
 ---
 
-When a node in an Aiven for Apache Kafka® or Aiven for Apache Kafka®
-Connect cluster runs low on memory, the Java virtual machine (JVM)
-running the service may not be able to allocate the memory, and will
-raise a `java.lang.OutOfMemoryError` exception. As a result, Apache
-Kafka may stop processing messages in topics, and Apache Kafka Connect
+When a node in an Aiven for Apache Kafka® or Aiven for Apache Kafka® Connect cluster runs low on memory, the Java virtual machine (JVM) running the service may not be able to allocate the memory, and will raise a `java.lang.OutOfMemoryError` exception.
+As a result, Apache Kafka may stop processing messages in topics, and Apache Kafka Connect
 may be unable to manage connectors.
 
-For example, you could have a
+For example, you can have a
 [Kafka Connect S3 sink connector](../kafka-connect/howto/s3-sink-connector-aiven) with a `TimeBasedPartitioner` that is configured to generate
 data directories with a `path.format=YYYY/MM` format.
 
@@ -43,11 +40,11 @@ This approach usually requires some configuration changes in the data
 pipeline.
 :::
 
-In the S3 example above, you could change the settings for the S3 sink
+In the S3 example above, you can change the settings for the S3 sink
 connector to limit each S3 object to the data for one day, rather than
 one month, by using the data directory format `path.format=YYYY/MM/dd`.
 
-You could also fine tune the connector settings such as
+You can also fine tune the connector settings such as
 `rotate.schedule.interval.ms`, `rotate.interval.ms`, and
 `partition.duration.ms` and set them to smaller values enabling the
 connector to commit S3 objects at a higher frequency.
@@ -72,7 +69,7 @@ Apache Kafka cluster. This forces the connectors to share available
 memory with the Apache Kafka brokers and reduces the total amount of
 memory available for each connector.
 
-If this is the case, you could separate the services and create a
+If this is the case, you can separate the services and create a
 dedicated Aiven for Apache Kafka Connect cluster using an appropriate
 service plan. This separation provides the added advantage of allowing
 you to scale the Kafka brokers and Kafka Connect services independently.
@@ -80,6 +77,6 @@ you to scale the Kafka brokers and Kafka Connect services independently.
 :::note
 When upgrading or expanding the cluster, Aiven automatically launches
 new nodes and transfers the data from the old nodes to the new ones. To
-know more about horizontal and vertical scaling options, check the
-[dedicated article](../concepts/horizontal-vertical-scaling).
+know more about horizontal and vertical scaling options, see the
+[Scaling options in Apache Kafka®](/docs/products/kafka/concepts/horizontal-vertical-scaling).
 :::

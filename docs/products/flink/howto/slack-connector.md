@@ -26,7 +26,7 @@ Flink®](https://github.com/aiven/slack-connector-for-apache-flink).
 ## Configure Slack as sink for Flink application
 
 To configure Slack as the target using the Slack connector for Apache
-Flink, follow these steps:
+Flink:
 
 1.  In the Aiven for Apache Flink service page, select **Application**
     from the left sidebar.

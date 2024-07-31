@@ -2,10 +2,7 @@
 title: Aiven for Grafana®
 ---
 
-Aiven for Grafana® is a fully managed analytics and monitoring solution,
-deployable in the cloud of your choice, which can bring unlimited
-scalability and high availability to your monitoring environment and
-other time series applications.
+Aiven for Grafana® is a fully managed analytics and monitoring solution, deployable in the cloud of your choice, which can bring unlimited scalability and high availability to your monitoring environment and other time series applications.
 
 ## Main features
 
@@ -22,7 +19,7 @@ enabling you to meet strict control requirements.
 ### Integrate with existing Aiven tools and data infrastructure
 
 Aiven for Grafana seamlessly integrates various services and your
-existing Aiven tools. You can easily set up your Aiven services as data
+existing Aiven tools. You can set up your Aiven services as data
 sources for Grafana and monitor their health in real time. This
 integration allows you to leverage the full potential of your data
 infrastructure, making it easier to manage and monitor. In addition to
@@ -36,9 +33,9 @@ issues.
 
 Aiven offers various options for secure network connectivity, including
 [VPC peering](/docs/platform/howto/manage-vpc-peering),
-[PrivateLink](/docs/tools/cli/service/privatelink), and TransitGateway technologies. These options allow you to
-securely connect your data infrastructure to Aiven services and ensure
-the highest level of data security.
+[PrivateLink](/docs/tools/cli/service/privatelink), and TransitGateway
+technologies. These options allow you to securely connect your data
+infrastructure to Aiven services and ensure the highest level of data security.
 
 ### Log management
 
@@ -51,7 +48,8 @@ performance.
 -   **Dashboards and plugins:** With Aiven for Grafana, you can monitor
     your data using ready-made dashboards. Benefit from over 60 advanced
     panel and
-    [data source plugins](/docs/products/grafana/reference/plugins) that provide a high level of customization to your
+    [data source plugins](/docs/products/grafana/reference/plugins) that provide a
+    high level of customization to your
     monitoring solution.
 -   **Monitoring and alerting:** Aiven for Grafana allows you to create
     monitoring solutions for all teams, enabling everyone to keep track

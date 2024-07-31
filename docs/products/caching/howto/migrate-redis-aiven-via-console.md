@@ -46,7 +46,7 @@ and require project VPC and peering connection.
 
 ## Migrate a Redis database
 
-Follow these steps to migrate a Redis database to Aiven for Caching service:
+To migrate a Redis database to Aiven for Caching service:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select the target
     Aiven for Caching service for migrating the Redis® database.

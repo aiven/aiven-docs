@@ -3,10 +3,7 @@ title: Enable and configure tiered storage for topics
 early: true
 ---
 
-Aiven for Apache Kafka® allows you to configure tiered storage
-and set retention policies for individual topics. Learn how to configure
-tiered storage for individual topics and set local retention policies
-step by step.
+Aiven for Apache Kafka® allows you to configure tiered storage and set retention policies for individual topics.
 
 ## Prerequisite
 
@@ -23,9 +20,11 @@ step by step.
 
 ### For a new topic
 
+<!-- vale off -->
+
 1.  From the **Topics** page, select **Add topic**.
 
-1.  Set the "Do you want to enable advanced configuration?" option to Yes to enable
+1.  Set the **Do you want to enable advanced configuration?** option to Yes to enable
 advanced configurations.
 
 1.  In the **Topic advanced configuration** drop-down, choose
@@ -52,6 +51,8 @@ advanced configurations.
 
 1.  Select **Add topic** to save your changes and add the topic with
     tiered storage.
+
+<!-- vale on -->
 
 ### For an existing topic
 

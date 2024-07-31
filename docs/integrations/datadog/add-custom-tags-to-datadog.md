@@ -2,11 +2,11 @@
 title: Add custom tags Datadog integration
 ---
 
-When using the Datadog integration in the [Aiven
-Console](https://console.aiven.io/), Aiven automatically includes a set
-of standard tags in all data sent to Datadog. These tags consist of:
-`aiven-cloud:<cloud_name>`, `aiven-service-type:<service_type>`,
-`aiven-service:<service_name>` and `aiven-project:<project_name>`.
+When using the Datadog integration in the [Aiven Console](https://console.aiven.io/), Aiven automatically includes a set of standard tags in all data sent to Datadog.
+
+These tags consist of: `aiven-cloud:<cloud_name>`,
+`aiven-service-type:<service_type>`, `aiven-service:<service_name>` and
+`aiven-project:<project_name>`.
 
 In addition to the standard tags, you have the flexibility to include
 your own custom tags, which will then be appended to the data sent to
@@ -22,7 +22,7 @@ to note that these tags apply exclusively to the specific integration or
 connection being configured. Any tags configured at the endpoint level
 will be included in addition to these tags.
 
-To add tags to the endpoint, follow these steps:
+To add tags to the endpoint:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select
     **Integration endpoints**.

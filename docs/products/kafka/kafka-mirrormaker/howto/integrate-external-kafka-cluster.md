@@ -16,7 +16,7 @@ using the Aiven console. Follow these steps:
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to
     the Aiven project where you wish to integrate the external Apache
     Kafka cluster.
-2.  Select **Integration endpoints** from the left sidebar, and then
+2.  Select **Integration endpoints** from the left sidebar, and
     **External Apache Kafka** from the list of available services.
 3.  Select **Add a new endpoint**.
 4.  Provide an **Endpoint name**, specify the **Bootstrap servers**,

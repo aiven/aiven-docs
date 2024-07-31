@@ -18,8 +18,7 @@ of minutes.
 
 ## Log in to Grafana
 
-After starting the Aiven for Grafana service, you can follow these steps
-to access Grafana:
+After starting the Aiven for Grafana service, you can access Grafana:
 
 1.  From the [Aiven Console](https://console.aiven.io/), access your
     Aiven for Grafana service.

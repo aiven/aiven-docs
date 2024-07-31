@@ -7,6 +7,7 @@ action:
 swap:
   (?:if )?you want to: to
   (?:take |apply )?(?:the )?following steps: nothing
+  (?:take |apply |follow )? these steps: nothing
   and then: and
   check it out: see
   check out: see
