@@ -2,11 +2,7 @@
 title: Manage Apache Kafka® Connect logging level
 ---
 
-During the operation of an Aiven for Apache Kafka® Connect cluster, you
-may encounter errors from one or more running connectors. Sometimes the
-stack trace printed in the logs is useful in determining the root cause
-of an issue, while other times the information provided just isn't
-enough to work with.
+During the operation of an Aiven for Apache Kafka® Connect cluster, you may encounter errors from one or more running connectors. Sometimes the stack trace printed in the logs is useful in determining the root cause of an issue, while other times the information provided just isn't enough to work with.
 
 It is possible to get access to more detailed logs to debug an issue.
 This can be done for a specific logger or connector by setting the
@@ -31,7 +27,7 @@ Aiven for Apache Kafka Connect service.
 
 ### Get the Kafka Connect nodes connection URI
 
-To update the logging level in all the Kafka Connect nodes, you need to
+To update the logging level in all the Kafka Connect nodes,
 get their connection URI using the
 [Aiven CLI service get command](/docs/tools/cli/service-cli#avn_service_get)
 
@@ -93,7 +89,7 @@ To change the logging level for a particular logger you can use the same
 `admin/loggers` endpoint, specifying the logger name (`LOGGER_NAME` in
 the following command)
 
-```
+```bash
 curl -X PUT -H "Content-Type:application/json"          \
     -d '{"level": "TRACE"}'                             \
     https://192.168.0.1:443/admin/loggers/LOGGER_NAME   \
