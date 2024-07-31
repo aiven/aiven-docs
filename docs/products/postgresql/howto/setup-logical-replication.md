@@ -1,12 +1,9 @@
 ---
 title: Set up logical replication to Aiven for PostgreSQL®
+sidebar_label: Set up logical replication
 ---
 
-Aiven for PostgreSQL® represents an ideal managed solution for a variety
-of use cases; remote production systems can be completely migrated to
-Aiven using different methods including
-[using Aiven-db-migrate](migrate-aiven-db-migrate) or the standard
-[dump and restore method](migrate-pg-dump-restore).
+Aiven for PostgreSQL® represents an ideal managed solution for a variety of use cases; remote production systems can be completely migrated to Aiven using different methods including [using Aiven-db-migrate](migrate-aiven-db-migrate) or the standard [dump and restore method](migrate-pg-dump-restore).
 
 Whether you are migrating or have another use case to keep an existing
 system in sync with an Aiven for PostgreSQL service, setting up a
@@ -35,19 +32,17 @@ These are the placeholders you will need to replace in the code sample:
 
 ## Requirements
 
-You will need:
-
--   PostgreSQL version 10 or newer.
+-   PostgreSQL version 10 or newer
 -   Connection between the source cluster's PostgreSQL port and Aiven
-    for PostgreSQL cluster.
--   Access to an superuser role on the source cluster.
+    for PostgreSQL cluster
+-   Access to an superuser role on the source cluster
 -   `wal_level` setting to `logical` on the source cluster. To verify
-    and change the `wal_level` setting check
+    and change the `wal_level` setting, see
     [the instructions on setting this configuration](/docs/products/postgresql/howto/migrate-aiven-db-migrate#pg_migrate_wal).
 
 :::note
 If you are using an AWS RDS PostgreSQL cluster as source, the
-`rds.logical_replication` parameter must be set to `1` (true) in the
+`rds.logical_replication` parameter must be set to `1` (`true`) in the
 parameter group.
 :::
 
@@ -59,16 +54,16 @@ extensions on the source cluster, but a superuser account is required.
 :::tip
 The `aiven_extras` extension enables the creation of a
 publish/subscribe-style logical replication without a superuser account,
-and it is preinstalled on Aiven for PostgreSQL servers. For more info on
-`aiven_extras` check the dedicated [GitHub
+and it is preinstalled on Aiven for PostgreSQL servers. For more information on
+`aiven_extras`, see the dedicated [GitHub
 repository](https://github.com/aiven/aiven-extras). The following
-example will assume `aiven_extras` extension is not available in the
+example assumes the `aiven_extras` extension is not available in the
 source PostgreSQL database.
 :::
 
 This example assumes a source database called `origin_database` on a
 self-managed PostgreSQL cluster. The replication will mirror three
-tables, named `test_table`, `test_table_2` and `test_table_3`, to the
+tables, named `test_table`, `test_table_2`, and `test_table_3`, to the
 `defaultdb` database on Aiven for PostgreSQL. The process to setup the
 logical replication is the following:
 
@@ -77,7 +72,7 @@ logical replication is the following:
 1.  Create the `PUBLICATION` entry, named `pub_source_tables`, for the
     test tables:
 
-    ```
+    ```sql
     CREATE PUBLICATION pub_source_tables
     FOR TABLE test_table,test_table_2,test_table_3
     WITH (publish='insert,update,delete');
@@ -89,15 +84,15 @@ logical replication is the following:
     database.
 
     When creating a publication entry, the `publish` parameter defines
-    the operations to transfer. In the above example, all the `INSERT`,
-    `UPDATE` or `DELETE` operations will be transferred.
+    the operations to transfer. In this example, all the `INSERT`,
+    `UPDATE`, or `DELETE` operations will be transferred.
     :::
 
 1.  PostgreSQL's logical replication doesn't copy table definitions,
     that can be extracted from the `origin_database` with `pg_dump` and
     included in a `origin-database-schema.sql` file with:
 
-    ```
+    ```bash
     pg_dump --schema-only --no-publications \
     SRC_CONN_URI                            \
     -t test_table -t test_table_2 -t test_table_3 > origin-database-schema.sql
@@ -106,14 +101,14 @@ logical replication is the following:
 1.  Connect via `psql` to the destination Aiven for PostgreSQL database
     and create the new `aiven_extras` extension:
 
-    ```
+    ```sql
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
 1.  Create the table definitions in the Aiven for PostgreSQL destination
     database within `psql`:
 
-    ```
+    ```sql
     \i origin-database-schema.sql
     ```
 
@@ -121,7 +116,7 @@ logical replication is the following:
     Aiven for PostgreSQL destination database to start replicating
     changes from the source `pub_source_tables` publication:
 
-    ```
+    ```sql
     SELECT * FROM
     aiven_extras.pg_create_subscription(
       'dest_subscription',
@@ -134,10 +129,10 @@ logical replication is the following:
 
 1.  Verify that the subscription has been created successfully. As the
     `pg_subscription` catalog is superuser-only, you can use the
-    `aiven_extras.pg_list_all_subscriptions()` function from
+    `aiven_extras.pg_list_all_subscriptions()` function from the
     `aiven_extras` extension:
 
-    ```
+    ```sql
     SELECT subdbid, subname, subowner, subenabled, subslotname
     FROM aiven_extras.pg_list_all_subscriptions();
 
@@ -149,7 +144,7 @@ logical replication is the following:
 
 1.  Verify the subscription status:
 
-    ```
+    ```sql
     SELECT * FROM pg_stat_subscription;
 
      subid |      subname      | pid | relid | received_lsn |      last_msg_send_time       |     last_msg_receipt_time     | latest_end_lsn |        latest_end_time
@@ -158,12 +153,11 @@ logical replication is the following:
     (1 row)
     ```
 
-1.  Verify the data is correctly copied over the Aiven for PostgreSQL
-    target tables
+1.  Verify the data is correctly copied over the Aiven for PostgreSQL target tables.
 
 ## Remove unused replication setup
 
-It is important to remove unused replication setups, since the
+It is important to remove unused replication setups since the
 underlying replication slots in PostgreSQL forces the server to keep all
 the data needed to replicate since the publication creation time. If the
 data stream has no readers, there will be an ever-growing amount of data
@@ -172,13 +166,21 @@ on disk until it becomes full.
 To remove an unused subscription, essentially stopping the replication,
 run the following command in the Aiven for PostgreSQL target database:
 
-```
-SELECT * FROM aiven_extras.pg_drop_subscription('dest_subscription');
-```
+- When the source database is accessible
+
+    ```sql
+    SELECT * FROM aiven_extras.pg_drop_subscription('dest_subscription');
+    ```
+
+- When there is no access to the source database
+
+    ```sql
+    SELECT * FROM aiven_extras.pg_drop_subscription('dest_subscription', FALSE);
+    ```
 
 Verify the replication removal with:
 
-```
+```sql
 SELECT * FROM aiven_extras.pg_list_all_subscriptions();
 
 subdbid  | subname | subowner | subenabled | subconninfo | subslotname | subsynccommit | subpublications
@@ -195,15 +197,15 @@ to stop serving clients and thus a loss of service.
 
 1.  Assess the replication slots status via `psql`:
 
-    ```
+    ```sql
     SELECT slot_name,restart_lsn FROM pg_replication_slots;
     ```
 
     The command output is like:
 
-    ```
-    slot_name   │ restart_lsn
-    ───────────────┼─────────────
+    ```text
+    slot_name     │ restart_lsn
+    ──────────────┼─────────────
     pghoard_local │ 6E/16000000
     dest_slot     | 5B/8B0
     (2 rows)
@@ -227,7 +229,7 @@ to stop serving clients and thus a loss of service.
         problem. You can disable and enable the associated subscription
         using `aiven_extras`:
 
-        ```
+        ```sql
         SELECT * FROM aiven_extras.pg_alter_subscription_disable('dest_subscription');
         SELECT * FROM aiven_extras.pg_alter_subscription_enable('dest_subscription');
         ```
@@ -235,7 +237,7 @@ to stop serving clients and thus a loss of service.
     -   If the `dest_slot` connector is no longer needed, run the
         following command to remove it:
 
-        ```
+        ```sql
         SELECT pg_drop_replication_slot('dest_slot');
         ```
 
