@@ -43,8 +43,8 @@ To request a new topic:
 1. Click **Submit**.
 
 After submitting a new topic creation request, you can view and track its status on the
-**Group requests** page in **Governance**. You will be notified when your request is
-approved or declined.
+**Group requests** page in **Governance**. You receive a notification when your request
+is approved or declined.
 
 ## View and manage topic details
 
@@ -58,14 +58,18 @@ its advanced configurations.
    - Claim the topic.
 1. To perform advanced operations, click **Open topic page**.
 
+   :::note
+   Only users who are members of the project associated with the topic will see
+   the **Open topic page** link.
+   :::
+
+
 For more detailed information and advanced operations available on the
 topic overview page, see [Manage Apache Kafka topics in detail](/docs/products/kafka/howto/manage-topics-details).
 
 :::note
 
 - The **Claim topic** option is available only if governance is enabled for your organization.
-- If you are not a member of the project associated with the topic, you receive a
-  **Not a project member** error message when you attempt to access the topic page.
 - If a group has claimed this topic, you can view the details on the **Approvals** page
   under **Governance**.
 
