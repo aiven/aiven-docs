@@ -50,7 +50,7 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
 
 :::note
 If tiered storage is not enabled in your project, you cannot access it.
-Contact [Aiven support]((mailto:support@aiven.io)).
+Contact [Aiven support](mailto:support@aiven.io).
 :::
 
 

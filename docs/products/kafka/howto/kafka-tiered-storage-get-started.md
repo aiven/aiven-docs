@@ -24,7 +24,7 @@ sets up the necessary infrastructure for using tiered storage.
 :::note
 
 - If tiered storage is not enabled in your project, you cannot access it.
-  Contact [Aiven support]((mailto:support@aiven.io)).
+  Contact [Aiven support](mailto:support@aiven.io).
 - Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
   3.6 or later. It is recommended to upgrade to the latest default version and apply
   [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
