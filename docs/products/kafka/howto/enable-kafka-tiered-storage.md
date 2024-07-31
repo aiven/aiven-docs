@@ -13,7 +13,10 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
 ## Prerequisites
 
 - Access to an Aiven organization and at least one project.
-- Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later.
+- Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later. It is
+  recommended to upgrade to the latest default version and apply
+  [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
+  when using tiered storage for the latest fixes and improvements.
 
     :::note
     Tiered storage is not available on all plans and regions. Check the

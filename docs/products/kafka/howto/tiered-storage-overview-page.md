@@ -27,7 +27,7 @@ hourly billing, settings, and storage details.
    - If tiered storage is enabled for the service but not for any topics, you see
      the option to enable it for topics. For more
      details, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
-1. Once configured, you can view an overview of tiered storage and its details
+1. Once configured, you can view an overview of tiered storage and its details.
 
 ## Key insights of tiered storage
 

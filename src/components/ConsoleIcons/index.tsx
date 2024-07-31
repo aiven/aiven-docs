@@ -367,7 +367,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'tieredstorage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
+          <ConsoleIconWrapper icon={ConsoleIcons.tiered} />{' '}
           <b>Tiered storage</b>
         </>
       );
