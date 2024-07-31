@@ -65,7 +65,7 @@ Alternatively:
 
 To delete your topic ownership claim request:
 
-1. Click **Tools** > **Governance** > **Group requests**.
+1. Click **Tools** > **Governance** > **<ConsoleLabel name="Group requests"/>**.
 1. Search for and click the topic to delete the ownership claim request for.
 1. In the **Topic details** pane, click **Delete**.
 

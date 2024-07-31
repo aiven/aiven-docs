@@ -67,7 +67,7 @@ To change the default user group after enabling governance:
 To change global topic configurations after enabling governance:
 
 1. On the organization page, click <ConsoleLabel name="governance"/>.
-1. Click **Change** next to **Global Apache Kafka topic policies**.
+1. Click **Change** next to **Global default topic configurations**.
 1. Update the global default topic configurations as needed.
 1. Modify retention policies, partition strategies, or other settings.
 1. Click **Save**.
