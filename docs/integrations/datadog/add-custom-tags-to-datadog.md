@@ -22,7 +22,7 @@ to note that these tags apply exclusively to the specific integration or
 connection being configured. Any tags configured at the endpoint level
 will be included in addition to these tags.
 
-To add tags to the endpoint, follow these steps:
+To add tags to the endpoint:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select
     **Integration endpoints**.

@@ -6,7 +6,7 @@ The log cleaner serves the purpose of preserving only the latest value
 associated with a specific message key in a partition for
 [compacted topics](../concepts/log-compaction). In Aiven for Apache Kafka®, the log cleaner is enabled by
 default, while log compaction remains disabled. To enable log
-compaction, follow these steps:
+compaction:
 
 ## Enable log compaction for all topics
 

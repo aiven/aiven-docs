@@ -26,7 +26,7 @@ of minutes.
 
 [Aiven CLI](https://github.com/aiven/aiven-client) provides a simple and
 efficient way to create an Aiven for Caching service. If you prefer
-launching a new service from the CLI, follow these steps:
+launching a new service from the CLI:
 
 1. Determine the service plan, cloud provider, and region to
    use for your Caching service.

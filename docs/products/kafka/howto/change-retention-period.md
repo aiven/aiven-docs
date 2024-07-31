@@ -14,7 +14,7 @@ retention period of any previously created topics.
 
 ## For a single topic
 
-To change the retention period for a single topic, follow these steps:
+To change the retention period for a single topic:
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
     project and choose your Aiven for Apache Kafka® service.
