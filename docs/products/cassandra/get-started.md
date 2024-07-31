@@ -8,14 +8,14 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Start using Aiven for Apache Cassandra® by creating and configuring a service, connecting to it, and loading sample data.
+Start using Aiven for Apache Cassandra® by creating and configuring a service, connecting to it, and playing with sample data.
 
 ## Prerequisites
 
-Depending on a dev tool to use for working with Aiven for Apache Cassandra:
+You need some of the following dev tools for different Aiven for Apache Cassandra operations:
 
-- Access to the [Aiven Console](https://console.aiven.io)
 - [Apache Cassandra and the `cqlsh` client](https://cassandra.apache.org/doc/stable/cassandra/getting_started/installing.html)
+- Access to the [Aiven Console](https://console.aiven.io)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 - [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/prerequisites.html)
 
@@ -368,7 +368,12 @@ INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_updat
 ```
 
 :::tip
-For migration large amount of data or batch data load, see
+For importing large amount of data or for batch data load, see:
+
+- [Use DSBULK to load, unload, and count data](/docs/products/cassandra/howto/use-dsbulk-with-cassandra)
+- [Migrate to Aiven with the ZDM Proxy](/docs/products/cassandra/howto/zdm-proxy)
+- [Migrate to Aiven with `sstableloader`](https://aiven.io/blog/aiven-now-supports-sstableloader)
+
 :::
 
 ## Read data
@@ -403,9 +408,8 @@ Use `cqlsh` to read data from the `book_tracker` table, for example:
   56789   | romance
   ```
 
-## Next steps
+## Related pages
 
-- [Secure an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/secure-service)
-- [Manage Aiven for ClickHouse® users and roles](/docs/products/clickhouse/howto/manage-users-roles)
-- [Manage Aiven for ClickHouse® database and tables](/docs/products/clickhouse/howto/manage-databases-tables)
-- [Integrate an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)
+- [Supported Aiven for Apache Cassandra versions](/docs/platform/reference/eol-for-major-versions#h_0f2929c770)
+- [Aiven for Apache Cassandra backups](/docs/platform/concepts/service_backups#aiven-for-apache-cassandra)
+- [Cross-cluster replication](/docs/products/cassandra/concepts/cross-cluster-replication)
