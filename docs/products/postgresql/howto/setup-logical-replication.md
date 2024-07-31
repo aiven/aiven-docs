@@ -6,8 +6,8 @@ sidebar_label: Set up logical replication
 Aiven for PostgreSQL® represents an ideal managed solution for a variety of use cases; remote production systems can be completely migrated to Aiven using different methods including [using Aiven-db-migrate](migrate-aiven-db-migrate) or the standard [dump and restore method](migrate-pg-dump-restore).
 
 Whether you are migrating or have another use case to keep an existing
-system in sync with an Aiven for PostgreSQL service, setting up a
-**logical replica** is a good way to achieve that. This article goes
+system in sync with an Aiven for PostgreSQL service, you can address that by setting up a
+**logical replica**. This article goes
 through the steps of replicating some tables from a self-managed
 PostgreSQL cluster to Aiven.
 
