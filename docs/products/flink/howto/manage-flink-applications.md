@@ -64,7 +64,7 @@ To stop a deployment for your Flink application:
     savepoint**.
 5.  Click **Create savepoint & stop** to initiate the stopping process.
 
-The application status will display `Saving_and_stop_requested` and then
+The application status will display `Saving_and_stop_requested` and
 `Finished` once the stopping process is completed.
 
 Additionally, the **Deployment history** provides a record of all the

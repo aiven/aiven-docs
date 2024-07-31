@@ -55,7 +55,7 @@ Between v0.12 and v0.13, the syntax of Terraform files changed. If you
 have the older syntax, follow these steps to get the updated syntax:
 
 1.  Upgrade your modules first by installing Terraform v0.13.x (i.e.
-    0.13.7): `tfenv install 0.13.7 && tfenv use 0.13.7` and then using
+    0.13.7): `tfenv install 0.13.7 && tfenv use 0.13.7` and using
     `0.13upgrade` tool.
 
 2.  Update `required_version` from `>= 0.12` to `>= 0.13` in the

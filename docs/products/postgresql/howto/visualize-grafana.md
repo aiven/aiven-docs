@@ -15,7 +15,7 @@ services for you.
 2.  Choose either a new or existing Grafana service.
     -   A new service will ask you to select the cloud, region and plan
         to use. You should also give your service a name. The service
-        overview page shows the nodes rebuilding, and then indicates
+        overview page shows the nodes rebuilding, and indicates
         when they are ready.
     -   If you're already using Grafana on Aiven, you can integrate
         your PostgreSQL as a data source for that existing Grafana.

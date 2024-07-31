@@ -27,7 +27,7 @@ Before you start, ensure you have the following:
 
 1.  Once the consumer lag predictor is activated for your account,
     log in to the [Aiven Console](https://console.aiven.io/),
-    select your project and then choose your Aiven for Apache Kafka® service.
+    select your project and choose your Aiven for Apache Kafka® service.
 
 1.  On the service page, click **Service settings** on the sidebar.
 

@@ -32,7 +32,7 @@ TopicAuthorizationFailedError: [Error 29] TopicAuthorizationFailedError: your-to
 ## Upgrade to a larger service plan
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and then choose your Aiven for Apache Kafka® service.
+    project and choose your Aiven for Apache Kafka® service.
 2.  In the service page, select **Service settings** from the sidebar.
 3.  On the **Service settings** page, scroll to **Service plan** and
     click <ConsoleLabel name="actions"/> > **Change plan**.
@@ -55,7 +55,7 @@ Follow the steps from our article on
 ## Delete one or more topics
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and then choose your Aiven for Apache Kafka® service.
+    project and choose your Aiven for Apache Kafka® service.
 2.  Select **Topics** from the sidebar.
 3.  Select the topic to remove, and in the **Topic info**
     screen, select **Remove** and **Delete** to delete the topic.

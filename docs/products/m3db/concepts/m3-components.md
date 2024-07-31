@@ -15,7 +15,7 @@ separate services:
 ## Example M3 architecture
 
 An example implementation might look something like this with your
-application sending data to M3, and then the ability to see that data
+application sending data to M3, and the ability to see that data
 with Grafana®.
 
 ```mermaid

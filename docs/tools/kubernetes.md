@@ -90,7 +90,7 @@ helm repo add aiven https://aiven.github.io/aiven-charts
 helm repo update
 ```
 
-Now let's install the CRD and then the operator itself:
+Now let's install the CRD and the operator itself:
 
 ```bash
 helm install aiven-operator-crds aiven/aiven-operator-crds

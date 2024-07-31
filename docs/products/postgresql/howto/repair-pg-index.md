@@ -19,7 +19,7 @@ REINDEX INDEX <index-name>;
 :::warning
 Re-indexing applies locks to the table and may interfere with normal use
 of the database. In some cases, it can be useful to manually build a
-second index concurrently alongside the old index and then remove the
+second index concurrently alongside the old index and remove the
 old index:
 
 ```

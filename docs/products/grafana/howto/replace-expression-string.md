@@ -40,14 +40,14 @@ dashboards.
 
 To get your API key (`GRAFANA_API_KEY`):
 
--   Go to your Grafana® UI. Select the **Configuration** icon and then
+-   Go to your Grafana® UI. Select the **Configuration** icon and
     select the **API keys** tab
 
 -   If you already have an appropriate API key available, save a copy of
     it.
 
 -   Otherwise, select **Add API key** and fill in the *Key name*, *Role*
-    and *Time to live*. Click **Add** and then save the new API key.
+    and *Time to live*. Click **Add** and save the new API key.
 
     :::tip
     *Role* must be either *Editor* or *Admin*.

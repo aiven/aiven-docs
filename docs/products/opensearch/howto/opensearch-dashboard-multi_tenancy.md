@@ -97,7 +97,7 @@ To map roles to internal users:
     the left-hand navigation menu, then select **Roles**.
 2.  Search for the role you want to assign a user and select it to view
     its details.
-3.  Select the **Mapped Users** tab and then select **Map users** (or
+3.  Select the **Mapped Users** tab and select **Map users** (or
     **Manage mapping** if users are already mapped).
 4.  In the **Users** section, choose the internal user you wish to
     assign to the role from the dropdown list.

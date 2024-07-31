@@ -34,7 +34,7 @@ placeholder:
 <CodeBlock language='go'>{MyComponentSource1}</CodeBlock>
 
 Since M3DB also supports Prometheus-style writes, this code sets up a
-Prometheus client and then constructs the expected data format to send
+Prometheus client and constructs the expected data format to send
 to M3DB.
 
 To run the code:

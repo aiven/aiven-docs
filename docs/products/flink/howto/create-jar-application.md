@@ -23,7 +23,7 @@ Custom JARs enabled.
 1.  Access the [Aiven Console](https://console.aiven.io/) and select the
     Aiven for Apache Flink service where you want to deploy a JAR
     application.
-1.  From the left sidebar, click **Applications** and then click
+1.  From the left sidebar, click **Applications** and click
     **Create application**.
 1.  In the **Create application** dialog, enter a name for your JAR
     application, and select **JAR** as the application type from the
