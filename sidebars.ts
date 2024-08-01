@@ -464,7 +464,7 @@ const sidebars: SidebarsConfig = {
         'tools/kubernetes',
         {
           type: 'category',
-          label: 'CLI',
+          label: 'Aiven CLI',
           link: {
             id: 'tools/cli',
             type: 'doc',
