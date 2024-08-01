@@ -31,15 +31,27 @@
 /platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
 /tools/terraform/concepts/data-sources                 https://aiven.io/docs/tools/terraform
 /tools/terraform/howto/terraform-logging               https://aiven.io/docs/tools/terraform
-
+/platform/howto/saml/setup-saml-okta                   https://aiven.io/docs/platform/howto/saml/add-okta-idp
+/platform/howto/saml/saml-authentication               https://aiven.io/docs/platform/howto/saml/add-identity-providers
+/platform/howto/saml/setup-saml-azure                  https://aiven.io/docs/platform/howto/saml/add-identity-providers
 /products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   https://aiven.io/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
 
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 
-/products/redis                                        https://aiven.io/docs/products/caching
-/products/redis/*                                      https://aiven.io/docs/products/caching/:splat
+/category/reference-1        https://aiven.io/docs
+/category/reference          https://aiven.io/docs
+/category/how-to             https://aiven.io/docs
+/products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring  https://aiven.io/docs/products/kafka/kafka-mirrormaker/get-started
+/platform/concepts/projects_accounts_access                https://aiven.io/docs/platform/howto/manage-project
+/valkey                                                    https://aiven.io/docs/products/valkey
+/community/documentation/tips-tricks/renaming-files        https://aiven.io/docs
+/platform/howto/access-service-logs                        https://aiven.io/docs/platform/howto/list-monitoring
+/products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
+/integrations/google-bigquery                              https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
+/products/redis                                            https://aiven.io/docs/products/caching
+/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
 
 /products/dragonfly/howto/migrate-aiven-redis-df-console   https://aiven.io/docs/products/dragonfly/howto/migrate-aiven-caching-df-console
 
@@ -86,7 +98,7 @@
 
 /products/flink/list-overview                     https://aiven.io/docs/products/flink
 /products/flink/concepts/flink-features           https://aiven.io/docs/products/flink
-/products/flink/concepts/managed-service-features https://aiven.io/docs/products/flinks
+/products/flink/concepts/managed-service-features https://aiven.io/docs/products/flink
 
 /products/dragonfly/concepts/overview            https://aiven.io/docs/products/dragonfly
 /products/dragonfly/concept                      https://aiven.io/docs/products/dragonfly
