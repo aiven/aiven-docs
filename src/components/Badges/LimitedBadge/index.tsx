@@ -6,7 +6,7 @@ import stylesGeneric from '../styles.module.css';
 export default function LimitedBadge(): JSX.Element {
   return (
     <span className={clsx(stylesGeneric.badge, styles.badge)}>
-      Limited availabilty
+      Limited availability
     </span>
   );
 }
