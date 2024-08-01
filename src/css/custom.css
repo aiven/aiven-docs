@@ -202,9 +202,21 @@ ul+div {
   border-bottom: 1px solid var(--aiven-grey-60);
 }
 
-.constraints {
-  display: inline-block;
+/* Advanced parameter template */
+.service-param .name strong {
+  margin-right: 0.5em;
+}
+
+.service-param .constraints ul {
+  list-style: none;
   font-size: 90%;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.service-param .constraints ul li {
+  display: inline;
+  padding-right: 0.6em;
 }
 
 /* Sidebar section titles */
