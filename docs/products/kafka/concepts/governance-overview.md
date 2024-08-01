@@ -67,3 +67,4 @@ functionalities are incrementally added as development continues.
 ## Related pages
 
 - [Enable governance for Aiven for Apache Kafka®](/docs/products/kafka/howto/enable-governance)
+- [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)

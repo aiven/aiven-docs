@@ -9,7 +9,7 @@ These requests can include claims for existing topics or requests to create new 
 
 ## Key elements
 
-The group requests page displays the following key elements:
+The **group requests** page displays the following key elements:
 
 - **Topic**: Name of the topic
 - **Type**: Type of request
@@ -50,7 +50,7 @@ members but cannot delete them.
 
 ## Related pages
 
-- Governance in Aiven for Apache Kafka
-- Apache Kafka topic catalog
+- [Governance in Aiven for Apache Kafka](/docs/products/kafka/concepts/governance-overview)
+- [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)
 - [Claim topic ownership](/docs/products/kafka/howto/claim-topic)
 - [Approvals](/docs/products/kafka/howto/approvals)

@@ -52,7 +52,8 @@ Alternatively:
 
 ## View and track topic claim requests
 
-1. Click the topic in the topic catalog.
+1. Click **Tools** > **Apache Kafka topic catalog**.
+1. Click the topic.
 1. In the **Topic details** pane, under the **Topic owner** section, click
    **Open Group requests**.
 
@@ -73,7 +74,7 @@ The review status updates to **Deleted** in the pane and on the **Group requests
 
 ## Related pages
 
-- Governance in Aiven for Apache Kafka
-- Apache Kafka topic catalog
+- [Governance in Aiven for Apache Kafka](/docs/products/kafka/concepts/governance-overview)
+- [Apache Kafka topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)
 - [Approvals](/docs/products/kafka/howto/approvals)
 - [Group requests](/docs/products/kafka/howto/group-requests)

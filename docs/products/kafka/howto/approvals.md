@@ -60,6 +60,6 @@ The approvals page displays the following key elements:
 
 ## Related pages
 
-- Apache Kafka topic catalog
+- [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)
 - [Claim topic ownership](/docs/products/kafka/howto/claim-topic)
 - [Group requests](/docs/products/kafka/howto/group-requests)

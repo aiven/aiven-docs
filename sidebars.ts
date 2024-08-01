@@ -758,8 +758,8 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/concepts/consumer-lag-predictor',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/concepts/follower-fetching',
-                'products/kafka/concepts/governance-overview',
                 'products/kafka/concepts/topic-catalog-overview',
+                'products/kafka/concepts/governance-overview',
                 {
                   type: 'category',
                   label: 'Tiered storage',

@@ -13,7 +13,7 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
   - The selected default group is assigned as the owner of all existing Apache Kafka
     resources.
   - Ownership details for Apache Kafka resources are visible in the
-    Apache Kafka topic catalog.
+    [Apache Kafka topic catalog](/docs/products/kafka/concepts/topic-catalog-overview).
   - Users from different groups can still claim ownership of individual resources.
 
 - **Topic creation workflow**:
