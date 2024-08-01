@@ -64,9 +64,9 @@ in the [Aiven Console](https://console.aiven.io).
      maintenance_window_time = "23:00:00"
      termination_protection  = false
 
-   cassandra_user_config {
-      migrate_sstableloader = true
-      service_log           = false
+     cassandra_user_config {
+       migrate_sstableloader = true
+       service_log           = false
      }
    }
 
