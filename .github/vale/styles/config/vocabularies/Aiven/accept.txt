@@ -306,6 +306,7 @@ UDFs
 unaggregated
 unassign
 uncomment
+uncompacted
 unencrypted
 unfollow
 United States

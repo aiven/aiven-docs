@@ -2,15 +2,15 @@
 title: Compacted topics
 ---
 
-One way to reduce the disk space requirements in Apache Kafka® is to use
-**compacted topics**. This methodology retains only the newest record
+One way to reduce the disk space requirements in Apache Kafka® is to use **compacted topics**.
+This method retains only the newest record
 for each key on a topic, regardless of whether the retention period of
 the message has expired or not. Depending on the application, this can
 significantly reduce the amount of storage required for the topic.
 
-To make use of log compaction, all messages sent to the topic must have
-an explicit key. To enable log compaction, follow the steps described in
-[how to configure log cleaner](/docs/products/kafka/howto/configure-log-cleaner).
+To use log compaction, all messages sent to the topic must have
+an explicit key. To enable log compaction, see
+[Configure log cleaner for topic compaction][url].
 
 ## How compacted topics work
 
@@ -23,7 +23,7 @@ For example, if there is a topic containing a user's home address, on
 every update, a message is sent using `user_id` as the primary key and
 home address as the value:
 
-```
+```text
 1001 -> "4 Privet Dr"
 1002 -> "221B Baker Street"
 1003 -> "Milkman Road"
@@ -50,6 +50,14 @@ for which there is a newer version (based on the record key) is
 available in the partition. This retention policy can be set per-topic,
 so a single cluster can have some topics where retention is enforced by
 size or time and other topics where retention is enforced by compaction.
+
+:::warning
+The compaction occurs **per partition**: if two records with the same
+key land in different partitions, they will not be compacted.
+
+This usually doesn't happen since the record key is used to select the
+partition. However, for custom message routing this might be an issue.
+:::
 
 ## Compacted topic example
 
@@ -82,14 +90,14 @@ end result is the following:
 
 ## Compacted topic details
 
-A compacted topic consists of an head and a tail:
+A compacted topic consists of a **head** and a **tail**:
 
--   the **head** is a traditional Apache Kafka topic where new records
-    are appended. Therefore, the head can contain duplicated keys.
--   the **tail** contains one record per key. Apache Kafka compaction
+-   The **head** is a traditional Apache Kafka topic where new records
+    are appended. The head can contain duplicated keys.
+-   The **tail** contains one record per key. Apache Kafka compaction
     ensures that keys are unique in the tail.
 
-Expanding the example above let's assume that the **tail** contains the
+Expanding the example above, let's assume that the **tail** contains the
 following entries:
 
 | Offset | Key  | Value             |
@@ -133,10 +141,8 @@ Lastly, the records in the offset map are added in the tail.
 | 4      | 1002 | 21 Jump St    |
 | 6      | 1001 | Paper Road 21 |
 
-:::warning
-The compaction occurs **per partition**: if two records with the same
-key land in different partitions, they will not be compacted.
+## Related pages
 
-This usually doesn't happen since the record key is used to select the
-partition. However, for custom message routing this might be an issue.
-:::
+- [Configure log cleaner for topic compaction][url]
+
+[url]:/docs/products/kafka/howto/configure-log-cleaner

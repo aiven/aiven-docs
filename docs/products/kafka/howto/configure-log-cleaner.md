@@ -1,8 +1,8 @@
 ---
-title: Configure log cleaner for topic compaction
+title: Configure the log cleaner for topic compaction
 ---
 
-The log cleaner serves the purpose of preserving only the latest value associated with a specific message key in a partition for [compacted topics](/docs/products/kafka/concepts/log-compaction).
+The log cleaner serves the purpose of preserving only the latest value associated with a specific message key in a partition for [compacted topics][logcompaction].
 In Aiven for Apache Kafka®, the log cleaner is enabled by
 default, while log compaction remains disabled.
 
@@ -35,39 +35,41 @@ configuration override in place.
     value `compact`.
 1.  Select **Update**.
 
-## Log cleaning frequency and delay
+## Configure log cleaning frequency and delay
 
 Before the cleaning begins, the cleaner thread will inspect the logs to
 find those with highest **dirty ratio** calculated as the number of
-bytes in the head vs the total number of bytes in the log (tail + head);
-you can read more about head and tail definition in the
-[compacted topic documentation](/docs/products/kafka/concepts/log-compaction).
+bytes in the head vs the total number of bytes in the log (tail + head).
+Read more about head and tail definition in the
+[compacted topic documentation][logcompaction].
+
 The ratio provides an estimation of how many duplicated
-keys are present in a topic, and therefore need to be compacted.
+keys are present in a topic, and therefore needs to be compacted.
 
 :::tip
 For the log cleaner to start compacting a topic, the dirty ratio needs
-to be bigger than a threshold set to 50% by default. You can change this
-value either globally for the cluster by modifying the property
-`kafka.log_cleaner_min_cleanable_ratio` in the **Advanced configuration**
-section of the service overview or for a specific topic by modifying
-`min_cleanable_ratio` value.
+to be bigger than a threshold set to **50% by default**.
+
+You can change this value:
+- Globally for the cluster: In the **Advanced configuration**
+  section of the service overview, modify the value of the
+  `kafka.log_cleaner_min_cleanable_ratio` property.
+- For a specific topic: Modify the value of `min_cleanable_ratio` property.
 :::
 
-The log cleaner can be configured to leave some amount of not compacted
-"head" of the log by setting compaction time lag. You can achieve this
-by setting two additional properties from the **Advanced configuration**
-or a corresponding value for an individual topic:
+The log cleaner can be configured to leave some amount of uncompacted data in the
+head of the log by setting **compaction time lag**. To do so,
 
--   `log.cleaner.min.compaction.lag.ms`: setting to a value greater
-    than 0 will prevent log cleaner from compacting messages with an age
-    newer than a minimum message age, this allows you to delay compacting
-    records.
--   `log.cleaner.max.compaction.lag.ms`: the maximum amount of time a
-    message will remain not compacted.
+1. Open In the **Advanced configuration** of your service or an individual topic:
+1. Set the following properties:
+   - `log.cleaner.min.compaction.lag.ms`: Setting to a value greater
+     than 0 will prevent the log cleaner from compacting messages with an age
+     newer than a minimum message age. This delays compacting records.
+   - `log.cleaner.max.compaction.lag.ms`: The maximum amount of time a
+     message will remain uncompacted.
 
 :::tip
-That exact compaction lag can be bigger than the
+The compaction lag can be bigger than the
 `log.cleaner.max.compaction.lag.ms` setting since it directly depends on
 the time to complete the actual compaction process and can be delayed by
 the log cleaner threads availability.
@@ -75,11 +77,16 @@ the log cleaner threads availability.
 
 ## Tombstone records
 
-During the cleanup process, log cleaner threads also removes records
-that have a null value, also known as **tombstone** records. These
-records can be delayed from being deleted by configuring
-`delete.retention.ms` for the compacted topic.
+During the cleanup process, the log cleaner also remove records
+that have a null value, also known as **tombstone** records. To delay tombstone records
+from being deleted, set the `delete.retention.ms` property for the compacted topic.
 
 Consumers can read all tombstone messages as long as they reach the head
-of the topic before the period defined in `delete.retention.ms`
-(default: 24 hours) is passed.
+of the topic before the period defined in `delete.retention.ms` is passed.
+
+## Related pages
+
+- [Compacted topics][logcompaction]
+- [Kafka advanced parameters](/docs/products/kafka/reference/advanced-params)
+
+[logcompaction]: /docs/products/kafka/concepts/log-compaction
