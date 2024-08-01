@@ -4,7 +4,7 @@ sidebar_label: Manage topic catalog
 early: true
 ---
 
-The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
+The [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview) offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
 
 ## Access the topic catalog
 
@@ -78,6 +78,6 @@ topic overview page, see [Manage Apache Kafka topics in detail](/docs/products/k
 
 ## Related pages
 
-- [Aiven for Apache Kafka® topic catalog overview](/docs/products/kafka/concepts/topic-catalog-overview)
+- [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)
 - [Manage Apache Kafka topics in detail](/docs/products/kafka/howto/manage-topics-details).
 - [Aiven for Apache Kafka® governance](/docs/products/kafka/concepts/governance-overview)
