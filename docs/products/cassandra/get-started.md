@@ -33,59 +33,59 @@ in the [Aiven Console](https://console.aiven.io).
 1. Create the `cassandra-sample.tf` file for the `aiven` provider configuration and
    the `aiven_cassandra` resource.
 
-    ```hcl
-    variable "aiven_token" {
-    type = string
-    }
+   ```hcl
+   variable "aiven_token" {
+     type = string
+   }
 
-    variable "aiven_project_name" {
-    type = string
-    }
+   variable "aiven_project_name" {
+     type = string
+   }
 
-    terraform {
-    required_providers {
-        aiven = {
-        source  = "aiven/aiven"
-        version = ">=4.0.0, <5.0.0"
-        }
-    }
-    }
+   terraform {
+     required_providers {
+       aiven = {
+         source  = "aiven/aiven"
+         version = ">=4.0.0, <5.0.0"
+       }
+     }
+   }
 
-    provider "aiven" {
-    api_token = var.aiven_token
-    }
+   provider "aiven" {
+     api_token = var.aiven_token
+   }
 
-    resource "aiven_cassandra" "example_cassandra" {
-    project                 = var.aiven_project_name
-    cloud_name              = "google-europe-west1"
-    plan                    = "startup-4"
-    service_name            = "cassandra-sample"
-    maintenance_window_dow  = "friday"
-    maintenance_window_time = "23:00:00"
-    termination_protection  = false
+   resource "aiven_cassandra" "example_cassandra" {
+     project                 = var.aiven_project_name
+     cloud_name              = "google-europe-west1"
+     plan                    = "startup-4"
+     service_name            = "cassandra-sample"
+     maintenance_window_dow  = "friday"
+     maintenance_window_time = "23:00:00"
+     termination_protection  = false
 
-    cassandra_user_config {
-        migrate_sstableloader = true
-        service_log = false
-    }
-    }
+   cassandra_user_config {
+      migrate_sstableloader = true
+      service_log           = false
+     }
+   }
 
-    output "cassandra_service_host" {
-    value = aiven_cassandra.example_cassandra.service_host
-    }
+   output "cassandra_service_host" {
+     value = aiven_cassandra.example_cassandra.service_host
+   }
 
-    output "cassandra_service_port" {
-    value = aiven_cassandra.example_cassandra.service_port
-    }
+   output "cassandra_service_port" {
+     value = aiven_cassandra.example_cassandra.service_port
+   }
 
-    output "cassandra_service_username" {
-    value = aiven_cassandra.example_cassandra.service_username
-    }
+   output "cassandra_service_username" {
+     value = aiven_cassandra.example_cassandra.service_username
+   }
 
-    output "cassandra_service_password" {
-    value     = aiven_cassandra.example_cassandra.service_password
-    sensitive = true
-    }
+   output "cassandra_service_password" {
+     value     = aiven_cassandra.example_cassandra.service_password
+     sensitive = true
+   }
     ```
 
 1. Create the `terraform.tfvars` file for assigning actual values to your previously
@@ -96,7 +96,7 @@ in the [Aiven Console](https://console.aiven.io).
    aiven_project_name = "PROJECT_NAME"
    ```
 
-1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
+1. Run `terraform init` > `terraform plan` > `terraform apply`.
 
 1. Store Terraform outputs in environment variables so that they can be used for
    [connecting](#connect-to-service):
@@ -120,36 +120,36 @@ Create an Aiven for Apache Cassandra service using the Aiven Operator for Kubern
     apiVersion: aiven.io/v1alpha1
     kind: Cassandra
     metadata:
-    name: cassandra-sample
+      name: cassandra-sample
     spec:
-    authSecretRef:
+      authSecretRef:
         name: aiven-token
         key: token
 
-    connInfoSecretTarget:
+      connInfoSecretTarget:
         name: cassandra-secret
 
-    userConfig:
+      userConfig:
         migrate_sstableloader: true
         service_log: false
 
-    project: PROJECT_NAME
-    cloudName: google-europe-west1
-    plan: startup-4
+      project: PROJECT_NAME
+      cloudName: google-europe-west1
+      plan: startup-4
 
-    maintenanceWindowDow: friday
-    maintenanceWindowTime: 23:00:00
+      maintenanceWindowDow: friday
+      maintenanceWindowTime: 23:00:00
     ```
 
 1. Create the service by applying the configuration:
 
-   ```go
+   ```shell
    kubectl apply -f cassandra-sample.yaml
    ```
 
 1. Review the resource you created with the following command:
 
-   ```go
+   ```shell
    kubectl get cassandras cassandra-sample
    ```
 
@@ -193,47 +193,47 @@ For all the attributes available for the `aiven_cassandra` resource, see
 
     ```hcl
     variable "aiven_token" {
-    type = string
+      type = string
     }
 
     variable "aiven_project_name" {
-    type = string
+      type = string
     }
 
     terraform {
-    required_providers {
+      required_providers {
         aiven = {
-        source  = "aiven/aiven"
-        version = ">=4.0.0, <5.0.0"
+          source  = "aiven/aiven"
+          version = ">=4.0.0, <5.0.0"
         }
-    }
+      }
     }
 
     provider "aiven" {
-    api_token = var.aiven_token
+      api_token = var.aiven_token
     }
 
     resource "aiven_cassandra" "example_cassandra" {
-    project                 = var.aiven_project_name
-    cloud_name              = "google-europe-west1"
-    plan                    = "startup-4"
-    service_name            = "cassandra-sample"
-    maintenance_window_dow  = "sunday"
-    maintenance_window_time = "22:00:00"
-    termination_protection  = true
+      project                 = var.aiven_project_name
+      cloud_name              = "google-europe-west1"
+      plan                    = "startup-4"
+      service_name            = "cassandra-sample"
+      maintenance_window_dow  = "sunday"
+      maintenance_window_time = "22:00:00"
+      termination_protection  = true
 
-    cassandra_user_config {
+      cassandra_user_config {
         migrate_sstableloader = true
         service_log = true
-    }
+      }
     }
 
     output "cassandra_service_host" {
-    value = aiven_cassandra.example_cassandra.service_host
+      value = aiven_cassandra.example_cassandra.service_host
     }
 
     output "cassandra_service_port" {
-    value = aiven_cassandra.example_cassandra.service_port
+      value = aiven_cassandra.example_cassandra.service_port
     }
 
     output "cassandra_service_username" {
@@ -241,12 +241,12 @@ For all the attributes available for the `aiven_cassandra` resource, see
     }
 
     output "cassandra_service_password" {
-    value     = aiven_cassandra.example_cassandra.service_password
-    sensitive = true
+      value     = aiven_cassandra.example_cassandra.service_password
+      sensitive = true
     }
     ```
 
-1. Run `terraform plan` > `terraform apply --auto-approve`.
+1. Run `terraform plan` > `terraform apply`.
 
 </TabItem>
 <TabItem value="3" label="K8s">
@@ -259,37 +259,37 @@ For all the attributes available for the `aiven_cassandra` resource, see
    apiVersion: aiven.io/v1alpha1
    kind: Cassandra
    metadata:
-   name: cassandra-sample
+     name: cassandra-sample
    spec:
-   authSecretRef:
+     authSecretRef:
        name: aiven-token
        key: token
 
-   connInfoSecretTarget:
+     connInfoSecretTarget:
        name: cassandra-secret
 
-   userConfig:
+     userConfig:
        migrate_sstableloader: true
        service_log: true
 
-   project: PROJECT_NAME
-   cloudName: google-europe-west1
-   plan: startup-4
+     project: PROJECT_NAME
+     cloudName: google-europe-west1
+     plan: startup-4
 
-   maintenanceWindowDow: sunday
-   maintenanceWindowTime: 22:00:00
-   terminationProtection: true
+     maintenanceWindowDow: sunday
+     maintenanceWindowTime: 22:00:00
+     terminationProtection: true
    ```
 
 1. Update the service by applying the configuration:
 
-   ```go
+   ```shell
    kubectl apply -f cassandra-sample.yaml
    ```
 
 1. Review the resource you updated with the following command:
 
-   ```go
+   ```shell
    kubectl describe cassandra.aiven.io cassandra-sample
    ```
 
@@ -337,7 +337,7 @@ using the
 
 :::tip
 Discover more tools for connecting to Aiven for Apache Cassandra in
-[Connect to Aiven for Apache Cassandra®](/docs/products/clickhouse/howto/list-connect-to-service).
+[Connect to Aiven for Apache Cassandra®](/docs/products/cassandra/howto/list-code-samples).
 :::
 
 ## Create keyspaces and tables
