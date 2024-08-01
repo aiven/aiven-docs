@@ -1005,6 +1005,18 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/enable-automatic-restart',
                         'products/kafka/kafka-connect/howto/manage-logging-level',
                         'products/kafka/kafka-connect/howto/request-new-connector',
+                        {
+                          type: 'category',
+                          label: 'Configure secret providers',
+                          link: {
+                            type: 'doc',
+                            id: 'products/kafka/kafka-connect/howto/configure-secret-providers',
+                          },
+                          items: [
+                            'products/kafka/kafka-connect/howto/configure-aws-secrets-manager',
+                            'products/kafka/kafka-connect/howto/configure-hashicorp-vault',
+                          ],
+                        },
                       ],
                     },
                     {
