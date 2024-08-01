@@ -7,6 +7,19 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
+## Impact of enabling governance
+
+- **Existing topics**:
+  - The selected default group is assigned as the owner of all existing Apache Kafka
+    resources.
+  - Ownership details for Apache Kafka resources are visible in the
+    Apache Kafka topic catalog.
+  - Users from different groups can still claim ownership of individual resources.
+
+- **Topic creation workflow**:
+  - Direct topic creation is replaced by a structured request-and-approval process.
+  - All topics align with your organization's data management policies.
+
 ## Prerequisites
 
 - This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
@@ -51,7 +64,7 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
     updated. Existing topics are not be affected by these changes.
     :::
 
-### Change the default group
+### Change the default user group
 
 To change the default user group after enabling governance:
 
@@ -71,19 +84,6 @@ To change global topic configurations after enabling governance:
 1. Update the global default topic configurations as needed.
 1. Modify retention policies, partition strategies, or other settings.
 1. Click **Save**.
-
-### Impact of enabling governance
-
-- **Existing topics**:
-  - The selected default group is assigned as the owner of all existing Apache Kafka
-    resources.
-  - Ownership details for Apache Kafka resources are visible in the
-    Apache Kafka topic catalog.
-  - Users from different groups can still claim ownership of individual resources.
-
-- **Topic creation workflow**:
-  - Direct topic creation is replaced by a structured request-and-approval process.
-  - All topics align with your organization's data management policies.
 
 ## Disable governance
 

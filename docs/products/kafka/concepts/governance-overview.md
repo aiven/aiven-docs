@@ -1,5 +1,5 @@
 ---
-title: Aiven for Apache Kafka® governance overview
+title: Aiven for Apache Kafka® governance
 sidebar_label: Governance
 limited: true
 ---

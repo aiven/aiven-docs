@@ -10,7 +10,7 @@ To take ownership of a topic that your group does not currently own, you can sub
 
 [Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization.
 
-## Claim single topic
+## Claim a single topic
 
 1. Access the [Aiven console](https://console.aiven.io/), and
    click **Tools** > **Apache Kafka topic catalog**.
