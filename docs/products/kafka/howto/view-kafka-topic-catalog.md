@@ -1,7 +1,7 @@
 ---
 title: Manage Apache Kafka® topics with topic catalog
 sidebar_label: Manage topic catalog
-limited: true
+early: true
 ---
 
 The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
@@ -69,7 +69,8 @@ topic overview page, see [Manage Apache Kafka topics in detail](/docs/products/k
 
 :::note
 
-- The **Claim topic** option is available only if governance is enabled for your organization.
+- The **Claim topic** option is available only if governance is enabled for your
+  organization.
 - If a group has claimed this topic, you can view the details on the **Approvals** page
   under **Governance**.
 

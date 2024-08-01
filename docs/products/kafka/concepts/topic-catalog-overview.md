@@ -1,7 +1,7 @@
 ---
 title: Aiven for Apache Kafka® topic catalog
 sidebar_label: Topic catalog
-limited: true
+early: true
 ---
 
 The Aiven for Apache Kafka® topic catalog provides a centralized interface within the Aiven console to view and manage Apache Kafka topics across different projects and services.

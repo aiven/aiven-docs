@@ -1,7 +1,7 @@
 ---
 title: Manage Apache Kafka® topics in detail
 sidebar_label: Detailed topic management
-limited: true
+early: true
 ---
 
 Explore advanced topic management features in the Apache Kafka topic catalog. Navigate through various options and configurations for your Apache Kafka topics.
