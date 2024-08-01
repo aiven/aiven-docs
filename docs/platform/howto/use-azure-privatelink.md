@@ -24,7 +24,6 @@ Azure Private Link is supported for the following services:
 ## Prerequisites
 
 - This feature is in [early availability](/docs/platform/concepts/beta_services#early-availability-).
-  [Contact the sales team](mailto:sales@aiven.io) to enable it.
 
 - [Aiven CLI](/docs/tools/cli) is
   installed.
