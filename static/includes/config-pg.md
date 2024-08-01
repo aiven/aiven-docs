@@ -92,6 +92,15 @@
       <tr>
         <td>
           <p class="name">
+            <b>ignore_roles</b>&nbsp;<code class="type">string</code>
+          </p>
+          <p class="title">Comma-separated list of database roles, which should be ignored during migration (supported by PostgreSQL only at the moment)</p>
+          <div class="description"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="name">
             <b>method</b>&nbsp;<code class="type">string</code>
           </p>
           <p class="title">The migration method to be used (currently supported only by Redis, Dragonfly, MySQL and PostgreSQL service types)</p>
@@ -401,6 +410,18 @@
             </div>
           </p>
           <p class="title">If the automatically created database pools have been unused this many seconds, they are freed. If 0 then timeout is disabled. [seconds]</p>
+          <div class="description"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="name">
+            <b>max_prepared_statements</b>&nbsp;<code class="type">integer</code>
+            <div class="constraints">
+                max: <code>3000</code>
+            </div>
+          </p>
+          <p class="title">PgBouncer tracks protocol-level named prepared statements related commands sent by the client in transaction and statement pooling modes when max_prepared_statements is set to a non-zero value. Setting it to 0 disables prepared statements. max_prepared_statements defaults to 100, and its maximum is 3000.</p>
           <div class="description"></div>
         </td>
       </tr>
