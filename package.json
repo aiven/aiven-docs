@@ -15,7 +15,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@aivenio/aquarium": "^1.65.2",
+    "@aivenio/aquarium": "^1.72.0",
     "@algolia/client-search": "^4.22.1",
     "@docusaurus/core": "^3.4.0",
     "@docusaurus/plugin-client-redirects": "^3.4.0",

@@ -16,17 +16,17 @@ The Aiven for Apache Kafka® topic catalog offers a user-friendly interface to m
 
 On the Apache Kafka topic catalog page, you can:
 
-- **View topics in a table**: This default view lists all topics in a table format, showing columns
-  for the topic name, service, project, and owner.
-- **Switch to card view**: Click **Tiles** to switch to the card view and browse topics displayed
-  as cards.
+- **View topics in a table**: This default view lists all topics in a table format,
+  showing columns for the topic name, service, project, and owner.
+- **Switch to card view**: Click **Tiles** to switch to the card view and browse topics
+  displayed as cards.
 - **Search for topics**: Enter the topic name in the search bar at the top
   to find specific topics.
 
 ## Request a new topic
 
 You can request the creation of a new topic from the Apache Kafka topic catalog page,
-which goes through an approval process to ensure proper governance.
+which goes through an approval process to ensure proper [governance](/docs/products/kafka/concepts/governance-overview).
 
 To request a new topic:
 
@@ -69,7 +69,7 @@ topic overview page, see [Manage Apache Kafka topics in detail](/docs/products/k
 
 :::note
 
-- The **Claim topic** option is available only if governance is enabled for your
+- The **Claim topic** option is available only if [governance is enabled](/docs/products/kafka/howto/enable-governance) for your
   organization.
 - If a group has claimed this topic, you can view the details on the **Approvals** page
   under **Governance**.
@@ -80,3 +80,4 @@ topic overview page, see [Manage Apache Kafka topics in detail](/docs/products/k
 
 - [Aiven for Apache Kafka® topic catalog overview](/docs/products/kafka/concepts/topic-catalog-overview)
 - [Manage Apache Kafka topics in detail](/docs/products/kafka/howto/manage-topics-details).
+- [Aiven for Apache Kafka® governance](/docs/products/kafka/concepts/governance-overview)
