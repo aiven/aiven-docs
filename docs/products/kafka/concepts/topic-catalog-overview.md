@@ -19,7 +19,8 @@ the management of your Aiven for Apache Kafka infrastructure.
 
 ## Governance on topic catalog
 
-With governance enabled for your organization, you can efficiently manage topic ownership
+With [governance enabled](/docs/products/kafka/howto/enable-governance) for your
+organization, you can efficiently manage topic ownership
 and creation requests. You can also access and govern topics across your organization,
 even if you aren't a member of all projects.
 
@@ -32,3 +33,4 @@ even if you aren't a member of all projects.
 ## Related page
 
 - [Manage Apache Kafka topics with topic catalog](/docs/products/kafka/howto/view-kafka-topic-catalog)
+- [Aiven for Apache Kafka governance](/docs/products/kafka/concepts/governance-overview)
