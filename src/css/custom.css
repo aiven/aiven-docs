@@ -207,6 +207,10 @@ ul+div {
   margin-right: 0.5em;
 }
 
+.service-param .param {
+  display: flex;
+}
+
 .service-param .constraints ul {
   list-style: none;
   font-size: 90%;

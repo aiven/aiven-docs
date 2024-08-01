@@ -15,13 +15,14 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var maximum = options.hash.maximum;
   var def = options.hash.def;
 
-  var html = '<div><p class="name">';
+  var html = '<div class="param">';
   if (parent) {
-    html += '<strong>' + parent + '.' + name + '</strong>';
+    html += '<p class="name"><strong>' + parent + '.' + name + '</strong></p>';
   } else {
-    html += '<strong>' + name + '</strong>';
+    html += '<p class="name"><strong>' + name + '</strong></p>';
   }
-  html += '<code class="type">' + type + '</code></p>';
+  html += '<p><code class="type">' + type + '</code></p>';
+  html += '</div>';
   if (minimum || maximum || def) {
     html += '<div class="constraints"><ul>';
     if (minimum) {
@@ -35,7 +36,6 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
     }
     html += '</ul></div>';
   }
-  html += '</div>';
 
   return new handlebars.SafeString(html);
 });
