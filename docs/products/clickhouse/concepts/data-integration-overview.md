@@ -71,12 +71,10 @@ and access your data from Aiven for ClickHouse, but it doesn’t allow to access
 ClickHouse data from the integrated data source.
 :::
 
-:::note[See also]
 For information on how table engines work in Aiven for ClickHouse services, preview
 [Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).
 For the list of table engines available in Aiven for ClickHouse, check
 [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines).
-:::
 
 ## Managed databases integration
 
@@ -90,12 +88,10 @@ data source types:
 - PostgreSQL®
 - Apache Kafka®
 
-:::note[See also]
 For information on how database engines work in Aiven for ClickHouse services, preview
 [Engines: database and table](/docs/products/clickhouse/concepts/service-architecture#engines-database-and-table).
 For more information on ClickHouse database engines, see
 [Database engines](https://clickhouse.com/docs/en/engines/database-engines).
-:::
 
 ## Supported data source types
 
