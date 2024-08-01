@@ -201,6 +201,15 @@
       <tr>
         <td>
           <p class="name">
+            <b>ignore_roles</b>&nbsp;<code class="type">string</code>
+          </p>
+          <p class="title">Comma-separated list of database roles, which should be ignored during migration (supported by PostgreSQL only at the moment)</p>
+          <div class="description"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="name">
             <b>method</b>&nbsp;<code class="type">string</code>
           </p>
           <p class="title">The migration method to be used (currently supported only by Redis, Dragonfly, MySQL and PostgreSQL service types)</p>
