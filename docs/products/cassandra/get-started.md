@@ -347,8 +347,10 @@ Use `cqlsh` to create a keyspace and a table where you can insert your data next
 1. Create a keyspace, for example `library`:
 
    ```sql
-   CREATE KEYSPACE IF NOT EXISTS library WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '3' };
+   CREATE KEYSPACE IF NOT EXISTS library WITH REPLICATION = { 'class': 'NetworkTopologyStrategy', 'aiven': 3 };
    ```
+
+   where `aiven` is the default datacenter name for Aiven for Apache Cassandra services.
 
 1. Create a table within the `library` keyspace, for example `book_tracker`:
 
@@ -372,7 +374,6 @@ For importing large amount of data or for batch data load, see:
 
 - [Use DSBULK to load, unload, and count data](/docs/products/cassandra/howto/use-dsbulk-with-cassandra)
 - [Migrate to Aiven with the ZDM Proxy](/docs/products/cassandra/howto/zdm-proxy)
-- [Migrate to Aiven with `sstableloader`](https://aiven.io/blog/aiven-now-supports-sstableloader)
 
 :::
 
