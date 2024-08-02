@@ -14,6 +14,8 @@ Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to 
 - [Availability zone (AZ)](#identify-availability-zone) information for your
   Aiven for Apache Kafka service.
 - [Aiven CLI](/docs/tools/cli) client.
+- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+
 
 :::note
 Follower fetching is currently supported on AWS (Amazon Web Services).
@@ -73,6 +75,63 @@ Parameters:
 - `YOUR_SERVICE_NAME`: Name of your service.
 - `YOUR_BEARER_TOKEN`: API token for authentication.
 - `follower_fetching={"enabled": true}`: Enables the follower fetching feature.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+1. Add the Aiven Terraform provider to the `required_providers` block in your Terraform
+configuration:
+
+   ```hcl
+   terraform {
+    required_providers {
+      aiven = {
+        source  = "aiven/aiven"
+        version = ">=4.0.0, < 5.0.0"
+      }
+    }
+   }
+   ```
+
+1. Set the service connection attributes in the provider block:
+
+   ```hcl
+   provider "aiven" {
+    api_token = "YOUR_API_TOKEN"
+    }
+   ```
+
+   The `api_token` is your Aiven API token for [authentication](/docs/platform/howto/create_authentication_token).
+
+1. Enable follower fetching in your Aiven for Apache Kafka service using the
+following configuration:
+
+   ```hcl
+   resource "aiven_kafka" "example_kafka" {
+    project      = "YOUR_PROJECT_NAME"
+    cloud_name   = "cloud_region"
+    plan         = "business-4"
+    service_name = "example-service-name"
+
+    kafka {
+      # Other Kafka configurations...
+
+      user_config {
+        follower_fetching = {
+          enabled = true
+        }
+      }
+     }
+    }
+   ```
+
+   Parameters:
+
+    - `project`: Name of your project.
+    - `cloud_name`: Cloud region where the service is hosted.
+    - `plan`: Service plan.
+    - `service_name`: Name of your Kafka service.
+    - `follower_fetching.enabled`: Set to `true` to enable the follower fetching feature.
 
 </TabItem>
 </Tabs>
