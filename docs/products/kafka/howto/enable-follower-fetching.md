@@ -113,13 +113,10 @@ following configuration:
     plan         = "business-4"
     service_name = "example-service-name"
 
-    kafka {
+    kafka_user_config {
       # Other Kafka configurations...
-
-      user_config {
-        follower_fetching = {
-          enabled = true
-        }
+      follower_fetching = {
+        enabled = true
       }
      }
     }
