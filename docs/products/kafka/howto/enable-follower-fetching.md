@@ -14,8 +14,7 @@ Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to 
 - [Availability zone (AZ)](#identify-availability-zone) information for your
   Aiven for Apache Kafka service.
 - [Aiven CLI](/docs/tools/cli) client.
-- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-
+- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 :::note
 Follower fetching is currently supported on AWS (Amazon Web Services).
@@ -80,7 +79,7 @@ Parameters:
 <TabItem value="terraform" label="Terraform">
 
 1. Add the Aiven Terraform provider to the `required_providers` block in your Terraform
-configuration:
+   configuration:
 
    ```hcl
    terraform {
@@ -104,7 +103,7 @@ configuration:
    The `api_token` is your Aiven API token for [authentication](/docs/platform/howto/create_authentication_token).
 
 1. Enable follower fetching in your Aiven for Apache Kafka service using the
-following configuration:
+   following configuration:
 
    ```hcl
    resource "aiven_kafka" "example_kafka" {
@@ -124,11 +123,11 @@ following configuration:
 
    Parameters:
 
-    - `project`: Name of your project.
-    - `cloud_name`: Cloud region where the service is hosted.
-    - `plan`: Service plan.
-    - `service_name`: Name of your Kafka service.
-    - `follower_fetching.enabled`: Set to `true` to enable the follower fetching feature.
+   - `project`: Name of your project.
+   - `cloud_name`: Cloud region where the service is hosted.
+   - `plan`: Service plan.
+   - `service_name`: Name of your Kafka service.
+   - `follower_fetching.enabled`: Set to `true` to enable the follower fetching feature.
 
 </TabItem>
 </Tabs>
@@ -187,7 +186,6 @@ client.rack=use1-az3
 - **Consumers in `use1-az3`**:
   - Fetch from the leader.
   - No matching `broker.rack` exists, so follower fetching isn't possible.
-
 
 ## Verify follower fetching
 
