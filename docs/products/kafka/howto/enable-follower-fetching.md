@@ -5,6 +5,8 @@ sidebar_label: Enable follower fetching
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to fetch data from the nearest replica instead of the leader, optimizing data fetching and enhancing performance.
 
@@ -35,7 +37,18 @@ Use either of the following methods to enable follower fetching on your
 Aiven for Apache Kafka service:
 
 <Tabs groupId="config-methods">
-<TabItem value="cli" label="CLI" default>
+<TabItem value="console" label="Console" default>
+
+1. Access the [Aiven Console](https://console.aiven.io), and select your
+   Aiven for Apache Kafka service.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Scroll to **Advanced configuration** and click **Configure**.
+1. In the **Advanced configuration** window, click <ConsoleIcon name="Plus Circle"/>.
+1. Select `follower_fetching.enabled` from the list and set the value to **Enabled**.
+1. Click **Save configurations**.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
 
 Enable follower fetching on an existing service with the Aiven CLI:
 
