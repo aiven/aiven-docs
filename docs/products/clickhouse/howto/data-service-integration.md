@@ -183,8 +183,8 @@ FROM postgresql(
 SELECT *
 FROM mysql(
    `service_MYSQL_SOURCE_NAME`,
-   database='defaultdb',
-   table='schemata'
+   database='mysql',
+   table='slow_log'
 )
 ```
 
