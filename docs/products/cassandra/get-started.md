@@ -382,18 +382,15 @@ For importing large amount of data or for batch data load, see:
 Use `cqlsh` to read data from the `book_tracker` table, for example:
 
 - ```sql
-  SELECT * FROM library.book_tracker;
+  SELECT * FROM library.book_tracker WHERE book_id = '01234';
 
   book_id | genre                  | item_count | last_update_timestamp           | status
   --------+------------------------+------------+---------------------------------+------------
   01234   |             true_crime |          6 | 2024-07-31 11:21:14.263000+0000 |   available
-  12345   | spirituality_religions |         55 | 2024-07-31 11:24:20.373000+0000 |   available
-  67890   |              adventure |          3 | 2024-07-31 11:24:21.957000+0000 | unavailable
-  56789   |                romance |         13 | 2024-07-31 11:24:20.328000+0000 | unavailable
   ```
 
 - ```sql
-  SELECT * FROM library.book_tracker where status = 'available' ALLOW FILTERING;
+  SELECT * FROM library.book_tracker WHERE status = 'available' ALLOW FILTERING;
 
   book_id | genre                  | item_count | last_update_timestamp           | status
   --------+------------------------+------------+---------------------------------+----------
