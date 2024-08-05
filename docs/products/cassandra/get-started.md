@@ -367,6 +367,11 @@ INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_updat
 INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('56789', 13, 'romance', 'unavailable', toTimeStamp(now()));
 INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('12345', 55, 'spirituality_religions', 'available', toTimeStamp(now()));
 INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('67890', 3, 'adventure', 'unavailable', toTimeStamp(now()));
+INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('98765', 6, 'true_crime', 'available', '2024-08-01');
+INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('98765', 22, 'history', 'available', '2024-08-01');
+INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('87654', 4, 'psychology', 'unavailable', '2022-02-11');
+INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('76543', 101, 'health', 'available', '2010-09-23');
+INSERT INTO library.book_tracker (book_id, item_count, genre, status, last_update_timestamp) VALUES ('65432', 74, 'horror', 'unavailable', '2007-11-19');
 ```
 
 :::tip
@@ -384,26 +389,29 @@ Use `cqlsh` to read data from the `book_tracker` table, for example:
 - ```sql
   SELECT * FROM library.book_tracker WHERE book_id = '01234';
 
-  book_id | genre                  | item_count | last_update_timestamp           | status
-  --------+------------------------+------------+---------------------------------+------------
-  01234   |             true_crime |          6 | 2024-07-31 11:21:14.263000+0000 |   available
+  book_id | genre      | item_count | last_update_timestamp           | status
+  --------+------------+------------+---------------------------------+----------
+   01234  | true_crime |          6 | 2024-07-31 11:21:14.263000+0000 | available
   ```
 
 - ```sql
-  SELECT * FROM library.book_tracker WHERE status = 'available' ALLOW FILTERING;
+  SELECT genre, item_count FROM library.book_tracker WHERE book_id IN ('01234', '12345');
 
-  book_id | genre                  | item_count | last_update_timestamp           | status
-  --------+------------------------+------------+---------------------------------+----------
-  01234   |             true_crime |          6 | 2024-07-31 11:21:14.263000+0000 | available
-  12345   | spirituality_religions |         55 | 2024-07-31 11:24:20.373000+0000 | available
+  genre                  | item_count
+  -----------------------+-----------
+              true_crime |          6
+  spirituality_religions |         55
   ```
 
 - ```sql
-  SELECT book_id, genre FROM library.book_tracker WHERE item_count > 10 AND status = 'unavailable' ALLOW FILTERING;
+  SELECT last_update_timestamp, status FROM library.book_tracker WHERE book_id IN ('01234', '12345', '98765', '87654');
 
-  book_id | genre
-  --------+--------
-  56789   | romance
+  last_update_timestamp           | status
+  --------------------------------+------------
+  2024-07-31 11:21:14.263000+0000 |   available
+  2024-07-31 11:24:20.373000+0000 |   available
+  2022-02-11 00:00:00.000000+0000 | unavailable
+  2024-08-01 00:00:00.000000+0000 |   available
   ```
 
 ## Related pages
