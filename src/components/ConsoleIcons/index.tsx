@@ -334,7 +334,7 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
-          <b>Plus Circle</b>
+          <b>Add configuration options</b>
         </>
       );
     case 'plus':
