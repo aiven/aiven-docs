@@ -17,7 +17,11 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
   - Users from different groups can still claim ownership of individual resources.
 
 - **Topic creation workflow**:
-  - Direct topic creation is replaced by a structured request-and-approval process.
+  - There is no impact on existing topics.
+  - You can continue to [create topics](/docs/products/kafka/howto/create-topic) in your
+    Aiven for Apache Kafka service. Governance in Aiven for Apache Kafka introduces an
+    additional request-and-approval process to claim ownership of topics from the
+    Apache Kafka topic catalog.
   - All topics align with your organization's data management policies.
 
 ## Prerequisites
