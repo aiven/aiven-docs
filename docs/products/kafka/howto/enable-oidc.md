@@ -47,7 +47,7 @@ Before proceeding with the setup, ensure you have:
 ## Enable OAuth2/OIDC
 
 <Tabs groupId="config-methods">
-<TabItem value="console" label="Console" default>
+<TabItem value="console" label="Aiven Console" default>
 
 1. In the [Aiven Console](https://console.aiven.io/), select your
    project and choose your Aiven for Apache Kafka® service.

@@ -11,7 +11,7 @@ Aiven provides [multiple authentication methods](/docs/products/kafka/concepts/a
 ## Enable SASL authentication
 
 <Tabs groupId="config-methods">
-<TabItem value="console" label="Console" default>
+<TabItem value="console" label="Aiven Console" default>
 
 1. Access the [Aiven Console](https://console.aiven.io) and select your
    Aiven for Apache Kafka service.
@@ -86,7 +86,7 @@ API to enable SASL authentication on an existing service:
 ## Configure SASL mechanisms
 
 <Tabs groupId="config-methods">
-<TabItem value="console" label="Console" default>
+<TabItem value="console" label="Aiven Console" default>
 
 1. Access the [Aiven Console](https://console.aiven.io) and select your
    Aiven for Apache Kafka® service.
