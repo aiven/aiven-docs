@@ -74,6 +74,7 @@ const config: Config = {
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
   ],
+  plugins: ['./src/plugins/svg-fix/index.ts'],
   themeConfig: {
     image: 'images/site-preview.png',
     navbar: {
