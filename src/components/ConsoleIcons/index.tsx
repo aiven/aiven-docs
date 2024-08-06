@@ -330,7 +330,7 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
         </>
       );
-    case 'pluscircle':
+    case 'addconfigoptions':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
