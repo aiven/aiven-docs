@@ -12,8 +12,9 @@ There are a few ways of classifying integration types supported in Aiven for Cli
 
 - [By purpose](/docs/products/clickhouse/concepts/data-integration-overview#observability-integrations-vs-data-source-integrations):
   observability integration vs data source integration
-- [By location](/docs/products/clickhouse/concepts/data-integration-overview#in-aiven-integrations-vs-external-integrations):
-  in-aiven integration vs external integration
+- [By location](/docs/products/clickhouse/concepts/data-integration-overview#integrations-between-aiven-managed-services-vs-external-integrations):
+  integration between Aiven-managed services vs external integration (between an
+  Aiven-managed service and an external service)
 - By scope: [managed databases integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-databases-integration) and
   [managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
 
@@ -23,9 +24,9 @@ Aiven for ClickHouse supports observability integrations and data source integra
 which have different purposes:
 
 - [Observability integration](/docs/products/clickhouse/howto/list-integrations) is
-  connecting to other services (either in-Aiven or external) to expose and process logs
-  and metrics.
-- Data service integration is connecting to other services (either in-Aiven or external)
+  connecting to other services (either Aiven-managed or external ones) to expose and
+  process logs and metrics.
+- Data service integration is connecting to other services (either Aiven-managed or external)
   to use them as data sources. In Aiven for ClickHouse, data service integration is
   possible with the following data source types:
 
@@ -35,11 +36,11 @@ which have different purposes:
   - ClickHouse®
   - Amazon S3®
 
-## In-Aiven integrations vs external integrations
+## Integrations between Aiven-managed services vs external integrations
 
 By enabling data service integrations, you create streaming data pipelines across
-services. Depending on where the services are located, you can have either in-Aiven
-integrations (between Aiven services) or external integrations (between an Aiven service
+services. Depending on where the services are located, you can have either
+integrations between Aiven-managed services or external integrations (between an Aiven service
 and an external data source or application).
 
 For integrating with external data sources, Aiven for ClickHouse provides two types of
@@ -56,7 +57,7 @@ logic. It allows storing key-value pairs that are to be used as credentials when
 connecting to external data sources. To integrate data, you create tables using table
 engines. With the managed credentials integration enabled,
 querying the data is easier and quicker since you no longer need connections parameters in
-each query. They are stored and available from in-Aiven credential storage.
+each query. They are stored and available from credential storage in Aiven.
 
 Managed credentials integration in Aiven for ClickHouse is supported with the following
 data source types:

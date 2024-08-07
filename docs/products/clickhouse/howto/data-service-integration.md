@@ -30,11 +30,10 @@ ClickHouse® in
    and a project.
 1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to integrate
    with a data source.
-1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline** and click one
-   of the following:
+1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline**.
 
-   - **Add data source** if you're setting up the first integration for that service
-   - <ConsoleIcon name="plus"/> if you're setting up another integrtion for that service
+   - To create the first integration for that service, click **Add data source**.
+   - To add an integrtion for that service, click <ConsoleIcon name="plus"/>.
 
    As a result, the **Data service integrations** wizard opens, showing
    a list of all data sources available for integration. If there are no data sources to
@@ -59,8 +58,8 @@ To create an integration with a new service in the **Data service integrations**
 1. [Set up the new service](/docs/platform/howto/create_new_service).
 1. Come back to your Aiven for ClickHouse service (<ConsoleLabel name="overview"/> >
    **Data pipeline** > **Add data source**), and create an integration to the newly created
-   service following up the instructions in next tab
-   **Integrate with an existing service**.
+   service following up the instructions in the
+   **Integrate with an existing service** tab.
 </TabItem>
 <TabItem value="2" label="Integrate with an existing service">
 To create an integration with an existing service in the **Data service integrations** wizard:
@@ -75,8 +74,7 @@ To create an integration with an existing service in the **Data service integrat
    :::note
    If you prefer to create a data service integration without adding integration databases,
    you can create integration databases for your service any time later. See
-   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)
-   for guidance on how to do that.
+   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases).
    ::::
 
    - Enable your integration with databases:
@@ -90,8 +88,7 @@ To create an integration with an existing service in the **Data service integrat
 
      Click **Enable without databases**.
 
-     You can preview the created integration by selecting <ConsoleLabel name="overview"/>
-     from the sidebar.
+     To preview the created integration, from the sidebar, click <ConsoleLabel name="overview"/>.
 </TabItem>
 </Tabs>
 
@@ -226,7 +223,7 @@ error message related to grants.
     stopped belongs to.
 1.  From the **Active data service integrations** list, select the
     service integration that you no longer need, and click **Disconnect integration**.
-1.  Make yourself familiar with the impact of disconnecting from a service explained in
+1.  Evaluate the impact of disconnecting from a service explained in
     **Warning**, and click **Disconnect integration** if you accept erasing all the
     databases and configuration information.
 
