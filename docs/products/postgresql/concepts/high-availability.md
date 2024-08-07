@@ -3,21 +3,21 @@ title: High availability of Aiven for PostgreSQL®
 sidebar_label: High availability
 ---
 
-Aiven for PostgreSQL® is available on a variety of plans, offering different levels of high availability. The selected plan defines the features available.
+Aiven for PostgreSQL® is available on a variety of plans, offering different levels of service availability. The selected plan defines the features available.
 
-| Plan         | High availability features                                                      | Backup history |
-| ------------ | ------------------------------------------------------------------------------- | -------------- |
-| **Hobbyist** | Single node with limited availability                                           | 2 days         |
-| **Startup**  | Single node with limited availability                                           | 2 days         |
-| **Business** | Two nodes (primary + standby: with higher availability)                         | 14 days        |
-| **Premium**  | Three nodes (primary + 2 x standby: with top high availability characteristics) | 30 days        |
+| Plan         | Service availability features                                              | Backup history |
+| ------------ | -------------------------------------------------------------------------- | -------------- |
+| **Hobbyist** | Single node (limited availability)                                         | 2 days         |
+| **Startup**  | Single node (limited availability)                                         | 2 days         |
+| **Business** | 1 primary node and 1 standby node (higher availability)                    | 14 days        |
+| **Premium**  | 1 primary node and 2 standby nodes (top high availability characteristics) | 30 days        |
 
 ## Primary and standby nodes
 
 Aiven's Business and Premium plans offer a
 [primary node](/docs/products/postgresql/reference/terminology) and
 [standby nodes](/docs/products/postgresql/reference/terminology).
-A standby service is useful for multiple reasons:
+A standby node is useful for multiple reasons:
 
 -   Provides another physical copy of the data in case of hardware,
     software, or network failures
@@ -43,7 +43,7 @@ network access is restored.
 Severe failures, such as losing a node entirely in case of hardware
 or severe software problems, require radical recovery measures. The
 Aiven monitoring infrastructure automatically detects a failing node
-both when the node starts reporting issues in the self-diagnostics or
+when the node starts reporting issues in the self-diagnostics or
 when it stops communicating. In such cases, the monitoring infrastructure
 automatically schedules a new replacement node to be created.
 
