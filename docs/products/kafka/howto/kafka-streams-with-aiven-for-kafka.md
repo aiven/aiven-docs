@@ -66,7 +66,7 @@ work with Aiven for Apache Kafka.
     git clone https://github.com/confluentinc/kafka-streams-examples.git
     ```
 
-2.  Build the packages using Maven
+1.  Build the packages using Maven
 
     ```shell
     cd kafka-streams-examples/
@@ -102,8 +102,6 @@ to customise the files to use the right endpoints.
 
 ### Customize `KafkaMusicExampleDriver.java` {#modify-kafkamusicexampledriverjava}
 
-Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
-
 1.  Add the following dependencies
 
     ```java
@@ -112,7 +110,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     import java.util.HashMap;
     ```
 
-2.  After the `KafkaMusicExampleDriver` class declaration add the
+1.  After the `KafkaMusicExampleDriver` class declaration add the
     following two lines to set the `DEFAULT_BOOTSTRAP_SERVERS` and
     `DEFAULT_SCHEMA_REGISTRY_URL` endpoints replacing the
     `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`, `APACHE_KAFKA_HOST`,
@@ -123,7 +121,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     private static final String DEFAULT_SCHEMA_REGISTRY_URL = "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT";
     ```
 
-3.  Within the `main` function, replace the `bootstrapServers` and
+1.  Within the `main` function, replace the `bootstrapServers` and
     `schemaRegistryUrl` default values
 
     ```java
@@ -131,7 +129,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     final String schemaRegistryUrl = args.length > 2 ? args[2] : DEFAULT_SCHEMA_REGISTRY_URL;
     ```
 
-4.  Within the `main` function, after the line
+1.  Within the `main` function, after the line
 
     ```java
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -152,7 +150,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "KEY_TRUST_SECRET");
     ```
 
-5.  Within the `main` function, replace the line
+1.  Within the `main` function, replace the line
 
     ```java
     final Map<String, String> serdeConfig = Collections.singletonMap(
@@ -185,7 +183,7 @@ parameters fetched in the
     import org.apache.kafka.common.config.SslConfigs;
     ```
 
-2.  Change the `DEFAULT_BOOTSTRAP_SERVERS` and
+1.  Change the `DEFAULT_BOOTSTRAP_SERVERS` and
     `DEFAULT_SCHEMA_REGISTRY_URL` endpoints replacing the
     `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`, `APACHE_KAFKA_HOST`,
     `SCHEMA_REGISTRY_PORT` placeholders
@@ -195,7 +193,7 @@ parameters fetched in the
     private static final String DEFAULT_SCHEMA_REGISTRY_URL = "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT";
     ```
 
-3.  Replace the `bootstrapServers` and `schemaRegistryUrl` default
+1.  Replace the `bootstrapServers` and `schemaRegistryUrl` default
     values
 
     ```java
@@ -203,7 +201,7 @@ parameters fetched in the
     final String schemaRegistryUrl = args.length > 2 ? args[2] : DEFAULT_SCHEMA_REGISTRY_URL;
     ```
 
-4.  Within the `main` function, replace the line
+1.  Within the `main` function, replace the line
 
     ```java
     final KafkaStreams streams = new KafkaStreams(
@@ -229,7 +227,7 @@ parameters fetched in the
        );
     ```
 
-5.  Within the `streamsConfig` static function, after the line
+1.  Within the `streamsConfig` static function, after the line
 
     ```java
     streamsConfiguration.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);

@@ -2,8 +2,8 @@
 title: Authentication tokens
 ---
 
-An authentication token allows a user to programmatically access
-resources instead of using their username and password. The usage of
+An authentication token allows a user to programmatically access resources instead of using their username and password.
+The usage of
 authentication tokens rather than user credentials has many benefits:
 
 -   Multiple tokens can be generated for different apps or use cases
@@ -72,13 +72,13 @@ security best practises established by your company and refrain from
 allowing human users to share the same token.
 
 ### Use appropriate user accounts
-
+<!-- vale off -->
 Especially when working with tokens for automation rather than personal
 or one-off use, generate the tokens for a user account that has the
 appropriate access permissions that the tokens should have. If you are
 the admin, then it is not recommended to give a token for your own
 account to automation services that may only need read access.
-
+<!-- vale on -->
 ### Rotate tokens regularly
 
 It is also good practice to rotate your authorization tokens on a

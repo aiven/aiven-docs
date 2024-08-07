@@ -2,9 +2,7 @@
 title: Write search queries with OpenSearch® and Python
 ---
 
-Learn how to write and run search queries on your OpenSearch cluster
-using a [Python OpenSearch
-client](https://github.com/opensearch-project/opensearch-py).
+Learn how to write and run search queries on your OpenSearch cluster using a [Python OpenSearch client](https://github.com/opensearch-project/opensearch-py).
 
 For our data, we use a food recipe dataset [from
 Kaggle](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json).
@@ -15,7 +13,7 @@ to find different food recipes.
 
 ### GitHub repository
 
-The full code used here can be found [in a GitHub
+The code be found [in a GitHub
 repository](https://github.com/aiven/demo-opensearch-python). The files
 are organized according to their functions:
 
@@ -29,8 +27,7 @@ are organized according to their functions:
     response handler of search requests
 
 We use `Typer` Python [library](ttps://typer.tiangolo.com/) to create
-CLI commands to run from the terminal. Follow the instructions to get
-the code on your machine and try the commands:
+CLI commands to run from the terminal. To get the code on your machine and try the commands:
 
 1.  Clone the repository and install the dependencies
 
@@ -39,7 +36,7 @@ the code on your machine and try the commands:
     pip install -r requirements.txt
     ```
 
-2.  Download the dataset from Kaggle's [recipe
+1.  Download the dataset from Kaggle's [recipe
     dataset](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json),
     and save the `full_format_recipes.json` in the current folder of the
     [demo repository](https://github.com/aiven/demo-opensearch-python).
@@ -79,7 +76,7 @@ interact with your cluster.
 ### Upload data to OpenSearch using Python
 
 Once you're connected, the next step should be to
-[inject data into our cluster](/docs/products/opensearch/howto/sample-dataset#load-data-with-python). This is done in our demo with the [load_data
+[inject data into our cluster](/docs/products/opensearch/howto/sample-dataset#load-data-with-python). This is done in our demo with the [`load_data`
 function](https://github.com/aiven/demo-opensearch-python/blob/main/index.py).
 
 You can inject the data to your cluster by running:
@@ -90,8 +87,8 @@ python index.py load-data
 
 Once the data is loaded, we can
 [retrieve the data mapping](/docs/products/opensearch/howto/sample-dataset#get-mapping-with-python) to explore the structure of the data, with their respective
-fields and types. You can find the code implementation in the
-[get_mapping
+fields and types. Find the code implementation in the
+[`get_mapping`
 function](https://github.com/aiven/demo-opensearch-python/blob/main/index.py).
 
 Check the structure of your data by running:
@@ -225,7 +222,7 @@ Check what comes out from this interesting combination 🧄 🍋 :
   'Garlic, Oregano, and Lemon Vinaigrette '
 ]
 ```
-
+<!-- vale off -->
 For this tutorial, we focus on the query DSL syntax to construct queries
 modifying the `body` parameter. In the method `search()`, one of the
 optional fields is the `size` field, which is defined as the number of

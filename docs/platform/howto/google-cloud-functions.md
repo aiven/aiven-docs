@@ -112,12 +112,14 @@ def hello_http(request):
    return "HTTP 401\n", 401
 ```
 
+<!-- vale off -->
 The request body contains:
 
 - `CLOUD_FUNCTION_KEY` Change this to protect your Cloud Function endpoint,
   especially if it does not require authentication.
 - `host`: FQDN or IP address if your Aiven service or VM in your GCP VPC.
 - `port`: Destination TCP port number.
+<!-- vale on -->
 
 **Example:** In the **Testing** tab in your **Cloud Function**:
 

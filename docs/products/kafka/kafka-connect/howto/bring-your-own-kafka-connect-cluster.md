@@ -56,7 +56,7 @@ The following example demonstrates how to setup a local Apache Kafka
 Connect cluster with a working JDBC sink connector and attach it to an
 Aiven for Apache Kafka service.
 
-### Setup the truststore and keystore {#setup_trustore_keystore_bring_your_own_connect}
+### Set up the truststore and keystore {#setup_trustore_keystore_bring_your_own_connect}
 
 Create a
 [Java keystore and truststore](/docs/products/kafka/howto/keystore-truststore) for the Aiven for Apache Kafka service. For the following
@@ -92,12 +92,11 @@ cluster locally:
     Converter](https://www.confluent.io/hub/confluentinc/kafka-connect-avro-converter).
     The examples below show how to do this.
 
-### Setup the local Apache Kafka Connect cluster
+### Set up the local Apache Kafka Connect cluster
 
-The following process defines the setup required to create a local
-Apache Kafka Connect cluster. The example shows the steps needed with
-the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
-`6.7.0` versions:
+The following process defines the setup required to create a local Apache Kafka
+Connect cluster with Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC
+connector `6.7.0`:
 
 1.  Extract the Apache Kafka binaries
 
@@ -225,7 +224,7 @@ host a custom connector.
 
 To verify that the connector is working, you can write messages to the
 `jdbc_sink` topic in Avro format using [Karapace REST
-APIs](https://github.com/aiven/karapace), by following the steps below:
+APIs](https://github.com/aiven/karapace):
 
 1.  Create a **Avro schema** using the `/subjects/` endpoint, after
     changing the placeholders for `REST_API_USER`, `REST_API_PASSWORD`,

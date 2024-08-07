@@ -2,9 +2,8 @@
 title: Monitoring consumer groups in Aiven for Apache Kafka®
 ---
 
-With Aiven for Apache Kafka® dashboards and telemetry, you can monitor
-the performance and system resources of your Aiven for Apache Kafka
-service. Aiven provides pre-built dashboards and telemetry for your
+With Aiven for Apache Kafka® dashboards and telemetry, you can monitor the performance and system resources of your Aiven for Apache Kafka service.
+Aiven provides pre-built dashboards and telemetry for your
 service, allowing you to collect and visualize telemetry data using
 InfluxDB® and Grafana®. Aiven streamlines the process by automatically
 configuring the dashboards for each of your Aiven for Apache Kafka
@@ -60,7 +59,7 @@ effectively.
 
 Consumer group lag is an important metric in your Apache Kafka
 dashboard. It shows how far behind the consumers in a group are in
-consuming messages on the topic. A significant lag could indicate one of
+consuming messages on the topic. A significant lag can indicate one of
 two scenarios - terminated consumers or consumers who are alive but
 unable to keep up with the rate of incoming messages. Persistent lag for
 long durations may indicate that the system is not behaving according to

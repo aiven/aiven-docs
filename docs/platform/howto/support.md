@@ -52,6 +52,8 @@ your account team.
 
 1.  Select the affected **Product** and the reason for creating the ticket.
 
+<!-- vale off -->
+
 1.  Enter a detailed **Description** of the issue.
 
     :::note
@@ -63,6 +65,8 @@ your account team.
     -   Any error messages.
     -   Any languages or frameworks you are using.
     :::
+
+<!-- vale on -->
 
 1.  Optional: Upload files such as screenshots, logs, or [HAR files](#create-har-files).
 

@@ -16,7 +16,7 @@ Upgrading to the latest version of Aiven for Apache Flink® allows you to benefi
 
 If you are using Aiven for Apache Flink version 1.16, which will soon
 reach [end-of-life](/docs/platform/reference/eol-for-major-versions#aiven-for-flink),
-create a new service for version 1.19 and migrate your applications to continue
+create new service for version 1.19 and migrate your applications to continue
 receiving support and take advantage of the latest enhancements.
 
 ### Step 1: Create an Aiven for Apache Flink service
@@ -46,7 +46,7 @@ For more information, see [Aiven for Apache Flink applications](/docs/products/f
 </TabItem>
 <TabItem value="terraform" label="Using Terraform">
 
-If you used Terraform (ensure you’re on provider version 4.19.0) to create your service
+If you used Terraform (ensure you're on provider version 4.19.0) to create your service
 and applications:
 
 1. Update the `flink_version` property in your Terraform script to 1.19.

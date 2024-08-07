@@ -132,7 +132,7 @@ The configuration file contains the following entries:
 - `key.converter` and `value.converter`: Defines the data format of messages within
   the Apache Kafka topic. The `io.confluent.connect.avro.AvroConverter` translates
   messages from the Avro format. The message schemas are retrieved from
-  Aiven’s [Karapace schema registry](https://github.com/aiven/karapace),
+  Aiven's [Karapace schema registry](https://github.com/aiven/karapace),
   as specified by the `schema.registry.url` parameter and related credentials.
 
 :::note

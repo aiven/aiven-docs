@@ -2,10 +2,8 @@
 title: Manage project and service notifications
 ---
 
-To stay up to date with the latest information about services and
-projects, you can set service and project contacts to receive email
-notifications. Notifications include information about plan sizes,
-performance, outages, and scheduled maintenance.
+To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
+Notifications include information about plan sizes, performance, outages, and scheduled maintenance.
 
 The contacts for a project can be set to the admin and operators of that
 project (this is the default), or to specific email addresses. Project
@@ -21,18 +19,18 @@ service.
 ## Set project contacts
 
 1.  In the project, click **Settings**.
-2.  On the **Notifications** tab, select the project contacts that you
+1.  On the **Notifications** tab, select the project contacts that you
     want to receive email notifications.
-3.  Click **Save changes**.
+1.  Click **Save changes**.
 
 ## Set service contacts
 
 1.  In the service, click **Service settings**.
-2.  In the **Service status** section, open the menu in the top right
+1.  In the **Service status** section, open the menu in the top right
     and select **Change service contacts**.
-3.  Select the contacts that should receive email notifications for
+1.  Select the contacts that should receive email notifications for
     this service.
-4.  Click **Save**.
+1.  Click **Save**.
 
 ## Set up Slack notifications
 
@@ -48,10 +46,10 @@ email address to the technical contacts for an Aiven project:
     emails](https://slack.com/help/articles/360053335433-Manage-incoming-emails-for-your-workspace-or-organization).
     :::
 
-2.  In the [Aiven Console](https://console.aiven.io/), go to the project
+1.  In the [Aiven Console](https://console.aiven.io/), go to the project
     or service to get notifications for.
 
-3.  Follow the instructions to set the Slack email address as a
+1.  Set the Slack email address as a
     [project contact](/docs/platform/howto/technical-emails#set-project-contacts) or
     [service contact](/docs/platform/howto/technical-emails#set-service-contacts).
 

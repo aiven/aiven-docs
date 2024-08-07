@@ -2,9 +2,7 @@
 title: Connect with Rivery
 ---
 
-[Rivery](https://rivery.io/) is a fully-managed solution for data
-ingestion, transformation, orchestration, reverse ETL and more. This
-example shows how to configure PostgreSQL® as a connection in rivery.
+Configure PostgreSQL® as a connection in [Rivery](https://rivery.io/), a fully managed solution for data ingestion, transformation, orchestration, reverse ETL and more.
 
 ## Variables
 
