@@ -47,7 +47,7 @@ these steps:
 1. Scroll to the **Advanced configuration** section, and click **Configure**.
 1. In the **Advanced configuration** dialog, click
    <ConsoleLabel name="addadvancedconfiguration"/>.
-1. Find the `auto_create_topics_enable` parameter and set it to true to
+1. Find the `auto_create_topics_enable` parameter and set it to `true` to
    enable automatic topic creation.
 1. Click **Save configuration**.
 
