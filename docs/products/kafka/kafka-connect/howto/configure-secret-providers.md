@@ -18,7 +18,7 @@ enhancing the security of your setup.
 ## Supported secret managers
 
 - [AWS Secrets Manager](/docs/products/kafka/kafka-connect/howto/configure-aws-secrets-manager)
-  - **Auth method**:` credentials`
+  - **Auth method**: `credentials`
   - **Required parameters**: `access key`, `secret key`
 - [HashiCorp Vault](/docs/products/kafka/kafka-connect/howto/configure-hashicorp-vault)
   - **Auth method**: `token`

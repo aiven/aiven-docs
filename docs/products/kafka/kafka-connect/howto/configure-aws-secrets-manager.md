@@ -5,25 +5,27 @@ title: Configure AWS Secrets Manager
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Configure and use AWS Secrets Manager as a secret provider in Apache Kafka® Connect services on Aiven for Apache Kafka®.
+Configure and use AWS Secrets Manager as a secret provider in Aiven for Apache Kafka® Connect services.
 
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io/).
 - Aiven for Apache Kafka service with Apache Kafka Connect set up and running. For setup
   instructions, see [Aiven for Apache Kafka with Kafka Connect documentation](https://aiven.io/docs/products/kafka/kafka-connect/get-started).
-- [Aiven CLI](/docs/tools/cli)
-- [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html)
+- [Aiven CLI](/docs/tools/cli).
+- [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 
 ## Configure secret providers
 
-Set up AWS Secrets Manager in your Aiven for Apache Kafka Connect service to securely
-manage and access sensitive information.
+Set up AWS Secrets Manager in your Aiven for Apache Kafka Connect service to manage and
+access sensitive information.
 
 <Tabs groupId="config-methods">
 <TabItem value="api" label="API" default>
 
-Add the AWS Secrets Manager configuration to the `user_config`:
+Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+API to update your service configuration. Add the AWS Secrets Manager configuration
+to the `user_config` using the following API request:
 
 ```sh
 curl --request PUT \
@@ -63,27 +65,30 @@ Parameters:
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Add AWS Secrets Manager using the Aiven CLI:
+Add AWS Secrets Manager using the [Aiven CLI](/docs/tools/cli):
 
 ```bash
-avn service update kafka-connect \
--c secret_providers='[
+avn service update demo-kafka-service \
+  -c secret_providers='[
     {
-        "aws": {
-            "access_key": "<replace_with_your_access_key>",
-            "auth_method": "credentials",
-            "region": "your-aws-region",
-            "secret_key": "<replace_with_your_secret_key>"
-        },
-        "name": "aws"
+      "name": "aws",
+      "aws": {
+        "auth_method": "credentials",
+        "region": "your-aws-region",
+        "access_key": "your-aws-access-key",
+        "secret_key": "your-aws-secret-key"
+      }
     }
-]'
+  ]'
+
 ```
 
 Parameters:
 
-- `auth_method`: Authentication method used by AWS Secrets Manager. In this case,
-  it is `credentials`.
+- `project`: Name of your Aiven project.
+- `service`: Name of your Aiven Kafka service.
+- `name`: Name of the secret provider. In this case, `aws`.
+- `auth_method`: Authentication method used by AWS Secrets Manager. In this case, it is credentials.
 - `region`: AWS region where your secrets are stored.
 - `access_key`: Your AWS access key.
 - `secret_key`: Your AWS secret key.
@@ -134,17 +139,24 @@ Parameters:
 Reference secrets in the JDBC sink connector configuration using the following
 CLI command:
 
-```sh
-avn service user-config set kafka-connect -c name=your-sink-connector-name \
--c connector.class=io.aiven.connect.jdbc.JdbcSinkConnector \
--c connection.url="jdbc:postgresql://host:port/dbname?user=${aws:path/to/secret:username}&password=${aws:path/to/secret:password}&ssl=require" \
--c topics=your-topic \
--c auto.create=true
+```bash
+avn service connector create                                    \
+  --project demo-project                                        \
+  --service demo-kafka-service                                  \
+  --connector-name jdbc-sink-connector                          \
+  --connector-class io.aiven.connect.jdbc.JdbcSinkConnector     \
+  --config '{
+    "connection.url": "jdbc:postgresql://localhost:5432/mydb?user=${aws:path/to/secret:username}&password=${aws:path/to/secret:password}&ssl=require",
+    "topics": "your-topic",
+    "auto.create": "true"
+  }'
 ```
 
 Parameters:
 
-- `name`: Name of the connector.
+- `project`: Name of your Aiven project.
+- `service`: Name of your Aiven for Apache Kafka service.
+- `connector-name`: Name of the connector.
 - `connector.class`: Specifies the connector class to use, in this case,
   `io.aiven.connect.jdbc.JdbcSinkConnector`.
 - `connection.url`: JDBC connection URL, with placeholders for the username and password
@@ -180,7 +192,6 @@ curl -X POST https://api.aiven.io/v1/project/<project_name>/service/<service_nam
         "topic.prefix": "your-prefix_",
         "auto.create": "true"
       }'
-
 ```
 
 Parameters:
@@ -205,23 +216,29 @@ Parameters:
 Reference secrets in the JDBC source connector configuration using the following
 CLI command:
 
-```sh
-avn service user-config set kafka-connect -c name=your-source-connector-name \
--c connector.class=io.aiven.connect.jdbc.JdbcSourceConnector \
--c connection.url="jdbc:postgresql://your-postgresql-host:your-port/defaultdb?ssl=require" \
--c connection.user="${aws:path/to/secret:username}" \
--c connection.password="${aws:path/to/secret:password}" \
--c incrementing.column.name=id \
--c mode=incrementing \
--c table.whitelist=your-table \
--c topic.prefix=your-prefix_ \
--c auto.create=true
-
+```bash
+avn service connector create                                   \
+  --project demo-project                                       \
+  --service demo-kafka-service                                 \
+  --connector-name jdbc-source-connector                       \
+  --connector-class io.aiven.connect.jdbc.JdbcSourceConnector  \
+  --config '{
+    "connection.url": "jdbc:postgresql://your-postgresql-host:your-port/defaultdb?ssl=require",
+    "connection.user": "${aws:path/to/secret:username}",
+    "connection.password": "${aws:path/to/secret:password}",
+    "incrementing.column.name": "id",
+    "mode": "incrementing",
+    "table.whitelist": "your-table",
+    "topic.prefix": "your-prefix_",
+    "auto.create": "true"
+  }'
 ```
 
 Parameters:
 
-- `name`: Name of the connector.
+- `project`: Name of your Aiven project.
+- `service`: Name of your Aiven for Apache Kafka service.
+- `connector-name`: Name of the connector.
 - `connector.class`: Specifies the connector class to use, in this case,
   `io.aiven.connect.jdbc.JdbcSinkConnector`.
 - `connection.url`: JDBC connection URL, with placeholders for the username and
