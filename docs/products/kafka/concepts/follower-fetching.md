@@ -5,7 +5,8 @@ sidebar_label: Follower fetching
 
 import Followerfetching from "@site/static/images/content/figma/follower-fetching.png";
 
-[Follower fetching](/docs/products/kafka/howto/enable-follower-fetching) in Aiven for Apache Kafka allows consumers to fetch data from the nearest replica instead of the leader. This feature optimizes data fetching by leveraging Apache Kafka's rack awareness, which treats each availability zone (AZ) as a rack.
+[Follower fetching](/docs/products/kafka/howto/enable-follower-fetching) in Aiven for Apache Kafka allows consumers to fetch data from the nearest replica instead of the leader.
+This feature optimizes data fetching by leveraging Apache Kafka's rack awareness, which treats each availability zone (AZ) as a rack.
 
 ## Benefits
 
@@ -15,7 +16,8 @@ import Followerfetching from "@site/static/images/content/figma/follower-fetchin
    receive data, improving overall performance.
 
 :::note
-Follower fetching is currently supported on AWS (Amazon Web Services).
+Follower fetching is currently supported on AWS (Amazon Web Services) and
+GCP (Google Cloud Platform).
 :::
 
 ## How it works
@@ -28,9 +30,10 @@ high availability.
 - **Rack awareness**: Rack awareness distributes data across different physical racks,
   also known as availability zones (AZs), within a data center. This distribution
   ensures data replication for fault tolerance. Each Apache Kafka broker has
-  a `broker.rack` setting corresponding to its specific AZ. For example, in AWS, AZ IDs
-  (like `use1-az1`) are used instead of AZ names (like `us-east-1a`) to ensure
-  consistency across different accounts.
+  a `broker.rack` setting corresponding to its specific AZ:
+
+  - **AWS**: Uses AZ IDs (for example, `use1-az1`) instead of AZ names.
+  - **GCP**: Uses AZ names directly (for example, `europe-west1-b`).
 
 - **Follower fetching**: Uses rack awareness to allow consumers to fetch data from
   the nearest replica, reducing latency and costs. Apache Kafka consumers use
@@ -46,9 +49,9 @@ high availability.
   the `broker.rack` setting, eliminating the need for manual configuration.
 
 - `client.rack`:  This setting on the Apache Kafka consumer indicates the AZ where
-  the consumer is running. It allows you to fetch data from the nearest replica. For
-  example, if your `client.rack` is set to `use1-az1`, it fetches data from an
-  Apache Kafka broker with `broker.rack` set to `use1-az1`.
+  the consumer is running. It allows you to fetch data from the nearest replica.
+  For example, setting `client.rack` to `use1-az1` on AWS or `europe-west1-b` on GCP
+  ensures that the consumer fetches data from the nearest broker in the same AZ.
   [Configure](/docs/products/kafka/howto/enable-follower-fetching#client-side-configuration)
   this setting to retrieve data from the closest replica.
 

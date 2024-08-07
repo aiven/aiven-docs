@@ -19,17 +19,23 @@ Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to 
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 :::note
-Follower fetching is currently supported on AWS (Amazon Web Services).
+Follower fetching is currently supported on AWS (Amazon Web Services) and
+GCP (Google Cloud Platform).
 :::
 
 ## Identify availability zone
 
-In AWS, availability zone (AZ) names can vary across different accounts. The same
-physical location might have different AZ names in different accounts. To ensure
-consistency when configuring `client.rack`, use the AZ ID, which remains the same
-across accounts.
+- **AWS**: In AWS, availability zone (AZ) names can vary across different accounts.
+  The same physical location might have different AZ names in different accounts. To
+  ensure consistency when configuring `client.rack`, use the AZ ID, which remains the same
+  across accounts.
 
-To map AZ names to AZ IDs, see [AWS Knowledge Center article](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones) and the [AWS documentation on AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html).
+  To map AZ names to AZ IDs, see
+  [AWS Knowledge Center article](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones)
+  and the [AWS documentation on AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html).
+
+- **GCP**: In GCP, use the AZ name directly as the `client.rack` value.
+  For more information, see [Google Cloud's regions and zones documentation](https://cloud.google.com/compute/docs/regions-zones/).
 
 ## Enable follower fetching
 
@@ -139,7 +145,7 @@ Parameters:
    - `project`: Name of your project.
    - `cloud_name`: Cloud region where the service is hosted.
    - `plan`: Service plan.
-   - `service_name`: Name of your Kafka service.
+   - `service_name`: Name of your service.
    - `follower_fetching.enabled`: Set to `true` to enable the follower fetching feature.
 
 </TabItem>
@@ -148,57 +154,64 @@ Parameters:
 ## Client-side configuration
 
 To enable follower fetching at the client level, configure the `client.rack` setting
-in the Apache Kafka client. Set the `client.rack` value to the corresponding AZ ID
-for each client. This ensures the client fetches data from the nearest replica.
+in the Apache Kafka client. Set the `client.rack` value to the corresponding AZ ID for
+AWS or AZ name for GCP for each client. This ensures the client fetches data from the
+nearest replica.
 
-Add this example configuration to your consumer properties file:
+Example configuration for your consumer properties file:
 
 ```plaintext
-client.rack=use1-az1
+client.rack=use1-az1 # AWS example
+client.rack=europe-west1-b # GCP example
 ```
 
 ### Example scenario: follower fetching in different AZs
 
 Assume you have an Aiven for Apache Kafka cluster running in two AZs in the `us-east-1`
-region. The AZ IDs are `use1-az1` and `use1-az2`. You also have consumers distributed
-across three AZs: `use1-az1`, `use1-az2`, and `use1-az3`.
+region for AWS and in the `europe-west1` region for GCP:
 
-#### Cluster setup
+#### Cluster setup and consumer distribution
 
-- Apache Kafka brokers are in:
-  - `use1-az1`
-  - `use1-az2`
-
-- Consumers are in:
-  - `use1-az1`
-  - `use1-az2`
-  - `use1-az3`
+| Cloud | Region         | AZs for brokers               | AZs for consumers                             |
+|-------|----------------|-------------------------------|-----------------------------------------------|
+| AWS   | `us-east-1`    | `use1-az1`, `use1-az2`        | `use1-az1`, `use1-az2`, `use1-az3`            |
+| GCP   | `europe-west1` | `europe-west1-b`, `europe-west1-c` | `europe-west1-b`, `europe-west1-c`, `europe-west1-d` |
 
 #### Consumer configuration
 
-To configure consumers, set the `client.rack` value to the respective
-AZ ID for each consumer:
+Set the `client.rack` value to the respective AZ ID for AWS or AZ name for GCP for each consumer:
 
 ```plaintext
-# For consumers in use1-az1
+# AWS consumers in use1-az1
 client.rack=use1-az1
 
-# For consumers in use1-az2
+# AWS consumers in use1-az2
 client.rack=use1-az2
 
-# For consumers in use1-az3
+# AWS consumers in use1-az3
 client.rack=use1-az3
+
+# GCP consumers in europe-west1-b
+client.rack=europe-west1-b
+
+# GCP consumers in europe-west1-c
+client.rack=europe-west1-c
+
+# GCP consumers in europe-west1-d
+client.rack=europe-west1-d
 ```
 
-#### Fetching behavior
+#### Fetching Behavior
 
-- **Consumers in `use1-az1` and `use1-az2`**:
-  - Fetch from the nearest replica in their respective AZ.
-  - Benefit from reduced latency and network costs.
+| Cloud | Consumer location | Fetching behavior                                      | Notes                                       |
+|-------|-------------------|--------------------------------------------------------|------------------------------------------------|
+| AWS   | `use1-az1`        | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
+| AWS   | `use1-az2`        | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
+| AWS   | `use1-az3`        | Fetch from the leader (no matching `broker.rack`)      | No follower fetching possible                  |
+| GCP   | `europe-west1-b`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
+| GCP   | `europe-west1-c`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
+| GCP   | `europe-west1-d`  | Fetch from the leader (no matching `broker.rack`)      | No follower fetching possible                  |
 
-- **Consumers in `use1-az3`**:
-  - Fetch from the leader.
-  - No matching `broker.rack` exists, so follower fetching isn't possible.
 
 ## Verify follower fetching
 
