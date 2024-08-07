@@ -29,7 +29,7 @@ In such cases, you have two options:
 
 :::note
 When tiered storage is activated for your Aiven for Apache Kafka service, all
-new topics will have tiered storage enabled by default
+new topics will have tiered storage enabled by default.
 [Learn more about tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 :::
 
@@ -41,18 +41,6 @@ new topics will have tiered storage enabled by default
 To enable automatic topic creation through the Aiven Console, follow
 these steps:
 
-<<<<<<< HEAD
-1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and choose your Aiven for Apache Kafka® service.
-2.  In the service page, select **Service settings** from the sidebar.
-3.  On the **Service settings** page, scroll down to the **Advanced
-    configuration** section, and click **Configure**.
-4.  In the **Advanced configuration** dialog, click **Add configuration
-    options**.
-5.  Find the `auto_create_topics_enable` parameter and set it to true to
-    enable automatic topic creation.
-6.  Select **Save configuration**.
-=======
 1. Log in to the [Aiven Console](https://console.aiven.io/), select your
    project, and choose your Aiven for Apache Kafka® service.
 1. Click <ConsoleLabel name="service settings"/> from the sidebar.
@@ -62,7 +50,6 @@ these steps:
 1. Find the `auto_create_topics_enable` parameter and set it to true to
    enable automatic topic creation.
 1. Click **Save configuration**.
->>>>>>> 80470d1 (fix: editorial and styles)
 
 :::warning
 Even with automatic topic creation enabled, the user account producing a message

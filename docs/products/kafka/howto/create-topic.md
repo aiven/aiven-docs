@@ -4,18 +4,7 @@ title: Create an Apache Kafka® topic
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-When working with Apache Kafka®, while it is possible to configure it to [automatically create topics when a message is produced to a non-existent topic](/docs/products/kafka/howto/create-topics-automatically), it is generally recommended to create topics beforehand, especially in production environments.
-
-This approach offers several advantages:
-=======
-When working with Apache Kafka®, while it is possible to configure it to [automatically create topics when a message is produced to a non-existent topic](create-topics-automatically), it is generally recommended to create topics beforehand,
-especially in production environments.
->>>>>>> 80470d1 (fix: editorial and styles)
-=======
 You can configure Aiven for Apache Kafka® to [automatically create topics when a message is produced to a non-existent topic](create-topics-automatically), but it is recommended to create topics beforehand, especially in production environments.
->>>>>>> 4065624 (fix: address feedback)
 
 This approach offers several advantages:
 
@@ -26,31 +15,14 @@ This approach offers several advantages:
 
 :::note
 When tiered storage is activated for your Aiven for Apache Kafka service, all
-new topics will have tiered storage enabled by default
+new topics will have tiered storage enabled by default.
 [Learn more about tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 :::
 
-<<<<<<< HEAD
-To create a topic using the [Aiven
-Console](https://console.aiven.io/):
-
-1.  Log in to [Aiven Console](https://console.aiven.io/) and select the
-    Aiven for Apache Kafka® service where to create the topic.
-1.  From the left sidebar, select **Topics**.
-1.  Select **Create topic** to create a topic and enter a name for
-    the topic.
-1.  If required, set the advanced configuration option to **Yes**.
-1.  In the **Topic advanced configuration** section, you can set
-    properties such as the replication factor, number of partitions, and
-    other settings. These settings can be modified later if needed.
-1.  Select **Create topic**. The new topic will be visible immediately,
-    but may take a few minutes before you can update its settings.
-=======
 ## Steps to create an Apache Kafka® topic
 
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
->>>>>>> 80470d1 (fix: editorial and styles)
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select the Aiven for
    Apache Kafka® service to create the topic.
