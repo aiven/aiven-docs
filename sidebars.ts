@@ -201,7 +201,6 @@ const sidebars: SidebarsConfig = {
             id: 'platform/howto/list-service',
           },
           items: [
-            'platform/howto/byoc/networking-security',
             {
               type: 'category',
               label: 'Concepts',
@@ -276,6 +275,7 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/byoc',
               },
               items: [
+                'platform/howto/byoc/networking-security',
                 'platform/howto/byoc/enable-byoc',
                 'platform/howto/byoc/create-custom-cloud',
                 'platform/howto/byoc/assign-project-custom-cloud',
