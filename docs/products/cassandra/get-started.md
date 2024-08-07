@@ -27,6 +27,7 @@ You need some of the following dev tools for different Aiven for Apache Cassandr
 in the [Aiven Console](https://console.aiven.io).
 </TabItem>
 <TabItem value="2" label="Terraform">
+Create an Aiven for Apache Cassandra service using the Aiven Provider for Terraform.
 
 1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
 
@@ -108,9 +109,10 @@ in the [Aiven Console](https://console.aiven.io).
    CASSANDRA_PASSWORD="$(terraform output -raw cassandra_service_password)"
    ```
 
+The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
+changes to `RUNNING`, you are ready to access it.
 </TabItem>
 <TabItem value="3" label="K8s">
-
 Create an Aiven for Apache Cassandra service using the Aiven Operator for Kubernetes.
 
 1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html).
@@ -176,15 +178,12 @@ See configuration options in
 1. In the **Advanced configuration** section, make changes to the service configuration.
 </TabItem>
 <TabItem value="2" label="Terraform">
-
 :::note
 Your changes can force the recreation of the `aiven_cassandra` resource.
 :::
 
-:::tip
-For all the attributes available for the `aiven_cassandra` resource, see
+See attributes available for the `aiven_cassandra` resource in
 [the Aiven Provider for Terraform® documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cassandra).
-:::
 
 1. Update the `aiven_cassandra` resource in the `cassandra-sample.tf` file:
 
@@ -248,8 +247,17 @@ For all the attributes available for the `aiven_cassandra` resource, see
 
 1. Run `terraform plan` > `terraform apply`.
 
+The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
+changes to `RUNNING`, you are ready to access it.
 </TabItem>
 <TabItem value="3" label="K8s">
+:::note
+Your changes can force the recreation of the `aiven_cassandra` resource.
+:::
+
+See available configuration options in
+[Aiven Operator for Kubernetes®: Cassandra](https://aiven.github.io/aiven-operator/api-reference/cassandra.html).
+
 1. Update file `cassandra-sample.yaml`:
 
    - Add `service_log: true` and `terminationProtection: true`.
@@ -295,9 +303,6 @@ For all the attributes available for the `aiven_cassandra` resource, see
 
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
-
-See the available configuration options in
-[Aiven Operator for Kubernetes®: Cassandra](https://aiven.github.io/aiven-operator/api-reference/cassandra.html).
 </TabItem>
 </Tabs>
 
@@ -328,7 +333,7 @@ assigned to Terraform outputs:
 ```
 
 </TabItem>
-<TabItem value="3" label="cqlsh client">
+<TabItem value="cqlsh" label="cqlsh client">
 [Connect to your new service with CLI](/docs/products/cassandra/howto/connect-cqlsh-cli)
 using the
 [the `cqlsh` client](https://cassandra.apache.org/doc/stable/cassandra/tools/cqlsh.html).
