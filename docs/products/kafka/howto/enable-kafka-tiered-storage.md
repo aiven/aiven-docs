@@ -24,7 +24,7 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
     for supported plans and regions.
     :::
 
-- [Aiven CLI](/docs/tools/cli)
+- [Aiven CLI](/docs/tools/cli).
 
 ## Steps to enable tiered storage
 
