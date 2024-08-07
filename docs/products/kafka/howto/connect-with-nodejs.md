@@ -23,13 +23,12 @@ library.
         4.  Next to *CA Certificate*, click **Download** and save the
             `ca.pem` file.
     -   To connect using SASL authentication:
-        1.  Follow the instructions at [Use SASL Authentication with
-            Apache
+        1.  See [Use SASL Authentication with Apache
             Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
             to enable SASL.
-        2.  In the *Connection Information* section
+        2.  In the **Connection Information** section
             1.  Select **SASL** as the **Authentication Method**
-            2.  Next to *CA Certificate*, click **Download** and save
+            2.  Next to **CA Certificate**, click **Download** and save
                 the `ca.pem` file
             3.  Note the *Password* required for the SASL, we'll need
                 it for authentication

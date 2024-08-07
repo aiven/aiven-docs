@@ -25,9 +25,9 @@ Replace the following placeholders in the code samples:
  | `SERVICE_NAME`   | Aiven for Apache Kafka® service name                                      |
  | `INTEGRATION_ID` | ID of the integration between Aiven for Apache Kafka® service and Datadog |
 
-To find the `INTEGRATION_ID` parameter, execute this command:
+To find the `INTEGRATION_ID` parameter, run:
 
-```
+```bash
 avn service integration-list SERVICE_NAME
 ```
 
@@ -51,7 +51,7 @@ parameters:
 For example, to send the `kafka.log.log_size` and
 `kafka.log.log_end_offset` metrics, execute the following code:
 
-```
+```bash
 avn service integration-update                                                \
     -c 'kafka_custom_metrics=["kafka.log.log_size","kafka.log.log_end_offset"]' \
     INTEGRATION_ID
@@ -87,7 +87,7 @@ parameters:
 For example, to include topics `topic1` and `topic2`, and exclude
 `topic3`, execute the following command:
 
-```
+```bash
 avn service integration-update                                                  \
     -c 'kafka_custom_metrics=["kafka.log.log_size","kafka.log.log_end_offset"]' \
     -c 'include_topics=["topic1","topic2"]'                                     \

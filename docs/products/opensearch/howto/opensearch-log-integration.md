@@ -4,15 +4,10 @@ title: Manage OpenSearch® log integration
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Aiven provides a service integration that allows you to send your logs
-from several services, such as Aiven for Apache Kafka®, PostgreSQL®,
-Apache Cassandra®, OpenSearch®, Caching, and Grafana®, to
-Aiven for OpenSearch®. Making it possible for you to use OpenSearch to
-gain more insight and control over your logs.
+Aiven provides a service integration that allows you to send your logs from several services, such as Aiven for Apache Kafka®, PostgreSQL®, Apache Cassandra®, OpenSearch®, Caching, and Grafana®, to Aiven for OpenSearch®, allowing you to use OpenSearch to gain more insight and control over your logs.
 
 :::tip
-Check a short [video
-tutorial](https://www.youtube.com/watch?v=f4y9nPadO-M) for an end-to-end
+See this [video tutorial](https://www.youtube.com/watch?v=f4y9nPadO-M) for an end-to-end
 example of how to enable your Aiven for OpenSearch® log integration.
 :::
 
@@ -79,8 +74,7 @@ You can change the configuration of the `index prefix` and
 
 ## Disable logs integration
 
-If you no longer wish to send logs from your service to OpenSearch,
-follow these steps to disable the integration:
+To stop sending logs from your service to OpenSearch, disable the integration:
 
 1.  In your Aiven for OpenSearch service, go to the
     **Integrations** screen and locate the

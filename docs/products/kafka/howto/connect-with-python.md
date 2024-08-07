@@ -32,7 +32,7 @@ Go to the **Overview** page of your Aiven for Apache Kafka service.
         4.  Next to **CA Certificate**, click **Download** and save the
             `ca.pem` file.
 -   If you are going to connect using SASL authentication:
-    1.  Follow the instructions at [Use SASL Authentication with Apache
+    1.  See [Use SASL Authentication with Apache
         Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
         to enable SASL.
     2.  In the **Connection Information** section
@@ -66,7 +66,6 @@ If you are using SSL (remember to choose **Client Certificate** if
 | ---------- | ---------------------------- |
 | `HOST`     | Host name for the connection |
 | `SSL_PORT` | Port number to use           |
-
 
 If you are using SASL (**Authentication Method** should be **SASL**):
 

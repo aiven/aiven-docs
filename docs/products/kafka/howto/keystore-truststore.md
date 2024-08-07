@@ -2,8 +2,8 @@
 title: Configure Java SSL keystore and truststore to access Apache Kafka®
 ---
 
-Aiven for Apache Kafka® utilises TLS (SSL) to secure the traffic between
-its services and client applications. This means that clients must be
+Aiven for Apache Kafka® utilises TLS (SSL) to secure the traffic between its services and client applications.
+This means that clients must be
 configured with the right tools to be able to communicate with the Aiven
 services.
 
@@ -16,8 +16,8 @@ client that interacts with the service. To create these files:
     Apache Kafka service.
 
 -   Download the **Access Key**, **Access Certificate**, and **CA
-    Certificate**. The files \"service.key\", \"service.cert\", and
-    \"ca.pem\" are necessary for the following steps.
+    Certificate**. The files _service.key_, _service.cert_, and
+    _ca.pem_ are necessary.
 
     ![Access Key, Access Certificate, and CA Certificate download from Aiven Console](/images/content/products/kafka/ssl-certificates-download.png)
 
@@ -26,7 +26,7 @@ client that interacts with the service. To create these files:
 -   Use the `openssl` utility to create a keystore using the downloaded
     `service.key` and `service.cert`:
 
-    ```
+    ```bash
     openssl pkcs12 -export      \
       -inkey service.key        \
       -in service.cert          \
@@ -45,7 +45,7 @@ client that interacts with the service. To create these files:
 -   In the directory containing the certificates, use the `keytool`
     utility to create a truststore with the `ca.pem` file:
 
-    ```
+    ```bash
     keytool -import            \
       -file ca.pem             \
       -alias CA                \
@@ -57,8 +57,8 @@ client that interacts with the service. To create these files:
 
 ## Resulting configuration files
 
-The process generates two files: \"client.keystore.p12\" (keystore) and
-\"client.truststore.jks\" (truststore). These files are ready for client
+The process generates two files: _client.keystore.p12_ (keystore) and
+_client.truststore.jks_ (truststore). These files are ready for client
 configuration.
 
 :::tip

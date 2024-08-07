@@ -2,8 +2,7 @@
 title: Copy data from one ClickHouse® server to another
 ---
 
-You can copy data from one ClickHouse® server to another using the
-`remoteSecure()` function.
+You can copy data from one ClickHouse® server to another using the `remoteSecure()` function.
 
 ## Prerequisites
 
@@ -16,7 +15,7 @@ Details of the source (remote) server
 
 ## Copy data
 
-1.  From your target server(s), use the `remoteSecure()`
+1.  From your target servers, use the `remoteSecure()`
     function to select data from the source server.
 
     ```shell

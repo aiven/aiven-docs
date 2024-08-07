@@ -2,9 +2,7 @@
 title: Prevent PostgreSQL® full disk issues
 ---
 
-If your Aiven for PostgreSQL® service runs out of disk space, the
-service will start malfunctioning, which will preclude proper backup
-creation.
+If your Aiven for PostgreSQL® service runs out of disk space, the service will start malfunctioning, which will preclude proper backup creation.
 
 To prevent this situation, Aiven automatically detects when your service
 is running out of free space and stops further write operations by
@@ -17,7 +15,7 @@ will start facing errors like:
 cannot execute CREATE TABLE in a read-only transaction.
 ```
 
-To re-enable database writes you need to increase the available space,
+To re-enable database writes, increase the available space,
 by either deleting data or upgrading to a larger plan.
 
 ## Increase free space by upgrading to a larger plan
@@ -36,11 +34,11 @@ console](https://console.aiven.io/):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and select
     your Aiven for PostgreSQL service.
-2.  Select **Service settings** from the sidebar of your service's
+1.  Select **Service settings** from the sidebar of your service's
     page.
-3.  Go to the **Service plan** section, and select **Change plan**
+1.  Go to the **Service plan** section, and select **Change plan**
     from the **Actions** (**...**) menu.
-4.  In the **Change service plan** window, select a new plan with a
+1.  In the **Change service plan** window, select a new plan with a
     higher capacity, and select **Change**.
 
 Once the new nodes with the increased disk capacity are up and running,
@@ -75,7 +73,7 @@ You can then delete data within your session.
 
 ### Enable database writes for a limited amount of time
 
-If you want to enable any writes to the database for a limited amount of
+To enable any writes to the database for a limited amount of
 time, send the following `POST` request using
 [Aiven APIs](/docs/tools/api) and
 replacing the `PROJECT_NAME` and `SERVICE_NAME` placeholders:
