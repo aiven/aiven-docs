@@ -1,9 +1,9 @@
 ---
-title: High availability of Aiven for PostgreSQL®
+title: High availability of Aiven for MySQL®
 sidebar_label: High availability
 ---
 
-Aiven for PostgreSQL® is available on a variety of plans, offering different levels of service availability. The selected plan defines the features available.
+Aiven for MySQL® is available on a variety of plans, offering different levels of service availability. The selected plan defines the features available.
 
 | Plan         | Service availability features                                              | Backup history |
 | ------------ | -------------------------------------------------------------------------- | -------------- |
@@ -14,9 +14,7 @@ Aiven for PostgreSQL® is available on a variety of plans, offering different le
 
 ## Primary and standby nodes
 
-Aiven's Business and Premium plans offer a
-[primary node](/docs/products/postgresql/reference/terminology) and
-[standby nodes](/docs/products/postgresql/reference/terminology).
+Aiven's Business and Premium plans offer a primary node and standby nodes.
 A standby node is useful for multiple reasons:
 
 -   Provides another physical copy of the data in case of hardware,
@@ -70,11 +68,9 @@ standby node.
 If the primary node and all the standby nodes fail at the same time, new
 nodes are automatically scheduled for creation to become the new primary
 and standby. The primary node is restored from the latest available
-backup, which can involve some degree of data loss. Any write
-operations made since the backup of the latest
-[WAL](/docs/products/postgresql/reference/terminology) file are lost.
-Typically, this time window is limited to either five minutes or one
-[WAL](/docs/products/postgresql/reference/terminology) file.
+backup, which can involve some degree of data loss. Any write operations made
+since the backup of the latest binary log file are lost. Typically, this time
+window is limited to either five minutes or one binary log file.
 
 :::note
 The amount of time required to replace a failed node depends mainly on
@@ -89,18 +85,12 @@ This happens automatically and requires no administrator intervention.
 main difference comes when one of the standby nodes or the primary node
 fails. Premium plans have an additional, redundant standby node
 available, providing platform availability even in the event of losing
-two nodes. If the primary node fails, the Aiven monitoring infrastructure,
-using [PGLookout](/docs/products/postgresql/reference/terminology),
-determines which of the standby nodes is the furthest along
-in replication (has the least potential for data loss) and does a
-controlled failover to that node.
+two nodes. If the primary node fails, the Aiven monitoring infrastructure
+determines which of the standby nodes is the furthest along in replication
+(has the least potential for data loss) and does a controlled failover to that node.
 
 :::note
-For backups and restoration, Aiven utilises the popular Open Source
-backup daemon
-[PGHoard](/docs/products/postgresql/reference/terminology), which Aiven maintains.
-It makes real-time copies of [WAL](/docs/products/postgresql/reference/terminology)
-files to an object store in compressed and encrypted format.
+For backups and restoration, Aiven uses [MyHoard](https://aiven.io/blog/introducing-myhoard-your-single-solution-to-mysql-backups-and-restoration).
 :::
 
 ## Single-node Hobbyist and Startup service plans
@@ -112,10 +102,5 @@ available backup, and resumes serving clients.
 
 Since there is just a single node providing the service, the service is
 unavailable for the duration of the restoration. In addition, any write
-operations made since the backup of the latest
-[WAL](/docs/products/postgresql/reference/terminology) file are lost.
-Typically, this time window is limited to either five minutes or one
-[WAL](/docs/products/postgresql/reference/terminology) file.
-
-For more information, go to
-[Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover).
+operations made since the backup of the latest binary log file are lost.
+Typically, this time window is limited to either five minutes or one binary log file.
