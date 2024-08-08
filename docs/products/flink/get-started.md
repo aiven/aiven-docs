@@ -6,6 +6,7 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import CreateService from "@site/static/includes/create-service-console.md"
 
 Begin your experience with Aiven for Apache Flink® by setting up a service, configuring data integrations, and building streaming applications.
 
@@ -14,13 +15,12 @@ Begin your experience with Aiven for Apache Flink® by setting up a service, con
 - Access to the [Aiven Console](https://console.aiven.io)
 - [Aiven CLI](https://github.com/aiven/aiven-client)
 
-## Create a service
+## Create an Aiven for Apache Flink® service
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
 
-1. Log in to [Aiven Console](https://console.aiven.io).
-1. [Create an Aiven for Apache Flink® service](/docs/platform/howto/create_new_service).
+<CreateService serviceType="Apache Flink®"/>
 
 </TabItem>
 <TabItem value="2" label="CLI">
