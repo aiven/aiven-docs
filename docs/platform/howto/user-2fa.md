@@ -55,7 +55,5 @@ can regain access to your account by resetting your Aiven password.
 1.  Enter your login email and click **Log in**.
 1.  Click **Forgot password?**.
 1.  Enter your login email and click **Reset your password**.
-1.  Follow the instructions in the password reset email to set a new
-    password.
 1.  [Enable two-factor authentication](/docs/platform/howto/user-2fa#enable-2fa)
     on your new mobile device or authenticator app.

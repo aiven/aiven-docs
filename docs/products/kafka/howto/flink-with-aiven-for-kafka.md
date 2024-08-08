@@ -49,9 +49,8 @@ generated from the
 to work with Aiven for Apache Kafka.
 
 :::note
-The full code to run this example can be found in the [Aiven examples
-GitHub
-repository](https://github.com/aiven/aiven-examples/tree/master/kafka/flink-capitalizer).
+Find the full code in the
+[Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/tree/master/kafka/flink-capitalizer).
 :::
 
 1.  Generate a Flink job skeleton named `flink-capitalizer` using the

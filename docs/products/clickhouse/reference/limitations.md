@@ -3,7 +3,7 @@ title: Aiven for ClickHouse® limits and limitations
 sidebar_label: Limits and limitations
 ---
 
-By respecting Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
+By respecting the Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 
 ## Limitations
 
@@ -131,9 +131,8 @@ on how to work around specific restrictions.
       </td>
       <td>
         <p>
-          Use a distributed table with sharded plans. Check
-          <a href="/docs/products/clickhouse/howto/use-shards-with-distributed-table"><span>Query data across shards</span></a>
-          for the instructions.
+          Use a distributed table with sharded plans. See
+          <a href="/docs/products/clickhouse/howto/use-shards-with-distributed-table"><span>Query data across shards</span></a>.
         </p>
       </td>
     </tr>

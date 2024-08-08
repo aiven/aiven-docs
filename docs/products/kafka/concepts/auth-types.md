@@ -1,6 +1,7 @@
 ---
 title: Authentication types
 ---
+
 Use modern encryption protocols to protect data in transit with Apache Kafka®. Aiven for Apache Kafka® provides multiple options to secure your data.
 
 ## Transport Layer Security
@@ -16,9 +17,10 @@ and helps with the application, renewal, and configuration of certificates.
 
 You can use TLS in two ways:
 
+
 1. **TLS encryption** : Your Apache Kafka client validates the
    certificate for your Apache Kafka broker.
-1. **TLS authentication** : Your Apache Kafka client validates the
+1.  **TLS authentication** : Your Apache Kafka client validates the
     certificate for your Apache Kafka broker and your broker validates
     the certificate for your client.
 
@@ -56,6 +58,7 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
 
 - [Enable SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
 - [Enable OIDC authentication for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-oidc)
+
 
 ------------------------------------------------------------------------
 

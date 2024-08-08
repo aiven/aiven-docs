@@ -15,7 +15,7 @@ Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups)
   [Super admin](/docs/platform/concepts/orgs-units-projects#users-and-roles)
   have full access to organizations.
 
-- **From November 4, 2024 you won’t be able to create new teams or update existing ones.**
+- **From November 4, 2024 you won't be able to create new teams or update existing ones.**
 
   To simplify the move, Aiven will also begin migrating your existing teams to groups.
 

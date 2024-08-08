@@ -201,7 +201,6 @@ const sidebars: SidebarsConfig = {
             id: 'platform/howto/list-service',
           },
           items: [
-            'platform/howto/byoc/networking-security',
             {
               type: 'category',
               label: 'Concepts',
@@ -276,6 +275,7 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/byoc',
               },
               items: [
+                'platform/howto/byoc/networking-security',
                 'platform/howto/byoc/enable-byoc',
                 'platform/howto/byoc/create-custom-cloud',
                 'platform/howto/byoc/assign-project-custom-cloud',
@@ -446,7 +446,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/howto/use-opentofu',
             {
               type: 'category',
-              label: 'Upgrade Aiven provider',
+              label: 'Upgrade Aiven Provider',
               link: {
                 id: 'tools/terraform/list-upgrade-terraform',
                 type: 'doc',
@@ -765,10 +765,9 @@ const sidebars: SidebarsConfig = {
                   label: 'Tiered storage',
                   link: {
                     type: 'doc',
-                    id: 'products/kafka/concepts/list-kafka-tiered-storage',
+                    id: 'products/kafka/concepts/kafka-tiered-storage',
                   },
                   items: [
-                    'products/kafka/concepts/kafka-tiered-storage',
                     'products/kafka/concepts/tiered-storage-how-it-works',
                     'products/kafka/concepts/tiered-storage-guarantees',
                     'products/kafka/concepts/tiered-storage-limitations',
@@ -1666,6 +1665,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-replication',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',
+                'products/mysql/concepts/high-availability',
               ],
             },
 

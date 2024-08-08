@@ -49,7 +49,7 @@ for firewall policies. To accommodate traffic to these destinations, an egress o
 Management traffic to and from workload nodes is sent through the bastion proxy and
 encrypted. Aiven Management and API calls are always encrypted. SSH access is permitted if
 Aiven support staff require direct access to the bastion or workload nodes. SSH
-connections from support staff are logged, monitored, and require validation by Aiven’s
+connections from support staff are logged, monitored, and require validation by Aiven's
 security operations team. SSH connections originate from Aiven Management plane's static
 IP addresses.
 
@@ -58,7 +58,7 @@ IP addresses.
 On top of SSH and Aiven Management Plane connectivity, there are also ingress and egress
 rules from the Customer Networks that need to be defined to allow customer applications to
 connect to Aiven services. This depends on the cloud provider being used, and the
-customer’s network architecture.
+customer's network architecture.
 
 | Source                   | Destination     | Description                                                                                                                             |
 | ------------------------ | ----------------| --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,14 +100,14 @@ and monitored.
 
 If required for troubleshooting or incident investigation, SSH connections to the nodes
 can only be performed by specific and approved operators, and can only originate from
-specific Aiven gateway IPs. All access is logged and monitored, and Aiven’s security team
+specific Aiven gateway IPs. All access is logged and monitored, and Aiven's security team
 follows up on access to ensure approval and validity.
 Aiven base system images are routinely updated and patched. During maintenance events,
 service nodes, including the bastion service, are replaced with updated images.
 
 ### Independent audits
 
-The BYOC deployment model is subject to external audits and falls within scope of Aiven’s
+The BYOC deployment model is subject to external audits and falls within scope of Aiven's
 routine obligations.
 
 For more information on Aiven security and compliance, see

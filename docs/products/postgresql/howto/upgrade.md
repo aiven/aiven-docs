@@ -2,22 +2,24 @@
 title: Perform a PostgreSQL® major version upgrade
 ---
 
-PostgreSQL® in-place upgrades allows to upgrade an instances to a new
-major version without needing to fork and redirect the traffic. The
-whole procedure usually takes 60 seconds or less for small databases.
+PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.
+The whole procedure usually takes 60 seconds or less for small databases.
 
 For all upgrades, Aiven recommends to **test the upgrade on a fork** of
 the database to be upgraded. Testing on a fork provides the benefit of
 verifying the impact of the upgrade for the specific service without
-affecting the running service. This is useful in two main aspects:
-
-1.  Ensuring that it succeeds and is performed quickly enough, which
+affecting the running service, mostly to:
+<!-- vale off -->
+1.  Ensure that the upgrade succeeds and is performed quickly enough, which
     might not be the case, usually when there many of databases or
-    many "large objects". Smaller node sizes with a large dataset can
+    many "large objects".
+
+    Smaller node sizes with a large dataset can
     run into OOM issues during the `pg_dump/pg_restore` phase of
     `pg_upgrade --link` and a fork will reveal this scenario.
-1.  To test query performance directly after upgrade under real world
-    load i.e. when no statistics are available and caches are cold.
+1.  Test query performance directly after upgrade under real world
+    load, when no statistics are available and caches are cold.
+<!-- vale on -->
 
 :::warning
 Very large databases may take a long time to upgrade. If this scenario
@@ -35,7 +37,7 @@ To upgrade a PostgreSQL service:
 1.  Select **Service settings** from the sidebar of your service's
     page.
 1.  Go to the **Service management** section, and select **Upgrade
-    versioin** from the **Actions** (**...**) menu.
+    version** from the **Actions** (**...**) menu.
 1.  In the **Upgrade Aiven for PostgreSQL Confirmation** window, select
     the version to upgrade to from the dropdown menu.
 

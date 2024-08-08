@@ -7,13 +7,13 @@ title: Use Kpow with Aiven for Apache Kafka®
 ## Prerequisites
 
 To connect Kpow to Aiven for Apache Kafka®, create a
-[Java keystore and truststore containing the service SSL certificates](/docs/products/kafka/howto/keystore-truststore).
+[Java keystore and truststore containing the service SSL certificates][keystore].
 
 Kpow uses a [set of Apache Kafka
 topics](https://docs.kpow.io/installation/minimum-acl-permissions) to
 store the working information. You can either
-[create the topics manually](create-topic) or enable the
-[automatic creation of topics](create-topics-automatically) for the Aiven for Apache Kafka service.
+[create the topics manually](/docs/products/kafka/howto/create-topic) or enable the
+[automatic creation of topics](/docs/products/kafka/howto/create-topics-automatically) for the Aiven for Apache Kafka service.
 
 Also collect the following information for Apache Kafka and Kpow:
 
@@ -30,7 +30,7 @@ parameters in the welcome email, scrolling down to the relevant
 -   `SSL_KEYSTORE_PASSWORD`: The password used to secure the Java
     keystore
 -   `SSL_KEY_PASSWORD`: The password used to secure the Java key. If you
-    created the keystore using the instructions above, then this will be
+    created the keystore according to [Java keystore and truststore][keystore], this will be
     the same as the Java keystore password
 -   `SSL_TRUSTSTORE_LOCATION`: The password used to secure the Java
     truststore
@@ -117,3 +117,5 @@ Kafka® service:
 -   Create and delete topics
 -   View brokers
 -   Produce and consume messages
+
+[keystore]: /docs/products/kafka/howto/keystore-truststore

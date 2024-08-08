@@ -41,8 +41,8 @@ they are not already configured:
   - To configure the Write-Ahead Log (WAL) for logical replication, set
     `cloudsql.enable_pglogical` to` on`.
   - Restart the CloudSQL instance to apply changes.
-- **Activate the `pgoutput` extension**: Execute this command in your
-  CloudSQL instance to enable the extension Debezium uses for logical decoding.
+- **Activate the `pgoutput` extension**: In your
+  CloudSQL instance, enable the extension Debezium uses for logical decoding:
 
   ```SQL
   CREATE EXTENSION pgoutput;
@@ -75,21 +75,21 @@ they are not already configured:
 The following table lists the variables for the configuration steps. Replace them with
 your actual environment values in the provided code snippets:
 
-| Variable | Description |
-|---|---|
-| `<kafka_cluster_name>` | Name of your Aiven for Apache Kafka service |
-| `<kafka_connect_name>` | Name of your Apache Kafka Connect service |
-| `<cloud_provider_and_region>` | Your cloud provider and region identifier |
-| `<plan>` | Service plan for Apache Kafka/Apache Kafka Connect |
-| `<project_name>` | Name of your project in the Aiven platform |
-| `<integration_config>` | JSON configuration for PostgreSQL endpoint |
-| `<integration_endpoint_id>` | ID of the created PostgreSQL endpoint |
-| `<connector_config>` | JSON configuration for Debezium connector |
+|           Variable            |                    Description                     |
+|-------------------------------|----------------------------------------------------|
+| `<kafka_cluster_name>`        | Name of your Aiven for Apache Kafka service        |
+| `<kafka_connect_name>`        | Name of your Apache Kafka Connect service          |
+| `<cloud_provider_and_region>` | Your cloud provider and region identifier          |
+| `<plan>`                      | Service plan for Apache Kafka/Apache Kafka Connect |
+| `<project_name>`              | Name of your project in the Aiven platform         |
+| `<integration_config>`        | JSON configuration for PostgreSQL endpoint         |
+| `<integration_endpoint_id>`   | ID of the created PostgreSQL endpoint              |
+| `<connector_config>`          | JSON configuration for Debezium connector          |
 
 ## ## Configure the integration
 
 1. Verify your existing Aiven for Apache Kafka service is active and accessible.
-   If you don’t have one, create an Apache Kafka cluster using this command:
+   If you don't have one, create an Apache Kafka cluster using this command:
 
     ```bash
     avn service create <kafka_cluster_name> \

@@ -2,19 +2,15 @@
 title: Enable OpenSearch® Security management for Aiven for OpenSearch®
 ---
 
-[OpenSearch Security](/docs/products/opensearch/concepts/os-security) provides a range of security features, including
-fine-grained access controls, SAML authentication, and audit logging to
-monitor activity within your OpenSearch service. By enabling this, you
-can easily manage user permissions, roles, and other security aspects
+[OpenSearch Security](/docs/products/opensearch/concepts/os-security) provides a range of security features, including fine-grained access controls, SAML authentication, and audit logging to monitor activity within your OpenSearch service.
+By enabling this, you
+can manage user permissions, roles, and other security aspects
 through the OpenSearch Dashboard.
-
-This article provides information on how to enable OpenSearch Security
-from the Aiven Console.
 
 ## Considerations before enabling OpenSearch Security management
 
 Before enabling OpenSearch Security management on your Aiven for
-OpenSearch service, please note the following important details:
+OpenSearch service, note the following:
 
 -   OpenSearch Security management cannot be disabled once enabled.
     Therefore, ensure that you thoroughly understand the security
@@ -38,22 +34,21 @@ OpenSearch service, please note the following important details:
 
 ## Enable OpenSearch® Security management
 
-Follow these steps to activate OpenSearch Security management for your
-Aiven for OpenSearch service:
+To activate OpenSearch Security management for your Aiven for OpenSearch service:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and access
-    the Aiven for OpenSearch service for which you want to enable
+    the Aiven for OpenSearch service for which to enable
     security.
 
-2.  Select **Users** from the left sidebar.
+1.  Select **Users** from the left sidebar.
 
-3.  Select **Enable OpenSearch Security** in the OpenSearch Security
+1.  Select **Enable OpenSearch Security** in the OpenSearch Security
     management banner.
 
-4.  Review the information presented on the **Enable OpenSearch Security
+1.  Review the information presented on the **Enable OpenSearch Security
     for this service** screen and confirm by selecting the checkbox.
 
-5.  In the OpenSearch Security administrator section, enter and confirm
+1.  In the OpenSearch Security administrator section, enter and confirm
     a password for the user.
 
     :::note
@@ -63,7 +58,7 @@ Aiven for OpenSearch service:
         contacting Aiven support.
     :::
 
-6.  Select **Enable** to activate the OpenSearch Security administrator
+1.  Select **Enable** to activate the OpenSearch Security administrator
     user.
 
 After activating OpenSearch Security, you will be redirected to the

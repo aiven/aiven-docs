@@ -261,11 +261,16 @@ For more information, see:
 
 ### Aiven for Apache Cassandra®
 
-Aiven for Apache Cassandra backups are taken every 24 hours. The
-point-in-time recovery (PITR) feature is currently not available.
+Aiven for Apache Cassandra backups are taken every 24 hours. You can choose when a
+backup starts within the 24 hours and, for example, move the backup outside peak hours to
+save resources. To configure the `backup_hour` and `backup_minute` settings, go to
+the [Aiven Console](https://console.aiven.io) > your Aiven for Apache Cassandra service >
+<ConsoleLabel name="backups"/> > <ConsoleLabel name="actions"/> > **Configure backup settings**.
 
 :::note
-To be notified once the PITR feature is available for Cassandra, contact the Aiven support.
+The point-in-time recovery (PITR) feature is not available. To be notified once the PITR
+feature is available for Aiven for Apache Cassandra, contact
+[support@aiven.io](mailto:support@aiven.io).
 :::
 
 ### Aiven for Caching

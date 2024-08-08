@@ -280,7 +280,7 @@ health of network requests made to the Apache Kafka brokers.
 
 ### Apache Kafka server
 
-Apache Kafka provides a range of metrics that help monitor the server’s
+Apache Kafka provides a range of metrics that help monitor the server's
 performance and health.
 
 - **Topic metrics**: `BrokerTopicMetrics` offer insights into various operations related
@@ -288,7 +288,7 @@ performance and health.
 - **Replica metrics**: `kafka_server_ReplicaManager_LeaderCount_Value` provides
   insights into the state of replicas within the Apache Kafka cluster.
 
-The `topic` tag is crucial in these metrics. If you don’t specify it, the system displays
+The `topic` tag is crucial in these metrics. If you don't specify it, the system displays
 a combined rate for all topics, along with the rate for each individual topic. To view
 rates for specific topics, use the `topic` tag. To exclude the combined rate
 for all topics and only list metrics for individual topics, filter with `topic!=""`.
@@ -353,7 +353,7 @@ data copying, fetching, deleting, and their associated lags and errors.
 ### Kernel
 
 The metrics listed below, such as `kernel_boot_time` and `kernel_context_switches`, provide
-insights into the operations of your system’s kernel.
+insights into the operations of your system's kernel.
 
 
 | Metric                     | Description                                      |
@@ -367,7 +367,7 @@ insights into the operations of your system’s kernel.
 ### Generic memory
 
 The following metrics, including `mem_active` and `mem_available`, provide insights into
-your system’s memory usage.
+your system's memory usage.
 
 | Metric                   | Description                                                    |
 |--------------------------|----------------------------------------------------------------|
@@ -408,7 +408,7 @@ your system’s memory usage.
 ### Network
 
 The following metrics, including `net_bytes_recv` and `net_packets_sent`, provide insights
-into your system’s network operations.
+into your system's network operations.
 
 | Metric                       | Description                                                                     |
 |------------------------------|---------------------------------------------------------------------------------|
@@ -518,7 +518,7 @@ into your system’s network operations.
 ### Process
 
 Metrics such as `processes_running` and `processes_zombies` provide insights into the
-management of the system’s processes.
+management of the system's processes.
 
 | Metric                     | Description                                                                 |
 |----------------------------|-----------------------------------------------------------------------------|
@@ -537,7 +537,7 @@ management of the system’s processes.
 ### Swap usage
 
 Metrics such as `swap_free` and `swap_used` provide insights into the usage of the
-system’s swap memory.
+system's swap memory.
 
 | Metric             | Description                                      |
 |--------------------|--------------------------------------------------|
