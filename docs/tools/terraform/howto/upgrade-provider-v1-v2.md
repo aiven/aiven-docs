@@ -1,16 +1,13 @@
 ---
 title: Upgrade Aiven Provider for Terraform from v1 to v2
+sidebar_label: Upgrade from v1 to v2
 ---
 
-Version 2 of the Aiven Terraform Provider was released in [October of
-2020](https://aiven.io/blog/aiven-terraform-provider-v2-release). This
-article will walk you through upgrading from Aiven Terraform Provider v1
-to v2, including some tips if you are upgrading Terraform as well (0.12
-or later).
+Learn how to upgrade Aiven Terraform Provider v1 to v2.
 
-To handle the various versions of Terraform, we will be using the
-`tfenv` tool ([see the project page](https://github.com/tfutils/tfenv)),
-but you can use direct releases from HashiCorp if you prefer.
+Version 2 of the Aiven Terraform Provider was released in [October of 2020](https://aiven.io/blog/aiven-terraform-provider-v2-release).
+To handle the various versions of Terraform, we suggest
+[`tfenv`]((https://github.com/tfutils/tfenv) but you can also use direct releases from HashiCorp.
 
 ## Major changes in v2
 
@@ -23,10 +20,10 @@ but the main additions in v2 are:
 -   Work is being done to deprecate `aiven_service` in order to support
     individual service configuration better, using `aiven_kafka` for
     example
--   New services are available in the updated provider, such as
+-   New services are available in the updated Provider, such as
     `aiven_flink` and `aiven_opensearch`.
 
-## Upgrade Aiven Terraform provider
+## Upgrade Aiven Terraform Provider to v2
 
 Update the Aiven Terraform Provider by editing the providers block of
 your script to include the latest version of the Aiven Terraform
@@ -45,14 +42,12 @@ terraform {
 
 ## Upgrade Terraform
 
-We recommend keeping your Terraform version up to date. If you have
-v0.12 then follow the steps below. Users with 0.13 (and the related
-syntax update) can skip the next section.
+We recommend keeping your Terraform version up to date.
 
 ## Upgrade Terraform 0.12 to 0.13
 
 Between v0.12 and v0.13, the syntax of Terraform files changed. If you
-have the older syntax, follow these steps to get the updated syntax:
+have the older syntax, update it:
 
 1.  Upgrade your modules first by installing Terraform v0.13.x (i.e.
     0.13.7): `tfenv install 0.13.7 && tfenv use 0.13.7` and using
@@ -64,11 +59,11 @@ have the older syntax, follow these steps to get the updated syntax:
 3.  Update the existing state file, by running:
 
     `terraform state replace-provider registry.terraform.io/-/aiven registry.terraform.io/aiven/aiven`
-    you will replace old Aiven terraform provider references to the new
+    you will replace old Aiven Terraform Provider references to the new
     format.
 
 4.  Run `terraform 0.13upgrade` to see any additional fixes recommended
-    by HashiCorp. If you are using more providers than Aiven provider
+    by HashiCorp. If you are using more providers than Aiven Provider
     you most likely need to upgrade them as well. More information
     [here](https://www.terraform.io/upgrade-guides/0-13.html).
 
@@ -94,11 +89,8 @@ Any version above 0.13 can be upgraded to latest without any special
 steps.
 
 :::note
-If you are using Aiven Terraform provider v1 with Terraform 0.14
-`dev_overrides` (see [Development Overrides for Provider
-Developers](https://www.terraform.io/cli/config/config-file) )
-
-you will need to add Aiven provider to the `exclude` block or remove
+If you are using Aiven Terraform Provider v1 with Terraform 0.14
+[`dev_overrides`](https://www.terraform.io/cli/config/config-file), add Aiven Provider to the `exclude` block or remove
 `dev_overrides` completely.
 :::
 
@@ -121,10 +113,10 @@ different kinds of resources, simply rewriting the code would cause
 destructive actions. These steps will preserve your resources.
 :::
 
-Please also note that running `terraform state mv <a> <b>` is not
+Running `terraform state mv <a> <b>` is not
 recommended because these are different resource types.
 
-To safely make this change you will:
+To safely make this change:
 
 -   Change the code first
 -   Backup your Terraform state file (if available), just in case of

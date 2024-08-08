@@ -446,7 +446,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/howto/use-opentofu',
             {
               type: 'category',
-              label: 'Upgrade Aiven provider',
+              label: 'Upgrade Aiven Provider',
               link: {
                 id: 'tools/terraform/list-upgrade-terraform',
                 type: 'doc',

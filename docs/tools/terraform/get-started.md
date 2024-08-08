@@ -1,6 +1,7 @@
 ---
 title: Get started with Aiven Provider for Terraform
 keywords: [quick start, Terraform]
+sidebar_label: Get started
 ---
 
 This example shows you how to use the Aiven Provider to set up your data
