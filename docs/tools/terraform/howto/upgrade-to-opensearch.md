@@ -1,5 +1,6 @@
 ---
 title: Upgrade OpenSearch® with Aiven Provider for Terraform
+sidebar_label: Upgrade OpenSearch®
 ---
 
 To upgrade an existing Elasticsearch service to OpenSearch using Terraform:

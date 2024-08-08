@@ -3,10 +3,10 @@ title: Use OpenTofu with Aiven Provider for Terraform
 sidebar_label: Use OpenTofu
 ---
 
-[OpenTofu](https://opentofu.org/) is an open source infrastructure as code tool that you can use to configure your Aiven infrastructure.
+[OpenTofu](https://opentofu.org/) is an open source infrastructure-as-code tool that you can use to configure your Aiven infrastructure.
 
 Set up your first Aiven project and service using this example to get started with
-OpenTofu. If you already use the [Aiven Provider for Terraform](/docs/tools/terraform.md),
+OpenTofu. If you already use the [Aiven Provider for Terraform](/docs/tools/terraform),
 you can [migrate your Terraform resources to OpenTofu](https://opentofu.org/docs/intro/migration/).
 
 ## Prerequisites

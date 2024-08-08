@@ -114,3 +114,5 @@
 
 /products/metrics/concepts/metrics-overview      https://aiven.io/docs/products/metrics
 /platform/howto/metrics-integrations             https://aiven.io/docs/platform/howto/list-monitoring
+
+/tools/terraform/list-upgrade-terraform          http://aiven.io/docs/tools/terraform/howto/upgrade-provider-v3-v4
