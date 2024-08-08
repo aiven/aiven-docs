@@ -58,8 +58,7 @@ To create an integration with a new service in the **Data service integrations**
 1. [Set up the new service](/docs/platform/howto/create_new_service).
 1. Come back to your Aiven for ClickHouse service (<ConsoleLabel name="overview"/> >
    **Data pipeline** > **Add data source**), and create an integration to the newly created
-   service following up the instructions in the
-   **Integrate with an existing service** tab.
+   service following the **Integrate with an existing service** tab.
 </TabItem>
 <TabItem value="2" label="Integrate with an existing service">
 To create an integration with an existing service in the **Data service integrations** wizard:
