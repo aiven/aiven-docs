@@ -125,7 +125,7 @@ currently support AWS PrivateLink.
         ```
 
         ```bash
-        For Kafka
+        # For Kafka
         
         avn service update -c privatelink_access.kafka=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_connect=true $Aiven_service_name
@@ -157,8 +157,6 @@ currently support AWS PrivateLink.
     <ConsoleLabel name="overview"/>.
 
     <img src={AivenConsolePrivateLinkConfiguration} class="image"/>
-
-    ![Aiven Console private link configuration](/images/content/platform/howto/use-aws-privatelink_image2.png)
 
     It takes a couple of minutes before connectivity is available after
     you enable a service component. This is because AWS requires an AWS
