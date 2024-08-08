@@ -15,7 +15,7 @@ Details of the source (remote) server
 
 ## Copy data
 
-1.  From your target servers, use the `remoteSecure()`
+1.  From your target server, use the `remoteSecure()`
     function to select data from the source server.
 
     ```sql
@@ -25,7 +25,7 @@ Details of the source (remote) server
     :::tip
     If you have the
     [managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
-    enabled, you can use instread:
+    enabled, you can use instead:
 
     ```sql
     SELECT * FROM remoteSecure('service_YOUR_REMOTE_CLUSTER', db.remote_engine_table) LIMIT 3;
