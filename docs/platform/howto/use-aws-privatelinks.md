@@ -110,6 +110,16 @@ currently support AWS PrivateLink.
         for the components to enable. For example:
 
         ```bash
+        avn service update -c privatelink_access.clickhouse=true --project $project_name $aiven_ch_service_name
+
+        or 
+
+        avn service update -c privatelink_access.postgres=true --project $project_name $aiven_pg_service_name
+        ```
+
+        For Kafka, name the Kafka component
+
+        ```bash
         avn service update -c privatelink_access.kafka=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_connect=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_rest=true $Aiven_service_name
@@ -135,6 +145,10 @@ currently support AWS PrivateLink.
 
         1.  Click the toggle switches for the selected components to
             switch them on. Click **Save configuration**.
+
+    If you have done this correctly you should see PrivateLink connection details in the main service page, similar to the below
+
+    ![Aiven Console private link configuration](/images/content/platform/howto/use-aws-privatelink_image2.png)
 
     It takes a couple of minutes before connectivity is available after
     you enable a service component. This is because AWS requires an AWS
