@@ -2,6 +2,9 @@
 title: Use AWS PrivateLink with Aiven services
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import AivenConsolePrivateLinkConfiguration from "@site/static/images/content/platform/howto/use-aws-privatelink_image2.png";
+
 AWS [PrivateLink](https://aws.amazon.com/privatelink/) brings Aiven services to the selected virtual private cloud (VPC) in your AWS account.
 
 In a traditional setup that uses [VPC
@@ -107,19 +110,23 @@ currently support AWS PrivateLink.
 
     -   In the Aiven CLI, set
         `user_config.privatelink_access.<service component>` to `true`
-        for the components to enable. For example:
+        for the components to enable, for example: 
 
         ```bash
-        avn service update -c privatelink_access.clickhouse=true --project $project_name $aiven_ch_service_name
-
-        or 
-
-        avn service update -c privatelink_access.postgres=true --project $project_name $aiven_pg_service_name
+        # For ClickHouse
+        
+        avn service update -c privatelink_access.clickhouse=true --project $project_name $Aiven_service_name
+        ```
+        
+        ```bash
+        # For PostgreSQL
+        
+        avn service update -c privatelink_access.postgresql=true --project $project_name $Aiven_service_name
         ```
 
-        For Kafka, name the Kafka component
-
         ```bash
+        For Kafka
+        
         avn service update -c privatelink_access.kafka=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_connect=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_rest=true $Aiven_service_name
@@ -146,7 +153,10 @@ currently support AWS PrivateLink.
         1.  Click the toggle switches for the selected components to
             switch them on. Click **Save configuration**.
 
-    If you have done this correctly you should see PrivateLink connection details in the main service page, similar to the below
+    As a result, PrivateLink connection details are added to the **Connection information** section on the service
+    <ConsoleLabel name="overview"/>.
+
+    <img src={AivenConsolePrivateLinkConfiguration} class="image"/>
 
     ![Aiven Console private link configuration](/images/content/platform/howto/use-aws-privatelink_image2.png)
 
