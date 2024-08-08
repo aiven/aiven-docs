@@ -3,6 +3,8 @@ title: Manage approvals
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 The **Approvals** page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
 These requests can include claims for existing topics or requests to create new topics.
 
@@ -43,7 +45,7 @@ The approvals page displays the following key elements:
 ## Approve or decline requests
 
 1. Access the [Aiven console](https://console.aiven.io/), and click
-   **Tools** > **Governance** > **Approvals**.
+   **Tools** > **Governance** > **<ConsoleLabel name="Approvals"/>**.
 1. Click a topic to open the **Review request** pane.
 1. Review the request details.
 1. Do one of the following:

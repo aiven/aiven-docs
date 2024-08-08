@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@aivenio/aquarium@npm:^1.72.0":
-  version: 1.72.0
-  resolution: "@aivenio/aquarium@npm:1.72.0"
+"@aivenio/aquarium@npm:^1.73.0":
+  version: 1.73.0
+  resolution: "@aivenio/aquarium@npm:1.73.0"
   dependencies:
     "@iconify/react": "npm:^3.1.4"
     "@iconify/types": "npm:^1.0.12"
@@ -22,7 +22,7 @@ __metadata:
     lodash: 4.x
     react: 16.x || 17.x || 18.x
     react-dom: 16.x || 17.x || 18.x
-  checksum: 10c0/ab9dabc2b154d1b78e0c8391b33487228ddc79021a8ab81107609640a1accc910d293aa0e6b7df7190b85a0f003deaa55857d0995b68b9d73801a6e98b029168
+  checksum: 10c0/ba5a6ea99da7294b53c963b769cf691c62e9861f49e7ea4ab87742f5da665334f7ef1ff813175c87ab022ee9d1904838e39df23bc49ed6550bba136bc392e493
   languageName: node
   linkType: hard
 
@@ -5149,7 +5149,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aiven-docs@workspace:."
   dependencies:
-    "@aivenio/aquarium": "npm:^1.72.0"
+    "@aivenio/aquarium": "npm:^1.73.0"
     "@algolia/client-search": "npm:^4.22.1"
     "@docusaurus/core": "npm:^3.4.0"
     "@docusaurus/module-type-aliases": "npm:^3.4.0"
