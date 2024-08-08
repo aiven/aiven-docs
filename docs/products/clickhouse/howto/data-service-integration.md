@@ -42,7 +42,7 @@ ClickHouse® in
 
 1. Depending on your use case, continue as instructed in either
   [Integrate with Aiven-managed services](#integrate-aiven-services) or
-  [Integrate with external data sources](#integrate-external-services).
+  [Integrate with external data sources](#integrate-with-external-data-sources).
 
 ### Integrate with Aiven-managed services {#integrate-aiven-services}
 
@@ -92,7 +92,7 @@ To create an integration with an existing service in the **Data service integrat
 </TabItem>
 </Tabs>
 
-### Integrate with external data sources {#integrate-external-services}
+### Integrate with external data sources
 
 For integration with external data sources, Aiven for ClickHouse offers two methods:
 
