@@ -64,6 +64,7 @@ data source types:
 
 - PostgreSQL®
 - MySQL®
+- ClickHouse®
 - Amazon S3®
 
 :::important
