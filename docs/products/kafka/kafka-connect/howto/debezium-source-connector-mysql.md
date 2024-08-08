@@ -131,7 +131,7 @@ Parameters:
   for the connector.
 - `database.hostname`, `database.port`, `database.dbname`, `database.ssl.mode`,
   `database.user`, `database.password`, `table.include.list`: Source database parameters
-  collected in the [prerequisite](#prerequisites) phase.
+  collected in the [prerequisite](#connect_debezium_mysql_source_prereq) phase.
 - `database.server.id`: The logical name of the database server. This should be a unique ID.
 - `topic.prefix`: The prefix to be used for the Apache Kafka topic names.
 - `tasks.max`: Maximum number of tasks to execute in parallel. Replace `NR_TASKS` with
@@ -173,7 +173,7 @@ Parameters:
     "database.user": "MYSQL_USER",
     "database.password": "MYSQL_PASSWORD",
     "database.dbname": "MYSQL_DATABASE_NAME",
-    "database.sslmode": "SSL_MODE",
+    "database.ssl.mode": "SSL_MODE",
     "database.server.name": "KAFKA_TOPIC_PREFIX",
     "table.include.list": "MYSQL_TABLES",
     "tasks.max":"NR_TASKS",
@@ -211,7 +211,7 @@ Parameters:
   connector.
 - `database.hostname`, `database.port`, `database.dbname`, `database.ssl.mode`,
   `database.user`, `database.password`, `table.include.list`: Source database parameters
-  collected in the [prerequisite](#prerequisites) phase.
+  collected in the [prerequisite](#connect_debezium_mysql_source_prereq) phase.
 - `database.server.name`: The logical name of the database, which determines the prefix
   used for Apache Kafka topic names. The resulting topic name is a combination of the
   `database.server.name` and the table name.
