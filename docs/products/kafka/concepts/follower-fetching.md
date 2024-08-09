@@ -16,7 +16,7 @@ This feature optimizes data fetching by leveraging Apache Kafka's rack awareness
    receive data, improving overall performance.
 
 :::note
-Follower fetching is currently supported on AWS (Amazon Web Services) and
+Follower fetching is supported on AWS (Amazon Web Services) and
 GCP (Google Cloud Platform).
 :::
 

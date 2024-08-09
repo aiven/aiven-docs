@@ -19,7 +19,7 @@ Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to 
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 :::note
-Follower fetching is currently supported on AWS (Amazon Web Services) and
+Follower fetching is supported on AWS (Amazon Web Services) and
 GCP (Google Cloud Platform).
 :::
 
