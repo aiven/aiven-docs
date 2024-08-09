@@ -17,7 +17,7 @@ This feature optimizes data fetching by leveraging Apache Kafka's rack awareness
 
 :::note
 Follower fetching is supported on AWS (Amazon Web Services) and
-GCP (Google Cloud Platform).
+Google Cloud.
 :::
 
 ## How it works
@@ -33,7 +33,7 @@ high availability.
   a `broker.rack` setting corresponding to its specific AZ:
 
   - **AWS**: Uses AZ IDs (for example, `use1-az1`) instead of AZ names.
-  - **GCP**: Uses AZ names directly (for example, `europe-west1-b`).
+  - **Google Cloud**: Uses AZ names directly (for example, `europe-west1-b`).
 
 - **Follower fetching**: Uses rack awareness to allow consumers to fetch data from
   the nearest replica, reducing latency and costs. Apache Kafka consumers use
@@ -50,9 +50,9 @@ high availability.
 
 - `client.rack`:  This setting on the Apache Kafka consumer indicates the AZ where
   the consumer is running. It allows you to fetch data from the nearest replica.
-  For example, setting `client.rack` to `use1-az1` on AWS or `europe-west1-b` on GCP
-  ensures that the consumer fetches data from the nearest broker in the same AZ.
-  [Configure](/docs/products/kafka/howto/enable-follower-fetching#client-side-configuration)
+  For example, setting `client.rack` to `use1-az1` on AWS or `europe-west1-b` on
+  Google Cloud ensures that the consumer fetches data from the nearest broker in the
+  same AZ. [Configure](/docs/products/kafka/howto/enable-follower-fetching#client-side-configuration)
   this setting to retrieve data from the closest replica.
 
 ## Related pages
