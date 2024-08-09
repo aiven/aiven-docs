@@ -258,7 +258,7 @@ Parameters:
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
 1. Click <ConsoleLabel name="Connectors"/>
-1. Click **Enable connector on this service** or Create connector.
+1. Click **Enable connector on this service** or **Create connector**.
 
    Alternatively, you can enable connectors from the
    <ConsoleLabel name="Service settings"/>. In the Service management section,
