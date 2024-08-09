@@ -440,25 +440,27 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'tools/terraform/get-started',
-            'tools/terraform/howto/migrate-from-teams-to-groups',
-            'tools/terraform/howto/promote-to-master-pg-rr',
-            'tools/terraform/howto/config-postgresql-provider',
-            'tools/terraform/howto/use-opentofu',
             {
               type: 'category',
               label: 'Upgrade Aiven Provider',
-              link: {
-                id: 'tools/terraform/list-upgrade-terraform',
-                type: 'doc',
-              },
               items: [
                 'tools/terraform/howto/upgrade-provider-v1-v2',
                 'tools/terraform/howto/upgrade-provider-v2-v3',
                 'tools/terraform/howto/upgrade-provider-v3-v4',
-                'tools/terraform/howto/upgrade-to-opensearch',
-                'tools/terraform/howto/update-deprecated-resources',
               ],
             },
+            'tools/terraform/howto/migrate-from-teams-to-groups',
+            'tools/terraform/howto/update-deprecated-resources',
+            'tools/terraform/howto/upgrade-to-opensearch',
+            {
+              type: 'category',
+              label: 'PostgreSQL',
+              items: [
+                'tools/terraform/howto/config-postgresql-provider',
+                'tools/terraform/howto/promote-to-master-pg-rr',
+              ],
+            },
+            'tools/terraform/howto/use-opentofu',
           ],
         },
         'tools/kubernetes',

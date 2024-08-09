@@ -3,7 +3,7 @@ title: Upgrade Aiven Provider for Terraform from v2 to v3
 sidebar_label: Upgrade from v2 to v3
 ---
 
-Upgrade Aiven Provider for Terraform from v2 to v3.
+Learn how to upgrade Aiven Terraform Provider v2 to v3.
 
 ## Major changes in v3
 
