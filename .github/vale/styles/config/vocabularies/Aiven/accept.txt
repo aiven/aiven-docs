@@ -63,6 +63,7 @@ datasource
 Datastax
 datastore
 DBeaver
+dblink
 DBMS
 DBMSs
 deallocation
@@ -209,10 +210,14 @@ Percona
 performant
 pg_dump
 pgAdmin
+PGAudit
 PgBouncer
+pg_dump
 PGHoard
 pglookout
 pgoutput
+pg_repack
+pg_restore
 pgvector
 plaintext
 plc
