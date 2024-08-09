@@ -9,9 +9,7 @@ export const isForkable = (props) => {
 
 <!-- vale on -->
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and open your project.
-
-1. From your project, on the left-side menu, click <ConsoleLabel name="services"/> > **Create service**.
+1. From your project, in the <ConsoleLabel name="services"/> page, click **Create service**.
 
 1. From the **Select service** page,
    click {props.serviceType ? <strong>{props.serviceType}</strong> : 'the service type of your choice'}.
