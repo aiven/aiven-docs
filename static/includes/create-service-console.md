@@ -4,7 +4,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 export const isForkable = (props) => {
   return(
-    props.serviceType !== 'Dragonfly' && props.serviceType !== 'Valkey');
+    props.serviceType !== 'Apache Flink®' && props.serviceType !== 'Apache Kafka®' && props.serviceType !== 'Thanos Metrics');
   };
 
 <!-- vale on -->
