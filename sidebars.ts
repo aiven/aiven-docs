@@ -269,24 +269,6 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/enhanced-compliance-env',
             {
               type: 'category',
-              label: 'Bring your own cloud',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/byoc',
-              },
-              items: [
-                'platform/howto/byoc/networking-security',
-                'platform/howto/byoc/enable-byoc',
-                'platform/howto/byoc/create-custom-cloud',
-                'platform/howto/byoc/assign-project-custom-cloud',
-                'platform/howto/byoc/add-customer-info-custom-cloud',
-                'platform/howto/byoc/rename-custom-cloud',
-                'platform/howto/byoc/download-infrastructure-template',
-                'platform/howto/byoc/delete-custom-cloud',
-              ],
-            },
-            {
-              type: 'category',
               label: 'VPCs',
               link: {
                 type: 'generated-index',
@@ -348,6 +330,24 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/service-integration',
         'platform/howto/create-service-integration',
+        {
+          type: 'category',
+          label: 'Bring your own cloud',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/byoc',
+          },
+          items: [
+            'platform/howto/byoc/networking-security',
+            'platform/howto/byoc/enable-byoc',
+            'platform/howto/byoc/create-custom-cloud',
+            'platform/howto/byoc/assign-project-custom-cloud',
+            'platform/howto/byoc/add-customer-info-custom-cloud',
+            'platform/howto/byoc/rename-custom-cloud',
+            'platform/howto/byoc/download-infrastructure-template',
+            'platform/howto/byoc/delete-custom-cloud',
+          ],
+        },
         {
           type: 'category',
           label: 'Monitoring and logs',
