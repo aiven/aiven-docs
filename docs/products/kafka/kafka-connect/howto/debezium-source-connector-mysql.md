@@ -311,8 +311,7 @@ avn service connector create <service_name> @debezium_source_mysql.json
 Parameters:
 
 - `<service_name>`: The name of your Aiven for Apache Kafka service.
-- `@debezium_source_mysql.json`: The path to your JSON configuration file. The `@` symbol
-indicates that the file path is being provided.
+- `@debezium_source_mysql.json`: This denotes the path to your JSON configuration file.
 
 </TabItem>
 </Tabs>
