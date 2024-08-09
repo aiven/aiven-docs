@@ -376,7 +376,8 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit</b>
-
+        </>
+      );
     case 'governance':
       return (
         <>
