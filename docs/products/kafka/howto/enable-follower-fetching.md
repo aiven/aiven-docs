@@ -201,7 +201,7 @@ client.rack=europe-west1-c
 client.rack=europe-west1-d
 ```
 
-#### Fetching Behavior
+#### Fetching behavior
 
 | Cloud | Consumer location | Fetching behavior                                      | Notes                                       |
 |-------|-------------------|--------------------------------------------------------|------------------------------------------------|
