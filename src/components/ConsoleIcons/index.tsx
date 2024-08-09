@@ -371,6 +371,26 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Tiered storage</b>
         </>
       );
+    case 'governance':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.governance} />
+          <b>Apache Kafka governance</b>
+        </>
+      );
+    case 'grouprequests':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} />{' '}
+          <b>Group requests</b>
+        </>
+      );
+    case 'approvals':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.award} /> <b>Approvals</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
