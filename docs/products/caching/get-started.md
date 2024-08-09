@@ -4,29 +4,24 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
-The first step in using Aiven for Caching is to create a service. You can do so either using the [Aiven Web Console](https://console.aiven.io/) or the [Aiven CLI](https://github.com/aiven/aiven-client).
-
+import CreateService from "@site/static/includes/create-service-console.md"
+import Help from "@site/static/includes/cli-help.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Create a Caching Service
+The first step in using Aiven for Caching is to create a service. You can do so either using the [Aiven Web Console](https://console.aiven.io/) or the [Aiven CLI](https://github.com/aiven/aiven-client).
+
+## Create an Aiven for Caching service
 
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  [Create a Caching service](/docs/platform/howto/create_new_service)
-
-Once the service is ready, the status changes to *Running*. Depending on
-your selected cloud provider and region, this generally takes a couple
-of minutes.
+<CreateService serviceType="Aiven for Caching"/>
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
 
-[Aiven CLI](https://github.com/aiven/aiven-client) provides a simple and
-efficient way to create an Aiven for Caching service. If you prefer
-launching a new service from the CLI:
+Use [Aiven CLI](/docs/tools/cli) to create your service:
 
 1. Determine the service plan, cloud provider, and region to
    use for your Caching service.
@@ -43,13 +38,7 @@ launching a new service from the CLI:
 
    ```
 
-:::note
-There are additional options available to you, which you can view by
-running the following commands:
-
--   For a full list of default flags: `avn service create -h`
--   For type-specific options: `avn service types -v`
-:::
+<Help/>
 
 </TabItem>
 </Tabs>

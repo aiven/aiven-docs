@@ -4,27 +4,28 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
+import CreateService from "@site/static/includes/create-service-console.md"
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import Note from "@site/static/includes/dragonflysla-note.md"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Help from "@site/static/includes/cli-help.md"
 
 Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
 <Note/>
 
-## Create a service using the Aiven Console
+## Create an Aiven for Dragonfly® service
 
-1. Log in to the [Aiven Console](https://console.aiven.io/).
-1. [Create a Dragonfly service](/docs/platform/howto/create_new_service).
+<Tabs groupId="group1">
+<TabItem value="Console" label="Console" default>
 
-Once the service is ready, the status changes to *Running*. Depending on
-your selected cloud provider and region, this generally takes a couple
-of minutes.
+<CreateService serviceType="Dragonfly"/>
 
-## Create a service using the Aiven CLI
+</TabItem>
+<TabItem value="CLI" label="CLI">
 
-[Aiven CLI](https://github.com/aiven/aiven-client) provides a simple and
-efficient way to create an Aiven for Dragonfly® service. If you prefer
-creating a new service from the CLI:
+Use [Aiven CLI](/docs/tools/cli) to create your service:
 
 1. Determine the service plan, cloud provider, and region to
    use for your Aiven for Dragonfly service.
@@ -32,20 +33,18 @@ creating a new service from the CLI:
 1. Run the following command to create Aiven for Dragonfly service named
    dragonfly-demo:
 
-```text
-avn service create dragonfly-demo   \
- --service-type dragonfly                 \
- --cloud google-europe-north1             \
- --plan startup-4                         \
- --project dev-sandbox
-```
+   ```bash
+   avn service create dragonfly-demo   \
+    --service-type dragonfly           \
+    --cloud google-europe-north1       \
+    --plan startup-4                   \
+    --project dev-sandbox
+   ```
 
-:::note
-View additional options by running the following commands:
+<Help/>
 
-- For a full list of default flags: `avn service create -h`
-- For type-specific options: `avn service types -v`
-:::
+</TabItem>
+</Tabs>
 
 ## Create service integrations
 

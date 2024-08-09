@@ -4,16 +4,13 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
+import CreateService from "@site/static/includes/create-service-console.md"
+
 To start using Aiven for OpenSearch®, the first step is to create a service. You can do this on the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).
 
 ## Create an Aiven for OpenSearch® service
 
-1. Log in to the [Aiven Console](https://console.aiven.io/).
-1. Create an [Aiven for OpenSearch service](/docs/platform/howto/create_new_service).
-
-Once the service is ready, the status changes to *Running*. Depending on
-your selected cloud provider and region, this generally takes a couple
-of minutes.
+<CreateService serviceType="OpenSearch®"/>
 
 ## Access OpenSearch Dashboards
 
