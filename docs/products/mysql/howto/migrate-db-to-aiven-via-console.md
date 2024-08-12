@@ -1,23 +1,21 @@
 ---
-title: Migrate MySQL® databases to Aiven using the console
+title: Migrate MySQL® databases to Aiven using the Console
 ---
 
-You can migrate MySQL® databases to Aiven using the [Aiven Console](https://console.aiven.io/).
+Use the Console to migrate MySQL® databases to managed MySQL clusters in your Aiven organization.
 
-You can also use the CLI to migrate your database, see
+:::note
+To use the [Aiven CLI](/docs/tools/cli) to migrate your database, see
 [Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql).
+:::
 
-## About migrating via console
-
-The console migration tool enables you to migrate MySQL databases to
-managed MySQL clusters in your Aiven organization. You can migrate the
-following:
+You can migrate the following:
 
 -   Existing on-premise MySQL databases
 -   Cloud-hosted MySQL databases
--   Managed MySQL database clusters on Aiven.
+-   Managed MySQL database clusters on Aiven
 
-The console migration tool provides 2 migration methods:
+The Console migration tool provides 2 migration methods:
 
 -   **(Recommended) Continuous migration:** Used by default in the tool
     and taken as the reference method. This method uses
@@ -31,19 +29,19 @@ The console migration tool provides 2 migration methods:
     written to the source database during the migration are **not
     transferred**.
 
-    When you trigger the migration setup in the console and initial
-    checks detect that your source database does not support the logical
-    replication, you are notified about it via the migration wizard. To
-    continue with the migration, you can select the alternative
-    `mysqldump` migration method in the wizard.
+When you trigger the migration setup in the Console and initial
+checks detect that your source database does not support the logical
+replication, you are notified about it via the migration wizard. To
+continue with the migration, you can select the alternative
+`mysqldump` migration method in the wizard.
 
 ## Prerequisites
 
--   To use the default continuous migration method in the console tool,
+-   To use the default continuous migration method in the Console tool,
     you have the logical replication enabled on your source database.
 -   Source database's hostname or IP address are
     [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
--   You have the source database's credentials and reference data
+-   You have the source database's credentials and reference data:
     -   Public hostname or connection string, or IP address used to
         connect to the database
     -   Port used to connect to the database
@@ -55,103 +53,98 @@ The console migration tool provides 2 migration methods:
 
 ## Pre-configure the source
 
--   Allow remote connections on the source database.
+1. Allow remote connections on the source database:
 
-    Log in to the server hosting your database and the MySQL
-    installation. Next, open the network configuration of MySQL with the
-    following command:
+   1. Log in to the server hosting your database and the MySQL
+      installation. Next, open the network configuration of MySQL with the
+      following command:
 
-    ```bash
-    sudo code /etc/mysql/mysql.conf.d/mysqld.cnf
-    ```
+      ```bash
+      sudo code /etc/mysql/mysql.conf.d/mysqld.cnf
+      ```
 
-    ```bash title="Expected output"
-    . . .
-    lc-messages-dir = /usr/share/mysql
-    skip-external-locking
-    #
-    # Instead of skip-networking the default is now to listen only on
-    # localhost which is more compatible and is not less secure.
-    bind-address            = 127.0.0.1
-    . . .
-    ```
+      ```text title="Expected output"
+      . . .
+      lc-messages-dir = /usr/share/mysql
+      skip-external-locking
+      #
+      # Instead of skip-networking the default is now to listen only on
+      # localhost which is more compatible and is not less secure.
+      bind-address            = 127.0.0.1
+      . . .
+      ```
 
-    Change the value of `bind-address` to a wildcard IP address,`*` or
-    `0.0.0.0`.
+   1. Change the value of `bind-address` to a wildcard IP address,`*` or
+      `0.0.0.0`.
 
-    ```bash title="Expected output"
-    . . .
-    lc-messages-dir = /usr/share/mysql
-    skip-external-locking
-    #
-    # Instead of skip-networking the default is now to listen only on
-    # localhost which is more compatible and is not less secure.
-    bind-address            = *
-    . . .
-    ```
+      ```text title="Expected output"
+      . . .
+      lc-messages-dir = /usr/share/mysql
+      skip-external-locking
+      #
+      # Instead of skip-networking the default is now to listen only on
+      # localhost which is more compatible and is not less secure.
+      bind-address            = *
+      . . .
+      ```
 
-    Save the changes and exit the file. Restart MySQL to apply the
-    changes.
+   1. Save the changes and exit the file. Restart MySQL to apply the
+      changes.
 
-    ```bash
-    sudo systemctl restart mysql
-    ```
+      ```bash
+      sudo systemctl restart mysql
+      ```
 
-    :::note
-    After completing the migration, make sure you revert those changes
-    so that the MySQL database no longer accept remote connections.
-    :::
+      :::note
+      After completing the migration, make sure you revert those changes
+      so that the MySQL database no longer accept remote connections.
+      :::
 
--   Enable GTID.
+1. Enable GTID:
 
-    Set up GTID on your database so that it can create a unique
-    identifier for each transaction on the source database. See
-    [Enabling GTID Transactions
-    Online](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html)
-    for the guidelines.
+   1. Set up GTID on your database so that it can create a unique
+      identifier for each transaction on the source database. See
+      [Enabling GTID Transactions
+      Online](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html).
 
-    To make sure you have GTID enabled, open your `my.cnf` file in
-    `/etc/my.cnf` or `/etc/mysql/my.cnf` (if no luck finding the file,
-    see [more potential locations in the table corresponding to
-    your OS in the MySQL
-    documentation](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)).
+      To make sure you have GTID enabled, open your `my.cnf` file in
+      `/etc/my.cnf` or `/etc/mysql/my.cnf`. If this file cannot be found, see [more potential locations in the MySQL
+      documentation](https://dev.mysql.com/doc/refman/8.0/en/option-files.html).
 
-    Check that the `my.cnf` file has the `[mysqld]` header.
+   1. Ensure the `my.cnf` file has the `[mysqld]` header.
 
-    ```bash
-    [mysqld]
-    gtid_mode=ON
-    enforce_gtid_consistency=ON
-    ```
+       ```text
+       [mysqld]
+       gtid_mode=ON
+       enforce_gtid_consistency=ON
+       ```
 
-    After enabling GTID, restart MySQL.
+   1. Restart MySQL.
 
-    ```bash
-    sudo systemctl restart mysql
-    ```
+      ```bash
+      sudo systemctl restart mysql
+      ```
 
--   Enable logical replication.
+1. Enable logical replication. Grant logical replication privileges to the user that you
+   intend to connect to the source database with during the migration:
 
-    Grant logical replication privileges to the user that you intend to
-    connect to the source database with during the migration.
+   1. Log in to the database as an administrator and grant the following
+      permission to the user:
 
-    Log in to the database as an administrator and grant the following
-    permission to the user:
+      ```bash
+      GRANT ALL ON DATABASE_NAME.* TO USERNAME_CONNECTING_TO_SOURCE_DB;
+      ```
 
-    ```bash
-    GRANT ALL ON DATABASE_NAME.* TO USERNAME_CONNECTING_TO_SOURCE_DB;
-    ```
+   1. Reload the grant tables to apply the changes to the permissions.
 
-    Reload the grant tables to apply the changes to the permissions.
+      ```bash
+      FLUSH PRIVILEGES;
+      ```
 
-    ```bash
-    FLUSH PRIVILEGES;
-    ```
-
-    :::note
-    After completing the migration, make sure you revert those changes
-    so that the user no longer has logical replication privileges.
-    :::
+   :::important
+   After completing the migration, revert those changes
+   so that the user no longer has logical replication privileges.
+   :::
 
 ## Migrate a database
 
@@ -183,11 +176,10 @@ configuration is in line with them, and select **Get started**.
     you don't want to migrate (if any).
 1.  Select **Run checks** to have the connection validated.
 
-:::note[Unable to use logical replication?]
+:::note[Unable to use logical replication]
 If your connection check returns the **Unable to use logical
-replication** warning, either resolve the issues or give up using the
-logical replication and opt for the dump method by selecting **Start the
-migration using a one-time snapshot (dump method)** > **Run check** >
+replication** warning, either resolve the issues or use the
+the dump method by selecting **Start the migration using a one-time snapshot (dump method)** > **Run check** >
 **Start migration**.
 :::
 
@@ -200,10 +192,9 @@ migration by selecting **Start migration**.
 
 While the migration is in progress, you can:
 
--   Let it proceed until completed by selecting **Close window**, which
-    closes the wizard. You come back to check the status at any time.
+-   Let it proceed until completed by selecting **Close window**. You can come back to check the status at any time.
 -   Discontinue the migration by selecting **Stop migration**, which
-    retains the data already migrated. For information on how to follow
+    retains the data already migrated. To follow
     up on a stopped migration process, see
     [Start over](/docs/products/mysql/howto/migrate-db-to-aiven-via-console#start-over-mysql).
 
@@ -222,13 +213,12 @@ To avoid conflicts and replication issues while the migration is ongoing
 :::
 
 :::note[Migration attempt failed?]
-If you happen to get such a notification, investigate potential causes
+If the migration fails, investigate potential causes
 of the failure and try to fix the issues. When you're ready, trigger
 the migration again by selecting **Start over**.
 :::
 
-When the wizard communicates the completion of the migration, select one
-of the following:
+When the migration is complete, select one of the following:
 
 -   **Close connection** to disconnect the databases and stop the
     replication process if still active.
@@ -242,16 +232,16 @@ continuously being synced between the connected databases.
 
 ### Step 5 - close
 
-When the wizard communicates the completion of the migration without
-indicating an active replication process, select **Close connection**.
+When the migration is completed without indicating an active replication process, select **Close connection**.
 
 All the data in your database has been transferred to Aiven.
 
 ## Start over {#start-over-mysql}
 
 If you
-[stop a migration process](/docs/products/mysql/howto/migrate-db-to-aiven-via-console#stop-migration-mysql), you cannot restart the same process. Still, the data
-already migrated is retained in the target database.
+[stop a migration process](/docs/products/mysql/howto/migrate-db-to-aiven-via-console#stop-migration-mysql),
+you cannot restart the same process. Still, the data already migrated is retained
+in the target database.
 
 :::warning
 If you start a new migration using the same connection details when your

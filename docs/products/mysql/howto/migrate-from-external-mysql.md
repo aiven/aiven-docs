@@ -4,6 +4,12 @@ title: Migrate to Aiven for MySQL from an external MySQL
 
 Aiven for MySQL offers a managed process for migrating from an external MySQL into the Aiven-hosted database. It supports both a one-off dump-and-restore process and using the ongoing replication functionality built-in to MySQL.
 
+:::note
+To use the Aiven Console to migrate your database, see
+[Migrate MySQL® databases to Aiven using the Console
+](/docs/products/mysql/howto/migrate-db-to-aiven-via-console).
+:::
+
 The process will first do a `mysqldump` to seed the schema and bulk-copy the
 data, if the preconditions are met for ongoing replication then it will
 configure MySQL as a replica of the external database.
@@ -128,3 +134,7 @@ via the `avn service update`
 ```shell
 avn service update --project PROJECT_NAME --remove-option migration DEST_NAME
 ```
+
+## Related pages
+
+- [Migrate MySQL® databases to Aiven using the Console](/docs/products/mysql/howto/migrate-db-to-aiven-via-console)

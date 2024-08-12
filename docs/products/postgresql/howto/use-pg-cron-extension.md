@@ -2,24 +2,20 @@
 title: Use the PostgreSQL® pg_cron extension
 ---
 
-`pg_cron` is a simple cron-based job scheduler for PostgreSQL (10 or
-higher) that runs inside the database as an extension. It uses the same
-syntax as regular cron, but it allows you to schedule PostgreSQL
-commands directly from the database. You can also use \'\[1-59\]
-seconds\' to schedule a job based on an interval.
+The `pg_cron` extension is a cron-based job scheduler for PostgreSQL (10 or higher) that runs inside the database.
 
-:::note
 `pg_cron` can run multiple jobs in parallel, but it runs at most one
 instance of a job at a time. If a second run is supposed to start before
-the first one finishes, then the second run is queued and started as
+the first one finishes, the second run is queued and started as
 soon as the first run completes.
-:::
 
-The schedule uses the standard cron syntax, where an asterisk (\*)
-signifies \"execute at every time interval\", and a specific number
-indicates \"execute exclusively at this specific time\":
+## CRON syntax
 
-``` 
+The schedule uses the standard [cron syntax](https://omni.wikiwand.com/en/articles/Cron),
+where an asterisk (`*`) means _execute at every time interval_, and a specific number
+means _execute exclusively at this specific time_:
+
+```text
 ┌───────────── min (0 - 59)
 │ ┌────────────── hour (0 - 23)
 │ │ ┌─────────────── day of month (1 - 31)
@@ -31,73 +27,72 @@ indicates \"execute exclusively at this specific time\":
 * * * * *
 ```
 
+You can also use `[1-59] seconds` to schedule a job based on an interval.
+
 ## Enable `pg_cron` for specific users
 
 To use the `pg_cron` extension:
 
 1.  Connect to the database as `avnadmin` user and make sure to use the
-    `defaultdb` database
+    `defaultdb` database:
 
-    ``` 
+    ```sql
     CREATE EXTENSION pg_cron;
     ```
 
-2.  As a optional step, you can grant usage permission to regular users
+1.  Optional: Grant usage permission to regular users:
 
-    ``` 
+    ```sql
     GRANT USAGE ON SCHEMA cron TO janedoe;
     ```
 
-## Setup the cron job
+## Set up the cron job
 
 ### List all the jobs
 
-To view the full list of existing jobs, you can run the following query:
+To view the full list of existing jobs, run:
 
-``` 
-postgres=> SELECT * FROM cron.job;
+```text
+SELECT * FROM cron.job;
+
 jobid | schedule    | command                        | nodename  | nodeport | database | username  | active | jobname
 ------+-------------+--------------------------------+-----------+----------+----------+-----------+--------+-------------------------
 106   | 29 03 * * * | vacuum freeze test_table       | localhost | 8192     | database1| adminuser | t      | database1 manual vacuum
   1   | 59 23 * * * | vacuum freeze pgbench_accounts | localhost | 8192     | postgres | adminuser | t      | manual vacuum
-(2 rows)  
+(2 rows)
 ```
 
 ### Schedule a job
 
-You can schedule a new job with the following command. In this example,
-the job is set to vacuum daily at 10:00am (GMT):
+To schedule a new job, run:
 
-``` 
-###Vacuum every day at 10:00am (GMT)
+```sql title="Vacuum every day at 10:00am (GMT)"
 SELECT cron.schedule('nightly-vacuum', '0 10 * * *', 'VACUUM');
 ```
 
 ### Unschedule a job
 
-To stop scheduling a job, you have two options:
+To unschedule a job, you have two options:
 
-1.  By using the `jobname`:
+- By using the `jobname`:
 
-``` 
-###Stop scheduling jobs using jobname
-SELECT cron.unschedule('nightly-vacuum' );
-```
+  ```sql title="Unschedule jobs using jobname"
+  SELECT cron.unschedule('nightly-vacuum' );
+  ```
 
-2.  By using the `jobid`:
+- By using the `jobid`:
 
-``` 
-###Stop scheduling jobs using jobid
-SELECT cron.unschedule(1);
-```
+  ```sql title="Unschedule jobs using jobid"
+  SELECT cron.unschedule(1);
+  ```
 
 ### View completed jobs
 
-To view a list of all completed job runs, you can use the following
-query:
+To list all completed job runs, run:
 
-``` 
+```text
 select * from cron.job_run_details order by start_time desc limit 5;
+
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ¦ jobid ¦ runid ¦ job_pid ¦ database ¦ username ¦      command      ¦  status   ¦  return_message  ¦          start_time           ¦           end_time            ¦
 +-------+-------+---------+----------+----------+-------------------+-----------+------------------+-------------------------------+-------------------------------¦
