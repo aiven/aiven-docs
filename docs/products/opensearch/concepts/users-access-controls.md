@@ -24,7 +24,8 @@ Patterns use the following syntax:
 
 ### Permissions
 
-The available permissions in Aiven for OpenSearch®, ordered by importance, are:
+The available permissions in Aiven for OpenSearch® are:
+
 
 -   `deny`: Explicitly denies access
 -   `admin`: Allows unlimited access to the index
