@@ -2,7 +2,7 @@
 title: Understanding access control in Aiven for OpenSearch®
 ---
 
-Implement access control and permissions to secure data in Aiven for OpenSearch®. Understand how access control works and the various permissions used to manage access effectively.
+Secure your data in Aiven for OpenSearch® by implementing access control and permissions. Learn how access control works and how to manage access with different permissions.
 
 :::note
 ACLs apply only to indices and do not control access to other OpenSearch APIs,
@@ -11,9 +11,9 @@ including OpenSearch Dashboards.
 
 ## Patterns and permissions
 
-Access control for OpenSearch uses patterns and permissions to manage access to indices.
-Patterns are glob-style strings that specify the indices to which the permission applies,
-and permissions define the level of access granted to the user for the matching indices.
+Access control in OpenSearch uses patterns and permissions to manage access to indices.
+Patterns are glob-style strings that specify the indices to which permissions apply,
+and permissions determine the level of access granted to users for these indices.
 
 ### Patterns
 
@@ -34,9 +34,8 @@ The available permissions in Aiven for OpenSearch®, ordered by importance, are:
 
 ### API access
 
-The permission determines which index APIs the user can access, controlling
-specific actions such as reading, writing, updating, and deleting documents
-within those indices:
+Permissions determine which index APIs users can access, controlling actions
+like reading, writing, updating, and deleting documents.
 
 -   `deny`: No access
 -   `admin`: No restrictions
@@ -50,14 +49,14 @@ within those indices:
 
  - When no rules match, access is implicitly denied.
  - The `write` permission allows creating indices that match the rule's index pattern
-   but does not allow deleting them. Indices can only be deleted when a matching
+   but does not allow deletion. Indices can only be deleted when a matching
    `admin` permission rule exists.
 
 :::
 
 ## Example
 
-As an example, consider the following set of rules:
+Consider the following set of rules:
 
 -   `logs_*/read`
 -   `events_*/write`
@@ -65,7 +64,7 @@ As an example, consider the following set of rules:
 -   `logs_201901*/read`
 -   `logs_2019*/admin`
 
-This set of rules would allow the service user to:
+This set of rules allows the user to:
 
 -   Add documents to `events_2018` (second rule)
 -   Retrieve and search documents from `logs_20171230` (first rule)
@@ -74,7 +73,7 @@ This set of rules would allow the service user to:
     permission gets higher priority than the `read` permission in the
     fourth rule)
 
-This same set of rules would deny the service user from:
+This same set of rules denies the service user from:
 
 -   Gain any access to `messages_2019` (no matching rules)
 -   Read or search documents from `events_2018` (the second rule only
@@ -83,31 +82,27 @@ This same set of rules would deny the service user from:
     grants `read` permission)
 
 :::note
-These rules apply only to index access and not to OpenSearch Dashboards or other
+These rules apply only to index access and do not affect OpenSearch Dashboards or other
 OpenSearch APIs.
 :::
 
 ## Access control for aliases
 
-Aliases are virtual indices that can reference one or more physical indices,
-simplifying data management and search.
-Access control and aliases are key concepts in OpenSearch. Aliases are
-virtual indices that can reference one or more physical indices,
-simplifying the management and search of data. You can define access control rules
+Aliases are virtual indices that reference one or more physical indices, simplifying
+data management and search. In OpenSearch, you can define access control rules
 for aliases to ensure proper security and control over data access.
 
-When working with aliases in OpenSearch, remember how access control rules apply:
+When managing aliases in OpenSearch, note that:
 
--   Aliases are not automatically expanded in access control. Therefore,
-    the ACL must explicitly include a rule that matches the alias
-    pattern.
--   Only access control rules that match the alias pattern will be applied.
-    Rules that match the physical indices the alias expands to will not be used.
+- Aliases are not automatically expanded in access control, so the ACL must explicitly
+  include a rule that matches the alias pattern.
+- Only access control rules that match the alias pattern will be applied. Rules matching
+  the physical indices that the alias references will not be used.
 
 ## Access to top-level APIs
 
-The access control for top-level APIs depends on whether the security plugin is
-enabled. If the security plugin is
+Top-level API access control depends on whether the security plugin is enabled.
+If the security plugin is
 [enabled](/docs/products/opensearch/howto/enable-opensearch-security),
 ACLs are not used to control top-level APIs.
 Instead, the security plugin handles access control.
@@ -130,8 +125,8 @@ top-level APIs: `_mget`, `_msearch`, and `_bulk`.
 
 :::note
 **Deprecated _ * patterns**
-With the security plugin enabled, `_ *` patterns for controlling top-level API
-access are ignored. Access is managed by the security plugin settings. You do not
+When the security plugin is enabled, `_ *` patterns for top-level API access control
+are ignored. Access is managed by the security plugin settings. You do not
 need to configure these patterns manually.
 :::
 
@@ -142,11 +137,10 @@ However, all requests made by OpenSearch Dashboards are checked against
 the current user's ACLs.
 
 :::note
-You might encounter `HTTP 500` internal server errors when you try to
-view dashboards as a service user with read-only access to certain
-indices, as these dashboards call the `_msearch` API. To prevent this,
-add a new ACL rule that grants `admin` access to `_msearch` for that
-service user.
+Service users with read-only access to certain indices might encounter `HTTP 500`
+internal server errors when viewing dashboards, as these dashboards use
+the `_msearch` API. To prevent this, add an ACL rule that
+grants `admin` access to `_msearch` for the affected service user.
 :::
 
 ## Next steps
