@@ -2,10 +2,7 @@
 title: Access control in Aiven for OpenSearch®
 ---
 
-Access control is a crucial security measure that allows you to control
-who can access your data and resources. By setting up access control
-rules, you can restrict access to sensitive data and prevent
-unauthorized changes or deletions.
+Access control is a crucial security measure that allows you to control who can access your data and resources. By setting up access control rules, you can restrict access to sensitive data and prevent unauthorized changes or deletions.
 
 Aiven for OpenSearch® provides the following ways to manage user
 accounts and access control in OpenSearch®.
@@ -25,6 +22,11 @@ for each user by setting up individual \"pattern/permission\" rules. The
 \"pattern\" parameter specifies the indices to which the permission
 applies and uses glob-style matching, where \* matches any number of
 characters (including none) and ? matches any single character.
+
+:::note
+ACLs apply only to indices and do not control access to other OpenSearch APIs,
+including OpenSearch Dashboards.
+:::
 
 For more information about access control, patterns and permissions, see
 [Understanding access control in Aiven for OpenSearch®](/docs/products/opensearch/concepts/users-access-controls).
