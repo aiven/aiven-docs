@@ -15,7 +15,7 @@ To set up single sign-on through an IdP for your organization:
 1. In the organization, click **Admin**.
 1. Click **Identity providers**.
 1. Click **Add identity provider**.
-1. Select OTHER and enter a name.
+1. Select an identity provider and enter a name.
 1. Select a [verified domain](/docs/platform/howto/manage-domains) to link
    this IdP to. Users see linked IdPs on the login page.
 
@@ -70,7 +70,7 @@ draft, you can open the settings by clicking the name of the IdP.
     -   **Extend active sessions**: This resets the session duration every time the token
         is used.
 1. Optional: Select a user group to add all users who sign up with this IdP to.
-1. Optional: <LimitedBadge/> Enable user provisioning with Okta:
+1. Optional: Enable user provisioning with Okta:
 
    1. Copy the **Base URL** and **Access token**.
    1. Use the URL and token to configure

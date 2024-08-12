@@ -34,7 +34,7 @@ The wildcards supported are:
 
 The wildcards can be combined for more complex pattern matching:
 
--   `?*` matches a single character, and then zero or more other
+-   `?*` matches a single character, and zero or more other
     characters (equivalent to regular expression `(.+)`)
 
 Aiven for Apache Kafka® evaluates each topic access against the ACL

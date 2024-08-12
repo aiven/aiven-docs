@@ -15,9 +15,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Get started',
     Svg: require('@site/static/images/icons/home/rocket.svg').default,
     to: '/docs/get-started',
-    description: (
-      <>Your first steps to set up your account and your platform.</>
-    ),
+    description: <>Your first steps to set up your account, for free.</>,
   },
   {
     title: 'Managed services',
@@ -26,10 +24,15 @@ const FeatureList: FeatureItem[] = [
     description: <>Discover our managed services and how to set them up.</>,
   },
   {
-    title: 'Aiven platform',
-    Svg: require('@site/static/images/icons/home/console.svg').default,
-    to: '/docs/platform/concepts/orgs-units-projects',
-    description: <>Manage your organization and your users.</>,
+    title: 'Bring your own cloud',
+    Svg: require('@site/static/images/icons/home/cloud.svg').default,
+    to: '/docs/platform/concepts/byoc',
+    description: (
+      <>
+        Connect your Aiven organization with your own cloud account by creating
+        custom clouds.
+      </>
+    ),
   },
   {
     title: 'Aiven dev tools',

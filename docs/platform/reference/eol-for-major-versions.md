@@ -1,5 +1,6 @@
 ---
 title: End of life for major versions of Aiven services and tools
+sidebar_label: End of life for services and tools
 ---
 
 End of life (EOL) is the date after which Aiven services and tools are no longer supported or maintained.
@@ -89,7 +90,7 @@ after they are made available on the Aiven platform.
 | 3.3     | 2023-12-12 | 2023-09-12                       | 2022-12-23                      |
 | 3.4     | 2024-05-13 | 2024-02-13                       | 2023-05-09                      |
 | 3.5     | 2024-07-31 | 2024-03-30                       | 2023-07-31                      |
-| 3.6     | 2024-10-18 | 2024-07-18                       | 2023-10-18                      |
+| 3.6     | 2024-10-18 | 2024-09-01                       | 2023-10-18                      |
 | 3.7     | 2025-04-17 | 2025-01-17                       | 2024-04-17                      |
 
 ### Aiven for Apache Cassandra® {#h_0f2929c770}
@@ -97,7 +98,7 @@ after they are made available on the Aiven platform.
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 | ------- | ---------- | -------------------------------- | ------------------------------- |
 | 3       | 2022-07-27 | 2022-04-27                       | 2018-11-08                      |
-| 4.0     | 2024-09-30 | To be announced                  | 2021-12-09                      |
+| 4.0     | 2024-09-30 | 2024-09-30                       | 2021-12-09                      |
 | 4.1     | 2025-09-30 | To be announced                  | 2024-01-18                      |
 
 ### Aiven for M3DB

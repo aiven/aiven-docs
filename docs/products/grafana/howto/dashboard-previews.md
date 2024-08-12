@@ -21,7 +21,7 @@ Follow these steps to enable dashboard previews for your Aiven for
 Grafana service:
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and then choose your Aiven for Grafana® service.
+    project and choose your Aiven for Grafana® service.
 
 2.  In the service page, select **Service settings** from the sidebar.
 

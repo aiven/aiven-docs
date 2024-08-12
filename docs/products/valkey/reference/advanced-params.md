@@ -1,9 +1,9 @@
 ---
 title: Advanced parameters for Aiven for Valkey
+sidebar_label: Advanced parameters
 ---
 
-Find a summary of every configuration option available for
-Aiven for Valkey service:
+See the configuration options available for Aiven for Valkey:
 
 import Reference from '@site/static/includes/config-valkey.md';
 

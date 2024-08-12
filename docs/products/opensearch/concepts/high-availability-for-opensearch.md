@@ -1,5 +1,6 @@
 ---
 title: High availability in Aiven for OpenSearch®
+sidebar_label: High availability
 ---
 
 Aiven for OpenSearch® is available on a variety of plans, offering
@@ -53,7 +54,7 @@ availability zones.
 Aiven platform constantly monitors all nodes in an OpenSearch cluster.
 When a node stops responding to a health check for sufficiently long
 time, Aiven platform starts a replacement node, waits for the node to
-start, and then replaces the failed node with the new node in the
+start, and replaces the failed node with the new node in the
 cluster's configuration.
 
 :::note

@@ -172,7 +172,7 @@ The configuration file contains the following entries:
 
 ### Create a Kafka Connect connector with the Aiven Console
 
-To create a Kafka Connect connector, follow these steps:
+To create a Kafka Connect connector:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
@@ -208,7 +208,7 @@ To create a Kafka Connect connector, follow these steps:
 
    - Manually create topics using the naming pattern: `database.server.name.schema_name.table_name`.
    - Enable the `Kafka topic auto-creation` feature.
-     See [Enable automatic topic creation with Aiven CLI](/docs/products/kafka/howto/create-topics-automatically#enable-automatic-topic-creation-with-aiven-cli).
+     See [Enable automatic topic creation with Aiven CLI](/docs/products/kafka/howto/create-topics-automatically).
 
    :::
 

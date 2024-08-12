@@ -1,10 +1,8 @@
 ---
-title: "Sample dataset: recipes"
+title: Sample dataset
 ---
 
-Databases are more fun with data, so to get you started on your
-OpenSearch® journey we picked this open data set of recipes as a great
-example you can try out yourself.
+Databases are more fun with data, so to get you started on your OpenSearch® journey we picked this open data set of recipes as a great example you can try out yourself.
 
 ## Epicurious recipes
 

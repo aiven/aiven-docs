@@ -2,9 +2,7 @@
 title: Use Apache Kafka® Streams with Aiven for Apache Kafka®
 ---
 
-[Apache Kafka® streams](https://kafka.apache.org/documentation/streams/)
-and streams API allows streaming data through the heart of Apache Kafka:
-the brokers.
+[Apache Kafka® streams](https://kafka.apache.org/documentation/streams/) and streams API allows streaming data through the heart of Apache Kafka: the brokers.
 
 As the data, a key-value structure, enters the brokers, it is serialized
 by the streams API to a byte array. The opposite happens when data exits
@@ -33,7 +31,7 @@ format. If you plan to use JSON format, enabling Schema Registry
 :::
 
 Two topics named `song-feed` and `play-events` should be created.
-Furthermore, for the example, you need to collect the following
+For the example, collect the following
 information about the Aiven for Apache Kafka service:
 
 -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
@@ -68,7 +66,7 @@ work with Aiven for Apache Kafka.
     git clone https://github.com/confluentinc/kafka-streams-examples.git
     ```
 
-2.  Build the packages using Maven
+1.  Build the packages using Maven
 
     ```shell
     cd kafka-streams-examples/
@@ -85,7 +83,7 @@ example we assume:
 -   The truststore is available at
     `TRUSTSTORE_PATH/client.truststore.jks`
 -   For simplicity, the same secret (password) is used for both the
-    keystore and the truststore, and is shown here as `KEY_TRUST_SECRET`
+    keystore and the truststore, and is shown as `KEY_TRUST_SECRET`
 
 ### Customizing the Java applications
 
@@ -104,8 +102,6 @@ to customise the files to use the right endpoints.
 
 ### Customize `KafkaMusicExampleDriver.java` {#modify-kafkamusicexampledriverjava}
 
-Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
-
 1.  Add the following dependencies
 
     ```java
@@ -114,7 +110,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     import java.util.HashMap;
     ```
 
-2.  After the `KafkaMusicExampleDriver` class declaration add the
+1.  After the `KafkaMusicExampleDriver` class declaration add the
     following two lines to set the `DEFAULT_BOOTSTRAP_SERVERS` and
     `DEFAULT_SCHEMA_REGISTRY_URL` endpoints replacing the
     `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`, `APACHE_KAFKA_HOST`,
@@ -125,7 +121,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     private static final String DEFAULT_SCHEMA_REGISTRY_URL = "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT";
     ```
 
-3.  Within the `main` function, replace the `bootstrapServers` and
+1.  Within the `main` function, replace the `bootstrapServers` and
     `schemaRegistryUrl` default values
 
     ```java
@@ -133,7 +129,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     final String schemaRegistryUrl = args.length > 2 ? args[2] : DEFAULT_SCHEMA_REGISTRY_URL;
     ```
 
-4.  Within the `main` function, after the line
+1.  Within the `main` function, after the line
 
     ```java
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -154,7 +150,7 @@ Starting with the `KafkaMusicExampleDriver.java` follow the steps below:
     props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "KEY_TRUST_SECRET");
     ```
 
-5.  Within the `main` function, replace the line
+1.  Within the `main` function, replace the line
 
     ```java
     final Map<String, String> serdeConfig = Collections.singletonMap(
@@ -187,7 +183,7 @@ parameters fetched in the
     import org.apache.kafka.common.config.SslConfigs;
     ```
 
-2.  Change the `DEFAULT_BOOTSTRAP_SERVERS` and
+1.  Change the `DEFAULT_BOOTSTRAP_SERVERS` and
     `DEFAULT_SCHEMA_REGISTRY_URL` endpoints replacing the
     `APACHE_KAFKA_HOST`, `APACHE_KAFKA_PORT`, `APACHE_KAFKA_HOST`,
     `SCHEMA_REGISTRY_PORT` placeholders
@@ -197,7 +193,7 @@ parameters fetched in the
     private static final String DEFAULT_SCHEMA_REGISTRY_URL = "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT";
     ```
 
-3.  Replace the `bootstrapServers` and `schemaRegistryUrl` default
+1.  Replace the `bootstrapServers` and `schemaRegistryUrl` default
     values
 
     ```java
@@ -205,7 +201,7 @@ parameters fetched in the
     final String schemaRegistryUrl = args.length > 2 ? args[2] : DEFAULT_SCHEMA_REGISTRY_URL;
     ```
 
-4.  Within the `main` function, replace the line
+1.  Within the `main` function, replace the line
 
     ```java
     final KafkaStreams streams = new KafkaStreams(
@@ -231,7 +227,7 @@ parameters fetched in the
        );
     ```
 
-5.  Within the `streamsConfig` static function, after the line
+1.  Within the `streamsConfig` static function, after the line
 
     ```java
     streamsConfiguration.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -269,7 +265,7 @@ using the `7.00` release the file name would be
 
 ### Run the applications
 
-To run the applications in parallel you need to have two terminal
+To run the applications in parallel, have two terminal
 sessions pointing at the main `kafka-streams-examples` folder.
 
 From the first terminal session you can start the

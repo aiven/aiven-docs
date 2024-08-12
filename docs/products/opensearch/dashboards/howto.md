@@ -1,5 +1,5 @@
 ---
-title: HowTo
+title: How to
 ---
 
 Here are some step-by-step guides for common tasks working with Aiven

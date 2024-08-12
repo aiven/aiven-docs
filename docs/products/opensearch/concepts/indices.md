@@ -2,8 +2,7 @@
 title: Indices
 ---
 
-OpenSearch® uses indices to organize data into types, similarly to
-databases and tables in relational databases.
+OpenSearch® uses indices to organize data into types, similarly to databases and tables in relational databases.
 
 The data is distributed within your cluster by mapping each index to a
 primary shard, which is copied to one or more replica shards to protect
@@ -21,15 +20,15 @@ good to consider your strategy for creating new indices.
 
 Consider creating a new index for each customer, project, or entity if
 you have a limited number of entities (tens, not hundreds or thousands).
-It is also important that you can easily and efficiently delete all the
+It is also important that you can delete all the
 data related to a single entity.
-
+<!-- vale off -->
 For example, storing logs or other events to date-specific indices
 (`logs_2018-07-20`, `logs_2018-07-21`, etc.) adds value as long as old
 indices are cleaned up. If you have low-volume logging and you want to
 keep indices for longer times (years rather than weeks), consider using
 weekly or monthly indices instead.
-
+<!-- vale on -->
 Avoid creating a new index for each customer, project, or entity if:
 
 -   you have a very large number (thousands) of entities, or
@@ -57,9 +56,9 @@ per shard:
     to avoid splitting the index for a long time.
 -   If you have hundreds of gigabytes of data, divide the amount of data
     in gigabytes by ten to estimate the number of shards. For example,
-    use 25 shards for a 250GB index.
+    use 25 shards for a 250 GB index.
 -   If you have terabytes of data, increase the shard size further. For
-    example, for a 1TB index, 50 shards would be a good starting point.
+    example, for a 1 TB index, 50 shards would be a good starting point.
 
 These are only rough suggestions; the optimal values depend heavily on
 how you use your data and the growth forecast for your OpenSearch data.
@@ -75,12 +74,11 @@ the underlying OS and caching in-memory data structures. 20 shards, or
 fewer, per GB of heap memory, should be set as per [shard count
 recommendation](https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html#shard-count-recommendation).
 
-As an example, an OpenSearch business-8 cluster comes with 8GB RAM. 20 x
-(8 x .5) = 80, or less, would be the recommended configuration for the
+As an example, an OpenSearch business-8 cluster comes with 8 GB RAM. $20 \times (8 \times .5) = 80$, or less, would be the recommended configuration for the
 number of shards.
 
 The size of the shard impacts the recovery time after a failure. Shard
-sizes between 10GB to 50GB should be set as per [shard size
+sizes between 10 to 50 GB should be set as per [shard size
 recommendation](https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html#shard-size-recommendation).
 
 Aiven for OpenSearch takes a snapshot once every hour. With shards
@@ -91,7 +89,7 @@ managing backups.
 
 ## OpenSearch plan calculator
 
-To help calculate a good shard configuration to use, we\'ve shared our
+To help calculate a good shard configuration to use, we've shared our
 plan calculator. This OpenSearch plan calculator can be used online or
 downloaded:
 
@@ -129,12 +127,12 @@ Aiven for OpenSearch services gives you the option to create
 [glob-style](https://en.wikipedia.org/wiki/Glob_(programming)) patterns
 and set a unique maximum for each pattern.
 
-Here are some examples of the patterns that you can use:
-
+:::note[Pattern examples]
 -   `logs`: matches `logs` but not `logsfoo` or `foologs`
 -   `logs*`: matches `logsfoo` and `logs_foo_bar` but not `foologs`
 -   `*_logs_*`: matches `foo_logs_bar` but not `foologsbar`
 -   `logs.?`: matches `logs.1` but not `logs.11`
+:::
 
 You can also use `*` as a catch-all pattern that matches all indices.
 However, this iterates through all your patterns, so you should consider
@@ -154,7 +152,7 @@ this in mind, and be careful when setting a catch-all pattern.
 
 Additionally, setting the maximum to 0 means that your pattern has no
 effect. The system ignores the maximum setting and does not delete
-anything. You can use this if you want to disable the pattern
+anything. You can use this to disable the pattern
 temporarily.
 
 If you use log integration with integration-specific retention times,

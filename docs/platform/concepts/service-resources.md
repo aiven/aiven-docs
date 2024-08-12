@@ -13,10 +13,11 @@ than we advertise for our plans.
 The reason is that our plans are defined in a way that allows us to
 offer the same plans in all clouds, making it possible to migrate
 workloads between the different clouds providers.
-
+<!-- vale off -->
 Resources available in each of the clouds vary, especially on the
 smaller virtual machine sizes. Therefore we have defined our plans with
 resources that we can provide for all clouds. Some plans may offer more
 resources than advertised, but we reserve the right to scale down the
 VMs used to implement the services in case the cloud providers introduce
 more suitable VM types.
+<!-- vale on -->

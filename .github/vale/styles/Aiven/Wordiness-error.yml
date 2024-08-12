@@ -1,12 +1,13 @@
 extends: substitution
-message: "Using '%s' instead of '%s'."
+message: "Use '%s' instead of '%s'."
 ignorecase: true
 level: error
 action:
   name: replace
 swap:
   (?:if )?you want to: to
-  (?:take |apply )?(?:the )?following steps: nothing
+  (?:run|execute) (?:this|that) ?(?:command|script)?: run
+  (?:take|apply|follow)? ?(?:the|those|these) ?(?:following)? ?(?:steps|instructions): nothing
   and then: and
   check it out: see
   check out: see

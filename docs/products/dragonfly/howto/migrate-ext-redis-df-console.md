@@ -156,4 +156,4 @@ with continuous synchronization of new writes from the source database.
 
 ## Related pages
 
-- [Aiven for Dragonfly overview](/docs/products/dragonfly/concepts/overview)
+- [Aiven for Dragonfly overview](/docs/products/dragonfly)

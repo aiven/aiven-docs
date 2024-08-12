@@ -27,13 +27,39 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Service settings</b>
         </>
       );
+    case 'organization':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.office} /> <b>Organization</b>
+        </>
+      );
+    case 'authenticationpolicy':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.lock} /> <b>Authentication</b>
+        </>
+      );
+    case 'idp':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.idNumber} />{' '}
+          <b>Identity providers</b>
+        </>
+      );
+    case 'domains':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.globeNetwork} /> <b>Domains</b>
+        </>
+      );
     case 'projects':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.projects} /> <b>Projects</b>
         </>
       );
-      case 'projectsettings':
+    case 'projectsettings':
+    case 'projectsettings':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cog} /> <b>Settings</b>
@@ -175,6 +201,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>View profile</b>
         </>
       );
+    case 'authenticationmethod':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>Authentication</b>
+        </>
+      );
     case 'groups':
       return (
         <>
@@ -286,6 +318,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit ACL rules </b>
         </>
       );
+    case 'edittopic':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit topic </b>
+        </>
+      );
     case 'duplicateuser':
       return (
         <>
@@ -303,13 +341,54 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
-          <b>Plus Circle</b>
+          <b>Add configuration options</b>
         </>
       );
     case 'plus':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plus} /> <b>Plus</b>
+        </>
+      );
+    case 'addadvancedconfiguration':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
+          <b>Add Advanced Configuration</b>
+        </>
+      );
+    case 'kafkaTopic':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />{' '}
+          <b>Kafka Topic</b>
+        </>
+      );
+    case 'tieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.tiered} />{' '}
+          <b>Tiered storage</b>
+        </>
+      );
+    case 'governance':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.governance} />
+          <b>Apache Kafka governance</b>
+        </>
+      );
+    case 'grouprequests':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} />{' '}
+          <b>Group requests</b>
+        </>
+      );
+    case 'approvals':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.award} /> <b>Approvals</b>
         </>
       );
     default:

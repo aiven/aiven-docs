@@ -2,40 +2,31 @@
 title: Connect to Apache Kafka® with Conduktor
 ---
 
-[Conduktor](https://www.conduktor.io/) is a friendly user interface for
-Apache Kafka, and it works well with Aiven. In fact, there is built-in
-support for setting up the connection. You will need to add the CA
-certificate for each of your Aiven projects to Conduktor before you can
-connect, this is outlined in the steps below.
+[Conduktor](https://www.conduktor.io/) is a friendly user interface for Apache Kafka and it works with Aiven and offers built-in support for setting up the connection.
 
 1.  Visit the **Service overview** page for your Aiven for Apache Kafka®
     service (the [Getting started with Aiven for Apache Kafka®](/docs/products/kafka/get-started) page is a good place for more information about creating
     a new service if you don't have one already).
 
-2.  Download the **Access Key**, **Access Certificate** and **CA
-    Certificate** (if you didn't have that already) into a directory on
-    your computer.
+1.  Download the **Access Key**, **Access Certificate** and **CA Certificate**.
 
-3.  Choose **New Kafka Cluster** on the main pane, and click the
-    **Aiven** icon. This pops up a helper screen so that you can add all
-    the information needed for Aiven in a friendly format. The fields
-    you need to add:
+1.  Choose **New Kafka Cluster** on the main pane, and click the
+    **Aiven** icon. Add the following fields:
 
-    -   Host and port, you can copy these from the **Service overview**
-        page
+    -   **Host** and **port**, you can copy these from the **Service overview**
+        page.
     -   The three files downloaded: access key, access certificate and
-        CA certificate
+        CA certificate.
 
     ![Screenshot of the cluster configuration screen](/images/content/products/kafka/conduktor-config.png)
 
     Conduktor will create the keystore and truststore files in the
     folder that you specified, or you can choose an alternative
-    location. Click the **Create** button and the helper will create the
+    location. Click **Create** and the helper will create the
     configuration for Conduktor to connect to your Aiven for Apache
     Kafka service.
 
-4.  Click the **Test Kafka Connectivity** button to check that
-    everything is working as expected.
+1.  Click **Test Kafka Connectivity**.
 
     :::tip
     If you experience a Java SSL error when testing the connectivity,

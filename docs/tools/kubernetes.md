@@ -2,9 +2,7 @@
 title: Aiven Operator for Kubernetes®
 ---
 
-Aiven Operator for Kubernetes® allows users to manage Aiven services
-through the Kubernetes® API by using [Custom Resource Definitions
-(CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+Aiven Operator for Kubernetes® allows users to manage Aiven services through the Kubernetes® API by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 
 :::note
 Only Aiven for PostgreSQL®, Aiven for Apache Kafka®, Aiven for
@@ -92,7 +90,7 @@ helm repo add aiven https://aiven.github.io/aiven-charts
 helm repo update
 ```
 
-Now let's install the CRD and then the operator itself:
+Now let's install the CRD and the operator itself:
 
 ```bash
 helm install aiven-operator-crds aiven/aiven-operator-crds
@@ -132,7 +130,7 @@ kubectl create secret generic aiven-token --from-literal=token="<your-token-here
 It's showtime! Let's create an Aiven for PostgreSQL service using the
 Custom Resource provided by the operator. Create a file named
 `pg-sample.yaml` with the content below, substituting the
-`<your-project-name>` with your Aiven project name. Take a look at the
+`<your-project-name>` with your Aiven project name. See the
 commented lines to understand better what each field represents.
 
 ```yaml

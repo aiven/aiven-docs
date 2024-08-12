@@ -10,7 +10,7 @@ Before creating applications, configure the
 [data service integration](/docs/products/flink/howto/create-integration) for seamless integration and data management within your
 Flink applications.
 
-## Create and deploy application
+## Create and deploy an SQL application
 
 Create an SQL application in Aiven for Apache Flink® using the [Aiven
 Console](https://console.aiven.io/):
@@ -19,7 +19,7 @@ Console](https://console.aiven.io/):
    for Apache Flink service where you want to create and deploy a Flink
    application.
 
-1. From the left sidebar, click **Applications** and then click
+1. From the left sidebar, click **Applications** and click
    **Create application**.
 
 1. In the **Create application** dialog, enter the name of your

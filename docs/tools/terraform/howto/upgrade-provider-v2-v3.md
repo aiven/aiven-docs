@@ -1,9 +1,9 @@
 ---
 title: Upgrade Aiven Provider for Terraform from v2 to v3
+sidebar_label: Upgrade from v2 to v3
 ---
 
-This article will walk you through upgrading the Aiven Terraform
-Provider from v2 to v3.
+Learn how to upgrade Aiven Terraform Provider v2 to v3.
 
 ## Major changes in v3
 
@@ -17,7 +17,7 @@ but the main additions in v3 are:
     resources
 -   Generic `aiven_database` replaced with service specific resources
 
-## Upgrade Aiven Terraform provider
+## Upgrade Aiven Terraform Provider to v3
 
 Update the Aiven Terraform Provider by editing the providers block of
 your script to include the latest version of the Aiven Terraform

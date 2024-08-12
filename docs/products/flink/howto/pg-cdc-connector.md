@@ -132,7 +132,7 @@ Console](https://console.aiven.io/):
     connecting user must have enough privileges to create it.
     :::
 
-7.  Select **Next** to add the sink table, and then select **Add your
+7.  Select **Next** to add the sink table, and select **Add your
     first sink table**. Select *Aiven for Apache Kafka®* as the
     integrated service from the drop-down list.
 

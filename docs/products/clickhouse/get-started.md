@@ -1,11 +1,13 @@
 ---
 title: Get started with Aiven for ClickHouse®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import CreateService from "@site/static/includes/create-service-console.md"
 
 Start using Aiven for ClickHouse® by creating and configuring a service, connecting to it, and loading sample data.
 
@@ -19,12 +21,13 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
 - [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/helm.html)
 - [Docker](https://docs.docker.com/desktop/)
 
-## Create a service
+## Create an Aiven for ClickHouse® service
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
-[Create an Aiven for ClickHouse® service](/docs/platform/howto/create_new_service) in the
-[Aiven Console](https://console.aiven.io).
+
+<CreateService serviceType="ClickHouse®"/>
+
 </TabItem>
 <TabItem value="2" label="Terraform">
 
@@ -779,6 +782,7 @@ Once the data is loaded, you can run queries against the sample data you importe
 
 ## Next steps
 
+- [Service architecture](/docs/products/clickhouse/concepts/service-architecture)
 - [Secure an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/secure-service)
 - [Manage Aiven for ClickHouse® users and roles](/docs/products/clickhouse/howto/manage-users-roles)
 - [Manage Aiven for ClickHouse® database and tables](/docs/products/clickhouse/howto/manage-databases-tables)

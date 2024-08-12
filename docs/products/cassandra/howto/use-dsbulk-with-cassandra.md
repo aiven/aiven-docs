@@ -45,10 +45,9 @@ truststore.
     `cassandra-certificate.pem` in a directory on the Linux system where
     `dsbulk` runs.
 
-2.  Run this command line to create a truststore file and import the
-    certificate in it:
+1.  Create a truststore file and import the certificate in it:
 
-    ```
+    ```bash
     keytool -import -v                \
       -trustcacerts                   \
       -alias CARoot                   \
@@ -64,7 +63,7 @@ truststore.
     is in the same directory where you run `keytool`. If that is not the
     case, provide a full path to `cassandra-certificate.pem`.
 
-3.  The next step is to create a configuration file with the connection
+1.  The next step is to create a configuration file with the connection
     information.
 
     By creating a configuration file, the `dsbulk` command line is more
@@ -72,10 +71,10 @@ truststore.
     create a configuration file, every option must be explicitly
     provided on the command line.
 
-4.  Create a file that contains the connection configuration like the
+1.  Create a file that contains the connection configuration like the
     following:
 
-    ```
+    ```hcl
     datastax-java-driver {
       advanced {
         ssl-engine-factory {
@@ -113,7 +112,7 @@ Once the configuration file is created, you can run the `dsbulk`.
 1.  Go to the `bin` subdirectory of the downloaded `dsbulk`
     package.
 
-2.  Run the following command:
+1.  Run the following command:
 
     ```
     ./dsbulk count                      \
@@ -141,7 +140,7 @@ Once the configuration file is created, you can run the `dsbulk`.
 
 To extract the data from a table, you can use the following command:
 
-```
+```bash
 ./dsbulk unload        \
  -f /full/path/to/conf.file       \
  -k baselines          \
@@ -159,7 +158,7 @@ format to the directory specified in the `-url` parameter.
 To load data into a Cassandra table, the command line is very similar to
 the previous command:
 
-```
+```bash
 ./dsbulk load            \
  -f /full/path/to/conf.file         \
  -k baselines            \

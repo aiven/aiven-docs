@@ -1,14 +1,9 @@
 ---
 title: Aiven for Apache Flink® architecture
+sidebar_label: Service architecture
 ---
 
-Aiven for Apache Flink® is a fully managed service that leverages the
-power of the open-source Apache Flink framework to provide distributed,
-stateful stream processing capabilities, allowing users to perform
-real-time computation with SQL efficiently.
-
-At a high level, it has a runtime architecture consisting of two types
-of processes: a **JobManager** and one or more **TaskManager**.
+At a high level, Flink has a runtime architecture consisting of two types of processes: a **JobManager** and one or more **TaskManager**.
 
 ## JobManager
 
@@ -16,10 +11,10 @@ The JobManager is the central coordination point of Flink and is
 responsible for managing the execution of Flink jobs. It is responsible
 for scheduling tasks, managing task execution, and coordinating the
 overall execution of the Flink application. In other words, Flink
-provides an exactly-once processing guarantee, only if JobManager is
+provides an exactly once processing guarantee, only if JobManager is
 always up and running.
 
-Some of the responsibilities of the JobManager include:
+Some responsibilities of the JobManager include:
 
 -   **Scheduling tasks:** The JobManager decides when to schedule the
     next task (or set of tasks) for execution based on the availability

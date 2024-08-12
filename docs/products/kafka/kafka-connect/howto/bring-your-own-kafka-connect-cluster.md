@@ -5,15 +5,12 @@ title: Bring your own Apache Kafka® Connect cluster
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/kafka/my-connect-distributed.properties';
 
-Aiven provides Apache Kafka® Connect as a managed service in combination
-with the Aiven for Apache Kafka® managed service. However, there are
-circumstances where you may want to roll your own Kafka Connect cluster.
+Aiven provides Apache Kafka® Connect as a managed service in combination with the Aiven for Apache Kafka® managed service. However, there are circumstances where you may want to roll your own Kafka Connect cluster.
 
-The following article defines the necessary steps to integrate your own
-Apache Kafka Connect cluster with Aiven for Apache Kafka and use the
+Integrate your own Apache Kafka Connect cluster with Aiven for Apache Kafka and use the
 schema registry offered by
 [Karapace](https://docs.aiven.io/docs/products/kafka/karapace). The
-example shows how to create a JDBC sink connector to a PostgreSQL®
+example below shows how to create a JDBC sink connector to a PostgreSQL®
 database.
 
 ## Prerequisites {#bring_your_own_kafka_connect_prereq}
@@ -21,7 +18,7 @@ database.
 To bring your own Apache Kafka Connector, you need an Aiven for Apache
 Kafka service up and running.
 
-Furthermore, for the JDBC sink connector database example, you need to
+For the JDBC sink connector database example,
 collect the following information about the Aiven for Apache Kafka
 service and the target database upfront:
 
@@ -59,7 +56,7 @@ The following example demonstrates how to setup a local Apache Kafka
 Connect cluster with a working JDBC sink connector and attach it to an
 Aiven for Apache Kafka service.
 
-### Setup the truststore and keystore {#setup_trustore_keystore_bring_your_own_connect}
+### Set up the truststore and keystore {#setup_trustore_keystore_bring_your_own_connect}
 
 Create a
 [Java keystore and truststore](/docs/products/kafka/howto/keystore-truststore) for the Aiven for Apache Kafka service. For the following
@@ -69,18 +66,18 @@ example we assume:
 -   The truststore is available at
     `TRUSTSTORE_PATH/client.truststore.jks`
 -   For simplicity, the same secret (password) is used for both the
-    keystore and the truststore, and is shown here as `KEY_TRUST_SECRET`
+    keystore and the truststore, and is shown as `KEY_TRUST_SECRET`
 
 ### Configure the Aiven for Apache Kafka service
 
-You need to enable the schema registry features offered by
+Enable the schema registry features offered by
 [Karapace](https://docs.aiven.io/docs/products/kafka/karapace). You can
 do it in the [Aiven Console](https://console.aiven.io/) in the Aiven for
 Apache Kafka service Overview tab.
 
 1.  Enable the **Schema Registry (Karapace)** and **Apache Kafka REST
     API (Karapace)**
-2.  In the **Topic** tab, create a topic called `jdbc_sink`, the
+1.  In the **Topic** tab, create a topic called `jdbc_sink`, the
     topic will be used by the Apache Kafka Connect connector
 
 ### Download the required binaries
@@ -95,12 +92,11 @@ cluster locally:
     Converter](https://www.confluent.io/hub/confluentinc/kafka-connect-avro-converter).
     The examples below show how to do this.
 
-### Setup the local Apache Kafka Connect cluster
+### Set up the local Apache Kafka Connect cluster
 
-The following process defines the setup required to create a local
-Apache Kafka Connect cluster. The example shows the steps needed with
-the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
-`6.7.0` versions:
+The following process defines the setup required to create a local Apache Kafka
+Connect cluster with Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC
+connector `6.7.0`:
 
 1.  Extract the Apache Kafka binaries
 
@@ -108,7 +104,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
     tar -xzf kafka_2.13-3.1.0.tgz
     ```
 
-2.  Within the newly created `kafka_2.13-3.1.0` folder, create a
+1.  Within the newly created `kafka_2.13-3.1.0` folder, create a
     `plugins` folder containing a `lib` sub-folder
 
     ```shell
@@ -116,7 +112,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
     mkdir -p plugins/lib
     ```
 
-3.  Unzip the JDBC and Avro binaries and copy the `jar` files in the
+1.  Unzip the JDBC and Avro binaries and copy the `jar` files in the
     `plugins/lib` folder
 
     ```shell
@@ -129,7 +125,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
     cp confluentinc-kafka-connect-avro-converter-7.1.0/*.jar plugins/lib/
     ```
 
-4.  Create a properties file, `my-connect-distributed.properties`, under
+1.  Create a properties file, `my-connect-distributed.properties`, under
     the main `kafka_2.13-3.1.0` folder, for the Apache Kafka Connect
     settings. Change the following placeholders:
 
@@ -147,7 +143,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
 
     <CodeBlock language='properties'>{MyComponentSource1}</CodeBlock>
 
-5.  Start the local Apache Kafka Connect cluster, executing the
+1.  Start the local Apache Kafka Connect cluster, executing the
     following from the `kafka_2.13-3.1.0` folder:
 
     ```shell
@@ -156,8 +152,7 @@ the Apache Kafka `3.1.0`, Avro converter `7.1.0` and JDBC connector
 
 ### Add the JDBC sink connector
 
-The following steps define how you can add a JDBC connector to the local
-Apache Kafka Connect cluster:
+To add a JDBC connector to the local Apache Kafka Connect cluster:
 
 1.  Create the JDBC sink connector JSON configuration file named
     `jdbc-sink-pg.json` with the following content, replacing the
@@ -182,7 +177,7 @@ Apache Kafka Connect cluster:
     }
     ```
 
-2.  Create the JDBC sink connector instance using Kafka Connect REST
+1.  Create the JDBC sink connector instance using Kafka Connect REST
     APIs
 
     ```shell
@@ -191,7 +186,7 @@ Apache Kafka Connect cluster:
        http://localhost:8083/connectors/
     ```
 
-3.  Check the status of the JDBC sink connector instance, `jq` is used
+1.  Check the status of the JDBC sink connector instance, `jq` is used
     to beautify the output
 
     ```shell
@@ -229,9 +224,9 @@ host a custom connector.
 
 To verify that the connector is working, you can write messages to the
 `jdbc_sink` topic in Avro format using [Karapace REST
-APIs](https://github.com/aiven/karapace), by following the steps below:
+APIs](https://github.com/aiven/karapace):
 
-1.  Create a new **Avro schema** using the `/subjects/` endpoint, after
+1.  Create a **Avro schema** using the `/subjects/` endpoint, after
     changing the placeholders for `REST_API_USER`, `REST_API_PASSWORD`,
     `APACHE_KAFKA_HOST`, `REST_API_PORT`
 
@@ -247,7 +242,7 @@ APIs](https://github.com/aiven/karapace), by following the steps below:
     The above call creates a new schema called `jdbcsinkexample` with a
     schema containing two fields (`name` and `age`).
 
-2.  Create a new **message** in the `jdbc_sink` topic using the
+1.  Create a **message** in the `jdbc_sink` topic using the
     `jdbcsinkexample` schema, after changing the placeholders for
     `REST_API_USER`, `REST_API_PASSWORD`, `APACHE_KAFKA_HOST`,
     `REST_API_PORT`
@@ -261,5 +256,5 @@ APIs](https://github.com/aiven/karapace), by following the steps below:
        https://REST_API_USER:REST_API_PASSWORD@APACHE_KAFKA_HOST:REST_API_PORT/topics/jdbc_sink
     ```
 
-3.  Verify the presence of a table called `jdbc_sink` in PostgreSQL
+1.  Verify the presence of a table called `jdbc_sink` in PostgreSQL
     containing the row with name `Eric` and age `77`

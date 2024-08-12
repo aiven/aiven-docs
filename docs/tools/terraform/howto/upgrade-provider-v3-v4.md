@@ -1,11 +1,11 @@
 ---
 title: Upgrade Aiven Provider for Terraform from v3 to v4
+sidebar_label: Upgrade from v3 to v4
 ---
 
-The Aiven Terraform Provider version 4.0.0 was released in February
-2023. If you previously upgraded the Terraform provider from version 2
-to version 3, then no other actions are needed. Otherwise, this article
-has information on how to upgrade to version 4.
+Learn how to upgrade Aiven Terraform Provider v3 to v4.
+
+The Aiven Terraform Provider version 4.0.0 was released in February 2023.
 
 ## Major changes in v4
 
@@ -24,7 +24,7 @@ These deprecated resources have also been removed:
 -   `aiven_flink_table`
 -   `aiven_flink_job`
 
-## Upgrade Aiven Terraform provider
+## Upgrade Aiven Terraform Provider to v4
 
 You update the Aiven Terraform Provider by editing the providers block
 of your script. If the version was already set to `>= 3.0.0` then the

@@ -1,15 +1,15 @@
 ---
 title: Aiven for Apache Flink® service plans
+sidebar_label: Service plans
 ---
 
-Aiven for Apache Flink® is available in a few variants (plans or tiers),
-each offering a different set of features. Explore the Aiven for Apache
-Flink service plans and find out what they cover to identify the one
-that best suits your needs.
+Aiven for Apache Flink® is available in a few variants (plans or tiers), each offering a different set of features.
+Explore the Aiven for Apache Flink service plans and find out what they cover to identify
+the one that best suits your needs.
 
 To view and compare the different plans, and learn about their pricing
-details, take a look at the [plans and
-pricing](https://aiven.io/pricing?product=flink&tab=plan-pricing) page.
+details, see [plans and
+pricing](https://aiven.io/pricing?product=flink&tab=plan-pricing).
 
 ## Service plans
 
@@ -33,11 +33,10 @@ Pricing](https://aiven.io/pricing?tab=plan-pricing&product=flink).
 Aiven for Apache Flink plans are optimized for working well in the
 various clouds supported by Aiven. The plans also enable migration
 between the clouds. Should any available plans not be an ideal fit for
-your workload, we\'re happy to tailor a custom plan for you to better
+your workload, we can tailor a custom plan for you to better
 suit your needs.
 
-Learn how to [request a custom
-plan](https://docs.aiven.io/docs/platform/howto/custom-plans.html).
+[Request a custom plan](https://docs.aiven.io/docs/platform/howto/custom-plans.html).
 
 ## Billing
 

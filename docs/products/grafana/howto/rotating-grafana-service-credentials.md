@@ -22,7 +22,7 @@ the [Aiven CLI tool](https://docs.aiven.io/docs/tools/cli.html).
 
 4.  Change the password and make a note of it somewhere safe.
 
-5.  Login with `avn` and then run the following command to update the
+5.  Login with `avn` and run the following command to update the
     stored password in the console:
 
     ```

@@ -98,7 +98,11 @@
 }
 
 .markdown h1:first-child {
-  --ifm-h1-font-size: 2.5em !important;
+  --ifm-h1-font-size: 2.1em;
+}
+
+.markdown>h2 {
+  --ifm-h2-font-size: 1.7rem;
 }
 
 .theme-doc-sidebar-container {
@@ -123,10 +127,6 @@ nav .menu__link {
 .footer__bottom {
   font-size: 80%;
   margin-top: 3em;
-}
-
-.markdown h1:first-child {
-  --ifm-h1-font-size: 2.8rem;
 }
 
 .navbar__brand {
@@ -202,9 +202,25 @@ ul+div {
   border-bottom: 1px solid var(--aiven-grey-60);
 }
 
-.constraints {
-  display: inline-block;
+/* Advanced parameter template */
+.service-param .name strong {
+  margin-right: 0.5em;
+}
+
+.service-param .param {
+  display: flex;
+}
+
+.service-param .constraints ul {
+  list-style: none;
   font-size: 90%;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.service-param .constraints ul li {
+  display: inline;
+  padding-right: 0.6em;
 }
 
 /* Sidebar section titles */
@@ -233,4 +249,8 @@ ul+div {
 a.card {
   color: var(--ifm-color-content);
   text-decoration: none;
+}
+
+a.card>h2 {
+  font-size: 115%;
 }

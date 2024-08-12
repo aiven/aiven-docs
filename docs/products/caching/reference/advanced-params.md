@@ -1,9 +1,9 @@
 ---
 title: Advanced parameters for Aiven for Caching
+sidebar_label: Advanced parameters
 ---
 
-Find a summary of every configuration option available for
-Aiven for Caching service:
+See the configuration options available for Aiven for Caching:
 
 import Reference from '@site/static/includes/config-caching.md';
 

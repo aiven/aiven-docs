@@ -1,11 +1,9 @@
 ---
 title: Key considerations and system adaptation for OpenSearch® Security management
+sidebar_label: Security management
 ---
 
-Before enabling OpenSearch Security management for Aiven for OpenSearch
-service, it is crucial to be aware of its impact on your current system
-and adapt your infrastructure accordingly. This document highlights
-essential aspects to consider before enabling it.
+Before enabling OpenSearch Security management for Aiven for OpenSearch service, understand its impact on your current system and adapt your infrastructure accordingly.
 
 ## Test OpenSearch® Security management
 
@@ -13,7 +11,7 @@ If you are an existing Aiven for OpenSearch user, testing OpenSearch
 Security management before applying it to your running services is
 advisable. To do this, you have two options:
 
-1.  [Create a new service](/docs/platform/howto/create_new_service) for testing purposes.
+1.  [Create a service](/docs/platform/howto/create_new_service) for testing purposes.
 2.  [Fork](/docs/platform/concepts/service-forking) one of your existing running services to create a test
     environment.
 

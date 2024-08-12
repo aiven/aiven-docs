@@ -1,10 +1,10 @@
 ---
 title: Aiven for Apache Flink® applications
+sidebar_label: Applications
 ---
 
-An Aiven for Apache Flink® Application is an abstraction layer that
-simplifies building data processing pipelines in Apache Flink. It
-supports two types of applications:
+An Aiven for Apache Flink® Application is an abstraction layer that simplifies building data processing pipelines in Apache Flink.
+It supports two types of applications:
 
 -   **SQL applications:** Built on top of Apache Flink SQL, these
     applications include elements like source and sink table
@@ -90,7 +90,7 @@ encounter:
     current version.
 -   **RESTARTING**: Your application is being restarted.
 -   **SAVING_AND_STOP**: Your application is currently saving its
-    current state in a savepoint and then stopping.
+    current state in a savepoint and stopping.
 
 Other statuses and transient statuses include:
 
@@ -104,5 +104,5 @@ Other statuses and transient statuses include:
 -   **RESTARTING**: Your application is undergoing a restart process.
 -   **SAVING**: Your application is creating a savepoint.
 -   **SAVING_AND_STOP_REQUESTED**: A request has been made to save the
-    current state of your application in a savepoint and then stop it.
+    current state of your application in a savepoint and stop it.
 -   **SUSPENDED**: Your application has been suspended.

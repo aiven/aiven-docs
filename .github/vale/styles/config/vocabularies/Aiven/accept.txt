@@ -207,6 +207,7 @@ peering
 peerings
 Percona
 performant
+pg_dump
 pgAdmin
 PgBouncer
 PGHoard
@@ -307,6 +308,7 @@ UDFs
 unaggregated
 unassign
 uncomment
+uncompacted
 unencrypted
 unfollow
 United States

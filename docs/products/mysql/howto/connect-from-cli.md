@@ -17,7 +17,6 @@ These are the placeholders to replace in the code sample:
 | ------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `SERVICE_URI` | URL for the MySQL connection, from [Aiven Console](https://console.aiven.io/) > the **Overview** page of your service |
 
-
 ### Prerequisites
 
 For this example you need the `mysqlsh` client installed. You can
@@ -26,17 +25,17 @@ documentation](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.
 
 ### Code
 
-Execute the following from a terminal window to connect to the MySQL
-database:
+From a terminal window to connect to the MySQL database, run:
 
-```
+```bash
 mysqlsh --sql SERVICE_URI
 ```
 
-You can execute this query to test:
+Test your setup with a query:
 
-```
+```text
 MySQL ssl defaultdb SQL> select 1 + 2 as three;
+
 +-------+
 | three |
 +-------+
@@ -73,7 +72,7 @@ the **Overview** page of your service.
 Once you have these parameters, execute the following from a terminal
 window to connect to the MySQL database:
 
-```
+```bash
 mysql --user avnadmin --password=USER_PASSWORD --host USER_HOST --port USER_PORT DB_NAME
 ```
 

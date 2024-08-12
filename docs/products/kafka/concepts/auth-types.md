@@ -2,9 +2,7 @@
 title: Authentication types
 ---
 
-It is strongly recommended to use modern encryption protocols to protect
-data in transit sent to and from Apache Kafka®. You can use one of the
-available options in **Aiven for Apache Kafka®** services.
+It is strongly recommended to use modern encryption protocols to protect data in transit sent to and from Apache Kafka®. You can use one of the available options in **Aiven for Apache Kafka®** services.
 
 ## Transport Layer Security
 
@@ -23,7 +21,7 @@ There are two ways you can use TLS:
 
 1.  **TLS encryption** : your Apache Kafka client validates the
     certificate for your Apache Kafka broker.
-2.  **TLS authentication** : your Apache Kafka client validates the
+1.  **TLS authentication** : your Apache Kafka client validates the
     certificate for your Apache Kafka broker and your broker validates
     the certificate for your client.
 
@@ -54,7 +52,7 @@ a valid TLS certificate.
 A brief explanation of this is that it creates a random \"salt\", which
 is then used to create an \"identity\" that holds:
 
--   The \"salt\"
+-   The "salt"
 -   The number of iterations to use (4096 by default)
 -   `StoredKey` (the hash of the client's key)
 -   `ServerKey`
@@ -63,8 +61,7 @@ This identity is then by default stored in Apache ZooKeeper™.
 
 ## Enable SASL authentication
 
-Follow the steps from our article
-[to enable SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
+See [Enable SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth).
 
 ------------------------------------------------------------------------
 

@@ -4,7 +4,6 @@ level: error
 ignorecase: true
 tokens:
   - click here
-  - follow the steps
   - this article
   - this guide
   - this help article

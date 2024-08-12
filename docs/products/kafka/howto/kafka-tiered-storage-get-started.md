@@ -1,41 +1,58 @@
 ---
-title: Get started with tiered storage for Aiven for Apache Kafka®
-early: true
----
-Aiven for Apache Kafka®'s tiered storage optimizes resources by keeping recent data, typically the most
-accessed, on faster local disks. As data becomes less active, it's transferred to more economical,
-slower storage, balancing performance with cost efficiency.
+title: Get started with tiered storage
 
-For an in-depth understanding of tiered storage, how it works, and its
-benefits, see
+---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+
+Aiven for Apache Kafka tiered storage optimizes resources by storing recent, frequently accessed data on faster local disks.
+As data becomes less active, it moves to more economical, slower storage, balancing
+performance with cost efficiency.
+
+For a detailed understanding of tiered storage, its workings, and benefits, see
 [Tiered storage in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-tiered-storage).
 
-## Enable tiered storage for service
+## Step 1: Enable tiered storage for service
 
-To use tiered storage, [enable](/docs/products/kafka/howto/enable-kafka-tiered-storage)
-it for your Aiven for Apache Kafka service. This foundational step ensures that the
-necessary infrastructure is in place.
+First, enable tiered storage for your Aiven for Apache Kafka service. This
+sets up the necessary infrastructure for using tiered storage.
+
+1. Log in to the [Aiven console](https://console.aiven.io/).
+1. Select your project and the Aiven for Apache Kafka service.
+1. Follow the instructions to [enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
 :::note
-Tiered storage for Aiven for Apache Kafka® is supported starting from
-Apache Kafka® version 3.6 and is not available for startup-2 plans.
+
+- If tiered storage is not enabled in your project, you cannot access it.
+  Contact [Aiven support](mailto:support@aiven.io).
+- Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
+  3.6 or later. It is recommended to upgrade to the latest default version and apply
+  [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
+  when using tiered storage for the latest fixes and improvements.
+- Tiered storage is not available on startup-2 plans.
+
 :::
 
-## Configure tiered storage per topic
 
-Once the tiered storage is enabled at the service level, you can
-configure it for individual topics. In the Aiven for Apache Kafka Topics
-page, topics using tiered storage will display **Active** in the
-**Tiered storage** column.
 
-For detailed instructions, see
-[Configuring tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+## Step 2: Configure tiered storage per topic
 
-## Tiered storage usage overview
+After enabling tiered storage at the service level, configure it for specific
+topics to have granular control over your data storage.
 
-Gain insights into tiered storage usage from the **Tiered Storage
-Overview** page in your Aiven for Apache Kafka service. This includes
-details on billing, settings, and specific storage aspects.
+- Follow the detailed instructions to [enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+- On the <ConsoleLabel name="topics" /> page, topics using tiered storage display
+  **Active** in the **Tiered storage** column.
 
-For more information, see
-[Tiered Storage Overview in Aiven Console](/docs/products/kafka/howto/tiered-storage-overview-page).
+## Step 3: Monitor tiered storage usage
+
+Monitor your tiered storage usage to ensure optimal performance and cost efficiency.
+
+- Access the <ConsoleLabel name="Tiered storage" /> overviwe page in your
+  Aiven for Apache Kafka service.
+- Review details on billing, settings, and specific storage aspects.
+
+## Related Pages
+
+- [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)
+- [Tiered storage usage overview in the Aiven Console](/docs/products/kafka/howto/tiered-storage-overview-page)

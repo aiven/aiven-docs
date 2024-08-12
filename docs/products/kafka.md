@@ -2,6 +2,8 @@
 title: Aiven for Apache Kafka®
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 Aiven for Apache Kafka® is a fully managed **distributed data streaming
 platform**, deployable in the cloud of your choice. Apache Kafka is an
 open source data streaming platform, ideal for event-driven
@@ -28,20 +30,11 @@ to interface between Apache Kafka and the rest of your data
 architecture. Connectors are available for many databases, storage
 platforms and other common integrations.
 
-### Get started with Aiven for Apache Kafka
-
-Take your first steps with Aiven for Apache Kafka by following our
-[Getting started with Aiven for Apache Kafka®](/docs/products/kafka/get-started)
-article, or browse through our full list of articles:
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />
-
-### Apache Kafka resources
+### Related page
 
 If you are new to Apache Kafka, try these resources to learn more:
 
+-   [Get started](/docs/products/kafka/get-started)
 -   The main Apache Kafka project page: [https://kafka.apache.org/](https://kafka.apache.org/)
 -   The Karapace schema registry that Aiven maintains and makes
     available for every Aiven for Apache Kafka service:

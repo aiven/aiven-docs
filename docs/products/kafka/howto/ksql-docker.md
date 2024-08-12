@@ -2,23 +2,22 @@
 title: Use ksqlDB with Aiven for Apache Kafka®
 ---
 
-Aiven provides a managed Apache Kafka® solution together with a number
-of auxiliary services like Apache Kafka Connect, Kafka REST and Schema
-Registry via [Karapace](https://github.com/aiven/karapace). A managed
+Aiven provides a managed Apache Kafka® solution together with a number of auxiliary services like Apache Kafka Connect, Kafka REST and Schema Registry via [Karapace](https://github.com/aiven/karapace).
+A managed
 [ksqlDB](https://ksqldb.io/) service in Aiven is, however, not
-supported. If you want to define streaming data pipelines with SQL, you
-have two options:
+supported. To define streaming data pipelines with SQL, you
+can:
 
 -   Use [Aiven for Apache
-    Flink®](https://docs.aiven.io/docs/products/flink.html)
+    Flink®](https://docs.aiven.io/docs/products/flink.html) or,
 -   Run a self-hosted ksqlDB cluster.
 
 ## Prerequisites
 
-To connect ksqlDB to Aiven for Apache Kafka® you need to create a
+To connect ksqlDB to Aiven for Apache Kafka®, create a
 [Java keystore and truststore containing the service SSL certificates](keystore-truststore).
 
-Furthermore, you need to collect the following information:
+Also collect the following information:
 
 -   `APACHE_KAFKA_HOST`: The Aiven for Apache Kafka hostname
 -   `APACHE_KAFKA_PORT`: The Aiven for Apache Kafka port
@@ -50,7 +49,7 @@ ksqlDB by default uses the `ssl.truststore` settings for the Schema
 Registry connection.
 
 To have ksqlDB working with Aiven's [Karapace](https://karapace.io/)
-Schema Registry you need to explicitly define a truststore that contains
+Schema Registry, explicitly define a truststore that contains
 the commonly trusted root CA of Schema Registry server. To create such a
 truststore:
 
@@ -66,7 +65,7 @@ truststore:
       > ca_schema_registry.cert
     ```
 
-2.  Create the truststore with the following `keytool` command by
+1.  Create the truststore with the following `keytool` command by
     replacing the `TRUSTSTORE_SCHEMA_REGISTRY_FILE_NAME` and
     `TRUSTSTORE_SCHEMA_REGISTRY_PASSWORD` placeholders:
 

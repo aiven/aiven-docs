@@ -2,43 +2,57 @@
 title: Connect to Aiven for Apache Kafka® with Go
 ---
 
-These examples show how to connect to an Aiven for Apache Kafka® service
-using two different Kafka libraries in Go:
-[Sarama](https://github.com/Shopify/sarama) and
-[Kafka-go](https://github.com/segmentio/kafka-go).
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+These examples show how to connect to an Aiven for Apache Kafka® service using two different Kafka libraries in Go: [Sarama](https://github.com/Shopify/sarama) and [Kafka-go](https://github.com/segmentio/kafka-go).
 
 :::note
+<!-- vale off -->
 The examples in this article provide two different options for
 authentication: SSL and SASL-SSL. For more information on these
 authentication methods read
 [our article on Kafka authentication types](../concepts/auth-types).
+<!-- vale on -->
 :::
 
 ## Prerequisites
 
-Go to the *Overview* page of your Aiven for Apache Kafka service.
+1. Go to the **Overview** page of your Aiven for Apache Kafka service.
 
--   If you are going to connect with SSL authentication:
-    -   In the *Connection information* section:
-        1.  If **Authentication Method** is shown, choose **Client
-            Certificate**
-        2.  Next to *Access Key*, click **Download** and save the
-            `service.key` file.
-        3.  Next to *Access Certificate*, click **Download** and save
-            the `service.cert` file.
-        4.  Next to *CA Certificate*, click **Download** and save the
-            `ca.pem` file.
--   If you are going to connect using SASL authentication:
-    1.  Follow the instructions at [Use SASL Authentication with Apache
-        Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
-        to enable SASL.
-    2.  In the *Connection Information* section
-        1.  Select **SASL** as the **Authentication Method**
-        2.  Next to *CA Certificate*, click **Download** and save the
-            `ca.pem` file
-        3.  Note the *Password* required for the SASL, we'll need it
-            for authentication
--   Created the keystore `client.keystore.p12` and truststore
+   <Tabs groupId="group1">
+   <TabItem value="SSL" label="SSL authentication" default>
+
+   In the **Connection information** section:
+
+   1.  If **Authentication Method** is shown, choose **Client
+       Certificate**
+   1.  Next to **Access Key**, click **Download** and save the
+       `service.key` file.
+   1.  Next to **Access Certificate**, click **Download** and save
+       the `service.cert` file.
+   1.  Next to **CA Certificate**, click **Download** and save the
+       `ca.pem` file.
+
+   </TabItem>
+   <TabItem value="SASL" label="SASL authentication">
+
+   In the **Connection information** section:
+
+   1.  See [Use SASL Authentication with Apache
+       Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
+       to enable SASL.
+   1.  In the **Connection Information** section
+       1.  Select **SASL** as the **Authentication Method**
+       1.  Next to **CA Certificate**, click **Download** and save the
+           `ca.pem` file
+       1.  Note the **Password** required for the SASL, we'll need it
+           for authentication
+
+   </TabItem>
+   </Tabs>
+
+1.  Created the keystore `client.keystore.p12` and truststore
     `client.truststore.jks` by following
     [our article on configuring Java SSL to access Kafka](/docs/products/kafka/howto/keystore-truststore)
 

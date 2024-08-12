@@ -62,7 +62,7 @@ aggregations in
 
 ### Structure and syntax
 
-To calculate an aggregation, create a request and then send it to the
+To calculate an aggregation, create a request and send it to the
 `search()` endpoint (the same we used for search queries).
 
 The request body should include an object with the key `aggs` (or you
@@ -422,7 +422,7 @@ Run it with:
 run-func aggregate sodiumRange
 ```
 
-And then check the results:
+and check the results:
 
 ```
 {

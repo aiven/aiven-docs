@@ -2,8 +2,8 @@
 title: Monitor Aiven services with M3DB
 ---
 
-M3DB is a perfect fit for a monitoring platform. It is designed to
-handle large volumes of metrics, and it's very good at that. Whether
+M3DB is a perfect fit for a monitoring platform. It is designed to handle large volumes of metrics, and it's very good at that.
+Whether
 you are already working at scale or just curious about M3DB and
 monitoring, setting up an M3DB to monitor your existing Aiven services
 (or new ones if you like) is a really nice way to get started with this
@@ -29,7 +29,7 @@ overview page.
 
         :::note
         If you are a member of multiple Aiven projects with *operator*
-        or *admin* access right, you need to choose the project first
+        or *admin* access right, choose the project first
         then your target M3DB services.
         :::
 

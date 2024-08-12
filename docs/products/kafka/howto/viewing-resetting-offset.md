@@ -2,16 +2,14 @@
 title: View and reset consumer group offsets
 ---
 
-The [open source Apache Kafka® code](https://kafka.apache.org/downloads)
-includes a `kafka-consumer-groups.sh` utility enabling you to view and
-manipulate the state of consumer groups.
+The [open source Apache Kafka® code](https://kafka.apache.org/downloads) includes a `kafka-consumer-groups.sh` utility enabling you to view and manipulate the state of consumer groups.
 
 :::note
-Before using the `kafka-consumer-groups.sh` you need to configure a
+Before using the `kafka-consumer-groups.sh`, configure a
 `consumer.properties` file pointing to a Java keystore and truststore
-which contain the required certificates for authentication. Check out
+which contain the required certificates for authentication. See
 how to do it in the
-[dedicated page](kafka-tools-config-file).
+[dedicated page](/docs/products/kafka/howto/kafka-tools-config-file).
 :::
 
 ## Managing consumer group offsets with `kafka-consumer-groups.sh`

@@ -1,15 +1,11 @@
 ---
 title: Aiven for Apache Flink® limitation
+sidebar_label: Limitations
 ---
 
-There are likely differences between Aiven for Apache Flink and an
-Apache Flink service you run yourself. This is because Aiven for Apache
-Flink is a fully managed service. Aiven takes care of the underlying
-infrastructure and configuration tasks required to run a stable and
-reliable Flink service.
+Because Aiven for Apache Flink is a fully managed service, there are differences between Aiven for Apache Flink and an Apache Flink service you run yourself.
 
-Some of the differences you might see between Aiven for Apache Flink and
-a self-managed Flink service include:
+Consider the following differences and limitations:
 
 -   **User-defined functions:** Aiven for Apache Flink does not
     currently support using user-defined functions (UDFs).

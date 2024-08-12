@@ -1,11 +1,16 @@
 ---
-title: Get started
+title: Get started with Aiven for Apache Kafka® Connect
+sidebar_label: Get started
+keywords: [quick start]
 ---
 
-Before creating an Aiven for Apache Kafka® Connect service, ensure that you have existing Aiven for Apache Kafka® services set up in your project.
+Get started with Aiven for Apache Kafka® Connect and integrate it with your Apache Kafka® service.
+
+## Prerequisites
+
+Ensure that you have at least one Aiven for Apache Kafka® service in your project.
 If your project does not have any Aiven for Apache Kafka
-services, you must create one by following the instructions in the
-[create new service guide](/docs/platform/howto/create_new_service).
+service, [create one](/docs/platform/howto/create_new_service).
 
 ## Create a dedicated Aiven for Apache Kafka® Connect service {#apache_kafka_connect_dedicated_cluster}
 

@@ -9,7 +9,7 @@ const isJune = currentMonth === 5;
 
 const config: Config = {
   title: 'Aiven docs',
-  tagline: 'The trusted open source data platform for everyone',
+  tagline: 'Your trusted data & AI platform',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
   baseUrl: process.env.BASEURL || '/docs/',
@@ -74,6 +74,7 @@ const config: Config = {
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
   ],
+  plugins: ['./src/plugins/svg-fix/index.ts'],
   themeConfig: {
     image: 'images/site-preview.png',
     navbar: {

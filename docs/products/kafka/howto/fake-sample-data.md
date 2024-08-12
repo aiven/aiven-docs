@@ -1,5 +1,6 @@
 ---
 title: Sample dataset generator for Aiven for Apache Kafka®
+sidebar_label: Sample data
 ---
 
 Learning to work with streaming data is much more fun with data, so to

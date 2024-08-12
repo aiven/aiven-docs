@@ -22,7 +22,7 @@ permissions via the OpenSearch Security dashboard.
 ## Create user without access control
 
 To create a service new user without any access control in Aiven
-Console, follow these steps:
+Console:
 
 1.  In the [Aiven Console](https://console.aiven.io), open the Aiven for
     OpenSearch service where you want to add a user.
@@ -42,7 +42,7 @@ tab and toggle the **Access Control** switch to enable it.
 
 ## Create user with access control
 
-To create a service new user with access control, follow these steps:
+To create a service new user with access control:
 
 1.  In your Aiven for OpenSearch service, select **Users** from the left
     sidebar.

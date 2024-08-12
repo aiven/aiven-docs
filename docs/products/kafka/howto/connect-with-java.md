@@ -20,21 +20,21 @@ Go to the **Overview** page of your Aiven for Apache Kafka service.
     -   In the *Connection information* section:
         1.  If **Authentication Method** is shown, choose **Client
             Certificate**
-        2.  Next to *Access Key*, click **Download** and save the
+        1.  Next to *Access Key*, click **Download** and save the
             `service.key` file.
-        3.  Next to *Access Certificate*, click **Download** and save
+        1.  Next to *Access Certificate*, click **Download** and save
             the `service.cert` file.
-        4.  Next to *CA Certificate*, click **Download** and save the
+        1.  Next to *CA Certificate*, click **Download** and save the
             `ca.pem` file.
--   If you are going to connect using SASL authentication:
-    1.  Follow the instructions at [Use SASL Authentication with Apache
+-   If you are connecting using SASL authentication:
+    1.  See [Use SASL Authentication with Apache
         Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
         to enable SASL.
-    2.  In the *Connection Information* section
+    1.  In the **Connection Information** section
         1.  Select **SASL** as the **Authentication Method**
-        2.  Next to *CA Certificate*, click **Download** and save the
+        1.  Next to *CA Certificate*, click **Download** and save the
             `ca.pem` file
-        3.  Note the *Password* required for the SASL, we'll need it
+        1.  Note the *Password* required for the SASL, we'll need it
             for authentication
 -   Created the keystore `client.keystore.p12` and truststore
     `client.truststore.jks` by following
@@ -47,8 +47,8 @@ truststore files, but in actual use, the full path should be used.
 
 ## Variables
 
- | Variable              | Description                                                                                       |
- | --------------------- | ------------------------------------------------------------------------------------------------- |
+ |       Variable        |                                            Description                                            |
+ |-----------------------|---------------------------------------------------------------------------------------------------|
  | `HOST`                | Host name for the connection                                                                      |
  | `USER_NAME`           | Name of the user for the connection                                                               |
  | `SSL_PORT`            | Port number to use for SSL                                                                        |

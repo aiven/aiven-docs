@@ -1,11 +1,10 @@
 ---
 title: Configure user provisioning for Okta
-limited: true
 ---
 
 You can automate user provisioning with Okta through System for Cross-domain Identity Management (SCIM). This means you can manage your users and their profiles in one place, Okta, and push those changes to the Aiven platform.
 
-Aiven’s integration with Okta supports these features:
+Aiven's integration with Okta supports these features:
 
 - **Push new users**: Users created in Okta are automatically created as managed users
   in Aiven.

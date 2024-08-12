@@ -1,8 +1,9 @@
 ---
-title: List of advanced parameters
+title: Advanced parameters for Apacheh Kafka® Connect
+sidebar_label: Advanced parameters
 ---
 
-See the configuration option available for
+See the configuration options available for
 Apache Kafka® Connect:
 
 import Reference from '@site/static/includes/config-kafka_connect.md';

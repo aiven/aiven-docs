@@ -2,29 +2,27 @@
 title: Integrate an external Apache Kafka® cluster in Aiven
 ---
 
-Aiven for Apache Kafka® MirrorMaker 2 enables the cross-cluster topic
-replication between any two Apache Kafka® clusters, which can be
-deployed as Aiven or external services. To enable
-[replication flows](setup-replication-flow) with an external Apache Kafka cluster you need to define a
-service integration endpoint.
+Aiven for Apache Kafka® MirrorMaker 2 enables the cross-cluster topic replication between any two Apache Kafka® clusters, which can be deployed as Aiven or external services.
+To enable
+[replication flows](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow)
+with an external Apache Kafka cluster, define a service integration endpoint.
 
 ## Define an external Apache Kafka® service integration endpoint via Aiven console
 
-You can define an external Apache Kafka® service integration endpoint
-using the Aiven console. Follow these steps:
+To define an external Apache Kafka® service integration endpoint using the Aiven console:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to
     the Aiven project where you wish to integrate the external Apache
     Kafka cluster.
-2.  Select **Integration endpoints** from the left sidebar, and then
+1.  Select **Integration endpoints** from the left sidebar, and
     **External Apache Kafka** from the list of available services.
-3.  Select **Add a new endpoint**.
-4.  Provide an **Endpoint name**, specify the **Bootstrap servers**,
+1.  Select **Add a new endpoint**.
+1.  Provide an **Endpoint name**, specify the **Bootstrap servers**,
     and configure the necessary security settings. Then, select
     **Create**.
-5.  Fill the **Endpoint name**, **Bootstrap servers** and the security
+1.  Fill the **Endpoint name**, **Bootstrap servers** and the security
     settings and click **Create**.
-6.  The external Apache Kafka cluster is now available under the alias
+1.  The external Apache Kafka cluster is now available under the alias
     defined in the **Endpoint name** parameter
 
 ## Permissions and configuration when using external integration

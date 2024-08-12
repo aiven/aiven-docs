@@ -1,11 +1,13 @@
 ---
 title: Get started with Aiven for PostgreSQL®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import CreateService from "@site/static/includes/create-service-console.md"
 
 Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
@@ -20,8 +22,9 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
-[Create an Aiven for PostgreSQL® service](/docs/platform/howto/create_new_service)  in the
-[Aiven Console](https://console.aiven.io).
+
+<CreateService serviceType="PostgreSQL®"/>
+
 </TabItem>
 <TabItem value="2" label="Terraform">
 

@@ -20,8 +20,6 @@ user Telegraf.
 2022-02-15T22:47:30.625696+0000 scoober-kafka-3c1132a3-86 user-telegraf: 2022-02-15T22:47:30Z W! [outputs.prometheus_client] Metric buffer overflow; 1197 metrics have been dropped
 ```
 
-You can address this problem by following the steps below.
-
 ## Configure the maximum metric limit
 
 You can set the maximum metric limit for services in the Datadog

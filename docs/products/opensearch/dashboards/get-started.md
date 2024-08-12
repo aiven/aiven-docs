@@ -1,19 +1,14 @@
 ---
-title: Get started
+title: Get started with Aiven for OpenSearch® Dashboards
+sidebar_label: Get started
+keywords: [quick start]
 ---
 
-To start using **Aiven for OpenSearch® Dashboards**,
-[create Aiven for OpenSearch® service first](/docs/products/opensearch/get-started) and OpenSearch Dashboards service will be added alongside
-it. Once the Aiven for OpenSearch service is running you can find
-connection information to your OpenSearch Dashboards in the service
-overview page and use your favourite browser to access OpenSearch
-Dashboards service.
+To start using **Aiven for OpenSearch® Dashboards**, [create Aiven for OpenSearch® service first](/docs/products/opensearch/get-started) and OpenSearch Dashboards service will be added alongside it.
 
-:::note
-Starting with Aiven for OpenSearch® versions 1.3.13 and 2.10, OpenSearch
-Dashboards will remain available during a maintenance update that also
-consists of version updates to your Aiven for OpenSearch service.
-:::
+Once the Aiven for OpenSearch service is running, the
+connection information to your OpenSearch Dashboards is displayed in the service
+overview page. Use your browser to access the OpenSearch Dashboards service.
 
 ## Load sample data
 
@@ -28,8 +23,7 @@ To add sample data follow these steps:
 ## Tools and pages
 
 OpenSearch Dashboards have many tools and features for working with data
-and running queries. Here are a few ideas to get you started in each of
-the different sections.
+and running queries.
 
 ### Discover
 
@@ -51,9 +45,9 @@ the currently selected date range when running a query.
 ### Visualize
 
 **Visualize** page is an interface to create and manage your
-visualisations. In order to create a new visualization:
+visualisations. In order to create a visualization:
 
-1.  Select visualization type you want to use.
+1.  Select visualization type to use.
 2.  Choose the source of data.
 3.  Follow the interface to set up metrics and buckets.
 
@@ -85,7 +79,7 @@ and [how to run SQL
 queries](https://opensearch.org/docs/latest/search-plugins/sql/index/)
 in the official documentation.
 
-------------------------------------------------------------------------
-
+<div class="trademark">
 *Apache Lucene is a registered trademark or trademark of the Apache
 Software Foundation in the United States and/or other countries*
+</div>

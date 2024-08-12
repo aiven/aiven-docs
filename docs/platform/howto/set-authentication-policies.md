@@ -2,6 +2,8 @@
 title: Set authentication policies for organization users
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 The authentication policy for your organization specifies the ways that users in your organization and their personal tokens can access the organization on the Aiven platform.
 
 ## Authentication types
@@ -18,7 +20,8 @@ two-factor authentication (2FA) for password logins for all users in
 your organization.
 
 When 2FA is required, users can't access any resources in your organization until they
-set up 2FA.
+set up 2FA. This only applies to logins using email and password. The Aiven platform
+cannot enforce 2FA for logins through third-party providers, including identity providers.
 
 :::note
 Personal tokens are not affected and continue to work when you make 2FA required.
@@ -71,6 +74,6 @@ the user can create a token.
 ## Set an authentication policy
 
 1.  In the organization, click **Admin**.
-1.  Click **Authentication**.
+1.  Click <ConsoleLabel name="authenticationpolicy"/>.
 1.  Configure the settings for your authentication policy.
 1.  Click **Save changes**.

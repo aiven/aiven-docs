@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
   main: [
     {
       type: 'category',
-      label: 'Get started',
+      label: 'Overview',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
@@ -201,7 +201,6 @@ const sidebars: SidebarsConfig = {
             id: 'platform/howto/list-service',
           },
           items: [
-            'platform/howto/byoc/networking-security',
             {
               type: 'category',
               label: 'Concepts',
@@ -211,7 +210,6 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
-                'platform/reference/eol-for-major-versions',
               ],
             },
             {
@@ -271,24 +269,6 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/enhanced-compliance-env',
             {
               type: 'category',
-              label: 'Bring your own cloud',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/byoc',
-              },
-              items: [
-                'platform/howto/byoc/enable-byoc',
-                'platform/howto/byoc/create-custom-cloud',
-                'platform/howto/byoc/assign-project-custom-cloud',
-                'platform/howto/byoc/add-customer-info-custom-cloud',
-                'platform/howto/byoc/tag-custom-cloud-resources',
-                'platform/howto/byoc/rename-custom-cloud',
-                'platform/howto/byoc/download-infrastructure-template',
-                'platform/howto/byoc/delete-custom-cloud',
-              ],
-            },
-            {
-              type: 'category',
               label: 'VPCs',
               link: {
                 type: 'generated-index',
@@ -338,88 +318,7 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/disaster-recovery-test-scenarios',
           ],
         },
-        {
-          type: 'category',
-          label: 'Monitoring and logs',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-monitoring',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Metric and log integrations',
-              link: {
-                type: 'generated-index',
-                slug: 'platform/howto/metrics-integrations',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Amazon CloudWatch',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/cloudwatch',
-                  },
-                  items: [
-                    'integrations/cloudwatch/cloudwatch-metrics',
-                    {
-                      type: 'category',
-                      label: 'CloudWatch logs',
-                      link: {
-                        type: 'doc',
-                        id: 'integrations/cloudwatch/list-cloudwatch-logs',
-                      },
-                      items: [
-                        'integrations/cloudwatch/cloudwatch-logs-console',
-                        'integrations/cloudwatch/cloudwatch-logs-cli',
-                      ],
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Datadog',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/datadog',
-                  },
-                  items: [
-                    'integrations/datadog/datadog-metrics',
-                    'platform/howto/integrations/datadog-increase-metrics-limit',
-                    'integrations/datadog/datadog-logs',
-                    'integrations/datadog/add-custom-tags-to-datadog',
-                  ],
-                },
-                'integrations/send-logs-to-elasticsearch',
-                'integrations/cloudlogging',
-                {
-                  type: 'category',
-                  label: 'Remote Syslog',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/rsyslog',
-                  },
-                  items: [
-                    'integrations/rsyslog/logtail',
-                    'integrations/rsyslog/loggly',
-                  ],
-                },
-                'platform/howto/integrations/access-jmx-metrics-jolokia',
-
-                {
-                  type: 'category',
-                  label: 'Prometheus',
-                  link: {
-                    id: 'platform/howto/integrations/prometheus-metrics',
-                    type: 'doc',
-                  },
-                  items: ['integrations/prometheus-system-metrics'],
-                },
-              ],
-            },
-          ],
-        },
+        'platform/reference/eol-for-major-versions',
       ],
     },
     {
@@ -431,6 +330,97 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/service-integration',
         'platform/howto/create-service-integration',
+        {
+          type: 'category',
+          label: 'Bring your own cloud',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/byoc',
+          },
+          items: [
+            'platform/howto/byoc/networking-security',
+            'platform/howto/byoc/enable-byoc',
+            'platform/howto/byoc/create-custom-cloud',
+            'platform/howto/byoc/assign-project-custom-cloud',
+            'platform/howto/byoc/add-customer-info-custom-cloud',
+            'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/rename-custom-cloud',
+            'platform/howto/byoc/download-infrastructure-template',
+            'platform/howto/byoc/delete-custom-cloud',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Monitoring and logs',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-monitoring',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Amazon CloudWatch',
+              link: {
+                type: 'doc',
+                id: 'integrations/cloudwatch',
+              },
+              items: [
+                'integrations/cloudwatch/cloudwatch-metrics',
+                {
+                  type: 'category',
+                  label: 'CloudWatch logs',
+                  link: {
+                    type: 'doc',
+                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
+                  },
+                  items: [
+                    'integrations/cloudwatch/cloudwatch-logs-console',
+                    'integrations/cloudwatch/cloudwatch-logs-cli',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Datadog',
+              link: {
+                type: 'doc',
+                id: 'integrations/datadog',
+              },
+              items: [
+                'integrations/datadog/datadog-metrics',
+                'platform/howto/integrations/datadog-increase-metrics-limit',
+                'integrations/datadog/datadog-logs',
+                'integrations/datadog/add-custom-tags-to-datadog',
+              ],
+            },
+            'integrations/send-logs-to-elasticsearch',
+            'integrations/cloudlogging',
+            {
+              type: 'category',
+              label: 'Remote Syslog',
+              link: {
+                type: 'doc',
+                id: 'integrations/rsyslog',
+              },
+              items: [
+                'integrations/rsyslog/logtail',
+                'integrations/rsyslog/loggly',
+              ],
+            },
+            'platform/howto/integrations/access-jmx-metrics-jolokia',
+
+            {
+              type: 'category',
+              label: 'Prometheus',
+              link: {
+                id: 'platform/howto/integrations/prometheus-metrics',
+                type: 'doc',
+              },
+              items: ['integrations/prometheus-system-metrics'],
+            },
+          ],
+        },
       ],
     },
     {
@@ -451,31 +441,33 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'tools/terraform/get-started',
-            'tools/terraform/howto/migrate-from-teams-to-groups',
-            'tools/terraform/howto/promote-to-master-pg-rr',
-            'tools/terraform/howto/config-postgresql-provider',
-            'tools/terraform/howto/use-opentofu',
             {
               type: 'category',
-              label: 'Upgrade Aiven provider',
-              link: {
-                id: 'tools/terraform/list-upgrade-terraform',
-                type: 'doc',
-              },
+              label: 'Upgrade Aiven Provider',
               items: [
                 'tools/terraform/howto/upgrade-provider-v1-v2',
                 'tools/terraform/howto/upgrade-provider-v2-v3',
                 'tools/terraform/howto/upgrade-provider-v3-v4',
-                'tools/terraform/howto/upgrade-to-opensearch',
-                'tools/terraform/howto/update-deprecated-resources',
               ],
             },
+            'tools/terraform/howto/migrate-from-teams-to-groups',
+            'tools/terraform/howto/update-deprecated-resources',
+            'tools/terraform/howto/upgrade-to-opensearch',
+            {
+              type: 'category',
+              label: 'PostgreSQL',
+              items: [
+                'tools/terraform/howto/config-postgresql-provider',
+                'tools/terraform/howto/promote-to-master-pg-rr',
+              ],
+            },
+            'tools/terraform/howto/use-opentofu',
           ],
         },
         'tools/kubernetes',
         {
           type: 'category',
-          label: 'CLI',
+          label: 'Aiven CLI',
           link: {
             id: 'tools/cli',
             type: 'doc',
@@ -542,7 +534,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/cassandra',
           },
           items: [
-            'products/cassandra/overview',
             'products/cassandra/get-started',
             {
               type: 'category',
@@ -625,22 +616,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/flink',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/flink/list-overview',
-              },
-              items: [
-                'products/flink/concepts/flink-architecture',
-                'products/flink/concepts/flink-features',
-                'products/flink/concepts/managed-service-features',
-                'products/flink/reference/plans-pricing',
-                'products/flink/reference/flink-limitations',
-              ],
-            },
             'products/flink/get-started',
+            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -649,6 +626,8 @@ const sidebars: SidebarsConfig = {
                 id: 'products/flink/concepts',
               },
               items: [
+                'products/flink/concepts/flink-architecture',
+                'products/flink/reference/flink-limitations',
                 'products/flink/concepts/flink-applications',
                 'products/flink/concepts/supported-syntax-sql-editor',
                 'products/flink/concepts/custom-jars',
@@ -782,15 +761,16 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/concepts/consumer-lag-predictor',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/concepts/follower-fetching',
+                'products/kafka/concepts/topic-catalog-overview',
+                'products/kafka/concepts/governance-overview',
                 {
                   type: 'category',
                   label: 'Tiered storage',
                   link: {
                     type: 'doc',
-                    id: 'products/kafka/concepts/list-kafka-tiered-storage',
+                    id: 'products/kafka/concepts/kafka-tiered-storage',
                   },
                   items: [
-                    'products/kafka/concepts/kafka-tiered-storage',
                     'products/kafka/concepts/tiered-storage-how-it-works',
                     'products/kafka/concepts/tiered-storage-guarantees',
                     'products/kafka/concepts/tiered-storage-limitations',
@@ -910,6 +890,39 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
                     'products/kafka/howto/change-retention-period',
+                    {
+                      type: 'category',
+                      label: 'Manage topic catalog',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/view-kafka-topic-catalog',
+                      },
+                      items: ['products/kafka/howto/manage-topics-details'],
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Governance',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/howto/governance',
+                  },
+                  items: [
+                    'products/kafka/howto/enable-governance',
+                    'products/kafka/howto/claim-topic',
+                    {
+                      type: 'category',
+                      label: 'Manage topic requests',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/manage-resource-requests',
+                      },
+                      items: [
+                        'products/kafka/howto/approvals',
+                        'products/kafka/howto/group-requests',
+                      ],
+                    },
                   ],
                 },
                 {
@@ -1196,7 +1209,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/caching/concepts/overview',
             'products/caching/get-started',
             {
               type: 'category',
@@ -1291,21 +1303,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/clickhouse',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/list-overview',
-              },
-              items: [
-                'products/clickhouse/concepts/features-overview',
-                'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/reference/plans-pricing',
-                'products/clickhouse/reference/limitations',
-              ],
-            },
             'products/clickhouse/get-started',
+            'products/clickhouse/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1314,6 +1313,8 @@ const sidebars: SidebarsConfig = {
                 id: 'products/clickhouse/concepts',
               },
               items: [
+                'products/clickhouse/concepts/service-architecture',
+                'products/clickhouse/reference/limitations',
                 'products/clickhouse/concepts/olap',
                 'products/clickhouse/concepts/columnar-databases',
                 'products/clickhouse/concepts/indexing',
@@ -1431,17 +1432,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/dragonfly',
           },
           items: [
-            'products/dragonfly/concepts/overview',
             'products/dragonfly/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/concepts',
-              },
-              items: ['products/dragonfly/concepts/ha-dragonfly'],
-            },
+            'products/dragonfly/concepts/ha-dragonfly',
             {
               type: 'category',
               label: 'How to',
@@ -1499,19 +1491,8 @@ const sidebars: SidebarsConfig = {
             id: 'products/grafana',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/list-overview',
-              },
-              items: [
-                'products/grafana/concepts/grafana-features',
-                'products/grafana/reference/plans-pricing',
-              ],
-            },
             'products/grafana/get-started',
+            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
@@ -1636,7 +1617,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/metrics/concepts',
               },
               items: [
-                'products/metrics/concepts/metrics-overview',
                 'products/metrics/concepts/storage-resource-scaling',
                 'products/metrics/concepts/retention-rules',
               ],
@@ -1653,6 +1633,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Data migration',
+                  link: {
+                    type: 'doc',
+                    id: 'products/metrics/howto/list-data-migration',
+                  },
                   items: [
                     'products/metrics/howto/migrate-influxdb-thanos',
                     'products/metrics/howto/migrate-m3db-thanos',
@@ -1670,7 +1654,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/mysql',
           },
           items: [
-            'products/mysql/overview',
             'products/mysql/get-started',
             {
               type: 'category',
@@ -1685,6 +1668,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-replication',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',
+                'products/mysql/concepts/high-availability',
               ],
             },
 
@@ -1772,19 +1756,8 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
+            'products/opensearch/reference/plans-pricing',
             'products/opensearch/howto/sample-dataset',
-            {
-              type: 'category',
-              label: 'Overview',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/list-overview',
-              },
-              items: [
-                'products/opensearch/concepts/service-overview',
-                'products/opensearch/reference/plans-pricing',
-              ],
-            },
             {
               type: 'category',
               label: 'Concepts',
@@ -1928,29 +1901,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/upgrade-clients-to-opensearch',
               ],
             },
-            {
-              type: 'category',
-              label: 'OpenSearch Dashboards',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/dashboards',
-              },
-              items: [
-                'products/opensearch/dashboards/get-started',
-                {
-                  type: 'category',
-                  label: 'HowTo',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/dashboards/howto',
-                  },
-                  items: [
-                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
-                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                  ],
-                },
-              ],
-            },
+
             {
               type: 'category',
               label: 'Reference',
@@ -1968,13 +1919,26 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Troubleshooting',
+              label: 'OpenSearch Dashboards',
               link: {
                 type: 'doc',
-                id: 'products/opensearch/troubleshooting',
+                id: 'products/opensearch/dashboards',
               },
               items: [
-                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+                'products/opensearch/dashboards/get-started',
+                {
+                  type: 'category',
+                  label: 'How to',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/dashboards/howto',
+                  },
+                  items: [
+                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                    'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+                  ],
+                },
               ],
             },
           ],
@@ -1987,7 +1951,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/postgresql',
           },
           items: [
-            'products/postgresql/overview',
             'products/postgresql/get-started',
             {
               type: 'category',

@@ -2,10 +2,9 @@
 title: Configure properties for Apache Kafka® toolbox
 ---
 
-The [open source Apache Kafka® code](https://kafka.apache.org/downloads)
-includes a series of tools under the `bin` directory that can be useful
-to manage and interact with an Aiven for Apache Kafka® service. Before
-using the tools, you need to configure a file pointing to a Java
+The [open source Apache Kafka® code](https://kafka.apache.org/downloads) includes a series of tools under the `bin` directory that can be useful to manage and interact with an Aiven for Apache Kafka® service.
+
+Before using the tools, configure a file pointing to a Java
 keystore and truststore which contain the required certificates for
 authentication.
 
@@ -20,7 +19,7 @@ we'll name the file `configuration.properties`.
 1.  Create the Java keystore and truststore for your Aiven for Apache
     Kafka® service using the
     [dedicated Aiven CLI command](/docs/tools/cli/service/user#avn_service_user_kafka_java_creds).
-2.  Create a `configuration.properties` file pointing to the keystore
+1.  Create a `configuration.properties` file pointing to the keystore
     and truststore with the following entries:
 
 -   `security.protocol`: security protocol, SSL for the default TLS

@@ -1,25 +1,16 @@
 ---
 title: Get started with Aiven for Apache Kafka®
 sidebar_label: Get started
+keywords: [quick start]
 ---
 
-Aiven services are managed in the Aiven [web console](https://console.aiven.io/). When you first log in to the console with your email address and password, you will see the **Services** view, which shows you all the services in the currently selected project.
+import CreateService from "@site/static/includes/create-service-console.md"
 
-Aiven for Apache Kafka® is a managed service offered by Aiven. The first
-step in using Aiven for Apache Kafka® is to create a service. You can do
-so using the [Aiven Console](https://console.aiven.io/) or the
-[Aiven CLI](/docs/tools/cli).
+Start using Aiven for Apache Kafka® by creating and configuring a service, connecting to it, and playing with sample data.
 
 ## Create an Aiven for Apache Kafka® service
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/).
-
-2.  Follow
-    [these instructions](/docs/platform/howto/create_new_service) to create an Aiven for Apache Kafka service.
-
-    Once the service is ready, the status changes to *Running*.
-    Depending on your selected cloud provider and region, this generally
-    takes a couple of minutes.
+<CreateService serviceType="Apache Kafka®" />
 
 ## Next steps
 

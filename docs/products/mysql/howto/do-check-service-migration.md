@@ -33,7 +33,7 @@ You can create the task of migration, for example, from a MySQL DB to an
 Aiven service (`project`: `MY_PROJECT_NAME`, `service`: `mysql`):
 
 ```shell
-avn service task-create --project PROJECT_NAME --operation migration_check --source-service-uri mysql://user:password@host:port/databasename --project MY_PROJECT_NAME mysql
+avn service task-create --operation migration_check --source-service-uri mysql://user:password@host:port/databasename --project MY_PROJECT_NAME mysql
 ```
 
 You can see the information about the task including the ID.
@@ -55,7 +55,7 @@ databases are supported by MySQL only at the moment.
 You can check the status of your task by running:
 
 ```bash
-avn service task-get --project PROJECT_NAME --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project MY_PROJECT_NAME mysql
+avn service task-get --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project MY_PROJECT_NAME mysql
 ```
 
 It lists whether the operation succeeds and more information about the migration.

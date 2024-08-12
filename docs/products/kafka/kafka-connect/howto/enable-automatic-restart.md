@@ -21,17 +21,17 @@ avoid the problem.
 ## Enable connector automatic restart with Aiven console
 
 Aiven provides an option to enable automatic connector restart in case
-of edge situations. All our connectors support this option. For example,
-follow these steps to update of an existing Debezium-PostgreSQL
-connector:
+of edge situations. All our connectors support this option.
+
+For example, you can update of an existing Debezium-PostgreSQL connector:
 
 1.  In the [Aiven console](https://console.aiven.io/), select the Aiven
     for Apache Kafka or Aiven for Apache Kafka Connect service pages
     where the connector is defined.
-2.  Select **Connectors** from the left sidebar and select the connector
+1.  Select **Connectors** from the left sidebar and select the connector
     to be updated.
-3.  Select the **Aiven** tab on the connectors page.
-4.  Set the **Automatic restart** option to `True`
+1.  Select the **Aiven** tab on the connectors page.
+1.  Set the **Automatic restart** option to `True`
 
 Once you have enabled automatic restart, the connector will be restarted
 automatically whenever a failure is detected.

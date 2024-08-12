@@ -7,6 +7,39 @@ const axios = require('axios');
 const fs = require('fs');
 const handlebars = require('handlebars');
 
+handlebars.registerHelper('parameterDetailsHelper', function (options) {
+  var name = options.hash.name;
+  var parent = options.hash.parent;
+  var type = options.hash.type;
+  var minimum = options.hash.minimum;
+  var maximum = options.hash.maximum;
+  var def = options.hash.def;
+
+  var html = '<div class="param">';
+  if (parent) {
+    html += '<p class="name"><strong>' + parent + '.' + name + '</strong></p>';
+  } else {
+    html += '<p class="name"><strong>' + name + '</strong></p>';
+  }
+  html += '<p><code class="type">' + type + '</code></p>';
+  html += '</div>';
+  if (minimum || maximum || def) {
+    html += '<div class="constraints"><ul>';
+    if (minimum) {
+      html += '<li>min: <code>' + minimum + '</code></li>';
+    }
+    if (maximum) {
+      html += '<li>max: <code>' + maximum + '</code></li>';
+    }
+    if (def) {
+      html += '<li>default: <code>' + def + '</code></li>';
+    }
+    html += '</ul></div>';
+  }
+
+  return new handlebars.SafeString(html);
+});
+
 handlebars.registerHelper('or', function (a, b) {
   return a || b;
 });
@@ -46,50 +79,30 @@ async function fetchData(serviceName, outputFileName) {
   <thead>
     <tr><th>Parameter</th></tr>
   </thead>
-{{~#each user_config_schema.properties}}
-<tr>
-  <td>
-    <p class="name">
-      <b>{{@key}}</b>&nbsp;<code class="type">{{type}}</code>
-      {{#if (or minimum maximum)}}
-        <div class="constraints">
-          {{#if minimum}}
-            min: <code>{{minimum}}</code>
-          {{/if}}
-          {{#if maximum}}
-            max: <code>{{maximum}}</code>
-          {{/if}}
-        </div>
-      {{/if}}
-    </p>
-    {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
-    <div class="description">{{description}}</div>
-    <table class="service-param-children">
-      {{#each properties}}
-      <tr>
-        <td>
-          <p class="name">
-            <b>{{@key}}</b>&nbsp;<code class="type">{{type}}</code>
-            {{#if (or minimum maximum)}}
-            <div class="constraints">
-              {{#if minimum}}
-                min: <code>{{minimum}}</code>
-              {{/if}}
-              {{#if maximum}}
-                max: <code>{{maximum}}</code>
-              {{/if}}
-            </div>
-            {{/if}}
-          </p>
-          {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
-          <div class="description">{{description}}</div>
-        </td>
-      </tr>
-      {{/each}}
-</table>
-  </td>
-</tr>
-{{/each}}
+  <tbody>
+  {{~#each user_config_schema.properties}}
+    <tr>
+      <td>
+        {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default}}
+        {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
+        {{#if description~}}<div class="description"><p>{{description}}</p></div>{{~/if}}
+        <table class="service-param-children">
+          <tbody>
+          {{#each properties}}
+          <tr>
+            <td>
+              {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default}}
+              {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
+              {{#if description~}}<div class="description"><p>{{description}}</p></div>{{~/if}}
+            </td>
+          </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
 </table>
     `;
 

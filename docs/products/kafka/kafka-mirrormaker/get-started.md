@@ -1,27 +1,23 @@
 ---
-title: Get started
+title: Get started with Apache Kafka® MirrorMaker 2
+sidebar_label: Get started
+keywords: [quick start]
 ---
 
-Aiven services are managed in the Aiven [web
-console](https://console.aiven.io/) . When you first log into the
-console with your email address and password, you will see the
-**Services** view, which shows you all the services in the currently
-selected project.
+Create an Apache Kafka® MirrorMaker 2 service and integrate it with your Aiven for Apache Kafka service.
 
-:::warning
-Aiven for Apache Kafka® MirrorMaker 2 services can be created only
-alongside at least one existing Aiven for Apache Kafka running service.
-If your project doesn't contain any Aiven for Apache Kafka services,
-create one before attempting to create an Aiven for Apache Kafka
-MirrorMaker 2 service.
-:::
+## Prerequisites
+
+Ensure that you have at least one **running** Aiven for Apache Kafka® service in your project.
+If your project does not have any Aiven for Apache Kafka service,
+[create one](/docs/platform/howto/create_new_service).
 
 ## Creating a dedicated Aiven for Apache Kafka® MirrorMaker 2 service {#apache_kafka_mirrormaker_dedicated_cluster}
 
-Create a new Aiven for Apache Kafka MirrorMaker 2 dedicated service:
+Create a Aiven for Apache Kafka MirrorMaker 2 dedicated service:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the **Aiven for Apache Kafka®** service for which you want to create
+    the **Aiven for Apache Kafka®** service for which to create
     a dedicated Aiven for Apache Kafka® MirrorMaker 2 service.
 2.  Click **Integrations** on the sidebar.
 3.  On the **Integrations** screen, choose **Apache Kafka MirrorMaker**.
@@ -29,12 +25,12 @@ Create a new Aiven for Apache Kafka MirrorMaker 2 dedicated service:
 5.  Provide a name for your service. By default, a random name is
     generated, but you can enter a more identifiable name to distinguish
     it from other services.
-6.  Select the cloud provider and region where you want to deploy the
+6.  Select the cloud provider and region where to deploy the
     service.
 
-:::note
-Pricing may vary across providers and regions.
-:::
+    :::note
+    Pricing may vary across providers and regions.
+    :::
 
 7.  Select a service plan. This defines how many servers and what kind
     of memory, CPU, and disk resources are allocated to your service.

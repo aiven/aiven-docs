@@ -21,7 +21,7 @@ All other permissions related to a topic (`Alter`, `Delete`) **only**
 apply to the topics matching the pattern that you specify.
 :::
 
-To add a new user, follow these steps:
+To add a new user:
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     service.
@@ -32,7 +32,7 @@ To add a new user, follow these steps:
 
 ## Add a new ACL grant
 
-To add new access control list, follow these steps:
+To add new access control list:
 
 You can add a new access control list grant via the [Aiven
 Console](https://console.aiven.io/) with:

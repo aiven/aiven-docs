@@ -1,5 +1,6 @@
 ---
 title: Apache Kafka® upgrade procedure
+sidebar_label: Upgrade procedure
 ---
 
 import MyImg from "@site/static/images/content/figma/kafka-cluster-overview.png";
@@ -19,8 +20,10 @@ All the preceding operations involve creating new broker nodes to replace existi
 
 ## Upgrade procedure steps
 
+<!-- vale off -->
 This example demonstrates the steps in the automated upgrade procedure for
 a 3-node Apache Kafka service, visualized below:
+<!-- vale on -->
 
 <img src={MyImg} class="centered" alt="" width="65%" />
 

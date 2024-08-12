@@ -2,18 +2,12 @@
 title: Check size of a database, a table or an index
 ---
 
-PostgreSQL® offers different commands and functions to get disk space
-usage for a database, a table, or an index. The results of executing
-specific commands and functions may vary, which can cause
-misinterpretation or confusion.
-
-This article provides commands and functions used to check disk space
-usage for a database, a table, and an index. It also shows differences
-between the results these commands and functions return.
+PostgreSQL® offers different commands and functions to get disk space usage for a database, a table, or an index.
 
 ## Get a database size
 
 Retrieve the database size using either:
+
 - The `\l+ [ pattern ]` command
 - The the `pg_database_size` function.
 
@@ -47,10 +41,10 @@ testdb2=> select pg_size_pretty(pg_database_size('testdb2'));
 (1 row)
 ```
 
-:::tip[Compare the outputs of the \l+ DB_NAME command and the pg_database_size function]
+:::tip[Compare the outputs of the \l+ DB_NAME command and the `pg_database_size` function]
 The outputs for the testdb2 database size are the same for both methods. Since
-the pg_database_size function returns the database size in bytes, we use the
-pg_size_pretty function to retrieve an easy-to-read output.
+the `pg_database_size` function returns the database size in bytes, we use the
+`pg_size_pretty` function to retrieve an easy-to-read output.
 :::
 
 ## Get a table size
@@ -76,7 +70,9 @@ testdb2=> select pg_size_pretty(pg_table_size('mytable1'));
 
 ## Get a size for a table and its indices
 
-To get disk space usage for a table and its indexes, you can use the pg_total_relation_size function, which computes the total disk space used by the table, all its indices, and TOAST data:
+To get disk space usage for a table and its indexes, you can use the
+`pg_total_relation_size` function, which computes the total disk space used by the
+table, all its indices, and TOAST data:
 
 ```bash
 testdb2=> select pg_size_pretty(pg_total_relation_size('mytable1'));
@@ -96,7 +92,7 @@ functions like `pg_total_relation_size` or `pg_table_size`.
 
 :::tip
 WAL files also contribute to the service disk usage. For more
-information, check
+information, see
 [About PostgreSQL® disk usage](/docs/products/postgresql/concepts/pg-disk-usage)
 :::
 

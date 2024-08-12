@@ -1,6 +1,6 @@
 ---
 title: Use Azure Private Link with Aiven services
-limited: true
+early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -23,8 +23,7 @@ Azure Private Link is supported for the following services:
 
 ## Prerequisites
 
-- This feature is in [limited availability](/docs/platform/concepts/beta_services).
-  [Contact the sales team](mailto:sales@aiven.io) to enable it.
+- This feature is in [early availability](/docs/platform/concepts/beta_services#early-availability-).
 
 - [Aiven CLI](/docs/tools/cli) is
   installed.
@@ -130,7 +129,7 @@ your Azure subscription and virtual network.
 
     The output will look similar to this:
 
-    ```shell
+    ```text
     PRIVATELINK_CONNECTION_ID  PRIVATE_ENDPOINT_ID                                                                                                                                         STATE                  USER_IP_ADDRESS
     =========================  ==========================================================================================================================================================  =====================  ===============
     plc35843e8051.             /subscriptions/8eefec94-5d63-40c9-983c-03ab083b411d/resourceGroups/test-privatelink/providers/Microsoft.Network/privateEndpoints/my-endpoint                pending-user-approval  null
@@ -218,7 +217,6 @@ implementation.
 </TabItem>
 </Tabs>
 
-
 ## Acquire connection information
 
 ### One Azure Private Link connection
@@ -226,7 +224,8 @@ implementation.
 If you have one private endpoint connected to your Aiven service, you
 can preview the connection information (URI, hostname, or port required
 to access the service through the private endpoint) in [Aiven
-Console](https://console.aiven.io/) > the service's **Overview** page > the **Connection information** section, where you'll also find the
+Console](https://console.aiven.io/) > the service's **Overview** page >
+the **Connection information** section, where you'll also find the
 switch for the `privatelink` access route. `privatelink`-access-route
 values for `host` and `port` differ from those for the `dynamic` access
 route used by default to connect to the service.
@@ -238,7 +237,8 @@ PrivateLink connection.
 
 Each endpoint (connection) has PRIVATELINK_CONNECTION_ID, which you can
 check using the
-[avn service privatelink azure connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
+[avn service privatelink azure connection list SERVICE_NAME](/docs/tools/cli/service/privatelink)
+command.
 
 To acquire connection information for your service component using Azure
 Private Link, run the
@@ -251,11 +251,11 @@ Private Link, run the
   avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID
   ```
 
-Where:
+    Where:
 
-- UTILITY_NAME is `kcat`, for example
-- SERVICE_NAME is `kafka-12a3b4c5`, for example
-- PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
+    - UTILITY_NAME is `kcat`, for example
+    - SERVICE_NAME is `kafka-12a3b4c5`, for example
+    - PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
 
 - For SASL connection information for Aiven for Apache Kafka® service
   components using Azure Private Link, run the following command:
@@ -264,15 +264,14 @@ Where:
   avn service connection-info UTILITY_NAME SERVICE_NAME -p PRIVATELINK_CONNECTION_ID -a sasl
   ```
 
-Where:
+    Where:
 
-- UTILITY_NAME is `kcat`, for example
-- SERVICE_NAME is `kafka-12a3b4c5`, for example
-- PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
+    - UTILITY_NAME is `kcat`, for example
+    - SERVICE_NAME is `kafka-12a3b4c5`, for example
+    - PRIVATELINK_CONNECTION_ID is `plc39413abcdef`, for example
 
 :::note
-SSL certificates and SASL credentials are the same for all the
-connections.
+SSL certificates and SASL credentials are the same for all the connections.
 :::
 
 ## Update subscription list

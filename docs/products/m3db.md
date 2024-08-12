@@ -1,6 +1,7 @@
 ---
 title: Aiven for M3
 ---
+import DocCardList from '@theme/DocCardList';
 
 Aiven for M3 is a fully managed **distributed time series database**, deployable in the cloud of your choice which can bring unlimited scalability and high-availability to your monitoring environment and other time series applications.
 
@@ -20,16 +21,6 @@ with the size of our own metrics.
 
 Read more about [the M3
 components](https://m3db.io/docs/overview/components/).
-
-## Get started with Aiven for M3
-
-Take your first steps with Aiven for M3 by following our
-[Getting started with Aiven for M3DB](/docs/products/m3db/get-started) article,
-or browse through our full list of articles:
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />
 
 ## Integrates with your existing tools
 
@@ -57,20 +48,19 @@ With Aiven for M3, you can set up the following example solutions:
 -   Detect problems, respond promptly to incidents and plan maintenance.
 -   Provide fast data ingest and queries, with strong data compression.
 
-## M3 resources
 
-If you are new to M3, we recommend the following resources to get you
-started with the platform:
 
--   Read about the [overview of the M3DB, M3 query and M3 aggregator
-    components](https://m3db.io/docs/overview/components/) on the main
-    M3DB project documentation.
--   From the upstream project:
-    -   Using M3DB with
-        [Prometheus](https://m3db.io/docs/integrations/prometheus/)
-    -   Ingesting data from
-        [Graphite](https://m3db.io/docs/integrations/graphite/)
-    -   Integrating M3DB with
-        [Grafana](https://m3db.io/docs/integrations/grafana/)
-    -   Writing to M3DB using [InfluxDB
-        protocol](https://m3db.io/docs/integrations/influx/)
+## Related pages
+
+- [Get started](/docs/products/m3db/get-started)
+- [Official overview of the M3DB, M3 query and M3 aggregator
+  components](https://m3db.io/docs/overview/components/)
+- From the upstream project:
+  - Using M3DB with
+    [Prometheus](https://m3db.io/docs/integrations/prometheus/)
+  - Ingesting data from
+    [Graphite](https://m3db.io/docs/integrations/graphite/)
+  - Integrating M3DB with
+    [Grafana](https://m3db.io/docs/integrations/grafana/)
+  - Writing to M3DB using [InfluxDB
+    protocol](https://m3db.io/docs/integrations/influx/)
