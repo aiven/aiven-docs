@@ -26,6 +26,7 @@ Patterns use the following syntax:
 
 The available permissions in Aiven for OpenSearch® are:
 
+
 -   `deny`: Explicitly denies access
 -   `admin`: Allows unlimited access to the index
 -   `readwrite`: Grants full access to documents

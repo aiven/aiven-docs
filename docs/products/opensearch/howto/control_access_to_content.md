@@ -5,6 +5,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Manage users and permissions in Aiven for OpenSearch by creating Access Control Lists (ACLs) in the Aiven Console.
 
+
 Use the **Users** tab in the [Aiven Console](https://console.aiven.io) to manage access
 control and permissions for your Aiven for OpenSearch service. You can create users,
 modify their details, and assign index patterns and permissions.
