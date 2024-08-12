@@ -14,43 +14,43 @@ existing Aiven organizations, projects, or services. It only allows you to run A
 services in your cloud provider account.
 :::
 
-## Required access
-
-You must be a [super admin](/docs/platform/howto/make-super-admin) to enable this feature.
-
-## About enabling BYOC
-
 To be able to create custom clouds on the Aiven platform, first you need
-to enable the BYOC feature. [Aiven Console](https://console.aiven.io/)
+to enable the BYOC feature. The [Aiven Console](https://console.aiven.io/)
 offers a quick and easy way to set up a short call with the Aiven sales
 team to identify your use cases and confirm the requirements. In the
 call, we make sure BYOC can address them, and we check your environment
 eligibility for the feature.
 
 :::important
-Before enabling BYOC, confirm your
-[eligibility](/docs/platform/concepts/byoc#eligible-for-byoc) and review the
-[limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations).
+Before enabling BYOC, check
+[who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc) and review
+[feature limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations) and
+[prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::
+
+## Required access
+
+You must be a [super admin](/docs/platform/howto/make-super-admin) to enable this feature.
 
 ## Limitations {#byoc-enable-limitations}
 
-BYOC is supported with the
-[standard deployment](/docs/platform/concepts/byoc#byoc-deployment) model only.
+-   You need at least the Advanced tier of
+    [Aiven support services](https://aiven.io/support-services) to be eligible for
+    activating BYOC.
+-   Only [super admins](/docs/platform/howto/make-super-admin) can request enabling BYOC.
+
+## Prerequisites {#byoc-enable-prerequisites}
+
+-   [Super admin](/docs/platform/howto/make-super-admin) role for your Aiven organization
+-   Access to the [Aiven Console](https://console.aiven.io/)
+-   Active account with your cloud provider
 
 ## Enable BYOC
 
-1.  Log in to [Aiven Console](https://console.aiven.io/) as an
-    administrator.
-
-1.  Select the organization.
-
-1.  Click **Admin**.
-
-1.  Click <ConsoleLabel name="bringyourowncloud"/>.
-
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
+1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+    in the sidebar.
 1.  In the **Bring your own cloud** view, click **Contact us**.
-
 1.  In the **Contact us** window, enter your email address and country.
     Select the cloud provider, add any other information
     you think might be relevant, and click **Confirm**.
@@ -58,13 +58,11 @@ BYOC is supported with the
     The scheduling assistant shows up so that you can schedule a short
     call with the Aiven sales team to proceed on your BYOC enablement
     request.
-
-1.  Using the scheduling assistant, select a date and time when you want
-    to talk to our sales team to share your requirements and make sure
-    BYOC suits your needs. Confirm the selected time, make sure you add
-    the call to your calendar, and close the the scheduling assistant.
-
-1.  Join the scheduled call with our sales team to follow up with them
+1.  Using the scheduling assistant, select a date and time when to talk to our sales team
+    to share your requirements and make sure BYOC suits your needs. Confirm the selected
+    time, make sure you add the call to your calendar, and close the the scheduling
+    assistant.
+1.  Join the scheduled call with our sales team to follow up with us
     on enabling BYOC in your environment.
 
     If the call reveals BYOC addresses your needs and your environment
@@ -73,16 +71,17 @@ BYOC is supported with the
 
 ## Next steps
 
-With BYOC activated in your Aiven organization, you can use custom
+With BYOC activated in your Aiven organization, you can create and use custom
 clouds:
 
--   [Create them yourself using Aiven Console if the cloud provider you selected was AWS](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-aws)
--   [Request the Aiven team to create one if the cloud provider you selected was GCP or Azure](/docs/platform/howto/byoc/create-custom-cloud#create-cloud-non-aws).
+-   [By yourself if using AWS or GCP](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
+-   By contacting the Aiven team if using Azure or OCI.
 
 ## Related pages
 
--   [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud)
 -   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
+-   [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 -   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
