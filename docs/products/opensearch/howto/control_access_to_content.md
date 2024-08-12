@@ -3,7 +3,7 @@ title: Manage users and access control in Aiven for OpenSearch®
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Manage users and permissions in Aiven for OpenSearch by creating Access Control Lists (ACLs) is the Aiven Console.
+Manage users and permissions in Aiven for OpenSearch by creating Access Control Lists (ACLs) in the Aiven Console.
 
 Use the **Users** tab in the [Aiven Console](https://console.aiven.io) to manage access
 control and permissions for your Aiven for OpenSearch service. You can create users,
@@ -75,7 +75,7 @@ To access these operations:
 
    - Click <ConsoleLabel name="show password"/> to view the password.
    - Click <ConsoleLabel name="reset password"/> to reset the password.
-   - Click <ConsoleLabel name="reset password"/> to reset the password.
+   - Click <ConsoleLabel name="editaclrules"/> to edit ACL rules.
    - Click <ConsoleLabel name="delete user"/> to delete the user.
 
 :::warning
