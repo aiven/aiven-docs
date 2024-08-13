@@ -22,7 +22,7 @@ All services run reliably and securely in the clouds of your choice, are observa
 **Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
 [30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
 
-<GridContainer columns="4">
+<GridContainer columns="3">
   <Button to="https://console.aiven.io/signup">Sign up for free</Button>
   <ButtonSecondary to="https://aiven.io/changelog">See product updates</ButtonSecondary>
 </GridContainer>
