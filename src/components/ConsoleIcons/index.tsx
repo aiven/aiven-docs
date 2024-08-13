@@ -370,6 +370,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Tiered storage</b>
         </>
       );
+
+    case 'editconfig':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit</b>
+        </>
+      );
     case 'governance':
       return (
         <>
