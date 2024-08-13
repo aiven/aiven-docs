@@ -1,9 +1,9 @@
 ---
-title: Aiven for Metrics®
+title: Aiven for Metrics
 early: true
 ---
 
-Aiven for Metrics®, powered by Thanos, simplifies managing and analyzing large volumes of metrics data for businesses of all sizes.
+Aiven for Metrics, powered by Thanos, simplifies managing and analyzing large volumes of metrics data for businesses of all sizes.
 It offers a scalable, reliable, and efficient service suitable for businesses of all sizes. This service simplifies the management of large-scale metrics systems, allowing organizations to focus on deriving insights from their data.
 
 ## Key components
