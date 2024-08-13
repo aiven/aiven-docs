@@ -221,7 +221,7 @@ Parameters:
   [schema definition changes](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_schema_versioning).
 - `database.history.producer` and `database.history.consumer`: Refers
   to truststores and keystores pre-created on the Aiven for Apache
-  Kafka node to handle SSL authentication
+  Kafka node to handle SSL authentication.
 
   :::warning
   The values defined for each `database.history.producer` and
@@ -305,12 +305,12 @@ To create a Debezium source connector from MySQL to Apache Kafka using the
 [Aiven CLI](/docs/tools/cli/service-cli), run the following command:
 
 ```bash
-avn service connector create <service_name> @debezium_source_mysql.json
+avn service connector create SERVICE_NAME @debezium_source_mysql.json
 ```
 
 Parameters:
 
-- `<service_name>`: The name of your Aiven for Apache Kafka service.
+- `SERVICE_NAME`: The name of your Aiven for Apache Kafka service.
 - `@debezium_source_mysql.json`: This denotes the path to your JSON configuration file.
 
 </TabItem>
