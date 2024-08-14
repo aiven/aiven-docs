@@ -19,7 +19,7 @@ Before starting the restoration process, ensure you have the following:
 - A target Aiven for OpenSearch service set up within your project.
 - A snapshot that is compatible with your target service (only snapshots from
   Elasticsearch 7.10.2 or below are supported).
-- The `os_external_migration` feature flag enabled for your project, allowing external
+- The feature flag enabled for your project, allowing external
   migrations to be configured and executed.
 - Access credentials for the cloud provider hosting the snapshot.
 
@@ -36,8 +36,6 @@ For each cloud provider, ensure you have the following information:
   - `chunk_size`: (Optional) Size of chunks for large files during snapshot creation.
 
 - **Amazon S3 and S3-compatible services**:
-  - `access_key`: AWS/OCI access key.
-  - `secret_key`: AWS/OCI secret key.
   - `region`: AWS/OCI region.
   - `bucket`: S3/OCI bucket name where the snapshot is stored.
   - `base_path`: Path to repository data within the bucket.
@@ -48,8 +46,6 @@ For each cloud provider, ensure you have the following information:
   - `chunk_size`: (Optional) Size of chunks for large files during snapshot creation.
 
 - **Microsoft Azure**:
-  - `account`: Azure account name.
-  - `key`: Azure secret key or Shared Access Signature (SAS) token.
   - `container`: Azure container name where the snapshot is stored.
   - `base_path`: Path to repository data within the container.
   - `snapshot_name`: Name of the snapshot to restore from.
@@ -79,8 +75,6 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
   "settings": {
     "bucket": "my-bucket",
     "region": "us-west-2",
-    "access_key": "AWS_ACCESS_KEY",
-    "secret_key": "AWS_SECRET_KEY",
     "endpoint": "https://s3.amazonaws.com"
   }
 }'
@@ -89,11 +83,9 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 **Parameters:**
 
 - `SERVICE_NAME`: The name of your Aiven OpenSearch service.
-- `API_TOKEN`: The API token for authentication.
+- `API_TOKEN`: The [API token for authentication](/docs/platform/howto/create_authentication_token).
 - `bucket`: The S3 bucket name where the snapshot is stored.
 - `region`: The AWS region where the bucket is located.
-- `access_key`: The AWS access key.
-- `secret_key`: The AWS secret key.
 - `endpoint`: (Optional) The service endpoint for S3-compatible services.
 
 </TabItem>
@@ -107,8 +99,6 @@ avn service elasticsearch-register-repository \
   --repository-type s3 \
   --bucket my-bucket \
   --region us-west-2 \
-  --access-key AWS_ACCESS_KEY \
-  --secret-key AWS_SECRET_KEY \
   --endpoint https://s3.amazonaws.com
 ```
 
@@ -121,8 +111,6 @@ avn service elasticsearch-register-repository \
   S3-compatible services.
 - `bucket`: The S3 bucket name where the snapshot is stored.
 - `region`: The AWS region where the bucket is located.
-- `access_key`: The AWS access key.
-- `secret_key`: The AWS secret key.
 - `endpoint`: (Optional) The service endpoint for S3-compatible services.
 
 </TabItem>
@@ -153,7 +141,7 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 **Parameters:**
 
 - `SERVICE_NAME`: The name of your Aiven OpenSearch service.
-- `API_TOKEN`: Your API token for authentication.
+- `API_TOKEN`: The [API token for authentication](/docs/platform/howto/create_authentication_token).
 - `bucket`: The GCS bucket name where the snapshot is stored.
 - `base_path`: The path within the bucket where the snapshot is stored.
 - `credentials`: The GCS credentials file content.
@@ -199,10 +187,8 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 -d '{
   "type": "azure",
   "settings": {
-    "account": "AZURE_ACCOUNT_NAME",
     "container": "my-container",
     "base_path": "snapshots/",
-    "key": "AZURE_SECRET_KEY",
     "endpoint_suffix": "AZURE_ENDPOINT_SUFFIX"
   }
 }'
@@ -211,11 +197,9 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 **Parameters:**
 
 - `SERVICE_NAME`: The name of your Aiven OpenSearch service.
-- `API_TOKEN`: The API token for authentication.
-- `account`: The Azure account name.
+- `API_TOKEN`: The [API token for authentication](/docs/platform/howto/create_authentication_token).
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
-- `key`: The Azure secret key or SAS token.
 - `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
 
 </TabItem>
@@ -229,8 +213,6 @@ avn service elasticsearch-register-repository \
   --repository-type azure \
   --container my-container \
   --base-path snapshots/ \
-  --account AZURE_ACCOUNT_NAME \
-  --key AZURE_SECRET_KEY \
   --endpoint-suffix AZURE_ENDPOINT_SUFFIX
 ```
 
@@ -242,8 +224,6 @@ avn service elasticsearch-register-repository \
 - `repository-type`: The repository type, set to `azure` for Microsoft Azure.
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
-- `account`: The Azure account name.
-- `key`: The Azure secret key or SAS token.
 - `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
 
 </TabItem>
@@ -266,7 +246,7 @@ curl -X GET "https://SERVICE_NAME.aivencloud.com/_cat/indices?v" \
 **Parameters:**
 
 - `SERVICE_NAME`: The name of your Aiven OpenSearch service.
-- `API_TOKEN`: The API token for authentication.
+- `API_TOKEN`: The [API token for authentication](/docs/platform/howto/create_authentication_token).
 
 </TabItem>
 <TabItem value="cli" label="CLI">
