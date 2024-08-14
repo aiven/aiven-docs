@@ -49,7 +49,7 @@ For each cloud provider, ensure you have the following information:
 
 - **Microsoft Azure**:
   - `account`: Azure account name.
-  - `key`: Azure secret key (or SAS token).
+  - `key`: Azure secret key or Shared Access Signature (SAS) token.
   - `container`: Azure container name where the snapshot is stored.
   - `base_path`: Path to repository data within the container.
   - `snapshot_name`: Name of the snapshot to restore from.
@@ -59,12 +59,13 @@ For each cloud provider, ensure you have the following information:
 
 ## Register the snapshot repository
 
-Configure Aiven for OpenSearch to recognize where your snapshot is stored.
+Configure Aiven for OpenSearch to identify and access the location where your
+snapshot is stored.
 
 ### Amazon S3 and S3-compatible services
 
-Register a snapshot repository in Amazon S3 or any S3-compatible service with
-your Aiven for OpenSearch service.
+For Amazon S3 or any S3-compatible service, use one of the following methods to
+register the snapshot repository.
 
 <Tabs groupId="config-methods">
 <TabItem value="api" label="API" default>
@@ -129,8 +130,8 @@ avn service elasticsearch-register-repository \
 
 ### Google Cloud Storage (GCS)
 
-Register a snapshot repository in Google Cloud Storage (GCS) with your
-Aiven for OpenSearch service.
+For Google Cloud Storage (GCS), use one of the following methods to register the
+snapshot repository
 
 <Tabs groupId="config-methods">
 <TabItem value="api" label="API" default>
@@ -186,7 +187,7 @@ avn service elasticsearch-register-repository \
 
 ### Microsoft Azure
 
-Register a snapshot repository in Microsoft Azure with your Aiven for OpenSearch service.
+For Microsoft Azure, use one of the following methods to register the snapshot repository.
 
 <Tabs groupId="config-methods">
 <TabItem value="api" label="API" default>
@@ -214,7 +215,7 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 - `account`: The Azure account name.
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
-- `key`: The Azure secret key or Shared Access Signature (SAS) token.
+- `key`: The Azure secret key or SAS token.
 - `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
 
 </TabItem>
@@ -242,7 +243,7 @@ avn service elasticsearch-register-repository \
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
 - `account`: The Azure account name.
-- `key`: The Azure secret key or Shared Access Signature (SAS) token.
+- `key`: The Azure secret key or SAS token.
 - `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
 
 </TabItem>
