@@ -37,7 +37,7 @@ Before proceeding with the setup, ensure you have:
 - Required configuration details from your OIDC provider:
   - **JWKS Endpoint URL**: URL to retrieve the JSON Web Key Set
     (JWKS).
-  - **Subject Claim Name**: Typically `sub`. However, this can vary depending
+  - **Subject Claim Name**: Typically `sub`, but this can vary depending
     on your OIDC provider.
   - **Issuer URL or Identifier**: Identifies and verifies the JWT
     issuer.
@@ -102,7 +102,7 @@ Set the following OIDC parameters:
     provider.
   - `kafka.sasl_oauthbearer_sub_claim_name` (Optional)
     - **Description**: Name of the JWT's subject claim for broker
-      verification. This is optional and typically set to `sub`.
+      verification. It is typically set to `sub`.
       Corresponds to the Apache Kafka parameter
       `sasl.oauthbearer.sub.claim.name`.
     - **Value**: Enter `sub` or the specific claim name provided
@@ -110,15 +110,14 @@ Set the following OIDC parameters:
   - `kafka.sasl_oauthbearer_expected_issuer` (Optional)
     - **Description**: Specifies the JWT's issuer for the broker to
       verify. Corresponds to the Apache Kafka parameter
-      `sasl.oauthbearer.expected.issuer`. This setting is
-      optional.
+      `sasl.oauthbearer.expected.issuer`.
     - **Value**: Enter the issuer URL or identifier provided by your
       OIDC provider.
   - `kafka.sasl_oauthbearer_expected_audience` (Optional)
     - **Description**: Validates the intended JWT audience for the
       broker. Corresponds to the Apache Kafka parameter
-      `sasl.oauthbearer.expected.audience`. This is optional and
-      is used if your OIDC provider specifies an audience.
+      `sasl.oauthbearer.expected.audience`. It is used if your OIDC provider
+      specifies an audience.
     - **Value**: Input the audience identifiers given by your OIDC
       provider. If there are multiple audiences, separate them
       with commas.
