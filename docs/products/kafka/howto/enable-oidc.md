@@ -1,5 +1,5 @@
 ---
-title: Enable OAUTH2/OIDC authentication for Aiven for Apache Kafka®
+title: Enable OAUTH2/OIDC authentication
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-Aiven for Apache Kafka enables secure client authentication using OIDC/OAuth2, allowing clients to verify users through an authorization server.
+Aiven for Apache Kafka® enables secure client authentication using OIDC/OAuth2, allowing clients to verify users through an authorization server.
 
 By activating this, you can use
 token-based authentication and integrate with identity providers.
