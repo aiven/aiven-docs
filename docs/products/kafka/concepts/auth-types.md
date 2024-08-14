@@ -2,66 +2,60 @@
 title: Authentication types
 ---
 
-It is strongly recommended to use modern encryption protocols to protect data in transit sent to and from Apache Kafka®. You can use one of the available options in **Aiven for Apache Kafka®** services.
+Use modern encryption protocols to protect data in transit with Apache Kafka®. Aiven for Apache Kafka® provides multiple options to secure your data.
 
 ## Transport Layer Security
 
-**Transport Layer Security (TLS)**, also known as Secure Sockets Layer
-(SSL), is an established standard for securing internet traffic. This
-method relies on a certificate that is provided by a Certificate
-Authority (for example, [letsencrypt.org](https://letsencrypt.org) ) for
-your domain. With this certificate and the right technical setup, you
-can use your domain to encrypt the traffic to your service.
+**Transport Layer Security (TLS)**, also known as Secure Sockets Layer (SSL),
+is a standard for securing Internet traffic. This method relies on a certificate
+provided by a Certificate Authority (for example,
+[letsencrypt.org](https://letsencrypt.org)). With this certificate and the right
+technical setup, you can use your domain to encrypt traffic to your service.
 
-By default Aiven enables TLS encryption for all **Aiven for Apache
-Kafka** services and helps with the application, renewal, and
-configuration of certificates.
+By default, Aiven enables TLS encryption for all **Aiven for Apache Kafka** services
+and helps with the application, renewal, and configuration of certificates.
 
-There are two ways you can use TLS:
+You can use TLS in two ways:
 
-1.  **TLS encryption** : your Apache Kafka client validates the
-    certificate for your Apache Kafka broker.
-1.  **TLS authentication** : your Apache Kafka client validates the
-    certificate for your Apache Kafka broker and your broker validates
-    the certificate for your client.
+- **TLS encryption** : Your Apache Kafka client validates the
+  certificate for your Apache Kafka broker.
+- **TLS authentication** : Your Apache Kafka client validates the
+  certificate for your Apache Kafka broker and your broker validates
+  the certificate for your client.
 
 ## Simple Authentication and Security Layer
 
-**Simple Authentication and Security Layer (SASL)** acts as a layer that
-allows alternative login methods for your service.
+**Simple Authentication and Security Layer (SASL)** allows alternative login
+methods for your service.
 
-We support SASL/PLAIN and SASL/SCRAM with **Aiven for Apache Kafka**.
+Aiven for Apache Kafka supports the following SASL mechanisms:
 
-### SASL/PLAIN
+- **PLAIN**: Uses a combination of username and password to log in over a TLS
+  connection, ensuring encrypted traffic. For security reasons, Aiven does not support
+  SASL/PLAIN without TLS, as this would allow anyone to read your credentials when sent.
+- **SCRAM-SHA-256**: Uses the Salted Challenge Response Authentication Mechanism (SCRAM)
+  with SHA-256 hashing to identify clients without sending plain-text passwords. It does
+  not reveal the password to servers that do not already have it.
+- **SCRAM-SHA-512**: Similar to SCRAM-SHA-256 but uses SHA-512 hashing for added
+  security. SCRAM works by creating a random `salt`, which is used to create an
+  `identity` that holds:
 
-**PLAIN** relies on a combination of username and password to log in
-over a TLS connection, meaning that your traffic is encrypted. To ensure
-proper security mechanism Aiven does not support using SASL/PLAIN
-without TLS, because in this case anyone will be able to read your
-credentials when you send them.
+  -   The `salt`
+  -   The number of iterations to use (4096 by default)
+  -   `StoredKey` (the hash of the client's key)
+  -   `ServerKey`  (a key used by the server)
 
-### SASL/SCRAM
+  By default, this identity is stored in Apache ZooKeeper™.
 
-**SCRAM** stands for Salted Challenge Response Authentication Mechanism.
-It is a mechanism that allows a client to identify itself to a server
-without sending a plain-text password. A key benefit of this is that it
-does not reveal the password to servers that do not already have it, for
-example if a client connects to the wrong server even if that server has
-a valid TLS certificate.
+- **OAUTHBEARER**: Uses OAuth 2.0 tokens for authentication. This mechanism is enabled if
+  the `sasl_oauthbearer_jwks_endpoint_url` is specified in the configuration. By default,
+  it is disabled.
 
-A brief explanation of this is that it creates a random \"salt\", which
-is then used to create an \"identity\" that holds:
+## Related pages
 
--   The "salt"
--   The number of iterations to use (4096 by default)
--   `StoredKey` (the hash of the client's key)
--   `ServerKey`
+- [Enable SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
+- [Enable OIDC authentication for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-oidc)
 
-This identity is then by default stored in Apache ZooKeeper™.
-
-## Enable SASL authentication
-
-See [Enable SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth).
 
 ------------------------------------------------------------------------
 
