@@ -7,9 +7,7 @@ The Aiven command line interface (CLI) lets you use the Aiven platform and servi
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Get started with Aiven CLI
-
-### Install
+## Install the Aiven CLI
 
 1. The `avn` utility is a [Python package](https://pypi.org/project/aiven-client/):
 
@@ -36,12 +34,13 @@ import TabItem from '@theme/TabItem';
    avn --version
    ```
 
-## Authenticate
+## Authenticate with the Aiven CLI
 
 You can authenticate using your password or an
 [authentication token](/docs/platform/concepts/authentication-tokens).
 
-### Password authentication
+<Tabs groupId="group1">
+<TabItem value="With a password" label="With a password" default>
 
 1. To log in with your email, run:
 
@@ -51,7 +50,8 @@ You can authenticate using your password or an
 
 1. When prompted, enter your password.
 
-### Token authentication
+</TabItem>
+<TabItem value="With a token" label="With a token">
 
 1. Create an
    [authentication token](/docs/platform/howto/create_authentication_token).
@@ -62,7 +62,10 @@ You can authenticate using your password or an
    avn user login EMAIL_ADDRESS --token
    ```
 
-## Format output
+</TabItem>
+</Tabs>
+
+## Configure the output format
 
 To get information in JSON format, use the `--json` switch with any command.
 
