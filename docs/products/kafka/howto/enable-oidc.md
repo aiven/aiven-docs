@@ -17,7 +17,7 @@ of the Kafka brokers. This restart does not cause service downtime.
 
 :::note
 To use the `OAUTHBEARER` mechanism, you must enable `kafka_authentication_methods.sasl`.
-Additionally, at least one other SASL mechanism (PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512)
+Additionally, at least one of the SASL mechanisms (PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512)
 must be enabled. For instructions on enabling SASL authentication, see
 [Enabled and configure SASL authentication with Aiven for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
 :::

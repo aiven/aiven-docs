@@ -46,12 +46,12 @@ Enable SASL authentication for your Aiven for Apache Kafka service using
 1. Enable SASL authentication:
 
    ```bash
-   avn service update <SERVICE_NAME> -c kafka_authentication_methods.sasl=true
+   avn service update SERVICE_NAME -c kafka_authentication_methods.sasl=true
    ```
 
    Parameters:
 
-   - `<SERVICE_NAME>`: Name of your Aiven for Apache Kafka service.
+   - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
    - `kafka_authentication_methods.sasl`: Set to `true` to enable SASL authentication.
 
 </TabItem>
@@ -84,6 +84,10 @@ API to enable SASL authentication on an existing service:
 </Tabs>
 
 ## Configure SASL mechanisms
+
+After [enabling SASL authentication](#enable-sasl-authentication), fine-tune the active SASL mechanisms for your
+Aiven for Apache Kafka service. By default, all mechanisms (PLAIN, SCRAM-SHA-256,
+SCRAM-SHA-512) are enabled. Configure these settings only to disable any mechanisms.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
@@ -118,7 +122,7 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
 1. Configure specific mechanisms:
 
    ```bash
-   avn service update <SERVICE_NAME>             \
+   avn service update SERVICE_NAME             \
     -c kafka_sasl_mechanisms.plain=true          \
     -c kafka_sasl_mechanisms.scram_sha_256=true  \
     -c kafka_sasl_mechanisms.scram_sha_512=true
@@ -126,7 +130,7 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
 
    Parameters:
 
-   - `<SERVICE_NAME>`: Name of your Aiven for Apache Kafka service.
+   - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
    - `kafka_sasl_mechanisms.plain`: Set to `true` to enable the **PLAIN** mechanism.
    - `kafka_sasl_mechanisms.scram_sha_256`: Set to `true` to enable the
      **SCRAM-SHA-256** mechanism.
@@ -169,12 +173,8 @@ Parameters:
 
 :::note
 
-- To use any of the SASL mechanisms (plain, scram_sha_256, or
-  scram_sha_512), you must enable` kafka_authentication_methods.sasl`.
-- At least one SASL mechanism must always be enabled. If all mechanisms are disabled,
-  an error occurs.
-- If the `sasl_oauthbearer_jwks_endpoint_url` is specified, it enables
-  the `OAUTHBEARER` mechanism.
+- At least one SASL mechanism must remain enabled. Disabling all results in an error.
+- `OAUTHBEARER` is enabled if `sasl_oauthbearer_jwks_endpoint_url` is specified.
 
 :::
 
