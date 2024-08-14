@@ -76,7 +76,7 @@ complete the following prerequisites and configuration steps:
 1. In the [Aiven Console](https://console.aiven.io/), select your
    project and choose your Aiven for Apache Kafka® service.
 1. Click <ConsoleLabel name="Service settings"/>.
-1. Scroll to **Advanced configuration** and click **Configure**.
+1. Go to **Advanced configuration** and click **Configure**.
 1. In the **Advanced configuration** window, click
    <ConsoleIcon name="Add config options"/>.
 1. Find the `kafka_rest_authorization` parameter and set it to `Enabled`.

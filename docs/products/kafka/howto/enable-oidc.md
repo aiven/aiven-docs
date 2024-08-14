@@ -18,8 +18,8 @@ of the Kafka brokers. This restart does not cause service downtime.
 :::note
 To use the `OAUTHBEARER` mechanism, you must enable `kafka_authentication_methods.sasl`.
 Additionally, at least one of the SASL mechanisms (PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512)
-must be enabled. For instructions on enabling SASL authentication, see
-[Enabled and configure SASL authentication with Aiven for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
+must be enabled. See
+[Enabled and configure SASL authentication with Aiven for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth).
 :::
 
 ## Prerequisites
@@ -71,7 +71,7 @@ service using [Aiven CLI](/docs/tools/cli):
    avn service list
    ```
 
-   Note of the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
+   Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
 
 1. Enable OAuth2/OIDC authentication for your service:
 

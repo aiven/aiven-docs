@@ -22,8 +22,8 @@ Aiven for Apache Kafka® provides [multiple authentication methods](/docs/produc
    **Enabled**.
 1. Click **Save configurations**.
 
-The **Connection information** in the **Overview** page now allows connections via SASL
-or Client certificate.
+The **Connection information** in the <ConsoleLabel name="overview"/> page now
+allows connections via SASL or Client certificate.
 
 :::note
 Although these connections use a different port, the host, CA, and user
@@ -42,7 +42,7 @@ Enable SASL authentication for your Aiven for Apache Kafka service using
    avn service list
    ```
 
-   Note of the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
+   Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
 
 1. Enable SASL authentication:
 
@@ -118,7 +118,7 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
    avn service list
    ```
 
-  Note of the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
+  Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
 
 1. Configure specific mechanisms:
 

@@ -7,12 +7,12 @@ Use modern encryption protocols to protect data in transit with Apache Kafka®. 
 ## Transport Layer Security
 
 **Transport Layer Security (TLS)**, also known as Secure Sockets Layer (SSL),
-is a standard for securing internet traffic. This method relies on a certificate
+is a standard for securing Internet traffic. This method relies on a certificate
 provided by a Certificate Authority (for example,
 [letsencrypt.org](https://letsencrypt.org)). With this certificate and the right
 technical setup, you can use your domain to encrypt traffic to your service.
 
-By default Aiven enables TLS encryption for all **Aiven for Apache Kafka** services
+By default, Aiven enables TLS encryption for all **Aiven for Apache Kafka** services
 and helps with the application, renewal, and configuration of certificates.
 
 You can use TLS in two ways:
@@ -40,7 +40,7 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
 
 
 - **SCRAM-SHA-512**: Similar to SCRAM-SHA-256 but uses SHA-512 hashing for added
-  security. SCRAM works by creating a random `salt`, which is then used to create an
+  security. SCRAM works by creating a random `salt`, which is used to create an
   `identity` that holds:
 
   -   The `salt`
