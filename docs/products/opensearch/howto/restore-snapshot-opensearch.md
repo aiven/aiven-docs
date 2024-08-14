@@ -49,7 +49,6 @@ For each cloud provider, ensure you have the following information:
   - `container`: Azure container name where the snapshot is stored.
   - `base_path`: Path to repository data within the container.
   - `snapshot_name`: Name of the snapshot to restore from.
-  - `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
   - `compress`: (Optional) Whether to store metadata files in compressed format.
   - `chunk_size`: (Optional) Size of chunks for large files during snapshot creation.
 
@@ -200,7 +199,7 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 - `API_TOKEN`: The [API token for authentication](/docs/platform/howto/create_authentication_token).
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
-- `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
+
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -224,7 +223,7 @@ avn service elasticsearch-register-repository \
 - `repository-type`: The repository type, set to `azure` for Microsoft Azure.
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
-- `endpoint_suffix`: (Optional) Defines the DNS suffix for Azure Storage endpoints.
+
 
 </TabItem>
 </Tabs>
