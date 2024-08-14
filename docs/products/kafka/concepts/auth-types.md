@@ -17,12 +17,11 @@ and helps with the application, renewal, and configuration of certificates.
 
 You can use TLS in two ways:
 
-
-1. **TLS encryption** : Your Apache Kafka client validates the
-   certificate for your Apache Kafka broker.
-1.  **TLS authentication** : Your Apache Kafka client validates the
-    certificate for your Apache Kafka broker and your broker validates
-    the certificate for your client.
+- **TLS encryption** : Your Apache Kafka client validates the
+  certificate for your Apache Kafka broker.
+- **TLS authentication** : Your Apache Kafka client validates the
+  certificate for your Apache Kafka broker and your broker validates
+  the certificate for your client.
 
 ## Simple Authentication and Security Layer
 
