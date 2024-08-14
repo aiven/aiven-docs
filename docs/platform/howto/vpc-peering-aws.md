@@ -39,7 +39,7 @@ Create a
     if so, click <ConsoleLabel name="actions"/> > **Accept Request**.
 
 1.  Update [your AWS route
-    tables](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html)
+    tables](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing)
     to match your Aiven CIDR settings.
 
 When you accept the request in AWS Console, the peering connection gets

@@ -2,19 +2,17 @@
 title: Migrate to Aiven for PostgreSQL® with pg_dump and pg_restore
 ---
 
+Aiven for PostgreSQL® supports the same tools as a regular PostgreSQL database, so you can migrate using the standard `pg_dump` and `pg_restore` tools.
+
 :::tip
 We recommend to migrate your PostgreSQL® database to Aiven by using
 [aiven-db-migrate](migrate-aiven-db-migrate).
 :::
 
-Aiven for PostgreSQL® supports the same tools as a regular PostgreSQL
-database, so you can migrate using the standard `pg_dump` and
-`pg_restore` tools.
-
-The [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)
+The [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump)
 tool can be used to extract the data from your existing PostgreSQL
 database and
-[pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html)
+[`pg_restore`](https://www.postgresql.org/docs/current/app-pgrestore)
 can then insert that data into your Aiven for PostgreSQL database. The
 duration of the process depends on the size of your existing database.
 
@@ -22,12 +20,14 @@ During the migration no new data written to the database is included.
 You should turn off all write operations to your source database server
 before you run the `pg_dump`.
 
+<!-- vale off -->
 :::tip
 You can keep the write operations enabled, and use the steps to try out
 the migration process first before the actual migration. This way, you
-will find out about the duration, and check everything works without
+will find out about the duration, and ensure everything works without
 downtime.
 :::
+<!-- vale on -->
 
 ## Variables
 
@@ -53,8 +53,8 @@ You can use the following variables in the code samples provided:
     ```
 
     :::tip
-    Aiven for PostgreSQL allows you to easily switch between different
-    service plans, but for the duration of the initial migration process
+    Aiven for PostgreSQL allows you to switch between different
+    service plans, but during the initial migration process
     using `pg_dump`, we recommend that you choose a service plan that is
     large enough for the task. This allows you to limit downtime during
     the migration process. Once migrated, you can scale the plan size up
@@ -66,7 +66,7 @@ You can use the following variables in the code samples provided:
 
 1.  Run the `pg_dump` command substituting the `SRC_SERVICE_URI` with
     the service URI of your source PostgreSQL service, and `DUMP_FOLDER`
-    with the folder where you want to store the dump in:
+    with the folder where to store the dump in:
 
     ```
     pg_dump -d 'SRC_SERVICE_URI' --jobs 4 --format directory -f DUMP_FOLDER
@@ -122,7 +122,7 @@ database is now ready to use.
 
 ## Handle `pg_restore` errors
 
-When migrating PostgreSQL databases to Aiven via `pg_restore` you could
+When migrating PostgreSQL databases to Aiven via `pg_restore` you can
 encounter errors like:
 
 ```
@@ -147,7 +147,7 @@ use the `--no-comments` parameter in `pg_restore` to skip these queries.
 `pg_restore` offers similar `--no-XXX` options to switch off other,
 often unnecessary restore queries. More information is available in the
 [PostgreSQL
-documentation](https://www.postgresql.org/docs/current/app-pgrestore.html).
+documentation](https://www.postgresql.org/docs/current/app-pgrestore).
 :::
 
 ### Poor performance after migration
@@ -159,9 +159,9 @@ statistics on the tables and indexes without these operations. In turn,
 this may lead to poor query plans and poor database performance.
 
 Generally, the Aiven platform automatically runs `ANALYZE` on your
-service after performing a major version upgrade in order to ensure the
+service after performing a major version upgrade to ensure the
 statistics are up-to-date.
 
 For more information about `ANALYZE`, you may see the official [SQL
-analyze](https://www.postgresql.org/docs/current/sql-analyze.html)
+analyze](https://www.postgresql.org/docs/current/sql-analyze)
 documentation.

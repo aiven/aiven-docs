@@ -36,7 +36,7 @@ between the clouds. Should any available plans not be an ideal fit for
 your workload, we can tailor a custom plan for you to better
 suit your needs.
 
-[Request a custom plan](https://docs.aiven.io/docs/platform/howto/custom-plans.html).
+[Request a custom plan](/docs/platform/howto/custom-plans).
 
 ## Billing
 
@@ -49,7 +49,7 @@ service stops the accumulation of charges immediately. We calculate your
 final bill based on your consumption over that period and deliver it as
 a single invoice per project. For generating a consolidated invoice
 across multiple projects, [manage billing groups in Aiven
-Console](https://docs.aiven.io/docs/platform/howto/use-billing-groups.html).
+Console](/docs/platform/howto/use-billing-groups).
 
 ### Billing on partial hours
 

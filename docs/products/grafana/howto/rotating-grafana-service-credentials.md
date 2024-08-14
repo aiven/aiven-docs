@@ -7,7 +7,7 @@ credentials.
 
 For Grafana®, a few steps need to be performed manually to do this. You
 will need to have access to a web browser, and to have installed `avn`,
-the [Aiven CLI tool](https://docs.aiven.io/docs/tools/cli.html).
+the [Aiven CLI tool](/docs/tools/cli).
 
 1.  In the web browser, go to the [Aiven
     Console](https://console.aiven.io/) page for your Grafana service.

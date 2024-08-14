@@ -2,14 +2,14 @@
 title: Use Aggregations with OpenSearch® and NodeJS
 ---
 
-Learn how to aggregate data using OpenSearch and its NodeJS client. In
-this tutorial we'll look at different types of aggregations, write and
+Learn how to aggregate data using OpenSearch and its NodeJS client.
+<!-- vale off -->
+In this tutorial we'll look at different types of aggregations, write and
 execute requests to learn more about the data in our dataset.
 
 :::note
-If you're new to OpenSearch® and its JavaScript client you might want
-to check
-[how to write search queries with OpenSearch with NodeJS](opensearch-and-nodejs) first.
+If you're new to OpenSearch® and its JavaScript client, see
+[how to write search queries with OpenSearch with NodeJS](/docs/products/opensearch/howto/opensearch-and-nodejs).
 :::
 
 ## Prepare the playground
@@ -55,7 +55,7 @@ Now you're ready to start aggregating the data.
 
 ## Aggregations
 
-In this tutorial we'll write and run examples for three different types
+We'll write and run examples for three different types
 of aggregations: metric, bucket and pipeline. You can read more about
 aggregations in
 [a concept article](/docs/products/opensearch/concepts/aggregations).
@@ -343,7 +343,7 @@ From the returned result you can see that 50% of recipes have less than
 3256 calories. You must be curious what falls within that last
 percentile ;) Now that we know the value to look for, we can use [a
 range
-query](https://docs.aiven.io/docs/products/opensearch/howto/opensearch-and-nodejs.html#find-fields-with-a-value-within-a-range)
+query](/docs/products/opensearch/howto/opensearch-and-nodejs#find-fields-with-a-value-within-a-range)
 to find the recipes. Set the minimum value, but keep the maximum empty
 to allow no bounds:
 

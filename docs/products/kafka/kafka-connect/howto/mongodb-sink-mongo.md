@@ -12,7 +12,7 @@ different implementation and parameters:
 -   The standard [MongoDB sink connector by
     MongoDB](https://docs.mongodb.com/kafka-connector/current/)
 -   The [MongoDB sink connector by
-    Lenses.io](https://docs.lenses.io/connectors/sink/mongo.html)
+    Lenses.io](https://docs.lenses.io/connectors/sink/mongo)
     enabling KCQL transformations on the topic data before sending it to
     the MongoDB database.
 

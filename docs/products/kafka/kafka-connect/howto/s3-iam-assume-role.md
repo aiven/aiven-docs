@@ -7,7 +7,7 @@ The connection between the
 connector and the S3 bucket can be managed either via long-term AWS
 credentials (`ACCESS_KEY_ID` and `SECRET_ACCESS_KEY`), or using [AWS
 Assume role
-credentials](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials.html)
+credentials](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials)
 which request a short-term credential every time the connector has a
 task to store data to an S3 bucket.
 
@@ -22,10 +22,10 @@ to:
 
 Every customer in Aiven has a dedicated IAM user. Therefore, there are
 no shared credentials and roles among customers, and a [cross-account
-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html)
+role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles)
 provides access to one Aiven project only. You can request an IAM user
 and the [External
-ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html)
+ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid)
 (the role unique identifier) by contacting the Aiven support at
 `support@aiven.io`.
 
@@ -106,7 +106,7 @@ You can also include the following parameters:
     bucket is in the AWS region `eu-north-1`, the STS endpoint must be
     set to `https://sts.eu-north-1.amazonaws.com`. You can review the
     list of STS endpoints in the [dedicated AWS
-    documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html).
+    documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions).
 
 The connector configurations in a file (we'll refer to it with the name
 `s3_sink.json`) must contain at least the following content:

@@ -36,7 +36,7 @@ For **Apache Kafka®** and **OpenSearch®**, the service DNS address
 resolves to all the available service nodes. During an upgrade the DNS
 address changes to reflect the added and removed nodes. For example,
 during an [Apache Kafka upgrade
-procedure](https://docs.aiven.io/docs/products/kafka/concepts/upgrade-procedure.html),
+procedure](/docs/products/kafka/concepts/upgrade-procedure),
 a three node plan will have a minimum of three nodes available at all
 times during the whole upgrade operation.
 
@@ -72,7 +72,7 @@ following:
 -   [Aiven Console](https://console.aiven.io/) > **Service settings**
     page > **Service management** section
 -   `avn service get` command in [Aiven
-    CLI](https://docs.aiven.io/docs/tools/cli/service-cli#avn-service-get)
+    CLI](/docs/tools/cli/service-cli#avn_service_get)
 -   `service` endpoint in [Aiven REST
     API](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet)
 

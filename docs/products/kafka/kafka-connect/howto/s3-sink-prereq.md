@@ -72,5 +72,5 @@ previous step to the user.
 :::note
 In case of `Access Denied` errors while starting the connector, check
 the dedicated [AWS access troubleshooting
-guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/troubleshoot-403-errors.html).
+guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/troubleshoot-403-errors).
 :::

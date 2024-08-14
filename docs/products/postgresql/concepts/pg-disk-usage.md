@@ -2,9 +2,7 @@
 title: About PostgreSQL® disk usage
 ---
 
-When you create your first Aiven for PostgreSQL® service, you may see
-the disk usage gradually increasing even though you are not yet
-inserting or updating much data.
+When you create your first Aiven for PostgreSQL® service, you may see the disk usage gradually increasing even though you are not yet inserting or updating much data.
 
 ![Disk space usage graph showing % growing over an hour](/images/content/products/postgresql/initial-disk-usage.png)
 
@@ -25,17 +23,17 @@ onward, new WAL segments no longer have such a high impact on disk usage
 as the service reaches a steady state for low-traffic services.
 
 You can read more about WAL archiving [in the PostgreSQL
-manual](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVING).
+manual](https://www.postgresql.org/docs/current/runtime-config-wal#RUNTIME-CONFIG-WAL-ARCHIVING).
 
 ## High disk usage discrepancy
 
 There can be instances when you notice your disk space usage increasing
 contrary to the amount of data is being written to your database. This
-could be caused due to an inactive replication slot present in your
+can be caused due to an inactive replication slot present in your
 database.
 
-You can check the list of replication slot subscriptions created on your
-service using the following command:
+You can list the replication slot subscriptions created on your
+service with:
 
 ```shell
 SELECT * FROM aiven_extras.pg_list_all_subscriptions();

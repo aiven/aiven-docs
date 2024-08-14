@@ -36,7 +36,7 @@ clouds supported by Aiven. The plans also enable easy migration between
 the clouds. Should any available plans not be an ideal fit for your
 workload, we're happy to tailor a custom plan to suit your needs
 better. Learn how to [request a custom
-plan](https://docs.aiven.io/docs/platform/howto/custom-plans.html).
+plan](/docs/platform/howto/custom-plans).
 
 ## Pricing model
 
@@ -74,7 +74,7 @@ service stops the accumulation of charges immediately. We calculate your
 final bill based on your consumption over that period and deliver it as
 a single invoice per project. For generating a consolidated invoice
 across multiple projects, [manage billing groups in Aiven
-Console](https://docs.aiven.io/docs/platform/howto/use-billing-groups.html).
+Console](/docs/platform/howto/use-billing-groups).
 
 ### Billing on partial hours
 

@@ -4,9 +4,7 @@ keywords: [quick start, Terraform]
 sidebar_label: Get started
 ---
 
-This example shows you how to use the Aiven Provider to set up your data
-infrastructure by creating a single Aiven for Caching service in an
-[Aiven project](/docs/platform/concepts/orgs-units-projects).
+This example shows you how to use the Aiven Provider to set up your data infrastructure by creating a single Aiven for Caching service in an [Aiven project](/docs/platform/concepts/orgs-units-projects).
 
 :::caution
 Recreating stateful services with Terraform may delete the service and
@@ -28,7 +26,7 @@ removed even with this setting enabled.
     Aiven](https://console.aiven.io/signup?utm_source=github&utm_medium=organic&utm_campaign=devportal&utm_content=repo)
 -   [Download and install Terraform](https://www.terraform.io/downloads)
 -   [Create an authentication
-    token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+    token](/docs/platform/howto/create_authentication_token)
 
 ## Configure your project and services
 
@@ -63,7 +61,7 @@ Set up the Terraform project in an empty folder:
     }
     ```
 
-2.  Create a file named `redis.tf`.
+1.  Create a file named `redis.tf`.
 
     Add the following code to define the configuration of a single-node
     Aiven for Caching service:
@@ -89,7 +87,7 @@ Set up the Terraform project in an empty folder:
     }
     ```
 
-3.  Create a file named `variables.tf`. This is used to avoid including
+1.  Create a file named `variables.tf`. This is used to avoid including
     sensitive information in source control.
 
     Add the following code to declare the API token and project name
@@ -107,7 +105,7 @@ Set up the Terraform project in an empty folder:
     }
     ```
 
-4.  Create a file named `terraform.tfvars` to define the values of the
+1.  Create a file named `terraform.tfvars` to define the values of the
     sensitive information.
 
     Add the following code, replacing `AIVEN_AUTHENTICATION_TOKEN` with
@@ -122,14 +120,14 @@ Set up the Terraform project in an empty folder:
 ## Plan and apply the configuration {#plan-and-apply}
 
 1.  The `init` command prepares the working directly for use with
-    Terraform. Run this command to automatically find, download, and
+    Terraform. Use it to automatically find, download, and
     install the necessary Aiven Provider plugins:
 
     ```bash
     terraform init
     ```
 
-2.  Run the `plan` command to create an execution plan and preview the
+1.  Run the `plan` command to create an execution plan and preview the
     changes that will be made (for example, what resources will be
     created or modified):
 
@@ -137,7 +135,7 @@ Set up the Terraform project in an empty folder:
     terraform plan
     ```
 
-3.  To create the resources, run:
+1.  To create the resources, run:
 
     ```bash
     terraform apply --auto-approve
@@ -163,13 +161,13 @@ To delete the service and its data:
     terraform plan -destroy
     ```
 
-2.  To delete the resources and all data, run:
+1.  To delete the resources and all data, run:
 
     ```bash
     terraform destroy
     ```
 
-3.  Enter \"yes\" to confirm. The output will be similar to the
+1.  Enter \"yes\" to confirm. The output will be similar to the
     following:
 
     ```bash

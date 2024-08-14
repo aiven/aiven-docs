@@ -39,7 +39,7 @@ available sink connectors:
 
 -   [Aiven for Apache Kafka® S3 Sink Connector](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-aiven)
 -   [Confluent Amazon S3
-    Sink](https://docs.aiven.io/docs/products/kafka/kafka-connect/howto/s3-sink-connector-confluent)
+    Sink](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-confluent)
 -   [Couchbase®](https://github.com/couchbase/kafka-connect-couchbase)
 -   [OpenSearch®](/docs/products/kafka/kafka-connect/howto/opensearch-sink)
 -   [Elasticsearch](/docs/products/kafka/kafka-connect/howto/elasticsearch-sink)
@@ -54,7 +54,7 @@ available sink connectors:
 -   [JDBC](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
 -   [Official
     MongoDB®](https://docs.mongodb.com/kafka-connector/current/)
--   [Snowflake](https://docs.snowflake.net/manuals/user-guide/kafka-connector.html)
+-   [Snowflake](https://docs.snowflake.net/manuals/user-guide/kafka-connector)
 -   [Splunk](https://github.com/splunk/kafka-connect-splunk)
 -   [Stream Reactor
     Cassandra®](https://docs.lenses.io/5.1/connectors/sinks/cassandrasinkconnector/)

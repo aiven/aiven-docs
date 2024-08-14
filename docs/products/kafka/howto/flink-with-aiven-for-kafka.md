@@ -22,7 +22,7 @@ Aiven for Apache Kafka with any self-hosted cluster.
 Before you start, make sure you have the following:
 
 - An active **Aiven for Apache Kafka** service with two topics: `test-flink-input` and `test-flink-output`.
-  To create topics, see [Create an Apache Kafka topic](https://docs.aiven.io/docs/products/kafka/howto/create-topic.html).
+  To create topics, see [Create an Apache Kafka topic](/docs/products/kafka/howto/create-topic).
 - Gather the following details about your Aiven for Apache Kafka service:
    - `APACHE_KAFKA_HOST`: The hostname of your Apache Kafka service.
    - `APACHE_KAFKA_PORT`: The port number of your Apache Kafka service.

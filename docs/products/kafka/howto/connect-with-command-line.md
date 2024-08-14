@@ -17,7 +17,7 @@ in [its GitHub
 repository](https://github.com/confluentinc/schema-registry), or get the
 Confluent platform using the **Tar archive** option at [Quick Start for
 Confluent
-Platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html).
+Platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart).
 The `kafka-avro-console-producer` tool is in the `bin` directory of the
 unpacked Confluent archive.
 
@@ -29,7 +29,7 @@ service that is using Karapace.
 
 To setup the configuration file needed by all three tools, follow [the
 guide to set up properties to use the Apache Kafka
-toolbox](https://docs.aiven.io/docs/products/kafka/howto/kafka-tools-config-file.html).
+toolbox](/docs/products/kafka/howto/kafka-tools-config-file).
 
 ## Variables
 
@@ -37,7 +37,7 @@ toolbox](https://docs.aiven.io/docs/products/kafka/howto/kafka-tools-config-file
  | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
  | `HOST`                 | Host name for the connection                                                                                                             |
  | `PORT`                 | Port number to use for the Kafka service                                                                                                 |
- | `CONFIGURATION_PATH`   | Path to your configuration file [for Apache Kafka toolbox](https://docs.aiven.io/docs/products/kafka/howto/kafka-tools-config-file.html) |
+ | `CONFIGURATION_PATH`   | Path to your configuration file [for Apache Kafka toolbox](/docs/products/kafka/howto/kafka-tools-config-file) |
  | `SCHEMA_REGISTRY_HOST` | Host name for your schema registry                                                                                                       |
  | `SCHEMA_REGISTRY_PORT` | Port number for your schema registry                                                                                                     |
  | `SCHEMA_REGISTRY_USER` | User name for your schema registry                                                                                                       |
@@ -77,7 +77,7 @@ connecting to your schema registry
     starting with `https://`
 2.  Aiven's [Karapace](https://karapace.io/) is an acceptable schema
     registry for this purpose. See [Use Karapace with Aiven for Apache
-    Kafka®](https://docs.aiven.io/docs/products/kafka/howto/enable-karapace.html)
+    Kafka®](/docs/products/kafka/howto/enable-karapace)
     for how to enable it for your Aiven for Kafka service. The
     `SCHEMA_REGISTRY_` values for the command line can be found on the
     service Overview page, on the **Schema registry** tab.

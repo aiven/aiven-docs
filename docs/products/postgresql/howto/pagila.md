@@ -340,7 +340,7 @@ to answer some of these questions?
     </details>
 
 3.  The `film.description` has the `text` type, allowing for [full text
-    search](https://www.postgresql.org/docs/11/textsearch-intro.html)
+    search](https://www.postgresql.org/docs/11/textsearch-intro)
     queries, what will you search for?
 
     <details><summary>

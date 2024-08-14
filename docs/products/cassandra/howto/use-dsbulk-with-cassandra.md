@@ -2,7 +2,7 @@
 title: Use DSBULK to load, unload and count data on Aiven service for Cassandra®
 ---
 
-[DSBulk](https://docs.datastax.com/en/dsbulk/docs/reference/dsbulkCmd.html) is a highly configurable tool used to load, unload and count data in Apache Cassandra®. It has configurable consistency levels for loading and unloading and offers the most accurate way to count records in Cassandra.
+[DSBulk](https://docs.datastax.com/en/dsbulk/docs/reference/dsbulkCmd) is a highly configurable tool used to load, unload and count data in Apache Cassandra®. It has configurable consistency levels for loading and unloading and offers the most accurate way to count records in Cassandra.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ repository](https://github.com/datastax/dsbulk).
 :::tip
 You can read more about the DSBulk different use cases and manual pages
 in the [dedicated
-documentation](https://docs.datastax.com/en/dsbulk/docs/getting-started/getting-started.html)
+documentation](https://docs.datastax.com/en/dsbulk/docs/getting-started/getting-started)
 :::
 
 ## Variables

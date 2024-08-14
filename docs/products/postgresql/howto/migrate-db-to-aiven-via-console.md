@@ -2,15 +2,10 @@
 title: Migrate PostgreSQL® databases to Aiven using the console
 ---
 
-You can migrate PostgreSQL® databases to Aiven using either
-[CLI](/docs/products/postgresql/howto/migrate-aiven-db-migrate) (`aiven-db-migrate`) or [Aiven
-Console](https://console.aiven.io/). This article addresses the latter
-scenario by providing guidelines on how to use [Aiven
-Console](https://console.aiven.io/) to migrate PostgreSQL databases to
-the Aiven platform.
+Migrate PostgreSQL databases to the Aiven platform using the Aiven Console.
 
 :::note
-For the other migration method (using `aiven-db-migrate`), see
+For the CLI method using `aiven-db-migrate`, see
 [Migrate to Aiven for PostgreSQL® with aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate).
 :::
 
@@ -24,34 +19,33 @@ migrate the following:
 -   Cloud-hosted PostgreSQL databases
 -   Managed PostgreSQL database clusters on Aiven.
 
-With the console migration tool, you can migrate your data using either
-the
-[continuous migration method](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console#pg-continuous-migration) (default and recommended) or the
-[one-time snapshot method](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console#pg-dump-migration) (`pg_dump`).
+With the console migration tool, you can migrate your data using one of these methods:
+
+- [Continuous migration method](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console#pg-continuous-migration) (default and recommended)
+- [One-time snapshot method](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console#pg-dump-migration) (`pg_dump`).
 
 ### Continuous migration {#pg-continuous-migration}
 
-The continuous migration method is used by default in the console and
-taken as a method to follow in this guide. The continuous migration
+The continuous migration method is used by default in the console. The continuous migration
 keeps the source database operational during the migration. This method
 uses [logical
-replication](https://www.postgresql.org/docs/current/logical-replication.html),
+replication](https://www.postgresql.org/docs/current/logical-replication),
 which enables data transfer not only for the data that has already been
 there in the source database when triggering the migration but also for
 any data written to the source database during the migration.
 
 :::important
 Before you use the logical replication, make sure you know and
-understand all the restrictions it has. For details, check out [Logical
+understand all the restrictions it has. For details, see [Logical
 replication
-restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
+restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions).
 :::
 
 Using the continuous migration requires either superuser permissions or
 the `aiven_extras` extension installed on the source database.
 
 <details><summary>
-Expand to check out how to verify that you have superuser permissions.
+How to verify that you have superuser permissions.
 </summary>
 
 Use `psql` to run the `\du` command:
@@ -115,12 +109,13 @@ follow and go straight to
 
 ## Prerequisites
 
--   To use the default continuous migration method in the console, you
-    need to have the logical replication enabled on your source database
+To use the default continuous migration method in the console:
+
+-   Have the logical replication enabled on your source database
     either with superuser permissions or the `aiven_extras` extension.
--   Source database's hostname or IP address needs to be
+-   The source database's hostname or IP address must be
     [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
--   You need to have the following source database's credentials and
+-   Collect the following source database's credentials and
     reference data:
     -   Public hostname or connection string, or IP address used to
         connect to the database
@@ -135,7 +130,7 @@ follow and go straight to
 
 -   Allow remote connections on the source database.
 
-    Check that your database allows all remote connections by using
+    Ensure your database allows all remote connections by using
     `psql` to run the following query:
 
     ```bash
@@ -189,7 +184,7 @@ follow and go straight to
 
     For more details on the configuration file's syntax, see [The
     pg_hba.conf
-    File](https://www.postgresql.org/docs/14/auth-pg-hba-conf.html).
+    File](https://www.postgresql.org/docs/14/auth-pg-hba-conf).
 
 -   Enable the logical replication.
 
@@ -299,15 +294,14 @@ snapshot (dump method)**.
 ### Step 3: Migration
 
 If all the checks pass with no error messages, you are ready to start
-the migration. Before you do that, make sure you understand its
-limitations and consequences.
+the migration. Before you do that, be aware of its limitations and consequences.
 
 :::note[Impact on target databases]
 It's recommended to migrate into an empty database. If you migrate into
 a populated database, colliding tables with primary keys are not
 affected, but tables without primary keys are appended. Check other
 limitations in [Logical replication
-restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
+restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions).
 :::
 
 Trigger the migration by selecting **Start migration** in the **Database
@@ -322,7 +316,7 @@ While the migration is in progress, you can take the following actions:
 -   Write to the target database.
 -   Discontinue the migration by selecting **Stop migration**. Although
     the data already migrated is retained, you cannot restart the
-    stopped process. To continue with the migration, you need to start a
+    stopped process. To continue with the migration, start a
     new migration process from scratch.
 
 :::warning
@@ -334,7 +328,7 @@ ongoing, take the following precautions:
 -   Do not change the replication configuration of the source database
     manually. Do not modify `wal_level` or reduce
     `max_replication_slots`.
--   Do not make database changes that could disrupt or prevent the
+-   Do not make database changes that can disrupt or prevent the
     connection between the source database and the target database. Do
     not change the listen address of the source database and do not
     modify or enable firewalls on the databases.
@@ -366,7 +360,7 @@ the connected databases.
 -   If the replication mode is active, you can select **Keep
     replicating**. As a result, on the **Service settings** page > the
     **Service management** section > **Import database**, you'll see
-    the **Syncing** tag, and you'll be able to check the status of the
+    the **Syncing** tag, and you'll be able to see the status of the
     migration process by selecting **Status update**.
 
 You have successfully migrated your PostgreSQL database into you Aiven
@@ -376,6 +370,6 @@ for PostgreSQL service.
 
 -   [About aiven-db-migrate](/docs/products/postgresql/concepts/aiven-db-migrate)
 -   [Migrate to Aiven for PostgreSQL® with aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate)
--   [Migrate to Aiven for PostgreSQL® with pg_dump and pg_restore](/docs/products/postgresql/howto/migrate-pg-dump-restore)
+-   [Migrate to Aiven for PostgreSQL® with `pg_dump` and `pg_restore`](/docs/products/postgresql/howto/migrate-pg-dump-restore)
 -   [Migrate between PostgreSQL® instances using aiven-db-migrate in Python](/docs/products/postgresql/howto/run-aiven-db-migrate-python)
 -   [Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql)

@@ -49,6 +49,6 @@ would make it warn you when appropriate.
 ## Related pages
 
 -   [25.1.5. Preventing Transaction ID Wraparound
-    Failures](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND)
+    Failures](https://www.postgresql.org/docs/current/routine-vacuuming#VACUUM-FOR-WRAPAROUND)
 -   [Table 9.76. Transaction ID and Snapshot Information
-    Functions](https://www.postgresql.org/docs/14/functions-info.html#FUNCTIONS-PG-SNAPSHOT)
+    Functions](https://www.postgresql.org/docs/14/functions-info#FUNCTIONS-PG-SNAPSHOT)

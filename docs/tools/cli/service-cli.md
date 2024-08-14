@@ -106,7 +106,7 @@ Creates a new service.
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `service_name`                    | The name of the service                                                                                                                                                                                                                     |
 | `--service-type`                  | The type of service; the [service types command](/docs/tools/cli/service-cli#avn-cli-service-type) has the available values                                                                                                                 |
-| `--plan`                          | Aiven subscription plan name; check [avn_service_plan](/docs/tools/cli/service-cli#avn-service-plan) for more information                                                                                                                   |
+| `--plan`                          | Aiven subscription plan name; check [`avn_service_plan`](/docs/tools/cli/service-cli#avn-service-plan) for more information                                                                                                                   |
 | `--cloud`                         | The cloud region name; check [avn-cloud-list](/docs/tools/cli/cloud#avn-cloud-list) for more information                                                                                                                                    |
 | `--disk-space-gib`                | Total amount of disk space for data storage (GiB)                                                                                                                                                                                           |
 | `--no-fail-if-exists`             | The create command will not fail if a service with the same name already exists                                                                                                                                                             |
@@ -322,7 +322,7 @@ Starts the service maintenance updates.
 :::warning
 Maintenance updates do not typically cause any noticeable impact on the
 service in use but may sometimes cause a short period of lower
-performance or downtime which shall not exceed 1 hour.
+performance or downtime which will not exceed 1 hour.
 :::
 
 | Parameter      | Information             |
@@ -427,7 +427,7 @@ retrievable includes:
 
 -   the `public.pg_stat_statements` columns (see the [documentation for
     these statistics
-    columns](https://www.postgresql.org/docs/current/pgstatstatements.html))
+    columns](https://www.postgresql.org/docs/current/pgstatstatements))
     for Aiven for PostgreSQL services.
 -   the `performance_schema.events_statements_summary_by_digest` (refer
     to [documentation on the events information from the performance
@@ -436,7 +436,7 @@ retrievable includes:
 
 A description of the retrieved columns for Aiven for PostgreSQL can be
 found in the dedicated [PostgreSQL
-documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)
+documentation](https://www.postgresql.org/docs/current/pgstatstatements)
 .
 
 | Parameter      | Information                                                                                        |
@@ -455,7 +455,7 @@ avn service queries pg-demo --format '{query},{calls},{total_time},{mean_time}'
 ### `avn service queries-reset`
 
 Resets service connections/queries statistics for an Aiven for
-PostgreSQL® or Aiven for MySQL service. Resetting query statistics could
+PostgreSQL® or Aiven for MySQL service. Resetting query statistics can
 be useful to measure database behaviour in a precise point in time or
 after a change has been deployed.
 
@@ -543,9 +543,7 @@ the `myproj` project
 avn service task-get --task-id e2df7736-66c5-4696-b6c9-d33a0fc4cbed --project myproj mysql
 ```
 
-An example `avn service task-get` ouput:
-
-```text
+```text title="Example output"
 TASK_TYPE              SUCCESS  TASK_ID                               RESULT
 =====================  =======  ====================================  ====================================================================================
 mysql_migration_check  true     e2df7736-66c5-4696-b6c9-d33a0fc4cbed  All pre-checks passed successfully, preferred migration method will be [Replication]
@@ -635,7 +633,7 @@ Updates the settings for an Aiven service.
 | `--cloud`                          | The name of the cloud region where to deploy the service. See [avn-cloud-list](/docs/tools/cli/cloud#avn-cloud-list).                                          |
 | `-c KEY=VALUE`                     | Apply a configuration setting. Run `avn service types -v` to view available values.                                                                            |
 | `--disk-space-gib`                 | Total amount of disk space for data storage (GiB)                                                                                                              |
-| `--plan`                           | Aiven subscription plan name. See [avn_service_plan](/docs/tools/cli/service-cli#avn-service-plan).                                                            |
+| `--plan`                           | Aiven subscription plan name. See [`avn_service_plan`](/docs/tools/cli/service-cli#avn-service-plan).                                                            |
 | `--power-on`                       | Power on the service                                                                                                                                           |
 | `--power-off`                      | Power off the service                                                                                                                                          |
 | `--maintenance-dow`                | Set the automatic maintenance window's day of the week (possible values `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `never`) |

@@ -16,7 +16,7 @@ while write requests are forwarded to both clusters.
 
 For details on how ZDM Proxy works, see [Introduction to Zero
 Downtime
-Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html).
+Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction).
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ details and, if your source or target require authentication, specify
 target username and password.
 
 Check more details on using the credentials in [Client application
-credentials](https://docs.datastax.com/en/astra-serverless/docs/migrate/connect-clients-to-proxy.html#_client_application_credentials).
+credentials](https://docs.datastax.com/en/astra-serverless/docs/migrate/connect-clients-to-proxy#_client_application_credentials).
 
 The port that ZDM Proxy uses is 14002, which can be overridden.
 
@@ -262,7 +262,7 @@ The port that ZDM Proxy uses is 14002, which can be overridden.
 
 -   [zdm-proxy GitHub](https://github.com/datastax/zdm-proxy)
 -   [Introduction to Zero Downtime
-    Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html)
+    Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction)
 -   [ZDM Proxy releases](https://github.com/datastax/zdm-proxy/releases)
 -   [Client application
-    credentials](https://docs.datastax.com/en/astra-serverless/docs/migrate/connect-clients-to-proxy.html#_client_application_credentials)
+    credentials](https://docs.datastax.com/en/astra-serverless/docs/migrate/connect-clients-to-proxy#_client_application_credentials)

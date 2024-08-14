@@ -2,12 +2,12 @@
 title: Create a sink connector from Apache Kafka® to Snowflake
 ---
 
-The Apache Kafka Connect® Snowflake sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a Snowflake database. The full connector documentation is available in the dedicated [GitHub repository](https://docs.snowflake.com/en/user-guide/kafka-connector.html).
+The Apache Kafka Connect® Snowflake sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a Snowflake database. The full connector documentation is available in the dedicated [GitHub repository](https://docs.snowflake.com/en/user-guide/kafka-connector).
 
 :::note
 See the full set of available parameters and configuration
 options in the [connector's
-documentation](https://docs.snowflake.net/manuals/user-guide/kafka-connector.html).
+documentation](https://docs.snowflake.net/manuals/user-guide/kafka-connector).
 :::
 
 ## Prerequisites {#connect_sink_snowflake_prereq}
@@ -25,11 +25,11 @@ documentation](https://docs.snowflake.net/manuals/user-guide/kafka-connector.htm
 
     -   `ACCOUNT_LOCATOR` is the name of the account, more
         information are available in the dedicated [Snowflake
-        documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)
+        documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier)
     -   `REGION_ID` is the Id of the region where the Snowflake
         service is available, you can review the region Ids in the
         [dedicated
-        documentation](https://docs.snowflake.com/en/user-guide/intro-regions.html)
+        documentation](https://docs.snowflake.com/en/user-guide/intro-regions)
 
     :::tip
     The Snowflake account Id and region name can be obtained in the

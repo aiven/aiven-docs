@@ -94,7 +94,7 @@ overloading the PostgreSQL database.
 :::note
 Since 9.6, PostgreSQL offers parallelization support enabling to [run
 queries in
-parallel](https://www.postgresql.org/docs/current/parallel-query.html)
+parallel](https://www.postgresql.org/docs/current/parallel-query)
 on multiple CPU cores.
 :::
 

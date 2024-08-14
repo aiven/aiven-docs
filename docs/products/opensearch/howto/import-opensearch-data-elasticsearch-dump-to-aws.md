@@ -19,13 +19,13 @@ command to copy the input index data to an specific output.
 -   Aiven for OpenSearch cluster as the `input`
 -   AWS S3 bucket as the `output`
 
-You need to collect the following information about your Aiven for
+Collect the following information about your Aiven for
 OpenSearch cluster and your AWS service:
 
 Aiven for OpenSearch:
 
--   `SERVICE_URI`: OpenSearch service URI, which you can find in
-    Aiven's dashboard.
+-   `SERVICE_URI`: OpenSearch service URI, see it in
+    the Aiven dashboard.
 -   `INPUT_INDEX_NAME`: the index that you aim to copy from your input
     source.
 
@@ -35,8 +35,8 @@ AWS S3:
 -   S3 file path. This includes bucket name and file name, for for example,
     `s3://${BUCKET_NAME}/${FILE_NAME}.json`
 
-You can find more information about AWS credentials in the [AWS
-documentation](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html).
+For more information about AWS credentials, see the [AWS
+documentation](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types).
 
 ## Export OpenSearch index data to S3
 
@@ -58,5 +58,3 @@ elasticdump \
 Aiven for OpenSearch databases are automatically backed up, so you can
 check more information about how the
 [Backup process works](/docs/products/opensearch/concepts/backups).
-
-------------------------------------------------------------------------

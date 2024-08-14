@@ -43,7 +43,7 @@ similar to how VPC peering connections are before they become
 A resource share can be created using the [AWS RAM
 console](https://console.aws.amazon.com/ram/home), or the [AWS
 CLI](https://aws.amazon.com/cli/) using the
-[create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html)
+[create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share)
 command. Add the Transit Gateway as a resource to the share, and
 the Aiven AWS account ID as a principal. The Aiven AWS account ID is
 `675999398324`.
@@ -70,7 +70,7 @@ VPC. The IPv4 range will be referred below to as
 A Transit Gateway VPC attachment is created by making a request to the
 Aiven API for a peering connection. The Aiven API handles both actual
 [AWS VPC peering
-connections](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
+connections](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering)
 and AWS Transit Gateway VPC attachments as peering connections.
 
 ```shell

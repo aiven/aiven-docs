@@ -87,7 +87,7 @@ currently support AWS PrivateLink.
     Alternatively, you can create the VPC endpoint in [AWS
     Console](https://console.aws.amazon.com) under **VPC** >
     **Endpoints** > **Create endpoint**. See the [AWS
-    documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint)
+    documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface#create-interface-endpoint)
     for details.
 
     :::note
@@ -110,23 +110,23 @@ currently support AWS PrivateLink.
 
     -   In the Aiven CLI, set
         `user_config.privatelink_access.<service component>` to `true`
-        for the components to enable, for example: 
+        for the components to enable, for example:
 
         ```bash
         # For ClickHouse
-        
+
         avn service update -c privatelink_access.clickhouse=true --project $project_name $Aiven_service_name
         ```
-        
+
         ```bash
         # For PostgreSQL
-        
+
         avn service update -c privatelink_access.postgresql=true --project $project_name $Aiven_service_name
         ```
 
         ```bash
         # For Kafka
-        
+
         avn service update -c privatelink_access.kafka=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_connect=true $Aiven_service_name
         avn service update -c privatelink_access.kafka_rest=true $Aiven_service_name

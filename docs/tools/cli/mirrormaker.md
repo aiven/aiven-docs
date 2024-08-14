@@ -41,14 +41,14 @@ Apache Kafka services.
 | `--target-cluster`        | The Aiven for Apache Kafka service to be used as target for replication                                |
 | `replication_flow_config` | JSON string or path (preceded by `@`) to a JSON configuration file for the replication flow definition |
 
-**Example:** In the service `kafka-mm` create a new replication flow
+**Example:** In the service `kafka-mm` create a replication flow
 from an Aiven for Apache Kafka service with integration alias
 `kafka-source-alias` to a service named `kafka-target-alias` with the
 following settings:
 
 -   include all topics with name starting with `my-src-topic` (topic
     name patterns can be defined using [Java
-    patterns](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html))
+    patterns](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern))
 -   exclude all topics with name ending with `not-include`
 -   `DefaultReplicationPolicy` as replication policy class
 -   enable MirrorMaker 2 heartbeats

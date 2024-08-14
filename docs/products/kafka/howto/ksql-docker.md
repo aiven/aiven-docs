@@ -9,7 +9,7 @@ supported. To define streaming data pipelines with SQL, you
 can:
 
 -   Use [Aiven for Apache
-    Flink®](https://docs.aiven.io/docs/products/flink.html) or,
+    Flink®](/docs/products/flink) or,
 -   Run a self-hosted ksqlDB cluster.
 
 ## Prerequisites

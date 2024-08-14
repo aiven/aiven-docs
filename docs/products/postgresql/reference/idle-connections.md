@@ -10,7 +10,7 @@ parameters can be used at the client side.
 ## Keep-alive server side parameters
 
 Currently, the following default keep-alive timeouts are used on the
-[server-side](https://www.postgresql.org/docs/current/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SETTINGS):
+[server-side](https://www.postgresql.org/docs/current/runtime-config-connection#RUNTIME-CONFIG-CONNECTION-SETTINGS):
 
 | Parameter (server)        | Value | Description                                                                                                                                  |
 | ------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -22,7 +22,7 @@ Currently, the following default keep-alive timeouts are used on the
 ## Keep-alive client side parameters
 
 The
-[client-side](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-KEEPALIVES)
+[client-side](https://www.postgresql.org/docs/current/libpq-connect#LIBPQ-KEEPALIVES)
 keep-alive parameters can be set to whatever values you want.
 
 | Parameter (client)    | Description                                                                                                                           |

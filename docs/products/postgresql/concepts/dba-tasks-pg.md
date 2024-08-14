@@ -30,11 +30,11 @@ The `aiven_extras` extension, developed and maintained by Aiven, enables
 the `avnadmin` to perform superuser-like functionalities like:
 
 -   Manage
-    [subscriptions](https://www.postgresql.org/docs/current/catalog-pg-subscription.html)
+    [subscriptions](https://www.postgresql.org/docs/current/catalog-pg-subscription)
 -   Manage `auto_explain`
-    [functionality](https://www.postgresql.org/docs/current/auto-explain.html)
+    [functionality](https://www.postgresql.org/docs/current/auto-explain)
 -   Manage
-    [publications](https://www.postgresql.org/docs/current/sql-createpublication.html)
+    [publications](https://www.postgresql.org/docs/current/sql-createpublication)
 -   [Claim public schema ownership](/docs/products/postgresql/howto/claim-public-schema-ownership)
 
 You can install the `aiven_extras` extension executing the following

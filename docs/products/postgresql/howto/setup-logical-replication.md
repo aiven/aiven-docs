@@ -10,23 +10,22 @@ system in sync with an Aiven for PostgreSQL service, you can address that by set
 **logical replica** and replicating tables from a self-managed PostgreSQL cluster to Aiven.
 
 :::note
-These instructions work also with AWS RDS PostgreSQL 10+ and [Google
-CloudSQL
-PostgreSQL](https://cloud.google.com/sql/docs/release-notes#August_30_2021).
+This content also works with AWS RDS PostgreSQL 10+ and
+[Google CloudSQL PostgreSQL](https://cloud.google.com/sql/docs/release-notes#August_30_2021).
 :::
 
 ## Variables
 
 These are the placeholders you will need to replace in the code sample:
 
- | Variable       | Description                                      |
- | -------------- | ------------------------------------------------ |
- | `SRC_HOST`     | Hostname of the source PostgreSQL database       |
- | `SRC_PORT`     | Port of the source PostgreSQL database           |
- | `SRC_DATABASE` | Database Name of the source PostgreSQL database  |
- | `SRC_USER`     | Username of the source PostgreSQL database       |
- | `SRC_PASSWORD` | Password of the source PostgreSQL database       |
- | `SRC_CONN_URI` | Connection URI of the source PostgreSQL database |
+| Variable       | Description                                      |
+| -------------- | ------------------------------------------------ |
+| `SRC_HOST`     | Hostname of the source PostgreSQL database       |
+| `SRC_PORT`     | Port of the source PostgreSQL database           |
+| `SRC_DATABASE` | Database Name of the source PostgreSQL database  |
+| `SRC_USER`     | Username of the source PostgreSQL database       |
+| `SRC_PASSWORD` | Password of the source PostgreSQL database       |
+| `SRC_CONN_URI` | Connection URI of the source PostgreSQL database |
 
 ## Requirements
 
@@ -252,7 +251,7 @@ to stop serving clients and a loss of service.
     :::
 
 For further information about WAL and checkpoints, read the [PostgreSQL
-documentation](https://www.postgresql.org/docs/current/wal-configuration.html).
+documentation](https://www.postgresql.org/docs/current/wal-configuration).
 
 :::note
 The recreation of replication slots gets enabled automatically for

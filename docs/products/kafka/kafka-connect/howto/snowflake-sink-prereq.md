@@ -5,7 +5,7 @@ title: Configure Snowflake for a sink connector
 To sink data from Apache Kafka® to Snowflake via the dedicated connector:
 
 1.  Configure a [key pair
-    authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth.html#configuring-key-pair-authentication)
+    authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth#configuring-key-pair-authentication)
 1.  Create a dedicated Snowflake user and associate the public key
 1.  Create a Snowflake role
 1.  Grant the Snowflake role access to the required database
@@ -14,7 +14,7 @@ To sink data from Apache Kafka® to Snowflake via the dedicated connector:
 
 The Apache Kafka BigQuery sink connector requires a key pair
 authentication with a minimum 2048-bit RSA. Generate the key
-pair locally and [upload the public key to Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth.html#configuring-key-pair-authentication):
+pair locally and [upload the public key to Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth#configuring-key-pair-authentication):
 
 1.  Generate the private key using `openssl`:
 

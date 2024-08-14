@@ -15,7 +15,7 @@ you can [migrate your Terraform resources to OpenTofu](https://opentofu.org/docs
     Aiven](https://console.aiven.io/signup?utm_source=github&utm_medium=organic&utm_campaign=devportal&utm_content=repo)
 -   [Install OpenTofu](https://opentofu.org/docs/intro/install/)
 -   [Create an authentication
-    token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+    token](/docs/platform/howto/create_authentication_token)
 
 ## Configure your project and services
 
@@ -101,7 +101,7 @@ Set up the OpenTofu project in an empty folder:
 ## Plan and apply the configuration {#plan-and-apply}
 
 1.  The `init` command prepares the working directly for use with
-    OpenTofu. Run this command to automatically find, download, and
+    OpenTofu. Use it to automatically find, download, and
     install the necessary Aiven Provider plugins:
 
     ```bash

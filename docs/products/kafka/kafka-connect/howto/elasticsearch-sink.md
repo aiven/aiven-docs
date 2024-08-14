@@ -8,7 +8,7 @@ The Elasticsearch sink connector enables you to move data from an Aiven for Apac
 - To see the equivalent instructions for OpenSearch®, see [Create a sink connector to OpenSearch®](/docs/products/kafka/kafka-connect/howto/opensearch-sink).
 
 - See the full set of available parameters and configuration options in the [connector's
-  documentation](https://docs.confluent.io/current/connect/kafka-connect-elasticsearch/index.html).
+  documentation](https://docs.confluent.io/current/connect/kafka-connect-elasticsearch/index).
 :::
 
 ## Prerequisites {#connect_elasticsearch_sink_prereq}
