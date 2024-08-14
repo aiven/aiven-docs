@@ -9,7 +9,8 @@ The IBM MQ sink connector allows you to route messages from Apache Kafka® topic
 
 ## Prerequisites {#connect_ibm_mq_sink_prereq}
 
-- An [Aiven for Apache Kafka service](enable-connect) with Apache Kafka Connect enabled,
+- An [Aiven for Apache Kafka service](/docs/products/kafka/kafka-connect/howto/enable-connect)
+  with Apache Kafka Connect enabled,
   or
 - A [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 - Access to an IBM MQ instance.
@@ -106,7 +107,7 @@ Ensure that data from the Apache Kafka topics is successfully transferred to the
 target IBM MQ queue.
 
 </TabItem>
-  <TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="Aiven CLI">
 
 To create an IBM MQ Sink connector using the [Aiven CLI](/docs/tools/cli/service-cli),
 run the following command:
