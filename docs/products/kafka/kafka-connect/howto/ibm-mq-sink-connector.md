@@ -39,7 +39,7 @@ You can view the full set of available parameters and configuration options in t
 ## Create an IBM MQ sink connector configuration file
 
 Create a file named `ibm_mq_sink_connector.json` with the following configurations. This
-file is optional but helps you keep your settings organized, making it easier to copy
+file is optional but helps you organize your settings, making it easier to copy
 and paste the configurations into the [Aiven Console](https://console.aiven.io/) later.
 
 ```json
