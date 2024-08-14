@@ -36,8 +36,6 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
 - **SCRAM-SHA-256**: Uses the Salted Challenge Response Authentication Mechanism (SCRAM)
   with SHA-256 hashing to identify clients without sending plain-text passwords. It does
   not reveal the password to servers that do not already have it.
-
-
 - **SCRAM-SHA-512**: Similar to SCRAM-SHA-256 but uses SHA-512 hashing for added
   security. SCRAM works by creating a random `salt`, which is used to create an
   `identity` that holds:
