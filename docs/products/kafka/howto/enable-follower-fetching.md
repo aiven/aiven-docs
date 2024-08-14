@@ -31,7 +31,7 @@ Follower fetching is supported on AWS (Amazon Web Services) and Google Cloud.
 
   To map AZ names to AZ IDs, see the
   [AWS Knowledge Center article](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones)
-  and the [AWS documentation on AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html).
+  and the [AWS documentation on AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids).
 
 - **Google Cloud**: Use the AZ name directly as the `client.rack` value.
   For more information, see [Google Cloud's regions and zones documentation](https://cloud.google.com/compute/docs/regions-zones/).

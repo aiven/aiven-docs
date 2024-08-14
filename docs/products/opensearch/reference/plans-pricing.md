@@ -22,7 +22,7 @@ service stops the accumulation of charges immediately. We calculate your
 final bill based on your consumption over that period and deliver it as
 a single invoice per project. For generating a consolidated invoice
 across multiple projects, [manage billing groups in Aiven
-Console](https://docs.aiven.io/docs/platform/howto/use-billing-groups.html).
+Console](/docs/platform/howto/use-billing-groups).
 
 ### Billing on partial hours
 

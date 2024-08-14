@@ -2,11 +2,7 @@
 title: Database monitoring with Datadog
 ---
 
-[Database Monitoring with
-Datadog](https://www.datadoghq.com/product/database-monitoring/) enables
-you to capture key metrics on the Datadog platform for any Aiven for
-PostgreSQL® service with
-[Datadog Metrics](/docs/integrations/datadog/datadog-metrics) integration.
+[Database Monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/) enables you to capture key metrics on the Datadog platform for any Aiven for PostgreSQL® service with [Datadog Metrics](/docs/integrations/datadog/datadog-metrics) integration.
 
 Datadog Database Monitoring allows you to view query metrics and explain
 plans in a single place, with the ability to drill into precise
@@ -21,7 +17,7 @@ execution details, along with query and host metrics correlation.
 -   The
     [PostgreSQL extensions](/docs/products/postgresql/reference/list-of-extensions) - `pg_stat_statements` and `aiven_extras`, must be
     enabled by executing the following [CREATE
-    EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)
+    EXTENSION](https://www.postgresql.org/docs/current/sql-createextension)
     SQL commands directly on the Aiven for PostgreSQL® database service.
 
 ```text
@@ -75,9 +71,6 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
       "datadog_dbm_enabled": true
     }
     ```
-
-Executing the steps successfully results in enabling Datadog Database
-Monitoring for your service.
 
 ## Related pages
 

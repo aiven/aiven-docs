@@ -33,7 +33,7 @@ credentials are:
 :::
 
 Find more information about [CloudWatch
-API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html).
+API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations).
 
 ## Configure the integration
 

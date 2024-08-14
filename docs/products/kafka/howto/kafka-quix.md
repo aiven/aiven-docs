@@ -93,6 +93,6 @@ and project name as a prefix, such as `_quixdemo-helloquix-csv-data_`.
 
 ## Related pages
 
-- [Quix documentation](https://quix.io/docs/get-started/welcome.html)
+- [Quix documentation](https://quix.io/docs/get-started/welcome)
 - [Quix guide to creating projects](https://quix.io/blog/how-to-create-a-project-from-a-template#cloning-a-project-template-into-github)
 - [Quix Streams Python library](https://github.com/quixio/quix-streams)

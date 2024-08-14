@@ -2,13 +2,10 @@
 title: Use the PostgreSQL® dblink extension
 ---
 
-`dblink` is a [PostgreSQL®
-extension](https://www.postgresql.org/docs/current/dblink.html) that
-allows you to connect to other PostgreSQL databases and to run arbitrary
-queries.
+`dblink` is a [PostgreSQL® extension](https://www.postgresql.org/docs/current/dblink) that allows you to connect to other PostgreSQL databases and to run arbitrary queries.
 
 With [Foreign Data
-Wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html)
+Wrappers](https://www.postgresql.org/docs/current/postgres-fdw)
 (FDW) you can uniquely define a remote **foreign server** in order to
 access its data. The database connection details like hostnames are kept
 in a single place, and you only need to create once a **user mapping**
@@ -60,8 +57,7 @@ CREATE EXTENSION dblink;
 
 ## Create a foreign data wrapper using `dblink_fdw`
 
-To create a foreign data wrapper using the `dblink_fwd` you need to
-perform the following steps:
+To create a foreign data wrapper using the `dblink_fwd`:
 
 -   Connect to the database with the `avnadmin` user. The following
     shows how to do it with `psql`, the service URI can be found in the

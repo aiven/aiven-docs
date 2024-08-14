@@ -2,9 +2,7 @@
 title: Migrate to Aiven for PostgreSQL® with aiven-db-migrate
 ---
 
-The `aiven-db-migrate` tool is an open source project available on
-[GitHub](https://github.com/aiven/aiven-db-migrate), and it is the
-preferred way to perform PostgreSQL® database migration.
+The `aiven-db-migrate` tool is an open source project available on [GitHub](https://github.com/aiven/aiven-db-migrate), and it is the preferred way to perform PostgreSQL® database migration.
 
 `aiven-db-migrate` performs a schema dump and migration first to ensure
 schema compatibility.
@@ -15,9 +13,9 @@ databases synchronized until the replication is interrupted.
 
 :::note[Restrictions on logical replication]
 Before you use the logical replication method, make sure you know and
-understand all the restrictions it has. For details, check out [Logical
+understand all the restrictions it has. For details, see [Logical
 replication
-restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
+restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions).
 :::
 
 If the preconditions for logical replication are not met for a database,
@@ -104,7 +102,7 @@ calls
 :::warning
 Running a logical replication migration twice on the same cluster will
 create duplicate data. Logical replication also has
-[limitations](https://www.postgresql.org/docs/current/logical-replication-restrictions.html)
+[limitations](https://www.postgresql.org/docs/current/logical-replication-restrictions)
 on what it can copy.
 :::
 
@@ -127,13 +125,13 @@ avn service update --project PROJECT_NAME -c migration.host=SRC_HOSTNAME   \
 
 :::note
 Using avn CLI shows limited status output, to troubleshoot failures
-please run `aiven-db-migrate`
+run `aiven-db-migrate`
 [directly from Python](run-aiven-db-migrate-python).
 :::
 
-### Check the migration status using the Aiven CLI
+### Display the migration status using the Aiven CLI
 
-You can check the migration status using the
+You can see the migration status using the
 [Aiven CLI](/docs/tools/cli) and the
 following call:
 
@@ -151,7 +149,7 @@ The output should be similar to the following, which mentions that the
 `pg_dump` migration of the `defaultdb` database is `done` and the
 logical `replication` of the `has_aiven_extras` database is syncing:
 
-```
+```text
 -----Response Begin-----
 {
     "migration": {

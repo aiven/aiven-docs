@@ -69,4 +69,4 @@ topics/<TOPIC_NAME>/partition=2/<TOPIC_NAME>+2+0000000002.bin
 ```
 
 Find additional documentation on the [dedicated
-page](https://docs.confluent.io/5.0.0/connect/kafka-connect-s3/index.html).
+page](https://docs.confluent.io/5.0.0/connect/kafka-connect-s3/index).

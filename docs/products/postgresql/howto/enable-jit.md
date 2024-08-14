@@ -2,9 +2,7 @@
 title: Enable JIT in PostgreSQL®
 ---
 
-PostgreSQL® 11 introduces a new component in the execution engine, a
-[Just-in-Time (JIT) expression
-compiler](https://www.postgresql.org/docs/current/jit-reason.html).
+PostgreSQL® 11 introduces a new component in the execution engine, a [Just-in-Time (JIT) expression compiler](https://www.postgresql.org/docs/current/jit-reason).
 
 By default, the JIT feature is disabled for PostgreSQL 11 and enabled
 for all the subsequent PostgreSQL versions that Aiven supports. You can
@@ -17,12 +15,11 @@ You can enable JIT for the complete Aiven for PostgreSQL service both
 via [Aiven Console](https://console.aiven.io/) and
 [Aiven CLI](/docs/tools/cli).
 
-To enable JIT in the [Aiven Console](https://console.aiven.io/), take
-the following steps:
+To enable JIT in the [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  From the **Services** page, select the the Aiven for PostgreSQL
-    service where you want to enable JIT.
+    service where to enable JIT.
 3.  From the sidebar on your service's page, select **Service
     settings**.
 4.  On the **Service settings** page, go to the **Advanced
@@ -44,7 +41,7 @@ avn service update --project PROJECT_NAME -c pg.jit=true PG_SERVICE_NAME
 You might not want to use JIT for most simple queries since it would
 increase the cost. JIT can also be enabled for a single database:
 
-1.  Connect to the database where you want to enable JIT, for example,
+1.  Connect to the database where to enable JIT, for example,
     with `psql` and the service URI available in [Aiven
     Console](https://console.aiven.io/) > your Aiven for PostgreSQL
     service > the **Overview** page.
@@ -68,7 +65,7 @@ default is only applied to new client sessions.
 
 JIT can be enabled also for a specific user:
 
-1.  Connect to the database where you want to enable JIT using, for
+1.  Connect to the database where to enable JIT using, for
     example, `psql` and the service URI available in [Aiven
     Console](https://console.aiven.io/) > the **Overview** page of your
     Aiven for PostgreSQL service.
@@ -132,5 +129,5 @@ time.
 
 :::tip
 The last row of the `explain analyze` command output above shows the
-execution time, which could be useful for a benchmark comparison.
+execution time, which can be useful for a benchmark comparison.
 :::

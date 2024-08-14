@@ -67,7 +67,7 @@ The configuration file contains the following entries:
 -   `topics`: The list of Apache Kafka® topics to sink to the S3 bucket
 -   `key.converter` and `value.converter`: Data converters, depending on
     the topic data format. Check the [related
-    documentation](https://docs.confluent.io/5.0.0/connect/kafka-connect-s3/index.html)
+    documentation](https://docs.confluent.io/5.0.0/connect/kafka-connect-s3/index)
     for more information
 -   `format.class`: Defines the output data format in the S3 bucket. The
     `io.confluent.connect.s3.format.bytearray.ByteArrayFormat` writes
@@ -86,7 +86,7 @@ The configuration file contains the following entries:
 -   `s3.credentials.provider.access_key_id`: The AWS user access key ID
 
 See the [dedicated
-documentation](https://docs.confluent.io/5.0.0/connect/kafka-connect-s3/index.html)
+documentation](https://docs.confluent.io/5.0.0/connect/kafka-connect-s3/index)
 for the full list of configuration options.
 
 ### Create an S3 sink connector with Aiven CLI

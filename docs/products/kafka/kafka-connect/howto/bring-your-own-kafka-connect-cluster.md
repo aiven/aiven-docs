@@ -9,7 +9,7 @@ Aiven provides Apache Kafka® Connect as a managed service in combination with t
 
 Integrate your own Apache Kafka Connect cluster with Aiven for Apache Kafka and use the
 schema registry offered by
-[Karapace](https://docs.aiven.io/docs/products/kafka/karapace). The
+[Karapace](/docs/products/kafka/karapace). The
 example below shows how to create a JDBC sink connector to a PostgreSQL®
 database.
 
@@ -71,7 +71,7 @@ example we assume:
 ### Configure the Aiven for Apache Kafka service
 
 Enable the schema registry features offered by
-[Karapace](https://docs.aiven.io/docs/products/kafka/karapace). You can
+[Karapace](/docs/products/kafka/karapace). You can
 do it in the [Aiven Console](https://console.aiven.io/) in the Aiven for
 Apache Kafka service Overview tab.
 

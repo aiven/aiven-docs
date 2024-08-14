@@ -9,7 +9,7 @@ analysis.
 :::note
 See the full set of available parameters and configuration
 options in the [connector's
-documentation](https://docs.lenses.io/connectors/sink/influx.html).
+documentation](https://docs.lenses.io/connectors/sink/influx).
 :::
 
 ## Prerequisites {#connect_influx_lenses_sink_prereq}

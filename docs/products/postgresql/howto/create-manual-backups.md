@@ -9,7 +9,7 @@ window. Aiven stores the backups to the closest available cloud storage to
 enhance restore speed.
 
 Perform a backup of your database using the standard PostgreSQL
-`pg_dump` command. See the [pg_dump docs](https://www.postgresql.org/docs/current/app-pgdump.html),
+`pg_dump` command. See the [pg_dump docs](https://www.postgresql.org/docs/current/app-pgdump),
 but a typical command looks like:
 
 ```bash

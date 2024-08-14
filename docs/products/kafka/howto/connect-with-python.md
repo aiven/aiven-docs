@@ -8,7 +8,7 @@ These examples show how to connect to an Aiven for Apache Kafka® service using 
 These examples provide different options for the different
 authentication methods. For more information on the supported methods,
 see [our article on Kafka authentication
-types](https://docs.aiven.io/docs/products/kafka/concepts/auth-types).
+types](/docs/products/kafka/concepts/auth-types).
 :::
 
 ## Prerequisites
@@ -33,7 +33,7 @@ Go to the **Overview** page of your Aiven for Apache Kafka service.
             `ca.pem` file.
 -   If you are going to connect using SASL authentication:
     1.  See [Use SASL Authentication with Apache
-        Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
+        Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
         to enable SASL.
     2.  In the **Connection Information** section
         1.  Select **SASL** as the **Authentication Method**
@@ -49,9 +49,9 @@ but in actual use, the full path should be used.
 :::
 
 You can also use the [Aiven command line
-tool](https://docs.aiven.io/docs/tools/cli.html) to download the files.
+tool](/docs/tools/cli) to download the files.
 See the documentation for [avn service
-user-creds-download](https://docs.aiven.io/docs/tools/cli/service/user.html#avn-service-user-creds-download)
+user-creds-download](/docs/tools/cli/service/user#avn_service_user_creds_download)
 
 ## Variables
 

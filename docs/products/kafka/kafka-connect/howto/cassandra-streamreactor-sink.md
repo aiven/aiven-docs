@@ -8,7 +8,7 @@ The Lenses.io implementation enables you to write [KCQL transformations](https:/
 :::note
 See the full set of available parameters and configuration
 options in the [connector's
-documentation](https://docs.lenses.io/connectors/sink/cassandra.html).
+documentation](https://docs.lenses.io/connectors/sink/cassandra).
 :::
 
 ## Prerequisites {#connect_cassandra_lenses_sink_prereq}

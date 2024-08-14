@@ -49,4 +49,4 @@ complete for running such operations.
 -   Our blog post: [MyHoard, your solution to MySQL backups and
     restoration](https://aiven.io/blog/introducing-myhoard-your-single-solution-to-mysql-backups-and-restoration)
 -   Read about [Aiven cloud security and data
-    encryption](https://docs.aiven.io/docs/platform/concepts/cloud-security#data-encryption)
+    encryption](/docs/platform/concepts/cloud-security#data-encryption)

@@ -9,7 +9,7 @@ To connect to the cluster, you'll need `service_uri`, which you can
 find either in the service overview in the [Aiven
 console](https://console.aiven.io) or get through the Aiven command line
 interface [service
-command](https://docs.aiven.io/docs/tools/cli/service.html#avn-service-get).
+command](/docs/tools/cli/service-cli#avn_service_ca_get).
 `service_uri` contains credentials, therefore should be treated with
 care.
 

@@ -2,9 +2,8 @@
 title: Migrating to Aiven for PostgreSQL® using Bucardo
 ---
 
-The preferred approach to migrating a database to Aiven for PostgreSQL®
-is to use Aiven's open source migration tool
-([About aiven-db-migrate](/docs/products/postgresql/concepts/aiven-db-migrate)). However, if you are running PostgreSQL 9.6 (or earlier) or
+The preferred approach to migrating a database to Aiven for PostgreSQL® is to use Aiven's open source migration tool ([About aiven-db-migrate](/docs/products/postgresql/concepts/aiven-db-migrate)).
+However, if you are running PostgreSQL 9.6 (or earlier) or
 do not have `superuser` access to your database to add replication
 slots, you can use the open source [Bucardo](https://bucardo.org) tool
 to allow replication to Aiven.
@@ -18,12 +17,14 @@ to allow replication to Aiven.
 
 ## Moving existing data
 
+<!-- vale off -->
 To move existing data, you can follow the steps below and
 [update](https://bucardo.org/Bucardo/operations/onetimecopy) your `sync`
 job to use the `onetimecopy` and move existing data across. You can also
 use the standard `pg_dump` and `pg_restore` commands to fill the Aiven
 database and use Bucardo for syncing any changes to the source database
 and ensuring it remains up-to-date.
+<!-- vale on -->
 
 ## Replicating changes
 
@@ -34,7 +35,7 @@ To migrate your data using Bucardo:
     Bucardo site.
 
 1.  Install the `aiven_extras`
-    [extension](https://docs.aiven.io/docs/products/postgresql/concepts/dba-tasks-pg.html#aiven-extras-extension)
+    [extension](/docs/products/postgresql/concepts/dba-tasks-pg)
     to your current database. Bucardo requires the superuser role to set
     the `session_replication_role` parameter. Aiven uses the open source
     `aiven_extras` extension to allow you to run `superuser` commands as

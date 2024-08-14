@@ -2,11 +2,7 @@
 title: Monitor PostgreSQL® metrics with pgwatch2
 ---
 
-[pgwatch2](https://github.com/cybertec-postgresql/pgwatch2) is an open
-source monitoring solution for PostgreSQL®, created by CYBERTEC and can
-be used to monitor instances of Aiven for PostgreSQL collecting key
-PostgreSQL metrics and also gathering data from a wide range of
-PostgreSQL extensions.
+[pgwatch2](https://github.com/cybertec-postgresql/pgwatch2) is an open source monitoring solution for PostgreSQL®, created by CYBERTEC and can be used to monitor instances of Aiven for PostgreSQL collecting key PostgreSQL metrics and also gathering data from a wide range of PostgreSQL extensions.
 
 :::note
 Aiven for PostgreSQL supports the most popular extensions, but, due to
@@ -19,10 +15,9 @@ Aiven platform.
 
 ## Prepare an Aiven for PostgreSQL instance for pgwatch2
 
-The following steps need to be executed on the Aiven for PostgreSQL
-instance to be monitored with pgwatch2:
+On the Aiven for PostgreSQL instance to be monitored with pgwatch2:
 
-1.  Create a user for pgwatch2 (with a sensible password):
+1.  Create a user for pgwatch2:
 
     ```
     CREATE USER pgwatch2 WITH PASSWORD 'password';
@@ -42,8 +37,8 @@ instance to be monitored with pgwatch2:
     GRANT pg_read_all_stats TO pgwatch2;
     ```
 
-4.  If you want to collect data gathered from the `pg_stat_statements`
-    extension, it needs to be enabled:
+4.  To collect data gathered from the `pg_stat_statements`
+    extension, enable it:
 
     ```
     CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
@@ -57,7 +52,7 @@ instance to be monitored with pgwatch2:
 
     :::warning
     According to the [PostgreSQL
-    documentation](https://www.postgresql.org/docs/current/runtime-config-statistics.html),
+    documentation](https://www.postgresql.org/docs/current/runtime-config-statistics),
     setting `track_io_timing = on` can cause significant overhead.
     :::
 
@@ -70,7 +65,7 @@ to choose from. For the sake of simplicity, the following example uses
 mode](https://pgwatch2.readthedocs.io/en/latest/installation_options.html#ad-hoc-mode)
 with a Docker container:
 
-```
+```bash
 docker run --rm -p 3000:3000 -p 8080:8080 \
     -e PW2_ADHOC_CONN_STR='postgres://pgwatch2:password@HOST:PORT/defaultdb?sslmode=require' \
     -e PW2_ADHOC_CONFIG='rds' --name pw2 cybertec/pgwatch2-postgres
@@ -80,8 +75,8 @@ This runs pgwatch2 with the container image provided by CYBERTEC.
 `PW2_ADHOC_CONN_STR` is set to the connection string of the PostgreSQL
 instance to be monitored, copied from the [Aiven web
 console](https://console.aiven.io/) replacing the username/password have
-been replaced by the ones specifically created for pgwatch2. Please
-consult the [pgwatch2
+been replaced by the ones specifically created for pgwatch2.
+See the [pgwatch2
 documentation](https://pgwatch2.readthedocs.io/en/latest/) to decide on
 the best way to set up pgwatch2 in your environment.
 

@@ -42,7 +42,7 @@ of the connector tasks to resume operations again.
 A restart can be performed manually either through the [Aiven
 Console](https://console.aiven.io/), in under the `Connectors` tab
 console or via the [Apache Kafka® Connect REST
-API](https://docs.confluent.io/platform/current/connect/references/restapi.html#rest-api-task-restart).
+API](https://docs.confluent.io/platform/current/connect/references/restapi#rest-api-task-restart).
 You can get the service URI from the [Aiven
 Console](https://console.aiven.io/), in the service detail page.
 
@@ -52,7 +52,7 @@ Console](https://console.aiven.io/), in the service detail page.
 For automatically restarting tasks, you can set
 `"_aiven.restart.on.failure": true` in the connector's configuration (
 [check the related
-article](https://docs.aiven.io/docs/products/kafka/kafka-connect/howto/enable-automatic-restart)).
+article](/docs/products/kafka/kafka-connect/howto/enable-automatic-restart)).
 Aiven automatically check tasks status for errors every 15 minutes but
 the interval can be customised if needed.
 :::

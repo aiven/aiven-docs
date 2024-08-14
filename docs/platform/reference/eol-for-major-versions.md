@@ -28,7 +28,7 @@ example, Kafka® 3.2). The exact version of the service is visible in the
 
 Aiven for Elasticsearch major versions will reach EOL on the same date
 as the upstream open source project's EOL. [Aiven for
-OpenSearch®](https://docs.aiven.io/docs/products/opensearch.html) is
+OpenSearch®](/docs/products/opensearch) is
 Aiven's service offering for Elasticsearch.
 
 | Version | Aiven EOL  | Upstream EOL       |

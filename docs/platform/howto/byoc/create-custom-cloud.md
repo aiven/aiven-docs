@@ -594,10 +594,10 @@ view, copy, or download it. Now, you can use the template to
 #### Deploy the template{#deploy-template}
 
 Role ARN is an [identifier of the
-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
+role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles)
 created when running the infrastructure template in your AWS account.
 Aiven uses Role ARN to [assume the
-role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)
+role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole)
 and run operations such as creating VMs for service nodes in your BYOC
 account.
 

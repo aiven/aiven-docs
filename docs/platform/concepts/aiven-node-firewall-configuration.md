@@ -90,7 +90,7 @@ using ports 67 and 53. This is an Azure-specific management address.
 ## Enhanced compliance environments
 
 In [Enhanced Compliance Environments
-(ECE)](https://docs.aiven.io/docs/platform/concepts/enhanced-compliance-env),
+(ECE)](/docs/platform/concepts/enhanced-compliance-env),
 there is additional filtering at VPC level and a SOCKS5 proxy. ECE
 environments have more variable configurations because we provide more
 flexibility for configuring these to meet your requirements. Typically,

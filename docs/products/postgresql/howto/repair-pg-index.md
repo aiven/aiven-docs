@@ -34,7 +34,7 @@ You can run the `REINDEX` command for:
 
 For more information on the `REINDEX` command, see the [PostgreSQL
 documentation
-page](https://www.postgresql.org/docs/current/sql-reindex.html).
+page](https://www.postgresql.org/docs/current/sql-reindex).
 
 ## Rebuild unique indexes
 

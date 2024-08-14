@@ -35,7 +35,7 @@ The Apache Kafka Connect® S3 sink connector by Aiven enables you to move data f
 
 :::tip
 To secure your Kafka Connect to S3 using [AWS Assume role
-credentials](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials.html),
+credentials](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials),
 see [Use AWS IAM assume role credentials provider](/docs/products/kafka/kafka-connect/howto/s3-iam-assume-role).
 :::
 

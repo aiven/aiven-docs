@@ -40,7 +40,7 @@ authentication methods read
    In the **Connection information** section:
 
    1.  See [Use SASL Authentication with Apache
-       Kafka®](https://docs.aiven.io/docs/products/kafka/howto/kafka-sasl-auth.html)
+       Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
        to enable SASL.
    1.  In the **Connection Information** section
        1.  Select **SASL** as the **Authentication Method**
