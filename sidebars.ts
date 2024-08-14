@@ -1066,6 +1066,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
                         'products/kafka/kafka-connect/howto/splunk-sink',
                         'products/kafka/kafka-connect/howto/mqtt-sink-connector',
+                        'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
                       ],
                     },
                   ],
