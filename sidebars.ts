@@ -300,13 +300,27 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/howto/byoc/networking-security',
             'platform/howto/byoc/enable-byoc',
-            'platform/howto/byoc/create-custom-cloud',
+            {
+              type: 'category',
+              label: 'Create custom clouds',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/byoc/create-custom-cloud/create-custom-cloud',
+              },
+              items: [
+                'platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud',
+                'platform/howto/byoc/create-custom-cloud/create-google-custom-cloud',
+              ],
+            },
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/store-data',
             'platform/howto/byoc/rename-custom-cloud',
             'platform/howto/byoc/download-infrastructure-template',
             'platform/howto/byoc/delete-custom-cloud',
+            'platform/howto/byoc/manage-byoc-service',
+            'platform/howto/byoc/view-custom-cloud-status',
           ],
         },
         {

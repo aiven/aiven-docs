@@ -86,9 +86,13 @@ team if needed.
 
 ## Related pages
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
+-   [About bring your own cloud](/docs/platform/concepts/byoc)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
+-   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Download an infrastructure template and a variables file](/docs/platform/howto/byoc/download-infrastructure-template)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Storing data in custom clouds](/docs/platform/howto/byoc/store-data)
+-   [Delete a custom cloud](/docs/platform/howto/byoc/delete-custom-cloud)
