@@ -41,6 +41,10 @@ To set up VPC peering for your Aiven project:
        the range for your Aiven project's VPC to
        `191.161.1.0/24`.
 
+       :::note
+       Network prefix length must be between 20 and 24 inclusive.
+       :::
+
 1.  Click **Create VPC**.
 
 The state of the VPC is shown in the table.
