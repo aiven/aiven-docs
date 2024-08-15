@@ -2,14 +2,11 @@
 title: Free plans
 ---
 
-The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL,
-and Aiven for Caching services. You don't need a credit card to sign
-up and you can create one free service for each type. This means you can
-create one free PostgreSQL, one free MySQL, and one free Caching service.
+The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL, and Aiven for Caching services. You don't need a credit card to sign up and you can create one free service for each type. This means you can create one free PostgreSQL, one free MySQL, and one free Caching service.
 
 To try a different service, you may want to consider a
-30-day
-[free trial](/docs/platform/concepts/free-trial), which gives you $300 USD of free credits.
+30-day [free trial](/docs/platform/concepts/free-trial),
+which gives you $300 USD of free credits.
 
 You can run free plan services alongside a free 30-day trial without
 affecting your trial credits. Free plan services also continue running
@@ -17,9 +14,9 @@ after the trial has expired.
 
 ## Free plan features and limitations
 
-Free plans have some limitations, but they can be run indefinitely free
+Free plans have some limitations, but you can use them indefinitely free
 of charge. If you need more memory or access to features in the full
-platform, the free trial may be a better option.
+platform, try a [free trial](/docs/platform/concepts/free-trial).
 
 Free plans include:
 
@@ -34,8 +31,6 @@ Free plans include:
 -   Backups
 -   Integrations between different Aiven services including free, paid,
     and trial services
--   [DigitalOcean hosting](https://aiven.io/docs/platform/reference/list_of_clouds#digitalocean)
-    in a limited number of regions
 
 There are some limitations of the free plan services:
 
@@ -45,8 +40,7 @@ There are some limitations of the free plan services:
 -   For PostgreSQL: no connection pooling
 -   Support only through the [Aiven Community
     Forum](https://aiven.io/community/forum/)
--   Only a limited number of DigitalOcean regions, no other cloud
-    providers
+-   A limited number of hosting regions on AWS and DigitalOcean
 -   Only one service per service type per user and
     [organization](/docs/platform/concepts/orgs-units-projects)
 -   Not covered under Aiven's 99.99% SLA
