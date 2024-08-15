@@ -1,14 +1,15 @@
 ---
 title: Troubleshoot Apache Kafka® consumer connections
+sidebar_label: Consumer connections issues
 ---
 
-Apache Kafka® consumers sometimes experience disconnections from a
-cluster node. On one hand, isolated occurrences are expected and well
-mitigated by the Apache Kafka® protocol, for example in case a partition
-leadership moved to a different node so the cluster remains available
-and balanced. On the other hand, repeating occurrences often raise
-concerns as they may impact consumer lag, and cluster performance. This
-article provides guidance to better identify and solve related issues.
+Apache Kafka® consumers sometimes experience disconnections from a cluster node.
+
+On one hand, isolated occurrences are expected and well mitigated by the Apache
+Kafka® protocol, for example in case a partition leadership moved to a different
+node so the cluster remains available and balanced. On the other hand,
+repeating occurrences often raise concerns as they may impact consumer lag, and
+cluster performance.
 
 ## What is observed
 
