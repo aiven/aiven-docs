@@ -2,7 +2,7 @@
 title: Retention rules in Aiven for Metrics
 sidebar_label: Retention rules
 ---
-Retention rules in Aiven for Metrics® define how long your metrics data is stored.
+Retention rules in Aiven for Metrics define how long your metrics data is stored.
 
 By default, all data is retained indefinitely, ensuring uninterrupted access to
 historical insights. Optimize storage and access to historical data by tailoring
