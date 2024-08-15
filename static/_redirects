@@ -39,6 +39,10 @@
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
+/platform/concepts/hourly-billing-model                https://aiven.io/docs/billing-and-payment
+/platform/howto/payment-methods                        https://aiven.io/docs/payment-methods
+/platform/howto/update-tax-status                      https://aiven.io/docs/tax-information
+/platform/howto/payment-issues-plan-upgrades           https://aiven.io/docs/platform/concepts/billing-and-payment
 
 /category/reference-1        https://aiven.io/docs
 /category/reference          https://aiven.io/docs

@@ -80,18 +80,16 @@ const sidebars: SidebarsConfig = {
           label: 'Billing and payment',
           link: {
             type: 'doc',
-            id: 'platform/concepts/hourly-billing-model',
+            id: 'platform/concepts/billing-and-payment',
           },
           items: [
-            'platform/concepts/corporate-billing',
             'platform/concepts/tax-information',
-            'platform/howto/update-tax-status',
             {
               type: 'category',
               label: 'Payment methods',
               link: {
                 type: 'doc',
-                id: 'platform/howto/list-billing',
+                id: 'platform/howto/payment-methods',
               },
               items: [
                 'platform/howto/manage-payment-card',
@@ -111,8 +109,6 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/billing-assign-projects',
               ],
             },
-            'platform/howto/payment-issues-plan-upgrades',
-            'platform/howto/custom-plans',
           ],
         },
         {
@@ -210,6 +206,7 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
+                'platform/howto/custom-plans',
               ],
             },
             {
