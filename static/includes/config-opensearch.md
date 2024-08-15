@@ -238,6 +238,214 @@
     </tr>
     <tr>
       <td>
+        <div class="param"><p class="name"><strong>azure_migration</strong></p><p><code class="type">object</code></p></div>
+        
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.snapshot_name</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The snapshot name to restore from</p>
+              <div class="description"><p>The snapshot name to restore from</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.base_path</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The path to the repository data within its container</p>
+              <div class="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.compress</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Metadata files are stored in compressed format</p>
+              <div class="description"><p>when set to true metadata files are stored in compressed format</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.chunk_size</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Chunk size</p>
+              <div class="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.container</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Azure container name</p>
+              <div class="description"><p>Azure container name</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.account</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Account name</p>
+              <div class="description"><p>Azure account name</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.key</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Account secret key</p>
+              <div class="description"><p>Azure account secret key. One of key or sas_token should be specified</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.sas_token</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">SAS token</p>
+              <div class="description"><p>A shared access signatures (SAS) token. One of key or sas_token should be specified</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>azure_migration.endpoint_suffix</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Endpoint suffix</p>
+              <div class="description"><p>Defines the DNS suffix for Azure Storage endpoints.</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>gcs_migration</strong></p><p><code class="type">object</code></p></div>
+        
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>gcs_migration.snapshot_name</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The snapshot name to restore from</p>
+              <div class="description"><p>The snapshot name to restore from</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>gcs_migration.base_path</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The path to the repository data within its container</p>
+              <div class="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>gcs_migration.compress</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Metadata files are stored in compressed format</p>
+              <div class="description"><p>when set to true metadata files are stored in compressed format</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>gcs_migration.chunk_size</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Chunk size</p>
+              <div class="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>gcs_migration.bucket</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The path to the repository data within its container</p>
+              <div class="description"><p>Google Cloud Storage bucket name</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>gcs_migration.credentials</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Credentials</p>
+              <div class="description"><p>Google Cloud Storage credentials file content</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>s3_migration</strong></p><p><code class="type">object</code></p></div>
+        
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.snapshot_name</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The snapshot name to restore from</p>
+              <div class="description"><p>The snapshot name to restore from</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.base_path</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The path to the repository data within its container</p>
+              <div class="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.compress</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Metadata files are stored in compressed format</p>
+              <div class="description"><p>when set to true metadata files are stored in compressed format</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.chunk_size</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Chunk size</p>
+              <div class="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.bucket</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">S3 bucket name</p>
+              <div class="description"><p>S3 bucket name</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.region</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">S3 region</p>
+              <div class="description"><p>S3 region</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.endpoint</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">The S3 service endpoint to connect</p>
+              <div class="description"><p>The S3 service endpoint to connect to. If you are using an S3-compatible service then you should set this to the service’s endpoint</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.server_side_encryption</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Server side encryption</p>
+              <div class="description"><p>When set to true files are encrypted on server side</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.access_key</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">AWS Access key</p>
+              <div class="description"><p>AWS Access key</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.secret_key</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">AWS secret key</p>
+              <div class="description"><p>AWS secret key</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div class="param"><p class="name"><strong>index_patterns</strong></p><p><code class="type">array</code></p></div>
         <p class="title">Index patterns</p>
         
@@ -295,6 +503,52 @@
               <div class="param"><p class="name"><strong>opensearch_dashboards.opensearch_request_timeout</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>5000</code></li><li>max: <code>120000</code></li><li>default: <code>30000</code></li></ul></div>
               <p class="title">Timeout in milliseconds for requests made by OpenSearch Dashboards towards OpenSearch</p>
               
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>index_rollup</strong></p><p><code class="type">object</code></p></div>
+        <p class="title">Index rollup settings</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>index_rollup.rollup_search_backoff_millis</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li></ul></div>
+              <p class="title">plugins.rollup.search.backoff_millis</p>
+              <div class="description"><p>The backoff time between retries for failed rollup jobs. Defaults to 1000ms.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>index_rollup.rollup_search_backoff_count</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li></ul></div>
+              <p class="title">plugins.rollup.search.backoff_count</p>
+              <div class="description"><p>How many retries the plugin should attempt for failed rollup jobs. Defaults to 5.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>index_rollup.rollup_search_search_all_jobs</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">plugins.rollup.search.all_jobs</p>
+              <div class="description"><p>Whether OpenSearch should return all jobs that match all specified search terms. If disabled, OpenSearch returns just one, as opposed to all, of the jobs that matches the search terms. Defaults to false.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>index_rollup.rollup_dashboards_enabled</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">plugins.rollup.dashboards.enabled</p>
+              <div class="description"><p>Whether rollups are enabled in OpenSearch Dashboards. Defaults to true.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>index_rollup.rollup_enabled</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">plugins.rollup.enabled</p>
+              <div class="description"><p>Whether the rollup plugin is enabled. Defaults to true.</p></div>
             </td>
           </tr>
           </tbody>
@@ -415,14 +669,14 @@
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.knn_memory_circuit_breaker_limit</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>3</code></li><li>max: <code>100</code></li><li>default: <code>50</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.knn_memory_circuit_breaker_limit</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>3</code></li><li>max: <code>100</code></li></ul></div>
               <p class="title">knn.memory.circuit_breaker.limit</p>
               <div class="description"><p>Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size.</p></div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.knn_memory_circuit_breaker_enabled</strong></p><p><code class="type">boolean</code></p></div><div class="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.knn_memory_circuit_breaker_enabled</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">knn.memory.circuit_breaker.enabled</p>
               <div class="description"><p>Enable or disable KNN memory circuit breaker. Defaults to true.</p></div>
             </td>
@@ -576,42 +830,42 @@
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.ism_enabled</strong></p><p><code class="type">boolean</code></p></div><div class="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.ism_enabled</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">Specifies whether ISM is enabled or not</p>
               
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.ism_history_enabled</strong></p><p><code class="type">boolean</code></p></div><div class="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.ism_history_enabled</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">Specifies whether audit history is enabled or not. The logs from ISM are automatically indexed to a logs document.</p>
               
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.ism_history_max_age</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>2147483647</code></li><li>default: <code>24</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.ism_history_max_age</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>2147483647</code></li></ul></div>
               <p class="title">The maximum age before rolling over the audit history index in hours</p>
               
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.ism_history_max_docs</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>9223372036854776000</code></li><li>default: <code>2500000</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.ism_history_max_docs</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>9223372036854776000</code></li></ul></div>
               <p class="title">The maximum number of documents before rolling over the audit history index.</p>
               
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.ism_history_rollover_check_period</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>2147483647</code></li><li>default: <code>8</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.ism_history_rollover_check_period</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>2147483647</code></li></ul></div>
               <p class="title">The time between rollover checks for the audit history index in hours.</p>
               
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>opensearch.ism_history_rollover_retention_period</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>2147483647</code></li><li>default: <code>30</code></li></ul></div>
+              <div class="param"><p class="name"><strong>opensearch.ism_history_rollover_retention_period</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>2147483647</code></li></ul></div>
               <p class="title">How long audit history indices are kept in days.</p>
               
             </td>
