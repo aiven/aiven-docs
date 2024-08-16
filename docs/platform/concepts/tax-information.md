@@ -2,7 +2,7 @@
 title: Tax information for Aiven services
 ---
 
-Aiven services are provided by Aiven Ltd, a private limited company incorporated in Finland but operating in various countries. None of our marketed prices include value-added or other taxes.
+Aiven services are provided by Aiven Ltd, a private limited company incorporated in Finland, but operating in various countries. None of Aiven's marketed prices include value-added or other taxes.
 
 ## Aiven's tax status
 
@@ -14,7 +14,7 @@ Finnish law requires Aiven to charge a value-added tax for services
 provided within the European Union. The value-added tax percentage
 depends on the domicile of the customer.
 
-For business customers in EU countries other than Finland, we can apply
+For business customers in EU countries other than Finland, Aiven can apply
 the reverse charge mechanism of 2006/112/EC article 196 when a valid VAT
 ID
 [is added to a billing group](#add-a-vat-id-to-a-billing-group) for a billing group.
