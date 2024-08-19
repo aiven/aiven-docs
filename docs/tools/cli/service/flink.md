@@ -13,7 +13,7 @@ execute them, you must use `aiven-client` version `2.18.0`.
 
 ### `avn service flink create-application` {#avn service flink create-application}
 
-Create a new Aiven for the Apache Flink® application in the specified
+Create an Aiven for the Apache Flink® application in the specified
 service and project.
 
 | Parameter                | Information                                                                                                                                                       |
@@ -181,7 +181,7 @@ Create an Aiven for Flink® application version in a specified project
 and service.
 
 :::warning
-Before creating an application, you need to
+Before creating an application,
 [create integrations](/docs/products/flink/howto/create-integration) between Aiven for Apache Flink and the source/sinks data
 services. As of now you can define integration with:
 
@@ -323,7 +323,7 @@ Validates the Aiven for Flink® application version in a specified
 project and service.
 
 :::warning
-Before creating an application, you need to
+Before creating an application,
 [create integrations](/docs/products/flink/howto/create-integration) between Aiven for Apache Flink and the source/sinks data
 services. As of now you can define integration with:
 
@@ -537,6 +537,8 @@ project and service.
 The `deployment_properties` parameter should contain the following
 common properties in JSON format
 
+<!-- vale off -->
+
 | Parameter            | Information                                                 |
 | -------------------- | ----------------------------------------------------------- |
 | `parallelism`        | The number of parallel instance for the task                |
@@ -544,7 +546,9 @@ common properties in JSON format
 | `starting_savepoint` | (Optional)The the savepoint from where you want to deploy.  |
 | `version_id`         | The ID of the application version.                          |
 
-**Example:** Create a new Aiven for Flink application deployment for the
+<!-- vale on -->
+
+**Example:** Create an Aiven for Flink application deployment for the
 application id `986b2d5f-7eda-480c-bcb3-0f903a866222`.
 
 ```

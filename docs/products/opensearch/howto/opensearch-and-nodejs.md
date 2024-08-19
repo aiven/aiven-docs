@@ -2,9 +2,8 @@
 title: Write search queries with OpenSearch® and NodeJS
 ---
 
-Learn how the OpenSearch® JavaScript client gives a clear and useful
-interface to communicate with an OpenSearch cluster and run search
-queries. To make it more delicious we'll be using a recipe dataset from
+Learn how the OpenSearch® JavaScript client gives a clear and useful interface to communicate with an OpenSearch cluster and run search queries.
+To make it more delicious we'll be using a recipe dataset from
 Kaggle.
 
 ## Prepare the playground
@@ -414,7 +413,7 @@ module.exports.query = (field, query, size) => {
 };
 ```
 
-To find recipes with tomato, salmon or tuna and no onion run this query:
+To find recipes with tomato, salmon or tuna and no onion, run:
 
 ```
 run-func search query ingredients "(salmon|tuna) +tomato -onion" 100

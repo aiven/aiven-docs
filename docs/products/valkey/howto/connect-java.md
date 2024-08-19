@@ -11,13 +11,13 @@ Establish a connection to your Aiven for Valkey service using Java and the `jedi
 
 Replace placeholders in the code sample with values from your service overview page:
 
- | Variable    | Description                                                  |
- | ----------- | ------------------------------------------------------------ |
- | `SERVICE_URI`|URI for the Aiven for Valkey service connection |
+| Variable    | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| `SERVICE_URI`|URI for the Aiven for Valkey service connection |
 
 ## Prerequisites
 
-1. Install Maven following the instructions on the [Maven installation page](https://maven.apache.org/install.html).
+1. [Install Maven](https://maven.apache.org/install.html).
 1. Alternatively, if you choose not to install Maven, manually download the
    dependencies from the [Maven Central Repository](https://search.maven.org) and place
    them in the `lib` folder.

@@ -2,13 +2,10 @@
 title: Aiven for Grafana® features
 ---
 
-Aiven for Grafana® is a fully managed open-source monitoring,
-visualization, and alerting suite designed for your metrics. It features
-ready-made, customizable dashboards and plug-and-play integrations to
+Aiven for Grafana® is a fully managed open-source monitoring, visualization, and alerting suite designed for your metrics.
+It features ready-made, customizable dashboards and plug-and-play integrations to
 facilitate the seamless operations of entire systems, ensuring smooth
 functionality.
-
-Key features of Aiven for Grafana® include:
 
 ## Quick and flexible deployment options
 
@@ -23,7 +20,7 @@ enabling you to meet strict control requirements.
 ## Integrate with existing Aiven tools and data infrastructure
 
 Aiven for Grafana seamlessly integrates various services and your
-existing Aiven tools. You can easily set up your Aiven services as data
+existing Aiven tools. You can set up your Aiven services as data
 sources for Grafana and monitor their health in real time. This
 integration allows you to leverage the full potential of your data
 infrastructure, making it easier to manage and monitor. In addition to

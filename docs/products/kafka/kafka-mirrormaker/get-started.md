@@ -14,7 +14,7 @@ If your project does not have any Aiven for Apache Kafka service,
 
 ## Creating a dedicated Aiven for Apache Kafka® MirrorMaker 2 service {#apache_kafka_mirrormaker_dedicated_cluster}
 
-Create a Aiven for Apache Kafka MirrorMaker 2 dedicated service:
+Create an Aiven for Apache Kafka MirrorMaker 2 dedicated service:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the **Aiven for Apache Kafka®** service for which to create

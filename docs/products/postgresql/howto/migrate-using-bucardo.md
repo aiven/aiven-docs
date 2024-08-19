@@ -113,7 +113,7 @@ To migrate your data using Bucardo:
 1.  Start Bucardo and run the `status` command. When `Current state` is
     `Good`, the data is flowing to your Aiven database.
 
-1.  Log in to the [Aiven web console](https://console.aiven.io), select
+1.  Log in to the [Aiven Console](https://console.aiven.io), select
     your Aiven for PostgreSQL service from the **Services** list, and
     select **Current Queries** from the sidebar in your service's page.
     This shows you that the `bucardo` process is inserting data.

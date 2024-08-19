@@ -2,9 +2,8 @@
 title: Create and use read-only replicas
 ---
 
-PostgreSQL® read-only replicas provide a great way to reduce the load on
-the primary server by enabling read-only queries to be performed against
-the replica. It's also a good way to optimise query response times
+PostgreSQL® read-only replicas provide a great way to reduce the load on the primary server by enabling read-only queries to be performed against the replica.
+It's also a good way to optimise query response times
 across different geographical locations since, with Aiven, the replica
 can be placed in different regions or even different cloud providers.
 
@@ -20,14 +19,14 @@ node.
 To set up a remote replica:
 <!-- vale off -->
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/).
-2.  Select the PostgreSQL instance for which you want to create a remote
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
+1.  Select the PostgreSQL instance for which you want to create a remote
     replica.
-3.  In the **Overview** page of your service, select **Create replica**.
+1.  In the **Overview** page of your service, select **Create replica**.
 
     ![Create replica button](/images/content/products/postgresql/replica-create.png)
 
-4.  Enter a name for the remote replica and select the cloud provider,
+1.  Enter a name for the remote replica and select the cloud provider,
     region, and Aiven for PostgreSQL service plan that you want to use,
     then select **Create**.
 
@@ -57,12 +56,12 @@ hence becoming the master.
 
 To use a read only replica:
 
-1.  Log in to the Aiven web console and select your PostgreSQL service.
+1.  Log in to the Aiven Console and select your PostgreSQL service.
 
-2.  In the **Overview** page, copy the **Replica URI** an use it to
+1.  In the **Overview** page, copy the **Replica URI** an use it to
     connect via `psql`:
 
-    ```
+    ```bash
     psql POSTGRESQL_REPLICA_URI
     ```
 
@@ -72,7 +71,7 @@ To check whether you are connected to a primary or replica node, run the
 following command within a `psql` terminal already connected to a
 database:
 
-```
+```sql
 SELECT * FROM pg_is_in_recovery();
 ```
 
@@ -89,13 +88,12 @@ change to be propagated to the replica and to be visible there.
 ## Read-replica for disaster recovery
 
 High availability enables data distribution across availability zones
-within a single region. To accomplish that without a default
-multi-region service with node allocation spanning multiple regions, you
-can take the following steps:
+within a single region. To do this without a default
+multi-region service with node allocation spanning multiple regions:
 
--   Establish a high-availability Aiven for PostgreSQL service within a
+1.  Establish a high-availability Aiven for PostgreSQL service within a
     single region.
--   Configure a remote read-only replica in a different region or even
+1.  Configure a remote read-only replica in a different region or even
     on an alternate cloud platform.
 
 As a result, you introduce an additional node in the distinct

@@ -21,7 +21,7 @@ Creates a new
 | `--pool-size`  | Size of the connection pool in number of connections                                                                                                  |
 | `--pool-mode`  | The [pool mode](/docs/products/postgresql/concepts/pg-connection-pooling#pooling-modes). Possible values are `transaction`, `session` and `statement` |
 
-**Example:** In the service `demo-pg` Create a new connection pool named
+**Example:** In the service `demo-pg` Create a connection pool named
 `cp-analytics-it` for the database `it-analytics` with:
 
 -   username `avnadmin`

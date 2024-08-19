@@ -9,7 +9,7 @@ Create Aiven for ClickHouse® users and roles and grant them specific privileges
 
 To create a user account for your service,
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/), and
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and
     select your Aiven for ClickHouse® service.
 
 1.  Click **Users and roles** in the sidebar.
@@ -194,7 +194,7 @@ SHOW ROLES;
 You can also see the users, their roles, and privileges in the [Aiven
 Console](https://console.aiven.io/).
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/), and
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and
     select your Aiven for ClickHouse® service.
 1.  Click **Users and roles** in the sidebar.
 1.  Click **View details & grants** next to one of the user listed on the page.

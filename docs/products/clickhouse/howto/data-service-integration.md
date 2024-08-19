@@ -10,12 +10,8 @@ Aiven for ClickHouse supports two types of integrations:
 -   Data service integrations: Integrations with other Aiven services to
     use them as data sources
 
-This article details how to set up and use data service integrations in
-Aiven for ClickHouse.
-
 For information on how to set up and use regular integrations in Aiven
-for ClickHouse, see intregration guides in
-[Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations).
+for ClickHouse, see [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations).
 
 ## About data service integrations
 
@@ -25,7 +21,7 @@ supports data service integrations with Aiven for Kafka® and Aiven for
 PostgreSQL®.
 
 You can create Aiven for ClickHouse® data service integrations in the
-[Aiven web console](https://console.aiven.io/).
+[Aiven Console](https://console.aiven.io/).
 
 :::note[Integration databases]
 When creating integrations in the **Data service integrations** wizard,
@@ -35,17 +31,17 @@ are integrating with.
 If you prefer to create a data service integration without adding
 integration databases, you can create integration databases for your
 service any time later. See
-[Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases) for guidance on how to do that.
+[Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases).
 :::
 
 ## Prerequisites
 
 -   Aiven account
--   Access to [Aiven web console](https://console.aiven.io/)
+-   Access to [Aiven Console](https://console.aiven.io/)
 
 ## Create data service integrations {#create-data-service-integration}
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/).
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
 
 1.  In the **Services** page, select an Aiven for ClickHouse service you
     want to integrate with a data service.
@@ -56,7 +52,10 @@ service any time later. See
 1.  In the **Data service integrations** wizard, select one of the
     following options:
 
-    **Option 1: Create a service and integrate it**
+    <!-- vale off -->
+
+    <details>
+    <summary>Option 1: Create a service and integrate it</summary>
 
     To create an integration with a **new service**:
 
@@ -65,12 +64,13 @@ service any time later. See
         service**.
     1.  [Set up the new service](/docs/platform/howto/create_new_service).
     1.  Come back to your primary service and create an integration to
-        the newly created service. For that purpose, skip the steps that
-        follow and start over with building your integration using this
-        instruction but now follow the steps below about **integrating
-        with an existing service**.
-
-    **Option 2: Use an existing service and integrate it**
+        the newly created service.
+    1.  Skip the steps that follow and start over with building your integration using this
+        instruction but follow **Option 2: Use an existing service and integrate it**.
+    </details>
+    <!-- vale on -->
+    <details>
+    <summary>Option 2: Use an existing service and integrate it</summary>
 
     To create an integration with an **existing service**:
 
@@ -78,6 +78,8 @@ service any time later. See
         available for integration.
     1.  Select **Continue** and proceed to the next step to integrate
         the database.
+
+    </details>
 
 1.  In the **Integration databases** view, select either **Enable
     without databases** or **Add databases** depending on whether you
@@ -101,7 +103,7 @@ service any time later. See
 
 ## View data service integrations
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/).
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
 1.  In the **Services** page, select an Aiven for ClickHouse service you
     want to check integrations for.
 1.  In the **Overview** page of your service, find the **Data service
@@ -112,7 +114,7 @@ service any time later. See
 
 ## Stop data service integrations
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/).
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
 1.  In the **Services** page, select an Aiven for ClickHouse service you
     want to stop integrations for.
 1.  In the **Overview** page of your service, find the **Data service

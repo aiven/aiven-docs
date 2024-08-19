@@ -2,13 +2,12 @@
 title: Replace strings in Grafana® dashboards
 ---
 
-Sometimes, it is useful to replace all occurrences of a string in
-Grafana® metric expressions. This page describes how to do that using
-the `aiven-string-replacer-for-grafana` tool, which is on
+Sometimes, it is useful to replace all occurrences of a string in Grafana® metric expressions.
+Do it with the `aiven-string-replacer-for-grafana` tool available on
 [GitHub](https://github.com/aiven/aiven-string-replacer-for-grafana).
 
 The approach described will work with your own Grafana® cluster or with
-an Aiven for Grafana® cluster
+an Aiven for Grafana® cluster.
 
 ## Prerequisites
 
@@ -25,13 +24,13 @@ go install github.com/aiven/aiven-string-replacer-for-grafana
 
 ## Values you will need
 
- | Variable                | Description                                   |
- | ----------------------- | --------------------------------------------- |
- | `GRAFANA_API_KEY`       | The API key for accessing Grafana             |
- | `GRAFANA_DASHBOARD_URL` | The URL for the Grafana dashboard             |
- | `GRAFANA_DASHBOARD_UID` | The UID that identifies the Grafana dashboard |
- | `OLD_STRING`            | The old stringto replace      |
- | `NEW_STRING`            | The new stringto use instead  |
+|        Variable         |                  Description                  |
+|-------------------------|-----------------------------------------------|
+| `GRAFANA_API_KEY`       | The API key for accessing Grafana             |
+| `GRAFANA_DASHBOARD_URL` | The URL for the Grafana dashboard             |
+| `GRAFANA_DASHBOARD_UID` | The UID that identifies the Grafana dashboard |
+| `OLD_STRING`            | The old string to replace                     |
+| `NEW_STRING`            | The new string to use instead                 |
 
 ### Get the Grafana API key
 
@@ -58,7 +57,7 @@ To get your API key (`GRAFANA_API_KEY`):
 To get the dashboard URL and UID (`GRAFANA_DASHBOARD_URL` and
 `GRAFANA_DASHBOARD_UID`):
 
--   Go to the dashboard on which you want to change metric expression
+-   Go to the dashboard on which where to change the metric expression
     strings.
 -   Save the dashboard URL (`GRAFANA_DASHBOARD_URL`).
 -   Select the **Dashboard settings** icon, then select **JSON Model**.

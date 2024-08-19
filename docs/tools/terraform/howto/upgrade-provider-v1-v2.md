@@ -49,25 +49,25 @@ We recommend keeping your Terraform version up to date.
 Between v0.12 and v0.13, the syntax of Terraform files changed. If you
 have the older syntax, update it:
 
-1.  Upgrade your modules first by installing Terraform v0.13.x (i.e.
-    0.13.7): `tfenv install 0.13.7 && tfenv use 0.13.7` and using
+1.  Upgrade your modules first by installing Terraform v0.13.x:
+    `tfenv install 0.13.7 && tfenv use 0.13.7` and using
     `0.13upgrade` tool.
 
-2.  Update `required_version` from `>= 0.12` to `>= 0.13` in the
+1.  Update `required_version` from `>= 0.12` to `>= 0.13` in the
     requirements block.
 
-3.  Update the existing state file, by running:
+1.  Update the existing state file, by running:
 
     `terraform state replace-provider registry.terraform.io/-/aiven registry.terraform.io/aiven/aiven`
     you will replace old Aiven Terraform Provider references to the new
     format.
 
-4.  Run `terraform 0.13upgrade` to see any additional fixes recommended
+1.  Run `terraform 0.13upgrade` to see any additional fixes recommended
     by HashiCorp. If you are using more providers than Aiven Provider
-    you most likely need to upgrade them as well. More information
-    [here](https://www.terraform.io/upgrade-guides/0-13.html).
+    you most likely need to upgrade them as well. See
+    [Upgrading to Terraform v0.13](https://www.terraform.io/upgrade-guides/0-13.html).
 
-5.  Run `terraform init -upgrade`
+1.  Run `terraform init -upgrade`
 
     ![Screenshot of the upgrade command in action](/images/content/tools/terraform/terraform-upgrade.jpg)
 
@@ -81,7 +81,7 @@ have the older syntax, update it:
 
     Now we can remove the old Terraform folder `rm -rf ~/.terraform.d`.
 
-6.  As the last step run `terraform plan`
+1.  As the last step run `terraform plan`
 
 ## Upgrade Terraform from 0.13 or later
 
@@ -96,11 +96,12 @@ If you are using Aiven Terraform Provider v1 with Terraform 0.14
 
 1.  Use `tfenv` to get the latest version (1.0.10 at the time of
     writing) `tfenv install latest && tfenv use latest`
-2.  Run `terraform init -upgrade`
-3.  Run `terraform plan`
+1.  Run `terraform init -upgrade`
+1.  Run `terraform plan`
 
 ## Update to service specific resource syntax
 
+<!-- vale off -->
 V2 of the Aiven Terraform Provider moves away from using `aiven_service`
 as a resource, and instead provides specific service resources such as
 `aiven_kafka`. Since we probably don't want to destroy the existing
@@ -109,10 +110,10 @@ migration safely.
 
 :::warning
 Since `aiven_service` and the new services such as `aiven_kafka` are
-different kinds of resources, simply rewriting the code would cause
+different kinds of resources, rewriting the code would cause
 destructive actions. These steps will preserve your resources.
 :::
-
+<!-- vale on -->
 Running `terraform state mv <a> <b>` is not
 recommended because these are different resource types.
 
@@ -128,8 +129,7 @@ To safely make this change:
     resource, the resource type should be changed, and the old
     `service_type` field removed. Any references to
     `aiven_service.kafka.*` should be updated to instead read
-    `aiven_kafka.kafka.*` instead. Here's an example showing the update
-    in action:
+    `aiven_kafka.kafka.*` instead. Output example:
 
     ```
     - resource "aiven_service" "kafka" {
@@ -145,13 +145,13 @@ To safely make this change:
     }
     ```
 
-2.  Check the current state of the world:
+1.  Check the current state of the world:
 
     ```
     terraform state list | grep kf
     ```
 
-3.  Remove the service from the control of Terraform, and write a backup
+1.  Remove the service from the control of Terraform, and write a backup
     of the state into your local directory:
 
     ```
@@ -163,20 +163,20 @@ To safely make this change:
     made
     :::
 
-4.  Add the service back to Terraform by importing it as a new service
+1.  Add the service back to Terraform by importing it as a new service
     with the new service type:
 
     ```
     terraform import aiven_kafka.kafka demo-project/existing-kafka
     ```
 
-5.  Check that the import is going to run as you expect:
+1.  Check that the import is going to run as you expect:
 
     ```
     terraform plan
     ```
 
-6.  Apply the new configuration:
+1.  Apply the new configuration:
 
     ```
     terraform apply

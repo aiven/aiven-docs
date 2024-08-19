@@ -16,7 +16,7 @@ upgrade the provider to 2.4.0 or later in order to have support for OpenSearch®
 :::
 
 1.  Change the `elasticsearch_version = 7` to `opensearch_version = 1`.
-    This is the equivalent to clicking the migrate button in the
+    This is the equivalent to clicking **migrate** in the
     console.
 
     ```hcl
@@ -47,7 +47,7 @@ upgrade the provider to 2.4.0 or later in order to have support for OpenSearch®
     }
     ```
 
-    Once you have updated your configuration, check that the change
+    Once you have updated your configuration, ensure the change
     looks correct:
 
     ```bash
@@ -63,14 +63,14 @@ upgrade the provider to 2.4.0 or later in order to have support for OpenSearch®
     Your service will now upgrade to OpenSearch, and if you view it in
     the web console, it will show as an OpenSearch service.
 
-2.  After the migration, remove the Elasticsearch
+1.  After the migration, remove the Elasticsearch
     service from the Terraform state.
 
     ```bash
     terraform state rm 'aiven_elasticsearch.<service-name>'
     ```
 
-3.  Update the resource configuration to be an OpenSearch resource type,
+1.  Update the resource configuration to be an OpenSearch resource type,
     the example shown above would then look like this:
 
     ```hcl
@@ -86,7 +86,7 @@ upgrade the provider to 2.4.0 or later in order to have support for OpenSearch®
     }
     ```
 
-4.  Bring the Terraform state back in sync with your OpenSearch service
+1.  Bring the Terraform state back in sync with your OpenSearch service
     by importing the service.
 
     ```bash
@@ -97,8 +97,8 @@ Your Elasticsearch service has been upgraded to OpenSearch with
 Terraform, and the resource configuration updated to use a resource type
 of OpenSearch.
 
-If you have had anhy Elasticsearch ACLs and users, do not forget to
-import OpenSearch counterparts to the Terraform state.
+If you have Elasticsearch ACLs and users,
+import their OpenSearch counterparts to the Terraform state.
 
 ```bas
 terraform import 'aiven_opensearch_acl_config.os-acl-config' <project-name>/<service-name>

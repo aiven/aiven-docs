@@ -2,9 +2,8 @@
 title: Optimal number of shards
 ---
 
-A key component of using OpenSearch® is determining the optimal number
-of shards for your index. This article provides insights on
-choosing the appropriate number of shards and maximizing performance.
+A key component of using OpenSearch® is determining the optimal number of shards for your index.
+Learn how to choose the appropriate number of shards and maximizing performance.
 
 ## Considerations for optimal shard count
 
@@ -40,10 +39,10 @@ number of shards for your OpenSearch® index:
 
     $$number\_of\_shards = amount\_of\_data\_in\_gigabytes / 10$$
 
-    For example, a 250GB index would need 25 shards.
+    For example, a 250 GB index would need 25 shards.
 
 -   **Terabytes of data:** Consider increasing the shard size
-    accordingly. For example, a 1TB index might require 50 shards.
+    accordingly. For example, a 1 TB index might require 50 shards.
 
 These suggestions are only indicative, and optimal values depend on your
 usage patterns and anticipated data growth in OpenSearch®. Monitoring
@@ -55,13 +54,13 @@ performance is essential.
 You can change the number of shards without losing your data, but this
 process requires a brief downtime while the index is rewritten.
 Additionally, if you are using OpenSearch® for daily logs or similar use
-cases, you could consider adding more shards per index to new indexes.
+cases, you can consider adding more shards per index to new indexes.
 Doing so will increase the number of shards per index for subsequent
 days, providing an alternative option for managing your data.
 
 OpenSearch® streamlines the distribution and organization of shards
 across nodes by automating the allocation and rebalancing processes,
-simplifying scaling up or down. If you need to change the number of
+simplifying scaling up or down. To change the number of
 shards, you can re-index your data. However, modifying existing indexes
 can be challenging, and therefore it is best to aim for an optimal shard
 count from the beginning. If a shard grows significantly larger than the

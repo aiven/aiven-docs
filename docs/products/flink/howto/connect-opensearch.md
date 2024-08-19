@@ -2,18 +2,18 @@
 title: Create an OpenSearch®-based Apache Flink® table
 ---
 
-To build data pipelines, Apache Flink® requires you to map source and
-target data structures as [Flink
-tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table)
-within an application. You can accomplish this through the [Aiven
+To build data pipelines, Apache Flink® requires you to map source and target data structures as [Flink tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table) within an application.
+You can accomplish this through the [Aiven
 Console](https://console.aiven.io/) or
 [Aiven CLI](/docs/tools/cli/service/flink).
 
+<!-- vale off -->
 You can define a Flink table over an existing or new Aiven for
 OpenSearch® index, to sink streaming data. To define a table over an
 OpenSearch® index, specify the index name, column data formats, and the
 Flink table name you want to use as a reference when building data
 pipelines.
+<!-- vale on -->
 
 :::warning
 -   To use Flink tables an
@@ -33,7 +33,7 @@ via Aiven console:
 1.  In the Aiven for Apache Flink service page, select **Application**
     from the left sidebar.
 
-2.  Create an application or select an existing one with Aiven for
+1.  Create an application or select an existing one with Aiven for
     OpenSearch® integration.
 
     :::note
@@ -41,22 +41,22 @@ via Aiven console:
     changes to the source or sink tables.
     :::
 
-3.  In the **Create new version** screen, select **Add sink tables**.
+1.  In the **Create new version** screen, select **Add sink tables**.
 
-4.  Select **Add new table** or select **Edit** if you want to edit an
+1.  Select **Add new table** or select **Edit** to edit an
     existing source table.
 
-5.  In the **Add new sink table** or **Edit sink table** screen, select
+1.  In the **Add new sink table** or **Edit sink table** screen, select
     the Aiven for OpenSearch® as the integrated service.
 
-6.  In the **Table SQL** section, enter the SQL statement to create the
+1.  In the **Table SQL** section, enter the SQL statement to create the
     OpenSearch-based Apache Flink table.
 
     -   Define the **Flink table name**, which will represent the Flink
         reference to the topic and will be used during the data pipeline
         definition.
 
-7.  In the **Create statement** section, write the SQL schema that
+1.  In the **Create statement** section, write the SQL schema that
     defines the fields to be pushed for each message in the OpenSearch
     index.
 

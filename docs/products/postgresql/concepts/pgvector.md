@@ -2,9 +2,9 @@
 title: pgvector for AI-powered search in Aiven for PostgreSQL®
 ---
 
-In machine learning (ML) models, all data items in a particular data set
-are mapped into one unified n-dimensional vector space, no matter how
-big the input data set is. This optimized way of data representation
+In machine learning (ML) models, all data items in a particular data set are mapped into one unified n-dimensional vector space, no matter how big the input data set is.
+
+This optimized way of data representation
 allows for high performance of AI algorithms. Mapping regular data into
 a vector space requires so called data vectorizing, which is
 transforming data items into vectors (data structures with at least two
@@ -42,7 +42,7 @@ processing, or similarity search.
 
 Since on vector embeddings you can use AI tools for capturing
 relationships between objects (vector representations), you are also
-able to identify similarities between them in an easily computable and
+able to identify similarities between them in a computable and
 scalable manner.
 
 A vector usually represents a data point, and components of the vector

@@ -5,31 +5,30 @@ title: Connect with Java
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/postgresql/connect.java';
 
-This example connects to PostgreSQL® service from Java, making use of
-JDBC Driver.
+This example connects to PostgreSQL® service from Java, making use of JDBC Driver.
 
 ## Variables
 
 These are the placeholders you will need to replace in the code sample:
 
- | Variable   | Description                                                             |
- | ---------- | ----------------------------------------------------------------------- |
- | `HOSTNAME` | Hostname for PostgreSQL connection, from the service overview page      |
- | `PORT`     | Port for PostgreSQL connection, from the service overview page          |
- | `DATABASE` | Database Name for PostgreSQL connection, from the service overview page |
- | `PASSWORD` | `avnadmin` password, from the service overview page                     |
+| Variable   | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+| `HOSTNAME` | Hostname for PostgreSQL connection, from the service overview page      |
+| `PORT`     | Port for PostgreSQL connection, from the service overview page          |
+| `DATABASE` | Database Name for PostgreSQL connection, from the service overview page |
+| `PASSWORD` | `avnadmin` password, from the service overview page                     |
 
 ## Prerequisites
 
 For this example you will need the PostgreSQL Driver:
 
-1.  If you have maven version >= 2+, run the code:
+1.  If you have maven version >= 2+, run:
 
-    ```
+    ```shell
     mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=org.postgresql:postgresql:42.3.2:jar -Ddest=postgresql-42.3.2.jar
     ```
 
-2.  Manually the jar could be downloaded from
+1.  Download the jar at
     [https://jdbc.postgresql.org/download/](https://jdbc.postgresql.org/download/)
 
 ## Code

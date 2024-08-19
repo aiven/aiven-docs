@@ -2,15 +2,15 @@
 title: Load sample data into ClickHouse®
 ---
 
-The official ClickHouse® website offers [a list of example
-datasets](https://clickhouse.com/docs/en/getting-started/example-datasets/)
-to get you started. Each dataset has a description on how to download,
+The official ClickHouse® website offers [a list of example datasets](https://clickhouse.com/docs/en/getting-started/example-datasets/) to get you started.
+Each dataset has a description on how to download,
 upload, and transform the data samples as needed.
 
-This article takes a closer look at how to use the
+<!-- vale off -->
+Let's use the
 `Anonymized Web Analytics Data` [example
 dataset](https://clickhouse.com/docs/en/getting-started/example-datasets/metrica/).
-This contains two tables:
+It contains two tables:
 
 -   `hits_v1`, with data for every user action
 -   `visits_v1`, with information about every user session
@@ -21,6 +21,7 @@ ClickHouse already offers detailed instructions [on setting up this
 dataset](https://clickhouse.com/docs/en/getting-started/example-datasets/metrica/),
 but these steps add some more details on how to run commands by using a
 ClickHouse client running in Docker.
+<!-- vale on -->
 
 ## Download the dataset
 
@@ -48,24 +49,23 @@ Once done, you should have two files available: `hits_v1.tsv` and
 
 ## Set up the service and database
 
-If you don't yet have an Aiven for ClickHouse service, follow the steps
-in our
-[getting started guide](/docs/products/clickhouse/get-started) to create one.
+If you don't yet have an Aiven for ClickHouse service, see
+[Get started](/docs/products/clickhouse/get-started) to create one.
 
 When you create a service, a default database was already added.
 However, you can create separate databases specific to your use case. We
 will create a database with the name `datasets`, keeping it the same as
 in the ClickHouse documentation.
 
-To create the new database, take the following steps:
+To create the new database:
 
-1.  Log in to the [Aiven web console](https://console.aiven.io/), and
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and
     select your service from the **Services** page.
-2.  In your service's page, select **Databases and tables** from the
+1.  In your service's page, select **Databases and tables** from the
     sidebar.
-3.  In the **Databases and tables** page, select **Create database** >
+1.  In the **Databases and tables** page, select **Create database** >
     **ClickHouse database**.
-4.  In the **Create ClickHouse database** window, enter name `datasets`
+1.  In the **Create ClickHouse database** window, enter name `datasets`
     for your database and select **Create database**.
 
 ## Connect to the ClickHouse database
@@ -74,9 +74,9 @@ We will be using the ClickHouse client to connect to the server. Follow
 [the separate guide](/docs/products/clickhouse/howto/connect-with-clickhouse-cli) to familiarize yourself with how to set up and start using
 the ClickHouse client.
 
-To connect to the server, use the connection details that you can find
-in the **Connection information** section of the **Overview** page in
-the Aiven web console. You will need **Host**, **Port**, **User**, and
+To connect to the server, use the connection details that from
+the **Connection information** section of the **Overview** page in
+the Aiven Console. You will need **Host**, **Port**, **User**, and
 **Password**.
 
 ```bash
@@ -122,9 +122,9 @@ To do this:
 1.  Go to the folder where you stored the downloaded files for
     `hits_v1.tsv` and `visits_v1.tsv`.
 
-2.  Run the following command:
+1.  Run the following command:
 
-    ```
+    ```bas
     cat hits_v1.tsv | docker run        \
     --interactive                       \
     --rm clickhouse/clickhouse-server clickhouse-client  \
@@ -140,9 +140,9 @@ To do this:
     `hits_v1.tsv` contains approximately 7Gb of data. Depending on your
     internet connection, it can take some time to load all the items.
 
-3.  Run the corresponding command for `visits_v1.tsv`:
+1.  Run the corresponding command for `visits_v1.tsv`:
 
-    ```
+    ```bash
     cat visits_v1.tsv | docker run      \
     --interactive                       \
     --rm clickhouse/clickhouse-server clickhouse-client   \
@@ -161,7 +161,7 @@ try out some queries.
 ## Run queries
 
 Once the data is loaded, you can run queries against the sample data you
-imported. For example, here is a command to query the number of items in
+imported. For example, query the number of items in
 the `hits_v1` table:
 
 ```sql
@@ -183,6 +183,5 @@ LIMIT 10
 ## View tables in the console
 
 You can also use the database and added tables with the data in the
-[Aiven web console](https://console.aiven.io/). You can find them by
-selecting **Databases & Tables** from the sidebar of your service's
-page in [Aiven Console](https://console.aiven.io/).
+[Aiven Console](https://console.aiven.io/). Display them by
+selecting **Databases & Tables** from the sidebar of your service in the Aiven Console.

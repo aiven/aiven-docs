@@ -16,7 +16,7 @@ Create an SQL application in Aiven for Apache Flink® using the [Aiven
 Console](https://console.aiven.io/):
 
 1. In the [Aiven Console](https://console.aiven.io/), select the Aiven
-   for Apache Flink service where you want to create and deploy a Flink
+   for Apache Flink service where to create and deploy a Flink
    application.
 
 1. From the left sidebar, click **Applications** and click

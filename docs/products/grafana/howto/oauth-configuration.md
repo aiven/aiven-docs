@@ -2,9 +2,8 @@
 title: Grafana® OAuth configuration and security considerations
 ---
 
-Grafana® version 9.5.5 introduced significant changes to the OAuth email
-lookup behavior to enhance security. However, some users may need to
-revert to the previous behavior as seen in Grafana 9.5.3. This section
+Grafana® version 9.5.5 introduced significant changes to the OAuth email lookup behavior to enhance security. However, some users may need to revert to the previous behavior as seen in Grafana 9.5.3.
+This section
 provides information on how to revert to the 9.5.3 behavior using the
 `oauth_allow_insecure_email_lookup` configuration option, its
 implications, and the associated security threats.
@@ -19,7 +18,7 @@ is important to consider the security risks involved.
 By enabling the `oauth_allow_insecure_email_lookup` configuration
 option, the system becomes susceptible to a critical authentication
 bypass vulnerability using Azure AD OAuth. This vulnerability is
-officially identified as CVE-2023-3128 and could potentially grant
+officially identified as CVE-2023-3128 and can potentially grant
 attackers access to sensitive information or unauthorized actions. For
 more information, refer to the following links:
 
@@ -39,13 +38,13 @@ option.
 To enable this configuration, include the following line in your Grafana
 configuration file:
 
-``` 
+```ini
 [auth]
 oauth_allow_insecure_email_lookup = true
 ```
 
 This will restore the behavior to that of Grafana version 9.5.3.
-However, please be aware of the potential security risks if you choose
+However, be aware of the potential security risks if you choose
 to do so.
 
 ## Upgrade to Grafana 9.5.5

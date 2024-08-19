@@ -2,15 +2,10 @@
 title: Enable and use pgvector on Aiven for PostgreSQL®
 ---
 
-This article provides step-by-step instructions on enabling, using, and
-disabling the pgvector extension for your Aiven for PostgreSQL service.
+Learn how to enable, use, and disable the pgvector extension for your Aiven for PostgreSQL service.
 
-## About using pgvector
-
-The pgvector extension allows you to perform the vector similarity
+The [pgvector extension](/docs/products/postgresql/concepts/pgvector) allows you to perform the vector similarity
 search and use embedding techniques directly in Aiven for PostgreSQL.
-See
-[pgvector for AI-powered search](/docs/products/postgresql/concepts/pgvector) for more information on what pgvector is and how it works.
 
 ## Prerequisites
 
@@ -25,18 +20,18 @@ See
 ## Enable pgvector
 
 Run the CREATE EXTENSION statement from a client such as psql connected
-to your service. This is needed for each database you want to perform
+to your service. This is needed for each database to perform
 the similarity search on.
 
 1.  [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples) using, for example, the psql client (CLI).
 
-2.  Connect to your database where you want to operate.
+1.  Connect to your database.
 
     ```bash
     \c database-name
     ```
 
-3.  Run the CREATE EXTENSION statement.
+1.  Run the CREATE EXTENSION statement.
 
     ```bash
     CREATE EXTENSION vector;
@@ -56,7 +51,7 @@ the similarity search on.
     `embedding` column, which can store vectors with three dimensions.
     :::
 
-2.  Run the INSERT statement to store the embeddings generated with, for
+1.  Run the INSERT statement to store the embeddings generated with, for
     example, the [OpenAI
     API](https://platform.openai.com/docs/api-reference/embeddings/create)
     client.

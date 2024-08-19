@@ -44,18 +44,18 @@ upgrade to take place.
 V3 of the Aiven Terraform Provider moves away from using
 `aiven_vpc_peering_connection` as a resource, and instead provides
 provider specific resources such as
-`aiven_azure_vpc_peering_connection`. Since we probably don't want to
-destroy existing resources and make new ones, this guide will help you
-perform the migration safely.
+`aiven_azure_vpc_peering_connection`.
 
+<!-- vale off -->
 :::warning
 Since `aiven_vpc_peering_connection` and the new one such as
 `aiven_azure_vpc_peering_connection` are different kinds of resources,
-simply rewriting the code would cause destructive actions. These steps
+rewriting the code would cause destructive actions. These steps
 will preserve your resources.
 :::
+<!-- vale on -->
 
-Please also note that running `terraform state mv <a> <b>` is not
+Also note that running `terraform state mv <a> <b>` is not
 recommended because these are different resource types.
 
 :::tip
@@ -75,7 +75,7 @@ To safely make this change you will:
     `aiven_vpc_peering_connection.foo.*` should be updated to instead
     read `aiven_azure_vpc_peering_connection.foo.*` instead.
 
-    Here's an example showing the update in action:
+    The output looks like:
 
     ```
     - resource "aiven_vpc_peering_connection" "foo" {
@@ -97,13 +97,13 @@ To safely make this change you will:
       }
     ```
 
-2.  Check the current state of the world:
+1.  Check the current state of the world:
 
     ```
     terraform state list | grep azure
     ```
 
-3.  Remove the resource from the control of Terraform:
+1.  Remove the resource from the control of Terraform:
 
     ```
     terraform state rm aiven_vpc_peering_connection.foo
@@ -114,20 +114,20 @@ To safely make this change you will:
     made
     :::
 
-4.  Add the resource back to Terraform by importing it as a new resource
+1.  Add the resource back to Terraform by importing it as a new resource
     with the new type:
 
     ```
     terraform import aiven_azure_vpc_peering_connection.foo project_name/vpc_id/azure_subscription_id/vnet_name
     ```
 
-5.  Check that the import is going to run as you expect:
+1.  Check that the import is going to run as you expect:
 
     ```
     terraform plan
     ```
 
-6.  Apply the new configuration:
+1.  Apply the new configuration:
 
     ```
     terraform apply

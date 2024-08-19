@@ -21,10 +21,10 @@ target cluster:
 2.  In the service **Overview** screen, scroll to the **Service
     integrations** section and select **Manage integrations**.
 3.  If there is no integration for the source/target Apache Kafka
-    cluster, follow these steps to set up the necessary integrations:
+    cluster, set up the necessary integrations:
     -   On the Integrations screen, choose the desired integration from
         the list for the source Apache Kafka cluster.
-    -   Select an existing Apache Kafka service you want to use as the
+    -   Select an existing Apache Kafka service to use as the
         source/target for the replication flow.
     -   Provide a cluster alias name (for example,, source-Kafka) to the
         integration of the Apache Kafka cluster.

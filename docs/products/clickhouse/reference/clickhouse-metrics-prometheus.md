@@ -2,11 +2,10 @@
 title: Aiven for ClickHouse® metrics available via Prometheus
 ---
 
-This article provides the list of all metrics available via Prometheus
-for Aiven for ClickHouse® services.
+List of all metrics available via Prometheus for Aiven for ClickHouse® services.
 
 You can retrieve the complete list of available metrics for your service
-by requesting the Prometheus endpoint as follows:
+by requesting the Prometheus endpoint:
 
 ```bash
 curl --cacert ca.pem \
