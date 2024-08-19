@@ -2,9 +2,8 @@
 title: Access control lists and permission mapping
 ---
 
-Aiven for Apache Kafka® uses **access control lists** (ACL) and user
-definitions to establish individual rights to produce, consume or manage
-topics. To manage users and ACL entries, you can access the
+Aiven for Apache Kafka® uses **access control lists** (ACL) and user definitions to establish individual rights to produce, consume or manage topics.
+To manage users and ACL entries, you can access the
 corresponding options in the left-side navigation menu on the service
 page within the [Aiven Console](https://console.aiven.io/). For detailed
 instructions, see
@@ -17,10 +16,10 @@ combination of:
 
 -   the username
 -   the permission given to the user
--   the associated topic(s)
+-   the associated topics
 
 The username portion of the ACL entry can be an Apache Kafka® service
-user name, or a string containing wildcards which could match multiple
+user name, or a string containing wildcards, which can match multiple
 users. Similarly, the topic portion can be a single Apache Kafka® topic
 name or can use a wildcard pattern. The permission is one of `read`,
 `write`, `readwrite` and `admin`.
@@ -39,7 +38,7 @@ The wildcards can be combined for more complex pattern matching:
 
 Aiven for Apache Kafka® evaluates each topic access against the ACL
 entries. If it finds a matching ACL entry, access is granted. If no
-entry matches, access is denied. Thus the order of the ACL entries is
+entry matches, access is denied. The order of the ACL entries is
 irrelevant.
 
 Examples:
@@ -109,8 +108,7 @@ All other permissions related to a topic (`Alter`, `Delete`) **only**
 apply to the topics matching the pattern that you specify.
 :::
 
-The above mappings are subject to change and this article will be
-updated when that happens.
+The above mappings are subject to change.
 
 :::note
 By default, the number of users per service is limited to 50 in Kafka.

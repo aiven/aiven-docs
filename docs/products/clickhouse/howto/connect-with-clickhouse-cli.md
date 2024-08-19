@@ -2,9 +2,7 @@
 title: Connect to a ClickHouse® cluster with CLI
 ---
 
-It's recommended to connect to a ClickHouse® cluster with the
-ClickHouse® client. From this article, you'll learn how to use the the
-ClickHouse® client command-line tool for that purpose.
+It's recommended to connect to a ClickHouse® cluster with the ClickHouse® client.
 
 ## Use the ClickHouse® client
 
@@ -16,7 +14,7 @@ hub](https://hub.docker.com/r/clickhouse/clickhouse-server).
 
 :::note
 There are other installation options available for ClickHouse clients
-for different operating systems. You can find them in [ClickHouse
+for different operating systems. See them in [ClickHouse
 local](https://clickhouse.com/docs/en/operations/utilities/clickhouse-local)
 and [Install ClickHouse](https://clickhouse.com/docs/en/install) in the
 official ClickHouse documentation.
@@ -28,7 +26,7 @@ You will need to know the following properties to establish a secure
 connection with your Aiven for ClickHouse service: **Host**, **Port**,
 **User** and **Password**. You will find these in the **Connection
 information** section on the **Overview** page of your service in the
-[Aiven web console](https://console.aiven.io/).
+[Aiven Console](https://console.aiven.io/).
 
 ## Command template
 
@@ -82,7 +80,7 @@ docker run --interactive            \
 Similar to above example, you can request the list of present databases
 directly:
 
-```
+```bash
 docker run --interactive            \
 --rm clickhouse/clickhouse-server clickhouse-client \
 --user USERNAME                     \

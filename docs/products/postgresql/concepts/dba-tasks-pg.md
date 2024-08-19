@@ -20,7 +20,7 @@ operations. It can manage:
 -   Logical replication with the `REPLICATION` privilege
 
 :::tip
-You can also manage databases and users in the Aiven web console or
+You can also manage databases and users in the Aiven Console or
 though our [REST API](/docs/tools/api).
 :::
 

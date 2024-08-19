@@ -2,8 +2,7 @@
 title: Install or update an extension
 ---
 
-Aiven for PostgreSQL® allows a series of pre-approved extensions to be
-installed.
+Aiven for PostgreSQL® allows a series of pre-approved extensions to be installed.
 
 ## Install an extension
 
@@ -23,7 +22,7 @@ available, run as the `avnadmin` user:
 ALTER EXTENSION <EXTENSION_NAME> UPDATE;
 ```
 
-If you want to experiment with upgrading, remember that you can fork
+To experiment with upgrading, remember that you can fork
 your existing database to try this operation on a copy rather than your
 live database.
 
@@ -37,7 +36,7 @@ extensions are safe to upgrade.
 
 ## Request a new extension
 
-We are always open to suggestions of additional extensions that could be
+We are always open to suggestions of additional extensions that can be
 useful to many of our customers, and there are a few that can be enabled
 on request if you need them. For any extensions not on the
 [list of approved extensions](/docs/products/postgresql/reference/list-of-extensions), make a request through [Aiven Ideas](https://ideas.aiven.io/). Be sure to include:
@@ -46,7 +45,7 @@ on request if you need them. For any extensions not on the
 -   which database service and user database should have them
 
 :::warning
-\"Untrusted\" language extensions such as `plpythonu` cannot be
+"Untrusted" language extensions such as `plpythonu` cannot be
 supported as they would compromise our ability to guarantee the highest
 possible service level.
 :::

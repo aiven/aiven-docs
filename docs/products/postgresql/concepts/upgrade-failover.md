@@ -73,8 +73,7 @@ recovery of the replica server.
 
 :::note
 The below doesn't apply to major version upgrade with `pg_upgrade`, for
-major version upgrade, read the related
-[how-to](/docs/products/postgresql/howto/upgrade).
+major version upgrade see [Perform a PostgreSQL® major version upgrade](/docs/products/postgresql/howto/upgrade).
 :::
 
 During maintenance updates, cloud migrations, or plan changes, the below

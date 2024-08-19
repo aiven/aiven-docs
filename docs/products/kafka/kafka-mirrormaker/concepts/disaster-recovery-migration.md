@@ -2,8 +2,7 @@
 title: Disaster recovery and migration
 ---
 
-MirrorMaker 2 is the standard replication tool packaged with the Apache
-Kafka® and can be run as a managed service on the Aiven platform.
+MirrorMaker 2 is the standard replication tool packaged with the Apache Kafka® and can be run as a managed service on the Aiven platform.
 MirrorMaker 2 uses Kafka Connect to consume from one Kafka cluster and
 produce simultaneously to a second cluster. You can use MirrorMaker 2 to
 enable Active-Passive disaster recovery architecture or active-active
@@ -13,7 +12,7 @@ high availability architecture.
 
 Disaster recovery is one of the primary use cases for MirrorMaker 2.
 MirrorMaker 2 replicates data between Apache Kafka® clusters, including
-clusters located in different data centres. Thus it's possible to
+clusters located in different data centres. It's possible to
 minimise the period of unavailability of Apache Kafka.
 
 However, it's important to remember that **MirrorMaker 2 does not offer

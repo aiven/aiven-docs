@@ -1,14 +1,15 @@
 ---
 title: Troubleshoot Apache Kafka® consumer connections
+sidebar_label: Consumer connections issues
 ---
 
-Apache Kafka® consumers sometimes experience disconnections from a
-cluster node. On one hand, isolated occurrences are expected and well
-mitigated by the Apache Kafka® protocol, for example in case a partition
-leadership moved to a different node so the cluster remains available
-and balanced. On the other hand, repeating occurrences often raise
-concerns as they may impact consumer lag, and cluster performance. This
-article provides guidance to better identify and solve related issues.
+Apache Kafka® consumers sometimes experience disconnections from a cluster node.
+
+On one hand, isolated occurrences are expected and well mitigated by the Apache
+Kafka® protocol, for example if a partition leadership moved to a different
+node so the cluster remains available and balanced. On the other hand,
+repeating occurrences often raise concerns as they can impact consumer lag, and
+cluster performance.
 
 ## What is observed
 
@@ -44,7 +45,7 @@ they exist.
     executed by 2 different client threads, the machine (on which the
     consumer application runs) can get overloaded and so it cannot send
     a heartbeat to the group coordinator after `heartbeat.interval.ms`
-    (default: 3s) and before `session.timeout.ms` (default: 45s).
+    (default: 3 s) and before `session.timeout.ms` (default: 45 s).
 -   If the consumer logic consists in expensive transformations or
     synchronous API calls, then your average single message processing
     time can dramatically increase, as in the following example
@@ -83,5 +84,4 @@ they exist.
     up/vertically or out/horizontally.
 
 If the above didn't help you resolve your issue and you have further
-concerns or questions, feel free to contact [Aiven
-support](mailto:support@aiven.io).
+concerns or questions, contact [Aiven support](mailto:support@aiven.io).

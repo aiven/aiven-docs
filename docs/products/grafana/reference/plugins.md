@@ -2,9 +2,9 @@
 title: Plugins for Aiven for Grafana®
 ---
 
-The following plugins are available in all installations of Aiven for
-Grafana®, and they are updated at intervals. To request additional
-plugins, please reach out to our support team at [support@aiven.io](mailto:support@aiven.io).
+The following plugins are available in all installations of Aiven for Grafana®, and they are updated at intervals.
+To request additional plugins, reach out to our support team
+at [support@aiven.io](mailto:support@aiven.io).
 
 ## Panel plugins
 
@@ -168,7 +168,7 @@ plugins, please reach out to our support team at [support@aiven.io](mailto:suppo
     Visualize your Google Spreadsheets in Grafana.
 -   Graphite - [Grafana](https://grafana.com/grafana/plugins/graphite/),
     [Grafana Docs](https://docs.grafana.org/datasources/graphite/):
-    Quickly navigate the metric space, add functions, change function
+    Navigate the metric space, add functions, change function
     parameters and more.
 -   InfluxDB® -
     [Grafana](https://grafana.com/grafana/plugins/influxdb/), [Grafana
@@ -232,7 +232,7 @@ plugins, please reach out to our support team at [support@aiven.io](mailto:suppo
 -   Traces (Application) -
     [Grafana](https://grafana.com/grafana/plugins/grafana-enterprise-traces-app/):
     Grafana Enterprise Traces (GET) is a commercial offering based on
-    Tempo, and allows you to deploy a highly-scalable, simple, and
+    Tempo, and allows you to deploy a highly scalable, simple, and
     reliable traces cluster in your own data center.
 -   worldPing - [GitHub](https://github.com/raintank/worldping-app):
     Continually tests, stores and alerts on the global performance and

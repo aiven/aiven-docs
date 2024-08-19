@@ -2,8 +2,7 @@
 title: avn service schema-registry-acl
 ---
 
-Full list of commands for
-`avn service schema-registry-acl`.
+Full list of commands for `avn service schema-registry-acl`.
 
 ## Manage Karapace schema registry access control lists for Apache Kafka®
 
@@ -44,7 +43,7 @@ avn service schema-registry-acl-add kafka-doc \
 ```
 
 :::note
-You cannot edit a Karapace schema registry ACL entry. You need to create
+You cannot edit a Karapace schema registry ACL entry. Create
 a new entry and delete the older entry.
 :::
 
@@ -75,8 +74,7 @@ avn service schema-registry-acl-delete kafka-doc acl3604f96c74a
 
 ### `avn service schema-registry-acl-list`
 
-You can view a list of all Karapace schema registry ACL entries defined
-using the command:
+List all Karapace schema registry ACL entries defined:
 
 ```
 avn service schema-registry-acl-list

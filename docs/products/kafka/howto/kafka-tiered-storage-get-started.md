@@ -19,7 +19,7 @@ sets up the necessary infrastructure for using tiered storage.
 
 1. Log in to the [Aiven console](https://console.aiven.io/).
 1. Select your project and the Aiven for Apache Kafka service.
-1. Follow the instructions to [enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
+1. See [enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
 :::note
 
@@ -32,8 +32,6 @@ sets up the necessary infrastructure for using tiered storage.
 - Tiered storage is not available on startup-2 plans.
 
 :::
-
-
 
 ## Step 2: Configure tiered storage per topic
 

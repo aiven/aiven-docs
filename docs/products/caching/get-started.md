@@ -9,7 +9,7 @@ import Help from "@site/static/includes/cli-help.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The first step in using Aiven for Caching is to create a service. You can do so either using the [Aiven Web Console](https://console.aiven.io/) or the [Aiven CLI](https://github.com/aiven/aiven-client).
+The first step in using Aiven for Caching is to create a service. You can do so either using the [Aiven Console](https://console.aiven.io/) or the [Aiven CLI](https://github.com/aiven/aiven-client).
 
 ## Create an Aiven for Caching service
 

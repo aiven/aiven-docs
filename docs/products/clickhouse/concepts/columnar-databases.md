@@ -2,9 +2,7 @@
 title: ClickHouse® as a columnar database
 ---
 
-Learn how columnar databases handle data and what benefits this approach
-has. Check out characteristics and capabilities of ClickHouse® as a
-columnar database.
+ClickHouse® is a columnar databases that handles data with specific benefits.
 
 ## Fast data reading
 

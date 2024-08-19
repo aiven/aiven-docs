@@ -16,7 +16,7 @@ of such tools, the `kafka-topics.sh`.
 ## Example: Create a topic with retention time to 30 minutes with `kafka-topics.sh`
 
 Each topic in Apache Kafka can have a different retention time, defining
-for the messages' time to live. The Aiven web console and API offer the
+for the messages' time to live. The Aiven Console and API offer the
 ability to set the retention time as part of the topic
 [creation](/docs/tools/cli/service/topic#avn_cli_service_topic_create)
 or [update](/docs/tools/cli/service/topic#avn-cli-topic-update).

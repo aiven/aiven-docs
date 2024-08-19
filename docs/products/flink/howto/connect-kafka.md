@@ -2,24 +2,22 @@
 title: Create an Apache Kafka®-based Apache Flink® table
 ---
 
-To build data pipelines, Apache Flink® requires you to map source and
-target data structures as [Flink
-tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table)
-within an application. You can accomplish this through the [Aiven
+To build data pipelines, Apache Flink® requires you to map source and target data structures as [Flink tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table) within an application.
+You can accomplish this through the [Aiven
 Console](https://console.aiven.io/) or
 [Aiven CLI](/docs/tools/cli/service/flink).
 
 When creating an application to manage streaming data, you can create a
 Flink table that connects to an existing or new Aiven for Apache Kafka®
 topic to source or sink streaming data. To define a table over an Apache
-Kafka® topic, you need to specify the topic name, clearly define the
-columns\' data format, and choose the appropriate connector type.
+Kafka® topic, specify the topic name, clearly define the
+columns' data format, and choose the appropriate connector type.
 Additionally, enter a clear and meaningful name to the table for
 reference when building data pipelines.
 
 :::warning
-In order to define Flink's tables an
-[existing integration](create-integration) needs to be available between the Aiven for Flink service
+To define Flink's tables an
+[existing integration](/docs/products/flink/howto/create-integration) needs to be available between the Aiven for Flink service
 and one or more Aiven for Apache Kafka services.
 :::
 
@@ -31,7 +29,7 @@ topic via the [Aiven Console](https://console.aiven.io/):
 1.  In the Aiven for Apache Flink service page, select **Application**
     from the left sidebar.
 
-2.  Create an application or select an existing one with Aiven for
+1.  Create an application or select an existing one with Aiven for
     Apache Kafka integration.
 
     :::note
@@ -39,18 +37,18 @@ topic via the [Aiven Console](https://console.aiven.io/):
     changes to the source or sink tables.
     :::
 
-3.  In the **Create new version** screen, select **Add source tables**.
+1.  In the **Create new version** screen, select **Add source tables**.
 
-4.  Select **Add new table** or select **Edit** if you want to edit an
+1.  Select **Add new table** or select **Edit** to edit an
     existing source table.
 
-5.  In the **Add new source table** or **Edit source table** screen,
+1.  In the **Add new source table** or **Edit source table** screen,
     select the Aiven for Apache Kafka service as the integrated service.
 
-6.  In the **Table SQL** section, enter the SQL statement below to
+1.  In the **Table SQL** section, enter the SQL statement below to
     create the Apache Kafka-based Apache Flink:
 
-    ```
+    ```sql
     CREATE TABLE kafka (
 
     ) WITH (
@@ -117,10 +115,10 @@ topic via the [Aiven Console](https://console.aiven.io/):
             [Create Confluent Avro-based Apache Flink® table](/docs/products/flink/howto/flink-confluent-avro).
         :::
 
-7.  To create a sink table, select **Add sink tables** and repeat steps
+1.  To create a sink table, select **Add sink tables** and repeat steps
     4-6 for sink tables.
 
-8.  In the **Create statement** section, create a statement that defines
+1.  In the **Create statement** section, create a statement that defines
     the fields retrieved from each message in a topic, additional
     transformations such as format casting or timestamp extraction, and
     [watermark settings](/docs/products/flink/concepts/watermarks).

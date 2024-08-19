@@ -1,10 +1,10 @@
 ---
-title: Send logs to AWS CloudWatch from Aiven web console
+title: Send logs to AWS CloudWatch from Aiven Console
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Send your Aiven service logs to the AWS CloudWatch using the [Aiven web console](https://console.aiven.io).
+Send your Aiven service logs to the AWS CloudWatch using the [Aiven Console](https://console.aiven.io).
 
 ## Prerequisites
 

@@ -3,7 +3,7 @@ title: Terminology for M3
 ---
 
 -   **Time series:** Unique series of data identified by a set of
-    labels, containing value(s) for specific points in time
+    labels, containing values for specific points in time.
 -   **Point:** A value and timestamp pair. This item can also include
     labels to denote which series of data this point belongs to.
 -   **Namespace:** A collection of data points. Namespaces are either

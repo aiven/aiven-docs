@@ -6,7 +6,7 @@ keywords: [quick start]
 
 import CreateService from "@site/static/includes/create-service-console.md"
 
-To start using Aiven for Grafana®, the first step is to create a service. You can do this in the [Aiven web console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).
+To start using Aiven for Grafana®, the first step is to create a service. You can do this in the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).
 
 ## Create an Aiven for Grafana service
 

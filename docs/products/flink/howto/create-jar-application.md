@@ -9,7 +9,7 @@ Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR 
 
 - Custom JARs for Aiven for Apache Flink is a **limited availability** feature.
   To try this feature, request access by contacting the [sales team](mailto:sales@aiven.io).
-- Create a new Aiven for Apache Flink service and click **Upload and deploy custom JARs**
+- Create an Aiven for Apache Flink service and click **Upload and deploy custom JARs**
   to enable custom JARs during service creation.
 
 :::note
@@ -21,8 +21,8 @@ Custom JARs enabled.
 ## Create and deploy a JAR application
 
 1.  Access the [Aiven Console](https://console.aiven.io/) and select the
-    Aiven for Apache Flink service where you want to deploy a JAR
-    application.
+    Aiven for Apache Flink service to deploy a JAR
+    application to.
 1.  From the left sidebar, click **Applications** and click
     **Create application**.
 1.  In the **Create application** dialog, enter a name for your JAR
@@ -32,9 +32,9 @@ Custom JARs enabled.
 1.  Click **Upload first version** to upload the first version of the
     application.
 
-    :::note
-    There is a limit on the size of the custom JAR file you can upload to an Apache Flink
-    JAR application. For more information, contact the sales or support team.
+    :::note[Custom JAR file size limit]
+    Custom JAR files have a maximum size of 100 MB.
+    For more information, contact the sales or support team.
     :::
 
 1.  In the **Upload new version** dialog:

@@ -7,7 +7,7 @@ a specific day or hour.
 
 To restore a backup:
 
-1.  Log in to the [Aiven web console](https://console.aiven.io) and
+1.  Log in to the [Aiven Console](https://console.aiven.io) and
     select your OpenSearch service.
 
 2.  Select **Backups** from the left sidebar.

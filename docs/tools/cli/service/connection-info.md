@@ -9,9 +9,8 @@ Full list of commands for `avn service connection-info`.
 ### `avn service connection-info kafkacat`
 
 Retrieves the `kcat` command necessary to connect to an Aiven for Apache
-Kafka® service and produce/consume messages to topics, check out more in
-the
-[dedicated article](/docs/products/kafka/howto/kcat).
+Kafka® service and produce/consume messages to topics, learn more in
+[Use `kcat` with Aiven for Apache Kafka®](/docs/products/kafka/howto/kcat).
 
 | Parameter                       | Information                                                                                                   |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------- |

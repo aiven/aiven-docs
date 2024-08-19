@@ -5,7 +5,7 @@ title: Attach VPCs to an AWS Transit Gateway
 [AWS Transit Gateway (TGW)](https://aws.amazon.com/transit-gateway/) enables transitive routing from on-premises networks through VPN and from other VPC.
 By creating a Transit Gateway VPC attachment, services
 in an Aiven Project VPC can route traffic to all other networks
-attached - directly or indirectly - to the Transit Gateway.
+attached, directly or indirectly, to the Transit Gateway.
 
 ## Set up a project VPC
 
@@ -16,7 +16,8 @@ Gateway.
 
 ### Install the Aiven CLI
 
-See [Aiven CLI](/docs/tools/cli).
+1. Install the [Aiven CLI](/docs/tools/cli)
+1. See the [`avn vpc`][avnvpc] documentation.
 
 ### Locate your AWS account and AWS Transit Gateway ID
 
@@ -34,11 +35,14 @@ Aiven AWS account with the Transit Gateway in your account, the TGW
 needs to be shared using [AWS Resource Access
 Manager](https://aws.amazon.com/ram/). Sharing the TGW allows the Aiven
 account to describe the TGW and its route tables, and to request
-attaching VPC (and VPN) to it. Note that attachments are not
-automatically created when the VPC and TGW reside in different
-accounts - the TGW owner account needs to accept a VPC attachment,
+attaching VPC (and VPN) to it.
+
+:::note
+Attachments are not automatically created when the VPC and TGW reside in different
+accounts. The TGW owner account needs to accept a VPC attachment,
 similar to how VPC peering connections are before they become
 `available`.
+:::
 
 A resource share can be created using the [AWS RAM
 console](https://console.aws.amazon.com/ram/home), or the [AWS
@@ -50,7 +54,7 @@ the Aiven AWS account ID as a principal. The Aiven AWS account ID is
 
 ### Find your project VPC ID
 
-Use `avn vpc list` to find the ID for your Project VPC. The
+Use [`avn vpc list`][avnvpc] to find the ID for your Project VPC. The
 `project_vpc_id value` (a UUID4 string) will be referred to as
 `$project_vpc_id` later.
 
@@ -60,7 +64,9 @@ While a Transit Gateway has a route table of its own, and will by
 default route traffic to each attached network (directly to attached VPC
 or indirectly via VPN attachments), the attached route tables of the VPC
 need to be updated to include the TGW as a target for any IP range
-(CIDR) that should be routed using the VPC attachment. These IP ranges
+(CIDR) that should be routed using the VPC attachment.
+
+These IP ranges
 must be configured when creating the attachment for an Aiven Project
 VPC. The IPv4 range will be referred below to as
 `$user_peer_network_cidr`.
@@ -74,34 +80,35 @@ connections](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering)
 and AWS Transit Gateway VPC attachments as peering connections.
 
 ```shell
-avn vpc peering-connection create \
-  --project-vpc-id $aws_vpc \
+avn vpc peering-connection create       \
+  --project-vpc-id $aws_vpc             \
   --peer-cloud-account $user_account_id \
-  --peer-vpc $user_tgw_id \
+  --peer-vpc $user_tgw_id               \
   --user-peer-network-cidr $user_peer_network_cidr
 ```
 
-Note that you can use the `--user-peer-network-cidr` argument multiple
-times to define more than one peer network CIDR. It's also possible to
-create the attachment without any CIDRs and add them later (though the
+The state of the Aiven peering connection is `APPROVED`.
+
+:::note
+You can use the `--user-peer-network-cidr` argument multiple
+times to define more than one peer network CIDR. You can also
+create the attachment without any CIDRs and add them later. In this case, the
 attachment will be not be of any use until that is done since no
-addresses will be routed through the TGW from the Project VPC).
+addresses will be routed through the TGW from the Project VPC.
+:::
 
 ### Accept AWS Transit Gateway VPC attachment
 
-After running `vpc peering-connection create` command the state of the
-Aiven peering connection is `APPROVED`. Once the Aiven platform has
-built the connection by creating an AWS Transit Gateway VPC attachment,
+Once the Aiven platform has built the connection by creating an AWS Transit Gateway VPC attachment,
 the state changes to `PENDING_PEER` if everything went well. Otherwise
 the state information will indicate why the attachment failed to be
-created. Note that it may take up to a few minutes before building the
-attachment has completed.
+created. It can take a few minutes to build the attachment.
 
-The state can be checked using:
+To check the state, run:
 
 ```shell
-avn vpc peering-connection \
-  --project-vpc-id $project_vpc_id \
+avn vpc peering-connection get          \
+  --project-vpc-id $project_vpc_id      \
   --peer-cloud-account $user_account_id \
   --peer-vpc $user_tgw_id -v
 ```
@@ -113,3 +120,9 @@ that is detected the state changes to `ACTIVE` indicating the VPC
 attachment is operational, the Project VPC route table has been updated
 to route `$user_peer_network_cidr` to the Transit Gateway, and service
 nodes in the Project VPC have opened firewall access to those networks.
+
+## Related pages
+
+- [`avn vpc`][avnvpc]
+
+[avnvpc]: /docs/tools/cli/vpc

@@ -97,9 +97,11 @@ Revokes permissions to a custom cloud.
 
 ### `avn byoc cloud permissions set`
 
+<!-- vale off -->
 Replaces all permissions there may be for using the custom cloud in projects or accounts
 (organizational units). After you run this command successfully, there are no permissions
 other than the ones you've just granted using this command.
+<!-- vale on -->
 
 | Parameter           | Required | Information                                                                                                             |
 | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |

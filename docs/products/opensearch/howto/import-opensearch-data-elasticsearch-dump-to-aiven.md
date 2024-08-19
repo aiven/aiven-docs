@@ -26,7 +26,7 @@ both URLs, one from an **OpenSearch cluster** and the other one from
 **Aiven for OpenSearch cluster**.
 :::
 
-Here are some information you need to collect to copy your data:
+To copy your data, collect this information:
 
 OpenSearch cluster:
 

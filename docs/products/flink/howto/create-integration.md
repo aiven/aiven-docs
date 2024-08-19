@@ -14,8 +14,7 @@ using a wide range of data sources and sinks.
 ## Create data service integration
 
 Create Aiven for Apache Flink® data service integrations using the
-[Aiven Console](https://console.aiven.io/). Follow these steps to integrate
-either internal and external services.
+[Aiven Console](https://console.aiven.io/).
 
 ### Integrate Aiven services
 

@@ -81,13 +81,13 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
     }
     ```
 
-2.  View a list of all resources in the state file:
+1.  List all resources in the state file:
 
     ```
     terraform state list
     ```
 
-3.  Remove the resource from the control of Terraform:
+1.  Remove the resource from the control of Terraform:
 
     ```
     terraform state rm aiven_database
@@ -98,24 +98,24 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
     them.
     :::
 
-4.  Add the resource back to Terraform by importing it as a new
+1.  Add the resource back to Terraform by importing it as a new
     resource:
 
     ```
     terraform import aiven_pg_database project_name/service_name/db_name
     ```
 
-5.  Check that the import is going to run as you expect:
+1.  Check that the import is going to run as you expect:
 
     ```
     terraform plan
     ```
 
-6.  Apply the new configuration:
+1.  Apply the new configuration:
 
     ```
     terraform apply
     ```
 
-You can follow these steps to update the other resources that were
+This also applies to update the other resources that were
 deprecated in version 3 of the provider.

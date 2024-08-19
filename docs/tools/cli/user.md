@@ -22,13 +22,13 @@ Creates a new user.
 | `email`       | The email associated to the user |
 | `--real-name` | The user's real name             |
 
-**Example:** Create a new user.
+**Example:** Create a user.
 
 ```
 avn user create john.doe@example.com
 ```
 
-**Example:** Create a new user specifying the real name.
+**Example:** Create a user specifying the real name.
 
 ```
 avn user create john.doe@example.com --real-name "John Doe"

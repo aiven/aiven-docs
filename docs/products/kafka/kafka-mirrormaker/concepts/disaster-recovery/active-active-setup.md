@@ -2,10 +2,10 @@
 title: MirrorMaker 2 active-active setup
 ---
 
-An active-active setup of MM2 allows data to be replicated between two
-clusters simultaneously. It implies a bidirectional mirroring between
-the two clusters. In order to do this, MM2 uses topic prefixes in the
-form of **\<cluster alias\>.\<topic name\>**
+An active-active setup of MM2 allows data to be replicated between two clusters simultaneously.
+It implies a bidirectional mirroring between
+the two clusters. To do this, MM2 uses topic prefixes in the
+form of `<cluster alias\>.<topic name\>`.
 
 In this setup, there are two actively used Apache Kafka® clusters:
 Cluster K1 and cluster K2. Topic exists in both clusters.
@@ -24,7 +24,7 @@ inaccessible for a long time for all the clients as well as MirrorMaker
 clusters.
 
 The clients (Producers 1 and Consumers 1) switch from K1 to K2.
-Consumers 1 continue consuming from the remote (i.e., replicated) topic
+Consumers 1 continue consuming from the remote/replicated topic
 K1.topic, Producers 1 start producing into a topic.
 
 When Consumers 1 finish consuming K1.topic, they switch to a new topic.
@@ -33,7 +33,7 @@ All consumers act as one group.
 When K1 is recovered, its clients can switch back. Data produced by
 Producers 1 into the topic in K2 will be processed by Consumers 2.
 
-## Disaster recovery / high availability
+## Disaster recovery and high availability
 
 This mode has bidirectional data mirroring between two clusters. It
 allows clients to produce and consume from both clusters simultaneously
@@ -46,9 +46,9 @@ both clusters is identical, making failover to either cluster easy.
 
 **Implementation details**
 
--   Consumers will need to be aware of the prefixed topics and can do
+-   Consumers need to be aware of the prefixed topics and can do
     this using wildcards or a priority knowledge of the topics to
-    consume from, see how to
-    [configure here](/docs/products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex).
--   [Karapace](/docs/products/kafka/karapace) schemas and topic configurations are not synced and must
-    be created in both clusters.
+    consume from, see
+    [replication flow](/docs/products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex).
+-   [Karapace](/docs/products/kafka/karapace) schemas and topic configurations are not
+    synced and must be created in both clusters.

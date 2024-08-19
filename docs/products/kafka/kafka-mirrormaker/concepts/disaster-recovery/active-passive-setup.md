@@ -2,10 +2,10 @@
 title: Active-passive setup
 ---
 
-In this setup, there are two Apache Kafka® clusters, the primary and
-secondary clusters. The primary cluster contains the *topic* topic. The
-\"active\" cluster serves all produce and consume requests, while the
-\"passive\" cluster serves as a replica of the \"active\" cluster
+In this setup, there are two Apache Kafka® clusters, the primary and secondary clusters.
+The primary cluster contains the *topic* topic. The
+"active" cluster serves all produce and consume requests, while the
+"passive" cluster serves as a replica of the "active" cluster
 without running any applications against it.
 
 ![MirrorMaker 2 Active-Passive Setup](/images/content/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Passive.png)
@@ -17,7 +17,7 @@ without running any applications against it.
 -   In case a disaster happens to the primary cluster and it becomes
     inaccessible for a long time for all the clients as well as
     MirrorMaker 2, the replication stops and some data may remain
-    un-replicated in the primary cluster, i.e., it may not reach the
+    un-replicated in the primary cluster. It may not reach the
     secondary cluster before the disaster.
 -   The clients switch to the secondary cluster. Consumers continue
     consuming from the replicated topic `primary.topic`, and the

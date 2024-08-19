@@ -2,8 +2,7 @@
 title: Interfaces and drivers supported in Aiven for ClickHouse®
 ---
 
-Find out what technologies and tools you can use to interact with Aiven
-for ClickHouse®.
+Find out what technologies and tools you can use to interact with Aiven for ClickHouse®.
 
 ## Interfaces (protocols) {#clickhouse-interfaces}
 
@@ -19,14 +18,14 @@ For security reasons, you need TLS (plaintext) to connect to Aiven for
 ClickHouse.
 :::
 
-:::note[Not supported interfaces (protocols)]
+:::note[Unsupported interfaces (protocols)]
 -   `HTTP`
 -   `gRPC`
 -   `PostgreSQL`
 :::
 
 For the full list of interfaces and protocols supported in ClickHouse,
-check out [Drivers and
+see [Drivers and
 Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
 
 ## Drivers (libraries)
@@ -36,10 +35,10 @@ There are a number of drivers (libraries) that use one of
 (library) of your choice and use it for connecting to your Aiven for
 ClickHouse service.
 
--   Check out
+-   See
     [how to use different drivers (libraries) for connecting to Aiven for ClickHouse](/docs/products/clickhouse/howto/list-connect-to-service).
 -   For the full list of drivers and libraries that support connecting
-    to ClickHouse, check out [Drivers and
+    to ClickHouse, see [Drivers and
     Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
 
 :::note

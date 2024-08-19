@@ -16,7 +16,7 @@ To use Karapace, enable **Karapace Schema registry** and **REST APIs** on your A
     [manage Karapace schema registry authorization](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
 -   Learn more about how to enable
     [Apache Kafka REST proxy authorization](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy) and how to
-    [Enable Karapace Kafka REST authorization](//docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization).
+    [Enable Karapace Kafka REST authorization](/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization).
 
 ## More resources
 

@@ -2,9 +2,8 @@
 title: Connect Apache Kafka® to Aiven for ClickHouse®
 ---
 
-You can integrate Aiven for ClickHouse® with either *Aiven for Apache
-Kafka®* service located in the same project, or *an external Apache
-Kafka endpoint*. A single Aiven for ClickHouse instance can connect to
+You can integrate Aiven for ClickHouse® with either *Aiven for Apache Kafka®* service located in the same project, or *an external Apache Kafka endpoint*.
+A single Aiven for ClickHouse instance can connect to
 multiple Kafka clusters with different authentication mechanism and
 credentials.
 
@@ -19,10 +18,7 @@ plans and higher.
 
 ## Prerequisites
 
-You will need
-
 -   Aiven for ClickHouse service
-
 -   Aiven for Apache Kafka service or a self-hosted Apache Kafka service
 
     :::tip
@@ -64,12 +60,10 @@ configuration, see the section below.
 
 ## Update Apache Kafka integration settings
 
-Next step is to configure the topic and data format options for the
+Configure the topic and data format options for the
 integration. This will create a virtual table in Aiven for ClickHouse
 that can receive and send messages from multiple topics. You can have as
 many of such tables as you need.
-
-For each table, there are mandatory and optional setting to be defined.
 
 ### Mandatory settings
 
@@ -115,7 +109,6 @@ For each table, you can define the following optional settings:
 | `poll_max_batch_size`    | Maximum amount of messages to be polled in a single Kafka poll                                           | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
 | `skip_broken_messages`   | Minimum number of broken messages from Kafka topic per block to be skipped                               | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
 
-
 :::note[JSON format]
 ```json
 {
@@ -138,45 +131,42 @@ For each table, you can define the following optional settings:
 
 ## Configure integration with CLI
 
-Currently the configurations can be set only with the help of CLI
-command
-[avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
-
-Follow these instructions:
+Currently the configurations can be set only with the help of CLI command
+[avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update):
 
 1.  Get *the service integration id* by requesting the full list of
     integrations. Replace `PROJECT`, `CLICKHOUSE_SERVICE_NAME` and
     `KAFKA_SERVICE_NAME` with the names of your services:
 
-```
-avn service integration-list                        \
---project PROJECT_NAME                                   \
-CLICKHOUSE_SERVICE_NAME | grep KAFKA_SERVICE_NAME
-```
+     ```
+     avn service integration-list                      \
+     --project PROJECT_NAME                            \
+     CLICKHOUSE_SERVICE_NAME | grep KAFKA_SERVICE_NAME
+     ```
 
-2.  Update the configuration settings using the service integration id
+1.  Update the configuration settings using the service integration id
     retrieved in the previous step and your integration settings.
     Replace `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`,
     `DATA_FORMAT` and `CONSUMER_NAME` with your values:
 
-```
-avn service integration-update SERVICE_INTEGRATION_ID \
---project PROJECT_NAME                                \
---user-config-json '{
-    "tables": [
-        {
-            "name": "CONNECTOR_TABLE_NAME",
-            "columns": [
-                {"name": "id", "type": "UInt64"},
-                {"name": "name", "type": "String"}
-            ],
-            "topics": [{"name": "topic1"}, {"name": "topic2"}],
-            "data_format": "DATA_FORMAT",
-            "group_name": "CONSUMER_NAME"
-        }
-    ]
-}'
-```
+    ```
+    avn service integration-update SERVICE_INTEGRATION_ID \
+    --project PROJECT_NAME                                \
+    --user-config-json '{
+        "tables": [
+            {
+                "name": "CONNECTOR_TABLE_NAME",
+                "columns": [
+                    {"name": "id", "type": "UInt64"},
+                    {"name": "name", "type": "String"}
+                ],
+                "topics": [{"name": "topic1"}, {"name": "topic2"}],
+                "data_format": "DATA_FORMAT",
+                "group_name": "CONSUMER_NAME"
+            }
+        ]
+    }'
+    ```
 
 ## Read and store data
 

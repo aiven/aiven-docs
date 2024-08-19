@@ -2,8 +2,8 @@
 title: Quotas in Aiven for Apache Kafka®
 ---
 
-Quotas ensure fair resource allocation, stability, and efficiency in
-your Kafka cluster. In Aiven for Apache Kafka®, you can
+Quotas ensure fair resource allocation, stability, and efficiency in your Kafka cluster.
+In Aiven for Apache Kafka®, you can
 [add quotas](/docs/products/kafka/howto/manage-quotas) to limit the data or requests
 exchanged by producers and
 consumers within a specific period, preventing issues like broker
@@ -17,7 +17,7 @@ API](https://api.aiven.io/doc/).
 Using quotas offer several benefits:
 
 -   **Resource management:** Quotas prevent individual clients from
-    consuming excessive resources, thus ensuring fairness in resource
+    consuming excessive resources. This ensures fairness in resource
     allocation.
 -   **Stability:** Setting limits on network throughput and CPU usage
     helps maintain stability and prevent performance degradation of the
@@ -90,9 +90,6 @@ Kafka® official documentation and
 
 ## Further reading
 
-For a more in-depth understanding of Kafka quotas in Aiven for Apache
-Kafka, read the comprehensive blog post on this topic - [Introducing
-Kafka Quotas in Aiven for Apache
-Kafka](https://aiven.io/blog/introducing-kafka-quotas-in-aiven-for-apache-kafka).
-The blog post provides a deep dive into the workings, advantages, and
-practical application of Kafka quotas in Kafka deployments.
+For a deep dive into the workings, advantages, and
+practical application of Kafka quotas in Kafka deployments, see
+[Introducing Kafka Quotas in Aiven for Apache Kafka](https://aiven.io/blog/introducing-kafka-quotas-in-aiven-for-apache-kafka).

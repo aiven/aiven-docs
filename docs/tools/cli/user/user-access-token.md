@@ -24,7 +24,7 @@ Creates a new access token for the logged-in user.
 avn user access-token create --description "To be used with Python Notebooks"
 ```
 
-**Example:** Create a new token expiring every hour if not used.
+**Example:** Create a token expiring every hour if not used.
 
 ```
 avn user access-token create                       \

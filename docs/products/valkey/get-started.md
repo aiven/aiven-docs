@@ -13,7 +13,7 @@ Begin your journey with Aiven for Valkey, the versatile in-memory data store off
 
 ## Prerequisites
 
-- Access to the [Aiven Web Console](https://console.aiven.io/)
+- Access to the [Aiven Console](https://console.aiven.io/)
 - [Aiven CLI](https://github.com/aiven/aiven-client) installed
 
 <Tabs groupId="setup">
