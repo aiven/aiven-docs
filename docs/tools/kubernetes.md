@@ -36,13 +36,13 @@ You\'ll also need an Aiven account. If you don't have one yet, [sign up
 for
 Aiven](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post)
 (and enjoy a free trial for new accounts). Once you have your account
-set, please generate and note down the
-[authentication token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
+set, generate and copy the
+[token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
 Kubernetes operator with Aiven's API.
 
 ### Install the operator
 
-Once you have a Kubernetes cluster and an Aiven authentication token, we
+Once you have a Kubernetes cluster and an Aiven token, we
 can proceed to install the operator.
 
 Install the `cert-manager` with the command below. It is used to manage
@@ -127,7 +127,7 @@ kubectl create secret generic aiven-token --from-literal=token="<your-token-here
 
 ### Deploying Aiven for PostgreSQL
 
-It's showtime! Let's create an Aiven for PostgreSQL service using the
+Let's create an Aiven for PostgreSQL service using the
 Custom Resource provided by the operator. Create a file named
 `pg-sample.yaml` with the content below, substituting the
 `<your-project-name>` with your Aiven project name. See the
@@ -140,7 +140,7 @@ metadata:
   name: pg-sample
 spec:
 
-  # gets the authentication token from the `aiven-token` secret
+  # gets the token from the `aiven-token` secret
   authSecretRef:
     name: aiven-token
     key: token
@@ -247,8 +247,7 @@ kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/downl
 
 ## Learn more
 
-Check out these resources to learn more about Kubernetes and our
-operator:
+Learn more about Kubernetes and the Aiven Operator:
 
 -   [Aiven Operator for Kubernetes
     documentation](https://aiven.github.io/aiven-operator)
@@ -257,5 +256,5 @@ operator:
 
 ## Get involved
 
-If you have any comments or want to contribute to the tool, please join
+If you have any comments or want to contribute to the tool, join
 us on the [GitHub repository](https://github.com/aiven/aiven-operator).

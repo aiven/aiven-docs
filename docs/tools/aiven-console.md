@@ -32,11 +32,10 @@ manage your password and authentication settings, including:
 -   [Adding authentication methods](/docs/platform/howto/add-authentication-method)
 -   [Managing two-factor authentication](/docs/platform/howto/user-2fa)
 
-### Authentication tokens
+### Tokens
 
-On the **Tokens** tab of the **User profile**, you can generate or
-revoke
-[authentication tokens](/docs/platform/concepts/authentication-tokens).
+On the **Tokens** page, you can generate or revoke
+[personal tokens](/docs/platform/concepts/authentication-tokens).
 
 ## Organization and organizational unit settings {#orgs-units-settings}
 

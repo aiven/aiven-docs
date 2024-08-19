@@ -25,8 +25,8 @@ Begin your experience with Aiven for Apache Flink® by setting up a service, con
 </TabItem>
 <TabItem value="2" label="CLI">
 
-1. Set up your authentication token by following
-   [these instructions](/docs/platform/howto/create_authentication_token).
+1. [Create a token ](/docs/platform/howto/create_authentication_token).
+
 1. Execute the following command:
 
    ```bash
