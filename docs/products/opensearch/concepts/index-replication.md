@@ -3,7 +3,7 @@ title: Replication factors in Aiven for OpenSearch®
 sidebar_label: Replication factors
 ---
 
-The replication factor determines the number of copies (replicas) of each index shard. Aiven for OpenSearch® manages replication factors to ensure data availability and prevent data loss.
+The replication factor in Aiven for OpenSearch® determines the number of copies (replicas) of each index shard, which ensures data availability and prevents data loss.
 
 ## Automatic replication factor adjustment
 
