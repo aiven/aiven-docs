@@ -126,3 +126,4 @@
 /tools/terraform/reference/troubleshooting/private-access-error https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                               https://aiven.io/developer
 /valkey                                                    https://aiven.io/docs/products/valkey
+/products/opensearch/reference/index-replication           https://aiven.io/docs/products/opensearch/concepts/index-replication
