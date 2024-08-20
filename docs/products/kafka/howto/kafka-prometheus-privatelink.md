@@ -2,18 +2,18 @@
 title: Configure Prometheus for Aiven for Apache Kafka® using Privatelink
 ---
 
-You can integrate Prometheus with your Aiven for Apache Kafka® service
-using Privatelink for secure monitoring. This setup uses a Privatelink
-load balancer, which allows for efficient service discovery of Apache
-Kafka nodes and enables you to connect to your Aiven for Apache Kafka
-service using a private endpoint in your network or VPCs.
+You can integrate Prometheus with your Aiven for Apache Kafka® service using Privatelink for secure monitoring.
+This setup uses a Privatelink load balancer, which allows for efficient service
+discovery of Apache Kafka nodes and enables you to connect to your Aiven for
+Apache Kafka service using a private endpoint in your network or VPCs.
 
 ## Prerequisites
 
 Before you start, ensure you have the following:
 
 -   [Aiven for Apache Kafka®](/docs/products/kafka/get-started) service running.
--   [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) set up for your Aiven for Apache Kafka for extracting
+-   [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) set
+    up for your Aiven for Apache Kafka for extracting
     metrics.
 -   Necessary permissions to modify service configurations.
 
@@ -75,7 +75,7 @@ settings are used to retrieve the service discovery information and
 scrape the metrics.
 :::
 
-### (Optional) Metadata and relabeling
+### Optional: Metadata and relabeling
 
 If your setup involves multiple Privatelink connections, you can
 leverage Prometheus's relabeling for better target management. This
