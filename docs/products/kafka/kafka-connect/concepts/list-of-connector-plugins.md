@@ -54,7 +54,7 @@ available sink connectors:
 -   [JDBC](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
 -   [Official
     MongoDB®](https://docs.mongodb.com/kafka-connector/current/)
--   [Snowflake](https://docs.snowflake.net/manuals/user-guide/kafka-connector)
+-   [Snowflake](https://docs.snowflake.com/en/user-guide/kafka-connector)
 -   [Splunk](https://github.com/splunk/kafka-connect-splunk)
 -   [Stream Reactor
     Cassandra®](https://docs.lenses.io/5.1/connectors/sinks/cassandrasinkconnector/)
