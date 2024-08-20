@@ -1,11 +1,11 @@
 ---
-title: Snapshot restoration in Aiven for OpenSearch®
+title: Migrate to Aiven for OpenSearch® using snapshots
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Aiven for OpenSearch enables you to restore data from external OpenSearch or Elasticsearch snapshots, allowing seamless migration from third-party repositories directly into your OpenSearch clusters.
+Aiven for OpenSearch enables you to restore data from external OpenSearch or Elasticsearch snapshots, facilitating seamless migration from third-party repositories into your clusters.
 
 Aiven supports snapshot restoration from Google Cloud Storage (GCS), Amazon S3, and
 Microsoft Azure. Additionally, you can restore data from Oracle Cloud Infrastructure
@@ -66,8 +66,7 @@ Information specific to cloud providers:
 - **Microsoft Azure**
 
   - `account`: Azure account name.
-  - `authentication_method`: `key` (Azure secret key) or `sas_token` (shared access
-    signature token).
+  - `key` or `sas_token`: Azure secret key or shared access signature token.
   - `container`: Name of the Azure container that contains the snapshot.
   - `base_path`: Path to repository data within the container.
   - `snapshot_name`: Name of the snapshot to restore.
@@ -86,8 +85,10 @@ Information specific to cloud providers:
 
 ## Step 1: Register the snapshot repository
 
-After collecting the necessary parameters, set up the snapshot repository within your
-Aiven for OpenSearch service.
+To begin the restoration process, register the snapshot repository with your
+Aiven for OpenSearch service. This step involves configuring your service to recognize
+and access the storage location where your OpenSearch or Elasticsearch snapshots are
+stored.
 
 ### Google Cloud Storage (GCS)
 
@@ -114,14 +115,14 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 <TabItem value="cli" label="CLI">
 
 ```bash
-avn service elasticsearch-register-repository \
+avn service update \
   --project PROJECT_NAME \
   --service SERVICE_NAME \
-  --repository my-snapshot-repo \
-  --repository-type gcs \
-  --bucket my-gcs-bucket \
-  --base-path snapshots/ \
-  --credentials GCS_CREDENTIALS_FILE_CONTENT
+  -c gcs_migration.bucket="my-gcs-bucket" \
+  -c gcs_migration.base_path="snapshots/" \
+  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
+  -c gcs_migration.snapshot_name="SNAPSHOT_NAME"
+
 ```
 
 </TabItem>
@@ -151,13 +152,16 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 <TabItem value="cli" label="CLI">
 
 ```bash
-avn service elasticsearch-register-repository \
+avn service update \
   --project PROJECT_NAME \
   --service SERVICE_NAME \
-  --repository my-snapshot-repo \
-  --repository-type s3 \
-  --bucket my-bucket \
-  --region us-west-2
+  -c s3_migration.bucket="my-bucket" \
+  -c s3_migration.region="us-west-2" \
+  -c s3_migration.base_path="snapshots/" \
+  -c s3_migration.access_key="your-access-key" \
+  -c s3_migration.secret_key="your-secret-key" \
+  -c s3_migration.snapshot_name="SNAPSHOT_NAME"
+
 ```
 
 </TabItem>
@@ -189,14 +193,15 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 <TabItem value="cli" label="CLI">
 
 ```bash
-avn service elasticsearch-register-repository \
+avn service update \
   --project PROJECT_NAME \
-  --service SERVICE NAME \
-  --repository my-snapshot-repo \
-  --repository-type azure \
-  --container my-container \
-  --account my-account \
-  --key YOUR_SECRET_KEY
+  --service SERVICE_NAME \
+  -c azure_migration.container="my-container" \
+  -c azure_migration.base_path="snapshots/" \
+  -c azure_migration.account="my-account" \
+  -c azure_migration.key="your-key" \
+  -c azure_migration.snapshot_name="SNAPSHOT_NAME"
+
 ```
 
 </TabItem>
@@ -229,16 +234,16 @@ curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
 <TabItem value="cli" label="CLI">
 
 ```bash
-avn service elasticsearch-register-repository \
+avn service update \
   --project PROJECT_NAME \
   --service SERVICE_NAME \
-  --repository my-snapshot-repo \
-  --repository-type s3 \
-  --bucket my-bucket \
-  --region us-west-2 \
-  --endpoint https://my-s3-compatible-service.com \
-  --access-key your-access-key \
-  --secret-key your-secret-key
+  -c s3_migration.bucket="my-bucket" \
+  -c s3_migration.region="us-west-2" \
+  -c s3_migration.endpoint="https://my-s3-compatible-service.com" \
+  -c s3_migration.access_key="your-access-key" \
+  -c s3_migration.secret_key="your-secret-key" \
+  -c s3_migration.base_path="snapshots/" \
+  -c s3_migration.snapshot_name="SNAPSHOT_NAME"
 ```
 
 </TabItem>
@@ -246,11 +251,12 @@ avn service elasticsearch-register-repository \
 
 ## Step 2: Restore the snapshot
 
-After registering the snapshot repository, restore the snapshot to your Aiven for OpenSearch service.
+After registering the snapshot repository, restore the snapshot to your Aiven for
+OpenSearch service. This process migrates the data from the repository into your
+Aiven for OpenSearch cluster.
 
 <Tabs groupId="restore-snapshot">
 <TabItem value="api" label="API" default>
-
 
 ```bash
 curl -X POST "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo/SNAPSHOT_NAME/_restore" \
@@ -266,7 +272,6 @@ curl -X POST "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo/SNA
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-
 ```bash
 avn service elasticsearch-restore-snapshot \
   --project PROJECT_NAME \
@@ -274,6 +279,7 @@ avn service elasticsearch-restore-snapshot \
   --repository my-snapshot-repo \
   --snapshot SNAPSHOT_NAME \
   --indices INDEX_NAME
+
 ```
 
 </TabItem>
@@ -334,49 +340,37 @@ avn service elasticsearch-list-indices \
 
 ## Step 5: Complete the restoration
 
-Finalize the restoration process and clean up resources.
+After the restoration process is complete, clean up resources by deleting the snapshot
+repository.
 
 <Tabs groupId="finalize-migration">
 <TabItem value="api" label="API" default>
 
-1. Finalize the migration:
-
-   ```bash
-   curl -X POST "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo/SNAPSHOT_NAME/_finalize" \
-     -H "Authorization: Bearer API_TOKEN"
-   ```
-
-1. Delete the snapshot repository:
-
-   ```bash
-   curl -X DELETE "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
-     -H "Authorization: Bearer API_TOKEN"
-   ```
+```bash
+curl -X DELETE "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
+  -H "Authorization: Bearer API_TOKEN"
+```
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-1. Finalize the migration:
-
-   ```bash
-   avn service elasticsearch-complete-migration \
-     --project PROJECT_NAME \
-     --service SERVICE_NAME \
-     --repository my-snapshot-repo \
-     --snapshot SNAPSHOT_NAME
-   ```
-
-1. Delete the snapshot repository:
-
-   ```bash
-   avn service elasticsearch-delete-repository \
-     --project PROJECT_NAME \
-     --service SERVICE_NAME \
-     --repository my-snapshot-repo
-   ```
+```bash
+avn service elasticsearch-delete-repository \
+  --project PROJECT_NAME \
+  --service SERVICE_NAME \
+  --repository my-snapshot-repo
+```
 
 </TabItem>
 </Tabs>
+
+## Backup management during migration
+
+**Automatic pausing of backups**: During the migration process, Aiven for OpenSearch
+automatically pauses regular backups to prevent any potential conflicts with the
+migration.
+**Automatic resumption of backups**: After the migration is complete, Aiven for
+OpenSearch automatically resumes regular backup operations.
 
 ## Error handling
 
