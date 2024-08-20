@@ -137,7 +137,7 @@ the service level.
 You can also configure the retention policies from the
 [Tiered storage overview](/docs/products/kafka/howto/tiered-storage-overview-page#modify-retention-polices) page.
 
-## (Optional) Configure client-side parameter
+## Optional: Configure client-side parameter
 
 For optimal performance and reduced risk of broker interruptions when
 using tiered storage, it is recommended to update the client-side

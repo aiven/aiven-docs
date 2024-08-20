@@ -100,27 +100,27 @@ Set the following OIDC parameters:
     `sasl.oauthbearer.jwks.endpoint.url`.
   - **Value**: Enter the JWKS endpoint URL provided by your OIDC
     provider.
-  - `kafka.sasl_oauthbearer_sub_claim_name` (Optional)
-    - **Description**: Name of the JWT's subject claim for broker
-      verification. It is typically set to `sub`.
-      Corresponds to the Apache Kafka parameter
-      `sasl.oauthbearer.sub.claim.name`.
-    - **Value**: Enter `sub` or the specific claim name provided
-      by your OIDC provider if different.
-  - `kafka.sasl_oauthbearer_expected_issuer` (Optional)
-    - **Description**: Specifies the JWT's issuer for the broker to
-      verify. Corresponds to the Apache Kafka parameter
-      `sasl.oauthbearer.expected.issuer`.
-    - **Value**: Enter the issuer URL or identifier provided by your
-      OIDC provider.
-  - `kafka.sasl_oauthbearer_expected_audience` (Optional)
-    - **Description**: Validates the intended JWT audience for the
-      broker. Corresponds to the Apache Kafka parameter
-      `sasl.oauthbearer.expected.audience`. It is used if your OIDC provider
-      specifies an audience.
-    - **Value**: Input the audience identifiers given by your OIDC
-      provider. If there are multiple audiences, separate them
-      with commas.
+- Optional: `kafka.sasl_oauthbearer_sub_claim_name`
+  - **Description**: Name of the JWT's subject claim for broker
+    verification. It is typically set to `sub`.
+    Corresponds to the Apache Kafka parameter
+    `sasl.oauthbearer.sub.claim.name`.
+  - **Value**: Enter `sub` or the specific claim name provided
+    by your OIDC provider if different.
+- Optional: `kafka.sasl_oauthbearer_expected_issuer`
+  - **Description**: Specifies the JWT's issuer for the broker to
+    verify. Corresponds to the Apache Kafka parameter
+    `sasl.oauthbearer.expected.issuer`.
+  - **Value**: Enter the issuer URL or identifier provided by your
+    OIDC provider.
+- Optional: `kafka.sasl_oauthbearer_expected_audience`
+  - **Description**: Validates the intended JWT audience for the
+    broker. Corresponds to the Apache Kafka parameter
+    `sasl.oauthbearer.expected.audience`. It is used if your OIDC provider
+    specifies an audience.
+  - **Value**: Input the audience identifiers given by your OIDC
+    provider. If there are multiple audiences, separate them
+    with commas.
 
 For more information on each corresponding Apache Kafka parameter,
 see [Apache Kafka documentation](https://kafka.apache.org/documentation/) on

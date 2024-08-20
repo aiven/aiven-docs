@@ -28,7 +28,7 @@ common properties in JSON format:
 | Parameter             | Information                               |
 | --------------------- | ----------------------------------------- |
 | `name`                | The name of the application               |
-| `application_version` | (Optional) The version of the application |
+| `application_version` | Optional: The version of the application  |
 
 **Example:** Creates an Aiven for Apache Flink application named
 `DemoApp` in the service `flink-democli` and project `my-project`.
