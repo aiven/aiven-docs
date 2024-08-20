@@ -2,26 +2,17 @@
 title: Billing groups
 ---
 
-Billing groups let you set up common billing profiles in an organization
-that can then be used for any projects within that organization. This
-includes projects in organizational units within that organization. So,
-instead of entering the payment information every time you create a
-project, you can use the information saved in the billing group.
+Billing groups store your billing details in one place, letting you use the same payment and other information across projects within your organization, including those in organizational units.
 
-This also makes it easier to manage your costs. You receive a
-consolidated invoice for all projects assigned to a billing group. This
-means you can, for instance, combine costs based on your organization or
-IT environment (development, test, production) by creating billing
-groups for each of these.
+You can use billing groups to combine costs based on categories like your organization's
+departments or IT environments. You receive a [consolidated invoice](/docs/platform/concepts/billing-and-payment) for all projects assigned to a billing group. Aiven credits
+are also assigned to a billing group and are automatically used to cover charges
+of any project assigned to that billing group.
 
-Organization billing groups can only be used in one organization. You
+You can only use a billing group for payments in one organization. You
 cannot use a billing group for projects that are in other organizations.
-Aiven credits are also assigned to a billing group and are automatically
-used to cover charges of any project assigned to that billing group.
 
 To access billing groups in the Aiven Console, you must be a
-super admin or account owner.
+[super admin](/docs/platform/howto/make-super-admin) or account owner.
 
-You can also track spending by exporting cost information to business
-intelligence tools using the [invoice
-API](https://api.aiven.io/doc/#tag/BillingGroup).
+

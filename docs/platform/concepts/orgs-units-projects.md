@@ -38,7 +38,7 @@ Organizations also let you centrally manage settings like:
 - [Support tiers](/docs/platform/howto/support): Specific to a single organization and
    apply to all units, projects, and services within that organization. They cannot be
    shared between organizations.
-- [Billing information](/docs/platform/concepts/hourly-billing-model): Managed at the
+- [Billing information](/docs/platform/concepts/billing-and-payment): Managed at the
    organization level. They can be used for all projects in the organization
    and its units. They cannot cannot be shared between organizations.
 

@@ -21,6 +21,7 @@
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
+/platform/concepts/hourly-billing-model                https://aiven.io/docs/billing-and-payment
 /platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
 /platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/howto/manage-project
@@ -46,6 +47,8 @@
 /platform/howto/move-to-azure-marketplace-billing      https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/pause-from-cli                         https://aiven.io/docs/platform/concepts/service-power-cycle
+/platform/howto/payment-issues-plan-upgrades           https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/howto/payment-methods                        https://aiven.io/docs/payment-methods
 /platform/howto/project-support-center                 https://aiven.io/docs/platform/howto/support
 /platform/howto/project-support-center.html            https://aiven.io/docs/platform/howto/support
 /platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
@@ -58,6 +61,7 @@
 /platform/howto/saml/setup-saml-onelogin               https://aiven.io/docs/platform/howto/saml/add-onelogin-idp
 /platform/howto/service-metrics                        https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
+/platform/howto/update-tax-status                      https://aiven.io/docs/tax-information
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
 /products/caching/howto/migrate-aiven-redis.html           https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
 /products/cassandra/howto/list-get-started               https://aiven.io/docs/products/cassandra/get-started
