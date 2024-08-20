@@ -2,15 +2,16 @@
 title: Write to M3 from Telegraf
 ---
 
-M3 supports multiple methods of writing metrics to the M3 database. Two
+M3 supports multiple methods of writing metrics to the M3 database.
+Two
 common options are the InfluxDB® wire-protocol, and the Prometheus
 remote write protocol. It is possible to write metrics from an existing
-Telegraf setup to M3 using either of these protocols, so we\'ve covered
-the configuration for both options here.
+Telegraf setup to M3 using either of these protocols, so we've covered
+the configuration for both options.
 
 ## Variables
 
-These are the placeholders used in the examples on this page
+These are the placeholders used in the examples:
 
 | Variable        | Description                              |
 | --------------- | ---------------------------------------- |
@@ -18,13 +19,13 @@ These are the placeholders used in the examples on this page
 | `M3_PORT`       | Port where M3DB is running               |
 | `AVNADMIN_PASS` | Password for the default `avnadmin` user |
 
-## Configuring Telegraf InfluxDB® output plugin for M3
+## Configure Telegraf InfluxDB® output plugin for M3
 
 Below is an example of how to configure Telegraf to send metrics to M3
 using the InfluxDB line-protocol. These lines belong in the **output
 plugins** section of your Telegraf configuration file:
 
-```
+```ini
 # Configuration for sending metrics to M3
 [[outputs.influxdb]]
   ## The full HTTP URL for your M3 instance.
@@ -44,13 +45,13 @@ plugins** section of your Telegraf configuration file:
   content_encoding = "gzip"
 ```
 
-## Configuring Telegraf Prometheus remote write for M3
+## Configure Telegraf Prometheus remote write for M3
 
-Here's an example of how to configure Telegraf to send metrics to M3
-using the Prometheus remote write protocol. These lines go in the output
+To configure Telegraf to send metrics to M3
+using the Prometheus remote write protocol, use the following lines in the output
 plugins section of the Telegraf configuration file:
 
-```
+```ini
 # Configuration for sending metrics to M3
 [outputs.http]
   ## URL is the address to send metrics to

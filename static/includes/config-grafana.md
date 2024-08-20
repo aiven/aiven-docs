@@ -857,6 +857,17 @@
         </table>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>wal</strong></p><p><code class="type">boolean</code></p></div>
+        <p class="title">Setting to enable/disable Write-Ahead Logging. The default value is false (disabled).</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   </tbody>
 </table>
     

@@ -2,14 +2,8 @@
 title: Create materialized views in ClickHouse®
 ---
 
-Learn how to create and use materialized views to persist data from the
-Kafka® table engine.
-
-## About materialized views
-
-One way of integrating your ClickHouse® service with Kafka® is using the
-Kafka® table engine, which enables, for example, inserting data into
-ClickHouse® from Kafka.
+Use materialized views to persist data from the Kafka® table engine.
+One way of integrating your ClickHouse® service with Kafka® is using the Kafka® table engine, which enables, for example, inserting data into ClickHouse® from Kafka.
 
 In such a scenario, ClickHouse can read from a Kafka® topic directly.
 This is, however, one-time retrieval so the data cannot be re-read. When
@@ -21,8 +15,7 @@ buffer. For this reason, the data consumed from the topic by the Kafka®
 engine cannot be read twice.
 
 Persisting the data from the Kafka® table engine read requires capturing
-and inserting it into a different table. Here's where materialized
-views come in. A materialized view triggers a read on the table engine.
+and inserting it into a different table. A materialized view triggers a read on the table engine.
 The destination of the data (for example, a Merge Tree family table) is
 defined by the TO clause. This process is illustrated in the following
 diagram:
@@ -39,7 +32,7 @@ flowchart LR
 ## Create a materialized view
 
 To store the Kafka® messages by creating a materialized view on top of
-the Kafka® table, you need to run the following query:
+the Kafka® table, run:
 
 ```sql
 CREATE MATERIALIZED VIEW default.my_view TO destination_name

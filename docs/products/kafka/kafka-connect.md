@@ -2,8 +2,7 @@
 title: Aiven for Apache Kafka® Connect
 ---
 
-Aiven for Apache Kafka® Connect is a fully managed **distributed Apache
-Kafka® integration component**, deployable in the cloud of your choice.
+Aiven for Apache Kafka® Connect is a fully managed **distributed Apache Kafka® integration component**, deployable in the cloud of your choice.
 Apache Kafka Connect lets you integrate your existing data sources and
 sinks with Apache Kafka.
 
@@ -26,7 +25,7 @@ more:
 -   The Karapace schema registry that Aiven maintains and makes
     available for every Aiven for Apache Kafka service:
     [https://karapace.io/](https://karapace.io/)
--   Our code samples repository, to get you started quickly:
+-   Our code samples repository, to get you started:
     [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"

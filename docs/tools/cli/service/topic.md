@@ -23,7 +23,7 @@ service.
 | `--cleanup-policy`      | The topic cleanup policy; can be either `delete` or `compact`.                         |
 | `--tag KEY[=VALUE]`     | Topic tagging                                                                          |
 
-**Example:** Create a new topic named `invoices` in the `demo-kafka`
+**Example:** Create a topic named `invoices` in the `demo-kafka`
 service with:
 
 -   `3` partitions
@@ -135,8 +135,8 @@ Updates a Kafka topic on the specified Aiven for Apache Kafka service.
 | `--untag KEY`           | Topic tag to remove                                                                    |
 
 **Example:** Update the topic named `invoices` in the `demo-kafka`
-service. Set `4` partitions and `3` as replication factor. Furthermore
-remove the `BU` tag and add a new `CC=FINANCE_DE` tag.
+service. Set `4` partitions and `3` as replication factor.
+Remove the `BU` tag and add a new `CC=FINANCE_DE` tag.
 
 ```
 avn service topic-update demo-kafka invoices  \

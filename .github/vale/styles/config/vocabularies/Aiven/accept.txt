@@ -95,6 +95,7 @@ failover
 fileset
 filesets
 Flink
+Followerfetching
 Forecast
 Forecasted
 FusionAuth
@@ -218,6 +219,7 @@ plaintext
 plc
 Plotly
 PNG/S
+PNGs?
 Podman
 pooler
 PostgreSQL

@@ -67,14 +67,16 @@ of a compacted topic before and after compaction has been applied.
 Continuing the example above, the topic records before the compaction
 would be:
 
- | Offset | Key  | Value             |
- | ------ | ---- | ----------------- |
- | 1      | 1001 | 4 Privet Dr       |
- | 2      | 1002 | 221B Baker Street |
- | 3      | 1003 | Milkman Road      |
- | 4      | 1002 | 21 Jump St        |
- | 5      | 1001 | Paper St          |
- | 6      | 1001 | Paper Road 21     |
+<!-- vale off -->
+
+| Offset | Key  | Value             |
+| ------ | ---- | ----------------- |
+| 1      | 1001 | 4 Privet Dr       |
+| 2      | 1002 | 221B Baker Street |
+| 3      | 1003 | Milkman Road      |
+| 4      | 1002 | 21 Jump St        |
+| 5      | 1001 | Paper St          |
+| 6      | 1001 | Paper Road 21     |
 
 You can notice that there are some records with duplicate keys (`1001`
 and `1002`), with the records having offset `4`, `5`, and `6` being the
@@ -140,6 +142,8 @@ Lastly, the records in the offset map are added in the tail.
 | 3      | 1003 | Milkman Road  |
 | 4      | 1002 | 21 Jump St    |
 | 6      | 1001 | Paper Road 21 |
+
+<!-- vale on -->
 
 ## Related pages
 

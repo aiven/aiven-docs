@@ -29,7 +29,7 @@ called `backup_folder`.
 
 :::tip
 `pg_dump` can be run against any **standby** node, using the *Replica
-URI* from the Aiven web console. Creating more jobs via the `-j` option
+URI* from the Aiven Console. Creating more jobs via the `-j` option
 can be useful, since it may not be a problem to add extra
 load to the standby node.
 :::

@@ -117,7 +117,7 @@ keystore and truststore for the selected service.
 
 **Example:** Download the SSL certificate, key and CA certificate in a
 folder named `/tmp/certs` for the user `janedoe` belonging to a service
-named `kafka-demo`. Furthermore, secure the Java keystore and truststore
+named `kafka-demo`. Secure the Java keystore and truststore
 with the password `safePassword123`.
 
 ```

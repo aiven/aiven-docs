@@ -2,8 +2,7 @@
 title: Apache Kafka® concepts
 ---
 
-A comprehensive glossary of essential Apache Kafka® terms and their
-meanings.
+A comprehensive glossary of essential Apache Kafka® terms and their meaning.
 
 ## Broker {#Broker}
 
@@ -58,13 +57,13 @@ sharding and message order within each partition.
 ## Producer
 
 An application that writes data into Apache Kafka without concern for
-the data's consumers. The data can range from well-structured to simple
+the data consumers. The data can range from well-structured to simple
 text, often accompanied by metadata.
 
 ## Pub/sub
 
 A publish-subscribe messaging architecture where messages are
-broadcasted by publishers and received by any listening subscribers,
+broadcast by publishers and received by any listening subscribers,
 unlike point-to-point systems.
 
 ## Queueing

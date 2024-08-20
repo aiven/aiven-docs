@@ -530,7 +530,7 @@
             <td>
               <div class="param"><p class="name"><strong>kafka.transaction_partition_verification_enable</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">transaction.partition.verification.enable</p>
-              <div class="description"><p>Enable verification that checks that the partition has been added to the transaction before writing transactional records to the partition. (Default: false)</p></div>
+              <div class="description"><p>Enable verification that checks that the partition has been added to the transaction before writing transactional records to the partition. (Default: true)</p></div>
             </td>
           </tr>
           </tbody>
@@ -555,6 +555,38 @@
             <td>
               <div class="param"><p class="name"><strong>kafka_authentication_methods.sasl</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">Enable SASL authentication</p>
+              
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>kafka_sasl_mechanisms</strong></p><p><code class="type">object</code></p></div>
+        <p class="title">Kafka SASL mechanisms</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>kafka_sasl_mechanisms.plain</strong></p><p><code class="type">boolean</code></p></div><div class="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p class="title">Enable PLAIN mechanism</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>kafka_sasl_mechanisms.scram_sha_256</strong></p><p><code class="type">boolean</code></p></div><div class="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p class="title">Enable SCRAM-SHA-256 mechanism</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>kafka_sasl_mechanisms.scram_sha_512</strong></p><p><code class="type">boolean</code></p></div><div class="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p class="title">Enable SCRAM-SHA-512 mechanism</p>
               
             </td>
           </tr>

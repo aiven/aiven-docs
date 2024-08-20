@@ -2,9 +2,9 @@
 title: Manage large shards in OpenSearch®
 ---
 
-Ensuring an optimal shard size is a critical consideration when
-operating within OpenSearch. It is recommended that the size of
-individual shards in OpenSearch® should not exceed 50GB as a best
+Ensuring an optimal shard size is a critical consideration when operating within OpenSearch.
+It is recommended that the size of
+individual shards in OpenSearch® should not exceed 50 GB as a best
 practice.
 
 While OpenSearch does not explicitly enforce this shard size limit.
@@ -28,7 +28,7 @@ If your application permits, permanently delete records, such as old
 logs or unnecessary records, from your index. For example, to delete
 records older than five days, use the following query:
 
-```
+```bash
 POST /my-index/_delete_by_query
 {
   "query": {
@@ -49,7 +49,7 @@ You can split your index into several smaller indices based on certain
 criteria. For example, to create an index for each `event_type`, you can
 use following script:
 
-```
+```bash
 POST _reindex
 {
 
@@ -72,7 +72,7 @@ Another strategy involves re-indexing data into a fresh index while
 increasing the number of shards. To create an index with 2 shards,
 use the following commands:
 
-```python
+```bash
 PUT /my_new_index/_settings
 {
     "index" : {
@@ -81,10 +81,9 @@ PUT /my_new_index/_settings
 }
 ```
 
-Once the new index is set up, proceed to re-index your data using the
-following commands:
+Once the new index is set up, proceed to re-index your data:
 
-```python
+```bash
 POST _reindex
 {
   "source": {

@@ -2,9 +2,8 @@
 title: Enable OpenID Connect authentication on Aiven for OpenSearch®
 ---
 
-OpenID Connect (OIDC) is an authentication protocol that builds on top
-of the OAuth 2.0 protocol. It provides a simple and secure way to verify
-the identity of a user and obtain basic profile information about them.
+OpenID Connect (OIDC) is an authentication protocol that builds on top of the OAuth 2.0 protocol.
+It provides a simple and secure way to verify the identity of a user and obtain basic profile information about them.
 
 ## Prerequisites
 
@@ -51,7 +50,7 @@ how to obtain this URL, see the next section.
 ## Enable OpenID Connect authentication via Aiven Console
 
 1.  In the [Aiven Console](https://console.aiven.io/), access your Aiven
-    for OpenSearch service where you want to enable OpenID Connect.
+    for OpenSearch service where to enable OpenID Connect.
 2.  Select **Users** from the left sidebar.
 3.  In the **SSO authentication** section, use the **Add method**
     drop-down and select **OpenID**.

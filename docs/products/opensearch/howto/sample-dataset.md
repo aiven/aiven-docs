@@ -4,6 +4,8 @@ title: Sample dataset
 
 Databases are more fun with data, so to get you started on your OpenSearch® journey we picked this open data set of recipes as a great example you can try out yourself.
 
+<!-- vale off -->
+
 ## Epicurious recipes
 
 A dataset from [Kaggle](https://www.kaggle.com/hugodarwood/epirecipes)
@@ -59,7 +61,7 @@ Let's take a look at a sample recipe document:
     code; you will need to edit it to add the connection details for
     your OpenSearch service.
 
-    You can find the `SERVICE_URI` on Aiven's dashboard.
+    Find the `SERVICE_URI` on Aiven's dashboard.
 
     ```python
     import json

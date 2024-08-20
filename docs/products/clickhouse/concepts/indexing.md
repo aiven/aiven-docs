@@ -49,11 +49,11 @@ Even though ClickHouse sorts data by primary key, it is possible [to
 choose a primary key that is different from the sorting
 key](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#choosing-a-primary-key-that-differs-from-the-sorting-key).
 :::
-
+<!-- vale off -->
 Using sparse indexing has significant consequences for capabilities and
 limitations of ClickHouse. A primary key, as used in ClickHouse, does
 not ensure uniqueness for a single searched item since only every ten
-thousandth item is indexed. Thus, you need to iterate over thousands of
+thousandth item is indexed. You need to iterate over thousands of
 items to find a specific row, which makes this approach inadequate when
 working with individual rows and suitable for processing millions or
 trillions of items.

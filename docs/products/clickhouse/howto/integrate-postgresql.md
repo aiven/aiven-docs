@@ -2,9 +2,7 @@
 title: Connect PostgreSQL® to Aiven for ClickHouse®
 ---
 
-You can integrate Aiven for ClickHouse® with either *Aiven for
-PostgreSQL* service located in the same project, or *an external
-PostgreSQL endpoint*.
+You can integrate Aiven for ClickHouse® with either *Aiven for PostgreSQL* service located in the same project, or *an external PostgreSQL endpoint*.
 
 Behind the scenes the integration between Aiven for ClickHouse and
 PostgreSQL relies on [ClickHouse PostgreSQL
@@ -19,11 +17,9 @@ plans and higher.
 
 To connect Aiven for ClickHouse to PostgreSQL, you need the following:
 
--   Aiven for ClickHouse service
--   Aiven for PostgreSQL service or a self-hosted PostgreSQL service
-
-These instructions assume that you have at least one table in your
-PostgreSQL service.
+- Aiven for ClickHouse service
+- Aiven for PostgreSQL service or a self-hosted PostgreSQL service
+- You have at least one table in your PostgreSQL service.
 
 :::tip
 If you use the self-hosted PostgreSQL service, an external PostgreSQL
@@ -64,7 +60,7 @@ other users. Read more
 ## Update PostgreSQL integration settings
 
 When connecting to a PostgreSQL service, ClickHouse needs to know the
-name of the PostgreSQL schema and database you want to access. By
+name of the PostgreSQL schema and database to access. By
 default these settings are set to the `public` schema in the
 `defaultdb`. However, you can update these values by following next
 steps.

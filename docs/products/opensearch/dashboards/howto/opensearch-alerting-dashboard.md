@@ -2,8 +2,8 @@
 title: Create alerts with OpenSearch® Dashboards
 ---
 
-OpenSearch® alerting feature sends notifications when data from one or
-more indices meets certain conditions that can be customized. Use case
+OpenSearch® alerting feature sends notifications when data from one or more indices meets certain conditions that can be customized.
+Use case
 examples are such as monitoring for HTTP status code 503, CPU load
 average above certain percentage or watch for counts of a specific
 keyword in logs for a specific amount of interval, notification to be
@@ -17,18 +17,17 @@ check cpu load. An action will be triggered when average of
 
 ## Create using Dashboards UI
 
-In order to create an alert via OpenSearch Dashboards interface, follow
-these steps:
+To create an alert via OpenSearch Dashboards interface:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io) and select
     your OpenSearch service.
 
-2.  On the service's **Overview** screen, in the **Connection
+1.  On the service's **Overview** screen, in the **Connection
     information** section and select the **OpenSearch Dashboards** tab.
 
     This opens the OpenSearch Dashboard
 
-3.  Within the OpenSearch Dashboard, access the left side panel and
+1.  Within the OpenSearch Dashboard, access the left side panel and
     select **Alerting** under the OpenSearch Plugins section.
 
 To configure each alert the following needs to be created, we will
@@ -47,14 +46,12 @@ action is triggered.
 
 1.  Open the **Destination** tab and click **Add destination**
 
-2.  Fill in the fields under **Destination**
+1.  Fill in the fields under **Destination**.
+    Fill `slack-test` as the **Name**.
+    Select `Slack` under **Type**.
 
-    Fill `slack-test` as the **Name**
-
-    Select `Slack` under **Type**
-
-    Paste your slack webhook here `https://your_slack_webhook_URL` under
-    **Webhook URL**
+    Paste your slack webhook `https://your_slack_webhook_URL` under
+    **Webhook URL**.
 
 :::note
 Destination Type can be: `Amazon Chime`, `Slack`, `Custom webhook` or
@@ -62,8 +59,8 @@ Destination Type can be: `Amazon Chime`, `Slack`, `Custom webhook` or
 :::
 
 :::important
-\- When using email you need to have a SMTP server configured for a
-valid domain to deliver email notifications
+When using email, ensure you have an SMTP server configured for a
+valid domain to deliver email notifications.
 :::
 
 ## Configure authentication for email destination
@@ -76,9 +73,9 @@ before configuring an email destination that requires authentication.
 1.  In **Overview** screen of your OpenSearch service, scroll to the
     **Advanced configuration** section.
 
-2.  Select **Change** and **+Add configuration option**.
+1.  Select **Change** and **+Add configuration option**.
 
-3.  Select the following configuration options and provide the
+1.  Select the following configuration options and provide the
     corresponding details for each field:
 
     -   `email_sender_name`
@@ -86,30 +83,30 @@ before configuring an email destination that requires authentication.
     -   `email_sender_password`
 
     At the end of this step the email account credentials will be added
-    to the OpenSearch keystore. That is, the steps-by-step procedure
-    that follows need to be completed in OpenSearch Dashboards.
+    to the OpenSearch keystore.
 
-4.  Select **Save advanced configuration**.
+In OpenSearch Dashboards:
 
-5.  Open the **Destination** tab in the OpenSearch Dashboard and select
+1.  Select **Save advanced configuration**.
+
+1.  Open the **Destination** tab in the OpenSearch Dashboard and select
     **Add destination**.
 
-6.  Fill in the fields under **Destination**
+1.  Fill in the fields under **Destination**.
 
-    Fill `email-test` as the **Name**
+    Fill `email-test` as the **Name**.
 
-    Select `Email` under **Type**
+    Select `Email` under **Type**.
 
-    In this step we assume that no senders exist yet. So, click first on
-    **Manage Senders**, then click **New sender** link.
+    We assume that no senders exist yet. Click **Manage Senders** > **New sender**.
 
-    Assign a name to the sender. Please note that this name should match
-    the property `email_sender_name` from step 1.
+    Assign a name to the sender. This name should match the property `email_sender_name`
+    from step 1.
 
     Fill in the information required by the form and select SSL or TLS
     in **Encryption method**.
 
-7.  Lastly you need to complete the form with the recipients, by
+1.  Complete the form with the recipients, by
     creating email groups in **Manage email groups** if necessary.
 
 ## Create a monitor
@@ -117,74 +114,74 @@ before configuring an email destination that requires authentication.
 Monitor is a job that runs on a defined schedule and queries OpenSearch
 indices.
 
-1.  Open the **Monitors** tab and click **Create monitor**
+1.  Open the **Monitors** tab and click **Create monitor**.
 
-2.  Fill in the fields under **Monitor details**
+1.  Fill in the fields under **Monitor details**.
 
-    Fill `High CPU Monitor` into **Monitor name**
+    Fill `High CPU Monitor` into **Monitor name**.
 
-    Select `Per query monitor` as the **Monitor type**
+    Select `Per query monitor` as the **Monitor type**.
 
-    Select `Visual editor` as the **Monitor defining method**
+    Select `Visual editor` as the **Monitor defining method**.
 
-    Select `By interval` under **Schedule** **Frequency**
+    Select `By interval` under **Schedule** **Frequency**.
 
-    Under **Run every** select `1` `Minutes`
+    Under **Run every**, select `1` `Minutes`,
 
 :::note
 Schedule Frequency can be `By internal`, `Daily` `Weekly` `Monthly`,
 `Custom CRON expression`.
 :::
 
-1.  Fill in the fields under **Data source**
+1.  Fill in the fields under **Data source**.
 
     Data source is the OpenSearch indices to query.
 
-    Fill `sample-host-health` into **index**
+    Fill `sample-host-health` into **index**.
 
-    Fill `timestamp` into **Time field**
+    Fill `timestamp` into **Time field**.
 
-2.  **Query**
+1.  **Query**
 
     Query defines the fields to query from indices and how to evaluate
     the results.
 
-    Under **Metrics** click **Add metric**
+    Under **Metrics** click **Add metric**.
 
     Select `average()` under **Aggregation** and `cpu_usage_percentage`
-    under **Field**, click **Save**
+    under **Field**, click **Save**.
 
-    Fill `3` under **Time range for the last** and select `minutes`
+    Fill `3` under **Time range for the last** and select `minutes`.
 
 ## Create a trigger
 
 Triggers is a defined conditions from the queries results from monitor.
 If conditions are met, alerts are generated.
 
-1.  Select **Add trigger**
+1.  Select **Add trigger**.
 
-    Fill `high_cpu` as the **Trigger name**
+    Fill `high_cpu` as the **Trigger name**.
 
-    Select `1 (Highest)` for **Severity level**
+    Select `1 (Highest)` for **Severity level**.
 
     Under **Trigger condition** select `IS ABOVE` from the drop-down
-    menu and fill `75` into the number field
+    menu and fill `75` into the number field.
 
 :::note
 You can see a visual graph below trigger with the index data and the
-trigger condition you have defined as a red line
+trigger condition you have defined as a red line.
 :::
 
-2.  Fill in the fields under **Actions**
+1.  Fill in the fields under **Actions**
 
     Actions defines the destination for notification alerts when trigger
     conditions are met.
 
-    Fill in `slack` as **Action name**
+    Fill in `slack` as **Action name**.
 
-    Select `slack-test` under **Destination**
+    Select `slack-test` under **Destination**.
 
-    Fill in `High CPU Test Alert` as **Message subject**
+    Fill in `High CPU Test Alert` as **Message subject**.
 
 :::note
 Multiple Actions can be defined, in this example we will define one
@@ -197,7 +194,8 @@ action to send notification to destination we have defined in step 4
 the sample and use **Send test message** to validate notification
 delivery
 
-Select **Create** and your monitor is ready!
+Select **Create**.
 
--   For further details on [alerting monitors
-    configuration](https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/)
+## Related pages
+
+- [Alerting monitors configuration](https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/)
