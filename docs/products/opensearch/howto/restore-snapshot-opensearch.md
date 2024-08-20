@@ -224,13 +224,44 @@ avn service elasticsearch-register-repository \
 - `container`: The Azure container name where the snapshot is stored.
 - `base_path`: The path within the container where the snapshot is stored.
 
+</TabItem>
+</Tabs>
 
+## Restore the snapshot
+
+Once the repository is registered, you can proceed to restore the snapshot.
+
+<Tabs groupId="restore-snapshot">
+<TabItem value="api" label="API" default>
+
+```bash
+curl -X POST "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo/SNAPSHOT_NAME/_restore" \
+-H "Authorization: Bearer API_TOKEN" \
+-H "Content-Type: application/json" \
+-d '{
+  "indices": "INDEX_NAME",
+  "ignore_unavailable": true,
+  "include_global_state": false
+}'
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+```bash
+avn service elasticsearch-restore-snapshot \
+  --project PROJECT_NAME \
+  --service SERVICE_NAME \
+  --repository my-snapshot-repo \
+  --snapshot SNAPSHOT_NAME \
+  --indices INDEX_NAME
+```
 </TabItem>
 </Tabs>
 
 ## Verify the restoration
 
-Check that the data has been successfully restored and is ready to use.
+Check the data has been successfully restored and is ready to use.
 
 ### Verify indices
 
