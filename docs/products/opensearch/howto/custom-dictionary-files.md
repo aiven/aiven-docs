@@ -1,6 +1,5 @@
 ---
 title: Custom dictionary files
-enterprise: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,7 +30,7 @@ Upload new custom dictionary files to your OpenSearch service.
    and select your Aiven for OpenSearch service.
 1. Click **Indexes** on the sidebar.
 1. Click **Upload file** in the **Custom dictionary files** section.
-1. In the **Upload a custom dictionary file** modal:
+1. In the **Upload a custom dictionary file** screen:
    - Select **File type** (Stopwords, Synonyms, WordNet).
    - Enter a **File name**.
    - Choose the file from your system and click **Upload**.
@@ -42,19 +41,20 @@ Upload new custom dictionary files to your OpenSearch service.
 Run:
 
 ```bash
-  avn service custom-file upload --project <project> \
-  --file_type <stopwords|synonyms|wordnet> \
-  --file_path <file_path> \
-  --file_name <file_name> <service_name>
+avn service custom-file upload --project PROJECT_NAME \
+--file_type <stopwords|synonyms|wordnet> \
+--file_path <file_path> \
+--file_name <file_name> SERVICE_NAME
+
 ```
 
 Parameters:
 
-- `<project>`: Your Aiven project name.
+- `PROJECT_NAME`: Your Aiven project name.
 - `<stopwords|synonyms|wordnet>`: The type of dictionary file to upload.
 - `<file_path>`: Path to the local file on your system.
 - `<file_name>`: The name of the file to appear in Aiven for OpenSearch.
-- `<service_name>`: Name of your OpenSearch service.
+- `SERVICE_NAME`: Name of your OpenSearch service.
 
 </TabItem>
 </Tabs>
@@ -66,9 +66,9 @@ List all custom dictionary files associated with your OpenSearch service.
 <Tabs groupId="list-method">
 <TabItem value="Console" label="Console" default>
 
-In the **Aiven Console**, all uploaded custom dictionary files are listed in the
-**Custom dictionary files** section, showing the file path, type, size, and
-latest upload timestamp.
+In the **Aiven Console**, the **Custom Dictionary Files** section displays all uploaded
+custom dictionary files, including details such as the file path, type, size, and the
+most recent upload timestamp.
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
@@ -76,13 +76,13 @@ latest upload timestamp.
 Run:
 
 ```bash
-  avn service custom-file list --project <project> <service_name>
+avn service custom-file list --project PROJECT_NAME SERVICE_NAME
 ```
 
 Parameters:
 
-- `<project>`: Your Aiven project name.
-- `<service_name>`: Name of your OpenSearch service.
+- `PROJECT_NAME`: Your Aiven project name.
+- `SERVICE_NAME`: Name of your OpenSearch service.
 
 </TabItem>
 </Tabs>
@@ -109,18 +109,18 @@ the updated words.
 Run:
 
 ```bash
-  avn service custom-file update --project <project> \
-    --file_path <file_path> \
-    --file_id <file_id> <service_name>
+avn service custom-file update --project PROJECT_NAME \
+  --file_path <file_path> \
+  --file_id <file_id> SERVICE_NAME
 ```
 
 Parameters:
 
-- `<project>`: Your Aiven project name.
+- `PROJECT_NAME`: Your Aiven project name.
 - `<file_path>`: Path to the local file on your system.
 - `<file_id>`: ID of the file to replace. Obtain this ID using the
   [List](#list-files) command.
-- `<service_name>`: Name of your OpenSearch service.
+- `SERVICE_NAME`: Name of your OpenSearch service.
 
 </TabItem>
 </Tabs>
@@ -145,19 +145,19 @@ Download a custom dictionary file to your local system.
 Run:
 
 ```bash
-  avn service custom-file get --project <project> \
-  --file_id <file_id> \
-  --target_filepath <file_path> \
-  --stdout_write <service_name>
+avn service custom-file get --project PROJECT_NAME \
+--file_id <file_id> \
+--target_filepath <file_path> \
+--stdout_write SERVICE_NAME
 ```
 
 Parameters:
 
-- `<project>`: Your Aiven project name.
+- `PROJECT_NAME`: Your Aiven project name.
 - `<file_id>`: ID of the file to replace to download. Obtain this ID using the
   [List](#list-files) command.
 - `<file_path>`: Path where the file should be saved locally.
-- `<service_name>`: Name of your OpenSearch service.
+- `SERVICE_NAME`: Name of your OpenSearch service.
 
 </TabItem>
 </Tabs>
@@ -167,7 +167,7 @@ Parameters:
 - This feature requires Aiven Enterprise.
 - Files cannot be deleted. They can only be replaced.
 - The file location is fixed and cannot be customized.
-- If you move to a different cloud or project, files will be copied or moved accordingly.
+- If you move to a different cloud or project, files are copied or moved accordingly.
 - For OpenSearch Cross-Cluster Replication (CCR), files must be uploaded to
   both services manually.
 - Use alphanumeric characters and underscores only for file names.
