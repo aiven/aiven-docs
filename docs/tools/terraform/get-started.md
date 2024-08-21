@@ -25,8 +25,7 @@ removed even with this setting enabled.
 -   [Sign up for
     Aiven](https://console.aiven.io/signup?utm_source=github&utm_medium=organic&utm_campaign=devportal&utm_content=repo)
 -   [Download and install Terraform](https://www.terraform.io/downloads)
--   [Create an authentication
-    token](/docs/platform/howto/create_authentication_token)
+-   [Create a token](/docs/platform/howto/create_authentication_token)
 
 ## Configure your project and services
 
@@ -90,12 +89,12 @@ Set up the Terraform project in an empty folder:
 1.  Create a file named `variables.tf`. This is used to avoid including
     sensitive information in source control.
 
-    Add the following code to declare the API token and project name
+    Add the following code to declare the token and project name
     variables:
 
     ```hcl
     variable "aiven_api_token" {
-      description = "Aiven console API token"
+      description = "Aiven token"
       type        = string
     }
 
@@ -108,12 +107,12 @@ Set up the Terraform project in an empty folder:
 1.  Create a file named `terraform.tfvars` to define the values of the
     sensitive information.
 
-    Add the following code, replacing `AIVEN_AUTHENTICATION_TOKEN` with
-    your API token and `AIVEN_PROJECT_NAME` with the name of your
+    Add the following code, replacing `AIVEN_TOKEN` with
+    your token and `AIVEN_PROJECT_NAME` with the name of your
     project:
 
     ```hcl
-    aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
+    aiven_api_token = "AIVEN_TOKEN"
     project_name    = "AIVEN_PROJECT_NAME"
     ```
 

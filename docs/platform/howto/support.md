@@ -128,7 +128,7 @@ in a HAR (HTTP Archive) file.
 1.  Replace sensitive data in the file with placeholders while retaining
     the JSON structure and format. Examples of sensitive data include:
     -   Personal identifiers such as email addresses and phone numbers
-    -   Authentication tokens or passwords
+    -   Tokens or passwords
     -   Sensitive URLs
     -   Sensitive cookies or headers
 1.  Send the sanitized file to the support team in your reply to their

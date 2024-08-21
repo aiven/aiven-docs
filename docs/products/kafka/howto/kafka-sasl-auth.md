@@ -78,7 +78,7 @@ API to enable SASL authentication on an existing service:
 
    - `project_name`: Name of your Aiven project.
    - `service_name`: Name of your Aiven for Apache Kafka service.
-   - `API_TOKEN`: API token for [authentication](/docs/platform/howto/create_authentication_token).
+   - `API_TOKEN`: Personal Aiven [token](/docs/platform/howto/create_authentication_token).
    - `kafka_authentication_methods.sasl`: Set to `true` to enable SASL authentication.
 
 </TabItem>

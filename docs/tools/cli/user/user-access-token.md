@@ -4,13 +4,13 @@ title: avn user access-token
 
 Full list of commands for `avn user access-token`.
 
-## Manage access tokens
+## Manage tokens
 
-Commands for managing user's access tokens.
+Commands for managing a user's tokens.
 
 ### `avn user access-token create`
 
-Creates a new access token for the logged-in user.
+Creates a token for the logged in user.
 
 | Parameter            | Information                                                                                 |
 | -------------------- | ------------------------------------------------------------------------------------------- |
@@ -18,7 +18,7 @@ Creates a new access token for the logged-in user.
 | `--max-age-seconds`  | Maximum age of the token in seconds, if any, after which it will expire(30 days by default) |
 | `--extend-when-used` | Extend token's expiry time when used (only applicable if token is set to expire)            |
 
-**Example:** Create an access token.
+**Example:** Create a token.
 
 ```
 avn user access-token create --description "To be used with Python Notebooks"
@@ -33,7 +33,7 @@ avn user access-token create                       \
   --extend-when-used
 ```
 
-An example of newly created access token:
+The output will be similar to the following:
 
 ```text
 EXPIRY_TIME           DESCRIPTION                       MAX_AGE_SECONDS  EXTEND_WHEN_USED  FULL_TOKEN
@@ -43,8 +43,7 @@ EXPIRY_TIME           DESCRIPTION                       MAX_AGE_SECONDS  EXTEND_
 
 ### `avn user access-token list`
 
-Retrieves the information for all the access tokens active session in
-the session:
+Retrieves the information for all the active tokens:
 
 -   Expiration time
 -   Token prefix
@@ -72,7 +71,7 @@ EXPIRY_TIME           TOKEN_PREFIX  DESCRIPTION                       MAX_AGE_SE
 
 ### `avn user access-token revoke`
 
-Revokes the specified user access token.
+Revokes a token.
 
 Tokens can also be expired via the
 [`avn user tokens-expire`](/docs/tools/cli/user#avncli%20user-tokens-expire) command.
@@ -81,7 +80,7 @@ Tokens can also be expired via the
 | -------------- | -------------------------------------------------------------- |
 | `token_prefix` | The full token or token prefix identifying the token to revoke |
 
-**Example:** Revoke the access token starting with `6JsKDclT3OMQ`.
+**Example:** Revoke the token starting with `6JsKDclT3OMQ`.
 
 ```
 avn user access-token revoke "6JsKDclT3OMQ"
@@ -89,14 +88,14 @@ avn user access-token revoke "6JsKDclT3OMQ"
 
 ### `avn user access-token update`
 
-Updates the description of an access token.
+Updates the description of a token.
 
 | Parameter       | Information                                                    |
 | --------------- | -------------------------------------------------------------- |
 | `token_prefix`  | The full token or token prefix identifying the token to update |
 | `--description` | Description of how the token will be used                      |
 
-**Example:** Update the description of the access token starting with
+**Example:** Update the description of the token starting with
 `6JsKDclT3OMQ`.
 
 ```

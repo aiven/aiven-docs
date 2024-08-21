@@ -29,11 +29,11 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 </TabItem>
 <TabItem value="2" label="Terraform">
 
-1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
-1. Store the authentication token in an environment variable:
+1. [Create a token](/docs/platform/howto/create_authentication_token).
+1. Store the token in an environment variable:
 
    ```bash
-   export TF_VAR_aiven_api_token=YOUR_AIVEN_API_TOKEN
+   export TF_VAR_aiven_api_token=YOUR_AIVEN_TOKEN
    ```
 
 1. Create the following Terraform files:
@@ -87,7 +87,7 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 
       ```hcl
       variable "aiven_api_token" {
-        description = "Aiven API token"
+        description = "Aiven token"
         type        = string
       }
 

@@ -1,34 +1,31 @@
 ---
-title: Create authentication tokens
+title: Create personal tokens
 ---
 
-Create an authentication token in the Aiven Console for use with the
-Aiven CLI or API. To learn more about using authentication tokens, refer
-to [Authentication tokens](/docs/platform/concepts/authentication-tokens).
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-To create an authentication token on the [Aiven
-Console](https://console.aiven.io/):
+Create personal token in the Aiven Console to use with the Aiven CLI or API.
 
-1.  Click the **User information** icon in the top right and select
-    **Tokens**.
 
-2.  Click **Generate token**.
+1.  Click <ConsoleIcon name="user"/> **User information**  and select **Tokens**.
 
-3.  Enter a description and set an expiration time in the **Max. age**
-    field. Leave **Max. age** empty if you don't want the token to
-    expire.
+1.  Click **Generate token**.
 
-4.  Click **Generate token**.
+1.  Enter a description and set the session duration.
 
-5.  Click the **Copy** icon and save your token somewhere safe.
+1.  Click **Generate token**.
+
+1.  Click the **Copy** icon and save your token somewhere safe.
 
     :::important
     You cannot view the token after you close this window.
     :::
 
-6.  Click **Close**.
+1.  Click **Close**.
 
-:::note
-You can also
-[create an authentication token using the Aiven CLI](/docs/tools/cli/user/user-access-token).
-:::
+## Related pages
+
+- [Create a token using the Aiven CLI](/docs/tools/cli/user/user-access-token)
+- Use [authentication policies](/docs/platform/howto/set-authentication-policies)
+  to control how organization users use personal tokens

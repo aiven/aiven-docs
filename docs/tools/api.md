@@ -21,7 +21,7 @@ Common use cases for the Aiven API:
 Use the [Postman workspace](https://www.postman.com/aiven-apis/workspace/aiven/overview)
 to try the Aiven API.
 
-1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
+1. [Create a token](/docs/platform/howto/create_authentication_token).
 1. Fork the Postman **collection** and **environment**.
 
    <RIP/>
@@ -41,7 +41,7 @@ to try the Aiven API.
 curl -H "Authorization: aivenv1 TOKEN" https://api.aiven.io/v1/project
 ```
 
-Where `TOKEN` is your authentication token.
+Where `TOKEN` is your token.
 
 </TabItem>
 <TabItem value="response" label="Response">
@@ -142,6 +142,6 @@ authenticated, it returns the standard set of cloud regions.
 
 ## Related pages
 
-- [Authentication tokens](/docs/platform/concepts/authentication-tokens)
+- [Personal tokens](/docs/platform/concepts/authentication-tokens)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 - [API reference docs](https://api.aiven.io/doc/)
