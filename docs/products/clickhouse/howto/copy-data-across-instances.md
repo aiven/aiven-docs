@@ -15,16 +15,28 @@ Details of the source (remote) server
 
 ## Copy data
 
-1.  From your target servers, use the `remoteSecure()`
+1.  From your target server, use the `remoteSecure()`
     function to select data from the source server.
 
-    ```shell
+    ```sql
     SELECT * FROM remoteSecure('HOSTNAME:PORT', db.remote_engine_table, 'USERNAME', 'PASSWORD') LIMIT 3;
     ```
 
+    :::tip
+    If you have the
+    [managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
+    enabled, you can use instead:
+
+    ```sql
+    SELECT * FROM remoteSecure('service_YOUR_REMOTE_CLUSTER', db.remote_engine_table) LIMIT 3;
+    ```
+
+    See how to [enable the managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources).
+    :::
+
 1.  Insert the selected data into the target server.
 
-    ```shell
+    ```sql
     INSERT INTO [db.]table [(c1, c2, c3)] SELECT ...
     ```
 
