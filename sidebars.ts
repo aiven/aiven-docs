@@ -958,10 +958,7 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'category',
                       label: 'Source connectors',
-                      link: {
-                        type: 'generated-index',
-                        slug: 'products/kafka/kafka-connect/howto/list-source-connectors',
-                      },
+
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
@@ -983,10 +980,7 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'category',
                       label: 'Sink connectors',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/kafka-connect/howto/list-sink-connectors',
-                      },
+
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/s3-sink-prereq',

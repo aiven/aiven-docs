@@ -143,3 +143,5 @@
 /products/flink/concepts                                   https://aiven.io/docs/products/flink/concepts/flink-architecture
 /products/flink/howto                                      https://aiven.io/docs/products/flink/howto/create-integration
 /products/flink/reference                                  https://aiven.io/docs/products/flink/reference/advanced-params
+/products/kafka/kafka-connect/howto/list-source-connectors https://aiven.io/docs/products/kafka/kafka-connect/howto/enable-connect
+/products/kafka/kafka-connect/howto/list-sink-connectors   https://aiven.io/docs/products/kafka/kafka-connect/howto/enable-connect
