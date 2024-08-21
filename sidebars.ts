@@ -114,11 +114,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'User and access management',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-user',
-          },
-
           items: [
             'platform/howto/manage-org-users',
             'platform/howto/make-super-admin',
@@ -220,13 +215,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service scaling',
-              link: {
-                type: 'generated-index',
-                description:
-                  'Aiven offers the following features to scale your services.',
-                title: 'Service scaling',
-                slug: '/platform/concepts/service-scaling',
-              },
               items: [
                 'platform/howto/scale-services',
                 'platform/howto/add-storage-space',
@@ -255,10 +243,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Networking and security',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-network',
-          },
           items: [
             'platform/concepts/cloud-security',
             'platform/reference/list_of_clouds',
@@ -267,10 +251,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'VPCs',
-              link: {
-                type: 'generated-index',
-                slug: 'platform/vpc',
-              },
               items: [
                 'platform/howto/manage-vpc-peering',
                 'platform/howto/public-access-in-vpc',
@@ -283,10 +263,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Private link',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'platform/privatelink',
-                  },
                   items: [
                     'platform/howto/use-aws-privatelinks',
                     'platform/howto/use-azure-privatelink',
@@ -298,10 +274,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'IP addresses',
-              link: {
-                type: 'generated-index',
-                slug: 'platform/ip-addresses',
-              },
               items: [
                 'platform/reference/service-ip-address',
                 'platform/concepts/static-ips',
@@ -366,10 +338,7 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'CloudWatch logs',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
-                  },
+
                   items: [
                     'integrations/cloudwatch/cloudwatch-logs-console',
                     'integrations/cloudwatch/cloudwatch-logs-cli',
@@ -535,10 +504,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/concepts',
-              },
               items: [
                 'products/cassandra/concepts/tombstones',
                 'products/cassandra/concepts/cross-cluster-replication',
@@ -593,10 +558,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/reference',
-              },
               items: [
                 'products/cassandra/reference/advanced-params',
                 'products/cassandra/reference/cassandra-metrics-prometheus',
@@ -618,10 +579,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/flink/concepts',
-              },
               items: [
                 'products/flink/concepts/flink-architecture',
                 'products/flink/reference/flink-limitations',
@@ -641,10 +598,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/flink/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -718,10 +671,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/flink/reference',
-              },
               items: ['products/flink/reference/advanced-params'],
             },
           ],
