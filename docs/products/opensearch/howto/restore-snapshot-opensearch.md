@@ -26,7 +26,8 @@ Before you begin, ensure that:
 - A target Aiven for OpenSearch service within your project.
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier and is
   compatible with your target service.
-- The feature flag is enabled for your project, allowing external migrations.
+- Enable the [feature preview](/docs/platform/howto/feature-preview) to try
+  migrating external snapshots.
 
 ### Gather required parameters
 
