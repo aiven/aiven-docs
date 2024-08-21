@@ -39,7 +39,7 @@ cannot be used at the same time
 
 :::
 
-**Example:** Create a new `kafka_logs` service integration to send the
+**Example:** Create a `kafka_logs` service integration to send the
 logs of the service named `demo-pg` to an Aiven for Kafka service named
 `demo-kafka` in the topic `test_log`.
 

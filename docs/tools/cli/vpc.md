@@ -2,7 +2,7 @@
 title: avn vpc
 ---
 
-Here you'll find the full list of commands for `avn vpc`.
+The list of commands for `avn vpc`.
 
 ## Manage project's VPC
 
@@ -19,7 +19,7 @@ Creates a new VPC.
 | `--cloud`        | The cloud to use by default. To review the list of available cloud regions, see the [`avn cloud list` command](/docs/tools/cli/cloud#avn-cloud-list). |
 | `--network-cidr` | The network range in the Aiven project VPC in CIDR format (a.b.c.d/e) (required)                                                                      |
 
-**Example:** Create a new VPC in `aws-us-west-1` cloud region with
+**Example:** Create a VPC in `aws-us-west-1` cloud region with
 network range `10.1.2.0/24`
 
 ```

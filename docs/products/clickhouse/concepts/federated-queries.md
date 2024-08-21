@@ -2,10 +2,7 @@
 title: About querying external data in Aiven for ClickHouse®
 ---
 
-Discover federated queries and their capabilities in Aiven for
-ClickHouse®. Check why you might need to use them, for example, how they
-simplify and speed up migrating into Aiven from external data sources.
-Learn how federated queries work and how you can run them properly.
+Discover federated queries and their capabilities in Aiven for ClickHouse® and how they simplify and speed up migrating into Aiven from external data sources.
 
 ## About federated queries
 
@@ -62,7 +59,7 @@ S3-compatible storage, you can select from that storage and insert into
 a table in the Aiven local instance, enabling migration of data into
 Aiven.
 
-For more details on how to run federated querie in Aiven for ClickHouse,
+For more details on how to run federated queries in Aiven for ClickHouse,
 see
 [Read and pull data from S3 object storages and web resources over HTTP](/docs/products/clickhouse/howto/run-federated-queries).
 
@@ -78,9 +75,6 @@ see
 ## Related pages
 
 -   [Read and pull data from S3 object storages and web resources over HTTP](/docs/products/clickhouse/howto/run-federated-queries)
--   [Cloud Compatibility \| ClickHouse
-    Docs](https://clickhouse.com/docs/en/whats-new/cloud-compatibility#federated-queries)
--   [Integrating S3 with
-    ClickHouse](https://clickhouse.com/docs/en/integrations/s3)
--   [remote, remoteSecure \| ClickHouse
-    Docs](https://clickhouse.com/docs/en/sql-reference/table-functions/remote)
+-   [Integrating S3 | ClickHouse Docs](https://clickhouse.com/docs/en/integrations/s3)
+-   [remote, remoteSecure | ClickHouse Docs](https://clickhouse.com/docs/en/sql-reference/table-functions/remote)
+-   [Cloud Compatibility | ClickHouse Docs](https://clickhouse.com/docs/en/whats-new/cloud-compatibility#federated-queries)

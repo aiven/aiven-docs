@@ -2,17 +2,10 @@
 title: About scaling M3
 ---
 
-[M3](https://m3db.io/) scales horizontally up to a really large number
-of nodes (at least in the low hundreds in a single cluster, and
-thousands overall); if you run out of resources in M3DB, you can always
-add more nodes (or change to larger nodes). The same applies also to
-M3Aggregator nodes.
+[M3](https://m3db.io/) scales horizontally up to a large number of nodes, at least in the low hundreds in a single cluster, and thousands, overall. Understand how to make good use of the resources and manage the load.
 
-The most important thing when managing resources is to understand how to
-make good use of the resources in use, and understand the implications
-of making changes such as adding more namespaces, or ingesting more
-data. This article outlines how resources are used and makes some
-recommendations about making good use of resources and managing load.
+If you run out of resources in M3DB, you can always add more nodes (or change to larger nodes).
+The same applies also to M3Aggregator nodes.
 
 ## Disk usage (M3DB only)
 
@@ -46,7 +39,6 @@ need. This example uses namespaces configured as follows:
 | Unaggregated (U) | 1 week    | 15 sec     | 2 hours    |
 | Aggregated A (A) | 4 weeks   | 5 min      | 4 hours    |
 | Aggregated B (B) | 8 weeks   | 1 hour     | 12 hours   |
-
 
 The unaggregated namespace will grow at a constant rate for 1 week and
 then remain at that size since the older data is not retained.
@@ -103,8 +95,10 @@ strategy,
 
 ## Memory usage
 
+<!-- vale off -->
 The memory usage of M3 is the most difficult aspect of scaling. It
 consists of:
+<!-- vale on -->
 
 -   fixed base cost (of the order of hundreds of megabytes if configured
     with small or no pools)
@@ -159,7 +153,7 @@ At the moment we use with 30 second typical scrape interval with
 following namespace configuration:
 
 -   2 day unaggregated namespace, and
--   1 month aggregated namespace with 10min resolution
+-   1 month aggregated namespace with 10-minute resolution
 
 This approach to aggregation does increase the CPU and memory usage in
 comparison to just keeping the unaggregated data for longer, but our

@@ -2,10 +2,7 @@
 title: Use schema registry in Java with Aiven for Apache Kafka®
 ---
 
-Aiven for Apache Kafka® provides the **schema registry** functionality
-via [Karapace](https://github.com/aiven/karapace), including the
-possibility to store, retrieve a schema, and also evolve it without
-needing to rebuild existing Consumers and Producers code.
+Aiven for Apache Kafka® provides the **schema registry** functionality via [Karapace](https://github.com/aiven/karapace), including the possibility to store, retrieve a schema, and also evolve it without needing to rebuild existing Consumers and Producers code.
 
 :::note
 To use the schema registry functionality exposed by Karapace, you need
@@ -14,17 +11,17 @@ for Apache Kafka instance selected from the [Aiven
 console](https://console.aiven.io/), service Overview tab.
 :::
 
-The following steps are required in Java to make use of schema registry:
+To use schema registry:
 
 1.  Create version 1 of a schema
-2.  Use Apache Avro to compile the schema
-3.  Create consumer and producer that utilize Aiven for Apache Kafka and
+1.  Use Apache Avro to compile the schema
+1.  Create consumer and producer that utilize Aiven for Apache Kafka and
     Schema Registry
 
 ## Prerequisites
 
 To be able to produce and consume data in Java from an Aiven for Apache
-Kafka service you need to create a **Keystore** and **Truststore**
+Kafka service, create a **Keystore** and **Truststore**
 containing the SSL certificates.
 
 You can do it manually by downloading the certificates and
@@ -54,7 +51,7 @@ To create an Avro schema, you need a definition file. As example you can
 use a **click record** schema defined in JSON and stored in a file named
 `ClickRecord.avsc` containing the following:
 
-```
+```json
 {"type": "record",
   "name": "ClickRecord",
   "namespace": "io.aiven.avro.example",
@@ -73,8 +70,7 @@ The JSON configuration above defines a schema named `ClickRecord` in the
 namespace `io.aiven.avro.example` with fields `session_id`, `browser`,
 `campaign`, `channel`, `referrer` and `ip` and related data types.
 
-Once the schema is defined, you need to compile it, and it can be done
-**manually** or **automatically**.
+Once the schema is defined, compile it either **manually** or **automatically**.
 
 ### Manual schema compilation
 
@@ -138,9 +134,9 @@ in Aiven for Apache Kafka can be found in the [Aiven examples GitHub
 repository](https://github.com/aiven/aiven-examples/tree/master/solutions/kafka-schema-registry).
 The following contains a list of the properties required.
 
-For producers you need to specify:
+For producers, specify:
 
-```
+```text
 props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, [BOOTSTRAPSERVERS]);
 props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
 props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, [TRUSTSTORE]);
@@ -156,9 +152,9 @@ props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.get
 props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
 ```
 
-For consumers you need to specify:
+For consumers, specify:
 
-```
+```text
 props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, [BOOTSTRAPSERVERS]);
 props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
 props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, [TRUSTSTORE]);

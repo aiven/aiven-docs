@@ -157,13 +157,13 @@ continue with the migration, you can select the alternative
     management** section, and select **Import database**.
 1.  Guided by the migration wizard, go through all the migration steps.
 
-### Step 1 - configure
+### Step 1: Configure
 
 Get familiar **Guidelines for successful database migration** provided
 in the **MySQL migration configuration guide** window, make sure your
 configuration is in line with them, and select **Get started**.
 
-### Step 2 - validation
+### Step 2: Validate
 
 1.  To establish a connection to your source database, enter required
     source database details into the wizard:
@@ -183,12 +183,14 @@ the dump method by selecting **Start the migration using a one-time snapshot (du
 **Start migration**.
 :::
 
-### Step 3 - migration
+### Step 3: Migrate
 
-If all the checks pass with no error messages, you can trigger the
-migration by selecting **Start migration**.
+If all the checks pass successfully, trigger the
+migration by clicking **Start migration**.
 
-### Step 4 - replicating {#stop-migration-mysql}
+<!-- vale off -->
+### Step 4: Replicating {#stop-migration-mysql}
+<!-- vale on -->
 
 While the migration is in progress, you can:
 
@@ -230,9 +232,10 @@ Your data has been transferred to Aiven but new data is still
 continuously being synced between the connected databases.
 :::
 
-### Step 5 - close
+### Step 5: Close the connection
 
-When the migration is completed without indicating an active replication process, select **Close connection**.
+When the migration is completed, and all active replication processes are over, click
+**Close connection**.
 
 All the data in your database has been transferred to Aiven.
 

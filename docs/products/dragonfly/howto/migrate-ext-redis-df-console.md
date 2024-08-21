@@ -1,6 +1,7 @@
 ---
 title: Migrate external Redis®* databases to Aiven for Dragonfly®
 ---
+
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
@@ -59,7 +60,6 @@ migration.
 
 <DragonflyLimitations />
 
-
 ## Database migration steps
 
 To migrate a Redis database to Aiven for Dragonfly:
@@ -76,10 +76,10 @@ To migrate a Redis database to Aiven for Dragonfly:
 ### Step 1: Configure
 
 Start by reviewing the database migration configuration guidelines.
-Confirm compatibility with Dragonfly and follow these steps:
+Confirm compatibility with Dragonfly and:
 
--   Select **Import an external Redis database**.
--   Click **Get started** to begin the migration.
+1. Select **Import an external Redis database**.
+1. Click **Get started** to begin the migration.
 
 ### Step 2: Validation
 
@@ -103,24 +103,21 @@ and ongoing commands or scripts. However, it does transfer all your database dat
 ### Step 3: Migration
 
 Once all the necessary checks have been completed successfully, you can
-proceed with the migration process.
+proceed with the migration process:
 
 - Click **Start migration** to initiate the data migration process to
   Aiven for Dragonfly.
 
-#### Migration in progress
+Keep in mind the following information when the migration is in progress:
 
-During the migration, you can:
-
-- Close the migration wizard by clicking **Close window** and later
+- You can close the migration wizard by clicking **Close window** and later
   return to monitor the migration status from the service overview
   page.
 - The duration of the migration depends on the size of your database.
   During migration, the target database are in a read-only state.
   Writing to the database is only possible once the migration is
   stopped.
-- Certain managed database features are disabled while the
-  migration is in progress.
+- Certain managed database features are disabled.
 - If needed, halt the migration by selecting **Stop migration**.
   Data already transferred to Aiven for Dragonfly is preserved.
 
@@ -136,12 +133,12 @@ During the migration, you can:
 
 :::
 
-### Step 4 - Close and post-migration steps
+### Step 4: Close the connection and next steps
 
 Once the migration is complete:
 
-- Click **Close connection** to end replication.
-- Click **Keep replicating** to maintain ongoing data synchronization.
+1. Click **Close connection** to end the replication.
+1. Click **Keep replicating** to maintain ongoing data synchronization.
 
 :::warning
 System updates or any configuration changes during replication can

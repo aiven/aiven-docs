@@ -2,9 +2,7 @@
 title: Integrate Aiven for Apache Flink® with Apache Kafka®
 ---
 
-Integrating external/self-hosted Apache Kafka® with Aiven for Apache
-Flink® allows users to leverage the power of both technologies to build
-scalable and robust real-time streaming applications.
+Integrating external/self-hosted Apache Kafka® with Aiven for Apache Flink® allows users to leverage the power of both technologies to build scalable and robust real-time streaming applications.
 
 This section provides instructions on integrating external/self-hosted
 Apache Kafka with Aiven for Apache Flink® using
@@ -20,7 +18,7 @@ Apache Kafka with Aiven for Apache Flink® using
 
 To configure integration using Aiven CLI:
 
-### Step 1. Create a Aiven for Apache Flink service
+### Step 1. Create an Aiven for Apache Flink service
 
 Use the following command to create an Aiven for Apache Flink service:
 
@@ -285,12 +283,12 @@ to create Aiven for Apache Flink applications, see
 
 If you have an external Apache Kafka service already running, you can
 integrate it with Aiven for Apache Flink using the [Aiven
-Console](https://console.aiven.io/) by following these steps:
+Console](https://console.aiven.io/):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.
 1.  From the **Services** page, you can either
-    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service) ]
+    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service)
     service or select an existing service.
 1.  Next, configure an external Apache Kafka service integration
     endpoint:
@@ -314,8 +312,7 @@ Console](https://console.aiven.io/) by following these steps:
     external Apache Kafka endpoint from the list to integrate.
 1.  Select **Integrate**.
 
-Once you have completed these steps, the integration will be ready, and
-you can start creating
+The integration is ready, and you can start creating
 [Aiven for Apache Flink applications](/docs/products/flink/howto/create-flink-applications)
 that use the external Apache Kafka service as either a
 source or sink.

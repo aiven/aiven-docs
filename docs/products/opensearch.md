@@ -23,7 +23,7 @@ the formerly open source projects Elasticsearch and Kibana.
 :::
 
 Aiven for OpenSearch includes OpenSearch Dashboards, giving a
-fully-featured user interface and visualization platform for your data.
+fully featured user interface and visualization platform for your data.
 
 OpenSearch is designed to be robust and scalable, capable of handling
 various data types and structures. It provides high-performance search
@@ -37,16 +37,15 @@ analysis functionality.
 
 ## Ways to use OpenSearch
 
-OpenSearch is ideal for working with various types of unstructured data,
-where you need to be able to find things quickly. The most common
-examples include the following:
+OpenSearch is ideal for working with various types of unstructured data. The most common
+examples include:
 
 -   **Log ingestion and analysis:** Send your **logs** to OpenSearch so
-    that you can quickly identify and diagnose problems if they arise.
+    that you can identify and diagnose problems if they arise.
 
     :::tip
-    You must
-    [enable the log integration](/docs/products/opensearch/howto/opensearch-log-integration) to send logs from a service to your OpenSearch service.
+    [Enable the log integration](/docs/products/opensearch/howto/opensearch-log-integration)
+    to send logs from a service to your OpenSearch service.
     :::
 
 -   **Document indexing:** Use OpenSearch to index documents to get

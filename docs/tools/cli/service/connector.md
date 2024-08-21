@@ -35,7 +35,7 @@ Apache Kafka® service.
 | `service_name`     | The name of the Service                                                                    |
 | `connector_config` | JSON string or path (preceded by `@`) to a Kafka Connect connector JSON configuration file |
 
-**Example:** Create a new JDBC source Kafka Connect connector in the
+**Example:** Create a JDBC source Kafka Connect connector in the
 service `kafka-demo` passing the JSON configuation string.
 
 ```

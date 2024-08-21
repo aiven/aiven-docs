@@ -24,14 +24,14 @@ billing by Datadog.
 
 Replace the following placeholders in the code samples:
 
- | Variable         | Description                                                                             |
- | ---------------- | --------------------------------------------------------------------------------------- |
- | `SERVICE_NAME`   | Aiven for Apache Kafka® MirrorMaker 2 service name                                      |
- | `INTEGRATION_ID` | ID of the integration between Aiven for Apache Kafka® MirrorMaker 2 service and Datadog |
+| Variable         | Description                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------- |
+| `SERVICE_NAME`   | Aiven for Apache Kafka® MirrorMaker 2 service name                                      |
+| `INTEGRATION_ID` | ID of the integration between Aiven for Apache Kafka® MirrorMaker 2 service and Datadog |
 
-To find the `INTEGRATION_ID` parameter, execute this command:
+To find the `INTEGRATION_ID` parameter, run:
 
-```
+```bash
 avn service integration-list SERVICE_NAME
 ```
 
@@ -54,8 +54,8 @@ command with the following customized parameter:
 For example, to send the `kafka_mirrormaker_summary.replication_lag`
 metric, execute the following command:
 
-```
-avn service integration-update                                                \
+```bash
+avn service integration-update                                                    \
     -c 'mirrormaker_custom_metrics=["kafka_mirrormaker_summary.replication_lag"]' \
     INTEGRATION_ID
 ```

@@ -15,7 +15,7 @@ Creates a database within an Aiven for PostgreSQL® or Aiven for MySQL.
 | `service_name` | The name of the service  |
 | `--dbname`     | The name of the database |
 
-**Example:** Create a new database named `analytics-it` within the
+**Example:** Create a database named `analytics-it` within the
 service named `pg-demo`.
 
 ```

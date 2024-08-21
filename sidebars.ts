@@ -80,18 +80,16 @@ const sidebars: SidebarsConfig = {
           label: 'Billing and payment',
           link: {
             type: 'doc',
-            id: 'platform/concepts/hourly-billing-model',
+            id: 'platform/concepts/billing-and-payment',
           },
           items: [
-            'platform/concepts/corporate-billing',
             'platform/concepts/tax-information',
-            'platform/howto/update-tax-status',
             {
               type: 'category',
               label: 'Payment methods',
               link: {
                 type: 'doc',
-                id: 'platform/howto/list-billing',
+                id: 'platform/howto/payment-methods',
               },
               items: [
                 'platform/howto/manage-payment-card',
@@ -111,8 +109,6 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/billing-assign-projects',
               ],
             },
-            'platform/howto/payment-issues-plan-upgrades',
-            'platform/howto/custom-plans',
           ],
         },
         {
@@ -169,10 +165,10 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/manage-domains',
                 'platform/howto/saml/add-identity-providers',
                 'platform/howto/saml/add-auth0-idp',
-                'platform/howto/saml/add-azure-idp',
                 'platform/howto/saml/add-fusionauth-idp',
                 'platform/howto/saml/add-google-idp',
                 'platform/howto/saml/add-jumpcloud-idp',
+                'platform/howto/saml/add-azure-idp',
                 'platform/howto/saml/add-okta-idp',
                 'platform/howto/okta-user-provisioning-with-scim',
                 'platform/howto/saml/add-onelogin-idp',
@@ -210,6 +206,7 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
+                'platform/howto/custom-plans',
               ],
             },
             {
@@ -1323,6 +1320,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/concepts/strings',
                 'products/clickhouse/concepts/federated-queries',
                 'products/clickhouse/concepts/clickhouse-tiered-storage',
+                'products/clickhouse/concepts/data-integration-overview',
               ],
             },
             {

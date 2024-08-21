@@ -2,8 +2,7 @@
 title: Troubleshoot connection pooling problems
 ---
 
-Discover the PgBouncer connection pooler and check out how to cope with
-some specific connection pooling issues.
+Discover the PgBouncer connection pooler and learn how to cope with some specific connection pooling issues.
 
 ## About connection pooling with PgBouncer
 
@@ -49,8 +48,8 @@ queries, this negates part of the benefit of the pooler and adds
 additional overhead.
 
 For most applications with a large pool of clients, the transaction
-pooling allows the application pool to maintain their connections, thus
-avoiding the overhead of new connection requests.
+pooling allows the application pool to maintain their connections, which helps
+avoid the overhead of new connection requests.
 
 For the setup and configurations of PgBouncer, refer to
 [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling).

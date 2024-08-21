@@ -23,7 +23,7 @@ endpoint not yet available, contact the [support team](mailto:support@aiven.io)
 
 Aiven automatically provides basic host-level resource metrics (CPU,
 memory, disk and network) for every service under the **Metrics** tab on
-the Aiven web console.
+the Aiven Console.
 
 The advanced telemetry feature brings much more detailed,
 service-specific metrics to the Aiven user, who can then drill down into

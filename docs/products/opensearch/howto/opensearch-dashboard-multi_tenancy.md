@@ -2,17 +2,14 @@
 title: Set up OpenSearch® Dashboard multi-tenancy
 ---
 
-Aiven for OpenSearch® provides support for multi-tenancy through
-OpenSearch Security Dashboard. Multi-tenancy in OpenSearch Security
+Aiven for OpenSearch® provides support for multi-tenancy through OpenSearch Security Dashboard.
+Multi-tenancy in OpenSearch Security
 enables multiple users or groups to securely access the same OpenSearch
 cluster while maintaining their distinct permissions and data access
 levels. With multi-tenancy, each tenant has its own isolated space for
 working with indexes, visualizations, dashboards, and other OpenSearch
 objects, ensuring tenant-specific data and resources are protected from
 unauthorized access.
-
-This article provides you with information on how to set up OpenSearch
-Dashboard multi-tenancy using the OpenSearch Dashboard user interface.
 
 ## Prerequisites
 
@@ -49,34 +46,34 @@ If you have enabled OpenSearch Security management and wish to create a
 custom tenant:
 
 1.  Log in to OpenSearch Dashboard with administrative access.
-2.  From the left navigation menu, select **Security** and select
+1.  From the left navigation menu, select **Security** and select
     **Tenants**.
-3.  Select **Create tenant** to create a new tenant.
-4.  In the **Create Tenant** screen, enter a name and description for
+1.  Select **Create tenant** to create a tenant.
+1.  In the **Create Tenant** screen, enter a name and description for
     your new tenant.
-5.  Select **Create** to save your new custom tenant.
+1.  Select **Create** to save your new custom tenant.
 
 ### Step 2: Assign tenant to roles
 
-After creating a tenant, you need to assign it to a role. A role is a
+After creating a tenant, assign it to a role. A role is a
 collection of permissions for a specific tenant that can be granted to
 users. To assign a tenant to a role:
 
 1.  In the OpenSearch dashboard, go to the **Security** section in
     the left-hand navigation menu, then select **Roles**.
-2.  Choose whether to create a new role or modify an existing one to
+1.  Choose whether to create a role or modify an existing one to
     include the tenant.
-3.  To create a new role:
+1.  To create a role:
     -   Select **Create role** and enter a name for your new role.
-    -   Select the permissions you want to grant to this role.
+    -   Select the permissions to grant to this role.
     -   In the **Tenant permissions** section, choose the tenant you
         want to assign to the role from the dropdown menu. Then, select
         the tenant permissions for the role, such as read and/or write
         permissions.
     -   Select **Create** to save your new role with the assigned
         tenant.
-4.  To modify an existing role:
-    -   Search for the role you want to edit and select it to view its
+1.  To modify an existing role:
+    -   Search for the role to edit and select it to view its
         permissions screen.
     -   Select **Edit role** and add the required tenant in the **Tenant
         permissions** section. Additionally, select the tenant
@@ -95,13 +92,13 @@ To map roles to internal users:
 
 1.  In the OpenSearch dashboard, go to the **Security** section in
     the left-hand navigation menu, then select **Roles**.
-2.  Search for the role you want to assign a user and select it to view
+1.  Search for the role to assign a user and select it to view
     its details.
-3.  Select the **Mapped Users** tab and select **Map users** (or
+1.  Select the **Mapped Users** tab and select **Map users** (or
     **Manage mapping** if users are already mapped).
-4.  In the **Users** section, choose the internal user you wish to
+1.  In the **Users** section, choose the internal user you wish to
     assign to the role from the dropdown list.
-5.  Select **Map** to add the selected user to the mapped user list.
+1.  Select **Map** to add the selected user to the mapped user list.
 
 :::note
 If you have enabled SAML SSO authentication in your Aiven for OpenSearch

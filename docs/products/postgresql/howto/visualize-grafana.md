@@ -2,24 +2,21 @@
 title: Visualize PostgreSQL® data with Grafana®
 ---
 
-PostgreSQL® can hold a wide variety of types of data, and creating
-visualisations helps gather insights on top of raw figures. Luckily,
-Aiven can set up the Grafana® and the integration between the two
-services for you.
+PostgreSQL® can hold a wide variety of types of data, and creating visualisations helps gather insights on top of raw figures. Aiven can set up the Grafana® and the integration between the two services for you.
 
 ## Integrate PostgreSQL and Grafana
 
 1.  On the **Overview** page for your Aiven for PostgreSQL service, go
     to **Manage integrations** and choose the **Monitor Data in
     Grafana** option.
-2.  Choose either a new or existing Grafana service.
+1.  Choose either a new or existing Grafana service.
     -   A new service will ask you to select the cloud, region and plan
         to use. You should also give your service a name. The service
         overview page shows the nodes rebuilding, and indicates
         when they are ready.
     -   If you're already using Grafana on Aiven, you can integrate
         your PostgreSQL as a data source for that existing Grafana.
-3.  On the **Overview** page for your Aiven for Grafana service, select
+1.  On the **Overview** page for your Aiven for Grafana service, select
     the **Service URI** link. The username and password for your Grafana
     service is also available on the service's **Overview** page.
 
@@ -28,14 +25,14 @@ you can go ahead and visualise your data.
 
 ## Visualize PostgreSQL data in Grafana
 
-In Grafana, create a new dashboard and add a panel to it.
+In Grafana, create a dashboard and add a panel to it.
 
 The datasource dropdown shows `--Grafana--` by default, but you will
-also find your PostgreSQL service listed here.
+also see your PostgreSQL service.
 
 ![Screenshot of a Grafana panel showing PostgreSQL logo](/images/content/products/postgresql/grafana-pg-logo.png)
 
-With your PostgreSQL service selected, the \"Query\" section will show
+With your PostgreSQL service selected, the **Query** section will show
 the metrics from the database in its dropdown.
 
 :::tip

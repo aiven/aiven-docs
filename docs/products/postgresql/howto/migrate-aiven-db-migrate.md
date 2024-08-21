@@ -13,9 +13,8 @@ databases synchronized until the replication is interrupted.
 
 :::note[Restrictions on logical replication]
 Before you use the logical replication method, make sure you know and
-understand all the restrictions it has. For details, see [Logical
-replication
-restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions).
+understand all the
+[restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
 :::
 
 If the preconditions for logical replication are not met for a database,
@@ -38,7 +37,7 @@ To perform a migration with `aiven-db-migrate`:
     an external IP, as configured in `pg_hba.conf` on the source
     cluster.
 
-In order to use the **logical replication** method, you'll need the
+To use the **logical replication** method, you'll need the
 following:
 
 -   PostgreSQL® version is 10 or higher.
@@ -60,11 +59,11 @@ following:
     avn service create --project PROJECT_NAME -t pg -p DEST_PG_PLAN DEST_PG_NAME
     ```
 
-2.  Enable the `aiven_extras` extension in the Aiven for PostgreSQL®
+1.  Enable the `aiven_extras` extension in the Aiven for PostgreSQL®
     target database as written in the
     [dedicated document](/docs/products/postgresql/concepts/dba-tasks-pg#aiven_extras_extension).
 
-3.  Set the `wal_level` to `logical` on source database. Check the
+1.  Set the `wal_level` to `logical` on source database. Check the
     following examples for the main managed databases:
 
     -   [Amazon Aurora](/docs/products/postgresql/howto/logical-replication-aws-aurora)
@@ -100,8 +99,8 @@ calls
 ## Perform the migration with `aiven-db-migrate`
 
 :::warning
-Running a logical replication migration twice on the same cluster will
-create duplicate data. Logical replication also has
+Running a logical replication migration twice on the same cluster creates
+duplicate data. Logical replication also has
 [limitations](https://www.postgresql.org/docs/current/logical-replication-restrictions)
 on what it can copy.
 :::
@@ -145,7 +144,7 @@ There may be delay for migration status to update the current progress,
 keep running this command to see the most up-to-date status.
 :::
 
-The output should be similar to the following, which mentions that the
+The output is be similar to the following, which mentions that the
 `pg_dump` migration of the `defaultdb` database is `done` and the
 logical `replication` of the `has_aiven_extras` database is syncing:
 
@@ -205,7 +204,7 @@ The migration process can be stopped with:
 avn service update --project PROJECT_NAME --remove-option migration DEST_PG_NAME
 ```
 
-The above command removes all logical replication-related objects from
+This command removes all logical replication-related objects from
 both source and destination cluster. If using logical replication, the
 process stops it. It has no effect for the `pg_dump` method as it is a
 one-time operation.

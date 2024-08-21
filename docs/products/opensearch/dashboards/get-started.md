@@ -13,12 +13,12 @@ overview page. Use your browser to access the OpenSearch Dashboards service.
 ## Load sample data
 
 OpenSearch Dashboards come with three demonstration datasets included.
-To add sample data follow these steps:
+To add sample data:
 
 1.  On the OpenSearch Dashboards landing page click **Add sample
     data**.
-2.  Choose one of the available datasets and click **Add data**.
-3.  Click **View data** to open the dashboard.
+1.  Choose one of the available datasets and click **Add data**.
+1.  Click **View data** to open the dashboard.
 
 ## Tools and pages
 
@@ -48,8 +48,8 @@ the currently selected date range when running a query.
 visualisations. In order to create a visualization:
 
 1.  Select visualization type to use.
-2.  Choose the source of data.
-3.  Follow the interface to set up metrics and buckets.
+1.  Choose the source of data.
+1.  Follow the interface to set up metrics and buckets.
 
 ### Dashboard
 

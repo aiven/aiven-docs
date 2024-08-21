@@ -2,9 +2,7 @@
 title: Handle low disk space
 ---
 
-OpenSearch® relies on the watermarks to respond to low disk space. Read
-more about each of them
-[in the dedicated article](/docs/products/opensearch/reference/low-space-watermarks).
+OpenSearch® relies on [watermarks](/docs/products/opensearch/reference/low-space-watermarks) to respond to low disk space.
 
 When you're running low on disk space using Aiven for OpenSearch, you
 can take one of these actions:
@@ -12,7 +10,7 @@ can take one of these actions:
 -   Upgrade to a larger plan from with a help of [Aiven
     console](https://console.aiven.io/) or by using [Aiven CLI
     client](https://github.com/aiven/aiven-client).
--   Clean up unnecessary indices. Thus, for logs, it is often beneficial
+-   Clean up unnecessary indices. For logs, it is often beneficial
     to create a separate, daily indices, allowing easy and efficient
     clean-up of the oldest data.
 
@@ -24,7 +22,7 @@ will continue allowing writes. However, if `flood_state watermark` is
 exceeded, **you must manually unset** `read_only_allow_delete` **for
 each affected index**. This can be done by updating index settings:
 
-```
+```bash
 curl https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_settings \
 -X PUT \
 -H 'Content-Type: application/json' \

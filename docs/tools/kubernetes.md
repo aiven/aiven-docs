@@ -16,7 +16,7 @@ of custom resources to manage applications and their components.
 [Kubernetes website](https://kubernetes.io/).
 :::
 
-## Getting started
+## Get started
 
 Take your first steps by configuring the Aiven Operator and deploying a
 PostgreSQL® database.
@@ -32,11 +32,8 @@ We will be installing the operator with [Helm](https://helm.sh/). Follow
 their [official instructions](https://helm.sh/docs/intro/install/) to
 install it if you don't have it already.
 
-You\'ll also need an Aiven account. If you don't have one yet, [sign up
-for
-Aiven](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post)
-(and enjoy a free trial for new accounts). Once you have your account
-set, generate and copy the
+You'll also need an Aiven account. If you don't have one yet, [sign up for free](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post). Once you have your account
+set, generate and note down the
 [token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
 Kubernetes operator with Aiven's API.
 
@@ -184,7 +181,7 @@ has the value `RUNNING`, it is ready to use.
 ### Using the service
 
 Once the service is up and running (you can see your database in the
-Aiven web console as well at this point) let's deploy a pod to test the
+Aiven Console as well at this point) let's deploy a pod to test the
 connection to PostgreSQL from Kubernetes.
 
 Create a file named `pod-psql.yaml` with the content below:
@@ -247,14 +244,9 @@ kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/downl
 
 ## Learn more
 
-Learn more about Kubernetes and the Aiven Operator:
-
--   [Aiven Operator for Kubernetes
-    documentation](https://aiven.github.io/aiven-operator)
--   [Kubernetes
-    Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+- [Aiven Operator for Kubernetes documentation](https://aiven.github.io/aiven-operator)
+- [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 
 ## Get involved
 
-If you have any comments or want to contribute to the tool, join
-us on the [GitHub repository](https://github.com/aiven/aiven-operator).
+If you have any comments or want to contribute to the tool, see our [GitHub repository](https://github.com/aiven/aiven-operator).

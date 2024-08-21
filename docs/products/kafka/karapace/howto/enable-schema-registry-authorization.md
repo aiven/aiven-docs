@@ -2,24 +2,23 @@
 title: Enable Karapace schema registry authorization
 ---
 
-Most Aiven for Apache Kafka® services will automatically have
-[schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization) enabled, and the functionality cannot be disabled or enabled once a service has been created.
+Most Aiven for Apache Kafka® services will automatically have [schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization) enabled, and the functionality cannot be disabled or enabled once a service has been created.
 
 However, some older services may pre-date this
-feature. To enable or disable this functionality on older services,
-follow these steps:
+feature. To enable or disable this functionality on older services:
 
 1.  To enable schema registry authorization for a service, replace the
     `SERVICE_NAME` placeholder with the name of the Aiven for Apache
     Kafka® service in the Aiven CLI:
-    ```
+
+    ```bash
     avn service update --enable-schema-registry-authorization SERVICE_NAME
     ```
 
-2.  You can similarly disable the Karapace schema registry authorization
+1.  You can similarly disable the Karapace schema registry authorization
     using:
 
-    ``` 
+    ```bash
     avn service update --disable-schema-registry-authorization SERVICE_NAME
     ```
 

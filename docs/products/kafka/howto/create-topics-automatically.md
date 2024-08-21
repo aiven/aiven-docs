@@ -38,8 +38,7 @@ new topics will have tiered storage enabled by default.
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
 
-To enable automatic topic creation through the Aiven Console, follow
-these steps:
+To enable automatic topic creation through the Aiven Console:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), select your
    project, and choose your Aiven for Apache Kafka® service.

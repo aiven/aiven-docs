@@ -18,7 +18,6 @@ scenario, you want your consumers and producers to be able to switch
 with minimal downtime and without needing to modify the topic names in
 their configuration.
 
-
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 In the [Aiven console](https://console.aiven.io/), modify the flow details in the
@@ -43,7 +42,7 @@ avn MirrorMaker replication-flow update <MIRRORMAKER_SERVICE_NAME> \
     "{\"replication_policy_class\": \"org.apache.kafka.connect.mirror.IdentityReplicationPolicy\"}"
 ```
 
-In case you need to revert the policy and include the source cluster
+To revert the policy and include the source cluster
 alias as topic prefix, execute the above command passing the
 `org.apache.kafka.connect.mirror.DefaultReplicationPolicy` value.
 

@@ -2,22 +2,17 @@
 title: Read and pull data from S3 object storages and web resources over HTTP
 ---
 
-With federated queries in Aiven for ClickHouse®, you can read and pull
-data from an external S3-compatible object storage or any web resource
-accessible over HTTP. Learn more about capabilities and applications of
+With federated queries in Aiven for ClickHouse®, you can read and pull data from an external S3-compatible object storage or any web resource accessible over HTTP.
+Learn more about capabilities and applications of
 federated queries in
 [About querying external data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/federated-queries).
-
-This article shows how to run federated queries in Aiven for ClickHouse.
-It provides multiple examples of querying external resources using the
-SELECT and INSERT statements and the S3 and the URL functions.
 
 ## About running federated queries
 
 Federated queries are written using specific SQL statements and can be
 run from CLI, for instance. To run a federated query, just send a query
 over an external S3-compatible object storage including relevant S3
-bucket details. A properly-constructed federated query returns a
+bucket details. A properly constructed federated query returns a
 specific output.
 
 ## Before you start
@@ -39,15 +34,13 @@ WITH GRANT OPTION allows the user to further transfer the privileges.
 ### Limitations
 
 -   Federated queries in Aiven for ClickHouse only support S3-compatible
-    object storage providers for the time being. More external data
-    sources coming soon!
+    object storage providers for the time being.
 -   Virtual tables are only supported for URL sources, using the URL
-    table engine. Stay tuned for us supporting the S3 table engine in
-    the future!
+    table engine.
 
 ## Run a federated query
 
-Check out some examples of running federated queries to read and pull
+See some examples of running federated queries to read and pull
 data from external S3-compatible object storages.
 
 ### Query using SELECT and the S3 function
