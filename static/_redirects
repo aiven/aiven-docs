@@ -13,11 +13,12 @@
 /category/reference                              https://aiven.io/docs/get-started
 /category/reference-1                            https://aiven.io/docs/get-started
 /category/reference-2                            https://aiven.io/docs/get-started
-/category/topic-and-schema-management                  https://aiven.io/docs/products/kafka/concepts/governance-overview
+/category/topic-and-schema-management            https://aiven.io/docs/products/kafka/concepts/governance-overview
 /category/user-access                            https://aiven.io/docs/platform/howto/manage-org-users
 /community/documentation/tips-tricks/renaming-files    https://aiven.io/docs
 /docs/platform/concepts/projects_accounts_access.html  https://aiven.io/docs/platform/howto/manage-org-users
 /integrations                                          https://aiven.io/docs/platform/concepts/service-integration
+/integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
@@ -25,6 +26,7 @@
 /platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
 /platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/howto/manage-project
+/platform/concepts/service-scaling                     https://aiven.io/docs/platform/howto/scale-services
 /platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/access-service-logs                    https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
@@ -40,6 +42,8 @@
 /platform/howto/list-account                           https://aiven.io/docs/platform/howto/list-user
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
+/platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
+/platform/howto/list-user                              https://aiven.io/docs/platform/howto/manage-org-users
 /platform/howto/metrics-integrations                   https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/migrate-services                       https://aiven.io/docs/products/postgresql/howto/list-replication-migration
 /platform/howto/monitoring-services                    https://aiven.io/docs/platform/howto/list-monitoring
@@ -62,10 +66,16 @@
 /platform/howto/service-metrics                        https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
 /platform/howto/update-tax-status                      https://aiven.io/docs/tax-information
+/platform/ip-addresses                                 https://aiven.io/docs/platform/reference/service-ip-address
+/platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
+/platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
-/products/caching/howto/migrate-aiven-redis.html           https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
-/products/cassandra/howto/list-get-started               https://aiven.io/docs/products/cassandra/get-started
-/products/cassandra/overview                             https://aiven.io/docs/products/cassandra
+/products/caching/howto/migrate-aiven-redis.html       https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
+/products/cassandra/concepts                           https://aiven.io/docs/products/cassandra/concepts/tombstones
+/products/cassandra/howto                              https://aiven.io/docs/products/cassandra/howto/use-dsbulk-with-cassandra
+/products/cassandra/howto/list-get-started             https://aiven.io/docs/products/cassandra/get-started
+/products/cassandra/overview                           https://aiven.io/docs/products/cassandra
+/products/cassandra/reference                          https://aiven.io/docs/products/cassandra/reference/advanced-params
 /products/clickhouse/concepts/features-overview          https://aiven.io/docs/products/clickhouse
 /products/clickhouse/howto/list-get-started              https://aiven.io/docs/products/clickhouse/get-started
 /products/clickhouse/howto/load-dataset                  https://aiven.io/docs/products/clickhouse/get-started#load-a-dataset
@@ -130,3 +140,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                               https://aiven.io/developer
 /valkey                                                    https://aiven.io/docs/products/valkey
+/products/flink/concepts                                   https://aiven.io/docs/products/flink/concepts/flink-architecture
+/products/flink/howto                                      https://aiven.io/docs/products/flink/howto/create-integration
+/products/flink/reference                                  https://aiven.io/docs/products/flink/reference/advanced-params
