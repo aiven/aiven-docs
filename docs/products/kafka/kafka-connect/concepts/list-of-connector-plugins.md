@@ -3,7 +3,7 @@ title: Available Apache Kafka® Connect connectors
 sidebar_label: Available connectors
 ---
 
-The following connectors can be used in any Aiven for Apache Kafka® services with Apache Kafka Connect enabled.
+Discover a variety of connectors available for use with any Aiven for Apache Kafka® service with [Apache Kafka® Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect).
 
 ## Source connectors
 
