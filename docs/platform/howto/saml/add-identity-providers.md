@@ -1,14 +1,12 @@
 ---
-title: Add identity providers
+title: Add SAML identity providers
+sidebar_label: Add identity providers
 keywords: [SAML, SSO]
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-You can give your organization users access to Aiven through an identity
-provider (IdP).
-
-To set up single sign-on through an IdP for your organization:
+You can give your organization users access to Aiven through a SAML identity provider (IdP).
 
 ## Step 1. Add the IdP in the Aiven Console {#add-idp-aiven-console}
 
@@ -33,10 +31,11 @@ specific providers:
 
 -   [Auth0](/docs/platform/howto/saml/add-auth0-idp#configure-saml-auth0)
 -   [FusionAuth](/docs/platform/howto/saml/add-fusionauth-idp#configure-saml-fusionauth)
+-   [Google](/docs/platform/howto/saml/add-google-idp#configure-saml-google)
+-   [JumpCloud](/docs/platform/howto/saml/add-jumpcloud-idp)
 -   [Microsoft Azure Active Directory](/docs/platform/howto/saml/add-azure-idp#configure-saml-azure)
 -   [Okta](/docs/platform/howto/saml/add-okta-idp#configure-saml-okta)
 -   [OneLogin](/docs/platform/howto/saml/add-onelogin-idp#configure-saml-onelogin)
--   [Google](/docs/platform/howto/saml/add-google-idp#configure-saml-google)
 
 If your provider isn't listed, contact the support team at
 [support@aiven.io](mailto:support@aiven.io) for help with the configuration.

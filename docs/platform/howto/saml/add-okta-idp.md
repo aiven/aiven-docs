@@ -1,5 +1,6 @@
 ---
 title: Add Okta as an identity provider
+sidebar_label: Okta
 keywords: [SAML, SSO]
 ---
 
@@ -15,7 +16,7 @@ For more information on the listed features, visit the
 
 ## Prerequisite steps in Aiven Console
 
-Add Okta as an
+Add Okta as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console).
 
 ## Configure SAML on Okta {#configure-saml-okta}

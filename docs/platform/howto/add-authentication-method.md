@@ -2,8 +2,7 @@
 title: Add authentication methods
 ---
 
-You can authenticate directly with your email and password, or use
-single sign-on through providers like GitHub, Google, and Microsoft.
+You can authenticate directly with your email and password, or use single sign-on through providers like GitHub, Google, and Microsoft.
 
 To add an authentication method for your user account in the [Aiven
 Console](https://console.aiven.io/):
