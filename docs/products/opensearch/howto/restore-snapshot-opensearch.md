@@ -30,9 +30,9 @@ Before you begin, ensure that:
 
 ### Gather required parameters
 
-Before registering the snapshot repository, gather the following information:
+Gather these details before registering the snapshot repository:
 
-- `API_TOKEN`: Your Aiven API token for authentication.
+- `API_TOKEN`: Your [Aiven token](/docs/platform/concepts/authentication-tokens).
 - `PROJECT_NAME`: Name of your Aiven project.
 - `SERVICE_NAME`: Name of your Aiven for OpenSearch service.
 
