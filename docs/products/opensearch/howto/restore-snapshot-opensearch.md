@@ -28,7 +28,7 @@ Before you begin, ensure that:
   compatible with your target service.
 - The feature flag is enabled for your project, allowing external migrations.
 
-### Gather the required parameters
+### Gather required parameters
 
 Before registering the snapshot repository, gather the following information:
 
@@ -83,7 +83,7 @@ Information specific to cloud providers:
   - `server_side_encryption`, `compress`, `chunk_size`: (Optional) Settings
     for encryption, compression, and file chunking.
 
-## Step 1: Register the snapshot repository
+## Register the snapshot repository
 
 To begin the restoration process, register the snapshot repository with your
 Aiven for OpenSearch service. This step involves configuring your service to recognize
@@ -249,7 +249,7 @@ avn service update \
 </TabItem>
 </Tabs>
 
-## Step 2: Restore the snapshot
+## Restore the snapshot
 
 After registering the snapshot repository, restore the snapshot to your Aiven for
 OpenSearch service. This process migrates the data from the repository into your
@@ -285,7 +285,7 @@ avn service elasticsearch-restore-snapshot \
 </TabItem>
 </Tabs>
 
-## Step 3: Monitor the restoration
+## Monitor the restoration process
 
 Monitor the progress of the snapshot restoration to ensure that everything is
 proceeding as expected.
@@ -314,7 +314,7 @@ avn service elasticsearch-check-restore-status \
 </TabItem>
 </Tabs>
 
-## Step 4: Verify the restoration
+## Verify the restoration
 
 Ensure your data has been restored successfully by listing the indices.
 
@@ -338,7 +338,7 @@ avn service elasticsearch-list-indices \
 </TabItem>
 </Tabs>
 
-## Step 5: Complete the restoration
+## Complete the restoration
 
 After the restoration process is complete, clean up resources by deleting the snapshot
 repository.
@@ -375,7 +375,7 @@ OpenSearch automatically resumes regular backup operations.
 ## Error handling
 
 - **Validation errors**: Ensure that inputs like `snapshot_name`, `base_path`, and URLs
-  are properly formatted. Refer to the API documentation for detailed validation rules.
+  are properly formatted.
 - **Common issues**: Address common errors such as missing credentials, incorrect paths,
   or unsupported snapshot versions.
 
