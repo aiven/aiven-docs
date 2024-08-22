@@ -12,7 +12,7 @@ To sink data from Apache Kafka® to Snowflake via the dedicated connector:
 
 ## Configure a Snowflake key pair authentication
 
-The Apache Kafka BigQuery sink connector requires a key pair
+The Snowflake sink connector requires a key pair
 authentication with a minimum 2048-bit RSA. Generate the key
 pair locally and [upload the public key to Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth#configuring-key-pair-authentication):
 
