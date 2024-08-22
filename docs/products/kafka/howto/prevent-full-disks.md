@@ -126,7 +126,7 @@ few minutes to remove the associated data files from the disk. Once complete, th
 access control list (ACL) updates to allow write operations.
 
 :::note
-[Admin](docs/platform/reference/project-member-privileges) access is required to
+[Admin](/docs/platform/reference/project-member-privileges) access is required to
 perform this action.
 :::
 
