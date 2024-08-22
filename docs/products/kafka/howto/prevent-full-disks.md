@@ -9,7 +9,7 @@ The Aiven platform actively monitors the available disk space, and if the usage
 exceeds 90%, you will be notified.
 
 If any node in the service surpasses the critical threshold of disk
-usage (more than 97%), the access control list (ACL) used to authorize
+usage (more than 95%), the access control list (ACL) used to authorize
 API requests by Apache Kafka clients will be updated on all nodes. This
 update will prevent operations that can further increase disk usage,
 including:
