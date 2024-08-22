@@ -512,10 +512,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1163,10 +1159,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/concepts',
-              },
               items: [
                 'products/clickhouse/concepts/service-architecture',
                 'products/clickhouse/reference/limitations',
@@ -1183,10 +1175,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1207,10 +1195,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Manage service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/clickhouse/howto/list-manage-service',
-                  },
                   items: [
                     'products/clickhouse/howto/secure-service',
                     'products/clickhouse/howto/manage-users-roles',
@@ -1262,10 +1246,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/reference',
-              },
               items: [
                 'products/clickhouse/reference/supported-table-engines',
                 'products/clickhouse/reference/supported-interfaces-drivers',
@@ -1293,10 +1273,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1315,10 +1291,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/dragonfly/howto/list-migrate-data',
-                  },
                   items: [
                     'products/dragonfly/howto/migrate-aiven-caching-df-console',
                     'products/dragonfly/howto/migrate-ext-redis-df-console',
@@ -1331,10 +1303,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/reference',
-              },
               items: ['products/dragonfly/reference/advanced-params'],
             },
           ],
@@ -1514,10 +1482,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/concepts',
-              },
               items: [
                 'products/mysql/concepts/max-number-of-connections',
                 'products/mysql/concepts/mysql-backups',
@@ -1531,10 +1495,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1592,10 +1552,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/reference',
-              },
               items: [
                 'products/mysql/reference/advanced-params',
                 'products/mysql/reference/resource-capability',
@@ -1617,10 +1573,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'generated-index',
-                slug: 'products/opensearch/concepts',
-              },
               items: [
                 {
                   type: 'category',
@@ -1811,10 +1763,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/postgresql/concepts',
-              },
               items: [
                 'products/postgresql/concepts/aiven-db-migrate',
                 'products/postgresql/concepts/dba-tasks-pg',
@@ -1831,11 +1779,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/postgresql/howto',
-              },
-
               items: [
                 'products/postgresql/howto/pagila',
                 {
@@ -1863,10 +1806,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administer database',
-                  link: {
-                    id: 'products/postgresql/howto/list-dba-tasks',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/create-database',
                     'products/postgresql/howto/upgrade',
@@ -1894,10 +1833,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Migrate',
-                  link: {
-                    id: 'products/postgresql/howto/list-replication-migration',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/migrate-cloud-region',
                     'products/postgresql/howto/migrate-db-to-aiven-via-console',
@@ -1910,10 +1845,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Replicate',
-                  link: {
-                    id: 'products/postgresql/howto/list-replication',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/create-read-replica',
                     'products/postgresql/howto/setup-logical-replication',
@@ -1926,10 +1857,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrate',
-                  link: {
-                    id: 'products/postgresql/howto/list-integrations',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/monitor-database-with-datadog',
                     'products/postgresql/howto/visualize-grafana',
@@ -1944,10 +1871,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {
-                id: 'products/postgresql/troubleshooting',
-                type: 'doc',
-              },
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
@@ -1956,7 +1879,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {id: 'products/postgresql/reference', type: 'doc'},
               items: [
                 'products/postgresql/reference/advanced-params',
                 'products/postgresql/reference/pg-connection-limits',
