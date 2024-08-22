@@ -330,6 +330,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit topic </b>
         </>
       );
+    case 'deletetopic':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete topic</b>
+        </>
+      );
     case 'edit':
       return (
         <>
