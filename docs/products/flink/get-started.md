@@ -74,7 +74,7 @@ various services. Currently, it supports integration with:
 1. Click **Integrate**.
 
 :::tip
-For detailed integration steps with specific services, see the [Integrate service](/docs/products/flink/howto/list-integrations).
+For detailed integration steps with specific services, see the [Integrate service](/docs/products/flink/howto/create-integration).
 :::
 
 </TabItem>

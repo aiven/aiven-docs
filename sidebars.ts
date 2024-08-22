@@ -602,10 +602,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrate service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/list-integrations',
-                  },
                   items: [
                     'products/flink/howto/create-integration',
                     'products/flink/howto/ext-kafka-flink-integration',
@@ -630,18 +626,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Apache Flink tables',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/list-flink-tables',
-                  },
                   items: [
                     {
                       type: 'category',
                       label: 'Create tables with data source',
-                      link: {
-                        id: 'products/flink/howto/list-flink-table-integrations',
-                        type: 'doc',
-                      },
                       items: [
                         'products/flink/howto/connect-kafka',
                         'products/flink/howto/flink-confluent-avro',
@@ -660,10 +648,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Advanced topics',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/advanced-topics',
-                  },
                   items: ['products/flink/howto/timestamps_opensearch'],
                 },
               ],
@@ -727,10 +711,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'generated-index',
-                slug: 'products/kafka/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -750,10 +730,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Tools',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-tools',
-                  },
                   items: [
                     'products/kafka/howto/kafka-tools-config-file',
                     'products/kafka/howto/kcat',
@@ -768,10 +744,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Security',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-security',
-                  },
                   items: [
                     'products/kafka/howto/keystore-truststore',
                     'products/kafka/howto/manage-acls',
@@ -785,12 +757,7 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administrative tasks',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-admin',
-                  },
                   items: [
-                    'products/kafka/howto/list-schema-registry',
                     'products/kafka/howto/enable-karapace',
                     'products/kafka/howto/best-practices',
                     'products/kafka/howto/configure-with-kafka-cli',
@@ -809,10 +776,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrations',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-integration',
-                  },
                   items: [
                     'products/kafka/howto/integrate-service-logs-into-kafka-topic',
                     'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
@@ -826,10 +789,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Topic and schema management',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-topic-management',
-                  },
                   items: [
                     'products/kafka/howto/create-topic',
                     'products/kafka/howto/create-topics-automatically',
@@ -889,10 +848,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/kafka/reference',
-              },
               items: [
                 'products/kafka/reference/advanced-params',
                 'products/kafka/reference/kafka-metrics-prometheus',
@@ -901,10 +856,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {
-                type: 'generated-index',
-                title: 'Kafka troubleshooting',
-              },
               items: [
                 'products/kafka/troubleshooting/troubleshoot-consumer-disconnections',
               ],
@@ -921,10 +872,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-connect/concepts',
-                  },
                   items: [
                     'products/kafka/kafka-connect/concepts/list-of-connector-plugins',
                     'products/kafka/kafka-connect/concepts/jdbc-source-modes',
@@ -934,18 +881,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-connect/howto',
-                  },
                   items: [
                     {
                       type: 'category',
                       label: 'Administration tasks',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/kafka-connect/howto/list-admin',
-                      },
                       items: [
                         'products/kafka/kafka-connect/howto/best-practices',
                         'products/kafka/kafka-connect/howto/bring-your-own-kafka-connect-cluster',
@@ -958,7 +897,6 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'category',
                       label: 'Source connectors',
-
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
@@ -1014,10 +952,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Reference',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-connect/reference',
-                  },
                   items: [
                     'products/kafka/kafka-connect/reference/advanced-params',
                     {
@@ -1050,10 +984,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-mirrormaker/concepts',
-                  },
                   items: [
                     {
                       type: 'category',
@@ -1074,10 +1004,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-mirrormaker/howto',
-                  },
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
@@ -1088,10 +1014,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Reference',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-mirrormaker/reference',
-                  },
                   items: [
                     'products/kafka/kafka-mirrormaker/reference/advanced-params',
                     'products/kafka/kafka-mirrormaker/reference/known-issues',
@@ -1112,10 +1034,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/karapace/concepts',
-                  },
                   items: [
                     'products/kafka/karapace/concepts/schema-registry-authorization',
                     'products/kafka/karapace/concepts/acl-definition',
@@ -1125,10 +1043,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/karapace/howto',
-                  },
                   items: [
                     'products/kafka/karapace/howto/enable-karapace',
                     'products/kafka/karapace/howto/enable-schema-registry-authorization',
