@@ -81,10 +81,10 @@ Free up disk space by deleting topics:
 1. In the [Aiven Console](https://console.aiven.io/), select your
    project and choose your Aiven for Apache Kafka® service.
 1. On the sidebar, click <ConsoleLabel name="topics" />.
-1. To delete an existing topic, click the topic to remove, then either:
+1. To delete an existing topic, click the topic to remove.
 
    - In the **Topic info** screen, click **Delete** and confirm the deletion.
-   - Alternatively, in the topic row, click the `<ConsoleLabel name="actions"/>` > `<ConsoleLabel name="Delete topic"/>`.
+   - Alternatively, in the topic row, click the <ConsoleLabel name="actions"/> > <ConsoleLabel name="Delete topic"/>.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
