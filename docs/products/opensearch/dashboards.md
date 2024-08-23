@@ -30,8 +30,6 @@ to run DSL and SQL queries.
     [https://opensearch.org/docs/latest/dashboards/dql/](https://opensearch.org/docs/latest/dashboards/dql/)
 -   How to create reports
     [https://opensearch.org/docs/latest/dashboards/reporting/](https://opensearch.org/docs/latest/dashboards/reporting/)
--   Other
-    [helpful resources](/docs/products/opensearch/dashboards/howto)
 
 <div class="trademark">
 <Kibana/>
