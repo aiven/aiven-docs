@@ -36,6 +36,7 @@
 /platform/howto/change-support-tier                    https://aiven.io/docs/platform/howto/support
 /platform/howto/cleanup-powered-off-services           https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/console-fork-service                   https://aiven.io/docs/platform/concepts/service-forking
+/platform/howto/create-billing-groups                  https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/download-ca-cert                       https://aiven.io/docs/platform/concepts/tls-ssl-certificates
 /platform/howto/enable-aiven-password                  https://aiven.io/docs/platform/reference/password-policy
 /platform/howto/list-account                           https://aiven.io/docs/platform/concepts/projects_accounts_access
