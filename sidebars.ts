@@ -1064,10 +1064,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'generated-index',
-                slug: 'products/caching/concepts',
-              },
               items: [
                 'products/caching/concepts/high-availability-redis',
                 'products/caching/concepts/lua-scripts-caching',
@@ -1078,7 +1074,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {type: 'generated-index', slug: 'products/caching/howto'},
               items: [
                 {
                   type: 'category',
@@ -1099,19 +1094,11 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administer database',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/list-dba-tasks',
-                  },
                   items: ['products/caching/howto/configure-acl-permissions'],
                 },
                 {
                   type: 'category',
                   label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/migrate-redis-db',
-                  },
                   items: [
                     'products/caching/howto/migrate-redis-aiven-cli',
                     'products/caching/howto/migrate-redis-aiven-via-console',
@@ -1126,20 +1113,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/caching/reference',
-              },
               items: ['products/caching/reference/advanced-params'],
             },
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {
-                type: 'generated-index',
-                title: 'Troubleshooting',
-                slug: 'products/caching/troubleshooting',
-              },
               items: [
                 'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
               ],
@@ -1320,18 +1298,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/howto',
-              },
               items: [
                 {
                   type: 'category',
                   label: 'User access',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/grafana/user-access',
-                  },
                   items: [
                     'products/grafana/howto/log-in',
                     'products/grafana/howto/rotating-grafana-service-credentials',
@@ -1341,10 +1311,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Manage dashboards',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/grafana/howto/list-manage-dashboards',
-                  },
                   items: [
                     'products/grafana/howto/dashboard-previews',
                     'products/grafana/howto/replace-expression-string',
@@ -1358,10 +1324,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/reference',
-              },
               items: [
                 'products/grafana/reference/advanced-params',
                 'products/grafana/reference/plugins',
@@ -1381,10 +1343,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/m3db/concepts',
-              },
               items: [
                 'products/m3db/concepts/m3-components',
                 'products/m3db/concepts/namespaces-aggregation',
@@ -1436,10 +1394,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/metrics/concepts',
-              },
               items: [
                 'products/metrics/concepts/storage-resource-scaling',
                 'products/metrics/concepts/retention-rules',
@@ -1448,19 +1402,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/metrics/howto',
-              },
               items: [
                 'products/metrics/howto/storage-usage',
                 {
                   type: 'category',
                   label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/metrics/howto/list-data-migration',
-                  },
                   items: [
                     'products/metrics/howto/migrate-influxdb-thanos',
                     'products/metrics/howto/migrate-m3db-thanos',
@@ -1607,18 +1553,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/howto',
-              },
               items: [
                 {
                   type: 'category',
                   label: 'Manage access control',
-                  link: {
-                    id: 'products/opensearch/howto/list-access-control',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/control_access_to_content',
                   ],
@@ -1639,10 +1577,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Data management',
-                  link: {
-                    id: 'products/opensearch/howto/list-data-management',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
@@ -1713,10 +1647,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/opensearch/reference',
-              },
               items: [
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/advanced-params',
