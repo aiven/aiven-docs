@@ -40,6 +40,7 @@
 /platform/howto/enable-aiven-password                  https://aiven.io/docs/platform/reference/password-policy
 /platform/howto/list-account                           https://aiven.io/docs/platform/concepts/projects_accounts_access
 /platform/howto/list-account                           https://aiven.io/docs/platform/howto/list-user
+/platform/howto/list-backup-to-another-region          https://aiven.io/docs/platform/concepts/backup-to-another-region
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
