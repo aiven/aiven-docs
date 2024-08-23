@@ -1667,10 +1667,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/dashboards/howto',
-                  },
                   items: [
                     'products/opensearch/dashboards/howto/dev-tools-usage-example',
                     'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
@@ -1850,10 +1846,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/valkey/reference',
-              },
               items: ['products/valkey/reference/advanced-params'],
             },
           ],

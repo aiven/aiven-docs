@@ -69,13 +69,13 @@
 /platform/ip-addresses                                 https://aiven.io/docs/platform/reference/service-ip-address
 /platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
 /platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
-/products/caching/concepts                                             https://aiven.io/docs/docs/products/caching/concepts/high-availability-redis
+/products/caching/concepts                             https://aiven.io/docs/docs/products/caching/concepts/high-availability-redis
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
-/products/caching/howto                                                https://aiven.io/docs/products/caching/howto/list-code-samples
+/products/caching/howto                                https://aiven.io/docs/products/caching/howto/list-code-samples
 /products/caching/howto/migrate-aiven-redis.html       https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
-/products/caching/howto/migrate-redis-db                               https://aiven.io/docs/products/caching/howto/configure-acl-permissions
-/products/caching/reference                                            https://aiven.io/docs/products/caching/reference/advanced-params
-/products/caching/troubleshooting        https://aiven.io/docs/products/caching/troubleshooting/troubleshoot-redis-connection-issues
+/products/caching/howto/migrate-redis-db               https://aiven.io/docs/products/caching/howto/configure-acl-permissions
+/products/caching/reference                            https://aiven.io/docs/products/caching/reference/advanced-params
+/products/caching/troubleshooting                      https://aiven.io/docs/products/caching/troubleshooting/troubleshoot-redis-connection-issues
 /products/cassandra/concepts                           https://aiven.io/docs/products/cassandra/concepts/tombstones
 /products/cassandra/howto                              https://aiven.io/docs/products/cassandra/howto/list-code-samples
 /products/cassandra/howto/list-get-started             https://aiven.io/docs/products/cassandra/get-started
@@ -150,6 +150,8 @@
 /products/mysql/reference/list-of-advanced-params          https://aiven.io/docs/products/mysql/reference/advanced-params
 /products/opensearch/concepts                              https://aiven.io/docs/products/opensearch/concepts/access_control
 /products/opensearch/concepts/service-overview             https://aiven.io/docs/products/opensearch
+/products/opensearch/dashboards/howto                                  https://aiven.io/docs/products/opensearch/dashboards/howto/dev-tools-usage-example
+/products/opensearch/dashboards/howto                      https://aiven.io/docs/products/opensearch/dashboards/howto/dev-tools-usage-example
 /products/opensearch/howto                                 https://aiven.io/docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-access-control             https://aiven.io/docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-data-management            https://aiven.io/docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
@@ -172,6 +174,7 @@
 /products/redis                                            https://aiven.io/docs/products/caching
 /products/redis/*                                          https://aiven.io/docs/products/caching/:splat
 /products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
+/products/valkey/reference                                 https://aiven.io/docs/products/valkey/reference/advanced-params
 /tools/aiven-console/howto/create-accounts                 https://aiven.io/docs/platform/howto/manage-org-users
 /tools/aiven-console/howto/create-accounts.html            https://aiven.io/docs/platform/concepts/projects_accounts_access
 /tools/cli/account                                         https://aiven.io/docs/tools/cli
