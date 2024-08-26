@@ -79,12 +79,17 @@ Information specific to cloud providers:
   - `server_side_encryption`, `compress`, `chunk_size`: (Optional) Settings
     for encryption, compression, and file chunking.
 
-
 ## Configure snapshot migration settings
 
 To start the migration, configure the `user-config` object in your
 Aiven for OpenSearch service. The migration process begins automatically once
 these settings are applied.
+
+:::warning
+Aiven for OpenSearch allows only one migration to progress at a time. Ensure the current
+migration is complete before starting a new one, as initiating another migration can
+disrupt the ongoing process and cause interruptions.
+:::
 
 ### Amazon S3
 
