@@ -15,7 +15,7 @@ pricing](https://aiven.io/pricing?product=flink&tab=plan-pricing).
 
 Aiven for Apache Flink is packaged into two tiers, each including a
 range of plans to suit the size of your workloads and currently
-available on AWS, GCP, and Microsoft Azure cloud environments. All
+available on AWS, Google Cloud, and Microsoft Azure cloud environments. All
 services and infrastructure are single-tenant and dedicated solely to a
 single customer, which ensures a high level of security and isolation
 for your data.

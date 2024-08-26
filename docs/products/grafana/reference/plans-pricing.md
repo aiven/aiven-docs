@@ -3,7 +3,7 @@ title: Aiven for Grafana® service plans
 sidebar_label: Service plans
 ---
 
-Aiven for Grafana is currently available in Startup and custom plans that can be deployed across multiple cloud platforms such as AWS, GCP, Microsoft Azure, Digital Ocean, and UpCloud environments.
+Aiven for Grafana is currently available in Startup and custom plans that can be deployed across multiple cloud platforms such as AWS, Google Cloud, Microsoft Azure, Digital Ocean, and UpCloud environments.
 With all services and infrastructure being single-tenant, you can be assured of
 dedicated resources exclusively for your use, ensuring maximum security
 and data isolation.

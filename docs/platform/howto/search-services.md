@@ -88,7 +88,7 @@ To filter the services by the cloud provider they are hosted on, use these filte
 | Amazon Web Services (AWS)   | `aws`        |
 | Azure                       | `azure`      |
 | Digital Ocean               | `do`         |
-| Google Cloud Provider (GCP) | `google`     |
+| Google Cloud                | `google`     |
 | UpCloud                     | `upcloud`    |
 
 ### Filter by cloud region

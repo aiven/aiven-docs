@@ -1,7 +1,6 @@
 ---
 title: Create a custom cloud
 sidebar_label: Create custom clouds
-keywords: [AWS, Amazon Web Services, Microsoft Azure, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud, OCI, Oracle Cloud Infrastructure]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -43,12 +42,12 @@ resources, and manage them onward. Finally, you select projects that can
 use your new custom clouds for creating services, and you add customer
 contacts for your custom cloud.
 </TabItem>
-<TabItem value="2" label="GCP">
-You create and configure a custom cloud via CLI, and you prepare your remote GCP account so
+<TabItem value="2" label="Google Cloud">
+You create and configure a custom cloud via CLI, and you prepare your remote Google Cloud account so
 that Aiven can access it. Using the Aiven CLI, you generate an infrastructure-as-code
 (IaC) template in the Terraform format. You download the template and deploy it in your
-remote GCP cloud account to generate a privilege-bearing service account (SA), which Aiven
-needs for accessing your GCP account only with permissions that are required.
+remote Google Cloud cloud account to generate a privilege-bearing service account (SA), which Aiven
+needs for accessing your Google Cloud account only with permissions that are required.
 
 :::note
 Privilege-bearing service account (SA) is an
@@ -86,7 +85,7 @@ you informed on the progress.
     :::
 
 -   You can create custom clouds yourself (via the BYOC self-service) if your cloud
-    provider is AWS (in the [Aiven Console](https://console.aiven.io/)) or GCP (via [Aiven
+    provider is AWS (in the [Aiven Console](https://console.aiven.io/)) or Google Cloud (via [Aiven
     CLI client](/docs/tools/cli/byoc)).
     For Azure & OCI, [request creating a custom cloud](/docs/platform/howto/byoc/enable-byoc)
     from the Aiven team.
@@ -106,7 +105,7 @@ you informed on the progress.
 -   You have Terraform installed.
 -   You have required [IAM permissions](#iam-permissions)
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Google Cloud">
 -   You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 -   You have an active account with your cloud provider.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
@@ -480,7 +479,7 @@ Show permissions required for creating resources for bastion and workload networ
 
 </details>
 </TabItem>
-<TabItem value="2" label="GCP permissions">
+<TabItem value="2" label="Google Cloud permissions">
 <details><summary>
 Show permissions needed by your service account that will run the Terraform script in your
 Google project
@@ -713,7 +712,7 @@ Your new custom cloud is ready to use only after its status changes to
 **Active**.
 :::
 </TabItem>
-<TabItem value="2" label="GCP">
+<TabItem value="2" label="Google Cloud">
 
 1. Generate an IaC template by running [avn byoc create](/docs/tools/cli/byoc#avn-byoc-create).
 
@@ -783,7 +782,7 @@ Your new custom cloud is ready to use only after its status changes to
         To connect to a custom-cloud service from different security groups
         (other than the one dedicated for the custom cloud) or from IP
         address ranges, add specific ingress rules before you apply a
-        Terraform infrastructure template in your GCP account in the process
+        Terraform infrastructure template in your Google Cloud account in the process
         of creating a custom cloud resources.
 
         Before adding ingress rules, see the examples provided in the
@@ -792,7 +791,7 @@ Your new custom cloud is ready to use only after its status changes to
         :::
 
     1. Use Terraform to deploy the infrastructure template with the provided variables in
-      your GCP account. This will generate a privilege-bearing service account (SA).
+      your Google Cloud account. This will generate a privilege-bearing service account (SA).
 
        :::important
        When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.vars`

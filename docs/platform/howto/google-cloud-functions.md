@@ -5,18 +5,18 @@ title: Access Aiven services from Google Cloud Functions via VPC peering
 You can access Aiven service by creating a **Serverless VPC access connector** and **Google Cloud Function**.
 
 By default, **Google Cloud Functions** can only access the Internet and is not
-able to access your GCP VPC or Aiven VPC.
+able to access your Google Cloud VPC or Aiven VPC.
 
 For **Google Cloud Functions** to access VPC, **Serverless VPC access
 connector** is required. **Serverless VPC access connector** consists of two or
 more Google-managed VM that forward requests (and perform NAT) from Cloud
-Functions to your GCP VPC and Aiven VPC.
+Functions to your Google Cloud VPC and Aiven VPC.
 
 ```mermaid
 
 graph LR;
 
-  GCF(Google Cloud Function) --TCP session--> Conn(Serverless VPC access connector) --TCP session--> VPC(Your GCP VPC and Aiven VPC)
+  GCF(Google Cloud Function) --TCP session--> Conn(Serverless VPC access connector) --TCP session--> VPC(Your Google Cloud VPC and Aiven VPC)
 ```
 
 ## Prerequisites
@@ -24,18 +24,18 @@ graph LR;
 You have:
 
 - Created a [VPC on the Aiven platform](/docs/platform/howto/manage-vpc-peering).
-- Set up [VPC peering on GCP](/docs/platform/howto/manage-vpc-peering).
+- Set up [VPC peering on Google Cloud](/docs/platform/howto/manage-vpc-peering).
 
 ## Create a Serverless VPC access connector
 
-1.  Open GCP console and go to **Navigation menu** > **Networking** > **VPC network** and select
+1.  Open Google Cloud console and go to **Navigation menu** > **Networking** > **VPC network** and select
     [Serverless VPC access](https://console.cloud.google.com/networking/connectors/list).
 
 1.  Click **Create connector**:
 
     -   **Name**: The connector name of your choice.
     -   **Region**: The region where to create the Cloud Function.
-    -   **Network**: Your GCP VPC, which is already peered to Aiven VPC already.
+    -   **Network**: Your Google Cloud VPC, which is already peered to Aiven VPC already.
     -   **Subnet**: Select **custom IP range** and enter a **/28** private
         subnet that is not in use.
 
@@ -45,7 +45,7 @@ You have:
 
 ## Create a Cloud Function
 
-1.  Open GCP console and under **Navigation menu**, **Serverless**
+1.  Open Google Cloud console and under **Navigation menu**, **Serverless**
     section, select
     [Cloud Functions](https://console.cloud.google.com/functions/list).
 
@@ -68,7 +68,7 @@ You have:
 
 1. Click **Deploy**
 
-1.  Wait for GCP to deploy the cloud function. Once deployed, use the
+1.  Wait for Google Cloud to deploy the cloud function. Once deployed, use the
     **Source** tab to edit the function if needed.
 
     :::warning
@@ -117,7 +117,7 @@ The request body contains:
 
 - `CLOUD_FUNCTION_KEY` Change this to protect your Cloud Function endpoint,
   especially if it does not require authentication.
-- `host`: FQDN or IP address if your Aiven service or VM in your GCP VPC.
+- `host`: FQDN or IP address if your Aiven service or VM in your Google Cloud VPC.
 - `port`: Destination TCP port number.
 <!-- vale on -->
 

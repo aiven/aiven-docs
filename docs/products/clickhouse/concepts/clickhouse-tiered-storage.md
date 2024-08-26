@@ -23,7 +23,7 @@ ClickHouse tiered storage is supported on the following cloud platforms:
 
 - Microsoft Azure
 - Amazon Web Services (AWS)
-- Google Cloud Platform (GCP)
+- Google Cloud
 
 ## Why use it
 
@@ -89,7 +89,7 @@ between the two layers.
 
 -   You can enable tiered storage on the Aiven tenant
     (in non-[BYOC](/docs/platform/concepts/byoc) environments) if your Aiven for
-    ClickHouse service is hosted on Azure, AWS, or GCP.
+    ClickHouse service is hosted on Azure, AWS, or Google Cloud.
 -   When
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage
     feature cannot be deactivated.

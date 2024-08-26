@@ -26,7 +26,7 @@ GO
 ```
 
 :::note
-If you're using GCP Cloud SQL for SQL Server, you can enable database
+If you're using Google's Cloud SQL for SQL Server, you can enable database
 CDC with:
 
 ```sql
@@ -67,7 +67,7 @@ The command above has the following parameters:
     where the files will be written, needs to be pre-existing.
 
 :::note
-If you're using GCP Cloud SQL for SQL Server, you can enable database
+If you're using Google's Cloud SQL for SQL Server, you can enable database
 CDC on a table with:
 
 ```sql

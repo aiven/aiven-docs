@@ -117,7 +117,7 @@ on how to work around specific restrictions.
     </tr>
     <tr>
       <td><p>Cloud availability</p></td>
-      <td><p>Available on AWS, GCP, and Azure only</p></td>
+      <td><p>Available on AWS, Google Cloud, and Azure only</p></td>
       <td><p>Use the available cloud providers.</p></td>
     </tr>
     <tr>

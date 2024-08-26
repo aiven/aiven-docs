@@ -50,9 +50,9 @@ Aiven makes its services available through various Marketplaces. If you already 
    1. From your **existing Aiven account**, retrieve The name of the Aiven projects
       that contain the services you wish to move.
 
-   1. From your **new Aiven organization** with the GCP marketplace
+   1. From your **new Aiven organization** with the Google Cloud marketplace
       subscription, retrieve the Aiven organization name, as shown in the
-      [Aiven GCP console](https://console.gcp.aiven.io/).
+      [Aiven Google Cloud console](https://console.gcp.aiven.io/).
 
 1. Send the information by email to [the sales team](mailto:sales@aiven.io).
 

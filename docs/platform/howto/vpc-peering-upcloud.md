@@ -208,5 +208,5 @@ commands:
 
 -   [Manage Virtual Private Cloud (VPC) peering](/docs/platform/howto/manage-vpc-peering)
 -   [Set up Virtual Private Cloud (VPC) peering on AWS](/docs/platform/howto/vpc-peering-aws)
--   [Set up Virtual Private Cloud (VPC) peering on Google Cloud Platform (GCP)](/docs/platform/howto/vpc-peering-gcp)
+-   [Set up Virtual Private Cloud (VPC) peering on Google Cloud](/docs/platform/howto/vpc-peering-gcp)
 -   [Set up Azure virtual network peering](/docs/platform/howto/vnet-peering-azure)

@@ -31,7 +31,7 @@ Add Okta as a SAML
    the URLs copied from the Aiven Console.
 1. Set the **Default Relay State** for the console you use:
    - For the Aiven Console: `https://console.aiven.io`
-   - For the Aiven GCP Marketplace Console: `https://console.gcp.aiven.io/`
+   - For the Aiven Google Cloud Marketplace Console: `https://console.gcp.aiven.io/`
    - For the Aiven AWS Marketplace Console: `https://console.aws.aiven.io/`
 1. Click **Save**.
 1. In the **SAML 2.0** section, click **More details**.

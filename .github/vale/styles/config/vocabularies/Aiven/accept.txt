@@ -108,7 +108,7 @@ Geomap
 geospatial
 GitHub
 go
-Google Cloud Platform
+Google Cloud
 Gradle
 Grafana
 Grafana/M

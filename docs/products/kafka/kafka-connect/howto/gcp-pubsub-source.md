@@ -20,22 +20,22 @@ Apache Kafka service
 Also collect the following information about the
 target Google Pub/Sub upfront:
 
--   `GCP_PROJECT_NAME`: The GCP project name where the target Google
+-   `GC_PROJECT_NAME`: The Google Cloud project name where the target Google
     Pub/Sub is located
 
--   `GCP_SUBSCRIPTION`: the name of the [Google Pub/Sub
+-   `GC_SUBSCRIPTION`: the name of the [Google Pub/Sub
     subscription](https://cloud.google.com/pubsub/docs/create-subscription)
 
--   `GCP_SERVICE_KEY`: A valid GCP service account key for the
-    `GCP_PROJECT_NAME`. To create the project key review the
+-   `GC_SERVICE_KEY`: A valid Google Cloud service account key for the
+    `GC_PROJECT_NAME`. To create the project key review the
     [dedicated document](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-google-account)
 
     :::warning
-    The GCP Pub/Sub source connector accepts the `GCP_SERVICE_KEY` JSON
+    The Google Cloud Pub/Sub source connector accepts the `GC_SERVICE_KEY` JSON
     service key as a string, therefore all `"` symbols within it must be
     escaped `\"`.
 
-    The `GCP_SERVICE_KEY` parameter should be in the format
+    The `GC_SERVICE_KEY` parameter should be in the format
     `{\"type\": \"service_account\",\"project_id\": \"XXXXXX\", ...}`
 
     Additionally, any `\n` symbols contained in the `private_key` field
@@ -82,9 +82,9 @@ the name `pubsub_source.json`) with the following content:
     "name":"CONNECTOR_NAME",
     "connector.class": "com.google.pubsub.kafka.source.CloudPubSubSourceConnector",
     "kafka.topic": "KAFKA_TOPIC",
-    "cps.project": "GCP_PROJECT_NAME",
-    "cps.subscription": "GCP_SUBSCRIPTION",
-    "gcp.credentials.json": "GCP_SERVICE_KEY",
+    "cps.project": "GC_PROJECT_NAME",
+    "cps.subscription": "GC_SUBSCRIPTION",
+    "gcp.credentials.json": "GC_SERVICE_KEY",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
     "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
     "key.converter.basic.auth.credentials.source": "USER_INFO",
@@ -102,13 +102,13 @@ The configuration file contains the following entries:
 
 -   `kafka-topic`: the target Apache Kafka topic name
 
--   `cps.project`: the GCP project name where the target Google Pub/Sub
+-   `cps.project`: the Google Cloud project name where the target Google Pub/Sub
     is located
 
 -   `cps.subscription`: the name of the [Google Pub/Sub
     subscription](https://cloud.google.com/pubsub/docs/create-subscription)
 
--   `gcp.credentials.json`: contains the GCP service account key,
+-   `gcp.credentials.json`: contains the Google Cloud service account key,
     correctly escaped as defined in the
     [prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcp-pubsub-source#connect_pubsub_source_prereq)
 
@@ -196,19 +196,19 @@ To create a Kafka Connect connector:
 
 ## Example: Create a Google Pub/Sub source connector
 
-You have a Google Pub/Sub subscription `GCP_SUBSCRIPTION` that you want
+You have a Google Pub/Sub subscription `GC_SUBSCRIPTION` that you want
 to push to a Aiven for Apache Kafka topic named `measurements` you can
 create a source connector with the following configuration, after
-replacing the placeholders for `GCP_PROJECT_NAME` and `GCP_SERVICE_KEY`:
+replacing the placeholders for `GC_PROJECT_NAME` and `GC_SERVICE_KEY`:
 
 ```json
 {
    "name":"CONNECTOR_NAME",
    "connector.class": "com.google.pubsub.kafka.source.CloudPubSubSourceConnector",
    "kafka.topic": "measurements",
-   "cps.project": "GCP_PROJECT_NAME",
-   "cps.subscription": "GCP_SUBSCRIPTION",
-   "gcp.credentials.json": "GCP_SERVICE_KEY"
+   "cps.project": "GC_PROJECT_NAME",
+   "cps.subscription": "GC_SUBSCRIPTION",
+   "gcp.credentials.json": "GC_SERVICE_KEY"
 }
 ```
 

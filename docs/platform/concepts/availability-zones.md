@@ -38,7 +38,7 @@ Cloud providers with AZs available to support your Aiven services are
 the following:
 
 -   Amazon Web Services
--   Google Cloud Platform
+-   Google Cloud
 -   Microsoft Azure
 -   UpCloud
 

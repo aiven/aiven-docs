@@ -23,10 +23,10 @@ Apache Kafka service
 Also collect the following information about the
 target Google Pub/Sub Lite upfront:
 
--   `GCP_PROJECT_NAME`: The GCP project name where the target Google
+-   `GC_PROJECT_NAME`: The Google Cloud project name where the target Google
     Pub/Sub Lite is located
--   `GCP_TOPIC`: the name of the target Google Pub/Sub Lite topic
--   `GCP_PUBSUB_LOCATION`: the name of the [Google Pub/Sub Lite
+-   `GC_TOPIC`: the name of the target Google Pub/Sub Lite topic
+-   `GC_PUBSUB_LOCATION`: the name of the [Google Pub/Sub Lite
     location](https://cloud.google.com/pubsub/lite/docs/locations)
 -   `KAFKA_TOPIC`: The name of the target topic in Aiven for Apache
     Kafka
@@ -64,9 +64,9 @@ the name `pubsub_sink.json`) with the following content:
     "name":"CONNECTOR_NAME",
     "connector.class": "com.google.pubsublite.kafka.sink.PubSubLiteSinkConnector",
     "topics": "KAFKA_TOPIC",
-    "pubsublite.project": "GCP_PROJECT_NAME",
-    "pubsublite.location": "GCP_PUBSUB_LOCATION",
-    "pubsublite.topic": "GCP_TOPIC",
+    "pubsublite.project": "GC_PROJECT_NAME",
+    "pubsublite.location": "GC_PUBSUB_LOCATION",
+    "pubsublite.topic": "GC_TOPIC",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
     "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
     "key.converter.basic.auth.credentials.sink": "USER_INFO",
@@ -84,7 +84,7 @@ The configuration file contains the following entries:
 
 -   `topics`: the source Apache Kafka topic names, divided by comma
 
--   `pubsublite.project`: the GCP project name where the target Google
+-   `pubsublite.project`: the Google Cloud project name where the target Google
     Pub/Sub is located
 
 -   `pubsublite.location`: the name of the [Google Pub/Sub Lite
@@ -171,7 +171,7 @@ To create an Apache Kafka Connect connector:
 You have an Apache Kafka topic `iot_metrics` that you want to push to a
 Google Pub/Sub Lite topic `iot_metrics_pubsub`, you can create a sink
 connector with the following configuration, after replacing the
-placeholders for `GCP_PROJECT_NAME` and `GCP_PUBSUB_LOCATION`:
+placeholders for `GC_PROJECT_NAME` and `GC_PUBSUB_LOCATION`:
 <!-- vale on -->
 
 ```json
@@ -179,9 +179,9 @@ placeholders for `GCP_PROJECT_NAME` and `GCP_PUBSUB_LOCATION`:
    "name":"CONNECTOR_NAME",
    "connector.class": "com.google.pubsublite.kafka.sink.PubSubLiteSinkConnector",
    "topics": "iot_metrics",
-   "pubsublite.project": "GCP_PROJECT_NAME",
-   "pubsublite.location": "GCP_PUBSUB_LOCATION",
+   "pubsublite.project": "GC_PROJECT_NAME",
+   "pubsublite.location": "GC_PUBSUB_LOCATION",
    "pubsublite.topic": "iot_metrics_pubsub",
-   "gcp.credentials.json": "GCP_SERVICE_KEY"
+   "gcp.credentials.json": "GC_SERVICE_KEY"
 }
 ```

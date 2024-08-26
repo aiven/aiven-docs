@@ -15,22 +15,22 @@ documentation](https://github.com/confluentinc/kafka-connect-bigquery).
 - an Aiven for Apache Kafka service [with Kafka Connect enabled](enable-connect) or a
   [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-- [Prepare the GCP account](gcp-bigquery-sink-prereq) and collect the following information about the target
+- [Prepare the Google Cloud account](gcp-bigquery-sink-prereq) and collect the following information about the target
   BigQuery:
 
-  -   `GCP_PROJECT_NAME`: The GCP project name where the target Google
+  -   `GC_PROJECT_NAME`: The Google Cloud project name where the target Google
       BigQuery is located
 
-  -   `GCP_SERVICE_KEY`: A valid GCP service account key for the
-      `GCP_PROJECT_NAME`. To create the project key review the
+  -   `GC_SERVICE_KEY`: A valid Google Cloud service account key for the
+      `GC_PROJECT_NAME`. To create the project key review the
       [dedicated document](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-google-account)
 
       :::warning
-      The GCP BigQuery sink connector accepts the `GCP_SERVICE_KEY` JSON
+      The Google Cloud BigQuery sink connector accepts the `GC_SERVICE_KEY` JSON
       service key as a string, therefore all `"` symbols within it must be
       escaped `\"`.
 
-      The `GCP_SERVICE_KEY` parameter should be in the format
+      The `GC_SERVICE_KEY` parameter should be in the format
       `{\"type\": \"service_account\",\"project_id\": \"XXXXXX\", ...}`
 
       Additionally, any `\n` symbols contained in the `private_key` field
@@ -80,7 +80,7 @@ the name `bigquery_sink.json`) with the following content:
     "name":"CONNECTOR_NAME",
     "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
     "topics": "TOPIC_LIST",
-    "project": "GCP_PROJECT_NAME",
+    "project": "GC_PROJECT_NAME",
     "defaultDataset": ".*=BIGQUERY_DATASET_NAME",
     "schemaRetriever": "com.wepay.kafka.connect.bigquery.retrieve.IdentitySchemaRetriever",
     "schemaRegistryClient.basic.auth.credentials.source": "URL",
@@ -95,7 +95,7 @@ the name `bigquery_sink.json`) with the following content:
     "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
     "autoCreateTables": "true",
     "keySource": "JSON",
-    "keyfile": "GCP_SERVICE_KEY"
+    "keyfile": "GC_SERVICE_KEY"
 }
 ```
 
@@ -103,7 +103,7 @@ The configuration file contains the following entries:
 
 -   `name`: the connector name
 
--   `project`: the GCP project name where the target Google BigQuery is
+-   `project`: the Google Cloud project name where the target Google BigQuery is
     located.
 
 -   `defaultDataset`: the target BigQuery dataset name, prefixed with
@@ -171,10 +171,10 @@ The configuration file contains the following entries:
     compatibility limits of BigQuery and its associated applications.
     :::
 
--   `keySource`: defines the format of the GCP key, the value should be
+-   `keySource`: defines the format of the Google Cloud key, the value should be
     `JSON` if the key is generated in JSON format
 
--   `keyfile`: contains the GCP service account key, correctly escaped
+-   `keyfile`: contains the Google Cloud service account key, correctly escaped
     as defined in the
     [prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#connect_bigquery_sink_prereq)
 
@@ -311,19 +311,19 @@ registry](https://karapace.io/) provided by Aiven
 
 You can sink the `iot_measurements` topic to BigQuery with the following
 connector configuration, after replacing the placeholders for
-`GCP_PROJECT_NAME`, `GCP_SERVICE_KEY` and `BIGQUERY_DATASET_NAME`:
+`GC_PROJECT_NAME`, `GC_SERVICE_KEY` and `BIGQUERY_DATASET_NAME`:
 
 ```json
 {
     "name":"iot_sink",
     "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
     "topics": "iot_measurements",
-    "project": "GCP_PROJECT_NAME",
+    "project": "GC_PROJECT_NAME",
     "defaultDataset": ".*=BIGQUERY_DATASET_NAME",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "autoCreateTables": "true",
     "keySource": "JSON",
-    "keyfile": "GCP_SERVICE_KEY"
+    "keyfile": "GC_SERVICE_KEY"
 }
 ```
 
@@ -340,7 +340,7 @@ in Karapace.
 
 You can sink the `students` topic to BigQuery with the following
 connector configuration, after replacing the placeholders for
-`GCP_PROJECT_NAME`, `GCP_SERVICE_KEY`, `BIGQUERY_DATASET_NAME`,
+`GC_PROJECT_NAME`, `GC_SERVICE_KEY`, `BIGQUERY_DATASET_NAME`,
 `SCHEMA_REGISTRY_USER`, `SCHEMA_REGISTRY_PASSWORD`, `APACHE_KAFKA_HOST`,
 `SCHEMA_REGISTRY_PORT`:
 
@@ -349,7 +349,7 @@ connector configuration, after replacing the placeholders for
     "name":"students_sink",
     "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
     "topics": "students",
-    "project": "GCP_PROJECT_NAME",
+    "project": "GC_PROJECT_NAME",
     "defaultDataset": ".*=BIGQUERY_DATASET_NAME",
     "schemaRetriever": "com.wepay.kafka.connect.bigquery.retrieve.IdentitySchemaRetriever",
     "schemaRegistryClient.basic.auth.credentials.source": "URL",
@@ -364,7 +364,7 @@ connector configuration, after replacing the placeholders for
     "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
     "autoCreateTables": "true",
     "keySource": "JSON",
-    "keyfile": "GCP_SERVICE_KEY"
+    "keyfile": "GC_SERVICE_KEY"
 }
 ```
 

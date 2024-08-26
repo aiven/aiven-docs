@@ -17,15 +17,15 @@ as a connector to connect to Google BigQuery.
 ## Prerequisites
 
 -   Aiven for Apache Flink service
--   Google Cloud Platform (GCP) account
+-   Google Cloud account
 -   Necessary permissions to create resources and manage integrations in
-    GCP
+    Google Cloud
 -   **Google Project ID**: You have a Google Project ID. For more
     information, see [Google Cloud
     documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
 -   **Google Cloud Service Account Credentials**: You have Google Cloud
-    service account credentials in JSON format to authenticate with the
-    Google Cloud Platform. For instructions on how to create and get
+    service account credentials in JSON format to authenticate with
+    Google Cloud. For instructions on how to create and get
     service account credentials, see [Google Cloud's
     documentation](https://developers.google.com/workspace/guides/create-credentials).
 -   **Service account permissions**: Your service account is granted the
@@ -62,10 +62,10 @@ where:
     service to be created. This name must be unique within the specified
     project.
 
-### Step 2: Configure GCP for a Google BigQuery sink connector
+### Step 2: Configure Google Cloud for a Google BigQuery sink connector
 
 To be able to sink data from Aiven for Apache Flink to Google BigQuery,
-go the GCP console to configure GCP for a Google BigQuery sink connector:
+go the Google Cloud console to configure Google Cloud for a Google BigQuery sink connector:
 
 -   Create a [Google service account and generate a JSON service
     key](https://cloud.google.com/docs/authentication/client-libraries).
@@ -119,7 +119,7 @@ where:
 -   `--user-config-json`: This parameter allows you to provide a JSON
     object with custom configurations for the integration endpoint. The
     JSON object should include the following fields:
-    -   `project_id`: Your actual Google Cloud Platform project ID.
+    -   `project_id`: Your Google Cloud project ID.
     -   `service_account_credentials`: An object that holds the
         necessary credentials for authenticating and accessing the
         external Google BigQuery service. This object should include the
@@ -281,7 +281,7 @@ Console](https://console.aiven.io/):
         -   **Endpoint name**: Enter a name for the integration
             endpoint. For example, `Aiven_BigQuery_Integration`.
 
-        -   **GCP Project ID**: The identifier associated with your
+        -   **Google Cloud Project ID**: The identifier associated with your
             Google Cloud Project where BigQuery is set up. For example,
             `my-gcp-project-12345`.
 

@@ -19,7 +19,7 @@ documentation](https://github.com/aiven/aiven-kafka-connect-gcs).
 [with Apache Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-- [Prepare the GCP account and GCS sink](gcs-sink-prereq) and collect the following information about the target GCS
+- [Prepare the Google Cloud account and GCS sink](gcs-sink-prereq) and collect the following information about the target GCS
   bucket:
 
   -   `GCS_NAME`: The name of the GCS bucket

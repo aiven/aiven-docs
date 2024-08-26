@@ -69,7 +69,7 @@ differs between clouds:
 | Cloud name |                           Required peering information                           |
 |------------|----------------------------------------------------------------------------------|
 | AWS        | <ul><li>AWS account ID</li><li>VPC ID</li></ul>                                  |
-| GCP        | <ul><li>GCP Project ID</li><li>VPC Network Name</li></ul>                        |
+| Google Cloud        | <ul><li>Google Cloud Project ID</li><li>VPC Network Name</li></ul>                        |
 | Azure      | <ul> <li>Azure Tenant ID</li> <li>Azure App ID</li> <li>Azure VNet ID</li> </ul> |
 
 ## Compliances

@@ -95,7 +95,7 @@ c4bc3a59-87da-4dce-9243-c197edb43qq2  google-us-west3     10.1.13.0/24   ACTIVE
 
 ### `avn vpc peering-connection create`
 
-Creates a peering connection for a project VPC to AWS, GCP or Azure.
+Creates a peering connection for a project VPC to AWS, Google Cloud or Azure.
 
 | Parameter                  | Information                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------- |

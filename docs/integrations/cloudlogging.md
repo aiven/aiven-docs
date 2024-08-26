@@ -12,7 +12,7 @@ You can send your service logs to Google Cloud Logging to store, search, analyze
     Google Cloud projects is available in the [Google Cloud
     documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
 -   You have Google Cloud service account credentials in JSON format to
-    authenticate with the Google Cloud Platform. See Google Cloud's
+    authenticate with Google Cloud. See Google Cloud's
     documentation for [instructions on how to create and get service
     account
     credentials](https://developers.google.com/workspace/guides/create-credentials).
@@ -28,7 +28,7 @@ You can send your service logs to Google Cloud Logging to store, search, analyze
 2.  Select **Google Cloud Logging**.
 3.  Click **Add new endpoint**.
 4.  Enter a name.
-5.  Enter the **GCP Project ID** and **Log ID** from Google Cloud.
+5.  Enter the **Google Cloud Project ID** and **Log ID** from Google Cloud.
 6.  Enter the **Google Service Account Credentials** in JSON format.
 7.  Click **Create**.
 

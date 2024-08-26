@@ -63,7 +63,7 @@ Aiven makes its services available through the various Marketplaces and you can 
 
     :::important
      You won't be charged. This only
-     sets up a billing subscription between GCP and Aiven.
+     sets up a billing subscription between Google Cloud and Aiven.
 
      You will be charged after deploying Aiven services.
      :::
@@ -122,21 +122,21 @@ anything goes wrong during the previous steps.
 1.  After entering your email address, you will be sent an email to
     confirm your registration. Click the link.
 1.  You can now proceed to the [Aiven console for
-    GCP](https://console.gcp.aiven.io/), where you can manage your Aiven
+    Google Cloud](https://console.gcp.aiven.io/), where you can manage your Aiven
     services as normal.
 
 :::note
 
-- The URL to log into your GCP subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
+- The URL to log into your Google Cloud subscription is [console.gcp.aiven.io](https://console.gcp.aiven.io).
   Do not confuse it with Aiven Console URL: [console.aiven.io](https://console.aiven.io).
 
-- If you have an existing Aiven account, create an Aiven GCP account using the
-  Aiven GCP console. When coming back to Aiven in the future, use
+- If you have an existing Aiven account, create an Aiven Google Cloud account using the
+  Aiven Google Cloud console. When coming back to Aiven in the future, use
   [https://console.gcp.aiven.io](https://console.gcp.aiven.io) to log in.
 
-- When you view the Aiven page on GCP Marketplace,
+- When you view the Aiven page on Google Cloud Marketplace,
   a new **MANAGE ON PROVIDER** is available. It takes
-  you to the Aiven GCP Console at [https://console.gcp.aiven.io](https://console.gcp.aiven.io).
+  you to the Aiven Google Cloud Console at [https://console.gcp.aiven.io](https://console.gcp.aiven.io).
 
 :::
 

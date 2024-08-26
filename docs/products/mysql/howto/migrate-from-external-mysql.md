@@ -34,7 +34,7 @@ following requirements need to be satisfied:
     ```
 
 :::note
-If you are migrating from MySQL in GCP, enable backups with
+If you are migrating from MySQL in Google Cloud, enable backups with
 [PITR](https://cloud.google.com/sql/docs/mysql/backup-recovery/pitr) for
 GTID to be set to `on`
 :::

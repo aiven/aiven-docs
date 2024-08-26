@@ -58,7 +58,7 @@ needs to be added for admission webhook.
 :::
 
 :::tip
-If you are running a GKE \"Autopilot\" cluster in Google Cloud Platform,
+If you are running a GKE \"Autopilot\" cluster in Google Cloud,
 you will need to be using GKE version >=1.21 and install `cert-manager`
 into the `cert-manager` namespace, as per [this GitHub issue
 comment](https://github.com/cert-manager/cert-manager/issues/3717#issuecomment-975031637)

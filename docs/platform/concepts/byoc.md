@@ -1,7 +1,6 @@
 ---
 title: Bring your own cloud (BYOC)
 sidebar_label: Bring your own cloud
-keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -54,7 +53,7 @@ needs or project requirements, such as:
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
 
--   You use Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure
+-   You use Amazon Web Services (AWS), Google Cloud, Microsoft Azure
     (excluding Azure Germany), or Oracle Cloud Infrastructure (OCI).
 -   You have a commitment deal with Aiven.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
@@ -135,11 +134,11 @@ through the public Internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly.
 </TabItem>
-<TabItem value="3" label="GCP private">
+<TabItem value="3" label="Google Cloud private">
 
-<img src={byocGcpPrivate} class="centered" alt="BYOC GCP private architecture" width="100%" />
+<img src={byocGcpPrivate} class="centered" alt="BYOC Google Cloud private architecture" width="100%" />
 
-In the GCP private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
+In the Google Cloud private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
 Within the **BYOC VPC**, there are:
 
@@ -164,11 +163,11 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="GCP public">
+<TabItem value="4" label="Google Cloud public">
 
-<img src={byocGcpPublic} class="centered" alt="BYOC GCP public architecture" width="100%" />
+<img src={byocGcpPublic} class="centered" alt="BYOC Google Cloud public architecture" width="100%" />
 
-In the GCP public deployment model, a Virtual Private Cloud (**Workload VPC**) for your
+In the Google Cloud public deployment model, a Virtual Private Cloud (**Workload VPC**) for your
 Aiven services is created within a particular cloud region in your remote cloud account.
 Aiven accesses this VPC through an Internet gateway. Service VMs reside in a publicly
 addressed subnet (**Public subnet**), and Aiven services can be accessed

@@ -13,7 +13,7 @@ Most services have automatic time-based backups that are encrypted and securely 
 Aggregator/Coordinator.
 
 **Backup location:** Backups are stored in the object storage of the cloud region
-where the service is first created, for example, S3 for AWS or GCS for GCP.
+where the service is first created, for example, S3 for AWS or GCS for Google Cloud.
 
 ## Display service backups
 

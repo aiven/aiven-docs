@@ -23,11 +23,11 @@ Apache Kafka service
 Also collect the following information about the
 target Google Pub/Sub upfront:
 
--   `GCP_PROJECT_NAME`: The GCP project name where the target Google
+-   `GC_PROJECT_NAME`: The Google Cloud project name where the target Google
     Pub/Sub Lite is located
--   `GCP_SUBSCRIPTION`: the name of the [Google Pub/Sub Lite
+-   `Google Cloud_SUBSCRIPTION`: the name of the [Google Pub/Sub Lite
     subscription](https://cloud.google.com/pubsub/docs/create-subscription)
--   `GCP_PUBSUB_LOCATION`: the name of the [Google Pub/Sub Lite
+-   `Google Cloud_PUBSUB_LOCATION`: the name of the [Google Pub/Sub Lite
     location](https://cloud.google.com/pubsub/lite/docs/locations)
 -   `KAFKA_TOPIC`: The name of the target topic in Aiven for Apache
     Kafka
@@ -64,9 +64,9 @@ the name `pubsub_lite_source.json`) with the following content:
 {
     "name":"CONNECTOR_NAME",
     "connector.class": "com.google.pubsublite.kafka.source.PubSubLiteSourceConnector",
-    "pubsublite.project": "GCP_PROJECT_NAME",
-    "pubsublite.subscription": "GCP_SUBSCRIPTION",
-    "pubsublite.location": "GCP_PUBSUB_LOCATION",
+    "pubsublite.project": "GC_PROJECT_NAME",
+    "pubsublite.subscription": "GC_SUBSCRIPTION",
+    "pubsublite.location": "GC_PUBSUB_LOCATION",
     "kafka.topic": "KAFKA_TOPIC",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
     "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
@@ -85,7 +85,7 @@ The configuration file contains the following entries:
 
 -   `kafka-topic`: the target Apache Kafka topic name
 
--   `pubsublite.project`: the GCP project name where the target Google
+-   `pubsublite.project`: the Google Cloud project name where the target Google
     Pub/Sub is located
 
 -   `pubsublite.subscription`: the name of the [Google Pub/Sub lite
@@ -176,20 +176,20 @@ To create a Kafka Connect connector:
 
 ## Example: Create a Google Pub/Sub source connector
 
-You have a Google Pub/Sub Lite subscription `GCP_SUBSCRIPTION` that you
+You have a Google Pub/Sub Lite subscription `GC_SUBSCRIPTION` that you
 want to push to a Aiven for Apache Kafka topic named `measurements` you
 can create a source connector with the following configuration, after
-replacing the placeholders for `GCP_PROJECT_NAME`, `GCP_SERVICE_KEY` and
-`GCP_PUBSUB_LOCATION`:
+replacing the placeholders for `GC_PROJECT_NAME`, `GC_SERVICE_KEY` and
+`GC_PUBSUB_LOCATION`:
 
 ```json
 {
    "name":"CONNECTOR_NAME",
    "connector.class": "com.google.pubsub.kafka.source.CloudPubSubSourceConnector",
    "kafka.topic": "measurements",
-   "cps.project": "GCP_PROJECT_NAME",
-   "cps.subscription": "GCP_SUBSCRIPTION",
-   "gcp.credentials.json": "GCP_SERVICE_KEY"
+   "cps.project": "GC_PROJECT_NAME",
+   "cps.subscription": "GC_SUBSCRIPTION",
+   "gcp.credentials.json": "GC_SERVICE_KEY"
 }
 ```
 

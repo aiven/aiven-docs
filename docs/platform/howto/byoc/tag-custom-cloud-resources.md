@@ -89,7 +89,7 @@ can manage the tags using the [Aiven CLI client](/docs/tools/cli) or directly in
 variable file used to run the Terraform infrastructure template.
 
 :::note
-Tagging GCP BYOC infrastructure uses
+Tagging Google Cloud BYOC infrastructure uses
 [Google labels](https://cloud.google.com/resource-manager/docs/labels-overview),
 not [Google tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
 :::
