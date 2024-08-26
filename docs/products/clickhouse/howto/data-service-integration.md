@@ -110,95 +110,89 @@ wizard:
    and click **Continue**.
 1. Integrate with managed databases or with managed credentials:
 
-<Tabs groupId="group2">
-<TabItem value="1" label="Integrate with managed databases" default>
-The managed databases integration uses databases engines and, when enabled,
-automatically creates databases in your Aiven for ClickHouse, where you can ingest your
-external data.
+   <Tabs groupId="group2">
+   <TabItem value="1" label="Integrate with managed databases" default>
+   The managed databases integration uses databases engines and, when enabled,
+   automatically creates databases in your Aiven for ClickHouse, where you can ingest your
+   external data.
 
-1. Select **Managed databases**, and click **Continue**.
-1. Click **Add databases** to have custom databases created along with the integration, or
-   click **Enable without databases** to integrate with no custom databases created.
+   1. Select **Managed databases**, and click **Continue**.
+   1. Click **Add databases** to have custom databases created along with the integration, or
+      click **Enable without databases** to integrate with no custom databases created.
 
-   :::tip
-   If you choose to have databases created automatically, you can query them using a
-   statement similar to the following:
+      :::tip
+      If you choose to have databases created automatically, you can query them using a
+      statement similar to the following:
 
-   ```sql
+      ```sql
+      SELECT *
+      FROM EXTERNAL_POSTGRESQL_RESOURCE_NAME.POSTGRESQL_TABLE_NAME
+      ```
+
+      :::
+
+   </TabItem>
+   <TabItem value="2" label="Integrate with managed credentials">
+   The managed credentials integration supports storing connection parameters in Aiven
+   and allows you to create tables for your external data. The stored connection parameters
+   are automatically seeded in your external data queries.
+
+   1. Select **Managed credentials**, and click **Continue** > **Enable**.
+   1. Create tables using
+      [table engines](/docs/products/clickhouse/reference/supported-table-engines), for
+      example the PostgreSQL engine:
+
+      ```sql
+      CREATE TABLE default.POSTGRESQL_TABLE_NAME
+      (
+         `float_nullable` Nullable(Float32),
+         `str` String,
+         `int_id` Int32
+      )
+      ENGINE = PostgreSQL(postgres_creds);
+      ```
+
+      :::tip
+      For details on how to use different table engines for integrations with external
+      systems, see the
+      [upstream ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/integrations).
+      :::
+
+   Depending on the type of data source you are integrated with, you can access your credentials
+   storage by passing your data source name in the following query:
+
+   ```sql title="PostgreSQL data source"
    SELECT *
-   FROM EXTERNAL_POSTGRESQL_RESOURCE_NAME.POSTGRESQL_TABLE_NAME
-   ```
-
-   :::
-
-</TabItem>
-<TabItem value="2" label="Integrate with managed credentials">
-The managed credentials integration supports storing connection parameters in Aiven
-and allows you to create tables for your external data. The stored connection parameters
-are automatically seeded in your external data queries.
-
-1. Select **Managed credentials**, and click **Continue** > **Enable**.
-1. Create tables using
-   [table engines](/docs/products/clickhouse/reference/supported-table-engines), for
-   example the PostgreSQL engine:
-
-   ```sql
-   CREATE TABLE default.POSTGRESQL_TABLE_NAME
-   (
-      `float_nullable` Nullable(Float32),
-      `str` String,
-      `int_id` Int32
+   FROM postgresql(
+      `service_POSTGRESQL_SOURCE_NAME`,
+      database='defaultdb',
+      table='tables',
+      schema='information_schema'
    )
-   ENGINE = PostgreSQL(postgres_creds);
    ```
 
-   :::tip
-   For details on how to use different table engines for integrations with external
-   systems, see the
-   [upstream ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/integrations).
+   ```sql title="MySQL data source"
+   SELECT *
+   FROM mysql(
+      `service_MYSQL_SOURCE_NAME`,
+      database='mysql',
+      table='slow_log'
+   )
+   ```
+
+   ```sql title="Amazon S3 data source"
+   SELECT * FROM s3(
+      `endpoint_S3_SOURCE_NAME`,
+      filename='*.csv',
+      format='CSVWithNames')
+   ```
+
+   :::warning
+   When you try to run a managed credentials query with a typo, the query fails with an
+   error message related to grants.
    :::
-
-Depending on the type of data source you are integrated with, you can access your credentials
-storage by passing your data source name in the following query:
-
-```sql
-# PostgreSQL data source
-
-SELECT *
-FROM postgresql(
-   `service_POSTGRESQL_SOURCE_NAME`,
-   database='defaultdb',
-   table='tables',
-   schema='information_schema'
-)
-```
-
-```sql
-# MySQL data source
-
-SELECT *
-FROM mysql(
-   `service_MYSQL_SOURCE_NAME`,
-   database='mysql',
-   table='slow_log'
-)
-```
-
-```sql
-# Amazon S3 data source
-
-SELECT * FROM s3(
-   `endpoint_S3_SOURCE_NAME`,
-   filename='*.csv',
-   format='CSVWithNames')
-```
-
-:::warning
-When you try to run a managed credentials query with a typo, the query fails with an
-error message related to grants.
-:::
-</TabItem>
-</Tabs>
+   </TabItem>
+   </Tabs>
 
 ## View data service integrations
 
