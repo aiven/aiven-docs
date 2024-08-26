@@ -39,6 +39,17 @@ Gather these details before registering the snapshot repository:
 
 Information specific to cloud providers:
 
+- **Amazon S3**
+
+  - `snapshot_name`: The name of the snapshot to restore.
+  - `base_path`: The path within the S3 bucket where the snapshot data is stored.
+  - `bucket`: The S3 bucket name.
+  - `region`: The AWS region of the S3 bucket.
+  - `access_key`: AWS access key for accessing the S3 bucket.
+  - `secret_key`: AWS secret key associated with the access key.
+  - `server_side_encryption`: (Optional) Enable server-side encryption for files in the S3 bucket.
+  - `endpoint`: (Optional) The endpoint for S3-compatible services if not using AWS S3 directly.
+
 - **Google Cloud Storage (GCS)**
 
   - `credentials`: GCS credentials file content.
@@ -47,22 +58,6 @@ Information specific to cloud providers:
   - `snapshot_name`: Name of the snapshot to restore.
   - `compress` and `chunk_size`: (Optional) Settings for metadata compression
     and file chunking.
-
-- **Amazon S3**
-
-  - `region`: AWS region where the S3 bucket is located.
-  - `bucket`: Name of the S3 bucket that contains the snapshot.
-  - `base_path`: Path to repository data within the bucket.
-  - `snapshot_name`: Name of the snapshot to restore.
-  - `server_side_encryption`, `compress`, `chunk_size`* (Optional) Settings
-    for encryption, compression, and file chunking.
-
-  :::note
-  Authentication credentials (`access_key`, `secret_key`) are not included in the
-  repository creation request. These are managed separately through environment variables,
-  IAM roles, or other methods.
-
-  :::
 
 - **Microsoft Azure**
 
@@ -84,69 +79,35 @@ Information specific to cloud providers:
   - `server_side_encryption`, `compress`, `chunk_size`: (Optional) Settings
     for encryption, compression, and file chunking.
 
-## Register the snapshot repository
 
-To begin the restoration process, register the snapshot repository with your
-Aiven for OpenSearch service. This step involves configuring your service to recognize
-and access the storage location where your OpenSearch or Elasticsearch snapshots are
-stored.
+## Configure snapshot migration settings
 
-### Google Cloud Storage (GCS)
-
-Register a snapshot repository on GCS.
-
-<Tabs groupId="method">
-<TabItem value="api" label="API" default>
-
-```bash
-curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
--H "Authorization: Bearer API_TOKEN" \
--H "Content-Type: application/json" \
--d '{
-  "type": "gcs",
-  "settings": {
-    "bucket": "my-gcs-bucket",
-    "base_path": "snapshots/",
-    "credentials": "GCS_CREDENTIALS_FILE_CONTENT"
-  }
-}'
-```
-
-</TabItem>
-<TabItem value="cli" label="CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  --service SERVICE_NAME \
-  -c gcs_migration.bucket="my-gcs-bucket" \
-  -c gcs_migration.base_path="snapshots/" \
-  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
-  -c gcs_migration.snapshot_name="SNAPSHOT_NAME"
-
-```
-
-</TabItem>
-</Tabs>
+To start the migration, configure the `user-config` object in your
+Aiven for OpenSearch service. The migration process begins automatically once
+these settings are applied.
 
 ### Amazon S3
 
-Register a snapshot repository on Amazon S3.
-
 <Tabs groupId="method">
 <TabItem value="api" label="API" default>
 
 ```bash
-curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
--H "Authorization: Bearer API_TOKEN" \
--H "Content-Type: application/json" \
--d '{
-  "type": "s3",
-  "settings": {
-    "bucket": "my-bucket",
-    "region": "us-west-2"
-  }
-}'
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --header 'Authorization: Bearer YOUR_API_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "user_config": {
+      "s3_migration": {
+        "bucket": "my-s3-bucket",
+        "region": "us-west-2",
+        "access_key": "YOUR_ACCESS_KEY",
+        "secret_key": "YOUR_SECRET_KEY",
+        "snapshot_name": "my-snapshot",
+        "base_path": "snapshots/"
+      }
+    }
+  }'
 ```
 
 </TabItem>
@@ -162,7 +123,44 @@ avn service update \
   -c s3_migration.access_key="your-access-key" \
   -c s3_migration.secret_key="your-secret-key" \
   -c s3_migration.snapshot_name="SNAPSHOT_NAME"
+```
 
+</TabItem>
+</Tabs>
+
+### Google Cloud Storage (GCS)
+
+<Tabs groupId="method">
+<TabItem value="api" label="API" default>
+
+```bash
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --header 'Authorization: Bearer YOUR_API_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "user_config": {
+      "gcs_migration": {
+        "bucket": "my-gcs-bucket",
+        "credentials": "GCS_CREDENTIALS_FILE_CONTENT",
+        "snapshot_name": "my-snapshot",
+        "base_path": "snapshots/"
+      }
+    }
+  }'
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  --service SERVICE_NAME \
+  -c gcs_migration.bucket="my-gcs-bucket" \
+  -c gcs_migration.base_path="snapshots/" \
+  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
+  -c gcs_migration.snapshot_name="SNAPSHOT_NAME"
 ```
 
 </TabItem>
@@ -170,24 +168,25 @@ avn service update \
 
 ### Microsoft Azure
 
-Register a snapshot repository on Microsoft Azure.
-
 <Tabs groupId="method">
 <TabItem value="api" label="API" default>
 
 ```bash
-curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
--H "Authorization: Bearer API_TOKEN" \
--H "Content-Type: application/json" \
--d '{
-  "type": "azure",
-  "settings": {
-    "container": "my-container",
-    "base_path": "snapshots/",
-    "account": "my-account",
-    "key": "your-key"
-  }
-}'
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --header 'Authorization: Bearer YOUR_API_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "user_config": {
+      "azure_migration": {
+        "container": "my-azure-container",
+        "account": "my-azure-account",
+        "key": "YOUR_AZURE_KEY",
+        "snapshot_name": "my-snapshot",
+        "base_path": "snapshots/"
+      }
+    }
+  }'
 ```
 
 </TabItem>
@@ -202,33 +201,34 @@ avn service update \
   -c azure_migration.account="my-account" \
   -c azure_migration.key="your-key" \
   -c azure_migration.snapshot_name="SNAPSHOT_NAME"
-
 ```
 
 </TabItem>
 </Tabs>
 
-### S3-compatible services
-
-Register a snapshot repository on an S3-compatible service.
+### S3-Compatible Services
 
 <Tabs groupId="method">
 <TabItem value="api" label="API" default>
 
 ```bash
-curl -X PUT "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
--H "Authorization: Bearer API_TOKEN" \
--H "Content-Type: application/json" \
--d '{
-  "type": "s3",
-  "settings": {
-    "bucket": "my-bucket",
-    "region": "us-west-2",
-    "endpoint": "https://my-s3-compatible-service.com",
-    "access_key": "your-access-key",
-    "secret_key": "your-secret-key"
-  }
-}'
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --header 'Authorization: Bearer YOUR_API_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "user_config": {
+      "s3_migration": {
+        "bucket": "my-s3-compatible-bucket",
+        "region": "us-west-2",
+        "endpoint": "https://my-s3-compatible-service.com",
+        "access_key": "YOUR_ACCESS_KEY",
+        "secret_key": "YOUR_SECRET_KEY",
+        "snapshot_name": "my-snapshot",
+        "base_path": "snapshots/"
+      }
+    }
+  }'
 ```
 
 </TabItem>
@@ -250,74 +250,23 @@ avn service update \
 </TabItem>
 </Tabs>
 
-## Restore the snapshot
+## Monitor the migration
 
-After registering the snapshot repository, restore the snapshot to your Aiven for
-OpenSearch service. This process migrates the data from the repository into your
-Aiven for OpenSearch cluster.
-
-<Tabs groupId="restore-snapshot">
-<TabItem value="api" label="API" default>
+Use the following API request to check the migration status:
 
 ```bash
-curl -X POST "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo/SNAPSHOT_NAME/_restore" \
--H "Authorization: Bearer API_TOKEN" \
--H "Content-Type: application/json" \
--d '{
-  "indices": "INDEX_NAME",
-  "ignore_unavailable": true,
-  "include_global_state": false
-}'
+curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/migration/status" \
+  -H "Authorization: Bearer API_TOKEN"
 ```
 
-</TabItem>
-<TabItem value="cli" label="CLI">
+Parameters:
 
-```bash
-avn service elasticsearch-restore-snapshot \
-  --project PROJECT_NAME \
-  --service SERVICE_NAME \
-  --repository my-snapshot-repo \
-  --snapshot SNAPSHOT_NAME \
-  --indices INDEX_NAME
+- `project_name`: The name of your Aiven project.
+- `service_name`: The name of your Aiven for OpenSearch service.
 
-```
+## Verify the migration
 
-</TabItem>
-</Tabs>
-
-## Monitor the restoration process
-
-Monitor the progress of the snapshot restoration to ensure that everything is
-proceeding as expected.
-
-<Tabs groupId="monitor-restoration">
-<TabItem value="api" label="API" default>
-
-
-```bash
-curl -X GET "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo/SNAPSHOT_NAME/_status" \
--H "Authorization: Bearer API_TOKEN"
-```
-
-</TabItem>
-<TabItem value="cli" label="CLI">
-
-
-```bash
-avn service elasticsearch-check-restore-status \
-  --project PROJECT_NAME \
-  --service SERVICE_NAME \
-  --repository my-snapshot-repo \
-  --snapshot SNAPSHOT_NAME
-```
-
-</TabItem>
-</Tabs>
-
-## Verify the restoration
-
-Ensure your data has been restored successfully by listing the indices.
+Ensure that your data has been restored successfully by listing the indices.
 
 <Tabs groupId="verify-restoration">
 <TabItem value="api" label="API" default>
@@ -331,7 +280,7 @@ curl -X GET "https://SERVICE_NAME.aivencloud.com/_cat/indices?v" \
 <TabItem value="cli" label="CLI">
 
 ```bash
-avn service elasticsearch-list-indices \
+avn service index-list \
   --project PROJECT_NAME \
   --service SERVICE_NAME
 ```
@@ -339,31 +288,10 @@ avn service elasticsearch-list-indices \
 </TabItem>
 </Tabs>
 
-## Complete the restoration
+## Complete the migration
 
-After the restoration process is complete, clean up resources by deleting the snapshot
-repository.
+After the restoration process is complete, Aiven for OpenSearch automatically deletes the snapshot repository used during the migration to clean up resources.
 
-<Tabs groupId="finalize-migration">
-<TabItem value="api" label="API" default>
-
-```bash
-curl -X DELETE "https://SERVICE_NAME.aivencloud.com/_snapshot/my-snapshot-repo" \
-  -H "Authorization: Bearer API_TOKEN"
-```
-
-</TabItem>
-<TabItem value="cli" label="CLI">
-
-```bash
-avn service elasticsearch-delete-repository \
-  --project PROJECT_NAME \
-  --service SERVICE_NAME \
-  --repository my-snapshot-repo
-```
-
-</TabItem>
-</Tabs>
 
 ## Backup management during migration
 
@@ -374,6 +302,8 @@ migration.
 OpenSearch automatically resumes regular backup operations.
 
 ## Error handling
+
+During the migration process, you can encounter issues such as:
 
 - **Validation errors**: Ensure that inputs like `snapshot_name`, `base_path`, and URLs
   are properly formatted.
