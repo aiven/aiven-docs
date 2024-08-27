@@ -41,7 +41,6 @@ curl --request PUT \
           "vault": {
             "auth_method": "token",
             "address": "https://vault.aiven.fi:8200/
-            ",
             "token": "YOUR_VAULT_TOKEN"
           }
         }
