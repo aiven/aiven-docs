@@ -24,25 +24,33 @@ to maintain data availability.
 
 ## Replication factor 0
 
-Setting the replication factor to `0` means that your data will not have any replicas.
-While this can save storage costs, it significantly increases the risk of data loss
-if a node in the cluster fails.
+Setting the replication factor to `0` means your data has no replicas. This approach
+reduces storage costs but significantly increases the risk of data loss if a node in
+the cluster fails.
+
+:::warning
+If a node fails before a snapshot is taken, the system is unable to recover the data on
+that node. In such cases, you might need to delete the affected index, as recovery is not
+possible without a backup. Consider this risk carefully when setting the replication
+factor to 0.
+
+:::
 
 ### How to enable replication factor 0
 
-To enable replication factor `0`, contact [Aiven support](mailto:support@aiven.io).
+To set the replication factor to `0`, contact [Aiven support](mailto:support@aiven.io).
 
 ### When to use replication factor 0
 
 Consider setting the replication factor to `0` in the following scenarios:
 
-- **Non-critical environments:** This setting is ideal for QA, testing, or development
-  clusters where potential data loss won’t significantly impact your operations.
-- **Temporary data:** Suitable if your data can be recreated or is not critical,
-  allowing you to save on storage costs.
+- **Non-critical environments:** Ideal for QA, testing, or development clusters where
+  potential data loss doesn’t significantly impact operations.
+- **Temporary data:** Suitable when data can be recreated or is not critical, allowing
+  you to save on storage costs.
 
 ### Risks and considerations
 
-- **Data loss:** With no replicas, a node failure can result in permanent data loss.
-- **Manual recovery:** If data loss occurs, you will need to restore data from snapshots
+- **Data loss:** Without replicas, a node failure can result in permanent data loss.
+- **Manual recovery:** If data loss occurs, data must be restored from snapshots
   manually, which can lead to downtime.
