@@ -25,32 +25,35 @@ access sensitive information.
 <TabItem value="api" label="API" default>
 
 Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-API to update your service configuration. Add the AWS Secrets Manager configuration
-to the `user_config` using the following API request:
+API to update your service configuration. Add the HashiCorp Vault configuration to
+the `user_config` using the following API request:
 
 ```sh
 curl --request PUT \
-  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name} \
+  --url https://api.aiven.io/v1/project/{PROJECT_NAME}/service/{SERVICE_NAME} \
   --header 'Authorization: Bearer YOUR_BEARER_TOKEN' \
   --header 'Content-Type: application/json' \
   --data '{
     "user_config": {
       "secret_providers": [
-       {
-        "name": "vault",
-        "vault": {
-          "auth_method": "token",
-          "address": "https://vault.aiven.fi:8200/",
-          "token": "YOUR_VAULT_TOKEN"
+        {
+          "name": "vault",
+          "vault": {
+            "auth_method": "token",
+            "address": "https://vault.aiven.fi:8200/
+            ",
+            "token": "YOUR_VAULT_TOKEN"
+          }
         }
-      }
-    ]
-  }
-}'
+      ]
+    }
+  }'
 ```
 
 Parameters:
 
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven Kafka service.
 - `url`: API endpoint for updating service configuration. Replace `{project_name}` and
   `{service_name}` with your actual project and service names.
 - `Authorization`: Header for authentication. Replace `YOUR_BEARER_TOKEN` with your
@@ -63,26 +66,25 @@ Parameters:
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Add HashiCorp Vault using the [Aiven CLI](/docs/tools/cli):
+Configure HashiCorp Vault as a secret provider using [Aiven CLI](/docs/tools/cli):
 
 ```sh
-avn service update kafka-connect \
--c secret_providers='[
+avn service update SERVICE_NAME \
+  -c secret_providers='[
     {
         "vault": {
             "auth_method": "token",
             "address": "https://vault.aiven.fi:8200/",
-            "token": "<replace_with_your_vault_token>"
+            "token": "YOUR_VAULT_TOKEN"
         },
         "name": "vault"
     }
-]'
+  ]'
 ```
 
 Parameters:
 
-- `project`: Name of your Aiven project.
-- `service`: Name of your Aiven Kafka service.
+- `SERVICE_NAME`: Name of your Aiven Kafka service..
 - `name`: Name of the secret provider. In this case, `vault`.
 - `auth_method`: Authentication method used by HashiCorp Vault. In this case, it is
   `token`.
@@ -102,29 +104,31 @@ connector configurations.
 <Tabs groupId="reference-secrets-sink">
 <TabItem value="api" label="API" default>
 
-Reference secrets in the JDBC sink connector configuration using the
-following API request:
+Configure a JDBC sink connector using the API with secrets referenced from
+HashiCorp Vault:
 
 ```sh
-curl -X POST https://api.aiven.io/v1/project/<project_name>/service/<service_name>/connectors \
-  -H "Authorization: Bearer <your_auth_token>" \
+curl -X POST https://api.aiven.io/v1/project/{PROJECT_NAME}/service/{SERVICE_NAME}/connectors \
+  -H "Authorization: Bearer YOUR_BEARER_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
         "name": "your-connector-name",
         "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",
-        "connection.url": "jdbc:postgresql://host:port/dbname?user=${vault:path/to/secret:username}&password=${vault:path/to/secret:password}&ssl=require",
+        "connection.url": "jdbc:{DATABASE_TYPE}://{HOST}:{PORT}/{DATABASE_NAME}?user=${vault:PATH/TO/SECRET:USERNAME}&password=${vault:PATH/TO/SECRET:PASSWORD}&ssl=require",
         "topics": "your-topic",
-        "auto.create": "true"
+        "auto.create": true
       }'
 ```
 
 Parameters:
 
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven Kafka service.
 - `name`: Name of the connector.
 - `connector.class`: Specifies the connector class to use, in this case,
   `io.aiven.connect.jdbc.JdbcSinkConnector`.
-- `connection.url`: JDBC connection URL, with placeholders for the username and password
-  retrieved from HashiCorp Vault.
+- `connection.url`: JDBC connection URL with placeholders for `DATABASE_TYPE`, `HOST`,
+  `PORT`, `DATABASE_NAME`, and the username and password retrieved from HashiCorp Vault.
 - `topics`: Apache Kafka topic where the data can be sent.
 - `auto.create`: If `true`, the connector automatically creates the table in
   the target database if it does not exist.
@@ -132,32 +136,27 @@ Parameters:
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Reference secrets in the JDBC sink connector configuration using the following
-CLI command:
+Configure a JDBC sink connector using the Aiven CLI with secrets referenced from
+HashiCorp Vault:
 
 ```bash
-avn service connector create \
-  --project demo-project \
-  --service demo-kafka-service \
-  --connector-name jdbc-sink-connector \
-  --connector-class io.aiven.connect.jdbc.JdbcSinkConnector \
-  --config '{
-    "connection.url": "jdbc:postgresql://localhost:5432/mydb?user=${vault:path/to/secret:username}&password=${vault:path/to/secret:password}&ssl=require",
-    "topics": "your-topic",
-    "auto.create": "true"
-  }'
+avn service connector create SERVICE_NAME '{
+  "name": "jdbc-sink-connector",
+  "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",
+  "connection.url": "jdbc:{DATABASE_TYPE}://{HOST}:{PORT}/{DATABASE_NAME}?user=${vault:PATH/TO/SECRET:USERNAME}&password=${vault:PATH/TO/SECRET:PASSWORD}&ssl=require",
+  "topics": "your-topic",
+  "auto.create": true
 
 ```
 
 Parameters:
 
-- `project`: Name of your Aiven project.
-- `service`: Name of your Aiven Kafka service.
-- `connector-name`: Name of the connector.
+- `SERVICE_NAME`: Name of your Aiven Kafka service.
+- `name`: Name of the connector.
 - `connector.class`: Specifies the connector class to use, in this case,
   `io.aiven.connect.jdbc.JdbcSinkConnector`.
-- `connection.url`: JDBC connection URL, with placeholders for the username and password
-  retrieved from HashiCorp Vault.
+- `connection.url`: JDBC connection URL with placeholders for `DATABASE_TYPE`, `HOST`,
+  `PORT`, `DATABASE_NAME`, and the username and password retrieved from HashiCorp Vault.
 - `topics`: Apache Kafka topic where the data can be sent.
 - `auto.create`: If `true`, the connector automatically creates the table in
   the target database if it does not exist.
@@ -170,83 +169,82 @@ Parameters:
 <Tabs groupId="reference-secrets-source">
 <TabItem value="api" label="API" default>
 
-Reference secrets in the JDBC source connector configuration using the following
-API request:
+Configure a JDBC source connector using the API with secrets referenced from
+HashiCorp Vault:
+
 
 ```sh
-curl -X POST https://api.aiven.io/v1/project/<project_name>/service/<service_name>/connectors \
-  -H "Authorization: Bearer <your_auth_token>" \
+curl -X POST https://api.aiven.io/v1/project/{PROJECT_NAME}/service/{SERVICE_NAME}/connectors \
+  -H "Authorization: Bearer YOUR_BEARER_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
         "name": "your-connector-name",
         "connector.class": "io.aiven.connect.jdbc.JdbcSourceConnector",
-        "connection.url": "jdbc:postgresql://your-postgresql-host:your-port/defaultdb?ssl=require",
-        "connection.user": "${vault:path/to/secret:username}",
-        "connection.password": "${vault:path/to/secret:password}",
+        "connection.url": "jdbc:{DATABASE_TYPE}://{HOST}:{PORT}/{DATABASE_NAME}?ssl=require",
+        "connection.user": "${vault:PATH/TO/SECRET:USERNAME}",
+        "connection.password": "${vault:PATH/TO/SECRET:PASSWORD}",
         "incrementing.column.name": "id",
         "mode": "incrementing",
         "table.whitelist": "your-table",
         "topic.prefix": "your-prefix_",
-        "auto.create": "true"
+        "auto.create": true
       }'
 ```
 
 Parameters:
 
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven Kafka service.
 - `name`: Name of the connector.
 - `connector.class`: Specifies the connector class to use, in this case,
   `io.aiven.connect.jdbc.JdbcSinkConnector`.
-- `connection.url`: JDBC connection URL, with placeholders for the username and password
-  retrieved from HashiCorp Vault.
+- `connection.url`: JDBC connection URL with placeholders for `DATABASE_TYPE`, `HOST`,
+  `PORT`, `DATABASE_NAME`, and the username and password retrieved from HashiCorp Vault.
 - `connection.user`: Database username retrieved from HashiCorp Vault.
 - `connection.password`: Database password retrieved from HashiCorp Vault.
 - `incrementing.column.name`: Column used for incrementing mode.
 - `mode`: Mode of operation, in this case, `incrementing`.
 - `table.whitelist`: Tables to include.
-- `topic.prefix`: Prefix to use for Apache Kafka topics.
+- `topic.prefix`: Prefix for Apache Kafka topics.
 - `auto.create`: If `true`, the connector automatically creates the table in
   the target database if it does not exist.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Reference secrets in the JDBC source connector configuration using the following
-CLI command:
+Configure a JDBC source connector using the Aiven CLI with secrets referenced
+from HashiCorp Vault:
 
 ```bash
-avn service connector create \
-  --project demo-project \
-  --service demo-kafka-service \
-  --connector-name jdbc-source-connector \
-  --connector-class io.aiven.connect.jdbc.JdbcSourceConnector \
-  --config '{
-    "connection.url": "jdbc:postgresql://your-postgresql-host:your-port/defaultdb?ssl=require",
-    "connection.user": "${vault:path/to/secret:username}",
-    "connection.password": "${vault:path/to/secret:password}",
-    "incrementing.column.name": "id",
-    "mode": "incrementing",
-    "table.whitelist": "your-table",
-    "topic.prefix": "your-prefix_",
-    "auto.create": "true"
-  }'
+avn service connector create SERVICE_NAME '{
+  "name": "jdbc-source-connector",
+  "connector.class": "io.aiven.connect.jdbc.JdbcSourceConnector",
+  "connection.url": "jdbc:{DATABASE_TYPE}://{HOST}:{PORT}/{DATABASE_NAME}?ssl=require",
+  "connection.user": "${vault:PATH/TO/SECRET:USERNAME}",
+  "connection.password": "${vault:PATH/TO/SECRET:PASSWORD}",
+  "incrementing.column.name": "id",
+  "mode": "incrementing",
+  "table.whitelist": "your-table",
+  "topic.prefix": "your-prefix_",
+  "auto.create": true
+}'
 
 ```
 
 Parameters:
 
-- `project`: Name of your Aiven project.
-- `service`: Name of your Aiven Kafka service.
-- `connector-name`: Name of the connector.
+- `SERVICE_NAME`: Name of your Aiven Kafka service.
+- `name`: Name of the connector.
 - `connector.class`: Specifies the connector class to use, in this case,
   `io.aiven.connect.jdbc.JdbcSinkConnector`.
-- `connection.url`: JDBC connection URL, with placeholders for the username and password
-  retrieved from HashiCorp Vault.
+- `connection.url`: JDBC connection URL with placeholders for `DATABASE_TYPE`, `HOST`,
+  `PORT`, `DATABASE_NAME`, and the username and password retrieved from HashiCorp Vault.
 - `connection.user`: Database username retrieved from HashiCorp Vault.
 - `connection.password`: Database password retrieved from HashiCorp Vault.
 - `incrementing.column.name`: Column used for incrementing mode.
 - `mode`: Mode of operation, in this case, `incrementing`.
 - `table.whitelist`: Tables to include.
-- `topic.prefix`: Prefix to use for Apache Kafka topics.
+- `topic.prefix`: Prefix for Apache Kafka topics.
 - `auto.create`: If `true`, the connector automatically creates the table in
   the target database if it does not exist.
 
