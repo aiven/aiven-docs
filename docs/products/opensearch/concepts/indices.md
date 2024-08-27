@@ -135,7 +135,7 @@ If you create:
 - A `logs.*` pattern with a maximum of 8 indices
 - A `*` pattern with a maximum of 3 indices
 
-The system processes these patterns in sequence:|
+Aiven for OpenSearch processes these patterns in sequence:
 
 1. It first retains the 8 newest log indices according to the `logs.*` pattern.
 1. Next, it applies the `*` pattern, which affects all indices. Since the test indices
@@ -151,8 +151,8 @@ limit and doesn’t delete any indices. This is useful if to temporarily disable
 ### Integration with log retention times
 
 If you use log integration with specific retention times, Aiven for OpenSearch applies
-both index patterns and integration retention times. To streamline index cleanup, we
-recommend using only one method:
+both index patterns and integration retention times. To streamline index cleanup, it is
+recommended to use only one method:
 
 - Set the retention time for log integrations to the maximum value (10000).
 - Avoid adding index patterns for prefixes managed by log integrations.
