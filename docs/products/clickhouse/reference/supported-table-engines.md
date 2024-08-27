@@ -58,6 +58,7 @@ Aiven for ClickHouse supports the following table engines:
 
 :::tip
 [Managed credentials integrations](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
-simplify authentication when using integration engines and dictionaries to access remote sources.  
-See how to [enable the managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources).
+simplify authentication when using integration engines and dictionaries to access remote
+sources.
+Learn how to [enable the managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources).
 :::
