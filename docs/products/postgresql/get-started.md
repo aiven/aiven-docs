@@ -28,7 +28,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 </TabItem>
 <TabItem value="2" label="Terraform">
 
-1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
+1. [Create a token](/docs/platform/howto/create_authentication_token).
 1. Create the following Terraform files:
 
    - ``provider.tf``, where you specify the version in the ``required_providers`` block
@@ -64,11 +64,11 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
         }
       ```
 
-   - ``variables.tf``, where you declare the API token and project name variables
+   - ``variables.tf``, where you declare the token and project name variables
 
       ```hcl
       variable "aiven_api_token" {
-        description = "Aiven console API token"
+        description = "Aiven token"
         type        = string
       }
 
@@ -78,10 +78,10 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
       }
       ```
 
-   - ``terraform.tfvars``, where you add the Aiven access token and project name
+   - ``terraform.tfvars``, where you add the Aiven token and project name
 
       ```hcl
-        aiven_api_token = "AIVEN_AUTHENTICATION_TOKEN"
+        aiven_api_token = "AIVEN_TOKEN"
         project_name    = "AIVEN_PROJECT_NAME"
         admin_username  = "YOUR_SERVICE_USERNAME"
         admin_password  = "YOUR_SERVICE_PASSWORD"

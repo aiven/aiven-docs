@@ -34,12 +34,12 @@ install it if you don't have it already.
 
 You'll also need an Aiven account. If you don't have one yet, [sign up for free](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post). Once you have your account
 set, generate and note down the
-[authentication token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
+[token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
 Kubernetes operator with Aiven's API.
 
 ### Install the operator
 
-Once you have a Kubernetes cluster and an Aiven authentication token, we
+Once you have a Kubernetes cluster and an Aiven token, we
 can proceed to install the operator.
 
 Install the `cert-manager` with the command below. It is used to manage
@@ -137,7 +137,7 @@ metadata:
   name: pg-sample
 spec:
 
-  # gets the authentication token from the `aiven-token` secret
+  # gets the token from the `aiven-token` secret
   authSecretRef:
     name: aiven-token
     key: token

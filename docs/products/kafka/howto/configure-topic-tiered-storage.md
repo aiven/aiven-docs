@@ -6,7 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-
 Aiven for Apache Kafka® allows you to configure tiered storage and set retention policies for individual topics.
 
 ## Prerequisite
@@ -116,7 +115,7 @@ retention.
 </TabItem>
 </Tabs>
 
-## (Optional) Configure client-side parameter
+## Optional: Configure the client-side parameter
 
 For optimal performance and reduced risk of broker interruptions when
 using tiered storage, it is recommended to update the client-side

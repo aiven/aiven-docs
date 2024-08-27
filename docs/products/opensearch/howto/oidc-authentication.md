@@ -51,10 +51,10 @@ how to obtain this URL, see the next section.
 
 1.  In the [Aiven Console](https://console.aiven.io/), access your Aiven
     for OpenSearch service where to enable OpenID Connect.
-2.  Select **Users** from the left sidebar.
-3.  In the **SSO authentication** section, use the **Add method**
+1.  Select **Users** from the left sidebar.
+1.  In the **SSO authentication** section, use the **Add method**
     drop-down and select **OpenID**.
-4.  On **Configure OpenID Connect authentication** screen,
+1.  On **Configure OpenID Connect authentication** screen,
     -   **Redirect URL**: This URL is auto-populated. It is the URL that
         users will be redirected to after they have successfully
         authenticated through the IdP.
@@ -79,7 +79,7 @@ how to obtain this URL, see the next section.
         returned JSON that holds the user's name or identifying
         subject. Aiven uses this key to recognize and authenticate the
         user. By default, this key is labeled as `Subject`.
-5.  **Enable advanced configuration** (Optional) to further fine-tune
+1.  Optional: **Enable advanced configuration** to fine-tune
     the authentication process. Aiven for OpenSearch provides the
     following advanced configuration options:
     -   **Token handling**: Choose your preferred method for handling
@@ -100,7 +100,7 @@ how to obtain this URL, see the next section.
         milliseconds, during which the system will verify unrecognized
         JWT key IDs. Enter the value for the Refresh Limit Window
         parameter. The default value is 10,000 (10 seconds).
-6.  Select **Enable** to complete the setup and activate the
+1.  Select **Enable** to complete the setup and activate the
     configuration.
 
 ## Additional resources

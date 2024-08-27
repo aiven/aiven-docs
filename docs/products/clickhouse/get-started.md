@@ -31,7 +31,7 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
 </TabItem>
 <TabItem value="2" label="Terraform">
 
-1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
+1. [Create a token](/docs/platform/howto/create_authentication_token).
 
 1. Create the `sample.tf` file for the `aiven` provider configuration and
    the `aiven_clickhouse` resource.

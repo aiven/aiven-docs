@@ -1,13 +1,13 @@
 ---
 title: Add OneLogin as an identity provider
+sidebar_label: OneLogin
 ---
 
-Use [OneLogin](https://www.onelogin.com/) to give your organization
-users single sign-on (SSO) access to Aiven.
+Use [OneLogin](https://www.onelogin.com/) to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
-Add OneLogin as an
+Add OneLogin as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console)
 in the Console.
 

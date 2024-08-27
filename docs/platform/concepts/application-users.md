@@ -25,7 +25,7 @@ authentication policies don't apply to them.
 ## Security best practices
 
 Because application users can have the same level of access to projects and services it's
-important to secure these accounts and their authentication tokens to avoid abuse. The
+important to secure these accounts and their tokens to avoid abuse. The
 following are some suggested best practices for using Aiven application users.
 
 ### Create dedicated application users for each application

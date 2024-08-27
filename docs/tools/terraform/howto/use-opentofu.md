@@ -14,8 +14,7 @@ you can [migrate your Terraform resources to OpenTofu](https://opentofu.org/docs
 -   [Sign up for
     Aiven](https://console.aiven.io/signup?utm_source=github&utm_medium=organic&utm_campaign=devportal&utm_content=repo)
 -   [Install OpenTofu](https://opentofu.org/docs/intro/install/)
--   [Create an authentication
-    token](/docs/platform/howto/create_authentication_token)
+-   [Create a token](/docs/platform/howto/create_authentication_token)
 
 ## Configure your project and services
 
@@ -80,11 +79,11 @@ Set up the OpenTofu project in an empty folder:
     ```
 
 1.  Create a file named `variables.tf` and add the following code to declare the Aiven
-    authentication token variable:
+    token variable:
 
     ```hcl
     variable "aiven_token" {
-      description = "Aiven authentication token"
+      description = "Aiven token"
       type        = string
     }
     ```
@@ -93,10 +92,10 @@ Set up the OpenTofu project in an empty folder:
     token value:
 
     ```hcl
-    aiven_token = "AIVEN_AUTHENTICATION_TOKEN"
+    aiven_token = "AIVEN_TOKEN"
     ```
 
-    Where `AIVEN_AUTHENTICATION_TOKEN` is your authentication token.
+    Where `AIVEN_TOKEN` is your token.
 
 ## Plan and apply the configuration {#plan-and-apply}
 

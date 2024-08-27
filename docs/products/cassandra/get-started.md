@@ -31,7 +31,7 @@ You need some of the following dev tools for different Aiven for Apache Cassandr
 <TabItem value="2" label="Terraform">
 Create an Aiven for Apache Cassandra service using the Aiven Provider for Terraform.
 
-1. [Create an authentication token](/docs/platform/howto/create_authentication_token).
+1. [Create a token](/docs/platform/howto/create_authentication_token).
 
 1. Create the `cassandra-sample.tf` file for the `aiven` provider configuration and
    the `aiven_cassandra` resource.

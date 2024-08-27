@@ -1,12 +1,13 @@
 ---
 title: Add Google as an identity provider
+sidebar_label: Google
 ---
 
 Use Google to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
-Add Google as an
+Add Google as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console) in the Console.
 
 ## Configure SAML on Google {#configure-saml-google}

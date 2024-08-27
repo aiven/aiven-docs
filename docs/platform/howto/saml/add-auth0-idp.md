@@ -1,13 +1,13 @@
 ---
 title: Add Auth0 as an identity provider
+sidebar_label: Auth0
 ---
 
-Use [Auth0](https://auth0.com/) to give your organization users single
-sign-on (SSO) access to Aiven.
+Use [Auth0](https://auth0.com/) to give your organization users single sign-on (SSO) access to Aiven.
 
-## Prerequisite steps in Aiven Console
+## Prerequisite
 
-Add Auth0 as an
+Add Auth0 as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console) in the Console.
 
 ## Configure SAML on Auth0 {#configure-saml-auth0}

@@ -48,7 +48,7 @@ meets the following prerequisites:
 1. Select the Aiven for M3DB database you intend to migrate.
 1. Click **Get started** to proceed with the migration.
 
-### Step 2: Validation
+### Step 2: Validate
 
 The [Aiven Console](https://console.aiven.io/) automatically attempts to validate
 the database configurations for the selected Aiven for M3DB service.
@@ -60,7 +60,7 @@ If a validation error occurs during migration, follow the on-screen instructions
 fix it. Rerun validation to ensure the database meets migration criteria.
 :::
 
-### Step 3: Migration
+### Step 3: Migrate
 
 Once all the necessary checks have been completed, you can proceed with
 the migration process.
@@ -68,7 +68,7 @@ the migration process.
 - Click **Start migration** to initiate the data migration
 process to Aiven for Metrics.
 
-### Step 4: Replication
+### Step 4: Replicate
 
 While the migration is in progress:
 
@@ -89,7 +89,7 @@ To prevent conflicts during replication:
 If the migration fails, investigate, resolve, and restart the migration
 using **Start over**.
 
-### Step 5: Close and post-migration
+### Step 5: Close the connection and next steps
 
 Upon successful migration:
 

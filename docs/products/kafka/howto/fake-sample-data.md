@@ -32,8 +32,8 @@ To start using the generator:
 
 2.  Copy the file `conf/env.conf.sample` to `conf/env.conf`
 
-3.  Create an access token via the [Aiven
-    Console](https://console.aiven.io/) or the following command in the
+3.  Create a [token](/docs/platform/howto/create_authentication_token) in the Aiven
+    Console or using the following command in the
     [Aiven CLI](/docs/tools/cli),
     changing the `max-age-seconds` appropriately for the duration of
     your test:
@@ -50,7 +50,7 @@ To start using the generator:
     parse the result of the Aiven CLI command. If you don't have `jq`
     installed, you can remove the `| jq -r '.[].full_token'` section
     from the above command and parse the JSON result manually to extract
-    the access token.
+    the token.
     :::
 
 4.  Edit the `conf/env.conf` file filling the following placeholders:
@@ -61,7 +61,7 @@ To start using the generator:
     -   `my_topic_name`: the name of the target topic, can be any name
     -   `my_aiven_email`: the email address used as username to log in
         to Aiven services
-    -   `my_aiven_token`: the access token generated during the previous
+    -   `my_aiven_token`: the personal token generated during the previous
         step
 
 5.  Build the Docker image with:
