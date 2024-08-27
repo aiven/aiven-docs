@@ -4,29 +4,18 @@ title: Manage billing groups
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-With [billing groups](/docs/platform/concepts/billing-groups) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
+To view and update your billing groups in the [Aiven Console](https://console.aiven.io/) go to the organization and click **Billing**.
 
+:::info
 You must be a [super admin](/docs/platform/howto/make-super-admin) to access this
 feature in the Aiven Console.
+:::
 
-## Create a billing group
+## Rename billing groups
 
-1.  In the organization, click **Billing**.
-1.  Click **Create billing group**.
-1.  Enter a name for the billing group and click **Continue**.
-1.  Enter the billing details. You can also copy these details from
-    another billing group by selecting it from the list. Click
-    **Continue**.
-1.  Select the projects to add to this billing group. You
-    can also skip this and add projects later. Click **Continue**.
-1.  Check the information in the **Summary** step. To make changes to
-    any section, click **Edit**.
-1.  When you have confirmed everything is correct, click **Create**.
-
-## Rename a billing group
-
-1.  In the organization, click **Billing**.
-1.  Find the billing group to rename, click <ConsoleLabel name="actions"/> > **Rename**.
+1.  On the **Billing** page, find the billing group to
+    rename.
+1.  Click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Rename**.
 
 ## Update your billing information
@@ -34,30 +23,35 @@ feature in the Aiven Console.
 To change the payment card, address, billing contacts, or other billing
 details:
 
-1.  In the organization, click **Billing**.
 1.  Select the name of the billing group to update.
 1.  On the **Billing information** tab click **Edit** to update the
     details for that section.
 
 ## Assign projects to a billing group
 
-1.  In the organization, click **Billing**.
-1.  Select the name of the billing group to assign projects to.
+1.  Select the name of the billing group to assign
+    projects to.
 1.  On the **Projects** tab, click **Assign projects**.
-1.  Select the projects to assign to the billing group and click **Assign**.
+1.  Select the projects to assign to the billing group and click
+    **Assign**.
+
+:::note
+Assigning a project that is already assigned to another billing group
+will unassign it from that billing group.
+:::
 
 ## Move a project to another billing group
 
-1.  In the organization, click **Billing**.
-1.  Click the name of the billing group.
+1.  Select the name of the billing group.
 1.  On the **Projects** tab, find the project to move.
-1.  Click <ConsoleLabel name="actions"/> and select the billing group
+1.  Click the three dots for that project and select the billing group
     to move it to.
 
-## Delete a billing group
+## Delete billing groups
 
-1.  In the organization, click **Billing**.
-1.  Click the name of the billing group to delete.
-1.  On the **Projects** tab, move any projects to a different billing group.
-1.  Click <ConsoleLabel name="actions"/> at the top of the page.
+1.  Select the name of the billing group to delete.
+1.  On the **Projects** tab, confirm that the billing group has no projects.
+    If there are projects listed, move them to a different billing group.
+1.  Click <ConsoleLabel name="actions"/> next to the current accumulated monthly bill
+    amount.
 1.  Click **Delete** and **Confirm**.
