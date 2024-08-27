@@ -38,7 +38,7 @@ factor to 0.
 
 ### How to enable replication factor 0
 
-To set the replication factor to `0`, contact [Aiven support](mailto:support@aiven.io).
+To enable this setting, contact [Aiven support](mailto:support@aiven.io).
 
 ### When to use replication factor 0
 
