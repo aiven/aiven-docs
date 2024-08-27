@@ -104,7 +104,6 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/billing-groups',
               },
               items: [
-                'platform/howto/create-billing-groups',
                 'platform/howto/use-billing-groups',
                 'platform/howto/billing-assign-projects',
               ],
