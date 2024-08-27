@@ -99,6 +99,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Billing groups',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/billing-groups-overview',
+              },
               items: [
                 'platform/howto/use-billing-groups',
                 'platform/howto/billing-assign-projects',

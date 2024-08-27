@@ -2,7 +2,7 @@
 title: Billing and payment
 ---
 
-You configure billing details, including [payment methods](/docs/platform/howto/manage-payment-card), in [billing groups](/docs/platform/concepts/billing-groups). The payment details saved in a billing group apply to all projects assigned to that billing group.
+You configure billing details, including [payment methods](/docs/platform/howto/manage-payment-card), in [billing groups](/docs/platform/concepts/billing-groups-overview). The payment details saved in a billing group apply to all projects assigned to that billing group.
 
 Billing information, invoices, and a breakdown of charges by category and billing group
 are available in the **Billing** section of the [Aiven Console](https://console.aiven.io).
@@ -20,7 +20,7 @@ stops the accumulation of new charges immediately.
 
 Costs are calculated for the powered-on services in each project. Projects
 are charged separately, but you can consolidate the charges for multiple projects
-by assigning them to a [billing group](/docs/platform/concepts/billing-groups).
+by assigning them to a [billing group](/docs/platform/concepts/billing-groups-overview).
 
 The prices shown in the Aiven Console are inclusive of:
 
@@ -53,7 +53,7 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 
 ## Related pages
 
-- Create [billing groups](/docs/platform/concepts/billing-groups) for your organization
+- Create [billing groups](/docs/platform/concepts/billing-groups-overview) for your organization
 - Set up [payment methods](/docs/platform/howto/payment-methods) to add to your
   billing groups
 - Use the [invoice API](https://api.aiven.io/doc/#tag/BillingGroup) to export
