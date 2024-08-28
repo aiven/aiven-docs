@@ -77,11 +77,11 @@ with two exceptions,`ssd_cache` and `complex_key_ssd_cache`, which are not suppo
 ### Supported sources
 
 - HTTP(s)
-- Upstream/remote ClickHouse
+- Remote ClickHouse
 - Aiven for ClickHouse
-- Upstream/remote MySQL®
+- Remote MySQL®
 - Aiven for MySQL
-- Upstream/remote PostgreSQL®
+- Remote PostgreSQL®
 - Aiven for PostgreSQL
 
 
@@ -201,7 +201,7 @@ ON t.user_id = u.id;
   LIFETIME(MIN 600 MAX 900);
   ```
 
-  This will periodically query the upstream MySQL and store the data in memory.
+  This will periodically query MySQL and store the data in memory.
 
 - Create a dictionary for the `pricing` table in your PostgreSQL database using the `FLAT`
   layout:
