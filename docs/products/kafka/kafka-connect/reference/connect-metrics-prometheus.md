@@ -28,6 +28,16 @@ Apache Kafka Connect service.
 | `kafka_connect_connect_worker_rebalance_metrics_rebalance_avg_time_ms`         | Average time in milliseconds spent by this worker to rebalance |
 | `kafka_connect_connect_worker_rebalance_metrics_rebalancing`                   | Whether this worker is currently rebalancing                     |
 | `kafka_connect_connect_worker_rebalance_metrics_time_since_last_rebalance_ms`  | Time in milliseconds since this worker completed the most recent rebalance |
+| `kafka_connect:connector_task_metrics_info`                                    | Aggregated information about the connector tasks, such as their statuses and other metadata. |
+| `kafka.connect:connector-metrics_info`                                         | Aggregated information about the connectors, including statuses and metadata. |
+| `kafka_connect_connector_metrics_connector_class`                              | The class name of the connector                                             |
+| `kafka_connect_connector_metrics_connector_version`                            | The version of the connector                                                |
+| `kafka_connect_connector_metrics_connector_type`                               | The type of the connector, for example, source or sink                        |
+| `kafka_connect_connector_metrics_status`                                       | The status of the connector, for example, running, paused                     |
+| `kafka_connect_connect_worker_rebalance_metrics_failed_rebalances_total`       | Total number of rebalances that failed                                      |
+| `kafka_connect_connect_worker_rebalance_metrics_rebalance_max_time_ms`         | Maximum time in milliseconds taken by this worker to rebalance              |
+| `kafka_connect_connect_worker_rebalance_metrics_rebalance_min_time_ms`         | Minimum time in milliseconds taken by this worker to rebalance              |
+
 
 ## Related pages
 
