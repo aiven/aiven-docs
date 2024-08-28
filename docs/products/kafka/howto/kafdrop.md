@@ -8,10 +8,10 @@ It supports Avro, JSON, and Protobuf.
 
 ## Prerequisites
 
-- Access to the Aiven console
+- Access to the [Aiven Console](https://console.aiven.io/)
 - Aiven CLI
 - Docker installed. For Mac M1 chip users, ensure Docker is version 4.26.1 or lower to
-  avoid compatibility issue
+  avoid compatibility issues
 
 ## Retrieve SSL certificate files
 
