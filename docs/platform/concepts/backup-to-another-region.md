@@ -23,6 +23,7 @@ BTAR is supported for the following services:
 
 - Aiven for PostgreSQL®
 - Aiven for MySQL®
+- Aiven for OpenSearch®
 
 ## How BTAR works
 
@@ -73,7 +74,7 @@ flowchart LR
 
 ## Limitations
 
-- BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL®.
+- BTAR is supported for Aiven for MySQL®, Aiven for PostgreSQL®, and Aiven for OpenSearch®.
 - The cloud provider for your additional backup region must match the cloud provider for
   your service and the primary backup.
 <!-- - To
