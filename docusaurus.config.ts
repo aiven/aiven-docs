@@ -26,6 +26,15 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'zd-site-verification',
+        content: 'rvqin7w5m5g1xv0wupvnhm',
+      },
+    },
+  ],
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
