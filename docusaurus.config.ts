@@ -31,7 +31,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         name: 'zd-site-verification',
-        content: 'rvqin7w5m5g1xv0wupvnhm',
+        content: '1tsz6w2s2we597lbplg9ou',
       },
     },
   ],
