@@ -65,7 +65,7 @@ the process with Terraform.
      maintenance_window_time = "23:00:00"
 
      kafka_user_config {
-       kafka_version = "2.7"
+       kafka_version = "3.7"
      }
    }
 
