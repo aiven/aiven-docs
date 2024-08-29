@@ -1820,7 +1820,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Aiven for Valkey',
+          label: 'Aiven for Valkey™',
           link: {
             id: 'products/valkey',
             type: 'doc',

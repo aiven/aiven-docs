@@ -1,5 +1,5 @@
 ---
-title: Get started with Aiven for Valkey
+title: Get started with Aiven for Valkey™
 sidebar_label: Get started
 keywords: [quick start]
 ---
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import CreateService from "@site/static/includes/create-service-console.md"
 import Help from "@site/static/includes/cli-help.md"
 
-Begin your journey with Aiven for Valkey, the versatile in-memory data store offering high-performance capabilities for caching, message queues, and efficient data storage solutions.
+Begin your journey with Aiven for Valkey™, the versatile in-memory data store offering high-performance capabilities for caching, message queues, and efficient data storage solutions.
 
 ## Prerequisites
 
