@@ -7,7 +7,8 @@
   --ifm-link-decoration: none;
   padding: 12px;
 }
-.alert > div:first-child {
+
+.alert>div:first-child {
   /* Title of the admonition */
   font-size: 110%;
   font-family: Inter;
@@ -15,16 +16,19 @@
   text-transform: capitalize;
   font-weight: 500;
 }
-.alert > div:first-child > span {
+
+.alert>div:first-child>span {
   /* Icon container */
   margin: 0;
 }
-.alert > div:first-child > span > svg {
+
+.alert>div:first-child>span>svg {
   /* Icon */
   height: 1em;
   fill: var(--aquarium-colors-info-70);
 }
-.alert > div:last-child {
+
+.alert>div:last-child {
   /* Body of the admonition */
   margin-left: 26px;
   color: var(--aiven-adm-text-color);
@@ -33,18 +37,31 @@
 .alert--success {
   --ifm-alert-background-color: var(--aiven-adm-bg-tip);
 }
-.alert--success > div:first-child > span > svg {
+
+.alert--success>div:first-child>span>svg {
   fill: var(--aquarium-colors-success-70);
 }
+
 .alert--warning {
   --ifm-alert-background-color: var(--aiven-adm-bg-warning);
 }
-.alert--warning > div:first-child > span > svg {
+
+.alert--warning>div:first-child>span>svg {
   fill: var(--aquarium-colors-error-70);
 }
+
 .alert--info {
   --ifm-alert-background-color: var(--aiven-adm-bg-info);
 }
-.alert--info > div:first-child > span > svg {
+
+.alert--info>div:first-child>span>svg {
   fill: var(--aquarium-colors-warning-90);
+}
+
+.alert a {
+  text-decoration-color: var(--ifm-link-color);
+}
+
+.alert a:hover {
+  text-decoration-thickness: 1px;
 }

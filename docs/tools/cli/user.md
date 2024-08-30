@@ -10,7 +10,7 @@ Commands for managing project users and `avn` client sessions.
 
 ### `avn user access-token`
 
-Set of commands for managing user's access tokens.
+Set of commands for managing a user's tokens.
 [See detailed command information](user/user-access-token) for more information.
 
 ### `avn user create`
@@ -41,7 +41,7 @@ Retrieves the current user information such as:
 -   Username
 -   Real name
 -   State (`active` or `inactive`)
--   Authentication token validity start date
+-   Token validity start date
 -   Associated projects
 -   Authentication method
 
@@ -77,15 +77,13 @@ avn user login john.doe@example.com
 
 The user will be prompted to insert the password.
 
-**Example:** Log the `john.doe@example.com` user in, using a pre-created
-authentication token.
+**Example:** Log the `john.doe@example.com` user in, using a personal token.
 
 ```
 avn user login john.doe@example.com --token
 ```
 
-The user will be prompted to insert the pre-created authentication
-token.
+The user will be prompted to insert the personal token.
 
 ### `avn user logout`
 
@@ -99,9 +97,9 @@ avn user logout
 
 ### `avn user tokens-expire` {#avncli user-tokens-expire}
 
-Makes all the authentication tokens associated with the user expired.
+Expires all the tokens associated with the user expired.
 
-**Example:** Make all the authentication tokens expired.
+**Example:**
 
 ```
 avn user tokens-expire

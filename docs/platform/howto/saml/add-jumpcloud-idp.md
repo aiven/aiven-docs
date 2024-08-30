@@ -1,13 +1,13 @@
 ---
 title: Add JumpCloud as an identity provider
+sidebar_label: JumpCloud
 ---
 
-Use [JumpCloud](https://jumpcloud.com/) to give your organization users
-single sign-on (SSO) access to Aiven.
+Use [JumpCloud](https://jumpcloud.com/) to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
-Add JumpCloud as an
+Add JumpCloud as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console) in the Console.
 
 ## Configure SAML on JumpCloud {#configure-saml-jumpcloud}

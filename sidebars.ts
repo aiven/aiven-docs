@@ -80,18 +80,16 @@ const sidebars: SidebarsConfig = {
           label: 'Billing and payment',
           link: {
             type: 'doc',
-            id: 'platform/concepts/hourly-billing-model',
+            id: 'platform/concepts/billing-and-payment',
           },
           items: [
-            'platform/concepts/corporate-billing',
             'platform/concepts/tax-information',
-            'platform/howto/update-tax-status',
             {
               type: 'category',
               label: 'Payment methods',
               link: {
                 type: 'doc',
-                id: 'platform/howto/list-billing',
+                id: 'platform/howto/payment-methods',
               },
               items: [
                 'platform/howto/manage-payment-card',
@@ -106,23 +104,15 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/billing-groups',
               },
               items: [
-                'platform/howto/create-billing-groups',
                 'platform/howto/use-billing-groups',
                 'platform/howto/billing-assign-projects',
               ],
             },
-            'platform/howto/payment-issues-plan-upgrades',
-            'platform/howto/custom-plans',
           ],
         },
         {
           type: 'category',
           label: 'User and access management',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-user',
-          },
-
           items: [
             'platform/howto/manage-org-users',
             'platform/howto/make-super-admin',
@@ -169,10 +159,10 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/manage-domains',
                 'platform/howto/saml/add-identity-providers',
                 'platform/howto/saml/add-auth0-idp',
-                'platform/howto/saml/add-azure-idp',
                 'platform/howto/saml/add-fusionauth-idp',
                 'platform/howto/saml/add-google-idp',
                 'platform/howto/saml/add-jumpcloud-idp',
+                'platform/howto/saml/add-azure-idp',
                 'platform/howto/saml/add-okta-idp',
                 'platform/howto/okta-user-provisioning-with-scim',
                 'platform/howto/saml/add-onelogin-idp',
@@ -210,6 +200,7 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
+                'platform/howto/custom-plans',
               ],
             },
             {
@@ -223,13 +214,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service scaling',
-              link: {
-                type: 'generated-index',
-                description:
-                  'Aiven offers the following features to scale your services.',
-                title: 'Service scaling',
-                slug: '/platform/concepts/service-scaling',
-              },
               items: [
                 'platform/howto/scale-services',
                 'platform/howto/add-storage-space',
@@ -258,10 +242,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Networking and security',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-network',
-          },
           items: [
             'platform/concepts/cloud-security',
             'platform/reference/list_of_clouds',
@@ -270,10 +250,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'VPCs',
-              link: {
-                type: 'generated-index',
-                slug: 'platform/vpc',
-              },
               items: [
                 'platform/howto/manage-vpc-peering',
                 'platform/howto/public-access-in-vpc',
@@ -286,10 +262,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Private link',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'platform/privatelink',
-                  },
                   items: [
                     'platform/howto/use-aws-privatelinks',
                     'platform/howto/use-azure-privatelink',
@@ -301,10 +273,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'IP addresses',
-              link: {
-                type: 'generated-index',
-                slug: 'platform/ip-addresses',
-              },
               items: [
                 'platform/reference/service-ip-address',
                 'platform/concepts/static-ips',
@@ -369,10 +337,7 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'CloudWatch logs',
-                  link: {
-                    type: 'doc',
-                    id: 'integrations/cloudwatch/list-cloudwatch-logs',
-                  },
+
                   items: [
                     'integrations/cloudwatch/cloudwatch-logs-console',
                     'integrations/cloudwatch/cloudwatch-logs-cli',
@@ -538,10 +503,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/concepts',
-              },
               items: [
                 'products/cassandra/concepts/tombstones',
                 'products/cassandra/concepts/cross-cluster-replication',
@@ -550,10 +511,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -596,10 +553,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/cassandra/reference',
-              },
               items: [
                 'products/cassandra/reference/advanced-params',
                 'products/cassandra/reference/cassandra-metrics-prometheus',
@@ -621,10 +574,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/flink/concepts',
-              },
               items: [
                 'products/flink/concepts/flink-architecture',
                 'products/flink/reference/flink-limitations',
@@ -644,18 +593,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/flink/howto',
-              },
               items: [
                 {
                   type: 'category',
                   label: 'Integrate service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/list-integrations',
-                  },
                   items: [
                     'products/flink/howto/create-integration',
                     'products/flink/howto/ext-kafka-flink-integration',
@@ -680,18 +621,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Apache Flink tables',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/list-flink-tables',
-                  },
                   items: [
                     {
                       type: 'category',
                       label: 'Create tables with data source',
-                      link: {
-                        id: 'products/flink/howto/list-flink-table-integrations',
-                        type: 'doc',
-                      },
                       items: [
                         'products/flink/howto/connect-kafka',
                         'products/flink/howto/flink-confluent-avro',
@@ -710,10 +643,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Advanced topics',
-                  link: {
-                    type: 'doc',
-                    id: 'products/flink/howto/advanced-topics',
-                  },
                   items: ['products/flink/howto/timestamps_opensearch'],
                 },
               ],
@@ -721,10 +650,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/flink/reference',
-              },
               items: ['products/flink/reference/advanced-params'],
             },
           ],
@@ -781,10 +706,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'generated-index',
-                slug: 'products/kafka/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -804,10 +725,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Tools',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-tools',
-                  },
                   items: [
                     'products/kafka/howto/kafka-tools-config-file',
                     'products/kafka/howto/kcat',
@@ -822,10 +739,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Security',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-security',
-                  },
                   items: [
                     'products/kafka/howto/keystore-truststore',
                     'products/kafka/howto/manage-acls',
@@ -839,12 +752,7 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administrative tasks',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-admin',
-                  },
                   items: [
-                    'products/kafka/howto/list-schema-registry',
                     'products/kafka/howto/enable-karapace',
                     'products/kafka/howto/best-practices',
                     'products/kafka/howto/configure-with-kafka-cli',
@@ -863,10 +771,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrations',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-integration',
-                  },
                   items: [
                     'products/kafka/howto/integrate-service-logs-into-kafka-topic',
                     'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
@@ -880,10 +784,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Topic and schema management',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-topic-management',
-                  },
                   items: [
                     'products/kafka/howto/create-topic',
                     'products/kafka/howto/create-topics-automatically',
@@ -943,10 +843,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/kafka/reference',
-              },
               items: [
                 'products/kafka/reference/advanced-params',
                 'products/kafka/reference/kafka-metrics-prometheus',
@@ -955,10 +851,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {
-                type: 'generated-index',
-                title: 'Kafka troubleshooting',
-              },
               items: [
                 'products/kafka/troubleshooting/troubleshoot-consumer-disconnections',
               ],
@@ -975,10 +867,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-connect/concepts',
-                  },
                   items: [
                     'products/kafka/kafka-connect/concepts/list-of-connector-plugins',
                     'products/kafka/kafka-connect/concepts/jdbc-source-modes',
@@ -988,18 +876,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-connect/howto',
-                  },
                   items: [
                     {
                       type: 'category',
                       label: 'Administration tasks',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/kafka-connect/howto/list-admin',
-                      },
                       items: [
                         'products/kafka/kafka-connect/howto/best-practices',
                         'products/kafka/kafka-connect/howto/bring-your-own-kafka-connect-cluster',
@@ -1012,10 +892,6 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'category',
                       label: 'Source connectors',
-                      link: {
-                        type: 'generated-index',
-                        slug: 'products/kafka/kafka-connect/howto/list-source-connectors',
-                      },
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
@@ -1037,10 +913,7 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'category',
                       label: 'Sink connectors',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/kafka-connect/howto/list-sink-connectors',
-                      },
+
                       items: [
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/s3-sink-prereq',
@@ -1074,10 +947,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Reference',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-connect/reference',
-                  },
                   items: [
                     'products/kafka/kafka-connect/reference/advanced-params',
                     {
@@ -1110,10 +979,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-mirrormaker/concepts',
-                  },
                   items: [
                     {
                       type: 'category',
@@ -1134,10 +999,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-mirrormaker/howto',
-                  },
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
@@ -1148,10 +1009,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Reference',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/kafka-mirrormaker/reference',
-                  },
                   items: [
                     'products/kafka/kafka-mirrormaker/reference/advanced-params',
                     'products/kafka/kafka-mirrormaker/reference/known-issues',
@@ -1172,10 +1029,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/karapace/concepts',
-                  },
                   items: [
                     'products/kafka/karapace/concepts/schema-registry-authorization',
                     'products/kafka/karapace/concepts/acl-definition',
@@ -1185,10 +1038,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/karapace/howto',
-                  },
                   items: [
                     'products/kafka/karapace/howto/enable-karapace',
                     'products/kafka/karapace/howto/enable-schema-registry-authorization',
@@ -1214,10 +1063,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'generated-index',
-                slug: 'products/caching/concepts',
-              },
               items: [
                 'products/caching/concepts/high-availability-redis',
                 'products/caching/concepts/lua-scripts-caching',
@@ -1228,7 +1073,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {type: 'generated-index', slug: 'products/caching/howto'},
               items: [
                 {
                   type: 'category',
@@ -1249,19 +1093,11 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administer database',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/list-dba-tasks',
-                  },
                   items: ['products/caching/howto/configure-acl-permissions'],
                 },
                 {
                   type: 'category',
                   label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/migrate-redis-db',
-                  },
                   items: [
                     'products/caching/howto/migrate-redis-aiven-cli',
                     'products/caching/howto/migrate-redis-aiven-via-console',
@@ -1276,20 +1112,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/caching/reference',
-              },
               items: ['products/caching/reference/advanced-params'],
             },
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {
-                type: 'generated-index',
-                title: 'Troubleshooting',
-                slug: 'products/caching/troubleshooting',
-              },
               items: [
                 'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
               ],
@@ -1309,10 +1136,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/concepts',
-              },
               items: [
                 'products/clickhouse/concepts/service-architecture',
                 'products/clickhouse/reference/limitations',
@@ -1323,15 +1146,12 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/concepts/strings',
                 'products/clickhouse/concepts/federated-queries',
                 'products/clickhouse/concepts/clickhouse-tiered-storage',
+                'products/clickhouse/concepts/data-integration-overview',
               ],
             },
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1352,10 +1172,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Manage service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/clickhouse/howto/list-manage-service',
-                  },
                   items: [
                     'products/clickhouse/howto/secure-service',
                     'products/clickhouse/howto/manage-users-roles',
@@ -1407,10 +1223,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/reference',
-              },
               items: [
                 'products/clickhouse/reference/supported-table-engines',
                 'products/clickhouse/reference/supported-interfaces-drivers',
@@ -1438,10 +1250,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1460,10 +1268,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/dragonfly/howto/list-migrate-data',
-                  },
                   items: [
                     'products/dragonfly/howto/migrate-aiven-caching-df-console',
                     'products/dragonfly/howto/migrate-ext-redis-df-console',
@@ -1476,10 +1280,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/dragonfly/reference',
-              },
               items: ['products/dragonfly/reference/advanced-params'],
             },
           ],
@@ -1497,18 +1297,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/howto',
-              },
               items: [
                 {
                   type: 'category',
                   label: 'User access',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/grafana/user-access',
-                  },
                   items: [
                     'products/grafana/howto/log-in',
                     'products/grafana/howto/rotating-grafana-service-credentials',
@@ -1518,10 +1310,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Manage dashboards',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/grafana/howto/list-manage-dashboards',
-                  },
                   items: [
                     'products/grafana/howto/dashboard-previews',
                     'products/grafana/howto/replace-expression-string',
@@ -1535,10 +1323,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/grafana/reference',
-              },
               items: [
                 'products/grafana/reference/advanced-params',
                 'products/grafana/reference/plugins',
@@ -1558,10 +1342,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/m3db/concepts',
-              },
               items: [
                 'products/m3db/concepts/m3-components',
                 'products/m3db/concepts/namespaces-aggregation',
@@ -1613,10 +1393,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/metrics/concepts',
-              },
               items: [
                 'products/metrics/concepts/storage-resource-scaling',
                 'products/metrics/concepts/retention-rules',
@@ -1625,19 +1401,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/metrics/howto',
-              },
               items: [
                 'products/metrics/howto/storage-usage',
                 {
                   type: 'category',
                   label: 'Data migration',
-                  link: {
-                    type: 'doc',
-                    id: 'products/metrics/howto/list-data-migration',
-                  },
                   items: [
                     'products/metrics/howto/migrate-influxdb-thanos',
                     'products/metrics/howto/migrate-m3db-thanos',
@@ -1659,10 +1427,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/concepts',
-              },
               items: [
                 'products/mysql/concepts/max-number-of-connections',
                 'products/mysql/concepts/mysql-backups',
@@ -1676,10 +1440,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/howto',
-              },
               items: [
                 {
                   type: 'category',
@@ -1737,10 +1497,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/reference',
-              },
               items: [
                 'products/mysql/reference/advanced-params',
                 'products/mysql/reference/resource-capability',
@@ -1762,10 +1518,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'generated-index',
-                slug: 'products/opensearch/concepts',
-              },
               items: [
                 {
                   type: 'category',
@@ -1801,18 +1553,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/howto',
-              },
               items: [
                 {
                   type: 'category',
                   label: 'Manage access control',
-                  link: {
-                    id: 'products/opensearch/howto/list-access-control',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/control_access_to_content',
                   ],
@@ -1833,10 +1577,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Data management',
-                  link: {
-                    id: 'products/opensearch/howto/list-data-management',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
@@ -1907,10 +1647,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/opensearch/reference',
-              },
               items: [
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/advanced-params',
@@ -1931,10 +1667,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'How to',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/dashboards/howto',
-                  },
                   items: [
                     'products/opensearch/dashboards/howto/dev-tools-usage-example',
                     'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
@@ -1957,10 +1689,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Concepts',
-              link: {
-                type: 'doc',
-                id: 'products/postgresql/concepts',
-              },
               items: [
                 'products/postgresql/concepts/aiven-db-migrate',
                 'products/postgresql/concepts/dba-tasks-pg',
@@ -1977,11 +1705,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/postgresql/howto',
-              },
-
               items: [
                 'products/postgresql/howto/pagila',
                 {
@@ -2009,10 +1732,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Administer database',
-                  link: {
-                    id: 'products/postgresql/howto/list-dba-tasks',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/create-database',
                     'products/postgresql/howto/upgrade',
@@ -2040,10 +1759,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Migrate',
-                  link: {
-                    id: 'products/postgresql/howto/list-replication-migration',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/migrate-cloud-region',
                     'products/postgresql/howto/migrate-db-to-aiven-via-console',
@@ -2056,10 +1771,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Replicate',
-                  link: {
-                    id: 'products/postgresql/howto/list-replication',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/create-read-replica',
                     'products/postgresql/howto/setup-logical-replication',
@@ -2072,10 +1783,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrate',
-                  link: {
-                    id: 'products/postgresql/howto/list-integrations',
-                    type: 'doc',
-                  },
                   items: [
                     'products/postgresql/howto/monitor-database-with-datadog',
                     'products/postgresql/howto/visualize-grafana',
@@ -2090,10 +1797,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Troubleshooting',
-              link: {
-                id: 'products/postgresql/troubleshooting',
-                type: 'doc',
-              },
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
@@ -2102,7 +1805,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {id: 'products/postgresql/reference', type: 'doc'},
               items: [
                 'products/postgresql/reference/advanced-params',
                 'products/postgresql/reference/pg-connection-limits',
@@ -2144,10 +1846,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              link: {
-                type: 'generated-index',
-                slug: 'products/valkey/reference',
-              },
               items: ['products/valkey/reference/advanced-params'],
             },
           ],

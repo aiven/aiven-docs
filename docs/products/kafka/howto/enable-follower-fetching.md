@@ -114,11 +114,11 @@ Parameters:
 
    ```hcl
    provider "aiven" {
-    api_token = "YOUR_API_TOKEN"
+    api_token = "YOUR_TOKEN"
     }
    ```
 
-   The `api_token` is your Aiven API token for [authentication](/docs/platform/howto/create_authentication_token).
+   The `api_token` is your Aiven [token](/docs/platform/howto/create_authentication_token).
 
 1. Enable follower fetching in your Aiven for Apache Kafka service using the
    following configuration:

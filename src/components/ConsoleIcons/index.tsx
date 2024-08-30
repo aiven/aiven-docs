@@ -330,6 +330,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit topic </b>
         </>
       );
+    case 'deletetopic':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete topic</b>
+        </>
+      );
     case 'edit':
       return (
         <>
@@ -354,6 +360,12 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
           <b>Add configuration options</b>
+        </>
+      );
+    case 'addnew':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.add} /> <b>Add new</b>
         </>
       );
     case 'plus':

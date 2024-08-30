@@ -1,12 +1,13 @@
 ---
 title: Add Microsoft Azure Active Directory as an identity provider
+sidebar_label: Microsoft Azure Active Directory
 ---
 
 Use [Microsoft Azure Active Directory (AD)](https://azure.microsoft.com/en-us/products/active-directory/) to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
-Add Azure as an
+Add Azure as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console) in the Console.
 
 ## Configure SAML on Microsoft Azure {#configure-saml-azure}

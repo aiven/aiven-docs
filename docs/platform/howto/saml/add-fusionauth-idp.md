@@ -1,13 +1,13 @@
 ---
 title: Add FusionAuth as an identity provider
+sidebar_label: FusionAuth
 ---
 
-Use [FusionAuth](https://fusionauth.io/) to give your organization users
-single sign-on (SSO) access to Aiven.
+Use [FusionAuth](https://fusionauth.io/) to give your organization users single sign-on (SSO) access to Aiven.
 
 ## Prerequisite steps in Aiven Console
 
-Add FusionAuth as an
+Add FusionAuth as a SAML
 [identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console) in the Console.
 
 ## Configure SAML on FusionAuth {#configure-saml-fusionauth}

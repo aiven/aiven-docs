@@ -36,8 +36,8 @@ import TabItem from '@theme/TabItem';
 
 ## Authenticate with the Aiven CLI
 
-You can authenticate using your password or an
-[authentication token](/docs/platform/concepts/authentication-tokens).
+You can authenticate using your password or a
+[token](/docs/platform/concepts/authentication-tokens).
 
 <Tabs groupId="group1">
 <TabItem value="With a password" label="With a password" default>
@@ -53,8 +53,7 @@ You can authenticate using your password or an
 </TabItem>
 <TabItem value="With a token" label="With a token">
 
-1. Create an
-   [authentication token](/docs/platform/howto/create_authentication_token).
+1. [Create a token](/docs/platform/howto/create_authentication_token).
 
 1. To authenticate with a token, run:
 
