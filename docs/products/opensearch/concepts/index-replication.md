@@ -30,10 +30,9 @@ the cluster fails.
 
 :::warning
 If a node fails before a snapshot is taken, the system cannot recover the data.
-In this case, Aiven for OpenSearch will automatically recreate the missing index to
-restore operations. However, the recreated index will be empty. Consider this risk when
+In this case, Aiven for OpenSearch automatically recreates the missing index to
+restore operations. However, the recreated index is be empty. Consider this risk when
 setting the replication factor to 0.
-
 :::
 
 ### How to enable replication factor 0
