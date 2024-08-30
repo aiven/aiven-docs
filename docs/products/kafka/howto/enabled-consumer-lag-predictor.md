@@ -136,7 +136,7 @@ following PromQL query
 `avg by(topic,group)(kafka_lag_predictor_group_lag_predicted_seconds_gauge)`
 ```
 
-Another useful choice to monitor is the consume/produce ratio. You can monitor this per
+Another useful metric to monitor is the consume/produce ratio. You can monitor this per
 topic and partition for consumer groups by using the following  PromQL query:
 
 ```promql
