@@ -12,7 +12,7 @@ Configure and use HashiCorp Vault as a secret provider in Aiven for Apache Kafka
 - Access to the [Aiven Console](https://console.aiven.io/).
 - Aiven for Apache Kafka service with Apache Kafka Connect set up and running.
   For setup instructions, see
-  [Aiven for Apache Kafka with Kafka Connect documentation](https://aiven.io/docs/products/kafka/kafka-connect/get-started).
+  [Aiven for Apache Kafka with Kafka Connect documentation](/docs/products/kafka/kafka-connect/get-started).
 - [Aiven CLI](/docs/tools/cli).
 - [HashiCorp Vault address and token](https://developer.hashicorp.com/vault/docs/concepts/tokens).
 

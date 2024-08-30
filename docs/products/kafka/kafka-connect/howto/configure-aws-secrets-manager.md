@@ -11,7 +11,7 @@ Configure and use AWS Secrets Manager as a secret provider in Aiven for Apache K
 
 - Access to the [Aiven Console](https://console.aiven.io/).
 - Aiven for Apache Kafka service with Apache Kafka Connect set up and running. For setup
-  instructions, see [Aiven for Apache Kafka with Kafka Connect documentation](https://aiven.io/docs/products/kafka/kafka-connect/get-started).
+  instructions, see [Aiven for Apache Kafka with Kafka Connect documentation](/docs/products/kafka/kafka-connect/get-started).
 - [Aiven CLI](/docs/tools/cli).
 - [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 
