@@ -5,7 +5,7 @@ title: Connect with Java
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.java';
 
-Establish a connection to your Aiven for Valkey service using Java and the `jedis` library.
+Establish a connection to your Aiven for Valkey™ service using Java and the `jedis` library.
 
 ## Variables
 

@@ -1,10 +1,10 @@
 ---
-title: Aiven for Valkey
+title: Aiven for Valkey™
 ---
 
-Aiven for Valkey is a managed, in-memory NoSQL database service that offers high performance, scalability, and security.
+Aiven for Valkey™ is a managed, in-memory NoSQL database service that offers high performance, scalability, and security.
 
-Developed under the Linux Foundation, Valkey is an open-source fork of Redis® designed
+Developed under the Linux Foundation, Valkey™ is an open-source fork of Redis® designed
 to provide a seamless and reliable alternative to Redis OSS.  Aiven for Valkey
 ensures full compatibility with Redis OSS 7.2.4 and [Aiven for Caching](/docs/products/caching),
 making it easy for users to transition their existing applications without disruption.

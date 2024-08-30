@@ -5,7 +5,7 @@ title: Connect with Python
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.py';
 
-Connect to the Aiven for Valkey service using Python with the `valkey-py` library. `valkey-py` is a Python interface specifically designed for the Valkey key-value store.
+Connect to the Aiven for Valkey™ service using Python with the `valkey-py` library. `valkey-py` is a Python interface specifically designed for the Valkey key-value store.
 
 ## Variables
 

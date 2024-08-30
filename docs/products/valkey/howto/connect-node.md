@@ -5,7 +5,7 @@ title: Connect with NodeJS
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.js';
 
-Connect to the Aiven for Valkey service using NodeJS with the `ioredis` library.
+Connect to the Aiven for Valkey™ service using NodeJS with the `ioredis` library.
 
 ## Variables
 
