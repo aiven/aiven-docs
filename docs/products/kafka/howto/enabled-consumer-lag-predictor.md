@@ -113,7 +113,7 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
 
 ## Monitor metrics with Prometheus
 
-After enabling the consumer lag predictor, you can use Prometheus to
+After enabling the consumer lag predictor, you can use [Prometheus](/docs/platform/howto/integrations/prometheus-metrics) to
 access and monitor detailed metrics that offer insights into your Kafka
 cluster's performance:
 
@@ -122,3 +122,9 @@ cluster's performance:
 | `kafka_lag_predictor_topic_produced_records_total` | Counter | Represents the total count of records produced.                                                        |
 | `kafka_lag_predictor_group_consumed_records_total` | Counter | Represents the total count of records consumed.                                                        |
 | `kafka_lag_predictor_group_lag_predicted_seconds`  | Gauge   | Represents the estimated time lag, in seconds, for a consumer group to catch up to the latest message. |
+
+For example with these metrics you can monitor average estimated time lag in seconds for a consumer group to consume messages
+produced. You can try this with PromQL query `avg by(topic,group)(kafka_lag_predictor_group_lag_predicted_seconds_gauge)`.
+
+Another useful choice to monitor is consume/produce ratio.  It can be monitored per topic and partition for consumer groups
+by using PromQL query `sum by(group, topic, partition)(kafka_lag_predictor_group_consumed_records_total_counter) / on(topic, partition) group_left() sum by (topic, partition)(kafka_lag_predictor_topic_produced_records_total_counter)`
