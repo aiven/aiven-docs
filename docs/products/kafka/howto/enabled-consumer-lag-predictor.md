@@ -132,7 +132,7 @@ For example, you can monitor the average estimated time lag in seconds for a
 consumer group to consume produced messages using the following PromQL query:
 
 ```promql
-`avg by(topic,group)(kafka_lag_predictor_group_lag_predicted_seconds_gauge)`
+avg by(topic,group)(kafka_lag_predictor_group_lag_predicted_seconds_gauge)
 ```
 
 Another useful metric to monitor is the consume/produce ratio. You can monitor this per
