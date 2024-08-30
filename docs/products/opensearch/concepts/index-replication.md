@@ -29,10 +29,10 @@ reduces storage costs but significantly increases the risk of data loss if a nod
 the cluster fails.
 
 :::warning
-If a node fails before a snapshot is taken, the system is unable to recover the data on
-that node. In such cases, you might need to delete the affected index, as recovery is not
-possible without a backup. Consider this risk carefully when setting the replication
-factor to 0.
+If a node fails before a snapshot is taken, the system cannot recover the data.
+In this case, Aiven for OpenSearch will automatically recreate the missing index to
+restore operations. However, the recreated index will be empty. Consider this risk when
+setting the replication factor to 0.
 
 :::
 
@@ -51,6 +51,8 @@ Consider setting the replication factor to `0` in the following scenarios:
 
 ### Risks and considerations
 
-- **Data loss:** Without replicas, a node failure can result in permanent data loss.
+- **Data loss:** Without replicas, a node failure can result in permanent data loss. If
+  this happens, Aiven for OpenSearch® will automatically recreate the missing index, but
+  it will be empty, with no data present.
 - **Manual recovery:** If data loss occurs, data must be restored from snapshots
   manually, which can lead to downtime.
