@@ -47,8 +47,12 @@ Information specific to cloud providers:
   - `region`: The AWS region of the S3 bucket.
   - `access_key`: AWS access key for accessing the S3 bucket.
   - `secret_key`: AWS secret key associated with the access key.
-  - `server_side_encryption`: (Optional) Enable server-side encryption for files in the S3 bucket.
-  - `endpoint`: (Optional) The endpoint for S3-compatible services if not using AWS S3 directly.
+  - `server_side_encryption`: (Optional) Enable server-side encryption for files in the
+    S3 bucket.
+  - `endpoint`: (Optional) The endpoint for S3-compatible services if not using AWS S3
+    directly.
+  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default.
 
 - **Google Cloud Storage (GCS)**
 
@@ -58,6 +62,8 @@ Information specific to cloud providers:
   - `snapshot_name`: Name of the snapshot to restore.
   - `compress` and `chunk_size`: (Optional) Settings for metadata compression
     and file chunking.
+  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default.
 
 - **Microsoft Azure**
 
@@ -68,6 +74,8 @@ Information specific to cloud providers:
   - `snapshot_name`: Name of the snapshot to restore.
   - `compress`, `chunk_size`, `endpoint_suffix`: (Optional) Additional configuration
     settings.
+  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default.
 
 - **S3-compatible services**
 
@@ -78,12 +86,20 @@ Information specific to cloud providers:
   - `bucket`, `base_path`, `snapshot_name`: Bucket details and snapshot name.
   - `server_side_encryption`, `compress`, `chunk_size`: (Optional) Settings
     for encryption, compression, and file chunking.
+  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default
 
 ## Configure snapshot migration settings
 
 To start the migration, configure the `user-config` object in your
 Aiven for OpenSearch service. The migration process begins automatically once
 these settings are applied.
+
+To restore specific indices from the snapshot, specify index patterns in the `indices`
+field within the `user-config` object during configuration. If no index patterns are
+provided, Aiven restores all indices by default. For example, to restore indices starting
+with `logs-` and `metrics-`, use: `indices: "logs-*,metrics-*"`.
+
 
 :::warning
 Aiven for OpenSearch allows only one migration to progress at a time. Ensure the current
