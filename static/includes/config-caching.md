@@ -17,6 +17,28 @@
     </tr>
     <tr>
       <td>
+        <div class="param"><p class="name"><strong>backup_hour</strong></p><p><code class="type">integer,null</code></p></div><div class="constraints"><ul><li>max: <code>23</code></li></ul></div>
+        <p class="title">The hour of day (in UTC) when backup for the service is started. New backup is only started if previous backup has already completed.</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>backup_minute</strong></p><p><code class="type">integer,null</code></p></div><div class="constraints"><ul><li>max: <code>59</code></li></ul></div>
+        <p class="title">The minute of an hour when backup for the service is started. New backup is only started if previous backup has already completed.</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div class="param"><p class="name"><strong>ip_filter</strong></p><p><code class="type">array</code></p></div><div class="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
         <p class="title">IP filter</p>
         <div class="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
