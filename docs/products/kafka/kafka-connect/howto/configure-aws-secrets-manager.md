@@ -98,8 +98,9 @@ Parameters:
 
 ## Reference secrets in connector configurations
 
-After configuring the secret providers, you can reference secrets in your
-connector configurations.
+You can use secrets stored in AWS Secrets Manager with any connector. The examples below
+show how to configure secrets for JDBC connectors, but you can follow the same steps
+for other connectors.
 
 ### JDBC sink connector
 
