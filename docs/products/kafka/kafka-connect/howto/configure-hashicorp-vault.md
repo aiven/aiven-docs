@@ -5,7 +5,7 @@ title: Configure HashiCorp Vault
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Configure and use HashiCorp Vault as a secret provider in Aiven for Apache Kafka® Connect services.
+Configure and use [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) as a secret provider in Aiven for Apache Kafka® Connect services.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Configure and use HashiCorp Vault as a secret provider in Aiven for Apache Kafka
 Set up HashiCorp Vault in your Aiven for Apache Kafka Connect service to manage and
 access sensitive information.
 
-<Tabs groupId="config-methods">
+<Tabs groupId="secret-config">
 <TabItem value="api" label="API" default>
 
 Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
@@ -100,7 +100,7 @@ for other connectors.
 
 ### JDBC sink connector
 
-<Tabs groupId="reference-secrets-sink">
+<Tabs groupId="secret-config">
 <TabItem value="api" label="API" default>
 
 Configure a JDBC sink connector using the API with secrets referenced from
@@ -165,7 +165,7 @@ Parameters:
 
 ### JDBC source connector
 
-<Tabs groupId="reference-secrets-source">
+<Tabs groupId="secret-config">
 <TabItem value="api" label="API" default>
 
 Configure a JDBC source connector using the API with secrets referenced from
