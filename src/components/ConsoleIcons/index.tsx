@@ -219,10 +219,11 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Groups</b>
         </>
       );
-    case 'billing':
+    case 'billinggroups':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.bankAccount} /> <b>Billing</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.applications} />{' '}
+          <b>Billing groups</b>
         </>
       );
     case 'acl':
