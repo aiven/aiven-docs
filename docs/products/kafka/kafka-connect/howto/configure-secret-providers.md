@@ -11,9 +11,8 @@ Secret providers are tools that manage sensitive information, such as passwords
 and API keys, in a secure manner. Instead of directly including these secrets in your
 configuration files, secret providers allow you to store them securely in external
 secret managers like AWS Secrets Manager and HashiCorp Vault.
-Aiven for Apache Kafka Connect can then dynamically retrieve these secrets when needed,
-enhancing the security of your setup.
-
+Aiven for Apache Kafka Connect dynamically retrieves these secrets when needed, enhancing
+the security of your setup.
 
 ## Supported secret managers
 
