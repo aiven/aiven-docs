@@ -54,7 +54,7 @@ Parameters:
 - `SERVICE_NAME`: Name of your Aiven Kafka service.
 - `url`: API endpoint for updating service configuration. Replace `{project_name}` and
   `{service_name}` with your project and service names.
-- `Authorization`: Header for authentication. Replace `YOUR_BEARER_TOKEN` with your
+- `Authorization`: User for authentication. Replace `YOUR_BEARER_TOKEN` with your
   [Aiven API token](/docs/platform/howto/create_authentication_token).
 - `Content-Type`: Specifies that the request body is in JSON format.
 - `auth_method`: Authentication method used by HashiCorp Vault. In this case, it is token.
