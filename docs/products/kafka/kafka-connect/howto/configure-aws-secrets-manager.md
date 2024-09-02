@@ -53,7 +53,7 @@ Parameters:
 
 - `url`: API endpoint for updating the service configuration. Replace
   `PROJECT_NAME` and `SERVICE_NAME` with your project and service names.
-- `Authorization`: Used for authentication. Replace `YOUR_BEARER_TOKEN` with your
+- `Authorization`: Token used for authentication. Replace `YOUR_BEARER_TOKEN` with your
   [Aiven API token](/docs/platform/howto/create_authentication_token).
 - `Content-Type`: Specifies that the request body is in JSON format.
 - `auth_method`: Authentication method used by AWS Secrets Manager. In this case,
