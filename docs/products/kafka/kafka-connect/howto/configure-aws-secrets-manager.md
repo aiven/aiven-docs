@@ -10,8 +10,8 @@ Configure and use AWS Secrets Manager as a secret provider in Aiven for Apache K
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io/).
-- Aiven for Apache Kafka service with Apache Kafka Connect set up and running. For setup
-  instructions, see [Aiven for Apache Kafka with Kafka Connect documentation](/docs/products/kafka/kafka-connect/get-started).
+- [Aiven for Apache Kafka service with Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
+  set up and running.
 - [Aiven CLI](/docs/tools/cli).
 - [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 
@@ -52,9 +52,9 @@ curl --request PUT \
 Parameters:
 
 - `url`: API endpoint for updating the service configuration. Replace
-  `PROJECT_NAME` and `SERVICE_NAME` with your actual project and service names.
+  `PROJECT_NAME` and `SERVICE_NAME` with your project and service names.
 - `Authorization`: Header for authentication. Replace `YOUR_BEARER_TOKEN` with your
-  actual [Aiven API token](/docs/platform/howto/create_authentication_token).
+  [Aiven API token](/docs/platform/howto/create_authentication_token).
 - `Content-Type`: Specifies that the request body is in JSON format.
 - `auth_method`: Authentication method used by AWS Secrets Manager. In this case,
   it is `credentials`.
