@@ -55,7 +55,7 @@ Consider setting the replication factor to `0` in the following scenarios:
 ### Risks and considerations
 
 - **Data loss:** Without replicas, a node failure can result in permanent data loss. If
-  this happens, Aiven for OpenSearch® will automatically recreate the missing index, but
-  it will be empty, with no data present.
+  this happens, Aiven for OpenSearch automatically recreates the missing index, but
+  the recreated index is empty.
 - **Manual recovery:** If data loss occurs, data must be restored from snapshots
   manually, which can lead to downtime.
