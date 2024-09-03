@@ -727,6 +727,23 @@ Your new custom cloud is ready to use only after its status changes to
      --display-name "CUSTOM_CLOUD_DISPLAY_NAME"
    ```
 
+   where
+
+   - `organization-id` is the identifier of your Aiven organization that is to be
+     connected with your own cloud account to create the custom cloud.
+   - `deployment-model` is the type of [network architecture](/docs/platform/concepts/byoc#byoc-deployment)
+     your custom cloud uses:
+     - `public` model allows the Aiven control plane to connect to the service nodes via the
+       public Internet.
+     - `private` model routes traffic through a proxy for additional security utilizing a
+       bastion host physically separated from the Aiven services.
+   - `cloud-provider` is the name of a cloud provider to be used, which is `google`.
+   - `cloud-region` is the name of a Google region where to create your custom cloud.
+   - `reserved-cidr` is a CIDR block defining the IP address range of the VPC that Aiven
+     creates in your own cloud account, for example: `10.0.0.0/16`, `172.31.0.0/16`, or
+     `192.168.0.0/20`.
+   - `display-name` is the name of your custom cloud.
+
     <details><summary>
     Show sample output
     </summary>
@@ -769,6 +786,12 @@ Your new custom cloud is ready to use only after its status changes to
            --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.tf"
          ```
 
+         where
+
+         - `organization-id` is the identifier of your Aiven organization that is to be
+           connected with your own cloud account to create the custom cloud.
+         - `byoc-id` is the identifier of your custom cloud.
+
        - [avn byoc template terraform get-vars](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
 
          ```bash
@@ -776,6 +799,12 @@ Your new custom cloud is ready to use only after its status changes to
            --organization-id "ORGANIZATION_IDENTIFIER"     \
            --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.vars"
          ```
+
+         where
+
+         - `organization-id` is the identifier of your Aiven organization that is to be
+           connected with your own cloud account to create the custom cloud.
+         - `byoc-id` is the identifier of your custom cloud.
 
     1. Optionally, modify the template as needed.
 
@@ -812,6 +841,14 @@ Your new custom cloud is ready to use only after its status changes to
      --google-privilege-bearing-service-account-id "GENERATED_SERVICE_ACCOUNT_ID"
    ```
 
+   where
+
+   - `organization-id` is the identifier of your Aiven organization that is to be
+     connected with your own cloud account to create the custom cloud.
+   - `byoc-id` is the identifier of your custom cloud.
+   - `google-privilege-bearing-service-account-id` is the identifier of the service account
+     created when running the infrastructure template in your Google Cloud account.
+
 1. Enable your custom cloud in organizations, projects, or units by running
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
 
@@ -821,6 +858,13 @@ Your new custom cloud is ready to use only after its status changes to
    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
    --account "ACCOUNT_IDENTIFIER"
    ```
+
+   where
+
+   - `organization-id` is the identifier of your Aiven organization that is to be
+     connected with your own cloud account to create the custom cloud.
+   - `byoc-id` is the identifier of your custom cloud.
+   - `account` is the identifier of your account (organizational unit) in Aiven.
 
 1. Add customer contacts for the new cloud by running
    [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update).
@@ -841,6 +885,12 @@ Your new custom cloud is ready to use only after its status changes to
         }
       '
     ```
+
+    where
+
+    - `organization-id` is the identifier of your Aiven organization that is to be
+      connected with your own cloud account to create the custom cloud.
+    - `byoc-id` is the identifier of your custom cloud.
 
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
