@@ -17,8 +17,8 @@ Configure and use [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanag
 - [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 
 :::note
-The integration with AWS Secrets Manager is not available through the Aiven Console.
-This feature can only be configured via the Aiven CLI, Aiven API, or Terraform.
+The integration with AWS Secrets Manager is not yet available on the Aiven Console.
+This feature can only be configured using the Aiven API, Aiven CLI, or Terraform.
 :::
 
 ## Configure secret providers
