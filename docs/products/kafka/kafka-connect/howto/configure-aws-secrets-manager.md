@@ -9,11 +9,17 @@ Configure and use [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanag
 
 ## Prerequisites
 
-- Access to the [Aiven Console](https://console.aiven.io/).
 - [Aiven for Apache Kafka service with Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
   set up and running.
 - [Aiven CLI](/docs/tools/cli).
+- [Aiven Terraform provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+  installed.
 - [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+
+:::note
+The integration with AWS Secrets Manager is not available through the Aiven Console.
+This feature can only be configured via the Aiven CLI, Aiven API, or Terraform.
+:::
 
 ## Configure secret providers
 
@@ -61,6 +67,92 @@ Parameters:
 - `region`: AWS region where your secrets are stored.
 - `access_key`: Your AWS access key.
 - `secret_key`: Your AWS secret key.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Configure AWS Secrets Manager using Terraform:
+
+```hcl
+terraform {
+  required_providers {
+    aiven = {
+      source  = "aiven/aiven"
+      version = ">=4.0.0, < 5.0.0"
+    }
+  }
+}
+
+provider "aiven" {
+  api_token = var.aiven_api_token
+}
+
+resource "aiven_kafka_connect" "kafka_connect" {
+  project      = var.project_name
+  cloud_name   = "your-cloud-region"
+  plan         = "startup-4"
+  service_name = "kafka-connect"
+
+  kafka_connect_user_config {
+    secret_providers {
+      name = "aws"
+      aws {
+        auth_method = "credentials"
+        region      = var.aws_region
+        access_key  = var.aws_access_key
+        secret_key  = var.aws_secret_key
+      }
+    }
+  }
+}
+
+variable "aiven_api_token" {
+  description = "Aiven API token"
+  type        = string
+}
+
+variable "project_name" {
+  description = "Aiven project name"
+  type        = string
+}
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+}
+
+variable "aws_access_key" {
+  description = "AWS access key"
+  type        = string
+}
+
+variable "aws_secret_key" {
+  description = "AWS secret key"
+  type        = string
+  sensitive   = true
+}
+
+# Provide values in a `terraform.tfvars` file or directly in the variables
+aiven_api_token = "YOUR_AIVEN_API_TOKEN"
+project_name    = "YOUR_PROJECT_NAME"
+aws_region      = "your-aws-region"
+aws_access_key  = "your-aws-access-key"
+aws_secret_key  = "your-aws-secret-key"
+```
+
+Parameters:
+
+- `project_name`: Name of your Aiven project.
+- `cloud_name`**: Cloud provider and region for hosting Aiven for Apache Kafka Connect
+  service. Replace with the appropriate region, for example `google-europe-west3`.
+- `plan`: Service plan for Aiven for Apache Kafka Connect service.
+- `service_name`: Name of your Aiven for Kafka Connect service in Aiven.
+- `auth_method`: Authentication method used by AWS Secrets Manager. Set to `credentials`.
+- `region`: AWS region where your secrets are stored.
+- `access_key`: AWS access key for authentication.
+- `secret_key`: AWS secret key for authentication.
+- `aiven_api_token`:API token for authentication. Replace with your Aiven API token to
+  manage resources.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -140,6 +232,43 @@ Parameters:
   target database if it does not exist.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Configure a JDBC sink connector using Terraform with secrets referenced from
+AWS Secrets Manager:
+
+```hcl
+resource "aiven_kafka_connector" "jdbc_sink_connector" {
+  project        = var.project_name
+  service_name   = aiven_kafka_connect.kafka_connect.service_name
+  connector_name = "jdbc-sink-connector"
+
+  config = {
+    "connector.class"      = "io.aiven.connect.jdbc.JdbcSinkConnector"
+    "connection.url"       = "jdbc:postgresql://{HOST}:{PORT}/{DATABASE_NAME}?user=${aws:PATH/TO/SECRET:USERNAME}&password=${aws:PATH/TO/SECRET:PASSWORD}&ssl=require"
+    "topics"               = "your-topic"
+    "auto.create"          = "true"
+  }
+}
+```
+
+Parameters:
+
+- `project`: Name of your Aiven project.
+- `service_name`: Name of the Aiven for Apache Kafka service where the
+  connector is to be created.
+- `connector_name`: Name for your JDBC sink connector.
+- `connector.class`: Java class that implements the connector. For JDBC sink
+  connectors, use `"io.aiven.connect.jdbc.JdbcSinkConnector"`.
+- `connection.url`: JDBC URL for your database. Replace
+  `{HOST}`, `{PORT}`, and `{DATABASE_NAME}` with your actual database details.
+   The username and password are retrieved from AWS Secrets Manager
+   using `${aws:PATH/TO/SECRET:USERNAME}` and `${aws:PATH/TO/SECRET:PASSWORD}`.
+- `topics`: Apache Kafka topics that the connector consumes data from.
+- `auto.create`: If `true`, the connector automatically creates the table in the
+  target database if it does not exist.
+
+</TabItem>
 <TabItem value="cli" label="CLI">
 
 Configure a JDBC sink connector using the Aiven CLI with secrets referenced
@@ -215,6 +344,59 @@ Parameters:
 - `topic.prefix`: Prefix for Apache Kafka topics.
 - `auto.create`: If `true`, the connector automatically creates the table in
   the target database if it does not exist.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Configure a JDBC source connector using Terraform with secrets referenced from
+AWS Secrets Manager:
+
+```hcl
+resource "aiven_kafka_connector" "jdbc_source_connector" {
+  project        = var.project_name
+  service_name   = aiven_kafka_connect.kafka_connect.service_name
+  connector_name = "jdbc-source-connector"
+
+  config = {
+    "connector.class"      = "io.aiven.connect.jdbc.JdbcSourceConnector"
+    "connection.url"       = "jdbc:postgresql://{HOST}:{PORT}/{DATABASE_NAME}?ssl=require"
+    "connection.user"      = "${aws:PATH/TO/SECRET:USERNAME}"
+    "connection.password"  = "${aws:PATH/TO/SECRET:PASSWORD}"
+    "incrementing.column.name" = "id"
+    "mode"                 = "incrementing"
+    "table.whitelist"      = "your-table"
+    "topic.prefix"         = "your-prefix_"
+    "auto.create"          = "true"
+  }
+}
+```
+
+Parameters:
+
+- `project`: Name of your Aiven project.
+- `service_name`: Name of the Aiven for Apache Kafka service where the connector
+  is to be created.
+- `connector_name`: Name for your JDBC source connector.
+- `connector.class`: Java class that implements the connector. For JDBC source
+  connectors, use `"io.aiven.connect.jdbc.JdbcSourceConnector"`.
+- `connection.url`: JDBC URL for your database. Replace `{HOST}`, `{PORT}`, and
+ `{DATABASE_NAME}` with your actual database details. The username and password are
+  retrieved from AWS Secrets Manager using `${aws:PATH/TO/SECRET:USERNAME}`
+  and `${aws:PATH/TO/SECRET:PASSWORD}`.
+- `connection.user`: Username for connecting to the database, retrieved from
+  AWS Secrets Manager.
+- `connection.password`: Password for connecting to the database, retrieved
+  from AWS Secrets Manager.
+- `incrementing.column.name`: Name of the column used for incrementing mode,
+  typically a primary key column.
+- `mode`: Mode of operation for the connector. `incrementing` mode reads data
+  incrementally based on the specified column.
+- `table.whitelist`: List of tables that the connector includes when reading data from
+  the database.
+- `topic.prefix`: Prefix that the connector adds to the Kafka topic names it
+  produces data to.
+- `auto.create`: If set to `true`, the connector automatically creates the target table
+  in the database if it does not exist.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
