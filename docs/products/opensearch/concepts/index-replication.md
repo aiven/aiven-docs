@@ -24,14 +24,17 @@ to maintain data availability.
 
 ## Replication factor 0
 
-Setting the replication factor to `0` means that your data has no replicas. This approach
-reduces storage usage but significantly increases the risk of data loss if a node in
-the cluster fails.
+Setting the replication factor to `0` means your data has no replicas. This reduces
+storage usage but significantly increases the risk of data loss if a node in the
+cluster fails.
 
 If a node fails before the first snapshot is taken, the system cannot recover the data.
 In this case, Aiven for OpenSearch automatically recreates the missing index to restore
 operations, but the recreated index is empty. Consider this risk carefully
 before setting the replication factor to 0.
+
+In a normal node recovery scenario, Aiven for OpenSearch loads the latest snapshot to
+restore your data, minimizing data loss and speeding up recovery.
 
 :::note
 Enabling this setting comes with a reduced SLA, which must be agreed upon
