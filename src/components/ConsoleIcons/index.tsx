@@ -429,6 +429,26 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Show password</b>
         </>
       );
+    case 'viewdetails':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
+        </>
+      );
+    case 'activatetieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.database02} />{' '}
+          <b>Activate tiered storage</b>
+        </>
+      );
+    case 'tieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
+          <b>Tiered storage</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>

@@ -1,16 +1,13 @@
 ---
 title: Enable tiered storage in Aiven for ClickHouse®
-limited: true
+sidebar_label: Enable tiered storage
 ---
 
-Find out how to enable the tiered storage feature on your project and activate it for specific tables. To learn what tiered storage is, how it works, and why use it, see [Tiered storage in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/clickhouse-tiered-storage).
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## About enabling tiered storage
-
-To use the tiered storage feature:
-
-1. Contact the [sales team](mailto:sales@aiven.io) to enable it at project level
-1. Set it up at table level using SQL.
+Enable the [tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on a table in your Aiven for ClickHouse® service.
 
 ### Limitations
 
@@ -18,67 +15,68 @@ To use the tiered storage feature:
     (in non-[BYOC](/docs/platform/concepts/byoc) environments) if your Aiven for
     ClickHouse service is hosted on Azure, AWS, or GCP.
 -   When
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage feature cannot be deactivated.
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered
+    storage feature cannot be deactivated.
 
     :::tip
     As a workaround, you can create a table (without enabling tiered
     storage on it) and copy the data from the original table (with the
     tiered storage
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table. As soon as the data is copied to the
+    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table.
+    As soon as the data is copied to the
     new table, you can remove the original table.
     :::
 
 -   With the tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to connect to an external existing
+    [activated](/docs/products/clickhouse/howto/enable-tiered-storage), it's
+    not possible to connect to an external existing
     object storage or cloud storage bucket.
-
-### Tools
-
-To enable tiered storage, use SQL and an SQL client (for example, the
-ClickHouse CLI client).
 
 ## Prerequisites
 
--   This feature is in [limited availability](/docs/platform/concepts/beta_services).
-    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
--   You have an Aiven organization and at least one project.
--   You have a command line tool
-    ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) installed.
--   All maintenance updates are applied on your service (check in Aiven
-    Console: your service's page > **Service settings** > **Service
-    management** > **Maintenance updates**).
+-   You have at least one Aiven for ClickHouse service.
+-   Depending on how to activate tiered storage, you need:
+    - [Aiven Console](https://console.aiven.io) or
+    - SQL and an SQL client (for example, the [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
+-   All maintenance updates are applied on your service (check in the
+    [Aiven Console](https://console.aiven.io): your service's <ConsoleLabel name="overview"/> >
+    <ConsoleLabel name="service settings"/> > **Service management** > **Maintenance updates**).
 
-## Enable tiered storage on a project
+## Activate tiered storage on a table
 
-To enable tiered storage on your project, request it from the sales team
-at [sales@aiven.io](mailto:sales@aiven.io).
+You can enable tiered storage both on new tables and on existing ones. For that purpose,
+you can use either CLI or the [Aiven Console](https://console.aiven.io).
 
-Your project now supports tiered storage, and you can enable it for each
-table of your Aiven for ClickHouse services.
+<Tabs groupId="group1">
+<TabItem value="1" label="Console" default>
+1. Log in to the [Aiven Console](https://console.aiven.io), and go to your organization,
+   project, and service.
+1. On the <ConsoleLabel name="overview"/> of your service, select
+   <ConsoleLabel name="databasesandtables"/> from the sidebar.
+1. In the <ConsoleLabel name="databasesandtables"/> view, find a table on which to activate tiered
+   storage, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="activatetieredstorage"/>
+   \> **Activate**.
+</TabItem>
+<TabItem value="2" label="CLI">
+1. [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service)
+   using, for example, the ClickHouse client.
+1. To activate the tiered storage feature on a specific table,
+   set `storage_policy` to `tiered` on this table by executing the following SQL statement:
 
-## Enable tiered storage on a table
+   ```sql
+   ALTER TABLE database-name.table-name MODIFY SETTING storage_policy = 'tiered'
+   ```
 
-When you have tiered storage enabled on your project, you can move on to
-enabling it on your tables, both new and existing ones.
+</TabItem>
+</Tabs>
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
-
-1.  To activate the tiered storage feature on a specific table, set
-    `storage_policy` to `tiered` on this table by executing the
-    following SQL statement:
-
-    ```bash
-    ALTER TABLE database-name.table-name MODIFY SETTING storage_policy = 'tiered'
-    ```
-
-Tiered storage is enabled on your table and data in this table is now
+Tiered storage is activated on your table and data in this table is now
 distributed between two tiers: SSD and object storage.
 
-You can check if tiered storage is now supported (**Active** /
-**Inactive**) on your table in [Aiven
-Console](https://console.aiven.io/) > **Databases & Tables** >
-**Databases lists** > Your database > Your table > the **Tiered
-storage** column.
+You can check if tiered storage is now supported (**Active**/**Not active**) on
+your table in [Aiven Console](https://console.aiven.io) >
+<ConsoleLabel name="databasesandtables"/> > **Databases lists** > Your database > Your table
+\> **Tiered storage** column.
 
 ## What's next
 
