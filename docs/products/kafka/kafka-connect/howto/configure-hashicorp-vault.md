@@ -71,61 +71,69 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure HashiCorp Vault as a secret provider for Aiven for Apache Kafka using Terraform:
+Configure HashiCorp Vault using Terraform. Add this configuration to your `main.tf` file,
+or optionally create a dedicated `vault.tf` file for managing secret providers:
 
-```hcl
-terraform {
-  required_providers {
-    aiven = {
-      source  = "aiven/aiven"
-      version = ">=4.0.0, < 5.0.0"
-    }
-  }
-}
+1. Create the `main.tf` file for your resources:
 
-provider "aiven" {
-  api_token = var.aiven_api_token
-}
+   ```hcl
+   terraform {
+     required_providers {
+       aiven = {
+         source  = "aiven/aiven"
+         version = ">=4.0.0, < 5.0.0"
+       }
+     }
+   }
 
-resource "aiven_kafka_connect" "kafka_connect" {
-  project      = var.project_name
-  cloud_name   = "your-cloud-region"
-  plan         = "startup-4"
-  service_name = "kafka-connect"
+   provider "aiven" {
+     api_token = var.aiven_api_token
+   }
 
-  kafka_connect_user_config {
-    secret_providers {
-      name = "vault"
-      vault {
-        auth_method = "token"
-        address     = "https://vault.aiven.fi:8200/"
-        token       = var.vault_token
-      }
-    }
-  }
-}
+   resource "aiven_kafka_connect" "kafka_connect" {
+     project      = var.project_name
+     cloud_name   = "your-cloud-region"
+     plan         = "startup-4"
+     service_name = "kafka-connect"
 
-variable "aiven_api_token" {
-  description = "Aiven API token"
-  type        = string
-}
+     kafka_connect_user_config {
+       secret_providers {
+         name = "vault"
+         vault {
+           auth_method = "token"
+           address     = "https://vault.aiven.fi:8200/"
+           token       = var.vault_token
+         }
+       }
+     }
+   }
 
-variable "project_name" {
-  description = "Aiven project name"
-  type        = string
-}
+1. Declare variables in a `variables.tf` file:
 
-variable "vault_token" {
-  description = "HashiCorp Vault token"
-  type        = string
-  sensitive   = true
-}
+   ```hcl
+    variable "aiven_api_token" {
+     description = "Aiven API token"
+     type        = string
+   }
 
-# Provide values in a `terraform.tfvars` file or directly in the variables
-aiven_api_token = "YOUR_AIVEN_API_TOKEN"
-project_name    = "YOUR_PROJECT_NAME"
-vault_token     = "YOUR_VAULT_TOKEN"
-```
+   variable "project_name" {
+     description = "Aiven project name"
+     type        = string
+   }
+
+   variable "vault_token" {
+     description = "HashiCorp Vault token"
+     type        = string
+     sensitive   = true
+   }
+
+1. Provide variable values in a `terraform.tfvars` file:
+
+   ```hcl
+   aiven_api_token = "YOUR_AIVEN_API_TOKEN"
+   project_name    = "YOUR_PROJECT_NAME"
+   vault_token     = "YOUR_VAULT_TOKEN"
+   ```
 
 Parameters:
 
@@ -215,7 +223,8 @@ Parameters:
 <TabItem value="terraform" label="Terraform">
 
 Configure a JDBC sink connector using Terraform with secrets referenced
-from HashiCorp Vault:
+from HashiCorp Vault. Add this configuration to your `main.tf` file, or optionally create
+a dedicated `vault.tf` file for managing secret providers:
 
 ```hcl
 resource "aiven_kafka_connector" "jdbc_sink_connector" {
@@ -252,7 +261,7 @@ Parameters:
 <TabItem value="cli" label="CLI">
 
 Configure a JDBC sink connector using the Aiven CLI with secrets referenced from
-HashiCorp Vault:
+HashiCorp Vault.
 
 ```bash
 avn service connector create SERVICE_NAME '{
@@ -286,7 +295,6 @@ Parameters:
 
 Configure a JDBC source connector using the API with secrets referenced from
 HashiCorp Vault:
-
 
 ```sh
 curl -X POST https://api.aiven.io/v1/project/{PROJECT_NAME}/service/{SERVICE_NAME}/connectors \
@@ -328,7 +336,8 @@ Parameters:
 <TabItem value="terraform" label="Terraform">
 
 Configure a JDBC source connector using Terraform with secrets referenced from
-HashiCorp Vault:
+HashiCorp Vault. Add this configuration to your `main.tf` file, or optionally
+create a dedicated `connectors.tf` file for managing Apache Kafka connectors:
 
 ```hcl
 resource "aiven_kafka_connector" "jdbc_source_connector" {

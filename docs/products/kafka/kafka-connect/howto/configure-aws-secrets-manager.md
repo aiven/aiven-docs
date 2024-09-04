@@ -71,79 +71,89 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure AWS Secrets Manager using Terraform:
+Configure AWS Secrets Manager using Terraform. Add this configuration to your `main.tf`
+file, or optionally create a `secrets.tf` file to manage secret providers:
 
-```hcl
-terraform {
-  required_providers {
-    aiven = {
-      source  = "aiven/aiven"
-      version = ">=4.0.0, < 5.0.0"
-    }
-  }
-}
+1. Create the `main.tf` file for your resources:
 
-provider "aiven" {
-  api_token = var.aiven_api_token
-}
-
-resource "aiven_kafka_connect" "kafka_connect" {
-  project      = var.project_name
-  cloud_name   = "your-cloud-region"
-  plan         = "startup-4"
-  service_name = "kafka-connect"
-
-  kafka_connect_user_config {
-    secret_providers {
-      name = "aws"
-      aws {
-        auth_method = "credentials"
-        region      = var.aws_region
-        access_key  = var.aws_access_key
-        secret_key  = var.aws_secret_key
+   ```hcl
+    terraform {
+    required_providers {
+      aiven = {
+        source  = "aiven/aiven"
+        version = ">=4.0.0, < 5.0.0"
       }
     }
-  }
-}
+   }
 
-variable "aiven_api_token" {
-  description = "Aiven API token"
-  type        = string
-}
+   provider "aiven" {
+   api_token = var.aiven_api_token
+   }
 
-variable "project_name" {
-  description = "Aiven project name"
-  type        = string
-}
+   resource "aiven_kafka_connect" "kafka_connect" {
+    project      = var.project_name
+    cloud_name   = "your-cloud-region"
+    plan         = "startup-4"
+    service_name = "kafka-connect"
 
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-}
+    kafka_connect_user_config {
+      secret_providers {
+        name = "aws"
+        aws {
+          auth_method = "credentials"
+          region      = var.aws_region
+          access_key  = var.aws_access_key
+          secret_key  = var.aws_secret_key
+        }
+      }
+    }
+   }
+   ```
 
-variable "aws_access_key" {
-  description = "AWS access key"
-  type        = string
-}
+1. Declare variables in a `variables.tf` file:
 
-variable "aws_secret_key" {
-  description = "AWS secret key"
-  type        = string
-  sensitive   = true
-}
+   ```hcl
+    variable "aiven_api_token" {
+      description = "Aiven API token"
+      type        = string
+     }
 
-# Provide values in a `terraform.tfvars` file or directly in the variables
-aiven_api_token = "YOUR_AIVEN_API_TOKEN"
-project_name    = "YOUR_PROJECT_NAME"
-aws_region      = "your-aws-region"
-aws_access_key  = "your-aws-access-key"
-aws_secret_key  = "your-aws-secret-key"
-```
+    variable "project_name" {
+      description = "Aiven project name"
+      type        = string
+     }
+
+    variable "aws_region" {
+      description = "AWS region"
+      type        = string
+     }
+
+    variable "aws_access_key" {
+      description = "AWS access key"
+      type        = string
+     }
+
+    variable "aws_secret_key" {
+      description = "AWS secret key"
+      type        = string
+      sensitive   = true
+     }
+   ```
+
+1. Provide variable values in a `terraform.tfvars` file:
+
+   ```hcl
+    aiven_api_token = "YOUR_AIVEN_API_TOKEN"
+    project_name    = "YOUR_PROJECT_NAME"
+    aws_region      = "your-aws-region"
+    aws_access_key  = "your-aws-access-key"
+    aws_secret_key  = "your-aws-secret-key"
+   ```
 
 Parameters:
 
 - `project_name`: Name of your Aiven project.
-- `cloud_name`**: Cloud provider and region for hosting Aiven for Apache Kafka Connect
+- `cloud_name`: Cloud provider and region for hosting Aiven for Apache Kafka Connect
   service. Replace with the appropriate region, for example `google-europe-west3`.
 - `plan`: Service plan for Aiven for Apache Kafka Connect service.
 - `service_name`: Name of your Aiven for Kafka Connect service in Aiven.
@@ -235,7 +245,8 @@ Parameters:
 <TabItem value="terraform" label="Terraform">
 
 Configure a JDBC sink connector using Terraform with secrets referenced from
-AWS Secrets Manager:
+AWS Secrets Manager. Add this configuration to your `main.tf` file, or optionally
+create a dedicated `connectors.tf` file for managing Apache Kafka connectors:
 
 ```hcl
 resource "aiven_kafka_connector" "jdbc_sink_connector" {
@@ -349,7 +360,8 @@ Parameters:
 <TabItem value="terraform" label="Terraform">
 
 Configure a JDBC source connector using Terraform with secrets referenced from
-AWS Secrets Manager:
+AWS Secrets Manager. Add this configuration to your `main.tf` file, or optionally
+create a dedicated `connectors.tf` file for managing Apache Kafka connectors:
 
 ```hcl
 resource "aiven_kafka_connector" "jdbc_source_connector" {
