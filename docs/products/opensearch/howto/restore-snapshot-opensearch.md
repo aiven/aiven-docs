@@ -125,7 +125,7 @@ curl --request PUT \
         "access_key": "YOUR_ACCESS_KEY",
         "secret_key": "YOUR_SECRET_KEY",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots/"
+        "base_path": "snapshots"
       }
     }
   }'
@@ -140,7 +140,7 @@ avn service update \
   --service SERVICE_NAME \
   -c s3_migration.bucket="my-bucket" \
   -c s3_migration.region="us-west-2" \
-  -c s3_migration.base_path="snapshots/" \
+  -c s3_migration.base_path="snapshots" \
   -c s3_migration.access_key="your-access-key" \
   -c s3_migration.secret_key="your-secret-key" \
   -c s3_migration.snapshot_name="SNAPSHOT_NAME"
@@ -165,7 +165,7 @@ curl --request PUT \
         "bucket": "my-gcs-bucket",
         "credentials": "GCS_CREDENTIALS_FILE_CONTENT",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots/"
+        "base_path": "snapshots"
       }
     }
   }'
@@ -179,7 +179,7 @@ avn service update \
   --project PROJECT_NAME \
   --service SERVICE_NAME \
   -c gcs_migration.bucket="my-gcs-bucket" \
-  -c gcs_migration.base_path="snapshots/" \
+  -c gcs_migration.base_path="snapshots" \
   -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
   -c gcs_migration.snapshot_name="SNAPSHOT_NAME"
 ```
@@ -204,7 +204,7 @@ curl --request PUT \
         "account": "my-azure-account",
         "key": "YOUR_AZURE_KEY",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots/"
+        "base_path": "snapshots"
       }
     }
   }'
@@ -218,7 +218,7 @@ avn service update \
   --project PROJECT_NAME \
   --service SERVICE_NAME \
   -c azure_migration.container="my-container" \
-  -c azure_migration.base_path="snapshots/" \
+  -c azure_migration.base_path="snapshots" \
   -c azure_migration.account="my-account" \
   -c azure_migration.key="your-key" \
   -c azure_migration.snapshot_name="SNAPSHOT_NAME"
@@ -246,7 +246,7 @@ curl --request PUT \
         "access_key": "YOUR_ACCESS_KEY",
         "secret_key": "YOUR_SECRET_KEY",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots/"
+        "base_path": "snapshots"
       }
     }
   }'
@@ -264,7 +264,7 @@ avn service update \
   -c s3_migration.endpoint="https://my-s3-compatible-service.com" \
   -c s3_migration.access_key="your-access-key" \
   -c s3_migration.secret_key="your-secret-key" \
-  -c s3_migration.base_path="snapshots/" \
+  -c s3_migration.base_path="snapshots" \
   -c s3_migration.snapshot_name="SNAPSHOT_NAME"
 ```
 
@@ -276,7 +276,7 @@ avn service update \
 Use the following API request to check the migration status:
 
 ```bash
-curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/migration/status" \
+curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/migration" \
   -H "Authorization: Bearer API_TOKEN"
 ```
 
