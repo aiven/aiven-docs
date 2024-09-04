@@ -63,5 +63,6 @@ Consider using replication factor to `0` in the following scenarios:
 
 ### Set replication factor 0
 
-Once the SLA is agreed upon, contact [Aiven support](mailto:support@aiven.io) to enable
-the setting that allows you to set the replication factor to 0.
+After agreeing to the reduced SLA, contact [Aiven support](mailto:support@aiven.io) to enable
+the option to set the replication factor (`number_of_replicas`) to `0`. This allows
+you to configure your index without replicas.
