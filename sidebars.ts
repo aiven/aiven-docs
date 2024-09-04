@@ -1540,13 +1540,23 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/opensearch/concepts/backups',
-                'products/opensearch/concepts/indices',
+                {
+                  type: 'category',
+                  label: 'Indices',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/concepts/indices',
+                  },
+                  items: [
+                    'products/opensearch/concepts/index-replication',
+                    'products/opensearch/concepts/when-create-index',
+                  ],
+                },
+
                 'products/opensearch/concepts/aggregations',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
                 'products/opensearch/concepts/shards-number',
-                'products/opensearch/concepts/index-replication',
-                'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
               ],
             },

@@ -137,9 +137,9 @@ If you create:
 
 Aiven for OpenSearch processes these patterns in sequence:
 
-1. It first retains the 8 newest log indices according to the `logs.*` pattern.
-1. Next, it applies the `*` pattern, which affects all indices. Since the test indices
-   are the newest, they are retained, and the log indices are deleted.
+1. Retains the 8 newest log indices according to the `logs.*` pattern.
+1. Applies the `*` pattern, which affects all indices. The test indices, being the
+   newest, are retained, and the log indices are deleted.
 
 :::note
 Be careful when using the `*` pattern, as it might delete indices intend to keep.
