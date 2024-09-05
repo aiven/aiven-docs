@@ -19,7 +19,6 @@ Configure and use [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) 
 
 :::note
 The integration with HashiCorp Vault is not yet available on the Aiven Console.
-This feature can only be configured using the Aiven API, Aiven CLI, or Terraform.
 :::
 
 ## Configure secret providers
