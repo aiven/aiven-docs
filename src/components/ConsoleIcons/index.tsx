@@ -33,6 +33,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.office} /> <b>Organization</b>
         </>
       );
+    case 'organizations':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.office} /> <b>Organizations</b>
+        </>
+      );
     case 'authenticationpolicy':
       return (
         <>
@@ -205,6 +211,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>View profile</b>
+        </>
+      );
+    case 'userinformation':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.user} />{' '}
+          <b>User information</b>
         </>
       );
     case 'authenticationmethod':
