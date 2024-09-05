@@ -20,10 +20,11 @@
 /integrations                                          https://aiven.io/docs/platform/concepts/service-integration
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
-/platform/concepts/billing-groups                     https://aiven.io/docs/platform/concepts/billing-groups-overview
+/platform/concepts/billing-groups                      https://aiven.io/docs/platform/concepts/billing-groups-overview
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
+/platform/concepts/corporate-billing                   https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
-/platform/concepts/hourly-billing-model                https://aiven.io/docs/billing-and-payment
+/platform/concepts/hourly-billing-model                https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
 /platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/howto/manage-project
@@ -40,10 +41,9 @@
 /platform/howto/create-billing-groups                  https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/download-ca-cert                       https://aiven.io/docs/platform/concepts/tls-ssl-certificates
 /platform/howto/enable-aiven-password                  https://aiven.io/docs/platform/reference/password-policy
-/platform/howto/list-account                           https://aiven.io/docs/platform/concepts/projects_accounts_access
 /platform/howto/list-account                           https://aiven.io/docs/platform/howto/list-user
 /platform/howto/list-backup-to-another-region          https://aiven.io/docs/platform/concepts/backup-to-another-region
-/platform/howto/list-billing  https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/howto/list-billing                           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
@@ -119,7 +119,6 @@
 /products/grafana/reference                                https://aiven.io/docs/products/grafana/reference/advanced-params
 /products/grafana/user-access                              https://aiven.io/docs/products/grafana/howto/log-in
 /products/influxdb                                         https://aiven.io/docs/products/services
-/products/influxdb/*                                       https://aiven.io/docs/products/services
 /products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
 /products/kafka/howto                                      https://aiven.io/docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/list-admin                           https://aiven.io/docs/products/kafka/howto/enable-karapace
@@ -154,7 +153,6 @@
 /products/mysql/reference/list-of-advanced-params          https://aiven.io/docs/products/mysql/reference/advanced-params
 /products/opensearch/concepts                              https://aiven.io/docs/products/opensearch/concepts/access_control
 /products/opensearch/concepts/service-overview             https://aiven.io/docs/products/opensearch
-/products/opensearch/dashboards/howto                                  https://aiven.io/docs/products/opensearch/dashboards/howto/dev-tools-usage-example
 /products/opensearch/dashboards/howto                      https://aiven.io/docs/products/opensearch/dashboards/howto/dev-tools-usage-example
 /products/opensearch/howto                                 https://aiven.io/docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-access-control             https://aiven.io/docs/products/opensearch/howto/control_access_to_content
@@ -176,7 +174,6 @@
 /products/postgresql/reference/list-of-advanced-params     https://aiven.io/docs/products/postgresql/reference/advanced-params
 /products/postgresql/troubleshooting                       https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
 /products/redis                                            https://aiven.io/docs/products/caching
-/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
 /products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
 /products/valkey/reference                                 https://aiven.io/docs/products/valkey/reference/advanced-params
 /tools/aiven-console/howto/create-accounts                 https://aiven.io/docs/platform/howto/manage-org-users
@@ -200,14 +197,12 @@
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe     https://aiven.io/docs/tools/terraform/get-started
 /tools/terraform/reference/cookbook/kafka-flink-integration-recipe     https://aiven.io/developer/apache-kafka-to-opensearch-terraform
 /tools/terraform/reference/cookbook/multicloud-postgresql-recipe       https://aiven.io/developer/multicloud-postgresql-terraform
-
-/tools/terraform/reference/troubleshooting                 https://aiven.io/docs/tools/terraform
-/tools/terraform/reference/troubleshooting/private-access-error https://aiven.io/docs/tools/terraform
-/tutorials/anomaly-detection                               https://aiven.io/developer
-/valkey                                                    https://aiven.io/docs/products/valkey
-
 /tools/terraform/reference/troubleshooting                             https://aiven.io/docs/tools/terraform
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
-/valkey                                                                https://aiven.io/docs/products/valkey
-
+/valkey                                                    https://aiven.io/docs/products/valkey
+#
+# Keep splats at the end
+#
+/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
+/products/influxdb/*                                       https://aiven.io/docs/products/services
