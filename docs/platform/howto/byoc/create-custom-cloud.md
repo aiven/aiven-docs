@@ -114,12 +114,11 @@ you informed on the progress.
     organization.
 -   You have [Terraform](/docs/tools/terraform) installed.
 -   You have required [IAM permissions](#iam-permissions).
--   You have your Aiven organization ID:
+-   You have your Aiven organization ID from:
 
-    - From the output of the `avn organization list` command
-    - By going to <ConsoleLabel name="organizations"/> in the
-      [Aiven Console](https://console.aiven.io/) (either from the organizations selector
-      or from <ConsoleLabel name="userinformation"/>).
+    - Output of the `avn organization list` command
+    - [Aiven Console](https://console.aiven.io/) > <ConsoleLabel name="userinformation"/>
+      \> <ConsoleLabel name="organizations"/>.
 
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
