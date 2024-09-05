@@ -5229,6 +5229,7 @@ __metadata:
     axios: "npm:^1.7.4"
     cheerio: "npm:1.0.0-rc.12"
     clsx: "npm:^1.2.1"
+    docusaurus-plugin-image-zoom: "npm:^2.0.0"
     dotenv: "npm:^16.3.1"
     glob: "npm:^10.3.10"
     handlebars: "npm:^4.7.8"
@@ -7237,6 +7238,18 @@ __metadata:
   dependencies:
     "@leichtgewicht/ip-codec": "npm:^2.0.1"
   checksum: 10c0/8948d3d03063fb68e04a1e386875f8c3bcc398fc375f535f2b438fad8f41bf1afa6f5e70893ba44f4ae884c089247e0a31045722fa6ff0f01d228da103f1811d
+  languageName: node
+  linkType: hard
+
+"docusaurus-plugin-image-zoom@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "docusaurus-plugin-image-zoom@npm:2.0.0"
+  dependencies:
+    medium-zoom: "npm:^1.0.8"
+    validate-peer-dependencies: "npm:^2.2.0"
+  peerDependencies:
+    "@docusaurus/theme-classic": ">=3.0.0"
+  checksum: 10c0/882d603772f8d41cd217e2d5d40873f045f9734bc0af0d9d3b05cf3b6c99338e56172c71488f13f747c438e999e8a0b8412497c7ee431fa31fd1d9181014d0c6
   languageName: node
   linkType: hard
 
@@ -10163,6 +10176,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"medium-zoom@npm:^1.0.8":
+  version: 1.1.0
+  resolution: "medium-zoom@npm:1.1.0"
+  checksum: 10c0/7d1f05e8eab045c33d7c04d4ee7bf04f5246cf7a720d7b5f5a51c36ab23666e363bcbb6bffae50b5948d5eb19361914cb0e26a1fce5c1fff7a266bc0217893f3
+  languageName: node
+  linkType: hard
+
 "memfs@npm:^3.1.2, memfs@npm:^3.4.3":
   version: 3.5.3
   resolution: "memfs@npm:3.5.3"
@@ -11674,6 +11694,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-root-regex@npm:^0.1.0":
+  version: 0.1.2
+  resolution: "path-root-regex@npm:0.1.2"
+  checksum: 10c0/27651a234f280c70d982dd25c35550f74a4284cde6b97237aab618cb4b5745682d18cdde1160617bb4a4b6b8aec4fbc911c4a2ad80d01fa4c7ee74dae7af2337
+  languageName: node
+  linkType: hard
+
+"path-root@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "path-root@npm:0.1.1"
+  dependencies:
+    path-root-regex: "npm:^0.1.0"
+  checksum: 10c0/aed5cd290df84c46c7730f6a363e95e47a23929b51ab068a3818d69900da3e89dc154cdfd0c45c57b2e02f40c094351bc862db70c2cb00b7e6bd47039a227813
+  languageName: node
+  linkType: hard
+
 "path-scurry@npm:^1.11.0":
   version: 1.11.1
   resolution: "path-scurry@npm:1.11.1"
@@ -13107,6 +13143,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve-package-path@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "resolve-package-path@npm:4.0.3"
+  dependencies:
+    path-root: "npm:^0.1.1"
+  checksum: 10c0/d2e7883a075b21fbf084f7615f9201e4d5aea6c22ba670dc66503a256c5eba5983d0822b9d51ef33303bfe9b0025916f622f6d780c42d7c020d826f8a9bc58fa
+  languageName: node
+  linkType: hard
+
 "resolve-pathname@npm:^3.0.0":
   version: 3.0.0
   resolution: "resolve-pathname@npm:3.0.0"
@@ -13363,6 +13408,15 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 10c0/97d3441e97ace8be4b1976433d1c32658f6afaff09f143e52c593bae7eef33de19e3e369c88bd985ce1042c6f441c80c6803078d1de2a9988080b66684cbb30c
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.3.8":
+  version: 7.6.3
+  resolution: "semver@npm:7.6.3"
+  bin:
+    semver: bin/semver.js
+  checksum: 10c0/88f33e148b210c153873cb08cfe1e281d518aaa9a666d4d148add6560db5cd3c582f3a08ccb91f38d5f379ead256da9931234ed122057f40bb5766e65e58adaf
   languageName: node
   linkType: hard
 
@@ -14472,6 +14526,16 @@ __metadata:
   bin:
     uvu: bin.js
   checksum: 10c0/ad32eb5f7d94bdeb71f80d073003f0138e24f61ed68cecc8e15d2f30838f44c9670577bb1775c8fac894bf93d1bc1583d470a9195e49bfa6efa14cc6f4942bff
+  languageName: node
+  linkType: hard
+
+"validate-peer-dependencies@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "validate-peer-dependencies@npm:2.2.0"
+  dependencies:
+    resolve-package-path: "npm:^4.0.3"
+    semver: "npm:^7.3.8"
+  checksum: 10c0/0728592b335dbd5d1444019a4e36e34b4de3a8ade5a4970a5f87b40f881dedeff1a00eb3d79add155a4ab3b97c9990d11ed21d8a3d7dccadd129a5bdf5b02a5a
   languageName: node
   linkType: hard
 
