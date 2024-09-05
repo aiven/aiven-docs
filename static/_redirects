@@ -20,10 +20,11 @@
 /integrations                                          https://aiven.io/docs/platform/concepts/service-integration
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
-/platform/concepts/billing-groups                     https://aiven.io/docs/platform/concepts/billing-groups-overview
+/platform/concepts/billing-groups                      https://aiven.io/docs/platform/concepts/billing-groups-overview
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
+/platform/concepts/corporate-billing                   https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
-/platform/concepts/hourly-billing-model                https://aiven.io/docs/billing-and-payment
+/platform/concepts/hourly-billing-model                https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
 /platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/howto/manage-project
@@ -42,7 +43,7 @@
 /platform/howto/enable-aiven-password                  https://aiven.io/docs/platform/reference/password-policy
 /platform/howto/list-account                           https://aiven.io/docs/platform/howto/list-user
 /platform/howto/list-backup-to-another-region          https://aiven.io/docs/platform/concepts/backup-to-another-region
-/platform/howto/list-billing  https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/howto/list-billing                           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
@@ -200,7 +201,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                    https://aiven.io/docs/products/valkey
-
 #
 # Keep splats at the end
 #
