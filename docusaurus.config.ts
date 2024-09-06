@@ -83,7 +83,7 @@ const config: Config = {
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
   ],
-  plugins: ['./src/plugins/svg-fix/index.ts'],
+  plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
   themeConfig: {
     image: 'images/site-preview.png',
     navbar: {
@@ -264,6 +264,16 @@ const config: Config = {
         comments: false,
         admonitions: false,
         headingIds: false,
+      },
+    },
+    zoom: {
+      selector: '.markdown > img',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(50, 50, 50)',
+      },
+      config: {
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
       },
     },
   } satisfies Preset.ThemeConfig,
