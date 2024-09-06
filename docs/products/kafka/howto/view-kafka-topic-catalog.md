@@ -59,7 +59,7 @@ its advanced configurations.
 1. To perform advanced operations, click **Open topic page**.
 
    :::note
-   Only users who are members of the project associated with the topic will see
+   Only users who are added to the project associated with the topic will see
    the **Open topic page** link.
    :::
 

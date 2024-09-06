@@ -188,10 +188,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event log</b>
         </>
       );
-    case 'members':
+    case 'projectpermissions':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Members</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Permissions</b>
         </>
       );
     case 'users':

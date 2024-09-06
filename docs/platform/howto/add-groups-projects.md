@@ -11,7 +11,7 @@ permission level by assigning the group a
 
 ## Add groups to a project
 
-1.  In the project, click <ConsoleLabel name="members"/>.
+1.  In the project, click <ConsoleLabel name="projectpermissions"/>.
 2.  Click **Add groups**.
 3.  Select the groups to add to the project.
 4.  Select a **Role**. This
