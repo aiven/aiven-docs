@@ -6,13 +6,15 @@ sidebar_label: Migrate snapshot data
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Aiven for OpenSearch enables you to restore data from external OpenSearch or Elasticsearch snapshots, facilitating seamless migration from third-party repositories into your clusters.
+Aiven for OpenSearch enables you to restore data from external OpenSearch or Elasticsearch snapshots, enabling seamless migration from third-party repositories.
 
 Aiven supports snapshot restoration from Google Cloud Storage (GCS), Amazon S3, and
 Microsoft Azure. Additionally, you can restore data from Oracle Cloud Infrastructure
 (OCI) or other S3-compatible repositories using the S3 repository type.
 
 ## Supported cloud providers
+
+Aiven for OpenSearch supports restoring snapshots from the following cloud providers:
 
 - Google Cloud Storage (GCS)
 - Amazon S3
@@ -93,8 +95,8 @@ Information specific to cloud providers:
 ## Configure snapshot migration settings
 
 To start the migration, configure the `user-config` object in your
-Aiven for OpenSearch service. The migration process begins automatically once
-these settings are applied.
+Aiven for OpenSearch service. The migration starts automatically once these settings are
+applied.
 
 To restore specific indices from the snapshot, specify index patterns in the `indices`
 field within the `user-config` object during configuration. If no index patterns are
@@ -102,9 +104,8 @@ provided, Aiven restores all indices by default. For example, to restore indices
 with `logs-` and `metrics-`, use: `indices: "logs-*,metrics-*"`.
 
 :::warning
-Aiven for OpenSearch allows only one migration to progress at a time. Ensure the current
-migration is complete before starting a new one, as initiating another migration can
-disrupt the ongoing process and cause interruptions.
+Aiven for OpenSearch only allows one migration to progress at a time. Ensure the current
+migration finishes before starting a new one to avoid interruptions.
 :::
 
 ### Amazon S3
@@ -273,7 +274,7 @@ avn service update \
 
 ## Monitor the migration
 
-Use the following API request to check the migration status:
+Check migration status using this API request:
 
 ```bash
 curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/migration" \
@@ -311,8 +312,8 @@ avn service index-list \
 
 ## Complete the migration
 
-After the restoration process is complete, Aiven for OpenSearch automatically deletes the snapshot repository used during the migration to clean up resources.
-
+After the restoration process is complete, Aiven for OpenSearch automatically deletes
+the snapshot repository used during the migration to clean up resources.
 
 ## Backup management during migration
 
@@ -326,12 +327,13 @@ OpenSearch automatically resumes regular backup operations.
 
 During the migration process, you can encounter issues such as:
 
-- **Validation errors**: Ensure that inputs like `snapshot_name`, `base_path`, and URLs
+- **Validation errors**: Ensure inputs like `snapshot_name`, `base_path`, and URLs
   are properly formatted.
 - **Common issues**: Address common errors such as missing credentials, incorrect paths,
   or unsupported snapshot versions.
 
 ## Related pages
 
+- [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)
 - [Aiven for OpenSearch documentation](/docs/products/opensearch)
 - [Elasticsearch snapshot and restore guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)

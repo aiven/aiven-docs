@@ -3,11 +3,11 @@ title: Migrate external OpenSearch or Elasticsearch snapshots
 sidebar_label: Migrate external snapshots
 ---
 
-Migrate an existing OpenSearch or Elasticsearch® snapshot to Aiven for OpenSearch®.
-The migration process is designed to minimize downtime and ensure data integrity, and it
-consists of three key phases:
+Migrate an existing OpenSearch or Elasticsearch® snapshot to Aiven for OpenSearch® with minimal downtime and data integrity.
+The migration process consists of three key phases:
 
-- **[Data migration](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)**: Restore your data from external snapshots stored on supported
+- **[Data migration](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)**:
+  Restore your data from external snapshots stored on supported
   platforms like Amazon S3, Google Cloud Storage (GCS), Microsoft Azure, or other
   S3-compatible services.
 
@@ -15,12 +15,14 @@ consists of three key phases:
   lifecycle management, including tasks like index rollover, retention, and deletion.
 
   :::note
-  Procedures for ISM migration are coming soon.
+  Details on ISM migration are coming soon.
   :::
 
-- **[Security configurations](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)**: Migrate user roles, permissions, and access controls to
-  preserve security settings and ensure a smooth user experience after migration.
+- **[Security configurations](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)**:
+  Migrate user roles, permissions, and access controls to preserve security settings and
+  ensure a smooth user experience after migration.
 
   :::note
-  A migration script is available for migrating Opendistro security configurations.
+  A [migration script](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py)
+  is available for migrating Opendistro security configurations.
   :::
