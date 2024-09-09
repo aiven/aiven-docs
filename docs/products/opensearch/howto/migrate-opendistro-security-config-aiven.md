@@ -53,10 +53,7 @@ To migrate your security configuration from Opendistro to Aiven for OpenSearch:
 
 ### Access the migration script
 
-The migration script is available in a public GitHub repository. You can access the
-script by navigating to the following URL:
-
-`<place holder for script link>`
+The migration script is available in the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py).
 
 ### Create the migration configuration file
 
