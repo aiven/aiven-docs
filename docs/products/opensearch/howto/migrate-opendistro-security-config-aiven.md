@@ -1,6 +1,7 @@
 ---
 title: Migrate Opendistro security configuration to Aiven for OpenSearch
 sidebar_label: Migrate Opendistro security configuration
+limited: true
 ---
 
 Migrate your security configuration from an Opendistro service to Aiven for OpenSearch® using a migration script.
@@ -49,7 +50,7 @@ Before starting the migration, ensure the following:
 
 ## Migration steps
 
-To migrate your security configuration from Opendistro to Aiven for OpenSearch:
+Migrate your security configuration from Opendistro to Aiven for OpenSearch.
 
 ### Access the migration script
 
@@ -78,8 +79,7 @@ and target (Aiven for OpenSearch) services. Following is an example:
 
 ### Run the migration script
 
-Once your configuration file is ready, run the following command to execute the
-migration:
+Once your configuration file is ready, execute the migration:
 
 ```bash
 python avn-migrate-os-security-config.py --config path-to-config-file

@@ -1,6 +1,7 @@
 ---
 title: Migrate data to Aiven for OpenSearch® using snapshots
 sidebar_label: Migrate snapshot data
+limited: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,8 +30,7 @@ Before you begin, ensure that:
 - A target Aiven for OpenSearch service within your project.
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier and is
   compatible with your target service.
-- Enable the [feature preview](/docs/platform/howto/feature-preview) to try
-  migrating external snapshots.
+
 
 ### Gather required parameters
 
