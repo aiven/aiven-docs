@@ -18,7 +18,7 @@ consists of three key phases:
   Procedures for ISM migration are coming soon.
   :::
 
-- **[User configurations](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)**: Migrate user roles, permissions, and access controls to
+- **[Security configurations](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)**: Migrate user roles, permissions, and access controls to
   preserve security settings and ensure a smooth user experience after migration.
 
   :::note

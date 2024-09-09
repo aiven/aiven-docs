@@ -40,9 +40,9 @@ Before starting the migration, ensure the following:
 
 :::note
 
-- The admin user key and certificate are required to migrate internal users and their
-  passwords. The password hash must be fetched directly from the `.opendistro_security`
-  index, as the standard API endpoint does not return it.
+- You need the admin user key and certificate to migrate internal users and their
+  passwords. The password hash is fetched directly from the `.opendistro_security` index
+  because the standard API endpoint doesn’t return it.
 - The script assumes HTTPS is enabled on both the source and target services.
 
 :::
