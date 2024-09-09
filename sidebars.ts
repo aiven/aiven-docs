@@ -1839,7 +1839,18 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
                     'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
-                    'products/opensearch/howto/restore-snapshot-opensearch',
+                    {
+                      type: 'category',
+                      label: 'Migrate external snapshots',
+                      link: {
+                        type: 'doc',
+                        id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
+                      },
+                      items: [
+                        'products/opensearch/howto/migrate-snapshot-data-opensearch',
+                        'products/opensearch/howto/migrate-opendistro-security-config-aiven',
+                      ],
+                    },
                   ],
                 },
                 {

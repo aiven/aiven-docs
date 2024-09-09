@@ -1,5 +1,6 @@
 ---
-title: Migrate to Aiven for OpenSearch® using snapshots
+title: Migrate data to Aiven for OpenSearch® using snapshots
+sidebar_label: Migrate snapshot data
 ---
 
 import Tabs from '@theme/Tabs';
@@ -99,7 +100,6 @@ To restore specific indices from the snapshot, specify index patterns in the `in
 field within the `user-config` object during configuration. If no index patterns are
 provided, Aiven restores all indices by default. For example, to restore indices starting
 with `logs-` and `metrics-`, use: `indices: "logs-*,metrics-*"`.
-
 
 :::warning
 Aiven for OpenSearch allows only one migration to progress at a time. Ensure the current
