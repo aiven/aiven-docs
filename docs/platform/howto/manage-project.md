@@ -38,7 +38,7 @@ organizational unit or up a level to the organization.
 
 To move a project to a different organization, you must be a
 [super admin](/docs/platform/howto/make-super-admin) of both organizations.
-All project members are removed when you
+All users added to a project are removed when you
 move a project to a different organization.
 
 1.  In the organization with the project, click **Admin**.
