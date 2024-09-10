@@ -320,6 +320,7 @@ the snapshot repository used during the migration to clean up resources.
 **Automatic pausing of backups**: During the migration process, Aiven for OpenSearch
 automatically pauses regular backups to prevent any potential conflicts with the
 migration.
+
 **Automatic resumption of backups**: After the migration is complete, Aiven for
 OpenSearch automatically resumes regular backup operations.
 
