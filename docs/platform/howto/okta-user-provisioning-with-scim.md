@@ -31,6 +31,10 @@ Aiven's integration with Okta supports these features:
 1. In the **API Token field**, paste the **Access token** from the Aiven Console.
 1. Click **Test API Credentials** to confirm the connection is working
    and save the configuration.
+   :::important
+   Don't enable **Import Groups**. Aiven groups that aren't managed by SCIM cannot
+   be imported to Okta.
+   :::
 1. Click **Sign On**.
 1. In the **Credentials Details** section, select **Email** as the
    **Application username format**.
