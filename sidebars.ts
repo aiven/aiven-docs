@@ -791,7 +791,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Administrative tasks',
                   items: [
-                    'products/kafka/howto/enable-karapace',
+                    'products/kafka/howto/enable-schema-registry',
                     'products/kafka/howto/best-practices',
                     'products/kafka/howto/configure-with-kafka-cli',
                     'products/kafka/howto/set-kafka-parameters',
