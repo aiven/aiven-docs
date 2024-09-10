@@ -1,7 +1,6 @@
 ---
 title: Get started with Aiven
 sidebar_label: Get started
-keywords: [quick start]
 ---
 
 import Button from "@site/src/components/Buttons";
@@ -40,7 +39,7 @@ All services run reliably and securely in the clouds of your choice, are observa
   <ButtonSecondary to="https://aiven.io/changelog">See product updates</ButtonSecondary>
 </GridContainer>
 
-### Marketplace user?
+### Subscribe through a marketplace
 
 [Subscribe](/docs/marketplace-setup) and use Aiven services on AWS, Azure, or
 Google Cloud Marketplace.
@@ -48,15 +47,15 @@ Google Cloud Marketplace.
 
 ## First steps
 
-* [Set up billing](#set-up-billing) for your organization.
-*  Organize your resources by [setting up your organization](#set-up-your-organization),
+1. [Set up billing](#step-1-set-up-billing) for your organization.
+2.  Organize your resources by [setting up your organization](#step-2-set-up-your-organization),
    including its units and projects.
-* Start collaborating by [adding users to your organization](#manage-organization-users)
+3. Start collaborating by [adding users to your organization](#step-3-manage-organization-users)
    and creating user groups.
-* Follow best practices to [secure your organization](#secure-your-organization).
-* [Start creating services](#create-your-first-service).
+4. Follow best practices to [secure your organization](#step-4-secure-your-organization).
+5. Start [creating services](#step-5-create-your-first-service).
 
-### Set up billing
+### Step 1: Set up billing
 
 <GridContainer columns={3}>
     <Card
@@ -80,7 +79,7 @@ Google Cloud Marketplace.
     />
 </GridContainer>
 
-### Set up your organization
+### Step 2: Set up your organization
 
 <GridContainer columns={3}>
      <Card
@@ -115,7 +114,7 @@ Google Cloud Marketplace.
   />
 </GridContainer>
 
-### Manage organization users
+### Step 3: Manage organization users
 
 Start collaborating by adding users to your organization, creating  groups, and
 assigning them to projects. You can add users manually to your organization or
@@ -205,7 +204,7 @@ Add users to groups to streamline access management to your Aiven projects and s
   />
 </GridContainer>
 
-### Secure your organization
+### Step 4: Secure your organization
 
 <GridContainer columns={3}>
      <Card
@@ -251,7 +250,7 @@ Add users to groups to streamline access management to your Aiven projects and s
     />
 </GridContainer>
 
-### Create your first service
+### Step 5: Create your first service
 
 Start deploying services in your project to stream, store, or analyze your data.
 
