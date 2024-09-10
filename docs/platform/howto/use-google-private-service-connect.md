@@ -3,6 +3,8 @@ title: Use Google Private Service Connect with Aiven services
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Discover Google Private Service Connect and benefits of using it with your Aiven services. Learn how to enable Google Private Service Connect for Aiven services.
 
 :::important
@@ -216,8 +218,7 @@ To enable Private Link access in [Aiven Console](https://console.aiven.io/):
 1.  On the **Overview** page of your service, select **Service
     settings** from the sidebar.
 1.  On the **Service settings** page, go to the **Cloud and
-    network** section and select **More network configurations** from
-    the actions (**...**) menu.
+    network** section and click <ConsoleLabel name="actions"/> > **More network configurations**.
 1.  In the **Network configuration** window, take the following actions:
     1.  Select **Add configuration options**.
     1.  In the search field, enter `privatelink_access`.

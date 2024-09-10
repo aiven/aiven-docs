@@ -4,6 +4,8 @@ sidebar_label: Delete cross-region backup
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Delete an [additional service backup](/docs/platform/concepts/backup-to-another-region) [created](/docs/platform/howto/btar/enable-backup-to-another-region) in a region different from your primary backup region.
 
 You can delete a cross-region backup using the Aiven [console](#delete-btar-console),
@@ -14,7 +16,7 @@ You can delete a cross-region backup using the Aiven [console](#delete-btar-cons
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. From the **Services** view, select an Aiven service on which you'd like to disable BTAR.
 1. On your service's page, select **Backups** from the sidebar.
-1. On the **Backups** page, select the actions (**...**) menu > **Secondary backup location**.
+1. On the **Backups** page, click <ConsoleLabel name="actions"/> > **Secondary backup location**.
 1. In the **Edit secondary backup location** window, select **Disable**.
 
 Your additional service backup is no longer visible on your service's **Backups** page in

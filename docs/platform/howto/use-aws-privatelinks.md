@@ -71,9 +71,8 @@ currently support AWS PrivateLink.
 
     Replace the `--service-name` value with the value shown either in
     the [Aiven Console](https://console.aiven.io) > **Service
-    settings** page > **Cloud and network** section > actions
-    (**...**) menu > **Edit AWS PrivateLink** > **AWS service name**
-    or as an output of the following Aiven CLI command:
+    settings** page > **Cloud and network** section > <ConsoleLabel name="actions"/> > **Edit AWS PrivateLink** > **AWS service name**
+    or as an output of:
 
     ```bash
     avn service privatelink aws get aws_service_name
@@ -139,8 +138,8 @@ currently support AWS PrivateLink.
             settings** from the sidebar.
 
         1.  On the **Service settings** page, go to the **Cloud
-            and network** section and click **More network
-            configurations** from the actions (**...**) menu.
+            and network** section and click
+            <ConsoleLabel name="actions"/>  > **More network configurations** from the menu.
 
         1.  In the **Network configuration** window, click **Add
             configuration options**. In the search field, enter
@@ -252,8 +251,7 @@ allowed to connect a VPC endpoint:
     1.  On the **Overview** page, click **Service settings** from the
         sidebar.
     1.  On the **Service settings** page, go to the **Cloud and
-        network** section and click **Edit AWS PrivateLink** from the
-        actions (**...**) menu.
+        network** section and click <ConsoleLabel name="actions"/> > **Edit AWS PrivateLink**.
     1.  In the **Edit AWS PrivateLink** window, enter the principals
         to include in the **Principal ARNs** field and
         click **Save**.
@@ -278,8 +276,8 @@ allowed to connect a VPC endpoint:
     1.  On the **Overview** page, click **Service settings** from the
         sidebar.
     1.  On the **Service settings** page, go to the **Cloud and
-        network** section and click **Delete AWS PrivateLink** from the
-        actions (**...**) menu.
+        network** section and click <ConsoleLabel name="actions"/> > **Delete AWS PrivateLink**
+        .
     1.  In the **Confirmation** window, click **Delete**.
 
 This deletes the AWS load balancer and VPC service endpoint.
