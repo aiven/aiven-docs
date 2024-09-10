@@ -4,10 +4,12 @@ sidebar_label: Add cross-region backup
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 Enable [the backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) and create an additional cross-region service backup on top of a regular backup stored in the region where your service is hosted.
 
 :::important
-BTAR is supported for Aiven for MySQL® and Aiven for PostgreSQL®.
+BTAR is supported for Aiven for MySQL®, Aiven for PostgreSQL®, and Aiven for OpenSearch®.
 :::
 
 To add an additional service backup for your service, you can use the Aiven
@@ -27,13 +29,14 @@ To add an additional service backup for your service, you can use the Aiven
 ## Back up to another region via console {#enable-btar-console}
 
 1. Log in to the [Aiven Console](https://console.aiven.io/).
-1. From the **Services** view, select an Aiven service on which you'd like to enable BTAR.
-1. On your service's page, select **Backups** from the sidebar.
-1. On the **Backups** page, select the actions (**...**) menu > **Secondary backup
-   location**.
+1. From the <ConsoleLabel name="serviceusers"/> view, select an Aiven service on
+   which you'd like to enable BTAR.
+1. On your service's page, click <ConsoleLabel name="backups"/> from the sidebar.
+1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
+   **Secondary backup location**.
 1. In the **Secondary backup location** window, use the **Secondary location** menu to
-   select a region for your additional backup. Confirm your choice by selecting
-   **Enable**.
+   choose a region for your additional backup.
+1. Click **Enable** to confirm your selection.
 
    :::tip
    For names of the cloud regions supported in Aiven, see column *Cloud* in
