@@ -106,8 +106,7 @@ or automate the process with Terraform.
    terraform apply --auto-approve
    ```
 
-1. Store the Terraform outputs in environment variables to use them when
-   [connecting](#connect-and-produceconsume-messages):
+1. Store the Terraform outputs in environment variables to use them when [connecting](#connect):
 
     ```bash
     KAFKA_HOST="$(terraform output -raw kafka_service_host)"
@@ -223,7 +222,7 @@ messages.
 </TabItem>
 </Tabs>
 
-## Connect to your Aiven for Apache Kafka service
+## Connect to your Aiven for Apache Kafka service {#connect}
 
 You can connect to your Aiven for Apache Kafka service to interact with Apache Kafka
 topics, allowing you to produce and consume messages.
