@@ -1576,13 +1576,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'How to',
               items: [
-                {
-                  type: 'category',
-                  label: 'Manage access control',
-                  items: [
-                    'products/opensearch/howto/control_access_to_content',
-                  ],
-                },
+                'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
                   label: 'Connect with service',
@@ -1648,10 +1642,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Manage service',
-                  link: {
-                    id: 'products/opensearch/howto/list-manage-service',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
@@ -1665,10 +1655,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrate service',
-                  link: {
-                    id: 'products/opensearch/howto/list-integrations',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/opensearch-log-integration',
                     'products/opensearch/howto/integrate-with-grafana',

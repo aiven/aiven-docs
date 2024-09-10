@@ -1,5 +1,6 @@
 ---
 title: Copy data from Aiven for OpenSearch® to AWS S3 using elasticsearch-dump
+sidebar_label: Copy data from Aiven for OpenSearch® to AWS S3
 ---
 
 Backup your OpenSearch® data into an AWS S3 bucket.

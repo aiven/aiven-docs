@@ -17,6 +17,8 @@
 /category/user-access                            https://aiven.io/docs/platform/howto/manage-org-users
 /community/documentation/tips-tricks/renaming-files    https://aiven.io/docs
 /docs/platform/concepts/projects_accounts_access.html  https://aiven.io/docs/platform/howto/manage-org-users
+/docs/products/opensearch/howto/list-integrations      https://aiven.io/docs/products/opensearch
+/docs/products/opensearch/howto/list-manage-service    https://aiven.io/docs/products/opensearch
 /integrations                                          https://aiven.io/docs/platform/concepts/service-integration
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
