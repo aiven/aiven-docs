@@ -8,19 +8,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
 Start using Aiven for Apache Kafka® by setting up and configuring a service, connecting to it, and managing your data.
 
 ## Prerequisites
 
-- Access to the [Aiven Console](https://console.aiven.io)
+Before you begin, ensure you have access to the following tools:
+
+- [Aiven Console](https://console.aiven.io)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 - [Aiven CLI](/docs/tools/cli)
 
 ## Create an Aiven for Apache Kafka® service
 
-You can create your Kafka service using the Aiven Console, the Aiven CLI, or automate
-the process with Terraform.
+You can create your Aiven for Apache Kafka service using the Aiven Console, the Aiven CLI,
+or automate the process with Terraform.
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
@@ -102,7 +106,7 @@ the process with Terraform.
    terraform apply --auto-approve
    ```
 
-1. Store the Terraform outputs in environment variables to use them for
+1. Store the Terraform outputs in environment variables to use them when
    [connecting](#connect-and-produceconsume-messages):
 
     ```bash
@@ -139,6 +143,9 @@ Parameters:
 
 ## Create an Apache Kafka® topic
 
+Once your service is created, you can add topics for organizing and managing your
+messages.
+
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
 
@@ -150,6 +157,44 @@ Parameters:
 1. Set properties like replication factor, number of partitions, and other settings.
    These can be changed later.
 1. Click **Create topic**.
+
+</TabItem>
+<TabItem value="Terraform" label="Terraform">
+
+1. Add the following Terraform configuration to your `.tf` file:
+
+   ```hcl
+   resource "aiven_kafka_topic" "example_topic" {
+     project                = data.aiven_project.example_project.project
+     service_name           = aiven_kafka.example_kafka.service_name
+     topic_name             = "example-topic"
+     partitions             = 5
+     replication            = 3
+     termination_protection = true
+
+     config {
+       flush_ms       = 10
+       cleanup_policy = "compact,delete"
+     }
+
+     timeouts {
+       create = "1m"
+       read   = "5m"
+     }
+   }
+   ```
+
+   Parameters:
+   - `project`: The name of the project.
+   - `service_name`: The name of the Aiven for Apache Kafka service.
+   - `topic_name`: The name of the Kafka topic.
+   - `partitions`: The number of partitions for the topic.
+   - `replication`: The replication factor for the topic.
+   - `termination_protection`: Enables or disables deletion protection for the topic.
+   - `config`: Additional Kafka settings, such as flush interval and cleanup policy.
+   - `timeouts`: Optional timeouts for creating and reading the topic.
+
+1. Run `terraform apply` to create the topic with the defined configurations.
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
@@ -169,45 +214,48 @@ Parameters:
 
    Parameters:
    - `avn service topic-create`: Creates a topic.
-   - `--project demo-kafka-project`: Specifies the project name.
-   - `--service-name demo-kafka-service`: Specifies the Aiven for Apache Kafka® service name.
-   - `--topic exampleTopic`: Specifies the name of the topic to create.
-   - `--partitions 2`: Specifies the number of partitions for the topic.
-   - `--replication 2`: Specifies the replication factor for the topic.
+   - `--project demo-kafka-project`: The name of the project in Aiven.
+   - `--service-name demo-kafka-service`: The name of the Aiven for Apache Kafka® service.
+   - `--topic exampleTopic`: The name of the topic to create.
+   - `--partitions 2`: The number of partitions for the topic.
+   - `--replication 2`: The replication factor for the topic.
 
 </TabItem>
 </Tabs>
 
-## Connect and produce/consume messages {#connect-and-produceconsume-messages}
+## Connect to your Aiven for Apache Kafka service
 
-Connect to your Aiven for Apache Kafka service to start producing and consuming messages.
-The **Quick connect** in the Aiven Console helps you establish a connection.
-
-### Connect to your Aiven for Apache Kafka service
+You can connect to your Aiven for Apache Kafka service to interact with Apache Kafka
+topics, allowing you to produce and consume messages.
+The **Quick connect** feature in the Aiven Console helps guide you through the
+connection process.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), select your project, and
-   the Aiven for Apache Kafka® service.
-1. On the <ConsoleLabel name="overview"/> page of your service, click
-   **Quick connect**.
-1. In the **Connect** window, choose your preferred tool or language, and follow the
-   connection instructions provided.
+   the Aiven for Apache Kafka service.
+1. On the <ConsoleLabel name="overview"/> page, click **Quick connect**.
+1. In the **Connect** window, select your preferred tool or language from the drop-down
+   list.
+1. Follow the connection instructions. You may need to download:
+
+   - **[CA certificate](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates)**:
+     Required for secure communication.
+   - **Access certificate** and **Access key**: Needed for client certificate
+     authentication.
 1. Select your authentication method:
    - **Client certificate**: Use this method if your environment requires secure
      communication using SSL/TLS certificates. For information on downloading CA
      certificates, see [TLS/SSL certificates](https://aiven.io/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
    - **SASL**: Use this method if your environment uses Simple Authentication and
      Security Layer (SASL) for authentication.
-1. Follow the connection instructions provided based on the chosen method.
 1. Click **Done**.
 
-### Produce and consume messages
+## Produce and consume messages
 
-After connecting, use your Apache Kafka client to produce messages to your
-Apache Kafka® topics and consume messages using the appropriate consumer setup.
+After connecting, use your preferred Apache Kafka client to produce and consume messages.
 
-Below is an example using Python:
+### Produce messages
 
-**Produce messages**: To send messages to an Apache Kafka topic:
+To produce messages using Python:
 
 ```python
 from kafka import KafkaProducer
@@ -227,11 +275,13 @@ producer.flush()
 producer.close()
 ```
 
-**Consume messages**: To read messages from an Apache Kafka topic.
+### Consume messages
 
-from kafka import KafkaConsumer
+To consume messages using Python:
 
 ```python
+from kafka import KafkaConsumer
+
 # Set up the Kafka consumer
 consumer = KafkaConsumer(
     'your-topic',  # Replace with your topic name
@@ -248,56 +298,66 @@ for message in consumer:
     print(f"Received message: {message.value}")
 ```
 
-## Integration with Aiven for Apache Kafka
+## Integrate Aiven for Apache Kafka with external systems
 
-Aiven for Apache Kafka® supports a wide range of integrations that extend its
-capabilities, allowing you to seamlessly connect with external systems. Some key integration options include:
+Aiven for Apache Kafka supports a wide range of integrations, allowing you to connect
+with external systems. Key integration options include:
 
-- [Apache Kafka Connect](/docs/products/kafka/kafka-connect): Integrate Kafka with
-  external systems like databases, file systems, and cloud services, enabling data
-  import and export.
-- [Apache Kafka MirrorMaker](/docs/products/kafka/kafka-mirrormaker):
-  Enable cross-cluster replication, allowing you to replicate data between Apache Kafka
-  clusters for disaster recovery or geographical distribution.
+- [Apache Kafka Connect](/docs/products/kafka/kafka-connect): Integrates Apache Kafka
+  with external systems for data import, export, and building complex data pipelines.
+  [Learn more about configuring Kafka Connect](#configure-aiven-for-apache-kafka-connect).
+- [Apache Kafka MirrorMaker](/docs/products/kafka/kafka-mirrormaker): Enables
+  cross-cluster replication to replicate data between Apache Kafka clusters for disaster
+  recovery or geographical distribution.
 - [Prometheus and Datadog](/docs/products/kafka/howto/kafka-prometheus-privatelink):
-  Monitor and manage Apache Kafka metrics, helping you maintain the health and performance
-  of your Aiven for Kafka services.
-- [Elasticsearch](/docs/integrations/send-logs-to-elasticsearch) and OpenSearch: Store
-  Apache Kafka logs and perform advanced search and analytics, making it easier to
-  query and analyze your Apache Kafka data.
+  Monitors and manages Apache Kafka metrics to help maintain the health and performance
+  of your Apache Kafka services.
+- [Elasticsearch](/docs/integrations/send-logs-to-elasticsearch) and OpenSearch: Stores
+  Apache Kafka logs and performs advanced search and analytics, making it easier to query
+  and analyze your Apache Kafka data.
 - [Apache Flink® and Apache Kafka® Streams](/docs/products/kafka/howto/kafka-streams-with-aiven-for-kafka):
-  Process and analyze real-time data streams directly from Aiven for Apache Kafka,
-  enabling complex event processing and stream transformations.
+  Processes and analyzes real-time data streams from Apache Kafka for complex event
+  processing and stream transformations.
 
-These integrations can be configured within the Aiven Console
-under **Integration endpoints**, allowing you to connect your Kafka service
-with other platforms and tools efficiently.
+You can configure these integrations in the Aiven Console. In your project, click
+<ConsoleLabel name="integration endpoints"/> to efficient connect your Apache Kafka
+service with other platforms and tools.
 
-## Configure Aiven for Apache Kafka® Connect
+## Configure Aiven for Apache Kafka® Connect {#configure-aiven-for-apache-kafka-connect}
 
-Aiven for Apache Kafka® Connect lets you integrate your Kafka service with various data sources and sinks, enabling you to build data pipelines.
+Aiven for Apache Kafka® Connect integrates your Apache Kafka service with various data
+sources and sinks, enabling you to build and manage data pipelines.
 
 :::note
-Ensure that your Aiven for Kafka service is running on a business or premium plan.
+Make sure your Aiven for Apache Kafka service is running on a business or premium plan.
 :::
 
-- For a cost-effective option, [enable Kafka Connect on the same node](/docs/products/kafka/kafka-connect/howto/enable-connect).
-- For improved performance and stability, [deploy a dedicated Kafka Connect service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+You can deploy Aiven for Apache Kafka Connect in two ways:
 
-## Enable and use Karapace
+- For a cost-effective setup,
+  [enable Apache Kafka Connect on the same node](/docs/products/kafka/kafka-connect/howto/enable-connect)
+  as your Aiven for Apache Kafka service. This is suitable for smaller workloads where
+  minimizing costs is a priority.
+- For better performance and stability, [deploy a dedicated Aiven for Apache Kafka Connect
+  service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+  This option is recommended for larger workloads or production environments where
+  reliability is key.
+
+## Enable Karapace
 
 [Karapace](/docs/products/kafka/karapace), an Aiven-built open-source schema registry
 for Apache Kafka®, provides schema management and REST APIs for interacting with
 Aiven for Apache Kafka.
 
-1. Enable Karapace schema registry and REST APIs in your Kafka service.
-1. Use Karapace to manage schemas and access Kafka via REST APIs.
+1. [Enable](/docs/products/kafka/karapace/howto/enable-karapace) Karapace schema
+   registry and REST APIs in your Kafka service.
+1. Use Karapace to register, update, and version control your schemas.
 
 Learn more about the [Karapace schema registry](/docs/products/kafka/karapace/concepts/schema-registry-authorization).
 
-## View topic catalog
+## View topic catalog <EarlyBadge/>
 
-The Aiven for Apache Kafka® topic catalog provides a centralized interface to view,
+The Aiven for Apache Kafka topic catalog provides a centralized interface to view,
 request, and manage topics across projects. It simplifies topic management and ensures
 governance within your Aiven for Apache Kafka infrastructure.
 
@@ -305,29 +365,28 @@ governance within your Aiven for Apache Kafka infrastructure.
 1. Click **Tools**.
 1. Select Apache Kafka topic catalog.
 
-Explore more in the [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview).
+Learn more about the [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview).
 
-## Enable governance
+## Enable governance <LimitedBadge/>
 
-Governance in Aiven for Apache Kafka® provides a secure and efficient way to manage your
-Apache Kafka clusters. It centralizes control through policies and roles, ensuring
-compliance and enforcing standards across your Aiven for Apache Kafka environments.
+[Governance](/docs/products/kafka/concepts/governance-overview) in Aiven for Apache Kafka
+provides a secure and efficient way to manage your Apache Kafka clusters. It centralizes
+control through policies and roles, ensuring compliance and enforcing standards across
+your Aiven for Apache Kafka environments.
 
 :::note
-You need super admin permissions to enable governance.
+You need [super admin](/docs/platform/howto/make-super-admin) permissions to enable
+governance.
 :::
 
 1. Access the [Aiven Console](https://console.aiven.io/) and click **Admin**.
 1. On the organization page, click <ConsoleLabel name="governance"/>.
 1. Click **Enable governance**.
 
-Manage topic creation and ownership requests for Apache Kafka® resources, ensuring
-they meet governance standards.
-
-Discover more in the [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview).
-
+Learn more about the [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview).
 
 ## Related pages
 
-- Explore our [examples project](https://github.com/aiven/aiven-examples) for code samples.
-- Use our [sample data generator project](https://github.com/aiven/python-fake-data-producer-for-apache-kafka) to create test data.
+- Explore [examples project](https://github.com/aiven/aiven-examples) for code samples.
+- Use [sample data generator project](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
+  to create test data.
