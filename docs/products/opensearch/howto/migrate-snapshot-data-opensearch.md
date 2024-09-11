@@ -31,65 +31,64 @@ Before you begin, ensure that:
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier and is
   compatible with your target service.
 
-
 ### Gather required parameters
 
 Gather these details before registering the snapshot repository:
 
-- `API_TOKEN`: Your [Aiven token](/docs/platform/concepts/authentication-tokens).
-- `PROJECT_NAME`: Name of your Aiven project.
-- `SERVICE_NAME`: Name of your Aiven for OpenSearch service.
+- `API_TOKEN`: Your [Aiven token](/docs/platform/concepts/authentication-tokens)
+- `PROJECT_NAME`: Name of your Aiven project
+- `SERVICE_NAME`: Name of your Aiven for OpenSearch service
 
 Information specific to cloud providers:
 
 - **Amazon S3**
 
-  - `snapshot_name`: The name of the snapshot to restore.
-  - `base_path`: The path within the S3 bucket where the snapshot data is stored.
-  - `bucket`: The S3 bucket name.
-  - `region`: The AWS region of the S3 bucket.
-  - `access_key`: AWS access key for accessing the S3 bucket.
-  - `secret_key`: AWS secret key associated with the access key.
-  - `server_side_encryption`: (Optional) Enable server-side encryption for files in the
-    S3 bucket.
-  - `endpoint`: (Optional) The endpoint for S3-compatible services if not using AWS S3
-    directly.
-  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default.
+  - `snapshot_name`: The name of the snapshot to restore
+  - `base_path`: The path within the S3 bucket where the snapshot data is stored
+  - `bucket`: The S3 bucket name
+  - `region`: The AWS region of the S3 bucket
+  - `access_key`: AWS access key for accessing the S3 bucket
+  - `secret_key`: AWS secret key associated with the access key
+  - `server_side_encryption`: Optional. Enable server-side encryption for files in the
+    S3 bucket
+  - `endpoint`: Optional. The endpoint for S3-compatible services if not using AWS S3
+    directly
+  - `indices`: Optional. Comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default
 
 - **Google Cloud Storage (GCS)**
 
-  - `credentials`: GCS credentials file content.
-  - `bucket`: Name of the GCS bucket that contains the snapshot.
-  - `base_path`: Path to repository data within the bucket.
+  - `credentials`: GCS credentials file content
+  - `bucket`: Name of the GCS bucket that contains the snapshot
+  - `base_path`: Path to repository data within the bucket
   - `snapshot_name`: Name of the snapshot to restore.
-  - `compress` and `chunk_size`: (Optional) Settings for metadata compression
-    and file chunking.
-  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default.
+  - `compress` and `chunk_size`: Optional. Settings for metadata compression
+    and file chunking
+  - `indices`: Optional. A comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default
 
 - **Microsoft Azure**
 
-  - `account`: Azure account name.
-  - `key` or `sas_token`: Azure secret key or shared access signature token.
-  - `container`: Name of the Azure container that contains the snapshot.
-  - `base_path`: Path to repository data within the container.
-  - `snapshot_name`: Name of the snapshot to restore.
-  - `compress`, `chunk_size`, `endpoint_suffix`: (Optional) Additional configuration
-    settings.
-  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default.
+  - `account`: Azure account name
+  - `key` or `sas_token`: Azure secret key or shared access signature token
+  - `container`: Name of the Azure container that contains the snapshot
+  - `base_path`: Path to repository data within the container
+  - `snapshot_name`: Name of the snapshot to restore
+  - `compress`, `chunk_size`, `endpoint_suffix`: Optional. Additional configuration
+    settings
+  - `indices`: Optional. Comma-separated list of index patterns to restore specific
+    indices. If no patterns are provided, all indices are restored by default
 
 - **S3-compatible services**
 
-  - `endpoint`: Service endpoint for S3-compatible services.
-  - `access_key`: Access key for the S3-compatible service.
-  - `secret_key`**: Secret key for the S3-compatible service.
-  - `region`: Region or endpoint-specific region.
-  - `bucket`, `base_path`, `snapshot_name`: Bucket details and snapshot name.
-  - `server_side_encryption`, `compress`, `chunk_size`: (Optional) Settings
-    for encryption, compression, and file chunking.
-  - `indices`: (Optional) A comma-separated list of index patterns to restore specific
+  - `endpoint`: Service endpoint for S3-compatible services
+  - `access_key`: Access key for the S3-compatible service
+  - `secret_key`**: Secret key for the S3-compatible service
+  - `region`: Region or endpoint-specific region
+  - `bucket`, `base_path`, `snapshot_name`: Bucket details and snapshot name
+  - `server_side_encryption`, `compress`, `chunk_size`: Optional. Settings
+    for encryption, compression, and file chunking
+  - `indices`: Optional. Comma-separated list of index patterns to restore specific
     indices. If no patterns are provided, all indices are restored by default
 
 ## Configure snapshot migration settings
@@ -102,6 +101,10 @@ To restore specific indices from the snapshot, specify index patterns in the `in
 field within the `user-config` object during configuration. If no index patterns are
 provided, Aiven restores all indices by default. For example, to restore indices starting
 with `logs-` and `metrics-`, use: `indices: "logs-*,metrics-*"`.
+
+:::note
+Exclude the `.opendistro_security` index pattern from your snapshot restore process.
+:::
 
 :::warning
 Aiven for OpenSearch only allows one migration to progress at a time. Ensure the current

@@ -52,11 +52,6 @@ Before starting the migration, ensure the following:
 
 Migrate your security configuration from Opendistro to Aiven for OpenSearch.
 
-:::note
-Exclude the `.opendistro_security` index pattern from your snapshot restore before
-running the migration script.
-:::
-
 ### Access the migration script
 
 The migration script is available in the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py).
