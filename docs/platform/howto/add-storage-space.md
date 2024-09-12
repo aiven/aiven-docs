@@ -38,6 +38,11 @@ storage.
 
 ## Limitations
 
+- Disk added for extra storage is slower than the original disk until service maintenance
+  is applied. This may have performance implications depending on the load on your service.
+  Dynamically adding disk (either manually or in an automated fashion) may not be
+  appropriate for certain I/O intensive workloads.
+
 - Maximum storage size depends on the plan and the service type. It
   can go as high as five times the base storage size of the plan.
 - Due to cloud provider restrictions, there is a limit on how many
@@ -46,9 +51,6 @@ storage.
   performance optimization.
 - If there is an ongoing maintenance update, you cannot add storage
   until the update is completed.
-
-It is unlikely that any performance degradation from additional disk
-storage would be noticeable in your clients, but it is possible.
 
 :::note[Pricing]
 
