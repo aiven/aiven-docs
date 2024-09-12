@@ -1531,15 +1531,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Concepts',
               items: [
-                {
-                  type: 'category',
-                  label: 'Access control',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/access_control',
-                  },
-                  items: ['products/opensearch/concepts/users-access-controls'],
-                },
+                'products/opensearch/concepts/access_control',
                 {
                   type: 'category',
                   label: 'Security',

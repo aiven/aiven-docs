@@ -207,6 +207,7 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
+/products/opensearch/concepts/users-access-controls                    https://aiven.io/docs/products/opensearch/concepts/access_control
 #
 # Keep splats at the end
 #

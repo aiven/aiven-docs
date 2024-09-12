@@ -1,5 +1,6 @@
 ---
-title: Aiven for OpenSearch® backups 
+title: Aiven for OpenSearch® backups
+sidebar_label: Backups
 ---
 
 Aiven for OpenSearch® databases are automatically backed up,

@@ -1,5 +1,6 @@
 ---
 title: Enable SAML authentication on Aiven for OpenSearch®
+sidebar_label: Enable SAML authenttication
 ---
 
 SAML (Security Assertion Markup Language) is a standard protocol for exchanging authentication and authorization data between an identity provider (IdP) and a Service Provider (SP).

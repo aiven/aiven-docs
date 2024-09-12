@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot OpenSearch® Dashboards
+sidebar_label: Troubleshoot
 ---
 
 ## OpenSearch® Dashboard is unavailable
