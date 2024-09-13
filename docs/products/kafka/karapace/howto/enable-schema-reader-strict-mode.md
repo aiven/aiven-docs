@@ -1,5 +1,5 @@
 ---
-title: Enable automatic shutdown for invalid schema records
+title: Enable shutdown of Karapace for invalid schema records
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-You can configure the Karapace schema registry to automatically shut down when corrupt schema records are detected in the `_schemas` topic.
+You can configure the Karapace schema registry to  shut down when corrupt schema records are detected in the `_schemas` topic.
 
-## Why enable automatic shutdown
+## Why enable Karapace to shutdown
 
 By default, Karapace skips invalid schema records to prevent interruptions. To ensure
 data consistency, you can enable `schema_reader_strict_mode` to shut down Karapace when
@@ -25,7 +25,7 @@ preventing data integrity issues.
 - **Disable strict mode**: You can also disable `schema_reader_strict_mode` to allow
   Karapace to continue running while skipping faulty records.
 
-## How to enable automatic shutdown
+## Enable Karapace shutdown
 
 <Tabs groupId="enable-shutdown">
 <TabItem value="Console" label="Console" default>
@@ -47,7 +47,7 @@ preventing data integrity issues.
 </TabItem>
 <TabItem value="CLI" label="CLI">
 
-To enable automatic shutdown using the [Aiven CLI](/docs/tools/cli):
+Enable shutdown of Karapace using the [Aiven CLI](/docs/tools/cli):
 
 ```bash
 aiven service update \
@@ -60,13 +60,13 @@ Parameters:
 
 - `PROJECT_NAME`: Name of your project in Aiven.
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka® service.
-- `--user-config schema_reader_strict_mode=true`: Enables the automatic shutdown of
-  Karapace when it detects corrupt schema records.
+- `--user-config schema_reader_strict_mode=true`: Enables the shutdown of Karapace
+  when it detects corrupt schema records.
 
 </TabItem>
 <TabItem value="API" label="API">
 
-To enable automatic shutdown using the [Aiven API](/docs/tools/api):
+Enable shutdown of Karapace using the [Aiven API](/docs/tools/api).
 
 ```bash
 curl -X PUT \
@@ -81,8 +81,8 @@ Parameters:
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka® service.
 - `Authorization: Bearer <token>`: Your API authentication
   [token](/docs/platform/concepts/authentication-tokens).
-- `"user_config": {"schema_reader_strict_mode": true}`: Enables the automatic
-  shutdown of Karapace when it detects corrupt schema records.
+- `"user_config": {"schema_reader_strict_mode": true}`: Enables the shutdown of
+  Karapace when it detects corrupt schema records.
 
 </TabItem>
 </Tabs>
