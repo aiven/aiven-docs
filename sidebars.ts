@@ -1056,6 +1056,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
                     'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                     'products/kafka/karapace/howto/manage-schema-registry-authorization',
+                    'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                   ],
                 },
               ],
