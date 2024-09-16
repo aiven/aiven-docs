@@ -25,7 +25,7 @@ Google Cloud.
 Aiven for Apache Kafka uses rack awareness to optimize data fetching and ensure
 high availability.
 
-<img src={Followerfetching} class="centered" alt="Follow fetching" width="100%" />
+<img src={Followerfetching} className="centered" alt="Follow fetching" width="100%" />
 
 - **Rack awareness**: Rack awareness distributes data across different physical racks,
   also known as availability zones (AZs), within a data center. This distribution

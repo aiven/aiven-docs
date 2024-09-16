@@ -56,7 +56,7 @@
     "body": [
       "import ${1:MyImg} from \"@site/static/images/$2.png\";",
       "",
-      "<img src={$1} class=\"image\"/>",
+      "<img src={$1} className=\"image\"/>",
       ""
     ]
   },
@@ -173,7 +173,7 @@
     "body": [
       "import ${1:MyImg} from \"@site/static/images/content/figma/$2.png\";",
       "",
-      "<img src={$1} class=\"centered\" alt=\"$3\" width=\"${4:60%}\" />",
+      "<img src={$1} className=\"centered\" alt=\"$3\" width=\"${4:60%}\" />",
       ""
     ]
   },

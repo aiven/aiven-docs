@@ -101,7 +101,7 @@ For a cost estimate and analysis, contact your account team.
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS private" default>
 
-<img src={byocAwsPrivate} class="centered" alt="BYOC AWS private architecture" width="100%" />
+<img src={byocAwsPrivate} className="centered" alt="BYOC AWS private architecture" width="100%" />
 
 In the AWS private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
@@ -125,7 +125,7 @@ from Aiven repositories).
 </TabItem>
 <TabItem value="2" label="AWS public">
 
-<img src={byocAwsPublic} class="centered" alt="BYOC AWS public architecture" width="100%" />
+<img src={byocAwsPublic} className="centered" alt="BYOC AWS public architecture" width="100%" />
 
 In the AWS public deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
@@ -137,7 +137,7 @@ directly.
 </TabItem>
 <TabItem value="3" label="GCP private">
 
-<img src={byocGcpPrivate} class="centered" alt="BYOC GCP private architecture" width="100%" />
+<img src={byocGcpPrivate} className="centered" alt="BYOC GCP private architecture" width="100%" />
 
 In the GCP private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
@@ -166,7 +166,7 @@ from Aiven repositories).
 </TabItem>
 <TabItem value="4" label="GCP public">
 
-<img src={byocGcpPublic} class="centered" alt="BYOC GCP public architecture" width="100%" />
+<img src={byocGcpPublic} className="centered" alt="BYOC GCP public architecture" width="100%" />
 
 In the GCP public deployment model, a Virtual Private Cloud (**Workload VPC**) for your
 Aiven services is created within a particular cloud region in your remote cloud account.

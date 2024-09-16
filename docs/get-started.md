@@ -15,7 +15,7 @@ import GridContainer from "@site/src/components/GridContainer";
 Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
 All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external 3rd party tools.
 
-<img src={Overview} class="centered" alt="" width="62%" />
+<img src={Overview} className="centered" alt="" width="62%" />
 
 ## Discover the Aiven platform
 

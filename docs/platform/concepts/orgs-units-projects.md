@@ -6,7 +6,7 @@ The Aiven platform uses organizations, organizational units, and projects to eff
 
 import Overview from "@site/static/images/content/figma/organizations-overview.png";
 
-<img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" class="centered"/>
+<img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" className="centered"/>
 
 There are three levels in this hierarchy:
 
