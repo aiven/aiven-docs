@@ -34,26 +34,16 @@ All services run reliably and securely in the clouds of your choice, are observa
 **Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
 [30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
 
+Aiven services are also available on the AWS, Azure, and Google Cloud marketplaces.
+
 <GridContainer columns="3">
   <Button to="https://console.aiven.io/signup">Sign up for free</Button>
-  <ButtonSecondary to="https://aiven.io/changelog">See product updates</ButtonSecondary>
+  <ButtonSecondary to="/docs/marketplace-setup">Marketplace signup</ButtonSecondary>
 </GridContainer>
-
-### Subscribe through a marketplace
-
-[Subscribe](/docs/marketplace-setup) and use Aiven services on AWS, Azure, or
-Google Cloud Marketplace.
-
 
 ## First steps
 
-1. [Set up billing](#step-1-set-up-billing) for your organization.
-2.  Organize your resources by [setting up your organization](#step-2-set-up-your-organization),
-   including its units and projects.
-3. Start collaborating by [adding users to your organization](#step-3-manage-organization-users)
-   and creating user groups.
-4. Follow best practices to [secure your organization](#step-4-secure-your-organization).
-5. Start [creating services](#step-5-create-your-first-service).
+Set up your organization and create your first service.
 
 ### Step 1: Set up billing
 
@@ -92,7 +82,7 @@ Google Cloud Marketplace.
     <Card
       to="/docs/tools/aiven-console/howto/create-orgs-and-units"
       iconName="clipboard"
-      title="Create organizational units"
+      title="Optional: Create organizational units"
       description="Use units to group your Aiven projects."
     />
     <Card
@@ -104,13 +94,13 @@ Google Cloud Marketplace.
     />
 </GridContainer>
 
-<GridContainer>
+<GridContainer columns={3}>
   <Card
     to="https://github.com/aiven/terraform-provider-aiven/blob/main/examples/organization/README.md"
     iconName="terraform"
     title="Organization setup with Terraform"
-    description="Follow an example to set up units and projects
-    within your organization using the Aiven Provider for Terraform."
+    description="Follow an example to set up your organization using
+    the Aiven Provider for Terraform."
   />
 </GridContainer>
 
@@ -183,8 +173,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       to="/docs/platform/reference/project-member-privileges"
       iconName="book"
       title="Project member roles"
-      description="View the roles and their level of access
-      to a project and its services."
+      description="View project permissions you can assign to users and groups."
     />
     <Card
       to="/docs/platform/howto/add-groups-projects"
@@ -194,13 +183,13 @@ Add users to groups to streamline access management to your Aiven projects and s
     />
 </GridContainer>
 
-<GridContainer>
+<GridContainer columns={3}>
   <Card
     to="https://github.com/aiven/terraform-provider-aiven/tree/main/examples/get-started"
     iconName="terraform"
     title="Create and assign groups with Terraform"
-    description="Follow an example to create a project and user group in your
-    organization, and give the group access to the project."
+    description="Follow an example to create a user group and give it access to
+    a project."
   />
 </GridContainer>
 
@@ -216,7 +205,7 @@ Add users to groups to streamline access management to your Aiven projects and s
     <Card
       to="/docs/platform/concepts/orgs-units-projects#users-and-roles"
       iconName="book"
-      title="Users and roles"
+      title="Permissions and roles"
       description="Learn how access is controlled at the organization, project, and
       service level."
     />
@@ -238,7 +227,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       to="/docs/platform/howto/manage-application-users"
       iconName="clipboard"
       title="Create application users"
-      description="Create application users and tokens for use with the API,
+      description="Use application users to access the API,
       Terraform Provider, CLI, and Aiven Operator."
     />
     <Card
@@ -280,10 +269,10 @@ Start deploying services in your project to stream, store, or analyze your data.
 #### Create a service using the dev tools
 
 See examples of services and integrations using code samples for the
-[Aiven Operator for Kubernetes](/docs/tools/kubernetes) or
-[Aiven Provider for Terraform](/docs/tools/terraform).
+[Aiven Provider for Terraform](/docs/tools/terraform) or
+[Aiven Operator for Kubernetes](/docs/tools/kubernetes).
 
-<GridContainer columns={3}>
+<GridContainer columns={2}>
      <Card
       to="https://github.com/Aiven-Open/terraform-example-projects"
       iconName="terraform"
@@ -298,7 +287,7 @@ See examples of services and integrations using code samples for the
 
 Create a service using the Aiven CLI or API.
 
-<GridContainer columns={3}>
+<GridContainer columns={2}>
      <Card
       to="/docs/tools/cli/service-cli#avn-cli-service-create"
       iconName="code"
@@ -322,7 +311,7 @@ Create a service using the Aiven CLI or API.
     <Card
       to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
       iconName="book"
-      title="Read more about cloud security"
+      title="Read about cloud security"
     />
         <Card
       to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
