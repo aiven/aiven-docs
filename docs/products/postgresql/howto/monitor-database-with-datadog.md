@@ -1,5 +1,5 @@
 ---
-title: Database monitoring with Datadog
+title: Monitor a database with Datadog
 ---
 
 [Database Monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/) enables you to capture key metrics on the Datadog platform for any Aiven for PostgreSQL® service with [Datadog Metrics](/docs/integrations/datadog/datadog-metrics) integration.
@@ -20,7 +20,7 @@ execution details, along with query and host metrics correlation.
     EXTENSION](https://www.postgresql.org/docs/current/sql-createextension)
     SQL commands directly on the Aiven for PostgreSQL® database service.
 
-```text
+```bash
 CREATE EXTENSION pg_stat_statements;
 CREATE EXTENSION aiven_extras;
 ```
@@ -43,7 +43,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 -   Find the UUID of the Datadog Metrics integration for a particular
     service:
 
-    ```text
+    ```bash
     avn service integration-list --project <project name> <service name>
     ```
 
@@ -52,13 +52,13 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
     `<INTEGRATION_UUID>` with the integration UUID retrieved at the
     previous step:
 
-    ```text
+    ```bash
     avn service integration-update --project <PROJECT_NAME> --user-config '{"datadog_dbm_enabled": true}' <INTEGRATION_UUID>
     ```
 
 -   Check if user-config `datadog_dbm_enabled` set correctly:
 
-    ```text
+    ```bash
     avn service integration-list <SERVICE_NAME> \
        --project <PROJECT_NAME>  \
        --json | jq '.[] | select(.integration_type=="datadog").user_config'
@@ -66,7 +66,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 
     `datadog_dbm_enabled` should be set to `true`:
 
-    ```text
+    ```json
     {
       "datadog_dbm_enabled": true
     }

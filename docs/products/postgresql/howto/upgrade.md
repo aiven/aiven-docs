@@ -1,5 +1,6 @@
 ---
 title: Perform a PostgreSQL® major version upgrade
+sidebar_label: Upgrade to a major version
 ---
 
 PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.

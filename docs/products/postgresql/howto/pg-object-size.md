@@ -1,10 +1,10 @@
 ---
-title: Check size of a database, a table or an index
+title: Check the size of a database, a table or an index
 ---
 
 PostgreSQL® offers different commands and functions to get disk space usage for a database, a table, or an index.
 
-## Get a database size
+## Get the size of a database
 
 Retrieve the database size using either:
 
@@ -19,6 +19,7 @@ testdb2=> \l+
 ...
  testdb2   | avnadmin | UTF8     | en_US.UTF-8 | en_US.UTF-8 |                       | 66 MB     | pg_default |
 (6 rows)
+
 testdb2=> \l+ testdb2
                                                 List of databases
   Name   |  Owner   | Encoding |   Collate   |    Ctype    | Access privileges | Size  | Tablespace | Description
@@ -29,12 +30,14 @@ testdb2=> \l+ testdb2
 
 ```bash title="Using the pg_database_size function"
 testdb2=> select pg_database_size('testdb2');
+
  pg_database_size
 ------------------
          68895523
 (1 row)
 
 testdb2=> select pg_size_pretty(pg_database_size('testdb2'));
+
  pg_size_pretty
 ----------------
  66 MB
@@ -47,7 +50,7 @@ the `pg_database_size` function returns the database size in bytes, we use the
 `pg_size_pretty` function to retrieve an easy-to-read output.
 :::
 
-## Get a table size
+## Get the size of a table
 
 To get the table size, you can use either the `\dt+ [ pattern ]` command or the `pg_table_size` function.
 
@@ -68,7 +71,7 @@ testdb2=> select pg_size_pretty(pg_table_size('mytable1'));
 (1 row)
 ```
 
-## Get a size for a table and its indices
+## Get the size of a table and its indices
 
 To get disk space usage for a table and its indexes, you can use the
 `pg_total_relation_size` function, which computes the total disk space used by the

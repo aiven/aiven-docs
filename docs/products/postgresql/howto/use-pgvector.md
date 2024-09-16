@@ -1,11 +1,9 @@
 ---
 title: Enable and use pgvector on Aiven for PostgreSQL®
+sidebar_label: Enable and use pgvector
 ---
 
-Learn how to enable, use, and disable the pgvector extension for your Aiven for PostgreSQL service.
-
-The [pgvector extension](/docs/products/postgresql/concepts/pgvector) allows you to perform the vector similarity
-search and use embedding techniques directly in Aiven for PostgreSQL.
+The [pgvector extension](/docs/products/postgresql/concepts/pgvector) allows you to perform the vector similarity search and use embedding techniques directly in Aiven for PostgreSQL.
 
 ## Prerequisites
 

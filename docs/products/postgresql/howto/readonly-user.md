@@ -1,5 +1,6 @@
 ---
 title: Restrict access to databases or tables in Aiven for PostgreSQL®
+sidebar_label: Restrict access to databases or tables
 ---
 
 You can restrict access to Aiven for PostgreSQL® databases and tables by

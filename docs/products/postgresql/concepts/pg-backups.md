@@ -1,5 +1,6 @@
 ---
 title: Aiven for PostgreSQL® backups
+sidebar_label: Backups
 ---
 
 Aiven for PostgreSQL® databases are automatically backed up, with **full backups** made daily, and **write-ahead logs (WAL)** copied at 5 minute intervals, or for every new file generated.

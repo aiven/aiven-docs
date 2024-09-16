@@ -1,5 +1,6 @@
 ---
 title: Enable JIT in PostgreSQL®
+sidebar_label: Enable JIT
 ---
 
 PostgreSQL® 11 introduces a new component in the execution engine, a [Just-in-Time (JIT) expression compiler](https://www.postgresql.org/docs/current/jit-reason).

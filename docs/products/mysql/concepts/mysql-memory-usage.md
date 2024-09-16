@@ -1,5 +1,6 @@
 ---
 title: Understand MySQL memory usage
+sidebar_label: Memory usage
 ---
 
 MySQL memory utilization can appear high, even if the service is relatively idle.

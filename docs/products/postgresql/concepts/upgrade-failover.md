@@ -11,7 +11,7 @@ read-replica services since the latter are not promoted if the primary
 server fails.
 :::
 
-There are two distinct cases when failover or switchover occurs:
+There are two cases when failover or switchover occurs:
 
 1.  Uncontrolled primary/replica disconnection
 1.  Controlled switchover during rolling-forward upgrades
@@ -72,8 +72,8 @@ recovery of the replica server.
 ## Controlled switchover during upgrades or migrations
 
 :::note
-The below doesn't apply to major version upgrade with `pg_upgrade`, for
-major version upgrade see [Perform a PostgreSQL® major version upgrade](/docs/products/postgresql/howto/upgrade).
+This section doesn't apply to major version upgrades with `pg_upgrade`.
+For more information, see [Perform a PostgreSQL® major version upgrade](/docs/products/postgresql/howto/upgrade).
 :::
 
 During maintenance updates, cloud migrations, or plan changes, the below
@@ -90,10 +90,10 @@ procedure is followed:
 1.  Cluster replication is changed to **quorum commit synchronous** to
     avoid data loss when changing primary server.
 
-:::note
-At this stage, one extra server is running: the old primary server, and
-N+1 replica servers (2 for Business and 3 for Premium plans).
-:::
+    :::note
+    At this stage, one extra server is running: the old primary server, and
+    N+1 replica servers (2 for Business and 3 for Premium plans).
+    :::
 
 1.  The old primary server is scheduled for termination, and one of the
     new replica servers is immediately promoted as a primary server.
@@ -102,19 +102,17 @@ N+1 replica servers (2 for Business and 3 for Premium plans).
     `replica-servicename-projectname.aivencloud.com` DNS record.
 
 :::note
-The old primary server is kept alive for a short period of time (minimum
-60 seconds) with a TCP forwarding setup pointing to the new primary
-server allowing clients to connect before learning the new IP address.
-:::
+- The old primary server is kept alive for a short period of time (minimum
+  60 seconds) with a TCP forwarding setup pointing to the new primary
+  server allowing clients to connect before learning the new IP address.
 
-:::note
-If the service plan is changed from a business plan that has two nodes
-to a startup plan which only has one node of the same tier (for example,
-business-8 to startup-8), the standby node is removed while the primary
-node is retained, and connections to the primary are not affected by the
-downgrade. Similarly, upgrading the service plan from a startup one to a
-business one adds a standby node to the service cluster, and connections
-to the primary node are unaffected.
+- If the service plan is changed from a business plan that has two nodes
+  to a startup plan which only has one node of the same tier (for example,
+  business-8 to startup-8), the standby node is removed while the primary
+  node is retained, and connections to the primary are not affected by the
+  downgrade. Similarly, upgrading the service plan from a startup one to a
+  business one adds a standby node to the service cluster, and connections
+  to the primary node are unaffected.
 :::
 
 ## Recreation of replication slots

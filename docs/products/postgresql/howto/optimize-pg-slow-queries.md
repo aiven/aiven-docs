@@ -1,5 +1,6 @@
 ---
 title: Optimize Aiven for PostgreSQL® slow queries
+sidebar_label: Optimize queries
 keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
