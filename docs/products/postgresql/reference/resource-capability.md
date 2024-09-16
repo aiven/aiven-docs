@@ -1,5 +1,6 @@
 ---
 title: Resource capability of Aiven for PostgreSQL® plans
+sidebar_label: Resource capability
 ---
 
 import MySnippet from "@site/static/includes/benchmarks.md"
