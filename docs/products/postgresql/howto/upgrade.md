@@ -3,33 +3,43 @@ title: Perform a PostgreSQL® major version upgrade
 sidebar_label: Upgrade to a major version
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.
 The whole procedure usually takes 60 seconds or less for small databases.
 
-For all upgrades, Aiven recommends to **test the upgrade on a fork** of
+## Prepare for an upgrade
+
+For all upgrades, Aiven recommends to **test the upgrade
+on [a fork](/docs/platform/concepts/service-forking)** of
 the database to be upgraded. Testing on a fork provides the benefit of
 verifying the impact of the upgrade for the specific service without
 affecting the running service, mostly to:
+
 <!-- vale off -->
+
 1.  Ensure that the upgrade succeeds and is performed quickly enough, which
-    might not be the case, usually when there many of databases or
-    many "large objects".
+    might not be the case if there are many databases or "large objects".
 
     Smaller node sizes with a large dataset can
     run into OOM issues during the `pg_dump/pg_restore` phase of
-    `pg_upgrade --link` and a fork will reveal this scenario.
+    `pg_upgrade --link`. A fork will reveal this scenario.
 1.  Test query performance directly after upgrade under real world
     load, when no statistics are available and caches are cold.
+
 <!-- vale on -->
 
-:::warning
-Very large databases may take a long time to upgrade. If this scenario
-is unfeasible, a
-[read-only replica service](create-read-replica) may be used to keep the data readable during an upgrade. Any
-PostgreSQL upgrade has some risk of downtime and data loss if the node
-goes down before the system is back in a normal state. A read-only
-replica can help reduce this risk.
+:::note
+- Very large databases may take a long time to upgrade and will be unreadable during the
+  upgrade. You can use a [read-only replica service](/docs/products/postgresql/howto/create-read-replica)
+  to keep the data readable during an upgrade.
+
+- A PostgreSQL upgrade has some risk of downtime and data loss if the node
+  goes down before the system is back in a normal state. A read-only
+  replica can help reduce this risk.
 :::
+
+## Upgrade to a major version
 
 To upgrade a PostgreSQL service:
 
@@ -37,8 +47,8 @@ To upgrade a PostgreSQL service:
     instance to upgrade.
 1.  Select **Service settings** from the sidebar of your service's
     page.
-1.  Go to the **Service management** section, and select **Upgrade
-    version** from the **Actions** (**...**) menu.
+1.  Go to the **Service management** section, click <ConsoleLabel name="actions"/>  > **Upgrade
+    version**.
 1.  In the **Upgrade Aiven for PostgreSQL Confirmation** window, select
     the version to upgrade to from the dropdown menu.
 
@@ -47,9 +57,16 @@ To upgrade a PostgreSQL service:
     upgrade.
     :::
 
-1.  Select **Upgrade**.
+    :::warning[Before starting the upgrade]
+    - The system will apply the upgrade **immediately** once you click **Upgrade**.
+    - Once the upgrade starts:
+      - The PostgreSQL instance can't be restored
+        to the previous version.
+      - Backups cannot be used for procedures such as Point In Time Recovery
+        since they were created with an earlier version of PostgreSQL.
+    :::
 
-    The system starts applying the upgrade.
+1.  Select **Upgrade**.
 
     1.  An automatic check is executed to confirm whether an upgrade is
         possible (`pg_upgrade --check`).
@@ -77,13 +94,7 @@ can only be launched when a backup taken from the new version is
 available.
 :::
 
-More information about upgrade and failover procedures can be found in
-the
-[dedicated page](/docs/products/postgresql/concepts/upgrade-failover).
+## Related pages
 
-:::warning
-Once the upgrade is started, the PostgreSQL instance can't be restored
-to the previous version. Similarly, the pre-existing backups cannot be
-used for procedures such as Point In Time Recovery since they were
-created with an earlier version of PostgreSQL.
-:::
+- [Service maintenance](/docs/platform/concepts/maintenance-window)
+- [Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)

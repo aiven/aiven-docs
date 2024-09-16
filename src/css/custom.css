@@ -102,7 +102,15 @@
 }
 
 .markdown>h2 {
-  --ifm-h2-font-size: 1.7rem;
+  --ifm-h2-font-size: 1.8rem;
+}
+
+.markdown>h3 {
+  --ifm-h3-font-size: 1.4rem;
+}
+
+.markdown>h4 {
+  --ifm-h4-font-size: 1.2rem;
 }
 
 .theme-doc-sidebar-container {
