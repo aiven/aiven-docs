@@ -1,5 +1,6 @@
 ---
 title: Use the PostgreSQL® dblink extension
+sidebar_label: Use the dblink extension
 ---
 
 `dblink` is a [PostgreSQL® extension](https://www.postgresql.org/docs/current/dblink) that allows you to connect to other PostgreSQL databases and to run arbitrary queries.

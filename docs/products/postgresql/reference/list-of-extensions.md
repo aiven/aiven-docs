@@ -1,6 +1,6 @@
 ---
 title: Extensions on Aiven for PostgreSQL®
-sidebar_label: Extensions
+sidebar_label: Supported Extensions
 ---
 
 PostgreSQL® extensions allow you to extend the functionality by adding more capabilities to your Aiven for PostgreSQL.

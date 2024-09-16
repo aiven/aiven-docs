@@ -1,5 +1,6 @@
 ---
 title: Identify PostgreSQL® slow queries
+sidebar_label: Identify slow queries
 ---
 
 Use the PostgreSQL® `pg_stat_statements` [extension](https://www.postgresql.org/docs/current/pgstatstatements) to find slow queries.

@@ -1,5 +1,6 @@
 ---
 title: Terminology for PostgreSQL®
+sidebar_label: Terminology
 ---
 
 -   **Primary node**: The PostgreSQL® primary node is the main server

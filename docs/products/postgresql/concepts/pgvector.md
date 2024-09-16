@@ -1,5 +1,6 @@
 ---
 title: pgvector for AI-powered search in Aiven for PostgreSQL®
+sidebar_label: AI-powered search with pgvector
 ---
 
 In machine learning (ML) models, all data items in a particular data set are mapped into one unified n-dimensional vector space, no matter how big the input data set is.
