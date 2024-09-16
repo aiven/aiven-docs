@@ -1,5 +1,6 @@
 ---
 title: Enable shutdown of Karapace for invalid schema records
+sidebar_label: Shutdown for invalid schema records
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-You can configure the Karapace schema registry to  shut down when corrupt schema records are detected in the `_schemas` topic.
+You can configure the Karapace schema registry to shut down when corrupt schema records are detected in the `_schemas` topic.
 
 ## Why enable Karapace to shutdown
 
