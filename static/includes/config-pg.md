@@ -6,17 +6,6 @@
   </thead>
   <tbody>    <tr>
       <td>
-        <div class="param"><p class="name"><strong>additional_backup_regions</strong></p><p><code class="type">array</code></p></div>
-        <p class="title">Additional Cloud Regions for Backup Replication</p>
-        
-        <table class="service-param-children">
-          <tbody>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <div class="param"><p class="name"><strong>migration</strong></p><p><code class="type">object,null</code></p></div>
         <p class="title">Migrate data from existing server</p>
         
