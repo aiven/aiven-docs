@@ -96,4 +96,5 @@ available.
 
 ## Related pages
 
+- [Service maintenance](/docs/platform/concepts/maintenance-window)
 - [Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
