@@ -301,7 +301,7 @@ replacing `SERVICE_URL` with your service's URL:
 curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
 ```
 
-This command retrieves detailed information about all indices, including the number of
+This command returns detailed information about all indices, including the number of
 documents, shards, and index size. For example:
 
 | Status | Index Name                           | UUID                                | Shards | Replicas | Documents | Deleted Docs | Size   | Primary Size |
