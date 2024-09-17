@@ -68,13 +68,13 @@ availability setup in the same cloud region.
 
 To reduce the effect of slow queries on the primary node, you can
 redirect read-only queries to the additional
-[read-only](create-read-replica) nodes by
+[read-only](/docs/products/postgresql/howto/create-read-replica) nodes by
 directly connecting via the **read-only replica URL**.
 
 ### Move read-only queries to a remote read-only replica
 
 You can also create a
-[remote read-only replica](create-read-replica) service in the same or a different
+[remote read-only replica](/docs/products/postgresql/howto/create-read-replica) service in the same or a different
 cloud or region that you can use to reduce the query load on the primary service
 for read-only queries.
 
