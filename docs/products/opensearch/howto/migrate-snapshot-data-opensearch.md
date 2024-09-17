@@ -295,7 +295,7 @@ Ensure that your data has been restored successfully by listing the indices and 
 the document count for your migrated data.
 
 To view all indices in your Aiven for OpenSearch service, use the following API call,
-replacing `SERVICE_URL` with your actual service URL:
+replacing `SERVICE_URL` with your service's URL:
 
 ```bash
 curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
@@ -317,8 +317,7 @@ curl $SERVICE_URL/_cat/aliases?v&expand_wildcards=all
 ```
 
 Compare the outputs from both the source and target services to ensure that document
-counts and aliases match after the migration. This comparison ensures that all data has
-been successfully migrated.
+counts and aliases match after the migration.
 
 ## Complete the migration
 
