@@ -291,27 +291,34 @@ Parameters:
 
 ## Verify the migration
 
-Ensure that your data has been restored successfully by listing the indices.
+Ensure that your data has been restored successfully by listing the indices and checking
+the document count for your migrated data.
 
-<Tabs groupId="verify-restoration">
-<TabItem value="api" label="API" default>
-
-```bash
-curl -X GET "https://SERVICE_NAME.aivencloud.com/_cat/indices?v" \
-  -H "Authorization: Bearer API_TOKEN"
-```
-
-</TabItem>
-<TabItem value="cli" label="CLI">
+To view all indices in your Aiven for OpenSearch service, run the following command,
+replacing `SERVICE_URL` with your service's URL:
 
 ```bash
-avn service index-list \
-  --project PROJECT_NAME \
-  --service SERVICE_NAME
+curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
 ```
 
-</TabItem>
-</Tabs>
+This command returns detailed information about all indices, including the number of
+documents, shards, and index size. For example:
+
+```text
+| Status | Index Name                           | UUID                                | Shards | Replicas | Documents | Deleted Docs | Size   | Primary Size |
+|--------|--------------------------------------|-------------------------------------|--------|----------|-----------|--------------|--------|--------------|
+| Green  | clustermember_correlation_v1-002573  | OLj34vDHTX-rIXCz3s8W7A              | 4      | 1        | 57        | 4            | 5.7mb  | 2.8mb        |
+| Green  | clustermember_correlation_v1-002574  | j7obT9rXS-C0LJOuyulCfA              | 4      | 1        | 1         | 0            | 240.7kb| 120.3kb      |
+| Green  | clustermember_correlation_v1-002575  | KG7lWPK2SrOMgMuJYUscyg              | 4      | 1        | 447       | 56           | 24.7mb | 12.3mb       |
+
+To list all aliases for your indices, run the following command:
+
+```bash
+curl $SERVICE_URL/_cat/aliases?v&expand_wildcards=all
+```
+
+Compare the outputs from both the source and target services to ensure that document
+counts and aliases match after the migration.
 
 ## Complete the migration
 
