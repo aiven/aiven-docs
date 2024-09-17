@@ -294,8 +294,8 @@ Parameters:
 Ensure that your data has been restored successfully by listing the indices and checking
 the document count for your migrated data.
 
-To list all indices in your Aiven for OpenSearch service, use the following API call,
-where `SERVICE_URL` is your Aiven for OpenSearch service URL:
+To view all indices in your Aiven for OpenSearch service, use the following API call,
+replacing `SERVICE_URL` with your actual service URL:
 
 ```bash
 curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
