@@ -304,6 +304,7 @@ curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
 This command returns detailed information about all indices, including the number of
 documents, shards, and index size. For example:
 
+```text
 | Status | Index Name                           | UUID                                | Shards | Replicas | Documents | Deleted Docs | Size   | Primary Size |
 |--------|--------------------------------------|-------------------------------------|--------|----------|-----------|--------------|--------|--------------|
 | Green  | clustermember_correlation_v1-002573  | OLj34vDHTX-rIXCz3s8W7A              | 4      | 1        | 57        | 4            | 5.7mb  | 2.8mb        |
