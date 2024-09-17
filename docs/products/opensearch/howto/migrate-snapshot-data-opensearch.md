@@ -294,7 +294,7 @@ Parameters:
 Ensure that your data has been restored successfully by listing the indices and checking
 the document count for your migrated data.
 
-To view all indices in your Aiven for OpenSearch service, use the following API call,
+To view all indices in your Aiven for OpenSearch service, run the following command,
 replacing `SERVICE_URL` with your service's URL:
 
 ```bash
@@ -310,7 +310,7 @@ documents, shards, and index size. For example:
 | Green  | clustermember_correlation_v1-002574  | j7obT9rXS-C0LJOuyulCfA              | 4      | 1        | 1         | 0            | 240.7kb| 120.3kb      |
 | Green  | clustermember_correlation_v1-002575  | KG7lWPK2SrOMgMuJYUscyg              | 4      | 1        | 447       | 56           | 24.7mb | 12.3mb       |
 
-To list all aliases for your indices, use the following command:
+To list all aliases for your indices, run the following command:
 
 ```bash
 curl $SERVICE_URL/_cat/aliases?v&expand_wildcards=all
