@@ -271,6 +271,13 @@
               
             </td>
           </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>auth_generic_oauth.use_refresh_token</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Set to true to use refresh token and check access token expiration.</p>
+              
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>
