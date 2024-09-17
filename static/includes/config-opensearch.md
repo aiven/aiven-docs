@@ -273,6 +273,13 @@
           </tr>
           <tr>
             <td>
+              <div class="param"><p class="name"><strong>azure_migration.indices</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Indices to restore</p>
+              <div class="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="param"><p class="name"><strong>azure_migration.container</strong></p><p><code class="type">string</code></p></div>
               <p class="title">Azure container name</p>
               <div class="description"><p>Azure container name</p></div>
@@ -347,6 +354,13 @@
           </tr>
           <tr>
             <td>
+              <div class="param"><p class="name"><strong>gcs_migration.indices</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Indices to restore</p>
+              <div class="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div class="param"><p class="name"><strong>gcs_migration.bucket</strong></p><p><code class="type">string</code></p></div>
               <p class="title">The path to the repository data within its container</p>
               <div class="description"><p>Google Cloud Storage bucket name</p></div>
@@ -396,6 +410,13 @@
               <div class="param"><p class="name"><strong>s3_migration.chunk_size</strong></p><p><code class="type">string</code></p></div>
               <p class="title">Chunk size</p>
               <div class="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>s3_migration.indices</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">Indices to restore</p>
+              <div class="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
             </td>
           </tr>
           <tr>
