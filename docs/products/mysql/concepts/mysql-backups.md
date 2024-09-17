@@ -1,5 +1,6 @@
 ---
 title: Understand MySQL backups
+sidebar_label: Backups
 ---
 
 Aiven for MySQL databases are automatically backed-up, with full backups

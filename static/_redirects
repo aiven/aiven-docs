@@ -17,12 +17,18 @@
 /category/user-access                            https://aiven.io/docs/platform/howto/manage-org-users
 /community/documentation/tips-tricks/renaming-files    https://aiven.io/docs
 /docs/platform/concepts/projects_accounts_access.html  https://aiven.io/docs/platform/howto/manage-org-users
+/docs/products/opensearch/howto/list-integrations      https://aiven.io/docs/products/opensearch
+/docs/products/opensearch/howto/list-manage-service    https://aiven.io/docs/products/opensearch
 /integrations                                          https://aiven.io/docs/platform/concepts/service-integration
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
+/platform/concepts/billing-groups                      https://aiven.io/docs/platform/concepts/billing-groups-overview
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
+/platform/concepts/corporate-billing                   https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/concepts/corporate-billing.html              https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
-/platform/concepts/hourly-billing-model                https://aiven.io/docs/billing-and-payment
+/platform/concepts/hourly-billing-model                https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/concepts/hourly-billing-model.html           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
 /platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/howto/manage-project
@@ -36,12 +42,12 @@
 /platform/howto/change-support-tier                    https://aiven.io/docs/platform/howto/support
 /platform/howto/cleanup-powered-off-services           https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/console-fork-service                   https://aiven.io/docs/platform/concepts/service-forking
+/platform/howto/create-billing-groups                  https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/download-ca-cert                       https://aiven.io/docs/platform/concepts/tls-ssl-certificates
 /platform/howto/enable-aiven-password                  https://aiven.io/docs/platform/reference/password-policy
-/platform/howto/list-account                           https://aiven.io/docs/platform/concepts/projects_accounts_access
 /platform/howto/list-account                           https://aiven.io/docs/platform/howto/list-user
 /platform/howto/list-backup-to-another-region          https://aiven.io/docs/platform/concepts/backup-to-another-region
-/platform/howto/list-billing  https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/howto/list-billing                           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
@@ -54,7 +60,6 @@
 /platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/pause-from-cli                         https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/payment-issues-plan-upgrades           https://aiven.io/docs/platform/concepts/billing-and-payment
-/platform/howto/payment-methods                        https://aiven.io/docs/payment-methods
 /platform/howto/project-support-center                 https://aiven.io/docs/platform/howto/support
 /platform/howto/project-support-center.html            https://aiven.io/docs/platform/howto/support
 /platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
@@ -67,13 +72,14 @@
 /platform/howto/saml/setup-saml-onelogin               https://aiven.io/docs/platform/howto/saml/add-onelogin-idp
 /platform/howto/service-metrics                        https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/static-ip-addresses                    https://aiven.io/docs/platform/concepts/static-ips
-/platform/howto/update-tax-status                      https://aiven.io/docs/tax-information
+/platform/howto/update-tax-status                      https://aiven.io/docs/platform/concepts/tax-information
 /platform/ip-addresses                                 https://aiven.io/docs/platform/reference/service-ip-address
 /platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
 /platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
 /products/caching/concepts                             https://aiven.io/docs/docs/products/caching/concepts/high-availability-redis
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
 /products/caching/howto                                https://aiven.io/docs/products/caching/howto/list-code-samples
+/products/caching/howto/list-dba-tasks                 https://aiven.io/docs/products/caching
 /products/caching/howto/migrate-aiven-redis.html       https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-via-console
 /products/caching/howto/migrate-redis-db               https://aiven.io/docs/products/caching/howto/configure-acl-permissions
 /products/caching/reference                            https://aiven.io/docs/products/caching/reference/advanced-params
@@ -117,14 +123,14 @@
 /products/grafana/reference                                https://aiven.io/docs/products/grafana/reference/advanced-params
 /products/grafana/user-access                              https://aiven.io/docs/products/grafana/howto/log-in
 /products/influxdb                                         https://aiven.io/docs/products/services
-/products/influxdb/*                                       https://aiven.io/docs/products/services
 /products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
 /products/kafka/howto                                      https://aiven.io/docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/list-admin                           https://aiven.io/docs/products/kafka/howto/enable-karapace
-/products/kafka/howto/list-integration                     https://aiven.io/products/kafka/howto/integrate-service-logs-into-kafka-topic
+/products/kafka/howto/list-integration                     https://aiven.io/docs/products/kafka/howto/integrate-service-logs-into-kafka-topic
+/products/kafka/howto/list-integration.html                https://aiven.io/docs/products/kafka
 /products/kafka/howto/list-security                        https://aiven.io/docs/products/kafka/howto/keystore-truststore
 /products/kafka/howto/list-tools                           https://aiven.io/docs/products/kafka/howto/kafka-tools-config-file
-/products/kafka/howto/list-topic-management                https://aiven.io/products/kafka/howto/create-topic
+/products/kafka/howto/list-topic-management                https://aiven.io/docs/products/kafka/howto/create-topic
 /products/kafka/index.html                                 https://aiven.io/docs/products/kafka
 /products/kafka/kafka-connect/howto                        https://aiven.io/docs/products/kafka/kafka-connect/howto/best-practices
 /products/kafka/kafka-connect/howto/list-admin             https://aiven.io/docs/products/kafka/kafka-connect/howto/best-practices
@@ -152,7 +158,6 @@
 /products/mysql/reference/list-of-advanced-params          https://aiven.io/docs/products/mysql/reference/advanced-params
 /products/opensearch/concepts                              https://aiven.io/docs/products/opensearch/concepts/access_control
 /products/opensearch/concepts/service-overview             https://aiven.io/docs/products/opensearch
-/products/opensearch/dashboards/howto                                  https://aiven.io/docs/products/opensearch/dashboards/howto/dev-tools-usage-example
 /products/opensearch/dashboards/howto                      https://aiven.io/docs/products/opensearch/dashboards/howto/dev-tools-usage-example
 /products/opensearch/howto                                 https://aiven.io/docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-access-control             https://aiven.io/docs/products/opensearch/howto/control_access_to_content
@@ -174,7 +179,7 @@
 /products/postgresql/reference/list-of-advanced-params     https://aiven.io/docs/products/postgresql/reference/advanced-params
 /products/postgresql/troubleshooting                       https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
 /products/redis                                            https://aiven.io/docs/products/caching
-/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
+/products/redis/howto/list-dba-tasks                       https://aiven.io/docs/products/caching
 /products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
 /products/valkey/reference                                 https://aiven.io/docs/products/valkey/reference/advanced-params
 /tools/aiven-console/howto/create-accounts                 https://aiven.io/docs/platform/howto/manage-org-users
@@ -202,3 +207,9 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
+/products/opensearch/concepts/users-access-controls                    https://aiven.io/docs/products/opensearch/concepts/access_control
+#
+# Keep splats at the end
+#
+/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
+/products/influxdb/*                                       https://aiven.io/docs/products/services

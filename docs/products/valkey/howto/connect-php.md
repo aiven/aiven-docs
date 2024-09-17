@@ -5,7 +5,7 @@ title: Connect with PHP
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.php';
 
-Connect to the Aiven for Valkey database using PHP, making use of the `predis` library.
+Connect to the Aiven for Valkey™ database using PHP, making use of the `predis` library.
 
 ## Variables
 

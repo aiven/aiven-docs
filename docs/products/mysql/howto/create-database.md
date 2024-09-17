@@ -1,10 +1,9 @@
 ---
-title: Create additional Aiven for MySQL® databases
+title: Create Aiven for MySQL® databases
+sidebar_label: Create databases
 ---
 
-Once you've created your Aiven for MySQL® service, you can add
-additional databases, whether for security purposes or to isolate your
-data per application.
+Once you've created your Aiven for MySQL® service, you can add additional databases, for security purposes or to isolate your data per application.
 
 To create a MySQL® database:
 

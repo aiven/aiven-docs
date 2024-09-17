@@ -26,11 +26,8 @@ Read more on dictionaries in the
 - SQL client installed
 - [Dictionary source](/docs/products/clickhouse/howto/create-dictionary#supported-sources)
   available
-
-<!--
 - Credentials integration for remote ClickHouse, PostgreSQL®, or MySQL® if to be used as
   sources
--->
 
 ## Limitations
 
@@ -80,15 +77,13 @@ with two exceptions,`ssd_cache` and `complex_key_ssd_cache`, which are not suppo
 ### Supported sources
 
 - HTTP(s)
-- Upstream/remote ClickHouse
+- Remote ClickHouse
 - Aiven for ClickHouse
-
-<!--
-- Upstream/remote MySQL®
+- Remote MySQL®
 - Aiven for MySQL
-- Upstream/remote PostgreSQL®
+- Remote PostgreSQL®
 - Aiven for PostgreSQL
--->
+
 
 ## Create a dictionary
 
@@ -190,7 +185,7 @@ ON t.user_id = u.id;
 
 ### Caching data from an external database or URL
 
-<!--
+
 - Create a dictionary for the `pricing` table in your MySQL database using a composite key:
 
   ```sql
@@ -206,7 +201,7 @@ ON t.user_id = u.id;
   LIFETIME(MIN 600 MAX 900);
   ```
 
-  This will periodically query the upstream MySQL and store the data in memory.
+  This will periodically query MySQL and store the data in memory.
 
 - Create a dictionary for the `pricing` table in your PostgreSQL database using the `FLAT`
   layout:
@@ -228,24 +223,24 @@ ON t.user_id = u.id;
   ```sql
   SYSTEM RELOAD DICTIONARY product_pricing;
   ```
--->
 
-Create a dictionary with `HTTP` as a source:
 
-```sql
-CREATE DICTIONARY currency_rates
-(
-    currency_code String,
-    rate Float64 DEFAULT 1.0
-)
-PRIMARY KEY currency_code
-SOURCE(HTTP(URL 'https://example.com/currency_rates.csv' FORMAT CSV))
-LAYOUT(COMPLEX_KEY_HASHED())
-LIFETIME(100);
-```
+- Create a dictionary with `HTTP` as a source:
 
-<!--
-- Create a dictionary for the `users` table in your ClickHouse database using the `FLAT`
+  ```sql
+  CREATE DICTIONARY currency_rates
+  (
+      currency_code String,
+      rate Float64 DEFAULT 1.0
+  )
+  PRIMARY KEY currency_code
+  SOURCE(HTTP(URL 'https://example.com/currency_rates.csv' FORMAT CSV))
+  LAYOUT(COMPLEX_KEY_HASHED())
+  LIFETIME(100);
+  ```
+
+
+- Create a dictionary for the `users` table in a remote ClickHouse database using the `FLAT`
   layout:
 
   ```sql
@@ -261,4 +256,3 @@ LIFETIME(100);
   LAYOUT(FLAT())
   LIFETIME(100);
   ```
--->

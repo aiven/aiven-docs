@@ -2,239 +2,214 @@
 title: Aiven Operator for Kubernetes®
 ---
 
-Aiven Operator for Kubernetes® allows users to manage Aiven services through the Kubernetes® API by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+Aiven Operator for [Kubernetes®](https://kubernetes.io/) allows users to manage Aiven services through the Kubernetes® API by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 
-:::note
-Only Aiven for PostgreSQL®, Aiven for Apache Kafka®, Aiven for
-ClickHouse®, Aiven for Caching, and Aiven for OpenSearch® are supported
-at this time.
+:::note[Supported services]
+Aiven Operator for Kubernetes® supports:
 
-Kubernetes, also known as K8s, is an open-source system for automating
-deployment, scaling, and management of containerized applications.
-Kubernetes Operators are software extensions to Kubernetes that make use
-of custom resources to manage applications and their components.
-[Kubernetes website](https://kubernetes.io/).
+- Aiven for Apache Kafka®
+- Aiven for Caching
+- Aiven for ClickHouse®
+- Aiven for OpenSearch®
+- Aiven for PostgreSQL®
 :::
 
 ## Get started
 
-Take your first steps by configuring the Aiven Operator and deploying a
-PostgreSQL® database.
+Take your first steps by configuring the Aiven Operator and deploying a PostgreSQL®
+database.
 
 ### Requirements
 
-Access to a Kubernetes cluster where you can run the operator. To try it
-out locally, we recommend using [kind](https://kind.sigs.k8s.io/). You
-can install it by following their [official
-documentation](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
+- You have access to a Kubernetes cluster where you can run the operator.
+- You have an Aiven account. If you don't have one yet, [sign up for free](https://console.aiven.io/signup).
+- To use the operator locally, we recommend using [**kind**](https://kind.sigs.k8s.io/).
+  See [the installation guide](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
+- To install the operator, we recommend [**Helm**](https://helm.sh/).
+  See the [installation guide](https://helm.sh/docs/intro/install/).
 
-We will be installing the operator with [Helm](https://helm.sh/). Follow
-their [official instructions](https://helm.sh/docs/intro/install/) to
-install it if you don't have it already.
+### Install the Kubernetes® operator
 
-You'll also need an Aiven account. If you don't have one yet, [sign up for free](https://console.aiven.io/signup?utm_source=devportal&utm_campaign=k8s-operator&utm_content=post). Once you have your account
-set, generate and note down the
-[token](/docs/platform/howto/create_authentication_token) and your project name, they will be used to authenticate the
-Kubernetes operator with Aiven's API.
+1. Optional: To manage the webhook TLS certificates used by our operator, install the `cert-manager`:
 
-### Install the operator
+   ```bash
+   kubectl apply -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
+   ```
 
-Once you have a Kubernetes cluster and an Aiven token, we
-can proceed to install the operator.
+   :::tip
+   You can also use the operator without `cert-manager` and the admission
+   webhooks. To do so, skip this step and go to step 3 to install Helm.
+   :::
 
-Install the `cert-manager` with the command below. It is used to manage
-the webhook TLS certificates used by our operator.
+   :::note
+   - For GKE version >= 1.21 VPC users, add a firewall rule to explicitly allow
+     ingress to port 9443 for admission webhook. See [the Google Cloud docs](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules).
 
-:::tip
-You can use the operator without `cert-manager` and the admission
-webhooks, skip this step and move on to the Helm chart section.
-:::
+   - If you are running a GKE _Autopilot_ cluster in Google Cloud Platform,
+     use GKE version >=1.21 and install `cert-manager`
+     into the `cert-manager` namespace, as per [this GitHub issue
+     comment](https://github.com/cert-manager/cert-manager/issues/3717#issuecomment-975031637)
+   :::
 
-:::note
-[For GKE version >=1.21 VPC users, firewall rule to explicitly allow
-ingress to port
-9443](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules)
-needs to be added for admission webhook.
-:::
+1. Verify the `cert-manager` installation by checking if the pods are up
+   and running:
 
-:::tip
-If you are running a GKE \"Autopilot\" cluster in Google Cloud Platform,
-you will need to be using GKE version >=1.21 and install `cert-manager`
-into the `cert-manager` namespace, as per [this GitHub issue
-comment](https://github.com/cert-manager/cert-manager/issues/3717#issuecomment-975031637)
-:::
+   ```bash
+   kubectl get pod -n cert-manager
+   ```
 
-```bash
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
-```
+   Ensure the pod's status is `Running`.
 
-Verify the `cert-manager` installation by checking if their pods are up
-and running:
+1. Add the [Aiven Helm chart
+   repository](https://github.com/aiven/aiven-charts/) and update your
+   local Helm information:
 
-```bash
-kubectl get pod -n cert-manager
-```
+   ```bash
+   helm repo add aiven https://aiven.github.io/aiven-charts
+   helm repo update
+   ```
 
-When you see pods in the list with their status showing \"Running\",
-then you are ready to proceed.
+1. Install the CRD and the operator itself:
 
-Add the [Aiven Helm chart
-repository](https://github.com/aiven/aiven-charts/) and update your
-local Helm information:
+   ```bash
+   helm install aiven-operator-crds aiven/aiven-operator-crds
+   helm install aiven-operator aiven/aiven-operator
+   ```
 
-```bash
-helm repo add aiven https://aiven.github.io/aiven-charts
-helm repo update
-```
+   :::tip
+   To disable the admission webhooks, run:
+   ```
+   helm install aiven-operator aiven/aiven-operator --set webhooks.enabled=false
+   ```
+   :::
 
-Now let's install the CRD and the operator itself:
+1. Verify the installation by making sure the operator pod is running:
 
-```bash
-helm install aiven-operator-crds aiven/aiven-operator-crds
-helm install aiven-operator aiven/aiven-operator
-```
+   ```bash
+   kubectl get pod -l app.kubernetes.io/name=aiven-operator
+   ```
 
-:::tip
-You can use
-`helm install aiven-operator aiven/aiven-operator --set webhooks.enabled=false`
-to disable the admission webhooks.
-:::
-
-Verify the installation by making sure the operator pod is running with
-the `get pod` command:
-
-```bash
-kubectl get pod -l app.kubernetes.io/name=aiven-operator
-```
-
-If your pod is listed with status \"Running\" then all is well.
+Your pod's status should be `Running`.
 
 ### Authenticating
 
-Before creating a service, we need to authenticate the operator with
-Aiven's API. To do so, create the Kubernetes secret with the command
-below, substituting the `<your-token-here>` with the authentication
-token generated in the \"Requirements\" section above. This needs to be
-created in the namespace which is going to be used to create your Aiven
-services.
+Before creating a service, authenticate the operator with Aiven's API:
 
-```bash
-kubectl create secret generic aiven-token --from-literal=token="<your-token-here>"
-```
+1. [Create an Aiven token](/docs/platform/howto/create_authentication_token).
+1. Create the Kubernetes secret in the namespace which is going to be used to create your Aiven
+   services:
 
-### Deploying Aiven for PostgreSQL
+   ```bash
+   kubectl create secret generic aiven-token --from-literal=token="<your-token>"
+   ```
 
-Let's create an Aiven for PostgreSQL service using the
-Custom Resource provided by the operator. Create a file named
-`pg-sample.yaml` with the content below, substituting the
-`<your-project-name>` with your Aiven project name. See the
-commented lines to understand better what each field represents.
+### Deploy Aiven for PostgreSQL®
 
-```yaml
-apiVersion: aiven.io/v1alpha1
-kind: PostgreSQL
-metadata:
-  name: pg-sample
-spec:
+Create an Aiven for PostgreSQL service using the Custom Resource provided by the operator:
 
-  # gets the token from the `aiven-token` secret
-  authSecretRef:
-    name: aiven-token
-    key: token
+1. Create a file named `pg-sample.yaml` with the content below, substituting
+   the `<your-project-name>` with your Aiven project name:
 
-  # outputs the PostgreSQL connection on the `pg-connection` secret
-  connInfoSecretTarget:
-    name: pg-connection
+   ```yaml
+   apiVersion: aiven.io/v1alpha1
+   kind: PostgreSQL
+   metadata:
+     name: pg-sample
+   spec:
 
-  # add your Project name here
-  project: <your-project-name>
+     # gets the token from the `aiven-token` secret
+     authSecretRef:
+       name: aiven-token
+       key: token
 
-  # cloud provider and plan of your choice
-  # you can check all of the possibilities here https://aiven.io/pricing
-  cloudName: google-europe-west1
-  plan: startup-4
+     # outputs the PostgreSQL connection on the `pg-connection` secret
+     connInfoSecretTarget:
+       name: pg-connection
 
-  # general Aiven configuration
-  maintenanceWindowDow: friday
-  maintenanceWindowTime: 23:00:00
+     # add your Project name here
+     project: <your-project-name>
 
-  # specific PostgreSQL configuration
-  userConfig:
-    pg_version: '11'
-```
+     # cloud provider and plan of your choice
+     # you can check all of the possibilities here https://aiven.io/pricing
+     cloudName: google-europe-west1
+     plan: startup-4
 
-Apply the resource with the command below:
+     # general Aiven configuration
+     maintenanceWindowDow: friday
+     maintenanceWindowTime: 23:00:00
 
-```bash
-kubectl apply -f pg-sample.yaml
-```
+     # specific PostgreSQL configuration
+     userConfig:
+       pg_version: '11'
+   ```
 
-You can verify the status of your service with the following command.
+1. Apply the resource:
 
-```bash
-kubectl get postgresqls.aiven.io pg-sample
-```
+   ```bash
+   kubectl apply -f pg-sample.yaml
+   ```
 
-Check the output of the command for your service; once the `STATE` field
-has the value `RUNNING`, it is ready to use.
+1. Verify the status of your service:
 
-### Using the service
+   ```bash
+   kubectl get postgresqls.aiven.io pg-sample
+   ```
 
-Once the service is up and running (you can see your database in the
-Aiven Console as well at this point) let's deploy a pod to test the
+   Once the `STATE` field has the value `RUNNING`, your service is ready for use.
+
+### Use the service
+
+Once the service is up and running, you can deploy a pod to test the
 connection to PostgreSQL from Kubernetes.
 
-Create a file named `pod-psql.yaml` with the content below:
+1. Create a file named `pod-psql.yaml` with the content below:
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: psql-test-connection
-spec:
-  restartPolicy: Never
-  containers:
-    - image: postgres:11-alpine
-      name: postgres
-      command: ['psql', '$(DATABASE_URI)', '-c', 'SELECT version();']
+   ```yaml
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: psql-test-connection
+   spec:
+     restartPolicy: Never
+     containers:
+       - image: postgres:11-alpine
+         name: postgres
+         command: ['psql', '$(DATABASE_URI)', '-c', 'SELECT version();']
 
-      # the pg-connection secret becomes environment variables
-      envFrom:
-      - secretRef:
-          name: pg-connection
-```
+         # the pg-connection secret becomes environment variables
+         envFrom:
+         - secretRef:
+             name: pg-connection
+   ```
 
-The connection information in this case, the PostgreSQL service URI, is
-automatically created by the operator within a Kubernetes secret named
-after the value from the `connInfoSecretTarget.name` field.
+   The connection information in this case, the PostgreSQL service URI, is
+   automatically created by the operator within a Kubernetes secret named
+   after the value from the `connInfoSecretTarget.name` field.
 
-Go ahead and run `apply` to create the pod and test the connection:
+1. Apply the resource to create the pod and test the connection:
 
-```bash
-kubectl apply -f pod-psql.yaml
-```
+   ```bash
+   kubectl apply -f pod-psql.yaml
+   ```
 
-It will run, output the PostgreSQL version and terminate. We can see the
-logs with the following command:
+1. Check the logs with:
 
-```bash
-kubectl logs psql-test-connection
-```
+   ```bash
+   kubectl logs psql-test-connection
+   ```
 
-Well done, you have an Aiven for PostgreSQL service deployed through
-Kubernetes.
+An Aiven for PostgreSQL service deployed through Kubernetes.
 
 ### Clean up
 
-To destroy the resources created, execute the following commands:
+To destroy the resources created:
 
 ```bash
 kubectl delete pod psql-test-connection
 kubectl delete postgresqls.aiven.io pg-sample
 ```
 
-To remove the operator and `cert-manager` (if installed), use the
-following:
+To remove the operator and `cert-manager`:
 
 ```bash
 helm uninstall aiven-operator
@@ -242,11 +217,7 @@ helm uninstall aiven-operator-crds
 kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
 ```
 
-## Learn more
+## Related links
 
-- [Aiven Operator for Kubernetes documentation](https://aiven.github.io/aiven-operator)
+- [Aiven Operator for Kubernetes repository](https://github.io/aiven-operator)
 - [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
-
-## Get involved
-
-If you have any comments or want to contribute to the tool, see our [GitHub repository](https://github.com/aiven/aiven-operator).

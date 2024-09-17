@@ -33,6 +33,7 @@ Cassandra
 Centrify
 checkpointing
 CIDRs
+CLI's
 ClickHouse
 Cloudera
 CloudWatch

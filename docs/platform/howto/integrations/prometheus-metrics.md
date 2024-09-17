@@ -2,6 +2,8 @@
 title: Use Prometheus with Aiven
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Discover Prometheus as a tool for monitoring your Aiven services. Check why use it and how it works. Learn how to enable and configure Prometheus on your project.
 
 ## About Prometheus
@@ -95,8 +97,7 @@ If you use a VPC in your project, access Prometheus:
 1. Select your project, and select the service to monitor
    using Prometheus.
 1. Click **Service settings** from the sidebar.
-1. In the **Cloud and network** section, click the actions
-   (**...**) menu.
+1. In the **Cloud and network** section, click
 1. Choose **More network configurations**.
 1. In the **Network configuration** window, select **Add configuration
    options**.

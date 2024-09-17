@@ -40,17 +40,17 @@ To configure and connect Aiven for Apache Kafka® with Klaw:
 1. Create an environment.
    - If you're editing an existing project, open the project settings and click **+ New environment**.
 
-     <img src={NewEnv} class="image" width="50%"/>
+     <img src={NewEnv} className="image" width="50%"/>
 
    - Follow the setup wizard until you get to the broker settings.
 
 1. When you get to the broker settings, select **Aiven** as your broken provider.
 
-   <img src={BrokerOption} class="image" width="50%"/>
+   <img src={BrokerOption} className="image" width="50%"/>
 
 1. Configure the required settings:
 
-   <img src={BrokerSettings} class="image" width="50%"/>
+   <img src={BrokerSettings} className="image" width="50%"/>
 
    - **Service URI**: Enter the Service URI for your Apache Kafka service. Find the
      service URI in the Connection information page of your service in Aiven Console
@@ -72,7 +72,7 @@ can deploy in a few clicks.
 To test your Aiven for Apache Kafka® connection, you can use the [_Hello Quix_
 template](https://quix.io/templates/hello-quix), which is a three-step pipeline:
 
-<img src={Template} class="image"/>
+<img src={Template} className="image"/>
 
 1. Click [**Clone this project**](https://portal.platform.quix.io/signup?projectName=Hello%20Quix&httpsUrl=https://github.com/quixio/template-hello-quix&branchName=tutorial).
 1. On the **Import Project** screen, click **Quix advanced configuration**  to ensure
@@ -85,7 +85,7 @@ template](https://quix.io/templates/hello-quix), which is a three-step pipeline:
 
 In the Quix portal, wait for the services to deploy and their status to become **Running**.
 
-<img src={Pipeline} class="image"/>
+<img src={Pipeline} className="image"/>
 
 Ensure the `_csv-data_` and `_counted-names_` required topics appear in both Quix
 and Aiven. In Aiven, topics that originate from Quix have the Quix workspace

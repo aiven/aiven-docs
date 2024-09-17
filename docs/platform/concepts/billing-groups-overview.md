@@ -14,5 +14,3 @@ cannot use a billing group for projects that are in other organizations.
 
 To access billing groups in the Aiven Console, you must be a
 [super admin](/docs/platform/howto/make-super-admin) or account owner.
-
-

@@ -1,5 +1,6 @@
 ---
 title: Plugins available with Aiven for OpenSearch®
+sidebar_label: Supported plugins
 ---
 
 Aiven for OpenSearch® includes a standard set of plugins. In addition to the plugins that were previously available in Aiven for Elasticsearch, Aiven for OpenSearch also includes plugins that are designed and developed specifically for OpenSearch.

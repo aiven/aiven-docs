@@ -37,7 +37,7 @@ are exceptions:
   default `sslmode`, `require`, ensures TLS is used when connecting to
   the database, but does not verify the server certificate. For more
   information, see the [PostgreSQL
-  documentation](https://www.postgresql.org/docs/current/libpq-ssl#LIBPQ-SSL-SSLMODE-STATEMENTS)
+  documentation](https://www.postgresql.org/docs/current/ssl-tcp.html)
 - **Aiven for Apache Kafka®** requires the Aiven project CA
   certificate, and also the client key and certificate.
 

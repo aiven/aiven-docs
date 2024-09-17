@@ -47,7 +47,7 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 1. Select **Project** or **Organization** visibility.
 
    - **Project**: Users can view Aiven for Apache Kafka resources in the Apache Kafka
-     topic catalog if they are project members.
+     topic catalog if they are added to the project.
    - **Organization**: Users can view all Aiven for Apache Kafka resources across the
      organization in the Apache Kafka topic catalog, regardless of their access to
      individual projects.

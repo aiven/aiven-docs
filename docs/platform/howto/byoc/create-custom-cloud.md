@@ -112,8 +112,14 @@ you informed on the progress.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
 -   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
     organization.
--   You have Terraform installed.
--   You have required [IAM permissions](#iam-permissions)
+-   You have [Terraform](/docs/tools/terraform) installed.
+-   You have required [IAM permissions](#iam-permissions).
+-   You have your Aiven organization ID from:
+
+    - Output of the `avn organization list` command
+    - [Aiven Console](https://console.aiven.io/) > <ConsoleLabel name="userinformation"/>
+      \> <ConsoleLabel name="organizations"/>.
+
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
 You have access to the [Aiven Console](https://console.aiven.io/) to
@@ -580,7 +586,7 @@ In the **Create custom cloud** wizard:
         - Private model routes traffic through a proxy for additional security utilizing
           a bastion host physically separated from the Aiven services.
         - Public model allows the Aiven control plane to connect to the service nodes
-          via the public Internet.
+          via the public internet.
 
     -   Infrastructure tags: Select key-value pairs to
         [tag your custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources).
@@ -713,19 +719,43 @@ Your new custom cloud is ready to use only after its status changes to
 **Active**.
 :::
 </TabItem>
-<TabItem value="2" label="GCP">
 
+<TabItem value="2" label="GCP">
 1. Generate an IaC template by running [avn byoc create](/docs/tools/cli/byoc#avn-byoc-create).
 
-   ```bash
-   avn byoc create                               \
-     --organization-id "ORGANIZATION_IDENTIFIER" \
-     --deployment-model "DEPLOYMENT_MODEL_NAME"  \
-     --cloud-provider "CLOUD_PROVIDER_NAME"      \
-     --cloud-region "CLOUD_REGION_NAME"          \
-     --reserved-cidr "CIDR_BLOCK"                \
-     --display-name "CUSTOM_CLOUD_DISPLAY_NAME"
-   ```
+    ```bash
+    avn byoc create                               \
+      --organization-id "ORGANIZATION_ID" \
+      --deployment-model "DEPLOYMENT_MODEL_NAME"  \
+      --cloud-provider "google"                   \
+      --cloud-region "CLOUD_REGION_NAME"          \
+      --reserved-cidr "CIDR_BLOCK"                \
+      --display-name "CUSTOM_CLOUD_DISPLAY_NAME"
+    ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization to
+     connect with your own cloud account to create the custom cloud,
+     for example `org123a456b789`. Get your `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](#byoc-prerequisites).
+   - `DEPLOYMENT_MODEL_NAME` with the type of [network architecture](/docs/platform/concepts/byoc#byoc-deployment)
+     your custom cloud uses:
+     - `standard_public` (public) model: The nodes have public IPs and can be configured
+       to be publicly accessible for authenticated users. The Aiven control plane can
+       connect to the service nodes via the public internet.
+     - `standard` (private) model: The nodes reside in a VPC without public IP addresses
+       and are by default not accessible from outside. Traffic is routed through a proxy
+       for additional security utilizing a bastion host physically separated from the
+       Aiven services.
+   - `CLOUD_REGION_NAME` with the name of a Google region where to create your custom cloud,
+     for example `europe-north1`. See all available options in
+     [Google Cloud regions](/docs/platform/reference/list_of_clouds#google-cloud).
+   - `CIDR_BLOCK` with a CIDR block defining the IP address range of the VPC that Aiven
+     creates in your own cloud account, for example: `10.0.0.0/16`, `172.31.0.0/16`, or
+     `192.168.0.0/20`.
+   - `CUSTOM_CLOUD_DISPLAY_NAME` with the name of your custom cloud, which you can set
+     arbitrarily.
 
     <details><summary>
     Show sample output
@@ -759,25 +789,45 @@ Your new custom cloud is ready to use only after its status changes to
 
 1. Deploy the IaC template.
 
-    1. Download the template and the variable file:
+   1. Download the template and the variable file:
 
-       - [avn byoc template terraform get-template](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
+      - [avn byoc template terraform get-template](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
 
-         ```bash
-         avn byoc template terraform get-template        \
-           --organization-id "ORGANIZATION_IDENTIFIER"   \
-           --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.tf"
-         ```
+            ```bash
+            avn byoc template terraform get-template        \
+              --organization-id "ORGANIZATION_ID"   \
+              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tf"
+            ```
 
-       - [avn byoc template terraform get-vars](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
+         Replace the following:
 
-         ```bash
-         avn byoc template terraform get-vars              \
-           --organization-id "ORGANIZATION_IDENTIFIER"     \
-           --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.vars"
-         ```
+         - `ORGANIZATION_ID` with the ID of your Aiven organization to
+           connect with your own cloud account to create the custom cloud,
+           for example `org123a456b789`. Get your `ORGANIZATION_ID`
+           [from the Aiven Console or CLI](#byoc-prerequisites).
+         - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+           extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
+           command, for example `018b6442-c602-42bc-b63d-438026133f60`.
 
-    1. Optionally, modify the template as needed.
+      - [avn byoc template terraform get-vars](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
+
+            ```bash
+            avn byoc template terraform get-vars              \
+              --organization-id "ORGANIZATION_ID"     \
+              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.vars"
+            ```
+
+         Replace the following:
+
+         - `ORGANIZATION_ID` with the ID of your Aiven organization to
+           connect with your own cloud account to create the custom cloud,
+           for example `org123a456b789`. Get your `ORGANIZATION_ID`
+           [from the Aiven Console or CLI](#byoc-prerequisites).
+         - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+           extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
+           command, for example `018b6442-c602-42bc-b63d-438026133f60`.
+
+   1. Optionally, modify the template as needed.
 
         :::note
         To connect to a custom-cloud service from different security groups
@@ -791,7 +841,7 @@ Your new custom cloud is ready to use only after its status changes to
         Console](https://console.aiven.io/).
         :::
 
-    1. Use Terraform to deploy the infrastructure template with the provided variables in
+   1. Use Terraform to deploy the infrastructure template with the provided variables in
       your GCP account. This will generate a privilege-bearing service account (SA).
 
        :::important
@@ -799,48 +849,87 @@ Your new custom cloud is ready to use only after its status changes to
        as an option.
        :::
 
-    1. Find `privilege_bearing_service_account_id` in the output script after running
+   1. Find `privilege_bearing_service_account_id` in the output script after running
       the template.
 
 1. Provision resources by running [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision)
    and passing the generated `google-privilege-bearing-service-account-id` as an option.
 
-   ```bash
-   avn byoc provision                            \
-     --organization-id "ORGANIZATION_IDENTIFIER" \
-     --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-     --google-privilege-bearing-service-account-id "GENERATED_SERVICE_ACCOUNT_ID"
-   ```
+        ```bash
+        avn byoc provision                            \
+          --organization-id "ORGANIZATION_ID" \
+          --byoc-id "CUSTOM_CLOUD_ID"         \
+          --google-privilege-bearing-service-account-id "GENERATED_SERVICE_ACCOUNT_ID"
+        ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization to
+     connect with your own cloud account to create the custom cloud,
+     for example `org123a456b789`. Get your `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](#byoc-prerequisites).
+   - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+     extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
+     command, for example `018b6442-c602-42bc-b63d-438026133f60`.
+   - `GENERATED_SERVICE_ACCOUNT_ID` with the identifier of the service account
+     created when running the infrastructure template in your Google Cloud account,
+     for example
+     `projects/your-project/serviceAccounts/cce-cce0123456789a@your-project.iam.gserviceaccount.com`.
+     You can extract `GENERATED_SERVICE_ACCOUNT_ID` from the output of the `terraform apply`
+     command or `terraform output` command.
 
 1. Enable your custom cloud in organizations, projects, or units by running
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
 
-   ```bash
-   avn byoc cloud permissions add              \
-   --organization-id "ORGANIZATION_IDENTIFIER" \
-   --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-   --account "ACCOUNT_IDENTIFIER"
-   ```
+        ```bash
+        avn byoc cloud permissions add              \
+          --organization-id "ORGANIZATION_ID" \
+          --byoc-id "CUSTOM_CLOUD_ID"         \
+          --account "ACCOUNT_ID"
+        ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization to
+     connect with your own cloud account to create the custom cloud,
+     for example `org123a456b789`. Get your `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](#byoc-prerequisites).
+   - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+     extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
+     command, for example `018b6442-c602-42bc-b63d-438026133f60`.
+   - `ACCOUNT_ID` with the identifier of your account (organizational unit) in Aiven,
+     for example `a484338c34d7`. You can extract `ACCOUNT_ID` from the output of
+     the `avn organization list` command.
 
 1. Add customer contacts for the new cloud by running
    [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update).
 
-    ```bash
-    avn byoc update                               \
-      --organization-id "ORGANIZATION_IDENTIFIER" \
-      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-      '
-        {
-          "contact_emails": [
+        ```bash
+        avn byoc update                               \
+        --organization-id "ORGANIZATION_ID" \
+        --byoc-id "CUSTOM_CLOUD_ID"         \
+        '
             {
-              "email": "EMAIL_ADDRESS",
-              "real_name": "John Doe",
-              "role": "Admin"
+            "contact_emails": [
+                {
+                "email": "EMAIL_ADDRESS",
+                "real_name": "John Doe",
+                "role": "Admin"
+                }
+            ]
             }
-          ]
-        }
-      '
-    ```
+        '
+        ```
+
+    Replace the following:
+
+    - `ORGANIZATION_ID` with the ID of your Aiven organization to
+      connect with your own cloud account to create the custom cloud,
+      for example `org123a456b789`. Get your `ORGANIZATION_ID`
+      [from the Aiven Console or CLI](#byoc-prerequisites).
+    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+      extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
+      command, for example `018b6442-c602-42bc-b63d-438026133f60`.
 
 </TabItem>
 <TabItem value="3" label="Azure & OCI">
@@ -885,14 +974,14 @@ To create a service hosted in your new custom cloud, run
 [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) passing your new
 custom cloud name as an option:
 
-```bash
-avn service create                    \
---project "PROJECT_NAME"              \
---service-type "TYPE_OF_BYOC_SERVICE" \
---plan "PLAN_OF_BYOC_SERVICE"         \
---cloud "CUSTOM_CLOUD_NAME"           \
-"NEW_BYOC_SERVICE_NAME"
-```
+    ```bash
+    avn service create                    \
+    --project "PROJECT_NAME"              \
+    --service-type "TYPE_OF_BYOC_SERVICE" \
+    --plan "PLAN_OF_BYOC_SERVICE"         \
+    --cloud "CUSTOM_CLOUD_NAME"           \
+    "NEW_BYOC_SERVICE_NAME"
+    ```
 
 </TabItem>
 </Tabs>

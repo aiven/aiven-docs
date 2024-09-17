@@ -33,6 +33,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.office} /> <b>Organization</b>
         </>
       );
+    case 'organizations':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.office} /> <b>Organizations</b>
+        </>
+      );
     case 'authenticationpolicy':
       return (
         <>
@@ -182,10 +188,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event log</b>
         </>
       );
-    case 'members':
+    case 'projectpermissions':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Members</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Permissions</b>
         </>
       );
     case 'users':
@@ -205,6 +211,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>View profile</b>
+        </>
+      );
+    case 'userinformation':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.user} />{' '}
+          <b>User information</b>
         </>
       );
     case 'authenticationmethod':
@@ -427,6 +440,26 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} />{' '}
           <b>Show password</b>
+        </>
+      );
+    case 'viewdetails':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
+        </>
+      );
+    case 'activatetieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.database02} />{' '}
+          <b>Activate tiered storage</b>
+        </>
+      );
+    case 'tieredstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
+          <b>Tiered storage</b>
         </>
       );
     default:

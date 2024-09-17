@@ -1,5 +1,6 @@
 ---
 title: Enable OpenSearch® Security management for Aiven for OpenSearch®
+sidebar_label: Enable OpenSearch® Security management
 ---
 
 [OpenSearch Security](/docs/products/opensearch/concepts/os-security) provides a range of security features, including fine-grained access controls, SAML authentication, and audit logging to monitor activity within your OpenSearch service.

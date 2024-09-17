@@ -1,5 +1,6 @@
 ---
 title: Perform DBA-type tasks in Aiven for PostgreSQL®
+sidebar_label: DBA-type tasks
 ---
 
 Aiven doesn't allow superuser access to Aiven for PostgreSQL® services.

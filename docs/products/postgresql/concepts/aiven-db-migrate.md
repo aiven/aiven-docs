@@ -2,8 +2,8 @@
 title: About aiven-db-migrate
 ---
 
-The `aiven-db-migrate` tool is the recommended approach for migrating
-your PostgreSQL® to Aiven. It supports both logical replication and also
+The `aiven-db-migrate` tool is the recommended approach for migrating your PostgreSQL® to Aiven.
+It supports both logical replication and also
 using a dump and restore process. Find out more about the tool [on
 GitHub](https://github.com/aiven/aiven-db-migrate).
 

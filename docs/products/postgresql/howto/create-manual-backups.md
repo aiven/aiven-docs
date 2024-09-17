@@ -1,5 +1,6 @@
 ---
-title: Create manual PostgreSQL® backups with `pg_dump`
+title: Create manual PostgreSQL® backups with pg_dump
+sidebar_label: Create manual backups
 ---
 
 Aiven provides [fully automated backup management for PostgreSQL](/docs/products/postgresql/concepts/pg-backups).

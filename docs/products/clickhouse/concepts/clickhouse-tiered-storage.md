@@ -1,6 +1,6 @@
 ---
 title: Tiered storage in Aiven for ClickHouse®
-limited: true
+sidebar_label: Tiered storage
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -10,7 +10,7 @@ The tiered storage feature introduces a method of organizing and storing data in
 On top of this default data allocation mechanism, you can control the tier your
 data is stored in using custom data retention periods.
 
-The tiered storage in Aiven for ClickHouse consists of the following two
+The tiered storage in Aiven for ClickHouse® consists of the following two
 layers:
 
 - SSD - the first tier: Fast storage device with limited capacity, better suited for fresh
@@ -74,22 +74,18 @@ storage.
 In your Aiven for ClickHouse service, there is a significant amount of
 data that is there for a while and is rarely accessed. It's stored
 on SSD and high-priced. You decide to
-[enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage for your
-service to make your data storage
-more efficient and reduce the costs. For that purpose, you contact the
-sales team at [sales@aiven.io](mailto:sales@aiven.io) to have it enabled on your project,
-and you
+[enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage to make
+your data storage more efficient and reduce the costs. For that purpose, you
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature on tables to
 be optimized. You
 [configure](/docs/products/clickhouse/howto/configure-tiered-storage) the time-based
-threshold to control how your data is stored
-between the two layers.
+threshold to control how your data is stored between the two layers.
 
 ## Limitations {#tiered-storage-limitations}
 
--   You can enable tiered storage on the Aiven tenant
-    (in non-[BYOC](/docs/platform/concepts/byoc) environments) if your Aiven for
-    ClickHouse service is hosted on Azure, AWS, or GCP.
+-   You can [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage
+    on the Aiven tenant (in non-[BYOC](/docs/platform/concepts/byoc) environments) if your
+    Aiven for ClickHouse service is hosted on Azure, AWS, or GCP.
 -   When
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered storage
     feature cannot be deactivated.
@@ -105,19 +101,18 @@ between the two layers.
 
 -   With the tiered storage feature
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), it's not possible to
-    connect to an external existing
-    object storage or cloud storage bucket.
+    connect to an external existing object storage or cloud storage bucket.
 
 -   In the [Aiven Console](https://console.aiven.io/), there can be a mismatch in the
     displayed amount of data in object storage between what's showed in
-    [Tiered storage](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+    [<ConsoleLabel name="tieredstorage"/>](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
     and
     [Storage details](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details).
 
     This is because:
 
     - Information in
-      [Tiered storage](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+      [<ConsoleLabel name="tieredstorage"/>](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
       is updated every hour.
 
       :::tip

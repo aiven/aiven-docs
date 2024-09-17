@@ -6,7 +6,7 @@ The Aiven platform uses organizations, organizational units, and projects to eff
 
 import Overview from "@site/static/images/content/figma/organizations-overview.png";
 
-<img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" class="centered"/>
+<img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" className="centered"/>
 
 There are three levels in this hierarchy:
 
@@ -85,10 +85,10 @@ organization, and they can
 [make other users super admin](/docs/platform/howto/make-super-admin).
 
 For projects, the Aiven platform lets you use a mix of group and individual access rights.
-You grant users access to projects by
-[adding them as project members](/docs/platform/howto/add-project-members),
-either individually or in groups. Project members have a role that defines the
-level of access they have to the project and its services. Alternatively, you can
+You grant users access to a project and its services by
+[adding them to the project](/docs/platform/howto/add-project-members),
+either individually or in groups. You set the level of access by choosing
+a role. Alternatively, you can
 [add users to specific services](/docs/platform/howto/create_new_service_user).
 
 ## Best practices for organizations

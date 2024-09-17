@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@aivenio/aquarium": "^1.73.0",
-    "@algolia/client-search": "^5.0.0",
+    "@algolia/client-search": "^5.4.1",
     "@docusaurus/core": "^3.5.2",
     "@docusaurus/plugin-client-redirects": "^3.5.2",
     "@docusaurus/plugin-google-gtag": "^3.5.2",
@@ -26,10 +26,11 @@
     "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
     "@types/react": "^18.2.48",
-    "algoliasearch": "^5.0.0",
+    "algoliasearch": "^5.4.1",
     "axios": "^1.7.4",
     "cheerio": "1.0.0-rc.12",
     "clsx": "^1.2.1",
+    "docusaurus-plugin-image-zoom": "^2.0.0",
     "dotenv": "^16.3.1",
     "glob": "^10.3.10",
     "handlebars": "^4.7.8",
@@ -42,7 +43,7 @@
     "rehype-katex": "7",
     "remark-math": "6",
     "search-insights": "^2.13.0",
-    "webpack": "^5.89.0"
+    "webpack": "^5.94.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.5.2",

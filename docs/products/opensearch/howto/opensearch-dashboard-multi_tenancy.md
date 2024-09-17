@@ -17,7 +17,7 @@ unauthorized access.
 -   Administrative access to both the Aiven for OpenSearch service and
     OpenSearch Dashboard
 
-## Enabling security management (optional)
+## Optional: Enabling security management
 
 Enabling OpenSearch Security management is optional if you are using the
 default tenants (Private and Global) in OpenSearch Dashboard without the

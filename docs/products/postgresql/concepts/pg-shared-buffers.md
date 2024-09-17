@@ -1,5 +1,6 @@
 ---
 title: Aiven for PostgreSQL® shared buffers
+sidebar_label: Shared buffers
 ---
 
 Use shared buffers to share memory over multiple sessions. Discover how to inspect the database cache performance and the query cache performance and learn how to put data into cache manually.

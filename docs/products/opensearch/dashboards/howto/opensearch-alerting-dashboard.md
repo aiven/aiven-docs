@@ -1,5 +1,6 @@
 ---
 title: Create alerts with OpenSearch® Dashboards
+sidebar_label: Create alerts
 ---
 
 OpenSearch® alerting feature sends notifications when data from one or more indices meets certain conditions that can be customized.

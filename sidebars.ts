@@ -101,10 +101,9 @@ const sidebars: SidebarsConfig = {
               label: 'Billing groups',
               link: {
                 type: 'doc',
-                id: 'platform/concepts/billing-groups',
+                id: 'platform/concepts/billing-groups-overview',
               },
               items: [
-                'platform/howto/create-billing-groups',
                 'platform/howto/use-billing-groups',
                 'platform/howto/billing-assign-projects',
               ],
@@ -888,6 +887,18 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/enable-automatic-restart',
                         'products/kafka/kafka-connect/howto/manage-logging-level',
                         'products/kafka/kafka-connect/howto/request-new-connector',
+                        {
+                          type: 'category',
+                          label: 'Configure secret providers',
+                          link: {
+                            type: 'doc',
+                            id: 'products/kafka/kafka-connect/howto/configure-secret-providers',
+                          },
+                          items: [
+                            'products/kafka/kafka-connect/howto/configure-aws-secrets-manager',
+                            'products/kafka/kafka-connect/howto/configure-hashicorp-vault',
+                          ],
+                        },
                       ],
                     },
                     {
@@ -1045,6 +1056,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
                     'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                     'products/kafka/karapace/howto/manage-schema-registry-authorization',
+                    'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                   ],
                 },
               ],
@@ -1520,15 +1532,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Concepts',
               items: [
-                {
-                  type: 'category',
-                  label: 'Access control',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/access_control',
-                  },
-                  items: ['products/opensearch/concepts/users-access-controls'],
-                },
+                'products/opensearch/concepts/access_control',
                 {
                   type: 'category',
                   label: 'Security',
@@ -1541,12 +1545,23 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/opensearch/concepts/backups',
-                'products/opensearch/concepts/indices',
+                {
+                  type: 'category',
+                  label: 'Indices',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/concepts/indices',
+                  },
+                  items: [
+                    'products/opensearch/concepts/index-replication',
+                    'products/opensearch/concepts/when-create-index',
+                  ],
+                },
+
                 'products/opensearch/concepts/aggregations',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
                 'products/opensearch/concepts/shards-number',
-                'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
               ],
             },
@@ -1554,13 +1569,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'How to',
               items: [
-                {
-                  type: 'category',
-                  label: 'Manage access control',
-                  items: [
-                    'products/opensearch/howto/control_access_to_content',
-                  ],
-                },
+                'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
                   label: 'Connect with service',
@@ -1581,6 +1590,18 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                     'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
                     'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                    {
+                      type: 'category',
+                      label: 'Migrate external snapshots',
+                      link: {
+                        type: 'doc',
+                        id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
+                      },
+                      items: [
+                        'products/opensearch/howto/migrate-snapshot-data-opensearch',
+                        'products/opensearch/howto/migrate-opendistro-security-config-aiven',
+                      ],
+                    },
                   ],
                 },
                 {
@@ -1614,10 +1635,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Manage service',
-                  link: {
-                    id: 'products/opensearch/howto/list-manage-service',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
@@ -1631,10 +1648,6 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Integrate service',
-                  link: {
-                    id: 'products/opensearch/howto/list-integrations',
-                    type: 'doc',
-                  },
                   items: [
                     'products/opensearch/howto/opensearch-log-integration',
                     'products/opensearch/howto/integrate-with-grafana',
@@ -1650,7 +1663,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/advanced-params',
-                'products/opensearch/reference/index-replication',
+
                 'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
               ],
@@ -1821,7 +1834,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Aiven for Valkey',
+          label: 'Aiven for Valkey™',
           link: {
             id: 'products/valkey',
             type: 'doc',

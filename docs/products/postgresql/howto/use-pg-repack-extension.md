@@ -1,5 +1,6 @@
 ---
 title: Use the PostgreSQL® pg_repack extension
+sidebar_label: Use the pg_repack extension
 ---
 
 [`pg_repack`](https://reorg.github.io/pg_repack/) is a PostgreSQL® extension that allows you to efficiently reorganize tables to remove any excess bloat the tables have accumulated.
