@@ -921,6 +921,20 @@
               <div class="description"><p>If true, Karapace / Schema Registry on the service nodes can participate in leader election. It might be needed to disable this when the schemas topic is replicated to a secondary cluster and Karapace / Schema Registry there must not participate in leader election. Defaults to `true`.</p></div>
             </td>
           </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>schema_registry_config.schema_reader_strict_mode</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">schema_reader_strict_mode</p>
+              <div class="description"><p>If enabled, causes the Karapace schema-registry service to shutdown when there are invalid schema records in the `_schemas` topic. Defaults to `false`.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>schema_registry_config.retriable_errors_silenced</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">retriable_errors_silenced</p>
+              <div class="description"><p>If enabled, kafka errors which can be retried or custom errors specified for the service will not be raised, instead, a warning log is emitted. This will denoise issue tracking systems, i.e. sentry. Defaults to `true`.</p></div>
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>
