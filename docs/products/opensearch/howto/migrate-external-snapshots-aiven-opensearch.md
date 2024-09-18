@@ -12,7 +12,8 @@ The migration process consists of three key phases:
   platforms like Amazon S3, Google Cloud Storage (GCS), Microsoft Azure, or other
   S3-compatible services.
 
-- **Index State Management (ISM)**: Migrate ISM policies to maintain consistent index
+- **[Index State Management (ISM)](/docs/products/opensearch/howto/migrate-ism-policies)**
+  : Migrate ISM policies to maintain consistent index
   lifecycle management, including tasks like index rollover, retention, and deletion.
 
   :::note
