@@ -29,7 +29,7 @@ metadata and must be reapplied.
 
 - **Snapshot must include global state**
   Ensure the snapshot was restored with `include_global_state: true`. If it was
-  restored without the global state, the ISM policy assignments are not be available in the
+  restored without the global state, the ISM policy assignments are not available in the
   cluster metadata, and the script fails to reapply the policies.
 
 - **Script can only be run once**
@@ -70,7 +70,7 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
 ## Monitor ISM task progress
 
 Once ISM policies are reapplied, index lifecycle management tasks like rollovers,
-retention, and deletion resume automatically. To monitor ISM job progress and ensure
+retention, and deletion resume automatically. To monitor ISM task progress and ensure
 policies are enforced correctly, run the following command and replace `SERVICE_URL`
 with your Aiven for OpenSearch service's URL:
 
