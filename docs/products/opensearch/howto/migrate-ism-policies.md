@@ -49,18 +49,17 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/reapply-ism-policies/avn-re-apply-ism-policies.py).
 
 1. Create a JSON configuration file with the connection details for your Aiven for
-   OpenSearch service. The following is an example configuration file:
+   OpenSearch service. Use `avnadmin` as the `user` and replace `host`, `port`, and
+   `password` with your service information:
 
    ```json
    {
        "host": "target-ip-or-fqdn",
        "port": target-port-number,
-       "user": "the user",
+       "user": "user",
        "password": "the password"
    }
    ```
-
-   Use the default `aivenadmin` user for this task.
 
 1. Once your configuration file is ready, run the script.
 
@@ -68,7 +67,7 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    python avn-re-apply-ism-policies.py --config path-to-config-file
    ```
 
-## Monitor ISM job progress
+## Monitor ISM task progress
 
 Once ISM policies are reapplied, index lifecycle management tasks like rollovers,
 retention, and deletion resume automatically. To monitor ISM job progress and ensure
