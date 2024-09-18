@@ -70,7 +70,7 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    }
    ```
 
-    Use the default `aivenadmin` user for this task.
+   Use the default `aivenadmin` user for this task.
 
 1. Once your configuration file is ready, run the script.
 
