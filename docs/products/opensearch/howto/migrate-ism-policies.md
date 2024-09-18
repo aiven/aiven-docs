@@ -9,13 +9,13 @@ Reapply Index State Management (ISM) policies to Aiven for OpenSearch® using a 
 After restoring your snapshot, ISM policies that manage index rollover, retention, and
 deletion must be reapplied to your indices. These policies are stored in the
 `.opendistro-ism-config` index, but the assignments between indices and policies must
-be manually reapplied using a script.
+be reapplied using a script.
 
 ## What is restored
 
 The `.opendistro-ism-config` index stores ISM policy configurations and is restored with
 the snapshot, but policy assignments to specific indices are stored in the cluster
-metadata and must be manually reapplied..
+metadata and must be reapplied.
 
 ## Prerequisites
 
@@ -29,8 +29,8 @@ metadata and must be manually reapplied..
 
 - **Snapshot must include global state**
   Ensure the snapshot was restored with `include_global_state: true`. If it was
-  restored without global state, the ISM policy assignments will not be available in the
-  cluster metadata, and the script will fail to reapply the policies.
+  restored without the global state, the ISM policy assignments are not be available in the
+  cluster metadata, and the script fails to reapply the policies.
 
 - **Script can only be run once**
   OpenSearch clears the cluster metadata with ISM policy assignments after the policies
@@ -39,23 +39,16 @@ metadata and must be manually reapplied..
 
 :::
 
-## Check for active ISM policies
-
-Before executing the reapply script, confirm that no indices are currently managed by
-ISM policies. Run the following command to check:
-
-```bash
-curl -X GET --insecure -s "${AIVEN_SERVICE_URI}/_plugins/_ism/explain?pretty"
-```
-
-If the result shows `"total_managed_indices": 0`, no policies are applied, and you can
-proceed. Otherwise, remove the existing policies if necessary.
-
 ## Reapply ISM policies
+
+The script automatically checks for active ISM policies and reapplies them to the
+corresponding indices. If the script was previously run and the metadata is no longer
+available, you might need to remove the existing policies to ensure the script
+runs correctly.
 
 To reapply ISM policies to indices in Aiven for OpenSearch:
 
-1. Download the re-apply script from the
+1. Download the reapply script from the
    [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/reapply-ism-policies/avn-re-apply-ism-policies.py).
 
 1. Create a JSON configuration file with the connection details for your Aiven for
