@@ -48,7 +48,7 @@ Aiven for Apache Kafka service:
    Aiven for Apache Kafka service.
 1. Click <ConsoleLabel name="service settings"/>.
 1. Scroll to **Advanced configuration** and click **Configure**.
-1. In the **Advanced configuration** window, click <ConsoleIcon name="Plus Circle"/>.
+1. Click <ConsoleIcon name="Add config options"/>.
 1. Select `follower_fetching.enabled` from the list and set the value to **Enabled**.
 1. Click **Save configurations**.
 
