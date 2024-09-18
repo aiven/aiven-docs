@@ -34,21 +34,18 @@ metadata and must be reapplied.
 
 - **Script can only be run once**
   OpenSearch clears the cluster metadata with ISM policy assignments after the policies
-  are applied. This means the script can only be run once. To run the script again,
-  restore the snapshot.
+  are applied. This means the script can only be run once.
 
 :::
 
 ## Reapply ISM policies
 
-The script automatically checks for active ISM policies and reapplies them to the
-corresponding indices. If the script was previously run and the metadata is no longer
-available, you might need to remove the existing policies to ensure the script
-runs correctly.
+The script retrieves the ISM policy assignments stored in the cluster state and
+reapplies them to the corresponding indices.
 
 To reapply ISM policies to indices in Aiven for OpenSearch:
 
-1. Download the reapply script from the
+1. Download the script from the
    [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/reapply-ism-policies/avn-re-apply-ism-policies.py).
 
 1. Create a JSON configuration file with the connection details for your Aiven for
@@ -70,9 +67,6 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    ```bash
    python avn-re-apply-ism-policies.py --config path-to-config-file
    ```
-
-   The script connects to the Aiven for OpenSearch service, retrieves metadata
-   from the cluster state, and reapplies ISM policies to the corresponding indices.
 
 ## Monitor ISM job progress
 
