@@ -7,6 +7,10 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 Adjust the plan of your services at any time to scale your services as needed and optimize costs.
 You can also [adjust disk storage][storage] without changing your plan.
 
+:::note[Limitation]
+Downgrading to a plan with less VMs is not supported.
+:::
+
 1. In your project, click <ConsoleLabel name="services"/> and open a service.
 1. On the left-side menu, click <ConsoleLabel name="service settings"/>.
 1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
@@ -19,9 +23,8 @@ state switches to **Running**, your new service plan is active.
 
 :::note
 
-- You can also use the
-  [service update CLI](/docs/tools/cli/service-cli#avn-cli-service-update) to
-  scale your service plan via the [Aiven CLI](/docs/tools/cli).
+- You can change a service plan programmatically with the
+  [`avn service update --plan <plan>` CLI](/docs/tools/cli/service-cli#avn-cli-service-update).
 - When you perform a service upgrade or downgrade horizontally,
   remember to include all additional disks the service uses. For
   example, when switching from `Startup-4` to `Business-4` or from
@@ -29,7 +32,9 @@ state switches to **Running**, your new service plan is active.
   available for this service.
 
 :::
+
 <!-- vale off -->
+
 ## Related pages
 
 - [Adjust disk storage][storage]
