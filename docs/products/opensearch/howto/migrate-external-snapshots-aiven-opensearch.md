@@ -16,10 +16,6 @@ The migration process consists of three key phases:
   : Migrate ISM policies to maintain consistent index
   lifecycle management, including tasks like index rollover, retention, and deletion.
 
-  :::note
-  Details on ISM migration are coming soon.
-  :::
-
 - **[Security configurations](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)**:
   Migrate user roles, permissions, and access controls to preserve security settings and
   ensure a smooth user experience after migration.
