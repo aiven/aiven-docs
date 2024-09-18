@@ -96,4 +96,3 @@ To migrate an existing Aiven service to an ECE, the Aiven network team creates a
 tunnel between your non-compliant VPC and your ECE VPC to enable a one-click migration.
 The migration is then performed in an automated and zero-downtime fashion.
 Once the migration is complete, the VPN tunnel is removed.
-Once the migration is complete, the VPN tunnel is removed.
