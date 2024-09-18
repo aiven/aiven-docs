@@ -56,7 +56,7 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    {
        "host": "target-ip-or-fqdn",
        "port": target-port-number,
-       "user": "user",
+       "user": "avnadmin",
        "password": "the password"
    }
    ```
