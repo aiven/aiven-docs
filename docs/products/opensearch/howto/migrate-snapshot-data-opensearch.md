@@ -31,6 +31,16 @@ Before you begin, ensure that:
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier and is
   compatible with your target service.
 
+:::note
+
+Ensure the snapshot includes the global state by setting `include_global_state: true`
+during creation. If this setting is not applied, ISM policies and other cluster metadata
+will not be restored, and you may need to manually reconfigure these settings after the
+migration. For more details, see
+[Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
+
+:::
+
 ### Gather required parameters
 
 Gather these details before registering the snapshot repository:
@@ -304,7 +314,6 @@ curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
 This command returns detailed information about all indices, including the number of
 documents, shards, and index size. For example:
 
-```text
 | Status | Index Name                           | UUID                                | Shards | Replicas | Documents | Deleted Docs | Size   | Primary Size |
 |--------|--------------------------------------|-------------------------------------|--------|----------|-----------|--------------|--------|--------------|
 | Green  | clustermember_correlation_v1-002573  | OLj34vDHTX-rIXCz3s8W7A              | 4      | 1        | 57        | 4            | 5.7mb  | 2.8mb        |
@@ -346,5 +355,6 @@ During the migration process, you can encounter issues such as:
 ## Related pages
 
 - [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)
+- [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)
 - [Aiven for OpenSearch documentation](/docs/products/opensearch)
 - [Elasticsearch snapshot and restore guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)

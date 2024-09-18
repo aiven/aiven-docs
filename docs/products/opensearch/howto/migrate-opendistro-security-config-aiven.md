@@ -98,3 +98,8 @@ You can run the migration script multiple times, but keep the following in mind:
 - Internal user data is updated each time the script is run because the Opendistro
   API does not return password hashes. As a result, the script treats the data as if it
   has changed, even when it has not.
+
+## Related pages
+
+- [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)
+- [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)
