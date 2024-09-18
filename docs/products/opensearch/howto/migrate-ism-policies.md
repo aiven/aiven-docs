@@ -85,16 +85,17 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
 
 Once ISM policies are reapplied, index lifecycle management tasks like rollovers,
 retention, and deletion resume automatically. To monitor ISM job progress and ensure
-policies are enforced correctly, execute:
+policies are enforced correctly, run the following command and replace `SERVICE_URL`
+with your Aiven for OpenSearch service's URL:
 
 ```bash
-curl -X GET --insecure "${AIVEN_SERVICE_URI}/_plugins/_ism/explain?pretty&size=100"
+curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain?pretty&size=100"=100"
 ```
 
 Alternatively, you can verify the status of individual indices:
 
 ```bash
-curl -X GET --insecure "${AIVEN_SERVICE_URI}/_plugins/_ism/explain/<index_name>?pretty"
+curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain/<index_name>?pretty"
 ```
 
 ## Related pages
