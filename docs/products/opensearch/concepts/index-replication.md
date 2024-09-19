@@ -32,24 +32,26 @@ replicas. This reduces storage usage but significantly increases the risk of dat
 loss if a node in the cluster fails.
 
 :::note
-Enabling this setting comes with a reduced SLA, which must be agreed with your
-account manager.
+Before enabling this configuration, consult with your account manager to discuss
+your use case and agree on the reduced SLA.
 :::
 
 ### When to use replication factor 0
 
-Consider using replication factor to `0` in the following scenarios:
+Replication factor `0` is generally not recommended for most OpenSearch use cases. In
+specific cases, you might consider it for:
 
-- **Non-critical environments:** Ideal for QA, testing, or development clusters where
-  potential data loss doesn’t significantly impact operations.
-- **Temporary data:** Suitable when data can be recreated or is not critical, allowing
-  you to save on storage costs.
+- **Non-critical environments:** QA, testing, or development clusters where data loss
+  is acceptable.
+- **Temporary data:** Scenarios where data can be recreated and storage costs
+  need to be minimized.
 
 ### Risks and considerations
 
-- **Data loss:** Without replicas, a node failure can result in permanent data loss.
-- **Manual recovery:** If data loss occurs, data must be restored from snapshots
-  manually, which can lead to downtime.
+- **Data loss:** Setting the replication factor to `0` significantly increases the risk
+  of permanent data loss if a node fails.
+- **Manual recovery:** If data loss occurs, you must manually restore from snapshots,
+  which can lead to downtime.
 
 :::note
 
@@ -63,6 +65,7 @@ Consider using replication factor to `0` in the following scenarios:
 
 ### Set replication factor 0
 
-After agreeing to the reduced SLA, contact [Aiven support](mailto:support@aiven.io) to enable
-the option to set the replication factor (`number_of_replicas`) to `0`. This allows
-you to configure your index without replicas.
+Before enabling this option, consult with your account manager to discuss your use
+case and agree on the reduced SLA. Afterward, contact
+[Aiven support](mailto:support@aiven.io) to enable the option to set the
+replication factor (`number_of_replicas`) to `0`.
