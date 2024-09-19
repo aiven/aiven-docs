@@ -4,6 +4,7 @@ title: Add groups to projects
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
+<!-- vale off -->
 Give [groups](/docs/platform/howto/manage-groups) of organization users access to a project and the services
 in it by adding groups to it. When you add a group, you set the
 permission level by assigning the group a

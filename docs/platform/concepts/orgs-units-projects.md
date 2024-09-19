@@ -25,7 +25,8 @@ organization to create a hierarchical structure that fits your needs.
 
 Organizations also let you centrally manage settings like:
 
-- [Domains and identity providers](/docs/platform/howto/list-identity-providers):
+- [Domains](/docs/platform/howto/manage-domains) and
+  [identity providers](/docs/platform/howto/saml/add-identity-providers):
    Only available at the organization level
 - [Authentication policies](/docs/platform/howto/set-authentication-policies):
    Only available on the organization level

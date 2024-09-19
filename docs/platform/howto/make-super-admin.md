@@ -18,6 +18,6 @@ To revoke super admin privileges for a user, follow the same steps and
 select **Revoke super admin**.
 
 ## Related pages
-
+<!-- vale off -->
 - [Manage organization users](/docs/platform/howto/manage-org-users)
 - [Project member roles](/docs/platform/reference/project-member-privileges)
