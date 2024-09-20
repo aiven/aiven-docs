@@ -26,11 +26,9 @@ To optimize a query automatically:
 1. In the **Query optimization report** window, see the optimization suggestion and apply
    the suggestion by running the provided SQL queries.
 
-   <!-- :::note
    - To display alternative optimization recommendations, click **Advanced options**.
    - To display the diff view, click **Query diff**.
    - To display explanations about the optimization, click **optimization details**.
-   ::: -->
 
 ## Manual optimization
 
