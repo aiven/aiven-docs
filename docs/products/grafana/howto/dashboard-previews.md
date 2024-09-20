@@ -4,9 +4,7 @@ title: Dashboard preview for Aiven for Grafana®
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-Grafana's Dashboard Previews feature provides an overview of all your dashboards.
-Instead of a list view, you can see a graphical representation of each configured
-dashboard.
+Grafana's dashboard previews provide a visual overview of your dashboards, displaying each configured dashboard as a graphical thumbnail.
 
 Dashboard previews are an optional beta feature available in Grafana 9.0+. By default,
 this feature is disabled on Aiven for Grafana® services.
