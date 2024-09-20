@@ -5,12 +5,20 @@ sidebar_label: Restrict access
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-By default, Aiven services are publicly accessible, but you can restrict access to your service to a single IP, an address block, or any combination of both.
+Restrict access to your Aiven-managed service to a single IP, an address block, or any combination of both.
 
-:::important
-IP filters apply to inbound traffic coming from specified IP addresses / network ranges to
-Aiven service ports.
+By default, a connection to an Aiven service can be established from any IP address. To
+restrict access, you can use the IP filtering capability, which allows you to filter
+traffic incoming to your services by specifying allowed IP addresses / network ranges.
+
+:::note
+If your service is within a VPC, the VPC configuration filters incoming traffic before the
+IP filter is applied.
 :::
+
+By default, the IP filter is set `0.0.0.0/0`, which allows all inbound connections. If you
+remove `0.0.0.0/0` without adding networks or addresses used by clients, no client can
+connect to your service.
 
 :::tip
 To access a non-publicly-accessible service from another service, use a
@@ -19,26 +27,27 @@ To access a non-publicly-accessible service from another service, use a
 
 ## Restrict access
 
-1. Log in to [Aiven Console](https://console.aiven.io).
+1. Log in to the [Aiven Console](https://console.aiven.io), and select the service to restrict
+   access to.
+1. On the <ConsoleLabel name="overview"/> page of your service, select
+   <ConsoleLabel name="service settings"/>.
+1. On the <ConsoleLabel name="service settings"/> page, in the **Cloud and
+   network** section:
 
-1. On the **Services** page, select the service to restrict.
+   - Set the IP filter for the first time:
 
-1. On the **Overview** page of your service, select **Service
-    settings** from the sidebar.
+     1. Click <ConsoleLabel name="actions"/> > **Set public IP filters**.
+     1. In the **Allowed inbound IP addresses** window, remove `0.0.0.0/0` and enter an IP
+        address or address block using the CIDR notation, for example `10.20.0.0/16`.
 
-1. On the **Service settings** page, in the **Cloud and
-   network** section, click <ConsoleLabel name="actions"/> > **Set public IP filters**.
+   - Edit the IP filter after the first setup change:
 
-1. In the **Allowed inbound IP addresses** window, enter your address
-   or address block using the CIDR notation, and select the **+** icon
-   to add it to the list of the trusted IP addresses.
+     1. Click <ConsoleLabel name="actions"/> > **Edit public IP filters**.
+     1. In the **Allowed inbound IP addresses** window, enter an IP address or address
+        block using the CIDR notation, for example `10.20.0.0/16`.
 
-   :::note
-   You can add multiple addresses or address blocks or combination of
-   both at once.
-   :::
-
-1. Select **Close**.
+1. To add more IP addresses or ranges, click **Add IP address range**.
+1. Select **Save changes**.
 
 Now your service can be accessed from the specified IP addresses only.
 
