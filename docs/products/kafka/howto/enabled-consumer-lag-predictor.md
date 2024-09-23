@@ -24,7 +24,7 @@ Before you start, ensure you have the following:
     **limited availability** feature and requires activation on your Aiven account.
     Contact the sales team at sales@aiven.io to request activation.
 
-## Enable the consumer lag predictor
+## Enable and configure the consumer lag predictor
 
 <Tabs groupId="enable-methods">
 <TabItem value="console" label="Aiven Console" default>
@@ -34,24 +34,40 @@ Before you start, ensure you have the following:
    select your project, and choose your Aiven for Apache Kafka® service.
 
 1. On the <ConsoleLabel name="overview"/> page,
-   click <ConsoleLabel name="service settings"/>  from the sidebar.
+   click <ConsoleLabel name="service settings"/> from the sidebar.
 
 1. Go to the **Advanced configuration** section, and click **Configure**.
 
 1. In the **Advanced configuration** window, click <ConsoleIcon name="Add config options"/>.
 
-1. In the add configuration options:
+1. Set `kafka_lag_predictor.enabled` to **Enabled**. This enables the lag
+   predictor to compute predictions for all consumer groups and topics.
 
-   - Set `kafka_lag_predictor.enabled` to **Enabled**. This enables the lag predictor to
-     compute predictions for all consumer groups across all topics.
-   - Set `kafka_lag_predictor.group_filters`  to the desired consumer group pattern. This
-     specifies which consumer groups to consider during lag prediction calculations.
+1. Configure the following options:
 
-     :::note
-     By default, the consumer lag predictor calculates the lag for all
-     consumer groups. To restrict the calculation to specific groups, use
-     the `kafka_lag_predictor.group_filters` option.
-     :::
+   - Set `kafka_lag_predictor.group_filters`: Specify the consumer group pattern to
+     include only the desired consumer groups in the lag prediction. By default, the
+     consumer lag predictor calculates the lag for all consumer groups, but you can
+     restrict this by specifying group patterns.
+
+     **Example**:
+     - `consumer_group_*`: Matches any consumer group that starts with
+       `consumer_group_`, such as `consumer_group_1` or `consumer_group_a`.
+     - `important_group`: Matches the specific consumer group named `important_group`.
+     - `group?-test`: Matches consumer groups like `group1-test` or `groupA-test`, where
+       the `?` represents any single character.
+
+   - Set `kafka_lag_predictor.topics`: Specify which topics to include in the lag
+     prediction. By default, predictions are computed for all topics, but you can
+     restrict this by using topic names or patterns.
+
+     **Example**:
+
+     - `important_topic_*`: Matches any topic that starts with `important_topic_`, such
+       as `important_topic_1`, `important_topic_data`.
+     - `secondary_topic`: Matches the specific topic named `secondary_topic`.
+     - `topic?-logs`: Matches topics like `topic1-logs` or `topicA-logs`, where
+       the `?` represents any single character.
 
 1. Click **Save configuration** to save your changes and enable consumer lag prediction.
 
@@ -65,7 +81,7 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
    the sales team at sales@aiven.io. The consumer lag predictor is a limited availability
    feature and needs to be activated for your account.
 
-1. Once activated, retrieve the project information using the following command:
+1. Get the project information:
 
    ```text
    avn project details
@@ -74,12 +90,10 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
    If you need details for a specific project, use:
 
    ```text
-   avn project details --project <your_project_name>
+   avn project details --project PROJECT_NAME
    ```
 
-1. Get the name of the Aiven for Apache Kafka service for which you
-   want to enable the consumer lag predictor by using the following
-   command:
+1. Get the name of the Aiven for Apache Kafka service:
 
    ```text
    avn service list
@@ -90,36 +104,52 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
 1. Enable the consumer lag predictor for your service:
 
    ```text
-   avn service update <SERVICE_NAME> -c kafka_lag_predictor.enabled=true
+   avn service update SERVICE_NAME -c kafka_lag_predictor.enabled=true
    ```
 
-   Replace `SERVICE_NAME` with your actual service name.
+   Replace `SERVICE_NAME` with your service name.
 
     :::note
     This enables the lag predictor to compute predictions for all
     consumer groups across all topics.
     :::
 
-1. To specify which consumer groups should be included in the lag prediction calculation,
-   set the `group_filters` configuration
+1. Configure the consumer groups and topics to be included in the lag prediction:
 
-   ```text
-   avn service update SERVICE_NAME \
-   -c kafka_lag_predictor.group_filters=\
-     '["example_consumer_group_1", "example_consumer_group_2"]'
-    ```
+   - For consumer groups: Set the `kafka_lag_predictor.group_filters` option to
+     specify which consumer groups should be included in the lag prediction. By default, the
+     consumer lag predictor calculates the lag for all consumer groups, but you can
+     restrict this by specifying group patterns.
 
-   - Replace `SERVICE_NAME` with the actual name or ID of your
-     Aiven for Apache Kafka® service.
-   - Replace `example_consumer_group_1` and `example_consumer_group_2` with your
-     actual consumer group names.
+     ```bash
+     avn service update SERVICE_NAME \
+     -c kafka_lag_predictor.group_filters='["example_consumer_group_1", "example_consumer_group_2"]'
+     ```
+
+     - Replace `SERVICE_NAME` with the actual name or ID of your Aiven for Apache Kafka®
+       service.
+     - Replace `example_consumer_group_1` and `example_consumer_group_2` with your
+       consumer group names.
+
+   - For topics: Set the `kafka_lag_predictor.topics` option to specify which topics
+     should be included in the lag prediction. By default, predictions are computed for
+     all topics, but you can
+     restrict this by using topic names or patterns.
+
+     ```bash
+     avn service update SERVICE_NAME \
+     -c kafka_lag_predictor.topics='["important_topic_*", "secondary_topic"]'
+     ```
+
+     Replace `important_topic_*` and `secondary_topic` with your topic names or
+     patterns.
 
 </TabItem> </Tabs>
 
 ## Monitor metrics with Prometheus
 
-After enabling the consumer lag predictor, you can use [Prometheus](/docs/platform/howto/integrations/prometheus-metrics) to
-access and monitor detailed metrics that provide insights into your Apache Kafka
+After enabling the consumer lag predictor, you can use [Prometheus](/docs/platform/howto/integrations/prometheus-metrics)
+to access and monitor detailed metrics that provide insights into your Apache Kafka
 cluster's performance:
 
 | Metric                                             | Type    | Description                                                                                            |
