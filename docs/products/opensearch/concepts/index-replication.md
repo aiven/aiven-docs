@@ -7,7 +7,8 @@ The replication factor in Aiven for OpenSearch® determines the number of copies
 
 The `number_of_replicas` is an index-level setting that defines how many replicas
 each primary shard has. By default, it is set to `1`, meaning each shard has one
-replica for redundancy. You can configure this when creating or updating an index in the OpenSearch Dashboard.
+replica for redundancy. You can configure this when creating or updating an index in the
+OpenSearch Dashboard.
 
 ## Automatic replication factor adjustment
 
@@ -48,10 +49,10 @@ specific cases, you might consider it for:
 
 ### Risks and considerations
 
-- **Data loss:** Setting the replication factor to `0` significantly increases the risk
-  of permanent data loss if a node fails.
-- **Manual recovery:** If data loss occurs, you must manually restore from snapshots,
-  which can lead to downtime.
+Setting the replication factor to `0` increases the risk of data loss. If a node failure
+occurs, Aiven for OpenSearch automatically restores data from the latest snapshot, but
+any data added after that snapshot will be lost. If no snapshot exists, an empty
+index is created, resulting in the loss of any unsaved data.
 
 :::note
 
