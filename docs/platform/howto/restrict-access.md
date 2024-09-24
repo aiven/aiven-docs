@@ -9,14 +9,14 @@ Restrict access to your Aiven-managed service to a single IP, an address block, 
 
 By default, a connection to an Aiven service can be established from any IP address. To
 restrict access, you can use the IP filtering capability, which allows you to filter
-traffic incoming to your services by specifying allowed IP addresses / network ranges.
+traffic incoming to your services by specifying allowed IP addresses or network ranges.
 
 :::note
 If your service is within a VPC, the VPC configuration filters incoming traffic before the
 IP filter is applied.
 :::
 
-By default, the IP filter is set `0.0.0.0/0`, which allows all inbound connections. If you
+By default, the IP filter is set to `0.0.0.0/0`, which allows all inbound connections. If you
 remove `0.0.0.0/0` without adding networks or addresses used by clients, no client can
 connect to your service.
 
