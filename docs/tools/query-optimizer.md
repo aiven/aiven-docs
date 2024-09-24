@@ -1,5 +1,5 @@
 ---
-title: SQL query optimizer
+title: Standalone SQL query optimizer
 early: true
 ---
 
