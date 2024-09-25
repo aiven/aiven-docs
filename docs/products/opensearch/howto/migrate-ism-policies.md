@@ -38,6 +38,15 @@ metadata and must be reapplied.
 
 :::
 
+## Validate index sync before reapplying ISM policies
+
+Before reapplying ISM policies, ensure the indices are synchronized between the
+source and target services. Check document counts to confirm they match.
+
+For more details, see the
+[verify the migration](docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration)
+section in [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration).
+
 ## Reapply ISM policies
 
 The script retrieves the ISM policy assignments stored in the cluster state and
@@ -66,6 +75,11 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    ```bash
    python avn-re-apply-ism-policies.py --config path-to-config-file
    ```
+
+## Re-running the ISM script
+
+You can rerun the ISM script if needed. Use the --force option to bypass the check
+that prevents it from running more than once.
 
 ## Monitor ISM task progress
 

@@ -7,7 +7,7 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Aiven for OpenSearch enables you to restore data from external OpenSearch or Elasticsearch snapshots, enabling seamless migration from third-party repositories.
+Aiven for OpenSearch lets you to restore data from external OpenSearch or Elasticsearch snapshots, enabling seamless migration from third-party repositories.
 
 Aiven supports snapshot restoration from Google Cloud Storage (GCS), Amazon S3, and
 Microsoft Azure. Additionally, you can restore data from Oracle Cloud Infrastructure
@@ -34,7 +34,7 @@ Before you begin, ensure that:
 :::note
 
 Ensure the snapshot includes the global state by setting `include_global_state: true`
-during creation. If this setting is not applied, ISM policies and other cluster metadata
+during creation. Without this, ISM policies and other cluster metadata
 will not be restored, and you may need to manually reconfigure these settings after the
 migration. For more details, see
 [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
@@ -64,7 +64,8 @@ Information specific to cloud providers:
   - `endpoint`: Optional. The endpoint for S3-compatible services if not using AWS S3
     directly
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default
+    indices. If no patterns are provided, all indices are restored by default. Exclude
+    the `.opendistro_security` index pattern from your snapshot restore process
 
 - **Google Cloud Storage (GCS)**
 
@@ -75,7 +76,8 @@ Information specific to cloud providers:
   - `compress` and `chunk_size`: Optional. Settings for metadata compression
     and file chunking
   - `indices`: Optional. A comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default
+    indices. If no patterns are provided, all indices are restored by default. Exclude
+    the `.opendistro_security` index pattern from your snapshot restore process
 
 - **Microsoft Azure**
 
@@ -87,7 +89,8 @@ Information specific to cloud providers:
   - `compress`, `chunk_size`, `endpoint_suffix`: Optional. Additional configuration
     settings
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default
+    indices. If no patterns are provided, all indices are restored by default. Exclude
+    the `.opendistro_security` index pattern from your snapshot restore process
 
 - **S3-compatible services**
 
@@ -99,7 +102,8 @@ Information specific to cloud providers:
   - `server_side_encryption`, `compress`, `chunk_size`: Optional. Settings
     for encryption, compression, and file chunking
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default
+    indices. If no patterns are provided, all indices are restored by default. Exclude
+    the `.opendistro_security` index pattern from your snapshot restore process
 
 ## Configure snapshot migration settings
 
@@ -117,8 +121,13 @@ Exclude the `.opendistro_security` index pattern from your snapshot restore proc
 :::
 
 :::warning
-Aiven for OpenSearch only allows one migration to progress at a time. Ensure the current
-migration finishes before starting a new one to avoid interruptions.
+Aiven for OpenSearch only allows one migration to progress at a time. Once the data
+migration is complete, it triggers the backup process. You cannot start a new migration
+until the backup process is finished.
+
+If needed, you can either wait for the backup process to complete or
+contact the [support team](mailto:support@aiven.io) to disable backups
+and start a new migration.
 :::
 
 ### Amazon S3
@@ -128,7 +137,7 @@ migration finishes before starting a new one to avoid interruptions.
 
 ```bash
 curl --request PUT \
-  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name} \
   --header 'Authorization: Bearer YOUR_API_TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -151,7 +160,7 @@ curl --request PUT \
 ```bash
 avn service update \
   --project PROJECT_NAME \
-  --service SERVICE_NAME \
+  SERVICE_NAME \
   -c s3_migration.bucket="my-bucket" \
   -c s3_migration.region="us-west-2" \
   -c s3_migration.base_path="snapshots" \
@@ -170,7 +179,7 @@ avn service update \
 
 ```bash
 curl --request PUT \
-  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name} \
   --header 'Authorization: Bearer YOUR_API_TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -191,7 +200,7 @@ curl --request PUT \
 ```bash
 avn service update \
   --project PROJECT_NAME \
-  --service SERVICE_NAME \
+  SERVICE_NAME \
   -c gcs_migration.bucket="my-gcs-bucket" \
   -c gcs_migration.base_path="snapshots" \
   -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
@@ -208,7 +217,7 @@ avn service update \
 
 ```bash
 curl --request PUT \
-  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name} \
   --header 'Authorization: Bearer YOUR_API_TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -230,7 +239,7 @@ curl --request PUT \
 ```bash
 avn service update \
   --project PROJECT_NAME \
-  --service SERVICE_NAME \
+  SERVICE_NAME \
   -c azure_migration.container="my-container" \
   -c azure_migration.base_path="snapshots" \
   -c azure_migration.account="my-account" \
@@ -248,7 +257,7 @@ avn service update \
 
 ```bash
 curl --request PUT \
-  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name}/config \
+  --url https://api.aiven.io/v1/project/{project_name}/service/{service_name} \
   --header 'Authorization: Bearer YOUR_API_TOKEN' \
   --header 'content-type: application/json' \
   --data '{
@@ -272,7 +281,7 @@ curl --request PUT \
 ```bash
 avn service update \
   --project PROJECT_NAME \
-  --service SERVICE_NAME \
+  SERVICE_NAME \
   -c s3_migration.bucket="my-bucket" \
   -c s3_migration.region="us-west-2" \
   -c s3_migration.endpoint="https://my-s3-compatible-service.com" \
@@ -294,10 +303,11 @@ curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/m
   -H "Authorization: Bearer API_TOKEN"
 ```
 
+
 Parameters:
 
-- `project_name`: The name of your Aiven project.
-- `service_name`: The name of your Aiven for OpenSearch service.
+- `PROJECT_NAME`: The name of your Aiven project.
+- `SERVICE_NAME`: The name of your Aiven for OpenSearch service.
 
 ## Verify the migration
 
