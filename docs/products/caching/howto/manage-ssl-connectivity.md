@@ -2,7 +2,9 @@
 title: Manage SSL connectivity
 ---
 
-Manage SSL connectivity for your Aiven for Caching service, including enabling secure connections and configuring stunnel for clients without SSL support.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+Manage SSL connectivity for your Aiven for Caching service by enabling secure connections and configuring stunnel for clients without SSL suppor
 
 ## Client support for SSL-encrypted connections
 
@@ -71,17 +73,14 @@ For `service-level option`, the following parameters are configured:
 - `TIMEOUTclose => *seconds*`: Time to wait for `close_notify`.
 
 :::note
-Adjust settings according to your service. The **Overview** page lists your
-**Overview** > **Host** and **Overview** > **Port** for configuring the connect parameter.
+Adjust settings according to your service. On the <ConsoleLabel name="overview"/> page,
+the **Connection information** section lists your Host and Port to configure the
+connection.
 :::
 
-
-When SSL is in use, HAProxy is responsible for terminating the SSL connections before
-they get forwarded to Aiven for Caching. This process has a connection timeout set to
-12 hours, which is not configurable by users. If you allow long timeouts in
-Aiven for Caching, this SSL-terminating HAProxy may close the connection before
-the Aiven for Caching timeout expires. This timeout is independent of the
-Aiven for Caching timeout.
+When SSL is in use, HAProxy terminates SSL connections before forwarding them to
+Aiven for Caching. The HAProxy connection timeout is set to 300 seconds (5 minutes) by
+default, which prevents idle connections from staying open too long.
 
 ## Allow plain-text connections
 
