@@ -78,9 +78,9 @@ the **Connection information** section lists your Host and Port to configure the
 connection.
 :::
 
-When SSL is in use, HAProxy terminates SSL connections before forwarding them to
-Aiven for Caching. The HAProxy connection timeout is set to 300 seconds (5 minutes) by
-default, which prevents idle connections from staying open too long.
+HAProxy terminates SSL connections before forwarding them to Aiven for Caching. The
+HAProxy connection timeout is set to 300 seconds (5 minutes) by default, preventing idle
+connections from staying open too long.
 
 ## Allow plain-text connections
 
