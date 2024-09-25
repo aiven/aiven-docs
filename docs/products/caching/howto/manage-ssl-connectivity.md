@@ -79,8 +79,9 @@ connection.
 :::
 
 HAProxy terminates SSL connections before forwarding them to Aiven for Caching. The
-HAProxy connection timeout is set to 300 seconds (5 minutes) by default, preventing idle
-connections from staying open too long.
+HAProxy connection timeout is set to 300 seconds (5 minutes) by default, matching
+the `redis_timeout` value. This prevents idle connections from staying open too long. You
+can adjust the `redis_timeout` value in the service's **Advanced configuration** section.
 
 ## Allow plain-text connections
 
