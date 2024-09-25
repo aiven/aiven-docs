@@ -121,13 +121,12 @@ Exclude the `.opendistro_security` index pattern from your snapshot restore proc
 :::
 
 :::warning
-Aiven for OpenSearch only allows one migration to progress at a time. Once the data
-migration is complete, it triggers the backup process. You cannot start a new migration
-until the backup process is finished.
+Aiven for OpenSearch allows only one migration at a time. After data migration completes,
+the backup process starts automatically. You cannot begin a new migration until
+the backup process finishes.
 
-If needed, you can either wait for the backup process to complete or
-contact the [support team](mailto:support@aiven.io) to disable backups
-and start a new migration.
+You can either wait for the backup to finish or contact
+[Aiven Support](mailto:support@aiven.io) to disable backups and start a new migration.
 :::
 
 ### Amazon S3
@@ -303,11 +302,15 @@ curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/m
   -H "Authorization: Bearer API_TOKEN"
 ```
 
-
 Parameters:
 
 - `PROJECT_NAME`: The name of your Aiven project.
 - `SERVICE_NAME`: The name of your Aiven for OpenSearch service.
+
+:::note
+During the snapshot restore process, indices are temporarily closed and are not
+displayed in the user interface. Once the restore is complete, they are reopened.
+:::
 
 ## Verify the migration
 
