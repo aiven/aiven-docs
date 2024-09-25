@@ -4,7 +4,7 @@ title: Manage SSL connectivity
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Manage SSL connectivity for your Aiven for Caching service by enabling secure connections and configuring stunnel for clients without SSL suppor
+Manage SSL connectivity for your Aiven for Caching service by enabling secure connections and configuring stunnel for clients without SSL support.
 
 ## Client support for SSL-encrypted connections
 
