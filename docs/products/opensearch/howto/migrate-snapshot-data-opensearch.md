@@ -7,7 +7,7 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Aiven for OpenSearch lets you to restore data from external OpenSearch or Elasticsearch snapshots, enabling seamless migration from third-party repositories.
+Aiven for OpenSearch lets you to restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
 
 Aiven supports snapshot restoration from Google Cloud Storage (GCS), Amazon S3, and
 Microsoft Azure. Additionally, you can restore data from Oracle Cloud Infrastructure

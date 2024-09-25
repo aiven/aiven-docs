@@ -81,6 +81,10 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
 You can rerun the ISM script if needed. Use the --force option to bypass the check
 that prevents it from running more than once.
 
+:::note
+Run the ISM script only after completing all data migration.
+:::
+
 ## Monitor ISM task progress
 
 Once ISM policies are reapplied, index lifecycle management tasks like rollovers,
