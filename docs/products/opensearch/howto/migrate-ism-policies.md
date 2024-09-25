@@ -44,7 +44,7 @@ Before reapplying ISM policies, ensure the indices are synchronized between the
 source and target services. Check document counts to confirm they match.
 
 For more details, see the
-[verify the migration](docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration)
+[verify the migration](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration)
 section in [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration).
 
 ## Reapply ISM policies
