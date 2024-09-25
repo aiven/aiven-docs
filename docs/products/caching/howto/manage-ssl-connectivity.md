@@ -16,10 +16,6 @@ Aiven for Caching uses SSL encrypted connections by default. This is indicated b
 `rediss://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
-:::tip
-The `Service URI` is available on the [Aiven console](https://console.aiven.io/).
-:::
-
 Since **Redis 6**, the `redis-cli` tool supports SSL connections. You can connect directly
 to your service using:
 
