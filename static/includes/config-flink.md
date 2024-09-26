@@ -1,15 +1,15 @@
 
 <!-- vale off -->
-<table class="service-param">
+<table className="service-param">
   <thead>
     <tr><th>Parameter</th></tr>
   </thead>
   <tbody>    <tr>
       <td>
-        <div class="param"><p class="name"><strong>ip_filter</strong></p><p><code class="type">array</code></p></div><div class="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
-        <p class="title">IP filter</p>
-        <div class="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
-        <table class="service-param-children">
+        <div className="param"><p className="name" id="ip_filter"><strong>ip_filter</strong></p><p><code className="type">array</code></p><a href="#ip_filter">#</a></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
+        <p className="title">IP filter</p>
+        <div className="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
+        <table className="service-param-children">
           <tbody>
           </tbody>
         </table>
@@ -17,10 +17,10 @@
     </tr>
     <tr>
       <td>
-        <div class="param"><p class="name"><strong>service_log</strong></p><p><code class="type">boolean,null</code></p></div>
-        <p class="title">Service logging</p>
-        <div class="description"><p>Store logs for the service so that they are available in the HTTP API and console.</p></div>
-        <table class="service-param-children">
+        <div className="param"><p className="name" id="service_log"><strong>service_log</strong></p><p><code className="type">boolean,null</code></p><a href="#service_log">#</a></div>
+        <p className="title">Service logging</p>
+        <div className="description"><p>Store logs for the service so that they are available in the HTTP API and console.</p></div>
+        <table className="service-param-children">
           <tbody>
           </tbody>
         </table>
@@ -28,10 +28,10 @@
     </tr>
     <tr>
       <td>
-        <div class="param"><p class="name"><strong>static_ips</strong></p><p><code class="type">boolean</code></p></div>
-        <p class="title">Static IP addresses</p>
-        <div class="description"><p>Use static public IP addresses</p></div>
-        <table class="service-param-children">
+        <div className="param"><p className="name" id="static_ips"><strong>static_ips</strong></p><p><code className="type">boolean</code></p><a href="#static_ips">#</a></div>
+        <p className="title">Static IP addresses</p>
+        <div className="description"><p>Use static public IP addresses</p></div>
+        <table className="service-param-children">
           <tbody>
           </tbody>
         </table>
@@ -39,10 +39,10 @@
     </tr>
     <tr>
       <td>
-        <div class="param"><p class="name"><strong>flink_version</strong></p><p><code class="type">string,null</code></p></div>
-        <p class="title">Flink major version</p>
+        <div className="param"><p className="name" id="flink_version"><strong>flink_version</strong></p><p><code className="type">string,null</code></p><a href="#flink_version">#</a></div>
+        <p className="title">Flink major version</p>
         
-        <table class="service-param-children">
+        <table className="service-param-children">
           <tbody>
           </tbody>
         </table>
@@ -50,10 +50,10 @@
     </tr>
     <tr>
       <td>
-        <div class="param"><p class="name"><strong>number_of_task_slots</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1</code></li><li>max: <code>1024</code></li></ul></div>
-        <p class="title">Flink taskmanager.numberOfTaskSlots</p>
-        <div class="description"><p>Task slots per node. For a 3 node plan, total number of task slots is 3x this value</p></div>
-        <table class="service-param-children">
+        <div className="param"><p className="name" id="number_of_task_slots"><strong>number_of_task_slots</strong></p><p><code className="type">integer</code></p><a href="#number_of_task_slots">#</a></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>1024</code></li></ul></div>
+        <p className="title">Flink taskmanager.numberOfTaskSlots</p>
+        <div className="description"><p>Task slots per node. For a 3 node plan, total number of task slots is 3x this value</p></div>
+        <table className="service-param-children">
           <tbody>
           </tbody>
         </table>
@@ -61,22 +61,22 @@
     </tr>
     <tr>
       <td>
-        <div class="param"><p class="name"><strong>privatelink_access</strong></p><p><code class="type">object</code></p></div>
-        <p class="title">Allow access to selected service components through Privatelink</p>
+        <div className="param"><p className="name" id="privatelink_access"><strong>privatelink_access</strong></p><p><code className="type">object</code></p><a href="#privatelink_access">#</a></div>
+        <p className="title">Allow access to selected service components through Privatelink</p>
         
-        <table class="service-param-children">
+        <table className="service-param-children">
           <tbody>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>privatelink_access.flink</strong></p><p><code class="type">boolean</code></p></div>
-              <p class="title">Enable flink</p>
+              <div className="param"><p className="name" id="privatelink_access_flink"><strong>privatelink_access.flink</strong></p><p><code className="type">boolean</code></p><a href="#privatelink_access_flink">#</a></div>
+              <p className="title">Enable flink</p>
               
             </td>
           </tr>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>privatelink_access.prometheus</strong></p><p><code class="type">boolean</code></p></div>
-              <p class="title">Enable prometheus</p>
+              <div className="param"><p className="name" id="privatelink_access_prometheus"><strong>privatelink_access.prometheus</strong></p><p><code className="type">boolean</code></p><a href="#privatelink_access_prometheus">#</a></div>
+              <p className="title">Enable prometheus</p>
               
             </td>
           </tr>
