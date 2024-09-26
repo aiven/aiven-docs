@@ -1859,6 +1859,21 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Read replica',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/concepts/read-replica',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'products/valkey/howto/create-valkey-read-replica',
+                  label: 'Create read replica',
+                },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Reference',
               items: ['products/valkey/reference/advanced-params'],
             },
