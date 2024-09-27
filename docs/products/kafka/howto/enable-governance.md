@@ -8,6 +8,9 @@ import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
+By default, governance applies to the organization level, and admins can manually
+select specific services to be governed through the Apache Kafka governance settings.
+
 ## Impact of enabling governance
 
 - **Existing topics**:
@@ -45,16 +48,6 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
      1. Click **Create group**.
      1. Select the created user group.
 1. Click **Next**.
-1. Define resource visibility for the Apache Kafka topic catalog.
-1. Select **Project** or **Organization** visibility.
-
-   - **Project**: Users can view Aiven for Apache Kafka resources in the Apache Kafka
-     topic catalog if they are added to the project.
-   - **Organization**: Users can view all Aiven for Apache Kafka resources across the
-     organization in the Apache Kafka topic catalog, regardless of their access to
-     individual projects.
-
-1. Click **Next**.
 1. Set global default topic configurations:
    - To use the default settings, click **Keep defaults** and review the default
      values on the confirmation window.
@@ -70,11 +63,27 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
     updated. Existing topics are not be affected by these changes.
     :::
 
+### Select services for governance
+
+Admins must manually select which Aiven for Apache Kafka services to include in
+governance. These services will then be visible to all users across the organization.
+
+1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
+1. Click **Change** next to **Governed services**.
+1. In the **Select services for governance** dialog, select the services.
+1. Click **Save**.
+
+### Choose the governance method
+
+After enabling governance, you can manage governance using either the
+**Aiven Console** or **Terraform**, but only one method can be used at a time. For more
+information about switching between these methods, see [Governance method for Aiven for Apache Kafka®](/docs/products/kafka/howto/governance-method).
+
 ### Change the default user group
 
 To change the default user group after enabling governance:
 
-1. On the organization page, click <ConsoleLabel name="governance"/>.
+1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
 1. Click **Change** next to **Default user group**.
 1. Select a new user group from the list.
 1. If no suitable group exists, [create a group](/docs/platform/howto/manage-groups#create-a-group)
@@ -85,7 +94,7 @@ To change the default user group after enabling governance:
 
 To change global topic configurations after enabling governance:
 
-1. On the organization page, click <ConsoleLabel name="governance"/>.
+1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
 1. Click **Change** next to **Global default topic configurations**.
 1. Update the global default topic configurations as needed.
 1. Modify retention policies, partition strategies, or other settings.
@@ -93,7 +102,7 @@ To change global topic configurations after enabling governance:
 
 ## Disable governance
 
-1. On the organization page, click <ConsoleLabel name="governance"/>.
+1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
 1. Expand **Governance is enabled for your organization**.
 1. Click **Disable**.
 
