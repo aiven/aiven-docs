@@ -8,8 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-
-[Aiven for Valkey read replica](/docs/products/valkey/concepts/valkey-read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
+[Aiven for Valkey read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
 
 ## Prerequisites
 
