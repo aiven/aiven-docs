@@ -45,27 +45,26 @@ Before you start, ensure you have the following:
 
 1. Configure the following options:
 
-   - Set `kafka_lag_predictor.group_filters`: Specify the consumer group pattern to
+   - **Set `kafka_lag_predictor.group_filters`**: Specify the consumer group pattern to
      include only the desired consumer groups in the lag prediction. By default, the
      consumer lag predictor calculates the lag for all consumer groups, but you can
      restrict this by specifying group patterns.
 
-     **Example**:
+     Example group patterns:
      - `consumer_group_*`: Matches any consumer group that starts with
        `consumer_group_`, such as `consumer_group_1` or `consumer_group_a`.
-     - `important_group`: Matches the specific consumer group named `important_group`.
+     - `important_group`: Matches exactly the topic named `important_group`.
      - `group?-test`: Matches consumer groups like `group1-test` or `groupA-test`, where
        the `?` represents any single character.
 
-   - Set `kafka_lag_predictor.topics`: Specify which topics to include in the lag
+   - **Set `kafka_lag_predictor.topics`**: Specify which topics to include in the lag
      prediction. By default, predictions are computed for all topics, but you can
      restrict this by using topic names or patterns.
 
-     **Example**:
-
+     Example topic patterns:
      - `important_topic_*`: Matches any topic that starts with `important_topic_`, such
        as `important_topic_1`, `important_topic_data`.
-     - `secondary_topic`: Matches the specific topic named `secondary_topic`.
+     - `secondary_topic`: Matches exactly the topic named  `secondary_topic`.
      - `topic?-logs`: Matches topics like `topic1-logs` or `topicA-logs`, where
        the `?` represents any single character.
 
@@ -116,9 +115,9 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
 
 1. Configure the consumer groups and topics to be included in the lag prediction:
 
-   - For consumer groups: Set the `kafka_lag_predictor.group_filters` option to
-     specify which consumer groups should be included in the lag prediction. By default, the
-     consumer lag predictor calculates the lag for all consumer groups, but you can
+   - **For consumer groups**: Set the `kafka_lag_predictor.group_filters` option to
+     specify which consumer groups should be included in the lag prediction. By default,
+     the consumer lag predictor calculates the lag for all consumer groups, but you can
      restrict this by specifying group patterns.
 
      ```bash
@@ -131,7 +130,7 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
      - Replace `example_consumer_group_1` and `example_consumer_group_2` with your
        consumer group names.
 
-   - For topics: Set the `kafka_lag_predictor.topics` option to specify which topics
+   - **For topics**: Set the `kafka_lag_predictor.topics` option to specify which topics
      should be included in the lag prediction. By default, predictions are computed for
      all topics, but you can
      restrict this by using topic names or patterns.
