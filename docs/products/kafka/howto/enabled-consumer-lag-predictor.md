@@ -53,7 +53,7 @@ Before you start, ensure you have the following:
      Example group patterns:
      - `consumer_group_*`: Matches any consumer group that starts with
        `consumer_group_`, such as `consumer_group_1` or `consumer_group_a`.
-     - `important_group`: Matches exactly the topic named `important_group`.
+     - `important_group`: Matches exactly the consumer group named `important_group`.
      - `group?-test`: Matches consumer groups like `group1-test` or `groupA-test`, where
        the `?` represents any single character.
 
