@@ -1,10 +1,11 @@
 ---
-title: Enable governance for Aiven for Apache Kafka®
+title:  Enable governance for Aiven for Apache Kafka®
 sidebar_label: Enable governance
 limited: true
 ---
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import Button from "@site/src/components/Buttons";
+import GridContainer from "@site/src/components/GridContainer";
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
@@ -14,8 +15,7 @@ select specific services to be governed through the Apache Kafka governance sett
 ## Impact of enabling governance
 
 - **Existing topics**:
-  - The selected default group is assigned as the owner of all existing Apache Kafka
-    resources.
+  - The default group will own all existing Apache Kafka resources.
   - Ownership details for Apache Kafka resources are visible in the
     [Apache Kafka topic catalog](/docs/products/kafka/concepts/topic-catalog-overview).
   - Users from different groups can still claim ownership of individual resources.
@@ -23,9 +23,8 @@ select specific services to be governed through the Apache Kafka governance sett
 - **Topic creation workflow**:
   - There is no impact on existing topics.
   - You can continue to [create topics](/docs/products/kafka/howto/create-topic) in your
-    Aiven for Apache Kafka service. Governance in Aiven for Apache Kafka introduces an
-    additional request-and-approval process to claim ownership of topics from the
-    Apache Kafka topic catalog.
+    Aiven for Apache Kafka service. Governance adds a request-and-approval process for
+    claiming topic ownership from the Apache Kafka topic catalog.
   - All topics align with your organization's data management policies.
 
 ## Prerequisites
@@ -53,7 +52,7 @@ select specific services to be governed through the Apache Kafka governance sett
      values on the confirmation window.
    - Click **Enable governance**.
 
-   Alternatively, to customize:
+   To customize the settings:
 
    - Enter your global default topic configurations.
    - Click **Enable governance** to apply your changes.
@@ -63,23 +62,46 @@ select specific services to be governed through the Apache Kafka governance sett
     updated. Existing topics are not be affected by these changes.
     :::
 
-### Select services for governance
+## Select services for governance
 
-Admins must manually select which Aiven for Apache Kafka services to include in
-governance. These services will then be visible to all users across the organization.
+Select the Aiven for Apache Kafka services to include in governance. Topics from these
+services become visible in the Topic Catalog, allowing users to claim ownership of
+existing topics.
 
 1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
-1. Click **Change** next to **Governed services**.
+1. In the **Governed services** section, click **Change**.
 1. In the **Select services for governance** dialog, select the services.
 1. Click **Save**.
 
-### Choose the governance method
+## Select the governance method
 
-After enabling governance, you can manage governance using either the
-**Aiven Console** or **Terraform**, but only one method can be used at a time. For more
-information about switching between these methods, see [Governance method for Aiven for Apache Kafka®](/docs/products/kafka/howto/governance-method).
+You can manage governance for Aiven for Apache Kafka® service using either the
+Aiven Console or the Terraform Provider.
 
-### Change the default user group
+Depending on your workflow, choose between:
+
+- **Aiven Console**: Manage governance tasks visually through the Aiven Console. View
+  and claim ownership of resources in the Topic Catalog.
+- **Terraform Provider**: Automate governance with the Terraform Provider. It integrates
+  with GitOps workflows and allows governance management across multiple projects.
+
+:::note
+When using Terraform, all governance actions must be performed through Terraform. The
+Aiven Console allows you to view requests but does not support operations such as
+approving or declining them
+:::
+
+1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
+1. In the **Governance method** section, click **Change**.
+1. In the **Select governance method** dialog, choose either **Aiven Console** or **Terraform**.
+
+   :::warning
+   Switching from the Aiven Console to the Terraform method results in losing any pending requests.
+   :::
+
+1. Click **Save**.
+
+## Change the default user group
 
 To change the default user group after enabling governance:
 
@@ -90,7 +112,7 @@ To change the default user group after enabling governance:
    and select it.
 1. Click **Save**.
 
-### Update global topic configurations
+## Update global topic configurations
 
 To change global topic configurations after enabling governance:
 
@@ -116,7 +138,9 @@ To change global topic configurations after enabling governance:
   Apache Kafka resources under the previous default group are assigned to the
   new default governance group.
 
-<RelatedPages/>
-<!-- vale off -->
+
+
+## Related pages
+
 - [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview)
 - [Project member roles and permissions](/docs/platform/concepts/permissions)

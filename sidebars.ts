@@ -846,7 +846,6 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/howto/enable-governance',
-                    'products/kafka/howto/governance-method',
                     'products/kafka/howto/claim-topic',
                     {
                       type: 'category',
