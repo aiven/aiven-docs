@@ -4,8 +4,7 @@ sidebar_label: Enable governance
 limited: true
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import Button from "@site/src/components/Buttons";
-import GridContainer from "@site/src/components/GridContainer";
+
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
