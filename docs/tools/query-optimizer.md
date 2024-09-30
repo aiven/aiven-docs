@@ -4,6 +4,7 @@ early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import FAQ from "@site/static/includes/faq-ai.md"
 
 Use Aiven's AI-powered **SQL query optimizer** to get query optimization recomendations for an ad-hoc query.
 
@@ -31,6 +32,11 @@ To optimize a query:
 
 The optimation report shows the optimized query and potential optimal indexes.
 To learn more about the recommendations, click **Optimization details**.
+
+<details>
+  <summary>Frequently asked questions</summary>
+  <FAQ/>
+</details>
 
 ## Related pages
 

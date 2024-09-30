@@ -56,6 +56,7 @@
   --aiven-button-secondary-bg-hover: var(--nav-btn-primary-bg-hover);
   --ifm-button-background-color: var(--nav-btn-primary-bg);
   --ifm-button-border-color: var(--ifm-button-background-color);
+  --docusaurus-details-bg: hsl(0, 0%, 98%);
 }
 
 [data-theme='dark'] {
@@ -95,6 +96,19 @@
   --nav-btn-primary-text-hover-color: var(--aiven-grey-90);
   --nav-btn-secondary-text-color: var(--nav-btn-primary-bg);
   --nav-btn-secondary-text-color-hover: var(--nav-btn-primary-bg-hover);
+  --docusaurus-details-bg: hsl(0, 0%, 12%);
+}
+
+.markdown details {
+  background-color: var(--docusaurus-details-bg);
+}
+
+.markdown details div {
+  color: var(--ifm-font-color-base) !important;
+}
+
+.markdown details summary {
+  font-weight: bold;
 }
 
 .markdown h1:first-child {

@@ -6,6 +6,7 @@ keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import FAQ from "@site/static/includes/faq-ai.md"
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
 
@@ -39,6 +40,11 @@ To optimize a query automatically:
 The quality of the optimization suggestions is proportional to the amount of
 data collected about the performance of your database.
 :::
+
+<details>
+  <summary>Frequently asked questions</summary>
+  <FAQ/>
+</details>
 
 ## Manual optimization
 
