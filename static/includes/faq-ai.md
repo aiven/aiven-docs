@@ -15,9 +15,3 @@ queries with question marks (`?`). Data masking is enabled by default.
 The masking option is not available for
 the Standalone SQL query optimizer yet.
 :::
-
-**Is there an option to ask Aiven not to keep my SQL queries?**
-
-While all information is kept encrypted and secure within Aiven, there is
-currently no option to optimize your queries without saving them under your
-Aiven account.
