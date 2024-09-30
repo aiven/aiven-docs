@@ -42,7 +42,7 @@ Use our fully managed services to stream, store, or analyze your data. Deploy in
     to="/docs/products/postgresql"
     iconComponent={PG}
     title="Aiven for PostgreSQL®"
-    description="The object-relational database with exentions and Aiven's AI capabilities."
+    description="The object-relational database with extentions and Aiven's AI capabilities."
   />
   <Card
     to="/docs/products/mysql"
