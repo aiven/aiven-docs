@@ -240,7 +240,7 @@
       <td>
         <div class="param"><p class="name"><strong>azure_migration</strong></p><p><code class="type">object</code></p></div>
         
-        
+        <div class="description"><p>Azure migration settings</p></div>
         <table class="service-param-children">
           <tbody>
           <tr>
@@ -321,7 +321,7 @@
       <td>
         <div class="param"><p class="name"><strong>gcs_migration</strong></p><p><code class="type">object</code></p></div>
         
-        
+        <div class="description"><p>Google Cloud Storage migration settings</p></div>
         <table class="service-param-children">
           <tbody>
           <tr>
@@ -381,7 +381,7 @@
       <td>
         <div class="param"><p class="name"><strong>s3_migration</strong></p><p><code class="type">object</code></p></div>
         
-        
+        <div class="description"><p>AWS S3 / AWS S3 compatible migration settings</p></div>
         <table class="service-param-children">
           <tbody>
           <tr>
@@ -825,7 +825,7 @@
             <td>
               <div class="param"><p class="name"><strong>opensearch.cluster_routing_allocation_node_concurrent_recoveries</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>2</code></li><li>max: <code>16</code></li></ul></div>
               <p class="title">Concurrent incoming/outgoing shard recoveries per node</p>
-              <div class="description"><p>How many concurrent incoming/outgoing shard recoveries (normally replicas) are allowed to happen on a node. Defaults to 2.</p></div>
+              <div class="description"><p>How many concurrent incoming/outgoing shard recoveries (normally replicas) are allowed to happen on a node. Defaults to node cpu count * 2.</p></div>
             </td>
           </tr>
           <tr>
