@@ -11,6 +11,10 @@ import Help from "@site/static/includes/cli-help.md"
 
 Get started with Aiven for Metrics by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
 
+:::note
+Aiven for Metrics is not currently available on Azure or Google Cloud Marketplace.
+:::
+
 ## Create a service
 
 <Tabs groupId="setup">
@@ -44,10 +48,11 @@ creating a new service from the CLI:
 </Tabs>
 
 ## Create service integrations
+Integrate Aiven for Metrics with other Aiven services, such as OpenSearch for advanced
+queries or Grafana for visualization, or connect it with another Aiven for Metrics
+service for comprehensive monitoring. Set up integrations using the
+[Aiven Console](https://console.aiven.io/) or
+[Aiven CLI](https://github.com/aiven/aiven-client).
 
-Integrate Aiven for Metrics with other Aiven services, including OpenSearch for
-advanced queries and Grafana for visualization, or with another Aiven for Metrics
-service for comprehensive monitoring. The [Aiven Console](https://console.aiven.io/)
-and [Aiven CLI](https://github.com/aiven/aiven-client) offer straightforward integration setup.
-
-For instructions, see [create service integrations](/docs/platform/howto/create-service-integration).
+For instructions, see
+[create service integrations](/docs/platform/howto/create-service-integration).

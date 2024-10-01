@@ -1,16 +1,16 @@
 ---
 title: Aiven for Metrics
-early: true
 ---
 
-Aiven for Metrics, powered by Thanos, simplifies managing and analyzing large volumes of metrics data for businesses of all sizes.
-It offers a scalable, reliable, and efficient service suitable for businesses of all sizes. This service simplifies the management of large-scale metrics systems, allowing organizations to focus on deriving insights from their data.
+Aiven for Metrics, powered by Thanos, simplifies the management and analysis of large volumes of metrics data. The service is scalable, reliable, and efficient, suitable for organizations of all sizes.
+This service simplifies the management of large-scale metrics systems, allowing
+organizations to focus on deriving insights from their data.
 
 ## Key components
 
-Aiven for Metrics incorporates several core Thanos components:
+Aiven for Metrics includes several core Thanos components:
 
-- **Thanos Metrics Query**: Allows users to query and visualize metrics from real-time
+- **Thanos Metrics Query**: Enables users to query and visualize metrics from real-time
   and historical data sources, aggregating data from various sources for a unified view.
 - **Thanos Metrics Receiver**: Handles metrics ingestion into the system, acting as a receiver
   for Prometheus remote write requests to enable real-time metrics collection.
@@ -33,9 +33,10 @@ retrieval processes in the background, keeping the system efficient and cost-eff
 Aiven for Metrics combines these components into a cohesive cluster architecture,
 enhancing metrics management:
 
-- **Data collection and storage**: Thanos Metrics Receivers collect metrics in real-time,
-  writing this data to object storage once the TSDB (Time Series Database)  block is
-  full, typically every 2 hours.
+- **Data collection and storage**: Thanos Metrics Receivers collect metrics in real-time
+  and store them in object storage after the Time Series Database (TSDB) block is full,
+  typically every 2 hours.
+
 - **Query processing**: The Thanos Query Frontend receives requests and optimizes
   load distribution by forwarding requests to Thanos Metrics Query. Depending on
   the query's time range, this component retrieves real-time data from
@@ -49,7 +50,7 @@ enhancing metrics management:
 ## Benefits of Aiven for Metrics
 
 - **Centralized monitoring**: Query and analyze metrics from multiple Prometheus
-  servers and clusters through a global query view, simplifying monitoring
+  servers and clusters through a unified query view, simplifying monitoring
   across your infrastructure.
 - **Unlimited retention and scalability**: With scalable object storage solutions,
   you can store unlimited metric data for any duration.
@@ -59,6 +60,10 @@ enhancing metrics management:
   needs and improves query performance, resulting in greater efficiency and cost savings.
 - **Simplified operations**: Reduce the complexity of your metrics system with a managed
   service that provides a pre-configured and optimized Thanos setup.
+
+## Limitations
+
+- Aiven for Metrics is not currently available on Azure or Google Cloud Marketplace.
 
 ## Related pages
 
