@@ -14,12 +14,11 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 - An Aiven account and API token.
 - [Aiven CLI tool](https://github.com/aiven/aiven-client).
-- Backup enabled for the service.
 
 ## Limitations
 
 - You can create a maximum of **5 read replicas** per primary service.
-- Read replicas can only be created on the **Startup-4** plan.
+- Read replicas are supported only on the **Startup** plan.
 
 ## Create a read replica
 
@@ -33,9 +32,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 1. Enter a name for the read replica, select the cloud provider, region, and service
    plan, and click **Create**.
 
-The read replica is listed in your project services. You can access it from the
-**Read replica** section on the service's <ConsoleLabel name="overview"/> page. You can
-identify the service type by the chips labeled **Primary** or **Replica** at the top.
+The read replica is listed in your project services and can be accessed from the
+**Read replica** section on the service's <ConsoleLabel name="overview"/> page. The
+service type is identified by chips labeled **Primary** or **Replica** at the top.
 
 </TabItem>
 <TabItem value="2" label="Aiven CLI" groupId="group1">
@@ -182,8 +181,6 @@ To promote the replica to primary using the Aiven API:
    - `PROJECT_NAME`: Your project name.
    - `INTEGRATION_ID`: The integration ID obtained in the previous step.
 
-The replica service is promoted to a standalone primary service, disconnected from the
-original primary service
 
 </TabItem>
 </Tabs>
