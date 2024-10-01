@@ -27,10 +27,10 @@ To optimize a query:
 1. Optional:
    1. Provide your table structure and statistics by running the query provided in
       the UI.
-   1. Past it in the **Query output** field.
+   1. Paste it in the **Query output** field.
 1. Click **Optimize**.
 
-The optimation report shows the optimized query and potential optimal indexes.
+The optimization report shows the optimized query and potential optimal indexes.
 To learn more about the recommendations, click **Optimization details**.
 
 <details>
