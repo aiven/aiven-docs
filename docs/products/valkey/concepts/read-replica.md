@@ -42,7 +42,3 @@ data consistency under normal conditions.
   replication is not available.
 - You can create a maximum of 5 read replicas per primary service.
 - Read replicas are only supported on the **Startup** plan.
-
-## Next steps
-
-<Button to="/docs/products/valkey/howto/create-valkey-read-replica">Create a read replica</Button>
