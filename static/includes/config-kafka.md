@@ -50,6 +50,24 @@
     </tr>
     <tr>
       <td>
+        <div class="param"><p class="name"><strong>single_zone</strong></p><p><code class="type">object</code></p></div>
+        <p class="title">Single-zone configuration</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>single_zone.enabled</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Enabled</p>
+              <div class="description"><p>Whether to allocate nodes on the same Availability Zone or spread across zones available.</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div class="param"><p class="name"><strong>private_access</strong></p><p><code class="type">object</code></p></div>
         <p class="title">Allow access to selected service ports from private networks</p>
         
