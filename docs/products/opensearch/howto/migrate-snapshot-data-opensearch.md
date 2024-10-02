@@ -26,7 +26,7 @@ Before you begin, ensure that:
 - You have an active Aiven account with a configured project.
 - A target Aiven for OpenSearch service within your project.
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier, or
-  from OpenSearch 1.x/2.x, and is compatible with your target service.
+  from OpenSearch 1.x/2.x, and it is not newer than the target service version.
 - Optional: To verify the compatibility of your snapshot for migration, run
   the `pre_snapshot_checks.py` script from the
   [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/pre_snapshot_checks.py).
