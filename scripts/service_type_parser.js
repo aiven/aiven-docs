@@ -2,11 +2,12 @@
 // Generates a Markdown file from the given service's description.
 // The output is meant to be included in docs pages such as docs/products/m3db/reference/advanced-params.md
 //
-
+const {program} = require('commander');
 const axios = require('axios');
 const fs = require('fs');
 const handlebars = require('handlebars');
 
+// Helper for formatting parameter details
 handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var name = options.hash.name;
   var parent = options.hash.parent;
@@ -40,10 +41,7 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   return new handlebars.SafeString(html);
 });
 
-handlebars.registerHelper('or', function (a, b) {
-  return a || b;
-});
-
+// Replaces specific Unicode characters
 function replaceUnicode(content) {
   const codeMappings = {
     '&#x27;': "'",
@@ -59,13 +57,34 @@ function replaceUnicode(content) {
   return replacedContent;
 }
 
-async function fetchData(serviceName, outputFileName) {
+// Reads JSON file from the specified filepath
+function readJsonFile(filepath) {
   try {
-    const response = await axios.get('https://api.aiven.io/v1/service_types');
-    const data = response.data;
+    const fileContent = fs.readFileSync(filepath, 'utf-8');
+    return JSON.parse(fileContent);
+  } catch (error) {
+    console.error('⚠️ Error reading JSON file:', error.message);
+    process.exitCode = 1;
+    return null;
+  }
+}
 
-    // Find the service by name
-    const selectedService = data.service_types[serviceName];
+async function fetchData(serviceName, outputFileName, filepath) {
+  // Read from the URL or a local file
+  let data;
+  let selectedService;
+  try {
+    if (filepath) {
+      data = readJsonFile(filepath);
+      if (!data) {
+        return;
+      }
+    } else {
+      // Fetch from remote API
+      const response = await axios.get('https://api.aiven.io/v1/service_types');
+      data = response.data;
+    }
+    selectedService = data.service_types[serviceName];
 
     if (!selectedService) {
       console.error(`🤷‍♂️ Service '${serviceName}' not found.`);
@@ -114,17 +133,20 @@ async function fetchData(serviceName, outputFileName) {
 
     console.log(`👌 Markdown content written to ${outputFileName}`);
   } catch (error) {
-    console.error('⚠️ Error fetching data:', error.message);
+    console.error('⚠️ Error processing data:', error.message);
   }
 }
 
-// Read the service name and output file name from the command-line arguments
-const [, , serviceName, outputFileName] = process.argv;
+program
+  .argument('<serviceName>', 'Name of the service')
+  .argument('<outputFileName>', 'Output file name for the Markdown content')
+  .option(
+    '--filepath <filepath>',
+    'Path to the JSON file containing service data. If unspecified, the script fetches data on the remote defintion.',
+  )
+  .action((serviceName, outputFileName, options) => {
+    fetchData(serviceName, outputFileName, options.filepath);
+  });
 
-// Check if both service name and output file name are provided
-if (!serviceName || !outputFileName) {
-  console.error('⚠️ Provide a _service name_ AND an output file name.');
-} else {
-  // Call the async function with the provided service name and output file name
-  fetchData(serviceName, outputFileName);
-}
+// Parse the command-line arguments
+program.parse(process.argv);
