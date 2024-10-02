@@ -481,6 +481,7 @@ const sidebars: SidebarsConfig = {
             'tools/cli/vpc',
           ],
         },
+        'tools/query-optimizer',
       ],
     },
     {
@@ -1430,7 +1431,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Aiven for MySQL',
+          label: 'Aiven for MySQL®',
           link: {
             type: 'doc',
             id: 'products/mysql',

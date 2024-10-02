@@ -80,7 +80,7 @@ To upgrade a PostgreSQL service:
     1.  After completion of the full backup, new standby nodes are
         created for services with more than one node.
     1.  If the service is a configured to have a
-        [read-only replica service](create-read-replica), the replica service will now be upgraded to the
+        [read-only replica service](/docs/products/postgresql/howto/create-read-replica), the replica service will now be upgraded to the
         same version using the very same process. Read-only replicas
         remain readable during the upgrade of the primary service, but
         will go offline for the upgrade at this point.

@@ -6,8 +6,14 @@ keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import FAQ from "@site/static/includes/faq-ai.md"
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
+
+:::note
+For one-time query optimizations when you do not run an Aiven for PostgreSQL® service,
+use the [standalone SQL query optimizer][optimizer].
+:::
 
 ## Artificial intelligence recommendations
 
@@ -26,11 +32,19 @@ To optimize a query automatically:
 1. In the **Query optimization report** window, see the optimization suggestion and apply
    the suggestion by running the provided SQL queries.
 
-   <!-- :::note
-   - To display alternative optimization recommendations, click **Advanced options**.
+   - To display potential alternative optimization recommendations, click **Advanced options**.
    - To display the diff view, click **Query diff**.
-   - To display explanations about the optimization, click **optimization details**.
-   ::: -->
+   - To display explanations about the optimization, click **Optimization details**.
+
+:::note
+The quality of the optimization suggestions is proportional to the amount of
+data collected about the performance of your database.
+:::
+
+<details>
+  <summary>Frequently asked questions</summary>
+  <FAQ/>
+</details>
 
 ## Manual optimization
 
@@ -68,16 +82,19 @@ availability setup in the same cloud region.
 
 To reduce the effect of slow queries on the primary node, you can
 redirect read-only queries to the additional
-[read-only](create-read-replica) nodes by
+[read-only](/docs/products/postgresql/howto/create-read-replica) nodes by
 directly connecting via the **read-only replica URL**.
 
 ### Move read-only queries to a remote read-only replica
 
 You can also create a
-[remote read-only replica](create-read-replica) service in the same or a different
+[remote read-only replica](/docs/products/postgresql/howto/create-read-replica) service in the same or a different
 cloud or region that you can use to reduce the query load on the primary service
 for read-only queries.
 
 ## Related pages
 
 - [Identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
+- [Standalone query optimizer][optimizer]
+
+[optimizer]: /docs/tools/query-optimizer
