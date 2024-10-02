@@ -23,14 +23,14 @@ metadata and must be reapplied.
 - Python 3.11 or higher installed
 - Ensure all data indices and the `.opendistro-ism-config` index are restored from the
   snapshot
-- The snapshot was restored with `include_global_state: true`
+- The snapshot was taken with `include_global_state: true`
 
 :::warning
 
 - **Snapshot must include global state**
-  Ensure the snapshot was restored with `include_global_state: true`. If it was
-  restored without the global state, the ISM policy assignments are not available in the
-  cluster metadata, and the script fails to reapply the policies.
+  Ensure the snapshot was **taken** with `include_global_state: true`. If the snapshot
+  was created without the global state, the ISM policy assignments will not be available
+  in the cluster metadata, and the script will fail to reapply the policies.
 
 - **Script can only be run once**
   OpenSearch clears the cluster metadata with ISM policy assignments after the policies

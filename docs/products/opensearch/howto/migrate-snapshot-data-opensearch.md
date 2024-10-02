@@ -9,10 +9,6 @@ import TabItem from '@theme/TabItem';
 
 Aiven for OpenSearch lets you to restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
 
-Aiven supports snapshot restoration from Google Cloud Storage (GCS), Amazon S3, and
-Microsoft Azure. Additionally, you can restore data from Oracle Cloud Infrastructure
-(OCI) or other S3-compatible repositories using the S3 repository type.
-
 ## Supported cloud providers
 
 Aiven for OpenSearch supports restoring snapshots from the following cloud providers:
@@ -20,7 +16,8 @@ Aiven for OpenSearch supports restoring snapshots from the following cloud provi
 - Google Cloud Storage (GCS)
 - Amazon S3
 - Microsoft Azure
-- S3-compatible services. For example, Oracle Cloud Infrastructure
+- S3-compatible services, such as Oracle Cloud Infrastructure (OCI) or any other
+  S3-compatible repository
 
 ## Prerequisites
 
@@ -28,17 +25,18 @@ Before you begin, ensure that:
 
 - You have an active Aiven account with a configured project.
 - A target Aiven for OpenSearch service within your project.
-- Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier and is
-  compatible with your target service.
+- Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier, or
+  from OpenSearch 1.x/2.x, and is compatible with your target service.
+- Optional: o verify the compatibility of your snapshot for migration, run
+  the `pre_snapshot_checks.py` script from the
+  [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/pre_snapshot_checks.py).
 
 :::note
-
-Ensure the snapshot includes the global state by setting `include_global_state: true`
-during creation. Without this, ISM policies and other cluster metadata
-will not be restored, and you may need to manually reconfigure these settings after the
-migration. For more details, see
+When creating the snapshot, set `include_global_state: true` to include the global
+state, which contains important metadata like aliases and templates. If the snapshot
+doesn’t include the global state, setting `include_global_state: true` during migration
+won’t work. For more details, see
 [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
-
 :::
 
 ### Gather required parameters
@@ -132,7 +130,7 @@ You can either wait for the backup to finish or contact
 ### Amazon S3
 
 <Tabs groupId="method">
-<TabItem value="api" label="API" default>
+<TabItem value="api" label="Aiven API" default>
 
 ```bash
 curl --request PUT \
@@ -154,7 +152,7 @@ curl --request PUT \
 ```
 
 </TabItem>
-<TabItem value="cli" label="CLI">
+<TabItem value="cli" label="Aiven CLI">
 
 ```bash
 avn service update \
@@ -174,7 +172,7 @@ avn service update \
 ### Google Cloud Storage (GCS)
 
 <Tabs groupId="method">
-<TabItem value="api" label="API" default>
+<TabItem value="api" label="Aiven API" default>
 
 ```bash
 curl --request PUT \
@@ -194,7 +192,7 @@ curl --request PUT \
 ```
 
 </TabItem>
-<TabItem value="cli" label="CLI">
+<TabItem value="cli" label="Aiven CLI">
 
 ```bash
 avn service update \
@@ -212,7 +210,7 @@ avn service update \
 ### Microsoft Azure
 
 <Tabs groupId="method">
-<TabItem value="api" label="API" default>
+<TabItem value="api" label="Aiven API" default>
 
 ```bash
 curl --request PUT \
@@ -233,7 +231,7 @@ curl --request PUT \
 ```
 
 </TabItem>
-<TabItem value="cli" label="CLI">
+<TabItem value="cli" label="Aiven CLI">
 
 ```bash
 avn service update \
@@ -252,7 +250,7 @@ avn service update \
 ### S3-Compatible Services
 
 <Tabs groupId="method">
-<TabItem value="api" label="API" default>
+<TabItem value="api" label="Aiven API" default>
 
 ```bash
 curl --request PUT \
@@ -275,7 +273,7 @@ curl --request PUT \
 ```
 
 </TabItem>
-<TabItem value="cli" label="CLI">
+<TabItem value="cli" label="Aiven CLI">
 
 ```bash
 avn service update \
@@ -293,19 +291,29 @@ avn service update \
 </TabItem>
 </Tabs>
 
+:::note
+The restore call’s return value may be large and contain details that are not
+immediately relevant. You can ignore it unless troubleshooting specific issues.
+:::
+
 ## Monitor the migration
 
 Check migration status using this API request:
 
 ```bash
 curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/migration" \
-  -H "Authorization: Bearer API_TOKEN"
+  -H "Authorization: Bearer API_TOKEN" | jq
 ```
 
 Parameters:
 
 - `PROJECT_NAME`: The name of your Aiven project.
 - `SERVICE_NAME`: The name of your Aiven for OpenSearch service.
+
+:::note
+Use `jq` to format the JSON output for easier readability. If `jq` is not installed,
+follow the [installation guide](https://stedolan.github.io/jq/download/).
+:::
 
 :::note
 During the snapshot restore process, indices are temporarily closed and are not
@@ -317,35 +325,50 @@ displayed in the user interface. Once the restore is complete, they are reopened
 Ensure that your data has been restored successfully by listing the indices and checking
 the document count for your migrated data.
 
-To view all indices in your Aiven for OpenSearch service, run the following command,
+### Script-based validation
+
+To verify migration results, run the `compare_migration_validation_data.py` script
+from [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
+to compare indices, document counts, aliases, and ISM policies between two datasets.
+
+```bash
+python compare_migration_validation_data.py file1.json file2.json
+```
+
+### Command-based validation
+
+To verify indices in your Aiven for OpenSearch service, run the following command,
 replacing `SERVICE_URL` with your service's URL:
 
 ```bash
 curl $SERVICE_URL/_cat/indices?v&expand_wildcards=all
 ```
 
-This command returns detailed information about all indices, including the number of
-documents, shards, and index size. For example:
-
-| Status | Index Name                           | UUID                                | Shards | Replicas | Documents | Deleted Docs | Size   | Primary Size |
-|--------|--------------------------------------|-------------------------------------|--------|----------|-----------|--------------|--------|--------------|
-| Green  | clustermember_correlation_v1-002573  | OLj34vDHTX-rIXCz3s8W7A              | 4      | 1        | 57        | 4            | 5.7mb  | 2.8mb        |
-| Green  | clustermember_correlation_v1-002574  | j7obT9rXS-C0LJOuyulCfA              | 4      | 1        | 1         | 0            | 240.7kb| 120.3kb      |
-| Green  | clustermember_correlation_v1-002575  | KG7lWPK2SrOMgMuJYUscyg              | 4      | 1        | 447       | 56           | 24.7mb | 12.3mb       |
-
-To list all aliases for your indices, run the following command:
+To view all aliases for your indices, run:
 
 ```bash
 curl $SERVICE_URL/_cat/aliases?v&expand_wildcards=all
 ```
 
-Compare the outputs from both the source and target services to ensure that document
+Compare the outputs from the source and target services to ensure that document
 counts and aliases match after the migration.
 
 ## Complete the migration
 
 After the restoration process is complete, Aiven for OpenSearch automatically deletes
 the snapshot repository used during the migration to clean up resources.
+
+### Reapply ISM policies and security configurations
+
+After restoring your data:
+
+- **Reapply ISM policies**: Reapply any Index State Management (ISM) policies to the
+  restored indices. For more information, see
+  [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies).
+
+- **Update security configurations**: Review and reconfigure any security settings,
+  including OpenDistro security configurations. For more details, see
+  [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
 
 ## Backup management during migration
 
@@ -367,7 +390,5 @@ During the migration process, you can encounter issues such as:
 
 ## Related pages
 
-- [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)
-- [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)
 - [Aiven for OpenSearch documentation](/docs/products/opensearch)
 - [Elasticsearch snapshot and restore guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)
