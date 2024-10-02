@@ -310,14 +310,17 @@ Parameters:
 - `PROJECT_NAME`: The name of your Aiven project.
 - `SERVICE_NAME`: The name of your Aiven for OpenSearch service.
 
-:::note
 Use `jq` to format the JSON output for easier readability. If `jq` is not installed,
 follow the [installation guide](https://stedolan.github.io/jq/download/).
-:::
 
 :::note
-During the snapshot restore process, indices are temporarily closed and are not
-displayed in the user interface. Once the restore is complete, they are reopened.
+
+- The initial migration status might not be available immediately. If you receive a
+  404 response, it means the migration status is delayed, not failed. Try again
+  later to retrieve the status.
+- During the snapshot restore process, indices are temporarily closed and are not
+  displayed in the user interface. Once the restore is complete, they are reopened.
+
 :::
 
 ## Verify the migration

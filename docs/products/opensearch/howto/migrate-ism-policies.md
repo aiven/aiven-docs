@@ -52,6 +52,16 @@ section in [Migrate data to Aiven for OpenSearch® using snapshots](/docs/produc
 The script retrieves the ISM policy assignments stored in the cluster state and
 reapplies them to the corresponding indices.
 
+:::warning
+**Potential ISM policy restore error**
+Restoring certain ISM policies may cause an error, such as when a rollover index
+(for example, `x-001` to `x-002`) already exists from a previous snapshot reload. This
+error can prevent secondary ISM policies, like deleting index `x-001`, from being
+applied. Ensure indices from previous rollovers or other similar situations are
+handled correctly before reapplying ISM policies.
+:::
+
+
 To reapply ISM policies to indices in Aiven for OpenSearch:
 
 1. Download the script from the
