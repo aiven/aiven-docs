@@ -46,6 +46,12 @@ Use our fully managed services to stream, store, or analyze your data. Deploy in
     description="The object-relational database with exentions and Aiven's AI capabilities."
   />
   <Card
+    to="/docs/products/alloydbomni"
+    iconComponent={AlloyDBOmni}
+    title="Aiven for AlloyDB Omni"
+    description="The high-performance PostgreSQL-compatible database with columnar engine and built-in AI capabilities"
+  />
+  <Card
     to="/docs/products/mysql"
     iconComponent={MySQL}
     title="Aiven for MySQL"
@@ -68,12 +74,6 @@ Use our fully managed services to stream, store, or analyze your data. Deploy in
     iconComponent={Cassandra}
     title="Aiven for Apache Cassandra®"
     description="The distributed NoSQL database providing scalability, high availability, and excellent fault tolerance"
-  />
-  <Card
-    to="/docs/products/alloydbomni"
-    iconComponent={AlloyDBOmni}
-    title="Aiven for AlloyDB Omni"
-    description="The high-performance PostgreSQL-compatible database with columnar engine and built-in AI capabilities"
   />
 </GridContainer>
 
