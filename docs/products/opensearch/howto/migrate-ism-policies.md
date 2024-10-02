@@ -27,12 +27,13 @@ metadata and must be reapplied.
 
 :::warning
 
-- **Snapshot must include global state**
-  Ensure the snapshot was **taken** with `include_global_state: true`. If the snapshot
+- **Snapshot must include global state**:
+  Ensure the snapshot is **created** with `include_global_state: true`. If the snapshot
   was created without the global state, the ISM policy assignments will not be available
   in the cluster metadata, and the script will fail to reapply the policies.
 
-- **Script can only be run once**
+
+- **Script can only be run once**:
   OpenSearch clears the cluster metadata with ISM policy assignments after the policies
   are applied. This means the script can only be run once.
 

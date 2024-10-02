@@ -34,8 +34,8 @@ Before you begin, ensure that:
 :::note
 When creating the snapshot, set `include_global_state: true` to include the global
 state, which contains important metadata like aliases and templates. If the snapshot
-doesn’t include the global state, setting `include_global_state: true` during migration
-won’t work. For more details, see
+does not include the global state, setting `include_global_state: true` during migration
+will not work. For more details, see
 [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
 :::
 
