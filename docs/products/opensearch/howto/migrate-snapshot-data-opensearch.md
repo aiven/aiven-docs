@@ -315,9 +315,9 @@ follow the [installation guide](https://stedolan.github.io/jq/download/).
 
 :::note
 
-- The initial migration status might not be available immediately. If you receive a
-  404 response, it means the migration status is delayed, not failed. Try again
-  later to retrieve the status.
+- The initial migration status might not be immediately available. If you receive a
+  404 response, this indicates a delay, not a failure. Try again later to retrieve
+  the status.
 - During the snapshot restore process, indices are temporarily closed and are not
   displayed in the user interface. Once the restore is complete, they are reopened.
 
