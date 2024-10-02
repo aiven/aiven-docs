@@ -23,25 +23,45 @@ metadata and must be reapplied.
 - Python 3.11 or higher installed
 - Ensure all data indices and the `.opendistro-ism-config` index are restored from the
   snapshot
-- The snapshot was restored with `include_global_state: true`
+- The snapshot was taken with `include_global_state: true`
 
 :::warning
 
-- **Snapshot must include global state**
-  Ensure the snapshot was restored with `include_global_state: true`. If it was
-  restored without the global state, the ISM policy assignments are not available in the
-  cluster metadata, and the script fails to reapply the policies.
+- **Snapshot must include global state**:
+  Ensure the snapshot is **created** with `include_global_state: true`. If the snapshot
+  was created without the global state, the ISM policy assignments will not be available
+  in the cluster metadata, and the script will fail to reapply the policies.
 
-- **Script can only be run once**
+
+- **Script can only be run once**:
   OpenSearch clears the cluster metadata with ISM policy assignments after the policies
   are applied. This means the script can only be run once.
 
 :::
 
+## Validate index sync before reapplying ISM policies
+
+Before reapplying ISM policies, ensure the indices are synchronized between the
+source and target services. Check document counts to confirm they match.
+
+For more details, see the
+[verify the migration](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration)
+section in [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration).
+
 ## Reapply ISM policies
 
 The script retrieves the ISM policy assignments stored in the cluster state and
 reapplies them to the corresponding indices.
+
+:::warning
+**Potential ISM policy restore error**
+Restoring certain ISM policies may cause an error, such as when a rollover index
+(for example, `x-001` to `x-002`) already exists from a previous snapshot reload. This
+error can prevent secondary ISM policies, like deleting index `x-001`, from being
+applied. Ensure indices from previous rollovers or other similar situations are
+handled correctly before reapplying ISM policies.
+:::
+
 
 To reapply ISM policies to indices in Aiven for OpenSearch:
 
@@ -67,6 +87,15 @@ To reapply ISM policies to indices in Aiven for OpenSearch:
    python avn-re-apply-ism-policies.py --config path-to-config-file
    ```
 
+## Re-running the ISM script
+
+You can rerun the ISM script if needed. Use the --force option to bypass the check
+that prevents it from running more than once.
+
+:::note
+Run the ISM script only after completing all data migration.
+:::
+
 ## Monitor ISM task progress
 
 Once ISM policies are reapplied, index lifecycle management tasks like rollovers,
@@ -75,7 +104,7 @@ policies are enforced correctly, run the following command and replace `SERVICE_
 with your Aiven for OpenSearch service's URL:
 
 ```bash
-curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain?pretty&size=100"=100"
+curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain?pretty&size=100"
 ```
 
 Alternatively, you can verify the status of individual indices:
