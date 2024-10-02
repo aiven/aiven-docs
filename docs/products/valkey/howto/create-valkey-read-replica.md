@@ -22,8 +22,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 ## Create a read replica
 
-<Tabs>
-<TabItem value="1" label="Aiven Console" groupId="group1" default>
+<Tabs groupId="method">
+<TabItem value="1" label="Aiven Console">
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), select your project,
    and select your Aiven for Valkey service.
@@ -37,7 +37,7 @@ The read replica is listed in your project services and can be accessed from the
 service type is identified by chips labeled **Primary** or **Replica** at the top.
 
 </TabItem>
-<TabItem value="2" label="Aiven CLI" groupId="group1">
+<TabItem value="2" label="Aiven CLI">
 
 To create a read replica using the Aiven CLI, use the following command with placeholders:
 
@@ -54,7 +54,7 @@ Parameters:
 - `REPLICA_SERVICE_NAME`: Replica service name.
 
 </TabItem>
-<TabItem value="3" label="Aiven API" groupId="group1">
+<TabItem value="3" label="Aiven API">
 
 To create a read replica for your Aiven for Valkey service via API, use the following
 command:
@@ -94,8 +94,8 @@ Parameters:
 You can promote your read replica to a primary service. After promotion, the replica
 becomes an independent primary service, disconnected from the original.
 
-<Tabs>
-<TabItem value="1" label="Aiven Console" groupId="group1" default>
+<Tabs groupId="method">
+<TabItem value="1" label="Aiven Console">
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select your Aiven for
    Valkey service.
@@ -106,7 +106,7 @@ becomes an independent primary service, disconnected from the original.
 1. In the confirmation dialog, click **Promote**.
 
 </TabItem>
-<TabItem value="2" label="Aiven CLI" groupId="group1">
+<TabItem value="2" label="Aiven CLI">
 
 To promote the replica to primary using the Aiven CLI:
 
@@ -138,7 +138,7 @@ To promote the replica to primary using the Aiven CLI:
    - `<integration_id>`: The integration ID obtained in the previous step.
 
 </TabItem>
-<TabItem value="3" label="Aiven API" groupId="group1">
+<TabItem value="3" label="Aiven API">
 
 To promote the replica to primary using the Aiven API:
 
