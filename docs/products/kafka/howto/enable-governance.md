@@ -1,5 +1,5 @@
 ---
-title:  Enable governance for Aiven for Apache Kafka®
+title: Enable governance for Aiven for Apache Kafka®
 sidebar_label: Enable governance
 limited: true
 ---
@@ -32,6 +32,13 @@ select specific services to be governed through the Apache Kafka governance sett
   it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
 - Ensure you have [super admin](/docs/platform/howto/make-super-admin) permissions to
   enable governance.
+
+:::note
+**Application token requirements**: The [application token](/docs/platform/concepts/authentication-tokens)
+needs at least **developer rights** to the project when using the Aiven Console for governance.
+If all resources are created through Terraform, ownership is automatically assigned,
+and the token's permissions won't be an issue.
+:::
 
 ## Enable governance
 
@@ -86,7 +93,7 @@ Depending on your workflow, choose between:
 :::note
 When using Terraform, all governance actions must be performed through Terraform. The
 Aiven Console allows you to view requests but does not support operations such as
-approving or declining them
+approving or declining them.
 :::
 
 1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
