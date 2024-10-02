@@ -93,7 +93,7 @@ policies are enforced correctly, run the following command and replace `SERVICE_
 with your Aiven for OpenSearch service's URL:
 
 ```bash
-curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain?pretty&size=100"=100"
+curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain?pretty&size=100"
 ```
 
 Alternatively, you can verify the status of individual indices:

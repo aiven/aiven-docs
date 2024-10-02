@@ -27,7 +27,7 @@ Before you begin, ensure that:
 - A target Aiven for OpenSearch service within your project.
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier, or
   from OpenSearch 1.x/2.x, and is compatible with your target service.
-- Optional: o verify the compatibility of your snapshot for migration, run
+- Optional: To verify the compatibility of your snapshot for migration, run
   the `pre_snapshot_checks.py` script from the
   [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/pre_snapshot_checks.py).
 
@@ -94,7 +94,7 @@ Information specific to cloud providers:
 
   - `endpoint`: Service endpoint for S3-compatible services
   - `access_key`: Access key for the S3-compatible service
-  - `secret_key`**: Secret key for the S3-compatible service
+  - `secret_key`: Secret key for the S3-compatible service
   - `region`: Region or endpoint-specific region
   - `bucket`, `base_path`, `snapshot_name`: Bucket details and snapshot name
   - `server_side_encryption`, `compress`, `chunk_size`: Optional. Settings
