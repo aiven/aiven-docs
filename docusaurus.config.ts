@@ -251,7 +251,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. M3, M3 Aggregator, M3 Coordinator, OpenSearch, PostgreSQL, Valkey, MySQL, Grafana, Terraform, and Kubernetes are trademarks and property of their respective owners. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
+      copyright: `Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. M3, M3 Aggregator, ClickHouse, OpenSearch, AlloyDB Omni, PostgreSQL, MySQL, InfluxDB, Grafana, Dragonfly, Valkey, Terraform, and Kubernetes are trademarks and property of their respective owners. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
     },
     prism: {
       theme: prismThemes.nightOwl,
