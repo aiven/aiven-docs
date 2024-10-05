@@ -1,10 +1,14 @@
 ---
 title: Add Okta as an identity provider
 sidebar_label: Okta
-keywords: [SAML, SSO]
 ---
+<!-- vale off -->
+import IdPStep1 from "@site/static/includes/idp-step1.md";
+import IdPStep3 from "@site/static/includes/idp-step3.md"
 
-Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](/docs/platform/howto/okta-user-provisioning-with-scim) with SCIM.
+<!-- vale on -->
+
+Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](#configure-user-provisioning) with SCIM.
 
 ## Supported features
 
@@ -14,12 +18,9 @@ Use [Okta](https://www.okta.com/) to give your organization users single sign-on
 For more information on the listed features, visit the
 [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 
-## Prerequisite steps in Aiven Console
+<IdPStep1/>
 
-Add Okta as a SAML
-[identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console).
-
-## Configure SAML on Okta {#configure-saml-okta}
+## Step 2. Configure SAML on Okta {#configure-saml-okta}
 
 1.  In the [Okta administrator console](https://login.okta.com/), go to
     **Applications** > **Applications**.
@@ -30,16 +31,22 @@ Add Okta as a SAML
 1. In the **Advanced Sign-on Settings** set the **Metadata URL** and **ACS URL** to
    the URLs copied from the Aiven Console.
 1. Set the **Default Relay State** for the console you use:
-   - For the Aiven Console: `https://console.aiven.io`
-   - For the Aiven GCP Marketplace Console: `https://console.gcp.aiven.io/`
-   - For the Aiven AWS Marketplace Console: `https://console.aws.aiven.io/`
+   - For the Aiven Console: https://console.aiven.io
+   - For the Aiven GCP Marketplace Console: https://console.gcp.aiven.io/
+   - For the Aiven AWS Marketplace Console: https://console.aws.aiven.io/
 1. Click **Save**.
 1. In the **SAML 2.0** section, click **More details**.
 1. Copy the **Sign on URL**, **Issuer** URL, and the **Signing Certificate**.
-   You will use these to configure the IdP in Aiven.
-1. Go back to the Aiven Console to
-[configure the IdP](/docs/platform/howto/saml/add-identity-providers#configure-idp-aiven-console)
-and complete the setup.
+   You'll use these to configure the IdP in Aiven.
+
+## Step 3. Finish the configuration in Aiven
+
+Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
+draft, you can open the settings by clicking the name of the IdP.
+
+1. Enter the **IDP URL** from your identity provider.
+1. Enter the **Entity Id** from your identity provider.
+<IdPStep3/>
 
 ## Log in with Okta
 
@@ -48,6 +55,47 @@ To log in to the Aiven Console using Okta:
 1. On the [login page](https://console.aiven.io/login),
    enter your Okta email address.
 1. Click **Log in** and **Log in with Okta**.
+
+## Configure user provisioning
+
+You can automate user provisioning with Okta through
+System for Cross-domain Identity Management (SCIM). This means you can manage your users
+and their profiles in one place, Okta, and push those changes to the Aiven platform.
+
+Aiven's integration with Okta supports these features:
+
+- **Push new users**: Users created in Okta are automatically created as managed users
+  in Aiven.
+- **Push profile updates**: User profile updates in Okta are pushed to Aiven. Profiles
+  for these users cannot be changed in Aiven.
+- **Push user deactivation**: Users that are deactivated or removed in Okta are
+  deactivated in Aiven. You can manually delete users in Aiven after they are deactivated.
+- **Push groups**: Groups created or updated in Okta are created and updated in Aiven.
+- **Sync passwords**: Automatically synchronizes users' Aiven passwords with their
+  Okta passwords.
+
+### Prerequisites
+
+- [Add a verified domain to your organization](/docs/platform/howto/manage-domains)
+- [Add Okta as an identity provider](/docs/platform/howto/saml/add-okta-idp)
+
+### Configure user provisioning for Okta
+
+1. In Okta, click **Applications** and go to the Aiven application.
+1. Click **Provisioning**.
+1. Click **Settings** > **Integration** > **Configure API Integration**.
+1. Select **Enable API Integration**.
+1. In the **API Token field**, paste the **Access token** from the Aiven Console.
+1. Click **Test API Credentials** to confirm the connection is working
+   and save the configuration.
+   :::important
+   Don't enable **Import Groups**. Aiven groups that aren't managed by SCIM cannot
+   be imported to Okta.
+   :::
+1. Click **Sign On**.
+1. In the **Credentials Details** section, select **Email** as the
+   **Application username format**.
+1. Click **Save**.
 
 ## Troubleshooting
 
