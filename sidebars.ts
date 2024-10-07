@@ -111,6 +111,10 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'User and access management',
+          link: {
+            type: 'doc',
+            link: 'platform/concepts/user-access-management',
+          },
           items: [
             {
               type: 'category',
