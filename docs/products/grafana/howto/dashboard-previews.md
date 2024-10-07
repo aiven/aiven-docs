@@ -1,58 +1,47 @@
 ---
 title: Dashboard preview for Aiven for Grafana®
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-Grafana's Dashboard Previews feature is a great way to get an overview of all your dashboards.
-Instead of a list view of all your dashboards,
-you can now see a graphical representation for each dashboard
-configured.
+Grafana's dashboard previews provide a visual overview of your dashboards, displaying each configured dashboard as a graphical thumbnail.
 
-The dashboard previews feature is an opt-in beta feature available in
-Grafana 9.0+. This feature is disabled by default on the Aiven for
-Grafana® service.
-
-:::note
-Dashboard previews are not available for Hobbyist and Startup-1 plans.
-:::
+Dashboard previews are an optional beta feature available in Grafana 9.0+. By default,
+this feature is disabled on Aiven for Grafana® services.
 
 ## Enable dashboard previews
 
-To enable dashboard previews for your Aiven for Grafana service:
+1. In the [Aiven Console](https://console.aiven.io/), select your project and choose
+   your Aiven for Grafana® service.
 
-1.  In the [Aiven Console](https://console.aiven.io/), select your
-    project and choose your Aiven for Grafana® service.
+1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
 
-2.  In the service page, select **Service settings** from the sidebar.
+1. Scroll down to **Advanced configuration** and click **Configure**.
 
-3.  On the **Service settings** page, scroll down to the **Advanced
-    configuration** section, and click **Configure**.
+1. In the **Advanced configuration** window, click
+   <ConsoleIcon name="Add config options"/>.
 
-4.  In the **Advanced configuration** dialog, click **Add configuration
-    option**.
+1. Find and set `dashboard_previews_enabled` to **Enabled**.
 
-5.  Find and set `dashboad_previews_enabled` to **Enabled** position.
+1. Click **Save configuration**. The status next to `dashboard_previews_enabled` changes
+   to `synced`.
 
-6.  Click the **Save configuration**. You will notice the status next to
-    `dashboad_previews_enabled` change from `not synced` to `synced`.
+1. Click <ConsoleIcon name="overview"/>. From the **Connection information**, copy
+   the **Service URI** into your browser to open the Grafana login page.
 
-7.  Using the **Service URI**, open the Grafana login page.
+1. Enter the username and password from the **Connection information**, and click
+   **Log in**.
 
-8.  Enter the username and password, and click **Log in**.
-
-9.  Click **Dashboards** on the left side menu, and select the grid
-    layout to view dashboard previews of all the dashboards. Dashboard
-    previews are rendered as thumbnails and can be sorted
-    alphabetically.
+1. Click **Dashboards** in the left menu, and select the grid layout
+   to view dashboard previews. Previews are displayed as thumbnails and can be
+   sorted alphabetically.
 
     ![Dashboard previews on Grafana](/images/content/products/grafana/dashboard-previews-on-grafana.png)
 
 ## Limitations
 
--   Dashboard previews are not available for Hobbyist and Startup-1
-    plans.
--   Before downgrading your service plan to Hobbyist or Startup-1, where
-    dashboard previews are unavailable, you need first to disable it on
-    the current service.
+- Dashboard previews are not available for Hobbyist and Startup-1 plans.
+- Before downgrading your service plan to Hobbyist or Startup-1, first disable dashboard previews.
 
 ## Related pages
 

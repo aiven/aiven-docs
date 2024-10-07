@@ -6,6 +6,7 @@ sidebar_label: Overview
 import Card from "@site/src/components/AivenCard";
 import GridContainer from "@site/src/components/GridContainer";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
+import AI from "@site/static/images/logos/star-ai.svg";
 
 Interact with the Aiven platform with the following tools:
 
@@ -33,5 +34,11 @@ Interact with the Aiven platform with the following tools:
       iconName="tools"
       title="Aiven CLI"
       description="Discover our CLI."
+    />
+    <Card
+      to="/docs/tools/query-optimizer"
+      iconComponent={AI}
+      title="SQL query optimizer"
+      description="Use AI to optimize your queries."
     />
 </GridContainer>

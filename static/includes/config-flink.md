@@ -61,6 +61,28 @@
     </tr>
     <tr>
       <td>
+        <div class="param"><p class="name"><strong>pekko_ask_timeout_s</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>5</code></li><li>max: <code>60</code></li></ul></div>
+        <p class="title">Flink pekko.ask.timeout</p>
+        <div class="description"><p>Timeout in seconds used for all futures and blocking Pekko requests</p></div>
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>pekko_framesize_b</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>min: <code>1048576</code></li><li>max: <code>52428800</code></li></ul></div>
+        <p class="title">Flink pekko.framesize</p>
+        <div class="description"><p>Maximum size in bytes for messages exchanged between the JobManager and the TaskManagers</p></div>
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div class="param"><p class="name"><strong>privatelink_access</strong></p><p><code class="type">object</code></p></div>
         <p class="title">Allow access to selected service components through Privatelink</p>
         

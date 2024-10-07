@@ -42,5 +42,5 @@ page, just below the service's name.
 
 :::tip
 To have consistent query time across the globe, consider
-[creating several read-only replicas across different cloud provider/regions](create-read-replica)
+[creating several read-only replicas across different cloud provider/regions](/docs/products/postgresql/howto/create-read-replica)
 :::

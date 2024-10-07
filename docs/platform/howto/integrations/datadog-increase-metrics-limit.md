@@ -42,7 +42,7 @@ procedure:
 1. Find the `SERVICE_INTEGRATION_ID` for your Datadog integration with
 
    ```bash
-   avn sehrvice integration-list --project=PROJECT_NAME SERVICE_NAME
+   avn service integration-list --project=PROJECT_NAME SERVICE_NAME
    ```
 
 1. Change the value of `max_jmx_metrics` to the new LIMIT:

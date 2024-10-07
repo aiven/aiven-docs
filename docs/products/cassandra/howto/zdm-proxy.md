@@ -16,7 +16,7 @@ while write requests are forwarded to both clusters.
 
 For details on how ZDM Proxy works, see [Introduction to Zero
 Downtime
-Migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction).
+Migration](https://docs.datastax.com/en/data-migration/introduction.html).
 
 ## Prerequisites
 

@@ -145,7 +145,7 @@ through System for Cross-domain Identity Management (SCIM).
       to="/docs/platform/howto/manage-domains"
       iconName="clipboardCheck"
       title="Add a domain"
-      description="Add a verified domain to your organizatoin
+      description="Add a verified domain to your organization
       using a DNS TXT record or HTML file."
     />
     <Card

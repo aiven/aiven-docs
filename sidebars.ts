@@ -113,7 +113,7 @@ const sidebars: SidebarsConfig = {
           label: 'User and access management',
           link: {
             type: 'doc',
-            link: 'platform/concepts/user-access-management',
+            id: 'platform/concepts/user-access-management',
           },
           items: [
             {
@@ -474,6 +474,7 @@ const sidebars: SidebarsConfig = {
             'tools/cli/vpc',
           ],
         },
+        'tools/query-optimizer',
       ],
     },
     {
@@ -484,6 +485,43 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/services',
+        {
+          type: 'category',
+          label: 'Aiven for AlloyDB Omni',
+          link: {
+            id: 'products/alloydbomni',
+            type: 'doc',
+          },
+          items: [
+            'products/alloydbomni/get-started',
+            {
+              type: 'category',
+              label: 'Connect to service',
+              link: {
+                type: 'doc',
+                id: 'products/alloydbomni/connect/connect-services',
+              },
+              items: [
+                'products/alloydbomni/connect/connect-go',
+                'products/alloydbomni/connect/connect-node',
+                'products/alloydbomni/connect/connect-php',
+                'products/alloydbomni/connect/connect-python',
+                'products/alloydbomni/connect/connect-java',
+                'products/alloydbomni/connect/connect-psql',
+                'products/alloydbomni/connect/connect-pgadmin',
+                'products/alloydbomni/connect/connect-datagrip',
+                'products/alloydbomni/connect/connect-dbeaver',
+                'products/alloydbomni/connect/connect-rivery',
+                'products/alloydbomni/connect/connect-skyvia',
+                'products/alloydbomni/connect/connect-zapier',
+              ],
+            },
+            'products/alloydbomni/use-columnar-engine',
+            'products/alloydbomni/manage-credentials',
+            'products/alloydbomni/access-ai-models',
+            'products/alloydbomni/advanced-params',
+          ],
+        },
         {
           type: 'category',
           label: 'Aiven for Apache Cassandra®',
@@ -1423,7 +1461,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Aiven for MySQL',
+          label: 'Aiven for MySQL®',
           link: {
             type: 'doc',
             id: 'products/mysql',

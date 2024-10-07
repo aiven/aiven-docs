@@ -669,7 +669,7 @@
       <td>
         <div class="param"><p class="name"><strong>alerting_enabled</strong></p><p><code class="type">boolean</code></p></div>
         <p class="title">Enable or disable Grafana legacy alerting functionality. This should not be enabled with unified_alerting_enabled.</p>
-        
+        <div class="description"><p>DEPRECATED: setting has no effect with Grafana 11 and onward.</p></div>
         <table class="service-param-children">
           <tbody>
           </tbody>
