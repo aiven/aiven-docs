@@ -14,6 +14,6 @@ There are four types of users:
 - [Application users](/docs/platform/concepts/application-users): Non-human users intended
   for programmatic access to the platform.
 
-All users can be added to groups to help streamline the process of granting access
-to organization resources. You grant access with roles and permissions
-at the project level.
+All users can be added to [groups](/docs/platform/howto/manage-groups) to help streamline
+the process of granting access to organization resources. You grant access with
+[roles and permissions](/docs/platform/concepts/permissions) at the project level.
