@@ -87,29 +87,23 @@ You can migrate any Aiven service to a different VPC:
 
 When you move your service to a VPC, access from public networks is
 blocked by default. If you switch to public access, a separate endpoint
-is created with a public prefix. You can enable public Internet access
+is created with a public prefix. You can enable public internet access
 for your services by following the
 [Enable public access in a VPC](/docs/platform/howto/public-access-in-vpc) instructions.
 
-IP filtering is available for a service deployed to a VPC where both public and
-private access are allowed. We recommend that you use IP filtering when
-your VPC service is also exposed to the public internet.
+IP filtering is available for a service deployed to a VPC. It's recommended to
+[use IP filtering](/docs/platform/howto/restrict-access#restrict-access) when your VPC
+service is also exposed to the public internet.
 
 :::note
-**Public IP filters** are restricted via VPC. IP filters apply to
-publicly accessible endpoints only.
+If your service is within a VPC, the VPC configuration filters incoming traffic before the
+IP filter is applied.
 :::
 
 Safelisting applies to both internal and external traffic. If you
 safelist an external IP address and want to keep traffic flowing with
-the internal (peered) connections, make sure that you safelist the CIDR
-blocks of the peered networks as well to avoid disruptions to the
-service.
-
-To edit a service IP filtering:
-
-1. Open the <ConsoleLabel name="service settings"/> page.
-1. Click **Cloud and network** > <ConsoleLabel name="actions"/> > **Set public IP filters**.
+the internal (peered) connections, safelist the CIDR blocks of the peered networks as well
+to avoid disruptions to the service.
 
 ## Troubleshoot VPC connection issues
 

@@ -2,23 +2,22 @@
 title: Manage SSL connectivity
 ---
 
-Manage SSL connectivity for your Aiven for Caching service, including enabling secure connections and configuring stunnel for clients without SSL support.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
+Manage SSL connectivity for your Aiven for Caching service by enabling secure connections and configuring stunnel for clients without SSL support.
 
 ## Client support for SSL-encrypted connections
 
 ### Default support
 
-Aiven for Caching uses SSL encrypted connections by default. This is
-shown by the use of `rediss://` (with double `s`) prefix in the
+Aiven for Caching uses SSL encrypted connections by default. This is indicated by the
+`rediss://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
-:::tip
-The `Service URI` is available on the [Aiven console](https://console.aiven.io/).
-:::
-
-Since **Redis 6**, the `redis-cli` tool itself supports SSL connections;
-therefore, you can connect directly to your service using:
-
+Since **Redis 6**, the `redis-cli` tool supports SSL connections. You can connect directly
+to your service using:
 
 ```bash
 redis-cli -u rediss://username:password@host:port
@@ -30,9 +29,9 @@ Alternatively, you can use the third-party [Redli tool](https://github.com/IBM-C
 redli -u rediss://username:password@host:port
 ```
 
-Not every Redis client supports SSL-encrypted connections. In such cases, turning off or
-bypassing SSL is possible but **not recommended**. Use one of the following options to
-achieve this.
+Not every Redis client supports SSL-encrypted connections. In such cases, disabling or
+bypassing SSL is possible but **not recommended**. You can use one of the following
+options to achieve this.
 
 ## Set up `stunnel` process
 
@@ -71,38 +70,47 @@ For `service-level option`, the following parameters are configured:
 - `TIMEOUTclose => *seconds*`: Time to wait for `close_notify`.
 
 :::note
-Adjust settings according to your service. The **Overview** page lists your
-**Overview** > **Host** and **Overview** > **Port** for configuring the connect parameter.
+Adjust settings according to your service. On the <ConsoleLabel name="overview"/> page,
+the **Connection information** section lists your Host and Port to configure the
+connection.
 :::
 
-
-When SSL is in use, HAProxy is responsible for terminating the SSL connections before
-they get forwarded to Aiven for Caching. This process has a connection timeout set to
-12 hours, which is not configurable by users. If you allow long timeouts in
-Aiven for Caching, this SSL-terminating HAProxy may close the connection before
-the Aiven for Caching timeout expires. This timeout is independent of the
-Aiven for Caching timeout.
+HAProxy terminates SSL connections before forwarding them to Aiven for Caching. The
+HAProxy connection timeout is set to 300 seconds (5 minutes) by default, matching
+the `redis_timeout` value. This prevents idle connections from staying open too long. You
+can adjust the `redis_timeout` value in the service's **Advanced configuration** section
+in the [Aiven Console](https://console.aiven.io).
 
 ## Allow plain-text connections
 
-An alternative is disable database SSL allowing allow plain-text
-connections. To allow plain-text connections, you can change this
-setting on **Overview** in the **Advanced configuration** section, or
-using the
-[Aiven Command Line interface](/docs/tools/cli).
+As an alternative to SSL, you can enable plain-text connections.
+
+<Tabs groupId="ssl-config">
+<TabItem value="console" label="Aiven Console" default>
+
+1. In the service's <ConsoleLabel name="overview"/> page, click
+   <ConsoleLabel name="service settings"/>.
+1. Go to the **Advanced configuration** section.
+1. Set **redis_ssl** to `false`.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+To disable SSL on an existing Aiven for Caching service, use the following command,
+replacing `SERVICE_NAME `with your service name:
+
+```bash
+avn service update SERVICE_NAME -c "redis_ssl=false"
+```
+
+</TabItem>
+</Tabs>
 
 :::warning
 Enabling plain-text connections compromises the security of your Aiven for Caching
 service. Disabling SSL allows potential eavesdroppers to access sensitive credentials and data.
 :::
 
-To disable SSL on an existing caching instance, use the following Aiven CLI
-command substituting `<my-caching>` with your chosen service name when the service was created.
-
-```console
-avn service update <my-Caching> -c "Caching_ssl=false"
-```
-
-After executing the command, the `Service URI` changes to a new location and starts with
-the `Caching://` prefix (removing the extra 's'), indicating a direct connection to the
-Aiven for Caching service that does not use SSL.
+After these changes, the `Service URI` will change to a new URL, starting with
+the `redis://` prefix (removing the extra 's'). This indicates a direct, non-SSL
+connection to the Aiven for Caching service.

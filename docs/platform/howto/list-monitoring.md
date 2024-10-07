@@ -67,8 +67,6 @@ You can export logs and metrics **to an Aiven service**:
 - Send logs to [Aiven for M3](/docs/products/m3db).
 - Visualize logs with [Aiven for Grafana](/docs/products/grafana).
 
-You can also export the data **to external tools**, see [metrics integrations](/docs/platform/howto/list-monitoring).
-
 ## Set up alerts and notfications
 
 See [Manage project and service notifications](/docs/platform/howto/technical-emails).

@@ -4,7 +4,7 @@ title: Manage users in an organization
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Adding users to your organization lets you give them access to specific organizational units, projects, and services within that organization.
+Adding users to your organization lets you give them access to specific projects and services within that organization.
 
 ## Invite users to an organization
 

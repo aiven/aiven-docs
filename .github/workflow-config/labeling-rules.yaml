@@ -5,6 +5,10 @@ platform:
   - changed-files:
       - any-glob-to-any-file: 'docs/platform/**'
 
+service/alloydb_omni:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/alloydbomni/**'
+
 service/cassandra:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/cassandra/**'

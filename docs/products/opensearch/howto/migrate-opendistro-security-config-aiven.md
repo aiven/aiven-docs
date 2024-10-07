@@ -1,10 +1,10 @@
 ---
-title: Migrate Opendistro security configuration to Aiven for OpenSearch
-sidebar_label: Migrate Opendistro security configuration
+title: Migrate OpenDistro security configuration to Aiven for OpenSearch
+sidebar_label: Migrate OpenDistro security configuration
 limited: true
 ---
 
-Migrate your security configuration from an Opendistro service to Aiven for OpenSearch® using a migration script.
+Migrate your security configuration from an OpenDistro service to Aiven for OpenSearch® using a migration script.
 
 The `.opendistro_security` index, which stores security settings, cannot be restored
 directly from an external snapshot. Instead, you use a migration script that interacts
@@ -12,7 +12,7 @@ with the security REST API of both services.
 
 ## What is migrated
 
-The migration script transfers the security configuration from the source Opendistro
+The migration script transfers the security configuration from the source OpenDistro
 service to Aiven for OpenSearch. The following configurations are migrated:
 
 - Internal users (including passwords)
@@ -31,12 +31,12 @@ The following configurations are **not** migrated:
 
 Before starting the migration, ensure the following:
 
-- A machine with network access to both Opendistro and Aiven for OpenSearch services
+- A machine with network access to OpenDistro and Aiven for OpenSearch services
 - Python 3.11 or higher installed
 - [Security management](/docs/products/opensearch/howto/enable-opensearch-security)
   enabled on Aiven for OpenSearch
-- Admin user certificate and key from the source Opendistro service in PEM format
-- Opendistro security configuration version 2
+- Admin user certificate and key in PEM format from the source OpenDistro service
+- OpenDistro security configuration version 2
 - HTTPS enabled on both services (the script does not verify server certificates)
 
 :::note
@@ -44,21 +44,22 @@ Before starting the migration, ensure the following:
 - You need the admin user key and certificate to migrate internal users and their
   passwords. The password hash is fetched directly from the `.opendistro_security` index
   because the standard API endpoint doesn’t return it.
-- The script assumes HTTPS is enabled on both the source and target services.
+- Ensure HTTPS is enabled on the source and target services, as the script
+  assumes this setup.
 
 :::
 
 ## Migration steps
 
-Migrate your security configuration from Opendistro to Aiven for OpenSearch.
+Migrate your security configuration from OpenDistro to Aiven for OpenSearch.
 
 ### Access the migration script
 
-The migration script is available in the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py).
+Find the migration script in the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py).
 
 ### Create the migration configuration file
 
-Create a JSON configuration file with the connection details for the source (Opendistro)
+Create a JSON configuration file with the connection details for the source (OpenDistro)
 and target (Aiven for OpenSearch) services. Following is an example:
 
 ```json
@@ -95,7 +96,7 @@ it and marks it as unchanged.
 You can run the migration script multiple times, but keep the following in mind:
 
 - Previously migrated entries are not deleted from the target service.
-- Internal user data is updated each time the script is run because the Opendistro
+- Internal user data is updated each time the script is run because the OpenDistro
   API does not return password hashes. As a result, the script treats the data as if it
   has changed, even when it has not.
 

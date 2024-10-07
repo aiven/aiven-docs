@@ -110,6 +110,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>AI insights</b>
         </>
       );
+    case 'generativeai':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.performance} />{' '}
+          <b>Generative AI</b>
+        </>
+      );
     case 'querystatistics':
       return (
         <>

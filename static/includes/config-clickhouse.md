@@ -176,6 +176,17 @@
         </table>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>recovery_basebackup_name</strong></p><p><code class="type">string</code></p></div>
+        <p class="title">Name of the basebackup to restore in forked service</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   </tbody>
 </table>
     

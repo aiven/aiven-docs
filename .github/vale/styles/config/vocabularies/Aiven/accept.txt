@@ -191,6 +191,7 @@ npm
 NVMe
 OAuth
 Okta
+Omni
 onboarding
 OpenSearch
 OpenSearch Security
