@@ -1,5 +1,6 @@
 ---
 title: Use Google Private Service Connect with Aiven services
+early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -26,9 +27,11 @@ in Aiven tools. This applies to all clouds, including Google Cloud.
 
 ## Prerequisites
 
-Your Aiven service needs to be hosted in
-[a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the
-region where the connecting endpoint will be created.
+- Google Private Service Connect is an
+  [early availability](/docs/platform/concepts/beta_services#early-availability-) feature.
+- Your Aiven service needs to be hosted in
+  [a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the
+  region where the connecting endpoint will be created.
 
 :::note
 Private Service Connect endpoints are service specific. For each service
