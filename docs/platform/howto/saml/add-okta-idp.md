@@ -8,7 +8,7 @@ import IdPStep3 from "@site/static/includes/idp-step3.md"
 
 <!-- vale on -->
 
-Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](#configure-user-provisioning) with SCIM.
+Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](#optional-step-4-configure-user-provisioning) with SCIM.
 
 ## Supported features
 

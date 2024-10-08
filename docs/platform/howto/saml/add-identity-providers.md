@@ -21,7 +21,9 @@ instructions are also available for these specific providers:
 -   [JumpCloud](/docs/platform/howto/saml/add-jumpcloud-idp)
 -   [Microsoft Azure Active Directory](/docs/platform/howto/saml/add-azure-idp)
 -   [Okta](/docs/platform/howto/saml/add-okta-idp)
--   [OneLogin](/docs/platform/howto/saml/add-onelogin-idp)
+-   [OneLogin](/docs/platform/howto/saml/add-onelogin-idp)-
+
+For all IdPs, we recommend following [security best practices](#security).
 
 <IdPStep1/>
 
@@ -78,6 +80,9 @@ manually using URLs:
        1. Log in to the IdP.
        1. Complete the sign up process in the Aiven Console. The IdP is automatically linked
           to your Aiven user account and you can use it for all future logins.
+
+## Security
+
 
 ## Troubleshooting
 
