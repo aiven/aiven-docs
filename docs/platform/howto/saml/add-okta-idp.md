@@ -20,7 +20,7 @@ For more information on the listed features, visit the
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on Okta {#configure-saml-okta}
+## Step 2. Configure SAML on Okta
 
 1.  In the [Okta administrator console](https://login.okta.com/), go to
     **Applications** > **Applications**.
@@ -48,15 +48,7 @@ draft, you can open the settings by clicking the name of the IdP.
 1. Enter the **Entity Id** from your identity provider.
 <IdPStep3/>
 
-## Log in with Okta
-
-To log in to the Aiven Console using Okta:
-
-1. On the [login page](https://console.aiven.io/login),
-   enter your Okta email address.
-1. Click **Log in** and **Log in with Okta**.
-
-## Configure user provisioning
+## Optional: Step 4. Configure user provisioning
 
 You can automate user provisioning with Okta through
 System for Cross-domain Identity Management (SCIM). This means you can manage your users
@@ -74,12 +66,7 @@ Aiven's integration with Okta supports these features:
 - **Sync passwords**: Automatically synchronizes users' Aiven passwords with their
   Okta passwords.
 
-### Prerequisites
-
-- [Add a verified domain to your organization](/docs/platform/howto/manage-domains)
-- [Add Okta as an identity provider](/docs/platform/howto/saml/add-okta-idp)
-
-### Configure user provisioning for Okta
+To configure user provisioning for Okta:
 
 1. In Okta, click **Applications** and go to the Aiven application.
 1. Click **Provisioning**.
