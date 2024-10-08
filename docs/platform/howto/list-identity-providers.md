@@ -24,7 +24,9 @@ With automatic provisioning you don’t need to manually create organization use
 When adding an IdP you link it to the verified domain
 and can set up SCIM at the same time.
 
-### Limitations
+## Limitations
 
 - You can link each verified domain to only one IdP.
 - You should only make changes to user details in the IdP.
+
+## Security best practices
