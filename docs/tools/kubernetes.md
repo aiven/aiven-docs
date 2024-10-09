@@ -20,7 +20,8 @@ database.
 ### Requirements
 
 - You have access to a Kubernetes cluster where you can run the operator.
-- You have an Aiven account. If you don't have one yet, [sign up for free](https://console.aiven.io/signup).
+- You have an Aiven account. If you don't have one yet,
+  [sign up for free](https://console.aiven.io/signup).
 - To use the operator locally, we recommend using [**kind**](https://kind.sigs.k8s.io/).
   See [the installation guide](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 - To install the operator, we recommend [**Helm**](https://helm.sh/).
@@ -28,7 +29,8 @@ database.
 
 ### Install the Kubernetes® operator
 
-1. Optional: To manage the webhook TLS certificates used by our operator, install the `cert-manager`:
+1. Optional: To manage the webhook TLS certificates used by our operator,
+   install the `cert-manager`:
 
    ```bash
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
@@ -41,7 +43,8 @@ database.
 
    :::note
    - For GKE version >= 1.21 VPC users, add a firewall rule to explicitly allow
-     ingress to port 9443 for admission webhook. See [the Google Cloud docs](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules).
+     ingress to port 9443 for admission webhook. See
+     [the Google Cloud docs](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules).
 
    - If you are running a GKE _Autopilot_ cluster in Google Cloud Platform,
      use GKE version >=1.21 and install `cert-manager`
@@ -94,8 +97,8 @@ Your pod's status should be `Running`.
 Before creating a service, authenticate the operator with Aiven's API:
 
 1. [Create a token](/docs/platform/howto/create_authentication_token).
-1. Create the Kubernetes secret in the namespace which is going to be used to create your Aiven
-   services:
+1. Create the Kubernetes secret in the namespace which is going to be used
+   to create your Aiven services:
 
    ```bash
    kubectl create secret generic aiven-token --from-literal=token="<your-token>"
