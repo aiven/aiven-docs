@@ -30,6 +30,23 @@ Before you begin, ensure that:
 - Optional: To verify the compatibility of your snapshot for migration, run
   the `pre_snapshot_checks.py` script from the
   [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/pre_snapshot_checks.py).
+- Optional: If you want to verify the migration using our Script-based Validation
+  below, you need to take the initial data of the source cluster into a json file
+  before the data migration. Taking the data by running the
+  `get_migration_validation_data.py` script from the [[Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py).
+
+```bash
+python get_migration_validation_data.py --patterns "YOUR_INDEX_PATTERNS" --waitsec 30 --outfile file1.json --es_host
+```
+
+- Optiona: If you want to verify the migration using our Script-based Validation
+  below, you need to take the and take the data of the target cluster (Aiven
+  OpenSearch cluster) into a json file after the data migration.. Taking the data by running the
+  `get_migration_validation_data.py` script from the [[Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py).
+
+```bash
+python get_migration_validation_data.py --patterns "YOUR_INDEX_PATTERNS" --waitsec 30 --outfile file2.json --es_host
+```
 
 :::note
 When creating the snapshot, set `include_global_state: true` to include the global
