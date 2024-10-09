@@ -2,9 +2,8 @@
 title: Aiven Operator for Kubernetes®
 ---
 
-Aiven Operator for [Kubernetes®](https://kubernetes.io/) allows users to manage Aiven services through the Kubernetes® API by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+Manage Aiven services with [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/) by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 
-:::note[Supported services]
 Aiven Operator for Kubernetes® supports:
 
 - Aiven for Apache Kafka®
@@ -12,7 +11,6 @@ Aiven Operator for Kubernetes® supports:
 - Aiven for ClickHouse®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®
-:::
 
 ## Get started
 
@@ -95,7 +93,7 @@ Your pod's status should be `Running`.
 
 Before creating a service, authenticate the operator with Aiven's API:
 
-1. [Create an Aiven token](/docs/platform/howto/create_authentication_token).
+1. [Create a token](/docs/platform/howto/create_authentication_token).
 1. Create the Kubernetes secret in the namespace which is going to be used to create your Aiven
    services:
 
@@ -219,5 +217,6 @@ kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/downl
 
 ## Related links
 
-- [Aiven Operator for Kubernetes repository](https://github.io/aiven-operator)
+- [Aiven Operator for Kubernetes repository](https://github.com/aiven/aiven-operator/)
+- [Aiven Operator examples](https://aiven.github.io/aiven-operator/resources/project.html)
 - [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
