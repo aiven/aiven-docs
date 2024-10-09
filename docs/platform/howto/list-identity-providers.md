@@ -31,7 +31,7 @@ SCIM, you should only make changes to user details in the IdP.
 
 ## Security best practices
 
-When configuring an IdP it's recommended to enable the following SAML security setting:
+When configuring an IdP it's recommended to enable the following SAML security settings:
 
 - **Require assertion to be signed**: Verifies assertions were issued by a trusted party
   and have not been tampered with.
