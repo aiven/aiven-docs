@@ -31,20 +31,32 @@ SCIM, you should only make changes to user details in the IdP.
 
 ## Security best practices
 
-When configuring an IdP it's recommended to enable the following:
+When configuring an IdP it's recommended to enable the following SAML security setting:
+
 - **Require assertion to be signed**: Verifies assertions were issued by a trusted party
   and have not been tampered with.
 - **Sign authorization request sent to IdP**: Ensures authenticity and integrity with a
   digital signature.
 
-The authentication policy for the organization is also an important component in
-securing access through an IdP. At a minimum,
+The [authentication policy](/docs/platform/howto/set-authentication-policies) for the
+organization is also an important component in securing access through an IdP. At a
+minimum, use these settings for your authentication policy:
 
-- Disable password authentication
-- Require org SSO...
-- ...
+- Don't allow password authentication
+- Require log in with this organization's identity provider
 
-You may also want to consider the following for a greater level of security:
+To limit access further, also consider these authentication policy settings:
 
-- Disable personal tokens...
-- ...
+- **Don't allow third-party authentication**: This combined with the preceding password and
+  organization identity provider settings ensures that users only log in to the Console
+  with your chosen IdP.
+- **Don't allow users to create personal tokens**: This prevents users from accessing
+  organization resources through the API.
+
+If you allow your users to create personal tokens, you can still make these more
+secure by enabling **Require users to be logged in with an allowed
+authentication method**. This means that users cannot access your organization's
+resources with a token they created when logged in with another organization's
+allowed authentication methods or a previously allowed method.
+This setting also gives you the flexibility to change the authentication policy at any
+time because tokens that are no longer compliant with the new policy cannot be used.
