@@ -80,8 +80,8 @@ To configure user provisioning for Okta:
    be imported to Okta.
    :::
 1. Click **Sign On**.
-1. In the **Credentials Details** section, select **Email** as the
-   **Application username format**.
+1. In the **Credentials Details** section, for the **Application username format**
+   select **Email**.
 1. Click **Save**.
 
 ## Troubleshooting

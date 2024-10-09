@@ -15,14 +15,8 @@
     -   **Extend active sessions**: This resets the session duration every time the token
         is used.
 7. Optional: Select a user group to add all users who sign up with this IdP to.
-8. Optional: Enable user provisioning with Okta:
 
-   1. Copy the **Base URL** and **Access token**.
-   1. Use the URL and token to configure
-      [user provisioning for Okta](/docs/platform/howto/okta-user-provisioning-with-scim)
-      with SCIM.
-
-9. Click **Finish** to complete the setup.
+8. Click **Finish** to complete the setup.
 
 :::note
 If you set up a SAML authentication method before and are now switching
