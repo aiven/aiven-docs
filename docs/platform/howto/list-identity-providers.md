@@ -26,7 +26,25 @@ and can set up SCIM at the same time.
 
 ## Limitations
 
-- You can link each verified domain to only one IdP.
-- You should only make changes to user details in the IdP.
+You can link each verified domain to only one IdP. If you set up user provisioning with
+SCIM, you should only make changes to user details in the IdP.
 
 ## Security best practices
+
+When configuring an IdP it's recommended to enable the following:
+- **Require assertion to be signed**: Verifies assertions were issued by a trusted party
+  and have not been tampered with.
+- **Sign authorization request sent to IdP**: Ensures authenticity and integrity with a
+  digital signature.
+
+The authentication policy for the organization is also an important component in
+securing access through an IdP. At a minimum,
+
+- Disable password authentication
+- Require org SSO...
+- ...
+
+You may also want to consider the following for a greater level of security:
+
+- Disable personal tokens...
+- ...
