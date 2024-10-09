@@ -1,5 +1,5 @@
 ---
-title: Create and manage teams
+title: Manage teams
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

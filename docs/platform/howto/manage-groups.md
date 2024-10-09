@@ -1,5 +1,5 @@
 ---
-title: Create and manage groups in an organization
+title: Manage groups of users
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
