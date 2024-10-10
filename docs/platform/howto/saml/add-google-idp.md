@@ -2,48 +2,54 @@
 title: Add Google as an identity provider
 sidebar_label: Google
 ---
+<!-- vale off -->
+import IdPStep1 from "@site/static/includes/idp-step1.md";
+import IdPStep3 from "@site/static/includes/idp-step3.md"
+
+<!-- vale on -->
 
 Use Google to give your organization users single sign-on (SSO) access to Aiven.
 
-## Prerequisite steps in Aiven Console
+<IdPStep1/>
 
-Add Google as a SAML
-[identity provider](/docs/platform/howto/saml/add-identity-providers#add-idp-aiven-console) in the Console.
-
-## Configure SAML on Google {#configure-saml-google}
+## Step 2: Configure SAML on Google
 
 1. Log in to Google Admin console.
 
-1. Go to Menu > Apps > Web and mobile apps.
+1. Go to **Menu** > **Apps** > **Web and mobile apps**.
 
-1. Click Add App > Add custom SAML app.
+1. Click **Add App** > **Add custom SAML app**.
 
-1. On the App Details page, enter a name for the Aiven profile.
+1. On the **App Details** page, enter a name for the Aiven profile.
 
-1. Click Continue.
+1. Click **Continue**.
 
-1. On the Google Identity Provider details page, Copy the **SSO URL**,
-    **Entity ID** and the **Certificate**. These are needed later for
+1. On the **Google Identity Provider** details page, copy the **SSO URL**,
+    **Entity ID**, and the **Certificate**. You'll use these for
     the SAML configuration in Aiven Console.
 
-1. Click Continue.
+1. Click **Continue**.
 
-1. In the Service Provider Details window, set the following
+1. On the **Service Provider Details** page, set the following
     parameters:
 
-    |    Parameter     |                                                                                                                                      Value                                                                                                                                      |
-    | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `Entity ID`      | `Metadata URL` from Aiven Console                                                                                                                                                                                                                                               |
-    | `ACS URL`        | `ACS URL` from Aiven Console                                                                                                                                                                                                                                                    |
-    | `Start URL`      | <ul><li><code>https://console.aiven.io/</code> when using the Aiven Console</li> <li><code>https://console.gcp.aiven.io/</code> when using Aiven GCP Marketplace Console</li> <li><code>https://console.aws.aiven.io/</code> when using Aiven AWS Marketplace Console</li></ul> |
-    | `Name ID format` | `EMAIL`                                                                                                                                                                                                                                                                         |
-    | `App attributes` | `email`                                                                                                                                                                                                                                                                         |
+    |   Parameter    |                                                                                                      Value                                                                                                      |
+    | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Entity ID      | **Metadata URL** from Aiven Console                                                                                                                                                                             |
+    | ACS URL        | **ACS URL** from Aiven Console                                                                                                                                                                                  |
+    | Start URL      | <ul><li>https://console.aiven.io/ for Aiven Console</li> <li>https://console.gcp.aiven.io/ for Aiven GCP Marketplace Console</li> <li>https://console.aws.aiven.io/ for Aiven AWS Marketplace Console</li></ul> |
+    | Name ID format | EMAIL                                                                                                                                                                                                           |
+    | App attributes | email                                                                                                                                                                                                           |
 
-1. Click Finish.
+1. Click **Finish**.
 
 1. Turn on your SAML app.
 
-## Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
-Go back to the Aiven Console to
-[configure the IdP](/docs/platform/howto/saml/add-identity-providers#configure-idp-aiven-console) and complete the setup.
+Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
+draft, you can open the settings by clicking the name of the IdP.
+
+1. In the **IDP URL** field, enter the **SSO URL** from Google.
+1. In the **Entity Id** field, enter the **Entity ID** from Google.
+<IdPStep3/>
