@@ -103,6 +103,45 @@ Information specific to cloud providers:
     indices. If no patterns are provided, all indices are restored by default. Exclude
     the `.opendistro_security` index pattern from your snapshot restore process
 
+### Optional: Collect data for migration validation {#collect-data-for-migration-validation}
+
+You can collect and compare data from the source and target services to verify the
+migration's accuracy. This step is optional but recommended to ensure the migration
+was successful.
+
+1. Collect data from the source service: Before migrating the data, collect data from
+   the source service and save it in a JSON file
+  (for example, `file1.json`). Use the following script from the
+  [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py):
+
+   ```bash
+   python get_migration_validation_data.py \
+   --patterns "YOUR_INDEX_PATTERNS" \
+   --waitsec 30 \
+   --outfile file1.json \
+   --es_host https://YOUR_SOURCE_ES_HOST
+   ```
+
+1. Collect data from the target service after migration: After the migration is
+   complete, collect data from the target Aiven for OpenSearch service and save it in
+   a separate JSON file (for example, `file2.json`) using the same script:
+
+   ```bash
+   python get_migration_validation_data.py \
+   --patterns "YOUR_INDEX_PATTERNS" \
+   --waitsec 30 --outfile file2.json \
+   --es_host https://YOUR_AIVEN_OPENSEARCH_HOST
+   ```
+
+1. Compare data from the source and target services: After retrieving data from
+   both the source and target services, use the `compare_migration_validation_data.py`
+   script from the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
+   to compare the two JSON files:
+
+   ```bash
+   python compare_migration_validation_data.py file1.json file2.json
+   ```
+
 ## Configure snapshot migration settings
 
 To start the migration, configure the `user-config` object in your
@@ -327,6 +366,11 @@ follow the [installation guide](https://stedolan.github.io/jq/download/).
 
 Ensure that your data has been restored successfully by listing the indices and checking
 the document count for your migrated data.
+
+If you have followed
+[collect data for migration validation](#collect-data-for-migration-validation), you
+can compare data from both the source and target services as part of the
+verification process.
 
 ### Script-based validation
 
