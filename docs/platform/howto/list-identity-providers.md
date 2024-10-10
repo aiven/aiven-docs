@@ -14,8 +14,6 @@ organization by controlling things like
 With a verified domain you can add an IdP. All users with an email address from
 the verified domain are automatically authenticated with the linked IdP. With
 IdP-initiated SSO enabled, users can log in to Aiven directly from the IdP.
-As a security best practice, it’s recommended to verify your domains in Aiven
-even if you don’t use SSO.
 
 Aiven also supports System for Cross-domain Identity Management (SCIM) for Okta to automatically
 provision, update, and deactivate user identities from your IdP.
@@ -31,7 +29,8 @@ SCIM, you should only make changes to user details in the IdP.
 
 ## Security best practices
 
-When configuring an IdP it's recommended to enable the following SAML security settings:
+It’s recommended to verify your domains in Aiven even if you don’t use SSO. When
+configuring an IdP it's best to enable the following SAML security settings:
 
 - **Require assertion to be signed**: Verifies assertions were issued by a trusted party
   and have not been tampered with.
