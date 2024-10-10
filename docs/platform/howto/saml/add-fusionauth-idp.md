@@ -12,7 +12,7 @@ Use [FusionAuth](https://fusionauth.io/) to give your organization users single 
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on FusionAuth
+## Step 2: Configure SAML on FusionAuth
 
 The setup on FusionAuth has three parts:
 
@@ -71,7 +71,7 @@ You now have a certificate in the **Key Master** in your FusionAuth instance.
 1. In the **SAML v2 Integration details** section,
    copy the **Entity Id** and **Login URL**.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.

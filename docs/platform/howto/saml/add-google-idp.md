@@ -12,7 +12,7 @@ Use Google to give your organization users single sign-on (SSO) access to Aiven.
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on Google
+## Step 2: Configure SAML on Google
 
 1. Log in to Google Admin console.
 
@@ -45,7 +45,7 @@ Use Google to give your organization users single sign-on (SSO) access to Aiven.
 
 1. Turn on your SAML app.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.

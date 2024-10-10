@@ -8,7 +8,7 @@ import IdPStep3 from "@site/static/includes/idp-step3.md"
 
 <!-- vale on -->
 
-Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](#optional-step-4-configure-user-provisioning) with SCIM.
+Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](#step-4-optional-configure-user-provisioning) with SCIM.
 
 ## Supported features
 
@@ -20,7 +20,7 @@ For more information on the listed features, visit the
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on Okta
+## Step 2: Configure SAML on Okta
 
 1.  In the [Okta administrator console](https://login.okta.com/), go to
     **Applications** > **Applications**.
@@ -39,7 +39,7 @@ For more information on the listed features, visit the
 1. Copy the **Sign on URL**, **Issuer** URL, and the **Signing Certificate**.
    You'll use these to configure the IdP in Aiven.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.
@@ -48,7 +48,7 @@ draft, you can open the settings by clicking the name of the IdP.
 1. Enter the **Entity Id** from your identity provider.
 <IdPStep3/>
 
-## Optional: Step 4. Configure user provisioning
+## Step 4: Optional: Configure user provisioning
 
 You can automate user provisioning with Okta through
 System for Cross-domain Identity Management (SCIM). This means you can manage your users

@@ -12,7 +12,7 @@ Use [Auth0](https://auth0.com/) to give your organization users single sign-on (
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on Auth0
+## Step 2: Configure SAML on Auth0
 
 1.  Log in to [your Auth0 account](https://manage.auth0.com).
 2.  Select **Applications**.
@@ -44,7 +44,7 @@ Use [Auth0](https://auth0.com/) to give your organization users single sign-on (
     **Identity Provider Certificate**. These are needed for the SAML
     configuration in Aiven Console.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.

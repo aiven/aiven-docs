@@ -27,32 +27,36 @@ For all IdPs, we recommend following [security best practices](/docs/platform/ho
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on your IdP
+## Step 2: Configure SAML on your IdP
 
 Use the metadata URL and ACS URL from the Aiven Console to configure a
 new application in your IdP.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.
 
 1. Enter the **IDP URL** from your identity provider.
+
 1. Enter the **Entity Id** from your identity provider.
+
 <IdPStep3/>
 
-## Step 4. Optional: Link your users to the identity provider
+## Step 4: Optional: Link your users to the identity provider
 
 Your organization users should automatically be able to use the identity
 provider to sign up and log in to Aiven. You can also handle this
 manually using URLs:
 
 1. On the **Identity providers** page, click the name of the IdP.
+
 1. In the **Overview** section there are two URLs:
     -   **Signup URL**: Users that don't have an Aiven user account can
         use this to create an Aiven user linked to this IdP.
     -   **User account link URL**: Users that already have an Aiven user
         account can link their existing Aiven user with this IdP.
+
 1. Send the appropriate URL to your organization users. If you set up a
     different IdP before and are now switching to a new IdP, existing
     users need to log in with the new account link URL to finish the

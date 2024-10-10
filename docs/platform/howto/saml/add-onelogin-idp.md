@@ -12,7 +12,7 @@ Use [OneLogin](https://www.onelogin.com/) to give your organization users single
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on OneLogin
+## Step 2: Configure SAML on OneLogin
 
 1.  Log in to the [OneLogin Admin console](https://app.onelogin.com/login).
 
@@ -47,7 +47,7 @@ Use [OneLogin](https://www.onelogin.com/) to give your organization users single
 
 1. Assign users to this application.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.

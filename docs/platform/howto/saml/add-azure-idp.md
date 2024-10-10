@@ -12,7 +12,7 @@ Use [Microsoft Azure Active Directory (AD)](https://azure.microsoft.com/en-us/pr
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on Microsoft Azure
+## Step 2: Configure SAML on Microsoft Azure
 
 ### Set up an Azure application
 
@@ -58,7 +58,7 @@ Use [Microsoft Azure Active Directory (AD)](https://azure.microsoft.com/en-us/pr
 1. Select the users that will use Azure AD to log in to Aiven.
 1. Click **Assign**.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.

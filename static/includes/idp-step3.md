@@ -15,7 +15,6 @@
     -   **Extend active sessions**: This resets the session duration every time the token
         is used.
 7. Optional: Select a user group to add all users who sign up with this IdP to.
-
 8. Click **Finish** to complete the setup.
 
 :::note

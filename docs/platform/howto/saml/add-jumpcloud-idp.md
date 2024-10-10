@@ -12,7 +12,7 @@ Use [JumpCloud](https://jumpcloud.com/) to give your organization users single s
 
 <IdPStep1/>
 
-## Step 2. Configure SAML on JumpCloud
+## Step 2: Configure SAML on JumpCloud
 
 1. In the [JumpCloud admin console](https://console.jumpcloud.com/login),
    go to **SSO**.
@@ -29,7 +29,7 @@ Use [JumpCloud](https://jumpcloud.com/) to give your organization users single s
 1. Click **Activate**.
 1. Download the certificate.
 
-## Step 3. Finish the configuration in Aiven
+## Step 3: Finish the configuration in Aiven
 
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.

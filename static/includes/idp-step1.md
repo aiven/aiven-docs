@@ -1,4 +1,4 @@
-## Step 1. Add the IdP in the Aiven Console {#add-idp-aiven-console}
+## Step 1: Add the IdP in the Aiven Console {#add-idp-aiven-console}
 
 1. In the organization, click **Admin**.
 1. Click **Identity providers**.
