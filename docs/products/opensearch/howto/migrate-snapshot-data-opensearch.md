@@ -103,9 +103,9 @@ Information specific to cloud providers:
     indices. If no patterns are provided, all indices are restored by default. Exclude
     the `.opendistro_security` index pattern from your snapshot restore process
 
-### Optional: Collect data for migration validation
+### Optional: Collect data for migration validation {#collect-data-for-migration-validation}
 
-You can get and compare data from the source and target services to verify the
+You can collect and compare data from the source and target services to verify the
 migration's accuracy. This step is optional but recommended to ensure the migration
 was successful.
 
@@ -366,6 +366,11 @@ follow the [installation guide](https://stedolan.github.io/jq/download/).
 
 Ensure that your data has been restored successfully by listing the indices and checking
 the document count for your migrated data.
+
+If you have followed
+[collect data for migration validation](#collect-data-for-migration-validation), you
+can compare data from both the source and target services as part of the
+verification process.
 
 ### Script-based validation
 
