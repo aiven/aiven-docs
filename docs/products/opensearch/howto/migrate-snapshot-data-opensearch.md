@@ -45,7 +45,7 @@ You can collect and compare data from the source and target services to verify t
 migration's accuracy. This step is optional but recommended to ensure the migration
 was successful.
 
-1. Collect data from the source service: Before migrating the data, collect data from
+1. **Collect data from the source service**: Before migrating the data, collect data from
    the source service and save it in a JSON file
    (for example, `file1.json`). Use the following script from the
    [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py):
@@ -58,7 +58,7 @@ was successful.
    --es_host https://YOUR_SOURCE_ES_HOST
    ```
 
-1. Collect data from the target service after migration: After the migration is
+1. **Collect data from the target service after migration**: After the migration is
    complete, collect data from the target Aiven for OpenSearch service and save it in
    a separate JSON file (for example, `file2.json`) using the same script:
 
@@ -69,7 +69,7 @@ was successful.
    --es_host https://YOUR_AIVEN_OPENSEARCH_HOST
    ```
 
-1. Compare data from the source and target services: After retrieving data from
+1. **Compare data from the source and target services**: After retrieving data from
    both the source and target services, use the `compare_migration_validation_data.py`
    script from the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
    to compare the two JSON files:
