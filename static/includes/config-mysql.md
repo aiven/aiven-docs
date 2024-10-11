@@ -524,14 +524,21 @@
             <td>
               <div class="param"><p class="name"><strong>mysql.slow_query_log</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">slow_query_log</p>
-              <div class="description"><p>Slow query log enables capturing of slow queries. Setting slow_query_log to false also truncates the mysql.slow_log table. Default is off</p></div>
+              <div class="description"><p>Slow query log enables capturing of slow queries. Setting slow_query_log to false also truncates the mysql.slow_log table.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div class="param"><p class="name"><strong>mysql.long_query_time</strong></p><p><code class="type">number</code></p></div><div class="constraints"><ul><li>max: <code>3600</code></li></ul></div>
               <p class="title">long_query_time</p>
-              <div class="description"><p>The slow_query_logs work as SQL statements that take more than long_query_time seconds to execute. Default is 10s</p></div>
+              <div class="description"><p>The slow_query_logs work as SQL statements that take more than long_query_time seconds to execute.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>mysql.log_output</strong></p><p><code class="type">string</code></p></div>
+              <p class="title">log_output</p>
+              <div class="description"><p>The slow log output destination when slow_query_log is ON. To enable MySQL AI Insights, choose INSIGHTS. To use MySQL AI Insights and the mysql.slow_log table at the same time, choose INSIGHTS,TABLE. To only use the mysql.slow_log table, choose TABLE. To silence slow logs, choose NONE.</p></div>
             </td>
           </tr>
           </tbody>
