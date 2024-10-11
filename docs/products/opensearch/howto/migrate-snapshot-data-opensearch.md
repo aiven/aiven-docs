@@ -39,6 +39,45 @@ will not work. For more details, see
 [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
 :::
 
+### Optional: Collect data for migration validation {#collect-data-for-migration-validation}
+
+You can collect and compare data from the source and target services to verify the
+migration's accuracy. This step is optional but recommended to ensure the migration
+was successful.
+
+1. Collect data from the source service: Before migrating the data, collect data from
+   the source service and save it in a JSON file
+   (for example, `file1.json`). Use the following script from the
+   [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py):
+
+   ```bash
+   python get_migration_validation_data.py \
+   --patterns "YOUR_INDEX_PATTERNS" \
+   --waitsec 30 \
+   --outfile file1.json \
+   --es_host https://YOUR_SOURCE_ES_HOST
+   ```
+
+1. Collect data from the target service after migration: After the migration is
+   complete, collect data from the target Aiven for OpenSearch service and save it in
+   a separate JSON file (for example, `file2.json`) using the same script:
+
+   ```bash
+   python get_migration_validation_data.py \
+   --patterns "YOUR_INDEX_PATTERNS" \
+   --waitsec 30 --outfile file2.json \
+   --es_host https://YOUR_AIVEN_OPENSEARCH_HOST
+   ```
+
+1. Compare data from the source and target services: After retrieving data from
+   both the source and target services, use the `compare_migration_validation_data.py`
+   script from the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
+   to compare the two JSON files:
+
+   ```bash
+   python compare_migration_validation_data.py file1.json file2.json
+   ```
+
 ### Gather required parameters
 
 Gather these details before registering the snapshot repository:
@@ -102,45 +141,6 @@ Information specific to cloud providers:
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
     indices. If no patterns are provided, all indices are restored by default. Exclude
     the `.opendistro_security` index pattern from your snapshot restore process
-
-### Optional: Collect data for migration validation {#collect-data-for-migration-validation}
-
-You can collect and compare data from the source and target services to verify the
-migration's accuracy. This step is optional but recommended to ensure the migration
-was successful.
-
-1. Collect data from the source service: Before migrating the data, collect data from
-   the source service and save it in a JSON file
-  (for example, `file1.json`). Use the following script from the
-  [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py):
-
-   ```bash
-   python get_migration_validation_data.py \
-   --patterns "YOUR_INDEX_PATTERNS" \
-   --waitsec 30 \
-   --outfile file1.json \
-   --es_host https://YOUR_SOURCE_ES_HOST
-   ```
-
-1. Collect data from the target service after migration: After the migration is
-   complete, collect data from the target Aiven for OpenSearch service and save it in
-   a separate JSON file (for example, `file2.json`) using the same script:
-
-   ```bash
-   python get_migration_validation_data.py \
-   --patterns "YOUR_INDEX_PATTERNS" \
-   --waitsec 30 --outfile file2.json \
-   --es_host https://YOUR_AIVEN_OPENSEARCH_HOST
-   ```
-
-1. Compare data from the source and target services: After retrieving data from
-   both the source and target services, use the `compare_migration_validation_data.py`
-   script from the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
-   to compare the two JSON files:
-
-   ```bash
-   python compare_migration_validation_data.py file1.json file2.json
-   ```
 
 ## Configure snapshot migration settings
 
@@ -352,15 +352,53 @@ Parameters:
 Use `jq` to format the JSON output for easier readability. If `jq` is not installed,
 follow the [installation guide](https://stedolan.github.io/jq/download/).
 
+If the migration configuration exists but has not started, the status
+displays `"status": "waiting"`. After an attempt, the status shows the most recent
+migration and includes a timestamp so you can track when it was last updated.
+
 :::note
-
-- The initial migration status might not be immediately available. If you receive a
-  404 response, this indicates a delay, not a failure. Try again later to retrieve
-  the status.
-- During the snapshot restore process, indices are temporarily closed and are not
-  displayed in the user interface. Once the restore is complete, they are reopened.
-
+During the snapshot restore process, indices are temporarily closed and are not
+displayed in the user interface. Once the restore is complete, they are reopened.
 :::
+
+### Retry the migration
+
+To retry the migration, use this API request:
+
+```bash
+curl -X POST "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/opensearch/migration" \
+-H "Authorization: Bearer API_TOKEN" \
+-d '{"command": "retry"}'
+```
+
+### Check snapshot status
+
+To monitor the snapshot process, use this API request:
+
+```bash
+curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/opensearch/snapshot-status" \
+-H "Authorization: Bearer API_TOKEN" | jq
+```
+
+The response shows the snapshot status and details if a snapshot is in progress:
+
+```json
+{
+  "status": {
+    "in_progress": true,
+    "details": {
+      "snapshot_name": "name-of-the-snapshot",
+      "started": "YYYY-MM-DDThh:mm:ssZ",
+      "shards": {
+        "done": number-of-completed-shards,
+        "total": total-number-of-shards
+      }
+    }
+  }
+}
+```
+
+The `details` section is included only if a snapshot is currently in progress.
 
 ## Verify the migration
 
