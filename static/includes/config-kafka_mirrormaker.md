@@ -46,7 +46,7 @@
           <tbody>
           <tr>
             <td>
-              <div class="param"><p class="name"><strong>kafka_mirrormaker.admin_timeout_ms</strong></p><p><code class="type">integer,null</code></p></div><div class="constraints"><ul><li>min: <code>30000</code></li><li>max: <code>300000</code></li></ul></div>
+              <div class="param"><p class="name"><strong>kafka_mirrormaker.admin_timeout_ms</strong></p><p><code class="type">integer,null</code></p></div><div class="constraints"><ul><li>min: <code>30000</code></li><li>max: <code>1800000</code></li></ul></div>
               
               <div class="description"><p>Timeout for administrative tasks, e.g. detecting new topics, loading of consumer group and offsets. Defaults to 60000 milliseconds (1 minute).</p></div>
             </td>
