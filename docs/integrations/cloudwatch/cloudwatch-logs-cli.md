@@ -22,7 +22,7 @@ Your AWS credentials should have appropriate access rights. According to
 the official AWS documentation, the access rights required for the
 credentials are:
 
--   `inlogs:DescribeLogStreams` which lists the log streams for the
+-   `logs:DescribeLogStreams` which lists the log streams for the
     specified log group endpoint.
 -   `logs:CreateLogGroup` which creates a log group with the specified
     name endpoint.
