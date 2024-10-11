@@ -59,7 +59,7 @@
             <td>
               <div class="param"><p class="name"><strong>single_zone.enabled</strong></p><p><code class="type">boolean</code></p></div>
               <p class="title">Enabled</p>
-              <div class="description"><p>Whether to allocate nodes on the same Availability Zone or spread across zones available.</p></div>
+              <div class="description"><p>Whether to allocate nodes on the same Availability Zone or spread across zones available. By default service nodes are spread across different AZs. The single AZ support is best-effort and may temporarily allocate nodes in different AZs e.g. in case of capacity limitations in one AZ.</p></div>
             </td>
           </tr>
           </tbody>
