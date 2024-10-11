@@ -106,6 +106,24 @@
         </table>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>public_access</strong></p><p><code class="type">object</code></p></div>
+        <p class="title">Allow access to selected service ports from the public Internet</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>public_access.flink</strong></p><p><code class="type">boolean</code></p></div>
+              <p class="title">Allow clients to connect to flink from the public internet for service nodes that are in a project VPC or another type of private network</p>
+              
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   </tbody>
 </table>
     
