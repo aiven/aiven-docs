@@ -7,7 +7,7 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Aiven for OpenSearch lets you to restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
+Aiven for OpenSearch lets you restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
 
 ## Supported cloud providers
 
@@ -357,8 +357,8 @@ displays `"status": "waiting"`. After an attempt, the status shows the most rece
 migration and includes a timestamp so you can track when it was last updated.
 
 :::note
-During the snapshot restore process, indices are temporarily closed and are not
-displayed in the user interface. Once the restore is complete, they are reopened.
+During the snapshot restore process, indices are temporarily closed and do not appear
+in the user interface. They reopen once the restore is complete.
 :::
 
 ### Retry the migration
@@ -398,7 +398,7 @@ The response shows the snapshot status and details if a snapshot is in progress:
 }
 ```
 
-The `details` section is included only if a snapshot is currently in progress.
+The `details` section is included only if a snapshot is in progress.
 
 ## Verify the migration
 
