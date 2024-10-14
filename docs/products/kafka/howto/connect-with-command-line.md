@@ -94,7 +94,7 @@ Once connected, you can send messages using the specified schema. For example:
 {"id": "1"}
 ```
 
-For more information on how to use `kafka-avro-console-producer`,  see the
+For more information on how to use `kafka-avro-console-producer`, see the
 [Confluent developer documentation](https://developer.confluent.io/tutorials/kafka-console-consumer-producer-avro/kafka.html).
 
 ## Consume messages
