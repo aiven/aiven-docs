@@ -23,7 +23,7 @@ instructions are also available for these specific providers:
 -   [Okta](/docs/platform/howto/saml/add-okta-idp)
 -   [OneLogin](/docs/platform/howto/saml/add-onelogin-idp)
 
-For all IdPs, we recommend following [security best practices](/docs/platform/howto/list-identity-providers).
+For all IdPs, Aiven recommends following [security best practices](/docs/platform/howto/list-identity-providers).
 
 <IdPStep1/>
 

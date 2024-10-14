@@ -34,6 +34,6 @@ Use [JumpCloud](https://jumpcloud.com/) to give your organization users single s
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.
 
-1. Enter the **IDP URL** from your identity provider.
-1. Enter the **Entity Id** from your identity provider.
+1. In the **IDP URL** field, enter **IDP URL** from JumpCloud.
+1. In the **Entity Id** field, enter the **IdP Entity ID** from JumpCloud.
 <IdPStep3/>

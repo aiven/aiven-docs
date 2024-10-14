@@ -50,5 +50,5 @@ Go back to the Aiven Console to complete setting up the IdP. If you saved your I
 draft, you can open the settings by clicking the name of the IdP.
 
 1. In the **IDP URL** field, enter the Auth0 **Identity Provider Login URL**.
-1. In the **Entity Id** field, enter the Auth0 **Login URL**.
+1. In the **Entity Id** field, enter the Auth0 **Issuer URN**.
 <IdPStep3/>

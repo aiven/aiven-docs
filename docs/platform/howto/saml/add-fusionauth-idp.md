@@ -77,5 +77,5 @@ Go back to the Aiven Console to complete setting up the IdP. If you saved your I
 draft, you can open the settings by clicking the name of the IdP.
 
 1. In the **IDP URL** field, enter the **Login URL** from FusionAuth.
-1. Enter the **Entity Id** from FusionAuth.
+1. In the **Entity ID** field, enter the **Entity ID** from FusionAuth.
 <IdPStep3/>

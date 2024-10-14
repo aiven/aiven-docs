@@ -36,7 +36,7 @@ For more information on the listed features, visit the
    - For the Aiven AWS Marketplace Console: https://console.aws.aiven.io/
 1. Click **Save**.
 1. In the **SAML 2.0** section, click **More details**.
-1. Copy the **Sign on URL**, **Issuer** URL, and the **Signing Certificate**.
+1. Copy the **Sign on URL**, **Issuer**, and the **Signing Certificate**.
    You'll use these to configure the IdP in Aiven.
 
 ## Step 3: Finish the configuration in Aiven
@@ -44,8 +44,8 @@ For more information on the listed features, visit the
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.
 
-1. Enter the **IDP URL** from your identity provider.
-1. Enter the **Entity Id** from your identity provider.
+1. In the **IDP URL** field, enter the **Sign on URL** from Okta.
+1. In the **Entity ID** field, enter the **Issuer** from Okta.
 <IdPStep3/>
 
 ## Step 4: Optional: Configure user provisioning

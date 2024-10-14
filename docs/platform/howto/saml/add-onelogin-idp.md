@@ -52,8 +52,8 @@ Use [OneLogin](https://www.onelogin.com/) to give your organization users single
 Go back to the Aiven Console to complete setting up the IdP. If you saved your IdP as a
 draft, you can open the settings by clicking the name of the IdP.
 
-1. Enter the **IDP URL** from OneLogin.
-1. Enter the **Entity Id** from OneLogin.
+1. In the **IDP URL** field, enter the **SAML 2.0 Endpoint (HTTP)** from OneLogin.
+1. In the **Entity ID** field, enter the **Issuer URL** from OneLogin.
 <IdPStep3/>
 
 ## Troubleshooting
