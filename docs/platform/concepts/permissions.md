@@ -19,6 +19,20 @@ make organization users [super admin](/docs/platform/howto/make-super-admin).
 Limit the number of users with this role as it gives unrestricted access to
 all organization resources including billing, admin, and all projects and services.
 
+## Project roles
+
+You can grant the following roles for projects to principals.
+
+|   Name    |                                                                                                                               Permissions                                                                                                                                |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Admin     | Full access to the project and all of its services. <br/> Admin do not have access to organization settings like billing or organization admin.                                                                                                                          |
+| Operator  | View project audit log. <br/> View project permissions. <br/>  Full access to all services in the project and their configuration.                                                                                                                                       |
+| Developer | Create databases. <br/> View connection information. <br/> Remove Aiven for OpenSearch® indexes. <br/> Create and change Aiven for Apache Kafka® topics. <br/> Create and change Aiven for PostgreSQL® connection pools. <br/> Create and change service database users. |
+| Read only | View all services and their configuration.                                                                                                                                                                                                                               |
+
+Project admin do not have access to organization settings such as billing unless
+they are also a [super admin](/docs/platform/howto/make-super-admin).
+
 ## Project and service permissions
 
 :::important
@@ -36,17 +50,3 @@ permission apply to the project and all services within it.
 | View project audit log        | `project:audit_logs:read`        | View the log for the project. <br/> View all services in the project. <br/> |
 | View service logs        | `service:logs:read`        | View logs for all services in the project. <br/> **Service logs may contain sensitive information.** |
 | View services            | `project:services:read`    | View all of a project's services details except the service logs.                                            |
-
-## Project roles
-
-You can grant the following roles for projects to principals.
-
-|   Name    |                                                                                                                               Permissions                                                                                                                                |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Admin     | Full access to the project and all of its services. <br/> Admin do not have access to organization settings like billing or organization admin.                                                                                                                          |
-| Operator  | View project audit log. <br/> View project permissions. <br/>  Full access to all services in the project and their configuration.                                                                                                                                       |
-| Developer | Create databases. <br/> View connection information. <br/> Remove Aiven for OpenSearch® indexes. <br/> Create and change Aiven for Apache Kafka® topics. <br/> Create and change Aiven for PostgreSQL® connection pools. <br/> Create and change service database users. |
-| Read only | View all services and their configuration.                                                                                                                                                                                                                               |
-
-Project admin do not have access to organization settings such as billing unless
-they are also a [super admin](/docs/platform/howto/make-super-admin).
