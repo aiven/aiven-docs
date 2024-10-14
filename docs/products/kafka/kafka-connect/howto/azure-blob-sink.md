@@ -28,7 +28,6 @@ Before you begin, make sure you have:
 Create a file named `azure_blob_sink_connector.json` with the following configuration:
 
 ```json
-```json
 {
     "name": "azure_blob_sink",
     "connector.class": "io.aiven.kafka.connect.azure.sink.AzureBlobSinkConnector",
