@@ -45,9 +45,12 @@ draft, you can open the settings by clicking the name of the IdP.
 
 ## Step 4: Optional: Link your users to the identity provider
 
-Your organization users should automatically be able to use the identity
-provider to sign up and log in to Aiven. You can also handle this
-manually using URLs:
+You can manually link Aiven organization user accounts using the following URLs.
+
+:::note
+You don't need to manually link organization users who have an email address that matches
+a verified domain linked to one of your identity providers.
+:::
 
 1. On the **Identity providers** page, click the name of the IdP.
 
