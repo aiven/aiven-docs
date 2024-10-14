@@ -5,7 +5,6 @@ limited: true
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
 By default, governance applies to the organization level, and admins can manually
@@ -34,12 +33,6 @@ select specific services to be governed through the Apache Kafka governance sett
   [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
   to enable governance.
 
-:::note
-**Application token requirements**: The [application token](/docs/platform/concepts/authentication-tokens)
-needs at least **developer rights** to the project when using the Aiven Console for governance.
-If all resources are created through Terraform, ownership is automatically assigned,
-and the token's permissions won't be an issue.
-:::
 
 ## Enable governance
 
@@ -87,22 +80,24 @@ Aiven Console or the Terraform Provider.
 Depending on your workflow, choose between:
 
 - **Aiven Console**: Manage governance tasks visually through the Aiven Console. View
-  and claim ownership of resources in the Topic Catalog.
+  and claim ownership of resources in the Topic Catalog. This method is selected by
+  default.
 - **Terraform Provider**: Automate governance with the Terraform Provider. It integrates
   with GitOps workflows and allows governance management across multiple projects.
 
 :::note
-When using Terraform, all governance actions must be performed through Terraform. The
-Aiven Console allows you to view requests but does not support operations such as
-approving or declining them.
+When using the Terraform method, all governance actions must be performed through
+Terraform Provider. The Aiven Console provides an audit log of created requests.
 :::
 
 1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
 1. In the **Governance method** section, click **Change**.
-1. In the **Select governance method** dialog, choose either **Aiven Console** or **Terraform**.
+1. In the **Select governance method** dialog, choose either **Aiven Console** or
+   **Terraform**.
 
    :::warning
-   Switching from the Aiven Console to the Terraform method results in losing any pending requests.
+   Switching from the Aiven Console to the Terraform method results in losing any
+   pending requests.
    :::
 
 1. Click **Save**.
@@ -143,8 +138,6 @@ To change global topic configurations after enabling governance:
 - If you select a different user group when re-enabling governance,
   Apache Kafka resources under the previous default group are assigned to the
   new default governance group.
-
-
 
 ## Related pages
 
