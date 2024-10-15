@@ -891,6 +891,20 @@
               
             </td>
           </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>opensearch.search_backpressure</strong></p><p><code class="type">object</code></p></div>
+              <p class="title">Search Backpressure Settings</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="param"><p class="name"><strong>opensearch.shard_indexing_pressure</strong></p><p><code class="type">object</code></p></div>
+              <p class="title">Shard indexing back pressure settings</p>
+              
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>
