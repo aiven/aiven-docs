@@ -309,7 +309,7 @@
     </tr>
     <tr>
       <td>
-        <div class="param"><p class="name"><strong>redis_timeout</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>max: <code>31536000</code></li><li>default: <code>300</code></li></ul></div>
+        <div class="param"><p class="name"><strong>redis_timeout</strong></p><p><code class="type">integer</code></p></div><div class="constraints"><ul><li>max: <code>2073600</code></li><li>default: <code>300</code></li></ul></div>
         <p class="title">Redis idle connection timeout in seconds</p>
         
         <table class="service-param-children">
