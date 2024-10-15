@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-The Azure Blob Storage sink connector enables you to move data from Apache Kafka® topics to Azure Blob Storage containers for long-term storage. This is useful for archiving Kafka data or creating backups in Azure Blob Storage.
+The Azure Blob Storage sink connector moves data from Apache Kafka® topics to Azure Blob Storage containers for long-term storage, such as archiving or creating backups.
 
 ## Prerequisites
 
