@@ -50,7 +50,7 @@ Parameters:
 - `name`: Name of the connector.
 - `topics`: Apache Kafka topics to sink data from.
 - `azure.storage.connection.string`: Azure Storage connection string.
-- `azure.storage.container.name`: Blob Storage container name.
+- `azure.storage.container.name`: Azure Blob Storage container name.
 - `key.converter`: Class to convert the Kafka record key.
 - `value.converter`: Class to convert the Kafka record value.
 - `header.converter`: Class to convert message headers.
