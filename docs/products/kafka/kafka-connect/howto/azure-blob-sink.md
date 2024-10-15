@@ -20,7 +20,7 @@ Before you begin, make sure you have:
 - Access to an Azure Storage account and a container with the following:
   - Azure Storage connection string: Required to authenticate and
     connect to your Azure Storage account.
-  - Azure Storage container name: The name of the Blob Storage container where data is
+  - Azure Storage container name: Name of the Azure Blob Storage container where data is
     saved.
 
 ## Create an Azure Blob Storage sink connector configuration file
@@ -51,12 +51,12 @@ Parameters:
 - `topics`: Apache Kafka topics to sink data from.
 - `azure.storage.connection.string`: Azure Storage connection string.
 - `azure.storage.container.name`: Azure Blob Storage container name.
-- `key.converter`: Class to convert the Kafka record key.
-- `value.converter`: Class to convert the Kafka record value.
-- `header.converter`: Class to convert message headers.
+- `key.converter`: Class used to convert the Apache Kafka record key.
+- `value.converter`: Class used to convert the Apache Kafka record value.
+- `header.converter`: Class used to convert message headers.
 - `file.name.prefix`: Prefix for the files created in Azure Blob Storage.
 - `file.compression.type`: Compression type for the files, such as `gzip`.
-- `reload.action`: Action to take when reloading the connector, set to restart.
+- `reload.action`: Action to take when reloading the connector, set to `restart`.
 
 You can view the full set of available parameters and advanced configuration options
 in the [Aiven Azure Blob Storage sink connector GitHub repository](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/azure-sink-connector/README.md).
@@ -86,8 +86,6 @@ in the [Aiven Azure Blob Storage sink connector GitHub repository](https://githu
 1. Click **Create connector**.
 1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
 
-Ensure that data from the Apache Kafka topics is being successfully delivered to the
-Azure Blob Storage container.
 
 </TabItem>
 
