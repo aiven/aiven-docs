@@ -1,6 +1,6 @@
 //
 // Generates a Markdown file from the given service's description.
-// The output is meant to be included in docs pages such as docs/products/m3db/reference/advanced-params.md
+// The output is meant to be included in docs pages such as docs/products/kafka/reference/advanced-params.md
 //
 const {program} = require('commander');
 const axios = require('axios');
@@ -11,31 +11,40 @@ const handlebars = require('handlebars');
 handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var name = options.hash.name;
   var parent = options.hash.parent;
+  var hasParent = parent;
   var type = options.hash.type;
   var minimum = options.hash.minimum;
   var maximum = options.hash.maximum;
   var def = options.hash.def;
+  var fullname = parent + '.' + name;
+  var fullnameid = fullname.replace('.', '_');
 
-  var html = '<div class="param">';
-  if (parent) {
-    html += '<p class="name"><strong>' + parent + '.' + name + '</strong></p>';
-  } else {
-    html += '<p class="name"><strong>' + name + '</strong></p>';
-  }
-  html += '<p><code class="type">' + type + '</code></p>';
+  var html = '<div className="param">';
+  var nestedParamName = '<strong>' + fullname + '</strong>';
+  var paramName = '<strong>' + name + '</strong>';
+
+  // Common part of the HTML
+  html += '<p className="name" id="' + (hasParent ? fullnameid : name) + '">';
+  html +=
+    '<a href="#' +
+    (hasParent ? fullnameid : name) +
+    '">' +
+    (hasParent ? nestedParamName : paramName) +
+    '</a>';
+  html += '</p>';
+
+  html += '<p><code className="type">' + type + '</code></p>';
   html += '</div>';
   if (minimum || maximum || def) {
-    html += '<div class="constraints"><ul>';
-    if (minimum) {
-      html += '<li>min: <code>' + minimum + '</code></li>';
-    }
-    if (maximum) {
-      html += '<li>max: <code>' + maximum + '</code></li>';
-    }
-    if (def) {
-      html += '<li>default: <code>' + def + '</code></li>';
-    }
-    html += '</ul></div>';
+    const constraints = [];
+    if (minimum) constraints.push('<li>min: <code>' + minimum + '</code></li>');
+    if (maximum) constraints.push('<li>max: <code>' + maximum + '</code></li>');
+    if (def) constraints.push('<li>default: <code>' + def + '</code></li>');
+
+    html +=
+      '<div className="constraints"><ul>' +
+      constraints.join('') +
+      '</ul></div>';
   }
 
   return new handlebars.SafeString(html);
@@ -94,7 +103,7 @@ async function fetchData(serviceName, outputFileName, filepath) {
 
     const templateSource = `
 <!-- vale off -->
-<table class="service-param">
+<table className="service-param">
   <thead>
     <tr><th>Parameter</th></tr>
   </thead>
@@ -103,16 +112,16 @@ async function fetchData(serviceName, outputFileName, filepath) {
     <tr>
       <td>
         {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default}}
-        {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
-        {{#if description~}}<div class="description"><p>{{description}}</p></div>{{~/if}}
-        <table class="service-param-children">
+        {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
+        {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
+        <table className="service-param-children">
           <tbody>
           {{#each properties}}
           <tr>
             <td>
               {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default}}
-              {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
-              {{#if description~}}<div class="description"><p>{{description}}</p></div>{{~/if}}
+              {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
+              {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
             </td>
           </tr>
           {{/each}}

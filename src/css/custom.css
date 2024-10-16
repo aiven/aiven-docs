@@ -229,8 +229,17 @@ ul+div {
   margin-right: 0.5em;
 }
 
+.service-param .name {
+  scroll-margin-top: 70px;
+}
+
 .service-param .param {
   display: flex;
+}
+
+.service-param .param a {
+  color: var(--ifm-link-color);
+  font-weight: bold;
 }
 
 .service-param .constraints ul {
