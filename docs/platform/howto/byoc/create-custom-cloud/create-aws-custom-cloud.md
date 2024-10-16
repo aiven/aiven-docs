@@ -435,7 +435,7 @@ In the **Create custom cloud** wizard:
 
 1.  Set up deployment and storage details:
 
-    -   [Deployment model](/docs/platform/concepts/byoc#byoc-deployment)
+    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
 
         Choose between:
         - Private model, which routes traffic through a proxy for additional security
@@ -634,7 +634,7 @@ Your new custom cloud is ready to use only after its status changes to
      connect with your own cloud account to create the custom cloud,
      for example `org123a456b789`. Get your `ORGANIZATION_ID`
      [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud#prerequisites).
-   - `DEPLOYMENT_MODEL_NAME` with the type of [network architecture](/docs/platform/concepts/byoc#byoc-deployment)
+   - `DEPLOYMENT_MODEL_NAME` with the type of [network architecture](/docs/platform/concepts/byoc#byoc-architecture)
      your custom cloud uses:
      - `standard_public` (public) model: The nodes have public IPs and can be configured
        to be publicly accessible for authenticated users. The Aiven control plane can

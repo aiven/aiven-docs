@@ -23,7 +23,7 @@ eligibility for the feature.
 
 :::important
 Before enabling BYOC, check
-[who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc) and review
+[who is eligible for BYOC](/docs/platform/concepts/byoc#who-is-eligible-for-byoc) and review
 [feature limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations) and
 [prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::

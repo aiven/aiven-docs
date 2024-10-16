@@ -49,7 +49,7 @@ needs or project requirements, such as:
     strategies to save on compute and storage infrastructure costs
     related to Aiven services.
 
-## Who is eligible for BYOC {#eligible-for-byoc}
+## Who is eligible for BYOC
 
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
@@ -96,7 +96,7 @@ may have and potentially leverage enterprise discounts in certain cases.
 For a cost estimate and analysis, contact your account team.
 :::
 
-## BYOC architecture {#byoc-deployment}
+## BYOC architecture
 
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS private" default>

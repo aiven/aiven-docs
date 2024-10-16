@@ -39,8 +39,20 @@ custom cloud name as an option:
 
 ## Migrate an existing service to a custom cloud
 
-Whether you can migrate existing services to the custom cloud depends on your service and
-networking configuration. Contact your account team for more information.
+You can migrate a non-BYOC Aiven-managed service to your custom cloud. How you do that
+depends on the [deployment mode](/docs/platform/concepts/byoc#byoc-architecture) of
+your custom cloud: public or private.
+
+### Migrate to public BYOC
+
+To migrate a service to a custom cloud in the public deployment mode,
+[change a cloud provider and a cloud region](/docs/platform/howto/migrate-services-cloud-region)
+to point to your custom cloud.
+
+### Migrate private BYOC
+
+Migrating a service to a custom cloud in the private deployment mode requires network
+reconfiguration. Contact your account team to request it.
 
 ## Related pages
 

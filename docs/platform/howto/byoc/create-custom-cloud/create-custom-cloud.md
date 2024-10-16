@@ -14,7 +14,7 @@ Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven org
 -   Creating and using custom clouds in your Aiven organization requires
     enabling
     [the _bring your own cloud (BYOC)_ feature](/docs/platform/concepts/byoc). Check
-    [who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc). To
+    [who is eligible for BYOC](/docs/platform/concepts/byoc#who-is-eligible-for-byoc). To
     use the feature,
     [enable BYOC in your Aiven organization](/docs/platform/howto/byoc/enable-byoc).
 -   Enabling
