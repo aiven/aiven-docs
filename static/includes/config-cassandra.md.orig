@@ -6,8 +6,57 @@
   </thead>
   <tbody>    <tr>
       <td>
+<<<<<<< HEAD
+        <div class="param"><p class="name"><strong>additional_backup_regions</strong></p><p><code class="type">array</code></p></div>
+        <p class="title">Additional Cloud Regions for Backup Replication</p>
+        
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>ip_filter</strong></p><p><code class="type">array</code></p></div><div class="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
+        <p class="title">IP filter</p>
+        <div class="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>service_log</strong></p><p><code class="type">boolean,null</code></p></div>
+        <p class="title">Service logging</p>
+        <div class="description"><p>Store logs for the service so that they are available in the HTTP API and console.</p></div>
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>static_ips</strong></p><p><code class="type">boolean</code></p></div>
+        <p class="title">Static IP addresses</p>
+        <div class="description"><p>Use static public IP addresses</p></div>
+        <table class="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param"><p class="name"><strong>cassandra</strong></p><p><code class="type">object</code></p></div>
+        <p class="title">cassandra configuration values</p>
+=======
         <div className="param"><p className="name" id="additional_backup_regions"><strong>additional_backup_regions</strong></p><p><code className="type">array</code></p><a href="#additional_backup_regions">#</a></div>
         <p className="title">Additional Cloud Regions for Backup Replication</p>
+>>>>>>> cd68db9 (add: anchors)
         
         <table className="service-param-children">
           <tbody>

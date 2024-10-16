@@ -15,17 +15,30 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var minimum = options.hash.minimum;
   var maximum = options.hash.maximum;
   var def = options.hash.def;
+  var fullname = parent + '.' + name;
+  var fullnameid = fullname.replace('.', '_');
 
-  var html = '<div class="param">';
+  var html = '<div className="param">';
   if (parent) {
-    html += '<p class="name"><strong>' + parent + '.' + name + '</strong></p>';
+    html +=
+      '<p className="name" id="' +
+      fullnameid +
+      '"><strong>' +
+      fullname +
+      '</strong></p>';
   } else {
-    html += '<p class="name"><strong>' + name + '</strong></p>';
+    html +=
+      '<p className="name" id="' + name + '"><strong>' + name + '</strong></p>';
   }
-  html += '<p><code class="type">' + type + '</code></p>';
+  html += '<p><code className="type">' + type + '</code></p>';
+  if (parent) {
+    html += '<a href="#' + fullnameid + '">#</a>';
+  } else {
+    html += '<a href="#' + name + '">#</a>';
+  }
   html += '</div>';
   if (minimum || maximum || def) {
-    html += '<div class="constraints"><ul>';
+    html += '<div className="constraints"><ul>';
     if (minimum) {
       html += '<li>min: <code>' + minimum + '</code></li>';
     }
@@ -94,7 +107,7 @@ async function fetchData(serviceName, outputFileName, filepath) {
 
     const templateSource = `
 <!-- vale off -->
-<table class="service-param">
+<table className="service-param">
   <thead>
     <tr><th>Parameter</th></tr>
   </thead>
@@ -103,16 +116,16 @@ async function fetchData(serviceName, outputFileName, filepath) {
     <tr>
       <td>
         {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default}}
-        {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
-        {{#if description~}}<div class="description"><p>{{description}}</p></div>{{~/if}}
-        <table class="service-param-children">
+        {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
+        {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
+        <table className="service-param-children">
           <tbody>
           {{#each properties}}
           <tr>
             <td>
               {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default}}
-              {{#if title~}}<p class="title">{{title}}</p>{{~/if}}
-              {{#if description~}}<div class="description"><p>{{description}}</p></div>{{~/if}}
+              {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
+              {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
             </td>
           </tr>
           {{/each}}
