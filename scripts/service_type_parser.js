@@ -1,6 +1,6 @@
 //
 // Generates a Markdown file from the given service's description.
-// The output is meant to be included in docs pages such as docs/products/m3db/reference/advanced-params.md
+// The output is meant to be included in docs pages such as docs/products/kafka/reference/advanced-params.md
 //
 const {program} = require('commander');
 const axios = require('axios');
@@ -11,6 +11,7 @@ const handlebars = require('handlebars');
 handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var name = options.hash.name;
   var parent = options.hash.parent;
+  var hasParent = parent;
   var type = options.hash.type;
   var minimum = options.hash.minimum;
   var maximum = options.hash.maximum;
@@ -19,36 +20,31 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var fullnameid = fullname.replace('.', '_');
 
   var html = '<div className="param">';
-  if (parent) {
-    html +=
-      '<p className="name" id="' +
-      fullnameid +
-      '"><strong>' +
-      fullname +
-      '</strong></p>';
-  } else {
-    html +=
-      '<p className="name" id="' + name + '"><strong>' + name + '</strong></p>';
-  }
+  var nestedParamName = '<strong>' + fullname + '</strong>';
+  var paramName = '<strong>' + name + '</strong>';
+
+  // Common part of the HTML
+  html += '<p className="name" id="' + (hasParent ? fullnameid : name) + '">';
+  html +=
+    '<a href="#' +
+    (hasParent ? fullnameid : name) +
+    '">' +
+    (hasParent ? nestedParamName : paramName) +
+    '</a>';
+  html += '</p>';
+
   html += '<p><code className="type">' + type + '</code></p>';
-  if (parent) {
-    html += '<a href="#' + fullnameid + '">#</a>';
-  } else {
-    html += '<a href="#' + name + '">#</a>';
-  }
   html += '</div>';
   if (minimum || maximum || def) {
-    html += '<div className="constraints"><ul>';
-    if (minimum) {
-      html += '<li>min: <code>' + minimum + '</code></li>';
-    }
-    if (maximum) {
-      html += '<li>max: <code>' + maximum + '</code></li>';
-    }
-    if (def) {
-      html += '<li>default: <code>' + def + '</code></li>';
-    }
-    html += '</ul></div>';
+    const constraints = [];
+    if (minimum) constraints.push('<li>min: <code>' + minimum + '</code></li>');
+    if (maximum) constraints.push('<li>max: <code>' + maximum + '</code></li>');
+    if (def) constraints.push('<li>default: <code>' + def + '</code></li>');
+
+    html +=
+      '<div className="constraints"><ul>' +
+      constraints.join('') +
+      '</ul></div>';
   }
 
   return new handlebars.SafeString(html);
