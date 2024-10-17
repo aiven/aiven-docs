@@ -11,24 +11,13 @@ The [Aiven Operator documentation](https://aiven.github.io/aiven-operator/index.
 Take your first steps by configuring the Aiven Operator and deploying a PostgreSQL®
 database.
 
-## Prerequisites
+### Prerequisites
 
 - [Sign up for Aiven](https://console.aiven.io/signup).
 - [Install the Aiven Operator](https://aiven.github.io/aiven-operator/installation/helm.html).
 - Have admin access to a Kubernetes cluster where you can run the operator.
-
-### Authenticating
-
-Before creating a service, authenticate the operator with Aiven's API:
-
-1. [Create a token](/docs/platform/howto/create_authentication_token).
-1. Create the Kubernetes Secret in the namespace for your Aiven services by running:
-
-   ```bash
-   kubectl create secret generic aiven-token --from-literal=token="AIVEN_TOKEN"
-   ```
-
-   Where `AIVEN_TOKEN` is the token you created.
+- Create a [personal token](/docs/platform/howto/create_authentication_token).
+- [Create a Kubernetes Secret](https://aiven.github.io/aiven-operator/authentication.html).
 
 ### Deploy Aiven for PostgreSQL®
 
@@ -62,7 +51,7 @@ This example creates an Aiven for PostgreSQL service using the operator's custom
 
      # PostgreSQL configuration
      userConfig:
-       pg_version: '11'
+       pg_version: '16'
    ```
 
    Where `PROJECT-NAME` is the name of the Aiven project to create the service in.
@@ -127,18 +116,18 @@ connection to PostgreSQL from Kubernetes.
 
 1. To destroy the resources, run:
 
-```bash
-kubectl delete pod psql-test-connection
-kubectl delete postgresqls.aiven.io pg-sample
-```
+   ```bash
+   kubectl delete pod psql-test-connection
+   kubectl delete postgresqls.aiven.io pg-sample
+   ```
 
-2. To remove the operator and `cert-manager`, run:
+1. To remove the operator and `cert-manager`, run:
 
-```bash
-helm uninstall aiven-operator
-helm uninstall aiven-operator-crds
-kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
-```
+   ```bash
+   helm uninstall aiven-operator
+   helm uninstall aiven-operator-crds
+   kubectl delete -f https://github.com/jetstack/cert-manager/releases/latest/download/cert-manager.yaml
+   ```
 
 ## Related links
 
