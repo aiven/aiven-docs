@@ -424,25 +424,11 @@ account.
 
 In the **Create custom cloud** wizard:
 
-1.  Specify cloud details:
+1.  Specify cloud setup details:
 
+    -   Custom cloud name
     -   Cloud provider
     -   Region
-    -   Custom cloud name
-    -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
-
-1.  Click **Next**.
-
-1.  Set up deployment and storage details:
-
-    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
-
-        Choose between:
-        - Private model, which routes traffic through a proxy for additional security
-          utilizing a bastion host physically separated from the Aiven services.
-        - Public model, which allows the Aiven control plane to connect to the service
-          nodes via the public internet.
-
     -   CIDR
 
         The **CIDR** block defines the IP address range of the VPC that
@@ -478,6 +464,17 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
+    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
+
+        Choose between:
+        - Private model, which routes traffic through a proxy for additional security
+          utilizing a bastion host physically separated from the Aiven services.
+        - Public model, which allows the Aiven control plane to connect to the service
+          nodes via the public internet.
+
+    -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+
+<!--
     -   Remote storage (BYOC-hosted)
 
         By default, the following data is stored in object storage in your own cloud account:
@@ -491,6 +488,7 @@ In the **Create custom cloud** wizard:
         - Permissions for S3 bucket management will be included in the Terraform
           infrastructure template to be generated upon completing this step.
         :::
+-->
 
 1.  Click **Next**.
 
