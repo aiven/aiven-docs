@@ -106,6 +106,6 @@ To change global topic configurations after enabling governance:
   new default governance group.
 
 ## Related pages
-
+<!-- vale off -->
 - [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview)
 - [Project member roles and permissions](/docs/platform/reference/project-member-privileges)
