@@ -195,9 +195,9 @@ All Aiven communication is encrypted.
 Depending on the service used, Aiven takes regular backups to enable forking, point in
 time recovery (PITR), and disaster recovery.
 
-- Backups of services hosted using AWS BYOC reside in object storage in your own cloud
+- Backups of services hosted with **AWS BYOC** reside in object storage in your own cloud
   account.
-- Backups of BYOC services hosted using a cloud provider other than AWS reside in Aiven-owned
+- Backups of BYOC services hosted with a cloud provider **other than AWS** reside in Aiven-owned
   storage by default. It's still possible to store such backups in your own cloud account,
   provided Aiven gets read-write permissions to access the object storage in your cloud
   account.
