@@ -1,11 +1,11 @@
 ---
-title: Restore and fork from Aiven for ClickHouse® backups
+title: Fork and restore from Aiven for ClickHouse® backups
 sidebar_label: Fork & restore from backups
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Choose a [backup](docs/products/clickhouse/concepts/disaster-recovery#service-backup) to fork from and restore your Aiven for ClickHouse® service.
+Choose a service [backup](/docs/products/clickhouse/concepts/disaster-recovery#service-backup) to fork from and restore your Aiven for ClickHouse® service.
 
 1. Log in to the [Aiven Console](https://console.aiven.io) and go to your Aiven for
    ClickHouse service.
@@ -13,10 +13,10 @@ Choose a [backup](docs/products/clickhouse/concepts/disaster-recovery#service-ba
 1. Click **Fork & restore**.
 1. In the **New database fork** window, select the following:
 
-   1. Backup to fork from
-   1. Service name and a project
-   1. Cloud provider and region
-   1. Service plan and additional storage
+   - Backup to fork from
+   - Service name and a project
+   - Cloud provider and region
+   - Service plan and additional storage
 
 1. Click **Create fork**.
 
