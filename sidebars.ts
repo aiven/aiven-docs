@@ -1752,6 +1752,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/concepts/timescaledb',
                 'products/postgresql/concepts/upgrade-failover',
                 'products/postgresql/concepts/pgvector',
+                'products/postgresql/concepts/pg-audit-logging',
               ],
             },
             {
@@ -1806,6 +1807,18 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pgvector',
                     'products/postgresql/howto/pg-object-size',
                     'products/postgresql/howto/readonly-user',
+                    {
+                      type: 'category',
+                      label: 'PGAudit',
+                      link: {
+                        type: 'doc',
+                        id: 'products/postgresql/howto/list-pgaudit',
+                      },
+                      items: [
+                        'products/postgresql/concepts/pg-audit-logging',
+                        'products/postgresql/howto/use-pg-audit-logging',
+                      ],
+                    },
                   ],
                 },
                 {
