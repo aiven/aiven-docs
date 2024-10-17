@@ -1225,6 +1225,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Manage service',
                   items: [
                     'products/clickhouse/howto/secure-service',
+                    'products/clickhouse/howto/restore-backup',
                     'products/clickhouse/howto/manage-users-roles',
                     'products/clickhouse/howto/manage-databases-tables',
                     'products/clickhouse/howto/query-databases',
