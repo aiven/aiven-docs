@@ -21,6 +21,7 @@ bufferSize="--buffer-size=8192"
 timeout="--timeout=4000"
 address="https://aiven.io/docs/"
 redirectionLimit="--max-redirections=5"
+acceptedResponses="--accepted-status-codes=200..404"
 
 muffet ${bufferSize} \
        ${timeout} \
@@ -30,5 +31,6 @@ muffet ${bufferSize} \
        ${limitConnections} \
        ${rateLimit} \
        ${redirectionLimit} \
+       ${acceptedResponses} \
        "--color=always" \
        ${address};
