@@ -54,4 +54,4 @@ pip install "valkey[hiredis]"
 ## Related Pages
 
 - For additional information about `valkey-py`, see
-  the [Valkey-py GitHub Repository](https://github.com/valkey-io/valkey-py).
+  the [valkey-py GitHub Repository](https://github.com/valkey-io/valkey-py).
