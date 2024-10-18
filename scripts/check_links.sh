@@ -15,22 +15,20 @@ excludeList=(
     "docker.com"
   )
 
-rateLimit="--rate-limit=30"
-limitConnections="--max-connections=9"
-bufferSize="--buffer-size=8192"
-timeout="--timeout=4000"
-address="https://aiven.io/docs/"
-redirectionLimit="--max-redirections=5"
 acceptedResponses="--accepted-status-codes=200..404"
+address="https://aiven.io/docs/"
+bufferSize="--buffer-size=8192"
+limitConnections="--max-connections=9"
+rateLimit="--rate-limit=30"
+redirectionLimit="--max-redirections=5"
+timeout="--timeout=4000"
 
-muffet ${bufferSize} \
-       ${timeout} \
+muffet ${acceptedResponses} \
+       ${bufferSize} \
        ${excludeList[@]/#/--exclude } \
-       ${skipTLS} \
-       ${excludeGithub} \
        ${limitConnections} \
        ${rateLimit} \
        ${redirectionLimit} \
-       ${acceptedResponses} \
+       ${timeout} \
        "--color=always" \
        ${address};
