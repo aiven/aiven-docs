@@ -23,7 +23,7 @@ eligibility for the feature.
 
 :::important
 Before enabling BYOC, check
-[who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc) and review
+[who is eligible for BYOC](/docs/platform/concepts/byoc#who-is-eligible-for-byoc) and review
 [feature limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations) and
 [prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::
@@ -71,17 +71,18 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to enable thi
 
 ## Next steps
 
-With BYOC activated in your Aiven organization, you can create and use custom
-clouds:
-
--   [By yourself if using AWS or GCP](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
--   By contacting the Aiven team if using Azure or OCI.
+With BYOC activated in your Aiven organization, you can
+[create and use custom clouds](/docs/platform/howto/byoc/create-custom-cloud).
 
 ## Related pages
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud)
+-   [About bring your own cloud](/docs/platform/concepts/byoc)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Download an infrastructure template and a variables file](/docs/platform/howto/byoc/download-infrastructure-template)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Storing data in custom clouds](/docs/platform/howto/byoc/store-data)
+-   [Delete a custom cloud](/docs/platform/howto/byoc/delete-custom-cloud)
