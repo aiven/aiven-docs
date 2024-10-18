@@ -20,6 +20,5 @@ Choose a service [backup](/docs/products/clickhouse/concepts/disaster-recovery#s
 
 1. Click **Create fork**.
 
-Once the new fork service is running, you can change your application's connection settings
-to point to this new fork service. At this point, you can also power off the service you
-forked from if no longer needed.
+Once the new fork service is running, you can set up your application's connection settings
+to point to this new fork service.

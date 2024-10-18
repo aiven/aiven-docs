@@ -60,10 +60,11 @@ For more information on backups in Aiven, see
 
 ### Service recovery
 
-The [restoration of a backup](/docs/products/clickhouse/howto/restore-backup) of an
-Aiven for ClickHouse service is performed on a running ClickHouse server and proceeds as
-a regular power-on of the service. Backup restoration happens only to fork a service or
-to power up a service after powering it down.
+Regardless whether your Aiven for ClickHouse service is powered on or powered off, you can
+create its copy and
+[restore the data from a service backup of your choice](/docs/products/clickhouse/howto/restore-backup)
+For this purpose, you create a fork from the original service. This spins up a new service
+that hosts the data recovered from the selected backup.
 
 ## Sharding
 
