@@ -23,7 +23,7 @@ Before you begin, gather the necessary information about your source PostgreSQL 
 -   `PG_PASSWORD`: The database password for the `PG_USER`
 -   `PG_DATABASE_NAME`: The database name
 -   `SSL_MODE`: The [SSL
-    mode](https://www.postgresql.org/docs/current/libpq-ssl)
+    mode](https://www.postgresql.org/docs/current/libpq-ssl.html)
 -   `PLUGIN_NAME`: The [logical decoding
     plugin](https://debezium.io/documentation/reference/stable/connectors/postgresql.html),
     possible values are `decoderbufs` and `pgoutput`.
@@ -35,7 +35,7 @@ Before you begin, gather the necessary information about your source PostgreSQL 
     `schema_name1.table_name1,schema_name2.table_name2`
 -   `PG_PUBLICATION_NAME`: The name of the [PostgreSQL logical
     replication
-    publication](https://www.postgresql.org/docs/current/logical-replication-publication),
+    publication](https://www.postgresql.org/docs/current/logical-replication-publication.html),
     if left empty, `debezium` is used as default
 -   `PG_SLOT_NAME`: name of the [PostgreSQL replication
     slot](/docs/products/postgresql/howto/setup-logical-replication),

@@ -78,10 +78,10 @@ for more information.
 
 ## Geographical features
 
--   [address_standardizer](https://postgis.net/docs/standardize_address).
+-   [address_standardizer](https://postgis.net/docs/standardize_address.html).
     Used to parse an address into constituent elements. Generally used
     to support geocoding address normalization step.
--   [address_standardizer_data_us](https://postgis.net/docs/standardize_address).
+-   [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html).
     `Address standardizer` US dataset example.
 -   [earthdistance](https://www.postgresql.org/docs/current/earthdistance.html).
     Calculate great-circle distances on the surface of the Earth.
@@ -95,13 +95,13 @@ for more information.
     spatial types and functions.
 -   [postgis_legacy](https://postgis.net/). Legacy functions for
     PostGIS.
--   [postgis_raster](https://postgis.net/docs/RT_reference).
+-   [postgis_raster](https://postgis.net/docs/RT_reference.html).
     PostGIS raster types and functions.
--   [postgis_sfcgal](http://postgis.net/docs/reference#reference_sfcgal).
+-   [postgis_sfcgal](https://postgis.net/docs/reference_sfcgal.html).
     PostGIS SFCGAL functions.
--   [postgis_tiger_geocoder](https://postgis.net/docs/Extras#Tiger_Geocoder).
+-   [postgis_tiger_geocoder](https://postgis.net/docs/Extras.html#Tiger_Geocoder).
     PostGIS tiger geocoder and reverse geocoder.
--   [postgis_topology](https://postgis.net/docs/Topology). PostGIS
+-   [postgis_topology](https://postgis.net/docs/Topology.html). PostGIS
     topology spatial types and functions.
 
 ## Procedural language
@@ -160,7 +160,7 @@ for more information.
     Information about SSL certificates.
 -   [tablefunc](https://www.postgresql.org/docs/current/tablefunc.html).
     Functions that manipulate whole tables, including `crosstab`.
--   [timetravel](https://www.postgresql.org/docs/6.3/c0503.htm.html).
+-   [timetravel](https://www.postgresql.org/docs/6.3/c0503.htm).
     Functions for implementing time travel.
     `PG11 and earlier`
 -   [tsm_system_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html).
@@ -188,7 +188,7 @@ not generally available**.
     Functions for tracking who changed a table.
 -   [moddatetime](https://www.postgresql.org/docs/10/contrib-spi.html).
     Functions for tracking last modification time.
--   [old_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html).
+-   [old_snapshot](https://www.postgresql.org/docs/14/oldsnapshot.html).
     Utilities in support of old_snapshot_threshold.
     `PG14 only`
 -   [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html).
