@@ -125,7 +125,7 @@ following properties:
 - Target database: `default`
 - Username: `avnadmin`
 - Password: `mypassword`
-- SSL: Enabled
+- SSL: `true`
 
 ```json
 {
