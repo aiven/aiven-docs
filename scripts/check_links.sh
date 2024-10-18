@@ -1,18 +1,20 @@
 #!/bin/bash
 
 excludeList=(
-    ".*maven.apache.org"
-    ".*docs.npmjs.com"
-    ".*github.com"
-    "www.php.net"
-    "aiven.io\\/community"
-    "aiven.io\\/build"
-    "aiven.io\\/docs\\/assets"
-    ".*uptime.aiven.io"
-    ".*linkedin.com"
+    "aiven.io/?!docs"
+	  "aiven.io/docs/assets"
+	  "aiven.io/docs/images"
+    "aiven.io/community"
+    "aiven.io/build"
     ".*cdn.sanity.io"
     ".*console.cloud.google.com"
-    "docker.com"
+    ".*docs.npmjs.com"
+    ".*github.com"
+    ".*linkedin.com"
+    ".*maven.apache.org"
+    ".*uptime.aiven.io"
+    ".*docker.com"
+    ".*php.net"
   )
 
 acceptedResponses="--accepted-status-codes=200..404"
