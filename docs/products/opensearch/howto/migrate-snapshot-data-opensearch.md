@@ -407,13 +407,13 @@ the snapshot repository used during the migration to clean up resources.
 
 ### Reapply ISM policies and security configurations
 
-Next, reapply any necessary configurations:
+Reapply necessary configurations:
 
-- **Reapply ISM policies**: Reapply any Index State Management (ISM) policies to the
+- **Reapply ISM policies**: Reapply Index State Management (ISM) policies to the
   restored indices. For more information, see
   [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies).
 
-- **Update security configurations**: Review and reconfigure any security settings,
+- **Update security configurations**: Review and reconfigure security settings,
   including OpenDistro security configurations. For more details, see
   [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
 
