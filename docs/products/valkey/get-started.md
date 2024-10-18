@@ -53,10 +53,11 @@ Begin your journey with Aiven for Valkey™, the versatile in-memory data store 
 
 ## Connect to Aiven for Valkey
 
-Learn how to connect to Aiven for Caching using different programming
-languages:
+Learn how to connect to Aiven for Valkey using different programming
+languages or through `valkey-cli`:
 
-- [Go](/docs/products/caching/howto/connect-go)
-- [Node](/docs/products/caching/howto/connect-node)
-- [PHP](/docs/products/caching/howto/connect-php)
-- [Python](/docs/products/caching/howto/connect-python)
+- [valkey-cli](/docs/products/valkey/howto/connect-valkey-cli.md)
+- [Go](/docs/products/valkey/howto/connect-go)
+- [Node](/docs/products/valkey/howto/connect-node)
+- [PHP](/docs/products/valkey/howto/connect-php)
+- [Python](/docs/products/valkey/howto/connect-python)
