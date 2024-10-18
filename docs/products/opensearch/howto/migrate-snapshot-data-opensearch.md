@@ -400,7 +400,24 @@ The response shows the snapshot status and details if a snapshot is in progress:
 
 The `details` section is included only if a snapshot is in progress.
 
-## Verify the migration
+## Finalize the migration process
+
+After the restoration process is complete, Aiven for OpenSearch automatically deletes
+the snapshot repository used during the migration to clean up resources.
+
+### Reapply ISM policies and security configurations
+
+Reapply necessary configurations:
+
+- **Reapply ISM policies**: Reapply Index State Management (ISM) policies to the
+  restored indices. For more information, see
+  [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies).
+
+- **Update security configurations**: Review and reconfigure security settings,
+  including OpenDistro security configurations. For more details, see
+  [Migrate OpenDistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
+
+### Verify the migration
 
 Ensure that your data has been restored successfully by listing the indices and checking
 the document count for your migrated data.
@@ -437,23 +454,6 @@ curl $SERVICE_URL/_cat/aliases?v&expand_wildcards=all
 
 Compare the outputs from the source and target services to ensure that document
 counts and aliases match after the migration.
-
-## Complete the migration
-
-After the restoration process is complete, Aiven for OpenSearch automatically deletes
-the snapshot repository used during the migration to clean up resources.
-
-### Reapply ISM policies and security configurations
-
-After restoring your data:
-
-- **Reapply ISM policies**: Reapply any Index State Management (ISM) policies to the
-  restored indices. For more information, see
-  [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies).
-
-- **Update security configurations**: Review and reconfigure any security settings,
-  including OpenDistro security configurations. For more details, see
-  [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
 
 ## Backup management during migration
 
