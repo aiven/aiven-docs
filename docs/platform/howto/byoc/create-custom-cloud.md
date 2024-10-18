@@ -52,7 +52,7 @@ needs for accessing your GCP account only with permissions that are required.
 
 :::note
 Privilege-bearing service account (SA) is an
-[identifier](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account#id)
+[identifier](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account)
 of the [service account](https://cloud.google.com/iam/docs/service-account-types#user-managed)
 created when running the IaC template in your Google account. Aiven [impersonates this
 service account](https://cloud.google.com/iam/docs/create-short-lived-credentials-direct)
@@ -600,10 +600,10 @@ view, copy, or download it. Now, you can use the template to
 #### Deploy the template{#deploy-template}
 
 Role ARN is an [identifier of the
-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles)
+role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
 created when running the infrastructure template in your AWS account.
 Aiven uses Role ARN to [assume the
-role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole)
+role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)
 and run operations such as creating VMs for service nodes in your BYOC
 account.
 

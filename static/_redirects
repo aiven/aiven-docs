@@ -59,6 +59,7 @@
 /platform/howto/move-to-aws-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-azure-marketplace-billing      https://aiven.io/docs/platform/howto/list-marketplace-payments
 /platform/howto/move-to-gcp-marketplace-billing        https://aiven.io/docs/platform/howto/list-marketplace-payments
+/platform/howto/okta-user-provisioning-with-scim       https://aiven.io/docs/platform/howto/saml/add-okta-idp
 /platform/howto/pause-from-cli                         https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/payment-issues-plan-upgrades           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/project-support-center                 https://aiven.io/docs/platform/howto/support
@@ -208,8 +209,10 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
-/products/opensearch/concepts/users-access-controls                    https://aiven.io/docs/products/opensearch/concepts/access_control
-#
+/products/kafka/howto/enable-karapace                                  https://aiven.io/docs/products/kafka/howto/enable-schema-registry
+/products/kafka/howto/list-schema-registry                             https://aiven.io/docs/products/kafka/howto/enable-schema-registry
+
+
 # Keep splats at the end
 #
 /products/redis/*                                          https://aiven.io/docs/products/caching/:splat

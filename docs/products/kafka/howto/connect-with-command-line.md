@@ -2,34 +2,31 @@
 title: Connect to Aiven for Apache Kafka® with command line tools
 ---
 
-These examples show how to send messages to and receive messages from an
-Aiven for Apache Kafka® service using command line tools.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
+
+Learn how to send and receive messages from an Aiven for Apache Kafka® service using command-line tools.
 
 ## Prerequisites
 
-`kafka-console-producer.sh` and `kafka-console-consumer.sh` are part of
-the Apache Kafka® toolbox included with the [open source Apache Kafka®
-code](https://kafka.apache.org/downloads). They may be found in the
-`bin` directory of the unpacked archive.
+The `kafka-console-producer.sh` and `kafka-console-consumer.sh` scripts are included
+in the [open-source Apache Kafka® distribution](https://kafka.apache.org/downloads),
+located in the `bin` directory.
 
-For `kafka-avro-console-producer` follow the installation instructions
-in [its GitHub
-repository](https://github.com/confluentinc/schema-registry), or get the
-Confluent platform using the **Tar archive** option at [Quick Start for
-Confluent
-Platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart).
-The `kafka-avro-console-producer` tool is in the `bin` directory of the
-unpacked Confluent archive.
+For `kafka-avro-console-producer`, follow the installation steps in
+[its GitHub repository](https://github.com/confluentinc/schema-registry) or
+download the Confluent platform via the **Tar archive** option in
+the [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart).
+The  `kafka-avro-console-producer` tool is also located in the bin directory of
+the Confluent archive.
 
 :::note
-You do not need to install the Confluent platform to use the
-`kafka-avro-console-producer` tool with an Aiven for Apache Kafka
-service that is using Karapace.
+The Confluent platform is not required to use the `kafka-avro-console-producer` tool
+with an Aiven for Apache Kafka service running [Karapace](/docs/products/kafka/karapace/howto/enable-karapace).
 :::
 
-To setup the configuration file needed by all three tools, follow [the
-guide to set up properties to use the Apache Kafka
-toolbox](/docs/products/kafka/howto/kafka-tools-config-file).
+To configure all three tools, see the
+[Apache Kafka toolbox properties](/docs/products/kafka/howto/kafka-tools-config-file).
 
 ## Variables
 
@@ -50,40 +47,38 @@ instance `12345`.
 
 ## Produce messages
 
-With `kafka-console-producer` you can send multiple messages into your
-topic.
+Use `kafka-console-producer` to send multiple messages to your topic.
 
-```
+```bash
 kafka-console-producer.sh --broker-list {HOST}:{PORT} \
   --topic {TARGET_TOPIC} \
   --producer.config {CONFIGURATION_PATH}
 ```
 
-Once the connection is successfully established you can send messages
-one after another by typing them in the terminal. For example:
+Once the connection is established, you can send messages one after another by typing
+them in the terminal. For example:
 
-```
+```plaintext
 message1
 message2
 ```
 
-## Produce messages with schema
+## Produce messages with a schema
 
-With `kafka-avro-console-producer` you can include the schema by
-connecting to your schema registry
+Use `kafka-avro-console-producer` to produce messages with a schema by connecting
+to your schema registry.
 
 :::note
-1.  The `schema.registry.url` value must be a full URL, typically
-    starting with `https://`
-2.  Aiven's [Karapace](https://karapace.io/) is an acceptable schema
-    registry for this purpose. See [Use Karapace with Aiven for Apache
-    Kafka®](/docs/products/kafka/howto/enable-karapace)
-    for how to enable it for your Aiven for Kafka service. The
-    `SCHEMA_REGISTRY_` values for the command line can be found on the
-    service Overview page, on the **Schema registry** tab.
+
+- The `schema.registry.url` must be a complete URL, typically starting with `https://`.
+- Aiven's [Karapace](https://karapace.io/) is a compatible schema registry. To enable
+  it for your Aiven for Apache Kafka® service, see
+  [Enable Karapace with Aiven for Apache Kafka®](/docs/products/kafka/karapace/howto/enable-karapace).
+  The `SCHEMA_REGISTRY_` values are available on the **Schema Registry** tab of the
+  service's <ConsoleIcon name="overview"/> page.
 :::
 
-```
+```bash
 kafka-avro-console-producer --broker-list {HOST}:{PORT} \
   --producer.config {CONFIGURATION_PATH} \
   --topic {TARGET_TOPIC} \
@@ -93,26 +88,21 @@ kafka-avro-console-producer --broker-list {HOST}:{PORT} \
   --property basic.auth.user.info={SCHEMA_REGISTRY_USER}:{SCHEMA_REGISTRY_PASSWORD}
 ```
 
-After the connection is established you can send messages according to
-selected schema. For example:
+Once connected, you can send messages using the specified schema. For example:
 
-```
+```json
 {"id": "1"}
 ```
 
-:::note
-For more information on how to use `kafka-avro-console-producer` see the
-[Confluent developer
-documentation](https://developer.confluent.io/tutorials/kafka-console-consumer-producer-avro/kafka.html).
-:::
+For more information on how to use `kafka-avro-console-producer`, see the
+[Confluent developer documentation](https://developer.confluent.io/tutorials/kafka-console-consumer-producer-avro/kafka.html).
 
 ## Consume messages
 
-With `kafka-console-consumer` you can read messages from your topic. For
-example, run the command below to start reading from the beginning of
-the topic.
+Use `kafka-console-consumer` to read messages from your topic. To read from the
+beginning of the topic, run:
 
-```
+```bash
 kafka-console-consumer.sh --bootstrap-server {HOST}:{PORT} \
   --topic {TARGET_TOPIC}  \
   --consumer.config {CONFIGURATION_PATH} \
