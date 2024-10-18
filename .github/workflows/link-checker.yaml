@@ -1,0 +1,32 @@
+name: Check Links
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Muffet
+        run: |
+          sudo apt-get update
+          sudo apt-get install muffet
+
+      - name: Run Check Links
+        run: |
+          make check-links
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: check-links-log
+          path: scripts/check_links.log
