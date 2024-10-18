@@ -46,10 +46,6 @@ To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be 
   [Contact the Aiven support team](mailto:support@aiven.io) to request enabling tiered
   storage in your custom cloud.
 
-:::note
-You cannot deactivate tiered storage on your custom cloud once it's activated.
-:::
-
 ### Enable on a service
 
 #### Prerequisites
@@ -77,7 +73,7 @@ Backups of BYOC-hosted services are stored as follows:
 
 - **AWS BYOC**: User-owned backups stored in object storage in your own AWS cloud account.
   One S3 bucket is created per custom cloud.
-- **Google Cloud, Azure, or OCI BYOC**: Aiven-owned backups stored in Aiven-managed object
+- **Google Cloud**: Aiven-owned backups stored in Aiven-managed object
   storage.
 
 ## Related pages

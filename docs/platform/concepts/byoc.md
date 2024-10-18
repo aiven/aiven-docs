@@ -54,8 +54,7 @@ needs or project requirements, such as:
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
 
--   You use Amazon Web Services (AWS), Google Cloud, Microsoft Azure
-    (excluding Azure Germany), or Oracle Cloud Infrastructure (OCI).
+-   You use Amazon Web Services (AWS) or Google Cloud.
 -   You have a commitment deal with Aiven.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
@@ -107,7 +106,7 @@ In the AWS private deployment model, a Virtual Private Cloud (**BYOC VPC**) for 
 services is created within a particular cloud region in your remote cloud account.
 Aiven accesses this VPC from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven
-utilizes a bastion host (**Bastion node**) physically separated from the Aiven services
+utilizes a bastion host (**Bastion node**) logically separated from the Aiven services
 you deploy. The service VMs reside in a privately addressed subnet (**Private subnet**)
 and are accessed by the Aiven management plane via the bastion. They are not
 accessible through the internet.
@@ -122,9 +121,10 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
-The private subnet is where your object storage (two S3 buckets) reside. This storage is
-used for [service backups](/docs/platform/concepts/byoc#byoc-service-backups) and as cold
-[storage for your service's data](/docs/platform/howto/byoc/store-data).
+Object storage in your AWS cloud account is where service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+two S3 buckets.
 
 </TabItem>
 <TabItem value="2" label="AWS public">
@@ -139,9 +139,10 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly.
 
-The public subnet is where your object storage (two S3 buckets) reside. This storage is
-used for [service backups](/docs/platform/concepts/byoc#byoc-service-backups) and as cold
-[storage for your service's data](/docs/platform/howto/byoc/store-data).
+Object storage in your AWS cloud account is where service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+two S3 buckets.
 </TabItem>
 <TabItem value="3" label="Google Cloud private">
 
@@ -156,7 +157,7 @@ Within the **BYOC VPC**, there are:
 
 Aiven accesses the **BYOC VPC** from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven
-utilizes a bastion host (**Bastion note**) physically separated from the Aiven services
+utilizes a bastion host (**Bastion note**) logically separated from the Aiven services
 you deploy. The service VMs reside in a privately addressed subnet (**Private subnet**)
 and are accessed by the Aiven management plane via the bastion. They are not
 accessible through the internet.

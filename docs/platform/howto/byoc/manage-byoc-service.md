@@ -52,7 +52,7 @@ to point to your custom cloud.
 ### Migrate private BYOC
 
 Migrating a service to a custom cloud in the private deployment mode requires network
-reconfiguration. Contact your account team to request it.
+reconfiguration. Contact your account team for further guidance.
 
 ## Related pages
 

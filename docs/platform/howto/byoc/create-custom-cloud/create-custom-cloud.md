@@ -1,7 +1,7 @@
 ---
 title: Create a custom cloud
 sidebar_label: Create custom clouds
-keywords: [AWS, Amazon Web Services, Microsoft Azure, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud, OCI, Oracle Cloud Infrastructure]
+keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud]
 ---
 
 import DocCardList from '@theme/DocCardList';
@@ -31,13 +31,6 @@ own if your cloud provider is AWS or Google Cloud:
 
 <DocCardList />
 
-:::note[Azure & OCI]
-If your cloud provider is Microsoft Azure or OCI, you'll have your custom cloud created by
-the Aiven team. Just [enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc) and
-specify your requirements. The Aiven team will build your custom cloud according to the
-specification you provide.
-:::
-
 #### Limitations
 
 -   You need at least the Advanced tier of Aiven support services to be
@@ -49,10 +42,6 @@ specification you provide.
     Contact your account team to learn more or upgrade your support tier.
     :::
 
--   You can create custom clouds yourself in the [Aiven Console](https://console.aiven.io/)
-    or using the [Aiven CLI client](/docs/tools/cli) if your cloud provider is AWS or Google Cloud.
-    For Azure & OCI, [request creating a custom cloud](/docs/platform/howto/byoc/enable-byoc)
-    from the Aiven team.
 -   Only [super admins](/docs/platform/howto/make-super-admin) can create custom clouds.
 
 #### Related pages

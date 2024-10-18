@@ -468,7 +468,7 @@ In the **Create custom cloud** wizard:
 
         Choose between:
         - Private model, which routes traffic through a proxy for additional security
-          utilizing a bastion host physically separated from the Aiven services.
+          utilizing a bastion host logically separated from the Aiven services.
         - Public model, which allows the Aiven control plane to connect to the service
           nodes via the public internet.
 
@@ -639,7 +639,7 @@ Your new custom cloud is ready to use only after its status changes to
        connect to the service nodes via the public internet.
      - `standard` (private) model: The nodes reside in a VPC without public IP addresses
        and are by default not accessible from outside. Traffic is routed through a proxy
-       for additional security utilizing a bastion host physically separated from the
+       for additional security utilizing a bastion host logically separated from the
        Aiven services.
    - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom cloud,
      for example `europe-north1`. See all available options in
