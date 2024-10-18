@@ -415,7 +415,7 @@ Reapply necessary configurations:
 
 - **Update security configurations**: Review and reconfigure security settings,
   including OpenDistro security configurations. For more details, see
-  [Migration Opendistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
+  [Migrate OpenDistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
 
 ### Verify the migration
 
