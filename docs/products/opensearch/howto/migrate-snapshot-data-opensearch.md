@@ -407,7 +407,7 @@ the snapshot repository used during the migration to clean up resources.
 
 ### Reapply ISM policies and security configurations
 
-After restoring your data:
+Next, reapply any necessary configurations:
 
 - **Reapply ISM policies**: Reapply any Index State Management (ISM) policies to the
   restored indices. For more information, see
