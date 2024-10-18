@@ -966,6 +966,7 @@ const sidebars: SidebarsConfig = {
                       items: [
                         'products/kafka/kafka-connect/howto/azure-blob-sink',
                         'products/kafka/kafka-connect/howto/cassandra-streamreactor-sink',
+                        'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
                         'products/kafka/kafka-connect/howto/couchbase-sink',
                         'products/kafka/kafka-connect/howto/elasticsearch-sink',
                         'products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq',
