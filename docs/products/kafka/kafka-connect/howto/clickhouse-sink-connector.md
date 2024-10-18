@@ -18,6 +18,25 @@ Before you begin, ensure that you have the following:
   - Hostname, port, and credentials.
   - A target database and table that have already been created in ClickHouse.
 
+## Limitations
+
+The ClickHouse sink connector has the following limitations related to data consistency
+and exactly-once delivery:
+
+1. **No exactly-once delivery after restore**: The connector does not guarantee
+   exactly-once delivery after restoring from a backup, powering off, or forking a
+   service. This may result in duplicate records in ClickHouse.
+
+1. **Manual removal of duplicate records**: If duplicate records occur, remove them by
+   running the following command:
+
+   ```sql
+   OPTIMIZE TABLE table_name DEDUPLICATE;
+   ```
+
+    Make sure all potential duplicates are written before running the command to keep
+    data consistent in ClickHouse."
+
 ## Create a ClickHouse sink connector configuration file
 
 Create a file named `clickhouse_sink_connector.json` with the following configuration:
@@ -126,22 +145,3 @@ following properties:
 Once this configuration is saved in the `clickhouse_sink_connector.json` file, you can
 create the connector using the Aiven Console or CLI, and verify that data from the
 Apache Kafka topic `test-topic` is successfully delivered to your ClickHouse instance.
-
-## Limitations
-
-The ClickHouse sink connector has the following limitations related to data consistency
-and exactly-once delivery:
-
-1. **No exactly-once delivery after restore**: The connector does not guarantee
-   exactly-once delivery after restoring from a backup, powering off, or forking a
-   service. This may result in duplicate records in ClickHouse.
-
-1. **Manual removal of duplicate records**: If duplicate records occur, remove them by
-   running the following command:
-
-   ```sql
-   OPTIMIZE TABLE table_name DEDUPLICATE;
-   ```
-
-    Make sure all potential duplicates are written before running the command to keep
-    data consistent in ClickHouse."
