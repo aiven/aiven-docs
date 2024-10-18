@@ -131,7 +131,7 @@ Make your organization users managed users by verifiying a domain and configurin
 identity provider.
 
 Aiven also supports automatic
-[user provisioning with Okta](/docs/platform/howto/okta-user-provisioning-with-scim)
+[user provisioning with Okta](/docs/platform/howto/saml/add-okta-idp)
 through System for Cross-domain Identity Management (SCIM).
 
 <GridContainer columns={3}>
