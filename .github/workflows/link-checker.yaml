@@ -13,10 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+         go-version: 'stable'
+
       - name: Install Muffet
         run: |
-          sudo apt-get update
-          sudo apt-get install muffet
+          go install github.com/raviqqe/muffet/v2@latest
 
       - name: Run check links
         run: |
