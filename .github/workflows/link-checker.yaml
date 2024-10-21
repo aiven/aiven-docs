@@ -24,10 +24,4 @@ jobs:
 
       - name: Run check links
         run: |
-          make check-links-logs
-
-      - name: Upload logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: check-links-log
-          path: scripts/check_links.log
+          make check-links
