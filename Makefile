@@ -59,7 +59,7 @@ delete-unused-images:
 	node "$(SCRIPTS)/delete_unused_images.js"
 
 check-links-logs:
-	sh "$(SCRIPTS)/check_links.sh" >> check_links.log
+	bash "$(SCRIPTS)/check_links.sh" >> check_links.log
 
 check-links:
-	sh "$(SCRIPTS)/check_links.sh"
+	bash "$(SCRIPTS)/check_links.sh"
