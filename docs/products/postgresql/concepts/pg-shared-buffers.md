@@ -208,5 +208,5 @@ forced ejection.
 ## Related pages
 
 For more information on shared buffers, see [Resource
-Consumption](https://www.postgresql.org/docs/current/runtime-config-resource)
+Consumption](https://www.postgresql.org/docs/current/runtime-config-resource.html)
 in the PostgreSQL documentation.

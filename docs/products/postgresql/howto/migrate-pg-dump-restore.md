@@ -9,7 +9,7 @@ We recommend to migrate your PostgreSQL® database to Aiven by using
 [aiven-db-migrate](migrate-aiven-db-migrate).
 :::
 
-The [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump)
+The [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html)
 tool can be used to extract the data from your existing PostgreSQL
 database and
 [`pg_restore`](https://www.postgresql.org/docs/current/app-pgrestore)
@@ -147,7 +147,7 @@ use the `--no-comments` parameter in `pg_restore` to skip these queries.
 `pg_restore` offers similar `--no-XXX` options to switch off other,
 often unnecessary restore queries. More information is available in the
 [PostgreSQL
-documentation](https://www.postgresql.org/docs/current/app-pgrestore).
+documentation](https://www.postgresql.org/docs/current/app-pgrestore.html).
 :::
 
 ### Poor performance after migration
@@ -163,5 +163,5 @@ service after performing a major version upgrade to ensure the
 statistics are up-to-date.
 
 For more information about `ANALYZE`, you may see the official [SQL
-analyze](https://www.postgresql.org/docs/current/sql-analyze)
+analyze](https://www.postgresql.org/docs/current/sql-analyze.html)
 documentation.

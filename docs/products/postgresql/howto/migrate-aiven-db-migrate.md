@@ -101,7 +101,7 @@ calls
 :::warning
 Running a logical replication migration twice on the same cluster creates
 duplicate data. Logical replication also has
-[limitations](https://www.postgresql.org/docs/current/logical-replication-restrictions)
+[limitations](https://www.postgresql.org/docs/current/logical-replication-restrictions.html)
 on what it can copy.
 :::
 

@@ -11,7 +11,7 @@ either:
 
 -   [Aiven Console](https://console.aiven.io)
 -   [PostgreSQL®
-    shell](https://www.postgresql.org/docs/current/app-psql)
+    shell](https://www.postgresql.org/docs/current/app-psql.html)
     (`psql`)
 
 ## Terminate long running queries from the Aiven Console
@@ -37,7 +37,7 @@ SELECT pg_terminate_backend(pid);
 
 You can learn more about the `pg_terminate_backend()` function from the
 [official
-documentation](https://www.postgresql.org/docs/current/functions-admin).
+documentation](https://www.postgresql.org/docs/current/functions-admin.html).
 
 You can then use the following query to monitor currently running
 queries:
@@ -57,7 +57,7 @@ SET statement_timeout = 15000
 ```
 
 You may check the [client connection
-defaults](https://www.postgresql.org/docs/current/runtime-config-client)
+defaults](https://www.postgresql.org/docs/current/runtime-config-client.html)
 documentation for more information on the available session variables.
 
 ## Database user error
