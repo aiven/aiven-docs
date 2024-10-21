@@ -53,13 +53,13 @@ This operation may incur an additional cost to your project.
 Backups are encrypted and not available for download, but you can create your own
 backups with the appropriate tooling:
 
--   [PostgreSQL®](https://www.postgresql.org/docs/14/app-pgdump):
+-   [PostgreSQL®](https://www.postgresql.org/docs/current/app-pgdump.html):
     `pgdump`
 -   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html):
     `mysqldump`
 -   [Caching](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
     `redis-cli`
--   [Cassandra®](https://docs.datastax.com/en/archived/cql/3.3/cql/cql_reference/cqlshCopy)
+-   [Cassandra®](https://docs.datastax.com/en/cql-oss/3.1/cql/cql_reference/copy_r.html)
     `cqlsh`
 -   [OpenSearch®](https://github.com/elasticsearch-dump/elasticsearch-dump):
     `elasticdump`

@@ -248,7 +248,7 @@ You should be able to see the following structure:
 
 These are the fields you can play with. You can find information on
 dynamic mapping types [in the
-documentation](https://opensearch.org/docs/latest/field-types/index/#dynamic-mapping).
+documentation](https://opensearch.org/docs/latest/field-types/#dynamic-mapping).
 
 ## Sample queries with HTTP client
 

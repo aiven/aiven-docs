@@ -12,7 +12,7 @@ soon as the first run completes.
 
 ## CRON syntax
 
-The schedule uses the standard [cron syntax](https://omni.wikiwand.com/en/articles/Cron),
+The schedule uses the standard [cron syntax](https://en.wikipedia.org/wiki/Cron),
 where an asterisk (`*`) means _execute at every time interval_, and a specific number
 means _execute exclusively at this specific time_:
 
