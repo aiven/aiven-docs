@@ -101,5 +101,5 @@ information, see
 
 ## Related pages
 
-- [PostgreSQL interactive terminal](https://www.postgresql.org/docs/15/app-psql)
-- [Database Object Management Functions](https://www.postgresql.org/docs/current/functions-admin#FUNCTIONS-ADMIN-DBOBJECT)
+- [PostgreSQL interactive terminal](https://www.postgresql.org/docs/15/app-psql.html)
+- [Database Object Management Functions](https://www.postgresql.org/docs/current/functions-admin#FUNCTIONS-ADMIN-DBOBJECT.html)

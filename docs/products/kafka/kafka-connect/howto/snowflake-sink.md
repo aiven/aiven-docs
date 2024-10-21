@@ -7,13 +7,13 @@ The Apache Kafka Connect® Snowflake sink connector enables you to move data fro
 :::note
 See the full set of available parameters and configuration
 options in the [connector's
-documentation](https://docs.snowflake.net/manuals/user-guide/kafka-connector).
+documentation](https://docs.snowflake.com/en/user-guide/kafka-connector-overview).
 :::
 
 ## Prerequisites {#connect_sink_snowflake_prereq}
 
 - An Aiven for Apache Kafka® service
-  [with Apache Kafka Connect enabled](enable-connect) or a
+  [with Apache Kafka Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect) or a
   [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
 - [Prepare the Snowflake account](snowflake-sink-prereq) and collect the following

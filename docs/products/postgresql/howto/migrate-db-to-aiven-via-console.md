@@ -29,7 +29,7 @@ With the console migration tool, you can migrate your data using one of these me
 The continuous migration method is used by default in the console. The continuous migration
 keeps the source database operational during the migration. This method
 uses [logical
-replication](https://www.postgresql.org/docs/current/logical-replication),
+replication](https://www.postgresql.org/docs/current/logical-replication.html),
 which enables data transfer not only for the data that has already been
 there in the source database when triggering the migration but also for
 any data written to the source database during the migration.
@@ -184,7 +184,7 @@ To use the default continuous migration method in the console:
 
     For more details on the configuration file's syntax, see [The
     pg_hba.conf
-    File](https://www.postgresql.org/docs/14/auth-pg-hba-conf).
+    File](https://www.postgresql.org/docs/14/auth-pg-hba-conf.html).
 
 -   Enable the logical replication.
 
@@ -301,7 +301,7 @@ It's recommended to migrate into an empty database. If you migrate into
 a populated database, colliding tables with primary keys are not
 affected, but tables without primary keys are appended. Check other
 limitations in [Logical replication
-restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions).
+restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
 :::
 
 Trigger the migration by selecting **Start migration** in the **Database

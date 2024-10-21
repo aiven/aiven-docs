@@ -17,7 +17,7 @@ execution details, along with query and host metrics correlation.
 -   The
     [PostgreSQL extensions](/docs/products/postgresql/reference/list-of-extensions) - `pg_stat_statements` and `aiven_extras`, must be
     enabled by executing the following [CREATE
-    EXTENSION](https://www.postgresql.org/docs/current/sql-createextension)
+    EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)
     SQL commands directly on the Aiven for PostgreSQL® database service.
 
 ```bash

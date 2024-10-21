@@ -3,7 +3,7 @@ title: Identify PostgreSQL® slow queries
 sidebar_label: Identify slow queries
 ---
 
-Use the PostgreSQL® `pg_stat_statements` [extension](https://www.postgresql.org/docs/current/pgstatstatements) to find slow queries.
+Use the PostgreSQL® `pg_stat_statements` [extension](https://www.postgresql.org/docs/current/pgstatstatements.html) to find slow queries.
 
 ## Identify slow queries in the Console
 
@@ -27,7 +27,7 @@ Query statistics deduced via the `pg_stat_statements` are the following:
 
 You can also create custom queries using the `pg_stat_statements` view
 and use
-all the [available columns](https://www.postgresql.org/docs/current/pgstatstatements)
+all the [available columns](https://www.postgresql.org/docs/current/pgstatstatements.html)
 to investigate your use case.
 
 ## Prerequisites
@@ -92,7 +92,7 @@ wal_bytes           | numeric          |           |          |
 On older PostgreSQL versions, you might find different column names (for example,
 the column previously named `max_time` is now `max_exec_time`). Always
 refer to the [PostgreSQL® official
-documentation](https://www.postgresql.org/docs/current/pgstatstatements)
+documentation](https://www.postgresql.org/docs/current/pgstatstatements.html)
 with the version you are using for accurate column matching.
 
 :::tip
@@ -206,6 +206,6 @@ ORDER by (shared_blks_hit+shared_blks_dirtied) DESC limit 10;
 Once you have identified slow queries:
 
 - Inspect the query plan and execution using
-  [EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/using-explain) to
+  [EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/using-explain.html) to
   understand how to optimise your design to improve the performance.
 - [Optimize slow PostgreSQL® queries](/docs/products/postgresql/howto/optimize-pg-slow-queries).

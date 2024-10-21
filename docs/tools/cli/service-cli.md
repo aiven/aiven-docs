@@ -427,7 +427,7 @@ retrievable includes:
 
 -   the `public.pg_stat_statements` columns (see the [documentation for
     these statistics
-    columns](https://www.postgresql.org/docs/current/pgstatstatements))
+    columns](https://www.postgresql.org/docs/current/pgstatstatements.html))
     for Aiven for PostgreSQL services.
 -   the `performance_schema.events_statements_summary_by_digest` (refer
     to [documentation on the events information from the performance
@@ -436,8 +436,7 @@ retrievable includes:
 
 A description of the retrieved columns for Aiven for PostgreSQL can be
 found in the dedicated [PostgreSQL
-documentation](https://www.postgresql.org/docs/current/pgstatstatements)
-.
+documentation](https://www.postgresql.org/docs/current/pgstatstatements.html).
 
 | Parameter      | Information                                                                                        |
 | -------------- | -------------------------------------------------------------------------------------------------- |

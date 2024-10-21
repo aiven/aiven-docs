@@ -52,7 +52,7 @@ On the Aiven for PostgreSQL instance to be monitored with pgwatch2:
 
     :::warning
     According to the [PostgreSQL
-    documentation](https://www.postgresql.org/docs/current/runtime-config-statistics),
+    documentation](https://www.postgresql.org/docs/current/runtime-config-statistics.html),
     setting `track_io_timing = on` can cause significant overhead.
     :::
 
