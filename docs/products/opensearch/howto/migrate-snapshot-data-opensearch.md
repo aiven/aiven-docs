@@ -6,12 +6,14 @@ limited: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Aiven for OpenSearch lets you restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
 
 ## Supported cloud providers
 
-Aiven for OpenSearch supports restoring snapshots from the following cloud providers:
+Aiven for OpenSearch supports snapshot restoration from these providers:
 
 - Google Cloud Storage (GCS)
 - Amazon S3
@@ -27,25 +29,32 @@ Before you begin, ensure that:
 - A target Aiven for OpenSearch service within your project.
 - Your OpenSearch or Elasticsearch snapshot is from version 7.10.2 or earlier, or
   from OpenSearch 1.x/2.x, and it is not newer than the target service version.
-- Optional: To verify the compatibility of your snapshot for migration, run
-  the `pre_snapshot_checks.py` script from the
+- Optional: Verify snapshot compatibility using the `pre_snapshot_checks.py` script from
+  the
   [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/pre_snapshot_checks.py).
 
 :::note
-When creating the snapshot, set `include_global_state: true` to include the global
-state, which contains important metadata like aliases and templates. If the snapshot
-does not include the global state, setting `include_global_state: true` during migration
-will not work. For more details, see
+
+When creating the snapshot, you can configure these options:
+
+- `restore_global_state`: Set to `true` to restore the cluster state, which includes
+  important metadata like aliases and templates. Default is `false`. If the snapshot
+  does not include the global state, setting this option to `true` has no effect.
+
+- `include_aliases`: Set to `true` to restore aliases and their indices. Default is
+  `true`.
+
+For more details, see
 [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
 :::
 
 ### Optional: Collect data for migration validation {#collect-data-for-migration-validation}
 
 You can collect and compare data from the source and target services to verify the
-migration's accuracy. This step is optional but recommended to ensure the migration
+migration. This step is optional but recommended to ensure the migration
 was successful.
 
-1. **Collect data from the source service**: Before migrating the data, collect data from
+1. **Collect data from the source service**: Before migration, collect data from
    the source service and save it in a JSON file
    (for example, `file1.json`). Use the following script from the
    [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py):
@@ -58,8 +67,8 @@ was successful.
    --es_host https://YOUR_SOURCE_ES_HOST
    ```
 
-1. **Collect data from the target service after migration**: After the migration is
-   complete, collect data from the target Aiven for OpenSearch service and save it in
+1. **Collect data from the target service after migration**: After migration, collect
+   data from the target Aiven for OpenSearch service and save it in
    a separate JSON file (for example, `file2.json`) using the same script:
 
    ```bash
@@ -69,8 +78,7 @@ was successful.
    --es_host https://YOUR_AIVEN_OPENSEARCH_HOST
    ```
 
-1. **Compare data from the source and target services**: After retrieving data from
-   both the source and target services, use the `compare_migration_validation_data.py`
+1. **Compare data from the source and target services**: Use the `compare_migration_validation_data.py`
    script from the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
    to compare the two JSON files:
 
@@ -78,69 +86,97 @@ was successful.
    python compare_migration_validation_data.py file1.json file2.json
    ```
 
-### Gather required parameters
+### Gather required parameters {#gather-required-parameters}
 
-Gather these details before registering the snapshot repository:
+Before registering the snapshot repository, collect the following details:
 
-- `API_TOKEN`: Your [Aiven token](/docs/platform/concepts/authentication-tokens)
-- `PROJECT_NAME`: Name of your Aiven project
-- `SERVICE_NAME`: Name of your Aiven for OpenSearch service
+- `API_TOKEN`: Your [Aiven token](/docs/platform/concepts/authentication-tokens).
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven for OpenSearch service.
 
 Information specific to cloud providers:
 
 - **Amazon S3**
 
-  - `snapshot_name`: The name of the snapshot to restore
+  - `snapshot_name`: The name of the snapshot to restore.
   - `base_path`: The path within the S3 bucket where the snapshot data is stored
-  - `bucket`: The S3 bucket name
-  - `region`: The AWS region of the S3 bucket
-  - `access_key`: AWS access key for accessing the S3 bucket
-  - `secret_key`: AWS secret key associated with the access key
+  - `bucket`: The S3 bucket name.
+  - `region`: The AWS region of the S3 bucket.
+  - `access_key`: AWS access key for accessing the S3 bucket.
+  - `secret_key`: AWS secret key associated with the access key.
   - `server_side_encryption`: Optional. Enable server-side encryption for files in the
-    S3 bucket
+    S3 bucket.
   - `endpoint`: Optional. The endpoint for S3-compatible services if not using AWS S3
     directly
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default. Exclude
-    the `.opendistro_security` index pattern from your snapshot restore process
+    indices.
+    - If no index pattern is provided and a previous restore request was made, the
+      index pattern from the previous request is reused.
+    - If no previous request exists, all indices are restored by default.
+    - Exclude the `.opendistro_security` index pattern from your snapshot restore.
+  - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
+    false.
+  - `include_aliases`: Optional. Whether to restore aliases alongside their associated
+    indices. Defaults to true.
 
 - **Google Cloud Storage (GCS)**
 
-  - `credentials`: GCS credentials file content
-  - `bucket`: Name of the GCS bucket that contains the snapshot
-  - `base_path`: Path to repository data within the bucket
+  - `credentials`: GCS credentials file content.
+  - `bucket`: Name of the GCS bucket that contains the snapshot.
+  - `base_path`: Path to repository data within the bucket.
   - `snapshot_name`: Name of the snapshot to restore.
   - `compress` and `chunk_size`: Optional. Settings for metadata compression
-    and file chunking
-  - `indices`: Optional. A comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default. Exclude
-    the `.opendistro_security` index pattern from your snapshot restore process
+    and file chunking.
+  - `indices`: Optional. Comma-separated list of index patterns to restore specific
+    indices.
+    - If no index pattern is provided and a previous restore request was made, the
+      index pattern from the previous request is reused.
+    - If no previous request exists, all indices are restored by default.
+    - Exclude the `.opendistro_security` index pattern from your snapshot restore.
+  - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
+    false.
+  - `include_aliases`: Optional. Whether to restore aliases alongside their associated
+    indices. Defaults to true.
 
 - **Microsoft Azure**
 
-  - `account`: Azure account name
-  - `key` or `sas_token`: Azure secret key or shared access signature token
-  - `container`: Name of the Azure container that contains the snapshot
-  - `base_path`: Path to repository data within the container
-  - `snapshot_name`: Name of the snapshot to restore
+  - `account`: Azure account name.
+  - `key` or `sas_token`: Azure secret key or shared access signature token.
+  - `container`: Name of the Azure container that contains the snapshot.
+  - `base_path`: Path to repository data within the container.
+  - `snapshot_name`: Name of the snapshot to restore.
   - `compress`, `chunk_size`, `endpoint_suffix`: Optional. Additional configuration
-    settings
+    settings.
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default. Exclude
-    the `.opendistro_security` index pattern from your snapshot restore process
+    indices.
+    - If no index pattern is provided and a previous restore request was made, the
+      index pattern from the previous request is reused.
+    - If no previous request exists, all indices are restored by default.
+    - Exclude the `.opendistro_security` index pattern from your snapshot restore.
+  - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
+    false.
+  - `include_aliases`: Optional. Whether to restore aliases alongside their associated
+    indices. Defaults to true.
 
 - **S3-compatible services**
 
-  - `endpoint`: Service endpoint for S3-compatible services
-  - `access_key`: Access key for the S3-compatible service
-  - `secret_key`: Secret key for the S3-compatible service
-  - `region`: Region or endpoint-specific region
-  - `bucket`, `base_path`, `snapshot_name`: Bucket details and snapshot name
+  - `endpoint`: Service endpoint for S3-compatible services.
+  - `access_key`: Access key for the S3-compatible services.
+  - `secret_key`: Secret key for the S3-compatible services.
+  - `region`: Region or endpoint-specific region.
+  - `bucket`, `base_path`, `snapshot_name`: Bucket details and snapshot name.
   - `server_side_encryption`, `compress`, `chunk_size`: Optional. Settings
-    for encryption, compression, and file chunking
+    for encryption, compression, and file chunking.
   - `indices`: Optional. Comma-separated list of index patterns to restore specific
-    indices. If no patterns are provided, all indices are restored by default. Exclude
-    the `.opendistro_security` index pattern from your snapshot restore process
+    indices.
+    - If no index pattern is provided and a previous restore request was made, the
+      index pattern from the previous request is reused.
+    - If no previous request exists, all indices are restored by default.
+    - Exclude the `.opendistro_security` index pattern from your snapshot restore.
+  - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
+    false.
+  - `include_aliases`: Optional. Whether to restore aliases alongside their associated
+    indices. Defaults to true.
 
 ## Configure snapshot migration settings
 
@@ -148,14 +184,9 @@ To start the migration, configure the `user-config` object in your
 Aiven for OpenSearch service. The migration starts automatically once these settings are
 applied.
 
-To restore specific indices from the snapshot, specify index patterns in the `indices`
-field within the `user-config` object during configuration. If no index patterns are
-provided, Aiven restores all indices by default. For example, to restore indices starting
-with `logs-` and `metrics-`, use: `indices: "logs-*,metrics-*"`.
-
-:::note
-Exclude the `.opendistro_security` index pattern from your snapshot restore process.
-:::
+Specify index patterns in the `indices` field of the `user-config` object to restore
+specific indices from the snapshot. For details, see the
+[Gather required parameters](#gather-required-parameters) section.
 
 :::warning
 Aiven for OpenSearch allows only one migration at a time. After data migration completes,
@@ -184,7 +215,10 @@ curl --request PUT \
         "access_key": "YOUR_ACCESS_KEY",
         "secret_key": "YOUR_SECRET_KEY",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots"
+        "base_path": "snapshots",
+        "restore_global_state": false,
+        "include_aliases": true
+
       }
     }
   }'
@@ -202,7 +236,10 @@ avn service update \
   -c s3_migration.base_path="snapshots" \
   -c s3_migration.access_key="your-access-key" \
   -c s3_migration.secret_key="your-secret-key" \
-  -c s3_migration.snapshot_name="SNAPSHOT_NAME"
+  -c s3_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+
 ```
 
 </TabItem>
@@ -224,7 +261,9 @@ curl --request PUT \
         "bucket": "my-gcs-bucket",
         "credentials": "GCS_CREDENTIALS_FILE_CONTENT",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots"
+        "base_path": "snapshots",
+        "restore_global_state": false,
+        "include_aliases": true
       }
     }
   }'
@@ -240,7 +279,9 @@ avn service update \
   -c gcs_migration.bucket="my-gcs-bucket" \
   -c gcs_migration.base_path="snapshots" \
   -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
-  -c gcs_migration.snapshot_name="SNAPSHOT_NAME"
+  -c gcs_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
 ```
 
 </TabItem>
@@ -263,7 +304,9 @@ curl --request PUT \
         "account": "my-azure-account",
         "key": "YOUR_AZURE_KEY",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots"
+        "base_path": "snapshots",
+        "restore_global_state": false,
+        "include_aliases": true
       }
     }
   }'
@@ -280,7 +323,9 @@ avn service update \
   -c azure_migration.base_path="snapshots" \
   -c azure_migration.account="my-account" \
   -c azure_migration.key="your-key" \
-  -c azure_migration.snapshot_name="SNAPSHOT_NAME"
+  -c azure_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
 ```
 
 </TabItem>
@@ -305,7 +350,9 @@ curl --request PUT \
         "access_key": "YOUR_ACCESS_KEY",
         "secret_key": "YOUR_SECRET_KEY",
         "snapshot_name": "my-snapshot",
-        "base_path": "snapshots"
+        "base_path": "snapshots",
+        "restore_global_state": false,
+        "include_aliases": true
       }
     }
   }'
@@ -324,7 +371,9 @@ avn service update \
   -c s3_migration.access_key="your-access-key" \
   -c s3_migration.secret_key="your-secret-key" \
   -c s3_migration.base_path="snapshots" \
-  -c s3_migration.snapshot_name="SNAPSHOT_NAME"
+  -c s3_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
 ```
 
 </TabItem>
