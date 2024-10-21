@@ -251,7 +251,7 @@ to stop serving clients and a loss of service.
     :::
 
 For further information about WAL and checkpoints, read the [PostgreSQL
-documentation](https://www.postgresql.org/docs/current/wal-configuration).
+documentation](https://www.postgresql.org/docs/current/wal-configuration.html).
 
 :::note
 The recreation of replication slots gets enabled automatically for

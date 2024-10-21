@@ -2,7 +2,7 @@
 title: Use DSBULK to load, unload and count data on Aiven service for Cassandra®
 ---
 
-[DSBulk](https://docs.datastax.com/en/dsbulk/docs/reference/dsbulkCmd) is a highly configurable tool used to load, unload and count data in Apache Cassandra®. It has configurable consistency levels for loading and unloading and offers the most accurate way to count records in Cassandra.
+[DSBulk](https://docs.datastax.com/en/dsbulk/reference/dsbulk-cmd.html) is a highly configurable tool used to load, unload and count data in Apache Cassandra®. It has configurable consistency levels for loading and unloading and offers the most accurate way to count records in Cassandra.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ repository](https://github.com/datastax/dsbulk).
 :::tip
 You can read more about the DSBulk different use cases and manual pages
 in the [dedicated
-documentation](https://docs.datastax.com/en/dsbulk/docs/getting-started/getting-started)
+documentation](https://docs.datastax.com/en/dsbulk/installing/install.html)
 :::
 
 ## Variables
@@ -52,7 +52,7 @@ truststore.
       -trustcacerts                   \
       -alias CARoot                   \
       -file cassandra-certificate.pem \
-      -keystore client.truststore \
+      -keystore client.truststore     \
       -storepass KEYSTORE_PASSWORD
     ```
 
@@ -141,12 +141,12 @@ Once the configuration file is created, you can run the `dsbulk`.
 To extract the data from a table, you can use the following command:
 
 ```bash
-./dsbulk unload        \
- -f /full/path/to/conf.file       \
- -k baselines          \
- -t keyvalue           \
- -h HOST               \
- -port PORT             \
+./dsbulk unload             \
+ -f /full/path/to/conf.file \
+ -k baselines               \
+ -t keyvalue                \
+ -h HOST                    \
+ -port PORT                 \
  -url /directory_for_output
 ```
 
@@ -159,12 +159,12 @@ To load data into a Cassandra table, the command line is very similar to
 the previous command:
 
 ```bash
-./dsbulk load            \
- -f /full/path/to/conf.file         \
- -k baselines            \
- -t keyvalue             \
- -h HOST                 \
- -port PORT              \
+./dsbulk load               \
+ -f /full/path/to/conf.file \
+ -k baselines               \
+ -t keyvalue                \
+ -h HOST                    \
+ -port PORT                 \
  -url data.csv
 ```
 

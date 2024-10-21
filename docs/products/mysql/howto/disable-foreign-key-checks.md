@@ -100,8 +100,8 @@ session:
 The same flag works when running a set of commands saved in a file with
 extension `.sql`.
 
-| Variable   | Description                                               |
-| ---------- | --------------------------------------------------------- |
+|  Variable  |                            Description                            |
+|------------|-------------------------------------------------------------------|
 | `FILENAME` | File which the extension is `.sql`, for for example, filename.sql |
 
 You can paste the following command on your `FILENAME`:

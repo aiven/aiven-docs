@@ -10,7 +10,7 @@ parameters can be used at the client side.
 ## Keep-alive server side parameters
 
 Currently, the following default keep-alive timeouts are used on the
-[server-side](https://www.postgresql.org/docs/current/runtime-config-connection#RUNTIME-CONFIG-CONNECTION-SETTINGS):
+[server-side](https://www.postgresql.org/docs/current/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SETTINGS):
 
 | Parameter (server)        | Value | Description                                                                                                                                  |
 | ------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,11 +18,10 @@ Currently, the following default keep-alive timeouts are used on the
 | `tcp_keepalives_count`    | 6     | Specifies the number of TCP `keepalive` messages that can be lost before the server's connection to the client is considered dead.           |
 | `tcp_keepalives_interval` | 10    | Specifies the amount of time after which a TCP `keepalive` message that has not been acknowledged by the client should be retransmitted.     |
 
-
 ## Keep-alive client side parameters
 
 The
-[client-side](https://www.postgresql.org/docs/current/libpq-connect#LIBPQ-KEEPALIVES)
+[client-side](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-KEEPALIVES)
 keep-alive parameters can be set to whatever values you want.
 
 | Parameter (client)    | Description                                                                                                                           |

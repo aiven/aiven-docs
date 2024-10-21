@@ -24,7 +24,7 @@ onward, new WAL segments no longer have such a high impact on disk usage
 as the service reaches a steady state for low-traffic services.
 
 You can read more about WAL archiving [in the PostgreSQL
-manual](https://www.postgresql.org/docs/current/runtime-config-wal#RUNTIME-CONFIG-WAL-ARCHIVING).
+manual](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVING).
 
 ## High disk usage discrepancy
 

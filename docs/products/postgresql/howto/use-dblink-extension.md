@@ -3,7 +3,7 @@ title: Use the PostgreSQL® dblink extension
 sidebar_label: Use the dblink extension
 ---
 
-`dblink` is a [PostgreSQL® extension](https://www.postgresql.org/docs/current/dblink) that allows you to connect to other PostgreSQL databases and to run arbitrary queries.
+`dblink` is a [PostgreSQL® extension](https://www.postgresql.org/docs/current/dblink.html) that allows you to connect to other PostgreSQL databases and to run arbitrary queries.
 
 With [Foreign Data
 Wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html)
@@ -26,7 +26,7 @@ information about the PostgreSQL remote server:
 
 :::note
 If you're using Aiven for PostgreSQL as remote server, the above
-details are available in the [Aiven console](https://console.aiven.io/) > the service's
+details are available in the [Aiven console](https://console.aiven.io) > the service's
 **Overview** page or via the `avn service get` command with
 the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 :::

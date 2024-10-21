@@ -3,18 +3,12 @@ title: Create an MQTT sink connector
 ---
 
 The [MQTT sink
-connector](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mqttsinkconnector/)
+connector](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt)
 copies messages from an Apache Kafka® topic to an MQTT queue.
 
-:::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mqttsinkconnector/).
-:::
-
 :::tip
-The connector can be used to sink messages to RabbitMQ® where [RabbitMQ
-MQTT plugin](https://www.rabbitmq.com/mqtt.html) is enabled.
+The connector can be used to sink messages to RabbitMQ® where
+[RabbitMQ MQTT plugin](https://www.rabbitmq.com/mqtt.html) is enabled.
 :::
 
 ## Prerequisites {#connect_mqtt_rbmq_sink_prereq}
@@ -97,7 +91,7 @@ The configuration file contains the following entries:
     this example JSON converter is used.
 
 See the [dedicated
-documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mqttsinkconnector/#options)
+documentation](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt#storage-to-output-matrix)
 for the full list of parameters.
 
 ### Create a Kafka Connect connector with the Aiven Console

@@ -2,10 +2,7 @@
 title: Handle PostgreSQL® node replacements when using Debezium for change data capture
 ---
 
-When running a
-[Debezium source connector for PostgreSQL®](debezium-source-connector-pg) to capture changes from an Aiven for PostgreSQL® service,
-there are some activities on the database side that can impact the
-correct functionality of the connector.
+When running a [Debezium source connector for PostgreSQL®](debezium-source-connector-pg) to capture changes from an Aiven for PostgreSQL® service, there are some activities on the database side that can impact the correct functionality of the connector.
 
 As example, when the source PostgreSQL service undergoes any operation
 which replaces the nodes (such as maintenance, a plan or cloud region
@@ -42,7 +39,7 @@ of the connector tasks to resume operations again.
 A restart can be performed manually either through the [Aiven
 Console](https://console.aiven.io/), in under the `Connectors` tab
 console or via the [Apache Kafka® Connect REST
-API](https://docs.confluent.io/platform/current/connect/references/restapi#rest-api-task-restart).
+API](https://docs.confluent.io/cloud/current/kafka-rest/krest-qs.html).
 You can get the service URI from the [Aiven
 Console](https://console.aiven.io/), in the service detail page.
 

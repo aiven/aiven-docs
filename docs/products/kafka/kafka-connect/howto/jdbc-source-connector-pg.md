@@ -33,7 +33,7 @@ source PostgreSQL database upfront:
 -   `PG_PASSWORD`: The database password for the `PG_USER`
 -   `PG_DATABASE_NAME`: The database name
 -   `SSL_MODE`: The [SSL
-    mode](https://www.postgresql.org/docs/current/libpq-ssl)
+    mode](https://www.postgresql.org/docs/current/libpq-ssl.html)
 -   `PG_TABLES`: The list of database tables to be included in Apache
     Kafka; the list must be in the form of
     `schema_name1.table_name1,schema_name2.table_name2`

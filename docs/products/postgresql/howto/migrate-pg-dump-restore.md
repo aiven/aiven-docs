@@ -12,7 +12,7 @@ We recommend to migrate your PostgreSQL® database to Aiven by using
 The [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html)
 tool can be used to extract the data from your existing PostgreSQL
 database and
-[`pg_restore`](https://www.postgresql.org/docs/current/app-pgrestore)
+[`pg_restore`](https://www.postgresql.org/docs/current/app-pgrestore.html)
 can then insert that data into your Aiven for PostgreSQL database. The
 duration of the process depends on the size of your existing database.
 

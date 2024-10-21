@@ -102,4 +102,4 @@ information, see
 ## Related pages
 
 - [PostgreSQL interactive terminal](https://www.postgresql.org/docs/15/app-psql.html)
-- [Database Object Management Functions](https://www.postgresql.org/docs/current/functions-admin#FUNCTIONS-ADMIN-DBOBJECT.html)
+- [Database Object Management Functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT)

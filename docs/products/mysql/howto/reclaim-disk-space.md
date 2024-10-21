@@ -9,7 +9,7 @@ You can configure InnoDB to release disk space back to the operating system by r
 conditions](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html#optimize-table-innodb-details)
 (for example, including the presence of a `FULLTEXT` index), command
 `OPTIMIZE TABLE`
-[copies](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html#alter-table-performance)
+[copies](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html)
 the data to a new table containing just the current data, and drops
 and renames the new table to match the old one. During this process,
 data modification is blocked. This requires enough free space to store

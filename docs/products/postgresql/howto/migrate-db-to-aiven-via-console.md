@@ -38,7 +38,7 @@ any data written to the source database during the migration.
 Before you use the logical replication, make sure you know and
 understand all the restrictions it has. For details, see [Logical
 replication
-restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions).
+restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
 :::
 
 Using the continuous migration requires either superuser permissions or
