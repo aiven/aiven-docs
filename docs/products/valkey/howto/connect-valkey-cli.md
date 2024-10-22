@@ -19,7 +19,7 @@ from your service overview page:
 Ensure that the valkey-cli client is installed. You can install it as part of the [Valkey server installation](https://valkey.io/topics/installation/).
 ## Setup and run
 
-Execute the following command from a terminal window to connect:
+Run the following command from a terminal window to connect:
 
 ```shell
 valkey-cli -u SERVICE_URI
