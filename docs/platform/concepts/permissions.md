@@ -23,12 +23,12 @@ all organization resources including billing, admin, and all projects and servic
 
 You can grant the following roles for projects to principals.
 
-|   Name    |                                                                                                                               Permissions                                                                                                                                |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Admin     | Full access to the project and all of its services. <br/> Admin do not have access to organization settings like billing or organization admin.                                                                                                                          |
-| Operator  | View project audit log. <br/> View project permissions. <br/>  Full access to all services in the project and their configuration.                                                                                                                                       |
-| Developer | Create databases. <br/> View connection information. <br/> Remove Aiven for OpenSearch® indexes. <br/> Create and change Aiven for Apache Kafka® topics. <br/> Create and change Aiven for PostgreSQL® connection pools. <br/> Create and change service database users. |
-| Read only | View all services and their configuration.                                                                                                                                                                                                                               |
+| Console name |  API name   |                                                                                                                                                       Permissions                                                                                                                                                       |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Admin        | `admin`     | <ul> <li> Full access to the project and all of its services. </li> </ul>                                                                                                                                                                                                                                               |
+| Developer    | `developer` | <ul> <li> Create databases. </li> <li> View connection information. </li> <li> Remove Aiven for OpenSearch® indexes. </li> <li> Create and change Aiven for Apache Kafka® topics. </li> <li> Create and change Aiven for PostgreSQL® connection pools. </li> <li> Create and change service database users. </li> </ul> |
+| Operator     | `operator`  | <ul> <li> View project audit log. </li> <li> View project permissions. </li> <li>  Full access to all services in the project and their configuration. </li> </ul>                                                                                                                                                      |
+| Read only    | `read_only` | <ul> <li> View all services and their configuration. </li> </ul>                                                                                                                                                                                                                                                        |
 
 Project admin do not have access to organization settings such as billing unless
 they are also a [super admin](/docs/platform/howto/make-super-admin).
@@ -43,12 +43,12 @@ use with the Aiven API, Aiven Provider for Terraform, and Aiven Operator for Kub
 You can grant the following permissions to principals. The actions listed for each
 permission apply to the project and all services within it.
 
-|       Console name       |          API name          |                                           Allowed actions                                            |
-| ------------------------ | -------------------------- | ---------------------------------------------------------------------------------------------------- |
-| View project networking  | `project:networking:read`  | View all project VPCs.                                                                               |
-| View project permissions | `project:permissions:read` | View all users granted permissions to a project.                                                     |
-| View project audit log        | `project:audit_logs:read`        | View the log for the project. <br/> View all services in the project. <br/> |
-| View service logs        | `service:logs:read`        | View logs for all services in the project. <br/> **Service logs may contain sensitive information.** |
-| View services            | `project:services:read`    | View all details for services in a project, except the service logs.                                            |
-| View project integrations            | `project:integrations:read`    | View all integration endpoints for a project.                                            |
-| Manage project networking       | `project:networking:write`        | Add, edit, and remove project VPCs. |
+|       Console name        |          API name           |                                                   Allowed actions                                                    |
+| ------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| View project audit log    | `project:audit_logs:read`   | <ul> <li> View the log for the project. </li> <li> View all services in the project. </li> </ul>                     |
+| View project integrations | `project:integrations:read` | <ul> <li> View all integration endpoints for a project. </li> </ul>                                                  |
+| View project networking   | `project:networking:read`   | <ul> <li> View all project VPCs. </li> </ul>                                                                         |
+| Manage project networking | `project:networking:write`  | <ul> <li> Add, edit, and remove project VPCs.  </li> </ul>                                                           |
+| View project permissions  | `project:permissions:read`  | <ul> <li> View all users granted permissions to a project. </li> </ul>                                               |
+| View services             | `project:services:read`     | <ul> <li> View all details for services in a project, except the service logs. </li> </ul>                         |
+| View service logs         | `service:logs:read`         | <ul> <li> View logs for all services in the project. </li> </ul> **Service logs may contain sensitive information.** |
