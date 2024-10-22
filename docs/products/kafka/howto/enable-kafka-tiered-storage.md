@@ -48,12 +48,6 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
         to activate it.
      1. Click **Activate tiered storage** in the confirmation window.
 
-:::note
-If tiered storage is not enabled in your project, you cannot access it.
-Contact [Aiven support](mailto:support@aiven.io).
-:::
-
-
 After activating tiered storage for your service and configuring it for your
 [topics](/docs/products/kafka/howto/configure-topic-tiered-storage), you can monitor
 usage and costs in the
