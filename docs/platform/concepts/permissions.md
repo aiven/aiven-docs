@@ -49,4 +49,6 @@ permission apply to the project and all services within it.
 | View project permissions | `project:permissions:read` | View all users granted permissions to a project.                                                     |
 | View project audit log        | `project:audit_logs:read`        | View the log for the project. <br/> View all services in the project. <br/> |
 | View service logs        | `service:logs:read`        | View logs for all services in the project. <br/> **Service logs may contain sensitive information.** |
-| View services            | `project:services:read`    | View all of a project's services details except the service logs.                                            |
+| View services            | `project:services:read`    | View all details for services in a project, except the service logs.                                            |
+| View project integrations            | `project:integrations:read`    | View all integration endpoints for a project.                                            |
+| Manage project networking       | `project:networking:write`        | Add, edit, and remove project VPCs. |
