@@ -35,5 +35,5 @@ Go back to the Aiven Console to complete setting up the IdP. If you saved your I
 draft, you can open the settings by clicking the name of the IdP.
 
 1. In the **IDP URL** field, enter **IDP URL** from JumpCloud.
-1. In the **Entity Id** field, enter the **IdP Entity ID** from JumpCloud.
+1. In the **Entity ID** field, enter the **IdP Entity ID** from JumpCloud.
 <IdPStep3/>
