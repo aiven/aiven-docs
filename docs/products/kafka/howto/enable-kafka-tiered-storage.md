@@ -13,18 +13,17 @@ Tiered storage significantly improves the storage efficiency of your Aiven for A
 ## Prerequisites
 
 - Access to an Aiven organization and at least one project.
-- Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later. It is
-  recommended to upgrade to the latest default version and apply
+- Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later. Upgrade to the
+  latest default version and apply
   [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
-  when using tiered storage for the latest fixes and improvements.
-
-    :::note
-    Tiered storage is not available on all plans and regions. Check the
-    [plans and pricing page](https://aiven.io/pricing?product=kafka)
-    for supported plans and regions.
-    :::
-
+  for the latest fixes and improvements when using tiered storage.
 - [Aiven CLI](/docs/tools/cli).
+
+:::note
+Review the
+[trade-offs and limitations](/docs/products/kafka/concepts/tiered-storage-limitations)
+of tiered storage before enabling it.
+:::
 
 ## Steps to enable tiered storage
 
@@ -56,12 +55,6 @@ usage and costs in the
 :::note
 Alternatively, if tiered storage is not yet active for your service, you can enable
 it by selecting **Tiered storage** from the sidebar.
-:::
-
-:::warning
-Powering off your service with tiered storage active results in the permanent loss
-of all remote data. Charges for tiered storage are not applicable while the
-service is off
 :::
 
 </TabItem>
