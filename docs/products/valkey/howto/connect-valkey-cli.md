@@ -21,7 +21,7 @@ For this example, you will need:
 1.  The `valkey-cli` client installed. You can install this as part of
     [Valkey server installation](https://valkey.io/topics/installation/).
 
-## Code
+## Setup and run
 
 Execute the following command from a terminal window to connect:
 
