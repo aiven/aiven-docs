@@ -13,10 +13,12 @@ The ClickHouse sink connector delivers data from Apache Kafka® topics to a Clic
 Before you begin, ensure that you have the following:
 
 - An [Aiven for Apache Kafka® service](https://docs.aiven.io/docs/products/kafka/kafka-connect/howto/enable-connect)
-  with Apache Kafka Connect enabled or a [dedicated Aiven for Apache Kafka Connect® service](https://docs.aiven.io/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
-- Access to a ClickHouse instance with the following connection details:
-  - Hostname, port, and credentials.
-  - A target database and table that have already been created in ClickHouse.
+  with Apache Kafka Connect enabled or a
+  [dedicated Aiven for Apache Kafka Connect® service](https://docs.aiven.io/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- Access to a ClickHouse service (either Aiven for ClickHouse or an external instance),
+  including:
+  - Hostname, port, and credentials for the ClickHouse service.
+  - A pre-created target database and table.
 
 ## Limitations
 
@@ -24,18 +26,46 @@ The ClickHouse sink connector has the following limitations related to data cons
 and exactly-once delivery:
 
 1. **No exactly-once delivery after restore**: The connector does not guarantee
-   exactly-once delivery after restoring from a backup, powering off, or forking a
-   service. This may result in duplicate records in ClickHouse.
+   exactly-once delivery after a restore, power-off, or service forking. This may result
+   in duplicate records in ClickHouse.
 
-1. **Manual removal of duplicate records**: If duplicate records occur, remove them by
-   running the following command:
+1. **Manual removal of duplicate records**: If duplicates occur, manually remove them
+   to maintain data consistency in ClickHouse.
 
-   ```sql
-   OPTIMIZE TABLE table_name DEDUPLICATE;
-   ```
+   Ensure that all potential duplicates are processed before removal:
 
-    Make sure all potential duplicates are written before running the command to keep
-    data consistent in ClickHouse."
+   1. Verify the committed offset in Aiven for Apache Kafka:
+      1. Access the [Aiven Console](https://console.aiven.io/) and select your
+         Aiven for Apache Kafka service.
+      1. Click <ConsoleLabel name="topics" /> and select the topic used by the connector.
+      1. Go to the **Consumer Group** tab and check the **Offset**  column for the
+         committed offset.
+
+   1. Verify the committed offset in ClickHouse:
+      1. In the ClickHouse service, access the query editor.
+      1. If you are using Aiven for ClickHouse®, go to the service's
+        <ConsoleLabel name="overview"/> page, and click
+        <ConsoleLabel name="query editor" />.
+      1. Run the following query to get offset details:
+
+         ```sql
+         SELECT key, minOffset, maxOffset, state FROM connect_state;
+         ```
+
+   1. Confirm the following conditions from the query result:
+      - The `state` column is set to `AFTER_PROCESSING`.
+      - The `minOffset` and `maxOffset` columns have the same value.
+      - The committed offset from Apache Kafka is **equal to or greater than** the
+        `minOffset` value in ClickHouse.
+
+   1. Remove duplicate records:
+
+      After confirming these conditions, remove any duplicate records by running the
+      following SQL command in ClickHouse:
+
+      ```sql
+      OPTIMIZE TABLE table_name DEDUPLICATE;
+      ```
 
 ## Create a ClickHouse sink connector configuration file
 
@@ -62,11 +92,11 @@ Create a file named `clickhouse_sink_connector.json` with the following configur
 
 - `name`: Name of the connector.
 - `topics`: Apache Kafka topics from which to pull data.
-- `hostname`: ClickHouse service hostname.
-- `port`: ClickHouse service port.
+- `hostname`: Hostname of the ClickHouse service
+- `port`: Port of the ClickHouse service.
 - `database`: Target database in ClickHouse.
-- `username`: ClickHouse username for authentication.
-- `password`: ClickHouse password for authentication.
+- `username`: Username for authentication in the ClickHouse service.
+- `password`: Password for authentication in the ClickHouse service.
 - `ssl`: Set to `true` to enable SSL encryption.
 
 For more configuration options, see the

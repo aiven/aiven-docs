@@ -469,6 +469,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Tiered storage</b>
         </>
       );
+    case 'queryeditor':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.queries} /> <b>Query editor</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
