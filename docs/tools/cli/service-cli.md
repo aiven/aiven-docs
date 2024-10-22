@@ -56,9 +56,9 @@ avn service ca get kafka-doc --target-filepath /tmp/ca.pem
 
 ### `avn service cli`
 
-Opens the appropriate interactive shell, such as `psql` or `redis-cli`,
+Opens the appropriate interactive shell, such as `psql` or `valkey-cli`,
 to the given service. Supported only for Aiven for PostgreSQL®, Aiven
-for Caching.
+for Valkey™ and Aiven for Caching.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
