@@ -1880,6 +1880,7 @@ const sidebars: SidebarsConfig = {
                 id: 'products/valkey/howto/connect-services',
               },
               items: [
+                'products/valkey/howto/connect-valkey-cli',
                 'products/valkey/howto/connect-go',
                 'products/valkey/howto/connect-node',
                 'products/valkey/howto/connect-php',
