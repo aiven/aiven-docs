@@ -10,10 +10,10 @@ latency entirely.
 ## Limitations
 
 - Tiered storage does not support compacted topics.
-- Once tiered storage is enabled, it cannot be disabled by the user. As a workaround
-  to keep all data locally, set the local retention to `-2` (the default value).
-  Contact [Aiven support](mailto:support@aiven.io) for assistance.
-- Increasing the local retention threshold doesn't move segments already uploaded to
+- After tiered storage is enabled, you cannot disable it. As a workaround
+  to keep all data locally, set the local retention to `-2` (the default value).For
+  further assistance, contact [Aiven support](mailto:support@aiven.io).
+- Increasing the local retention threshold does not move segments already uploaded to
   remote storage back to local storage. This change only affects new data segments.
 - If tiered storage is enabled, you cannot migrate the service to a different region or
   cloud, except to a virtual cloud in the same region. For migration assistance,
