@@ -112,7 +112,7 @@ Information specific to cloud providers:
     indices.
     - If no index pattern is provided and a previous restore request was made, the
       index pattern from the previous request is reused.
-    - If no previous request exists, all indices are restored by default.
+    - If no previous restore request exists, all indices are restored by default.
     - Exclude the `.opendistro_security` index pattern from your snapshot restore.
   - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
     false.
@@ -131,7 +131,7 @@ Information specific to cloud providers:
     indices.
     - If no index pattern is provided and a previous restore request was made, the
       index pattern from the previous request is reused.
-    - If no previous request exists, all indices are restored by default.
+    - If no previous restore request exists, all indices are restored by default.
     - Exclude the `.opendistro_security` index pattern from your snapshot restore.
   - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
     false.
@@ -151,7 +151,7 @@ Information specific to cloud providers:
     indices.
     - If no index pattern is provided and a previous restore request was made, the
       index pattern from the previous request is reused.
-    - If no previous request exists, all indices are restored by default.
+    - If no previous restore request exists, all indices are restored by default.
     - Exclude the `.opendistro_security` index pattern from your snapshot restore.
   - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
     false.
@@ -171,7 +171,7 @@ Information specific to cloud providers:
     indices.
     - If no index pattern is provided and a previous restore request was made, the
       index pattern from the previous request is reused.
-    - If no previous request exists, all indices are restored by default.
+    - If no previous restore request exists, all indices are restored by default.
     - Exclude the `.opendistro_security` index pattern from your snapshot restore.
   - `restore_global_state`: Optional. If true, restores the cluster state. Defaults to
     false.
