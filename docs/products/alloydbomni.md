@@ -11,7 +11,7 @@ Aiven for AlloyDB Omni is in the
 :::
 
 Aiven for AlloyDB Omni is a managed version of Google AlloyDB Omni purpose-built for
-mission-critical PostgreSQL workloads. It combines the power of Google's advanced database
+mission-critical PostgreSQL® workloads. It combines the power of Google's advanced database
 technology, new columnar engine, and AI capabilities with the ease of use and multi-cloud
 flexibility of the Aiven platform for Google Cloud, Amazon Web Services, and Microsoft Azure.
 
@@ -22,6 +22,10 @@ flexibility of the Aiven platform for Google Cloud, Amazon Web Services, and Mic
   Aiven for AlloyDB Omni is designed to be fully compatible with PostgreSQL, ensuring that existing
   applications and tools work seamlessly without requiring any code changes. It utilizes
   standard PostgreSQL drivers and supports a wide range of PostgreSQL extensions and flags.
+
+  :::note
+  Aiven for AlloyDB Omni version 15 is compatible with PostgreSQL version 15.
+  :::
 
 - High performance
 
