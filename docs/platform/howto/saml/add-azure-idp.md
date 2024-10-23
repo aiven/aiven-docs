@@ -34,11 +34,11 @@ Use [Microsoft Azure Active Directory (AD)](https://azure.microsoft.com/en-us/pr
 1. Select **SAML** as the single sign-on method.
 1. Add the following parameters to the **Basic SAML Configuration**:
 
-    |                 Parameter                  |                                                  Value                                                   |
-    | ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-    | Identifier (Entity ID)                     | https://api.aiven.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id}/metadata |
-    | Reply URL (Assertion Consumer Service URL) | https://api.aiven.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id}/acs      |
-    | Sign on URL                                | https://console.aiven.io                                                                                 |
+   |                 Parameter                  |                                                   Value                                                    |
+   |--------------------------------------------|------------------------------------------------------------------------------------------------------------|
+   | Identifier (Entity ID)                     | `https://api.aiven.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id}/metadata` |
+   | Reply URL (Assertion Consumer Service URL) | `https://api.aiven.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id}/acs`      |
+   | Sign on URL                                | `https://console.aiven.io`                                                                                 |
 
 1. Click **Save**.
 

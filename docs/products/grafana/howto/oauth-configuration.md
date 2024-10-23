@@ -25,7 +25,7 @@ more information, refer to the following links:
 -   [Grafana Labs Security Advisory:
     CVE-2023-3128](https://grafana.com/security/security-advisories/cve-2023-3128/)
 -   [Alternative link for
-    CVE-2023-3128](https://cve.report/CVE-2023-3128)
+    CVE-2023-3128](https://www.cve.org/CVERecord?id=CVE-2023-3128)
 
 ## Configuring OAuth email lookup
 

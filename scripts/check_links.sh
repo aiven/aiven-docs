@@ -1,25 +1,28 @@
 #!/bin/bash
 
 excludeList=(
-    "aiven.io/?!docs"
-	  "aiven.io/docs/assets"
-	  "aiven.io/docs/images"
-    "aiven.io/blog"
-    "aiven.io/build"
-    "aiven.io/byoc"
-    "aiven.io/clickhouse"
-    "aiven.io/changelog"
-    "aiven.io/free-mysql-database"
-    "aiven.io/community"
-    "aiven.io/cookies"
-    "aiven.io/developer"
-    "aiven.io/events"
-    "aiven.io/expert-services"
-    "aiven.io/mysql"
-    "aiven.io/press"
-    "aiven.io/integrations-and-connectors"
-    "aiven.io/security-compliance"
-    "aiven.io/workshop"
+    ".*aiven.io/?!docs"
+	  ".*aiven.io/docs/assets"
+	  ".*aiven.io/docs/images"
+    ".*aiven.io/blog"
+    ".*aiven.io/build"
+    ".*aiven.io/byoc"
+    ".*aiven.io/changelog"
+    ".*aiven.io/clickhouse"
+    ".*aiven.io/community"
+    ".*aiven.io/cookies"
+    ".*aiven.io/developer"
+    ".*aiven.io/docs/tools/api"
+    ".*aiven.io/ebook"
+    ".*aiven.io/events"
+    ".*aiven.io/expert-services"
+    ".*aiven.io/free-mysql-database"
+    ".*aiven.io/integrations-and-connectors"
+    ".*aiven.io/mysql"
+    ".*aiven.io/press"
+    ".*aiven.io/security-compliance"
+    ".*aiven.io/workshop"
+    ".*aiven.io/webinar"
     ".*twitter.com"
     ".*cdn.sanity.io"
     ".*console.cloud.google.com"
@@ -31,6 +34,9 @@ excludeList=(
     ".*docker.com"
     ".*php.net"
     ".*karapace.io"
+    ".*developers.upcloud.com"
+    "https://betterstack.com/logs"
+    "cve.report"
   )
 
 acceptedResponses="--accepted-status-codes=200..404"
@@ -49,4 +55,5 @@ muffet ${acceptedResponses} \
        ${redirectionLimit} \
        ${timeout} \
        "--color=always" \
+       "--ignore-fragments" \
        ${address};
