@@ -72,17 +72,43 @@ reliability needs:
 - **`acks=all`**: The producer waits for acknowledgment from both the leader and all
   replicas. This ensures no data loss but can slow down communication.
 
-
 ## Configure single availability zone (AZ) for BYOC customers
 
-For Bring Your Own Cloud (BYOC) customers looking to optimize costs, consider
-deploying Aiven for Apache Kafka® in a single availability zone (AZ) configuration.
-This option can significantly reduce infrastructure costs while still providing the
-full features of Aiven’s managed Kafka service. You can enable this setting during
-service creation by selecting the **single_zone.enabled** option
-under **Advanced configuration**.
+For Bring Your Own Cloud (BYOC) customers, deploying Aiven for Apache Kafka in a single
+availability zone (AZ) can lower costs by eliminating charges for transferring data
+between availability zones. However, using a single AZ removes Kafka's resiliency,
+as data is not replicated across zones. This increases the risk of downtime if the
+AZ fails.
 
-- Contact [Aiven support](mailto:support@aiven.io) to enable this feature for your
-  project before service creation.
-- You must configure single-AZ deployments when creating a new service. You cannot
-  change existing services to a single-AZ setup.
+When considering a single AZ allocation, evaluate your organization's risk tolerance,
+as Aiven's standard uptime SLA does not apply to services deployed in a single AZ.
+
+- To enable this option for your project, contact
+  [Aiven support](mailto:support@aiven.io) or your account team.
+- You must configure single AZ allocation during service creation. It cannot be applied
+  to existing services.
+
+To enable single AZ allocation, use the [Aiven CLI](/docs/tools/cli) and
+set `single_zone.enabled=true`.
+
+Example command:
+
+```bash
+avn service create SERVICE_NAME           \
+  --service-type SERVICE_TYPE             \
+  --plan PLAN_NAME                        \
+  --cloud CLOUD_REGION                    \
+  -c single_zone.enabled=true             \
+  --disk-space-gib DISK_SIZE              \
+  --project PROJECT_NAME
+```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your Aiven for Kafka service.
+- `--service-type SERVICE_TYPE`: Service type.
+- `--plan PLAN_NAME`: Aiven service plan.
+- `--cloud CLOUD_REGION`: Cloud region and provider.
+- `-c single_zone.enabled=true`: Enables single AZ allocation.
+- `--disk-space-gib DISK_SIZE`: Specifies total disk space for the service (in GiB).
+- `--project PROJECT_NAME`: Name of your Aiven project.
