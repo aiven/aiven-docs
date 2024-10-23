@@ -35,7 +35,7 @@ Before you begin, ensure that:
 
 :::note
 
-When creating the snapshot, you can configure these options:
+When you create the snapshot, configure the following options:
 
 - `restore_global_state`: Set to `true` to restore the cluster state, which includes
   important metadata like aliases and templates. Default is `false`. If the snapshot

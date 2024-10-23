@@ -23,7 +23,7 @@ metadata and must be reapplied.
 - Python 3.11 or higher installed
 - Ensure all data indices and the `.opendistro-ism-config` index are restored from the
   snapshot
-- Make sure you take the snapshot with `restore_global_state: true`. By default, this
+- Take the snapshot with `restore_global_state: true`. By default, this
   setting is `false`, and you must enable it to restore ISM policy assignments.
 
 :::warning
