@@ -31,42 +31,45 @@ and exactly-once delivery:
    result in duplicate records in ClickHouse.
 
 1. **Manual removal of duplicate records**: If duplicates occur, manually remove them
-   to maintain data consistency in ClickHouse.
+   to maintain data consistency in ClickHouse. For detailed instructions, see
+   [Remove duplicate records](#remove-duplicate-records).
 
-   Ensure that all potential duplicates are processed before removal:
+### Remove duplicate records {#remove-duplicate-records}
 
-   1. Verify the committed offset in Aiven for Apache Kafka:
-      1. Access the [Aiven Console](https://console.aiven.io/) and select your
-         Aiven for Apache Kafka service.
-      1. Click <ConsoleLabel name="topics" /> and select the topic used by the connector.
-      1. Go to the **Consumer Group** tab and check the **Offset**  column for the
-         committed offset.
+Ensure all potential duplicates are processed before removing them:
 
-   1. Verify the committed offset in ClickHouse:
-      1. In the ClickHouse service, access the query editor.
-      1. If you are using Aiven for ClickHouse®, go to the service's
-        <ConsoleLabel name="overview"/> page, and click
-        <ConsoleLabel name="query editor" />.
-      1. Run the following query to get offset details:
+1. Verify the committed offset in Aiven for Apache Kafka:
+   1. Access the [Aiven Console](https://console.aiven.io/) and select your
+      Aiven for Apache Kafka service.
+   1. Click <ConsoleLabel name="topics" /> and select the topic used by the connector.
+   1. Go to the **Consumer Group** tab and check the **Offset**  column for the
+      committed offset.
 
-         ```sql
-         SELECT key, minOffset, maxOffset, state FROM connect_state;
-         ```
-
-   1. Confirm the following conditions from the query result:
-      - The `state` column is set to `AFTER_PROCESSING`.
-      - The `minOffset` and `maxOffset` columns have the same value.
-      - The committed offset from Apache Kafka is **equal to or greater than** the
-        `minOffset` value in ClickHouse.
-
-   1. Remove duplicate records:
-
-      After confirming these conditions, remove any duplicate records by running the
-      following SQL command in ClickHouse:
+1. Verify the committed offset in ClickHouse:
+   1. In the ClickHouse service, access the query editor.
+   1. If you are using Aiven for ClickHouse®, go to the service's
+      <ConsoleLabel name="overview"/> page, and click
+      <ConsoleLabel name="query editor" />.
+   1. Run the following query to get offset details:
 
       ```sql
-      OPTIMIZE TABLE table_name DEDUPLICATE;
+      SELECT key, minOffset, maxOffset, state FROM connect_state;
       ```
+
+1. Confirm the following conditions from the query result:
+   - The `state` column is set to `AFTER_PROCESSING`.
+   - The `minOffset` and `maxOffset` columns have the same value.
+   - The committed offset from Apache Kafka is **equal to or greater than** the
+      `minOffset` value in ClickHouse.
+
+1. Remove duplicate records:
+
+   After confirming these conditions, remove any duplicate records by running the
+   following SQL command in ClickHouse:
+
+   ```sql
+   OPTIMIZE TABLE table_name DEDUPLICATE;
+   ```
 
 ## Create a ClickHouse sink connector configuration file
 
