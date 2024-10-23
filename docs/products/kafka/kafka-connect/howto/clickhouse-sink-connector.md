@@ -26,8 +26,9 @@ The ClickHouse sink connector has the following limitations related to data cons
 and exactly-once delivery:
 
 1. **No exactly-once delivery after restore**: The connector does not guarantee
-   exactly-once delivery after a restore, power-off, or service forking. This may result
-   in duplicate records in ClickHouse.
+   exactly-once delivery after the ClickHouse service is restored from a backup,
+   powered off, or forked. However, at least once delivery is guaranteed, which may
+   result in duplicate records in ClickHouse.
 
 1. **Manual removal of duplicate records**: If duplicates occur, manually remove them
    to maintain data consistency in ClickHouse.
