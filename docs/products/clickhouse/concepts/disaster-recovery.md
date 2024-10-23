@@ -42,8 +42,8 @@ They cover the following:
 -   Table content (`part files`)
 -   Dictionaries
 
-You can [restore your service from a backup](/docs/products/clickhouse/howto/restore-backup)
-of your choice.
+You can
+[restore your service from a selected backup](/docs/products/clickhouse/howto/restore-backup).
 
 :::note[Part files]
 With the ClickHouse's ReplicatedMergeTree table engine, each INSERT
@@ -60,9 +60,9 @@ For more information on backups in Aiven, see
 
 ### Service recovery
 
-Regardless whether your Aiven for ClickHouse service is powered on or powered off, you can
-create its copy and
-[restore the data from a service backup of your choice](/docs/products/clickhouse/howto/restore-backup)
+Regardless of whether your Aiven for ClickHouse service is powered on or powered off, you
+can create its copy and
+[restore the data from a selected service backup](/docs/products/clickhouse/howto/restore-backup).
 For this purpose, you create a fork from the original service. This spins up a new service
 that hosts the data recovered from the selected backup.
 
