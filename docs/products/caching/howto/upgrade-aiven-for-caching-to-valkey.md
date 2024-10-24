@@ -16,8 +16,8 @@ upgraded to **7.2** before the **Aiven for Valkey** upgrade can proceed.
 
 ## What to expect during the upgrade
 
-- **No service disruption**: The upgrade happens without service disruption. The
-  service is recycled, and the nodes are replaced, but your service continues to
+- **No service disruption**: The upgrade occurs without interruption. The service
+  is recycled, and the nodes are replaced, but your service continues to
   operate during the process.
 - **DNS updates**: DNS names update to new hosts during the upgrade. This might
   cause brief delays as the changes take effect, but the service remains available.
