@@ -111,6 +111,10 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'User and access management',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/user-access-management',
+          },
           items: [
             {
               type: 'category',
@@ -127,7 +131,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Permissions',
-              items: ['platform/howto/make-super-admin'],
+              items: [
+                'platform/concepts/permissions',
+                'platform/howto/manage-permissions',
+                'platform/howto/make-super-admin',
+              ],
             },
             {
               type: 'category',

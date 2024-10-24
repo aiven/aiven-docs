@@ -21,7 +21,7 @@ To set up VPC peering for your Aiven project:
     <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
 
 1.  Click **Create VPC**.
-
+<!-- vale off -->
     :::note
     **Admin** and **operator**
     [project member roles](/docs/platform/reference/project-member-privileges)

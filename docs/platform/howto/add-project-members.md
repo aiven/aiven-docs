@@ -4,6 +4,7 @@ title: Add users and groups to projects
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
+<!-- vale off -->
 You can give [users in your organization](/docs/platform/howto/manage-groups) access to a project and the services in it by adding them to the project.
 
 Users can be added individually or as part of a user

@@ -124,7 +124,7 @@ Parameters:
 Deleting topics frees up the disk space they used. The log cleaner process can take a
 few minutes to remove the associated data files from the disk. Once complete, the
 access control list (ACL) updates to allow write operations.
-
+<!-- vale off -->
 :::note
 [Admin](/docs/platform/reference/project-member-privileges) access is required to
 perform this action.

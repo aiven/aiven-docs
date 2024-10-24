@@ -50,6 +50,7 @@
 /platform/howto/list-billing                           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
+/platform/howto/list-identity-providers                https://aiven.io/docs/platform/howto/saml/add-identity-providers
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
 /platform/howto/list-user                              https://aiven.io/docs/platform/howto/manage-org-users
 /platform/howto/metrics-integrations                   https://aiven.io/docs/platform/howto/list-monitoring
