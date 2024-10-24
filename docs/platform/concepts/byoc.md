@@ -10,6 +10,7 @@ import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.p
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
+import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 
 _Bring your own cloud_ (BYOC) allows you to use your own cloud infrastructure instead of relying on the Aiven-managed infrastructure.
 
@@ -21,10 +22,14 @@ project, or organization has specific requirements. With BYOC, your Aiven
 organization gets connected with your cloud provider account by creating _custom
 clouds_ in your Aiven organization.
 
+## How it works
+
 A custom cloud is a secure environment within your cloud provider account to run
 Aiven-managed data services. By enabling BYOC, creating custom clouds, and
 setting up Aiven services within the custom clouds, you can manage your
 infrastructure on the Aiven platform while keeping your data in your own cloud.
+
+<img src={byocHowItWorks} className="centered" alt="How BYOC works" width="100%" />
 
 ## Why use BYOC
 
