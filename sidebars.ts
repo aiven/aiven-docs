@@ -1159,6 +1159,7 @@ const sidebars: SidebarsConfig = {
                 'products/caching/howto/manage-ssl-connectivity',
                 'products/caching/howto/warning-overcommit_memory',
                 'products/caching/howto/benchmark-performance',
+                'products/caching/howto/upgrade-aiven-for-caching-to-valkey',
               ],
             },
             {
