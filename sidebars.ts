@@ -453,6 +453,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'tools/cli/service/acl',
+                'tools/cli/service/alloydbomni',
                 'tools/cli/service/connection-info',
                 'tools/cli/service/connection-pool',
                 'tools/cli/service/connector',
