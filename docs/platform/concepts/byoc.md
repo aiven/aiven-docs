@@ -31,6 +31,13 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
 
 <img src={byocHowItWorks} className="centered" alt="How BYOC works" width="100%" />
 
+1. Enable BYOC for your Aiven organization.
+1. Initiate the creation of a custom cloud in the Aiven Console or CLI.
+1. Apply the provided Terraform infrastructure template to integrate your cloud accont
+   with Aiven.
+1. Provision Aiven-managed services and deploy them to your new custom cloud.
+1. View Aiven-managed services and assets in your cloud account.
+
 ## Why use BYOC
 
 Consider using BYOC and custom clouds if you have specific business
