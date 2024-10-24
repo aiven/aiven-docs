@@ -28,7 +28,7 @@ Also see [cross-availability-zone data distribution](/docs/platform/concepts/ava
 
 ## Backup and restore
 
-### Backups
+### Service backup
 
 Backups of Aiven for ClickHouse services happen automatically on a daily
 basis.
@@ -42,6 +42,9 @@ They cover the following:
 -   Table content (`part files`)
 -   Dictionaries
 
+You can
+[restore your service from a selected backup](/docs/products/clickhouse/howto/restore-backup).
+
 :::note[Part files]
 With the ClickHouse's ReplicatedMergeTree table engine, each INSERT
 query results in creating a new file, so-called part, written only once
@@ -52,15 +55,16 @@ only changed parts are backed up and files already available in the
 object storage are left out from the backup.
 :::
 
-### Recovery
-
-The restoration of a backup of an Aiven for ClickHouse service is
-performed on a running ClickHouse server and proceeds as a regular
-power-on of the service. The restoration happens only for powering up a
-service after powering it down or forking a service.
-
 For more information on backups in Aiven, see
 [Backups at Aiven](/docs/platform/concepts/service_backups).
+
+### Service recovery
+
+Regardless of whether your Aiven for ClickHouse service is powered on or powered off, you
+can create its copy and
+[restore the data from a selected service backup](/docs/products/clickhouse/howto/restore-backup).
+For this purpose, you create a fork from the original service. This spins up a new service
+that hosts the data recovered from the selected backup.
 
 ## Sharding
 
