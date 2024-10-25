@@ -1899,6 +1899,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Data migration',
+              items: [
+                'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Read replica',
               link: {
                 type: 'doc',
