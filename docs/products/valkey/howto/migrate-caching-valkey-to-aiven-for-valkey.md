@@ -20,7 +20,7 @@ Before starting the migration process, ensure the following:
 - Firewall rules updated or temporarily disabled to allow traffic between source and
   target databases.
 - A source Aiven for Caching or Valkey service secured with SSL.
-- A publicly accessible source Caching or Valkey service or one with a VPC peering
+- A publicly accessible source Aiven for Caching or Valkey service or one with a VPC peering
   connection between private networks. You'll need the VPC ID and cloud name.
 
 :::note
