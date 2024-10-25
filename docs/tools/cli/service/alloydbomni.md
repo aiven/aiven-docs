@@ -13,8 +13,7 @@ Manage a Google service account private key in Aiven for AlloyDB Omni.
 Add or update a Google service account private key for your Aiven for AlloyDB Omni service.
 
 ```bash
-avn service alloydbomni google-cloud-private-key set \
-  --service SERVICE_NAME                             \
+avn service alloydbomni google-cloud-private-key set SERVICE_NAME \
   --private-key-file PRIVATE_KEY_FILE
 ```
 
@@ -26,25 +25,26 @@ avn service alloydbomni google-cloud-private-key set \
 **Example**
 
 ```bash
-avn service alloydbomni google-cloud-private-key set            \
-  --service alloydbomni-test                                    \
+avn service alloydbomni google-cloud-private-key set alloydbomni-test \
   --private-key-file /Users/john.doe/documents/private-key.json
 ```
 
 **Output**
 
-This command outputs:
+This command outputs a Google service account email and a key ID, for example:
 
-- Google service account email, for example `abc-test-secret-manager@abcd-xyz.iam.gserviceaccount.com`
-- Key ID, for example `1a2b3c4d5f6g7h8i9j0k1a2b3c4d5f6g7h8i9j0k`
+```txt
+CLIENT_EMAIL                                                  PRIVATE_KEY_ID
+============================================================  ========================================
+test-svc-account@test-project-439708.iam.gserviceaccount.com  f336c5bc97043c5c612aa1630447be4412905b23
+```
 
 ### `avn service alloydbomni google-cloud-private-key delete`
 
 Delete a Google service account private key uploaded to your Aiven for AlloyDB Omni service.
 
 ```bash
-avn service alloydbomni google-cloud-private-key delete \
-  --service SERVICE_NAME
+avn service alloydbomni google-cloud-private-key delete SERVICE_NAME
 ```
 
 | Parameter                | Information                                                           |
@@ -54,16 +54,12 @@ avn service alloydbomni google-cloud-private-key delete \
 **Example**
 
 ```bash
-avn service alloydbomni google-cloud-private-key delete \
-  --service alloydbomni-test
+avn service alloydbomni google-cloud-private-key delete alloydbomni-test
 ```
 
 **Output**
 
-This command outputs:
-
-- Google service account email, for example `abc-test-secret-manager@abcd-xyz.iam.gserviceaccount.com`
-- Key ID, for example `1a2b3c4d5f6g7h8i9j0k1a2b3c4d5f6g7h8i9j0k`
+This command outputs `Service account key has been removed`.
 
 ### `avn service alloydbomni google-cloud-private-key show`
 
@@ -71,8 +67,7 @@ Display the key ID and the client email associated with your Google service acco
 key.
 
 ```bash
-avn service alloydbomni google-cloud-private-key show \
-  --service SERVICE_NAME
+avn service alloydbomni google-cloud-private-key show SERVICE_NAME
 ```
 
 | Parameter                | Information                                                           |
@@ -82,13 +77,15 @@ avn service alloydbomni google-cloud-private-key show \
 **Example**
 
 ```bash
-avn service alloydbomni google-cloud-private-key show \
-  --service alloydbomni-test
+avn service alloydbomni google-cloud-private-key show alloydbomni-test
 ```
 
 **Output**
 
-This command outputs:
+This command outputs a Google service account email and a key ID, for example:
 
-- Google service account email, for example `abc-test-secret-manager@abcd-xyz.iam.gserviceaccount.com`
-- Key ID, for example `1a2b3c4d5f6g7h8i9j0k1a2b3c4d5f6g7h8i9j0k`
+```txt
+CLIENT_EMAIL                                                  PRIVATE_KEY_ID
+============================================================  ========================================
+test-svc-account@test-project-439708.iam.gserviceaccount.com  f336c5bc97043c5c612aa1630447be4412905b23
+```
