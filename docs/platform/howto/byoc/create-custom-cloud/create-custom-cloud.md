@@ -6,10 +6,26 @@ keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring you
 
 import DocCardList from '@theme/DocCardList';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Card from "@site/src/components/AivenCard";
+import GridContainer from "@site/src/components/GridContainer";
+import Cassandra from "@site/static/images/logos/cassandra.svg";
 
 To create custom clouds in Aiven using self-service, select your cloud provider to integrate with.
 
-<DocCardList />
+<GridContainer columns={2}>
+     <Card
+      to="/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud"
+      iconName="cloud"
+      title="Amazon Web Services"
+      description="Create an AWS-integrated custom cloud."
+    />
+    <Card
+      to="/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud"
+      iconName="googleLogo"
+      title="Google Cloud"
+      description="Create a Google-integrated custom cloud"
+    />
+</GridContainer>
 
 #### Limitations
 
