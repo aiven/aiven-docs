@@ -10,8 +10,8 @@ Apache Kafka services use replication between brokers to preserve data in case o
 node failure. Consider how critical the data in each topic is to your business, and set
 a replication factor high enough to ensure data protection.
 
-When creating or editing a topic, you can set the replication factor in the
-[Aiven Console](https://console.aiven.io/).
+Set the replication factor when creating or editing a
+[topic](docs/products/kafka/howto/create-topic) in the [Aiven Console](https://console.aiven.io/).
 
 :::note
 Replication factors below 2 are not allowed to prevent data loss from unexpected node
@@ -21,28 +21,27 @@ terminations.
 ## Choose a reasonable number of partitions for a topic
 
 Too few partitions can cause bottlenecks in data processing. In the extreme case, a
-single partition means that messages are processed sequentially. However, too many
-partitions strain the cluster due to overhead. As you cannot reduce the
-number of partitions for existing topics, it is best to start with a low number that
-supports efficient data processing and increase it as needed.
+single partition means that messages are processed sequentially. Too many
+partitions strain the cluster due to overhead. Since partition numbers cannot be reduced,
+start with a low number that supports efficient processing and increase as needed.
 
-It is generally recommended to have a maximum of 4,000 partitions per broker and
-200,000 partitions per cluster
-([source](https://blogsarchive.apache.org/kafka/entry/apache-kafka-supports-more-partitions)).
+A maximum of 4,000 partitions per broker and 200,000 per cluster is recommended. For more
+details, see this [Apache Kafka blog post](https://blogsarchive.apache.org/kafka/entry/apache-kafka-supports-more-partitions).
 
 :::note
 Ordering is only guaranteed within a partition. To maintain the order of related records,
-make sure they are placed in the same partition.
+place them in the same partition.
 :::
 
-## Periodically examine topics with entity-based partitioning for imbalances
+## Check entity-based partitions for imbalances
 
 Partitioning messages based on an entity ID (such as a user ID) can lead to
 imbalanced partitions. This results in uneven load distribution and reduces the
 cluster's efficiency in processing messages in parallel.
 
-You can view the size of each partition in the **Partitions** tab under topic details
-in the [Aiven Console](https://console.aiven.io/).
+You can view the size of each partition in the **Partitions** tab under
+[topic](docs/products/kafka/howto/create-topic) details in the
+[Aiven Console](https://console.aiven.io/).
 
 ## Balance between throughput and latency
 
@@ -57,7 +56,7 @@ configuration. For more details, refer to the
 
 ## Configure acknowledgments for received data
 
-The `acks` parameter in the client producer configuration controls how the success of a
+The `acks` parameter in the producer configuration controls how the success of a
 write operation is determined. Choose the appropriate setting based on your data
 reliability needs:
 
@@ -75,10 +74,9 @@ reliability needs:
 ## Configure single availability zone (AZ) for BYOC customers
 
 For Bring Your Own Cloud (BYOC) customers, deploying Aiven for Apache Kafka in a single
-availability zone (AZ) can lower costs by eliminating charges for transferring data
-between availability zones. However, using a single AZ removes Kafka's resiliency,
-as data is not replicated across zones. This increases the risk of downtime if the
-AZ fails.
+availability zone (AZ) can reduce costs by removing inter-zone data transfer fees.
+However, using a single AZ removes Kafka's resiliency, as data is not replicated across
+zones. This increases the risk of downtime if the AZ fails.
 
 When considering a single AZ allocation, evaluate your organization's risk tolerance,
 as Aiven's standard uptime SLA does not apply to services deployed in a single AZ.
