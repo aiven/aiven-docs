@@ -19,9 +19,14 @@ Before starting the migration process, ensure the following:
   - **Password**: The password used to connect to the database.
 - Firewall rules updated or temporarily disabled to allow traffic between source and
   target databases.
-- A source Caching or Valkey service secured with SSL.
+- A source Aiven for Caching or Valkey service secured with SSL.
 - A publicly accessible source Caching or Valkey service or one with a VPC peering
   connection between private networks. You'll need the VPC ID and cloud name.
+
+:::note
+The migration does not include service user accounts or commands in progress.
+:::
+
 
 ## Database migration steps
 
@@ -34,7 +39,7 @@ Before starting the migration process, ensure the following:
 
 ### Step 1: Configure
 
-Review the prerequisites and click **Get started** to begin.
+In the migration wizard, review the prerequisites and click **Get started** to begin.
 
 ### Step 2: Validate
 
@@ -49,10 +54,6 @@ Select **SSL encryption recommended** for a secure connection, and click **Run c
 
 The [Aiven Console](https://console.aiven.io/) validates the database configurations. If
 any errors occur, follow the on-screen instructions to resolve them and rerun the check.
-
-:::note
-The migration does not include service user accounts or commands in progress.
-:::
 
 ### Step 3: Migrate
 
@@ -78,7 +79,7 @@ If the migration fails, resolve the issue and click **Start over**.
 
 ### Step 5: Close and complete the migration
 
-After the migration:
+After the migration, select one of the following:
 
 - **Stop replication**: If no further synchronization is needed, and you are ready
   to switch to Aiven for Valkey after testing.
