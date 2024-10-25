@@ -82,7 +82,7 @@ After the migration:
 
 - **Stop replication**: If no further synchronization is needed, and you are ready
   to switch to Aiven for Valkey after testing.
-- **Keep replicating**:If continuous data synchronization is needed. Avoid system
+- **Keep replicating**: If continuous data synchronization is needed. Avoid system
   updates or configuration changes during active replication to  prevent unintended
   migrations.
 
