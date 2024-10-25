@@ -71,10 +71,10 @@ reliability needs:
 - **`acks=all`**: The producer waits for acknowledgment from both the leader and all
   replicas. This ensures no data loss but can slow down communication.
 
-## Configure single availability zone (AZ) for BYOC customers
+## Configure single availability zone (AZ) for BYOC
 
 For Bring Your Own Cloud (BYOC) customers, deploying Aiven for Apache Kafka in a single
-availability zone (AZ) can reduce costs by removing inter-zone data transfer fees.
+AZ can reduce costs by removing inter-zone data transfer fees.
 However, using a single AZ removes Kafka's resiliency, as data is not replicated across
 zones. This increases the risk of downtime if the AZ fails.
 
@@ -93,7 +93,7 @@ Example command:
 
 ```bash
 avn service create SERVICE_NAME           \
-  --service-type SERVICE_TYPE             \
+  --service-type kafka                    \
   --plan PLAN_NAME                        \
   --cloud CLOUD_REGION                    \
   -c single_zone.enabled=true             \
