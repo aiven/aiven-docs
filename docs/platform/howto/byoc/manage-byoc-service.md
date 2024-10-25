@@ -45,14 +45,15 @@ your custom cloud: public or private.
 
 ### Migrate to public BYOC
 
-To migrate a service to a custom cloud in the public deployment mode,
+To migrate a service to a custom cloud in the public deployment model,
 [change a cloud provider and a cloud region](/docs/platform/howto/migrate-services-cloud-region)
 to point to your custom cloud.
 
 ### Migrate private BYOC
 
-Migrating a service to a custom cloud in the private deployment mode requires network
-reconfiguration. Contact your account team for further guidance.
+Migrating a service to a custom cloud in the private deployment model requires network
+reconfiguration. Services are never exposed to the internet, and correct private
+communication must be established. Contact your account team for private migration guidance.
 
 ## Related pages
 

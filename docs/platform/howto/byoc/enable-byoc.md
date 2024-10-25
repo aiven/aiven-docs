@@ -14,12 +14,8 @@ existing Aiven organizations, projects, or services. It only allows you to run A
 services in your cloud provider account.
 :::
 
-To be able to create custom clouds on the Aiven platform, first you need
-to enable the BYOC feature. The [Aiven Console](https://console.aiven.io/)
-offers a quick and easy way to set up a short call with the Aiven sales
-team to identify your use cases and confirm the requirements. In the
-call, we make sure BYOC can address them, and we check your environment
-eligibility for the feature.
+To enable [BYOC](/docs/platform/concepts/byoc), go to use the
+[Aiven Console](https://console.aiven.io/) and set up a call with the Aiven sales team.
 
 :::important
 Before enabling BYOC, check

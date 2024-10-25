@@ -17,10 +17,14 @@ Find out whether your custom cloud is ready to use by viewing its status.
 
 When your custom cloud's status is **Active**, its deployment has been completed. Your
 custom cloud is ready to use and you can see it on the list of your custom clouds in the
-**Bring your own cloud** view. Now you can create new services in the custom cloud or
-migrate your existing services to the custom cloud if your service and networking
-configuration allows it. For more information on migrating your existing services to the
-custom cloud, contact your account team.
+**Bring your own cloud** view.
+
+Now you can
+[create new services in the custom cloud](/docs/platform/howto/byoc/manage-byoc-service#create-a-service-in-a-custom-cloud)
+or
+[migrate your existing services to the custom cloud](/docs/platform/howto/byoc/manage-byoc-service#migrate-an-existing-service-to-a-custom-cloud)
+if your service and networking configuration allows it. For more information on migrating
+your existing services to the custom cloud, contact your account team.
 
 #### Related pages
 
