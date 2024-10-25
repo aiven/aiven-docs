@@ -7,27 +7,7 @@ keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring you
 import DocCardList from '@theme/DocCardList';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
-
-:::note
-
--   Creating and using custom clouds in your Aiven organization requires
-    enabling
-    [the _bring your own cloud (BYOC)_ feature](/docs/platform/concepts/byoc). Check
-    [who is eligible for BYOC](/docs/platform/concepts/byoc#who-is-eligible-for-byoc). To
-    use the feature,
-    [enable BYOC in your Aiven organization](/docs/platform/howto/byoc/enable-byoc).
--   Enabling
-    [the BYOC feature](/docs/platform/concepts/byoc) or creating custom clouds in your
-    Aiven environment does not affect the configuration of your existing organizations,
-    projects, or services. This only makes the new BYOC capabilities available in your
-    environment.
-
-:::
-
-The process of creating a custom cloud in Aiven differs depending on the
-cloud provider to integrate with. You can use self-service and create custom clouds on your
-own if your cloud provider is AWS or Google Cloud:
+To create custom clouds in Aiven using self-service, select your cloud provider to integrate with.
 
 <DocCardList />
 

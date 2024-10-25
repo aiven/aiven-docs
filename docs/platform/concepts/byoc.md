@@ -153,7 +153,8 @@ Aiven accesses this VPC through an internet gateway. Service VMs reside in a pub
 addressed subnet (**Public subnet**), and Aiven services can be accessed
 through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
-directly.
+directly. To restrict access to your service, you can use the
+[IP filter](/docs/platform/howto/restrict-access).
 
 Object storage in your AWS cloud account is where service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
@@ -199,7 +200,9 @@ account. Aiven accesses this VPC through an internet gateway. Service VMs reside
 publicly addressed subnet (**Public subnet**), and Aiven services can be accessed
 through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
-directly.
+directly. To restrict access to your service, you can use the
+[IP filter](/docs/platform/howto/restrict-access).
+
 </TabItem>
 </Tabs>
 
