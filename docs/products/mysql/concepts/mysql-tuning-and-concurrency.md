@@ -1,6 +1,6 @@
 ---
 title: MySQL tuning for concurrency
-sidebar_label: Tuning foor concurrency
+sidebar_label: Tuning for concurrency
 ---
 
 Determining how much memory is available for queries, and tuning concurrency accordingly, requires calculation of service memory, query analysis, and monitoring.
