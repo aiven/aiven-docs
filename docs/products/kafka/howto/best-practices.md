@@ -11,7 +11,7 @@ node failure. Consider how critical the data in each topic is to your business, 
 a replication factor high enough to ensure data protection.
 
 Set the replication factor when creating or editing a
-[topic](docs/products/kafka/howto/create-topic) in the [Aiven Console](https://console.aiven.io/).
+[topic](/docs/products/kafka/howto/create-topic) in the [Aiven Console](https://console.aiven.io/).
 
 :::note
 Replication factors below 2 are not allowed to prevent data loss from unexpected node
@@ -40,7 +40,7 @@ imbalanced partitions. This results in uneven load distribution and reduces the
 cluster's efficiency in processing messages in parallel.
 
 You can view the size of each partition in the **Partitions** tab under
-[topic](docs/products/kafka/howto/create-topic) details in the
+[topic](/docs/products/kafka/howto/create-topic) details in the
 [Aiven Console](https://console.aiven.io/).
 
 ## Balance between throughput and latency
