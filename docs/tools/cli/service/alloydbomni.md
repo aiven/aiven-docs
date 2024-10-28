@@ -36,7 +36,7 @@ This command outputs a Google service account email and a key ID, for example:
 ```txt
 CLIENT_EMAIL                                                  PRIVATE_KEY_ID
 ============================================================  ========================================
-test-svc-account@test-project-439708.iam.gserviceaccount.com  f336c5bc97043c5c612aa1630447be4412905b23
+test-svc-account@test-project-123456.iam.gserviceaccount.com  1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f7g8h9i0j
 ```
 
 ### `avn service alloydbomni google-cloud-private-key delete`
@@ -59,7 +59,11 @@ avn service alloydbomni google-cloud-private-key delete alloydbomni-test
 
 **Output**
 
-This command outputs `Service account key has been removed`.
+This command outputs:
+
+```txt
+`Service account key has been removed`
+```
 
 ### `avn service alloydbomni google-cloud-private-key show`
 
@@ -87,5 +91,5 @@ This command outputs a Google service account email and a key ID, for example:
 ```txt
 CLIENT_EMAIL                                                  PRIVATE_KEY_ID
 ============================================================  ========================================
-test-svc-account@test-project-439708.iam.gserviceaccount.com  f336c5bc97043c5c612aa1630447be4412905b23
+test-svc-account@test-project-123456.iam.gserviceaccount.com  1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f7g8h9i0j
 ```
