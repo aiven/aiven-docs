@@ -57,7 +57,7 @@ Account Owners team.
     this team after the migration.
     :::
 
-3.  To add the users to the groups, use the
+1.  To add the users to the groups, use the
     [`aiven_organization_user_group_member` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_user_group_member):
 
     ```hcl
@@ -68,7 +68,7 @@ Account Owners team.
     }
     ```
 
-4.  To add each new group to the same projects that the teams are assigned to, use the
+1.  To add each new group to the same projects that the teams are assigned to, use the
     [`aiven_organization_permission` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_permission):
 
     ```hcl
@@ -86,19 +86,19 @@ Account Owners team.
     }
     ```
 
-5.  Preview your changes by running:
+1.  Preview your changes by running:
 
     ```bash
     terraform plan
     ```
 
-6.  To apply the new configuration, run:
+1.  To apply the new configuration, run:
 
     ```bash
     terraform apply --auto-approve
     ```
 
-7.  After confirming all users have the correct access, delete the team resources and
+1.  After confirming all users have the correct access, delete the team resources and
     apply the changes.
 
 ## Related pages
