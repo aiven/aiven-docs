@@ -74,8 +74,8 @@ Tiered storage is activated on your table and data in this table is now
 distributed between two tiers: SSD and object storage.
 
 You can check if tiered storage is now supported (**Active**/**Not active**) on
-your table in [Aiven Console](https://console.aiven.io) >
-<ConsoleLabel name="databasesandtables"/> > **Databases lists** > Your database > Your table
+your table in the [Aiven Console](https://console.aiven.io) > your service's page >
+<ConsoleLabel name="databasesandtables"/> > Your database > Your table
 \> **Tiered storage** column.
 
 ## What's next
