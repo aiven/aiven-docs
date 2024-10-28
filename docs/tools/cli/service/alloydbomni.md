@@ -62,7 +62,7 @@ avn service alloydbomni google-cloud-private-key delete alloydbomni-test
 This command outputs:
 
 ```txt
-`Service account key has been removed`
+Service account key has been removed
 ```
 
 ### `avn service alloydbomni google-cloud-private-key show`
