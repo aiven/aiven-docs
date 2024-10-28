@@ -1,7 +1,7 @@
 ---
 title: Bring your own cloud (BYOC)
 sidebar_label: Bring your own cloud
-keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud]
+keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud, backup]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -216,22 +216,24 @@ All Aiven communication is encrypted.
 
 ## BYOC service backups
 
-Depending on the service used, Aiven takes regular backups to enable forking, point in
-time recovery (PITR), and disaster recovery.
+Depending on the BYOC service, Aiven takes
+[regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
+in time recovery (PITR), and disaster recovery.
 
-- Backups of services hosted with **AWS BYOC** reside in object storage in your own cloud
-  account.
-- Backups of BYOC services hosted with a cloud provider **other than AWS** reside in Aiven-owned
-  storage by default. It's still possible to store such backups in your own cloud account,
-  provided Aiven gets read-write permissions to access the object storage in your cloud
-  account.
+Backups of BYOC-hosted services are stored as follows:
 
-  :::important
-  - Backups are encrypted using Aiven-managed keys.
-  - You are responsible for managing object storage configuration.
-  :::
+- **AWS BYOC**: User-owned backups stored in object storage in your own AWS cloud account.
+  One S3 bucket is created per custom cloud.
+- **Google Cloud**: Aiven-owned backups stored in Aiven-managed object
+  storage. It's still possible to store backups in your own cloud account, provided
+  Aiven gets read-write permissions to access the object storage in your cloud account.
 
-Learn more about [storing data in custom clouds](/docs/platform/howto/byoc/store-data).
+:::important
+
+- All backups are encrypted using Aiven-managed keys.
+- You are responsible for managing object storage configuration.
+
+:::
 
 ## Dev tools for BYOC
 

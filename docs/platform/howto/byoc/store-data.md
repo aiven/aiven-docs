@@ -37,7 +37,7 @@ To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be 
 [in your custom cloud](/docs/platform/howto/byoc/store-data#enable-in-a-custom-cloud) and
 [in the BYOC-hosted service](/docs/platform/howto/byoc/store-data#enable-on-a-service).
 
-### Enable tiered storage in a custom cloud
+## Enable tiered storage in a custom cloud
 
 - **New AWS custom clouds**: Tiered storage is enabled by default in all new AWS custom
   clouds so you can proceed to
@@ -46,9 +46,9 @@ To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be 
   [Contact the Aiven support team](mailto:support@aiven.io) to request enabling tiered
   storage in your custom cloud.
 
-### Enable tiered storage on a service
+## Enable tiered storage on a service
 
-#### Prerequisites
+### Prerequisites
 
 - At least one AWS [custom cloud](/docs/platform/howto/byoc/create-custom-cloud)
 - At least one [Aiven-manged service](/docs/platform/howto/create_new_service), either
@@ -59,22 +59,10 @@ To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be 
   [migrate it](/docs/platform/howto/byoc/manage-byoc-service#migrate-an-existing-service-to-a-custom-cloud).
   :::
 
-#### Activate tiered storage
+### Activate tiered storage
 
 - [Enable for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-kafka-tiered-storage)
 - [Enable for Aiven for Clickhouse](/docs/products/clickhouse/howto/enable-tiered-storage)
-
-## BYOC service backups
-
-Aiven takes [regular service backups](/docs/platform/concepts/service_backups), which are
-encrypted using Aiven-managed keys.
-
-Backups of BYOC-hosted services are stored as follows:
-
-- **AWS BYOC**: User-owned backups stored in object storage in your own AWS cloud account.
-  One S3 bucket is created per custom cloud.
-- **Google Cloud**: Aiven-owned backups stored in Aiven-managed object
-  storage.
 
 ## Related pages
 
