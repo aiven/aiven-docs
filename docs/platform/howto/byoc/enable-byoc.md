@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization.
 
-To enable [BYOC](/docs/platform/concepts/byoc), go to use the
+To enable [BYOC](/docs/platform/concepts/byoc), open the
 [Aiven Console](https://console.aiven.io/) and
 [set up a call with the Aiven sales team](/docs/platform/howto/byoc/enable-byoc#enable-byoc).
 

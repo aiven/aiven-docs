@@ -31,16 +31,20 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
 
 <img src={byocHowItWorks} className="centered" alt="How BYOC works" width="100%" />
 
-1. [Enable BYOC for your Aiven organization](/docs/platform/howto/byoc/enable-byoc).
-1. Initiate the creation of a custom cloud in the Aiven Console or CLI:
-   - [AWS](/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud#create-a-custom-cloud)
-   - [Google Cloud](/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud#create-a-custom-cloud)
-1. Apply the provided Terraform infrastructure template to integrate your cloud account
-   with Aiven:
-   - [AWS](/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud#deploy-the-template)
-   - [Google Cloud](/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud#deploy-the-template)
-1. [Provision Aiven-managed services and deploy them to your new custom cloud](/docs/platform/howto/byoc/manage-byoc-service).
-1. View Aiven-managed services and assets in your cloud account.
+1. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) in your Aiven organization by
+   setting up a call with the Aiven sales team to share your use case and its requirements.
+1. [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud) in the Aiven
+   Console or CLI by providing cloud setup details essential to generate your custom cloud
+   infrastructure template.
+1. **Integrate your cloud account with Aiven** by applying the infrastructure template for
+   [AWS](/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud#deploy-the-template)
+   or
+   [Google Cloud](/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud#deploy-the-template).
+1. [Deploy services](/docs/platform/howto/byoc/manage-byoc-service) by creating new
+   Aiven-managed services in the custom cloud or migrating existing Aiven-managed services
+   to the custom cloud.
+1. **View Aiven-managed assets in your cloud account**: You can preview Aiven-managed
+   services and infrastructure in your cloud account.
 
 ## Why use BYOC
 
