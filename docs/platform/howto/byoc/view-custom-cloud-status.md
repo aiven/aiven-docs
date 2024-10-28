@@ -28,7 +28,6 @@ your existing services to the custom cloud, contact your account team.
 
 ## Related pages
 
--   [About bring your own cloud](/docs/platform/concepts/byoc)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Store data in custom clouds](/docs/platform/howto/byoc/store-data)
 -   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)

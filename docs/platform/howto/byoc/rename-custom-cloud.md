@@ -65,13 +65,7 @@ avn byoc update                                 \
 
 ## Related pages
 
--   [About bring your own cloud](/docs/platform/concepts/byoc)
--   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
--   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Download an infrastructure template and a variables file](/docs/platform/howto/byoc/download-infrastructure-template)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Storing data in custom clouds](/docs/platform/howto/byoc/store-data)
--   [Delete a custom cloud](/docs/platform/howto/byoc/delete-custom-cloud)

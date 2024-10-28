@@ -57,7 +57,6 @@ communication must be established. Contact your account team for private migrati
 
 ## Related pages
 
--   [About bring your own cloud](/docs/platform/concepts/byoc)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
--   [Storing data in custom clouds](/docs/platform/howto/byoc/store-data)
+-   [Store data in custom clouds](/docs/platform/howto/byoc/store-data)
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)

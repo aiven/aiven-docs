@@ -67,6 +67,6 @@ and
 
 ## Related pages
 
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Download an infrastructure template and a variables file](/docs/platform/howto/byoc/download-infrastructure-template)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
+-   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)
