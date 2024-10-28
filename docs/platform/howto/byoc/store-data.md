@@ -34,8 +34,9 @@ account. One S3 bucket is created per custom cloud.
 :::
 
 To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be enabled both
-[in your custom cloud](/docs/platform/howto/byoc/store-data#enable-in-a-custom-cloud) and
-[in the BYOC-hosted service](/docs/platform/howto/byoc/store-data#enable-on-a-service).
+[in your custom cloud](/docs/platform/howto/byoc/store-data#enable-tiered-storage-in-a-custom-cloud)
+and
+[in the BYOC-hosted service](/docs/platform/howto/byoc/store-data#enable-tiered-storage-on-a-service).
 
 ## Enable tiered storage in a custom cloud
 
