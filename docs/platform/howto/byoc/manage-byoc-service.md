@@ -25,14 +25,14 @@ To create a service hosted in your new custom cloud, run
 [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) passing your new
 custom cloud name as an option:
 
-    ```bash
-    avn service create                    \
-    --project "PROJECT_NAME"              \
-    --service-type "TYPE_OF_BYOC_SERVICE" \
-    --plan "PLAN_OF_BYOC_SERVICE"         \
-    --cloud "CUSTOM_CLOUD_NAME"           \
-    "NEW_BYOC_SERVICE_NAME"
-    ```
+```bash
+avn service create                      \
+  --project "PROJECT_NAME"              \
+  --service-type "TYPE_OF_BYOC_SERVICE" \
+  --plan "PLAN_OF_BYOC_SERVICE"         \
+  --cloud "CUSTOM_CLOUD_NAME"           \
+  "NEW_BYOC_SERVICE_NAME"
+```
 
 </TabItem>
 </Tabs>
@@ -59,12 +59,5 @@ communication must be established. Contact your account team for private migrati
 
 -   [About bring your own cloud](/docs/platform/concepts/byoc)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
--   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
--   [Download an infrastructure template and a variables file](/docs/platform/howto/byoc/download-infrastructure-template)
--   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 -   [Storing data in custom clouds](/docs/platform/howto/byoc/store-data)
--   [Delete a custom cloud](/docs/platform/howto/byoc/delete-custom-cloud)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)

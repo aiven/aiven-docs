@@ -23,7 +23,7 @@ To create custom clouds in Aiven using self-service, select your cloud provider 
       to="/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud"
       iconName="googleLogo"
       title="Google Cloud"
-      description="Create a Google-integrated custom cloud"
+      description="Create a Google-integrated custom cloud."
     />
 </GridContainer>
 

@@ -1,6 +1,6 @@
 ---
-title: Storing data in custom clouds
-sidebar_label: Data storage
+title: Store data in custom clouds
+sidebar_label: Storage data
 keywords: [bring your own cloud, byoc, custom cloud, BYOC cloud, object storage, tiered storage, S3 bucket, S3]
 ---
 
@@ -37,7 +37,7 @@ To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be 
 [in your custom cloud](/docs/platform/howto/byoc/store-data#enable-in-a-custom-cloud) and
 [in the BYOC-hosted service](/docs/platform/howto/byoc/store-data#enable-on-a-service).
 
-### Enable in a custom cloud
+### Enable tiered storage in a custom cloud
 
 - **New AWS custom clouds**: Tiered storage is enabled by default in all new AWS custom
   clouds so you can proceed to
@@ -46,7 +46,7 @@ To use tiered storage in an AWS-BYOC-hosted service, tiered storage needs to be 
   [Contact the Aiven support team](mailto:support@aiven.io) to request enabling tiered
   storage in your custom cloud.
 
-### Enable on a service
+### Enable tiered storage on a service
 
 #### Prerequisites
 
