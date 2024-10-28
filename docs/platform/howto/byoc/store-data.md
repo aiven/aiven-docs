@@ -42,7 +42,7 @@ and
 
 - **New AWS custom clouds**: Tiered storage is enabled by default in all new AWS custom
   clouds so you can proceed to
-  [enabling tiered storage on a service](/docs/platform/howto/byoc/store-data#enable-on-a-service).
+  [enabling tiered storage on a service](/docs/platform/howto/byoc/store-data#enable-tiered-storage-on-a-service).
 - **Existing AWS custom clouds with no tiered storage support**:
   [Contact the Aiven support team](mailto:support@aiven.io) to request enabling tiered
   storage in your custom cloud.
