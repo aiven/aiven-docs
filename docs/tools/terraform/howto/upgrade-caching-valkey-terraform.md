@@ -36,7 +36,7 @@ Learn how to update your Terraform configuration after upgrading from Aiven for 
 
      ```hcl
      # After: Aiven for Valkey configuration
-     resource "aiven_valkey" "valkey_service" {
+     resource "aiven_valkey" "caching_service" {
        project      = "PROJECT_NAME"
        cloud_name   = "CLOUD_REGION"
        plan         = "PLAN_NAME"
@@ -53,7 +53,12 @@ Learn how to update your Terraform configuration after upgrading from Aiven for 
 
       ```bash
       terraform import aiven_valkey.valkey_service PROJECT_NAME/SERVICE_NAME
+      ```
 
+   1. Import users associated with the Aiven for Valkey service. For each user, run:
+
+      ```bash
+      terraform import aiven_valkey_user.user PROJECT_NAME/SERVICE_NAME/USERNAME
       ```
 
    1. Remove any Aiven for Caching resources from the Terraform state to prevent
