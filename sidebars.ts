@@ -1864,7 +1864,7 @@ const sidebars: SidebarsConfig = {
               label: 'Cross-region disaster recovery',
               link: {
                 type: 'doc',
-                id: 'products/postgresql/crdr/list-crdr',
+                id: 'products/postgresql/crdr',
               },
               items: [
                 'products/postgresql/crdr/crdr-overview',

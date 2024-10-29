@@ -8,8 +8,8 @@ import DocCardList from '@theme/DocCardList';
 
 ## Related pages
 
-- Learn more about Aiven for PostgreSQL on [Aiven.io](https://aiven.io/postgresql).
-- Find a comprehensive per-release documentation on the
-  [PostgreSQL project website](https://www.postgresql.org/).
-- Read about location queries and the spatial extension on the
-  [PostGIS website](https://postgis.net/).
+- [Backups in Aiven for PostgreSQL®](/docs/products/postgresql/concepts/pg-backups)
+- [Read-only replicas in Aiven for PostgreSQL®](/docs/products/postgresql/howto/create-read-replica)
+- [High availability in Aiven for PostgreSQL®](/docs/products/postgresql/concepts/high-availability)
+- [Upgrade and failover procedures in in Aiven for PostgreSQL®](/docs/products/postgresql/concepts/upgrade-failover)
+- [Backup to another region](/docs/platform/concepts/backup-to-another-region)
