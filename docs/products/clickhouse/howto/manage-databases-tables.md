@@ -33,13 +33,13 @@ can create a database through the web interface of the
     necessary customizations and run secondary queries to grant access
     to the admin user.
 
-<!--
 ## Delete a database
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
 1. In the sidebar, click <ConsoleLabel name="databasestables"/>.
-1. Next to the database name, click <ConsoleIcon name="delete"/>.
+1. In the **Databases and tables** list, find your database and click
+    <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
 
 :::note
 If you try adding or removing a database in for your Aiven for
@@ -47,7 +47,6 @@ ClickHouse service through the command line, you'll encounter an
 exception `Not enough privileges.(ACCESS_DENIED)`. Use the Aiven
 web interface to add or remove a database.
 :::
--->
 
 ## Create a table
 
@@ -103,7 +102,7 @@ To remove your table in the [Aiven Console](https://console.aiven.io/):
 1.  Go to the table to be removed: organization > project >
     service > <ConsoleLabel name="databasestables"/>.
 1.  In the **Databases and tables** view, go to the table and
-    select <ConsoleLabel name="actions"/> > **Delete table**.
+    select <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletetable"/>.
 
 </TabItem>
 </Tabs>

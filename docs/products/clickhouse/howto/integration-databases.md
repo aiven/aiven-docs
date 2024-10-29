@@ -109,7 +109,7 @@ You can only edit Apache Kafka integration databases and tables.
     sidebar to find the **Databases and tables** list.
 
 1.  Find an Apache Kafka integration database to edit on the **Databases and tables** list,
-    and click <ConsoleLabel name="actions"/> > **Edit database**.
+    and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/>.
 
 1.  In the **Edit database** wizard, find a table to edit
     in the **Configured tables** list and expand its details by
@@ -132,7 +132,6 @@ You can only edit Apache Kafka integration databases and tables.
 
 Your integration database and/or its tables have been updated.
 
-<!--
 ## Delete integration databases
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
@@ -140,15 +139,13 @@ Your integration database and/or its tables have been updated.
     want to delete integration databases for.
 1.  In your service's page, select <ConsoleLabel name="databasestables"/> from the
     sidebar to find the **Databases and tables** list.
-1.  From the **Databases and tables** list, select the trash bin icon
-    for the integration database to remove.
+1.  In the **Databases and tables** list, find your integration database and click
+    <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
 1.  In the **Delete database confirmation** popup, study the impact and
     select **Confirm** if you accept removing the database along with
     the tables inside it.
 
-Your integration database has been removed from the **Databases and
-tables** list.
--->
+Your integration database has been removed from the **Databases and tables** list.
 
 ## Related pages
 
