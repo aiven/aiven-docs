@@ -203,7 +203,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       description="Determine how your organization users log in and use tokens."
     />
     <Card
-      to="/docs/platform/concepts/orgs-units-projects#users-and-roles"
+      to="/docs/platform/concepts/permissions"
       iconName="book"
       title="Permissions and roles"
       description="Learn how access is controlled at the organization, project, and
