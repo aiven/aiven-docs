@@ -3,7 +3,7 @@ title: Migrate from teams to groups with Terraform
 sidebar_label: Migrate from teams to groups
 ---
 
-Teams in Aiven are becoming groups. [Groups](/docs/platform/howto/manage-groups) are an easier way to control access to your organization's projects and services for a group of users.
+Teams in Aiven are becoming groups. Groups are an easier way to control access to your organization's projects and services for a group of users.
 
 :::important
 **Teams have been deprecated and are being migrated to groups.**
@@ -45,9 +45,9 @@ Account Owners team.
 
     ```hcl
     resource "aiven_organization_user_group" "admin" {
-      organization_id = data.aiven_organization.ORGANIZATION_RESOURCE_NAME.id
-      name       = "Admin user group"
-      description = "Administrators"
+      organization_id = data.aiven_organization.main.id
+      name            = "Admin user group"
+      description     = "Administrators"
     }
     ```
 
@@ -62,24 +62,44 @@ Account Owners team.
 
     ```hcl
     resource "aiven_organization_user_group_member" "admin_members" {
-      group_id      = aiven_organization_user_group.admin.group_id
-      organization_id = data.aiven_organization.ORGANIZATION_RESOURCE_NAME.id
-      user_id = "USER_ID"
+      group_id        = aiven_organization_user_group.admin.group_id
+      organization_id = data.aiven_organization.main.id
+      user_id         = "u123a456b7890c"
     }
     ```
 
 1.  To add each new group to the same projects that the teams are assigned to, use the
-    [`aiven_organization_group_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_group_project):
+    [`aiven_organization_permission` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_permission):
 
     ```hcl
-    resource "aiven_organization_group_project" "admin_project1" {
-      group_id      = aiven_organization_user_group.admin.group_id
-      project = aiven_project.PROJECT_RESOURCE_NAME.project
-      role    = "admin"
+    resource "aiven_organization_permission" "project_admin" {
+      organization_id = data.aiven_organization.main.id
+      resource_id     = data.aiven_project.example_project.id
+      resource_type   = "project"
+      permissions {
+        permissions = [
+          "admin"
+        ]
+        principal_id   = aiven_organization_user_group.admin.group_id
+        principal_type = "user_group"
+      }
     }
     ```
 
-1.  After confirming all users have the correct access, delete the team resources.
+1.  Preview your changes by running:
+
+    ```bash
+    terraform plan
+    ```
+
+1.  To apply the new configuration, run:
+
+    ```bash
+    terraform apply --auto-approve
+    ```
+
+1.  After confirming all users have the correct access, delete the team resources and
+    apply the changes.
 
 ## Related pages
 
