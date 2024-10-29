@@ -63,9 +63,9 @@ To create the new database:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and
     select your service from the <ConsoleLabel name="Services"/> page.
-1.  On your service's page, select <ConsoleLabel name="databasestables"/> from the
+1.  On your service's page, select <ConsoleLabel name="databasesandtables"/> from the
     sidebar.
-1.  In the <ConsoleLabel name="databasestables"/> page, select **Create database** >
+1.  In the <ConsoleLabel name="databasesandtables"/> page, select **Create database** >
     **ClickHouse database**.
 1.  In the **Create ClickHouse database** window, enter name `datasets`
     for your database and select **Create database**.
@@ -187,5 +187,5 @@ LIMIT 10
 
 You can also use the database and added tables with the data in the
 [Aiven Console](https://console.aiven.io/). Display them by
-selecting <ConsoleLabel name="databasestables"/> from the sidebar of your service in the
+selecting <ConsoleLabel name="databasesandtables"/> from the sidebar of your service in the
 Aiven Console.

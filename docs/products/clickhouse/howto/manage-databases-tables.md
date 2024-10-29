@@ -21,7 +21,7 @@ can create a database through the web interface of the
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
 
-1.  In the sidebar, click <ConsoleLabel name="databasestables"/>.
+1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
 
 1.  Click **Create database** > **ClickHouse database**.
 
@@ -29,7 +29,7 @@ can create a database through the web interface of the
     database and select **Create database**.
 
     The name of the database appears in the list of databases
-    in the <ConsoleLabel name="databasestables"/> page. On our side, we enable
+    in the <ConsoleLabel name="databasesandtables"/> page. On our side, we enable
     necessary customizations and run secondary queries to grant access
     to the admin user.
 
@@ -37,7 +37,7 @@ can create a database through the web interface of the
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
-1. In the sidebar, click <ConsoleLabel name="databasestables"/>.
+1. In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
 1. In the **Databases and tables** list, find your database and click
     <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
 
@@ -100,7 +100,7 @@ To remove your table in the [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 1.  Go to the table to be removed: organization > project >
-    service > <ConsoleLabel name="databasestables"/>.
+    service > <ConsoleLabel name="databasesandtables"/>.
 1.  In the **Databases and tables** view, go to the table and
     select <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletetable"/>.
 
