@@ -1861,6 +1861,20 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Cross-region disaster recovery',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/crdr/list-crdr',
+              },
+              items: [
+                'products/postgresql/crdr/crdr-overview',
+                'products/postgresql/crdr/enable-crdr',
+                'products/postgresql/crdr/crdr-failover-to-recovery',
+                'products/postgresql/crdr/crdr-revert-to-primary',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Troubleshooting',
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
