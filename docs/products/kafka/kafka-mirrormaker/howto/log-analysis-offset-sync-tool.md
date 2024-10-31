@@ -1,14 +1,12 @@
 ---
-title: Apache Kafka® MirrorMaker 2 log analysis using the offset sync tool
-sidebar_label: Offset sync log analysis
+title: Offset sync status analysis for Apache Kafka® MirrorMaker 2
+sidebar_label: Offset sync status analysis
 ---
 
-Analyze key log messages during data synchronization with Apache Kafka® MirrorMaker 2 using Aiven’s offset sync inspection tool.
-This tool tracks the progress of synchronization between source and destination clusters.
-You can run it locally after setting up the required environment to review offset
-syncing between source and target Apache Kafka topics. The tool generates messages
-that indicate partition health and highlight when intervention is needed, making it
-particularly useful during large data migrations.
+Analyze offset synchronization status between source and target clusters with Aiven’s offset sync inspection tool for Apache Kafka® MirrorMaker 2.
+This tool monitors sync progress, provides insights into partition health, and flags
+any needed interventions. Run it locally after configuring the environment to review
+offset syncing, especially useful during large data migrations.
 
 ## Prerequisites
 
