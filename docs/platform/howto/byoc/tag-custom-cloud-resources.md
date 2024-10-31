@@ -128,9 +128,7 @@ Any change to infrastructure tags requires reapplying the Terraform template.
 
 ## Related pages
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Enable your AWS custom cloud in Aiven organizations, units, or projects](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
+-   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)
+-   [Download an infrastructure template and a variables file](/docs/platform/howto/byoc/download-infrastructure-template)

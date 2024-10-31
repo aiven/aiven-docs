@@ -1,7 +1,7 @@
 ---
 title: Bring your own cloud (BYOC)
 sidebar_label: Bring your own cloud
-keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud]
+keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud, backup]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,6 +10,7 @@ import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.p
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
+import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 
 _Bring your own cloud_ (BYOC) allows you to use your own cloud infrastructure instead of relying on the Aiven-managed infrastructure.
 
@@ -21,10 +22,29 @@ project, or organization has specific requirements. With BYOC, your Aiven
 organization gets connected with your cloud provider account by creating _custom
 clouds_ in your Aiven organization.
 
+## How it works
+
 A custom cloud is a secure environment within your cloud provider account to run
 Aiven-managed data services. By enabling BYOC, creating custom clouds, and
 setting up Aiven services within the custom clouds, you can manage your
 infrastructure on the Aiven platform while keeping your data in your own cloud.
+
+<img src={byocHowItWorks} className="centered" alt="How BYOC works" width="100%" />
+
+1. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) in your Aiven organization by
+   setting up a call with the Aiven sales team to share your use case and its requirements.
+1. [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud) in the Aiven
+   Console or CLI by providing cloud setup details essential to generate your custom cloud
+   infrastructure template.
+1. **Integrate your cloud account with Aiven** by applying the infrastructure template for
+   [AWS](/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud#deploy-the-template)
+   or
+   [Google Cloud](/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud#deploy-the-template).
+1. [Deploy services](/docs/platform/howto/byoc/manage-byoc-service) by creating new
+   Aiven-managed services in the custom cloud or migrating existing Aiven-managed services
+   to the custom cloud.
+1. **View Aiven-managed assets in your cloud account**: You can preview Aiven-managed
+   services and infrastructure in your cloud account.
 
 ## Why use BYOC
 
@@ -49,13 +69,12 @@ needs or project requirements, such as:
     strategies to save on compute and storage infrastructure costs
     related to Aiven services.
 
-## Who is eligible for BYOC {#eligible-for-byoc}
+## Who is eligible for BYOC
 
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
 
--   You use Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure
-    (excluding Azure Germany), or Oracle Cloud Infrastructure (OCI).
+-   You use Amazon Web Services (AWS) or Google Cloud.
 -   You have a commitment deal with Aiven.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
@@ -96,7 +115,7 @@ may have and potentially leverage enterprise discounts in certain cases.
 For a cost estimate and analysis, contact your account team.
 :::
 
-## BYOC architecture {#byoc-deployment}
+## BYOC architecture
 
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS private" default>
@@ -107,20 +126,25 @@ In the AWS private deployment model, a Virtual Private Cloud (**BYOC VPC**) for 
 services is created within a particular cloud region in your remote cloud account.
 Aiven accesses this VPC from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven
-utilizes a bastion host (**Bastion node**) physically separated from the Aiven services
+utilizes a bastion host (**Bastion node**) logically separated from the Aiven services
 you deploy. The service VMs reside in a privately addressed subnet (**Private subnet**)
 and are accessed by the Aiven management plane via the bastion. They are not
-accessible through the Internet.
+accessible through the internet.
 
 :::note
 Although the bastion host and the service nodes reside in the VPC under
 your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone
 outside Aiven.
 
-The bastion and workload nodes require outbound access to the Internet
+The bastion and workload nodes require outbound access to the internet
 to work properly (supporting HA signaling to the Aiven management node and RPM download
 from Aiven repositories).
 :::
+
+Object storage in your AWS cloud account is where service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+two S3 buckets.
 
 </TabItem>
 <TabItem value="2" label="AWS public">
@@ -129,18 +153,24 @@ from Aiven repositories).
 
 In the AWS public deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
-Aiven accesses this VPC through an Internet gateway. Service VMs reside in a publicly
+Aiven accesses this VPC through an internet gateway. Service VMs reside in a publicly
 addressed subnet (**Public subnet**), and Aiven services can be accessed
-through the public Internet: the Aiven control plane connects to the nodes
+through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
-directly.
+directly. To restrict access to your service, you can use the
+[IP filter](/docs/platform/howto/restrict-access).
+
+Object storage in your AWS cloud account is where service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+two S3 buckets.
 </TabItem>
-<TabItem value="3" label="GCP private">
+<TabItem value="3" label="Google Cloud private">
 
-<img src={byocGcpPrivate} className="centered" alt="BYOC GCP private architecture" width="100%" />
+<img src={byocGcpPrivate} className="centered" alt="BYOC Google Cloud private architecture" width="100%" />
 
-In the GCP private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
-services is created within a particular cloud region in your remote cloud account.
+In the Google Cloud private deployment model, a Virtual Private Cloud (**BYOC VPC**) for
+your Aiven services is created within a particular cloud region in your remote cloud account.
 Within the **BYOC VPC**, there are:
 
 - **Public subnet** for the bastion node
@@ -148,33 +178,35 @@ Within the **BYOC VPC**, there are:
 
 Aiven accesses the **BYOC VPC** from a static IP address and routes
 traffic through a proxy for additional security. To accomplish this, Aiven
-utilizes a bastion host (**Bastion note**) physically separated from the Aiven services
+utilizes a bastion host (**Bastion note**) logically separated from the Aiven services
 you deploy. The service VMs reside in a privately addressed subnet (**Private subnet**)
 and are accessed by the Aiven management plane via the bastion. They are not
-accessible through the Internet.
+accessible through the internet.
 
 :::note
 Although the bastion host and the service nodes reside in the VPC under
 your management (**BYOC VPC**), they are not accessible (for example, via SSH) to anyone
 outside Aiven.
 
-The bastion and workload nodes require outbound access to the Internet
+The bastion and workload nodes require outbound access to the internet
 to work properly (supporting HA signaling to the Aiven management node and RPM download
 from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="GCP public">
+<TabItem value="4" label="Google Cloud public">
 
-<img src={byocGcpPublic} className="centered" alt="BYOC GCP public architecture" width="100%" />
+<img src={byocGcpPublic} className="centered" alt="BYOC Google Cloud public architecture" width="100%" />
 
-In the GCP public deployment model, a Virtual Private Cloud (**Workload VPC**) for your
-Aiven services is created within a particular cloud region in your remote cloud account.
-Aiven accesses this VPC through an Internet gateway. Service VMs reside in a publicly
-addressed subnet (**Public subnet**), and Aiven services can be accessed
-through the public Internet: the Aiven control plane connects to the nodes
+In the Google Cloud public deployment model, a Virtual Private Cloud (**Workload VPC**)
+for your Aiven services is created within a particular cloud region in your remote cloud
+account. Aiven accesses this VPC through an internet gateway. Service VMs reside in a
+publicly addressed subnet (**Public subnet**), and Aiven services can be accessed
+through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
-directly.
+directly. To restrict access to your service, you can use the
+[IP filter](/docs/platform/howto/restrict-access).
+
 </TabItem>
 </Tabs>
 
@@ -182,18 +214,25 @@ Firewall rules are enforced on the subnet level.
 You can integrate your services using standard VPC peering techniques.
 All Aiven communication is encrypted.
 
-## BYOC and backups
+## BYOC service backups
 
-Depending on the service used, Aiven takes regular backups to enable
-forking, point in time recovery (PITR), and disaster recovery. These
-backups by default do not reside in your cloud. If there is a
-requirement to have all backups in your own cloud account, it's still possible.
-To accomplish this, Aiven needs read-write permissions to access the object storage on
-your cloud account.
+Depending on the BYOC service, Aiven takes
+[regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
+in time recovery (PITR), and disaster recovery.
+
+Backups of BYOC-hosted services are stored as follows:
+
+- **AWS BYOC**: User-owned backups stored in object storage in your own AWS cloud account.
+  One S3 bucket is created per custom cloud.
+- **Google Cloud**: Aiven-owned backups stored in Aiven-managed object
+  storage. It's still possible to store backups in your own cloud account, provided
+  Aiven gets read-write permissions to access the object storage in your cloud account.
 
 :::important
-All backups are encrypted using Aiven-managed keys, and you are
-responsible for managing object storage configurations.
+
+- All backups are encrypted using Aiven-managed keys.
+- You are responsible for managing object storage configuration.
+
 :::
 
 ## Dev tools for BYOC
@@ -205,9 +244,8 @@ Aiven deployment model.
 
 ## Related pages
 
--   [Enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [Store data in custom clouds](/docs/platform/howto/byoc/store-data)
+-   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)
