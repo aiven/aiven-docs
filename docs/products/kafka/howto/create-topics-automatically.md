@@ -8,9 +8,9 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
 Apache Kafka® provides the capability to automatically create topics when a message is produced to a topic that does not exist.
 
-By default, Aiven for Apache Kafka disables this feature to prevent accidental
-topic creation. If a message is produced to a non-existent topic, you'll see the
-following error message:
+By default, Aiven for Apache Kafka enables automatic topic creation to maintain
+compatibility with standard Apache Kafka configurations. If a message is produced to a
+non-existent topic, you see the following error message:
 
 ```bash
 KafkaTimeoutError: Failed to update metadata after 60.0 secs.
@@ -22,15 +22,14 @@ In such cases, you have two options:
    [create the topics](/docs/products/kafka/howto/create-topic) before use. This
    approach is recommended for production environments as it provides better
    control over settings such as partition count, replication factor, and retention time.
-1. **Enable automatic topic creation**: While simpler, this option carries some drawbacks.
-   It risks inadvertently creating new topics, especially due to typos, and may result
-   in topics created with [default configuration values](set-kafka-parameters) defined at
-   the service level.
+1. **Enable automatic topic creation**: This option is simpler but has some drawbacks. It
+   can lead to inadvertent topic creation due to typos and may create topics with
+   [default configuration values](set-kafka-parameters) set at the service level.
 
 :::note
-When tiered storage is activated for your Aiven for Apache Kafka service, all
-new topics will have tiered storage enabled by default.
-[Learn more about tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
+If [tiered storage is enabled](/docs/products/kafka/howto/enable-kafka-tiered-storage)
+for your Aiven for Apache Kafka service, all new topics have tiered storage enabled
+by default.
 :::
 
 ## Enable automatic topic creation
