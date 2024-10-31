@@ -333,9 +333,3 @@ backups, see
 
 For more information on Aiven for ClickHouse backups, see
 [Backup and restore](/docs/products/clickhouse/concepts/disaster-recovery).
-
-## BYOC service backups
-
-Learn about
-[backups for services hosted in custom clouds](/docs/platform/concepts/byoc#byoc-service-backups)
-or [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) environments.

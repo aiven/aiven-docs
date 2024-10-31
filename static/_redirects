@@ -211,7 +211,7 @@
 /valkey                                                                https://aiven.io/docs/products/valkey
 /products/kafka/howto/enable-karapace                                  https://aiven.io/docs/products/kafka/howto/enable-schema-registry
 /products/kafka/howto/list-schema-registry                             https://aiven.io/docs/products/kafka/howto/enable-schema-registry
-/platform/howto/byoc/create-custom-cloud                               https://aiven.io/docs/platform/howto/byoc/create-custom-cloud/create-custom-cloud
+
 
 # Keep splats at the end
 #
