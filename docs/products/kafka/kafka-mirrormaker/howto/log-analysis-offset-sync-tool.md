@@ -3,7 +3,7 @@ title: Offset sync status analysis for Apache Kafka® MirrorMaker 2
 sidebar_label: Offset sync status analysis
 ---
 
-Analyze offset synchronization status between source and target clusters with Aiven’s offset sync inspection tool for Apache Kafka® MirrorMaker 2.
+Analyze offset synchronization status between source and target clusters with Aiven’s offset sync inspection tool for Aiven for Apache Kafka MirrorMaker 2.
 This tool monitors sync progress, provides insights into partition health, and flags
 any needed interventions. Run it locally after configuring the environment to review
 offset syncing, especially useful during large data migrations.
@@ -12,16 +12,22 @@ offset syncing, especially useful during large data migrations.
 
 Before you download and run the tool, ensure you have the following:
 
-- Basic understanding of Kafka shell tools.
-- A valid Apache Kafka MirrorMaker 2 configuration file with the necessary source and
-  target cluster connectivity fields.
+- Basic understanding of Apache Kafka shell tools
+- A valid Aiven for Apache Kafka MirrorMaker 2 configuration file with the necessary source and
+  target cluster connectivity fields
+- Java 17 runtime environment (OpenJDK 17)
+- [Aiven CLI](/docs/tools/cli) access
+- [Aiven user token](/docs/tools/cli/user/user-access-token#avn-user-access-token-create)
+- [Download Aiven for Apache Kafka SSL](/docs/products/kafka/howto/keystore-truststore)
+  integration certificates, including:
+  - Client truststore (JKS)
+  - Client keystore (P12)
+  - SSL keystore and truststore password
 
 ## Download the offset sync inspection tool
 
-Download and run the **offset sync inspection tool** to analyze offset syncing in
-MirrorMaker 2:
-
-- [Download the offset sync inspection tool](https://github.com/aiven/kafka/releases/tag/mm2-offset-sync-inspector-0.1)
+[Download the offset sync inspection tool](https://github.com/aiven/kafka/releases/tag/mm2-offset-sync-inspector-0.1)
+to analyze offset syncing in Aiven for Apache Kafka MirrorMaker 2.
 
 ## Run the tool
 
@@ -38,9 +44,9 @@ Run the tool using the following command:
 
 Parameter:
 
-- `--mm2-config <path-to-config-file>`: Specifies the path to the MirrorMaker 2
-  configuration file. This file contains the connection details for the source and
-  target Apache Kafka clusters.
+- `--mm2-config <path-to-config-file>`: Specifies the path to the Aiven for Apache Kafka
+  MirrorMaker 2 configuration file. This file contains the connection details for the
+  source and target Apache Kafka clusters.
 
 To view all available options, run the help command:
 
@@ -57,8 +63,8 @@ email [Aiven Support](mailto:support@aiven.io).
 | Sync status message | Description | Action required | Inspect | Analyze |
 |---------------------|-------------|-----------------|---------|---------|
 | Successfully synced, operating normally. | Data and offsets are successfully migrated, allowing consumers to read from synced offsets with minimal redelivery. | No action required. | None. | None. |
-| Intentionally not synced because the source partition is empty. Other partitions in this group are synced. | The source partition has no data, so MirrorMaker 2 skips syncing it. Consumers start from the beginning when new data arrives. | No action required. | None. | None. |
-| Intentionally not synced because the source partition is empty. Other partitions in this group are not synced. | The source partition has no data, so MirrorMaker 2 skips syncing it. Consumers start from the beginning when new data arrives. | No action required. | None. | None. |
+| Intentionally not synced because the source partition is empty. Other partitions in this group are synced. | The source partition has no data, so Apache Kafka MirrorMaker 2 skips syncing it. Consumers start from the beginning when new data arrives. | No action required. | None. | None. |
+| Intentionally not synced because the source partition is empty. Other partitions in this group are not synced. | The source partition has no data, so Apache Kafka MirrorMaker 2 skips syncing it. Consumers start from the beginning when new data arrives. | No action required. | None. | None. |
 | Intentionally not synced because the source group is too old. Other partitions in this group are synced. | The source partition has newer data than the committed offset for the consumer group. Consumers start from the beginning when new data arrives. | No action required. | None. | None. |
-| Erroneously not synced. Source partition has data, and other partitions for this group are synced. | There is an offset syncing issue. Consumers start from the beginning when new data arrives. | [Create a support ticket](/docs/platform/howto/support). | - Use `kafka-get-offsets` to compare the earliest and latest offsets in source and target topics.<br /> - Check the source partition's throughput on the Apache Kafka dashboard.<br /> - Inspect offset syncs in `kafka-console-consumer` to locate the topic-partition key.<br /> - Enable TRACE logging for OffsetSyncStore in MirrorMaker 2. | - The partition has little or no data, causing dropped syncs.<br /> - Zero throughput prevents syncs from being generated.<br /> - Verify if MirrorSourceTask isn’t emitting syncs or if MirrorCheckpointTask is expiring them. |
+| Erroneously not synced. Source partition has data, and other partitions for this group are synced. | There is an offset syncing issue. Consumers start from the beginning when new data arrives. | [Create a support ticket](/docs/platform/howto/support). | - Use `kafka-get-offsets` to compare the earliest and latest offsets in source and target topics.<br /> - Check the source partition's throughput on the Apache Kafka dashboard.<br /> - Inspect offset syncs in `kafka-console-consumer` to locate the topic-partition key.<br /> - Enable TRACE logging for OffsetSyncStore in Apache Kafka MirrorMaker 2. | - The partition has little or no data, causing dropped syncs.<br /> - Zero throughput prevents syncs from being generated.<br /> - Verify if MirrorSourceTask isn’t emitting syncs or if MirrorCheckpointTask is expiring them. |
 | Erroneously not synced. Source partition has data, and other partitions for this group are not synced. | There is a systematic failure affecting all partitions in this topic. Consumers start from the beginning when new data arrives. | [Create a support ticket](/docs/platform/howto/support). | - Run per-partition diagnostics and compare offsets.<br /> - Use `kafka-get-offsets` and inspect sync activity logs. | Investigate sync failures across partitions. |
