@@ -25,23 +25,25 @@ organization to create a hierarchical structure that fits your needs.
 
 Organizations also let you centrally manage settings like:
 
+- [Billing information](/docs/platform/concepts/billing-and-payment): Managed only at
+  the organization level, you can use billing groups across all projects in the
+  organization and its units. You can't share billing information between organizations.
+- [Users](/docs/platform/concepts/user-access-management) and
+  [groups](/docs/platform/howto/list-groups): Managed at the organization level. You
+  can grant users and groups access at the organization and project level with
+  [permissions and roles](/docs/platform/concepts/permissions).
 - [Domains](/docs/platform/howto/manage-domains) and
   [identity providers](/docs/platform/howto/saml/add-identity-providers):
-   Only available at the organization level
+   Only available at the organization level.
 - [Authentication policies](/docs/platform/howto/set-authentication-policies):
-   Only available on the organization level
-- Access control lists (ACLs): Can be set on all levels (organization,
-  organizational unit, and project)
-  - ACLs for service plans are inherited, meaning all projects
-    within an organization or organizational unit have the same service plan.
-- [Groups](/docs/platform/howto/list-groups): Managed only at the organization level
-   and assigned to projects
+   Only available on the organization level.
 - [Support tiers](/docs/platform/howto/support): Specific to a single organization and
    apply to all units, projects, and services within that organization. They cannot be
    shared between organizations.
-- [Billing information](/docs/platform/concepts/billing-and-payment): Managed at the
-   organization level. They can be used for all projects in the organization
-   and its units. They cannot cannot be shared between organizations.
+- Access control lists (ACLs): Available on the organization, organizational unit,
+  and project level.
+  - ACLs for service plans are inherited, meaning all projects
+    within an organization or organizational unit have the same service plan.
 
 ## Organizational units
 
@@ -73,24 +75,6 @@ the project. The following are some examples of how customers organize their ser
 -   Project-based: Each project contains all the services for an
     internal project, with naming that highlights the relevant
     environment. For example: `customer-success-prod` and `business-analytics-test`.
-
-## Users and roles
-
-To add users to your organization, you send them an invite. With a verified domain
-these users become [managed users](/docs/platform/concepts/managed-users),
-which gives you greater control to manage access to your organization's resources.
-
-Super admin have full access to the organization, including all organizational units,
-projects, and services. Users are automatically made super admin when they create an
-organization, and they can
-[make other users super admin](/docs/platform/howto/make-super-admin).
-
-For projects, the Aiven platform lets you use a mix of group and individual access rights.
-You grant users access to a project and its services by
-[adding them to the project](/docs/platform/howto/add-project-members),
-either individually or in groups. You set the level of access by choosing
-a role. Alternatively, you can
-[add users to specific services](/docs/platform/howto/create_new_service_user).
 
 ## Best practices for organizations
 
