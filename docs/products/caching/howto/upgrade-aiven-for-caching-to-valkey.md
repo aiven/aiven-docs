@@ -7,8 +7,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-You can upgrade your Aiven for Caching service to Aiven for Valkey directly through the Aiven Console or Aiven API.
-The upgrade keeps your configurations, users, and data with no service disruption.
+Upgrade your Aiven for Caching service to Aiven for Valkey using the Aiven Console or Aiven API.
+The process retains configurations, users, and data without disrupting your service.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ The upgrade keeps your configurations, users, and data with no service disruptio
   automatically updated to work with Aiven for Valkey. No manual changes are needed.
 
 :::note
-Once you upgrade to Aiven for Valkey, you cannot revert to Aiven for Caching.
+After you upgrade to Aiven for Valkey, you cannot revert to Aiven for Caching.
 :::
 
 ## Upgrade procedure

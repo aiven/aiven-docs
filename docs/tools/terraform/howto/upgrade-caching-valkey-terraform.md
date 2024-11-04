@@ -3,7 +3,9 @@ title: Update Terraform after Aiven for Caching to Aiven for Valkey™ upgrade
 sidebar_label: Update Terraform configuration after Valkey upgrade
 ---
 
-Learn how to update your Terraform configuration after upgrading from Aiven for Caching to Aiven for Valkey™ through the Aiven Console or API.
+Update Terraform configuration and state after upgrading from Aiven for Caching to Aiven for Valkey™.
+Ensure your infrastructure setup accurately reflects the upgraded service for
+seamless management and deployment.
 
 ## Prerequisites
 
