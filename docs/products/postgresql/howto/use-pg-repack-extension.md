@@ -48,5 +48,5 @@ To use the `pg_repack` extension:
 
 ## Related pages
 
-- [`pg_repack` documentation](https://reorg.github.io/pg_repackl/)
+- [`pg_repack` documentation](https://reorg.github.io/pg_repack/)
 - [Install or update extension](/docs/products/postgresql/howto/manage-extensions)
