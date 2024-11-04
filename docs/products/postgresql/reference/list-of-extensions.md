@@ -14,7 +14,34 @@ Some extensions:
 :::
 
 To list the extensions and their details, such as extension version numbers,
-run `select * from pg_available_extensions` in your Aiven for PostgreSQL server.
+run the following command in your Aiven for PostgreSQL server:
+
+```sql
+SELECT *
+FROM pg_available_extensions
+```
+
+:::note
+Superuser-only and untrusted extensions listed in `pg_available_extensions` cannot be
+installed with a few exceptions.
+
+- To list all superuser-only and untrusted extensions, run
+
+  ```sql
+  SELECT name, version
+  FROM pg_available_extension_versions
+  WHERE superuser AND NOT trusted
+  ```
+
+- To list superuser-only and untrusted extensions **available for installation**, run
+
+  ```sql
+  SELECT *
+  FROM pg_available_extension_versions
+  WHERE name = ANY(string_to_array(current_setting('extwlist.extensions'), ','));
+  ```
+
+:::
 
 ## Data types
 
