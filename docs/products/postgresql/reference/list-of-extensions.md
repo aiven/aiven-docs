@@ -1,6 +1,6 @@
 ---
 title: Extensions on Aiven for PostgreSQL®
-sidebar_label: Supported Extensions
+sidebar_label: Supported extensions
 ---
 
 PostgreSQL® extensions allow you to extend the functionality by adding more capabilities to your Aiven for PostgreSQL.
@@ -15,12 +15,6 @@ Some extensions:
 
 To list the extensions and their details, such as extension version numbers,
 run `select * from pg_available_extensions` in your Aiven for PostgreSQL server.
-
-:::note
-Not all extensions listed in `pg_available_extensions` can be installed. See
-[Superuser-only extensions](/docs/products/postgresql/reference/list-of-extensions#avn_superuser_only_extensions)
-for more information.
-:::
 
 ## Data types
 
@@ -167,40 +161,5 @@ for more information.
     TABLESAMPLE method which accepts number of rows as a limit.
 -   [tsm_system_time](https://www.postgresql.org/docs/current/tsm-system-time.html).
     TABLESAMPLE method which accepts time in milliseconds as a limit.
-
-## Superuser-only extensions {#avn_superuser_only_extensions}
-
-The following extensions can only be installed by superusers, **and are
-not generally available**.
-
--   [amcheck](https://www.postgresql.org/docs/current/amcheck.html).
-    Functions for verifying relation integrity.
--   [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html).
-    Functions for auto-incrementing fields.
-    `PG13 and newer`
--   [dict_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html).
-    Text search dictionary template for extended synonym processing.
--   [file_fdw](https://www.postgresql.org/docs/current/file-fdw.html).
-    Foreign-data wrapper for flat file access.
--   [hstore_plperl](https://www.postgresql.org/docs/current/hstore.html).
-    Transform between `hstore` and `plperl`.
--   [insert_username](https://www.postgresql.org/docs/current/contrib-spi.html).
-    Functions for tracking who changed a table.
--   [moddatetime](https://www.postgresql.org/docs/10/contrib-spi.html).
-    Functions for tracking last modification time.
--   [old_snapshot](https://www.postgresql.org/docs/14/oldsnapshot.html).
-    Utilities in support of old_snapshot_threshold.
-    `PG14 only`
--   [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html).
-    Inspect the contents of database pages at a low level.
--   [pg_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html).
-    Examine the free space map (FSM).
--   [pg_surgery](https://www.postgresql.org/docs/current/pgsurgery.html).
-    Extension to perform surgery on a damaged relation.
-    `PG14 only`
--   [pg_visibility](https://www.postgresql.org/docs/current/pgvisibility.html).
-    Examine the visibility map (VM) and page-level visibility info.
--   [refint](https://www.postgresql.org/docs/current/contrib-spi.html).
-    Functions for implementing referential integrity (obsolete).
 
 <!-- vale off -->
