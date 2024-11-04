@@ -27,11 +27,12 @@ jobs:
           make check-links
 
       - name: Ping on Slack
-        uses: ravsamhq/notify-slack-action@2.3.0
-        if: ${{ always() && github.ref_name == 'main' }}
+        uses: slackapi/slack-github-action@v1.27.0
+        if: ${{ failure() && github.ref_name == 'main' }}
         with:
-          status: ${{ job.status }}
-          notify_when: "failure"
-          notification_title: "{run_url}"
+          payload: |
+            {
+              "runId": "${{GITHUB_RUN_ID}}"
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_BROKEN_LINKS }}
