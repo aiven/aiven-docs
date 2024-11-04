@@ -37,7 +37,7 @@ For detailed instructions, see
 
 :::note
 If the upgrade option is unavailable for your Aiven for Caching service, run the
-[maintenance update](docs/platform/concepts/maintenance-window) on your service
+[maintenance update](/docs/platform/concepts/maintenance-window) on your service
 before the EOL date.
 :::
 
