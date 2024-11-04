@@ -3,7 +3,7 @@ title: End of support for Aiven for Caching
 sidebar_label: End of support
 ---
 
-Aiven for Caching reaches the end of availability on **December 31, 2024,**, and end of life on **April 30, 2025,**.
+Aiven for Caching reaches the end of availability on **December 31, 2024,**, and end of life on **April 30, 2025**.
 Find key dates, understand the transition process, and discover how to migrate seamlessly to Aiven for Valkey to maintain Redis compatibility.
 
 ## Timeline for end of support
