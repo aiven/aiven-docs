@@ -33,7 +33,7 @@ service to Aiven for Valkey using the Aiven Console.
   and workflows.
 
 For detailed instructions, see
-[Upgrade from Aiven for Caching to Aiven for Valkey™](/docs/products/caching/howto/upgrade-aiven-for-caching-to-valkeyd).
+[Upgrade from Aiven for Caching to Aiven for Valkey™](/docs/products/caching/howto/upgrade-aiven-for-caching-to-valkey).
 
 :::note
 If the upgrade option is unavailable for your Aiven for Caching service, run the
