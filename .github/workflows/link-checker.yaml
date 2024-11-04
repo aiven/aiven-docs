@@ -23,6 +23,7 @@ jobs:
           go install github.com/raviqqe/muffet/v2@latest
 
       - name: Run check links
+        id: check-links
         run: |
           make check-links
 
