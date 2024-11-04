@@ -32,6 +32,6 @@ jobs:
         with:
           status: ${{ job.status }}
           notify_when: "failure"
-          notification_title: ${{run_url}}
+          notification_title: "{run_url}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_BROKEN_LINKS }}
