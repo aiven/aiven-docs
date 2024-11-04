@@ -1122,6 +1122,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/caching/get-started',
+            'products/caching/concepts/end-of-support',
             {
               type: 'category',
               label: 'Concepts',
