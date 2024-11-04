@@ -33,9 +33,6 @@ to analyze offset syncing in Aiven for Apache Kafka MirrorMaker 2.
 
 The offset sync inspection tool outputs data in CSV format. Use this output to check
 the sync status and detect any issues with the offset syncing process.
-
-### Example command
-
 Run the tool using the following command:
 
 ```bash
