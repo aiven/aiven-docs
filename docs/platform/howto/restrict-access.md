@@ -36,13 +36,13 @@ To access a non-publicly-accessible service from another service, use a
 
    - Set the IP filter for the first time:
 
-     1. Click <ConsoleLabel name="actions"/> > **Set public IP filters**.
+     1. Click <ConsoleLabel name="actions"/> > **Set IP address allowlist**.
      1. In the **Allowed inbound IP addresses** window, remove `0.0.0.0/0` and enter an IP
         address or address block using the CIDR notation, for example `10.20.0.0/16`.
 
    - Edit the IP filter after the first setup change:
 
-     1. Click <ConsoleLabel name="actions"/> > **Edit public IP filters**.
+     1. Click <ConsoleLabel name="actions"/> > **Edit IP address allowlist**.
      1. In the **Allowed inbound IP addresses** window, enter an IP address or address
         block using the CIDR notation, for example `10.20.0.0/16`.
 
