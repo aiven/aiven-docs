@@ -1,6 +1,5 @@
 ---
 title: Manage storage
-sidebar_label: Storage
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
