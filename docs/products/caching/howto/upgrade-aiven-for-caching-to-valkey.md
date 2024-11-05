@@ -12,8 +12,8 @@ The process retains configurations, users, and data without disrupting your serv
 
 ## Prerequisites
 
-- Ensure your Aiven for Caching service is running **version 7.2**. If it is currently on
-  version 7.0, upgrade it to version 7.2.
+- Ensure your Aiven for Caching service is running **version 7.2**. Upgrade to 7.2 if
+  needed.
 - To upgrade using the Aiven API, ensure you have an
   [Aiven API token](/docs/platform/howto/create_authentication_token) with the
   necessary permissions.
@@ -32,7 +32,7 @@ The process retains configurations, users, and data without disrupting your serv
 After you upgrade to Aiven for Valkey, you cannot revert to Aiven for Caching.
 :::
 
-## Upgrade procedure
+## Upgrade service
 
 <Tabs groupId="method">
 <TabItem value="console" label="Aiven Console">
@@ -77,4 +77,4 @@ are recycled, and your service continues to operate as the upgrade completes.
 
 ## Related pages
 
-- Learn how to [update Terraform configuration and state after upgrading to Valkey™](/docs/tools/terraform/howto/upgrade-caching-valkey-terraform).
+Learn how to [update Terraform configuration and state after upgrading to Valkey™](/docs/tools/terraform/howto/upgrade-caching-valkey-terraform).

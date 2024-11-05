@@ -1,5 +1,5 @@
 ---
-title: Update Terraform after Aiven for Caching to Aiven for Valkey™ upgrade
+title: Update Terraform after upgrading Aiven for Caching to Aiven for Valkey™
 sidebar_label: Update Terraform configuration after Valkey upgrade
 ---
 
@@ -49,7 +49,7 @@ seamless management and deployment.
      }
      ```
 
-## Step 2: Update the Terraform State
+## Step 2: Update the Terraform state
 
    1. Import each Aiven for Valkey resource into the Terraform state:
 
