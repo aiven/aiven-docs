@@ -45,7 +45,7 @@ April 30, 2025. For further assistance, contact
 ### Recommended alternative
 
 - **Aiven for Metrics**: Transition for time-series data storage and querying. Refer to
-  the [migration guide for Aiven for InfluxDB to Aiven for Metrics](docs/products/metrics/howto/migrate-influxdb-thanos)
+  the [migration guide for Aiven for InfluxDB to Aiven for Metrics](/docs/products/metrics/howto/migrate-influxdb-thanos)
   for detailed setup instructions.
 - **Aiven for PostgreSQL**: Provides support for both relational and time-series data,
   though a direct migration path is not available. Refer to the
