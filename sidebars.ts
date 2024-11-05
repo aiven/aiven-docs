@@ -418,6 +418,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/update-deprecated-resources',
             'tools/terraform/howto/upgrade-to-opensearch',
+            'tools/terraform/howto/upgrade-caching-valkey-terraform',
             {
               type: 'category',
               label: 'PostgreSQL',
@@ -1161,6 +1162,7 @@ const sidebars: SidebarsConfig = {
                 'products/caching/howto/manage-ssl-connectivity',
                 'products/caching/howto/warning-overcommit_memory',
                 'products/caching/howto/benchmark-performance',
+                'products/caching/howto/upgrade-aiven-for-caching-to-valkey',
               ],
             },
             {
