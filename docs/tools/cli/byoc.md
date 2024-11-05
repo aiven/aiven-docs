@@ -63,6 +63,11 @@ Modifies a custom cloud configuration.
 
 ## Tag a custom cloud
 
+Custom cloud tags are key-value pairs that you can attach to your custom cloud for resource
+categorization. They propagate to resources on the Aiven platform and in your own cloud
+infrastructure. Custom cloud tags are cascaded to bastion nodes and disks in private
+[deployment models](https://aiven.io/docs/platform/concepts/byoc#byoc-deployment).
+
 ### `avn byoc tags list`
 
 Returns infrastructure tags attached to a custom cloud.
