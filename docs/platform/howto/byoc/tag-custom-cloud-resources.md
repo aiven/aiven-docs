@@ -111,7 +111,7 @@ not [Google tags](https://cloud.google.com/resource-manager/docs/tags/tags-overv
 ### Manage infrastructure tags
 
 Use the
-[`avn byoc update`](/docs/tools/cli/byoc#avn-byoc-update) command to add or update
+[`avn byoc tags update`](/docs/tools/cli/byoc#avn-byoc-tags-update) command to add or update
 infrastructure tags for your custom cloud. Pass the tags as an option.
 
 ```bash
