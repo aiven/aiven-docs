@@ -32,11 +32,9 @@ Tiered storage offers multiple benefits, including:
 - **Operational speed:** With the bulk of data offloaded to remote
   storage, service rebalancing in Aiven for Apache Kafka becomes
   faster, making for a smoother operational experience.
-- **Infinite data retention:** Remote storage allows Aiven for Apache Kafka to store
-data indefinitely, so you can retain data long-term without impacting local storage
-limits or performance.
-- **Transparency:** Even older Kafka clients can benefit from tiered storage even
-  if unaware of it.
+- **Infinite data retention:** Remote storage allows Aiven for Apache Kafka to retain
+  data indefinitely, ensuring long-term storage without impacting local storage
+  limits or speed.
 
 ## When and why use it
 
