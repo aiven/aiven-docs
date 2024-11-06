@@ -40,9 +40,9 @@ To configure access:
 
 ## Backup format
 
-The backup created is a portable file that includes all databases and retention policies
-from your Aiven for InfluxDB service. This backup is packaged as a single `.tar` file
-for easy storage and transfer. For more information, see the
+The backup created is in a **portable format** that includes all databases and retention
+policies from your Aiven for InfluxDB service. This backup is packaged as a single `.tar`
+file for easy storage and transfer. For more information, see the
 [InfluxDB backup and restore documentation](https://docs.influxdata.com/influxdb/v1/administration/backup_and_restore/).
 
 ## Download data
