@@ -6,11 +6,11 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Apache Kafka® can automatically create a topic if a message is sent to a topic that doesn’t already exist.
+Apache Kafka® can automatically create a topic if a message is produced to a topic that doesn’t already exist.
 
 By default, Aiven for Apache Kafka enables automatic topic creation to remain compatible
 with standard Apache Kafka configurations, making it useful for testing and development.
-In production environments, disable automatic topic creation to avoid accidental topics
+In production environments, **disable** automatic topic creation to avoid accidental topics
 created by typos, which can lead to disorganized topics.
 
 If a message is produced to a non-existent topic, you see the following error message:
