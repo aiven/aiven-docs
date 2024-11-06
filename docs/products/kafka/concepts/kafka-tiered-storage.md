@@ -111,7 +111,7 @@ your specific agreement with Aiven. Potential scenarios include:
 
 ## Related pages
 
--   [How tiered storage works in Aiven for Apache Kafka®](/docs/products/kafka/concepts/tiered-storage-how-it-works)
--   [Guarantees](/docs/products/kafka/concepts/tiered-storage-guarantees)
--   [Limitations](/docs/products/kafka/concepts/tiered-storage-limitations)
--   [Enabled tiered storage for Aiven for Apache Kafka® service](/docs/products/kafka/howto/enable-kafka-tiered-storage)
+- [How tiered storage works in Aiven for Apache Kafka®](/docs/products/kafka/concepts/tiered-storage-how-it-works)
+- [Guarantees](/docs/products/kafka/concepts/tiered-storage-guarantees)
+- [Limitations](/docs/products/kafka/concepts/tiered-storage-limitations)
+- [Enabled tiered storage for Aiven for Apache Kafka® service](/docs/products/kafka/howto/enable-kafka-tiered-storage)
