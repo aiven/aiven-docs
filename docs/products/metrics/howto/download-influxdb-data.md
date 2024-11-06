@@ -6,6 +6,7 @@ sidebar_label: Download InfluxDB data
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Download a backup of your Aiven for InfluxDB service data by requesting a backup. This creates a snapshot of your latest data, ready for download.
 
@@ -25,9 +26,24 @@ Based on your network setup, enable one of the following settings:
 - `private_access.user_backup`: Allows access to backups within a private network
 - `privatelink_access.user_backup`: Allows access to backups via a private link
 
-To configure access, go to the service's <ConsoleLabel name="overview" /> page,
-click <ConsoleLabel name="service settings" />, go to **Advanced configuration**, and
-click **Configure**.
+To configure access:
+
+1. Go to the service's <ConsoleLabel name="overview" /> page.
+1. Click <ConsoleLabel name="service settings" />, then go to **Cloud and network**.
+1. Click the <ConsoleLabel name="actions" /> menu and select
+   **More network configurations**.
+1. Click <ConsoleIcon name="Add config options"/>.
+1. In the search field, enter the access setting to enable. For example,
+   `private_access.user_backup`.
+1. Select the value to **Enabled**.
+1. Click **Save configuration**.
+
+## Backup format
+
+The backup created is a portable file that includes all databases and retention policies
+from your Aiven for InfluxDB service. This backup is packaged as a single `.tar` file
+for easy storage and transfer. For more information, see the
+[InfluxDB backup and restore documentation](https://docs.influxdata.com/influxdb/v1/administration/backup_and_restore/).
 
 ## Download data
 
@@ -41,23 +57,29 @@ click **Configure**.
 1. In the  **Service management** section, click <ConsoleLabel name="actions"/> >
    **Download data**.
 1. In the **Download InfluxDB data** window, review the details and enter a name
-   in the **Backup name** field.
+   in the **Backup name** field. Use only letters, numbers, and the characters `.:_+-`
+   without spaces or parentheses.
 1. Click **Request backup** to create a backup of your latest data.
 
    :::note
-   The backup process may take several minutes, depending on the size of your data.
-   Requesting a new backup will replace any existing backup. Download any existing backup
-   you need before creating a new one.
+   The duration of the backup process varies based on the size of your data. For larger
+   instances, it may take several hours. Requesting a new backup will replace any
+   existing backup, so download any existing backup you need before creating a new one.
    :::
 
-1. After the backup is created, copy the Service URI, paste it into your browser, and
-   download your backup.
+1. After the backup is created, copy the **Service URI** to access the backup files
+   directly. Paste the URI into your browser to download your backup.
 
-#### Alternative method to download data
+   The **Service URI** provides direct access to the backup files. To access the backup
+   using a command-line tool, use the **Host**, **Port**, **User**, and **Password**
+   details.
+
+### Alternative method to download data
 
 You can also request a download from the **Backups** section:
 
-1. Click <ConsoleLabel name="backups" /> on the sidebar.
+1. Go to the service's <ConsoleLabel name="overview" /> page and click
+   <ConsoleLabel name="backups" />.
 1. Click the <ConsoleLabel name="actions" /> > **Download backup**.
 1. In the **Download InfluxDB data** window, review the details and enter a name in
    the **Backup name** field.
@@ -70,36 +92,40 @@ You can also request a download from the **Backups** section:
 
    ```bash
    curl -X POST "https://api.aiven.io/v1/project/<project_name>/service/<service_name>/task" \
-   -H "Authorization: Bearer <API_TOKEN>" \
-   -H "Content-Type: application/json" \
-   -d '{
-   "task_type": "create_user_backup",
-   "create_user_backup": {
-   "backup_name": "my-influxdb-backup"
-     }
-   }'
+      -H "Authorization: Bearer <API_TOKEN>" \
+      -H "Content-Type: application/json" \
+      -d '{
+          "task_type": "create_user_backup",
+          "create_user_backup": {
+              "backup_name": "my-influxdb-backup"
+          }
+      }'
    ```
 
    Parameters:
 
-   - `PROJECT_NAME`: Your project name.
-   - `SERVICE_NAME`: Your service name.
-   - `API_TOKEN`: Your API authentication
+   - `project_name`: Your project name.
+   - `service_name`: Your service name.
+   - `api_token`: Your API authentication
      [token](/docs/platform/concepts/authentication-tokens).
 
-1. To download the backup, use the following URI format:
+1. To download the backup, use the following Service URI format:
 
    ```plaintext
    <user_backup_uri>/<backup_name>.tar
    ```
 
-  Adjust the URI based on your network settings:
+  Get `user_backup_uri` from your service connection information via the
+  [Aiven API](https://api.aiven.io/doc/) using
+  the `GET /project/<project_name>/service/<service_name>` endpoint.
 
-   - **Public access**: For a service in a VPC configured for public access, add
-     the prefix `public-` to the URI.
-   - **Private access**: Use the URI as provided, with no additional prefix. Ensure that
-    the private access setting, `private_access.user_backup`, is enabled in your
-    service configuration.
+  Adjust the Service URI based on your network configuration:
+
+  - **Public access**: If your service is in a VPC configured for public access, add
+    the prefix `public-` to the Service URI.
+  - **Private access**: Use the Service URI as provided, without any prefix. Ensure that
+    the `private_access.user_backup` setting is enabled in your service's network
+    configuration.
 
 </TabItem>
 
