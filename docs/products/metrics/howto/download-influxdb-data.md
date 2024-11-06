@@ -88,8 +88,8 @@ You can also request a download from the **Backups** section:
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-1. Create a backup using the Aiven API by specifying `create_user_backup` as the task
-   type.
+1. Create a backup using the [Aiven API](https://api.aiven.io/doc/) by
+   specifying `create_user_backup` as the task type.
 
    ```bash
    curl -X POST "https://api.aiven.io/v1/project/<project_name>/service/<service_name>/task" \
@@ -110,7 +110,7 @@ You can also request a download from the **Backups** section:
    - `api_token`: Your API authentication
      [token](/docs/platform/concepts/authentication-tokens).
 
-1. To download the backup, use the following Service URI format:
+1. Download the backup using the following Service URI format:
 
    ```plaintext
    <user_backup_uri>/<backup_name>.tar
