@@ -53,4 +53,4 @@ services are powered off and deleted, making data from these services inaccessib
 
 To keep your InfluxDB data, download a backup before April 30, 2025. You can use the
 Aiven Console, Aiven API, or Aiven CLI to download the data. For detailed instructions,
-see [Download InfluxDB data](/docs/platform/reference/end-of-support).
+see [Download InfluxDB data](/docs/products/metrics/howto/download-influxdb-data).
