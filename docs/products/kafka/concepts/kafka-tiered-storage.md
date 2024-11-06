@@ -32,8 +32,9 @@ Tiered storage offers multiple benefits, including:
 - **Operational speed:** With the bulk of data offloaded to remote
   storage, service rebalancing in Aiven for Apache Kafka becomes
   faster, making for a smoother operational experience.
-- **Infinite data retention:** Offloading bulk data to remote storage speeds up service
-  rebalancing in Aiven for Apache Kafka, enhancing operational efficiency.
+- **Infinite data retention:** Remote storage allows Aiven for Apache Kafka to store
+data indefinitely, so you can retain data long-term without impacting local storage
+limits or performance.
 - **Transparency:** Even older Kafka clients can benefit from tiered storage even
   if unaware of it.
 
@@ -100,8 +101,8 @@ You set a local retention time of 10 TB. Consider the following:
 
 ### BYOC (Bring your own cloud) billing
 
-[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on your specific agreement
-with Aiven. Potential scenarios include:
+[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on
+your specific agreement with Aiven. Potential scenarios include:
 
 - **Customer costs:** In all BYOC setups, you are responsible for the full
   cost of the underlying cloud storage used by tiered storage. This includes the
