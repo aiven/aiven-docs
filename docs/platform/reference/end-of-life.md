@@ -10,10 +10,10 @@ Learn about the upcoming end of life (EOL) for select Aiven services, including 
 
 ### What happens after EOL
 
-Service status and data access: After April 30, 2025, all running Aiven for M3DB
+**Service status and data access:** After April 30, 2025, all running Aiven for M3DB
 services are powered off and deleted, making data from these services inaccessible.
 
-### Recommended alternative
+### Migration options
 
 Aiven for Metrics provides a seamless replacement for time-series workloads.
 
@@ -35,10 +35,10 @@ April 30, 2025. For further assistance, contact
 
 ### What happens after EOL
 
-Service status and data access: After April 30, 2025, all active Aiven for InfluxDB
+**Service status and data access:** After April 30, 2025, all active Aiven for InfluxDB
 services are powered off and deleted, making data from these services inaccessible.
 
-### Recommended alternative
+### Migration options
 
 - **Aiven for Metrics**: A recommended option for time-series data storage and querying.
   Refer to
@@ -46,7 +46,7 @@ services are powered off and deleted, making data from these services inaccessib
   for instructions.
 - **Aiven for PostgreSQL**: Supports both relational and time-series data, though a
   direct migration path is not available. Refer to the
-  [Aiven for PostgreSQL documentation](https://aiven.io/docs/products/postgresql) for
+  [Aiven for PostgreSQL documentation](/docs/products/postgresql) for
   more information.
 
 ### Download data
