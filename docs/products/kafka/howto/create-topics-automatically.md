@@ -11,7 +11,7 @@ Apache Kafka® can automatically create a topic if a message is produced to a to
 By default, Aiven for Apache Kafka enables automatic topic creation to remain compatible
 with standard Apache Kafka configurations, making it useful for testing and development.
 In production environments, **disable** automatic topic creation to avoid accidental topics
-created by typos, which can lead to disorganized topics.
+created by typos, which can lead to a disorganized topic catalog.
 
 If a message is produced to a non-existent topic, you see the following error message:
 
