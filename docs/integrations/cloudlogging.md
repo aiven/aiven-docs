@@ -32,6 +32,10 @@ You can send your service logs to Google Cloud Logging to store, search, analyze
 6.  Enter the **Google Service Account Credentials** in JSON format.
 7.  Click **Create**.
 
+:::warning
+Cross project service account credentials will not work in **Google Service Account Credentials**.
+:::
+
 ### Step 2. Add the integration endpoint to your service
 
 1.  Go to the service to add the logs integration to.
