@@ -77,8 +77,8 @@ engines to ensure high availability. Even if you select `MergeTree`
 engine, we will automatically use the replicated variant on our side.
 
 :::note
-A query log is a non-replicated table. Running a query again a query log requires
-[sending a request to all replica nodes](/docs/products/clickhouse/howto/query-databases#query-a-query-log).
+A non-replicated table, such as `system.query_log`, you can
+[query using `clusterAllReplicas`](/docs/products/clickhouse/howto/query-databases#query-a-non-replicated-table).
 :::
 
 ## Delete a table

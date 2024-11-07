@@ -1,7 +1,7 @@
 ---
 title: Query Aiven for ClickHouse® databases
 sidebar_label: Query a database
-keywords: [query log, query_log]
+keywords: [query log, query_log, log table]
 ---
 
 Run a query against an Aiven for ClickHouse® database using a tool of your choice.
@@ -101,13 +101,19 @@ The query editor can be accessed directly from the console to run
 requests on behalf of the default user.
 :::
 
-## Query a query log
+## Query a non-replicated table
 
-To run a query against a query log, send the following request to all replica nodes:
+Behind the DNS name of your Aiven for ClickHouse service, there are multiple nodes. When
+you query a non-replicated table, for example a log table, requests are routed randomly to
+one of the nodes regardless of how data is distributed across them. A particular row is
+found only if your `SELECT` query is directed to the node which executed a `WRITE` on
+this row.
+
+To run a successful query on a non-replicated table across all the nodes, use
+`clusterAllReplicas` and send a request as follows:
 
 ```sql
 SELECT *
 FROM clusterAllReplicas(default, system.query_log)
 WHERE query_id = '1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f7g8'
-LIMIT 100
 ```
