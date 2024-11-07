@@ -1,10 +1,8 @@
-## Migration limitations for General Availability (GA)
+## Migration limitations
 
-As Aiven for Dragonfly moves to General Availability (GA), the focus is on delivering
-valuable features on user feedback. During the initial GA phase, automatic migration of
-users, access control lists (ACLs), and service configurations from Redis to Dragonfly
-is not supported.
+Aiven for Dragonfly does not support automatic migration of users, access control lists
+(ACLs), or service configurations from Redis or Valkey.
 
 If you customized your Aiven for Caching or Aiven for Valkey service with specific
-settings, manually apply these settings to Aiven for Dragonfly. Automatic transfer of
-custom configurations isn’t available during the initial GA phase.
+settings, manually apply these configurations to Aiven for Dragonfly. Automatic transfer
+of custom configurations is unavailable due to differences in service configurations.
