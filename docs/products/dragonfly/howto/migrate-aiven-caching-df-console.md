@@ -5,7 +5,7 @@ sidebar_label: Migrate Caching or Valkey to Aiven for Dragonfly®
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate external Redis® or Valkey databases to Aiven for Dragonfly® using the Aiven Console migration tool.
+Migrate your Aiven for Caching or Aiven for Valkey databases to Aiven for Dragonfly using the Aiven Console migration tool.
 
 import Note from "@site/static/includes/dragonflysla-note.md"
 
