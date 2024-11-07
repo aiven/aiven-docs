@@ -13,8 +13,8 @@ import Note from "@site/static/includes/dragonflysla-note.md"
 
 ## Compatibility overview
 
-Before migrating an external Redis database or an Aiven for Valkey database to
-Aiven for Dragonfly, review your current database setup.
+Before migrating an Aiven for Caching or Aiven for Valkey database to Aiven for
+Dragonfly, review your current database setup.
 
 - **Review database setup:** Examine the data structures, storage patterns, and
   configurations in your Aiven for Caching or Aiven for Valkey database. Identify any
