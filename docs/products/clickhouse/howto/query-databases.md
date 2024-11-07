@@ -1,10 +1,12 @@
 ---
-title: Query ClickHouse® databases
+title: Query Aiven for ClickHouse® databases
+sidebar_label: Query a database
+keywords: [query log, query_log]
 ---
 
-There are a few tools that enable querying ClickHouse® databases. Find out which of them are supported in Aiven and how to use them.
+Run a query against an Aiven for ClickHouse® database using a tool of your choice.
 
-## About querying Aiven for ClickHouse®
+## Querying Aiven for ClickHouse®
 
 To ensure data security, stability, and its proper replication, we equip
 our managed Aiven for ClickHouse® service with specific features, some
@@ -32,19 +34,21 @@ For querying your ClickHouse® databases, you can choose between our
 query editor, the Play UI, and
 [the ClickHouse® client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
 
-## Use the query editor {#use-query-editor}
+## Query a database with a selected tool
+
+### Query editor {#use-query-editor}
 
 Aiven for ClickHouse® includes a web-based query editor, which you can
 find in [Aiven Console](https://console.aiven.io/) by selecting **Query
 editor** from the sidebar of your service's page.
 
-### When to use the query editor
+#### When to use the query editor
 
 The query editor is convenient to run queries directly from
 the console on behalf of the default user. The requests that you run
 through the query editor rely on the permissions granted to this user.
 
-### Examples of queries
+#### Examples of queries
 
 Retrieve a list of current databases:
 
@@ -64,17 +68,17 @@ Create a role:
 CREATE ROLE accountant
 ```
 
-## Play UI {#play-iu}
+### Play UI {#play-iu}
 
 ClickHouse® includes a built-in user interface for running SQL queries.
 You can access it from a web browser over the HTTPS protocol.
 
-### When to use the play UI
+#### When to use the play UI
 
 Use the play UI to run requests using a non-default user or
 if you expect a large size of the response.
 
-### Use the play UI
+#### Use the play UI
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), choose the
     right project, and select your Aiven for ClickHouse service.
@@ -96,3 +100,14 @@ ClickHouse from your browser. If the service is
 The query editor can be accessed directly from the console to run
 requests on behalf of the default user.
 :::
+
+## Query a query log
+
+To run a query against a query log, send the following request to all replica nodes:
+
+```sql
+SELECT *
+FROM clusterAllReplicas(default, system.query_log)
+WHERE query_id = '1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f7g8'
+LIMIT 100
+```

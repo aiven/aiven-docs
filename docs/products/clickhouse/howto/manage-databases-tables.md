@@ -76,6 +76,11 @@ Aiven for ClickHouse uses `replicated` variants of table
 engines to ensure high availability. Even if you select `MergeTree`
 engine, we will automatically use the replicated variant on our side.
 
+:::note
+A query log is a non-replicated table. Running a query again a query log requires
+[sending a request to all replica nodes](/docs/products/clickhouse/howto/query-databases#query-a-query-log).
+:::
+
 ## Delete a table
 
 You can remove a table of any size if you have the `DROP` permission
