@@ -5,7 +5,7 @@ sidebar_label: Migrate Caching or Valkey to Aiven for Dragonfly®
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate your Aiven for Caching or Aiven for Valkey databases to Aiven for Dragonfly using the Aiven Console migration tool.
+Migrate external Redis® or Valkey databases to Aiven for Dragonfly® using the Aiven Console migration tool.
 
 import Note from "@site/static/includes/dragonflysla-note.md"
 
@@ -16,18 +16,20 @@ import Note from "@site/static/includes/dragonflysla-note.md"
 Before migrating an external Redis database or an Aiven for Valkey database to
 Aiven for Dragonfly, review your current database setup.
 
-- **Review database setup:**  Examine your Redis database's data structures, storage
-  patterns, and configurations within Aiven for Caching or Aiven for Valkey. Identify any
+- **Review database setup:** Examine the data structures, storage patterns, and
+  configurations in your Aiven for Caching or Aiven for Valkey database. Identify any
   unique features, custom settings, and specific configurations.
-- **API compatibility:** While Dragonfly is designed to closely mirror Redis API commands,
-  there are some differences, particularly with the newer versions of Redis and Valkey.
-  For detailed insights on command compatibility, refer to the
+- **API compatibility:** While Dragonfly closely mirrors Redis API commands, some
+  differences exist, especially with newer versions of Redis and Valkey.
+  For information on command compatibility, refer to the
   [Dragonfly API compatibility documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
 
 ## Prerequisites
 
 Before starting the migration:
 
+- A target Aiven for Dragonfly service set up and ready. For more information,
+  see [Get started with Aiven for Dragonfly®](/docs/products/dragonfly/get-started).
 - Confirm that your Aiven for Caching or Aiven for Valkey service is accessible over
   the Internet. For more information, see
   [Public internet access](/docs/platform/howto/public-access-in-vpc).
@@ -42,10 +44,10 @@ like the hostname, port, and credentials associated with the selected service.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    the Aiven for Dragonfly service for your database migration.
-1. Click **Service settings** from the sidebar.
-1. Go to the **Service management** section, and
-   click <ConsoleLabel name="actions"/> > **Import database**.
-   to initiate the import process.
+1. On the <ConsoleLabel name="overview"/> page, click
+   <ConsoleLabel name="service settings"/> in the sidebar.
+1. In the **Service management** section, click
+   <ConsoleLabel name="actions"/> > **Migrate database**.
 1. Follow the wizard to guide you through the database migration process.
 
 ### Step 1: Configure
@@ -62,7 +64,7 @@ To begin the migration, select **Migrate existing Aiven for Caching/Valkey datab
 The [Aiven Console](https://console.aiven.io/) automatically validates the database
 configuration for the selected service. Click **Run validation** to check the connection.
 
-:::warning
+:::note
 If a validation error occurs during migration, follow the on-screen
 instructions to fix it. Rerun validation to ensure the database meets
 migration criteria. The migration doesn't include service
@@ -71,50 +73,50 @@ user accounts and commands that are in progress.
 
 ### Step 3: Migrate
 
-Once all necessary checks are successfully completed, proceed by
-clicking **Start migration** to begin the data migration process to Aiven for Dragonfly.
+After completing validation, click **Start migration** to begin migrating data to
+Aiven for Dragonfly.
 
-### Step 4: Replicate
+While the migration is in progress:
 
-During migration:
+- Click **Close window** to close the migration wizard, and return later to monitor t
+  he migration status from the service <ConsoleLabel name="overview"/> page.
+- The migration duration depends on the size of your database. During migration, the
+  target database is read-only, and writing to the database is only possible after
+  stopping the migration.
+- Certain managed database features are disabled during migration.
+- To stop the migration, click **Stop migration**. Any data already transferred to
+  Aiven for Dragonfly is preserved.
 
-- You can close the migration wizard by clicking **Close window** and
-  return later to monitor the progress. Check the service's **Overview** page to track
-  the migration status.
+:::note
+To avoid conflicts during migration:
 
-- To stop the migration, click **Stop migration**. The data already transferred
-  to Aiven for Dragonfly is preserved.
+- Avoid actions that may disrupt replication, such as changing replication settings,
+  modifying firewall rules, or altering trusted sources.
+- Stopping migration halts replication immediately, but any transferred data is
+  preserved. Starting a new migration overwrites the entire database with the latest
+  data from the source.
 
-  :::important
-  To prevent conflicts during replication:
+:::
 
-  - The target database is in a read-only state during
-    migration. Writing to the database is only possible once the
-    migration is stopped.
-  - Avoid manually changing the replication settings of the source database.
-  - Avoid making network or configuration changes that can disrupt
-    the connection between the source and target databases,
-    such as modifying firewall rules or altering trusted sources.
-  :::
-
-    :::note
-    If the migration fails, investigate, resolve the issue, and restart the
-    migration using **Start over**.
-    :::
+:::note
+If the migration fails, investigate, resolve the issue, and restart the
+migration using **Start over**.
+:::
 
 ### Step 5: Close the connection and next steps
 
-Upon successful migration:
+Once migration completes:
 
-- **Stop replication**: If no further synchronization is required, and
-  you are ready to switch to Aiven for Dragonfly after thoroughly
-  testing the service.
-- **Keep replicating**: If ongoing data synchronization is necessary
-  to maintain active synchronization.
+- Click **Stop replication** if no further synchronization is required and
+  you are ready to switch to Aiven for Dragonfly after thoroughly testing the service.
+- Click **Keep replicating** to maintain ongoing data synchronization if further
+  testing or syncing with the source database is needed.
+
 
 :::warning
-Avoid system updates or configuration changes during active replication
-to prevent unintentional migrations.
+Avoid system updates or configuration changes during active replication, as these can
+restart nodes and trigger a new database migration. Ensure replication is complete or
+stopped before making any modifications.
 :::
 
 :::note

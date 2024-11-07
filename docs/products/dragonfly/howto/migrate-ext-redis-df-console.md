@@ -1,11 +1,11 @@
 ---
-title: Migrate external Redis®* databases to Aiven for Dragonfly®
+title: Migrate external Redis®* or Valkey databases to Aiven for Dragonfly®
 ---
 
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Migrate your external Redis® databases to Aiven for Dragonfly® using the Aiven Console's intuitive wizard for a smooth transition, enhancing your data storage and management capabilities.
+Migrate external Redis® or Valkey databases to Aiven for Dragonfly® using the Aiven Console migration tool.
 
 :::important
 The migration of databases from Google Cloud Memorystore for Redis is
@@ -18,36 +18,34 @@ import Note from "@site/static/includes/dragonflysla-note.md"
 
 ## Compatibility overview
 
-Before migrating an external Redis database to Aiven for Dragonfly,
-carefully review your current Redis setup.
+Before migrating an external Redis or Valkey database to Aiven for Dragonfly,
+review your current database setup.
 
--   **Review database setup:** Examine your Redis database's data
-    structures, storage patterns, and configurations. Identify any unique
-    features, custom settings, and specific configurations.
--   **API compatibility:** While Dragonfly closely mirrors Redis API
-    commands, there may be variations, especially with newer versions of
-    Redis. For detailed insights on command compatibility, refer to the
-    [Dragonfly API compatibility documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
+- **Review database setup:** Examine the data structures, storage patterns, and
+  configurations in your Redis or Valkey database. Identify any unique features,
+  custom settings, or specific configurations.
+- **API compatibility:** While Dragonfly closely mirrors Redis API commands, some
+  differences exist, especially with newer versions of Redis and Valkey.
+  For information on command compatibility, refer to the
+  [Dragonfly API compatibility documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
 
 ## Prerequisites
 
-Before starting the migration process, ensure you have the following:
+Before starting the migration process, ensure the following:
 
-- A target Aiven for Dragonfly service set up and ready. For setup
-  instructions, see to
+- A target Aiven for Dragonfly service set up and ready. For more information, see
   [Get started with Aiven for Dragonfly®](/docs/products/dragonfly/get-started).
 - Source database information:
   - **Hostname or connection string:** The public hostname,
     connection string, or IP address used to connect to the
     database, [accessible from the public Internet](/docs/platform/howto/public-access-in-vpc).
   - **Port:** The port number used for connecting to the database.
-  - **Username:** The username with appropriate permissions for
-    accessing the database data you intend to migrate.
+  - **Username:** The username with appropriate permissions to access the data for
+    migration.
   - **Password:** The password associated with the username.
-- Ensure firewall rules allow traffic between databases or turn them off
-  temporarily.
-- Using an SSL-secured connection for data transfer is highly
-  recommended during the source Redis database migration.
+- Firewall rules allow traffic between databases or temporarily disabled firewalls.
+- An SSL-secured connection is recommended for data transfer during the source
+  Redis database migration.
 - If the source Redis service is not publicly accessible, establish a
   VPC peering connection between the private networks. You need
   the VPC ID and cloud name for the migration.
@@ -62,29 +60,26 @@ migration.
 
 ## Database migration steps
 
-To migrate a Redis database to Aiven for Dragonfly:
+To migrate a Redis or Valkey database to Aiven for Dragonfly:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
-   the Aiven for Dragonfly service for your Redis database migration.
-
-1. Go to **Service settings** from the sidebar.
-1. Scroll to the **Service management** section, and
-   click <ConsoleLabel name="actions"/> > **Import database**.
-   to initiate the import process.
+   the Aiven for Dragonfly service for your database migration.
+1. On the <ConsoleLabel name="overview"/> page, click
+   <ConsoleLabel name="service settings"/> in the sidebar.
+1. In the **Service management** section, click
+   <ConsoleLabel name="actions"/> > **Migrate database**.
 1. Follow the wizard to guide you through the database migration process.
 
 ### Step 1: Configure
 
-Start by reviewing the database migration configuration guidelines.
-Confirm compatibility with Dragonfly and:
+To begin the migration:
 
-1. Select **Import an external Redis database**.
-1. Click **Get started** to begin the migration.
+1. Select **Migrate an external Redis or Valkey database**.
+1. Click **Get started** to begin.
 
 ### Step 2: Validation
 
-Enter the required details to establish a connection with your source
-Redis database:
+Enter the required connection details for your source Redis or Valkey database:
 
 - **Hostname:** The public hostname, connection string, or IP address
   for the database connection.
@@ -94,61 +89,57 @@ Redis database:
 - Select the SSL encryption option for a secure migration and click
   **Run check** to verify the connection.
 
-:::important
-Address issues to ensure a smooth migration. The migration does not include all
-components of your Redis setup, such as user accounts, ACLs, specific settings,
-and ongoing commands or scripts. However, it does transfer all your database data and its contents.
+:::note
+Resolve any issues to ensure a smooth migration. Migration does not include all
+components of your Redis setup, such as user accounts, ACLs, specific settings, and
+ongoing commands or scripts. It does transfer all database data and contents.
 :::
 
 ### Step 3: Migration
 
-Once all the necessary checks have been completed successfully, you can
-proceed with the migration process:
+After completing validation, click **Start migration** to begin migrating data to
+Aiven for Dragonfly.
 
-- Click **Start migration** to initiate the data migration process to
-  Aiven for Dragonfly.
+While the migration is in progress:
 
-Keep in mind the following information when the migration is in progress:
+- Click **Close window** to close the migration wizard, and return later to monitor t
+  he migration status from the service <ConsoleLabel name="overview"/> page.
+- The migration duration depends on the size of your database. During migration, the
+  target database is read-only, and writing to the database is only possible after
+  stopping the migration.
+- Certain managed database features are disabled during migration.
+- To stop the migration, click **Stop migration**. Any data already transferred to
+  Aiven for Dragonfly is preserved.
 
-- You can close the migration wizard by clicking **Close window** and later
-  return to monitor the migration status from the service overview
-  page.
-- The duration of the migration depends on the size of your database.
-  During migration, the target database are in a read-only state.
-  Writing to the database is only possible once the migration is
-  stopped.
-- Certain managed database features are disabled.
-- If needed, halt the migration by selecting **Stop migration**.
-  Data already transferred to Aiven for Dragonfly is preserved.
+:::note
+To avoid conflicts during migration:
 
-:::warning
-
-- Stopping this migration immediately halts the ongoing
-  replication process, preserving the data already transferred to
-  Aiven. You can initiate a new database migration at any time in the future.
-  This migration overwrites the entire database and its contents on Aiven
-  with the latest data from the source.
-- Avoid actions that can disrupt the replication process, such as
-  changing replication configurations or firewall settings.
+- Avoid actions that may disrupt replication, such as changing replication settings,
+  modifying firewall rules, or altering trusted sources.
+- Stopping migration halts replication immediately, but any transferred data is
+  preserved. Starting a new migration overwrites the entire database with the latest
+  data from the source.
 
 :::
 
 ### Step 4: Close the connection and next steps
 
-Once the migration is complete:
+Once migration completes:
 
-1. Click **Close connection** to end the replication.
-1. Click **Keep replicating** to maintain ongoing data synchronization.
+- Click **Stop replication** if no further synchronization is required and
+  you are ready to switch to Aiven for Dragonfly after thoroughly testing the service.
+- Click **Keep replicating** to maintain ongoing data synchronization if further
+  testing or syncing with the source database is needed.
 
 :::warning
-System updates or any configuration changes during replication can
-restart nodes and trigger a new database migration. Before making any
-modifications, confirm that replication is either complete or stopped.
+Avoid system updates or configuration changes during active replication, as these
+can restart nodes and trigger a new database migration. Ensure replication is complete
+or stopped before making any modifications.
 :::
 
 :::note
-When replication mode is active, Aiven for Dragonfly ensures your data remains in sync,
-with continuous synchronization of new writes from the source database.
+When replication mode is active, Aiven for Dragonfly continuously synchronizes new
+writes from the source database, ensuring your data remains up to date.
 :::
 
 ## Related pages
