@@ -1,6 +1,6 @@
 ---
-title: Migrate Aiven for Caching or Aiven for Valkey™ to Aiven for Dragonfly®
-sidebar_label: Migrate Caching or Valkey to Aiven for Dragonfly®
+title: Migrate Aiven for Caching or Aiven for Valkey™ to Aiven for Dragonfly
+sidebar_label: Migrate Caching or Valkey to Dragonfly
 ---
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -11,7 +11,7 @@ import Note from "@site/static/includes/dragonflysla-note.md"
 
 <Note/>
 
-## Compatibility overview
+## Compatibility check
 
 Before migrating an Aiven for Caching or Aiven for Valkey database to Aiven for
 Dragonfly, review your current database setup.
@@ -28,7 +28,7 @@ Dragonfly, review your current database setup.
 
 Before starting the migration:
 
-- A target Aiven for Dragonfly service set up and ready. For more information,
+- Confirm a target Aiven for Dragonfly service set up and ready. For more information,
   see [Get started with Aiven for Dragonfly®](/docs/products/dragonfly/get-started).
 - Confirm that your Aiven for Caching or Aiven for Valkey service is accessible over
   the Internet. For more information, see
@@ -62,13 +62,17 @@ To begin the migration, select **Migrate existing Aiven for Caching/Valkey datab
 ### Step 2: Validate
 
 The [Aiven Console](https://console.aiven.io/) automatically validates the database
-configuration for the selected service. Click **Run validation** to check the connection.
+configuration for the selected service.
+
+Click **Run validation** to check the connection.
 
 :::note
-If a validation error occurs during migration, follow the on-screen
-instructions to fix it. Rerun validation to ensure the database meets
-migration criteria. The migration doesn't include service
-user accounts and commands that are in progress.
+
+- If a validation error occurs during migration, follow the on-screen
+  instructions to fix it. Rerun validation to ensure the database meets
+migration criteria.
+- The migration doesn't include service
+  user accounts and commands that are in progress.
 :::
 
 ### Step 3: Migrate
@@ -78,8 +82,8 @@ Aiven for Dragonfly.
 
 While the migration is in progress:
 
-- Click **Close window** to close the migration wizard, and return later to monitor t
-  he migration status from the service <ConsoleLabel name="overview"/> page.
+- Click **Close window** to close the migration wizard, and return later to monitor the
+  migration status from the service <ConsoleLabel name="overview"/> page.
 - The migration duration depends on the size of your database. During migration, the
   target database is read-only, and writing to the database is only possible after
   stopping the migration.
@@ -98,7 +102,7 @@ To avoid conflicts during migration:
 
 :::
 
-:::note
+:::tip
 If the migration fails, investigate, and resolve the issue. Click **Start over** in
 the Data migration window to restart the migration.
 :::

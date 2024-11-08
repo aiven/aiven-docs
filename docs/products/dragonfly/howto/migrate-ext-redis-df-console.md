@@ -1,5 +1,6 @@
 ---
 title: Migrate external Redis®* or Valkey databases to Aiven for Dragonfly®
+sidebar_label: Migrate external Redis®* or Valkey to Dragonfly
 ---
 
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
@@ -16,7 +17,7 @@ import Note from "@site/static/includes/dragonflysla-note.md"
 
 <Note/>
 
-## Compatibility overview
+## Compatibility check
 
 Before migrating an external Redis or Valkey database to Aiven for Dragonfly,
 review your current database setup.
@@ -33,7 +34,7 @@ review your current database setup.
 
 Before starting the migration process, ensure the following:
 
-- A target Aiven for Dragonfly service set up and ready. For more information, see
+- Confirm a target Aiven for Dragonfly service set up and ready. For more information, see
   [Get started with Aiven for Dragonfly®](/docs/products/dragonfly/get-started).
 - Source database information:
   - **Hostname or connection string:** The public hostname,
@@ -102,8 +103,8 @@ Aiven for Dragonfly.
 
 While the migration is in progress:
 
-- Click **Close window** to close the migration wizard, and return later to monitor t
-  he migration status from the service <ConsoleLabel name="overview"/> page.
+- Click **Close window** to close the migration wizard, and return later to monitor the
+  migration status from the service <ConsoleLabel name="overview"/> page.
 - The migration duration depends on the size of your database. During migration, the
   target database is read-only, and writing to the database is only possible after
   stopping the migration.
