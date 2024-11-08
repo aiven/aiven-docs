@@ -3187,7 +3187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:3.6.0, @docusaurus/core@npm:^3.6.0":
+"@docusaurus/core@npm:3.6.0, @docusaurus/core@npm:^3.5.2":
   version: 3.6.0
   resolution: "@docusaurus/core@npm:3.6.0"
   dependencies:
@@ -3337,7 +3337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-client-redirects@npm:^3.6.0":
+"@docusaurus/plugin-client-redirects@npm:^3.5.2":
   version: 3.6.0
   resolution: "@docusaurus/plugin-client-redirects@npm:3.6.0"
   dependencies:
@@ -3466,7 +3466,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-google-gtag@npm:3.6.0, @docusaurus/plugin-google-gtag@npm:^3.6.0":
+"@docusaurus/plugin-google-gtag@npm:3.6.0, @docusaurus/plugin-google-gtag@npm:^3.5.2":
   version: 3.6.0
   resolution: "@docusaurus/plugin-google-gtag@npm:3.6.0"
   dependencies:
@@ -3517,7 +3517,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:^3.6.0":
+"@docusaurus/preset-classic@npm:^3.5.2":
   version: 3.6.0
   resolution: "@docusaurus/preset-classic@npm:3.6.0"
   dependencies:
@@ -3602,7 +3602,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-mermaid@npm:^3.6.0":
+"@docusaurus/theme-mermaid@npm:^3.5.2":
   version: 3.6.0
   resolution: "@docusaurus/theme-mermaid@npm:3.6.0"
   dependencies:
@@ -6833,12 +6833,12 @@ __metadata:
   dependencies:
     "@aivenio/aquarium": "npm:^1.73.0"
     "@algolia/client-search": "npm:^5.10.2"
-    "@docusaurus/core": "npm:^3.6.0"
+    "@docusaurus/core": "npm:^3.5.2"
     "@docusaurus/module-type-aliases": "npm:^3.5.2"
-    "@docusaurus/plugin-client-redirects": "npm:^3.6.0"
-    "@docusaurus/plugin-google-gtag": "npm:^3.6.0"
-    "@docusaurus/preset-classic": "npm:^3.6.0"
-    "@docusaurus/theme-mermaid": "npm:^3.6.0"
+    "@docusaurus/plugin-client-redirects": "npm:^3.5.2"
+    "@docusaurus/plugin-google-gtag": "npm:^3.5.2"
+    "@docusaurus/preset-classic": "npm:^3.5.2"
+    "@docusaurus/theme-mermaid": "npm:^3.5.2"
     "@docusaurus/tsconfig": "npm:^3.5.2"
     "@docusaurus/types": "npm:^3.5.2"
     "@iconify/react": "npm:^4.1.1"
