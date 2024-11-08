@@ -76,6 +76,11 @@ Aiven for ClickHouse uses `replicated` variants of table
 engines to ensure high availability. Even if you select `MergeTree`
 engine, we will automatically use the replicated variant on our side.
 
+:::note
+A non-replicated table, such as `system.query_log`, you can
+[query using `clusterAllReplicas`](/docs/products/clickhouse/howto/query-databases#query-a-non-replicated-table).
+:::
+
 ## Delete a table
 
 You can remove a table of any size if you have the `DROP` permission
