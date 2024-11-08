@@ -110,7 +110,8 @@ You can also request a download from the **Backups** section:
    the [Aiven API](https://api.aiven.io/doc/) endpoint:
 
    ```plaintext
-   GET /project/<project_name>/service/<service_name>
+   curl -X GET "https://api.aiven.io/v1/project/<project_name>/service/<service_name>" \
+   -H "Authorization: Bearer <API_TOKEN>"
    ```
 
 1. Download the backup using the following Service URI format:
