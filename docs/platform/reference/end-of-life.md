@@ -6,7 +6,7 @@ Learn about the upcoming end of life (EOL) for select Aiven services, including 
 
 ## Aiven for M3DB
 
-**Date**: End of life (EOL) on April 30, 2025
+**EOL date**: April 30, 2025
 
 ### Service impact
 
@@ -29,7 +29,7 @@ April 30, 2025. For further assistance, contact
 
 ## Aiven for InfluxDB
 
-**Date**: End of life (EOL) on April 30, 2025
+**EOL date**: April 30, 2025
 
 ### Service impact
 
