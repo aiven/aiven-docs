@@ -70,10 +70,6 @@ file for easy storage and transfer. For more information, see the
 1. After the backup is created, copy the **Service URI** to access the backup files
    directly. Paste the URI into your browser to download your backup.
 
-   The **Service URI** provides direct access to the backup files. To access the backup
-   using a command-line tool, use the **Host**, **Port**, **User**, and **Password**
-   details.
-
 ### Alternative method to download data
 
 You can also request a download from the **Backups** section:
