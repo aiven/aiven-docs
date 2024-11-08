@@ -21,7 +21,7 @@ Aiven for Metrics provides a seamless replacement for time-series workloads.
   supporting PromQL for query compatibility. Refer to the
   [migration guide for Aiven for M3DB to Aiven for Metrics](https://aiven.io/docs/products/metrics/howto/migrate-m3db-thanos)
   for instructions.
-- **Dashboard migration:** If you use Aiven’s pre-made Metrics and Grafana dashboard
+- **Dashboard migration:** If you use Aiven’s pre-configured Metrics and Grafana dashboard
   integration, your dashboards migrate automatically. Custom dashboards need to be
   manually reconfigured.
 
