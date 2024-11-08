@@ -70,7 +70,7 @@ file for easy storage and transfer. For more information, see the
 1. After the backup is created, copy the **Service URI** to access the backup files
    directly. Paste the URI into your browser to download your backup.
 
-### Alternative method to download data
+Alternatively, you can also request a download from the **Backups** section:
 
 You can also request a download from the **Backups** section:
 
@@ -106,23 +106,26 @@ You can also request a download from the **Backups** section:
    - `api_token`: Your API authentication
      [token](/docs/platform/concepts/authentication-tokens).
 
+1. Get the `user_backup_uri` from your service connection information by using
+   the [Aiven API](https://api.aiven.io/doc/) endpoint:
+
+   ```plaintext
+   GET /project/<project_name>/service/<service_name>
+   ```
+
 1. Download the backup using the following Service URI format:
 
    ```plaintext
    <user_backup_uri>/<backup_name>.tar
    ```
 
-  Get `user_backup_uri` from your service connection information via the
-  [Aiven API](https://api.aiven.io/doc/) using
-  the `GET /project/<project_name>/service/<service_name>` endpoint.
+   Adjust the Service URI based on your network configuration:
 
-  Adjust the Service URI based on your network configuration:
-
-  - **Public access**: If your service is in a VPC configured for public access, add
-    the prefix `public-` to the Service URI.
-  - **Private access**: Use the Service URI as provided, without any prefix. Ensure that
-    the `private_access.user_backup` setting is enabled in your service's network
-    configuration.
+   - **Public access**: If your service is in a VPC configured for public access, add
+     the prefix `public-` to the Service URI.
+   - **Private access**: Use the Service URI as provided, without any prefix. Ensure that
+     the `private_access.user_backup` setting is enabled in your service's network
+     configuration.
 
 </TabItem>
 
@@ -137,8 +140,8 @@ You can also request a download from the **Backups** section:
 
    ```
 
-  Replace `<service_name>` with your Aiven for InfluxDB service name and
-  `<backup_name>` with a descriptive name for the backup.
+   Replace `<service_name>` with your Aiven for InfluxDB service name and
+   `<backup_name>` with a descriptive name for the backup.
 
 1. To download the backup, use the following URI format:
 
