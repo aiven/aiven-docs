@@ -20,7 +20,7 @@ already marked as trusted in browsers and operating systems, so
 downloading the CA certificate is not normally required.
 
 :::note
-All the services in a project share the same Certificate Authority (CA)
+All the services in a project share the same Certificate Authority (CA).
 :::
 
 ## Certificate requirements
@@ -34,7 +34,7 @@ are exceptions:
   client to verify that the server certificate is actually emitted by
   the Aiven CA, while the second provides maximum security by
   performing HTTPS-like validation on the hostname as well. The
-  default `sslmode`, `require`, ensures TLS is used when connecting to
+  default `sslmode=require` ensures TLS is used when connecting to
   the database, but does not verify the server certificate. For more
   information, see the [PostgreSQL
   documentation](https://www.postgresql.org/docs/current/ssl-tcp.html)
