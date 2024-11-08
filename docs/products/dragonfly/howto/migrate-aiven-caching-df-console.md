@@ -99,8 +99,8 @@ To avoid conflicts during migration:
 :::
 
 :::note
-If the migration fails, investigate, resolve the issue, and restart the
-migration using **Start over**.
+If the migration fails, investigate, and resolve the issue. Click **Start over** in
+the Data migration window to restart the migration.
 :::
 
 ### Step 5: Close the connection and next steps
