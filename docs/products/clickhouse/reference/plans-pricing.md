@@ -3,12 +3,16 @@ title: Aiven for ClickHouse® service plans
 sidebar_label: Service plans
 ---
 
+import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
+
 Aiven for ClickHouse® is available in a few variants (plans or tiers),
 each of them offering a different set of features. Explore the Aiven for
 ClickHouse service plans and find out what they cover so that you can
 identify the one that suits your needs best.
 
 ## Service plans
+
+### Standard plans
 
 Aiven for ClickHouse is packaged into four tiers, each including a range
 of plans to suit the size of your workloads.
@@ -21,15 +25,13 @@ of plans to suit the size of your workloads.
     mission-critical apps, handling high query rates and big data
     amounts.
 
-## Related pages
+[Compare Aiven for ClickHouse plans](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)
+and learn
+[the plans' details, including pricing](https://aiven.io/pricing?tab=plan-pricing&product=clickhouse).
 
-To compare the plans and learn their pricing details, see [Plan
-comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)
-and [Plan
-pricing](https://aiven.io/pricing?tab=plan-pricing&product=clickhouse),
-respectively.
+<ClickHouseTotalStorageLimitation />
 
-## Custom plans
+### Custom plans
 
 Aiven for ClickHouse plans are optimized for working well in the various
 clouds supported by Aiven. The plans also enable easy migration between
