@@ -12,7 +12,7 @@ The whole procedure usually takes 60 seconds or less for small databases.
 
 ### Create a read-only replica
 
-We recommmend
+We recommend
 [creating a read-only replica](/docs/products/postgresql/howto/create-read-replica) before
 the upgrade:
 
