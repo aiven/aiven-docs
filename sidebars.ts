@@ -1447,29 +1447,24 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/metrics/get-started',
+            'products/metrics/concepts/retention-rules',
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Storage and usage',
               items: [
                 'products/metrics/concepts/storage-resource-scaling',
-                'products/metrics/concepts/retention-rules',
+                'products/metrics/howto/storage-usage',
               ],
             },
             {
               type: 'category',
-              label: 'How to',
+              label: 'Data migration',
               items: [
-                'products/metrics/howto/storage-usage',
-                {
-                  type: 'category',
-                  label: 'Data migration',
-                  items: [
-                    'products/metrics/howto/migrate-influxdb-thanos',
-                    'products/metrics/howto/migrate-m3db-thanos',
-                  ],
-                },
+                'products/metrics/howto/migrate-influxdb-thanos',
+                'products/metrics/howto/migrate-m3db-thanos',
               ],
             },
+            'products/metrics/howto/download-influxdb-data',
           ],
         },
         {

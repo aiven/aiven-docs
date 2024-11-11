@@ -1,5 +1,5 @@
 ---
-title: Storage and resource scaling
+title: Optimize storage and resources
 ---
 
 Aiven for Metrics leverages various storage and resource types to optimize your monitoring experience for both cost and performance. Explores how Aiven uses object storage, disk storage, memory, and compute resources.
