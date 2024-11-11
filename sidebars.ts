@@ -287,6 +287,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'platform/reference/eol-for-major-versions',
+        'platform/reference/end-of-life',
       ],
     },
     {
