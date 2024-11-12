@@ -245,6 +245,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.bankAccount} /> <b>Billing</b>
         </>
       );
+    case 'billinggroups':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.applications} />{' '}
+          <b>Billing groups</b>
+        </>
+      );
     case 'acl':
       return (
         <>
@@ -359,15 +366,16 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'deletedatabase':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete database</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} />{' '}
+          <b>Delete database</b>
         </>
       );
-      case 'deletetable':
-        return (
-          <>
-            <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete table</b>
-          </>
-        );
+    case 'deletetable':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete table</b>
+        </>
+      );
     case 'edit':
       return (
         <>
