@@ -72,8 +72,6 @@ file for easy storage and transfer. For more information, see the
 
 Alternatively, you can also request a download from the **Backups** section:
 
-You can also request a download from the **Backups** section:
-
 1. Go to the service's <ConsoleLabel name="overview" /> page and click
    <ConsoleLabel name="backups" />.
 1. Click the <ConsoleLabel name="actions" /> > **Download backup**.
