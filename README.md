@@ -15,8 +15,8 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
   <summary><b>Requirements</b></summary>
   <div>
    <ul>
-     <li>Node ≥ 18</li>
-     <li><a href="https://yarnpkg.com/getting-started/install">yarn</a></li>
+     <li>Node ≥ 22</li>
+     <li><a href="https://yarnpkg.com/getting-started/install">yarn 4</a></li>
    </ul>
   </div>
 </details>
