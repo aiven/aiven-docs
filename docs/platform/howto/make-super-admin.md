@@ -20,4 +20,4 @@ select **Revoke super admin**.
 ## Related pages
 <!-- vale off -->
 - [Manage organization users](/docs/platform/howto/manage-org-users)
-- [Project member roles](/docs/platform/reference/project-member-privileges)
+- [Permissions](/docs/platform/concepts/permissions)
