@@ -106,6 +106,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/billing-assign-projects',
               ],
             },
+            'platform/howto/download-invoices',
           ],
         },
         {
