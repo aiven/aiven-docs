@@ -1,5 +1,6 @@
 ---
-title: Manage ClickHouse® databases and tables
+title: Manage Aiven for ClickHouse® databases and tables
+sidebar_label: Manage databases and tables
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -14,13 +15,13 @@ Create and work with databases and tables in Aiven for ClickHouse®.
 Creating databases in an Aiven for ClickHouse service can only be done
 via the Aiven platform; the `admin` user is not allowed to create
 databases directly for security and reliability reasons. However, you
-can create a database through the web interface of [Aiven
-console](https://console.aiven.io/):
+can create a database through the web interface of the
+[Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
-    your service from the **Services** page.
+    your service from the <ConsoleLabel name="Services"/> page.
 
-1.  In the sidebar, click <ConsoleLabel name="Databases and tables"/>.
+1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
 
 1.  Click **Create database** > **ClickHouse database**.
 
@@ -28,17 +29,17 @@ console](https://console.aiven.io/):
     database and select **Create database**.
 
     The name of the database appears in the list of databases
-    in the **Databases and tables** page. On our side, we enable
+    in the <ConsoleLabel name="databasesandtables"/> page. On our side, we enable
     necessary customizations and run secondary queries to grant access
     to the admin user.
 
 ## Delete a database
 
-Removal should be done through the Aiven platform. In the [Aiven
-Console](https://console.aiven.io/):
-
-1. In the sidebar, click <ConsoleLabel name="Databases and tables"/>.
-1. Next to the database name, click <ConsoleIcon name="delete"/>.
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
+    your service from the <ConsoleLabel name="Services"/> page.
+1. In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1. In the **Databases and tables** list, find your database and click
+    <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
 
 :::note
 If you try adding or removing a database in for your Aiven for
@@ -75,6 +76,11 @@ Aiven for ClickHouse uses `replicated` variants of table
 engines to ensure high availability. Even if you select `MergeTree`
 engine, we will automatically use the replicated variant on our side.
 
+:::note
+A non-replicated table, such as `system.query_log`, can be
+[queried using `clusterAllReplicas`](/docs/products/clickhouse/howto/query-databases#query-a-non-replicated-table).
+:::
+
 ## Delete a table
 
 You can remove a table of any size if you have the `DROP` permission
@@ -95,13 +101,13 @@ DROP TABLE NAME_OF_YOUR_DATABASE.NAME_OF_YOUR_TABLE;
 </TabItem>
 <TabItem value="Console" label="Console">
 
-To remove your table in [Aiven Console](https://console.aiven.io/):
+To remove your table in the [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  Go to the table to remove: organization > project >
-    service > **Databases and tables**.
+1.  Go to the table to be removed: organization > project >
+    service > <ConsoleLabel name="databasesandtables"/>.
 1.  In the **Databases and tables** view, go to the table and
-    select <ConsoleLabel name="actions"/>  > **Remove** > **Delete table**.
+    select <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletetable"/>.
 
 </TabItem>
 </Tabs>

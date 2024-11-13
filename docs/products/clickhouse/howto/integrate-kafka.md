@@ -2,7 +2,14 @@
 title: Connect Apache Kafka® to Aiven for ClickHouse®
 ---
 
-You can integrate Aiven for ClickHouse® with either *Aiven for Apache Kafka®* service located in the same project, or *an external Apache Kafka endpoint*.
+You can integrate Aiven for ClickHouse® with either Aiven for Apache Kafka® service located in the same project, or an external Apache Kafka endpoint.
+
+:::tip
+To deliver data from Apache Kafka® topics to a ClickHouse database for efficient querying
+and analysis,
+[create a ClickHouse sink connector](/docs/products/kafka/kafka-connect/howto/clickhouse-sink-connector).
+:::
+
 A single Aiven for ClickHouse instance can connect to
 multiple Kafka clusters with different authentication mechanism and
 credentials.

@@ -1,5 +1,5 @@
 ---
-title: Enable OAUTH2/OIDC authentication
+title: Enable OAUTH2/OIDC authentication for Apache Kafka®
 ---
 
 import Tabs from '@theme/Tabs';
@@ -44,7 +44,7 @@ Before proceeding with the setup, ensure you have:
   - **Audience identifiers**: Validates the JWT's intended
     recipients. For multiple audiences, make a note of all.
 
-## Enable OAuth2/OIDC
+## Enable OAuth2/OIDC for Apache Kafka®
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>

@@ -32,10 +32,9 @@ Tiered storage offers multiple benefits, including:
 - **Operational speed:** With the bulk of data offloaded to remote
   storage, service rebalancing in Aiven for Apache Kafka becomes
   faster, making for a smoother operational experience.
-- **Infinite data retention:** Offloading bulk data to remote storage speeds up service
-  rebalancing in Aiven for Apache Kafka, enhancing operational efficiency.
-- **Transparency:** Even older Kafka clients can benefit from tiered storage even
-  if unaware of it.
+- **Infinite data retention:** Remote storage allows Aiven for Apache Kafka to retain
+  data indefinitely, ensuring long-term storage without impacting local storage
+  limits or speed.
 
 ## When and why use it
 
@@ -100,8 +99,8 @@ You set a local retention time of 10 TB. Consider the following:
 
 ### BYOC (Bring your own cloud) billing
 
-[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on your specific agreement
-with Aiven. Potential scenarios include:
+[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on
+your specific agreement with Aiven. Potential scenarios include:
 
 - **Customer costs:** In all BYOC setups, you are responsible for the full
   cost of the underlying cloud storage used by tiered storage. This includes the
@@ -112,7 +111,7 @@ with Aiven. Potential scenarios include:
 
 ## Related pages
 
--   [How tiered storage works in Aiven for Apache Kafka®](/docs/products/kafka/concepts/tiered-storage-how-it-works)
--   [Guarantees](/docs/products/kafka/concepts/tiered-storage-guarantees)
--   [Limitations](/docs/products/kafka/concepts/tiered-storage-limitations)
--   [Enabled tiered storage for Aiven for Apache Kafka® service](/docs/products/kafka/howto/enable-kafka-tiered-storage)
+- [How tiered storage works in Aiven for Apache Kafka®](/docs/products/kafka/concepts/tiered-storage-how-it-works)
+- [Guarantees](/docs/products/kafka/concepts/tiered-storage-guarantees)
+- [Limitations](/docs/products/kafka/concepts/tiered-storage-limitations)
+- [Enabled tiered storage for Aiven for Apache Kafka® service](/docs/products/kafka/howto/enable-kafka-tiered-storage)

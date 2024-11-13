@@ -29,6 +29,14 @@ service/kafka:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/kafka/**'
 
+service/kafka_connect:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/products/kafka/kafka-connect/**'
+
+service/kafka_mirrormaker:
+  - changed-files:
+      - any-glob-to-any-file:  'docs/products/kafka/kafka-mirrormaker/**'
+
 service/m3db:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/m3db/**'
@@ -37,7 +45,7 @@ service/mysql:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/mysql/**'
 
-service/postgre:
+service/postgresql:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/postgresql/**'
 

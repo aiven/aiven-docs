@@ -3,6 +3,8 @@ title: Aiven for ClickHouse® limits and limitations
 sidebar_label: Limits and limitations
 ---
 
+import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
+
 By respecting the Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 
 ## Limitations
@@ -181,6 +183,8 @@ Service limits are determined by a plan that this service uses.
 | Total storage                  | 180 GB                     | 1150 GB                      | 1150 - 4600 GB               | 2300 - 46000 GB              |
 | Maximum concurrent queries     | 25 queries per 4 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM |
 | Maximum concurrent connections | 1000 connections per node  | 4000 connections per node    | 4000 connections per node    | 4000 connections per node    |
+
+<ClickHouseTotalStorageLimitation />
 
 :::tip
 If you need a custom plan with capacity beyond the listed limits,

@@ -273,6 +273,20 @@
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name" id="azure_migration_restore_global_state"><a href="#azure_migration_restore_global_state"><strong>azure_migration.restore_global_state</strong></a></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Restore the cluster state or not</p>
+              <div className="description"><p>If true, restore the cluster state. Defaults to false</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="azure_migration_include_aliases"><a href="#azure_migration_include_aliases"><strong>azure_migration.include_aliases</strong></a></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Include aliases</p>
+              <div className="description"><p>Whether to restore aliases alongside their associated indexes. Default is true.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name" id="azure_migration_indices"><a href="#azure_migration_indices"><strong>azure_migration.indices</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Indices to restore</p>
               <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
@@ -354,6 +368,20 @@
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name" id="gcs_migration_restore_global_state"><a href="#gcs_migration_restore_global_state"><strong>gcs_migration.restore_global_state</strong></a></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Restore the cluster state or not</p>
+              <div className="description"><p>If true, restore the cluster state. Defaults to false</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="gcs_migration_include_aliases"><a href="#gcs_migration_include_aliases"><strong>gcs_migration.include_aliases</strong></a></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Include aliases</p>
+              <div className="description"><p>Whether to restore aliases alongside their associated indexes. Default is true.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name" id="gcs_migration_indices"><a href="#gcs_migration_indices"><strong>gcs_migration.indices</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Indices to restore</p>
               <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
@@ -410,6 +438,20 @@
               <div className="param"><p className="name" id="s3_migration_chunk_size"><a href="#s3_migration_chunk_size"><strong>s3_migration.chunk_size</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Chunk size</p>
               <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="s3_migration_restore_global_state"><a href="#s3_migration_restore_global_state"><strong>s3_migration.restore_global_state</strong></a></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Restore the cluster state or not</p>
+              <div className="description"><p>If true, restore the cluster state. Defaults to false</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="s3_migration_include_aliases"><a href="#s3_migration_include_aliases"><strong>s3_migration.include_aliases</strong></a></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Include aliases</p>
+              <div className="description"><p>Whether to restore aliases alongside their associated indexes. Default is true.</p></div>
             </td>
           </tr>
           <tr>

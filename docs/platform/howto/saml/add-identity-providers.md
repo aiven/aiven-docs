@@ -39,7 +39,7 @@ draft, you can open the settings by clicking the name of the IdP.
 
 1. Enter the **IDP URL** from your identity provider.
 
-1. Enter the **Entity Id** from your identity provider.
+1. Enter the **Entity ID** from your identity provider.
 
 <IdPStep3/>
 

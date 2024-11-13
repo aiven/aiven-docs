@@ -287,6 +287,8 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'platform/reference/eol-for-major-versions',
+        'platform/reference/end-of-life',
+        'platform/reference/get-resource-IDs',
       ],
     },
     {
@@ -418,6 +420,7 @@ const sidebars: SidebarsConfig = {
             'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/update-deprecated-resources',
             'tools/terraform/howto/upgrade-to-opensearch',
+            'tools/terraform/howto/upgrade-caching-valkey-terraform',
             {
               type: 'category',
               label: 'PostgreSQL',
@@ -453,6 +456,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'tools/cli/service/acl',
+                'tools/cli/service/alloydbomni',
                 'tools/cli/service/connection-info',
                 'tools/cli/service/connection-pool',
                 'tools/cli/service/connector',
@@ -1055,6 +1059,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
+                    'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                   ],
                 },
                 {
@@ -1159,6 +1164,7 @@ const sidebars: SidebarsConfig = {
                 'products/caching/howto/manage-ssl-connectivity',
                 'products/caching/howto/warning-overcommit_memory',
                 'products/caching/howto/benchmark-performance',
+                'products/caching/howto/upgrade-aiven-for-caching-to-valkey',
               ],
             },
             {
@@ -1226,6 +1232,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Manage service',
                   items: [
                     'products/clickhouse/howto/secure-service',
+                    'products/clickhouse/howto/restore-backup',
                     'products/clickhouse/howto/manage-users-roles',
                     'products/clickhouse/howto/manage-databases-tables',
                     'products/clickhouse/howto/query-databases',
@@ -1442,29 +1449,24 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/metrics/get-started',
+            'products/metrics/concepts/retention-rules',
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Storage and usage',
               items: [
                 'products/metrics/concepts/storage-resource-scaling',
-                'products/metrics/concepts/retention-rules',
+                'products/metrics/howto/storage-usage',
               ],
             },
             {
               type: 'category',
-              label: 'How to',
+              label: 'Data migration',
               items: [
-                'products/metrics/howto/storage-usage',
-                {
-                  type: 'category',
-                  label: 'Data migration',
-                  items: [
-                    'products/metrics/howto/migrate-influxdb-thanos',
-                    'products/metrics/howto/migrate-m3db-thanos',
-                  ],
-                },
+                'products/metrics/howto/migrate-influxdb-thanos',
+                'products/metrics/howto/migrate-m3db-thanos',
               ],
             },
+            'products/metrics/howto/download-influxdb-data',
           ],
         },
         {
@@ -1895,6 +1897,13 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/howto/connect-php',
                 'products/valkey/howto/connect-python',
                 'products/valkey/howto/connect-java',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Data migration',
+              items: [
+                'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
               ],
             },
             {

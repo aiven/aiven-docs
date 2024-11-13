@@ -16,12 +16,12 @@ your database's local disk usage.
 ## Access tiered storage details
 
 When you [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage,
-you can preview its details in the [Aiven Console](https://console.aiven.io/) in the service
+you can preview its details in the [Aiven Console](https://console.aiven.io/) from the service
 <ConsoleLabel name="overview"/>:
 
 - Click <ConsoleLabel name="tieredstorage"/> or
-- Click <ConsoleLabel name="databasesandtables"/> > <ConsoleLabel name="actions"/> >
-  <ConsoleLabel name="viewdetails"/> > **Storage details**.
+- Click <ConsoleLabel name="databasesandtables"/> > your table > <ConsoleLabel name="actions"/> >
+  <ConsoleLabel name="viewdetails"/> > **Tiered storage**.
 
 import DocCardList from '@theme/DocCardList';
 

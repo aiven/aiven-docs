@@ -4,6 +4,7 @@ ACLs
 Addons
 Aiven
 Aiven's
+allowlist
 Altinity
 Amazon
 Apache

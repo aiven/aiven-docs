@@ -61,6 +61,76 @@ Modifies a custom cloud configuration.
 | `--reserved-cidr`   | No       | IP address range of the VPC in your cloud account for Aiven services created in the custom cloud                        |
 | `--display-name`    | No       | Name of the custom cloud                                                                                                |
 
+## Tag a custom cloud
+
+Custom cloud tags are key-value pairs that you can attach to your custom cloud for resource
+categorization. They propagate to resources on the Aiven platform and in your own cloud
+infrastructure. Custom cloud tags are cascaded to bastion nodes and disks in private
+[deployment models](https://aiven.io/docs/platform/concepts/byoc#byoc-deployment).
+
+### `avn byoc tags list`
+
+Returns infrastructure tags attached to a custom cloud.
+
+**Syntax**
+
+```bash
+avn byoc tags list                              \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"
+```
+
+**Parameters**
+
+| Parameter           | Required | Information                                                                                                             |
+| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `--organization-id` | Yes      | Identifier of an organization where to modify the custom cloud                                                          |
+| `--byoc-id`         | Yes      | Identifier of the custom cloud to be modified                                                                           |
+
+### `avn byoc tags update`
+
+Adds, updates, or removes infrastructure tags on a custom cloud.
+
+**Syntax**
+
+```bash
+avn byoc tags update                            \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+    --add-tag TAG_KEY_A=TAG_VALUE_A             \
+    --remove-tag TAG_KEY_B
+```
+
+**Parameters**
+
+| Parameter           | Required | Information                                                                                                             |
+| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `--organization-id` | Yes      | Identifier of an organization where to modify the custom cloud                                                          |
+| `--byoc-id`         | Yes      | Identifier of the custom cloud to be modified                                                                           |
+| `--add-tag`         | No       | Adds or updates key-value pairs on a custom cloud for resource categorization                                           |
+| `--remove-tag`      | No       | Deletes key-value pairs attached to a custom cloud                                                                      |
+
+### `avn byoc tags replace`
+
+Replaces all existing tags with new ones.
+
+**Syntax**
+
+```bash
+avn byoc tags replace                           \
+    --organization-id "ORGANIZATION_IDENTIFIER" \
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
+    --tag TAG_KEY_A=TAG_VALUE_A
+```
+
+**Parameters**
+
+| Parameter           | Required | Information                                                                                                             |
+| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `--organization-id` | Yes      | Identifier of an organization where to modify the custom cloud                                                          |
+| `--byoc-id`         | Yes      | Identifier of the custom cloud to be modified                                                                           |
+| `--tag`             | Yes      | Key-value pair that replaces all existing key-value pairs attached to a custom cloud                                    |
+
 ## Manage custom cloud permissions
 
 ### `avn byoc cloud permissions add`

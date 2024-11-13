@@ -2,6 +2,8 @@
 title: Load sample data into ClickHouse®
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 The official ClickHouse® website offers [a list of example datasets](https://clickhouse.com/docs/en/getting-started/example-datasets/) to get you started.
 Each dataset has a description on how to download,
 upload, and transform the data samples as needed.
@@ -29,7 +31,7 @@ Download the original dataset directly from [the dataset documentation
 page](https://clickhouse.com/docs/en/getting-started/example-datasets/metrica/).
 You can do this using cURL, where the generic command looks like this:
 
-```
+```bash
 curl address_to_file_in_format_tsv_xz | unxz --threads=`nproc` > file-name.tsv
 ```
 
@@ -60,10 +62,10 @@ in the ClickHouse documentation.
 To create the new database:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and
-    select your service from the **Services** page.
-1.  In your service's page, select **Databases and tables** from the
+    select your service from the <ConsoleLabel name="Services"/> page.
+1.  On your service's page, select <ConsoleLabel name="databasesandtables"/> from the
     sidebar.
-1.  In the **Databases and tables** page, select **Create database** >
+1.  In the <ConsoleLabel name="databasesandtables"/> page, select **Create database** >
     **ClickHouse database**.
 1.  In the **Create ClickHouse database** window, enter name `datasets`
     for your database and select **Create database**.
@@ -71,11 +73,12 @@ To create the new database:
 ## Connect to the ClickHouse database
 
 We will be using the ClickHouse client to connect to the server. Follow
-[the separate guide](/docs/products/clickhouse/howto/connect-with-clickhouse-cli) to familiarize yourself with how to set up and start using
+[the separate guide](/docs/products/clickhouse/howto/connect-with-clickhouse-cli) to
+familiarize yourself with how to set up and start using
 the ClickHouse client.
 
 To connect to the server, use the connection details that from
-the **Connection information** section of the **Overview** page in
+the **Connection information** section of the <ConsoleLabel name="overview"/> page in
 the Aiven Console. You will need **Host**, **Port**, **User**, and
 **Password**.
 
@@ -124,7 +127,7 @@ To do this:
 
 1.  Run the following command:
 
-    ```bas
+    ```bash
     cat hits_v1.tsv | docker run        \
     --interactive                       \
     --rm clickhouse/clickhouse-server clickhouse-client  \
@@ -184,4 +187,5 @@ LIMIT 10
 
 You can also use the database and added tables with the data in the
 [Aiven Console](https://console.aiven.io/). Display them by
-selecting **Databases & Tables** from the sidebar of your service in the Aiven Console.
+selecting <ConsoleLabel name="databasesandtables"/> from the sidebar of your service in the
+Aiven Console.

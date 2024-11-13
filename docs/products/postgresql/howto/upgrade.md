@@ -8,18 +8,30 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.
 The whole procedure usually takes 60 seconds or less for small databases.
 
-## Prepare for an upgrade
+## Before you begin
 
-For all upgrades, Aiven recommends to **test the upgrade
-on [a fork](/docs/platform/concepts/service-forking)** of
+### Create a read-only replica
+
+We recommend
+[creating a read-only replica](/docs/products/postgresql/howto/create-read-replica) before
+the upgrade:
+
+- Very large databases may take a long time to upgrade and will be unreadable during the
+  upgrade. You can use a read-only replica service to keep the data readable during an upgrade.
+
+- A PostgreSQL upgrade has some risk of downtime and data loss if the node
+  goes down before the system is back in a normal state. A read-only
+  replica can help reduce this risk.
+
+### Test upgrading on a fork
+
+We recommend to test the upgrade on [a fork](/docs/platform/concepts/service-forking) of
 the database to be upgraded. Testing on a fork provides the benefit of
 verifying the impact of the upgrade for the specific service without
 affecting the running service, mostly to:
 
-<!-- vale off -->
-
 1.  Ensure that the upgrade succeeds and is performed quickly enough, which
-    might not be the case if there are many databases or "large objects".
+    might not be the case if there are many databases or large objects.
 
     Smaller node sizes with a large dataset can
     run into OOM issues during the `pg_dump/pg_restore` phase of
@@ -27,17 +39,14 @@ affecting the running service, mostly to:
 1.  Test query performance directly after upgrade under real world
     load, when no statistics are available and caches are cold.
 
-<!-- vale on -->
+### Upgrade to major versions in sequence
 
-:::note
-- Very large databases may take a long time to upgrade and will be unreadable during the
-  upgrade. You can use a [read-only replica service](/docs/products/postgresql/howto/create-read-replica)
-  to keep the data readable during an upgrade.
-
-- A PostgreSQL upgrade has some risk of downtime and data loss if the node
-  goes down before the system is back in a normal state. A read-only
-  replica can help reduce this risk.
+:::important
+It's not recommended to upgrade across multiple major versions in a single pass.
 :::
+
+For example, if you're on version 1.0 and need to be on 4.0, first upgrade to 2.0, next
+to 3.0, and finally to 4.0. Avoid updating from 1.0 directly to 4.0.
 
 ## Upgrade to a major version
 
@@ -57,13 +66,12 @@ To upgrade a PostgreSQL service:
     upgrade.
     :::
 
-    :::warning[Before starting the upgrade]
-    - The system will apply the upgrade **immediately** once you click **Upgrade**.
-    - Once the upgrade starts:
-      - The PostgreSQL instance can't be restored
-        to the previous version.
-      - Backups cannot be used for procedures such as Point In Time Recovery
-        since they were created with an earlier version of PostgreSQL.
+    :::warning
+    Upon clicking **Upgrade**:
+    - The system applies the upgrade **immediately**.
+    - The PostgreSQL instance can't be restored to the previous version.
+    - Backups cannot be used for procedures such as Point In Time Recovery since they were
+      created with an earlier version of PostgreSQL.
     :::
 
 1.  Select **Upgrade**.
@@ -80,7 +88,8 @@ To upgrade a PostgreSQL service:
     1.  After completion of the full backup, new standby nodes are
         created for services with more than one node.
     1.  If the service is a configured to have a
-        [read-only replica service](/docs/products/postgresql/howto/create-read-replica), the replica service will now be upgraded to the
+        [read-only replica service](/docs/products/postgresql/howto/create-read-replica),
+        the replica service will now be upgraded to the
         same version using the very same process. Read-only replicas
         remain readable during the upgrade of the primary service, but
         will go offline for the upgrade at this point.

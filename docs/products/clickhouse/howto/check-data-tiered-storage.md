@@ -34,7 +34,8 @@ this particular table.
 To access tiered storage's status information, go to
 the [Aiven Console](https://console.aiven.io/) > your Aiven for ClickHouse service's
 <ConsoleLabel name="overview"/> > <ConsoleLabel name="databasesandtables"/> > your database >
-your table > <ConsoleLabel name="viewdetails"/> > **Storage details**.
+your table > <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewdetails"/> >
+**Tiered storage**.
 
 ## Run a data distribution check with the ClickHouse client
 

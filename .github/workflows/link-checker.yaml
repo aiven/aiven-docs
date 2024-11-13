@@ -23,5 +23,17 @@ jobs:
           go install github.com/raviqqe/muffet/v2@latest
 
       - name: Run check links
+        id: check-links
         run: |
           make check-links
+
+      - name: Ping on Slack
+        uses: slackapi/slack-github-action@v1.27.0
+        if: ${{ failure() && github.ref_name == 'main' }}
+        with:
+          payload: |
+            {
+              "runId": "${{github.run_id}}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_BROKEN_LINKS }}
