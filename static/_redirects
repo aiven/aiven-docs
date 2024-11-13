@@ -77,6 +77,7 @@
 /platform/howto/update-tax-status                      https://aiven.io/docs/platform/concepts/tax-information
 /platform/ip-addresses                                 https://aiven.io/docs/platform/reference/service-ip-address
 /platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
+/platform/reference/project-member-privileges          https://aiven.io/docs/platform/concepts/permissions
 /platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
 /products/caching/concepts                             https://aiven.io/docs/docs/products/caching/concepts/high-availability-redis
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
