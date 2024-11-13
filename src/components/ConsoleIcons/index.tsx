@@ -500,6 +500,14 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.queries} /> <b>Query editor</b>
         </>
       );
+    case 'replicationflow':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />
+          <b>Replication flow</b>
+        </>
+      );
+
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
