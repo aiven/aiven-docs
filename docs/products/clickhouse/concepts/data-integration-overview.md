@@ -122,7 +122,7 @@ cluster.
 ### Where data resides upon integration
 
 When you integrate Aiven for ClickHouse with another Aiven-managed service or an external
-endpoint, by default data lives outside the Aiven for ClickHouse service, in its original
+endpoint, by default, data resides outside the Aiven for ClickHouse service in its original
 source. Queries aggregate data across sources, and the integrated data is accessed as
 needed in real-time or near-real-time.
 
