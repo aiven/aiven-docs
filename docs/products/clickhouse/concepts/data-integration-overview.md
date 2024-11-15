@@ -114,7 +114,7 @@ Depending on a data source type, Aiven for ClickHouse supports different integra
 ### How data is pulled in and distributed
 
 If you integrate a multi-node Aiven for ClickHouse service with another Aiven-managed
-service or an external enpoint, one of the Aiven for ClickHouse service nodes connects
+service or an external endpoint, one of the Aiven for ClickHouse service nodes connects
 to the other integrating entity. If the data that is read from this entity is persisted in
 the Aiven for ClickHouse service, this data is replicated across all the nodes in the
 cluster.
@@ -122,7 +122,7 @@ cluster.
 ### Where data resides upon integration
 
 When you integrate Aiven for ClickHouse with another Aiven-managed service or an external
-enpoint, by default data lives outside the Aiven for ClickHouse service, in its original
+endpoint, by default data lives outside the Aiven for ClickHouse service, in its original
 source. Queries aggregate data across sources, and the integrated data is accessed as
 needed in real-time or near-real-time.
 
