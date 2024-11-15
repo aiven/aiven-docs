@@ -280,8 +280,9 @@ data persistence using Redis Database Backup (RDB).
 
 #### Persistence settings
 
-You can configure the `redis_persistence` settings from the **Configure backup settings**
-section on your <ConsoleLabel name="Backups"/> page in the [Aiven Console](https://console.aiven.io).
+You can configure the `redis_persistence` settings from <ConsoleLabel name="actions"/> >
+the **Configure backup settings** section on your <ConsoleLabel name="Backups"/> page
+in the [Aiven Console](https://console.aiven.io).
 
 - **Enabled (`rdb`)**: When you set `redis_persistence` to `rdb`, Aiven for Caching
   performs RDB dumps every 10 minutes whenever a key changes. These dumps provide
