@@ -1,6 +1,6 @@
 ---
-title: Aiven for ClickHouse® data service integration
-sidebar_label: Data integration
+title: Aiven for ClickHouse® service integrations
+sidebar_label: Integrations
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
@@ -43,13 +43,15 @@ services. Depending on where the services are located, you can have either
 integrations between Aiven-managed services or external integrations (between an Aiven service
 and an external data source or application).
 
+## Data source integrations
+
 For integrating with external data sources, Aiven for ClickHouse provides two types of
 data service integrations:
 
 - [Managed databases](/docs/products/clickhouse/concepts/data-integration-overview#managed-databases-integration)
 - [Managed credentials](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
 
-## Managed credentials integration
+### Managed credentials integration
 
 The managed credentials integration uses the
 [ClickHouse named collections](https://clickhouse.com/docs/en/operations/named-collections)
@@ -78,7 +80,7 @@ For information on how table engines work in Aiven for ClickHouse services, prev
 For the list of table engines available in Aiven for ClickHouse, check
 [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines).
 
-## Managed databases integration
+### Managed databases integration
 
 The managed databases integration allows using a database engine for handling your
 external data. When enabled, this type of integration provides you with an automatically
@@ -95,7 +97,7 @@ For information on how database engines work in Aiven for ClickHouse services, p
 For more information on ClickHouse database engines, see
 [Database engines](https://clickhouse.com/docs/en/engines/database-engines).
 
-## Supported data source types
+### Supported data source types
 
 Depending on a data source type, Aiven for ClickHouse supports different integration modes.
 
@@ -106,6 +108,23 @@ Depending on a data source type, Aiven for ClickHouse supports different integra
 | Apache Kafka     | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="cross"/>     |
 | ClickHouse       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>     |
 | Amazon S3        | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+
+## Data flow and residency in integrations
+
+### How data is pulled in and distributed
+
+If you integrate a multi-node Aiven for ClickHouse service with another Aiven-managed
+service or an external endpoint, one of the Aiven for ClickHouse service nodes connects
+to the other integrating entity. If the data that is read from this entity is persisted in
+the Aiven for ClickHouse service, this data is replicated across all the nodes in the
+cluster.
+
+### Where data resides upon integration
+
+When you integrate Aiven for ClickHouse with another Aiven-managed service or an external
+endpoint, by default, data resides outside the Aiven for ClickHouse service in its original
+source. Queries aggregate data across sources, and the integrated data is accessed as
+needed in real-time or near-real-time.
 
 ## Related pages
 
