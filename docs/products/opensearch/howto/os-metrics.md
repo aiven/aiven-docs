@@ -3,13 +3,43 @@ title: Aiven for OpenSearch® metrics available via Prometheus
 ---
 
 import HostMetrics from "@site/static/includes/host-metrics.md";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Monitor and optimize your Aiven for OpenSearch service with metrics available via Prometheus. These metrics provide insights into cluster health, replication status, and overall performance.
+Monitor and optimize your Aiven for OpenSearch service with metrics available via Prometheus.
+These metrics help track cluster health, replication status, and overall performance.
 
-## Access metrics
+## Access Prometheus metrics
 
-You can access these metrics via Prometheus, integrated with Telegraf. For instructions,
+To access Prometheus metrics for your Aiven for OpenSearch service, ensure the Prometheus
+integration is set up. For instructions,
 see [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics).
+
+### Use a browser
+
+1. Go to your service's <ConsoleLabel name="overview"/>page in the
+  [Aiven console](https://console.aiven.io/).
+1. In the **Connection information** section, click the **Prometheus** tab.
+1. Copy the **Service URI**.
+1. Paste the Service URI into your browser's address bar.
+
+### Use `curl`
+
+Retrieve metrics using the `curl` command. Ensure you have:
+
+- **Prometheus credentials**: Find them in the **Prometheus** section under
+  **Integration endpoints** in the[Aiven console](https://console.aiven.io/).
+- **Aiven for OpenSearch hostname** and **Prometheus port**: Find them in
+  the **Connection information** section on your service's
+  <ConsoleLabel name="overview"/>page.
+
+Run the following command:
+
+```bash
+curl --user '<PROMETHEUS_USER>:<PROMETHEUS_PASSWORD>' \
+  'https://<OPENSEARCH_HOSTNAME>:<PROMETHEUS_PORT>/metrics'
+```
+
+Replace the placeholders with your actual credentials and connection details.
 
 <HostMetrics />
 
