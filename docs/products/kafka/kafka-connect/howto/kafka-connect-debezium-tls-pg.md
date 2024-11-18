@@ -1,6 +1,5 @@
 ---
 title: Integrate Apache Kafka Connect with PostgreSQL using Debezium and mutual TLS
-limited: true
 ---
 
 Learn how to set up Apache Kafka Connect with PostgreSQL and Debezium using mutual TLS for secure data synchronization.
@@ -86,7 +85,7 @@ your actual environment values in the provided code snippets:
 | `<integration_endpoint_id>`   | ID of the created PostgreSQL endpoint              |
 | `<connector_config>`          | JSON configuration for Debezium connector          |
 
-## ## Configure the integration
+## Configure the integration
 
 1. Verify your existing Aiven for Apache Kafka service is active and accessible.
    If you don't have one, create an Apache Kafka cluster using this command:
@@ -215,7 +214,7 @@ your actual environment values in the provided code snippets:
 
 ## Verification
 
-After successfully configuring the setup, verify the following:
+Confirm the following after completing the setup:
 
 1. Apache Kafka Connect establishes a secure SSL connection with the PostgreSQL database.
 1. Apache Kafka topics exist as expected, whether created automatically or manually.
@@ -223,8 +222,6 @@ After successfully configuring the setup, verify the following:
    `{connector_name}.{database_name}.{table_name}`.
 
 ## Limitations
-
-Consider the following limitations:
 
 - The process of delivering SSL keys to Apache Kafka Connect is asynchronous.
   Therefore, a delay of approximately five minutes may occur from the creation of
