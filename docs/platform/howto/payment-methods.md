@@ -37,4 +37,4 @@ can also be sent in the following currencies:
 
 Invoices in different currencies are created based on the exchange
 rates on the date of the invoice. To switch from credit card charges to bank transfers,
-contact [sales@aiven.io](mailto:sales@aiven.io) to request invoice billing.
+contact [billing@aiven.io](mailto:billing@aiven.io) to request invoice billing.
