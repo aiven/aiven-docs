@@ -1,5 +1,6 @@
 ---
 title: Aiven for OpenSearch® metrics available via Prometheus
+sidebar_label: OpenSearch metrics with Prometheus
 ---
 
 import HostMetrics from "@site/static/includes/host-metrics.md";
