@@ -12,7 +12,7 @@
   --aiven-radius: 2px;
   --badge-radius: 50px;
   --docusaurus-announcement-bar-height: 36px !important;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 247, 0, 0.2);
   --feature-background-color: none;
   --feature-border-color: var(--aiven-grey-05);
   --feature-border-color-hover: var(--aiven-grey-20);
