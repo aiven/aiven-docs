@@ -74,7 +74,7 @@ You can only fork services that have at least one [backup](/docs/platform/concep
 Apply any integrations required by the fork.
 
 </TabItem>
-<TabItem value="API" label="API">
+<TabItem value="CLI" label="CLI">
 
 1.  Prepare the command to create service, this will contain the
     new copy of your data store.
@@ -91,6 +91,35 @@ service, and name it `forked`, the command would be something like:
 
 ```bash
 avn service create forked --project PROJECT_NAME --cloud CLOUD_NAME -t pg --plan business-4 -c service_to_fork_from=forker
+```
+
+Apply any integrations required by the fork.
+
+</TabItem>
+<TabItem value="API" label="API">
+
+Use the [`ServiceCreate` endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+and set the `service_to_fork_from` and `project_to_fork_from` parameters to specify the
+source service in the `user_config` property.
+
+For example:
+
+```bash {11,12}
+curl --location 'https://console.aiven.io/v1/project/dest-project/service' \
+     --header 'Content-Type: application/json' \
+     --header 'Authorization: token' \
+     --data '{
+        "cloud":"google-europe-central2",
+        "group_name":"default",
+        "plan":"business-4",
+        "service_name":"dest-name",
+        "service_type":"pg",
+        "user_config":{
+          "service_to_fork_from":"source-service",
+          "project_to_fork_from":"source-project",
+          "pg_version":"16"
+        }
+     }'
 ```
 
 Apply any integrations required by the fork.
