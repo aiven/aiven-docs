@@ -424,11 +424,25 @@ account.
 
 In the **Create custom cloud** wizard:
 
-1.  Specify cloud setup details:
+1.  Specify cloud details:
 
-    -   Custom cloud name
     -   Cloud provider
     -   Region
+    -   Custom cloud name
+    -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+
+    Click **Next**.
+
+1.  Specify deployment and storage details:
+
+    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
+
+        Choose between:
+        - Private model, which routes traffic through a proxy for additional security
+          utilizing a bastion host logically separated from the Aiven services.
+        - Public model, which allows the Aiven control plane to connect to the service
+          nodes via the public internet.
+
     -   CIDR
 
         The **CIDR** block defines the IP address range of the VPC that
@@ -464,17 +478,6 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
-
-        Choose between:
-        - Private model, which routes traffic through a proxy for additional security
-          utilizing a bastion host logically separated from the Aiven services.
-        - Public model, which allows the Aiven control plane to connect to the service
-          nodes via the public internet.
-
-    -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
-
-<!--
     -   Remote storage (BYOC-hosted)
 
         By default, the following data is stored in object storage in your own cloud account:
@@ -488,9 +491,8 @@ In the **Create custom cloud** wizard:
         - Permissions for S3 bucket management will be included in the Terraform
           infrastructure template to be generated upon completing this step.
         :::
--->
 
-1.  Click **Next**.
+    Click **Generate template**.
 
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
@@ -540,7 +542,7 @@ Continue working in the **Create custom cloud** wizard:
 1.  Find a role identifier (Role ARN) in the output script after
     running the template.
 
-1.  Enter Role ARN into the **Role ARN** field in the **Create custom
+1.  Enter Role ARN into the **IAM role ARN** field in the **Create custom
     cloud** wizard.
 
 1.  Click **Next** to proceed or park your cloud setup and save
@@ -592,9 +594,7 @@ In the **Create custom cloud** wizard > the **Customer contacts** section:
     needed for your custom cloud.
 1.  Click **Save and validate**.
 
-The custom cloud process has been initiated for you, which is
-communicated in the the **Create custom cloud** wizard as **Creating
-your custom cloud**.
+The custom cloud process has been initiated.
 
 #### Complete the cloud setup
 

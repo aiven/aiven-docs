@@ -104,11 +104,25 @@ service account (SA), which Aiven needs for accessing your Google Cloud account.
 
 In the **Create custom cloud** wizard:
 
-1.  Specify cloud setup details:
+1.  Specify cloud details:
 
-    -   Custom cloud name
     -   Cloud provider
     -   Region
+    -   Custom cloud name
+    -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+
+    Click **Next**.
+
+1.  Specify deployment and storage details:
+
+    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
+
+        Choose between:
+        - Private model, which routes traffic through a proxy for additional security
+          utilizing a bastion host logically separated from the Aiven services.
+        - Public model, which allows the Aiven control plane to connect to the service
+          nodes via the public internet.
+
     -   CIDR
 
         The **CIDR** block defines the IP address range of the VPC that
@@ -144,27 +158,22 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
+    -   Remote storage (BYOC-hosted)
 
-        Choose between:
-        - Private model, which routes traffic through a proxy for additional security
-          utilizing a bastion host logically separated from the Aiven services.
-        - Public model, which allows the Aiven control plane to connect to the service
-          nodes via the public internet.
+        By default, the following data is stored in object storage in your own cloud account:
 
-    -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
-
-<!--
-    -   Remote storage (Aiven-hosted)
-
-        By default, the following data is stored in the Aiven-owned cloud:
-
-        -   Cold data (rarely accessed, static, or archived data grouped as a tier using
-            the tiered storage capability)
+        -   Cold data (learn more about the
+            [BYOC tiered storage](/docs/platform/howto/byoc/store-data#byoc-tiered-storage))
         -   Service backups
--->
 
-1.  Click **Next**.
+        :::note
+        - Data is stored in your object storage using one Cloud Storage bucket per custom
+          cloud.
+        - Permissions for Cloud Storage bucket management will be included in the Terraform
+          infrastructure template to be generated upon completing this step.
+        :::
+
+    Click **Generate template**.
 
 Your infrastructure Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to acquire a privilege-bearing
@@ -258,9 +267,7 @@ In the **Create custom cloud** wizard > the **Customer contacts** section:
     needed for your custom cloud.
 1.  Click **Save and validate**.
 
-The custom cloud process has been initiated for you, which is
-communicated in the the **Create custom cloud** wizard as **Creating
-your custom cloud**.
+The custom cloud process has been initiated.
 
 #### Complete the cloud setup
 
