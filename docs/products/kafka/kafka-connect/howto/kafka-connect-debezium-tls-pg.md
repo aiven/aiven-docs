@@ -1,15 +1,11 @@
 ---
-title: Integrate Apache Kafka Connect with PostgreSQL using Debezium and mutual TLS
+title: Integrate Aiven for Apache Kafka® Connect with PostgreSQL using Debezium with mutual TLS
 ---
 
-Learn how to set up Apache Kafka Connect with PostgreSQL and Debezium using mutual TLS for secure data synchronization.
+Integrate Aiven for Apache Kafka Connect with PostgreSQL using Debezium with mutual TLS (mTLS) to enhance security with mutual authentication.
 
-## Overview
-
-Integrating Apache Kafka Connect with PostgreSQL using Debezium and mutual TLS (mTLS)
-enhances data security by enforcing mutual authentication between the client and server.
-The configuration process establishes a secure and efficient data synchronization channel
-between Apache Kafka Connect and a PostgreSQL database.
+This configuration establishes a secure and efficient data synchronization channel
+between Aiven for Apache Kafka Connect and a PostgreSQL database.
 
 ## Prerequisites
 
