@@ -63,7 +63,7 @@ or automate the process with Terraform.
    resource "aiven_kafka" "kafka" {
      project                 = var.aiven_project_name
      cloud_name              = "google-europe-west1"
-     plan                    = "startup-16"
+     plan                    = "startup-2"
      service_name            = "my-kafka"
      maintenance_window_dow  = "friday"
      maintenance_window_time = "23:00:00"
@@ -126,16 +126,19 @@ avn service create SERVICE_NAME           \
   --cloud CLOUD_REGION                    \
   --plan SERVICE_PLAN                     \
   -c kafka_connect=true                   \
+  -c tiered_storage.enabled=true          \
   --disk-space-gib STORAGE_SIZE_GIB
 ```
 
 Parameters:
 
-- `SERVICE_NAME`: The name for your Aiven for Apache Kafka service.
-- `CLOUD_REGION`: The cloud region where the service is deployed. For example,
+- `SERVICE_NAME`: Name for your Aiven for Apache Kafka service.
+- `CLOUD_REGION`: Cloud region for deployment. For example,
   `google-europe-west3`.
-- `SERVICE_PLAN`: The Aiven subscription plan. For example, `business-4`.
-- `STORAGE_SIZE_GIB`: The total disk space for data storage in GiB. For example, `600`.
+- `SERVICE_PLAN`: Aiven subscription plan. For example, `business-4`.
+- `kafka_connect`: Enables Kafka Connect. Use `true` to enable.
+- `tiered_storage.enabled`: Enables tiered storage. Use `true` to enable.
+- `STORAGE_SIZE_GIB`: Disk space in GiB. For example, `600`.
 
 </TabItem>
 </Tabs>
@@ -184,13 +187,15 @@ messages.
    ```
 
    Parameters:
-   - `project`: The name of the project.
-   - `service_name`: The name of the Aiven for Apache Kafka service.
-   - `topic_name`: The name of the Kafka topic.
-   - `partitions`: The number of partitions for the topic.
-   - `replication`: The replication factor for the topic.
+   - `project`: Name of the project.
+   - `service_name`: Name of the Aiven for Apache Kafka service.
+   - `topic_name`: Name of the Apache Kafka topic.
+   - `partitions`: Number of partitions for the topic.
+   - `replication`: Replication factor for the topic.
    - `termination_protection`: Enables or disables deletion protection for the topic.
-   - `config`: Additional Kafka settings, such as flush interval and cleanup policy.
+   - `config`: Additional Apache Kafka settings, such as flush interval and
+     cleanup policy. For a list of supported configurations, see
+     [Aiven for Apache Kafka topic configurations](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka#nested-schema-for-kafka_user_configkafka).
    - `timeouts`: Optional timeouts for creating and reading the topic.
 
 1. Run `terraform apply` to create the topic with the defined configurations.
@@ -226,8 +231,7 @@ messages.
 
 You can connect to your Aiven for Apache Kafka service to interact with Apache Kafka
 topics, allowing you to produce and consume messages.
-The **Quick connect** feature in the Aiven Console helps guide you through the
-connection process.
+Use **Quick connect** in the Aiven Console to guide the process.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), select your project, and
    the Aiven for Apache Kafka service.
@@ -240,12 +244,12 @@ connection process.
      Required for secure communication.
    - **Access certificate** and **Access key**: Needed for client certificate
      authentication.
-1. Select your authentication method:
-   - **Client certificate**: Use this method if your environment requires secure
-     communication using SSL/TLS certificates. For information on downloading CA
-     certificates, see [TLS/SSL certificates](https://aiven.io/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
-   - **SASL**: Use this method if your environment uses Simple Authentication and
-     Security Layer (SASL) for authentication.
+1. Select your authentication method based on your environment:
+   - **Client certificate**: Provides secure communication using SSL/TLS certificates.
+     For information on downloading CA certificates, see
+     [TLS/SSL certificates](https://aiven.io/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
+   - **SASL**: Provides authentication using Simple Authentication and Security Layer
+     (SASL).
 1. Click **Done**.
 
 ## Produce and consume messages
@@ -335,12 +339,11 @@ You can deploy Aiven for Apache Kafka Connect in two ways:
 
 - For a cost-effective setup,
   [enable Apache Kafka Connect on the same node](/docs/products/kafka/kafka-connect/howto/enable-connect)
-  as your Aiven for Apache Kafka service. This is suitable for smaller workloads where
-  minimizing costs is a priority.
-- For better performance and stability, [deploy a dedicated Aiven for Apache Kafka Connect
-  service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
-  This option is recommended for larger workloads or production environments where
-  reliability is key.
+  as your Aiven for Apache Kafka service. Suitable only for testing or hobbyist workloads
+  where cost minimization is a priority.
+- For better performance and stability,
+  [deploy a dedicated Aiven for Apache Kafka Connect service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+  Recommended for production deployments and larger workloads requiring reliability.
 
 ## Enable Karapace
 
@@ -387,5 +390,10 @@ Learn more about the [Aiven for Apache Kafka® governance overview](/docs/produc
 ## Related pages
 
 - Explore [examples project](https://github.com/aiven/aiven-examples) for code samples.
-- Use [sample data generator project](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
+- Use the [sample data generator project](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
   to create test data.
+- Learn about the [Karapace Schema Registry](https://github.com/Aiven-Open/karapace) for
+  managing schemas and interacting with Apache Kafka.
+- Use the [Apache Kafka REST API](/docs/products/kafka/concepts/kafka-rest-api) to
+  programmatically access your Apache Kafka service, produce and consume messages, and
+  manage schemas.
