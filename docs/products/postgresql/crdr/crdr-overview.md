@@ -7,6 +7,7 @@ keywords: [recovery, primary, outage, failure, failover]
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import readyForCrdr from "@site/static/images/content/figma/ready-for-crdr.png";
+import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
 
 The cross-region disaster recovery (CRDR) feature ensures your business continuity by
 automatically recovering your workloads to a remote region in the event of a region-wide
@@ -68,6 +69,8 @@ result, both PRS and RRS are up and running:
 
 - PRS as an **Active** service, where the traffic goes
 - RRS as a **Passive** service in sync with the PRS
+
+<img src={crdrSetup} className="centered" alt="CRDR setup" width="100%" />
 
 ### Failover to the recovery region
 
