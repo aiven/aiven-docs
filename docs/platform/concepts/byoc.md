@@ -193,6 +193,11 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
+Object storage in your Google Cloud organization is
+where service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+Google **Cloud Storage** buckets.
+
 </TabItem>
 <TabItem value="4" label="Google Cloud public">
 
@@ -207,6 +212,10 @@ using the public address, and the Aiven management plane can access the service 
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
 
+Object storage in your Google Cloud organization is
+where service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+Google **Cloud Storage** buckets.
 </TabItem>
 </Tabs>
 
@@ -220,13 +229,11 @@ Depending on the BYOC service, Aiven takes
 [regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
 in time recovery (PITR), and disaster recovery.
 
-Backups of BYOC-hosted services are stored as follows:
+BYOC-hosted services have user-owned backups stored in object storage in your AWS
+account or your Google Cloud organization. Backups reside in:
 
-- **AWS BYOC**: User-owned backups stored in object storage in your own AWS cloud account.
-  One S3 bucket is created per custom cloud.
-- **Google Cloud**: Aiven-owned backups stored in Aiven-managed object
-  storage. It's still possible to store backups in your own cloud account, provided
-  Aiven gets read-write permissions to access the object storage in your cloud account.
+- S3 buckets for AWS BYOC environments
+- Cloud Storage buckets for Google Cloud BYOC environments
 
 :::important
 
