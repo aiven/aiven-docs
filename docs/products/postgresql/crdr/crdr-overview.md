@@ -8,6 +8,7 @@ keywords: [recovery, primary, outage, failure, failover]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import readyForCrdr from "@site/static/images/content/figma/ready-for-crdr.png";
 import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
+import crdrFailover from "@site/static/images/content/figma/crdr-failover.png";
 
 The cross-region disaster recovery (CRDR) feature ensures your business continuity by
 automatically recovering your workloads to a remote region in the event of a region-wide
@@ -64,11 +65,10 @@ The CRDR feature is eligible for all startup, business, and premium service plan
 
 ### CRDR setup
 
-You [enable CRDR by creating an RRS](/docs/products/postgresql/crdr/enable-crdr). As a
-result, both PRS and RRS are up and running:
-
-- PRS as an **Active** service, where the traffic goes
-- RRS as a **Passive** service in sync with the PRS
+You [enable CRDR by creating an RRS](/docs/products/postgresql/crdr/enable-crdr). The CRDR
+setup completes as soon as the RRS is created and in sync with the PRS. At that point,
+the PRS is the **Active** service receiving incoming traffic and replicating to the RRS,
+and the RRS is the **Passive** service replicating from the PRS.
 
 <img src={crdrSetup} className="centered" alt="CRDR setup" width="100%" />
 
@@ -79,6 +79,8 @@ performed either
 [automatically](/docs/products/postgresql/crdr/crdr-failover-to-recovery) or
 [manually](/docs/products/postgresql/crdr/crdr-failover-to-recovery). When completed, the
 PRS is **Failed** and the RRS is up and running as an **Active** service.
+
+<img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
 
 #### Automatic switchover
 
