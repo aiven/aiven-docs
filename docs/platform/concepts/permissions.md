@@ -8,12 +8,14 @@ To give users access to projects and services in your organizations, you grant t
   group of resources.
 * **Roles**: Sets of permissions that you can assign to a principal.
 
-Principals are
-[organization users](/docs/platform/howto/manage-org-users),
-[application users](/docs/platform/concepts/application-users),
-and [groups](/docs/platform/howto/list-groups).
-You can grant access to principals at the project level. You can
-[add users to services](/docs/platform/howto/create_new_service_user).
+Principals can be:
+* [Organization users](/docs/platform/howto/manage-org-users)
+* [Application users](/docs/platform/concepts/application-users)
+* [Groups](/docs/platform/howto/manage-groups)
+
+You can
+[grant access to principals at the project level](/docs/platform/howto/manage-permissions).
+You can also [add users to services](/docs/platform/howto/create_new_service_user).
 
 To grant access to resources at the organization level, you can
 make organization users [super admin](/docs/platform/howto/make-super-admin).

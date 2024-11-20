@@ -98,7 +98,7 @@ Account Owners team.
 1.  Enter the name of one of the teams and assign the same users to this group. Do this
     for each team.
 
-1.  [Add each new group to the projects](/docs/platform/howto/add-groups-projects)
+1.  [Add each new group to the projects](/docs/platform/howto/manage-permissions)
     that the teams are assigned to with the same role.
 
 1.  After confirming all users have the correct level of access to the projects,
