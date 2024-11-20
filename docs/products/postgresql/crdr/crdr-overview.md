@@ -9,6 +9,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import readyForCrdr from "@site/static/images/content/figma/ready-for-crdr.png";
 import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
 import crdrFailover from "@site/static/images/content/figma/crdr-failover.png";
+import crdrRevert from "@site/static/images/content/figma/crdr-revert.png";
 
 The cross-region disaster recovery (CRDR) feature ensures your business continuity by
 automatically recovering your workloads to a remote region in the event of a region-wide
@@ -112,6 +113,8 @@ A revert process consists of two steps you initiate manually at your convenience
    the replication to effectively route the traffic back to the primary region. When
    completed, both the PRS and the RRS are up and running again: the PRS as an active
    service, and the RRS as a passive service.
+
+<img src={crdrRevert} className="centered" alt="CRDR revert" width="100%" />
 
 ## DNS address and service URI
 
