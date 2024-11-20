@@ -40,8 +40,8 @@ const FeatureList: FeatureItem[] = [
     to: '/docs/tools',
     description: (
       <>
-        Manage your Aiven infrastructure with the API, Terraform, Kubernetes, or
-        CLI.
+        Manage your Aiven infrastructure with the Aiven API, Terraform Provider,
+        Kubernetes Operator, or CLI.
       </>
     ),
   },

@@ -22,8 +22,8 @@ receiving support and take advantage of the latest enhancements.
 ### Step 1: Create an Aiven for Apache Flink service
 
 1. Create an Aiven for Apache Flink service using the
-   [Aiven Console](https://console.aiven.io/), [Aiven Client](/docs/tools/cli/service/flink),
-   or [Terraform](/docs/tools/terraform) (provider version 4.19.0).
+   [Aiven Console](https://console.aiven.io/), [Aiven CLI](/docs/tools/cli/service/flink),
+   or [Aiven Provider for Terraform](/docs/tools/terraform) (provider version 4.19.0).
 1. Select Apache Flink 1.19 as the deployment version for the
    Aiven for Apache Flink service.
 

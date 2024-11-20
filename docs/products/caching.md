@@ -38,7 +38,7 @@ use:
 -   **DevOps-friendly management and development:** Manage your caching solution
     using [Aiven Console](https://console.aiven.io/),
     [Aiven CLI](https://github.com/aiven/aiven-client), or
-    [Terraform](/docs/tools/terraform) .
+    [Aiven Provider for Terraform](/docs/tools/terraform) .
     Features like scaling, forking, and upgrading your Aiven for Caching cluster
     are simple and efficient. Compatible with open-source software, it integrates
     with your existing applications and facilitates cloud and regional migrations.

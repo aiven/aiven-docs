@@ -25,8 +25,8 @@ Free plans include:
 -   1 GB RAM
 -   For PostgreSQL and MySQL: 5 GB disk storage
 -   For Valkey: `maxmemory` set to 50%
--   Management via our web console, CLI, API, Terraform provider, or
-    Kubernetes® operator
+-   Management through the Aiven Console, CLI, API, Terraform Provider, or
+    Kubernetes Operator
 -   Monitoring for metrics and logs
 -   Backups
 -   Integrations between different Aiven services including free, paid,

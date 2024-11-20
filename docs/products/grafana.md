@@ -60,8 +60,7 @@ performance.
 ### Automation
 
 You can also automate the process of building, configuring, and managing
-Aiven services by including your Aiven infrastructure in your
-[Terraform](/docs/tools/terraform/get-started) tooling.
+Aiven services using the [Aiven Provider for Terraform](/docs/tools/terraform/get-started).
 
 ## Related pages
 

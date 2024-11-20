@@ -227,8 +227,8 @@ Add users to groups to streamline access management to your Aiven projects and s
       to="/docs/platform/howto/manage-application-users"
       iconName="clipboard"
       title="Create application users"
-      description="Use application users to access the API,
-      Terraform Provider, CLI, and Aiven Operator."
+      description="Use application users to access the Aiven API,
+      Terraform Provider, CLI, and Kubernetes Operator."
     />
     <Card
       to="/docs/platform/howto/manage-vpc-peering"
@@ -270,7 +270,7 @@ Start deploying services in your project to stream, store, or analyze your data.
 
 See examples of services and integrations using code samples for the
 [Aiven Provider for Terraform](/docs/tools/terraform) or
-[Aiven Operator for Kubernetes](/docs/tools/kubernetes).
+[Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
 
 <GridContainer columns={2}>
      <Card
@@ -281,7 +281,7 @@ See examples of services and integrations using code samples for the
     <Card
       to="https://aiven.github.io/aiven-operator/resources/project.html"
       iconComponent={K8sIcon}
-      title="Aiven Operator for Kubernetes examples"
+      title="Aiven Operator for Kubernetes® examples"
     />
 </GridContainer>
 

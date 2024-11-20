@@ -4,7 +4,7 @@ keywords: [quick start, Terraform]
 sidebar_label: Get started
 ---
 
-This example shows you how to use the Aiven Provider to set up your data infrastructure by creating a single Aiven for Caching service in an [Aiven project](/docs/platform/concepts/orgs-units-projects).
+This example shows you how to use the Aiven Terraform Provider to set up your data infrastructure by creating a single Aiven for Caching service in an [Aiven project](/docs/platform/concepts/orgs-units-projects).
 
 :::caution
 Recreating stateful services with Terraform may delete the service and
@@ -185,8 +185,8 @@ To delete the service and its data:
     project](https://github.com/aiven/terraform-provider-aiven/blob/main/sample_project/sample.tf)
     to set up integrated Aiven for Kafka®, PostgreSQL®, and
     Grafana® services.
--   Read the [Terraform
-    Docs](https://www.terraform.io/language/modules/develop/structure)
+-   Read the [Aiven Provider for Terraform
+    docs](https://www.terraform.io/language/modules/develop/structure)
     to learn about more complex project structures.
 -   [Import your existing Aiven
     resources](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/importing-resources)

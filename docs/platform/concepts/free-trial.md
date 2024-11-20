@@ -2,7 +2,7 @@
 title: 30-day trials
 ---
 
-Aiven offers a free trial for 30 days to explore the platform - including the [Aiven Console](/docs/tools/aiven-console), [API](/docs/tools/api), [CLI](/docs/tools/cli), [Aiven Terraform provider](/docs/tools/terraform), and [Aiven Operator for Kubernetes](/docs/tools/kubernetes) - and the [Aiven services](/docs/products/services). You don't need a credit card to sign up.
+Aiven offers a free trial for 30 days to explore the Aiven Data and AI Platform, including the [Aiven Console](/docs/tools/aiven-console), [API](/docs/tools/api), [CLI](/docs/tools/cli), [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven Operator for Kubernetes®](/docs/tools/kubernetes), and the [Aiven services](/docs/products/services). You don't need a credit card to sign up.
 
 ## Trial features and limitations
 

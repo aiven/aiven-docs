@@ -100,7 +100,7 @@ you informed on the progress.
 -   You have an active account with your cloud provider.
 -   Depending on the dev tool to use for creating a custom cloud, you have:
     - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+    - [Aiven CLI](/docs/tools/cli) installed
 -   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
     organization.
 -   You have Terraform installed.

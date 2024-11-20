@@ -40,7 +40,7 @@ they are also a [super admin](/docs/platform/howto/make-super-admin).
 
 :::important
 Permissions are not yet fully supported in the Aiven Console. They are intended for
-use with the Aiven API, Aiven Provider for Terraform, and Aiven Operator for Kubernetes.
+use with the Aiven API, Aiven Provider for Terraform, and Aiven Operator for Kubernetes®.
 :::
 
 You can grant the following permissions to principals. The actions listed for each
