@@ -98,17 +98,20 @@ disaster scenario and verify the disaster resilience of your infrastructure.
 The purpose of a revert operation is shifting your workload back to the original region
 and restoring the CRDR setup to its original configuration.
 
-You [initiate a revert](/docs/products/postgresql/crdr/crdr-revert-to-primary) to the PRS
-manually as soon as the PRS is ready to take back control.
+A revert process consists of two steps you initiate manually at your convenience:
 
-A revert process consists of two steps you initiate at your convenience:
+1. [Primary service recreation](/docs/products/postgresql/crdr/crdr-revert-to-primary)
 
-1. **Restore the primary service** by recreating its nodes from the local backups as well as
+   You initiate this step to restore primary service nodes from the local backups and to
    synchronize (replicate) the most recent data from the active service (RRS).
    When completed, the PRS is restored and in near real-time sync with the RRS.
-1. **Switch the direction of the replication** to effectively route the traffic back to the
-   primary region. When completed, both the PRS and the RRS are up and running again: the
-   PRS as an active service, and the RRS as a passive service.
+
+1. [Primary service takeover](/docs/products/postgresql/crdr/crdr-revert-to-primary)
+
+   You initiate a takeover as soon as the PRS is recreated. This switches the direction of
+   the replication to effectively route the traffic back to the primary region. When
+   completed, both the PRS and the RRS are up and running again: the PRS as an active
+   service, and the RRS as a passive service.
 
 ## DNS address and service URI
 
