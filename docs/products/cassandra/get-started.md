@@ -114,7 +114,7 @@ Create an Aiven for Apache Cassandra service using the Aiven Provider for Terraf
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
 </TabItem>
-<TabItem value="3" label="K8s">
+<TabItem value="3" label="Kubernetes">
 Create an Aiven for Apache Cassandra service using the Aiven Operator for Kubernetes.
 
 1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html).
@@ -252,7 +252,7 @@ See attributes available for the `aiven_cassandra` resource in
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
 </TabItem>
-<TabItem value="3" label="K8s">
+<TabItem value="3" label="Kubernetes">
 :::note
 Your changes can force the recreation of the `aiven_cassandra` resource.
 :::

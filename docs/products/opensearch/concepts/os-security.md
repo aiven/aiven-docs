@@ -17,7 +17,7 @@ permissions directly from the
     longer use [Aiven Console](https://console.aiven.io/), [Aiven
     API](https://api.aiven.io/doc/),
     [Aiven CLI](/docs/tools/cli),
-    [Aiven Terraform provider](/docs/tools/terraform) or
+    [Aiven Terraform Provider](/docs/tools/terraform) or
     [Aiven Operator for Kubernetes®](/docs/tools/kubernetes) to manage access controls.
 -   You must use the OpenSearch Security Dashboard or OpenSearch
     Security API for managing user authentication and access control

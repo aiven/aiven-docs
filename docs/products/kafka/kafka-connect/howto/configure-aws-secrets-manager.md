@@ -12,7 +12,7 @@ Configure and use [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanag
 - [Aiven for Apache Kafka service with Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
   set up and running.
 - [Aiven CLI](/docs/tools/cli).
-- [Aiven Terraform provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+- [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
   installed.
 - [AWS Secrets Manager access key and secret key](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 
@@ -243,7 +243,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure a JDBC sink connector using Terraform with secrets referenced from
+Configure a JDBC sink connector using the Aiven Terraform Provider with secrets referenced from
 AWS Secrets Manager. Add this configuration to your `main.tf` file, or optionally
 create a dedicated `connectors.tf` file for managing Apache Kafka connectors:
 
@@ -358,7 +358,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure a JDBC source connector using Terraform with secrets referenced from
+Configure a JDBC source connector using the Aiven Terraform Provider with secrets referenced from
 AWS Secrets Manager. Add this configuration to your `main.tf` file, or optionally
 create a dedicated `connectors.tf` file for managing Apache Kafka connectors:
 

@@ -4,7 +4,7 @@ title: Application users
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-An application user is a type of user that provides programmatic access to the Aiven platform and services through the [Aiven API](/docs/tools/api.md), [CLI](/docs/tools/), [Terraform](/docs/tools/terraform.md), and [Kubernetes](/docs/tools/kubernetes.md). They're intended for non-human users that need to access Aiven.
+An application user is a type of user that provides programmatic access to the Aiven platform and services through the [Aiven API](/docs/tools/api.md), [CLI](/docs/tools/), [Aiven Terraform Provider](/docs/tools/terraform.md), and [Aiven Kubernetes Operator](/docs/tools/kubernetes). They're intended for non-human users that need to access Aiven.
 
 :::info
 You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
@@ -32,7 +32,7 @@ following are some suggested best practices for using Aiven application users.
 
 Try to create a different application user for each tool or application. For example, if
 you have an application that needs to connect to services in one of your projects and
-you are using Terraform in the same project, create two application users. Use
+you're using Aiven Terraform Provider in the same project, create two application users. Use
 the description field for each user to clearly indicate what it's used for.
 
 This helps you manage the lifecycle of the users and ensure the access permissions are

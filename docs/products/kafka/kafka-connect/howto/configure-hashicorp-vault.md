@@ -13,7 +13,7 @@ Configure and use [HashiCorp Vault](https://developer.hashicorp.com/vault/docs) 
 - [Aiven for Apache Kafka service with Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
   set up and running.
 - [Aiven CLI](/docs/tools/cli).
-- [Aiven Terraform provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+- [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
   installed.
 - [HashiCorp Vault address and token](https://developer.hashicorp.com/vault/docs/concepts/tokens).
 
@@ -70,7 +70,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure HashiCorp Vault using Terraform. Add this configuration to your `main.tf` file,
+Configure HashiCorp Vault using the Aiven Terraform Provider. Add this configuration to your `main.tf` file,
 or optionally create a dedicated `vault.tf` file for managing secret providers:
 
 1. Create the `main.tf` file for your resources:
@@ -221,7 +221,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure a JDBC sink connector using Terraform with secrets referenced
+Configure a JDBC sink connector using the Aiven Terraform Provider with secrets referenced
 from HashiCorp Vault. Add this configuration to your `main.tf` file, or optionally create
 a dedicated `vault.tf` file for managing secret providers:
 
@@ -334,7 +334,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Configure a JDBC source connector using Terraform with secrets referenced from
+Configure a JDBC source connector using the Aiven Terraform Provider with secrets referenced from
 HashiCorp Vault. Add this configuration to your `main.tf` file, or optionally
 create a dedicated `connectors.tf` file for managing Apache Kafka connectors:
 

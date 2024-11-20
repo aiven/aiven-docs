@@ -9,8 +9,11 @@ exceptions:
   - Active Directory
   - Aiven
   - Aiven Console
+  - Aiven Kubernetes Operator
+  - Aiven Operator for Kubernetes
   - Aiven Provider
   - Aiven Provider for Terraform
+  - Aiven Terraform Provider
   - Amazon
   - Amazon Aurora
   - Amazon Web Services

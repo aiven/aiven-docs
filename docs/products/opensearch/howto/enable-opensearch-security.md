@@ -30,7 +30,7 @@ OpenSearch service, note the following:
     longer use [Aiven Console](https://console.aiven.io/), [Aiven
     API](https://api.aiven.io/doc/),
     [Aiven CLI](/docs/tools/cli),
-    [Aiven Terraform provider](/docs/tools/terraform) or
+    [Aiven Terraform Provider](/docs/tools/terraform) or
     [Aiven Operator for Kubernetes®](/docs/tools/kubernetes) to manage access controls.
 
 ## Enable OpenSearch® Security management

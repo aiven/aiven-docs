@@ -159,7 +159,7 @@ tool to test the version upgrade before upgrading their production services.
 
 ## Aiven tools
 
-Aiven offers multiple tools for interacting with the Aiven platform and
+Aiven offers multiple tools for interacting with the Aiven Platform and
 services. These include the Aiven CLI, the Aiven Provider for Terraform,
 and the Aiven Operator for Kubernetes®.
 
@@ -188,7 +188,7 @@ or bug fixes after the EOL date.
 | 3.x     | 2023-12-31      |
 | 4.x     | To be announced |
 
-### Aiven Operator for Kubernetes
+### Aiven Operator for Kubernetes®
 
 | Version | Aiven EOL       |
 | ------- | --------------- |

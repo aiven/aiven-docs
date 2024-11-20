@@ -28,7 +28,7 @@ examples, see
 ## Manage resources via Terraform
 
 Additionally, the
-[Aiven Terraform provider](/docs/tools/terraform) supports managing Karapace schema registry authorization ACL
+[Aiven Terraform Provider](/docs/tools/terraform) supports managing Karapace schema registry authorization ACL
 entries with the `aiven_kafka_schema_registry_acl` resource. For more
 information, see the [resource
 documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_schema_registry_acl).

@@ -402,7 +402,7 @@ const sidebars: SidebarsConfig = {
         'tools/api',
         {
           type: 'category',
-          label: 'Aiven Provider for Terraform®',
+          label: 'Aiven Provider for Terraform',
           link: {
             id: 'tools/terraform',
             type: 'doc',

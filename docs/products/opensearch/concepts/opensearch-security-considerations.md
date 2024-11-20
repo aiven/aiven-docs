@@ -27,7 +27,7 @@ will occur:
     -   [ServiceOpenSearchAclGet](https://api.aiven.io/doc/#tag/Service:_OpenSearch/operation/ServiceOpenSearchAclGet)
     -   [ServiceOpenSearchAclSet](https://api.aiven.io/doc/#tag/Service:_OpenSearch/operation/ServiceOpenSearchAclSet)
     -   [ServiceOpenSearchAclUpdate](https://api.aiven.io/doc/#tag/Service:_OpenSearch/operation/ServiceOpenSearchAclUpdate)
-3.  Aiven for OpenSearch ACL in Aiven Terraform provider will be
+3.  Aiven for OpenSearch ACL in the Aiven Terraform Provider will be
     disabled. The affected resources are:
     -   [Opensearch_acl_config](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch_acl_config)
     -   [Opensearch_acl_rule](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch_acl_rule)
