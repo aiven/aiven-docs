@@ -144,15 +144,21 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Create or modify the `main.tf` file for your Aiven for Apache Kafka MirrorMaker 2
-   replication flow.
+Find information about the `aiven_mirrormaker_replication_flow` resource in the
+[Aiven Provider for Terraform® documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow).
+
+1. Update or create the `aiven_mirrormaker_replication_flow` resource in your
+   Terraform configuration file (for example, `main.tf`):
+
+   - Add `replication_flow_config = { "exactly_once_delivery_enabled" = true }`.
+   - Specify the `topics` to replicate using patterns, such as `.*` for all topics.
 
    ```hcl
    terraform {
      required_providers {
        aiven = {
          source  = "aiven/aiven"
-         version = ">=4.0.0, < 5.0.0"
+         version = ">=4.0.0, <5.0.0"
        }
      }
    }
@@ -161,69 +167,28 @@ Parameters:
      api_token = var.aiven_api_token
    }
 
-   resource "aiven_mirrormaker_replication_flow" "replication_flow" {
+   resource "aiven_mirrormaker_replication_flow" "example_flow" {
      project        = var.project_name
      service_name   = var.service_name
      source_cluster = var.source_cluster
      target_cluster = var.target_cluster
+     enable         = true
 
-     replication_flow_config = jsonencode({
-       "exactly_once_delivery_enabled" = var.exactly_once_delivery_enabled
-     })
+     replication_flow_config = {
+       "exactly_once_delivery_enabled" = true
+     }
 
      topics = [
        ".*"
      ]
    }
-   ```
 
-1. Declare variables in a `variables.tf` file:
-
-   ```hcl
-   variable "aiven_api_token" {
-     description = "Aiven API token"
-     type        = string
-   }
-
-   variable "project_name" {
-     description = "Name of your Aiven project"
-     type        = string
-   }
-
-   variable "service_name" {
-     description = "Name of your Aiven for Apache Kafka MirrorMaker 2 service"
-     type        = string
-   }
-
-   variable "source_cluster" {
-     description = "Alias of the source Kafka cluster"
-     type        = string
-   }
-
-   variable "target_cluster" {
-     description = "Alias of the target Kafka cluster"
-     type        = string
-   }
-
-   variable "exactly_once_delivery_enabled" {
-     description = "Enable or disable exactly-once delivery"
-     type        = bool
-     default     = false
+   output "replication_flow_status" {
+     value = aiven_mirrormaker_replication_flow.example_flow.state
    }
    ```
 
-1. Provide variable values in a `terraform.tfvars` file:
-
-   ```hcl
-   aiven_api_token             = "YOUR_AIVEN_API_TOKEN"
-   project_name                = "YOUR_PROJECT_NAME"
-   service_name                = "YOUR_SERVICE_NAME"
-   source_cluster              = "YOUR_SOURCE_CLUSTER"
-   target_cluster              = "YOUR_TARGET_CLUSTER"
-   exactly_once_delivery_enabled = true
-   ```
-
-1. Run Terraform commands to apply the configuration:
+1. Run the Terraform commands to apply the configuration:
 
    ```bash
    terraform init
@@ -236,11 +201,12 @@ Parameters
 - `aiven_api_token`: API token for authentication with Aiven.
 - `project_name`: Name of your Aiven project.
 - `service_name`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
-- `source_cluster`: Alias of the source Kafka cluster.
-- `target_cluster`: Alias of the target Kafka cluster.
-- `exactly_once_delivery_enabled`:Set to `true` to enable or `false` to disable
+- `source_cluster`: Alias of the source Aiven for Apache Kafka service.
+- `target_cluster`: Alias of the target Aiven for Apache Kafka service.
+- `exactly_once_delivery_enabled`: Set to `true` to enable or `false` to disable
   exactly-once delivery.
 - `topics`: Pattern defining which topics to replicate (default: `.*` for all topics).
+
 
 </TabItem>
 </Tabs>
