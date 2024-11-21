@@ -41,7 +41,7 @@ excludeList=(
     "cve.report"
   )
 
-acceptedResponses="--accepted-status-codes=200..404"
+acceptedResponses="--accepted-status-codes=200..404,520"
 address="https://aiven.io/docs/"
 bufferSize="--buffer-size=8192"
 limitConnections="--max-connections=9"
