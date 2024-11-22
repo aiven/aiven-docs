@@ -217,23 +217,24 @@ data using OpenSearch clients like Python and Node.js.
 
 ### Write search queries
 
-- **Python**: Learn how to write search queries using the
-  [Python OpenSearch client](https://github.com/opensearch-project/opensearch-py).
-  For a step-by-step example using a food recipe dataset, see
-  [Write search queries with OpenSearch® and Python](https://aiven.io/docs/products/opensearch/howto/search-python).
-- **Node.js**: Use the
-  [OpenSearch JavaScript client](https://github.com/opensearch-project/opensearch-js) to
-  communicate with your OpenSearch cluster and run search queries. See the full
-  tutorial in [Write search queries with OpenSearch® and Node.js](https://aiven.io/docs/products/opensearch/howto/search-nodejs).
+- **Python**: Learn how to write and run search queries on your Aiven for OpenSearch
+  service using the [Python OpenSearch client](https://github.com/opensearch-project/opensearch-py).
+  For more information, see
+  [Search with OpenSearch® and Python](/docs/products/opensearch/howto/opensearch-search-and-python).
+- **Node.js**: Learn how to write and run search queries on your Aiven for OpenSearch
+  service using the [OpenSearch JavaScript client](https://github.com/opensearch-project/opensearch-js).
+  For more information, see
+  [Search with OpenSearch® and Node.js](/docs/products/opensearch/howto/opensearch-and-nodejs).
 
 ### Perform aggregations
 
-- **Metric aggregations**: Calculate single-value metrics like average, min, or max,
-  and explore advanced metrics like percentiles and cardinality. For details, see
-  [Use aggregations with OpenSearch® and Node.js](https://aiven.io/docs/products/opensearch/howto/aggregations-nodejs#metric-aggregations).
+- **Metric aggregations**: Calculate metrics such as average, minimum, maximum,
+  percentiles, and cardinality on your Aiven for OpenSearch
+  service. or more information, see
+  [Aggregations with OpenSearch® and Node.js](/docs/products/opensearch/howto/opensearch-aggregations-and-nodejs#metrics-aggregations).
 - **Bucket aggregations**: Group data into buckets based on ranges, unique terms, or
-  histograms. Learn more in
-  [Bucket aggregations with OpenSearch®](https://aiven.io/docs/products/opensearch/howto/aggregations-nodejs#bucket-aggregations).
+  histograms. or more information, see
+  [Bucket aggregations with OpenSearch®](/docs/products/opensearch/howto/opensearch-aggregations-and-nodejs#bucket-aggregations).
 - **Pipeline aggregations**: Combine results from multiple aggregations, such as
   calculating moving averages, to analyze trends. Explore examples in
-  [Pipeline aggregations with OpenSearch®](https://aiven.io/docs/products/opensearch/howto/aggregations-nodejs#pipeline-aggregations).
+  [Pipeline aggregations with OpenSearch®](/docs/products/opensearch/howto/opensearch-aggregations-and-nodejs#pipeline-aggregations).
