@@ -29,7 +29,7 @@ Organizations also let you centrally manage settings like:
   the organization level, you can use billing groups across all projects in the
   organization and its units. You can't share billing information between organizations.
 - [Users](/docs/platform/concepts/user-access-management) and
-  [groups](/docs/platform/howto/list-groups): Managed at the organization level. You
+  [groups](/docs/platform/howto/manage-groups): Managed at the organization level. You
   can grant users and groups access at the organization and project level with
   [permissions and roles](/docs/platform/concepts/permissions).
 - [Domains](/docs/platform/howto/manage-domains) and

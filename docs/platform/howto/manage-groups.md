@@ -4,19 +4,22 @@ title: Manage groups of users
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Create groups of users in your organization to make it easier to [give users with similar roles access to projects](/docs/platform/howto/add-groups-projects).
+Create groups of users in your organization to make it easier to manage access to your organization's resources.
+
+You can [grant permissions](/docs/platform/howto/manage-permissions) to groups
+for projects, giving them the right level of access to the project and its services.
 
 ## Create a group
 
 To create a group in an organization:
-<!-- vale off -->
+
 1.  Click **Admin** > **Groups**.
 1.  Click **Create group**.
 1.  Enter a unique name for the group. You can also enter a description.
 1.  Optional: To assign users to the group, click the toggle and choose
     the users to add.
 1.  Click **Create group**.
-<!-- vale on -->
+
 ## Add users to a group
 
 You can only add users that are

@@ -35,6 +35,8 @@
 /platform/concepts/service-scaling                     https://aiven.io/docs/platform/howto/scale-services
 /platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/access-service-logs                    https://aiven.io/docs/platform/howto/list-monitoring
+/platform/howto/add-project-members                    https://aiven.io/docs/platform/howto/manage-permissions
+/platform/howto/add-groups-projects                    https://aiven.io/docs/platform/howto/manage-groups
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
@@ -50,6 +52,7 @@
 /platform/howto/list-billing                           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
+/platform/howto/list-groups                            https://aiven.io/docs/platform/howto/manage-groups
 /platform/howto/list-identity-providers                https://aiven.io/docs/platform/howto/saml/add-identity-providers
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
 /platform/howto/list-user                              https://aiven.io/docs/platform/howto/manage-org-users

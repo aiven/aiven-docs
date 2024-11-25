@@ -170,16 +170,11 @@ Add users to groups to streamline access management to your Aiven projects and s
       description="Create and add users to groups."
     />
     <Card
-      to="/docs/platform/concepts/permissions"
-      iconName="book"
-      title="Project member roles"
-      description="View project permissions you can assign to users and groups."
-    />
-    <Card
-      to="/docs/platform/howto/add-groups-projects"
+      to="/docs/platform/howto/manage-permissions"
       iconName="clipboardCheck"
-      title="Add groups to projects"
-      description="Give a group of users access to a project."
+      title="Give groups acess to projects"
+      description="Grant roles and permissions to a group of users to access a project
+      and its services."
     />
 </GridContainer>
 
