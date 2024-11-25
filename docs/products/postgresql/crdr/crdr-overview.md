@@ -56,6 +56,8 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 
 ## Limitations
 
+- To set up CRDR, your primary service needs at least a Startup plan. Hobbyist and Free
+  plans are not supported.
 - RRS needs to use the same service plan and cloud provider as the PRS.
 
 ## How it works
