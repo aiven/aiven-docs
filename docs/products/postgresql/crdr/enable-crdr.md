@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) feature in in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of region outage.
 
+Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) feature in in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of region outage.
+
 ## Prerequisites
 
 - Powered-on Aiven for PostgreSQL service with a Startup plan at minimum
