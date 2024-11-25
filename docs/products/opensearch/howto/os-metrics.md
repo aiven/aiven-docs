@@ -14,12 +14,10 @@ These metrics help track cluster health, replication status, and overall perform
 
 ## Prerequisites
 
-Before accessing metrics, ensure that:
-
-- Prometheus integration is enabled. For setup instructions, see
+- Enable Prometheus integration. For setup instructions, see
   [Prometheus integration setup](/docs/platform/howto/integrations/prometheus-metrics).
-- Note the Prometheus **username** and **password** from the **Integration endpoints**
-  section in the [Aiven console](https://console.aiven.io/).
+- Note the Prometheus **username** and **password** in the **Integration endpoints**
+  section of the  [Aiven console](https://console.aiven.io/).
 
 ## Access Prometheus metrics
 
