@@ -14,18 +14,17 @@ These metrics help track cluster health, replication status, and overall perform
 
 ## Prerequisites
 
-- Enable Prometheus integration. For setup instructions, see
-  [Prometheus integration setup](/docs/platform/howto/integrations/prometheus-metrics).
+- [Enable Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics).
 - Note the Prometheus **username** and **password** in the **Integration endpoints**
-  section of the  [Aiven console](https://console.aiven.io/).
+  section of the  [Aiven Console](https://console.aiven.io/).
 
 ## Access Prometheus metrics
 
 <Tabs groupId="group1">
-<TabItem value="browser" label="Browser" default>
+<TabItem value="browser" label="View in browser" default>
 
 1. Open your service's <ConsoleLabel name="overview"/> page in the
-   [Aiven console](https://console.aiven.io/).
+   [Aiven Console](https://console.aiven.io/).
 1. In the **Connection information** section, click the **Prometheus** tab.
 1. Copy the **Service URI**.
 1. Paste the Service URI into your browser's address bar.
@@ -33,7 +32,7 @@ These metrics help track cluster health, replication status, and overall perform
 1. Click **Login**.
 
 </TabItem>
-<TabItem value="curl" label="Curl">
+<TabItem value="curl" label="Retrieve via cURL">
 
 To retrieve metrics, run the following `curl` command:
 

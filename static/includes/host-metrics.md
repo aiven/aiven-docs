@@ -9,7 +9,7 @@ include time spent on different processes, system load, and overall uptime.
 | Metric                  | Description                                                                                           |
 |-------------------------|-------------------------------------------------------------------------------------------------------|
 | `cpu_usage_guest`       | CPU time spent running a virtual CPU for guest operating systems                                     |
-| `cpu_usage_guest_nice`  | CPU time spent running low-priority virtual CPUs for guest operating systems. These processes can be interrupted by higher-priority tasks. Metric is measured in hundredths of a second |
+| `cpu_usage_guest_nice`  | CPU time running low-priority virtual CPUs for guest operating systems; interrupted by higher-priority tasks and measured in hundredths of a second|
 | `cpu_usage_idle`        | Time the CPU spends doing nothing                                                                   |
 | `cpu_usage_iowait`      | Time waiting for I/O to complete                                                                     |
 | `cpu_usage_irq`         | Time servicing interrupts                                                                            |
