@@ -1926,7 +1926,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              items: ['products/valkey/reference/advanced-params'],
+              items: [
+                'products/valkey/reference/advanced-params',
+                'products/valkey/reference/valkey-metrics-in-prometheus',
+              ]
             },
           ],
         },
