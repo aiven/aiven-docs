@@ -13,6 +13,7 @@ you define and control to deploy and manage resources.
 ### VPC characteristics
 
 - Isolation: Each VPC operates independently from other VPCs, ensuring secure separation.
+<<<<<<< HEAD
 - Customizable IP Range: You can define your own IP address range (CIDR block).
 - Subnets: Divide the VPC into smaller sub-networks (subnets) for organizing resources
   based on availability zones or functional groups.
@@ -20,11 +21,21 @@ you define and control to deploy and manage resources.
 - Internet Connectivity: Control whether the VPC connects to the internet via Internet
   Gateways or remains isolated.
 - Security: Strong control over network traffic and isolation.
+=======
+- Security: Control over network traffic and isolation.
+- Internet connectivity: Control whether the VPC connects to the internet via internet
+  gateways or remains isolated.
+- Network control: Configure route tables, network gateways, and security settings.
+- Customizable IP range: You can define your own IP address range (CIDR block).
+- Subnets: Divide the VPC into smaller sub-networks (subnets) for organizing resources
+  based on availability zones or functional groups.
+>>>>>>> 80afa7a0 (vpc description draft)
 - Flexibility: Custom network architecture tailored to your application's needs.
 - Scalability: Expand or modify the network as demand grows.
 
 ### VPC components
 
+<<<<<<< HEAD
 - Subnets: Smaller networks within the VPC. They can be public or private.
 - Route Tables: Define how network traffic is directed within the VPC.
 - Internet Gateway (IGW): Allows public traffic to access the internet.
@@ -41,6 +52,26 @@ you define and control to deploy and manage resources.
 - Data Isolation: Keeping sensitive data within a private network.
 - Multi-tier Architecture: Separating application layers (web, app, database) within
 - distinct subnets.
+=======
+- Subnets: Represent smaller public or private networks within the VPC.
+- Peering connections: Connect VPCs for intercommunication.
+- NAT (Network Address Translation) gateway: Allows outbound internet access for private
+  subnets.
+- Internet gateway (IGW): Enables public traffic to access the internet.
+- Security groups: Represent firewall rules controling inbound and outbound traffic for
+  resources.
+- Route tables: Specify how traffic is directed within the VPC.
+- Network Access Control Lists (NACLs): Constitute an extra layer of security at the subnet
+  level
+
+### VPC use cases
+
+- Data isolation: Keeping sensitive data within a private network
+- Hosting applications: Deploying scalable web and database applications
+- Multi-tier architecture: Separating application layers (web, app, database) within
+  distinct subnets
+- Hybrid cloud architecture: Connecting on-premises networks to the cloud securely
+>>>>>>> 80afa7a0 (vpc description draft)
 
 ## VPC types
 
