@@ -334,6 +334,8 @@ VMs
 VNet
 VPC/MS
 VPCs?
+VPN
+VPNs
 wget
 Wireshark
 Workbench
