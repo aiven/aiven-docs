@@ -41,7 +41,7 @@ type networks.
 ## Prerequisites
 <!-- vale off -->
 -   You have
-    [created a VPC for your Aiven project](manage-vpc-peering) in the
+    [created a VPC for your Aiven project](/docs/platform/howto/manage-project-vpc) in the
     [Aiven Console](https://console.aiven.io/).
 -   The CIDR ranges of the networks you want to peer do not overlap.
 <!-- vale on -->
