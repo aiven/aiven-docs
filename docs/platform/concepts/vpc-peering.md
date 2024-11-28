@@ -5,7 +5,7 @@ sidebar_label: VPC peering
 
 VPC peering supported on the Aiven Platform improves network connectivity and security. It simplifies architecture, helps reduce network latency, and enhances resource sharing while maintaining isolation and control.
 
-[VPC]((/doc/platform/concepts/vpcs)) peering is a networking connection between two VPCs.
+[VPC](/doc/platform/concepts/vpcs) peering is a networking connection between two VPCs.
 It allows private and direct communication between the VPCs with no traffic routing over
 the public internet.
 

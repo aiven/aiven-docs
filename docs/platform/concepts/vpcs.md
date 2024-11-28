@@ -12,15 +12,6 @@ you define and control to deploy and manage resources.
 ### VPC characteristics
 
 - Isolation: Each VPC operates independently from other VPCs, ensuring secure separation.
-<<<<<<< HEAD
-- Customizable IP Range: You can define your own IP address range (CIDR block).
-- Subnets: Divide the VPC into smaller sub-networks (subnets) for organizing resources
-  based on availability zones or functional groups.
-- Network Control: Configure route tables, network gateways, and security settings.
-- Internet Connectivity: Control whether the VPC connects to the internet via Internet
-  Gateways or remains isolated.
-- Security: Strong control over network traffic and isolation.
-=======
 - Security: Control over network traffic and isolation.
 - Internet connectivity: Control whether the VPC connects to the internet via internet
   gateways or remains isolated.
@@ -28,32 +19,13 @@ you define and control to deploy and manage resources.
 - Customizable IP range: You can define your own IP address range (CIDR block).
 - Subnets: Divide the VPC into smaller sub-networks (subnets) for organizing resources
   based on availability zones or functional groups.
->>>>>>> 80afa7a0 (vpc description draft)
 - Flexibility: Custom network architecture tailored to your application's needs.
 - Scalability: Expand or modify the network as demand grows.
 
 ### VPC components
 
-<<<<<<< HEAD
-- Subnets: Smaller networks within the VPC. They can be public or private.
-- Route Tables: Define how network traffic is directed within the VPC.
-- Internet Gateway (IGW): Allows public traffic to access the internet.
-- NAT Gateway (Network Address Translation): Enables outbound internet access for private
-  subnets.
-- Security Groups: Firewall rules to control inbound and outbound traffic for resources.
-- Network Access Control Lists (NACLs): Additional layer of security at the subnet level.
-- Peering Connections: Connect VPCs together for intercommunication.
-
-### VPC use cases
-
-- Hosting Applications: Deploying scalable web and database applications.
-- Hybrid Cloud Architecture: Connecting on-premises networks to the cloud securely.
-- Data Isolation: Keeping sensitive data within a private network.
-- Multi-tier Architecture: Separating application layers (web, app, database) within
-- distinct subnets.
-=======
 - Subnets: Represent smaller public or private networks within the VPC.
-- [Peering connection]((/doc/platform/concepts/vpc-peering)): Connect VPCs for
+- [Peering connection](/doc/platform/concepts/vpc-peering): Connect VPCs for
   intercommunication.
 - NAT (Network Address Translation) gateway: Allows outbound internet access for private
   subnets.
@@ -71,7 +43,6 @@ you define and control to deploy and manage resources.
 - Multi-tier architecture: Separating application layers (web, app, database) within
   distinct subnets
 - Hybrid cloud architecture: Connecting on-premises networks to the cloud securely
->>>>>>> 80afa7a0 (vpc description draft)
 
 ## VPC types
 

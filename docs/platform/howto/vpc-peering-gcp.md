@@ -2,7 +2,7 @@
 title: Set up VPC peering on GCP
 ---
 
-Once you've created a [VPC on the Aiven platform](manage-vpc-peering), you can set up VPC peering on GCP.
+Once you've created a [VPC on the Aiven platform](manage-project-vpc), you can set up VPC peering on GCP.
 
 ## Set up a VPC peering connection {#set-up-vcp-peering}
 
