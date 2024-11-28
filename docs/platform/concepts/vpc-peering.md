@@ -3,12 +3,11 @@ title: Virtual private cloud (VPC) peering in Aiven
 sidebar_label: VPC peering
 ---
 
-VPC peering supported on the Aiven Platform improves network connectivity and security. It
-simplifies architecture, helps reduce network latency, and enhances resource sharing while
-maintaining isolation and control.
+VPC peering supported on the Aiven Platform improves network connectivity and security. It simplifies architecture, helps reduce network latency, and enhances resource sharing while maintaining isolation and control.
 
-VPC peering is a networking connection between two VPCs. It allows private and direct
-communication between the VPCs with no traffic routing over the public internet.
+[VPC]((/doc/platform/concepts/vpcs)) peering is a networking connection between two VPCs.
+It allows private and direct communication between the VPCs with no traffic routing over
+the public internet.
 
 ### VPC peering characteristics
 
@@ -28,9 +27,14 @@ communication between the VPCs with no traffic routing over the public internet.
 - Data isolation: Access control by using separate VPCs for different projects or teams in
   an organization
 
-## Related pages
+## How it works
 
-- [Virtual private clouds (VPCs) in Aiven](/doc/platform/concepts/vpcs)
+Aiven allows you to set up project VPC peerings with the following cloud providers:
+
+- [Google Cloud](/docs/platform/howto/vpc-peering-gcp)
+- [Amazon Web Services](/docs/platform/howto/vpc-peering-aws)
+- [Microsoft Azure](/docs/platform/howto/vnet-peering-azure)
+- [UpCloud](/docs/platform/howto/vpc-peering-upcloud)
 
 ## Learn more
 
