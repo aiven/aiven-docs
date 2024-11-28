@@ -9,7 +9,7 @@ Learn how to set up VPC peering on AWS.
 ## Prerequisites
 
 Create a
-[VPC on the Aiven platform](/docs/platform/howto/manage-vpc-peering).
+[VPC on the Aiven platform](/docs/platform/howto/manage-project-vpc).
 
 ## Set up VPC peering
 

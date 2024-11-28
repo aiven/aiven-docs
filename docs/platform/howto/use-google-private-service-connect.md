@@ -30,7 +30,7 @@ in Aiven tools. This applies to all clouds, including Google Cloud.
 - Google Private Service Connect is an
   [early availability](/docs/platform/concepts/beta_services#early-availability-) feature.
 - Your Aiven service needs to be hosted in
-  [a project virtual private cloud (VPC)](/docs/platform/howto/manage-vpc-peering) in the
+  [a project virtual private cloud (VPC)](/docs/platform/howto/manage-project-vpc) in the
   region where the connecting endpoint will be created.
 
 :::note
