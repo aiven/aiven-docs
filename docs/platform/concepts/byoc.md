@@ -54,8 +54,7 @@ needs or project requirements, such as:
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
 
--   You use Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure
-    (excluding Azure Germany), or Oracle Cloud Infrastructure (OCI).
+-   You use Amazon Web Services (AWS) or Google Cloud.
 -   You have a commitment deal with Aiven.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 

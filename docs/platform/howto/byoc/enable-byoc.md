@@ -71,11 +71,8 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to enable thi
 
 ## Next steps
 
-With BYOC activated in your Aiven organization, you can create and use custom
-clouds:
-
--   [By yourself if using AWS or GCP](/docs/platform/howto/byoc/create-custom-cloud#create-cloud).
--   By contacting the Aiven team if using Azure or OCI.
+With BYOC activated in your Aiven organization, you can
+[create and use custom clouds](/docs/platform/howto/byoc/create-custom-cloud).
 
 ## Related pages
 
