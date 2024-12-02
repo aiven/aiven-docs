@@ -147,44 +147,23 @@ Parameters:
 Find information about the `aiven_mirrormaker_replication_flow` resource in the
 [Aiven Provider for Terraform® documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow).
 
-1. Update or create the `aiven_mirrormaker_replication_flow` resource in your
-   Terraform configuration file (for example, `main.tf`):
+To enable exactly-once delivery:
 
-   - Add `replication_flow_config = { "exactly_once_delivery_enabled" = true }`.
+1. Update or create the `aiven_mirrormaker_replication_flow` resource in your
+   Terraform configuration file:
+
+   - Add `exactly_once_delivery_enabled = true` to the resource block.
    - Specify the `topics` to replicate using patterns, such as `.*` for all topics.
 
    ```hcl
-   terraform {
-     required_providers {
-       aiven = {
-         source  = "aiven/aiven"
-         version = ">=4.0.0, <5.0.0"
-       }
-     }
-   }
-
-   provider "aiven" {
-     api_token = var.aiven_api_token
-   }
-
    resource "aiven_mirrormaker_replication_flow" "example_flow" {
-     project        = var.project_name
-     service_name   = var.service_name
-     source_cluster = var.source_cluster
-     target_cluster = var.target_cluster
-     enable         = true
-
-     replication_flow_config = {
-       "exactly_once_delivery_enabled" = true
-     }
-
-     topics = [
-       ".*"
-     ]
-   }
-
-   output "replication_flow_status" {
-     value = aiven_mirrormaker_replication_flow.example_flow.state
+     project                       = var.project_name
+     service_name                  = var.service_name
+     source_cluster                = var.source_cluster
+     target_cluster                = var.target_cluster
+     enable                        = true
+     exactly_once_delivery_enabled = true
+     topics                        = [".*"]
    }
    ```
 
@@ -205,8 +184,8 @@ Parameters
 - `target_cluster`: Alias of the target Aiven for Apache Kafka service.
 - `exactly_once_delivery_enabled`: Set to `true` to enable or `false` to disable
   exactly-once delivery.
-- `topics`: Pattern defining which topics to replicate (default: `.*` for all topics).
-
+- `topics`: Pattern to define which topics to replicate. The default value, `.*`,
+  replicates all topics.
 
 </TabItem>
 </Tabs>
