@@ -1,13 +1,9 @@
 ---
 title: MySQL max_connections
+service_label: max_connections
 ---
 
-## `max_connections` vs RAM
-
-The maximum number of simultaneous connections in Aiven for MySQL®
-depends on how much RAM your service plan offers and is fixed for each
-service plan (**Hobbyist**, **Startup**, **Business**, **Premium**, or
-any other plan available under a specific cloud provider.)
+The maximum number of simultaneous connections in Aiven for MySQL® depends on how much RAM your [service plan](/docs/platform/howto/scale-services) offers and is fixed for each service plan.
 
 :::note
 Independent of the plan, an `extra_connection` with a value of `1` is

@@ -1,8 +1,9 @@
 ---
 title: Connect to Aiven for MySQL® from the command line
+sidebar_label: Connect with the CLI
 ---
 
-Connect to your MySQL via the command line with the following tools:
+Connect to your Aiven for MySQL® service via the command line with the following tools:
 
 -   [mysqlsh shell](/docs/products/mysql/howto/connect-from-cli#connect-mysqlsh)
 -   [mysql client](/docs/products/mysql/howto/connect-from-cli#connect-mysql)

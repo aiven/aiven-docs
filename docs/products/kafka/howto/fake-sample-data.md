@@ -3,9 +3,7 @@ title: Sample dataset generator for Aiven for Apache Kafka®
 sidebar_label: Sample data
 ---
 
-Learning to work with streaming data is much more fun with data, so to
-get you started on your Apache Kafka® journey we help you create fake
-streaming data to a topic.
+Learn to work with streaming data with sample data to get you started on your Apache Kafka® journey.
 
 :::note
 The following example is based on [Docker](https://www.docker.com/)
@@ -30,9 +28,9 @@ To start using the generator:
     git clone https://github.com/aiven/fake-data-producer-for-apache-kafka-docker
     ```
 
-2.  Copy the file `conf/env.conf.sample` to `conf/env.conf`
+1.  Copy the file `conf/env.conf.sample` to `conf/env.conf`
 
-3.  Create a [token](/docs/platform/howto/create_authentication_token) in the Aiven
+1.  Create a [token](/docs/platform/howto/create_authentication_token) in the Aiven
     Console or using the following command in the
     [Aiven CLI](/docs/tools/cli),
     changing the `max-age-seconds` appropriately for the duration of
@@ -53,7 +51,7 @@ To start using the generator:
     the token.
     :::
 
-4.  Edit the `conf/env.conf` file filling the following placeholders:
+1.  Edit the `conf/env.conf` file filling the following placeholders:
 
     -   `my_project_name`: the name of your Aiven project
     -   `my_kafka_service_name`: the name of your Aiven for Apache Kafka
@@ -64,7 +62,7 @@ To start using the generator:
     -   `my_aiven_token`: the personal token generated during the previous
         step
 
-5.  Build the Docker image with:
+1.  Build the Docker image with:
 
     ```
     docker build -t fake-data-producer-for-apache-kafka-docker .
@@ -75,13 +73,13 @@ To start using the generator:
     rebuild the Docker image to start using them.
     :::
 
-6.  Start the streaming data flow with:
+1.  Start the streaming data flow with:
 
     ```
     docker run fake-data-producer-for-apache-kafka-docker
     ```
 
-7.  Once the Docker image is running, check in the target Aiven for
+1.  Once the Docker image is running, check in the target Aiven for
     Apache Kafka® service that the topic is populated. This can be done
     with the [Aiven Console](https://console.aiven.io/), if the Kafka
     REST option is enabled, in the *Topics* tab. Alternatively you can

@@ -7,7 +7,6 @@ import MyComponentSource1 from '!!raw-loader!/code/products/redis/connect.js';
 
 Learn how to connect to an Aiven for Caching service using NodeJS with the `ioredis` library.
 
-
 ## Variables
 
 Replace the following placeholders in the code sample with actual values

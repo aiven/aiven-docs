@@ -2,8 +2,7 @@
 title: Connect with pgAdmin
 ---
 
-[pgAdmin](https://www.pgadmin.org/) is one of the most popular
-PostgreSQL® clients, useful to manage and query your database.
+[pgAdmin](https://www.pgadmin.org/) is one of the most popular PostgreSQL® clients. Use it to manage and query your database.
 
 ## Variables
 
@@ -26,10 +25,10 @@ website](https://www.pgadmin.org/download/)
 
 1.  Open pgAdmin and click **Create New Server**.
 
-2.  In the **General** Tab give the connection a name, for example
+1.  In the **General** Tab give the connection a name, for example
     `MyDatabase`.
 
-3. In the **Connection** tab, set:
+1. In the **Connection** tab, set:
 
    - **Host name/address** to `HOSTNAME`
    - **Port**: to `PORT`
@@ -37,9 +36,9 @@ website](https://www.pgadmin.org/download/)
    - **Username** to `avnadmin`
    - **Password** to `PASSWORD`
 
-4.  In the **SSL** tab, set **SSL mode** to `Require`
+1.  In the **SSL** tab, set **SSL mode** to `Require`
 
-5.  Click **Save**
+1.  Click **Save**
 
 :::tip
 If you experience a SSL error while connecting, add the service CA
