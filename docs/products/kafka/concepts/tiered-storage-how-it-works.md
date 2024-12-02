@@ -3,6 +3,8 @@ title: How tiered storage works in Aiven for Apache Kafka®
 sidebar_label: How it works
 ---
 
+import DataRetention from "@site/static/images/content/figma/data-retention.png";
+
 Aiven for Apache Kafka® tiered storage optimizes data management across two distinct storage tiers:
 
 - **Local tier**: Uses faster, typically more expensive storage solutions
@@ -37,7 +39,7 @@ retention threshold. This continues until the remote tier is back online, at whi
 point the excess local data is transferred to remote storage, and local segments
 exceeding the retention threshold are removed.
 
-![Diagram depicting the concept of local vs. remote data retention in a tiered storage system.](/images/content/products/kafka/tiered-storage/data-retention.png)
+<img src={DataRetention} className="centered" alt="Diagram depicting the concept of local vs. remote data retention in a tiered storage system" width="60%" />
 
 ## Segment management
 
