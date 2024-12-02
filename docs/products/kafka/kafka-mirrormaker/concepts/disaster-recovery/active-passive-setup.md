@@ -2,11 +2,8 @@
 title: Active-passive setup
 ---
 
-In this setup, there are two Apache Kafka® clusters, the primary and secondary clusters.
-The primary cluster contains the *topic* topic. The
-"active" cluster serves all produce and consume requests, while the
-"passive" cluster serves as a replica of the "active" cluster
-without running any applications against it.
+In this setup, there are two Apache Kafka® clusters, the primary and secondary clusters. The primary cluster contains the *topic* topic.
+The "active" cluster serves all produce and consume requests, while the "passive" cluster serves as a replica of the "active" cluster without running any applications against it.
 
 ![MirrorMaker 2 Active-Passive Setup](/images/content/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Passive.png)
 

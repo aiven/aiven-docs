@@ -2,8 +2,7 @@
 title: Connect to the Aiven for ClickHouse® service with PHP
 ---
 
-Learn how to connect to your Aiven for ClickHouse® service with PHP
-using the PHP ClickHouse client and the HTTPS port.
+Learn how to connect to your Aiven for ClickHouse® service with PHP using the PHP ClickHouse client and the HTTPS port.
 
 ## Prerequisites
 

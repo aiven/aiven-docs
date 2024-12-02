@@ -3,8 +3,8 @@ title: Understand MySQL backups
 sidebar_label: Backups
 ---
 
-Aiven for MySQL databases are automatically backed-up, with full backups
-daily, and binary logs recorded continuously. The number of stored
+Aiven for MySQL databases are automatically backed-up, with full backups daily, and binary logs recorded continuously.
+The number of stored
 backups and backup retention time depends on your [Aiven service
 plan](https://aiven.io/pricing?product=mysql&tab=plan-comparison). Full
 backups are version-specific binary backups, which when combined with

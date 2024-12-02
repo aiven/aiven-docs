@@ -4,7 +4,6 @@ title: Connect with valkey-cli
 
 Learn how to establish a connection to an Aiven for Valkey™ service using the `valkey-cli`.
 
-
 ## Variables
 
 Replace the following placeholders in the code sample with actual values

@@ -2,11 +2,14 @@
 title: Default service IP address and hostname
 ---
 
+When a new Aiven service is created, it automatically gets a hostname and one or more public IP addresses.
+
 ## Default service IP address
 
-When a new Aiven service is created, the chosen cloud service provider
-will dynamically assign one or more public IP address from their
-connection pool. This IP address is not permanent, and with every
+The chosen cloud service provider will dynamically assign one or more public IP
+address from their connection pool.
+
+This IP address is not permanent, and with every
 service maintenance (in case of failover, maintenance upgrade or cloud
 migration) the IP address changes since Aiven creates a new node,
 migrates the existing data to it and retire the old node.

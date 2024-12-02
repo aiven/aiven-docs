@@ -8,7 +8,7 @@ import GridContainer from "@site/src/components/GridContainer";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import AI from "@site/static/images/logos/star-ai.svg";
 
-Interact with the Aiven platform with the following tools:
+You can interact with the Aiven platform with various interfaces and tools that best suit your workflow.
 
  <GridContainer>
     <Card

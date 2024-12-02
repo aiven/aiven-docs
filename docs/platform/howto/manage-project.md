@@ -5,12 +5,14 @@ title: Manage projects
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
+Learn how to manage your projects with the Aiven Console.
+
 ## Create a project
 
 1.  Click <ConsoleLabel name="Projects"/> and select **Create project**.
-2.  Enter a name for the project.
-3.  Select an organization or organizational unit to add the project to.
-4.  Select a [billing group](/docs/platform/concepts/billing-groups-overview).
+1.  Enter a name for the project.
+1.  Select an organization or organizational unit to add the project to.
+1.  Select a [billing group](/docs/platform/concepts/billing-groups-overview).
     The costs from all services in this project are charged to the
     payment method for this billing group.
 
