@@ -17,16 +17,16 @@
   },
   "dependencies": {
     "@aivenio/aquarium": "^1.73.0",
-    "@algolia/client-search": "^5.13.0",
-    "@docusaurus/core": "^3.6.1",
-    "@docusaurus/plugin-client-redirects": "^3.6.1",
-    "@docusaurus/plugin-google-gtag": "^3.6.1",
-    "@docusaurus/preset-classic": "^3.6.1",
-    "@docusaurus/theme-mermaid": "^3.6.1",
+    "@algolia/client-search": "^5.15.0",
+    "@docusaurus/core": "^3.6.3",
+    "@docusaurus/plugin-client-redirects": "^3.6.3",
+    "@docusaurus/plugin-google-gtag": "^3.6.3",
+    "@docusaurus/preset-classic": "^3.6.3",
+    "@docusaurus/theme-mermaid": "^3.6.3",
     "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
     "@types/react": "^18.2.48",
-    "algoliasearch": "^5.13.0",
+    "algoliasearch": "^5.15.0",
     "axios": "^1.7.4",
     "cheerio": "1.0.0-rc.12",
     "clsx": "^1.2.1",
@@ -47,9 +47,9 @@
     "webpack": "^5.94.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.6.1",
-    "@docusaurus/tsconfig": "^3.6.1",
-    "@docusaurus/types": "^3.6.1",
+    "@docusaurus/module-type-aliases": "^3.6.3",
+    "@docusaurus/tsconfig": "^3.6.3",
+    "@docusaurus/types": "^3.6.3",
     "@types/lodash": "^4"
   },
   "browserslist": {
