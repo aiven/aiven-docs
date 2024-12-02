@@ -247,7 +247,7 @@
             <td>
               <div className="param"><p className="name" id="azure_migration_snapshot_name"><a href="#azure_migration_snapshot_name"><strong>azure_migration.snapshot_name</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
-              <div className="description"><p>The snapshot name to restore from</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -303,7 +303,7 @@
             <td>
               <div className="param"><p className="name" id="azure_migration_account"><a href="#azure_migration_account"><strong>azure_migration.account</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Account name</p>
-              <div className="description"><p>Azure account name</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -342,7 +342,7 @@
             <td>
               <div className="param"><p className="name" id="gcs_migration_snapshot_name"><a href="#gcs_migration_snapshot_name"><strong>gcs_migration.snapshot_name</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
-              <div className="description"><p>The snapshot name to restore from</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -390,8 +390,8 @@
           <tr>
             <td>
               <div className="param"><p className="name" id="gcs_migration_bucket"><a href="#gcs_migration_bucket"><strong>gcs_migration.bucket</strong></a></p><p><code className="type">string</code></p></div>
-              <p className="title">The path to the repository data within its container</p>
-              <div className="description"><p>Google Cloud Storage bucket name</p></div>
+              <p className="title">Google Cloud Storage bucket name</p>
+              <div className="description"><p>The path to the repository data within its container</p></div>
             </td>
           </tr>
           <tr>
@@ -416,7 +416,7 @@
             <td>
               <div className="param"><p className="name" id="s3_migration_snapshot_name"><a href="#s3_migration_snapshot_name"><strong>s3_migration.snapshot_name</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
-              <div className="description"><p>The snapshot name to restore from</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -465,14 +465,14 @@
             <td>
               <div className="param"><p className="name" id="s3_migration_bucket"><a href="#s3_migration_bucket"><strong>s3_migration.bucket</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">S3 bucket name</p>
-              <div className="description"><p>S3 bucket name</p></div>
+              
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name" id="s3_migration_region"><a href="#s3_migration_region"><strong>s3_migration.region</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">S3 region</p>
-              <div className="description"><p>S3 region</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -493,7 +493,7 @@
             <td>
               <div className="param"><p className="name" id="s3_migration_access_key"><a href="#s3_migration_access_key"><strong>s3_migration.access_key</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">AWS Access key</p>
-              <div className="description"><p>AWS Access key</p></div>
+              
             </td>
           </tr>
           <tr>
