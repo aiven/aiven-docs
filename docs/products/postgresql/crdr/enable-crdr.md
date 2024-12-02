@@ -5,7 +5,9 @@ limited: true
 keywords: [recovery, primary, outage, failure, failover]
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) feature in in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of region outage.
 
@@ -20,13 +22,16 @@ Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crd
   plan.
   :::
 
-- Access to the [Aiven Console](https://console.aiven.io/)
+- Access to the [Aiven Console](https://console.aiven.io/) or
+  the [Aiven CLI client installed](/docs/tools/cli)
 
 ## Set up a recovery service
 
-Create a [CRDR setup](/docs/products/postgresql/crdr/crdr-overview#crdr-setup) in the the
-[Aiven Console](https://console.aiven.io/):
+Create a [CRDR setup](/docs/products/postgresql/crdr/crdr-overview#crdr-setup) using
+a tool of your choice:
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
@@ -38,6 +43,31 @@ Create a [CRDR setup](/docs/products/postgresql/crdr/crdr-overview#crdr-setup) i
 Througout the process of creating the recovery service, the recovery service is in the
 **Rebuilding** state. As soon as the recovery service is ready, its status changes to
 **Passive**, which means your CRDR setup is up and running.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run [avn byoc create](/docs/tools/cli/service-cli#avn-cli-service-create):
+
+```bash
+avn service create RECOVERY_SERVICE_NAME             \
+   --service-type pg                                 \
+   --plan SERVICE_PLAN                               \
+   --cloud CLOUD_REGION                              \
+   --disaster-recovery-copy-for PRIMARY_SERVICE_NAME
+```
+
+Replace the following:
+
+- `RECOVERY_SERVICE_NAME` with the name of the recovery service, for example,
+  `pg-demo-recovery`
+- `SERVICE_PLAN` with the plan to use for the recovery service, for example, `startup-4`
+- `CLOUD_REGION` with the cloud region where to host the recovery service, for example,
+  `google-europe-west-4`
+- `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`
+
+</TabItem>
+</Tabs>
 
 ## Related pages
 
