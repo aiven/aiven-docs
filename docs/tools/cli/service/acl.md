@@ -58,7 +58,7 @@ Lists Aiven for Apache Kafka® ACL entries.
 avn service acl-list kafka-doc
 ```
 
-An example of `account service acl-list` output:
+An example of `avn service acl-list` output:
 
 ```text
 ID              USERNAME  TOPIC      PERMISSION

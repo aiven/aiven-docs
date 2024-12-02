@@ -465,6 +465,7 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/es-acl',
                 'tools/cli/service/flink',
                 'tools/cli/service/integration',
+                'tools/cli/service/kafka-acl',
                 'tools/cli/service/m3',
                 'tools/cli/service/privatelink',
                 'tools/cli/service/schema-registry-acl',
