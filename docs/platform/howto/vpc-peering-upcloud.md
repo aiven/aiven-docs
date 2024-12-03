@@ -95,7 +95,7 @@ The peering becomes active and the traffic is shared only after you create the p
 both from the source network and from the target network.
 :::
 
-<img src={UpcloudVpcPeering} className="image"/>
+<img src={UpcloudVpcPeering} className="image" alt="Create network peering"/>
 
 ### Use the UpCloud API{#upcloud-api}
 
