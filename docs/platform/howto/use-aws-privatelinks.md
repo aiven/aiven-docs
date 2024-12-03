@@ -164,7 +164,7 @@ AWS PrivateLink is not supported in:
     As a result, PrivateLink connection details are added to the **Connection information** section on the service
     <ConsoleLabel name="overview"/>.
 
-    <img src={AivenConsolePrivateLinkConfiguration} className="image"/>
+    <img src={AivenConsolePrivateLinkConfiguration} className="image" alt="Screenshot of the configuration"/>
 
     It takes a couple of minutes before connectivity is available after
     you enable a service component. This is because AWS requires an AWS
