@@ -2,10 +2,12 @@
 title: Active-passive setup
 ---
 
+import Activepassive from "@site/static/images/content/figma/mirrormaker-active-passive.png";
+
 In this setup, there are two Apache Kafka® clusters, the primary and secondary clusters. The primary cluster contains the *topic* topic.
 The "active" cluster serves all produce and consume requests, while the "passive" cluster serves as a replica of the "active" cluster without running any applications against it.
 
-![MirrorMaker 2 Active-Passive Setup](/images/content/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Passive.png)
+<img src={Activepassive} className="centered" alt="Active-Passive Setup" width="80%" />
 
 -   All the clients (producers and consumers) work with primary.
     MirrorMaker 2 replicates the topic from primary to secondary (the
@@ -26,7 +28,7 @@ The "active" cluster serves all produce and consume requests, while the "passive
     primary.topic. This approach might be more convenient when a future
     fallback to the primary cluster is needed.
 
-**Disaster Recovery**
+## Disaster Recovery
 
 To enable a DR scenario, the backup cluster (Cluster B) must have topics
 with the same name as the primary cluster (Cluster A). By default, this
@@ -35,12 +37,12 @@ is not the case, so all replication flows must use the
 
 When a replication flow is created, it will mirror all topics based upon
 the allow list or deny list configuration of the replication flow. The
-allow list should be set .\* to guarantee that all internal topics such
+allow list should be set to `.*` to guarantee that all internal topics such
 as consumer offsets for Apache Kafka® Connectors and consumer groups,
 and schemas for
 [Karapace](/docs/products/kafka/karapace).
 
-**Failover**
+## Failover
 
 When a cluster is replicated using MM2, it will have a different service
 URI and certificates that need to be considered when transitioning

@@ -2,6 +2,8 @@
 title: MirrorMaker 2 active-active setup
 ---
 
+import Activeactive from "@site/static/images/content/figma/mirrormaker-active-active.png";
+
 An active-active setup of MM2 allows data to be replicated between two clusters simultaneously.
 It implies a bidirectional mirroring between
 the two clusters. To do this, MM2 uses topic prefixes in the
@@ -10,7 +12,7 @@ form of `<cluster alias\>.<topic name\>`.
 In this setup, there are two actively used Apache Kafka® clusters:
 Cluster K1 and cluster K2. Topic exists in both clusters.
 
-![MirrorMaker 2 Active-Active Setup](/images/content/products/kafka/kafka-mirrormaker/Mirrormaker-Active-Active.png)
+<img src={Activeactive} className="centered" alt="Active-active setup" width="70%" />
 
 Each cluster has its producers and consumers. Producers produce to a
 topic, while consumers consume from the same topic using the same
