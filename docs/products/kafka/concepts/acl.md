@@ -1,5 +1,6 @@
 ---
 title: Access Control Lists in Aiven for Apache Kafka®
+sidebar_label: Access control lists
 ---
 
 Access Control Lists (ACLs) in Aiven for Apache Kafka® provide a mechanism to manage access to Apache Kafka resources such as topics, consumer groups, clusters, transactional IDs, and the Schema Registry.
@@ -39,8 +40,8 @@ An Aiven ACL entry consists of the following elements:
 - **Permission**: One of `read`, `write`, `readwrite`, or `admin`.
 - **Associated topics**: Specific Kafka topics or wildcard patterns.
 
-Aiven evaluates access requests based on ACL entries and grants access if a match is
-found. If no entry matches, access is denied. The order of ACL entries does not
+Aiven checks ACL entries and grants access if there's a match. If no entry matches,
+access is denied. The order of ACL entries does not
 influence access evaluation.
 
 ### Examples
@@ -83,13 +84,12 @@ control. They enable the management of Apache Kafka topics and additional resour
 like clusters, consumer groups, and transactional IDs. It is ideal for
 advanced scenarios requiring fine-tuned access management.
 
-- **Fine-grained permissions**: Supports both `ALLOW` and `DENY` rules to provide
+- **Fine-grained permissions**: Allow both `ALLOW` and `DENY` rules to provide
   precise control over access.
-- **Expanded resource-level control**: Extends permissions to non-topic resources,
+- **Expanded resource-level control**: Manage access to non-topic resources,
   such as consumer groups, clusters, and transactional IDs.
-- **Pattern-based matching**: Offers `LITERAL` and `PREFIXED` matching for resource
-  names. For example, `logs-*` applies permissions to all topics sharing the prefix
-  `logs-`.
+- **Pattern-based matching**: Specify how resource names are matched using `LITERAL`
+  for exact matches or `PREFIXED` for prefixes.
 
 ### ACL structure
 
@@ -97,16 +97,14 @@ A Kafka-native ACL entry consists of the following elements:
 
 - **Principal**: Specifies the user or service account, such as `User:Alice`.
 - **Host**: Defines the allowed host. Use `*` to allow all hosts.
-- **Resource type**: Indicates the Kafka resource to control, such as `Topic`, `Group`,
-  `Cluster`, or `TransactionalId`.
-- **Pattern type**: Specifies how the resource value is matched:
+- **Resource type**: Indicates the Apache Kafka resource to control, such as `Topic`,
+  `Group`, `Cluster`, or `TransactionalId`.
+- **Pattern type**: Determines how the resource value is matched:
   - **LITERAL**: Matches an exact resource name, such as `my-topic`.
   - **PREFIXED**: Matches all resources sharing a specified prefix, such as `logs-*`.
-- **Resource**: Refers to the specific Kafka resource. Depending on the selected pattern type:
-  - **Literal pattern type**: Enter the exact name of the resource. For example,
-    `my-topic`.
-  - **Prefixed pattern type**: Enter the prefix for the resource. For example, `logs-`.
-- **Operation**: The Kafka operation to allow or deny, such as `Read`, `Write`, or `Describe`.
+- **Resource**: Refers to the specific Kafka resource. Its value depends on the selected pattern type.
+- **Operation**: The Apache Kafka operation to allow or deny, such as `Read`, `Write`, or
+  `Describe`.
 - **Permission type**: Specifies whether the action is `ALLOW` or `DENY`.
 
 ### Examples
@@ -170,27 +168,13 @@ consumer group, `DENY` rules take precedence over `ALLOW` rules.
 
 **Examples**:
 
-- If `ALLOW` is applied to the topic pattern `test-*` and `DENY` is applied to the topic
-  pattern `test-sensitive-*`, the `DENY` rule ensures that the topic
-  `test-sensitive-logs` remains inaccessible, even though it matches the broader
-  pattern `test-*`.
-- If `ALLOW` is applied to all consumer groups (`Group:*`) and `DENY` is applied to
-  consumer groups with the prefix `Group:sensitive-*`, operations on consumer groups
-  with the prefix `sensitive-*` will be denied.
+- An `ALLOW` rule grants access to resources matching a general pattern, such as:
+  - Topics starting with `test-*`
+  - All consumer groups
+- A `DENY` rule restricts access to resources matching a specific pattern, such as:
+  - Topics starting with `test-sensitive-*`
+  - Consumer groups with `sensitive` in their names
 
-### Supported resources and operations
-
-Kafka-native ACLs support the following resources and their corresponding operations:
---<!-- vale off -->
-
-| Resource type   | Description                             | Supported operations          |
-|----------------------|---------------------------------------------|------------------------------------|
-| Cluster          | Represents the Apache Kafka cluster itself. | `Alter`, `Describe`, `AlterConfigs`, `Create` |
-| DelegationToken  | Represents delegation tokens for authentication. | `Describe`, `Alter`               |
-| Group            | Represents Kafka consumer groups.           | `Read`, `Describe`, `Delete`       |
-| Topic            | Represents Kafka topics.                    | `Read`, `Write`, `Describe`, `Delete` |
-| TransactionalId**  | Used for exactly-once semantics.            | `Write`, `Describe`               |
-| User             | Represents users for authentication.        | `Describe`                        |
 
 ## ACL permission mapping
 
@@ -222,8 +206,8 @@ the specified pattern in the ACL entry.
 :::
 
 :::note
-By default, a Kafka service can have up to 50 users. Contact Aiven support if you need
-to increase this limit.
+By default, a Aiven for Apache Kafka service can have up to 50 users. Contact
+[Aiven support](mailto:support@aiven.io) if to increase this limit.
 :::
 
 ## Related pages
