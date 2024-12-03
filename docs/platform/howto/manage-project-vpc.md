@@ -7,7 +7,6 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Set up or delete a project-wide VPC in your Aiven organization. Deploy or migrate Aiven-managed services to your project VPC. Access resources within the project VPC from the public internet.
 
-
 <!--
 Virtual Private Cloud (VPC) peering is a method of connecting separate AWS, Google Cloud,
 or Azure private networks with each other. It allows virtual machines in the different

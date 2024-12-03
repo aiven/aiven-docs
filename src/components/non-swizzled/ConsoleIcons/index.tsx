@@ -189,6 +189,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Bring your own cloud</b>
         </>
       );
+      case 'organizationvpcs':
+        return (
+          <>
+            <ConsoleIconWrapper icon={ConsoleIcons.cloud} />{' '}
+            <b>Organization VPCs</b>
+          </>
+        );
     case 'eventlog':
       return (
         <>
@@ -415,6 +422,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
         </>
       );
+      case 'delete':
+        return (
+          <>
+            <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
+          </>
+        );
     case 'addconfigoptions':
       return (
         <>
