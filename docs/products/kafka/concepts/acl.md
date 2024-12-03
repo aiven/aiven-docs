@@ -212,7 +212,5 @@ By default, a Aiven for Apache Kafka service can have up to 50 users. Contact
 
 ## Related pages
 
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/#operations_resources_and_protocols):
-  Learn about Kafka operations, resources, and protocols.
-- [Manage users and access control lists](/docs/products/kafka/howto/manage-acls):
-  Configure users and ACLs in Aiven for Apache Kafka.
+- [Manage access control lists](/docs/products/kafka/howto/manage-acls)
+- [Apache Kafka official documentation](https://kafka.apache.org/documentation/#operations_resources_and_protocols)
