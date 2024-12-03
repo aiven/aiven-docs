@@ -67,12 +67,11 @@ organization. An organization-wide VPC allows different projects to share a cent
 network infrastructure while maintaining isolation and control.
 
 Learn how to
-[create and manage organization VPCs in Aiven](/docs/platform/howto/manage-project-vpc).
+[create and manage organization VPCs in Aiven](/docs/platform/howto/manage-organization-vpc).
 
 ## Learn more
 
-There are the following cloud-provider-specific articles you might want to read to have a
-full picture:
+For information on VPCs supported by particular cloud providers, see the following:
 
 - AWS: [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html])
 - Google Cloud: [VPC networks](https://cloud.google.com/vpc/docs/vpc)
