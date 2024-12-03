@@ -3,7 +3,7 @@ title: Access Control Lists in Aiven for Apache Kafka®
 sidebar_label: Access control lists
 ---
 
-Access Control Lists (ACLs) in Aiven for Apache Kafka® provide a mechanism to manage access to Apache Kafka resources such as topics, consumer groups, clusters, transactional IDs, and the Schema Registry.
+Access Control Lists (ACLs) in Aiven for Apache Kafka® manage access to topics, consumer groups, clusters, and Schema Registry with permissions.
 
 Aiven supports two ACL models:
 
