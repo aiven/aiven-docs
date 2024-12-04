@@ -12,7 +12,7 @@ operations on these resources.
 
 ## Types of ACLs
 
-Aiven for Apache Kafka® supports two types of ACLs:
+Aiven for Apache Kafka supports two types of ACLs:
 
 - **Aiven ACLs**: These provide topic-level permissions and support wildcard patterns.
 - **Kafka-native ACLs**: These offer advanced, resource-level permissions with `ALLOW`
@@ -20,10 +20,20 @@ Aiven for Apache Kafka® supports two types of ACLs:
   and clusters.
 
 :::note
-ACL restrictions are controlled by a flag in the service's user configuration. By
-default, ACLs do not apply to Kafka REST. If the flag is enabled, all ACLs are applied
-to Kafka REST in the same way as they are for other interfaces.
+ACL restrictions for Kafka REST are controlled by a user configuration parameter
+in the service's advanced configuration settings. By default, ACLs do not apply to
+Kafka REST. To enable ACLs for Kafka REST, set the `kafka_rest_authorization` parameter.
+For more information, see
+[Enable Kafka REST Proxy Authorization](https://aiven.io/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization).
 :::
+
+## Prerequisites
+
+- [Aiven for Apache Kafka service](/docs/products/kafka/get-started) running.
+- Access to the [Aiven Console](https://console.aiven.io/).
+- Installed and authenticated [Aiven CLI](/docs/tools/cli).
+- An [API token](https://aiven.io/docs/platform/howto/create_authentication_token) for
+  authenticating API requests.
 
 ## Add a Kafka-native ACL entry
 
@@ -32,13 +42,13 @@ to Kafka REST in the same way as they are for other interfaces.
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and select your
    service.
-1. Click <ConsoleLabel name="acl" />
+1. Click <ConsoleLabel name="acl" />.
 1. Click **Add entry**.
 1. On the **Add access control entry** screen:
    1. Select **Kafka-native ACLs** as the ACL type.
    1. Fill in the following fields:
       1. **Permission type**: Select `ALLOW` or `DENY`.
-      1. **Principal**:Enter the principal in the format `User:<username>`.
+      1. **Principal**: Enter the principal in the format `User:<username>`.
       1. **Operation**: Select the operation, such as `Read` or `Write`.
       1. **Resource type**: Select the Apache Kafka resource to manage.
       1. **Pattern type**: Select `LITERAL` for exact matches or `PREFIXED` for
@@ -50,7 +60,7 @@ to Kafka REST in the same way as they are for other interfaces.
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-To add an Kafka-native ACL entry with the Aiven CLI, run:
+To add an Kafka-native ACL entry using the Aiven CLI, run:
 
 ```bash
 avn service kafka-acl-add <service_name> \
@@ -65,14 +75,15 @@ avn service kafka-acl-add <service_name> \
 Parameters:
 
 - `service_name`: Enter the name of your Aiven for Apache Kafka service.
-- `--principal`: Provide the principal in the format `User:<username>`.
-- `--operation`: Specify the Apache Kafka operation, such as
+- `--principal`: Enter the principal in the format `User:<username>`.
+- `--operation`: Enter the Apache Kafka operation, such as
   `Read`, `Write`, `Describe`, `Delete`, or any supported operation.
-- `--topic`: Specify the topic resource for the ACL entry. Use this when working with
-  topic-based ACLs.
-- `--group`: Specify the consumer group resource for the ACL entry.
-- `--cluster`: Specify that the ACL applies to the cluster resource.
-- `--transactional-id`: Specify the transactional ID resource for the ACL entry.
+- Resource-specific parameters, specify at least one of the following based on your
+  requirements:
+  - `--topic`: Enter the topic resource.
+  - `--group`: Enter the consumer group resource.
+  - `--cluster`: Specify that the ACL applies to the Kafka cluster.
+  - `--transactional-id`: Enter the transactional ID resource.
 - `--resource-pattern-type`: Specify the resource pattern type. Use `LITERAL` for exact
   matches or `PREFIXED` for pattern-based matches (default: `LITERAL`).
 - `--host` Optional: Specify the allowed host. Use `*` to allow all hosts.
@@ -105,7 +116,7 @@ curl --request POST \
     "host": "<host>",
     "resource_type": "<Cluster|Topic|Group|TransactionalId>",
     "resource_name": "<resource_name>",
-    "pattern_type": "<LITERAL>",
+    "pattern_type": "<LITERAL|PREFIXED>",
     "operation": "<operation_type>",
     "permission_type": "<ALLOW|DENY>"
   }'
@@ -121,13 +132,15 @@ Parameter:
 - `resource_type`: Specify the resource type, such as `Cluster`, `Topic`, `Group`, or
   `TransactionalId`.
 - `resource_name`: Provide the resource name or prefix for pattern-based matching.
-- `pattern_type`: Specify `LITERAL`.
+- `pattern_type`: Specify `LITERAL` for an exact match or `PREFIXED` for
+  pattern-based matching.
 - `host`: Specify the allowed host or use `*` to match all hosts.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-To add a Kafka-native ACL entry using Terraform, define the following resource in your Terraform configuration:
+To add a Kafka-native ACL entry using Terraform, define the following resource in your
+Terraform configuration:
 
 ```terraform
 resource "aiven_kafka_native_acl" "example" {
@@ -143,19 +156,19 @@ resource "aiven_kafka_native_acl" "example" {
 }
 ```
 
-Required attributes:
+ Parameters:
 
 - `project`: Enter the name of your Aiven project.
 - `service_name`: Enter the name of your Aiven for Apache Kafka service.
-- `resource_name`: Specify the resource name or prefix for pattern-based matching.
-- `resource_type`: Specify the type of resource to manage, such as
+- `resource_name`: Enter the resource name or prefix for pattern-based matching.
+- `resource_type`: Enter the type of resource to manage, such as
   `Topic`, `Group`, `Cluster`, or `TransactionalId`.
-- `pattern_type`: Specify the pattern type for resource matching. Use `LITERAL` for
+- `pattern_type`: Enter the pattern type for resource matching. Use `LITERAL` for
   exact matches or `PREFIXED` for pattern-based matching.
 - `principal`: Enter the principal in the format `User:<username>`.
-- `operation`: Specify the Kafka operation, such as `Read`, `Write`, or `Create`.
-- `permission_type`: Specify the type of permission. Use `ALLOW` or `DENY`.
-- `host`: Specify the allowed host, or use `*` to apply to all hosts.
+- `operation`: Enter the Apache Kafka operation, such as `Read`, `Write`, or `Create`.
+- `permission_type`: Enter the type of permission. Use `ALLOW` or `DENY`.
+- `host`: Enter the allowed host, or use `*` to apply to all hosts.
 
 </TabItem>
 </Tabs>
@@ -180,14 +193,15 @@ Required attributes:
    1. Click **Submit**.
 
 :::tip
-After defining custom ACLs, delete the default `avnadmin` ACL entry by clicking
-<ConsoleLabel name="deleteacl" /> under **Actions**.
+After defining custom ACLs, delete the default `avnadmin` ACL entry by
+clicking <ConsoleLabel name="deleteacl" /> under **Actions** to prevent unintended
+access via wildcard permissions.
 :::
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-To add an Aiven ACL entry with the Aiven CLI, run:
+To add an Aiven ACL entry using the Aiven CLI, run:
 
 ```bash
 avn service acl-add <service_name> \
@@ -198,11 +212,11 @@ avn service acl-add <service_name> \
 
 Parameters:
 
-- `<service_name>`: Specify the name of your Aiven for Apache Kafka service.
-- `--username`: Specify the username or pattern to apply. Supports wildcards `*` and `?`.
-- `--permission`: Specify the permission type. Valid values are `read`, `write`, or
+- `<service_name>`: Enter the name of your Aiven for Apache Kafka service.
+- `--username`: Enter the username or pattern to apply. Supports wildcards `*` and `?`.
+- `--permission`: Enter the permission type. Valid values are `read`, `write`, or
   `readwrite`.
-- `--topic`: Specify the topic name or pattern to apply. Supports wildcards `*` and `?`.  .
+- `--topic`: Enter the topic name or pattern to apply. Supports wildcards `*` and `?`.
 
 **Example:**
 
@@ -219,7 +233,7 @@ avn service acl-add kafka-service \
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-To add an Aiven ACL entry, use the following API request:
+To add an Aiven ACL entry for Apache Kafka topics, use the following API request:
 
 ```bash
 curl --request POST \
@@ -228,7 +242,6 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{
     "username": "<username_pattern>",
-    "resource_type": "<topic|schema>",
     "resource": "<resource_pattern>",
     "permission": "<read|write|readwrite|admin>"
   }'
@@ -241,16 +254,29 @@ Parameters:
 - `service_name`: Enter the name of your Aiven for Apache Kafka service.
 - `username`: Enter the username or pattern to apply the ACL to. Use `*` and `?` as
   wildcards.
-- `resource_type`: Specify `topic` for Kafka topics or `schema` for schemas in the
-  schema registry.
 - `resource`: Enter the name of the topic or schema. Use `*` to apply to all, or
   include patterns with wildcards.
-- `permission`: Specify `read`, `write`, `readwrite`, or `admin`.
+- `permission`: Enter the permission type, such as `read`, `write`, `readwrite`, or
+  `admin`.
+
+:::note
+Schema-related ACLs control access to schemas in the schema registry. These are
+configured separately from topic-based ACLs.
+
+To configure schema-related ACLs, use the schema registry-specific configuration endpoint:
+`/service/<service_name>/schema-registry/acl`.
+
+For more information, see the
+[Schema ACL definition](https://aiven.io/docs/products/kafka/karapace/concepts/acl-definition)
+or the [Schema Registry ACL API documentation](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceSchemaRegistryAclAdd).
+:::
+
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-To add an Aiven ACL entry using Terraform, define the following resource in your Terraform configuration:
+To add an Aiven ACL entry using Terraform, define the following resource in your
+Terraform configuration:
 
 ```terraform
 resource "aiven_kafka_acl" "example_acl" {
@@ -262,15 +288,15 @@ resource "aiven_kafka_acl" "example_acl" {
 }
 ```
 
-Required attributes:
+ Parameters:
 
 - `project`: Enter the name of your Aiven project.
 - `service_name`: Enter the name of your Aiven for Apache Kafka service.
-- `topic`: Specify the name of the topic or pattern to apply the ACL to. Supports
+- `topic`: Enter the name of the topic or pattern to apply the ACL to. Supports
   wildcards `*` and `?`.
-- `permission`: Specify the permission type. Valid values are `read`, `write`, or
+- `permission`: Enter the permission type. Valid values are `read`, `write`, or
   `readwrite`.
-- `username`: Specify the username or pattern to apply the ACL to. Supports wildcards `*`
+- `username`: Enter the username or pattern to apply the ACL to. Supports wildcards `*`
   and `?`.
 
 :::tip
@@ -290,7 +316,7 @@ an admin user with wildcard permissions.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select your
    Aiven for Apache Kafka service.
-1. Click <ConsoleLabel name="acl" />
+1. Click <ConsoleLabel name="acl" />.
 1. Click the **Kafka-native ACLs** tab to view Kafka-native ACL entries or the
    **Aiven ACLs** tab to view Aiven ACL entries.
 1. Use filters to narrow the list by resource type, operation, or permission type.
@@ -312,9 +338,7 @@ To view ACL entries using the Aiven CLI:
   avn service acl-list <service_name>
   ```
 
-Parameters:
-
-- `service_name`: Enter the name of your Aiven for Apache Kafka service.
+Replace `service_name` with the name of your Aiven for Apache Kafka service.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -365,6 +389,8 @@ To view ACL entries with Terraform:
   }
   ```
 
+- Run `terraform apply`, and use `terraform console` to view the ACL entries.
+
 Parameters
 
 - `project`: Enter the name of your Aiven project.
@@ -403,25 +429,14 @@ To delete an ACL entry, use one of the following commands based on the ACL type:
 - **Aiven ACLs**:
 
   ```bash
-  avn service acl-delete --service <service_name> --id <acl_id>
+   avn service acl-delete <service_name> <acl_id>
   ```
 
 Parameters
 
 - `<service_name>`: Enter the name of the Aiven for Apache Kafka service.
-- `<acl_id>`: Enter the ID of the ACL entry to delete. To retrieve ACL ID:
-
-  - For Kafka-native ACLs:
-
-    ```bash
-    avn kafka acl list --service <service_name>
-    ```
-
-  - For Aiven ACLs:
-
-    ```bash
-    avn service acl-list --service <service_name>
-    ```
+- `<acl_id>`: Enter the ID of the ACL entry to delete. You can get
+  the `acl_id` from the output when [viewing ACL entries](#view-acl-entries).
 
 </TabItem>
 <TabItem value="api" label="API">

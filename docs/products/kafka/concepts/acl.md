@@ -86,12 +86,12 @@ configure separate ACL entries for consumer group access.
 Kafka-native ACLs offer precise control with fine-grained permissions and resource-level
 management. Use them for complex scenarios requiring rules like `ALLOW` and `DENY`.
 
-- **Fine-grained permissions**: Allow both `ALLOW` and `DENY` rules to provide
+- **Fine-grained permissions**: Support both `ALLOW` and `DENY` rules to provide
   precise control over access.
 - **Expanded resource-level control**: Manage access to non-topic resources,
   such as consumer groups, clusters, and transactional IDs.
-- **Pattern-based matching**: Specify how resource names are matched using `LITERAL`
-  for exact matches or `PREFIXED` for prefixes.
+- **Pattern-based matching**: Use `LITERAL` for exact matches or `PREFIXED` for prefixes
+  to specify how resource names are matched.
 
 ### ACL structure
 
@@ -107,8 +107,11 @@ A Kafka-native ACL entry consists of the following elements:
   - **LITERAL**: Matches an exact resource name, such as `my-topic`.
   - **PREFIXED**: Matches all resources sharing a specified prefix, such as `logs-*`.
 - **Resource**: The specific Apache Kafka resource, based on the selected pattern type.
-  For example, when the pattern type is `LITERAL`, a resource value of `*` is a special
-  case that matches all resources. This behavior follows standard Kafka conventions.
+  :::note
+  When the `pattern_type` is `LITERAL`, setting the `resource` to `*` is a special
+  case that matches all resources. This behavior follows standard Apache Kafka conventions.
+  :::
+
 - **Operation**: The Apache Kafka operation to allow or deny, such as `Read`, `Write`, or
   `Describe`.
 - **Permission type**: Specifies whether the action is `ALLOW` or `DENY`.
@@ -175,18 +178,18 @@ consumer group, `DENY` rules take precedence over `ALLOW` rules.
 **Examples**:
 
 - An `ALLOW` rule grants access to resources matching a general pattern, such as:
-  - Topics starting with `test-*`
-  - All consumer groups
+  - Topics starting with `test-*`.
+  - All consumer groups.
 - A `DENY` rule restricts access to resources matching a specific pattern, such as:
-  - Topics starting with `test-sensitive-*`
-  - Consumer groups with `sensitive` in their names
+  - Topics starting with `test-sensitive-*`.
+  - Consumer groups with `sensitive` in their names.
 
 ## ACL permission mapping
 
 The following table summarizes the permissions supported by Aiven ACLs, along with
 corresponding Apache Kafka actions and Java APIs.
 
-| **Action**           | **Java API Link**                                                                                                                                                       | **Admin** | **Consume and Produce** | **Produce** | **Consume** |
+| Action           | Java API Link                                                                                                                                                       | Admin | Consume and Produce | Produce | Consume |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------------|-------------|-------------|
 | **Cluster**          |                                                                                                                                                                        |           |                          |             |             |
 | → `CreateTopics`     | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#createTopics(java.util.Collection))                                               | ✓         |                          |             |             |
