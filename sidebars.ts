@@ -1067,6 +1067,13 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
+                  label: 'Troubleshooting',
+                  items: [
+                    'products/kafka/kafka-mirrormaker/troubleshooting/topic-not-replicated',
+                  ],
+                },
+                {
+                  type: 'category',
                   label: 'Reference',
                   items: [
                     'products/kafka/kafka-mirrormaker/reference/advanced-params',
