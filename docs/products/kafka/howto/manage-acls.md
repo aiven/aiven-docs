@@ -34,6 +34,7 @@ For more information, see
 - Installed and authenticated [Aiven CLI](/docs/tools/cli).
 - An [API token](https://aiven.io/docs/platform/howto/create_authentication_token) for
   authenticating API requests.
+- [Aiven Provider for Terraform](/docs/tools/terraform/get-started).
 
 ## Add a Kafka-native ACL entry
 
@@ -139,8 +140,9 @@ Parameter:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-To add a Kafka-native ACL entry using Terraform, define the following resource in your
-Terraform configuration:
+To add a
+[Kafka-native ACL entry using Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_native_acl),
+define the following resource in your Terraform configuration:
 
 ```terraform
 resource "aiven_kafka_native_acl" "example" {
@@ -275,8 +277,9 @@ or the [Schema Registry ACL API documentation](https://api.aiven.io/doc/#tag/Ser
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-To add an Aiven ACL entry using Terraform, define the following resource in your
-Terraform configuration:
+To add an
+[Aiven ACL entry using Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_acl),
+define the following resource in your Terraform configuration:
 
 ```terraform
 resource "aiven_kafka_acl" "example_acl" {
