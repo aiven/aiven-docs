@@ -32,25 +32,25 @@ different procedures in case of primary or replica nodes disconnections.
 
 ### Primary server disconnection
 
-If the **primary** server disappears, Aiven's management platform uses
-a **60-second timeout** before marking the server as down and promoting
-a replica server as new primary. During this 60-second timeout, the
-master is unavailable (`servicename-projectname.aivencloud.com` does not
-respond), and `replica-servicename-projectname.aivencloud.com` works
-fine (in read-only mode).
+If the primary server disappears, Aiven's management platform uses an initial 60-second
+timeout before marking the server as down and promoting a replica server as new primary.
+During this 60-second timeout, the master is unavailable
+(`servicename-projectname.aivencloud.com` does not respond), and
+`replica-servicename-projectname.aivencloud.com` works fine (in read-only mode).
 
-After the replica promotion, `servicename-projectname.aivencloud.com`
-would point to the new primary server, while
-`replica-servicename-projectname.aivencloud.com` becomes unreachable.
-Finally, a new replica server is created, and after the synchronisation
-with the primary, the `replica-servicename-projectname.aivencloud.com`
-DNS is switched to point to the new replica server.
+After the replica promotion, `servicename-projectname.aivencloud.com` would point to the
+new primary server, while `replica-servicename-projectname.aivencloud.com` becomes
+unreachable. Finally, a new replica server is created, and after the synchronisation with
+the primary, the `replica-servicename-projectname.aivencloud.com` DNS is switched to point
+to the new replica server.
+
+Recovery time can take up to 180 seconds depending on client side settings and when in the
+DNS TTL cycle the disconnection occurs.
 
 ### Replica server disconnection
 
-If the **replica** server disappears, Aiven's management platform uses
-a **60-second timeout** before marking the server as down and creating a
-new replica server.
+If the replica server disappears, Aiven's management platform uses an initial 60-second
+timeout before marking the server as down and creating a new replica server.
 
 :::note
 Each Aiven for PostgreSQL® Business plan supports one replica server
@@ -68,6 +68,9 @@ replicas.
 The DNS record pointing to primary server
 `SERVICE_NAME-PROJECT_NAME.aivencloud.com` remains unchanged during the
 recovery of the replica server.
+
+Recovery time can take up to 180 seconds depending on client side settings and when in the
+DNS TTL cycle the disconnection occurs.
 
 ## Controlled switchover during upgrades or migrations
 
