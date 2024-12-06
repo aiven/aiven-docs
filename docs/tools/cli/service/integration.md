@@ -86,6 +86,10 @@ avn service integration-endpoint-create --endpoint-name demo-ext-kafka \
     --user-config-json  '{"bootstrap_servers":"servertest:123","security_protocol":"PLAINTEXT"}'
 ```
 
+:::note
+For more examples of creating external Apache Kafka® endpoints, see [Integrate Aiven for Apache Flink® with Apache Kafka®](/docs/products/flink/howto/ext-kafka-flink-integration#step-4-create-an-external-apache-kafka-endpoint).
+:::
+
 **Example:** Create an external Loggly endpoint named `Loggly-ext`.
 
 ```bash
