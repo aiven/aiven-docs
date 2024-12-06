@@ -4,61 +4,62 @@ title: avn service acl
 
 Full list of commands for `avn service acl`.
 
-## Manage Apache Kafka® access control lists
+## Manage Aiven ACL
 
-Commands for managing Aiven for Apache Kafka® access control lists via
-`avn` commands.
+The `avn service acl` command manages access control lists (ACLs) in Aiven for Apache
+Kafka®. ACLs define permissions for accessing topics and controlling user access. They
+support wildcard patterns (`*` and `?`) for both topics and usernames. Supported
+permissions are `read`, `write`, and `readwrite`.
 
 ### `avn service acl-add`
 
-Adds an Aiven for Apache Kafka® ACL entry.
+Add an Aiven for Apache Kafka® ACL entry.
 
 | Parameter      | Information                                                             |
 | -------------- | ----------------------------------------------------------------------- |
-| `service_name` | The name of the service                                                 |
-| `--permission` | The permission type: possible values are `read`, `write` or `readwrite` |
-| `--topic`      | The topic name pattern: accepts `*` and `?` as wildcard characters      |
-| `--username`   | The username pattern: accepts `*` and `?` as wildcard characters        |
+| `service_name` | Name of the service                                               |
+| `--permission` | Permission type: possible values are `read`, `write` or `readwrite` |
+| `--topic` | Topic name pattern: accepts `*` and `?` as wildcard characters      |
+| `--username` | Username pattern: accepts `*` and `?` as wildcard characters        |
 
-**Example:** Add an ACLs for users with username ending with `userA` to
-`readwrite` on topics having name starting with `topic2020` in the
-service `kafka-doc`.
+**Example:** Add an ACL for usernames ending with `userA` to have `readwrite` access to
+topics starting with `topic2020` in service `kafka-doc`.
 
-```
+```bash
 avn service acl-add kafka-doc --username *userA --permission readwrite --topic topic2020*
 ```
 
 ### `avn service acl-delete`
 
-Deletes an Aiven for Apache Kafka® ACL entry.
+Delete an Aiven for Apache Kafka® ACL entry.
 
 | Parameter      | Information                 |
 | -------------- | --------------------------- |
-| `service_name` | The name of the service     |
-| `acl_id`       | The id of the ACL to delete |
+| `service_name` | Name of the service     |
+| `acl_id` | ID of the ACL to delete |
 
-**Example:** Delete the ACLs with id `acl3604f96c74a` on the Aiven for
-Apache Kafka instance named `kafka-doc`.
+**Example:** Delete the ACL with ID `acl3604f96c74a` from the Aiven for
+Apache Kafka service `kafka-doc`.
 
-```
+```bash
 avn service acl-delete kafka-doc acl3604f96c74a
 ```
 
 ### `avn service acl-list`
 
-Lists Aiven for Apache Kafka® ACL entries.
+List Aiven for Apache Kafka® ACL entries.
 
 | Parameter      | Information             |
 | -------------- | ----------------------- |
-| `service_name` | The name of the service |
+| `service_name` | Name of the service |
 
-**Example:** List the ACLs defined for a service named `kafka-doc`.
+**Example:** List ACLs defined for service `kafka-doc`.
 
-```
+```bash
 avn service acl-list kafka-doc
 ```
 
-An example of `avn service acl-list` output:
+Example output of `avn service acl-list`:
 
 ```text
 ID              USERNAME  TOPIC      PERMISSION
@@ -67,3 +68,7 @@ default         *         *          admin
 acl3604f96c74a  Jon       orders     readwrite
 acl3604fa706cb  Frida     invoices*  write
 ```
+
+## Related page
+
+For managing Kafka-native ACLs, see [`avn service kafka-acl`](/docs/tools/cli/service/kafka-acl).
