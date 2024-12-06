@@ -43,15 +43,35 @@ Your new organization VPC is ready to use as soon as its status visible on the
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
+Run the `avn organization vpc create` command:
+
+```bash
+avn organization vpc create         \
+  --cloud CLOUD_PROVIDER_REGION     \
+  --network-cidr NETWORK_CIDR       \
+  --organization-id ORGANIZATION_ID
+```
+
+Replace the following:
+
+- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the VPC, for example
+  `aws-eu-west-1`
+- `NETWORK_CIDR` with the CIDR block (a range of IP addresses) for the VPC, for example,
+  `10.0.0.0/24`
+- `ORGANIZATION_ID` with the ID of your Aiven organization where to create the VPC, for
+  example, `org1a2b3c4d5e6`
+
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
 </TabItem>
 </Tabs>
 
-<!--
-## Enable new projects in an organization VPC
+## Create a service in an organization VPC
 
+Create a service in an organization VPC using a tool of your choice:
+
+<!--
 When you create a service, your peered VPC is available as a new
 geolocation on the **VPC** tab under **Select service region**. It can
 take a few minutes for a newly created VPC to appear for service
@@ -65,9 +85,47 @@ belong to the project where that specific VPC was created.
 :::
 -->
 
-<!--
-## Migrate existing projects to an organization VPC
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 
+1. Log in to the [Aiven Console](https://console.aiven.io/).
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
+
+```bash
+avn service create SERVICE_NAME        \
+  --project PROJECT_NAME               \
+  --project-vpc-id ORGANIZATION_VPC_ID \
+  --type SERVICE_TYPE                  \
+  --plan SERVICE_PLAN                  \
+  --cloud CLOUD_PROVIDER_REGION
+```
+
+Replace the following:
+
+- `SERVICE_NAME` with the name of the service to be created, for example,
+  `pg-vpc-test`
+- `PROJECT_NAME` with the name of the project where to create the service, for example,
+  `pj-test`
+- `ORGANIZATION_VPC_ID` with the ID of your organization VPC, for example,
+  `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+- `SERVICE_TYPE` with the type of the service to be created, for example, `pg`
+- `SERVICE_PLAN` with the plan of the service to be created, for example, `hobbyist`
+- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the service to be
+  created, for example `aws-eu-west-1`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+</TabItem>
+</Tabs>
+
+## Migrate a service to an organization VPC
+
+<!--
 You can migrate any Aiven service to a different VPC:
 
 1. In [Aiven Console](https://console.aiven.io/), open your service and click <ConsoleLabel name="Service settings"/>.
@@ -76,29 +134,35 @@ You can migrate any Aiven service to a different VPC:
 1. In the **Region** section, select the **VPCs** tab, select the VPC and click **Migrate**.
 -->
 
-<!--
-## Access organization VPC resources from the public internet
+Migrate a service to an organization VPC using a tool of your choice:
 
-When you move your service to a VPC, access from public networks is
-blocked by default. If you switch to public access, a separate endpoint
-is created with a public prefix. You can enable public internet access
-for your services by following the
-[Enable public access in a VPC](/docs/platform/howto/public-access-in-vpc) instructions.
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 
-IP filtering is available for a service deployed to a VPC. It's recommended to
-[use IP filtering](/docs/platform/howto/restrict-access#restrict-access) when your VPC
-service is also exposed to the public internet.
+1. Log in to the [Aiven Console](https://console.aiven.io/).
 
-:::note
-If your service is within a VPC, the VPC configuration filters incoming traffic before the
-IP filter is applied.
-:::
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
 
-Safelisting applies to both internal and external traffic. If you
-safelist an external IP address and want to keep traffic flowing with
-the internal (peered) connections, safelist the CIDR blocks of the peered networks as well
-to avoid disruptions to the service.
--->
+Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
+
+```bash
+avn service update SERVICE_NAME        \
+  --project-vpc-id ORGANIZATION_VPC_ID
+```
+
+Replace the following:
+
+- `SERVICE_NAME` with the name of the service to be migrated, for example,
+  `pg-test`
+- `ORGANIZATION_VPC_ID` with the ID of your organization VPC where to migrate the service,
+  for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+</TabItem>
+</Tabs>
 
 ## Delete an organization VPC
 
@@ -125,32 +189,27 @@ Delete an organization VPC using a tool of your choice:
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
+Run the `avn organization vpc delete` command:
+
+```bash
+avn organization vpc delete                     \
+  --organization-id ORGANIZATION_ID             \
+  --vpc-id VPC_ID
+```
+
+Replace the following:
+
+- `ORGANIZATION_ID` with the ID of your Aiven organization, for example, `org1a2b3c4d5e6`
+- `VPC_ID` with the ID of your Aiven organization VPC, for example,
+  `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
 </TabItem>
 </Tabs>
 
-<!--
-## Troubleshoot VPC connection issues
+## Related pages
 
-Any network changes to VPC peered hosts external from Aiven can cause
-issues with routing to your Aiven services hosted in a VPC. In such
-case, try to refresh your VPC connections.
-
-:::note
-Changes to your VPCs (such as adding a new subnet) can take up to 24
-hours to take effect so wait at least 24 hours before refreshing your VPC
-connections.
-:::
-
-To refresh your VCP connections:
-
-1. In [Aiven Console](https://console.aiven.io/), select <ConsoleLabel name="vpcs"/>.
-1. Find the ID of the affected VPC and select it from the **Internal
-   ID** column.
-1. Select **Refresh VPC connections**.
-
-The platform checks the VPC peering connection and rebuilds the peering
-connection state if there are any changes detected.
--->
+- [VPC peering](/docs/platform/concepts/vpc-peering)
+- [Manage organization VPC peering connections](/docs/platform/howto/manage-org-vpc-peering)

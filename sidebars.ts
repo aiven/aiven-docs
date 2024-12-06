@@ -240,6 +240,7 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/vpc-peering',
                 'platform/howto/manage-project-vpc',
                 'platform/howto/manage-organization-vpc',
+                'platform/howto/manage-org-vpc-peering',
                 'platform/howto/public-access-in-vpc',
                 'platform/howto/vpc-peering-gcp',
                 'platform/howto/vpc-peering-aws',
