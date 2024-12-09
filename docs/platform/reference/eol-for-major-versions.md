@@ -92,6 +92,7 @@ after they are made available on the Aiven platform.
 | 3.5     | 2024-07-31 | 2024-03-30                       | 2023-07-31                      |
 | 3.6     | 2024-10-18 | 2024-09-01                       | 2023-10-18                      |
 | 3.7     | 2025-04-17 | 2025-01-17                       | 2024-04-17                      |
+| 3.8     | 2026-09-03 | 2026-06-03                       | 2024-09-06                      |
 
 ### Aiven for Apache Cassandra® {#h_0f2929c770}
 
@@ -158,7 +159,7 @@ tool to test the version upgrade before upgrading their production services.
 
 ## Aiven tools
 
-Aiven offers multiple tools for interacting with the Aiven platform and
+Aiven offers multiple tools for interacting with the Aiven Platform and
 services. These include the Aiven CLI, the Aiven Provider for Terraform,
 and the Aiven Operator for Kubernetes®.
 
@@ -187,7 +188,7 @@ or bug fixes after the EOL date.
 | 3.x     | 2023-12-31      |
 | 4.x     | To be announced |
 
-### Aiven Operator for Kubernetes
+### Aiven Operator for Kubernetes®
 
 | Version | Aiven EOL       |
 | ------- | --------------- |

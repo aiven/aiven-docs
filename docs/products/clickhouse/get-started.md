@@ -110,7 +110,7 @@ Depending on a dev tool to use for working with Aiven for ClickHouse:
    ```
 
 </TabItem>
-<TabItem value="3" label="K8s">
+<TabItem value="3" label="Kubernetes">
 
 Create an Aiven for ClickHouse service using the Aiven Operator for Kubernetes.
 
@@ -250,7 +250,7 @@ For all the attributes available for the `aiven_clickhouse` resource, see
 1. Run `terraform plan` > `terraform apply --auto-approve`.
 
 </TabItem>
-<TabItem value="3" label="K8s">
+<TabItem value="3" label="Kubernetes">
 1. Update file `example.yaml`:
 
    - Add `service_log: true` and `terminationProtection: true`.

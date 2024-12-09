@@ -52,9 +52,9 @@ up correctly.
 ## Initial setup
 
 Before you begin, make sure you have created your VPC and that peering
-is active. Automating this process with Terraform is an option. For
+is active. Automating this process with the Aiven Terraform Provider is an option. For
 guidance, refer to
-[setting up VPC peering](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering) on the Aiven platform.
+[setting up VPC peering](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering) on the Aiven Platform.
 
 To illustrate the process, we will use the `google-us-east1` VPC as a
 reference. Ensure both your VPC and its peering connection are in an

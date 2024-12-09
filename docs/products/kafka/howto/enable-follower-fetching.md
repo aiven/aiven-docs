@@ -96,7 +96,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Add the Aiven Terraform provider to the `required_providers` block in your Terraform
+1. Add the Aiven Terraform Provider to the `required_providers` block in your Terraform
    configuration:
 
    ```hcl

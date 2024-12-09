@@ -3,9 +3,7 @@ title: Perform DBA-type tasks in Aiven for PostgreSQL®
 sidebar_label: DBA-type tasks
 ---
 
-Aiven doesn't allow superuser access to Aiven for PostgreSQL® services.
-However, most DBA-type actions are still available through other
-methods.
+Aiven doesn't allow superuser access to Aiven for PostgreSQL® services. However, most DBA-type actions are still available through other methods.
 
 ## `avnadmin` user privileges
 
@@ -41,7 +39,7 @@ the `avnadmin` to perform superuser-like functionalities like:
 You can install the `aiven_extras` extension executing the following
 command with the `avnadmin` user:
 
-```
+```sql
 CREATE EXTENSION aiven_extras CASCADE;
 ```
 

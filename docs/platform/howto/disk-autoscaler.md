@@ -78,8 +78,8 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
 - Disk autoscaling works on fully running services only and cannot happen during
   maintenance updates.
 - If you change disk space manually, you might delay an autoscaling process.
-- When using Aiven Autoscaler, don't try to control your disk space with Terraform
-  so that you avoid potential conflicts between those two tools.
+- When using Aiven Autoscaler, don't try to control your disk space with the Aiven
+  Terraform Provider to avoid potential conflicts between those two tools.
 - Disk added for extra storage is slower than the original disk until service maintenance
   is applied. This may have performance implications depending on the load on your service.
   Dynamically adding disk (either manually or in an automated fashion) may not be

@@ -1,27 +1,46 @@
 ---
-title: Manage project roles and permissions
+title: Manage permissions
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-You can assign project [roles and permissions](/docs/platform/concepts/permissions) to organization users, application users, and groups. This gives these users access to a specific project and its services. Each user or group can have multiple roles and a combination of roles and permissions.
+You can give users and groups access to a project and the services in it by granting them roles and permissions for that project.
 
-## Add users and groups to projects
+## Grant project permissions to a user or group
 
 1. In the project, click <ConsoleLabel name="projectpermissions"/>.
 
-1. Click **Add users** and select **Add users** or **Add groups**.
+1. Click **Grant permissions** and select **Grant to users** or **Grant to groups**.
 
 1. Select the users or groups to add to the project.
 
-1. Select a **Role**. The [role](/docs/platform/concepts/permissions)
-   will be assigned to all users in all selected groups.
+1. Select the [roles and permissions](/docs/platform/concepts/permissions) to grant.
 
-1. Click **Add users** or **Add groups**.
+1. Click **Grant permissions**.
 
 ## Change permissions for a user or group
 
-1. In the project, click **Permissions**.
-1. Find the user or group, click <ConsoleLabel name="projectpermissions"/> >
-   **Edit permissions**.
-1. Edit the permissions and click **Save changes**.
+1. In the project, click <ConsoleLabel name="projectpermissions"/>.
+
+1. For the user or group click <ConsoleLabel name="actions"/> >
+   <ConsoleIcon name="edit"/> **Edit permissions**.
+
+1. Add or remove permissions and click **Save changes**.
+
+## Remove access to a project
+
+:::important
+When you remove permissions from a user or group, service credentials are not changed.
+Users can still directly access services if they know the service credentials. To prevent
+this type of access, reset all service passwords.
+:::
+
+To remove all permissions to a project:
+
+1. In the project, click <ConsoleLabel name="projectpermissions"/>.
+
+1. For the user or group click <ConsoleLabel name="actions"/> >
+   <ConsoleIcon name="delete"/> **Remove**.
+
+1. Click **Remove user** or **Remove group** to confirm.

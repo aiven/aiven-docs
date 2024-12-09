@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
 All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external 3rd party tools.
 
-<img src={Overview} className="centered" alt="" width="54%" />
+<img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
 
 ## Discover the Aiven platform
 
@@ -170,16 +170,11 @@ Add users to groups to streamline access management to your Aiven projects and s
       description="Create and add users to groups."
     />
     <Card
-      to="/docs/platform/concepts/permissions"
-      iconName="book"
-      title="Project member roles"
-      description="View project permissions you can assign to users and groups."
-    />
-    <Card
-      to="/docs/platform/howto/add-groups-projects"
+      to="/docs/platform/howto/manage-permissions"
       iconName="clipboardCheck"
-      title="Add groups to projects"
-      description="Give a group of users access to a project."
+      title="Give groups acess to projects"
+      description="Grant roles and permissions to a group of users to access a project
+      and its services."
     />
 </GridContainer>
 
@@ -227,8 +222,8 @@ Add users to groups to streamline access management to your Aiven projects and s
       to="/docs/platform/howto/manage-application-users"
       iconName="clipboard"
       title="Create application users"
-      description="Use application users to access the API,
-      Terraform Provider, CLI, and Aiven Operator."
+      description="Use application users to access the Aiven API,
+      Terraform Provider, CLI, and Kubernetes Operator."
     />
     <Card
       to="/docs/platform/howto/manage-vpc-peering"
@@ -270,7 +265,7 @@ Start deploying services in your project to stream, store, or analyze your data.
 
 See examples of services and integrations using code samples for the
 [Aiven Provider for Terraform](/docs/tools/terraform) or
-[Aiven Operator for Kubernetes](/docs/tools/kubernetes).
+[Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
 
 <GridContainer columns={2}>
      <Card
@@ -281,7 +276,7 @@ See examples of services and integrations using code samples for the
     <Card
       to="https://aiven.github.io/aiven-operator/resources/project.html"
       iconComponent={K8sIcon}
-      title="Aiven Operator for Kubernetes examples"
+      title="Aiven Operator for Kubernetes® examples"
     />
 </GridContainer>
 

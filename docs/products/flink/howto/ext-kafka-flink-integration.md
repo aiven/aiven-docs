@@ -117,12 +117,23 @@ Where:
         and ports to connect to.
     -   `security_protocol`: The type of security protocol to use
         for the connection, which is `SASL` in this case.
-    -   `ssl_ca_cert`: The path to the SSL CA certificate.
-    -   `ssl_client_cert`: The path to the SSL client certificate.
-    -   `ssl_client_key`: The path to the SSL client key.
+    -   `ssl_ca_cert`: The content of the SSL CA certificate.
+    -   `ssl_client_cert`: The content of the SSL client certificate.
+    -   `ssl_client_key`: The content of the SSL client key.
     -   `ssl_endpoint_identification_algorithm`: The endpoint
         identification algorithm to use for SSL verification. For
         example, `https`.
+
+:::important
+After downloading your keys or certificates, ensure the cipher is on its own line,
+and the PEM markers are delimited by a line feed, following the
+guidelines in [RFC 1421](https://www.rfc-editor.org/rfc/rfc1421#section-4.4).
+
+Use the following bash command to format the content correctly:
+```
+cat $downloaded_cert_or_key | tr -d '\n' | sed 's/\([EY]---[-]*\)\([^-]\)/\1\n\2/g;s/\(=\)\(---[-]*\)/\1\n\2/g'
+```
+:::
 
 #### SASL_PLAINTEXT
 

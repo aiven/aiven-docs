@@ -28,8 +28,17 @@ To set up AWS PrivateLink, use the
 [Aiven CLI](/docs/tools/cli). You also
 need the AWS console or CLI to create a VPC endpoint.
 
-**Note:** Aiven for Apache Cassandra® and Aiven for M3 services do not
-currently support AWS PrivateLink.
+:::note
+AWS PrivateLink is not supported in:
+
+- Aiven for AlloyDB Omni
+- Aiven for Apache Cassandra®
+- Aiven for Apache Flink®
+- Aiven for Apache Kafka® MirrorMaker 2
+- Aiven for M3
+- Aiven for Metrics
+
+:::
 
 1.  Create an AWS PrivateLink resource on the Aiven service.
 
@@ -155,7 +164,7 @@ currently support AWS PrivateLink.
     As a result, PrivateLink connection details are added to the **Connection information** section on the service
     <ConsoleLabel name="overview"/>.
 
-    <img src={AivenConsolePrivateLinkConfiguration} className="image"/>
+    <img src={AivenConsolePrivateLinkConfiguration} className="image" alt="Screenshot of the configuration"/>
 
     It takes a couple of minutes before connectivity is available after
     you enable a service component. This is because AWS requires an AWS

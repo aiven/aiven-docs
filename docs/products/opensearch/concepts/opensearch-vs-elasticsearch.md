@@ -2,10 +2,9 @@
 title: OpenSearch® vs Elasticsearch
 ---
 
-OpenSearch® is the open source continuation of the original Elasticsearch project.
-When [Elastic moved to a restrictive license](https://www.elastic.co/blog/licensing-change), the changes
-meant that third parties were not able to continue to offer
-Elasticsearch as a service. The community (including Aiven) joined
+OpenSearch® is the open-source version of the Elasticsearch project, which has [a restrictive license](https://www.elastic.co/blog/licensing-change). Third parties cannot offer Elasticsearch as a service.
+
+The community (including Aiven) joined
 forces to create and maintain OpenSearch based on the last open source
 licensed releases of both Elasticsearch and Kibana (v7.10.2).
 

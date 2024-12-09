@@ -4,7 +4,7 @@ title: Aiven Operator for Kubernetes®
 
 Manage Aiven infrastructure with [Aiven Operator for Kubernetes®](https://github.com/aiven/aiven-operator/) by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 
-The [Aiven Operator documentation](https://aiven.github.io/aiven-operator/index.html) includes an API reference and example usage for the resources.
+The [Aiven Kubernetes Operator documentation](https://aiven.github.io/aiven-operator/index.html) includes an API reference and example usage for the resources.
 
 ## Get started
 
@@ -132,5 +132,5 @@ connection to PostgreSQL from Kubernetes.
 ## Related links
 
 - [Aiven Operator for Kubernetes repository](https://github.com/aiven/aiven-operator/)
-- [Aiven Operator examples](https://aiven.github.io/aiven-operator/resources/project.html)
+- [Aiven Kubernetes Operator examples](https://aiven.github.io/aiven-operator/resources/project.html)
 - [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/)

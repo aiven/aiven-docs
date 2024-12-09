@@ -41,7 +41,7 @@ accordingly.
 ## Similarities to a standard environment
 
 In many ways, an ECE is the same as a standard Aiven deployment.
-Aiven's tooling, such as [CLI](/docs/tools/cli) and [Terraform](/docs/tools/terraform),
+Aiven's tooling, such as [Aiven CLI](/docs/tools/cli) and [Aiven Terraform Provider](/docs/tools/terraform),
 interact with ECEs seamlessly, you will still be able to take advantage of Aiven's
 service integrations, and you can access the environment
 through VPC peering or Privatelink (on AWS or Azure).

@@ -57,10 +57,10 @@ service using the service integration endpoint and setting the
 information, see [Create new service
 integration](https://api.aiven.io/doc/#tag/Service_Integrations).
 
-## Setup cross-cluster replication via Terraform provider
+## Setup cross-cluster replication via Terraform
 
 You can set up the cross-cluster replication for Aiven for OpenSearch
 service via the
-[Aiven Terraform provider](/docs/tools/terraform). Set the `integration-type` to
+[Aiven Terraform Provider](/docs/tools/terraform). Set the `integration-type` to
 `opensearch_cross_cluster_replication` in the [Service Integration
 resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).

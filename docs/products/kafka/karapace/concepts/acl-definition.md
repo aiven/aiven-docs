@@ -2,9 +2,7 @@
 title: ACLs definition
 ---
 
-An ACL for Karapace schema registry authorization consists of zero or
-more entries that specify a **username**, an **operation**, and a
-**resource**.
+An ACL for Karapace schema registry authorization consists of zero or more entries that specify a **username**, an **operation**, and a **resource**.
 
 -   **Username** is the name of a service user in the Aiven for Apache
     Kafka® service.

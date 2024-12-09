@@ -30,7 +30,7 @@
       <td>
         <div className="param"><p className="name" id="disable_replication_factor_adjustment"><a href="#disable_replication_factor_adjustment"><strong>disable_replication_factor_adjustment</strong></a></p><p><code className="type">boolean,null</code></p></div>
         <p className="title">Disable replication factor adjustment</p>
-        <div className="description"><p>DEPRECATED: Disable automatic replication factor adjustment for multi-node services. By default, Aiven ensures all indexes are replicated at least to two nodes. Note: Due to potential data loss in case of losing a service node, this setting can no longer be activated.</p></div>
+        <div className="description"><p>Disable automatic replication factor adjustment for multi-node services. By default, Aiven ensures all indexes are replicated at least to two nodes. Note: Due to potential data loss in case of losing a service node, this setting can not be activated unless specifically allowed for the project.</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
@@ -247,7 +247,7 @@
             <td>
               <div className="param"><p className="name" id="azure_migration_snapshot_name"><a href="#azure_migration_snapshot_name"><strong>azure_migration.snapshot_name</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
-              <div className="description"><p>The snapshot name to restore from</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -289,7 +289,7 @@
             <td>
               <div className="param"><p className="name" id="azure_migration_indices"><a href="#azure_migration_indices"><strong>azure_migration.indices</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Indices to restore</p>
-              <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
+              <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported.</p></div>
             </td>
           </tr>
           <tr>
@@ -303,7 +303,7 @@
             <td>
               <div className="param"><p className="name" id="azure_migration_account"><a href="#azure_migration_account"><strong>azure_migration.account</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Account name</p>
-              <div className="description"><p>Azure account name</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -342,7 +342,7 @@
             <td>
               <div className="param"><p className="name" id="gcs_migration_snapshot_name"><a href="#gcs_migration_snapshot_name"><strong>gcs_migration.snapshot_name</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
-              <div className="description"><p>The snapshot name to restore from</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -384,14 +384,14 @@
             <td>
               <div className="param"><p className="name" id="gcs_migration_indices"><a href="#gcs_migration_indices"><strong>gcs_migration.indices</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Indices to restore</p>
-              <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
+              <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name" id="gcs_migration_bucket"><a href="#gcs_migration_bucket"><strong>gcs_migration.bucket</strong></a></p><p><code className="type">string</code></p></div>
-              <p className="title">The path to the repository data within its container</p>
-              <div className="description"><p>Google Cloud Storage bucket name</p></div>
+              <p className="title">Google Cloud Storage bucket name</p>
+              <div className="description"><p>The path to the repository data within its container</p></div>
             </td>
           </tr>
           <tr>
@@ -416,7 +416,7 @@
             <td>
               <div className="param"><p className="name" id="s3_migration_snapshot_name"><a href="#s3_migration_snapshot_name"><strong>s3_migration.snapshot_name</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
-              <div className="description"><p>The snapshot name to restore from</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -458,21 +458,21 @@
             <td>
               <div className="param"><p className="name" id="s3_migration_indices"><a href="#s3_migration_indices"><strong>s3_migration.indices</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">Indices to restore</p>
-              <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported. By default, a restore operation includes all data streams and indices in the snapshot. If this argument is provided, the restore operation only includes the data streams and indices that you specify.</p></div>
+              <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name" id="s3_migration_bucket"><a href="#s3_migration_bucket"><strong>s3_migration.bucket</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">S3 bucket name</p>
-              <div className="description"><p>S3 bucket name</p></div>
+              
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name" id="s3_migration_region"><a href="#s3_migration_region"><strong>s3_migration.region</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">S3 region</p>
-              <div className="description"><p>S3 region</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -493,7 +493,7 @@
             <td>
               <div className="param"><p className="name" id="s3_migration_access_key"><a href="#s3_migration_access_key"><strong>s3_migration.access_key</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">AWS Access key</p>
-              <div className="description"><p>AWS Access key</p></div>
+              
             </td>
           </tr>
           <tr>
@@ -947,6 +947,13 @@
               
             </td>
           </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="opensearch_search.insights.top_queries"><a href="#opensearch_search.insights.top_queries"><strong>opensearch.search.insights.top_queries</strong></a></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>
@@ -1105,6 +1112,17 @@
       <td>
         <div className="param"><p className="name" id="project_to_fork_from"><a href="#project_to_fork_from"><strong>project_to_fork_from</strong></a></p><p><code className="type">string,null</code></p></div>
         <p className="title">Name of another project to fork a service from. This has effect only when a new service is being created.</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name" id="elasticsearch_version"><a href="#elasticsearch_version"><strong>elasticsearch_version</strong></a></p><p><code className="type">string,null</code></p></div>
+        <p className="title">Elasticsearch major version</p>
         
         <table className="service-param-children">
           <tbody>

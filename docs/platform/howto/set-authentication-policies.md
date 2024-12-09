@@ -53,8 +53,9 @@ the Aiven API. When you turn off personal tokens, managed users can't create
 personal tokens. Non-managed users can still create personal tokens, but they can't use
 them to access the organization's resources.
 
-To regularly manage your resources programmatically with the API, CLI, Terraform,
-or other applications, it's best to create an [application user](/docs/platform/howto/manage-application-users) with its own tokens.
+To regularly manage your resources programmatically with the Aiven API, CLI,
+Terraform Provider, or other applications, it's best to create an
+[application user](/docs/platform/howto/manage-application-users) with its own tokens.
 
 Personal tokens are generated with the authentication method that the user logged in with.
 Tokens are linked to the authentication method they are created with. You can ensure that

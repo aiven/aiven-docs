@@ -106,6 +106,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/billing-assign-projects',
               ],
             },
+            'platform/howto/download-invoices',
           ],
         },
         {
@@ -401,7 +402,7 @@ const sidebars: SidebarsConfig = {
         'tools/api',
         {
           type: 'category',
-          label: 'Aiven Provider for Terraform®',
+          label: 'Aiven Provider for Terraform',
           link: {
             id: 'tools/terraform',
             type: 'doc',
@@ -1708,6 +1709,7 @@ const sidebars: SidebarsConfig = {
 
                 'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
+                'products/opensearch/howto/os-metrics',
               ],
             },
             {
@@ -1924,7 +1926,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Reference',
-              items: ['products/valkey/reference/advanced-params'],
+              items: [
+                'products/valkey/reference/advanced-params',
+                'products/valkey/reference/valkey-metrics-in-prometheus',
+              ]
             },
           ],
         },

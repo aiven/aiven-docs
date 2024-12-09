@@ -2,7 +2,7 @@
 title: avn cloud
 ---
 
-Full list of commands for `avn cloud`.
+The `avn cloud` command allows you to list the clouds available in a given project.
 
 ## List cloud region details
 

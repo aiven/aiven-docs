@@ -1,7 +1,7 @@
 ---
 title: Create a custom cloud
 sidebar_label: Create custom clouds
-keywords: [AWS, Amazon Web Services, Microsoft Azure, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud, OCI, Oracle Cloud Infrastructure]
+keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -63,15 +63,6 @@ Next, you deploy your custom cloud resources supplying the generated privilege-b
 as a parameter. Finally, you select in which Aiven projects to use your custom cloud, and
 you assign a contact person for your custom cloud.
 </TabItem>
-<TabItem value="3" label="Azure & OCI">
-If you use Azure or OCI as a cloud provider, you'll have your
-custom cloud created by the Aiven team. Just
-[enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc) and specify your
-requirements. The Aiven team will build your custom cloud according to the specification
-you provide. There are no further actions required from you to create your custom cloud.
-The Aiven team might reach out to you for more details and will follow up with you to keep
-you informed on the progress.
-</TabItem>
 </Tabs>
 
 ## Limitations {#byoc-limitations}
@@ -85,11 +76,6 @@ you informed on the progress.
     Contact your account team to learn more or upgrade your support tier.
     :::
 
--   You can create custom clouds yourself (via the BYOC self-service) if your cloud
-    provider is AWS (in the [Aiven Console](https://console.aiven.io/)) or GCP (via [Aiven
-    CLI client](/docs/tools/cli/byoc)).
-    For Azure & OCI, [request creating a custom cloud](/docs/platform/howto/byoc/enable-byoc)
-    from the Aiven team.
 -   Only [super admins](/docs/platform/howto/make-super-admin) can create custom clouds.
 
 ## Prerequisites {#byoc-prerequisites}
@@ -100,7 +86,7 @@ you informed on the progress.
 -   You have an active account with your cloud provider.
 -   Depending on the dev tool to use for creating a custom cloud, you have:
     - Access to the [Aiven Console](https://console.aiven.io/) or
-    - [Aiven CLI client](/docs/tools/cli) installed
+    - [Aiven CLI](/docs/tools/cli) installed
 -   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
     organization.
 -   You have Terraform installed.
@@ -120,10 +106,6 @@ you informed on the progress.
     - [Aiven Console](https://console.aiven.io/) > <ConsoleLabel name="userinformation"/>
       \> <ConsoleLabel name="organizations"/>.
 
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-You have access to the [Aiven Console](https://console.aiven.io/) to
-[enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 </TabItem>
 </Tabs>
 
@@ -507,9 +489,6 @@ Google project
 For more information on Google Cloud roles, see
 [IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
 in the Goodle Cloud documentation.
-</TabItem>
-<TabItem value="3" label="Azure & OCI permissions">
-The Aiven team will talk to you to determine required permissions.
 </TabItem>
 </Tabs>
 
@@ -931,11 +910,6 @@ Your new custom cloud is ready to use only after its status changes to
       extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
       command, for example `018b6442-c602-42bc-b63d-438026133f60`.
 
-</TabItem>
-<TabItem value="3" label="Azure & OCI">
-To integrate with the Azure or OCI cloud providers, you'll have your custom cloud created
-by the Aiven team. [Enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc) and
-follow up with the Aiven team from there.
 </TabItem>
 </Tabs>
 

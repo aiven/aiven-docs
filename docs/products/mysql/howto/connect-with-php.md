@@ -5,8 +5,7 @@ title: Connect to Aiven for MySQL® with PHP
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/mysql/connect.php';
 
-This example connects to an Aiven for MySQL® service from PHP, making
-use of the built-in PDO module.
+This example connects to an Aiven for MySQL® service from PHP, making use of the built-in PDO module.
 
 ## Variables
 

@@ -34,13 +34,6 @@ const config: Config = {
         content: '1tsz6w2s2we597lbplg9ou',
       },
     },
-    {
-      tagName: 'meta',
-      attributes: {
-        name: 'zd-site-verification',
-        content: '58rfs93v91jdtb4vq56npg',
-      },
-    },
   ],
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
