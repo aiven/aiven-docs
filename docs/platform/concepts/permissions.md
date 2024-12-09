@@ -11,7 +11,7 @@ To give users access to projects and services in your organizations, you grant t
 Principals are
 [organization users](/docs/platform/howto/manage-org-users),
 [application users](/docs/platform/concepts/application-users),
-and [groups](/docs/platform/howto/list-groups).
+and [groups](/docs/platform/howto/manage-groups).
 
 You can grant access to principals at the organization and project level.
 You can
@@ -86,4 +86,3 @@ this level apply to the project and all services within it.
 | View service logs            | `service:logs:read`           | <ul> <li> View logs for all services in the project. </li> </ul> **Service logs may contain sensitive information.**                                                                                                                                                                                                                                        |
 | View configuration secrets   | `service:secrets:read`        | <ul> <li> Read service configuration secrets such as keys. </li> </ul>                                                                                                                                                                                                                                                                                      |
 | Manage service users         | `service:users:write`         | <ul> <li> Create and delete service users. </li> <li> View and update connection information for services. </li> </ul>                                                                                                                                                                                                                                      |
-
