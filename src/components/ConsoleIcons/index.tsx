@@ -500,6 +500,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.queries} /> <b>Query editor</b>
         </>
       );
+    case 'opensearchindexes':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.indexes} /> <b>Indexes</b>
+        </>
+      );
+
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
