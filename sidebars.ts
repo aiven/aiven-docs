@@ -1206,6 +1206,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/concepts/federated-queries',
                 'products/clickhouse/concepts/clickhouse-tiered-storage',
                 'products/clickhouse/concepts/data-integration-overview',
+                'products/clickhouse/concepts/clickhouse-query-cache',
               ],
             },
             {

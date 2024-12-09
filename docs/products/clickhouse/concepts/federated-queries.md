@@ -1,10 +1,9 @@
 ---
-title: About querying external data in Aiven for ClickHouse®
+title: Querying external data in Aiven for ClickHouse®
+sidebar_label: Federated queries
 ---
 
 Discover federated queries and their capabilities in Aiven for ClickHouse® and how they simplify and speed up migrating into Aiven from external data sources.
-
-## About federated queries
 
 Federated queries allow communication between Aiven for ClickHouse and
 S3-compatible object storages and web resources. The federated queries

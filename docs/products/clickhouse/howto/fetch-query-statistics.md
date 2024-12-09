@@ -1,8 +1,7 @@
 ---
 title: Fetch query statistics for Aiven for ClickHouse®
+sidebar_label: Fetch query statistics
 ---
-
-## About fetching query statistics
 
 Usually, query statistics in ClickHouse can be obtained using the `system.query_log` table, which stores statistics of each executed query, including memory usage and duration.
 
