@@ -3,10 +3,14 @@ title: Aiven for ClickHouse® query cache
 sidebar_label: Query cache
 ---
 
-Aiven for ClickHouse® provides a query cache mechanism that helps improve query performance
-by caching intermediate or final query results.
+If multiple identical queries are run simultaneously, Aiven for ClickHouse® query
+cache allows to process only one instance of the query and returns the result to all
+clients.
 
 ## How it works
+
+Aiven for ClickHouse provides a query cache mechanism that helps improve query performance
+by caching intermediate or final query results.
 
 With the Aiven for ClickHouse query cache enabled, SELECT queries are computed only once,
 and further executions of the same query are served directly from the cache. If the result
@@ -32,7 +36,7 @@ Key use case for the Aiven for ClickHouse query cache are the following:
 
 ## Limitation
 
-- Maximum query cache size: 64 Mib for each GiB of RAM (for example, 256 Mib for a 4-GiB
+- Maximum query cache size: 64 MiB for each GiB of RAM (for example, 256 MiB for a 4-GiB
   instance or 1 GiB for a 16-GiB instance)
 - Maximum number of query cache entries: 64 entries for each GiB of RAM (for example,
   1024 entries for a 16-GiB instance)
