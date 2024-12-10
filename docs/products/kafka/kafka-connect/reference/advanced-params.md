@@ -1,5 +1,5 @@
 ---
-title: Advanced parameters for Apacheh Kafka® Connect
+title: Advanced parameters for Apache Kafka® Connect
 sidebar_label: Advanced parameters
 ---
 
