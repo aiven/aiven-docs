@@ -39,7 +39,7 @@ review and adjust these ACLs as needed to enable exactly-once delivery.
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
 
-1. In the [Aiven console](https://console.aiven.io/), open your Aiven for Apache Kafka
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache Kafka
    service with the Aiven for Apache Kafka MirrorMaker 2 integration.
 1. Click <ConsoleLabel name="integrations"/>.
 1. Click the Aiven for Apache Kafka MirrorMaker 2 integration.
@@ -82,10 +82,10 @@ review and adjust these ACLs as needed to enable exactly-once delivery.
 
 Parameters:
 
-- `<service_name>`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
-- `<source_cluster>`: Alias of the source Aiven for Apache Kafka cluster.
-- `<target_cluster>`: Alias of the target Aiven for Apache Kafka cluster.
-- `exactly_once_delivery_enabled`: Set to `true` to enable or `false` to disable
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
+- `SOURCE_CLUSTER`: Alias of the source Aiven for Apache Kafka cluster.
+- `TARGET_CLUSTER`: Alias of the target Aiven for Apache Kafka cluster.
+- `EXACTLY_ONCE_DELIVERY_ENABLED`: Set to `true` to enable or `false` to disable
   exactly-once delivery.
 
 </TabItem>
@@ -133,19 +133,20 @@ with `exactly_once_delivery_enabled` in the configuration.
 
 Parameters:
 
-- `<project_name>`: Name of your project.
-- `<service_name>`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
-- `API_TOKEN`: Your personal Aiven API [token](/docs/platform/howto/create_authentication_token).
-- `<source_cluster>`: Alias of the source Aiven for Apache Kafka cluster.
-- `<target_cluster>`: Alias of the target Aiven for Apache Kafka cluster.
-- `exactly_once_delivery_enabled`:  Set to `true` to enable or `false` to disable
+- `PROJECT_NAME`: Name of your project.
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
+- `API_TOKEN`: Your personal Aiven API
+  [token](/docs/platform/howto/create_authentication_token).
+- `SOURCE_CLUSTER`: Alias of the source Aiven for Apache Kafka cluster.
+- `TARGET_CLUSTER`: Alias of the target Aiven for Apache Kafka cluster.
+- `EXACTLY_ONCE_DELIVERY_ENABLED`: Set to `true` to enable or `false` to disable
   exactly-once delivery.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
 Find information about the `aiven_mirrormaker_replication_flow` resource in the
-[Aiven Provider for Terraform® documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow).
+[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow).
 
 To enable exactly-once delivery:
 
@@ -157,14 +158,15 @@ To enable exactly-once delivery:
 
    ```hcl
    resource "aiven_mirrormaker_replication_flow" "example_flow" {
-     project                       = var.project_name
-     service_name                  = var.service_name
-     source_cluster                = var.source_cluster
-     target_cluster                = var.target_cluster
+     project                       = "PROJECT_NAME"
+     service_name                  = "SERVICE_NAME"
+     source_cluster                = "SOURCE_CLUSTER"
+     target_cluster                = "TARGET_CLUSTER"
      enable                        = true
      exactly_once_delivery_enabled = true
      topics                        = [".*"]
    }
+
    ```
 
 1. Run the Terraform commands to apply the configuration:
@@ -177,14 +179,13 @@ To enable exactly-once delivery:
 
 Parameters
 
-- `aiven_api_token`: API token for authentication with Aiven.
-- `project_name`: Name of your Aiven project.
-- `service_name`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
-- `source_cluster`: Alias of the source Aiven for Apache Kafka service.
-- `target_cluster`: Alias of the target Aiven for Apache Kafka service.
-- `exactly_once_delivery_enabled`: Set to `true` to enable or `false` to disable
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
+- `SOURCE_CLUSTER`: Alias of the source Aiven for Apache Kafka service.
+- `TARGET_CLUSTER`: Alias of the target Aiven for Apache Kafka service.
+- `EXACTLY_ONCE_DELIVERY_ENABLED`: Set to `true` to enable or `false` to disable
   exactly-once delivery.
-- `topics`: Pattern to define which topics to replicate. The default value, `.*`,
+- `TOPICS`: Pattern to define which topics to replicate. The default value, `.*`,
   replicates all topics.
 
 </TabItem>
