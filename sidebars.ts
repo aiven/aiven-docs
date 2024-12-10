@@ -1206,7 +1206,6 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/concepts/federated-queries',
                 'products/clickhouse/concepts/clickhouse-tiered-storage',
                 'products/clickhouse/concepts/data-integration-overview',
-                'products/clickhouse/concepts/clickhouse-query-cache',
               ],
             },
             {
@@ -1246,6 +1245,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/run-federated-queries',
                     'products/clickhouse/howto/create-dictionary',
                     'products/clickhouse/howto/sql-user-defined-functions',
+                    'products/clickhouse/howto/clickhouse-query-cache',
                   ],
                 },
                 'products/clickhouse/howto/list-manage-cluster',
