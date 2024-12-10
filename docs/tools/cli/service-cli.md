@@ -233,6 +233,13 @@ More information on `integration-delete`, `integration-endpoint-create`,
 can be found in
 [the dedicated page](service/integration).
 
+### `avn service kafka-acl`
+
+Manages the Apache Kafka® native ACL entries.
+
+More information on `kafka-acl-add`, `kafka-acl-delete` and `kafka-acl-list` can be found
+in [the dedicated page](service/kafka-acl).
+
 ### `avn service keypair get`
 
 Service keypair commands. The use cases for this command are limited to
