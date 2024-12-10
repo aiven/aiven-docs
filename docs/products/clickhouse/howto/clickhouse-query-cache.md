@@ -11,9 +11,7 @@ by caching query results.
 When the Aiven for
 [ClickHouse query cache](https://clickhouse.com/docs/en/operations/query-cache) is enabled,
 multiple identical `SELECT` queries run simultaneously are computed only once,
-and further executions of the same query are served directly from the cache. If the result
-of a SELECT query changes, the database invalidates and discards cached query results.
-Operations that change the data are `INSERT`, `UPDATE`, or `DELETE`.
+and further executions of the same query are served directly from the cache.
 
 :::important
 By default, the Aiven for ClickHouse query cache is disabled for all `SELECT` queries.
@@ -28,14 +26,12 @@ Key use case for the Aiven for ClickHouse query cache are the following:
 
 - Performance enhancement: Reducing latency and load for frequently executed queries
 - Analytical workloads: Using complex repetitive queries that involve high data aggregation
-- Data pipelines: [Using materialized views](/docs/products/clickhouse/concepts/federated-queries)
-  to optimize recurring data transformation and aggregation
 
 ## Enable query cache
 
 To enable the query cache for a query, use an SQL client (for example, the
 [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) and
-append `SETTINGS use_query_cache = 1` to your query, for example:
+append `SETTINGS use_query_cache = 1` to your query:
 
 ```sql
 SELECT 1
@@ -71,8 +67,6 @@ You can configure the following query cache settings:
   service or 1 GiB for a 16-GiB service)
 - Maximum number of query cache entries: 64 entries for each GiB of RAM (for example,
   1024 entries for a 16-GiB service)
-- Query cache is not long-lived: cached results are invalidated when the underlying data
-  changes.
 
 ## Related pages
 
