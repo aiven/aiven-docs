@@ -14,8 +14,10 @@ Shift your workloads back to the primary region, where your service was hosted o
 ## Prerequisites
 
 - [CRDR failover](/docs/products/postgresql/crdr/crdr-failover-to-recovery) completed
-- Access to the [Aiven Console](https://console.aiven.io/) or
-  the [Aiven CLI client installed](/docs/tools/cli)
+- One of the following tools for operating CRDR:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Revert to the primary region
 
@@ -69,6 +71,117 @@ using a tool of your choice:
    ```
 
    Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+1. Trigger the recreation of the primary service by calling the
+   [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+   to change `disaster_recovery_role` of the primary service to `passive`:
+
+   ```bash {5}
+   curl --request PUT \
+   --url https://api.aiven.io/v1/project/PROJECT_NAME/service/PRIMARY_SERVICE_NAME \
+   -H 'Authorization: Bearer BEARER_TOKEN' \
+   -H 'content-type: application/json' \
+   --data '{"disaster_recovery_role": "passive"}'
+   ```
+
+   Replace the following placeholders with meaningful data:
+
+   - `PROJECT_NAME`, for example `crdr-test`
+   - `PRIMARY_SERVICE_NAME`, for example `pg-primary-test`
+   - `BEARER_TOKEN`
+
+   After sending the request, you can check the CRDR status on each of the CRDR peer services:
+
+   - Primary service status
+
+      ```bash
+      avn service get pg-primary
+         --project $PROJECT_NAME
+         --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+      ```
+
+      Expect the following output:
+
+      ```json
+      {
+        "state": "REBUILDING",
+        "disaster_recovery_role": "passive"
+      }
+      ```
+
+   - Recovery service status
+
+      ```bash
+      avn service get pg-primary-dr
+      --project $PROJECT_NAME
+      --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+      ```
+
+      Expect the following output:
+
+      ```json
+      {
+        "state": "RUNNING",
+        "disaster_recovery_role": "active"
+      }
+      ```
+
+1. Promote the primary service as active by calling the
+   [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+   to change `disaster_recovery_role` of the primary service to `active`:
+
+   ```bash {5}
+   curl --request PUT \
+   --url https://api.aiven.io/v1/project/PROJECT_NAME/service/PRIMARY_SERVICE_NAME \
+   -H 'Authorization: Bearer BEARER_TOKEN' \
+   -H 'content-type: application/json' \
+   --data '{"disaster_recovery_role": "active"}'
+   ```
+
+   Replace the following placeholders with meaningful data:
+
+   - `PROJECT_NAME`, for example `crdr-test`
+   - `PRIMARY_SERVICE_NAME`, for example `pg-primary-test`
+   - `BEARER_TOKEN`
+
+   After sending the request, you can check the CRDR status on each of the CRDR peer services:
+
+   - Primary service status
+
+      ```bash
+      avn service get pg-primary
+      --project $PROJECT_NAME
+      --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+      ```
+
+      Expect the following output:
+
+      ```json
+      {
+        "state": "RUNNING",
+        "disaster_recovery_role": "active"
+      }
+      ```
+
+   - Recovery service status
+
+      ```bash
+      avn service get pg-primary-dr
+      --project $PROJECT_NAME
+      --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+      ```
+
+      Expect the following output:
+
+      ```json
+      {
+        "state": "RUNNING",
+        "disaster_recovery_role": "passive"
+      }
+      ```
 
 </TabItem>
 </Tabs>

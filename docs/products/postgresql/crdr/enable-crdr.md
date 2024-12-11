@@ -22,8 +22,10 @@ Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crd
   plan.
   :::
 
-- Access to the [Aiven Console](https://console.aiven.io/) or
-  the [Aiven CLI client installed](/docs/tools/cli)
+- One of the following tools for operating CRDR:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Set up a recovery service
 
@@ -65,6 +67,83 @@ Replace the following:
 - `CLOUD_REGION` with the cloud region where to host the recovery service, for example,
   `google-europe-west-4`
 - `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Call the
+[ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate) to
+create a recovery service and enable the `disaster_recovery` service integration between
+the recovery service and the primary service, for example:
+
+```bash {14}
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'Authorization: Bearer BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "service_name": "RECOVERY_SERCICE_NAME",
+    "cloud": "CLOUD_PROVIDER_REGION",
+    "plan": "SERVICE_PLAN",
+    "service_type": "SERVICE_TYPE",
+    "disk_space_mb": DISK_SIZE,
+    "service_integrations": [
+      {
+        "integration_type": "disaster_recovery",
+        "source_service": "PRIMARY_SERVICE_NAME",
+        "user_config": {}
+      }
+    ]
+  }'
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `crdr-test`
+- `BEARER_TOKEN`
+- `RECOVERY_SERCICE_NAME`, for example `pg-dr-test`
+- `CLOUD_PROVIDER_REGION`, for example `google-europe-west10`
+- `SERVICE_PLAN`, for example `startup-4`
+- `SERVICE_TYPE`, for example `pg`
+- `DISK_SIZE` in MiB, for example `81920`
+- `PRIMARY_SERVICE_NAME`, for example `pg-primary-test`
+
+After sending the request, you can check the CRDR status on each of the CRDR peer services:
+
+- Primary service status
+
+  ```bash
+  avn service get PRIMARY_SERVICE_NAME
+    --project PROJECT_NAME
+    --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+  ```
+
+  Expect the following output:
+
+  ```json
+  {
+    "state": "RUNNING",
+    "disaster_recovery_role": "active"
+  }
+  ```
+
+- Recovery service status
+
+  ```bash
+  avn service get RECOVERY_SERVICE_NAME
+    --project PROJECT_NAME
+    --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+  ```
+
+  Expect the following output:
+
+  ```json
+  {
+    "state": "REBUILDING",
+    "disaster_recovery_role": "passive"
+  }
+  ```
 
 </TabItem>
 </Tabs>
