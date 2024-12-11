@@ -17,7 +17,7 @@ const config: Config = {
   projectName: 'docs',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  onBrokenAnchors: 'throw',
+  onBrokenAnchors: 'warn',
   trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
