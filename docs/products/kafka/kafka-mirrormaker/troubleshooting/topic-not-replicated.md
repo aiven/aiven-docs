@@ -1,69 +1,106 @@
 ---
-title: Why are some topics or partitions not replicated
+title: Why topics or partitions not replicated
 ---
 
-Apache Kafka® MirrorMaker 2 stores its configs, states and offsets to ensure a resilient message replication across different Kafka clusters.
-There are a number of factors that may prevent target topics (or their partitions) from progressing as you would expect.
+Apache Kafka® MirrorMaker 2 provides reliable message replication across Kafka clusters using configurations, states, and offsets.
+Various factors can disrupt the replication of topics and partitions, preventing
+them from progressing as expected.
 
-The following guideline assumes that the user has previously [setup a MirrorMaker replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow)
-and has assessed an issue with the replication of some topics or partitions.
+These guidelines assume that you have previously
+[set up a MirrorMaker replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow)
+and have identified an issue with the replication of certain topics or partitions.
 
 :::note
-There are different ways of assessing MirrorMaker replication issues, including:
-- basic monitoring,
-- log search,
-- [offset sync status analysis](/docs/products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool).
+You can assess Aiven for Apache Kafka MirrorMaker 2 replication issues in several ways:
+
+- Basic monitoring
+- Log search
+- [Offset sync status analysis](/docs/products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool)
+
 :::
 
 ## Excessive message size
 
-The error `RecordTooLargeException` is typically observed by the user from the service logs when a record is larger than expected. 
+The error `RecordTooLargeException` appears in service logs when a record exceeds the
+allowed size. This can occur in two scenarios:
 
-Two different scenarios exist:
-1. **Target Kafka broker rejects a record**
-   - the reason is likely that the record is larger than configured at destination topic,
-   - the user can fix it by increasing the value of topic configuration `max_message_bytes` or superseeded broker config `message_max_bytes`. Following to this change, it is necessary that the workers restart their task.
-2. **MirrorMaker conector rejects a record**
-   - the reason is likely that the record is larger than configured as maximal producer request size,
-   - the user can fix it by increasing the value of integration configuration [producer_max_request_size](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration#producer_max_request_size-1).
+1. **Target Apache Kafka broker rejects a record**
+
+   - **Cause**: The record is larger than the destination topic's allowed size.
+   - **Solution**: Increase the `max_message_bytes` value for the topic or the
+     broker’s `message_max_bytes` configuration. Restart the worker tasks to apply
+     the new settings.
+
+1. **MirrorMaker connector rejects the record**
+
+   - **Cause**: The record is larger than the maximum producer request size.
+   - **Solution**: Update the `producer_max_request_size` in the integration
+     configuration. For more details, see the [integration configuration documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration#producer_max_request_size-1).
 
 ## Limited replication
 
-The following two worker configuration settings may significantly impact how topic partitions are replicated:
-- [kafka_mirrormaker.offset_lag_max](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_offset_lag_max) (100 by default) defines how far behind a remote partition can be until it starts catching up. Given that this parameter is global to all replication topics, you need to find a compromise between:
-  - a too low value that may put more load on your MirrorMaker workers and Kafka brokers due to high-throughput topics,
-  - a too high value that may prevent the replication of low-throughput topics from progressing.
+The following worker configurations can significantly impact topic partition replication:
 
-- [kafka_mirrormaker.tasks_max_per_cpu](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_tasks_max_per_cpu) (1 by default) influences the maximum number of MirrorMaker tasks (of each type) per service CPU. For example in a typical cluster of 3 nodes of 2 CPU, the MirrorMaker `tasks.max` is automatically set to 6 per default, allowing for 6 different tasks to execute at the same time. The optimal and best performance case is one Kafka consumer per partition. If MirrorMaker has to process more partitions than replication tasks available, then the tasks will get assigned more than one:
-  - a too low value may introduce unexpected replication lag on some partitions,
-  - a too high value result in the creation of idle tasks.
+- [`kafka\_mirrormaker.offset\_lag\_max`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_offset_lag_max)
+
+  - Default value: 100
+  - Description: This parameter applies globally to all replication topics and defines
+    how far behind a remote partition can be before catching up. Consider its impact
+    on high-throughput and low-throughput topics carefully.
+  - Considerations:
+    - A low value can increase load on Apache Kafka MirrorMaker 2 workers and Kafka
+      brokers due to high-throughput topics.
+    - A high value can prevent low-throughput topics from progressing.
+
+- [`kafka\_mirrormaker.tasks\_max\_per\_cpu`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_tasks_max_per_cpu)
+
+  - Default value: 1
+  - Description: Specifies the maximum number of Apache Kafka MirrorMaker 2 tasks
+    per service CPU. For example, in a typical cluster with 3 nodes, each having 2 CPUs,
+    the `tasks.max` is automatically set to 6, allowing 6 tasks to execute simultaneously.
+    The optimal performance is achieved when each Kafka consumer is assigned to a single
+    partition. If Apache Kafka MirrorMaker 2 processes more partitions than available
+    tasks, multiple partitions are assigned to a single task.
+  - Considerations:
+    - A low value can introduce replication lag on some partitions.
+    - A high value can result in idle tasks.
 
 :::note
-From Kafka v3.7 onwards, offset sync is emitted periodically by MirrorMaker.
+Starting with Apache Kafka v3.7, Aiven for Apache Kafka MirrorMaker 2 emits offset sync
+information periodically, enhancing replication monitoring and troubleshooting.
 :::
 
-## Non-coherent offset 
+## Non-coherent offset
 
-By default, MirrorMaker is storing its offsets at target cluster in internal topic `mm2-offsets.<source cluster alias>.internal`. By design, it checks if it already stored an offset for the replication topic, if so it always continues mirroring from there, to avoid duplicate consumption.
+Apache Kafka MirrorMaker 2 stores offsets in the target cluster’s internal
+topic `mm2-offsets.<source cluster alias>.internal`. By design, it checks if an offset
+is already stored for the replication topic and resumes replication from the last stored
+offset to avoid duplicate consumption. This behavior can cause confusion when:
 
-This behaviour might lead to user confusion why topics are not replicated from their earliest offset, for example:
-- when a replication topic had already been replicated some time ago, and then removed from the replication flow.
-- when a replication topic had been deleted/re-created at source.
+- A replication topic was previously replicated and later removed from the replication
+  flow.
+- A replication topic was deleted and recreated at the source.
 
-In both cases, the recommendation is to avoid these scenarios in production. Should they occur and require to be mitigated, the solution is to manually trigger MirrorMaker offset reset. There are 2 different options:
+To resolve these issues, you can reset the offsets using one of the following methods:
 
-#### You can afford to reset offsets for the entire replication flow:
+### Resetting all offsets
 
 1. Disable the replication flow.
 1. Delete the internal offsets topic.
-1. Re-enable the replication flow.
-1. The internal offset topic is automatically re-created.
-1. MirrorMaker replicates from earliest offset.
+1. Re-enable the replication flow to recreate the internal offsets topic automatically.
+1. MirrorMaker will replicate from the earliest offset.
 
-#### You need to reset offsets related to a single topic
+### Resetting offsets for a specific topic
 
-1. Following the steps defined in [Configure properties for Apache Kafka® toolbox](/docs/products/kafka/howto/kafka-tools-config-file), create a configuration file that can be used to access the Kafka cluster that hosts the internal offsets topic.
+1. [Configure the Kafka toolbox](/docs/products/kafka/howto/kafka-tools-config-file) to
+   access the Kafka cluster hosting the internal offsets topic.
 1. Disable the replication flow.
-1. Produce a delete record (aka. tombstone) to the offset storage for the replication topic to reset. This can be achieved using [this script](https://gist.github.com/C0urante/30dba7b9dce567f33df0526d68765860). Note that the `-o` option does not need to specified if default offsets storage topic location applies.
+1. Produce a tombstone record to the offset storage for the replication topic using
+  [this script](https://gist.github.com/C0urante/30dba7b9dce567f33df0526d68765860).
+
+   :::note
+   The `-o` option is not needed if the default offsets topic applies.
+   :::
+
 1. Re-enable the replication flow.
-1. MirrorMaker replicates from earliest offset.
+1. MirrorMaker replicates from the earliest offset.
