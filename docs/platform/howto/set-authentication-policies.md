@@ -4,7 +4,7 @@ title: Set authentication policies for organization users
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The authentication policy for your organization specifies the ways that users in your organization and their personal tokens can access the organization on the Aiven platform.
+The authentication policy for your organization specifies the ways that users in your organization can access the organization on the Aiven Platform.
 
 ## Authentication types
 
@@ -20,7 +20,7 @@ two-factor authentication (2FA) for password logins for all users in
 your organization.
 
 When 2FA is required, users can't access any resources in your organization until they
-set up 2FA. This only applies to logins using email and password. The Aiven platform
+set up 2FA. This only applies to logins using email and password. The Aiven Platform
 cannot enforce 2FA for logins through third-party providers, including identity providers.
 
 :::note
@@ -54,7 +54,7 @@ personal tokens. Non-managed users can still create personal tokens, but they ca
 them to access the organization's resources.
 
 To regularly manage your resources programmatically with the Aiven API, CLI,
-Terraform Provider, or other applications, it's best to create an
+Terraform Provider, or other tools, it's best to create an
 [application user](/docs/platform/howto/manage-application-users) with its own tokens.
 
 Personal tokens are generated with the authentication method that the user logged in with.
@@ -71,6 +71,13 @@ If the authentication policy changes later to only allow logging on with an iden
 provider, then the token generated when the user was logged in with their password will
 not work. After logging in with an allowed method on the new authentication policy
 the user can create a token.
+
+### Access from allowed IP addresses
+
+You can restrict users to accessing the Aiven Platform from specific IP address ranges
+to ensure they are coming from trusted networks. This helps you minimize exposure, reduce
+the risk of breaches, and comply with policies and regulations. This also applies to
+access through personal and application tokens.
 
 ## Set an authentication policy
 

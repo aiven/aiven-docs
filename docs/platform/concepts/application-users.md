@@ -38,6 +38,15 @@ the description field for each user to clearly indicate what it's used for.
 This helps you manage the lifecycle of the users and ensure the access permissions are
 correct for each use case.
 
+### Restrict access to trusted networks
+
+Specify allowed IP address ranges for each token. This prevents tokens from being used
+outside of your trusted networks, reducing the risk of breaches. You can also specify
+these ranges in your organization's
+[authentication policy](/docs/platform/howto/set-authentication-policies), limiting
+all access to the Aiven Platform to these IP addresses, including
+through application tokens.
+
 ### Keep tokens secure and rotate them regularly
 
 Make sure tokens are securely stored and only accessible by people who need them. Tokens
