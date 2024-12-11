@@ -17,8 +17,10 @@ infrastructure, you can also perform a manual failover.
 ## Prerequisites
 
 - [CRDR setup](/docs/products/postgresql/crdr/enable-crdr) up and running
-- Access to the [Aiven Console](https://console.aiven.io/) or
-  the [Aiven CLI client installed](/docs/tools/cli)
+- One of the following tools for operating CRDR:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Automatic failover
 
@@ -55,6 +57,62 @@ avn service update PRIMARY_SERVICE_NAME \
 ```
 
 Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+to change `disaster_recovery_role` of the primary service to `failed`:
+
+```bash {5}
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/PRIMARY_SERVICE_NAME \
+  -H 'Authorization: Bearer BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data '{"disaster_recovery_role": "failed"}'
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `crdr-test`
+- `PRIMARY_SERVICE_NAME`, for example `pg-primary-test`
+- `BEARER_TOKEN`
+
+After sending the request, you can check the CRDR status on each of the CRDR peer services:
+
+- Primary service status
+
+   ```bash
+   avn service get pg-primary
+      --project $PROJECT_NAME
+      --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+   ```
+
+   Expect the following output:
+
+   ```json
+   {
+   "state": "POWEROFF",
+   "disaster_recovery_role": "failed"
+   }
+   ```
+
+- Recovery service status
+
+   ```bash
+   avn service get pg-primary-dr
+   --project $PROJECT_NAME
+   --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+   ```
+
+   Expect the following output:
+
+   ```json
+   {
+   "state": "RUNNING",
+   "disaster_recovery_role": "active"
+   }
+   ```
 
 </TabItem>
 </Tabs>
