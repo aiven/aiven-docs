@@ -29,9 +29,10 @@ Key use case for the Aiven for ClickHouse query cache are the following:
 
 ## Enable query cache
 
-To enable the query cache for a query, use an SQL client (for example, the
-[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) and
-append `SETTINGS use_query_cache = 1` to your query:
+To enable the query cache for a query, set the `use_query_cache` setting for the query to `1`.
+You can achieve this by appending `SETTINGS use_query_cache = 1` to the end of your query
+using an SQL client (for example, the
+[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)):
 
 ```sql
 SELECT 1
@@ -63,6 +64,8 @@ You can configure the following query cache settings:
 
 ## Limitation
 
+- Cached results are not invalidated or discarded when the underlying data (the result
+  of a SELECT query) changes, which might cause returning stale results.
 - Maximum query cache size: 64 MiB for each GiB of RAM (for example, 256 MiB for a 4-GiB
   service or 1 GiB for a 16-GiB service)
 - Maximum number of query cache entries: 64 entries for each GiB of RAM (for example,
