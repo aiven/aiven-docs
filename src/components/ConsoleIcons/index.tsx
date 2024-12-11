@@ -201,6 +201,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Permissions</b>
         </>
       );
+    case 'orgpermissions':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.blockedPerson} /> <b>Permissions</b>
+        </>
+      );
     case 'users':
       return (
         <>

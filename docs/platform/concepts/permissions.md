@@ -24,6 +24,18 @@ use with the Aiven API, Aiven Provider for Terraform, and Aiven Operator for Kub
 
 ## Organization roles and permissions
 
+By default all non-managed organization users can:
+
+- Edit their profiles.
+- Create organizations.
+- Leave organizations.
+- Add [allowed authentication methods](/docs/platform/howto/set-authentication-policies).
+- Generate and revoke personal tokens, if allowed by the
+  [authentication policy](/docs/platform/howto/set-authentication-policies).
+- Enable and disable feature previews.
+
+[Managed users](/docs/platform/concepts/managed-users) have more restrictions.
+
 You can grant the following roles and permissions to principals at the organization level.
 Roles and permissions at this level apply to the organization and all units, projects,
 and services within it.
@@ -33,7 +45,6 @@ and services within it.
 |    Console name     |          API name          |                                                                                                                                                                                                                                             Permissions                                                                                                                                                                                                                                             |
 | ------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Admin               | `role:organization:admin`  | <ul> <li> Full access to the organization. </li> <li> View and change billing information. </li> <li> Change the authentication policy. </li> <li> Invite, deactivate, and remove organization users. </li> <li> Create, edit, and delete groups. </li> <li> Create and delete application users and their tokens. </li> <li> Add and remove domains. </li> <li> Add, enable, disable, and remove identity providers. </li> </ul>                                                                   |
-| Organization member | `role:organization:member` | The default role assigned to all organization users. <br/> <br/> Non-managed users can: <ul> <li> Edit their profiles. </li> <li> Create organizations. </li> <li> Leave organizations. </li> <li> Add [allowed authentication methods](/docs/platform/howto/set-authentication-policies). </li> <li> Generate and revoke personal tokens, if allowed by the [authentication policy](/docs/platform/howto/set-authentication-policies). </li> <li> Enable and disable feature previews. </li> </ul> |
 
 ### Organization permissions
 
