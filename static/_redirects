@@ -35,8 +35,8 @@
 /platform/concepts/service-scaling                     https://aiven.io/docs/platform/howto/scale-services
 /platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/access-service-logs                    https://aiven.io/docs/platform/howto/list-monitoring
-/platform/howto/add-project-members                    https://aiven.io/docs/platform/howto/manage-permissions
 /platform/howto/add-groups-projects                    https://aiven.io/docs/platform/howto/manage-groups
+/platform/howto/add-project-members                    https://aiven.io/docs/platform/howto/manage-permissions
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
@@ -73,6 +73,9 @@
 /platform/howto/saml/saml-authentication.html          https://aiven.io/docs/platform/howto/list-identity-providers
 /platform/howto/saml/setup-saml-auth0.html             https://aiven.io/docs/platform/howto/saml/add-auth0-idp
 /platform/howto/saml/setup-saml-azure                  https://aiven.io/docs/platform/howto/saml/add-azure-idp
+/platform/howto/saml/setup-saml-fusionauth             https://aiven.io/docs/platform/howto/saml/add-fusionauth-idp
+/platform/howto/saml/setup-saml-google                 https://aiven.io/docs/platform/howto/saml/add-google-idp
+/platform/howto/saml/setup-saml-jumpcloud              https://aiven.io/docs/platform/howto/saml/add-jumpcloud-idp
 /platform/howto/saml/setup-saml-okta                   https://aiven.io/docs/platform/howto/saml/add-okta-idp
 /platform/howto/saml/setup-saml-onelogin               https://aiven.io/docs/platform/howto/saml/add-onelogin-idp
 /platform/howto/service-metrics                        https://aiven.io/docs/platform/howto/list-monitoring
@@ -131,9 +134,11 @@
 /products/influxdb                                         https://aiven.io/docs/products/services
 /products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
 /products/kafka/howto                                      https://aiven.io/docs/products/kafka/howto/list-code-samples
+/products/kafka/howto/enable-karapace                                  https://aiven.io/docs/products/kafka/howto/enable-schema-registry
 /products/kafka/howto/list-admin                           https://aiven.io/docs/products/kafka/howto/enable-karapace
 /products/kafka/howto/list-integration                     https://aiven.io/docs/products/kafka/howto/integrate-service-logs-into-kafka-topic
 /products/kafka/howto/list-integration.html                https://aiven.io/docs/products/kafka
+/products/kafka/howto/list-schema-registry                             https://aiven.io/docs/products/kafka/howto/enable-schema-registry
 /products/kafka/howto/list-security                        https://aiven.io/docs/products/kafka/howto/keystore-truststore
 /products/kafka/howto/list-tools                           https://aiven.io/docs/products/kafka/howto/kafka-tools-config-file
 /products/kafka/howto/list-topic-management                https://aiven.io/docs/products/kafka/howto/create-topic
@@ -213,8 +218,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
-/products/kafka/howto/enable-karapace                                  https://aiven.io/docs/products/kafka/howto/enable-schema-registry
-/products/kafka/howto/list-schema-registry                             https://aiven.io/docs/products/kafka/howto/enable-schema-registry
 
 
 # Keep splats at the end
