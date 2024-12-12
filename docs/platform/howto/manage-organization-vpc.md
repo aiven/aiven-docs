@@ -11,8 +11,11 @@ Set up or delete an organization-wide VPC in the Aiven Platform. Enable new Aive
 
 ## Prerequisites
 
-You need the [super admin role](/docs/platform/howto/make-super-admin) to manage an
-organization VPC.
+- [Super admin role](/docs/platform/howto/make-super-admin) to manage organization VPCs
+- One of the following tools for operating organization VPCs:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Create an organization VPC
 
@@ -63,6 +66,28 @@ Replace the following:
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
+
+Make an API call to the `OrganizationVpcCreate` endpoint:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '
+    {
+      "cloud_name": "CLOUD_PROVIDER_REGION",
+      "network_cidr": "NETWORK_CIDR"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `ORGANIZATION_ID`
+- `BEARER_TOKEN`
+- `CLOUD_PROVIDER_REGION`
+- `NETWORK_CIDR`
 
 </TabItem>
 </Tabs>
@@ -120,6 +145,39 @@ Replace the following:
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
+Call the
+[ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate) to
+create a recovery service and enable the `disaster_recovery` service integration between
+the recovery service and the primary service, for example:
+
+```bash {12}
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data-raw '
+    {
+      "service_name": "SERVICE_NAME",
+      "cloud": "CLOUD_PROVIDER_REGION",
+      "plan": "SERVICE_PLAN",
+      "service_type": "SERVICE_TYPE",
+      "disk_space_mb": DISK_SIZE,
+      "project_vpc_id":"ORGANIZATION_VPC_ID"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `org-vpc-test`
+- `BEARER_TOKEN`
+- `SERVICE_NAME`, for example `org-vpc-test-project`
+- `CLOUD_PROVIDER_REGION`, for example `google-europe-west10`
+- `SERVICE_PLAN`, for example `startup-4`
+- `SERVICE_TYPE`, for example `pg`
+- `DISK_SIZE` in MiB, for example `81920`
+- `ORGANIZATION_VPC_ID`
+
 </TabItem>
 </Tabs>
 
@@ -160,6 +218,24 @@ Replace the following:
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
+
+Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+to set `project_vpc_id` of the service to the ID of your organization VPC:
+
+```bash {5}
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  -H 'Authorization: Bearer BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data '{"project_vpc_id": "ORGANIZATION_VPC_ID"}'
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `org-vpc-test`
+- `SERVICE_NAME`, for example `org-vpc-service`
+- `BEARER_TOKEN`
+- `ORGANIZATION_VPC_ID`
 
 </TabItem>
 </Tabs>
@@ -205,6 +281,20 @@ Replace the following:
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
+
+Make an API call to the `OrganizationVpcDelete` endpoint:
+
+```bash
+curl --request DELETE \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+```
+
+Replace the following placeholders with meaningful data:
+
+- `ORGANIZATION_ID`
+- `ORGANIZATION_VPC_ID`
+- `BEARER_TOKEN`
 
 </TabItem>
 </Tabs>
