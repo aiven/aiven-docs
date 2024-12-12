@@ -339,6 +339,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Reset password</b>
         </>
       );
+    case 'reset':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.reset} />{' '}
+          <b>Reset credentials</b>
+        </>
+      );
     case 'replacefile':
       return (
         <>
@@ -361,6 +368,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete topic</b>
+        </>
+      );
+    case 'deleteacl':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete ACL</b>
         </>
       );
     case 'deletedatabase':
