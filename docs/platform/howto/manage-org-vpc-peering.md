@@ -1,6 +1,6 @@
 ---
-title: Manage organization VPC peering in Aiven
-sidebar_label: Manage organization VPC peering
+title: Manage organization VPC peering with AWS
+sidebar_label: Org VPC peering with AWS
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -11,61 +11,64 @@ import TabItem from '@theme/TabItem';
 Set up or delete an organization-wide VPC in the Aiven Platform. Enable new Aiven projects in the organization VPC or migrate existing Aiven projects to the organization VPC. Access resources within the organization VPC from the public internet.
 -->
 ## Prerequisites
-<!--
-You need the [super admin role](/docs/platform/howto/make-super-admin) to manage an
-organization VPC.
--->
+
+- [Super admin role](/docs/platform/howto/make-super-admin) to manage organization VPCs
+- Two VPCs to be peered: an
+  [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
+  in Aiven and a VPC in your AWS account
+- One of the following tools for VPC peering operations:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
+
 ## Create a peering connection
-<!--
-Create an organization VPC using a tool of your choice:
+
+### Collect data in the AWS Console
+
+1. Log in to the [AWS Management Console](https://console.aws.amazon.com) and go to your
+   profile information.
+1. Find and save your account ID.
+1. Go to the VPC service: **All services** > **Networking & Content Delivery** > **VPC**
+   \> **Your VPCs**.
+1. Find a VPC to peer and save its ID.
+1. Find and save a cloud region that the VPC is located in.
+
+### Create a peering in Aiven
+
+Create an organization VPC peering connection using a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
    top navigation bar.
-1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar and **Create VPC** on the
-   **Organization VPCs** page.
-1. In the **Create VPC** window:
-   1. Select a cloud provider.
-   1. Select a cloud region.
-   1. Specify an IP range.
+1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
+1. On the **Organization VPCs** page, select an organization VPC to peer.
+1. On the **Organization VPC details** page, click **Add peering connection**.
+1. In the **Add peering connection** window:
+   1. Enter the following:
+      - **AWS account ID**
+      - **AWS VPC region**
+      - **AWS VPC ID**
+   1. Click **Add peering connection**.
 
-      - Use an IP range that does not overlap with any networks to be connected via VPC
-        peering. For example, if your own networks use the range `11.1.1.0/8`, you can set
-        the range for your Aiven project's VPC to `191.161.1.0/24`.
-      - Use a network prefix that is 20-24 character long.
+### Accept the peering request in the AWS Console
 
-   1. Click **Create VPC**.
-
-Your new organization VPC is ready to use as soon as its status visible on the
-**Organization VPCs** page changes to **Active**.
+1. Log in to the [AWS Management Console](https://console.aws.amazon.com), and go to the
+   VPC service (**All services** > **Networking & Content Delivery** > **VPC**).
+1. Click **Peering connections** in the sidebar.
+1. Find and select the peering request from Aiven, and  click **Actions** > **Accept request**.
+1. Create or update your AWS route tables to match your Aiven CIDR settings.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
-
-Run
-
-```bash
-avn organization vpc create
-  --cloud aws-eu-west-1
-  --network-cidr 10.0.0.0/24
-  --organization-id "$org_id"
-```
-
-Check if the VPC has been created:
-
-```bash
-avn organization vpc list
-  --organization-id "$org_id"
-```
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
 </TabItem>
 </Tabs>
--->
+
 ## Delete a peering connection
 <!--
 :::important
