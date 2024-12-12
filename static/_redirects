@@ -236,8 +236,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
-/products/kafka/howto/enable-karapace                                  https://aiven.io/docs/products/kafka/howto/enable-schema-registry
-/products/kafka/howto/list-schema-registry                             https://aiven.io/docs/products/kafka/howto/enable-schema-registry
 /platform/howto/manage-vpc-peering                         https://aiven.io/docs/platform/howto/manage-project-vpc
 
 #
