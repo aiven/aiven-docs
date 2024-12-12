@@ -45,9 +45,10 @@ There are some limitations of the free plan services:
     [organization](/docs/platform/concepts/orgs-units-projects)
 -   Not covered under Aiven's 99.99% SLA
 
-Free plans do not have any time limitations. However, Aiven reserves the
-right to shut down services if we believe they violate the [acceptable
-use policy](https://aiven.io/terms) or are unused for some time.
+Free plans do not have any time limitations. However, Aiven reserves the right:
+
+- To shut down services if Aiven believes they violate the [acceptable use policy](https://aiven.io/terms) or are unused for some time.
+- To change the cloud provider at any point in time.
 
 ## Upgrading and downgrading
 
