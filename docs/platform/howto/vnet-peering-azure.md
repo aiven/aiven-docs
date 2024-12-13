@@ -1,5 +1,6 @@
 ---
 title: Set up VPC peering on Azure
+sidebar_label: Peer project VPCs with Azure
 ---
 
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"

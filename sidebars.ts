@@ -237,16 +237,25 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/vpcs',
               },
               items: [
-                'platform/concepts/vpc-peering',
                 'platform/howto/manage-project-vpc',
                 'platform/howto/manage-organization-vpc',
-                'platform/howto/manage-org-vpc-peering',
+                {
+                  type: 'category',
+                  label: 'VPC peering',
+                  link: {
+                    type:'doc',
+                    id: 'platform/howto/list-vpc-peering',
+                  },
+                  items: [
+                    'platform/howto/vpc-peering-gcp',
+                    'platform/howto/vpc-peering-aws',
+                    'platform/howto/vnet-peering-azure',
+                    'platform/howto/vpc-peering-upcloud',
+                    'platform/howto/manage-org-vpc-peering-aws',
+                    'platform/howto/google-cloud-functions',
+                  ],
+                },
                 'platform/howto/public-access-in-vpc',
-                'platform/howto/vpc-peering-gcp',
-                'platform/howto/vpc-peering-aws',
-                'platform/howto/vnet-peering-azure',
-                'platform/howto/vpc-peering-upcloud',
-                'platform/howto/google-cloud-functions',
                 'platform/howto/attach-vpc-aws-tgw',
                 {
                   type: 'category',

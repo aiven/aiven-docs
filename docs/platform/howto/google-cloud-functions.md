@@ -1,5 +1,6 @@
 ---
 title: Access Aiven services from Google Cloud Functions via VPC peering
+sidebar_label: Access services from GCF via VPC peering
 ---
 
 You can access Aiven service by creating a **Serverless VPC access connector** and **Google Cloud Function**.

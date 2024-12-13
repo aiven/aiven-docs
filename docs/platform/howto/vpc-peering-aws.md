@@ -1,5 +1,6 @@
 ---
 title: Set up VPC peering on AWS
+sidebar_label: Peer project VPCs with AWS
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
