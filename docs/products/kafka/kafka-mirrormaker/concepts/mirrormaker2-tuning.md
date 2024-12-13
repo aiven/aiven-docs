@@ -1,8 +1,9 @@
 ---
-title: Configuration parameters
+title: Configuration parameters for Aiven for Apache Kafka® MirrorMaker 2
 ---
 
-Explore Aiven for Apache Kafka® MirrorMaker 2 configuration layers, including service, replication flow, and integration settings, to optimize data replication in your Apache Kafka® ecosystem.
+Learn about the configuration layers in Aiven for Apache Kafka® MirrorMaker 2, including service, replication flow, and integration settings.
+Optimize data replication and performance in your Kafka ecosystem.
 
 ## Configuration layers
 
