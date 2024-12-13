@@ -1,5 +1,6 @@
 ---
 title: Set up VPC peering on UpCloud
+sidebar_label: Peer project VPCs with UpCloud
 ---
 
 import UpcloudVpcPeering from "@site/static/images/content/platform/howto/upcloud-vpc-peer.png";

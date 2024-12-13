@@ -1,6 +1,6 @@
 ---
 title: Manage organization VPC peering with AWS
-sidebar_label: Org VPC peering with AWS
+sidebar_label: Peer org VPCs with AWS
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
