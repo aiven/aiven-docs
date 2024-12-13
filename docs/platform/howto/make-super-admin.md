@@ -4,11 +4,9 @@ title: Super admin
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The super admin role has full access to an organization, its billing and settings, and all its organizational units, projects, and services.
+The super admin role is a special role that has unrestricted access to an organization and all of its resources. This role should be limited to as few users as possible for organization setup and emergency use. For daily administrative tasks, assign users the [organization admin role](/docs/platform/concepts/permissions) instead. Aiven also highly recommends enabling [two-factor authentication](/docs/platform/howto/user-2fa) for super admin.
 
-## Make a user a super admin
-
-To give a user full access to your organization:
+To make a user a super admin:
 
 1.  In the organization, click **Admin**.
 1.  Click <ConsoleLabel name="users"/>.
@@ -16,8 +14,3 @@ To give a user full access to your organization:
 
 To revoke super admin privileges for a user, follow the same steps and
 select **Revoke super admin**.
-
-## Related pages
-<!-- vale off -->
-- [Manage organization users](/docs/platform/howto/manage-org-users)
-- [Permissions](/docs/platform/concepts/permissions)
