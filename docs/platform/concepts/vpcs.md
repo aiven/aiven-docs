@@ -25,7 +25,7 @@ you define and control to deploy and manage resources.
 ### VPC components
 
 - Subnets: Represent smaller public or private networks within the VPC.
-- [Peering connection](/docs/platform/concepts/vpc-peering): Connect VPCs for
+- [Peering connection](/docs/platform/howto/list-vpc-peering): Connect VPCs for
   intercommunication.
 - NAT (Network Address Translation) gateway: Allows outbound internet access for private
   subnets.
