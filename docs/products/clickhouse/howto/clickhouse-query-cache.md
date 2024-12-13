@@ -10,8 +10,8 @@ by caching query results.
 
 When the Aiven for
 [ClickHouse query cache](https://clickhouse.com/docs/en/operations/query-cache) is enabled,
-multiple identical `SELECT` queries run simultaneously are computed only once,
-and further executions of the same query are served directly from the cache.
+multiple identical `SELECT` queries running simultaneously are computed only once.
+Subsequent executions of the same query are served directly from the cache.
 
 :::important
 By default, the Aiven for ClickHouse query cache is disabled for all `SELECT` queries.
@@ -65,7 +65,7 @@ You can configure the following query cache settings:
 ## Limitation
 
 - Cached results are not invalidated or discarded when the underlying data (the result
-  of a SELECT query) changes, which might cause returning stale results.
+  of a `SELECT` query) changes, which might cause returning stale results.
 - Maximum query cache size: 64 MiB for each GiB of RAM (for example, 256 MiB for a 4-GiB
   service or 1 GiB for a 16-GiB service)
 - Maximum number of query cache entries: 64 entries for each GiB of RAM (for example,
