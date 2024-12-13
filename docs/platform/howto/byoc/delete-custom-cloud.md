@@ -35,8 +35,8 @@ them earlier, you're advised to do that after deleting your cloud.
     organization.
 -   You have no running services that use a custom cloud to be deleted.
 -   You have access to the [Aiven Console](https://console.aiven.io/).
--   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   You have at least one
@@ -44,8 +44,8 @@ them earlier, you're advised to do that after deleting your cloud.
     organization.
 -   You have no running services that use a custom cloud to be deleted.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
--   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
 </TabItem>
 </Tabs>
 

@@ -76,7 +76,8 @@ you assign a contact person for your custom cloud.
     Contact your account team to learn more or upgrade your support tier.
     :::
 
--   Only [super admins](/docs/platform/howto/make-super-admin) can create custom clouds.
+-   Only [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    can create custom clouds.
 
 ## Prerequisites {#byoc-prerequisites}
 
@@ -87,8 +88,8 @@ you assign a contact person for your custom cloud.
 -   Depending on the dev tool to use for creating a custom cloud, you have:
     - Access to the [Aiven Console](https://console.aiven.io/) or
     - [Aiven CLI](/docs/tools/cli) installed
--   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
 -   You have Terraform installed.
 -   You have required [IAM permissions](#iam-permissions)
 </TabItem>
@@ -96,8 +97,8 @@ you assign a contact person for your custom cloud.
 -   You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 -   You have an active account with your cloud provider.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
--   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
 -   You have [Terraform](/docs/tools/terraform) installed.
 -   You have required [IAM permissions](#iam-permissions).
 -   You have your Aiven organization ID from:

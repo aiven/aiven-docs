@@ -6,9 +6,10 @@ You configure billing details, including [payment methods](/docs/platform/howto/
 
 Billing information, invoices, and a breakdown of charges by category and billing group
 are available in the **Billing** section of the [Aiven Console](https://console.aiven.io).
-To access this section, you have to be a
-[super admin](/docs/platform/howto/make-super-admin). Other users have read-only access
-to some billing information like billing group details and invoices using the API.
+To access this section, you must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).
+ Other users have read-only access to some billing information like billing group details
+and invoices using the API.
 
 ## Service charges
 
