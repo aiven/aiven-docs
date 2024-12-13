@@ -301,5 +301,5 @@ Replace the following placeholders with meaningful data:
 
 ## Related pages
 
-- [VPC peering](/docs/platform/concepts/vpc-peering)
-- [Manage organization VPC peering connections](/docs/platform/howto/manage-org-vpc-peering)
+- [VPC peering](/docs/platform/howto/list-vpc-peering)
+- [Manage organization VPC peering connections](/docs/platform/howto/manage-org-vpc-peering-aws)

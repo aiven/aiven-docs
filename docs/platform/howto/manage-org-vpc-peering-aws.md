@@ -111,5 +111,5 @@ avn organization vpc delete
 ## Related pages
 
 - [VPCs in Aiven](/docs/platform/concepts/vpcs)
-- [VPC peering in Aiven](/docs/platform/concepts/vpc-peering)
+- [VPC peering in Aiven](/docs/platform/howto/list-vpc-peering)
 - [Manage organization VPCs](/docs/platform/howto/manage-organization-vpc)
