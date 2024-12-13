@@ -41,7 +41,7 @@ allowed size. This can occur in two scenarios:
 
 The following worker configurations can significantly impact topic partition replication:
 
-- [`kafka\_mirrormaker.offset\_lag\_max`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_offset_lag_max)
+- [`kafka_mirrormaker.offset_lag_max`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_offset_lag_max)
 
   - Default value: 100
   - Description: This parameter applies globally to all replication topics and defines
@@ -52,7 +52,7 @@ The following worker configurations can significantly impact topic partition rep
       brokers due to high-throughput topics.
     - A high value can prevent low-throughput topics from progressing.
 
-- [`kafka\_mirrormaker.tasks\_max\_per\_cpu`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_tasks_max_per_cpu)
+- [`kafka_mirrormaker.tasks_max_per_cpu`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_tasks_max_per_cpu)
 
   - Default value: 1
   - Description: Specifies the maximum number of Apache Kafka MirrorMaker 2 tasks
