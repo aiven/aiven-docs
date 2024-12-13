@@ -14,8 +14,9 @@ Principals are
 and [groups](/docs/platform/howto/manage-groups).
 
 You can grant access to principals at the organization and project level.
-You can
-[add users to services](/docs/platform/howto/create_new_service_user).
+
+To give users access to a specific service,
+[create service users](/docs/platform/howto/create_new_service_user).
 
 ## Organization roles and permissions
 

@@ -4,7 +4,7 @@ title: Super admin
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The super admin role is a special role that has unrestricted access to an organization and all of is resources. This role should be limited to as few users as possible for organization setup and emergency use. For daily administrative tasks, assign users the [organization admin role](/docs/platform/concepts/permissions) instead. Aiven also highly recommends enabling [two-factor authentication](/docs/platform/howto/user-2fa) for super admin.
+The super admin role is a special role that has unrestricted access to an organization and all of its resources. This role should be limited to as few users as possible for organization setup and emergency use. For daily administrative tasks, assign users the [organization admin role](/docs/platform/concepts/permissions) instead. Aiven also highly recommends enabling [two-factor authentication](/docs/platform/howto/user-2fa) for super admin.
 
 To make a user a super admin:
 
