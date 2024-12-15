@@ -556,7 +556,7 @@
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name" id="opensearch_dashboards_max_old_space_size"><a href="#opensearch_dashboards_max_old_space_size"><strong>opensearch_dashboards.max_old_space_size</strong></a></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>64</code></li><li>max: <code>2048</code></li><li>default: <code>128</code></li></ul></div>
+              <div className="param"><p className="name" id="opensearch_dashboards_max_old_space_size"><a href="#opensearch_dashboards_max_old_space_size"><strong>opensearch_dashboards.max_old_space_size</strong></a></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>64</code></li><li>max: <code>4096</code></li><li>default: <code>128</code></li></ul></div>
               <p className="title">max_old_space_size</p>
               <div className="description"><p>Limits the maximum amount of memory (in MiB) the OpenSearch Dashboards process can use. This sets the max_old_space_size option of the nodejs running the OpenSearch Dashboards. Note: the memory reserved by OpenSearch Dashboards is not available for OpenSearch.</p></div>
             </td>
@@ -565,6 +565,13 @@
             <td>
               <div className="param"><p className="name" id="opensearch_dashboards_opensearch_request_timeout"><a href="#opensearch_dashboards_opensearch_request_timeout"><strong>opensearch_dashboards.opensearch_request_timeout</strong></a></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>5000</code></li><li>max: <code>120000</code></li><li>default: <code>30000</code></li></ul></div>
               <p className="title">Timeout in milliseconds for requests made by OpenSearch Dashboards towards OpenSearch</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="opensearch_dashboards_multiple_data_source_enabled"><a href="#opensearch_dashboards_multiple_data_source_enabled"><strong>opensearch_dashboards.multiple_data_source_enabled</strong></a></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p className="title">Enable or disable multiple data sources in OpenSearch Dashboards</p>
               
             </td>
           </tr>
