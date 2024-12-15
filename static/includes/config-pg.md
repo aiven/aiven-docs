@@ -6,6 +6,17 @@
   </thead>
   <tbody>    <tr>
       <td>
+        <div className="param"><p className="name" id="additional_backup_regions"><a href="#additional_backup_regions"><strong>additional_backup_regions</strong></a></p><p><code className="type">array</code></p></div>
+        <p className="title">Additional Cloud Regions for Backup Replication</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name" id="migration"><a href="#migration"><strong>migration</strong></a></p><p><code className="type">object,null</code></p></div>
         <p className="title">Migrate data from existing server</p>
         
@@ -563,6 +574,13 @@
               <div className="param"><p className="name" id="pg_deadlock_timeout"><a href="#pg_deadlock_timeout"><strong>pg.deadlock_timeout</strong></a></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>500</code></li><li>max: <code>1800000</code></li></ul></div>
               <p className="title">deadlock_timeout</p>
               <div className="description"><p>This is the amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name" id="pg_password_encryption"><a href="#pg_password_encryption"><strong>pg.password_encryption</strong></a></p><p><code className="type">string,null</code></p></div><div className="constraints"><ul><li>default: <code>md5</code></li></ul></div>
+              <p className="title">password_encryption</p>
+              <div className="description"><p>Chooses the algorithm for encrypting passwords.</p></div>
             </td>
           </tr>
           <tr>
