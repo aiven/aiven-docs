@@ -504,6 +504,13 @@
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name" id="pg_password_encryption"><a href="#pg_password_encryption"><strong>pg.password_encryption</strong></a></p><p><code className="type">string,null</code></p></div><div className="constraints"><ul><li>default: <code>md5</code></li></ul></div>
+              <p className="title">password_encryption</p>
+              <div className="description"><p>Chooses the algorithm for encrypting passwords.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name" id="pg_default_toast_compression"><a href="#pg_default_toast_compression"><strong>pg.default_toast_compression</strong></a></p><p><code className="type">string</code></p></div>
               <p className="title">default_toast_compression</p>
               <div className="description"><p>Specifies the default TOAST compression method for values of compressible columns (the default is lz4).</p></div>
