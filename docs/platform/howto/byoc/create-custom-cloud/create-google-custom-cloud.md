@@ -162,8 +162,7 @@ In the **Create custom cloud** wizard:
 
         By default, the following data is stored in object storage in your own cloud account:
 
-        -   Cold data (learn more about the
-            [BYOC tiered storage](/docs/platform/howto/byoc/store-data#byoc-tiered-storage))
+        -   Cold data
         -   Service backups
 
         :::note

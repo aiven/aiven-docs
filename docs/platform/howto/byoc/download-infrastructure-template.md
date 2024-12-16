@@ -86,4 +86,3 @@ avn byoc template terraform get-vars                             \
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Store data in custom clouds](/docs/platform/howto/byoc/store-data)
