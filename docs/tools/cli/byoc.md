@@ -13,7 +13,7 @@ Set up and manage your [custom clouds](/docs/platform/concepts/byoc) using the A
 | Parameter           | Required | Information                                                                                                                                                              |
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `--organization-id` | Yes      | Identifier of an organization where to create the custom cloud                                                                                                           |
-| `--deployment-model`| Yes      | Determines the [deployment model](/docs/platform/concepts/byoc#byoc-deployment), for example `standard` (the default deployment model with a private workload network)   |
+| `--deployment-model`| Yes      | Determines the [deployment model](/docs/platform/concepts/byoc#byoc-architecture), for example `standard` (the default deployment model with a private workload network)   |
 | `--cloud-provider`  | Yes      | Cloud provider to be used for running the custom cloud, for example`aws` (Amazon Web Services)                                                                           |
 | `--cloud-region`    | Yes      | Cloud region where to create the custom cloud, for example `eu-west-1`                                                                                                   |
 | `--reserved-cidr`   | Yes      | IP address range of the VPC to be created in your cloud account for Aiven services hosted on a custom cloud                                                              |
@@ -66,7 +66,7 @@ Modifies a custom cloud configuration.
 Custom cloud tags are key-value pairs that you can attach to your custom cloud for resource
 categorization. They propagate to resources on the Aiven platform and in your own cloud
 infrastructure. Custom cloud tags are cascaded to bastion nodes and disks in private
-[deployment models](https://aiven.io/docs/platform/concepts/byoc#byoc-deployment).
+[deployment models](https://aiven.io/docs/platform/concepts/byoc#byoc-architecture).
 
 ### `avn byoc tags list`
 

@@ -23,7 +23,7 @@ eligibility for the feature.
 
 :::important
 Before enabling BYOC, check
-[who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc) and review
+[who is eligible for BYOC](/docs/platform/concepts/byoc#who-is-eligible-for-byoc) and review
 [feature limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations) and
 [prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::
@@ -33,7 +33,7 @@ Before enabling BYOC, check
 -   You need at least the Advanced tier of
     [Aiven support services](https://aiven.io/support-services) to be eligible for
     activating BYOC.
--   Only [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+-   Only [organization admins](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     can request enabling BYOC.
 
 ## Prerequisites {#byoc-enable-prerequisites}
