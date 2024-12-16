@@ -19,8 +19,8 @@ Aiven-managed security protocols, and backed by Aiven-managed storage and
 backups. This provides a straightforward and safe approach to deploying Aiven
 services. However, you might need a different configuration if your business,
 project, or organization has specific requirements. With BYOC, your Aiven
-organization gets connected with your cloud provider account by creating _custom
-clouds_ in your Aiven organization.
+organization gets connected with your cloud provider account by creating custom
+clouds in your Aiven organization.
 
 ## How it works
 
