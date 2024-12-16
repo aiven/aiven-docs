@@ -5,7 +5,7 @@ platform:
   - changed-files:
       - any-glob-to-any-file: 'docs/platform/**'
 
-service/alloydb_omni:
+service/alloydbomni:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/alloydbomni/**'
 
@@ -45,7 +45,7 @@ service/mysql:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/mysql/**'
 
-service/postgresql:
+service/pg:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/postgresql/**'
 
