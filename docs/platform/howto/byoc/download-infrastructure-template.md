@@ -84,10 +84,6 @@ avn byoc template terraform get-vars                             \
 
 ## Related pages
 
--   [Bring your own cloud](/docs/platform/concepts/byoc)
--   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
--   [Delete a custom cloud](/docs/platform/howto/byoc/delete-custom-cloud)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+-   [Store data in custom clouds](/docs/platform/howto/byoc/store-data)
