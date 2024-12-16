@@ -7,19 +7,16 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization.
 
+To enable [BYOC](/docs/platform/concepts/byoc), open the
+[Aiven Console](https://console.aiven.io/) and
+[set up a call with the Aiven sales team](/docs/platform/howto/byoc/enable-byoc#enable-byoc).
+
 :::note
 Enabling [the BYOC feature](/docs/platform/concepts/byoc) or creating custom
 clouds in your Aiven environment does not affect the configuration of your
 existing Aiven organizations, projects, or services. It only allows you to run Aiven
 services in your cloud provider account.
 :::
-
-To be able to create custom clouds on the Aiven platform, first you need
-to enable the BYOC feature. The [Aiven Console](https://console.aiven.io/)
-offers a quick and easy way to set up a short call with the Aiven sales
-team to identify your use cases and confirm the requirements. In the
-call, we make sure BYOC can address them, and we check your environment
-eligibility for the feature.
 
 :::important
 Before enabling BYOC, check
@@ -74,9 +71,6 @@ With BYOC activated in your Aiven organization, you can
 
 ## Related pages
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [About bring your own cloud](/docs/platform/concepts/byoc)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
