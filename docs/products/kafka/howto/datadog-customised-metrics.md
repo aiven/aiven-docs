@@ -79,7 +79,8 @@ parameters:
     exclude.
 
     :::warning
-    When `exclude_topics` are defined, some `include_consumer_groups` are also required so that it applies.
+    To use `exclude_topics`, you must specify at least one `include_consumer_groups`
+    value. Without this, `exclude_topics` does not take effect.
     :::
 
 -   `include_consumer_groups`: Specify a comma-separated list of
