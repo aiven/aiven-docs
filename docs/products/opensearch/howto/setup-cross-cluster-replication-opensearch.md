@@ -20,8 +20,8 @@ Cross cluster replication is not available for the Hobbyist and Startup plans.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and select the
    Aiven for OpenSearch service.
-1. On the service's <ConsoleLabel name="overview"/> page, scroll to the **Cross cluster
-    replications** section.
+1. On the service's <ConsoleLabel name="overview"/> page, scroll to the
+   **Cross cluster replication** section.
 1. Click **Create follower**.
 
 1. On the **Create OpenSearch follower cluster** page:
@@ -134,10 +134,9 @@ The **Leader** and **Follower** chips below the service names identify the clust
 
 ## Promote a follower cluster to a standalone service
 
-Promote a follower cluster to a standalone status to enable it to operate independently
-without replicating data from a leader cluster. Use this in scenarios such as
-disaster recovery to stop replication and make the follower cluster a standalone,
-write-enabled service.
+Promote a follower service to standalone status to enable it to operate independently
+without replicating data from a leader service. This is useful for disaster recovery,
+where replication needs to stop, and the follower service operates independently.
 
 <Tabs groupId="promote-cluster-method">
 <TabItem value="Console" label="Aiven Console" default>
@@ -152,7 +151,8 @@ write-enabled service.
 1. Click **Confirm** to complete the promotion.
 
   :::note
-  This action will stop replication and make the follower cluster standalone.
+  This action stops replication and transitions the follower cluster to a standalone
+  service.
   :::
 
 The follower cluster is now a standalone service and can accept writes. You can set up
@@ -162,7 +162,7 @@ replication again if needed.
 <TabItem value="API" label="Aiven API">
 
 To promote a follower cluster to standalone using the Aiven API,
-remove the `opensearch_cross_cluster_replication` integration from the service.
+delete the `opensearch_cross_cluster_replication` integration from the service.
 
 ```bash
 curl -X DELETE https://api.aiven.io/v1/project/<PROJECT_NAME>/integration/<INTEGRATION_ID> \
@@ -175,14 +175,13 @@ Parameters:
 - `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
 - `<API_TOKEN>`: API authentication token.
 
-After the integration is removed, the follower cluster transitions to a
-standalone service.
+Removing the integration transitions the follower cluster to a standalone service.
 
 </TabItem>
 <TabItem value="CLI" label="Aiven CLI">
 
 To promote a follower cluster to standalone using the
-[Aiven CLI](/docs/tools/cli), remove the `opensearch_cross_cluster_replication`
+[Aiven CLI](/docs/tools/cli), delete the `opensearch_cross_cluster_replication`
 integration with the following command:
 
 ```bash
@@ -196,24 +195,25 @@ Parameters:
 - `<PROJECT_NAME>`: Aiven project name.
 - `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
 
-After the integration is deleted, the follower cluster transitions to a standalone
-service.
+Deleting the integration transitions the follower cluster to a standalone service.
 
 </TabItem>
 <TabItem value="Terraform" label="Terraform">
 
-To promote a follower cluster to standalone using
-[Terraform](/docs/tools/terraform), remove the `opensearch_cross_cluster_replication`
-integration by deleting or commenting out the corresponding resource in the configuration.
+To promote a follower cluster to standalone using [Terraform](/docs/tools/terraform),
+delete the `opensearch_cross_cluster_replication` integration from your configuration.
 
 ```hcl
 resource "aiven_service_integration" "ccr" {
-  # Remove or comment out this resource to delete the integration
+  project                  = "<PROJECT_NAME>"
+  integration_type         = "opensearch_cross_cluster_replication"
+  source_service_name      = "<LEADER_SERVICE_NAME>"
+  destination_service_name = "<FOLLOWER_SERVICE_NAME>"
 }
 ```
 
-After applying the changes (`terraform apply`), the follower cluster transitions to a
-standalone service.
+Run `terraform apply` to apply the changes.
+After the changes are applied, the follower cluster transitions to a standalone service.
 
 </TabItem>
 </Tabs>
