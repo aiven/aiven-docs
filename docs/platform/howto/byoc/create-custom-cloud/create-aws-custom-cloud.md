@@ -4,7 +4,7 @@ sidebar_label: Amazon Web Services
 keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud]
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

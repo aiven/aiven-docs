@@ -2,7 +2,7 @@
 title: Manage billing groups
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 With [billing groups](/docs/platform/concepts/billing-groups-overview) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
 

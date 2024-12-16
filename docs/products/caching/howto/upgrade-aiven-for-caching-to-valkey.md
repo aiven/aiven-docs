@@ -5,7 +5,7 @@ sidebar_label: Upgrade to Aiven for Valkey™
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Upgrade your Aiven for Caching service to Aiven for Valkey using the Aiven Console or Aiven API.
 The process retains configurations, users, and data without disrupting your service.

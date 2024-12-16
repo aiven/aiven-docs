@@ -3,7 +3,7 @@ title: Restrict network access to services
 sidebar_label: Restrict access
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Restrict access to your Aiven-managed service to a single IP, an address block, or any combination of both.
 

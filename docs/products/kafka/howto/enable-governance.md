@@ -3,7 +3,7 @@ title: Enable governance for Aiven for Apache Kafka®
 sidebar_label: Enable governance
 limited: true
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 

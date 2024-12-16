@@ -1,8 +1,8 @@
 ---
 title: Dashboard preview for Aiven for Grafana®
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Grafana's dashboard previews provide a visual overview of your dashboards, displaying each configured dashboard as a graphical thumbnail.
 

@@ -5,8 +5,8 @@ sidebar_label: Exactly-once delivery
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Exactly-once delivery in Aiven for Apache Kafka MirrorMaker 2 replicates each message exactly once between clusters, preventing duplicates or data loss.
 

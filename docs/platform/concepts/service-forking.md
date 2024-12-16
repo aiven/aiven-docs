@@ -5,7 +5,7 @@ title: Service forking
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 [Fork your Aiven service](/docs/platform/concepts/service-forking) to make a copy of the service, for example to create a snapshot to analyze an issue.
 

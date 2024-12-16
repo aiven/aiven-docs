@@ -2,7 +2,7 @@
 title: Migrate service to another cloud or region
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 When migrating a service, the migration happens in the background and
 does not affect your service until the service has been rebuilt at the

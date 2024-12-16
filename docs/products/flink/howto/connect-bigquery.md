@@ -2,7 +2,7 @@
 title: Integrate Aiven for Apache Flink® with Google BigQuery
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Connect Aiven for Apache Flink® with Google BigQuery as a sink using the [Aiven client](/docs/tools/cli) or the [Aiven Console](https://console.aiven.io/).
 

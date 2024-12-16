@@ -3,7 +3,7 @@ title: Perform a PostgreSQL® major version upgrade
 sidebar_label: Upgrade to a major version
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.
 The whole procedure usually takes 60 seconds or less for small databases.
@@ -29,7 +29,7 @@ We recommend to test the upgrade on [a fork](/docs/platform/concepts/service-for
 the database to be upgraded. Testing on a fork provides the benefit of
 verifying the impact of the upgrade for the specific service without
 affecting the running service, mostly to:
-
+<!-- vale off -->
 1.  Ensure that the upgrade succeeds and is performed quickly enough, which
     might not be the case if there are many databases or large objects.
 
@@ -38,7 +38,7 @@ affecting the running service, mostly to:
     `pg_upgrade --link`. A fork will reveal this scenario.
 1.  Test query performance directly after upgrade under real world
     load, when no statistics are available and caches are cold.
-
+<!-- vale on -->
 ### Upgrade to major versions in sequence
 
 :::important

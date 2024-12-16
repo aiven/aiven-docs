@@ -2,7 +2,7 @@
 title: Create service users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Service users are users that only exist in the scope of the corresponding Aiven service.
 They are unique to this service and not shared with any other services,

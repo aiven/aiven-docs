@@ -3,7 +3,7 @@ title: Configure ACL permissions in Aiven for Caching
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Aiven for Caching  uses [Access Control Lists (ACLs)](https://redis.io/docs/management/security/acl/) o manage the usage of commands and keys based on specific username and password combinations.
 Direct use of [ACL commands](https://redis.io/commands/acl-list/) is restricted to

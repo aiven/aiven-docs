@@ -2,7 +2,7 @@
 title: Create new tables without primary keys
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 If your Aiven for MySQL® service was created after 2020-06-03, by default it does not allow creating new tables without primary keys.
 

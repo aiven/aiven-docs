@@ -2,7 +2,7 @@
 title: Send metrics to Datadog
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Send metrics from your Aiven service to your external Datadog account.
 

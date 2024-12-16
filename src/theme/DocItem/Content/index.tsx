@@ -5,9 +5,8 @@ import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import Heading from '@theme/Heading';
 import MDXContent from '@theme/MDXContent';
 import type {Props} from '@theme/DocItem/Content';
-import EnterpriseBadge from '@site/src/components/Badges/EnterpriseBadge';
-import LimitedBadge from '@site/src/components/Badges/LimitedBadge';
-import EarlyBadge from '@site/src/components/Badges/EarlyBadge';
+import LimitedBadge from '@site/src/components/non-swizzled/Badges/LimitedBadge';
+import EarlyBadge from '@site/src/components/non-swizzled/Badges/EarlyBadge';
 
 /**
  Title can be declared inside md content or declared through

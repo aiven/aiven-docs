@@ -2,7 +2,7 @@
 title: Manage storage
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Get a comprehensive view of your storage usage with Aiven for Metrics. The Storage page in the [Aiven console](https://console.aiven.io/) provides valuable data to help you effectively manage and understand your object storage consumption and associated costs.
 

@@ -3,7 +3,7 @@ title: Connect with pgAdmin
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using [pgAdmin](https://www.pgadmin.org/), which is a PostgreSQL® client useful for managing and querying databases.
 

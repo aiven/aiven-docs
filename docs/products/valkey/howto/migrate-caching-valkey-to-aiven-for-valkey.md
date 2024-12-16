@@ -1,8 +1,8 @@
 ---
 title: Migrate Aiven for Caching or Valkey to Aiven for Valkey™
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Migrate your Aiven for Caching or Valkey databases to Aiven for Valkey™ using the Aiven Console migration tool.
 

@@ -2,7 +2,7 @@
 title: Migrate Aiven for InfluxDB to Aiven for Metrics
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Migrate your Aiven for InfluxDB databases to Aiven for Thanos Metrics using the Aiven Console migration tool.
 

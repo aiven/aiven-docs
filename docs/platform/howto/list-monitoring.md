@@ -2,7 +2,7 @@
 title: Metrics, logs, and alerts
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Use metrics, logs, alerts, and dashboards to monitor the health of your services and integrations.
 

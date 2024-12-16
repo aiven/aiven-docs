@@ -2,7 +2,7 @@
 title: Claim topic ownership
 limited: true
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 To take ownership of a topic that your group does not currently own, you can submit a claim request. Once you send the request, the current owner can approve or decline it.
 

@@ -2,8 +2,8 @@
 title: Get started with tiered storage
 
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Aiven for Apache Kafka tiered storage optimizes resources by storing recent, frequently accessed data on faster local disks.
 As data becomes less active, it moves to more economical, slower storage, balancing

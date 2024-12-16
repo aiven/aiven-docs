@@ -3,7 +3,7 @@ title: Connect with DBeaver
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using [DBeaver](https://dbeaver.com/).
 

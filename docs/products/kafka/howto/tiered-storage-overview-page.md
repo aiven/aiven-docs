@@ -4,8 +4,8 @@ sidebar_label: Tiered storage overview page
 
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Aiven for Apache Kafka® offers a comprehensive overview of tiered storage, allowing you to understand its usage and make informed decisions.
 

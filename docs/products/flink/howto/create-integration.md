@@ -1,8 +1,8 @@
 ---
 title: Create Apache Flink® data service integrations
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
 
 With Aiven for Apache Flink®, you can create streaming data pipelines to connect various services.
 

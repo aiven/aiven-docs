@@ -2,7 +2,7 @@
 title: Load sample data into ClickHouse®
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 The official ClickHouse® website offers [a list of example datasets](https://clickhouse.com/docs/en/getting-started/example-datasets/) to get you started.
 Each dataset has a description on how to download,

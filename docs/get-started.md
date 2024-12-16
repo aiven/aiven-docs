@@ -3,11 +3,11 @@ title: Get started with Aiven
 sidebar_label: Get started
 ---
 
-import Button from "@site/src/components/Buttons";
-import {ButtonSecondary} from "@site/src/components/Buttons";
-import Card from "@site/src/components/AivenCard";
+import Button from "@site/src/components/non-swizzled/Buttons";
+import {ButtonSecondary} from "@site/src/components/non-swizzled/Buttons";
+import Card from "@site/src/components/non-swizzled/Card";
 import Overview from "@site/static/images/content/platform/platform-overview.png";
-import GridContainer from "@site/src/components/GridContainer";
+import GridContainer from "@site/src/components/non-swizzled/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";

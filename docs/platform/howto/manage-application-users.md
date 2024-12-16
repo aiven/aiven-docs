@@ -2,8 +2,8 @@
 title: Manage application users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Application users give non-human users programmatic access to Aiven.
 
