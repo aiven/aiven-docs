@@ -28,8 +28,9 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 
 - This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
   it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-- You need [super admin](/docs/platform/howto/make-super-admin) permissions to
-  enable governance.
+- You must be an
+  [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+  to enable governance.
 
 ## Enable governance
 

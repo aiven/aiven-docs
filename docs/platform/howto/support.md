@@ -9,8 +9,8 @@ the [Aiven Community Forum](https://aiven.io/community/forum/).
 
 ## Change your support tier {#upgrade-support-tier}
 
-To change your organization's support tier, you must be a
-[super admin](/docs/platform/howto/make-super-admin).
+To change your organization's support tier, you must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).
 
 1.  In the organization, click **Admin**.
 
@@ -101,8 +101,8 @@ To add Aiven users to a support ticket:
 
 ## Get notifications for all support tickets
 
-[Super admin](/docs/platform/howto/make-super-admin) can get notifications for
-updates on all tickets in their organization.
+[Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+can get notifications for updates on all tickets in their organization.
 
 1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
     to open the Aiven Support Center.

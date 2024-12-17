@@ -28,20 +28,18 @@ Before enabling BYOC, check
 [prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::
 
-## Required access
-
-You must be a [super admin](/docs/platform/howto/make-super-admin) to enable this feature.
-
 ## Limitations {#byoc-enable-limitations}
 
 -   You need at least the Advanced tier of
     [Aiven support services](https://aiven.io/support-services) to be eligible for
     activating BYOC.
--   Only [super admins](/docs/platform/howto/make-super-admin) can request enabling BYOC.
+-   Only [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    can request enabling BYOC.
 
 ## Prerequisites {#byoc-enable-prerequisites}
 
--   [Super admin](/docs/platform/howto/make-super-admin) role for your Aiven organization
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role for your Aiven organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
 -   Active account with your cloud provider
 

@@ -12,5 +12,5 @@ of any project assigned to that billing group.
 You can only use a billing group for payments in one organization. You
 cannot use a billing group for projects that are in other organizations.
 
-To access billing groups in the Aiven Console, you must be a
-[super admin](/docs/platform/howto/make-super-admin) or account owner.
+To access billing groups in the Aiven Console, you must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).

@@ -6,8 +6,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 With [billing groups](/docs/platform/concepts/billing-groups-overview) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
 
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this
-feature in the Aiven Console.
+You must be an [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console.
 
 ## Create a billing group
 

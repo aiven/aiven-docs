@@ -42,8 +42,9 @@ sales taxes, depending on the local tax legislation of the customer.
 
 ## Add a VAT ID to a billing group
 
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this
-feature in the Aiven Console.
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console.
 
 1.  Click **Billing**.
 1.  Click **Billing groups**.

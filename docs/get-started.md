@@ -205,9 +205,9 @@ Add users to groups to streamline access management to your Aiven projects and s
       service level."
     />
     <Card
-      to="/docs/platform/howto/make-super-admin"
+      to="/docs/platform/concepts/permissions"
       iconName="clipboard"
-      title="Manage super admin"
+      title="Manage organization admin"
       description="Control who can manage the organization, its billing, and all
       projects."
     />

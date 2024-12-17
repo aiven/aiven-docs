@@ -38,10 +38,12 @@ You can move a project to another organization or organizational unit.
 Users with admin access to projects can move them to another
 organizational unit or up a level to the organization.
 
-To move a project to a different organization, you must be a
-[super admin](/docs/platform/howto/make-super-admin) of both organizations.
-All users added to a project are removed when you
-move a project to a different organization.
+To move a project to a different organization, you must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+of both organizations.
+
+All users with permission to access the project lose the permissions when you
+move it to a different organization.
 
 1.  In the organization with the project, click **Admin**.
 1.  Click <ConsoleLabel name="Projects"/> and find the project to move.

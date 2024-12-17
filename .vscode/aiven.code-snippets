@@ -12,15 +12,6 @@
     "body": ["## Related pages", "", "$1"],
     "description": "Inserts a related pages section"
   },
-  "Required access": {
-    "scope": "markdown",
-    "prefix": "Required access",
-    "body": [
-      "## Required access",
-      "You must be a ${1|[super admin](/docs/platform/howto/make-super-admin),[project admin](/docs/platform/concepts/permissions),[project operator](/docs/platform/concepts/permissions)|} to access this feature."
-    ],
-    "description": "Inserts a section with information on what role is needed to access a feature"
-  },
   "Title": {
     "scope": "markdown",
     "prefix": ["ttl", "title"],
