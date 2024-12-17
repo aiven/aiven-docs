@@ -115,10 +115,6 @@ For more information on Aiven security and compliance, see
 
 ## Related pages
 
--   [Bring your own cloud](/docs/platform/concepts/byoc)
--   [Enable the BYOC feature](/docs/platform/howto/byoc/enable-byoc)
+-   [About bring your own cloud](/docs/platform/concepts/byoc)
+-   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
--   [Download an infrastructure template](/docs/platform/howto/byoc/download-infrastructure-template)

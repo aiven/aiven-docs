@@ -218,7 +218,7 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
-
+/platform/howto/byoc/create-custom-cloud                               https://aiven.io/docs/platform/howto/byoc/create-custom-cloud/create-custom-cloud
 
 # Keep splats at the end
 #

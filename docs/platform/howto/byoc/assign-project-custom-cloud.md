@@ -105,9 +105,7 @@ custom cloud, you can:
 
 ## Related pages
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
