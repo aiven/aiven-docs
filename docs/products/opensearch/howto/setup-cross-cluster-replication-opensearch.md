@@ -1,13 +1,14 @@
 ---
 title: Set up cross-cluster replication for Aiven for OpenSearch®
 limited: true
+sidebar_label: Cross-cluster replication
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Set up cross-cluster replication (CCR) for your Aiven for OpenSearch service to ensure efficient data synchronization across different regions and cloud providers.
+Set up cross-cluster replication (CCR) for your Aiven for OpenSearch service to synchronize data across regions and cloud providers efficiently.
 
 :::note
 Cross cluster replication is not available for the Hobbyist and Startup plans.
@@ -26,16 +27,16 @@ Cross cluster replication is not available for the Hobbyist and Startup plans.
 
 1. On the **Create OpenSearch follower cluster** page:
 
-   - Enter a name for the follower cluster.
+   - Enter a name for the follower service.
    - Select the cloud provider, region, and service plan.
    - Add additional disk storage if required.
 
    :::note
-   The follower cluster must use the same service plan as the leader cluster
+   The follower service must use the same service plan as the leader service
    during creation to ensure sufficient memory. You can change the service plan later.
    :::
 
-1.  Click **Create**.
+1. Click **Create**.
 
 </TabItem>
 <TabItem value="API" label="Aiven API">
@@ -59,14 +60,12 @@ curl -X POST https://api.aiven.io/v1/project/<PROJECT_NAME>/integration \
 Parameters:
 
 - `<PROJECT_NAME>`: Aiven project name.
-- `<LEADER_SERVICE_NAME>`: Leader (source) cluster service name.
-- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) cluster service name.
+- `<LEADER_SERVICE_NAME>`: Leader (source) service name.
+- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
 - `<API_TOKEN>`: API authentication token.
-
 
 </TabItem>
 <TabItem value="CLI" label="Aiven CLI">
-
 
 To set up cross-cluster replication with the [Aiven CLI](/docs/tools/cli), use the
 `avn service integration-create` command and
@@ -84,8 +83,8 @@ avn service integration-create \
 Parameters:
 
 - `<PROJECT_NAME>`: Aiven project name.
-- `<LEADER_SERVICE_NAME>`: Leader (source) cluster service name.
-- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) cluster service name.
+- `<LEADER_SERVICE_NAME>`: Leader (source) service name.
+- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
 
 </TabItem>
 <TabItem value="Terraform" label="Terraform">
@@ -107,8 +106,8 @@ resource "aiven_service_integration" "ccr" {
 Parameters:
 
 - `<PROJECT_NAME>`: Aiven project name.
-- `<LEADER_SERVICE_NAME>`: Leader (source) cluster service name.
-- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) cluster service name.
+- `<LEADER_SERVICE_NAME>`: Leader (source) service name.
+- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
 
 For detailed information, see the
 [Service Integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
@@ -117,26 +116,31 @@ For detailed information, see the
 </Tabs>
 
 :::note
-To learn about the limitations with cross cluster replications
+To learn about the limitations with cross-cluster replications
 for Aiven for OpenSearch, see the
 [Limitations](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch#ccr-limitatons) section.
 :::
 
-## View follower cluster services
+## View follower services
 
-To view the follower cluster services configured for your Aiven for OpenSearch service:
+To view the follower services configured for your Aiven for OpenSearch service:
 
 1. Go to the <ConsoleLabel name="overview"/> page of your service.
 1. Scroll to the **Cross-cluster replication** section.
-1. Click a follower cluster name to view its details.
+1. Click a follower service name to view its details.
 
-The **Leader** and **Follower** chips below the service names identify the cluster roles.
+The **Leader** and **Follower** chips below the service names identify the service roles.
 
-## Promote a follower cluster to a standalone service
+## Promote a follower service to a standalone service
 
 Promote a follower service to standalone status to enable it to operate independently
 without replicating data from a leader service. This is useful for disaster recovery,
 where replication needs to stop, and the follower service operates independently.
+
+:::note
+Promoting a follower service to standalone stops replication and deletes the
+replication integration.
+:::
 
 <Tabs groupId="promote-cluster-method">
 <TabItem value="Console" label="Aiven Console" default>
@@ -150,18 +154,13 @@ where replication needs to stop, and the follower service operates independently
    **Promote to standalone** in the **Cross-cluster replica status**.
 1. Click **Confirm** to complete the promotion.
 
-  :::note
-  This action stops replication and transitions the follower cluster to a standalone
-  service.
-  :::
-
-The follower cluster is now a standalone service and can accept writes. You can set up
+The follower service is now a standalone service and can accept writes. You can set up
 replication again if needed.
 
 </TabItem>
 <TabItem value="API" label="Aiven API">
 
-To promote a follower cluster to standalone using the Aiven API,
+To promote a follower service to standalone using the Aiven API,
 delete the `opensearch_cross_cluster_replication` integration from the service.
 
 ```bash
@@ -175,12 +174,12 @@ Parameters:
 - `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
 - `<API_TOKEN>`: API authentication token.
 
-Removing the integration transitions the follower cluster to a standalone service.
+Removing the integration transitions the follower service to a standalone service.
 
 </TabItem>
 <TabItem value="CLI" label="Aiven CLI">
 
-To promote a follower cluster to standalone using the
+To promote a follower service to standalone using the
 [Aiven CLI](/docs/tools/cli), delete the `opensearch_cross_cluster_replication`
 integration with the following command:
 
@@ -195,12 +194,12 @@ Parameters:
 - `<PROJECT_NAME>`: Aiven project name.
 - `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
 
-Deleting the integration transitions the follower cluster to a standalone service.
+Deleting the integration transitions the follower service to a standalone service.
 
 </TabItem>
 <TabItem value="Terraform" label="Terraform">
 
-To promote a follower cluster to standalone using [Terraform](/docs/tools/terraform),
+To promote a follower service to standalone using [Terraform](/docs/tools/terraform),
 delete the `opensearch_cross_cluster_replication` integration from your configuration.
 
 ```hcl
@@ -213,7 +212,7 @@ resource "aiven_service_integration" "ccr" {
 ```
 
 Run `terraform apply` to apply the changes.
-After the changes are applied, the follower cluster transitions to a standalone service.
+After the changes are applied, the follower service transitions to a standalone service.
 
 </TabItem>
 </Tabs>
