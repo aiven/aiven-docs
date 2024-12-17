@@ -83,7 +83,7 @@ destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 :::
 
 :::note
-When running `terraform destroy`, add `-var-file=FILE_NAME.vars` as an option.
+When running `terraform destroy`, add `-var-file=FILE_NAME.tfvars` as an option.
 :::
 
 ## Related pages

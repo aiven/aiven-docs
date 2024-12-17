@@ -521,7 +521,7 @@ Continue working in the **Create custom cloud** wizard:
     provided variables.
 
     :::important
-    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.vars`
+    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
     as an option.
     :::
 
@@ -604,9 +604,9 @@ Your new custom cloud is ready to use only after its status changes to
 
     ```bash
     avn byoc create                               \
-      --organization-id "ORGANIZATION_ID" \
+      --organization-id "ORGANIZATION_ID"         \
       --deployment-model "DEPLOYMENT_MODEL_NAME"  \
-      --cloud-provider "aws"                   \
+      --cloud-provider "aws"                      \
       --cloud-region "CLOUD_REGION_NAME"          \
       --reserved-cidr "CIDR_BLOCK"                \
       --display-name "CUSTOM_CLOUD_DISPLAY_NAME"
@@ -673,8 +673,8 @@ Your new custom cloud is ready to use only after its status changes to
       - [avn byoc template terraform get-template](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
 
             ```bash
-            avn byoc template terraform get-template        \
-              --organization-id "ORGANIZATION_ID"   \
+            avn byoc template terraform get-template             \
+              --organization-id "ORGANIZATION_ID"                \
               --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tf"
             ```
 
@@ -691,9 +691,9 @@ Your new custom cloud is ready to use only after its status changes to
       - [avn byoc template terraform get-vars](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
 
             ```bash
-            avn byoc template terraform get-vars              \
-              --organization-id "ORGANIZATION_ID"     \
-              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.vars"
+            avn byoc template terraform get-vars                   \
+              --organization-id "ORGANIZATION_ID"                  \
+              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tfvars"
             ```
 
          Replace the following:
@@ -724,7 +724,7 @@ Your new custom cloud is ready to use only after its status changes to
       your AWS cloud account. This will generate a Role ARN.
 
        :::important
-       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.vars`
+       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
        as an option.
        :::
 
@@ -734,9 +734,9 @@ Your new custom cloud is ready to use only after its status changes to
    and passing the generated `aws-iam-role-arn` as an option.
 
         ```bash
-        avn byoc provision                            \
-          --organization-id "ORGANIZATION_ID" \
-          --byoc-id "CUSTOM_CLOUD_ID"         \
+        avn byoc provision                        \
+          --organization-id "ORGANIZATION_ID"     \
+          --byoc-id "CUSTOM_CLOUD_ID"             \
           --aws-iam-role-arn "GENERATED_ROLE_ARN"
         ```
 
@@ -758,7 +758,7 @@ Your new custom cloud is ready to use only after its status changes to
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
 
         ```bash
-        avn byoc cloud permissions add              \
+        avn byoc cloud permissions add        \
           --organization-id "ORGANIZATION_ID" \
           --byoc-id "CUSTOM_CLOUD_ID"         \
           --account "ACCOUNT_ID"
@@ -781,7 +781,7 @@ Your new custom cloud is ready to use only after its status changes to
    [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update).
 
         ```bash
-        avn byoc update                               \
+        avn byoc update                     \
         --organization-id "ORGANIZATION_ID" \
         --byoc-id "CUSTOM_CLOUD_ID"         \
         '

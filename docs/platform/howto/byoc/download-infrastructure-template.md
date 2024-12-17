@@ -1,6 +1,6 @@
 ---
 title: Download an infrastructure template and a variables file
-sidebar_label: Download TF template & vars file
+sidebar_label: Download TF template & tfvars file
 keywords: [Terraform, deployment, deploy, byoc, bring your own cloud, custom cloud]
 ---
 
@@ -76,7 +76,7 @@ to download your variables file.
 ```bash
 avn byoc template terraform get-vars                             \
     --organization-id "ORGANIZATION_IDENTIFIER"                  \
-    --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.vars"
+    --byoc-id "CUSTOM_CLOUD_IDENTIFIER" >| "tf_dir/tf_file.tfvars"
 ```
 
 </TabItem>

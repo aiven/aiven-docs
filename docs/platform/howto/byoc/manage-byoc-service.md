@@ -29,7 +29,7 @@ custom cloud name as an option:
 avn service create                      \
   --project "PROJECT_NAME"              \
   --service-type "TYPE_OF_BYOC_SERVICE" \
-  --plan "PLAN_OF_BYOC_SERVICE"         \
+  --plan "SERVICE_PLAN"                 \
   --cloud "CUSTOM_CLOUD_NAME"           \
   "NEW_BYOC_SERVICE_NAME"
 ```

@@ -31,7 +31,7 @@ account so that Aiven can access it:
 1. You deploy your custom cloud resources supplying the generated privilege-bearing service
    account to the Aiven platform, which gives Aiven the permissions
    to securely access your Google Cloud account, create resources, and manage them onward.
-1. You select projects that can use your new custom clouds for creating services.
+1. You select Aiven projects that can use your new custom clouds for creating services.
 1. You add contact details for individuals from your organization that Aiven can reach out
    to in case of technical issues with the new cloud.
 
@@ -181,7 +181,7 @@ Continue working in the **Create custom cloud** wizard:
     :::note
     To connect to a custom-cloud service from different security groups
     (other than the one dedicated for the custom cloud) or from IP
-    address ranges, add specific ingress rules before you apply a
+    address ranges, add specific ingress rules before you apply the
     Terraform infrastructure template in your Google Cloud account in the process
     of creating a custom cloud resources.
 
@@ -190,11 +190,11 @@ Continue working in the **Create custom cloud** wizard:
     Console](https://console.aiven.io/).
     :::
 
-1.  Use Terraform to deploy the infrastructure template in your Google Cloud  account with
+1.  Use Terraform to deploy the infrastructure template in your Google Cloud account with
     the provided variables.
 
     :::important
-    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.vars`
+    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
     as an option.
     :::
 
@@ -209,7 +209,7 @@ Continue working in the **Create custom cloud** wizard:
 
 #### Set up your custom cloud's availability
 
-Select in what projects you'll be able to use your new custom cloud as a hosting cloud for
+Select in which projects you'll be able to use your new custom cloud as a hosting cloud for
 services. In the projects where you enable your custom cloud, you can create new
 services in the custom cloud or migrate your existing services to the custom cloud if your
 service and networking configuration allows it. For more information on migrating your
@@ -260,7 +260,7 @@ Select **Done** to close the **Create custom cloud** wizard.
 
 The deployment of your new custom cloud might take a few minutes. As
 soon as it's over, and your custom cloud is ready to use, you'll be
-able to see it on the list of your custom clouds in the **Bring your own
+able to see it in the list of your custom clouds in the **Bring your own
 cloud** view.
 
 :::note
@@ -275,7 +275,7 @@ Your new custom cloud is ready to use only after its status changes to
 
     ```bash
     avn byoc create                               \
-      --organization-id "ORGANIZATION_ID" \
+      --organization-id "ORGANIZATION_ID"         \
       --deployment-model "DEPLOYMENT_MODEL_NAME"  \
       --cloud-provider "google"                   \
       --cloud-region "CLOUD_REGION_NAME"          \
@@ -344,8 +344,8 @@ Your new custom cloud is ready to use only after its status changes to
       - [avn byoc template terraform get-template](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
 
             ```bash
-            avn byoc template terraform get-template        \
-              --organization-id "ORGANIZATION_ID"   \
+            avn byoc template terraform get-template             \
+              --organization-id "ORGANIZATION_ID"                \
               --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tf"
             ```
 
@@ -362,9 +362,9 @@ Your new custom cloud is ready to use only after its status changes to
       - [avn byoc template terraform get-vars](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
 
             ```bash
-            avn byoc template terraform get-vars              \
-              --organization-id "ORGANIZATION_ID"     \
-              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.vars"
+            avn byoc template terraform get-vars                     \
+              --organization-id "ORGANIZATION_ID"                    \
+              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tfvars"
             ```
 
          Replace the following:
@@ -382,7 +382,7 @@ Your new custom cloud is ready to use only after its status changes to
         :::note
         To connect to a custom-cloud service from different security groups
         (other than the one dedicated for the custom cloud) or from IP
-        address ranges, add specific ingress rules before you apply a
+        address ranges, add specific ingress firewall rules before you apply the
         Terraform infrastructure template in your Google Cloud account in the process
         of creating a custom cloud resources.
 
@@ -395,7 +395,7 @@ Your new custom cloud is ready to use only after its status changes to
       your Google Cloud account. This will generate a privilege-bearing service account (SA).
 
        :::important
-       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.vars`
+       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
        as an option.
        :::
 
@@ -406,9 +406,9 @@ Your new custom cloud is ready to use only after its status changes to
    and passing the generated `google-privilege-bearing-service-account-id` as an option.
 
         ```bash
-        avn byoc provision                            \
-          --organization-id "ORGANIZATION_ID" \
-          --byoc-id "CUSTOM_CLOUD_ID"         \
+        avn byoc provision                                                             \
+          --organization-id "ORGANIZATION_ID"                                          \
+          --byoc-id "CUSTOM_CLOUD_ID"                                                  \
           --google-privilege-bearing-service-account-id "GENERATED_SERVICE_ACCOUNT_ID"
         ```
 
@@ -432,7 +432,7 @@ Your new custom cloud is ready to use only after its status changes to
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
 
         ```bash
-        avn byoc cloud permissions add              \
+        avn byoc cloud permissions add        \
           --organization-id "ORGANIZATION_ID" \
           --byoc-id "CUSTOM_CLOUD_ID"         \
           --account "ACCOUNT_ID"
@@ -455,7 +455,7 @@ Your new custom cloud is ready to use only after its status changes to
    [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update).
 
         ```bash
-        avn byoc update                               \
+        avn byoc update                     \
         --organization-id "ORGANIZATION_ID" \
         --byoc-id "CUSTOM_CLOUD_ID"         \
         '
