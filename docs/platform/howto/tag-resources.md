@@ -2,7 +2,7 @@
 title: Use resource tags
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 

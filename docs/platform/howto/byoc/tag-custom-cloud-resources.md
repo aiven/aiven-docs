@@ -5,7 +5,7 @@ sidebar_label: Tag resources
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Tagging allows resource categorization, which simplifies governance, cost allocation, and system performance review. Custom cloud tags propagate to resources on the Aiven platform and in your own cloud infrastructure.
 

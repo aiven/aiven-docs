@@ -4,7 +4,7 @@ sidebar_label: Add identity providers
 keywords: [SAML, SSO]
 ---
 <!-- vale off -->
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md"
 

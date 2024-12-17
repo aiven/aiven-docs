@@ -3,10 +3,10 @@ title: Manage customer contacts for a custom cloud
 sidebar_label: Update customer contacts
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 

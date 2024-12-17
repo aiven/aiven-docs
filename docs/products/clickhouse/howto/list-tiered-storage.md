@@ -2,7 +2,7 @@
 title: Tiered storage
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Tiered storage in Aiven for ClickHouse® allows you to use storage resources efficiently and can help reduce storage costs of your service.
 

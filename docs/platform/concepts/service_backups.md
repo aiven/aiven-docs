@@ -2,7 +2,7 @@
 title: Service backups
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
 import Variables from "@site/static/variables.json"

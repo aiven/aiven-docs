@@ -4,8 +4,8 @@ sidebar_label: Integrate with data source
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

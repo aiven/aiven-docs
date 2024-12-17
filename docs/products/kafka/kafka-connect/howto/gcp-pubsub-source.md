@@ -3,7 +3,7 @@ title: Create a Google Pub/Sub source connector to Apache Kafka®
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 The [Google Pub/Sub source connector](https://github.com/googleapis/java-pubsub-group-kafka-connector) enables you to push from a Google Pub/Sub subscription to an Aiven for Apache Kafka® topic.
 

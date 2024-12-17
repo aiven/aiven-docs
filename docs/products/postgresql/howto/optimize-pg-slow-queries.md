@@ -4,8 +4,8 @@ sidebar_label: Optimize queries
 keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import FAQ from "@site/static/includes/faq-ai.md"
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.

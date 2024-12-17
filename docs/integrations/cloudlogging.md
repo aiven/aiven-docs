@@ -2,7 +2,7 @@
 title: Google Cloud Logging
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 You can send your service logs to Google Cloud Logging to store, search, analyze, monitor, and alert on log data from your Aiven services.
 

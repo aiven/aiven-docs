@@ -2,7 +2,7 @@
 title: Connect with cqlsh
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to an Aiven for Apache Cassandra® service using `cqlsh`.
 

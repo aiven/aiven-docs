@@ -3,7 +3,7 @@ title: Manage approvals
 limited: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 The **Approvals** page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
 These requests can include claims for existing topics or requests to create new topics.

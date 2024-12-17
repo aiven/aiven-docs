@@ -2,7 +2,7 @@
 title: Manage domains
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Adding a verified domain in Aiven adds an extra layer of security to managing your organization's users. When you verify a domain, your organization users automatically become
 [managed users](/docs/platform/concepts/managed-users).

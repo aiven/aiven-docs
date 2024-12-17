@@ -3,7 +3,7 @@ title: Check data distribution between storage devices in Aiven for ClickHouse®
 sidebar_label: Check data distribution
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Monitor how your data is distributed between the two layers of your tiered storage: SSD and object storage.
 

@@ -2,8 +2,8 @@
 title: Manage two-factor authentication
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Two-factor authentication in Aiven provides an extra level of security by requiring a second authentication code in addition to the user password.
 

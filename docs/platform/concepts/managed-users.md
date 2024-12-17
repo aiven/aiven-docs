@@ -2,7 +2,7 @@
 title: Managed users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 The managed users feature lets you centrally manage your organization's users and helps you to secure your organization in Aiven.
 

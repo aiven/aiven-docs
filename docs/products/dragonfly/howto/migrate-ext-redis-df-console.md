@@ -4,7 +4,7 @@ sidebar_label: Migrate external Redis®* or Valkey to Dragonfly
 ---
 
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Migrate external Redis® or Valkey databases to Aiven for Dragonfly® using the Aiven Console migration tool.
 

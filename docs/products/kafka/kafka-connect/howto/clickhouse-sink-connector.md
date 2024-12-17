@@ -4,7 +4,7 @@ sidebar_label: ClickHouse sink connector
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 The ClickHouse sink connector delivers data from Apache Kafka® topics to a ClickHouse database for efficient querying and analysis.
 
@@ -27,6 +27,8 @@ Before you begin, ensure that you have the following:
 
 ## Limitations
 
+<!-- vale off -->
+
 The ClickHouse sink connector has the following limitations related to data consistency
 and exactly-once delivery:
 
@@ -38,6 +40,8 @@ and exactly-once delivery:
 1. **Manual removal of duplicate records**: If duplicates occur, manually remove them
    to maintain data consistency in ClickHouse. For detailed instructions, see
    [Remove duplicate records](#remove-duplicate-records).
+
+<!-- vale on -->
 
 ### Remove duplicate records {#remove-duplicate-records}
 

@@ -3,7 +3,7 @@ title: Connect with Rivery
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using [Rivery](https://rivery.io/), a platform for data ingestion, transformation, orchestration, reverse ETL, and more.
 

@@ -3,8 +3,8 @@ title: Aiven dev tools
 sidebar_label: Overview
 ---
 
-import Card from "@site/src/components/AivenCard";
-import GridContainer from "@site/src/components/GridContainer";
+import Card from "@site/src/components/non-swizzled/Card";
+import GridContainer from "@site/src/components/non-swizzled/GridContainer";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import AI from "@site/static/images/logos/star-ai.svg";
 

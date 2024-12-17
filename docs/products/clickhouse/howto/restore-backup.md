@@ -3,7 +3,7 @@ title: Fork and restore from Aiven for ClickHouse® backups
 sidebar_label: Fork & restore from backups
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Choose a service [backup](/docs/products/clickhouse/concepts/disaster-recovery#service-backup) to fork from and restore your Aiven for ClickHouse® service.
 

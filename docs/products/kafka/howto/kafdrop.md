@@ -1,7 +1,7 @@
 ---
 title: Use Kafdrop Web UI with Aiven for Apache Kafka®
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 [Kafdrop](https://github.com/obsidiandynamics/kafdrop) is a web UI for Apache Kafka® to monitor clusters, view topics and consumer groups, and integrate with the Schema Registry.
 It supports Avro, JSON, and Protobuf.
@@ -29,8 +29,8 @@ Kafdrop supports both
 [SASL and SSL authentication methods](/docs/products/kafka/concepts/auth-types). This
 example uses SSL, which requires a keystore and truststore.
 
-1. Follow the instructions in the
-   [keystore and truststore documentation](/docs/products/kafka/howto/keystore-truststore)
+1. Follow
+   [keystore and truststore](/docs/products/kafka/howto/keystore-truststore)
    to create the necessary files.
 1. Create a Kafdrop configuration file named `kafdrop.properties` with the following
    content. Replace `KEYSTORE_PWD` and `TRUSTSTORE_PWD` with your keystore and

@@ -2,7 +2,7 @@
 title: Send logs to Datadog
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Use the Aiven Rsyslog integration to send logs from your Aiven services to your external Datadog account.
 
