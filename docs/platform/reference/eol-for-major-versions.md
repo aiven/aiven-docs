@@ -103,17 +103,6 @@ after they are made available on the Aiven platform.
 | 4.0     | 2024-09-30 | 2024-09-30                       | 2021-12-09                      |
 | 4.1     | 2025-09-30 | To be announced                  | 2024-01-18                      |
 
-### Aiven for M3DB
-
-Starting from v1.5, Aiven for M3DB versions will reach EOL six months
-after newer major and minor versions are made available on the Aiven
-platform.
-
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 1.1     | 2023-09-01 | 2023-06-01                       | 2021-02-23                      |
-| 1.2     | 2023-09-01 | 2023-06-01                       | 2021-10-11                      |
-| 1.5     | N/A        | N/A                              | 2022-05-05                      |
 
 ### Aiven for Apache Flink® {#aiven-for-flink}
 

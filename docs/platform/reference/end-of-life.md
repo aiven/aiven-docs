@@ -13,6 +13,13 @@ Learn about the upcoming end of life (EOL) for select Aiven services, including 
 After April 30, 2025, all running Aiven for M3DB
 services are powered off and deleted, making data from these services inaccessible.
 
+:::note
+If your project includes an Aiven for M3DB service, you can continue creating new
+Aiven for M3DB services in the same project. If your project did not previously include
+an Aiven for M3DB service, you cannot create new Aiven for M3DB services. This applies
+until the end of life (EOL) date on April 30, 2025.
+:::
+
 ### Migration options
 
 - **Aiven for Metrics**: Provides a seamless transition for time-series workloads,
