@@ -78,6 +78,11 @@ parameters:
 -   `exclude_topics`: Specify a comma-separated list of topics to
     exclude.
 
+    :::warning
+    To use `exclude_topics`, you must specify at least one `include_consumer_groups`
+    value. Without this, `exclude_topics` does not take effect.
+    :::
+
 -   `include_consumer_groups`: Specify a comma-separated list of
     consumer groups to include.
 
