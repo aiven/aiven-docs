@@ -4,6 +4,7 @@ title: Create a Debezium source connector from MySQL to Apache Kafka®
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 The MySQL Debezium source connector extracts the changes committed to the database binary log (binlog), and writes them to an Apache Kafka® topic in a standard format where they can be transformed and read by multiple consumers.
 
