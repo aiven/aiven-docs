@@ -432,9 +432,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'tools/terraform/howto/migrate-from-teams-to-groups',
-            'tools/terraform/howto/update-deprecated-resources',
             'tools/terraform/howto/upgrade-to-opensearch',
-            'tools/terraform/howto/upgrade-caching-valkey-terraform',
             {
               type: 'category',
               label: 'PostgreSQL',
@@ -1954,7 +1952,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/valkey/reference/advanced-params',
                 'products/valkey/reference/valkey-metrics-in-prometheus',
-              ]
+              ],
             },
           ],
         },
