@@ -40,7 +40,6 @@ There are some limitations of the free plan services:
 -   For PostgreSQL: no connection pooling
 -   Support only through the [Aiven Community
     Forum](https://aiven.io/community/forum/)
--   Hosting only on AWS
 -   Only one service per service type per user and
     [organization](/docs/platform/concepts/orgs-units-projects)
 -   Not covered under Aiven's 99.99% SLA
