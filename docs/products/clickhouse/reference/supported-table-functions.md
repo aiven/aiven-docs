@@ -1,5 +1,6 @@
 ---
 title: Table functions supported in Aiven for ClickHouse®
+sidebar_label: Table functions
 ---
 
 [Table
@@ -21,6 +22,7 @@ security reasons.
 
 Aiven for ClickHouse® supports the following table functions:
 
+-   `azureBlobStorage`
 -   `cluster`
 -   `clusterAllReplicas`
 -   `cosn`
