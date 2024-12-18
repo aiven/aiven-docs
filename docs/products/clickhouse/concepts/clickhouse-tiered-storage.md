@@ -10,6 +10,8 @@ The tiered storage feature introduces a method of organizing and storing data in
 On top of this default data allocation mechanism, you can control the tier your
 data is stored in using custom data retention periods.
 
+## Tiered storage architecture
+
 The tiered storage in Aiven for ClickHouse® consists of the following two
 layers:
 
@@ -18,12 +20,22 @@ layers:
 - Object storage - the second tier: Affordable storage device with unlimited capability,
   better suited for historical and more rarely queried data, relatively slower
 
+Aiven for ClickHouse's tiered storage supports
+[local on-disk cache for remote files](/docs/products/clickhouse/howto/local-cache-tiered-storage),
+which is enabled by default. You can
+[disable the cache](/docs/products/clickhouse/howto/local-cache-tiered-storage#disable-the-cache)
+or
+[drop it](/docs/products/clickhouse/howto/local-cache-tiered-storage#free-up-space) to free
+up the space it occupies.
+
+## Supported cloud platforms
+
 On the Aiven tenant (in non-[BYOC](/docs/platform/concepts/byoc) environments), Aiven for
 ClickHouse tiered storage is supported on the following cloud platforms:
 
 - Microsoft Azure
 - Amazon Web Services (AWS)
-- Google Cloud Platform (GCP)
+- Google Cloud
 
 ## Why use it
 

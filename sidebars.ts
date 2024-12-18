@@ -1301,6 +1301,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/configure-tiered-storage',
                     'products/clickhouse/howto/check-data-tiered-storage',
                     'products/clickhouse/howto/transfer-data-tiered-storage',
+                    'products/clickhouse/howto/local-cache-tiered-storage',
                   ],
                 },
               ],
