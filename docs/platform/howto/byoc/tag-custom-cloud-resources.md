@@ -32,7 +32,7 @@ the tag propagates to your own cloud infrastructure.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven
     organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
@@ -40,7 +40,7 @@ the tag propagates to your own cloud infrastructure.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
@@ -104,7 +104,7 @@ not [Google tags](https://cloud.google.com/resource-manager/docs/tags/tags-overv
 ### Before you start
 
 -   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven
     organization.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
 

@@ -8,7 +8,7 @@ Set up and manage your [custom clouds](/docs/platform/concepts/byoc) using the A
 
 ### `avn byoc create`
 
-[Creates a custom cloud](/docs/platform/howto/byoc/create-custom-cloud) in an organization.
+[Creates a custom cloud](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in an organization.
 
 | Parameter           | Required | Information                                                                                                                                                              |
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

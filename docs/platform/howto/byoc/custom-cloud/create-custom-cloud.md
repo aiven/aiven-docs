@@ -14,13 +14,13 @@ To create custom clouds in Aiven using self-service, select your cloud provider 
 
 <GridContainer columns={2}>
      <Card
-      to="/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud"
+      to="/docs/platform/howto/byoc/custom-cloud/create-aws-custom-cloud"
       iconName="cloud"
       title="Amazon Web Services"
       description="Create an AWS-integrated custom cloud."
     />
     <Card
-      to="/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud"
+      to="/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud"
       iconName="googleLogo"
       title="Google Cloud"
       description="Create a Google-integrated custom cloud."

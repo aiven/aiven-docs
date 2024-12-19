@@ -5,7 +5,7 @@ sidebar_label: Enable BYOC
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
-Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization.
+Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven organization.
 
 To enable [BYOC](/docs/platform/concepts/byoc), open the
 [Aiven Console](https://console.aiven.io/) and
@@ -67,10 +67,10 @@ Before enabling BYOC, check
 ## Next steps
 
 With BYOC activated in your Aiven organization, you can
-[create and use custom clouds](/docs/platform/howto/byoc/create-custom-cloud).
+[create and use custom clouds](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud).
 
 ## Related pages
 
 -   [About bring your own cloud](/docs/platform/concepts/byoc)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
+-   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud)
