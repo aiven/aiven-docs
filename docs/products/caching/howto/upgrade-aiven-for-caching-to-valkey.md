@@ -77,4 +77,4 @@ are recycled, and your service continues to operate as the upgrade completes.
 
 ## Related pages
 
-Learn how to [update Terraform configuration and state after upgrading to Valkey™](/docs/tools/terraform/howto/upgrade-caching-valkey-terraform).
+Learn how to [update Terraform configuration and state after upgrading to Valkey™](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade).
