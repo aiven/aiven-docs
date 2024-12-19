@@ -252,6 +252,7 @@ const sidebars: SidebarsConfig = {
                     'platform/howto/vnet-peering-azure',
                     'platform/howto/vpc-peering-upcloud',
                     'platform/howto/manage-org-vpc-peering-aws',
+                    'platform/howto/manage-pj-vpc-peering-aws',
                     'platform/howto/manage-org-vpc-peering-azure',
                     'platform/howto/manage-org-vpc-peering-google',
                     'platform/howto/manage-org-vpc-peering-upcloud',

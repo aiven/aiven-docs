@@ -1,17 +1,17 @@
 ---
-title: Set up a project VPC peering with AWS
-sidebar_label: Peer project VPCs with AWS
+title: Set up an organization VPC peering with AWS
+sidebar_label: Peer org VPCs with AWS
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Set up a peering connection between your Aiven project VPC and an AWS VPC.
 
 ## Prerequisites
 
-- [Project operator role](/docs/platform/concepts/permissions#project-roles-and-permissions) to manage project VPCs
-- Two VPCs to be peered: a
-  [project VPC](/docs/platform/howto/manage-project-vpc)
+- [Organization admin role](/docs/platform/concepts/permissions#organization-roles-and-permissions) to manage organization VPCs
+- Two VPCs to be peered: an
+  [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
   in Aiven and a VPC in your AWS account
 - One of the following tools for VPC peering operations:
   - [Aiven Console](https://console.aiven.io/)
@@ -32,12 +32,14 @@ Set up a peering connection between your Aiven project VPC and an AWS VPC.
 
 ### Create a peering in Aiven
 
-Create a project VPC peering connection in [Aiven Console](https://console.aiven.io/):
+Create an organization VPC peering connection in the [Aiven Console](https://console.aiven.io/):
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
-1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
-1. On the **Virtual private clouds** page, select a project VPC to peer.
-1. On the **VPC peering connections** page:
+1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
+   top navigation bar.
+1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
+1. On the **Organization VPCs** page, select an organization VPC to peer.
+1. On the **Organization VPC details** page, click **Add peering connection**.
+1. In the **Add peering connection** window:
    1. Enter the following:
       - **AWS account ID**
       - **AWS VPC region**

@@ -1,6 +1,6 @@
 ---
 title: Manage organization VPC peering with UpCloud
-sidebar_label: Peer org VPCs with UpCloud
+sidebar_label: Peer organization VPCs with UpCloud
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
