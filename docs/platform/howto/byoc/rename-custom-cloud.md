@@ -10,9 +10,9 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
-[create custom clouds](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven
+[create custom clouds](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
 organizations. While
-[creating a custom cloud](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud), you specify the
+[creating a custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud), you specify the
 custom cloud name. You can change this name any time later by following
 [Rename your cloud](#rename-your-cloud).
 
@@ -21,7 +21,7 @@ custom cloud name. You can change this name any time later by following
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
@@ -29,7 +29,7 @@ custom cloud name. You can change this name any time later by following
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/custom-cloud/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)

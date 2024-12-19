@@ -221,6 +221,6 @@
 
 # Keep splats at the end
 #
-/platform/howto/byoc/create-custom-cloud/*                 https://aiven.io/docs/platform/howto/byoc/custom-cloud/:splat
+/platform/howto/byoc/create-custom-cloud/*                 https://aiven.io/docs/platform/howto/byoc/create-cloud/:splat
 /products/influxdb/*                                        https://aiven.io/docs/products/services
 /products/redis/*                                          https://aiven.io/docs/products/caching/:splat

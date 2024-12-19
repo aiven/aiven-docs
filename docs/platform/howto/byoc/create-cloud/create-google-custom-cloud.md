@@ -52,13 +52,13 @@ account so that Aiven can access it:
     role in your Aiven organization.
 -   You have Terraform installed.
 -   You have required
-    [IAM permissions](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#iam-permissions).
+    [IAM permissions](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#iam-permissions).
 
 ### IAM permissions
 
 You need cloud account credentials set up on your machine so that your user or role has
 required Terraform permissions
-[to integrate with your cloud provider](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#create-a-custom-cloud).
+[to integrate with your cloud provider](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#create-a-custom-cloud).
 
 <details><summary>
 Show permissions needed by your service account that will run the Terraform script in your
@@ -98,7 +98,7 @@ Create a custom cloud either in the Aiven Console or with the Aiven CLI.
 #### Generate an infrastructure template
 
 In this step, an IaC template is generated in the Terraform format. In
-[the next step](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#deploy-the-template),
+[the next step](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#deploy-the-template),
 you'll deploy this template in your Google Cloud account to acquire a privilege-bearing
 service account (SA), which Aiven needs for accessing your Google Cloud account.
 
@@ -167,7 +167,7 @@ service account.
 #### Deploy the template
 
 Use the
-[generated Terraform template](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#generate-an-infrastructure-template)
+[generated Terraform template](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#generate-an-infrastructure-template)
 to create a privilege-bearing service account by deploying the template in your Google
 Cloud account.
 
@@ -288,7 +288,7 @@ Your new custom cloud is ready to use only after its status changes to
    - `ORGANIZATION_ID` with the ID of your Aiven organization to
      connect with your own cloud account to create the custom cloud,
      for example `org123a456b789`. Get your `ORGANIZATION_ID`
-     [from the Aiven Console or CLI](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#prerequisites).
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#prerequisites).
    - `DEPLOYMENT_MODEL_NAME` with the type of [network architecture](/docs/platform/concepts/byoc#byoc-architecture)
      your custom cloud uses:
      - `standard_public` (public) model: The nodes have public IPs and can be configured
@@ -354,7 +354,7 @@ Your new custom cloud is ready to use only after its status changes to
          - `ORGANIZATION_ID` with the ID of your Aiven organization to
            connect with your own cloud account to create the custom cloud,
            for example `org123a456b789`. Get your `ORGANIZATION_ID`
-           [from the Aiven Console or CLI](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#prerequisites).
+           [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#prerequisites).
          - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
            extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
            command, for example `018b6442-c602-42bc-b63d-438026133f60`.
@@ -372,7 +372,7 @@ Your new custom cloud is ready to use only after its status changes to
          - `ORGANIZATION_ID` with the ID of your Aiven organization to
            connect with your own cloud account to create the custom cloud,
            for example `org123a456b789`. Get your `ORGANIZATION_ID`
-           [from the Aiven Console or CLI](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#prerequisites).
+           [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#prerequisites).
          - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
            extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
            command, for example `018b6442-c602-42bc-b63d-438026133f60`.
@@ -417,7 +417,7 @@ Your new custom cloud is ready to use only after its status changes to
    - `ORGANIZATION_ID` with the ID of your Aiven organization to
      connect with your own cloud account to create the custom cloud,
      for example `org123a456b789`. Get your `ORGANIZATION_ID`
-     [from the Aiven Console or CLI](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#prerequisites).
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#prerequisites).
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
      extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
      command, for example `018b6442-c602-42bc-b63d-438026133f60`.
@@ -443,7 +443,7 @@ Your new custom cloud is ready to use only after its status changes to
    - `ORGANIZATION_ID` with the ID of your Aiven organization to
      connect with your own cloud account to create the custom cloud,
      for example `org123a456b789`. Get your `ORGANIZATION_ID`
-     [from the Aiven Console or CLI](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#prerequisites).
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#prerequisites).
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
      extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
      command, for example `018b6442-c602-42bc-b63d-438026133f60`.
@@ -476,7 +476,7 @@ Your new custom cloud is ready to use only after its status changes to
     - `ORGANIZATION_ID` with the ID of your Aiven organization to
       connect with your own cloud account to create the custom cloud,
       for example `org123a456b789`. Get your `ORGANIZATION_ID`
-      [from the Aiven Console or CLI](/docs/platform/howto/byoc/custom-cloud/create-google-custom-cloud#prerequisites).
+      [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#prerequisites).
     - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
       extract from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list)
       command, for example `018b6442-c602-42bc-b63d-438026133f60`.
