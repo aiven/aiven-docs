@@ -3,8 +3,7 @@ title: Local on-disk cache for remote files in Aiven for ClickHouse®'s tiered s
 sidebar_label: Local on-disk cache for remote files
 ---
 
-Aiven for ClickHouse®'s tiered storage features local on-disk cache for remote files for
-improved query performance and reduced latency.
+Aiven for ClickHouse®'s tiered storage features local on-disk cache for remote files for improved query performance and reduced latency.
 
 To manage data, Aiven for ClickHouse's tiered storage uses local storage and remote storage.
 When remote storage is used, Aiven for ClickHouse leverages a local on-disk cache to avoid
