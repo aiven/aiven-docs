@@ -33,13 +33,13 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
 
 1. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) in your Aiven organization by
    setting up a call with the Aiven sales team to share your use case and its requirements.
-1. [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud) in the Aiven
+1. [Create a custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in the Aiven
    Console or CLI by providing cloud setup details essential to generate your custom cloud
    infrastructure template.
 1. **Integrate your cloud account with Aiven** by applying the infrastructure template for
-   [AWS](/docs/platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud#deploy-the-template)
+   [AWS](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#deploy-the-template)
    or
-   [Google Cloud](/docs/platform/howto/byoc/create-custom-cloud/create-google-custom-cloud#deploy-the-template).
+   [Google Cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#deploy-the-template).
 1. [Deploy services](/docs/platform/howto/byoc/manage-byoc-service) by creating new
    Aiven-managed services in the custom cloud or migrating existing Aiven-managed services
    to the custom cloud.
@@ -231,5 +231,5 @@ Aiven deployment model.
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
+-   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
 -   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)

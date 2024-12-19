@@ -16,7 +16,7 @@ Download a Terraform template and a variables file that define the infrastructur
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
@@ -24,7 +24,7 @@ Download a Terraform template and a variables file that define the infrastructur
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)

@@ -316,11 +316,11 @@ const sidebars: SidebarsConfig = {
               label: 'Create custom clouds',
               link: {
                 type: 'doc',
-                id: 'platform/howto/byoc/create-custom-cloud/create-custom-cloud',
+                id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
               },
               items: [
-                'platform/howto/byoc/create-custom-cloud/create-aws-custom-cloud',
-                'platform/howto/byoc/create-custom-cloud/create-google-custom-cloud',
+                'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
+                'platform/howto/byoc/create-cloud/create-google-custom-cloud',
               ],
             },
             'platform/howto/byoc/assign-project-custom-cloud',

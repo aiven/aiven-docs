@@ -31,7 +31,7 @@ them earlier, you're advised to do that after deleting your cloud.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
 -   You have no running services that use a custom cloud to be deleted.
 -   You have access to the [Aiven Console](https://console.aiven.io/).
@@ -40,7 +40,7 @@ them earlier, you're advised to do that after deleting your cloud.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
 -   You have no running services that use a custom cloud to be deleted.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
