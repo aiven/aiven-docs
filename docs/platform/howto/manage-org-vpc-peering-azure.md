@@ -1,6 +1,6 @@
 ---
 title: Manage organization VPC peering with Azure
-sidebar_label: Peer organization VPCs with Azure
+sidebar_label: Azure peering
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";

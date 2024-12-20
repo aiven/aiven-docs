@@ -237,11 +237,21 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/vpcs',
               },
               items: [
-                'platform/howto/manage-project-vpc',
-                'platform/howto/manage-organization-vpc',
                 {
                   type: 'category',
-                  label: 'VPC peering',
+                  label: 'Manage VPCs',
+                  link: {
+                    type:'doc',
+                    id: 'platform/howto/list-manage-vpc',
+                  },
+                  items: [
+                    'platform/howto/manage-project-vpc',
+                    'platform/howto/manage-organization-vpc',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Peer VPCs',
                   link: {
                     type:'doc',
                     id: 'platform/howto/list-vpc-peering',
@@ -250,17 +260,24 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'category',
                       label: 'Project VPC peering',
+                      link: {
+                        type:'doc',
+                        id: 'platform/howto/list-project-vpc-peering',
+                      },
                       items: [
-                        'platform/howto/vpc-peering-gcp',
                         'platform/howto/vpc-peering-aws',
-                        'platform/howto/manage-pj-vpc-peering-aws',
                         'platform/howto/vnet-peering-azure',
+                        'platform/howto/vpc-peering-gcp',
                         'platform/howto/vpc-peering-upcloud',
                       ],
                     },
                     {
                       type: 'category',
                       label: 'Organization VPC peering',
+                      link: {
+                        type:'doc',
+                        id: 'platform/howto/list-organization-vpc-peering',
+                      },
                       items: [
                         'platform/howto/manage-org-vpc-peering-aws',
                         'platform/howto/manage-org-vpc-peering-azure',
