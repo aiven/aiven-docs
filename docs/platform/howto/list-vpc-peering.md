@@ -3,6 +3,8 @@ title: Virtual private cloud (VPC) peering in Aiven
 sidebar_label: VPC peering
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 The VPC peering capability supported on the Aiven Platform improves network connectivity and security. It simplifies architecture, helps reduce network latency, and enhances resource sharing while maintaining isolation and control.
 
 [VPC](/docs/platform/concepts/vpcs) peering is a networking connection between two VPCs.
@@ -29,12 +31,20 @@ the public internet.
 
 ## How it works
 
-Aiven allows you to set up project VPC peerings with the following cloud providers:
+Aiven allows you to set up peering connections for
+[project VPCs](/docs/platform/concepts/vpcs#project-vpcs)
+and for [organization VPCs](/docs/platform/concepts/vpcs#organization-vpcs).
 
-- [Google Cloud](/docs/platform/howto/vpc-peering-gcp)
-- [Amazon Web Services](/docs/platform/howto/vpc-peering-aws)
-- [Microsoft Azure](/docs/platform/howto/vnet-peering-azure)
-- [UpCloud](/docs/platform/howto/vpc-peering-upcloud)
+<DocCardList />
+
+Both [project VPCs](/docs/platform/concepts/vpcs#project-vpcs) and
+[organization VPCs](/docs/platform/concepts/vpcs#organization-vpcs) can be peered with
+VPCs in the following cloud platforms:
+
+- Google Cloud
+- Amazon Web Services
+- Microsoft Azure
+- UpCloud
 
 ## Learn more
 

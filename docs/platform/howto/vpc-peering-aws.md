@@ -1,8 +1,10 @@
 ---
 title: Set up a project VPC peering with AWS
-sidebar_label: Peer project VPCs with AWS
+sidebar_label: AWS peering
 ---
 
+import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md"
+import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md"
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Set up a peering connection between your Aiven project VPC and an AWS VPC.
@@ -13,22 +15,14 @@ Set up a peering connection between your Aiven project VPC and an AWS VPC.
 - Two VPCs to be peered: a
   [project VPC](/docs/platform/howto/manage-project-vpc)
   in Aiven and a VPC in your AWS account
-- One of the following tools for VPC peering operations:
-  - [Aiven Console](https://console.aiven.io/)
-  - [Aiven CLI](/docs/tools/cli)
-  - [Aiven API](/docs/tools/api)
+- Access to the [Aiven Console](https://console.aiven.io/)
+- Access to the [AWS Management Console](https://console.aws.amazon.com)
 
 ## Create a peering connection
 
 ### Collect data in the AWS Console
 
-1. Log in to the [AWS Management Console](https://console.aws.amazon.com) and go to your
-   profile information.
-1. Find and save your account ID.
-1. Go to the VPC service: **All services** > **Networking & Content Delivery** > **VPC**
-   \> **Your VPCs**.
-1. Find a VPC to peer and save its ID.
-1. Find and save a cloud region that the VPC is located in.
+<CollectDataAws/>
 
 ### Create a peering in Aiven
 
@@ -48,13 +42,4 @@ This adds a connection pending acceptance in your AWS account.
 
 ### Accept the peering request in the AWS Console
 
-1. Log in to the [AWS Management Console](https://console.aws.amazon.com), and go to the
-   VPC service (**All services** > **Networking & Content Delivery** > **VPC**).
-1. Click **Peering connections** in the sidebar.
-1. Find and select the peering request from Aiven, and  click **Actions** > **Accept request**.
-1. Create or update your [AWS route
-    tables](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing) to match
-    your Aiven CIDR settings.
-
-When you accept the request in your AWS account, the peering connection gets
-activated in the [Aiven Console](https://console.aiven.io/).
+<AcceptPeeringAws/>

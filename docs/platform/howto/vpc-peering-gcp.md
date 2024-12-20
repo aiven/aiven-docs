@@ -1,6 +1,6 @@
 ---
 title: Set up VPC peering on GCP
-sidebar_label: Peer project VPCs with Google
+sidebar_label: Google Cloud peering
 ---
 
 Once you've created a [VPC on the Aiven platform](manage-project-vpc), you can set up VPC peering on GCP.
