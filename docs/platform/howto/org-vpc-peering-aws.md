@@ -3,7 +3,7 @@ title: Set up an organization VPC peering with AWS
 sidebar_label: Peer org VPCs with AWS
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Set up a peering connection between your Aiven project VPC and an AWS VPC.
 

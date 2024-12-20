@@ -1,6 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 ## Prerequisites
 
