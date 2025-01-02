@@ -40,6 +40,7 @@
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
+/platform/howto/byoc/create-custom-cloud                               https://aiven.io/docs/platform/howto/byoc/create-cloud/create-custom-cloud
 /platform/howto/change-billing-contact                 https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/change-support-tier                    https://aiven.io/docs/platform/howto/support
 /platform/howto/cleanup-powered-off-services           https://aiven.io/docs/platform/concepts/service-power-cycle
@@ -220,7 +221,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error        https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                           https://aiven.io/developer
 /valkey                                                                https://aiven.io/docs/products/valkey
-
 # Keep splats at the end
 #
 /platform/howto/byoc/create-custom-cloud/*                 https://aiven.io/docs/platform/howto/byoc/create-cloud/:splat
