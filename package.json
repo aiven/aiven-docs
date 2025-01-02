@@ -19,6 +19,7 @@
     "@aivenio/aquarium": "^1.73.0",
     "@algolia/client-search": "^5.15.0",
     "@docusaurus/core": "^3.6.3",
+    "@docusaurus/faster": "^3.6.3",
     "@docusaurus/plugin-client-redirects": "^3.6.3",
     "@docusaurus/plugin-google-gtag": "^3.6.3",
     "@docusaurus/preset-classic": "^3.6.3",
