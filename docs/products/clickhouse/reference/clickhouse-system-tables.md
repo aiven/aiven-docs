@@ -9,7 +9,7 @@ Aiven for ClickHouse® supports multiple types of system tables, which store met
 
 Aiven for ClickHouse supports all
 [system tables available with the open-source ClickHouse](https://clickhouse.com/docs/en/operations/system-tables),
-except the folllowing:
+except the following:
 
 - `certificates`
 - `build_options`
