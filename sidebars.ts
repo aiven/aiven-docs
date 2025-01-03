@@ -1316,6 +1316,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/s3-supported-file-formats',
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
+                'products/clickhouse/reference/clickhouse-system-tables',
               ],
             },
           ],
