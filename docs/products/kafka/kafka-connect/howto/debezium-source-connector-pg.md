@@ -84,14 +84,14 @@ connector configurations:
 <Tabs groupId="group1">
   <TabItem value="2" label="Debezium 2.5 config" default>
 
-```json title="Debezium 2.5 config example"
+```json
 {
   "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
   "database.dbname": "PG_DATABASE_NAME",
-  "database.hostname": "DATABASE_HOSTNAME",
-  "database.names": "testing",
+  "database.hostname": "PG_HOST",
   "database.password": "PG_PASSWORD",
   "database.port": "PG_PORT",
+  "database.names": "testing",
   "database.server.name": "KAFKA_TOPIC_PREFIX",
   "database.sslmode": "SSL_MODE",
   "database.trustServerCertificate": "true",
@@ -99,7 +99,7 @@ connector configurations:
   "include.schema.changes": "true",
   "key.converter.basic.auth.credentials.source": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
   "key.converter.schema.registry.basic.auth.user.info": "USER:PASS",
-  "key.converter.schema.registry.url": "https://URL.com:10937",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
   "key.converter": "io.confluent.connect.avro.AvroConverter",
   "name": "CONNECTOR_NAME",
   "plugin.name": "PLUGIN_NAME",
@@ -126,56 +126,43 @@ connector configurations:
   "tasks.max":"NR_TASKS",
   "topic.prefix": "sql_topic",
   "value.converter.basic.auth.credentials.source": "USER_INFO",
-  "value.converter.schema.registry.basic.auth.user.info": "USER:PASS",
-  "value.converter.schema.registry.url": "https://URL.com:10937",
-  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter": "io.confluent.connect.avro.AvroConverter"
 }
+```
 
   </TabItem>
   <TabItem value="1" label="Debezium 1.9 config">
 
-```json title="Debezium 2.5 config example"
+```json
 {
-    "name":"CONNECTOR_NAME",
-    "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
-    "database.hostname": "SQLSERVER_HOST",
-    "database.port": "SQLSERVER_PORT",
-    "database.user": "SQLSERVER_USER",
-    "database.password": "SQLSERVER_PASSWORD",
-    "database.dbname": "SQLSERVER_DATABASE_NAME",
-    "database.server.name": "KAFKA_TOPIC_PREFIX",
-    "table.include.list": "SQLSERVER_TABLES",
-    "tasks.max":"NR_TASKS",
-    "poll.interval.ms": 500,
-    "key.converter": "io.confluent.connect.avro.AvroConverter",
-    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "key.converter.basic.auth.credentials.source": "USER_INFO",
-    "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
-    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "value.converter.basic.auth.credentials.source": "USER_INFO",
-    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "database.history.kafka.topic": "HISTORY_TOPIC_NAME",
-    "database.history.kafka.bootstrap.servers": "APACHE_KAFKA_HOST:APACHE_KAFKA_PORT",
-    "database.history.producer.security.protocol": "SSL",
-    "database.history.producer.ssl.keystore.type": "PKCS12",
-    "database.history.producer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
-    "database.history.producer.ssl.keystore.password": "password",
-    "database.history.producer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
-    "database.history.producer.ssl.truststore.password": "password",
-    "database.history.producer.ssl.key.password": "password",
-    "database.history.consumer.security.protocol": "SSL",
-    "database.history.consumer.ssl.keystore.type": "PKCS12",
-    "database.history.consumer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
-    "database.history.consumer.ssl.keystore.password": "password",
-    "database.history.consumer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
-    "database.history.consumer.ssl.truststore.password": "password",
-    "database.history.consumer.ssl.key.password": "password",
-    "include.schema.changes": "true"
+  "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+  "database.dbname": "PG_DATABASE_NAME",
+  "database.hostname": "PG_HOST",
+  "database.password": "PG_PASSWORD",
+  "database.port": "PG_PORT",
+  "database.server.name": "KAFKA_TOPIC_PREFIX",
+  "database.sslmode": "SSL_MODE",
+  "database.user": "PG_USER",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "name":"CONNECTOR_NAME",
+  "plugin.name": "PLUGIN_NAME",
+  "publication.name": "PG_PUBLICATION_NAME",
+  "slot.name": "PG_SLOT_NAME",
+  "table.include.list": "PG_TABLES",
+  "tasks.max":"NR_TASKS",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter": "io.confluent.connect.avro.AvroConverter"
 }
+```
 
   </TabItem>
-
 </Tabs>
 
 The configuration file contains the following entries:
