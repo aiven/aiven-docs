@@ -24,13 +24,17 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var paramName = '<strong>' + name + '</strong>';
 
   // Common part of the HTML
-  html += '<p className="name" id="' + (hasParent ? fullnameid : name) + '">';
   html +=
-    '<a href="#' +
+    '<p className="name">' +
+    '<Link id="' +
+    (hasParent ? fullnameid : name) +
+    '"/>';
+  html +=
+    '<Link to="#' +
     (hasParent ? fullnameid : name) +
     '">' +
     (hasParent ? nestedParamName : paramName) +
-    '</a>';
+    '</Link>';
   html += '</p>';
 
   html += '<p><code className="type">' + type + '</code></p>';
@@ -103,6 +107,8 @@ async function fetchData(serviceName, outputFileName, filepath) {
 
     const templateSource = `
 <!-- vale off -->
+import Link from '@docusaurus/Link'
+
 <table className="service-param">
   <thead>
     <tr><th>Parameter</th></tr>

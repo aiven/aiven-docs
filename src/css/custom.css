@@ -229,8 +229,8 @@ ul+div {
   margin-right: 0.5em;
 }
 
-.service-param .name {
-  scroll-margin-top: 70px;
+.service-param .name a {
+  scroll-margin-top: 67px;
 }
 
 .service-param .param {
