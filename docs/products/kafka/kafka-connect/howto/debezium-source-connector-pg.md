@@ -5,9 +5,10 @@ title: Create a Debezium source connector from PostgreSQL® to Apache Kafka®
 The Debezium source connector extracts the changes committed to the transaction log in a relational database, such as PostgreSQL®, and writes them to an Apache Kafka® topic in a standard format where they can be transformed and read by multiple consumers.
 
 import Note from "@site/static/includes/debezium-breakingchange.md"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <Note/>
-
 
 ## Prerequisites {#connect_debezium_pg_source_prereq}
 
@@ -80,22 +81,72 @@ Connector for Apache Kafka to a PostgreSQL database using the
 Create a configuration file named `debezium_source_pg.json` with the following
 connector configurations:
 
-```json
+<Tabs groupId="group1">
+  <TabItem value="2" label="Debezium 2.5 config" default>
+
+```json title="Debezium 2.5 config example"
+{
+  "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+  "database.dbname": "PG_DATABASE_NAME",
+  "database.hostname": "DATABASE_HOSTNAME",
+  "database.names": "testing",
+  "database.password": "PG_PASSWORD",
+  "database.port": "PG_PORT",
+  "database.server.name": "KAFKA_TOPIC_PREFIX",
+  "database.sslmode": "SSL_MODE",
+  "database.trustServerCertificate": "true",
+  "database.user": "sqlserver",
+  "include.schema.changes": "true",
+  "key.converter.basic.auth.credentials.source": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "key.converter.schema.registry.basic.auth.user.info": "USER:PASS",
+  "key.converter.schema.registry.url": "https://URL.com:10937",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "name": "CONNECTOR_NAME",
+  "plugin.name": "PLUGIN_NAME",
+  "poll.interval.ms": "500",
+  "publication.name": "PG_PUBLICATION_NAME",
+  "schema.history.internal.consumer.security.protocol": "SSL",
+  "schema.history.internal.consumer.ssl.key.password": "password",
+  "schema.history.internal.consumer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "schema.history.internal.consumer.ssl.keystore.password": "password",
+  "schema.history.internal.consumer.ssl.keystore.type": "PKCS12",
+  "schema.history.internal.consumer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "schema.history.internal.consumer.ssl.truststore.password": "password",
+  "schema.history.internal.kafka.bootstrap.servers": "URL.com:10934",
+  "schema.history.internal.kafka.topic": "sql-testing-history",
+  "schema.history.internal.producer.security.protocol": "SSL",
+  "schema.history.internal.producer.ssl.key.password": "password",
+  "schema.history.internal.producer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "schema.history.internal.producer.ssl.keystore.password": "password",
+  "schema.history.internal.producer.ssl.keystore.type": "PKCS12",
+  "schema.history.internal.producer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "schema.history.internal.producer.ssl.truststore.password": "password",
+  "slot.name": "PG_SLOT_NAME",
+  "table.include.list": "PG_TABLES",
+  "tasks.max":"NR_TASKS",
+  "topic.prefix": "sql_topic",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "USER:PASS",
+  "value.converter.schema.registry.url": "https://URL.com:10937",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+}
+
+  </TabItem>
+  <TabItem value="1" label="Debezium 1.9 config">
+
+```json title="Debezium 2.5 config example"
 {
     "name":"CONNECTOR_NAME",
-    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-    "database.hostname": "PG_HOST",
-    "database.port": "PG_PORT",
-    "database.user": "PG_USER",
-    "database.password": "PG_PASSWORD",
-    "database.dbname": "PG_DATABASE_NAME",
-    "database.sslmode": "SSL_MODE",
-    "plugin.name": "PLUGIN_NAME",
-    "slot.name": "PG_SLOT_NAME",
-    "publication.name": "PG_PUBLICATION_NAME",
+    "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+    "database.hostname": "SQLSERVER_HOST",
+    "database.port": "SQLSERVER_PORT",
+    "database.user": "SQLSERVER_USER",
+    "database.password": "SQLSERVER_PASSWORD",
+    "database.dbname": "SQLSERVER_DATABASE_NAME",
     "database.server.name": "KAFKA_TOPIC_PREFIX",
-    "table.include.list": "PG_TABLES",
+    "table.include.list": "SQLSERVER_TABLES",
     "tasks.max":"NR_TASKS",
+    "poll.interval.ms": 500,
     "key.converter": "io.confluent.connect.avro.AvroConverter",
     "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
     "key.converter.basic.auth.credentials.source": "USER_INFO",
@@ -103,9 +154,29 @@ connector configurations:
     "value.converter": "io.confluent.connect.avro.AvroConverter",
     "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
     "value.converter.basic.auth.credentials.source": "USER_INFO",
-    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
+    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+    "database.history.kafka.topic": "HISTORY_TOPIC_NAME",
+    "database.history.kafka.bootstrap.servers": "APACHE_KAFKA_HOST:APACHE_KAFKA_PORT",
+    "database.history.producer.security.protocol": "SSL",
+    "database.history.producer.ssl.keystore.type": "PKCS12",
+    "database.history.producer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+    "database.history.producer.ssl.keystore.password": "password",
+    "database.history.producer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+    "database.history.producer.ssl.truststore.password": "password",
+    "database.history.producer.ssl.key.password": "password",
+    "database.history.consumer.security.protocol": "SSL",
+    "database.history.consumer.ssl.keystore.type": "PKCS12",
+    "database.history.consumer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+    "database.history.consumer.ssl.keystore.password": "password",
+    "database.history.consumer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+    "database.history.consumer.ssl.truststore.password": "password",
+    "database.history.consumer.ssl.key.password": "password",
+    "include.schema.changes": "true"
 }
-```
+
+  </TabItem>
+
+</Tabs>
 
 The configuration file contains the following entries:
 
