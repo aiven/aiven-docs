@@ -12,12 +12,12 @@ Create and work with databases and tables in Aiven for ClickHouse®.
 
 ## Create a database {#create-a-clickhouse-database}
 
-Creating databases in an Aiven for ClickHouse service can only be done
-via the Aiven platform; the `admin` user is not allowed to create
-databases directly for security and reliability reasons. However, you
-can create a database through the web interface of the
-[Aiven Console](https://console.aiven.io/):
+You can create a database either in the [Aiven Console](https://console.aiven.io/) or
+using an SQL client (for example, the
+[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)):
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
 
@@ -33,20 +33,59 @@ can create a database through the web interface of the
     necessary customizations and run secondary queries to grant access
     to the admin user.
 
+</TabItem>
+<TabItem value="cli" label="SQL">
+Run the following SQL command:
+
+```sql
+CREATE DATABASE DATABASE_NAME
+ENGINE = ENGINE_NAME
+```
+
+For example:
+
+```sql
+CREATE DATABASE transactions
+ENGINE = Replicated;
+```
+
+</TabItem>
+</Tabs>
+
 ## Delete a database
 
+:::important
+Deleting a database is irreversible. This action permanently deletes the database along
+with all its tables and data.
+:::
+
+You can delete a database either in the [Aiven Console](https://console.aiven.io/) or
+using an SQL client (for example, the
+[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)):
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
 1. In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
 1. In the **Databases and tables** list, find your database and click
     <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
+</TabItem>
+<TabItem value="cli" label="SQL">
+Run the following SQL command:
 
-:::note
-If you try adding or removing a database in for your Aiven for
-ClickHouse service through the command line, you'll encounter an
-exception `Not enough privileges.(ACCESS_DENIED)`. Use the Aiven
-web interface to add or remove a database.
-:::
+```sql
+DROP DATABASE DATABASE_NAME
+```
+
+For example:
+
+```sql
+DROP DATABASE transactions;
+```
+
+</TabItem>
+</Tabs>
 
 ## Create a table
 
