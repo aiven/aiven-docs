@@ -16,11 +16,6 @@ You can create a database either in the [Aiven Console](https://console.aiven.io
 using an SQL client (for example, the
 [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
 
-**Limitations**
-
-- Only `avnadmin` users can create databases.
-- You can create a database with the `Replicated` database engine only.
-
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
@@ -40,11 +35,17 @@ using an SQL client (for example, the
 
 </TabItem>
 <TabItem value="cli" label="SQL">
-Run the following SQL command:
+
+**Limitations**
+
+- Only `avnadmin` users can create databases in SQL.
+- You can create a database in SQL with the `Replicated` database engine only.
+
+To create a database in SQL, run the following SQL command:
 
 ```sql
 CREATE DATABASE DATABASE_NAME
-ENGINE = ENGINE_NAME
+ENGINE = Replicated
 ```
 
 For example:
@@ -60,11 +61,8 @@ ENGINE = Replicated;
 ## Delete a database
 
 :::important
-
-- Only `avnadmin` users can delete databases.
-- Deleting a database is irreversible and permanently removes the database along
+Deleting a database is irreversible and permanently removes the database along
 with all its tables and data.
-
 :::
 
 You can delete a database either in the [Aiven Console](https://console.aiven.io/) or
@@ -80,7 +78,10 @@ using an SQL client (for example, the
     <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
 </TabItem>
 <TabItem value="cli" label="SQL">
-Run the following SQL command:
+
+**Limitation**: Only `avnadmin` users can delete databases in SQL.
+
+To delete a database in SQL, run the following SQL command:
 
 ```sql
 DROP DATABASE DATABASE_NAME
