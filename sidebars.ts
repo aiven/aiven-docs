@@ -818,7 +818,6 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/optimizing-resource-usage',
                     'products/kafka/howto/enabled-consumer-lag-predictor',
                     'products/kafka/howto/manage-quotas',
-                    'products/kafka/howto/use-zookeeper',
                     'products/kafka/howto/enable-follower-fetching',
                     'products/kafka/howto/best-practices',
                     'products/kafka/howto/avoid-out-of-memory-error',
