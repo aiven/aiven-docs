@@ -7,20 +7,9 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Set up or delete a project-wide VPC in your Aiven organization. Deploy or migrate Aiven-managed services to your project VPC. Access resources within the project VPC from the public internet.
 
-<!--
-Virtual Private Cloud (VPC) peering is a method of connecting separate AWS, Google Cloud,
-or Azure private networks with each other. It allows virtual machines in the different
-private networks to talk to each other directly without going through the public Internet.
--->
-
 ## Create a project VPC
 
-In Aiven, VPC peering is configured as a project and region-specific
-setting. This means that all services created and running use the same
-VPC peering connection. If necessary, you can use different connections
-for VPC peering across multiple projects.
-
-To set up VPC peering for your Aiven project:
+To create a [VPC for your Aiven project](/docs/platform/concepts/vpcs#project-vpcs):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and click
     <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
@@ -56,7 +45,7 @@ The state of the VPC is shown in the table.
 
 ## Deploy new services to a project VPC
 
-When you create a service, your peered VPC is available as a new
+When you create a service, your VPC is available as a new
 geolocation on the **VPC** tab under **Select service region**. It can
 take a few minutes for a newly created VPC to appear for service
 deployments.
@@ -68,7 +57,7 @@ peering connections. You can only deploy services to a VPC if they
 belong to the project where that specific VPC was created.
 :::
 
-## Delete an existing project VPC
+## Delete a project VPC
 
 Before deleting an existing VPC from [Aiven
 Console](https://console.aiven.io/), you should move out any active
@@ -79,9 +68,9 @@ select **Delete** from the meatballs menu for this VPC.
 Once the VPC is deleted, the cloud provider side of the peering connection's
 becomes `inactive` or `deleted`.
 
-## Migrate a public service to a project VPC
+## Migrate a service to a project VPC
 
-You can migrate any Aiven service to a different VPC:
+You can migrate any Aiven-managed service to a different VPC:
 
 1. In [Aiven Console](https://console.aiven.io/), open your service and click <ConsoleLabel name="Service settings"/>.
 1. In the **Cloud and
@@ -110,7 +99,7 @@ safelist an external IP address and want to keep traffic flowing with
 the internal (peered) connections, safelist the CIDR blocks of the peered networks as well
 to avoid disruptions to the service.
 
-## Troubleshoot VPC connection issues
+## Refresh VPC connections
 
 Any network changes to VPC peered hosts external from Aiven can cause
 issues with routing to your Aiven services hosted in a VPC. In such
