@@ -14,7 +14,12 @@ Create and work with databases and tables in Aiven for ClickHouse®.
 
 You can create a database either in the [Aiven Console](https://console.aiven.io/) or
 using an SQL client (for example, the
-[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)):
+[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
+
+**Limitations**
+
+- Only `avnadmin` users can create databases.
+- You can create a database with the `Replicated` database engine only.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
@@ -55,8 +60,11 @@ ENGINE = Replicated;
 ## Delete a database
 
 :::important
-Deleting a database is irreversible. This action permanently deletes the database along
+
+- Only `avnadmin` users can delete databases.
+- Deleting a database is irreversible and permanently removes the database along
 with all its tables and data.
+
 :::
 
 You can delete a database either in the [Aiven Console](https://console.aiven.io/) or
