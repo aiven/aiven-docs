@@ -11,7 +11,8 @@ Set up or delete an organization-wide VPC in the Aiven Platform. Enable new Aive
 
 ## Prerequisites
 
-- [Super admin role](/docs/platform/howto/make-super-admin) to manage organization VPCs
+- [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)
+  permissions
 - One of the following tools for operating organization VPCs:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
