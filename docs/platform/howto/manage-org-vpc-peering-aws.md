@@ -11,8 +11,8 @@ Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 
 ## Prerequisites
 
-- [Organization admin role](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-  to manage organization VPCs
+- [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)
+  permissions
 - Two VPCs to be peered: an
   [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
   in Aiven and a VPC in your AWS account
