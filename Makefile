@@ -58,8 +58,5 @@ cloud-list:
 delete-unused-images:
 	node "$(SCRIPTS)/delete_unused_images.js"
 
-check-links-logs:
-	bash "$(SCRIPTS)/check_links.sh" >> check_links.log
-
 check-links:
 	bash "$(SCRIPTS)/check_links.sh"
