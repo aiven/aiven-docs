@@ -9,18 +9,15 @@ Set up or delete a project-wide VPC in your Aiven organization. Deploy or migrat
 
 ## Create a project VPC
 
+**Prerequisite**: [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
+permissions
+
 To create a [VPC for your Aiven project](/docs/platform/concepts/vpcs#project-vpcs):
 
 1.  Log in to [Aiven Console](https://console.aiven.io/), and click
     <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
 
 1.  Click **Create VPC**.
-<!-- vale off -->
-    :::note
-    **Admin** and **operator**
-    [project member roles](/docs/platform/concepts/permissions)
-    can create a VPC.
-    :::
 
 1.  In the **Create a VPC for this project** window:
 
@@ -45,6 +42,9 @@ The state of the VPC is shown in the table.
 
 ## Deploy new services to a project VPC
 
+**Prerequisite**: [Manage service configuration](/docs/platform/concepts/permissions#project-permissions)
+permissions
+
 When you create a service, your VPC is available as a new
 geolocation on the **VPC** tab under **Select service region**. It can
 take a few minutes for a newly created VPC to appear for service
@@ -59,6 +59,9 @@ belong to the project where that specific VPC was created.
 
 ## Delete a project VPC
 
+**Prerequisite**: [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
+permissions
+
 Before deleting an existing VPC from [Aiven
 Console](https://console.aiven.io/), you should move out any active
 services from that VPC. To delete a VPC, go to [Aiven
@@ -69,6 +72,9 @@ Once the VPC is deleted, the cloud provider side of the peering connection's
 becomes `inactive` or `deleted`.
 
 ## Migrate a service to a project VPC
+
+**Prerequisite**: [Manage service configuration](/docs/platform/concepts/permissions#project-permissions)
+permissions
 
 You can migrate any Aiven-managed service to a different VPC:
 
@@ -99,7 +105,7 @@ safelist an external IP address and want to keep traffic flowing with
 the internal (peered) connections, safelist the CIDR blocks of the peered networks as well
 to avoid disruptions to the service.
 
-## Refresh VPC connections
+## Troubleshoot VPC connection issues
 
 Any network changes to VPC peered hosts external from Aiven can cause
 issues with routing to your Aiven services hosted in a VPC. In such

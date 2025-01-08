@@ -11,7 +11,8 @@ Set up a peering connection between your Aiven project VPC and an AWS VPC.
 
 ## Prerequisites
 
-- [Project operator role](/docs/platform/concepts/permissions#project-roles-and-permissions) to manage project VPCs
+- [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
+  permissions
 - Two VPCs to be peered: a
   [project VPC](/docs/platform/howto/manage-project-vpc)
   in Aiven and a VPC in your AWS account
