@@ -1,13 +1,23 @@
 ---
-title: Set up VPC peering on GCP
+title: Set up a project VPC peering with Google Cloud
 sidebar_label: Google Cloud peering
 ---
 
-Once you've created a [VPC on the Aiven platform](manage-project-vpc), you can set up VPC peering on GCP.
+Set up a peering connection between your Aiven project VPC and a Google Cloud VPC.
+
+## Prerequisites
+
+- [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
+  permissions
+- Two VPCs to be peered: a
+  [project VPC](/docs/platform/howto/manage-project-vpc)
+  in Aiven and a VPC in your Google Cloud account
+- Access to the [Aiven Console](https://console.aiven.io/)
+- Access to the [Google Cloud console](https://console.cloud.google.com/)
 
 ## Set up a VPC peering connection {#set-up-vcp-peering}
 
-1.  Open your GCP Console.
+1.  Open your the [Google Cloud console](https://console.cloud.google.com/).
 
 1.  Select **VPC Networks** and find the VPC to connect to.
 
@@ -21,8 +31,8 @@ Once you've created a [VPC on the Aiven platform](manage-project-vpc), you can s
 1.  On the **Virtual private clouds** page, select the VPC connection
     that you created.
 
-1.  In the **VPC Peering connections** view, enter the GCP project ID
-    (step 3) into the **GCP project ID** field and the exact GCP VPC
+1.  In the **VPC Peering connections** view, enter the Google Cloud project ID
+    (step 3) into the **GCP project ID** field and the exact Google Cloud VPC
     network name (step 4) into the **GCP VPC network name** field. Next,
     select **Add peering connection**.
 
@@ -33,8 +43,8 @@ Once you've created a [VPC on the Aiven platform](manage-project-vpc), you can s
     project ID and the VPC network name.
     :::
 
-1.  In your GCP Console, go to **VPC** > **VPC network peering**, and
-    select **Create peering connection**.
+1.  In your [Google Cloud console](https://console.cloud.google.com/), go to **VPC** >
+    **VPC network peering**, and select **Create peering connection**.
 
 1.  To create a peering connection:
 
@@ -45,15 +55,16 @@ Once you've created a [VPC on the Aiven platform](manage-project-vpc), you can s
 
 1. Click **Create**.
 
-When the peering is successful, it is active in both [Aiven
-Console](https://console.aiven.io) and your GCP Console.
+When the peering is successful, it is active in both
+[Aiven Console](https://console.aiven.io) and your
+[Google Cloud console](https://console.cloud.google.com/).
 
 ## Set up multiple VPC peering connections
 
-To peer multiple GCP VPC networks to your Aiven-managed project VPC, see
+To peer multiple Google Cloud VPC networks to your Aiven-managed project VPC, see
 [Set up a VPC peering connection](#set-up-vcp-peering), and add desired peering
 connections one by one in the [Aiven Console](https://console.aiven.io) > **Services** >
 **VPCs** > **VPC Peering connections**.
 
-For the limit on the number of the VPC peering connections allowed, see the GCP
-documentation.
+For the limit on the number of the VPC peering connections allowed, see
+the [Google Cloud documentation](https://cloud.google.com/vpc/docs/vpc-peering).
