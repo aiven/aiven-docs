@@ -3,6 +3,9 @@ title: Set up a project VPC peering with Google Cloud
 sidebar_label: Google Cloud peering
 ---
 
+import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md";
+import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md"
+
 Set up a peering connection between your Aiven project VPC and a Google Cloud VPC.
 
 ## Prerequisites
@@ -15,56 +18,38 @@ Set up a peering connection between your Aiven project VPC and a Google Cloud VP
 - Access to the [Aiven Console](https://console.aiven.io/)
 - Access to the [Google Cloud console](https://console.cloud.google.com/)
 
-## Set up a VPC peering connection {#set-up-vcp-peering}
+## Create a peering connection
 
-1.  Open your the [Google Cloud console](https://console.cloud.google.com/).
+### Collect data in the the Google Cloud console
 
-1.  Select **VPC Networks** and find the VPC to connect to.
+<CollectDataGoogle/>
 
-1.  Click the project name, and make note of the **Project ID**.
+### Create a peering in Aiven
 
-1.  Under **VPC Network**, make note of the **VPC Network Name**.
+Create a project VPC peering connection in the [Aiven Console](https://console.aiven.io/):
 
-1.  In [Aiven Console](https://console.aiven.io), select **VPCs** from
-    the sidebar on the **Services** page.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, select a project VPC to peer.
+1. On the **VPC peering connections** page:
+   1. Enter the following:
+      - **GCP project ID**
+      - **GCP VPC network name**
+   1. Click **Add peering connection**.
 
-1.  On the **Virtual private clouds** page, select the VPC connection
-    that you created.
+      This adds a connection with the **Pending peer** status in the
+      [Aiven Console](https://console.aiven.io/).
+1. Make a note of the **Aiven project ID** and the Aiven **VPC network name**.
 
-1.  In the **VPC Peering connections** view, enter the Google Cloud project ID
-    (step 3) into the **GCP project ID** field and the exact Google Cloud VPC
-    network name (step 4) into the **GCP VPC network name** field. Next,
-    select **Add peering connection**.
+### Accept the peering request in the Google Cloud console
 
-    This adds a new connection with the **Pending Peer** status.
+<AcceptPeeringGoogle/>
 
-    :::note
-    Select the blue **Pending peer** icon, and make a note of the Aiven
-    project ID and the VPC network name.
-    :::
+## Set up multiple project VPC peerings
 
-1.  In your [Google Cloud console](https://console.cloud.google.com/), go to **VPC** >
-    **VPC network peering**, and select **Create peering connection**.
+To peer multiple Google Cloud VPC networks to your Aiven-managed project VPC,
+[add peering connections](/docs/platform/howto/vpc-peering-gcp#create-a-peering-connection)
+one by one in the [Aiven Console](https://console.aiven.io).
 
-1.  To create a peering connection:
-
-    1.  Enter a name for the peering connection.
-    1.  Under **Peered VPC network**, select **In another project**.
-    1.  Enter the Aiven project ID and the VPC network name identified
-        in step 7 in Aiven Console.
-
-1. Click **Create**.
-
-When the peering is successful, it is active in both
-[Aiven Console](https://console.aiven.io) and your
-[Google Cloud console](https://console.cloud.google.com/).
-
-## Set up multiple VPC peering connections
-
-To peer multiple Google Cloud VPC networks to your Aiven-managed project VPC, see
-[Set up a VPC peering connection](#set-up-vcp-peering), and add desired peering
-connections one by one in the [Aiven Console](https://console.aiven.io) > **Services** >
-**VPCs** > **VPC Peering connections**.
-
-For the limit on the number of the VPC peering connections allowed, see
-the [Google Cloud documentation](https://cloud.google.com/vpc/docs/vpc-peering).
+For the limit on the number of VPC peering connections allowed to a single VPC network,
+see the [Google Cloud documentation](https://cloud.google.com/vpc/docs/quota).
