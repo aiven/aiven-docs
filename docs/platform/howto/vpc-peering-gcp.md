@@ -4,7 +4,8 @@ sidebar_label: Google Cloud peering
 ---
 
 import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md";
-import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md"
+import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Set up a peering connection between your Aiven project VPC and a Google Cloud VPC.
 
