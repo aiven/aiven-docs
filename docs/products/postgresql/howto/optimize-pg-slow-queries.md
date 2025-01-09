@@ -4,47 +4,14 @@ sidebar_label: Optimize queries
 keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
-import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import FAQ from "@site/static/includes/faq-ai.md"
+import AIInsights from "@site/static/includes/ai-insights.md"
 
 Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
 
-:::note
-For one-time query optimizations when you do not run an Aiven for PostgreSQL® service,
-use the [standalone SQL query optimizer][optimizer].
-:::
-
 ## Artificial intelligence recommendations
 
-Use **Aiven AI Database Optimizer** to suggest optimizations to your databases and queries.
-
-Aiven considers various aspects to suggest optimization, for example query
-structure, table size, existing indexes and their cardinality, column types and
-sizes, the connections between the tables and columns in the query.
-
-To optimize a query automatically:
-
-1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for
-   PostgreSQL service.
-1. Click <ConsoleLabel name="AI insights"/>.
-1. For the query of your choice, click **Optimize**.
-1. In the **Query optimization report** window, see the optimization suggestion and apply
-   the suggestion by running the provided SQL queries.
-
-   - To display potential alternative optimization recommendations, click **Advanced options**.
-   - To display the diff view, click **Query diff**.
-   - To display explanations about the optimization, click **Optimization details**.
-
-:::note
-The quality of the optimization suggestions is proportional to the amount of
-data collected about the performance of your database.
-:::
-
-<details>
-  <summary>Frequently asked questions</summary>
-  <FAQ/>
-</details>
+<AIInsights service="Aiven for PostgreSQL®"/>
 
 ## Manual optimization
 
@@ -96,5 +63,6 @@ for read-only queries.
 
 - [Identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
 - [Standalone query optimizer][optimizer]
+- [AI DB Optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
 
 [optimizer]: /docs/tools/query-optimizer
