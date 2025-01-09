@@ -3,9 +3,9 @@ title: Set up an organization VPC peering with AWS
 sidebar_label: AWS peering
 ---
 
-import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md"
-import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md"
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
+import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 

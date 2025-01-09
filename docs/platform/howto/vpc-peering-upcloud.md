@@ -3,13 +3,15 @@ title: Set up a project VPC peering with UpCloud
 sidebar_label: UpCloud peering
 ---
 
-import UpcloudVpcPeering from "@site/static/images/content/platform/howto/upcloud-vpc-peer.png";
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
+import CollectDataUpcloud from "@site/static/includes/vpc/collect-data-upcloud.md";
+import AcceptPeeringUpcloud from "@site/static/includes/vpc/accept-peering-upcloud.md";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
-Set up a peering connection between your Aiven project VPC and an UpCloud VPC to enable traffic between them.
+Set up a peering connection between your Aiven project VPC and an UpCloud SDN network to enable traffic between them.
 
-Peering Aiven and UpCloud networks requires establishing the connection
-on both ends: Aiven and UpCloud.
+Establishing a peering connection between an Aiven VPC and an UpCloud SDN network requires
+creating the peering both from the VPC in Aiven and from the SDN network in UpCloud.
 
 -   To set up a peering from Aiven to UpCloud, you can use [Aiven
     Console](https://console.aiven.io/) to create a VPC for your Aiven
@@ -39,148 +41,38 @@ type networks.
 
 - [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
   permissions
-- Two VPCs to be peered: a
+- Two networks to be peered: a
   [project VPC](/docs/platform/howto/manage-project-vpc)
-  in Aiven and a VPC in your UpCloud account
+  in Aiven and an SDN network in your UpCloud account
 - Access to the [Aiven Console](https://console.aiven.io/)
-- [UpCloud API](https://developers.upcloud.com/1.3/)
-- Optionally, access to the [UpCloud Control Panel](https://hub.upcloud.com/)
+- Either access to the [UpCloud Control Panel](https://hub.upcloud.com/) or the
+  [UpCloud API](https://developers.upcloud.com/1.3/)
 
-## Get UpCloud SDN network UUID {#upcloud-uuid}
+## Create a peering connection
 
-Before establishing a peering connection from Aiven to UpCloud, you need
-to find your UpCloud SDN network UUID.
+### Collect data from UpCloud
 
-To check the UpCloud SDN network UUID, use one of the following method:
+<CollectDataUpcloud/>
 
-- Send a request to
-  [get network details](https://developers.upcloud.com/1.3/13-networks/#get-network-details)
-  UpCloud API endpoint. In the response, you'll get the network's UUID.
-- Go to the [UpCloud Control Panel](https://hub.upcloud.com/) > **Network** >
-  **Private networks**, find the network, and copy its UUID.
+### Create the peering in Aiven {#avn-uuid}
 
-## Set up VPC peering from Aiven {#avn-uuid}
+Create a project VPC peering connection in the [Aiven Console](https://console.aiven.io/):
 
-You can establish a peering connection from Aiven to UpCloud using
-[Aiven Console](https://console.aiven.io/).
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, select a project VPC to peer.
+1. On the **VPC peering connections** page:
+   1. Enter your UpCloud SDN network UUID in the **Peer network ID** field.
+   1. Click **Add peering connection**.
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), go to
-    the organization and project of your choice.
-1.  On the **Services** page, select **VPCs** from the sidebar.
-1.  On the **Virtual private clouds** page, select the ID of the VPC
-    connection to use for the peering.
-1.  On the **VPC peering connections** page, in the **Add peering
-    connection** section, populate **Peer network ID** field with your
-    UpCloud SDN network UUIDs.
-1.  Select **Add peering connection**. This adds a new connection to the
-    VPC peering connections list.
-1.  Wait until you see the `peer_pending` state in the **State** column
-    of the of the VPC peering connections table. At this point, the
-    Aiven VPC network UUID should be available in the **Aiven network
-    ID** column of the of the VPC peering connections table.
+This adds a connection in the **Pending peer** state to the VPC peering connections
+list in the [Aiven Console](https://console.aiven.io/). At this point, the Aiven VPC
+network UUID should be available in the **Aiven network ID** column of the VPC peering
+connections table.
 
-## Set up VPC peering from UpCloud
+### Create the peering in UpCloud
 
-VPC peering from UpCloud can be established using either the
-[UpCloud Control Panel](#upcloud-web-console) or the [UpCloud API](#upcloud-api).
-
-### Use the UpCloud Control Panel {#upcloud-web-console}
-
-1.  Log in to the [UpCloud Control Panel](https://hub.upcloud.com/).
-1.  Go to **Network** > **Peering**.
-1.  Click **Create network peering**.
-1.  Specify the peering name, select the source peer network, provide
-    the UUID of the target peer network, and click **Create**.
-
-    As a result, your peering is in the **Pending peer** status.
-
-1. Create the peering from the target network to your source network.
-
-:::important
-The peering becomes active and the traffic is shared only after you create the peering
-both from the source network and from the target network.
-:::
-
-<img src={UpcloudVpcPeering} className="image" alt="Create network peering"/>
-
-### Use the UpCloud API {#upcloud-api}
-
-To establish a VPC peering from UpCloud to Aiven, use [UpCloud
-API](https://developers.upcloud.com/1.3/) to send the following request:
-
-```bash
-POST /1.3/network-peering HTTP/1.1
-{
-  "network_peering": {
-    "configured_status": "active",
-    "name": "NAME_OF_YOUR_PEERING",
-    "network": {
-      "uuid": "UPCLOUD_SDN_NETWORK_UUID"
-    },
-    "peer_network": {
-      "uuid": "AIVEN_VPC_NETWORK_UUID"
-    }
-  }
-}
-```
-
-#### Attributes
-
-| Attribute           | Accepted value             | Default value | Required | Description                                                                                                                                                | Example value                          |
-| ------------------- | -------------------------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `configured_status` | `active` or `disabled`     | `active`      | No       | Controls whether the peering is administratively up or down.                                                                                               | `active`                               |
-| `name`              | String of 1-255 characters | None          | Yes      | Descriptive name for the peering                                                                                                                           | `peering upcloud->aiven`               |
-| `network.uuid`      | Valid network UUID         | None          | Yes      | Sets the local network of the peering. Use the UUID you acquired in [Get UpCloud SDN network UUID](/docs/platform/howto/vpc-peering-upcloud#upcloud-uuid). | `03126dc1-a69f-4bc2-8b24-e31c22d64712` |
-| `peer_network.uuid` | Valid network UUID         | None          | Yes      | Sets the peer network of the peering. Use the UUID you acquired in [Set up VPC peering from Aiven](/docs/platform/howto/vpc-peering-upcloud#avn-uuid).     | `03585987-bf7d-4544-8e9b-5a1b4d74a333` |
-
-#### Expected response
-
-:::note
-The sample response provided describes a peering established one way
-only.
-:::
-
-If your peering API request is successful, you can expect a response
-similar to the following:
-
-```bash
-HTTP/1.1 201 Created
-{
-  "network_peering": {
-    "configured_status": "active",
-    "name": "NAME_OF_YOUR_PEERING",
-    "network": {
-      "ip_networks": {
-        "ip_network": [
-          {
-            "address": "192.168.0.0/24",
-            "family": "IPv4"
-          },
-          {
-            "address": "fc02:c4f3::/64",
-            "family": "IPv6"
-          }
-        ]
-      },
-      "uuid": "UPCLOUD_SDN_NETWORK_UUID"
-    },
-    "peer_network": {
-      "uuid": "AIVEN_VPC_NETWORK_UUID"
-    },
-    "state": "pending-peer",
-    "uuid": "PEERING_UUID"
-  }
-}
-```
-
-#### Error responses
-
-| HTTP status   | Error code              | Description                      |
-| ------------- | ----------------------- | -------------------------------- |
-| 409 Conflict  | LOCAL_NETWORK_NO_ROUTER | The local network has no router. |
-| 404 Not found | NETWORK_NOT_FOUND       | The local network was not found. |
-| 404 Not found | PEER_NETWORK_NOT_FOUND  | The peer network was not found.  |
-| 409 Conflict  | PEERING_CONFLICT        | The peering already exists.      |
+<AcceptPeeringUpcloud/>
 
 ## Renew a DHCP lease
 
