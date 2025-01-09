@@ -2,6 +2,7 @@
 ACL
 ACLs
 Addons
+AIInsights
 Aiven
 Aiven's
 allowlist

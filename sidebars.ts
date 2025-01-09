@@ -1544,6 +1544,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Database management',
                   items: [
                     'products/mysql/howto/create-database',
+                    'products/mysql/howto/ai-insights',
                     'products/mysql/howto/create-remote-replica',
                     'products/mysql/howto/migrate-database-mysqldump',
                     'products/mysql/howto/disable-foreign-key-checks',

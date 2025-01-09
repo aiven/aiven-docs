@@ -166,7 +166,6 @@
 /products/metrics/howto                                    https://aiven.io/docs/products/metrics/howto/storage-usage
 /products/metrics/howto/list-data-migration                https://aiven.io/docs/products/metrics/howto/migrate-influxdb-thanos
 /products/mysql/concepts                                   https://aiven.io/docs/products/mysql/concepts/max-number-of-connections
-/products/mysql/howto                                      https://aiven.io/docs/products/mysql/howto/list-code-samples
 /products/mysql/howto/list-get-started                     https://aiven.io/docs/products/mysql/get-started
 /products/mysql/overview                                   https://aiven.io/docs/products/mysql
 /products/mysql/reference                                  https://aiven.io/docs/products/mysql/reference/advanced-params
