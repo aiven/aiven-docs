@@ -40,5 +40,5 @@ To learn more about the recommendations, click **Optimization details**.
 - [Optimizing queries in Aiven for PostgreSQL®][optimizePG]
 - [Optimizing queries in Aiven for MySQL®][optimizeMySQL]
 
-[optimizePG]: /docs/products/postgresql/howto/optimize-pg-slow-queries
+[optimizePG]: /docs/products/postgresql/howto/ai-insights
 [optimizeMySQL]: /docs/products/mysql/howto/ai-insights

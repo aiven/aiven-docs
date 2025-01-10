@@ -1821,6 +1821,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/manage-extensions',
                     'products/postgresql/howto/create-manual-backups',
                     'products/postgresql/howto/restore-backup',
+                    'products/postgresql/howto/ai-insights',
                     'products/postgresql/howto/claim-public-schema-ownership',
                     'products/postgresql/howto/manage-pool',
                     'products/postgresql/howto/pgbouncer-stats',
