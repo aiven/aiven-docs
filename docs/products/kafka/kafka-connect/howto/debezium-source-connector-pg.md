@@ -86,7 +86,7 @@ connector configurations:
 
 ```json
 {
-  "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+  "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
   "database.dbname": "PG_DATABASE_NAME",
   "database.hostname": "PG_HOST",
   "database.password": "PG_PASSWORD",
