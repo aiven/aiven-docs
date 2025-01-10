@@ -3,8 +3,8 @@ title: Read and pull data from S3 object storages and web resources over HTTP
 ---
 
 With federated queries in Aiven for ClickHouse®, you can read and pull data from an external S3-compatible object storage or any web resource accessible over HTTP.
-Learn more about capabilities and applications of
-federated queries in
+
+Learn more about capabilities and applications of federated queries in
 [About querying external data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/federated-queries).
 
 ## About running federated queries
@@ -49,10 +49,18 @@ following tools:
 - [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4)
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli#install)
 
-### Managed credentials for the `AzureBlobStorage` table engine
+### Managed credentials for Azure Blob Storage
 
-To run federated queries using the `AzureBlobStorage` table engine,
-[set up a managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources).
+[Managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
+is:
+
+- Required to
+  [run federated queries using the AzureBlobStorage table engine](/docs/products/clickhouse/howto/run-federated-queries#query-using-the-azureblobstorage-table-engine)
+- Optional to
+  [run federated queries using the azureBlobStorage table function](/docs/products/clickhouse/howto/run-federated-queries#query-using-the-azureblobstorage-table-function)
+
+[Set up a managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources)
+as needed.
 
 ## Limitations
 
@@ -68,10 +76,18 @@ data from external S3-compatible object storages.
 
 ### Query using the `azureBlobStorage` table function
 
+Depending on how you choose to handle passing connection parameters in your queries, you
+can run federated queries using the `azureBlobStorage` table function:
+
+- [With managed credentials integration](/docs/products/clickhouse/howto/run-federated-queries#azureblobstorage-table-function-without-managed-credentials)
+- [Without managed credentials integration](/docs/products/clickhouse/howto/run-federated-queries#azureblobstorage-table-function-with-managed-credentials)
+
 Before you start, fulfill relevant
 [prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
-#### SELECT and `azureBlobStorage`
+#### `azureBlobStorage` table function without managed credentials
+
+##### SELECT
 
 ```sql
 SELECT *
@@ -81,14 +97,12 @@ FROM azureBlobStorage(
   'all_stock_data.csv',
   'CSV',
   'auto',
-  'Ticker String,
-  Low Float64,
-  High Float64'
+  'Ticker String, Low Float64, High Float64'
   )
 LIMIT 5
 ```
 
-#### INSERT and `azureBlobStorage`
+##### INSERT
 
 ```sql
 INSERT INTO FUNCTION
@@ -98,10 +112,19 @@ INSERT INTO FUNCTION
     'test_funcwrite.csv',
     'CSV',
     'auto',
-    'key UInt64,
-    data String'
+    'key UInt64, data String'
     )
 VALUES ('column1-value', 'column2-value');
+```
+
+#### `azureBlobStorage` table function with managed credentials
+
+```sql
+azureBlobStorage(
+  `named_collection`,
+  blobpath = 'path/to/blob.csv',
+  format = 'CSV'
+)
 ```
 
 ### Query using the `AzureBlobStorage` table engine
