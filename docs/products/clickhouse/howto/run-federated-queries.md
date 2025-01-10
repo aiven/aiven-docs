@@ -43,7 +43,44 @@ WITH GRANT OPTION allows the user to further transfer the privileges.
 See some examples of running federated queries to read and pull
 data from external S3-compatible object storages.
 
-### Query using SELECT and the S3 function
+### Query using the `azureBlobStorage` table function
+
+#### SELECT and `azureBlobStorage`
+
+```sql
+SELECT *
+FROM azureBlobStorage(
+  'DefaultEndpointsProtocol=https;AccountName=ident;AccountKey=secret;EndpointSuffix=core.windows.net',
+  'ownerresource',
+  'all_stock_data.csv',
+  'CSV',
+  'auto',
+  'Ticker String,
+  Low Float64,
+  High Float64'
+  )
+LIMIT 5
+```
+
+#### INSERT and `azureBlobStorage`
+
+```sql
+INSERT INTO FUNCTION
+  azureBlobStorage(
+    'DefaultEndpointsProtocol=https;AccountName=ident;AccountKey=secret;EndpointSuffix=core.windows.net',
+    'ownerresource',
+    'test_funcwrite.csv',
+    'CSV',
+    'auto',
+    'key UInt64,
+    data String'
+    )
+VALUES ('column1-value', 'column2-value');
+```
+
+### Query using the `s3` table function
+
+#### SELECT and `s3`
 
 SQL SELECT statements using the S3 and URL functions are able to query
 public resources using the URL of the resource. For instance, let's
@@ -70,30 +107,15 @@ ORDER BY total_anomalies DESC
 LIMIT 50
 ```
 
-### Query using SELECT and the s3Cluster function
+#### INSERT and `s3`
 
-The `s3Cluster` function allows all cluster nodes to participate in the
-query execution. Using `default` for the cluster name parameter, we can
-compute the same aggregations as above as follows:
+When executing an INSERT statement into the S3 function, the rows are
+appended to the corresponding object if the table structure matches:
 
 ```sql
-WITH ooni_clustered_data_sample AS
-    (
-    SELECT *
-    FROM s3Cluster('default', 'https://ooni-data-eu-fra.s3.eu-central-1.amazonaws.com/clickhouse_export/csv/fastpath_202308.csv.zstd')
-    LIMIT 100000
-    )
-SELECT
-    probe_cc AS probe_country_code,
-    test_name,
-    countIf(anomaly = 't') AS total_anomalies
-FROM ooni_clustered_data_sample
-GROUP BY
-    probe_country_code,
-    test_name
-HAVING total_anomalies > 10
-ORDER BY total_anomalies DESC
-LIMIT 50
+INSERT INTO FUNCTION
+  s3('https://bucket-name.s3.region-name.amazonaws.com/dataset-name/landing/raw-data.csv', 'CSVWithNames')
+VALUES ('column1-value', 'column2-value');
 ```
 
 ### Query a private S3 bucket
@@ -124,7 +146,35 @@ FROM s3(
 )
 ```
 
-### Query using SELECT and the URL function
+### Query using the `s3Cluster` table function
+
+The `s3Cluster` function allows all cluster nodes to participate in the
+query execution. Using `default` for the cluster name parameter, we can
+compute the same aggregations as above as follows:
+
+```sql
+WITH ooni_clustered_data_sample AS
+    (
+    SELECT *
+    FROM s3Cluster('default', 'https://ooni-data-eu-fra.s3.eu-central-1.amazonaws.com/clickhouse_export/csv/fastpath_202308.csv.zstd')
+    LIMIT 100000
+    )
+SELECT
+    probe_cc AS probe_country_code,
+    test_name,
+    countIf(anomaly = 't') AS total_anomalies
+FROM ooni_clustered_data_sample
+GROUP BY
+    probe_country_code,
+    test_name
+HAVING total_anomalies > 10
+ORDER BY total_anomalies DESC
+LIMIT 50
+```
+
+### Query using the `url` table function
+
+#### SELECT and `url`
 
 Let's query the [Growth Projections and Complexity
 Rankings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XTAQMC&version=4.0)
@@ -147,7 +197,7 @@ ORDER BY `Economic Complexity Index ranking` ASC
 LIMIT 20
 ```
 
-### Query using INSERT and the URL function
+#### INSERT and `url`
 
 With the URL function, INSERT statements generate a POST request, which
 can be used to interact with APIs having public endpoints. For instance,
@@ -157,17 +207,6 @@ can insert a row using the following statement:
 ```sql
 INSERT INTO FUNCTION
   url('https://app-name.company-name.cloud/api/ingest-csv', 'CSVWithNames')
-VALUES ('column1-value', 'column2-value');
-```
-
-### Query using INSERT and the S3 function
-
-When executing an INSERT statement into the S3 function, the rows are
-appended to the corresponding object if the table structure matches:
-
-```sql
-INSERT INTO FUNCTION
-  s3('https://bucket-name.s3.region-name.amazonaws.com/dataset-name/landing/raw-data.csv', 'CSVWithNames')
 VALUES ('column1-value', 'column2-value');
 ```
 
