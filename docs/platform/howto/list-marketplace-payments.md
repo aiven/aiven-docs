@@ -1,5 +1,6 @@
 ---
 title: Use marketplace subscriptions to pay for Aiven services
+sidebar_label: Use marketplace subscriptions
 ---
 
 import Tabs from '@theme/Tabs';

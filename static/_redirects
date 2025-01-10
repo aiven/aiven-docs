@@ -24,7 +24,7 @@
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
 /kafka-connect/opensearch                              https://aiven.io/docs/products/kafka/kafka-connect/howto/opensearch-sink
-/platform/concepts/billing-groups                      https://aiven.io/docs/platform/concepts/billing-groups-overview
+/platform/concepts/billing-groups                      https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service
 /platform/concepts/corporate-billing                   https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/corporate-billing.html              https://aiven.io/docs/platform/concepts/billing-and-payment
@@ -33,12 +33,15 @@
 /platform/concepts/hourly-billing-model.html           https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
+/platform/concepts/orgs-and-units                      https://aiven.io/docs/platform/concepts/orgs-units-projects
+/platform/concepts/projects                            https://aiven.io/docs/platform/concepts/orgs-units-projects
 /platform/concepts/projects_accounts_access            https://aiven.io/docs/platform/howto/manage-project
 /platform/concepts/service-scaling                     https://aiven.io/docs/platform/howto/scale-services
 /platform/howto/access-service-log                     https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/access-service-logs                    https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/add-groups-projects                    https://aiven.io/docs/platform/howto/manage-groups
 /platform/howto/add-project-members                    https://aiven.io/docs/platform/howto/manage-permissions
+/platform/howto/billing-assign-projects                https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
@@ -68,6 +71,7 @@
 /platform/howto/okta-user-provisioning-with-scim       https://aiven.io/docs/platform/howto/saml/add-okta-idp
 /platform/howto/pause-from-cli                         https://aiven.io/docs/platform/concepts/service-power-cycle
 /platform/howto/payment-issues-plan-upgrades           https://aiven.io/docs/platform/concepts/billing-and-payment
+/platform/howto/payment-methods                        https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/project-support-center                 https://aiven.io/docs/platform/howto/support
 /platform/howto/project-support-center.html            https://aiven.io/docs/platform/howto/support
 /platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
