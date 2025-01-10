@@ -50,7 +50,7 @@ allowed to use the sources via the CREATE TEMPORARY TABLE grant, which
 is required for both sources.
 
 For more information on how to enable new users to use the sources,
-see [Access and permissions](/docs/products/clickhouse/howto/run-federated-queries#access-permissions).
+see [Prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites).
 
 Federated queries read from external S3-compatible object storage
 utilizing the ClickHouse S3 engine. Once you read from a remote

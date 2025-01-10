@@ -15,9 +15,12 @@ over an external S3-compatible object storage including relevant S3
 bucket details. A properly constructed federated query returns a
 specific output.
 
-## Before you start
+## Prerequisites
 
-### Access and permissions {#access-permissions}
+Prerequisites to be met depend on the type of a table function or a table engine to be used
+in your federated query.
+
+### Access to S3 and URL sources
 
 To run a federated query, the ClickHouse service user connecting to the
 cluster requires grants to the S3 and/or URL sources. The main service
@@ -31,7 +34,27 @@ GRANT CREATE TEMPORARY TABLE, S3, URL ON *.* TO <username> [WITH GRANT OPTION]
 The CREATE TEMPORARY TABLE grant is required for both sources. Adding
 WITH GRANT OPTION allows the user to further transfer the privileges.
 
-### Limitations
+### Azure Blob Storage access keys
+
+To run federated queries using the `azureBlobStorage` table function or the
+`AzureBlobStorage` table engine, get your Azure Blob Storage keys using one of the
+following tools:
+
+- [Azure portal](https://portal.azure.com/)
+
+  From the portal menu, select **Storage accounts**, go to your account, and click
+  **Security + Networking** > **Access keys**. View and copy your account access keys and
+  connection strings.
+
+- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli#install)
+
+### Managed credentials for the `AzureBlobStorage` table engine
+
+To run federated queries using the `AzureBlobStorage` table engine,
+[set up a managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources).
+
+## Limitations
 
 -   Federated queries in Aiven for ClickHouse only support S3-compatible
     object storage providers for the time being.
@@ -44,6 +67,9 @@ See some examples of running federated queries to read and pull
 data from external S3-compatible object storages.
 
 ### Query using the `azureBlobStorage` table function
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
 #### SELECT and `azureBlobStorage`
 
@@ -78,7 +104,32 @@ INSERT INTO FUNCTION
 VALUES ('column1-value', 'column2-value');
 ```
 
+### Query using the `AzureBlobStorage` table engine
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
+1. Create a table:
+
+   ```sql
+   CREATE TABLE default.test_azure_table
+   (
+       `Low` Float64,
+       `High` Float64
+   )
+   ENGINE = AzureBlobStorage(`endpoint_azure-blob-storage-datasets`, blob_path = 'data.csv', compression = 'auto', format = 'CSV')
+   ```
+
+1. Query from the `AzureBlobStorage` table engine:
+
+   ```sql
+   SELECT avg(Low) FROM test_azure_table
+   ```
+
 ### Query using the `s3` table function
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
 #### SELECT and `s3`
 
@@ -120,6 +171,9 @@ VALUES ('column1-value', 'column2-value');
 
 ### Query a private S3 bucket
 
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
 Private buckets can be accessed by providing the access token and secret
 as function parameters.
 
@@ -148,6 +202,9 @@ FROM s3(
 
 ### Query using the `s3Cluster` table function
 
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
 The `s3Cluster` function allows all cluster nodes to participate in the
 query execution. Using `default` for the cluster name parameter, we can
 compute the same aggregations as above as follows:
@@ -173,6 +230,9 @@ LIMIT 50
 ```
 
 ### Query using the `url` table function
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
 #### SELECT and `url`
 
@@ -211,6 +271,9 @@ VALUES ('column1-value', 'column2-value');
 ```
 
 ### Query a virtual table
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
 Instead of specifying the URL of the resource in every query, it's
 possible to create a virtual table using the URL table engine. This can
