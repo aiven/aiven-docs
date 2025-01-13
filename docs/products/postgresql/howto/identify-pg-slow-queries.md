@@ -1,5 +1,5 @@
 ---
-title: Identify PostgreSQL® slow queries with `pg_stat_statements`
+title: Identify PostgreSQL® slow queries with pg_stat_statements
 sidebar_label: Identify slow queries
 ---
 
