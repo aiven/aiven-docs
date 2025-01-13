@@ -35,16 +35,19 @@ Create an organization VPC peering connection in the [Aiven Console](https://con
    top navigation bar.
 1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
 1. On the **Organization VPCs** page, select an organization VPC to peer.
-1. On the **Organization VPC details** page, click **Add peering connection**.
+1. On the **Organization VPC details** page, go to the **VPC peering connection** field and
+   click **Add peering connection**.
 1. In the **Add peering connection** window:
    1. Enter the following:
       - **GCP project ID**
       - **GCP VPC network name**
    1. Click **Add peering connection**.
 
-      This adds a connection in the **Pending peer** state to the VPC peering connections
-      list in the [Aiven Console](https://console.aiven.io/).
-1. Make a note of the **Aiven project ID** and the Aiven **VPC network name**.
+      This adds a connection with the **Pending peer** status in the
+      [Aiven Console](https://console.aiven.io/).
+1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
+1. Click <ConsoleLabel name="service settings"/> in the sidebar, and make a note of your
+   **Project name** in the **Project settings** field.
 
 ### Accept the peering request in the Google Cloud console
 
