@@ -133,9 +133,9 @@ The **Leader** and **Follower** chips below the service names identify the servi
 
 ## Promote a follower service to a standalone service
 
-Promote a follower service to standalone status to enable it to operate independently
-without replicating data from a leader service. This is useful for disaster recovery,
-where replication needs to stop, and the follower service operates independently.
+You can promote a follower service to standalone status to make it work independently,
+without replicating data from a leader service. This is helpful in disaster recovery
+situations where replication needs to stop, and the service must function on its own.
 
 :::note
 Promoting a follower service to standalone stops replication and deletes the
