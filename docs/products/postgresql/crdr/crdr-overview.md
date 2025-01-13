@@ -85,13 +85,13 @@ PRS is **Failed** and the RRS is up and running as an **Active** service.
 
 <img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
 
-#### Automatic switchover
+#### Automatic failover
 
 In the even of a region-wide failure, a CRDR process is triggered automatically. The RRS
 takes over from the PRS so that your workloads remain available at all times during
 the region outage.
 
-#### Manual switchover
+#### Manual failover
 
 You trigger a failover to the RRS yourself for testing purposes: to simulate a
 disaster scenario and verify the disaster resilience of your infrastructure.
