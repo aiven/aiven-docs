@@ -24,13 +24,13 @@ infrastructure, you can also perform a manual failover.
 
 ## Automatic failover
 
-[Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-switchover) is
+[Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover) is
 enabled by default with your CRDR setup. It's triggered automatically at the event of a
 region outage.
 
 ## Fail over manually
 
-Initiate a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-switchover)
+Initiate a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover)
 using a tool of your choice:
 
 <Tabs groupId="group1">
