@@ -5,10 +5,9 @@ title: Create organizations and organizational units
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
 When you sign up for Aiven, an organization is
-automatically created for you. For details and recommendations on creating hierarchical
-organizations in Aiven, see the article on
-[organizations, units, and projects](/docs/platform/concepts/orgs-units-projects).
-
+automatically created for you. You can add organizational units in your organization
+to group related projects and create custom
+[hierarchical organizations](/docs/platform/concepts/orgs-units-projects).
 
 ## Create an organizational unit
 

@@ -47,10 +47,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Organizations and units',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/orgs-and-units',
-              },
               items: [
                 'tools/aiven-console/howto/create-orgs-and-units',
                 'platform/howto/manage-organizations',
@@ -59,10 +55,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Projects',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/projects',
-              },
               items: [
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
@@ -85,26 +77,16 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Payment methods',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/payment-methods',
-              },
               items: [
                 'platform/howto/manage-payment-card',
+                'platform/howto/manage-bank-transfers',
                 'platform/howto/list-marketplace-payments',
               ],
             },
             {
               type: 'category',
               label: 'Billing groups',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/billing-groups-overview',
-              },
-              items: [
-                'platform/howto/use-billing-groups',
-                'platform/howto/billing-assign-projects',
-              ],
+              items: ['platform/howto/use-billing-groups'],
             },
             'platform/howto/download-invoices',
           ],
