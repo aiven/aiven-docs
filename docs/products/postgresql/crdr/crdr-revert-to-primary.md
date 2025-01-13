@@ -5,7 +5,7 @@ limited: true
 keywords: [recovery, primary, outage, failure, failover, CRDR, cross-region disaster recovery]
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
