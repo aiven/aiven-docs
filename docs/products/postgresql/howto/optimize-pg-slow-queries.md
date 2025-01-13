@@ -5,26 +5,20 @@ keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import AIInsights from "@site/static/includes/ai-insights.md"
 
-Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
+Aiven for PostgreSQL allows you to [identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries) using the `pg_stat_statements` view.
 
-## Artificial intelligence recommendations
+:::important
+You can also use [Aiven's AI capabilities](/docs/products/postgresql/howto/ai-insights)
+to identify and speed up slow queries.
+:::
 
-<AIInsights service="Aiven for PostgreSQL®"/>
-
-## Manual optimization
-
-Aiven for PostgreSQL allows you to
-[identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
-using the `pg_stat_statements` view.
-
-### Limit the number of indexes
+## Limit the number of indexes
 
 Having many database indexes on a table can reduce write performance
 due to the overhead of maintaining them.
 
-### Handle an increase in database connections
+## Handle an increase in database connections
 
 When your application code scales horizontally to accommodate high
 loads, you might find that you inadvertently reach the
@@ -41,7 +35,7 @@ an increase in database connections. You can add and configure the
 connection pooling for your service in the <ConsoleLabel name="pools"/> view in [Aiven
 Console](https://console.aiven.io/).
 
-### Move read-only queries to standby nodes
+## Move read-only queries to standby nodes
 
 If your Aiven for PostgreSQL® service is running a Business or
 Premium plan, you have one or more standby nodes available in a high
@@ -52,7 +46,7 @@ redirect read-only queries to the additional
 [read-only](/docs/products/postgresql/howto/create-read-replica) nodes by
 directly connecting via the **read-only replica URL**.
 
-### Move read-only queries to a remote read-only replica
+## Move read-only queries to a remote read-only replica
 
 You can also create a
 [remote read-only replica](/docs/products/postgresql/howto/create-read-replica) service in the same or a different
@@ -61,8 +55,8 @@ for read-only queries.
 
 ## Related pages
 
-- [Identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
+- [AI DB Optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
 - [Standalone query optimizer][optimizer]
-- [AI DB Optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
+- [Identify PostgreSQL® slow queries with `pg_stat_statements](/docs/products/postgresql/howto/identify-pg-slow-queries)
 
 [optimizer]: /docs/tools/query-optimizer
