@@ -194,7 +194,6 @@
 /products/postgresql/howto/list-integrations               https://aiven.io/docs/products/postgresql/howto/monitor-database-with-datadog
 /products/postgresql/howto/list-replication                https://aiven.io/docs/products/postgresql/howto/create-read-replica
 /products/postgresql/howto/list-replication-migration      https://aiven.io/docs/products/postgresql/howto/migrate-cloud-region
-/products/postgresql/howto/optimize-pg-slow-queries     https://aiven.io/products/postgresql/howto/ai-insights
 /products/postgresql/overview                              https://aiven.io/docs/products/postgresql
 /products/postgresql/reference                             https://aiven.io/docs/products/postgresql/reference/advanced-params
 /products/postgresql/reference/high-cpu-load-of-pgbouncer  https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
