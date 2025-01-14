@@ -59,4 +59,4 @@ delete-unused-images:
 	node "$(SCRIPTS)/delete_unused_images.js"
 
 check-links:
-	docker run --rm -it -u $(id -u):$(id -g) ghcr.io/linkchecker/linkchecker:latest  -r 1 --no-warnings --check-extern https://aiven.io/docs/sitemap.xml
+	docker run --rm ghcr.io/linkchecker/linkchecker:latest  -r 1 --no-warnings --check-extern https://aiven.io/docs/sitemap.xml
