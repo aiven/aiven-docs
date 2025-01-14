@@ -9,8 +9,11 @@ To create the VPC peering connection in UpCloud, use either the
 <TabItem value="gui" label="UpCloud Control Panel" default>
 1. Log in to the [UpCloud Control Panel](https://hub.upcloud.com/), and go to **Network** >
    **Peering**.
-1. Click **Create network peering**, specify the peering name, select the source peer
-   network, provide the UUID of the target peer network, and click **Create**.
+1. Click **Create network peering**, and in the **Create network peering** window:
+   1. Specify the peering name.
+   1. Select the source peer network (your UpCloud SDN network).
+   1. Provide the UUID of the target peer network (the ID of your Aiven VPC).
+   1. Click **Create**.
 
 This creates the peering connection between your Aiven VPC and your UpCloud SDN network.
 
