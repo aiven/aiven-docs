@@ -26,7 +26,7 @@ are organized according to their functions:
 -   [helpers.py](https://github.com/aiven/demo-opensearch-python/blob/main/helpers.py),
     response handler of search requests
 
-We use `Typer` Python [library](ttps://typer.tiangolo.com/) to create
+We use `Typer` Python [library](https://typer.tiangolo.com/) to create
 CLI commands to run from the terminal. To get the code on your machine and try the commands:
 
 1.  Clone the repository and install the dependencies

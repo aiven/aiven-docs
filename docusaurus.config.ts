@@ -8,6 +8,10 @@ const currentMonth = new Date().getMonth();
 const isJune = currentMonth === 5;
 
 const config: Config = {
+  // Testing faster build
+  future: {
+    experimental_faster: true,
+  },
   title: 'Aiven docs',
   tagline: 'Your trusted data & AI platform',
   favicon: 'images/favicon.ico',
@@ -17,7 +21,7 @@ const config: Config = {
   projectName: 'docs',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  onBrokenAnchors: 'warn',
+  onBrokenAnchors: 'throw',
   trailingSlash: false,
   i18n: {
     defaultLocale: 'en',

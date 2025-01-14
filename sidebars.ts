@@ -47,10 +47,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Organizations and units',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/orgs-and-units',
-              },
               items: [
                 'tools/aiven-console/howto/create-orgs-and-units',
                 'platform/howto/manage-organizations',
@@ -59,10 +55,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Projects',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/projects',
-              },
               items: [
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
@@ -85,26 +77,16 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Payment methods',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/payment-methods',
-              },
               items: [
                 'platform/howto/manage-payment-card',
+                'platform/howto/manage-bank-transfers',
                 'platform/howto/list-marketplace-payments',
               ],
             },
             {
               type: 'category',
               label: 'Billing groups',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/billing-groups-overview',
-              },
-              items: [
-                'platform/howto/use-billing-groups',
-                'platform/howto/billing-assign-projects',
-              ],
+              items: ['platform/howto/use-billing-groups'],
             },
             'platform/howto/download-invoices',
           ],
@@ -1299,6 +1281,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/configure-tiered-storage',
                     'products/clickhouse/howto/check-data-tiered-storage',
                     'products/clickhouse/howto/transfer-data-tiered-storage',
+                    'products/clickhouse/howto/local-cache-tiered-storage',
                   ],
                 },
               ],
@@ -1316,6 +1299,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/s3-supported-file-formats',
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
+                'products/clickhouse/reference/clickhouse-system-tables',
               ],
             },
           ],
@@ -1542,6 +1526,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Database management',
                   items: [
                     'products/mysql/howto/create-database',
+                    'products/mysql/howto/ai-insights',
                     'products/mysql/howto/create-remote-replica',
                     'products/mysql/howto/migrate-database-mysqldump',
                     'products/mysql/howto/disable-foreign-key-checks',
@@ -1818,6 +1803,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/manage-extensions',
                     'products/postgresql/howto/create-manual-backups',
                     'products/postgresql/howto/restore-backup',
+                    'products/postgresql/howto/ai-insights',
                     'products/postgresql/howto/claim-public-schema-ownership',
                     'products/postgresql/howto/manage-pool',
                     'products/postgresql/howto/pgbouncer-stats',

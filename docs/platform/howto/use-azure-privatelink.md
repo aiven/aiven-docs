@@ -16,6 +16,7 @@ Azure Private Link is supported for the following services:
 - Aiven for ClickHouse®
 - Aiven for Grafana®
 - Aiven for InfluxDB®
+- Aiven for Metrics
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®

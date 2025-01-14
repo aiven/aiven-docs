@@ -101,13 +101,14 @@ For more information on ClickHouse database engines, see
 
 Depending on a data source type, Aiven for ClickHouse supports different integration modes.
 
-| Data source type | Data source integration<br/>(with Aiven service <br/>or external source)| Managed databases integration| Managed credentials integration |
-|------------------|----------------------------|------------------------------|---------------------------------|
-| PostgreSQL       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="tick"/>      |
-| MySQL            | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
-| Apache Kafka     | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="cross"/>     |
-| ClickHouse       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>     |
-| Amazon S3        | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Data source type   | Data source integration<br/>(with Aiven service <br/>or external source)| Managed databases integration| Managed credentials integration |
+|--------------------|----------------------------|------------------------------|---------------------------------|
+| PostgreSQL         | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="tick"/>      |
+| MySQL              | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Apache Kafka       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="cross"/>     |
+| ClickHouse         | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Amazon S3          | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Azure Blob Storage | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
 
 ## Data flow and residency in integrations
 

@@ -9,9 +9,10 @@ import FAQ from "@site/static/includes/faq-ai.md"
 Use Aiven's AI-powered **SQL query optimizer** for PostgreSQL® and MySQL® to get query optimization recomendations for an ad-hoc query.
 
 :::important
-If you are running a PostgreSQL service, Aiven automatically suggests optimizations for
+If you are running a PostgreSQL or MySQL service, Aiven automatically suggests optimizations for
 slow queries from the <ConsoleLabel name="aiinsights"/> menu entry.
-See [Optimizing slow queries][optimize].
+
+Also see [AI Database Optimizer for PG][optimizePG] and [AI Database Optimizer for MySQL][optimizeMySQL].
 :::
 
 To optimize a query:
@@ -36,6 +37,8 @@ To learn more about the recommendations, click **Optimization details**.
 
 ## Related pages
 
-- [Optimizing slow queries in PostgreSQL®][optimize]
+- [Optimizing queries in Aiven for PostgreSQL®][optimizePG]
+- [Optimizing queries in Aiven for MySQL®][optimizeMySQL]
 
-[optimize]: /docs/products/postgresql/howto/optimize-pg-slow-queries
+[optimizePG]: /docs/products/postgresql/howto/ai-insights
+[optimizeMySQL]: /docs/products/mysql/howto/ai-insights
