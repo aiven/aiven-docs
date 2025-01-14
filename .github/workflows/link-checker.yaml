@@ -10,22 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-         go-version: 'stable'
-
-      - name: Install Muffet
+      - name: Run Linkchecker
         run: |
-          go install github.com/raviqqe/muffet/v2@latest
-
-      - name: Run check links
-        id: check-links
-        run: |
-          make check-links
+          docker run --rm -it -u $(id -u):$(id -g) ghcr.io/linkchecker/linkchecker:latest  -r 1 --no-warnings --check-extern https://aiven.io/docs/sitemap.xml
 
       - name: Ping on Slack
         uses: slackapi/slack-github-action@v1.27.0
