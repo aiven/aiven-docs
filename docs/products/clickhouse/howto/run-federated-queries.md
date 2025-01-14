@@ -17,8 +17,7 @@ specific output.
 
 ## Prerequisites
 
-Prerequisites to be met depend on the type of a table function or a table engine to be used
-in your federated query.
+The prerequisites depend on the table function or table engine used in your federated query.
 
 ### Access to S3 and URL sources
 
