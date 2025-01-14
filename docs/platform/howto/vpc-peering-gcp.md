@@ -9,6 +9,9 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Set up a peering connection between your Aiven project VPC and a Google Cloud VPC.
 
+Establishing a peering connection between an Aiven VPC and a Google Cloud VPC requires
+creating the peering both from the VPC in Aiven and from the VPC in Google Cloud.
+
 ## Prerequisites
 
 - [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
@@ -21,11 +24,11 @@ Set up a peering connection between your Aiven project VPC and a Google Cloud VP
 
 ## Create a peering connection
 
-### Collect data in the the Google Cloud console
+### Collect data from Google Cloud
 
 <CollectDataGoogle/>
 
-### Create a peering in Aiven
+### Create the peering in Aiven
 
 Create a project VPC peering connection in the [Aiven Console](https://console.aiven.io/):
 
@@ -46,7 +49,7 @@ Create a project VPC peering connection in the [Aiven Console](https://console.a
 1. Click <ConsoleLabel name="service settings"/> in the sidebar, and make a note of your
    **Project name** in the **Project settings** field.
 
-### Accept the peering request in the Google Cloud console
+### Create the peering in Google Cloud
 
 <AcceptPeeringGoogle/>
 
