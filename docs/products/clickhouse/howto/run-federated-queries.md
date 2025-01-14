@@ -3,8 +3,8 @@ title: Read and pull data from S3 object storages and web resources over HTTP
 ---
 
 With federated queries in Aiven for ClickHouse®, you can read and pull data from an external S3-compatible object storage or any web resource accessible over HTTP.
-Learn more about capabilities and applications of
-federated queries in
+
+Learn more about capabilities and applications of federated queries in
 [About querying external data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/federated-queries).
 
 ## About running federated queries
@@ -15,9 +15,11 @@ over an external S3-compatible object storage including relevant S3
 bucket details. A properly constructed federated query returns a
 specific output.
 
-## Before you start
+## Prerequisites
 
-### Access and permissions {#access-permissions}
+The prerequisites depend on the table function or table engine used in your federated query.
+
+### Access to S3 and URL sources
 
 To run a federated query, the ClickHouse service user connecting to the
 cluster requires grants to the S3 and/or URL sources. The main service
@@ -31,7 +33,35 @@ GRANT CREATE TEMPORARY TABLE, S3, URL ON *.* TO <username> [WITH GRANT OPTION]
 The CREATE TEMPORARY TABLE grant is required for both sources. Adding
 WITH GRANT OPTION allows the user to further transfer the privileges.
 
-### Limitations
+### Azure Blob Storage access keys
+
+To run federated queries using the `azureBlobStorage` table function or the
+`AzureBlobStorage` table engine, get your Azure Blob Storage keys using one of the
+following tools:
+
+- [Azure portal](https://portal.azure.com/)
+
+  From the portal menu, select **Storage accounts**, go to your account, and click
+  **Security + Networking** > **Access keys**. View and copy your account access keys and
+  connection strings.
+
+- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli#install)
+
+### Managed credentials for Azure Blob Storage
+
+[Managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
+is:
+
+- Required to
+  [run federated queries using the AzureBlobStorage table engine](/docs/products/clickhouse/howto/run-federated-queries#query-using-the-azureblobstorage-table-engine)
+- Optional to
+  [run federated queries using the azureBlobStorage table function](/docs/products/clickhouse/howto/run-federated-queries#query-using-the-azureblobstorage-table-function)
+
+[Set up a managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources)
+as needed.
+
+## Limitations
 
 -   Federated queries in Aiven for ClickHouse only support S3-compatible
     object storage providers for the time being.
@@ -43,7 +73,87 @@ WITH GRANT OPTION allows the user to further transfer the privileges.
 See some examples of running federated queries to read and pull
 data from external S3-compatible object storages.
 
-### Query using SELECT and the S3 function
+### Query using the `azureBlobStorage` table function
+
+Depending on how you choose to handle passing connection parameters in your queries, you
+can run federated queries using the `azureBlobStorage` table function:
+
+- [With managed credentials integration](/docs/products/clickhouse/howto/run-federated-queries#azureblobstorage-table-function-without-managed-credentials)
+- [Without managed credentials integration](/docs/products/clickhouse/howto/run-federated-queries#azureblobstorage-table-function-with-managed-credentials)
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
+#### `azureBlobStorage` table function without managed credentials
+
+##### SELECT
+
+```sql
+SELECT *
+FROM azureBlobStorage(
+  'DefaultEndpointsProtocol=https;AccountName=ident;AccountKey=secret;EndpointSuffix=core.windows.net',
+  'ownerresource',
+  'all_stock_data.csv',
+  'CSV',
+  'auto',
+  'Ticker String, Low Float64, High Float64'
+  )
+LIMIT 5
+```
+
+##### INSERT
+
+```sql
+INSERT INTO FUNCTION
+  azureBlobStorage(
+    'DefaultEndpointsProtocol=https;AccountName=ident;AccountKey=secret;EndpointSuffix=core.windows.net',
+    'ownerresource',
+    'test_funcwrite.csv',
+    'CSV',
+    'auto',
+    'key UInt64, data String'
+    )
+VALUES ('column1-value', 'column2-value');
+```
+
+#### `azureBlobStorage` table function with managed credentials
+
+```sql
+azureBlobStorage(
+  `named_collection`,
+  blobpath = 'path/to/blob.csv',
+  format = 'CSV'
+)
+```
+
+### Query using the `AzureBlobStorage` table engine
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
+1. Create a table:
+
+   ```sql
+   CREATE TABLE default.test_azure_table
+   (
+       `Low` Float64,
+       `High` Float64
+   )
+   ENGINE = AzureBlobStorage(`endpoint_azure-blob-storage-datasets`, blob_path = 'data.csv', compression = 'auto', format = 'CSV')
+   ```
+
+1. Query from the `AzureBlobStorage` table engine:
+
+   ```sql
+   SELECT avg(Low) FROM test_azure_table
+   ```
+
+### Query using the `s3` table function
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
+#### SELECT and `s3`
 
 SQL SELECT statements using the S3 and URL functions are able to query
 public resources using the URL of the resource. For instance, let's
@@ -70,33 +180,21 @@ ORDER BY total_anomalies DESC
 LIMIT 50
 ```
 
-### Query using SELECT and the s3Cluster function
+#### INSERT and `s3`
 
-The `s3Cluster` function allows all cluster nodes to participate in the
-query execution. Using `default` for the cluster name parameter, we can
-compute the same aggregations as above as follows:
+When executing an INSERT statement into the S3 function, the rows are
+appended to the corresponding object if the table structure matches:
 
 ```sql
-WITH ooni_clustered_data_sample AS
-    (
-    SELECT *
-    FROM s3Cluster('default', 'https://ooni-data-eu-fra.s3.eu-central-1.amazonaws.com/clickhouse_export/csv/fastpath_202308.csv.zstd')
-    LIMIT 100000
-    )
-SELECT
-    probe_cc AS probe_country_code,
-    test_name,
-    countIf(anomaly = 't') AS total_anomalies
-FROM ooni_clustered_data_sample
-GROUP BY
-    probe_country_code,
-    test_name
-HAVING total_anomalies > 10
-ORDER BY total_anomalies DESC
-LIMIT 50
+INSERT INTO FUNCTION
+  s3('https://bucket-name.s3.region-name.amazonaws.com/dataset-name/landing/raw-data.csv', 'CSVWithNames')
+VALUES ('column1-value', 'column2-value');
 ```
 
 ### Query a private S3 bucket
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
 Private buckets can be accessed by providing the access token and secret
 as function parameters.
@@ -124,7 +222,41 @@ FROM s3(
 )
 ```
 
-### Query using SELECT and the URL function
+### Query using the `s3Cluster` table function
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
+The `s3Cluster` function allows all cluster nodes to participate in the
+query execution. Using `default` for the cluster name parameter, we can
+compute the same aggregations as above as follows:
+
+```sql
+WITH ooni_clustered_data_sample AS
+    (
+    SELECT *
+    FROM s3Cluster('default', 'https://ooni-data-eu-fra.s3.eu-central-1.amazonaws.com/clickhouse_export/csv/fastpath_202308.csv.zstd')
+    LIMIT 100000
+    )
+SELECT
+    probe_cc AS probe_country_code,
+    test_name,
+    countIf(anomaly = 't') AS total_anomalies
+FROM ooni_clustered_data_sample
+GROUP BY
+    probe_country_code,
+    test_name
+HAVING total_anomalies > 10
+ORDER BY total_anomalies DESC
+LIMIT 50
+```
+
+### Query using the `url` table function
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
+
+#### SELECT and `url`
 
 Let's query the [Growth Projections and Complexity
 Rankings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XTAQMC&version=4.0)
@@ -147,7 +279,7 @@ ORDER BY `Economic Complexity Index ranking` ASC
 LIMIT 20
 ```
 
-### Query using INSERT and the URL function
+#### INSERT and `url`
 
 With the URL function, INSERT statements generate a POST request, which
 can be used to interact with APIs having public endpoints. For instance,
@@ -160,18 +292,10 @@ INSERT INTO FUNCTION
 VALUES ('column1-value', 'column2-value');
 ```
 
-### Query using INSERT and the S3 function
-
-When executing an INSERT statement into the S3 function, the rows are
-appended to the corresponding object if the table structure matches:
-
-```sql
-INSERT INTO FUNCTION
-  s3('https://bucket-name.s3.region-name.amazonaws.com/dataset-name/landing/raw-data.csv', 'CSVWithNames')
-VALUES ('column1-value', 'column2-value');
-```
-
 ### Query a virtual table
+
+Before you start, fulfill relevant
+[prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites), if any.
 
 Instead of specifying the URL of the resource in every query, it's
 possible to create a virtual table using the URL table engine. This can
