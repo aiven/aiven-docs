@@ -33,6 +33,18 @@ to analyze offset syncing in Aiven for Apache Kafka MirrorMaker 2.
 
 The offset sync inspection tool outputs data in CSV format. Use this output to check
 the sync status and detect any issues with the offset syncing process.
+
+:::note
+The offset sync inspection tool reports only on topics that Aiven for
+Apache Kafka MirrorMaker 2 actively synchronizes. It does not capture information for all
+topics in a Kafka cluster. Each replication flow has its own offset sync topic,
+which contains only offset synchronization data for that flow.
+
+If your setup includes multiple MirrorMaker 2 replication flows, run the tool separately
+for each flow to analyze its synchronization status. The tool does not aggregate data
+across flows, you must manually combine the results if you need a complete view.
+:::
+
 Run the tool using the following command:
 
 ```bash
