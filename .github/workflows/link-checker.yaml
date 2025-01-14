@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Run Linkchecker
         run: |
-          docker run --rm -it -u $(id -u):$(id -g) ghcr.io/linkchecker/linkchecker:latest  -r 1 --no-warnings --check-extern https://aiven.io/docs/sitemap.xml
+          make check-links
 
       - name: Ping on Slack
         uses: slackapi/slack-github-action@v1.27.0
