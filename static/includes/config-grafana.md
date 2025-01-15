@@ -746,6 +746,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="dashboard_scenes_enabled"/><Link to="#dashboard_scenes_enabled"><strong>dashboard_scenes_enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
+        <p className="title">Enable scenes renderer for dashboards</p>
+        <div className="description"><p>Enable use of the Grafana Scenes Library as the dashboard engine. i.e. the `dashboardScene` feature flag. Upstream blog post at https://grafana.com/blog/2024/10/31/grafana-dashboards-are-now-powered-by-scenes-big-changes-same-ui/</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="viewers_can_edit"/><Link to="#viewers_can_edit"><strong>viewers_can_edit</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Viewers can edit</p>
         <div className="description"><p>Users with view-only permission can edit but not save dashboards</p></div>
