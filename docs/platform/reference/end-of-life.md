@@ -32,7 +32,7 @@ until the end of life (EOL) date on April 30, 2025.
 
 To ensure uninterrupted service, complete your migration to Aiven for Metrics before
 April 30, 2025. For further assistance, contact
-[Aiven support team](mailto:support@aiven.io) or your [sales team](mailto:sales@aiven.io).
+[Aiven support team](mailto:support@aiven.io) or  your account team.
 
 ## Aiven for InfluxDB
 
@@ -56,7 +56,7 @@ deleted, making data from these services inaccessible.
 
 To ensure uninterrupted service, complete your migration to Aiven for Metrics before
 April 30, 2025. For further assistance, contact
-[Aiven support team](mailto:support@aiven.io) or your [sales team](mailto:sales@aiven.io).
+[Aiven support team](mailto:support@aiven.io) or your account team.
 
 ### Download data
 
