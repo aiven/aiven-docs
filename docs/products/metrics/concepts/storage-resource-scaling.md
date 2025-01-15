@@ -23,8 +23,7 @@ If you use a **Start-16** plan with **640 GB** of local disk storage, your
 billing includes:
 
 - The base cost of the Start-16 plan.
-- Additional tiered storage costs, based on the volume of metrics data stored in
-  object storage.
+- Additional tiered storage costs, determined by the volume of metrics data retained.
 
 The local disk is used for temporary processing to improve performance, but all
 metrics data is ultimately stored in tiered storage.
@@ -35,7 +34,7 @@ Aiven for Metrics storage costs consist of two components:
 
 - **Local disk storage**: Included in the base service plan for temporary processing and
   caching.
-- **Data stored in object storage**: Billed based on the highest amount of data retained
+- **Data stored in tiered storage**: Billed based on the highest amount of data retained
   in tiered storage during each billing period.
 
 ### BYOC (Bring Your Own Cloud) billing
@@ -58,16 +57,16 @@ that rely on disk storage:
 
 - **Thanos Metric Receiver**: This component is the initial point of contact for your
   metrics. It accepts incoming data streams, temporarily stores them in a
-  local cache using disk space, and transfers them to object storage at
+  local cache using disk space, and transfers them to tiered storage at
   regular intervals.
 - **Thanos Metric Store**: The store component tracks the location of your metric
-  data shards within the object storage. It also maintains a small amount of
+  data shards within the tiered storage. It also maintains a small amount of
   information about these remote blocks on the local disk, ensuring it stays
-  synchronized with the object storage bucket.
+  synchronized with the tiered storage.
 - **Thanos Metric Compactor**: The compactor component is crucial in optimizing
   long-term data storage usage. It periodically downloads data chunks from object
   storage, performs downsampling (reducing data granularity for older data), and
-  uploads the compacted data back to object storage. This process requires temporary
+  uploads the compacted data back to tiered storage. This process requires temporary
   storage of the downloaded data on the local disk.
 
 The amount of disk space needed varies depending on your data volume and complexity.
