@@ -175,6 +175,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="plugin_versions"/><Link to="#plugin_versions"><strong>plugin_versions</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Kafka Connect plugins</p>
+        <div className="description"><p>The plugin selected by the user</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="private_access"/><Link to="#private_access"><strong>private_access</strong></Link></p><p><code className="type">object</code></p></div>
         <p className="title">Allow access to selected service ports from private networks</p>
         
