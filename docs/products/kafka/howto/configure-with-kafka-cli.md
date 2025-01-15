@@ -2,16 +2,16 @@
 title: Manage configurations with Apache Kafka® CLI tools
 ---
 
-Aiven for Apache Kafka® services are fully manageable and customizable via either [advanced configuration flags in the Aiven Console](use-zookeeper) or the [Aiven CLI](/docs/tools/cli).
+Aiven for Apache Kafka® services are fully manageable and customizable via the the [Aiven CLI](/docs/tools/cli).
+
 To guarantee the service stability, direct Apache
 ZooKeeper™ access isn't available, but our tooling provides you all the
 options that you need - whether your Apache Kafka version has Apache
 ZooKeeper™ in it or not.
 
-Some of the configuration changes don't need ZooKeeper access, and
-therefore you can use the standard client tools shipped with the Apache
-Kafka® binaries. The example below shows how to create a topic using one
-of such tools, the `kafka-topics.sh`.
+Some of the configuration changes can be made using the standard client tools
+shipped with the Apache Kafka® binaries. The example below shows how to create a
+topic using one of these tools, `kafka-topics.sh`.
 
 ## Example: Create a topic with retention time to 30 minutes with `kafka-topics.sh`
 
@@ -27,23 +27,21 @@ the [Apache Kafka binaries](https://kafka.apache.org/downloads):
 1.  Download the [Apache Kafka
     binaries](https://kafka.apache.org/downloads) and unpack the archive.
 
-1.  Go to the `bin` folder containing the Apache Kafka client
-    tools commonly used.
+1.  Go to the `bin` folder containing the Apache Kafka client tools.
+
+1.  Create a [Java keystore and truststore](keystore-truststore) to authenticate with
+    the Aiven for Apache Kafka service.
 
 1.  Create a
-    [Java keystore and truststore](keystore-truststore) for the Aiven for Apache Kafka service where to
-    create a topic.
-
-1.  Create a
-    [client configuration file](kafka-tools-config-file) pointing at the keystore and truststore created at the
-    previous steps.
+    [client configuration file](kafka-tools-config-file) with the necessary
+    authentication details.
 
 1.  Run the following command to check the connectivity to the Aiven for
     Apache Kafka service, replacing the `<KAFKA_SERVICE_URI>` with the
     URI of the service available in the [Aiven
     Console](https://console.aiven.io/).
 
-    ```
+    ```bash
     ./kafka-topics.sh                           \
         --bootstrap-server <KAFKA_SERVICE_URI>  \
         --command-config consumer.properties    \
@@ -57,7 +55,7 @@ the [Apache Kafka binaries](https://kafka.apache.org/downloads):
     kafka-topics script for this and set the retention value in
     milliseconds `((100 * 60) * 30 = 180000)`.
 
-    ```
+    ```bash
     ./kafka-topics.sh  \
         --bootstrap-server <KAFKA_SERVICE_URI>  \
         --command-config consumer.properties    \
@@ -67,7 +65,7 @@ the [Apache Kafka binaries](https://kafka.apache.org/downloads):
     ```
 
 1.  Run the same command as step 5 to check the topic creation.
-    Optionally you can also run the `kafka-topics.sh` command with the
+    Optionally, you can also run the `kafka-topics.sh` command with the
     `--describe` flag to check the details of your topic and the
     retention rate.
 

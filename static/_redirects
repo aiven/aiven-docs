@@ -145,6 +145,7 @@
 /products/kafka/howto/list-security                        https://aiven.io/docs/products/kafka/howto/keystore-truststore
 /products/kafka/howto/list-tools                           https://aiven.io/docs/products/kafka/howto/kafka-tools-config-file
 /products/kafka/howto/list-topic-management                https://aiven.io/docs/products/kafka/howto/create-topic
+/products/kafka/howto/use-zookeeper                        https://aiven.io/docs/products/kafka
 /products/kafka/index.html                                 https://aiven.io/docs/products/kafka
 /products/kafka/kafka-connect/concepts                     https://aiven.io/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins
 /products/kafka/kafka-connect/howto                        https://aiven.io/docs/products/kafka/kafka-connect/howto/best-practices
