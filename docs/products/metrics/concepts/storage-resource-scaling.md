@@ -2,53 +2,24 @@
 title: Optimize storage and resources
 ---
 
-Aiven for Metrics leverages various storage and resource types to optimize your monitoring experience for both cost and performance. Explores how Aiven uses tiered storage, disk storage, memory, and compute resources.
+Aiven for Metrics optimizes storage and compute resources using tiered storage, disk storage, memory, and compute power to balance cost and performance.
 
 ## Storage solutions
 
+Aiven for Metrics optimizes storage using tiered storage for long-term retention and
+disk storage for temporary processing. This combination ensures scalability,
+reliability, and cost-efficient metric storage.
+
 ### Tiered storage
 
-Aiven for Metrics uses tiered storage as the primary storage for metrics and metadata,
-providing scalability and cost-effective long-term retention. Tiered storage is required
-and automatically enabled for all plans. Aiven manages this infrastructure to ensure data
-security and reliability.
+Tiered storage is the **primary storage** for metrics and metadata in Aiven for Metrics.
+It is **required and automatically enabled for all plans** to provide
+scalability and long-term cost efficiency. Aiven manages this storage infrastructure to
+ensure data security and reliability.
 
-Metrics are uploaded to tiered storage at regular intervals
-(typically every 2 hours) for historical analysis and remain accessible for
-queries, ensuring continuous data availability for real-time decision-making.
-
-**Example billing scenario**
-
-If you use a **Start-16** plan with **640 GB** of local disk storage, your
-billing includes:
-
-- The base cost of the Start-16 plan.
-- Additional tiered storage costs, determined by the volume of metrics data retained.
-
-The local disk is used for temporary processing to improve performance, but all
-metrics data is ultimately stored in tiered storage.
-
-### Tiered storage costs
-
-Aiven for Metrics storage costs consist of two components:
-
-- **Local disk storage**: Included in the base service plan for temporary processing and
-  caching.
-- **Data stored in tiered storage**: Billed based on the highest amount of data retained
-  in tiered storage during each billing period.
-
-### BYOC (Bring Your Own Cloud) billing
-
-[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on
-your specific agreement with Aiven.
-Possible scenarios include:
-
-- **Customer costs**: In all BYOC setups, you are responsible for the full cost of the
-  underlying cloud storage used by tiered storage. This includes all stored data,
-  regardless of local retention settings.
-
-- **Aiven management fee**: In addition to cloud storage costs, an Aiven management fee
-  applies to data stored in tiered storage. This fee is based on the total storage used.
+- Metrics are uploaded to tiered storage every 2 hours for historical analysis.
+- Stored data remains accessible for queries at all times, ensuring continuous
+  availability for real-time decision-making.
 
 ### Disk storage
 
@@ -71,6 +42,39 @@ that rely on disk storage:
 
 The amount of disk space needed varies depending on your data volume and complexity.
 Aiven's service plans are designed to handle the most typical use cases.
+
+## Storage costs and billing
+
+Aiven for Metrics storage costs consist of two components:
+
+- **Local disk storage**: Included in the base service plan for temporary processing and
+  caching.
+- **Data stored in tiered storage**: Billed based on the highest amount of data retained
+  in tiered storage during each billing period.
+
+**Example billing scenario**
+
+If you use a **Start-16** plan with **640 GB** of local disk storage, your
+billing includes:
+
+- The base cost of the Start-16 plan.
+- Additional tiered storage costs, determined by the volume of metrics data retained.
+
+The local disk is used for temporary processing to improve performance, but all
+metrics data is ultimately stored in tiered storage.
+
+### BYOC (Bring Your Own Cloud) billing
+
+[BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on
+your specific agreement with Aiven.
+Possible scenarios include:
+
+- **Customer costs**: In all BYOC setups, you are responsible for the full cost of the
+  underlying cloud storage used by tiered storage. This includes all stored data,
+  regardless of local retention settings.
+
+- **Aiven management fee**: In addition to cloud storage costs, an Aiven management fee
+  applies to data stored in tiered storage. This fee is based on the total storage used.
 
 ## Resource management
 
@@ -101,11 +105,9 @@ allocation. DDS allows you to:
 - **Scale up**: Increase disk space on demand for bursts of metrics or high cardinality.
 - **Scale down**: Reduce disk space when needs change, optimizing costs.
 
-Consider using DDS if:
+Consider enabling DDS when:
 
-- If a large influx of metrics is generated in a short period, such as during a
-  data migration, you may require more disk space for the compactor component to
-  process the data efficiently.
+- A large influx of metrics occurs within a short period, such as during data migrations.
 - A significant amount of data with many unique metric identifiers can strain the
   disk space used for temporary processing by the compactor and potentially
   other components.
