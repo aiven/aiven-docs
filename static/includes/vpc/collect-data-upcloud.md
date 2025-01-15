@@ -1,10 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To identify your UpCloud SDN network UUID, use either the
-[UpCloud Control Panel](https://hub.upcloud.com/) or the
-[UpCloud API](https://developers.upcloud.com/1.3/).
-
 <Tabs groupId="group1">
 <TabItem value="gui" label="UpCloud Control Panel" default>
 1. Log in to the [UpCloud Control Panel](https://hub.upcloud.com/), and go to **Network** >
