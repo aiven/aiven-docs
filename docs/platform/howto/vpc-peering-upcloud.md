@@ -52,11 +52,17 @@ type networks.
 
 ### Collect data from UpCloud
 
+To [create a peering in Aiven](/docs/platform/howto/vpc-peering-upcloud#create-a-peering-in-aiven),
+first collect required data from UpCloud using either the
+[UpCloud Control Panel](https://hub.upcloud.com/) or the
+[UpCloud API](https://developers.upcloud.com/1.3/):
+
 <CollectDataUpcloud/>
 
-### Create the peering in Aiven {#avn-uuid}
+### Create the peering in Aiven
 
-Create a project VPC peering connection in the [Aiven Console](https://console.aiven.io/):
+Create a project VPC peering connection in the [Aiven Console](https://console.aiven.io/)
+using the [data collected from UpCloud](/docs/platform/howto/vpc-peering-upcloud#collect-data-from-upcloud):
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
@@ -74,6 +80,12 @@ Create a project VPC peering connection in the [Aiven Console](https://console.a
    available in the **Aiven network ID** column of the VPC peering connections table.
 
 ### Create the peering in UpCloud
+
+Use the Aiven VPC network ID
+[collected in the Aiven Console](/docs/platform/howto/vpc-peering-upcloud#create-the-peering-in-aiven)
+to create the VPC peering connection in UpCloud either in the
+[UpCloud Control Panel](https://hub.upcloud.com/) or through the
+[UpCloud API](https://developers.upcloud.com/1.3/):
 
 <AcceptPeeringUpcloud/>
 
