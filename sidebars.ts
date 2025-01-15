@@ -1122,6 +1122,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/caching/get-started',
+
             {
               type: 'category',
               label: 'Concepts',
