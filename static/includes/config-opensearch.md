@@ -979,28 +979,14 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name" id="opensearch_cluster.routing.allocation.balance.prefer_primary"><a href="#opensearch_cluster.routing.allocation.balance.prefer_primary"><strong>opensearch.cluster.routing.allocation.balance.prefer_primary</strong></a></p><p><code className="type">boolean</code></p></div>
-              <p className="title">cluster.routing.allocation.balance.prefer_primary</p>
-              <div className="description"><p>When set to true, OpenSearch attempts to evenly distribute the primary shards between the cluster nodes. Enabling this setting does not always guarantee an equal number of primary shards on each node, especially in the event of a failover. Changing this setting to false after it was set to true does not invoke redistribution of primary shards. Default is false.</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name" id="opensearch_segrep"><a href="#opensearch_segrep"><strong>opensearch.segrep</strong></a></p><p><code className="type">object</code></p></div>
-              <p className="title">Segment Replication Backpressure Settings</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name" id="opensearch_cluster.search.request.slowlog"><a href="#opensearch_cluster.search.request.slowlog"><strong>opensearch.cluster.search.request.slowlog</strong></a></p><p><code className="type">object</code></p></div>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.search.request.slowlog"/><Link to="#opensearch_cluster.search.request.slowlog"><strong>opensearch.cluster.search.request.slowlog</strong></Link></p><p><code className="type">object</code></p></div>
               
               
             </td>
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name" id="opensearch_enable_remote_backed_storage"><a href="#opensearch_enable_remote_backed_storage"><strong>opensearch.enable_remote_backed_storage</strong></a></p><p><code className="type">boolean</code></p></div>
+              <div className="param"><p className="name"><Link id="opensearch_enable_remote_backed_storage"/><Link to="#opensearch_enable_remote_backed_storage"><strong>opensearch.enable_remote_backed_storage</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">Enable remote-backed storage</p>
               
             </td>
