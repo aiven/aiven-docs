@@ -138,7 +138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@algolia/client-search@npm:5.19.0, @algolia/client-search@npm:^5.18.0":
+"@algolia/client-search@npm:5.19.0, @algolia/client-search@npm:^5.19.0":
   version: 5.19.0
   resolution: "@algolia/client-search@npm:5.19.0"
   dependencies:
@@ -6404,7 +6404,7 @@ __metadata:
   resolution: "aiven-docs@workspace:."
   dependencies:
     "@aivenio/aquarium": "npm:^1.73.0"
-    "@algolia/client-search": "npm:^5.18.0"
+    "@algolia/client-search": "npm:^5.19.0"
     "@docusaurus/core": "npm:^3.7.0"
     "@docusaurus/faster": "npm:^3.7.0"
     "@docusaurus/module-type-aliases": "npm:^3.7.0"
@@ -6418,7 +6418,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@types/lodash": "npm:^4"
     "@types/react": "npm:^18.2.48"
-    algoliasearch: "npm:^5.18.0"
+    algoliasearch: "npm:^5.19.0"
     axios: "npm:^1.7.9"
     cheerio: "npm:^1.0.0"
     clsx: "npm:^1.2.1"
@@ -6509,7 +6509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"algoliasearch@npm:^5.14.2, algoliasearch@npm:^5.17.1, algoliasearch@npm:^5.18.0":
+"algoliasearch@npm:^5.14.2, algoliasearch@npm:^5.17.1, algoliasearch@npm:^5.19.0":
   version: 5.19.0
   resolution: "algoliasearch@npm:5.19.0"
   dependencies:
