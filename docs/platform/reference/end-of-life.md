@@ -66,15 +66,17 @@ see [Download InfluxDB data](/docs/products/metrics/howto/download-influxdb-data
 
 ## Aiven for Caching
 
-**EOL date**: April 30, 2025
+**EOL date**: March 31, 2025
 
 ### Service impact
 
-- **End of availability (EOA)**: December 31, 2024
+- **End of availability (EOA)**: February 15, 2025
+
   After this date, you can no longer create new Aiven for Caching services. Existing
   services continue to operate until the end of life (EOL) date.
 
-- **End of life (EOL)**: April 30, 2025
+- **End of life (EOL)**: March 31, 2025
+
   On this date, all active Aiven for Caching services are automatically upgraded
   to **Aiven for Valkey** to maintain Redis compatibility. Any powered-off Aiven for
   Caching services are permanently deleted, making data from these services
@@ -92,5 +94,5 @@ For upgrade instructions, see
 [Upgrade from Aiven for Caching to Aiven for Valkey](/docs/products/caching/howto/upgrade-aiven-for-caching-to-valkey).
 
 To ensure uninterrupted service, complete your migration to Aiven for Valkey before
-April 30, 2025. For further assistance, contact the
-[Aiven support team](mailto:support@aiven.io) or your [sales team](mailto:sales@aiven.io).
+March 31, 2025. For further assistance, contact the
+[Aiven support team](mailto:support@aiven.io) or your account team.
