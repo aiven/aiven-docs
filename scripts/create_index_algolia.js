@@ -1,4 +1,4 @@
-const algoliasearch = require('algoliasearch');
+const {algoliasearch} = require('algoliasearch');
 const fs = require('fs');
 const cheerio = require('cheerio');
 const path = require('path');
