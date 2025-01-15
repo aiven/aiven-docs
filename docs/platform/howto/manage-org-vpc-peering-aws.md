@@ -21,7 +21,7 @@ Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 
 ## Create a peering connection
 
-### Collect data in the AWS Console
+### Collect data from AWS
 
 <CollectDataAws/>
 
@@ -33,7 +33,8 @@ Create an organization VPC peering connection in the [Aiven Console](https://con
    top navigation bar.
 1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
 1. On the **Organization VPCs** page, select an organization VPC to peer.
-1. On the **Organization VPC details** page, click **Add peering connection**.
+1. On the **Organization VPC details** page, go to the **VPC peering connection** field and
+   click **Add peering connection**.
 1. In the **Add peering connection** window:
    1. Enter the following:
       - **AWS account ID**
@@ -41,8 +42,10 @@ Create an organization VPC peering connection in the [Aiven Console](https://con
       - **AWS VPC ID**
    1. Click **Add peering connection**.
 
-This adds a connection pending acceptance in your AWS account.
+This adds a connection with the **Pending peer** status in the
+[Aiven Console](https://console.aiven.io/) and a connection pending acceptance in
+the [AWS Management Console](https://console.aws.amazon.com).
 
-### Accept the peering request in the AWS Console
+### Accept the peering request in AWS
 
 <AcceptPeeringAws/>
