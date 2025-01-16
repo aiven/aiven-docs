@@ -3,17 +3,29 @@ title: Manage project virtual private clouds (VPCs) in Aiven
 sidebar_label: Manage project VPCs
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import CreateService from "@site/static/includes/create-service-console.md";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Set up or delete a project-wide VPC in your Aiven organization. Deploy or migrate Aiven-managed services to your project VPC. Access resources within the project VPC from the public internet.
 
+## Prerequisites
+
+- [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
+  permissions
+- One of the following tools for operating project VPCs:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](/docs/tools/terraform)
+
 ## Create a project VPC
 
-**Prerequisite**: [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
-permissions
+Create a project VPC using a tool of your choice:
 
-To create a [VPC for your Aiven project](/docs/platform/concepts/vpcs#project-vpcs):
-
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 1.  Log in to [Aiven Console](https://console.aiven.io/), and click
     <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
 
@@ -40,48 +52,261 @@ To create a [VPC for your Aiven project](/docs/platform/concepts/vpcs#project-vp
 
 The state of the VPC is shown in the table.
 
-## Deploy new services to a project VPC
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+Run the
+[avn vpc create](/docs/tools/cli/vpc#avn-vpc-create)
+command:
 
-**Prerequisite**: [Manage service configuration](/docs/platform/concepts/permissions#project-permissions)
-permissions
+```bash
+avn vpc create                  \
+  --cloud CLOUD_PROVIDER_REGION \
+  --network-cidr NETWORK_CIDR   \
+  --project PROJECT_NAME
+```
 
-When you create a service, your VPC is available as a new
-geolocation on the **VPC** tab under **Select service region**. It can
-take a few minutes for a newly created VPC to appear for service
-deployments.
+Replace the following:
+
+- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the VPC, for example
+  `aws-eu-west-1`
+- `NETWORK_CIDR` with the CIDR block (a range of IP addresses) for the VPC, for example,
+  `10.0.0.0/24`
+- `PROJECT_NAME` with the name of your Aiven project where to create the VPC
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Make an API call to the
+[VpcCreate](https://api.aiven.io/doc/#tag/Project/operation/VpcCreate) endpoint:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_ID/vpcs \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '
+    {
+      "cloud_name": "CLOUD_PROVIDER_REGION",
+      "network_cidr": "NETWORK_CIDR"
+    }
+  '
+```
+
+Replace `PROJECT_ID`, `BEARER_TOKEN`, `CLOUD_PROVIDER_REGION`, and `NETWORK_CIDR` with
+meaningful data.
+
+</TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+Use the
+[aiven_project_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
+resource.
+</TabItem>
+</Tabs>
+
+## Create a service in a project VPC
+
+Your project VPC is available as a geolocation (cloud region) for the new service.
 
 :::note
-The service nodes use firewall rules to allow only connections from
-private IP ranges that originate from networks on the other end of VPC
-peering connections. You can only deploy services to a VPC if they
-belong to the project where that specific VPC was created.
+You can only create a service in a project VPC if the project VPC is located in
+the project where to create the service.
 :::
 
-## Delete a project VPC
+Create a service in a project VPC using a tool of your choice:
 
-**Prerequisite**: [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
-permissions
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 
-Before deleting an existing VPC from [Aiven
-Console](https://console.aiven.io/), you should move out any active
-services from that VPC. To delete a VPC, go to [Aiven
-Console](https://console.aiven.io/) > **VPCs**. Find your VPC and
-select **Delete** from the meatballs menu for this VPC.
+Set your project VPC as a cloud region for the new service:
 
-Once the VPC is deleted, the cloud provider side of the peering connection's
-becomes `inactive` or `deleted`.
+<CreateService />
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
+
+```bash
+avn service create SERVICE_NAME        \
+  --project PROJECT_NAME               \
+  --project-vpc-id PROJECT_VPC_ID      \
+  --type SERVICE_TYPE                  \
+  --plan SERVICE_PLAN                  \
+  --cloud CLOUD_PROVIDER_REGION
+```
+
+Replace the following:
+
+- `SERVICE_NAME` with the name of the service to be created, for example,
+  `pg-vpc-test`
+- `PROJECT_NAME` with the name of the project where to create the service, for example,
+  `pj-test`
+- `PROJECT_VPC_ID` with the ID of your project VPC, for example,
+  `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+- `SERVICE_TYPE` with the type of the service to be created, for example, `pg`
+- `SERVICE_PLAN` with the plan of the service to be created, for example, `hobbyist`
+- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the service to be
+  created, for example `aws-eu-west-1`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Make an API call to the
+[ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+endpoint:
+
+```bash {12}
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data-raw '
+    {
+      "service_name": "SERVICE_NAME",
+      "cloud": "CLOUD_PROVIDER_REGION",
+      "plan": "SERVICE_PLAN",
+      "service_type": "SERVICE_TYPE",
+      "disk_space_mb": DISK_SIZE,
+      "project_vpc_id":"PROJECT_VPC_ID"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `org-vpc-test`
+- `BEARER_TOKEN`
+- `SERVICE_NAME`, for example `org-vpc-test-project`
+- `CLOUD_PROVIDER_REGION`, for example `google-europe-west10`
+- `SERVICE_PLAN`, for example `startup-4`
+- `SERVICE_TYPE`, for example `pg`
+- `DISK_SIZE` in MiB, for example `81920`
+- `PROJECT_VPC_ID`
+
+</TabItem>
+</Tabs>
 
 ## Migrate a service to a project VPC
 
-**Prerequisite**: [Manage service configuration](/docs/platform/concepts/permissions#project-permissions)
-permissions
+Your project VPC is available as a geolocation (cloud region) for your service.
 
-You can migrate any Aiven-managed service to a different VPC:
+:::note
+You can only migrate a service to a project VPC if the project VPC is located in
+the project where your service runs.
+:::
 
-1. In [Aiven Console](https://console.aiven.io/), open your service and click <ConsoleLabel name="Service settings"/>.
-1. In the **Cloud and
-   network** section, click <ConsoleLabel name="actions"/> >  **Change cloud or region**.
-1. In the **Region** section, select the **VPCs** tab, select the VPC and click **Migrate**.
+Migrate a service to a project VPC using a tool of your choice:
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
+
+1. In [Aiven Console](https://console.aiven.io/), open your service and click
+   <ConsoleLabel name="Service settings"/>.
+1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
+   **Change cloud or region**.
+1. In the **Region** section, go to the **VPCs** tab, select your project VPC and
+   click **Migrate**.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
+
+```bash
+avn service update SERVICE_NAME \
+  --project-vpc-id PROJECT_VPC_ID
+```
+
+Replace the following:
+
+- `SERVICE_NAME` with the name of the service to be migrated, for example,
+  `pg-test`
+- `PROJECT_VPC_ID` with the ID of your project VPC where to migrate the service,
+  for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+to set `project_vpc_id` of the service to the ID of your project VPC:
+
+```bash {5}
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  -H 'Authorization: Bearer BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data '{"project_vpc_id": "PROJECT_VPC_ID"}'
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `org-vpc-test`
+- `SERVICE_NAME`, for example `org-vpc-service`
+- `BEARER_TOKEN`
+- `PROJECT_VPC_ID`
+
+</TabItem>
+</Tabs>
+
+## Delete a project VPC
+
+:::important
+
+- Before you delete a project VPC, move all services out of this VPC.
+- Once a project VPC is deleted, the cloud-provider side of the peering connections
+becomes `inactive` or `deleted`.
+
+:::
+
+Delete a project VPC using a tool of your choice:
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
+
+1. Log in to [Aiven Console](https://console.aiven.io/), and go to your project.
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, find a VPC to be deleted and click
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="delete"/>.
+1. In the **Confirmation** window, click **Delete VPC**.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run the [avn vpc delete](/docs/tools/cli/vpc#avn-vpc-delete) command:
+
+```bash
+avn vpc delete                    \
+  --project-vpc-id PROJECT_VPC_ID
+```
+
+Replace `PROJECT_VPC_ID` with the ID of your Aiven project VPC, for example,
+`12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Make an API call to the
+[VpcDelete](https://api.aiven.io/doc/#tag/Project/operation/VpcDelete) endpoint:
+
+```bash
+curl --request DELETE \
+  --url https://api.aiven.io/v1/project/PROJECT_ID/vpcs/PROJECT_VPC_ID \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_ID` (Aiven project name)
+- `PROJECT_VPC_ID` (Aiven project VPC ID)
+- `BEARER_TOKEN`
+
+</TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+To delete your
+[aiven_project_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
+resource, run `terraform destroy`.
+</TabItem>
+</Tabs>
 
 ## Access project VPC services from the public internet
 

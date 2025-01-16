@@ -6,6 +6,8 @@ sidebar_label: AWS peering
 import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
 import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 
@@ -16,8 +18,12 @@ Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 - Two VPCs to be peered: an
   [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
   in Aiven and a VPC in your AWS account
-- Access to the [Aiven Console](https://console.aiven.io/)
 - Access to the [AWS Management Console](https://console.aws.amazon.com)
+- One of the following tools for operations on the Aiven Platform:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](/docs/tools/terraform)
 
 ## Create a peering connection
 
@@ -30,9 +36,11 @@ first collect required data from AWS:
 
 ### Create a peering in Aiven
 
-Create an organization VPC peering connection in the [Aiven Console](https://console.aiven.io/)
-using the [data collected from AWS](/docs/platform/howto/manage-org-vpc-peering-aws#collect-data-from-aws):
+With the [data collected from AWS](/docs/platform/howto/manage-org-vpc-peering-aws#collect-data-from-aws),
+create an organization VPC peering connection using a tool of your choice:
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
    top navigation bar.
 1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
@@ -45,6 +53,56 @@ using the [data collected from AWS](/docs/platform/howto/manage-org-vpc-peering-
       - **AWS VPC region**
       - **AWS VPC ID**
    1. Click **Add peering connection**.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run the `avn organization vpc peering-connection create` command:
+
+```bash
+avn organization vpc peering-connection create \
+  --organization-id AIVEN_ORGANIZATION_ID      \
+  --vpc-id AIVEN_ORGANIZATION_VPC_ID           \
+  --peer-cloud-account AWS_ACCOUNT_ID          \
+  --peer-vpc AWS_VPC_ID
+```
+
+Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `AWS_ACCOUNT_ID`, and
+`AWS_VPC_ID` as needed.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Make an API call to the `OrganizationVpcPeeringConnectionCreate` endpoint:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/VPC_ID/peering-connections \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '
+    {
+      "peer_cloud_account":"AWS_ACCOUNT_ID",
+      "peer_vpc":"AWS_VPC_ID"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `ORGANIZATION_ID` (Aiven organization ID)
+- `VPC_ID` (Aiven organization VPC ID)
+- `BEARER_TOKEN`
+- `AWS_ACCOUNT_ID`
+- `AWS_VPC_ID`
+
+</TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+Use the
+[aiven_aws_organization_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aws_organization_vpc_peering_connection)
+resource.
+</TabItem>
+</Tabs>
 
 This adds a connection with the **Pending peer** status in the
 [Aiven Console](https://console.aiven.io/) and a connection pending acceptance in

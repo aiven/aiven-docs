@@ -8,6 +8,8 @@ import CollectDataUpcloud from "@site/static/includes/vpc/collect-data-upcloud.m
 import AcceptPeeringUpcloud from "@site/static/includes/vpc/accept-peering-upcloud.md";
 import RenewLeaseUpcloud from "@site/static/includes/vpc/renew-lease-upcloud.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Set up a peering connection between your Aiven project VPC and an UpCloud SDN network.
 
@@ -44,9 +46,12 @@ type networks.
 - Two networks to be peered: a
   [project VPC](/docs/platform/howto/manage-project-vpc)
   in Aiven and an SDN network in your UpCloud account
-- Access to the [Aiven Console](https://console.aiven.io/)
 - Either access to the [UpCloud Control Panel](https://hub.upcloud.com/) or the
   [UpCloud API](https://developers.upcloud.com/1.3/)
+- One of the following tools for operations on the Aiven Platform:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Create a peering connection
 
@@ -61,9 +66,12 @@ first collect required data from UpCloud using either the
 
 ### Create the peering in Aiven
 
-Create a project VPC peering connection in the [Aiven Console](https://console.aiven.io/)
-using the [data collected from UpCloud](/docs/platform/howto/vpc-peering-upcloud#collect-data-from-upcloud):
+With the
+[data collected from UpCloud](/docs/platform/howto/vpc-peering-upcloud#collect-data-from-upcloud),
+create an organization VPC peering connection using a tool of your choice:
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
 1. On the **Virtual private clouds** page, select a project VPC to peer.
@@ -78,6 +86,52 @@ using the [data collected from UpCloud](/docs/platform/howto/vpc-peering-upcloud
 
 1. While still on the **VPC details** page, make a note of the ID of your Aiven VPC
    available in the **Aiven network ID** column of the VPC peering connections table.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run the
+[avn vpc peering-connection create](/docs/tools/cli/vpc#avn-vpc-peering-connection-create)
+command:
+
+```bash
+avn vpc peering-connection create              \
+  --project-vpc-id AIVEN_PROJECT_VPC_ID        \
+  --peer-cloud-account upcloud                 \
+  --peer-vpc UPCLOUD_SDN_NETWORK_UUID
+```
+
+Replace `AIVEN_PROJECT_VPC_ID` and `UPCLOUD_SDN_NETWORK_UUID` as needed.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Make an API call to the
+[VpcPeeringConnectionCreate](https://api.aiven.io/doc/#tag/Project/operation/VpcPeeringConnectionCreate)
+endpoint:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_ID/vpcs/PROJECT_VPC_ID/peering-connections \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '
+    {
+      "peer_cloud_account":"upcloud",
+      "peer_vpc":"UPCLOUD_SDN_NETWORK_UUID"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_ID` (Aiven project name)
+- `PROJECT_VPC_ID` (Aiven project VPC ID)
+- `BEARER_TOKEN`
+- `UPCLOUD_SDN_NETWORK_UUID`
+
+</TabItem>
+</Tabs>
 
 ### Create the peering in UpCloud
 
