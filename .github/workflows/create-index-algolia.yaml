@@ -5,7 +5,9 @@ name: Update global Aiven index
 on:
   schedule:
     - cron: '0 6 * * 2' # Runs at 06:00 UTC every Tuesday
-  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -25,7 +27,7 @@ jobs:
       - name: Build Docusaurus site
         run: yarn build
       - name: Index docs output
-        run: node scripts/create_index_algolia.js
+        run: node scripts/create_index_algolia.cjs
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
