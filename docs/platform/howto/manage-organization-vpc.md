@@ -6,8 +6,9 @@ sidebar_label: Manage organization VPCs
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CreateService from "@site/static/includes/create-service-console.md";
 
-Set up or delete an organization-wide VPC in the Aiven Platform. Enable new Aiven projects in the organization VPC or migrate existing Aiven projects to the organization VPC. Access resources within the organization VPC from the public internet.
+Set up or delete an organization-wide VPC on the Aiven Platform. Enable new Aiven projects in the organization VPC or migrate existing Aiven projects to the organization VPC. Access resources within the organization VPC from the public internet.
 
 ## Prerequisites
 
@@ -17,6 +18,7 @@ Set up or delete an organization-wide VPC in the Aiven Platform. Enable new Aive
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](/docs/tools/terraform)
 
 ## Create an organization VPC
 
@@ -36,7 +38,7 @@ Create an organization VPC using a tool of your choice:
 
       - Use an IP range that does not overlap with any networks to be connected via VPC
         peering. For example, if your own networks use the range `11.1.1.0/8`, you can set
-        the range for your Aiven project's VPC to `191.161.1.0/24`.
+        the range for your Aiven organization's VPC to `191.161.1.0/24`.
       - Use a network prefix that is 20-24 character long.
 
    1. Click **Create VPC**.
@@ -91,30 +93,30 @@ Replace the following placeholders with meaningful data:
 - `NETWORK_CIDR`
 
 </TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+Use the
+[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
+resource.
+</TabItem>
 </Tabs>
 
 ## Create a service in an organization VPC
 
-Create a service in an organization VPC using a tool of your choice:
-
-<!--
-When you create a service, your peered VPC is available as a new
-geolocation on the **VPC** tab under **Select service region**. It can
-take a few minutes for a newly created VPC to appear for service
-deployments.
+Your organization VPC is available as a geolocation (cloud region) for the new service.
 
 :::note
-The service nodes use firewall rules to allow only connections from
-private IP ranges that originate from networks on the other end of VPC
-peering connections. You can only deploy services to a VPC if they
-belong to the project where that specific VPC was created.
+You can only create a service in an organization VPC if the organization VPC is located in
+the organization where to create the service.
 :::
--->
+
+Create a service in an organization VPC using a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/).
+Set your organization VPC as a cloud region for the new service:
+
+<CreateService />
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -124,7 +126,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 ```bash
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
-  --project-vpc-id ORGANIZATION_VPC_ID \
+  --vpc-id ORGANIZATION_VPC_ID         \
   --type SERVICE_TYPE                  \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
@@ -146,10 +148,9 @@ Replace the following:
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Call the
-[ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate) to
-create a recovery service and enable the `disaster_recovery` service integration between
-the recovery service and the primary service, for example:
+Make an API call to the
+[ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+endpoint:
 
 ```bash {12}
 curl --request POST \
@@ -163,7 +164,7 @@ curl --request POST \
       "plan": "SERVICE_PLAN",
       "service_type": "SERVICE_TYPE",
       "disk_space_mb": DISK_SIZE,
-      "project_vpc_id":"ORGANIZATION_VPC_ID"
+      "vpc_id":"ORGANIZATION_VPC_ID"
     }
   '
 ```
@@ -184,21 +185,24 @@ Replace the following placeholders with meaningful data:
 
 ## Migrate a service to an organization VPC
 
-<!--
-You can migrate any Aiven service to a different VPC:
+Your organization VPC is available as a geolocation (cloud region) for your service.
 
-1. In [Aiven Console](https://console.aiven.io/), open your service and click <ConsoleLabel name="Service settings"/>.
-1. In the **Cloud and
-   network** section, click <ConsoleLabel name="actions"/> >  **Change cloud or region**.
-1. In the **Region** section, select the **VPCs** tab, select the VPC and click **Migrate**.
--->
+:::note
+You can only migrate a service to an organization VPC if the organization VPC is located in
+the organization where your service runs.
+:::
 
 Migrate a service to an organization VPC using a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/).
+1. In [Aiven Console](https://console.aiven.io/), open your service and click
+   <ConsoleLabel name="Service settings"/>.
+1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
+   **Change cloud or region**.
+1. In the **Region** section, go to the **VPCs** tab, select your organization VPC and
+   click **Migrate**.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -206,8 +210,8 @@ Migrate a service to an organization VPC using a tool of your choice:
 Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```bash
-avn service update SERVICE_NAME        \
-  --project-vpc-id ORGANIZATION_VPC_ID
+avn service update SERVICE_NAME \
+  --vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
@@ -221,14 +225,14 @@ Replace the following:
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-to set `project_vpc_id` of the service to the ID of your organization VPC:
+to set `vpc_id` of the service to the ID of your organization VPC:
 
 ```bash {5}
 curl --request PUT \
   --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
   -H 'Authorization: Bearer BEARER_TOKEN' \
   -H 'content-type: application/json' \
-  --data '{"project_vpc_id": "ORGANIZATION_VPC_ID"}'
+  --data '{"vpc_id": "ORGANIZATION_VPC_ID"}'
 ```
 
 Replace the following placeholders with meaningful data:
@@ -287,16 +291,21 @@ Make an API call to the `OrganizationVpcDelete` endpoint:
 
 ```bash
 curl --request DELETE \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/VPC_ID \
   --header 'Authorization: Bearer BEARER_TOKEN' \
 ```
 
 Replace the following placeholders with meaningful data:
 
 - `ORGANIZATION_ID`
-- `ORGANIZATION_VPC_ID`
+- `VPC_ID`
 - `BEARER_TOKEN`
 
+</TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+To delete your
+[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
+resource, run `terraform destroy`.
 </TabItem>
 </Tabs>
 
