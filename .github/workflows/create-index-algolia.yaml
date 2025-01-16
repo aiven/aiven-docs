@@ -5,9 +5,7 @@ name: Update global Aiven index
 on:
   schedule:
     - cron: '0 6 * * 2' # Runs at 06:00 UTC every Tuesday
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build:
