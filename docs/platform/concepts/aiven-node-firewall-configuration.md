@@ -16,7 +16,7 @@ you can connect to depend on the service type and deployment type. The
 configuration can also affect the ports that are available:
 
 -   Is the service in a public network,
-    [dedicated VPC](/docs/platform/howto/manage-vpc-peering), virtual cloud account, or a
+    [dedicated VPC](/docs/platform/howto/manage-project-vpc), virtual cloud account, or a
     [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc) setup?
 -   Have you configured IP ranges in `user_config.ip_filter`?
 -   Have you

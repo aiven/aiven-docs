@@ -1,11 +1,11 @@
 ---
-title: Set up a project VPC peering with Google Cloud
+title: Manage organization VPC peering with Google Cloud
 sidebar_label: Google Cloud peering
 ---
 
-import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md";
-import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md"
+import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -16,10 +16,10 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 
 ## Prerequisites
 
-- [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
+- [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)
   permissions
-- Two VPCs to be peered: a
-  [project VPC](/docs/platform/howto/manage-project-vpc)
+- Two VPCs to be peered: an
+  [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
   in Aiven and a VPC in your Google Cloud account
 - Access to the [Google Cloud console](https://console.cloud.google.com/)
 - One of the following tools for operations on the Aiven Platform:
@@ -32,7 +32,7 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 
 ### Collect data from Google Cloud
 
-To [create a peering in Aiven](/docs/platform/howto/vpc-peering-gcp#create-a-peering-in-aiven),
+To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-google#create-a-peering-in-aiven),
 first collect required data from Google Cloud:
 
 <CollectDataGoogle/>
@@ -40,17 +40,18 @@ first collect required data from Google Cloud:
 ### Create the peering in Aiven
 
 With the
-[data collected from Google Cloud](/docs/platform/howto/vpc-peering-gcp#collect-data-from-google-cloud),
-create a project VPC peering connection using a tool of your choice:
+[data collected from Google Cloud](/docs/platform/howto/manage-org-vpc-peering-google#collect-data-from-google-cloud),
+create an organization VPC peering connection using a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
-1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
-1. On the **Virtual private clouds** page, select a project VPC to peer.
-1. On the **VPC details** page, go to the **VPC peering connection** field and click
-   **Add peering connection**.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
+   top navigation bar.
+1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
+1. On the **Organization VPCs** page, select an organization VPC to peer.
+1. On the **Organization VPC details** page, go to the **VPC peering connection** field and
+   click **Add peering connection**.
 1. In the **Add peering connection** window:
    1. Enter the following:
       - **GCP project ID**
@@ -66,30 +67,27 @@ create a project VPC peering connection using a tool of your choice:
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-Run the
-[avn vpc peering-connection create](/docs/tools/cli/vpc#avn-vpc-peering-connection-create)
-command:
+Run the `avn organization vpc peering-connection create` command:
 
 ```bash
-avn vpc peering-connection create              \
-  --project-vpc-id AIVEN_PROJECT_VPC_ID        \
+avn organization vpc peering-connection create \
+  --organization-id AIVEN_ORGANIZATION_ID      \
+  --vpc-id AIVEN_ORGANIZATION_VPC_ID           \
   --peer-cloud-account GOOGLE_CLOUD_PROJECT_ID \
   --peer-vpc GOOGLE_CLOUD_VPC_NETWORK_NAME
 ```
 
-Replace `AIVEN_PROJECT_VPC_ID`, `GOOGLE_CLOUD_PROJECT_ID`, and
-`GOOGLE_CLOUD_VPC_NETWORK_NAME` as needed.
+Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `GOOGLE_CLOUD_PROJECT_ID`,
+and `GOOGLE_CLOUD_VPC_NETWORK_NAME` as needed.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Make an API call to the
-[VpcPeeringConnectionCreate](https://api.aiven.io/doc/#tag/Project/operation/VpcPeeringConnectionCreate)
-endpoint:
+Make an API call to the `OrganizationVpcPeeringConnectionCreate` endpoint:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/project/PROJECT_ID/vpcs/PROJECT_VPC_ID/peering-connections \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/VPC_ID/peering-connections \
   --header 'Authorization: Bearer BEARER_TOKEN' \
   --header 'content-type: application/json' \
   --data '
@@ -102,8 +100,8 @@ curl --request POST \
 
 Replace the following placeholders with meaningful data:
 
-- `PROJECT_ID` (Aiven project name)
-- `PROJECT_VPC_ID` (Aiven project VPC ID)
+- `ORGANIZATION_ID` (Aiven organization ID)
+- `VPC_ID` (Aiven organization VPC ID)
 - `BEARER_TOKEN`
 - `GOOGLE_CLOUD_PROJECT_ID`
 - `GOOGLE_CLOUD_VPC_NETWORK_NAME`
@@ -111,7 +109,7 @@ Replace the following placeholders with meaningful data:
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
 Use the
-[aiven_gcp_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/gcp_vpc_peering_connection)
+[aiven_gcp_organization_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/gcp_organization_vpc_peering_connection)
 resource.
 </TabItem>
 </Tabs>
@@ -119,15 +117,15 @@ resource.
 ### Create the peering in Google Cloud
 
 Use the
-[data collected in the Aiven Console](/docs/platform/howto/vpc-peering-gcp#create-the-peering-in-aiven)
+[data collected in the Aiven Console](/docs/platform/howto/manage-org-vpc-peering-google#create-the-peering-in-aiven)
 to create the VPC peering connection in Google Cloud:
 
 <AcceptPeeringGoogle/>
 
-## Set up multiple project VPC peerings
+## Set up multiple organization VPC peerings
 
-To peer multiple Google Cloud VPC networks to your Aiven-managed project VPC,
-[add peering connections](/docs/platform/howto/vpc-peering-gcp#create-a-peering-connection)
+To peer multiple Google Cloud VPC networks to your Aiven-managed organization VPC,
+[add peering connections](/docs/platform/howto/manage-org-vpc-peering-google#create-a-peering-connection)
 one by one in the [Aiven Console](https://console.aiven.io).
 
 For the limit on the number of VPC peering connections allowed to a single VPC network,

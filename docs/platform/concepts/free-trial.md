@@ -12,7 +12,7 @@ also be used for paid features like virtual private cloud peering.
 Trials include:
 
 -   Up to 10 VMs
--   1 [Virtual Private Cloud (VPC)](/docs/platform/howto/manage-vpc-peering)
+-   1 [Virtual Private Cloud (VPC)](/docs/platform/howto/manage-project-vpc)
 -   Up to 10 VPC peering connections
 
 If you create services on the [free plan](/docs/platform/concepts/free-plan), they will
