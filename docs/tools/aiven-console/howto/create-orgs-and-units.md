@@ -36,15 +36,21 @@ units cannot be created within other units.
 ## Create an organization
 
 :::important
-Aiven recommends using only one organization and using organizational units
-to group your projects.
+Creating multiple organizations is less secure and leads to inconsistent billing.
 
-Creating a new organization requires you to manually configure
-organization-level settings such as
-[billing groups, authentication settings, and groups](/docs/platform/concepts/orgs-units-projects)
-and set up new support contracts. This can be less secure since you can't use features
-like managed users across multiple organizations and authentication policies are also
-separately configured. In addition, multiple organizations lead to inconsistent billing.
+Support and commitment contracts cannot be shared across organizations. When you create
+another organization you also have to manually configure all organization-level
+settings such as:
+- billing groups
+- authentication policies
+- users and groups
+- roles and permissions
+
+Additionally, you can only verify a domain in one organization, meaning you can't
+set up SAML authentication, user provisiong with SCIM, or managed users for the
+same domain in another organization.
+
+Instead, use only one organization and organize your projects with organizational units.
 :::
 
 To create an organization in the [Aiven
