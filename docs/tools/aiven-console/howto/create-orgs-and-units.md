@@ -36,17 +36,17 @@ units cannot be created within other units.
 ## Create an organization
 
 :::important
-Support and commitment contracts cannot be shared across organizations. When you create
-another organization you also have to manually configure all organization-level
-settings such as:
+You can only verify a domain in one organization, meaning you can't set up SAML
+authentication, user provisiong with SCIM, or managed users for the same domain
+in another organization. Additionally, support and commitment contracts cannot
+be shared across organizations.
+
+When you create another organization you also have to manually configure all settings
+for the new organization such as:
 - billing groups
 - authentication policies
 - users and groups
 - roles and permissions
-
-Additionally, you can only verify a domain in one organization, meaning you can't
-set up SAML authentication, user provisiong with SCIM, or managed users for the
-same domain in another organization.
 :::
 
 To create an organization in the [Aiven
