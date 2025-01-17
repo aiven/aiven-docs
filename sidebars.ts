@@ -922,6 +922,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/bring-your-own-kafka-connect-cluster',
                         'products/kafka/kafka-connect/howto/enable-connect',
                         'products/kafka/kafka-connect/howto/enable-automatic-restart',
+                        'products/kafka/kafka-connect/howto/manage-connector-versions',
                         'products/kafka/kafka-connect/howto/manage-logging-level',
                         'products/kafka/kafka-connect/howto/request-new-connector',
                         {
