@@ -976,6 +976,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcs-sink',
                         'products/kafka/kafka-connect/howto/http-sink',
                         'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
+                        'products/kafka/kafka-connect/howto/iceberg-sink-connector',
                         'products/kafka/kafka-connect/howto/influx-sink',
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
