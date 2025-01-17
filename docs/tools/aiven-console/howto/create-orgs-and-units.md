@@ -36,8 +36,6 @@ units cannot be created within other units.
 ## Create an organization
 
 :::important
-Creating multiple organizations is less secure and leads to inconsistent billing.
-
 Support and commitment contracts cannot be shared across organizations. When you create
 another organization you also have to manually configure all organization-level
 settings such as:
@@ -49,8 +47,6 @@ settings such as:
 Additionally, you can only verify a domain in one organization, meaning you can't
 set up SAML authentication, user provisiong with SCIM, or managed users for the
 same domain in another organization.
-
-Instead, use only one organization and organize your projects with organizational units.
 :::
 
 To create an organization in the [Aiven
