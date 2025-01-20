@@ -6,11 +6,11 @@ sidebar_label: Manage connector versions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Multi-version connector support gives you control over which connector version is used in your Aiven for Apache Kafka Connect® service.
+Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
 It helps avoid compatibility issues caused by automatic updates, allowing you to pin a
 version, test upgrades in development, and ensure production pipeline stability.
 
-### Key considerations when using multi-version connector support
+### Key considerations for multi-version connectors
 
 - Deprecated connector versions may be removed without notice. If you [pin](#pin-version)
   a deprecated version, the system alerts you and recommends an upgrade. Upgrade to a
@@ -20,7 +20,7 @@ version, test upgrades in development, and ensure production pipeline stability.
 - Pinning a connector version applies to the plugin and affects all connectors it
   provides, such as source and sink connectors.
 - Multi-version support is available only for connectors with multiple published
-  versions. Support for additional connectors will expand as new versions are released.
+  versions. Support for additional connectors expands as new versions are released.
 - If no version is pinned, the latest available version is used.
 - Refer to [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before pinning a version.
@@ -82,7 +82,7 @@ Apache Kafka Connect service. Use one of the following methods:
 1. Run the following command:
 
    ```bash
-   avn service connector-versions <service_name>
+   avn service connector available <service_name>
    ```
 
 1. Review the output to see the available versions. If multiple versions are listed,
@@ -109,43 +109,12 @@ Apache Kafka Connect service. Use one of the following methods:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Use the `available_connectors` attribute in the Apache Kafka Connect resource output
-   to view supported connector versions.
+In Terraform, you can directly specify the desired connector version by using
+the `plugin_versions` attribute in your configuration. This ensures that your
+Aiven for Apache Kafka Connect service uses the exact version you require.
 
-   Example Terraform configuration:
-
-   ```hcl
-   resource "aiven_service" "kafka_connect" {
-     service_name = "<service_name>"
-     project      = "<project_name>"
-   }
-   ```
-
-1. Retrieve the resource output by running the following command:
-
-   ```bash
-   terraform show
-   ```
-
-1. Review the output to see the available versions.
-
-   Example output:
-
-   ```json
-   {
-    "plugin_name": "aiven-kafka-connect-jdbc",
-    "available_versions": [
-        {
-            "version": "6.10.0",
-            "deprecated": false
-        },
-        {
-            "version": "6.9.0",
-            "deprecated": true
-        }
-    ]
-   }
-   ```
+Refer to the [Pin a connector version](#pin-version) section for detailed steps and
+examples.
 
 </TabItem>
 </Tabs>
