@@ -6,27 +6,43 @@ sidebar_label: Manage connector versions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Manage specific Apache Kafka connector versions in your Kafka Connect service using multi-version connector support.
-Managing versions gives you control over which connector version is used, helping to
-avoid compatibility issues caused by automatic updates. Pin a version, test development
-upgrades, and ensure production pipeline stability.
+Multi-version connector support gives you control over which connector version is used in your Aiven for Apache Kafka Connect® service.
+It helps avoid compatibility issues caused by automatic updates, allowing you to pin a
+version, test upgrades in development, and ensure production pipeline stability.
 
-:::note
-Multi-version support is available for connectors that have multiple versions
-published. Support will expand as new versions are released.
-:::
+### Key considerations when using multi-version connector support
+
+- Deprecated connector versions may be removed without notice. If you [pin](#pin-version)
+  a deprecated version, the system alerts you and recommends an upgrade. Upgrade to a
+  supported version as soon as possible.
+- If a pinned version becomes unavailable, the system automatically switches to the next
+  available version and notifies you.
+- Pinning a connector version applies to the plugin and affects all connectors it
+  provides, such as source and sink connectors.
+- Multi-version support is available only for connectors with multiple published
+  versions. Support for additional connectors will expand as new versions are released.
+- If no version is pinned, the latest available version is used.
+- Refer to [Check available connector versions](#check-available-connector-versions) to
+  confirm which versions are supported before pinning a version.
 
 ## Prerequisites
 
 - [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
-  with a [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster) enabled.
-- Aiven CLI installed and authenticated.
-- Aiven API token with the necessary permissions.
-- Access to Aiven Provider for Terraform.
+  with a [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
+  enabled
+- [Aiven CLI](/docs/tools/cli)
+- [Aiven API](/docs/tools/api)
+- [Aiven Provider for Terraform](/docs/tools/terraform)
+
+:::note
+Multi-version support is only available for **dedicated Kafka Connect services**. Ensure
+that your service is updated to enable this feature.
+:::
 
 ## Check available connector versions {#check-available-connector-versions}
 
-To view the available versions for a connector, use one of the following methods:
+Before pinning a connector version, confirm which versions are available for your
+Apache Kafka Connect service. Use one of the following methods:
 
 <Tabs groupId="check-method">
 
@@ -42,12 +58,21 @@ To view the available versions for a connector, use one of the following methods
 1. Review the response to see the available versions. If multiple versions are listed,
    the connector supports multi-versioning.
 
-   Example response:
+   Example output:
 
    ```json
    {
-       "plugin_name": "aiven-kafka-connect-jdbc",
-       "available_versions": ["6.10.0", "6.9.0"]
+    "plugin_name": "aiven-kafka-connect-jdbc",
+    "available_versions": [
+        {
+            "version": "6.10.0",
+            "deprecated": false
+        },
+        {
+            "version": "6.9.0",
+            "deprecated": true
+        }
+    ]
    }
    ```
 
@@ -63,17 +88,69 @@ To view the available versions for a connector, use one of the following methods
 1. Review the output to see the available versions. If multiple versions are listed,
    the connector supports multi-versioning.
 
+   Example output:
+
+   ```json
+   {
+      "plugin_name": "aiven-kafka-connect-jdbc",
+      "available_versions": [
+        {
+          "version": "6.10.0",
+          "deprecated": false
+        },
+        {
+          "version": "6.9.0",
+          "deprecated": true
+        }
+      ]
+    }
+   ```
+
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
 1. Use the `available_connectors` attribute in the Apache Kafka Connect resource output
    to view supported connector versions.
-1. Check if multiple versions are listed for a connector in your Terraform state or plan.
+
+   Example Terraform configuration:
+
+   ```hcl
+   resource "aiven_service" "kafka_connect" {
+     service_name = "<service_name>"
+     project      = "<project_name>"
+   }
+   ```
+
+1. Retrieve the resource output by running the following command:
+
+   ```bash
+   terraform show
+   ```
+
+1. Review the output to see the available versions.
+
+   Example output:
+
+   ```json
+   {
+    "plugin_name": "aiven-kafka-connect-jdbc",
+    "available_versions": [
+        {
+            "version": "6.10.0",
+            "deprecated": false
+        },
+        {
+            "version": "6.9.0",
+            "deprecated": true
+        }
+    ]
+   }
+   ```
 
 </TabItem>
 </Tabs>
 
-## Pin a connector version
+## Pin a connector version {#pin-version}
 
 To use a specific connector version, update the `plugin_versions` property in the
 service configuration. Pinning a **plugin version** applies to all connectors
@@ -82,7 +159,7 @@ the `aiven-kafka-connect-jdbc` plugin to version `6.9.0` affects both the JDBC s
 and sink connectors.
 
 :::note
-When you pin a plugin version, Apache Kafka Connect restarts and reloads all plugins.
+Pinning a plugin version restarts Apache Kafka Connect and reloads all plugins.
 Allow time for the process to complete.
 :::
 
@@ -182,17 +259,6 @@ For detailed information, refer to the
 
 </TabItem>
 </Tabs>
-
-:::note
-
-- Upgrade to a supported version as soon as possible. Deprecated versions can be removed
-  at any time.
-- Avoid forced upgrades by manually upgrading to the next supported version. If you do
-  not upgrade, the system will automatically apply the next available version.
-- Refer to [Check available connector versions](#check-available-connector-versions) to
-  identify supported versions.
-
-:::
 
 ## Verify the connector version
 
