@@ -7,16 +7,16 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
-It helps avoid compatibility issues caused by automatic updates, allowing you to pin a
-version, test upgrades in development, and ensure production pipeline stability.
+It prevents compatibility issues from automatic updates, avoids breaking changes
+when multiple dependencies rely on a specific connector version, and allows testing,
+upgrading, or reverting versions to maintain production pipeline stability.
 
 ### Key considerations for multi-version connectors
 
 - Deprecated connector versions may be removed without notice. If you [pin](#pin-version)
-  a deprecated version, the system alerts you and recommends an upgrade. Upgrade to a
-  supported version as soon as possible.
-- If a pinned version becomes unavailable, the system automatically switches to the next
-  available version and notifies you.
+  a deprecated version, the system alerts you, highlights any known breaking changes, and
+  recommends an upgrade. Upgrade to a supported version as soon as possible to avoid
+  potential issues.
 - Pinning a connector version applies to the plugin and affects all connectors it
   provides, such as source and sink connectors.
 - Multi-version support is available only for connectors with multiple published
