@@ -16139,11 +16139,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
   version: 5.7.3
-  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=cef18b"
+  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/3b56d6afa03d9f6172d0b9cdb10e6b1efc9abc1608efd7a3d2f38773d5d8cfb9bbc68dfb72f0a7de5e8db04fc847f4e4baeddcd5ad9c9feda072234f0d788896
+  checksum: 10c0/6fd7e0ed3bf23a81246878c613423730c40e8bdbfec4c6e4d7bf1b847cbb39076e56ad5f50aa9d7ebd89877999abaee216002d3f2818885e41c907caaa192cc4
   languageName: node
   linkType: hard
 
@@ -16171,9 +16171,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^6.19.5":
-  version: 6.21.0
-  resolution: "undici@npm:6.21.0"
-  checksum: 10c0/afa9bde6dcf8e0f5cf1ff2fa977ba73dd5510299ddfca0e1f37ff326554172ae31cb3d4a40b5a729601be1f21b96a2684f974d74dab53f9b6930fd47d1949246
+  version: 6.21.1
+  resolution: "undici@npm:6.21.1"
+  checksum: 10c0/d604080e4f8db89b35a63b483b5f96a5f8b19ec9f716e934639345449405809d2997e1dd7212d67048f210e54534143384d712bd9075e4394f0788895ef9ca8e
   languageName: node
   linkType: hard
 
