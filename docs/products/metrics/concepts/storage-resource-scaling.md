@@ -6,9 +6,9 @@ Aiven for Metrics optimizes storage and compute resources using tiered storage, 
 
 ## Storage solutions
 
-Aiven for Metrics optimizes storage using tiered storage for long-term retention and
-disk storage for temporary processing. This combination ensures scalability,
-reliability, and cost-efficient metric storage.
+Aiven for Metrics optimizes storage by using tiered storage for long-term retention and
+disk storage to temporarily store or process historical data. This combination ensures
+scalability, reliability, and cost-efficient metric storage.
 
 ### Tiered storage
 
@@ -47,8 +47,8 @@ Aiven's service plans are designed to handle the most typical use cases.
 
 Aiven for Metrics storage costs consist of two components:
 
-- **Local disk storage**: Included in the base service plan for temporary processing and
-  caching.
+- **Local disk storage**:  Included in the base service plan to temporarily store or
+  process historical data and caching.
 - **Data stored in tiered storage**: Billed based on the highest amount of data retained
   in tiered storage during each billing period.
 
@@ -108,9 +108,9 @@ allocation. DDS allows you to:
 Consider enabling DDS when:
 
 - A large influx of metrics occurs within a short period, such as during data migrations.
-- A significant amount of data with many unique metric identifiers can strain the
-  disk space used for temporary processing by the compactor and potentially
-  other components.
+- A significant amount of data with many unique metric identifiers can strain the disk
+  space used to temporarily store or process data by the compactor and potentially other
+  components.
 - While Aiven's plans work for most workloads, consider using DDS if you
   anticipate a recent large data migration or a significant increase in metric volume.
 
