@@ -13,10 +13,10 @@ upgrading, or reverting versions to maintain production pipeline stability.
 
 ### Key considerations for multi-version connectors
 
-- Deprecated connector versions may be removed without notice. If you [pin](#pin-version)
-  a deprecated version, the system alerts you, highlights any known breaking changes, and
-  recommends an upgrade. Upgrade to a supported version as soon as possible to avoid
-  potential issues.
+- Deprecated connector versions may be removed during maintenance updates. If you
+  [pin](#pin-version) a deprecated version, the system alerts you, highlights any
+  known breaking changes, and recommends an upgrade. Upgrade to a supported version to
+  avoid compatibility issues, as support is typically limited to the most recent versions.
 - Pinning a connector version applies to the plugin and affects all connectors it
   provides, such as source and sink connectors.
 - Multi-version support is available only for connectors with multiple published
