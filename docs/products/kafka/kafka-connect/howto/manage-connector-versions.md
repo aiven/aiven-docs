@@ -17,8 +17,9 @@ upgrading, or reverting versions to maintain production pipeline stability.
   [pin](#pin-version) a deprecated version, the system alerts you, highlights any
   known breaking changes, and recommends an upgrade. Upgrade to a supported version to
   avoid compatibility issues, as support is typically limited to the most recent versions.
-- Pinning a connector version applies to the plugin and affects all connectors it
-  provides, such as source and sink connectors.
+- Pinning a connector version applies to the entire plugin, ensuring that all
+  connectors provided by the plugin (such as source and sink connectors) use the same
+  version.
 - Multi-version support is available only for connectors with multiple published
   versions. Support for additional connectors expands as new versions are released.
 - If no version is pinned, the latest available version is used.
