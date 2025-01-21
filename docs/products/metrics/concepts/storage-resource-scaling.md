@@ -19,7 +19,7 @@ ensure data security and reliability.
 
 - Metrics are uploaded to tiered storage every 2 hours for historical analysis.
 - Stored data remains accessible for queries at all times, ensuring continuous
-  availability for real-time decision-making.
+  availability for real-time decision making.
 
 ### Disk storage
 
@@ -60,14 +60,11 @@ billing includes:
 - The base cost of the Start-16 plan.
 - Additional tiered storage costs, determined by the volume of metrics data retained.
 
-The local disk is used to temporarily store or process historical data to improve
-performance, but all metrics data is stored in tiered storage.
-
 ### BYOC (Bring Your Own Cloud) billing
 
 [BYOC](/docs/platform/concepts/byoc) billing for tiered storage can vary depending on
 your specific agreement with Aiven.
-Possible scenarios include:
+Possible fees include:
 
 - **Customer costs**: In all BYOC setups, you are responsible for the full cost of the
   underlying cloud storage used by tiered storage. This includes all stored data,
