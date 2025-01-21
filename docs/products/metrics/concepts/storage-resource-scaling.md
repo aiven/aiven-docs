@@ -60,8 +60,8 @@ billing includes:
 - The base cost of the Start-16 plan.
 - Additional tiered storage costs, determined by the volume of metrics data retained.
 
-The local disk is used for temporary processing to improve performance, but all
-metrics data is ultimately stored in tiered storage.
+The local disk is used to temporarily store or process historical data to improve
+performance, but all metrics data is stored in tiered storage.
 
 ### BYOC (Bring Your Own Cloud) billing
 
