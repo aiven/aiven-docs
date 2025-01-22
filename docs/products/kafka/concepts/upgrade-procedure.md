@@ -131,7 +131,7 @@ in APache Kafka 3.9, with no updates to ACL permissions or governance behaviors.
 
 #### New services
 
-- All new Aiven for Apache Kafka services with Apache Kafka® 3.9 will run KRaft as the
+- All new Aiven for Apache Kafka services with Apache Kafka 3.9 will run KRaft as the
   default metadata management protocol.
 - Initially supported on startup and business plans on Google Cloud Platform (GCP).
 - Support for premium and custom plans, as well as additional cloud providers, will be
