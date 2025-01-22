@@ -137,7 +137,7 @@ a
         </ul>
       </td>
       <td>
-        To work around this limitation, use the [Aiven's public API](https://api.aiven.io/doc/)
+        To work around this limitation, use [Aiven's API](https://api.aiven.io/doc/)
         or the [Aiven Console](https://console.aiven.io/).
       </td>
     </tr>

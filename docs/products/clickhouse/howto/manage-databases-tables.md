@@ -13,8 +13,8 @@ Create and work with databases and tables in Aiven for ClickHouse®.
 ## Create a database {#create-a-clickhouse-database}
 
 You can create a database either in the [Aiven Console](https://console.aiven.io/) or
-using an SQL client (for example, the
-[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
+using an SQL client such as the
+[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
@@ -66,8 +66,8 @@ with all its tables and data.
 :::
 
 You can delete a database either in the [Aiven Console](https://console.aiven.io/) or
-using an SQL client (for example, the
-[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)):
+using an SQL client such as the
+[ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli):
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
