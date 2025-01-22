@@ -127,11 +127,13 @@ a
       </td>
     </tr>
     <tr>
-      <td>Creating a database using SQL</td>
+      <td>Creating or deleting a database using SQL</td>
       <td>
         <ul>
-          <li>Only `avnadmin` users can create databases in SQL.</li>
+          <li>Only the `avnadmin` user can create databases in SQL.</li>
           <li>You can create a database in SQL with the `Replicated` database engine only.</li>
+          <li>By default, only the `aiven` user can delete a database. The `aiven` user
+              can grant the permission to delete a database to another user.</li>
         </ul>
       </td>
       <td>

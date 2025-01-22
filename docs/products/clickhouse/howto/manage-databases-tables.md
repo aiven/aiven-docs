@@ -38,7 +38,7 @@ using an SQL client (for example, the
 
 **Limitations**
 
-- Only `avnadmin` users can create databases in SQL.
+- Only the `avnadmin` user can create databases in SQL.
 - You can create a database in SQL with the `Replicated` database engine only.
 
 To create a database in SQL, run the following SQL command:
@@ -79,7 +79,8 @@ using an SQL client (for example, the
 </TabItem>
 <TabItem value="cli" label="SQL">
 
-**Limitation**: Only `avnadmin` users can delete databases in SQL.
+**Limitation**: By default, only the `aiven` user can delete a database. The `aiven` user
+can grant the permission to delete a database to another user.
 
 To delete a database in SQL, run the following SQL command:
 
