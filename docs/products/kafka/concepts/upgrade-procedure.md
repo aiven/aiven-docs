@@ -139,9 +139,10 @@ in APache Kafka 3.9, with no updates to ACL permissions or governance behaviors.
 
 #### Existing services
 
-- A migration path for existing services is expected to be available in Q2 2025.
+- Migration for existing services is not yet available. Aiven expects to provide a
+  migration path by Q2 2025.
 - The migration consists of two steps:
   1. Upgrade your service from Apache Kafka 3.8 to 3.9.
   1. Migrate metadata from ZooKeeper to KRaft within Apache Kafka 3.9.
-- Support for Apache Kafka 3.8 is extended by one year to allow sufficient time for
-  migration.
+- Aiven has extended support for Apache Kafka 3.8 by one year to ensure you have enough
+  time to plan and complete the migration.
