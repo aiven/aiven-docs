@@ -48,7 +48,7 @@ You can grant the following roles and permissions to principals. Roles and permi
 granted at this level apply to the project and all services within it.
 
 These permissions apply to the
-[project API endpoint](https://api.aiven.io/v1/organization/{organization_id}/projects)
+[project API endpoint](https://api.aiven.io/doc/#tag/Organizations/operation/OrganizationProjectsCreate)
 `/v1/organization/{organization_id}/projects`.
 
 ### Project roles
