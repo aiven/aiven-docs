@@ -50,7 +50,8 @@ To limit access further, also consider these authentication policy settings:
   organization identity provider settings ensures that users only log in to the Console
   with your chosen IdP.
 - **Don't allow users to create personal tokens**: This prevents users from accessing
-  organization resources through the API.
+  organization resources through the API using a long-lived
+  [personal token](/docs/platform/concepts/authentication-tokens) they created.
 
 If you allow your users to create personal tokens, you can still make these more
 secure by enabling **Require users to be logged in with an allowed
