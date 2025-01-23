@@ -36,6 +36,14 @@ The Iceberg sink connector supports the following configurations:
 - **Write format**: Supports Parquet format. Other formats, such as Avro and ORC,
   are not supported.
 
+## Future enhancements
+
+The following features are planned for future updates to the Iceberg sink connector:
+
+- **FileIO implementations:** Support for GCS and Azure FileIO.
+- **Write formats:** Additional support for Avro and ORC formats.
+- **Catalogs:** Expand catalog support to include Hive, JDBC, and Amazon S3 Tables.
+
 ## Prerequisites
 
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
