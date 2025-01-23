@@ -10,7 +10,9 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 Integrate Aiven for Apache Kafka with Apache Iceberg for real-time data ingestion into Iceberg tables.
 <!-- vale off -->
 The connector supports exactly-once delivery semantics, schema evolution, and metadata
-management, making it ideal for high-performance, large-scale data processing.
+management, optimized for large-scale, high-performance data processing. For more
+information about the Apache Iceberg Sink Connector, see the
+[official Iceberg documentation](https://iceberg.apache.org/docs/latest/kafka-connect/#apache-iceberg-sink-connector).
 
 ## Catalogs in Iceberg
 
@@ -24,29 +26,31 @@ setting up and configuring:
 - **AWS Glue as REST Catalog:** An AWS-managed catalog leveraging the Iceberg REST API.
 - **AWS Glue as Glue Catalog:** A native AWS Glue implementation for Iceberg.
 
+## FileIO and write format support
+
+The Iceberg sink connector supports the following configurations:
+
+- **FileIO**: Supports S3FileIO for AWS S3 storage. Other implementations, such as GCS,
+  ADLS, and Hadoop, are not supported.
+
+- **Write format**: Supports Parquet format. Other formats, such as Avro and ORC,
+  are not supported.
+
 ## Prerequisites
 
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
-  with Apache Kafka Connect enabled or a
+  with Apache Kafka Connect enabled, or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- AWS-specific setup:
+  - Create an S3 bucket for storing data.
+  - Configure AWS IAM roles with permissions for:
+    - Read and write access to the S3 bucket.
+    - Managing AWS Glue databases and tables.
+  - Create an AWS Glue database and tables. For REST Catalog, ensure the schema matches
+    the Apache Kafka records and specify the S3 bucket as the storage location. For more
+    details, see the
+    [AWS Glue Data Catalog documentation](https://docs.aws.amazon.com/glue/latest/dg/start-data-catalog.html).
 
-### AWS Glue as REST Catalog
-
-- Create an S3 bucket for storing data.
-- Set up AWS IAM roles with permissions for:
-  - Read/write access to the S3 bucket.
-  - AWS Glue database and table management.
-- Create an AWS Glue database and tables with a schema matching the Apache Kafka records.
-  Specify the created S3 bucket as the storage location. For detailed steps, see
-  the [AWS Glue Data Catalog documentation](https://docs.aws.amazon.com/glue/latest/dg/start-data-catalog.html).
-
-### AWS Glue as Glue Catalog
-
-- Create an S3 bucket for storing data.
-- Set up AWS IAM roles with permissions for:
-  - Read/write access to the S3 bucket.
-  - AWS Glue database and table management.
-- Create an AWS Glue database and tables.
 
 ## Set up and configure
 
@@ -188,7 +192,7 @@ Configure AWS Glue resources and the Iceberg Sink Connector.
 </TabItem>
 </Tabs>
 
-## Create the connector
+## Create the Iceberg sink connector
 
 <Tabs groupId="setup-method">
   <TabItem value="console" label="Aiven Console" default>
@@ -319,3 +323,10 @@ Once these configurations are saved in `iceberg_sink_rest.json` or
 `iceberg_sink_glue.json`, you can create the connector using the Aiven Console or
 Aiven CLI. Verify that data from the Apache Kafka topic `test-topic` is successfully
 ingested into your Iceberg table.
+
+
+
+## Related pages
+
+- [Apache Iceberg sink connector](https://iceberg.apache.org/docs/latest/kafka-connect/#apache-iceberg-sink-connector)
+- [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/start-data-catalog.html)
