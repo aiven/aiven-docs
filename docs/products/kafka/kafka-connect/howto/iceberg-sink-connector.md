@@ -29,15 +29,22 @@ following catalog types:
 - **AWS Glue as REST Catalog:** An AWS-managed catalog leveraging the Iceberg REST API.
 - **AWS Glue as Glue Catalog:** A native AWS Glue implementation for Iceberg.
 
+:::note
+When AWS Glue is used as the REST catalog, the connector cannot create tables
+automatically. You must manually create the tables in AWS Glue and match the schema to
+the Apache Kafka data.
+:::
+
+For more details, see the
+[Iceberg catalogs documentation](https://iceberg.apache.org/concepts/catalog/).
+
 ## FileIO and write format support
 
 The Iceberg sink connector supports the following configurations:
 
-- **FileIO**: Supports S3FileIO for AWS S3 storage. Other implementations, such as GCS,
-  ADLS, and Hadoop, are not supported.
+- **FileIO**: Supports S3FileIO for AWS S3 storage.
 
-- **Write format**: Supports Parquet format. Other formats, such as Avro and ORC,
-  are not supported.
+- **Write format**: Supports Parquet format.
 
 ## Future enhancements
 
@@ -71,6 +78,13 @@ based on the catalog type:
   <TabItem value="rest-catalog" label="AWS Glue as REST Catalog" default>
 
 1. Create AWS resources, including an S3 bucket, Glue database, and tables.
+
+   :::note
+   When AWS Glue is used as the REST catalog, the connector cannot create tables
+   automatically. You must manually create the tables in AWS Glue and match the schema to
+   the Apache Kafka data.
+   :::
+
 1. Add the following configurations to the Iceberg sink connector:
 
    ```JSON
@@ -150,6 +164,9 @@ based on the catalog type:
      Iceberg Apache Kafka.
    - `key.converter.schemas.enable` and `value.converter.schemas.enable`: Enable
      or disable schemas for the converters.
+
+For a complete list of configurations,
+see [Iceberg configuration](https://iceberg.apache.org/docs/latest/kafka-connect/#configuration).
 
 </TabItem>
 <TabItem value="glue-catalog" label="AWS Glue Catalog">
