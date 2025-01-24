@@ -56,7 +56,7 @@ type networks.
 
 ### Collect data from UpCloud
 
-To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-upcloud#create-a-peering-in-aiven),
+To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-upcloud#create-the-peering-in-aiven),
 first collect required data from UpCloud using either the
 [UpCloud Control Panel](https://hub.upcloud.com/) or the
 [UpCloud API](https://developers.upcloud.com/1.3/):
@@ -96,7 +96,7 @@ Run the `avn organization vpc peering-connection create` command:
 ```bash
 avn organization vpc peering-connection create \
   --organization-id AIVEN_ORGANIZATION_ID      \
-  --vpc-id AIVEN_ORGANIZATION_VPC_ID           \
+  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
   --peer-cloud-account upcloud                 \
   --peer-vpc UPCLOUD_SDN_NETWORK_UUID
 ```
