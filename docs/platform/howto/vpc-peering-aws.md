@@ -5,6 +5,7 @@ sidebar_label: AWS peering
 
 import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
 import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
+import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -112,3 +113,7 @@ the [AWS Management Console](https://console.aws.amazon.com).
 ### Accept the peering request in AWS
 
 <AcceptPeeringAws/>
+
+## Delete the peering
+
+<DeletePjPeering/>

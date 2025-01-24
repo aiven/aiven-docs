@@ -3,8 +3,7 @@ title: Set up an organization VPC peering with Microsoft Azure
 sidebar_label: Azure peering
 ---
 
-import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
-import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
+import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Set up a peering connection between your [Aiven organization VPC](/docs/platform/howto/manage-organization-vpc) and a [Microsoft Azure virtual network](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
@@ -378,6 +377,10 @@ from your Azure VNet to the Aiven organization VPC:
      --peer-resource-group $user_resource_group  \
      --peer-vpc $user_vnet_name
    ```
+
+## Delete the peering
+
+<DeleteOrgPeering/>
 
 ## Related pages
 

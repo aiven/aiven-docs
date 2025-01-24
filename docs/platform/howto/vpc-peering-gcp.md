@@ -5,6 +5,7 @@ sidebar_label: Google Cloud peering
 
 import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md";
 import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md";
+import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -132,3 +133,7 @@ one by one in the [Aiven Console](https://console.aiven.io).
 
 For the limit on the number of VPC peering connections allowed to a single VPC network,
 see the [Google Cloud documentation](https://cloud.google.com/vpc/docs/quota).
+
+## Delete the peering
+
+<DeletePjPeering/>
