@@ -6,6 +6,7 @@ sidebar_label: UpCloud peering
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 import CollectDataUpcloud from "@site/static/includes/vpc/collect-data-upcloud.md";
 import AcceptPeeringUpcloud from "@site/static/includes/vpc/accept-peering-upcloud.md";
+import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
 import RenewLeaseUpcloud from "@site/static/includes/vpc/renew-lease-upcloud.md";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
@@ -146,6 +147,10 @@ to create the VPC peering connection in UpCloud either in the
 ## Renew a DHCP lease
 
 <RenewLeaseUpcloud/>
+
+## Delete the peering
+
+<DeletePjPeering/>
 
 <RelatedPages/>
 

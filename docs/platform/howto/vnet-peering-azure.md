@@ -3,7 +3,8 @@ title: Set up a project VPC peering with Microsoft Azure
 sidebar_label: Azure peering
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
 
 Set up a peering connection between your [Aiven project VPC](/docs/platform/howto/manage-project-vpc) and a [Microsoft Azure virtual network](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
 
@@ -373,6 +374,10 @@ from your Azure VNet to the Aiven project VPC:
      --peer-resource-group $user_resource_group \
      --peer-vpc $user_vnet_name
    ```
+
+## Delete the peering
+
+<DeletePjPeering/>
 
 <RelatedPages/>
 
