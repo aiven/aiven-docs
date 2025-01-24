@@ -32,7 +32,7 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 
 ### Collect data from Google Cloud
 
-To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-google#create-a-peering-in-aiven),
+To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-google#create-the-peering-in-aiven),
 first collect required data from Google Cloud:
 
 <CollectDataGoogle/>
@@ -72,7 +72,7 @@ Run the `avn organization vpc peering-connection create` command:
 ```bash
 avn organization vpc peering-connection create \
   --organization-id AIVEN_ORGANIZATION_ID      \
-  --vpc-id AIVEN_ORGANIZATION_VPC_ID           \
+  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
   --peer-cloud-account GOOGLE_CLOUD_PROJECT_ID \
   --peer-vpc GOOGLE_CLOUD_VPC_NETWORK_NAME
 ```

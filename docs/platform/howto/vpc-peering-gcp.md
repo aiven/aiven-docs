@@ -32,7 +32,7 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 
 ### Collect data from Google Cloud
 
-To [create a peering in Aiven](/docs/platform/howto/vpc-peering-gcp#create-a-peering-in-aiven),
+To [create a peering in Aiven](/docs/platform/howto/vpc-peering-gcp#create-the-peering-in-aiven),
 first collect required data from Google Cloud:
 
 <CollectDataGoogle/>

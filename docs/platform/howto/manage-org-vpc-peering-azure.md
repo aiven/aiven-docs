@@ -250,18 +250,18 @@ The Aiven application object authenticates with your Azure tenant to grant it ac
 [the service principal of the Aiven application object](/docs/platform/howto/vnet-peering-azure#aiven-app-object-permissions)
 (`--peer-azure-tenant-id $user_tenant_id`).
 
-`$aiven_project_vpc_id` can be found in the [Aiven Console](https://console.aiven.io/) or
-using the `avn vpc list` command.
+`$aiven_organization_vpc_id` can be found in the [Aiven Console](https://console.aiven.io/)
+or using the `avn vpc list` command.
 
 1. Run:
 
    ```bash
-   avn vpc peering-connection create            \
-     --project-vpc-id $aiven_project_vpc_id     \
-     --peer-cloud-account $user_subscription_id \
-     --peer-resource-group $user_resource_group \
-     --peer-vpc $user_vnet_name                 \
-     --peer-azure-app-id $user_app_id           \
+   avn organization vpc peering-connection create \
+     --project-vpc-id $aiven_organization_vpc_id  \
+     --peer-cloud-account $user_subscription_id   \
+     --peer-resource-group $user_resource_group   \
+     --peer-vpc $user_vnet_name                   \
+     --peer-azure-app-id $user_app_id             \
      --peer-azure-tenant-id $user_tenant_id
    ```
 
@@ -272,10 +272,10 @@ using the `avn vpc list` command.
 1. Run the following command until the state changes from `APPROVED` to `PENDING_PEER`:
 
    ```bash
-   avn vpc peering-connection get -v            \
-     --project-vpc-id $aiven_project_vpc_id     \
-     --peer-cloud-account $user_subscription_id \
-     --peer-resource-group $user_resource_group \
+   avn organization vpc peering-connection get -v \
+     --project-vpc-id $aiven_organization_vpc_id  \
+     --peer-cloud-account $user_subscription_id   \
+     --peer-resource-group $user_resource_group   \
      --peer-vpc $user_vnet_name
    ```
 
@@ -366,16 +366,16 @@ from your Azure VNet to the Aiven organization VPC:
    Wait until the Aiven peering connection is active. The Aiven Platform polls peering
    connections in state `PENDING_PEER` regularly to see if the peer (your Azure VNet) has
    created a peering connection to the Aiven organization VPC. Once this is detected, the state
-   changes from `PENDING_PEER` to `ACTIVE`, at which point Aiven services in the project
-   VPC can be reached through the peering.
+   changes from `PENDING_PEER` to `ACTIVE`, at which point Aiven services in the
+   organization VPC can be reached through the peering.
 
 1. Check if the status of the peering connection is `ACTIVE`:
 
    ```bash
-   avn vpc peering-connection get -v            \
-     --project-vpc-id $aiven_project_vpc_id     \
-     --peer-cloud-account $user_subscription_id \
-     --peer-resource-group $user_resource_group \
+   avn vpc peering-connection get -v             \
+     --project-vpc-id $aiven_organization_vpc_id \
+     --peer-cloud-account $user_subscription_id  \
+     --peer-resource-group $user_resource_group  \
      --peer-vpc $user_vnet_name
    ```
 

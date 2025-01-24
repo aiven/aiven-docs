@@ -126,7 +126,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 ```bash
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
-  --vpc-id ORGANIZATION_VPC_ID         \
+  --project-vpc-id ORGANIZATION_VPC_ID \
   --type SERVICE_TYPE                  \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
@@ -211,7 +211,7 @@ Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```bash
 avn service update SERVICE_NAME \
-  --vpc-id ORGANIZATION_VPC_ID
+  --project-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
@@ -275,13 +275,13 @@ Run the `avn organization vpc delete` command:
 ```bash
 avn organization vpc delete                     \
   --organization-id ORGANIZATION_ID             \
-  --vpc-id VPC_ID
+  --project-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
 
 - `ORGANIZATION_ID` with the ID of your Aiven organization, for example, `org1a2b3c4d5e6`
-- `VPC_ID` with the ID of your Aiven organization VPC, for example,
+- `ORGANIZATION_VPC_ID` with the ID of your Aiven organization VPC, for example,
   `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 
 </TabItem>

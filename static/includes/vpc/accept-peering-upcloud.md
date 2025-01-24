@@ -41,8 +41,8 @@ POST /1.3/network-peering HTTP/1.1
 | ------------------- | -------------------------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
 | `configured_status` | `active` or `disabled`     | `active`      | No       | Controls whether the peering is administratively up or down.                                                                                               | `active`                               |
 | `name`              | String of 1-255 characters | None          | Yes      | Descriptive name for the peering                                                                                                                           | `peering upcloud->aiven`               |
-| `network.uuid`      | Valid network UUID         | None          | Yes      | Sets the local network of the peering. Use the UUID you acquired in [Get UpCloud SDN network UUID](/docs/platform/howto/vpc-peering-upcloud#upcloud-uuid). | `03126dc1-a69f-4bc2-8b24-e31c22d64712` |
-| `peer_network.uuid` | Valid network UUID         | None          | Yes      | Sets the peer network of the peering. Use the UUID you acquired in [Set up VPC peering from Aiven](/docs/platform/howto/vpc-peering-upcloud#avn-uuid).     | `03585987-bf7d-4544-8e9b-5a1b4d74a333` |
+| `network.uuid`      | Valid network UUID         | None          | Yes      | Sets the local network of the peering. Use the UpCloud SDN network UUID. | `03126dc1-a69f-4bc2-8b24-e31c22d64712` |
+| `peer_network.uuid` | Valid network UUID         | None          | Yes      | Sets the peer network of the peering. Use the Aiven VPC network ID.     | `03585987-bf7d-4544-8e9b-5a1b4d74a333` |
 
 #### Expected response
 
