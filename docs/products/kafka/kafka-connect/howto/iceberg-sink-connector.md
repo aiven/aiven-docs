@@ -16,12 +16,15 @@ information about the Apache Iceberg Sink Connector, see the
 
 ## Catalogs in Iceberg
 
-A catalog in Apache Iceberg serves as a layer to manage metadata related to your
-Iceberg tables. It connects the connector to storage backends, enabling
-schema management, table discovery, and configuration.
+A catalog in Apache Iceberg stores table metadata and supports key operations such as
+creating, renaming, and deleting tables. Catalogs manage collections of tables organized
+into namespaces and provide the metadata needed to access them.
 
-The Iceberg Sink Connector supports multiple catalog types, but the focus is on
-setting up and configuring:
+The Iceberg Sink Connector writes data to storage backends, while the catalog manages
+metadata to enable multiple compute engines to share a common data layer.
+
+The Iceberg Sink Connector for Aiven for Apache Kafka Connect currently supports the
+following catalog types:
 
 - **AWS Glue as REST Catalog:** An AWS-managed catalog leveraging the Iceberg REST API.
 - **AWS Glue as Glue Catalog:** A native AWS Glue implementation for Iceberg.
@@ -59,10 +62,10 @@ The following features are planned for future updates to the Iceberg sink connec
     details, see the
     [AWS Glue Data Catalog documentation](https://docs.aws.amazon.com/glue/latest/dg/start-data-catalog.html).
 
+## Create an Iceberg sink connector configuration file
 
-## Set up and configure
-
-Configure AWS Glue resources and the Iceberg Sink Connector.
+Create a JSON configuration file for the Iceberg Sink Connector. Use the examples below,
+based on the catalog type:
 
 <Tabs groupId="catalog-type">
   <TabItem value="rest-catalog" label="AWS Glue as REST Catalog" default>
