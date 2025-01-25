@@ -16,12 +16,13 @@ upgrading, or reverting versions to maintain production pipeline stability.
 - Deprecated connector versions may be removed during maintenance updates. If you
   [pin](#pin-version) a deprecated version, the system alerts you, highlights any
   known breaking changes, and recommends an upgrade. Upgrade to a supported version to
-  avoid compatibility issues, as support is typically limited to the most recent versions.
+  avoid compatibility issues, as support is limited to the most recent versions.
 - Pinning a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
-- Multi-version support is available only for connectors with multiple published
-  versions. Support for additional connectors expands as new versions are released.
+- Multi-version support is available for all connectors where Aiven has published and
+  supports more than one version. Support will continue to expand as new versions are
+  released.
 - If no version is pinned, the latest available version is used.
 - Refer to [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before pinning a version.
