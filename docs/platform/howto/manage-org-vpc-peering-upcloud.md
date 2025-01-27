@@ -50,7 +50,7 @@ type networks.
   [UpCloud API](https://developers.upcloud.com/1.3/)
 - One of the following tools for operations on the Aiven Platform:
   - [Aiven Console](https://console.aiven.io/)
-  - [Aiven CLI](/docs/tools/cli)
+    <!-- [Aiven CLI](/docs/tools/cli) -->
   - [Aiven API](/docs/tools/api)
 
 ## Create a peering connection
@@ -90,6 +90,7 @@ create an organization VPC peering connection using a tool of your choice:
    table.
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection create` command:
@@ -97,7 +98,7 @@ Run the `avn organization vpc peering-connection create` command:
 ```bash
 avn organization vpc peering-connection create \
   --organization-id AIVEN_ORGANIZATION_ID      \
-  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
+  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
   --peer-cloud-account upcloud                 \
   --peer-vpc UPCLOUD_SDN_NETWORK_UUID
 ```
@@ -105,13 +106,14 @@ avn organization vpc peering-connection create \
 Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, and `UPCLOUD_SDN_NETWORK_UUID` as needed.
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the `OrganizationVpcPeeringConnectionCreate` endpoint:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/VPC_ID/peering-connections \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections \
   --header 'Authorization: Bearer BEARER_TOKEN' \
   --header 'content-type: application/json' \
   --data '
@@ -125,7 +127,7 @@ curl --request POST \
 Replace the following placeholders with meaningful data:
 
 - `ORGANIZATION_ID` (Aiven organization ID)
-- `VPC_ID` (Aiven organization VPC ID)
+- `ORGANIZATION_VPC_ID` (Aiven organization VPC ID)
 - `BEARER_TOKEN`
 - `UPCLOUD_SDN_NETWORK_UUID`
 
