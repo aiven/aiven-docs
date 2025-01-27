@@ -16,8 +16,10 @@ upgrading, or reverting versions to maintain production pipeline stability.
 - Deprecated connector versions may be removed during maintenance updates. If you
   [pin](#pin-version) a deprecated version, the system alerts you and recommends an
   upgrade. The connector will continue to run, but upgrading to a supported version is
-  recommended to avoid compatibility issues. Support is limited to the latest connector
-  versions. Breaking changes, if any, are detailed in maintenance update notifications.
+  recommended to avoid compatibility issues.
+- Support is limited to the latest connector version and the most recent previous
+  version. Breaking changes, if any, are detailed in
+  [maintenance update notifications](/docs/platform/concepts/maintenance-window#maintenance-updates).
 - Pinning a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
