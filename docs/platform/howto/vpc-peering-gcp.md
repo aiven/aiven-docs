@@ -1,5 +1,5 @@
 ---
-title: Set up a project VPC peering with Google Cloud
+title: Manage a project VPC peering with Google Cloud
 sidebar_label: Google Cloud peering
 ---
 

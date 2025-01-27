@@ -1,5 +1,5 @@
 ---
-title: Set up an organization VPC peering with AWS
+title: Manage an organization VPC peering with AWS
 sidebar_label: AWS peering
 ---
 
