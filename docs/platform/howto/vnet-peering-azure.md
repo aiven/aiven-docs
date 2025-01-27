@@ -1,5 +1,5 @@
 ---
-title: Set up a project VPC peering with Microsoft Azure
+title: Manage a project VPC peering with Microsoft Azure
 sidebar_label: Azure peering
 ---
 

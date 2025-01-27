@@ -1,5 +1,5 @@
 ---
-title: Set up a project VPC peering with UpCloud
+title: Manage a project VPC peering with UpCloud
 sidebar_label: UpCloud peering
 ---
 

@@ -248,11 +248,9 @@ Replace the following placeholders with meaningful data:
 ## Delete an organization VPC
 
 :::important
-
-- Before deleting an organization VPC, move all services out of this VPC.
-- Once an organization VPC is deleted, the cloud-provider side of the peering connections
-  becomes `inactive` or `deleted`.
-
+Remove all services from your VCP before you delete it. To remove the services from the VCP,
+either migrate them out of the VCP or delete them. Deleting the VPC terminates its peering
+connections, if any.
 :::
 
 Delete an organization VPC using a tool of your choice:

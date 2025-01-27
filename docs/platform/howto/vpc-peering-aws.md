@@ -1,5 +1,5 @@
 ---
-title: Set up a project VPC peering with AWS
+title: Manage a project VPC peering with AWS
 sidebar_label: AWS peering
 ---
 
