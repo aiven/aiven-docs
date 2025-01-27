@@ -23,6 +23,7 @@ Delete an organization VPC peering using a tool of your choice:
 1. In the **Confirmation** window, click **Delete VPC peering**.
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection delete` command:
@@ -30,7 +31,7 @@ Run the `avn organization vpc peering-connection delete` command:
 ```bash
 avn organization vpc peering-connection delete \
   --organization-id ORGANIZATION_ID            \
-  --vpc-id ORGANIZATION_VPC_ID                 \
+  --organization-vpc-id ORGANIZATION_VPC_ID                 \
   --peering-connection-id ORGANIZATION_VPC_PEERING_ID
 ```
 
@@ -43,13 +44,14 @@ Replace the following:
   `1a2b3c4d-1234-a1b2-c3d4-1a2b3c4d5e6f`
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the `OrganizationVpcPeeringConnectionDelete` endpoint:
 
 ```bash
 curl --request DELETE \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections/peer-accounts/PEER_CLOUD_ACCOUNT/peer-vpcs/PEER_VPC \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections/PEERING_CONNECTION_ID \
   --header 'Authorization: Bearer BEARER_TOKEN'
 ```
 
@@ -57,8 +59,7 @@ Replace the following placeholders with meaningful data:
 
 - `ORGANIZATION_ID`: Aiven organization ID
 - `ORGANIZATION_VPC_ID`: Aiven organization VPC ID
-- `PEER_CLOUD_ACCOUNT`: your cloud provider account ID or name
-- `PEER_VPC`: your cloud provider VPC ID or name
+- `PEERING_CONNECTION_ID`: ID or name of your cloud provider VPC
 - `BEARER_TOKEN`
 
 </TabItem>

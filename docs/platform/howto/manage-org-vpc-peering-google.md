@@ -10,7 +10,7 @@ import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Set up a peering connection between your Aiven project VPC and a Google Cloud VPC.
+Set up a peering connection between your Aiven organization VPC and a Google Cloud VPC.
 
 Establishing a peering connection between an Aiven VPC and a Google Cloud VPC requires
 creating the peering both from the VPC in Aiven and from the VPC in Google Cloud.
@@ -25,7 +25,7 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 - Access to the [Google Cloud console](https://console.cloud.google.com/)
 - One of the following tools for operations on the Aiven Platform:
   - [Aiven Console](https://console.aiven.io/)
-  - [Aiven CLI](/docs/tools/cli)
+    <!-- [Aiven CLI](/docs/tools/cli) -->
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform)
 
@@ -66,6 +66,7 @@ create an organization VPC peering connection using a tool of your choice:
    **Project name** in the **Project settings** field.
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection create` command:
@@ -73,7 +74,7 @@ Run the `avn organization vpc peering-connection create` command:
 ```bash
 avn organization vpc peering-connection create \
   --organization-id AIVEN_ORGANIZATION_ID      \
-  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
+  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
   --peer-cloud-account GOOGLE_CLOUD_PROJECT_ID \
   --peer-vpc GOOGLE_CLOUD_VPC_NETWORK_NAME
 ```
@@ -82,13 +83,14 @@ Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `GOOGLE_CLOUD_PROJ
 and `GOOGLE_CLOUD_VPC_NETWORK_NAME` as needed.
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the `OrganizationVpcPeeringConnectionCreate` endpoint:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/VPC_ID/peering-connections \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections \
   --header 'Authorization: Bearer BEARER_TOKEN' \
   --header 'content-type: application/json' \
   --data '
@@ -101,8 +103,8 @@ curl --request POST \
 
 Replace the following placeholders with meaningful data:
 
-- `ORGANIZATION_ID` (Aiven organization ID)
-- `VPC_ID` (Aiven organization VPC ID)
+- `ORGANIZATION_ID`
+- `ORGANIZATION_VPC_ID`
 - `BEARER_TOKEN`
 - `GOOGLE_CLOUD_PROJECT_ID`
 - `GOOGLE_CLOUD_VPC_NETWORK_NAME`

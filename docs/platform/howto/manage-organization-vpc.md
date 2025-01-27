@@ -16,7 +16,7 @@ Set up or delete an organization-wide VPC on the Aiven Platform. Enable new Aive
   permissions
 - One of the following tools for operating organization VPCs:
   - [Aiven Console](https://console.aiven.io/)
-  - [Aiven CLI](/docs/tools/cli)
+    <!-- [Aiven CLI](/docs/tools/cli) -->
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform)
 
@@ -47,6 +47,7 @@ Your new organization VPC is ready to use as soon as its status visible on the
 **Organization VPCs** page changes to **Active**.
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc create` command:
@@ -68,6 +69,7 @@ Replace the following:
   example, `org1a2b3c4d5e6`
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the `OrganizationVpcCreate` endpoint:
@@ -94,9 +96,9 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
-Use the
-[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
-resource.
+Use the `aiven_organization_vpc` resource. See the
+[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+for details.
 </TabItem>
 </Tabs>
 
@@ -119,6 +121,7 @@ Set your organization VPC as a cloud region for the new service:
 <CreateService />
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
@@ -126,7 +129,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 ```bash
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
-  --project-vpc-id ORGANIZATION_VPC_ID \
+  --organization-vpc-id ORGANIZATION_VPC_ID \
   --type SERVICE_TYPE                  \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
@@ -146,6 +149,7 @@ Replace the following:
   created, for example `aws-eu-west-1`
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
@@ -164,7 +168,7 @@ curl --request POST \
       "plan": "SERVICE_PLAN",
       "service_type": "SERVICE_TYPE",
       "disk_space_mb": DISK_SIZE,
-      "vpc_id":"ORGANIZATION_VPC_ID"
+      "organization_vpc_id":"ORGANIZATION_VPC_ID"
     }
   '
 ```
@@ -205,13 +209,14 @@ Migrate a service to an organization VPC using a tool of your choice:
    click **Migrate**.
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```bash
 avn service update SERVICE_NAME \
-  --project-vpc-id ORGANIZATION_VPC_ID
+  --organization-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
@@ -222,6 +227,7 @@ Replace the following:
   for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
@@ -232,7 +238,7 @@ curl --request PUT \
   --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
   -H 'Authorization: Bearer BEARER_TOKEN' \
   -H 'content-type: application/json' \
-  --data '{"vpc_id": "ORGANIZATION_VPC_ID"}'
+  --data '{"organization_vpc_id": "ORGANIZATION_VPC_ID"}'
 ```
 
 Replace the following placeholders with meaningful data:
@@ -266,6 +272,7 @@ Delete an organization VPC using a tool of your choice:
 1. In the **Confirmation** window, click **Delete VPC**.
 
 </TabItem>
+<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc delete` command:
@@ -273,7 +280,7 @@ Run the `avn organization vpc delete` command:
 ```bash
 avn organization vpc delete                     \
   --organization-id ORGANIZATION_ID             \
-  --project-vpc-id ORGANIZATION_VPC_ID
+  --organization-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
@@ -283,27 +290,29 @@ Replace the following:
   `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 
 </TabItem>
+-->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the `OrganizationVpcDelete` endpoint:
 
 ```bash
 curl --request DELETE \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/VPC_ID \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID \
   --header 'Authorization: Bearer BEARER_TOKEN' \
 ```
 
 Replace the following placeholders with meaningful data:
 
 - `ORGANIZATION_ID`
-- `VPC_ID`
+- `ORGANIZATION_VPC_ID`
 - `BEARER_TOKEN`
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
-To delete your
-[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
-resource, run `terraform destroy`.
+To delete your `aiven_organization_vpc` resource, run `terraform destroy`.
+See the
+[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+for details.
 </TabItem>
 </Tabs>
 
