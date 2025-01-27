@@ -14,9 +14,10 @@ upgrading, or reverting versions to maintain production pipeline stability.
 ### Key considerations for multi-version connectors
 
 - Deprecated connector versions may be removed during maintenance updates. If you
-  [pin](#pin-version) a deprecated version, the system alerts you, highlights any
-  known breaking changes, and recommends an upgrade. Upgrade to a supported version to
-  avoid compatibility issues, as support is limited to the most recent versions.
+  [pin](#pin-version) a deprecated version, the system alerts you and recommends an
+  upgrade. The connector will continue to run, but upgrading to a supported version is
+  recommended to avoid compatibility issues. Support is limited to the latest connector
+  versions. Breaking changes, if any, are detailed in maintenance update notifications.
 - Pinning a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
@@ -26,6 +27,29 @@ upgrading, or reverting versions to maintain production pipeline stability.
 - If no version is pinned, the latest available version is used.
 - Refer to [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before pinning a version.
+
+## Supported connectors and versions {#supported-connectors-and-versions}
+
+The following connectors support multi-versioning:
+
+| Connector          | Versions              |
+|---------------------|-----------------------|
+| Debezium            | `2.5.0` (recommended) <br /> `1.9.7` (deprecated) |
+| JDBC                | `6.10.0` (recommended) <br /> `6.9.0` (deprecated) |
+| Snowflake           | `2.3.0` (recommended) <br /> `2.2.0`               |
+
+
+:::tip
+This is a partial list of connectors, and it may change as new versions are released. To
+view the most up-to-date versions, see
+[Check available connector versions](#check-available-connector-versions).
+:::
+
+:::note
+If you are using version `1.9.7` of the Debezium connector, you can upgrade to
+version `2.5.0` without raising a support ticket. To upgrade, pin version `2.5.0` in
+your configuration. For details, see [Pin a connector version](#pin-version).
+:::
 
 ## Prerequisites
 
@@ -43,8 +67,9 @@ that your service is updated to enable this feature.
 
 ## Check available connector versions {#check-available-connector-versions}
 
-Before pinning a connector version, confirm which versions are available for your
-Apache Kafka Connect service. Use one of the following methods:
+Before pinning a connector version, check which versions are available for your
+Apache Kafka Connect service. Verify if a connector supports multi-versioning by
+reviewing the listed versions. Use one of the following methods:
 
 <Tabs groupId="check-method">
 
@@ -111,12 +136,11 @@ Apache Kafka Connect service. Use one of the following methods:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-In Terraform, you can directly specify the desired connector version by using
-the `plugin_versions` attribute in your configuration. This ensures that your
-Aiven for Apache Kafka Connect service uses the exact version you require.
+In Terraform, you can specify the desired connector version using the `plugin_versions`
+attribute in your configuration. This ensures that your Apache Kafka Connect service
+uses the exact version you need.
 
-Refer to the [Pin a connector version](#pin-version) section for detailed steps and
-examples.
+For detailed steps and examples, see [Pin a connector version](#pin-version).
 
 </TabItem>
 </Tabs>
