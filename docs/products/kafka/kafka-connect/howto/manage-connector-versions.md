@@ -28,9 +28,12 @@ upgrading, or reverting versions to maintain production pipeline stability.
 - Refer to [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before pinning a version.
 
-## Supported connectors and versions {#supported-connectors-and-versions}
+## Supported connectors and versions
 
-The following connectors support multi-versioning:
+:::note
+All versions listed in the table are supported unless explicitly noted otherwise.
+:::
+
 
 | Connector          | Versions              |
 |---------------------|-----------------------|
