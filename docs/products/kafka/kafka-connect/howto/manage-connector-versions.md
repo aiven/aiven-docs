@@ -163,7 +163,7 @@ Pinning a plugin version restarts Apache Kafka Connect and reloads all plugins.
 Allow time for the process to complete.
 :::
 
-<Tabs groupId="setup-method">
+<Tabs groupId="check-method">
 <TabItem value="api" label="Aiven API" default>
 
 1. Run the following command:
