@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
 It prevents compatibility issues from automatic updates, avoids breaking changes
 when multiple dependencies rely on a specific connector version, and allows testing,
-upgrading, or reverting versions to maintain production pipeline stability.
+upgrading, or reverting versions to maintain production pipeline stability. You can
+specify the version of a connector by setting the `plugin_versions` property in the
+service configuration.
 
 ## Key considerations for multi-version connectors
 
