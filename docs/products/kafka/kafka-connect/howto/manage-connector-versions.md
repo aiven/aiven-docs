@@ -264,7 +264,7 @@ For detailed information, refer to the
 
 After pinning a version, confirm that the correct version is in use.
 
-<Tabs groupId="verify-method">
+<Tabs groupId="check-method">
 <TabItem value="api" label="Aiven API" default>
 
 1. Run the following command:
