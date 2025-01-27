@@ -11,7 +11,7 @@ It prevents compatibility issues from automatic updates, avoids breaking changes
 when multiple dependencies rely on a specific connector version, and allows testing,
 upgrading, or reverting versions to maintain production pipeline stability.
 
-### Key considerations for multi-version connectors
+## Key considerations for multi-version connectors
 
 - Deprecated connector versions may be removed during maintenance updates. If you
   [pin](#pin-version) a deprecated version, the system alerts you and recommends an
