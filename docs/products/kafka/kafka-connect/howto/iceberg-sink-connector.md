@@ -71,11 +71,11 @@ The following features are planned for future updates to the Iceberg sink connec
 
 ## Create an Iceberg sink connector configuration file
 
-Create a JSON configuration file for the Iceberg Sink Connector. Use the examples below,
+Create a JSON configuration file for the Iceberg sink connector. Use the examples below,
 based on the catalog type:
 
-<Tabs groupId="catalog-type">
-  <TabItem value="rest-catalog" label="AWS Glue as REST Catalog" default>
+<Tabs groupId="setup-method">
+  <TabItem value="rest-catalog" label="AWS Glue as REST catalog" default>
 
 1. Create AWS resources, including an S3 bucket, Glue database, and tables.
 
@@ -87,7 +87,7 @@ based on the catalog type:
 
 1. Add the following configurations to the Iceberg sink connector:
 
-   ```JSON
+   ```json
    {
       "iceberg.tables": "<database-name>.<table-name>",
       "iceberg.tables.auto-create-enabled": "false",
@@ -264,7 +264,7 @@ Parameters:
 
 ## Example: Define and create an Iceberg sink connector
 
-<Tabs groupId="catalog-type">
+<Tabs groupId="setup-method">
   <TabItem value="rest-catalog" label="AWS Glue as REST Catalog" default>
 
 This example shows how to create an Iceberg sink connector using AWS Glue as
@@ -351,8 +351,6 @@ Once these configurations are saved in `iceberg_sink_rest.json` or
 `iceberg_sink_glue.json`, you can create the connector using the Aiven Console or
 Aiven CLI. Verify that data from the Apache Kafka topic `test-topic` is successfully
 ingested into your Iceberg table.
-
-
 
 ## Related pages
 
