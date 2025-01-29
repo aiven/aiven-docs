@@ -6,7 +6,7 @@ import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Migrate your Aiven for Caching or Valkey databases to Aiven for Valkey™ using the Aiven Console migration tool.
+Migrate your Aiven for Caching or Valkey databases to Aiven for Valkey™ using either the Aiven Console migration tool or the Aiven Operator for Kubernetes®.
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ Before starting the migration process, ensure the following:
 - A source Aiven for Caching or Valkey service secured with SSL.
 - A publicly accessible source Aiven for Caching or Valkey service or one with a VPC peering
   connection between private networks. You'll need the VPC ID and cloud name.
-- Depending on what tool to use for the migration:
-  - Access to the [Aiven Console](https://console.aiven.io/)
+- Depending on which tool to use for the migration:
+  - [Aiven Console](https://console.aiven.io/)
   - [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/prerequisites.html)
-    installed
+    version later than 0.15.0 and the [Aiven API](/docs/tools/api)
 
 :::note
 The migration does not include service user accounts or commands in progress.
@@ -102,63 +102,80 @@ The migration does not include service user accounts or commands in progress.
 
 </TabItem>
 <TabItem value="k8" label="Aiven Operator for Kubernetes®">
-
-:::note[Before you start]
-
-- Note that your changes can force the recreation of the affected resources.
-- See
+:::tip
+See
 [Aiven Operator for Kubernetes configuration options for Valkey](https://aiven.github.io/aiven-operator/api-reference/valkey.html).
-
 :::
 
-Update the resource using the Aiven Operator for Kubernetes:
+1. Use the Aiven API to change the type of your service from `redis` to `valkey`: Call the
+   [ServiceServiceTypeUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceServiceTypeUpdate)
+   API endpoint, replacing `PROJECT_NAME` and `SERVICE_NAME` with meaningful values.
 
-1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html).
-1. Update file `valkey-sample.yaml`:
+   ```bash {4}
+   curl -X PATCH "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/service_type" \
+   -H "Authorization: Bearer $AIVEN_TOKEN" \
+   -H "Content-Type: application/json" \
+   -d '{"service_type": "valkey"}'
+   ```
 
-   - Add `service_log: true` and `terminationProtection: true`.
-   - Update `maintenanceWindowDow: sunday` and `maintenanceWindowTime: 22:00:00`.
+1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html)
+   to use the Aiven Operator for Kubernetes.
+1. In your service manifest file, change `kind: Redis` to `kind: Valkey`:
 
-   ```yaml
+   ```yaml {3}
+   # sample_redis.yaml
    apiVersion: aiven.io/v1alpha1
    kind: Valkey
    metadata:
-     name: valkey-sample
+     name: METADATA_NAME
    spec:
      authSecretRef:
        name: aiven-token
        key: token
 
      connInfoSecretTarget:
-       name: valkey-secret
-
-     userConfig:
-       migrate_sstableloader: true
-       service_log: true
+       name: SECRET_NAME
 
      project: PROJECT_NAME
-     cloudName: google-europe-west1
-     plan: startup-4
 
-     maintenanceWindowDow: sunday
-     maintenanceWindowTime: 22:00:00
-     terminationProtection: true
+     cloudName: CLOUD_AND_REGION_NAME
+     plan: SERVICE_PLAN_NAME
+
+     maintenanceWindowDow: DAY_OF_WEEK
+     maintenanceWindowTime: HH:MM:SS
+
+     technicalEmails:
+       - email: test@example.com
+
+     connInfoSecretTargetDisabled: false
    ```
 
 1. Update the service by applying the configuration:
 
-   ```shell
-   kubectl apply -f valkey-sample.yaml
+   ```bash
+   kubectl apply -f sample_redis.yaml
    ```
 
-1. Review the resource you updated with the following command:
+   This creates an Aiven for Valkey resource: a service managed by the Aiven Operator for
+   Kubernetes.
 
-   ```shell
-   kubectl describe valkey.aiven.io valkey-sample
-   ```
+1. In the Aiven for Redis manifest file, add `controllers.aiven.io/deletion-policy: Orphan`
+   under `metadata` > `annotations`.
 
-The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
-changes to `RUNNING`, you are ready to access it.
+1. Delete the Aiven for Redis resource.
+
+   As a result, the Aiven for Redis resource is removed and the new Aiven for Valkey resource
+   persists.
+
+:::important[handling secrets]
+
+- After the migration, the connection secret of your new Aiven for Valkey service has
+  prefixes `REDIS`. To update the secret, change the prefixes manually to `VALKEY`.
+- If you set `connInfoSecretTargetDisabled` to `false` in the service manifest, no secret
+  is created.
+- The secret name is based on `connInfoSecretTarget`.
+
+:::
 
 </TabItem>
 </Tabs>
