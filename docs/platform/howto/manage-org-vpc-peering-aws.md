@@ -44,16 +44,16 @@ create an organization VPC peering connection using a tool of your choice:
 <TabItem value="console" label="Aiven Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
    top navigation bar.
-1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
-1. On the **Organization VPCs** page, select an organization VPC to peer.
-1. On the **Organization VPC details** page, go to the **VPC peering connection** field and
-   click **Add peering connection**.
-1. In the **Add peering connection** window:
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, select an organization VPC to peer.
+1. On the **VPC details** page, go to the **VPC peering connections** section and
+   click **Create peering request**.
+1. In the **Create peering request** window:
    1. Enter the following:
       - **AWS account ID**
       - **AWS VPC region**
       - **AWS VPC ID**
-   1. Click **Add peering connection**.
+   1. Click **Create**.
 
 </TabItem>
 <!--

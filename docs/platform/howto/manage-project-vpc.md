@@ -26,12 +26,12 @@ Create a project VPC using a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
-1.  Log in to [Aiven Console](https://console.aiven.io/), and click
-    <ConsoleLabel name="services"/> > <ConsoleLabel name="vpcs"/>.
+1.  Log in to [Aiven Console](https://console.aiven.io/), go to your project page, and
+    click <ConsoleLabel name="vpcs"/> in the sidebar.
 
-1.  Click **Create VPC**.
+1.  On the **Virtual private clouds** page, click **Create VPC**.
 
-1.  In the **Create a VPC for this project** window:
+1.  In the **Create VPC** window:
 
     1. Select a cloud provider and region.
 
@@ -200,7 +200,7 @@ Migrate a service to a project VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-1. In [Aiven Console](https://console.aiven.io/), open your service and click
+1. In [Aiven Console](https://console.aiven.io/), open your service page and click
    <ConsoleLabel name="Service settings"/>.
 1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
    **Change cloud or region**.
@@ -327,25 +327,3 @@ Safelisting applies to both internal and external traffic. If you
 safelist an external IP address and want to keep traffic flowing with
 the internal (peered) connections, safelist the CIDR blocks of the peered networks as well
 to avoid disruptions to the service.
-
-## Troubleshoot VPC connection issues
-
-Any network changes to VPC peered hosts external from Aiven can cause
-issues with routing to your Aiven services hosted in a VPC. In such
-case, try to refresh your VPC connections.
-
-:::note
-Changes to your VPCs (such as adding a new subnet) can take up to 24
-hours to take effect so wait at least 24 hours before refreshing your VPC
-connections.
-:::
-
-To refresh your VCP connections:
-
-1. In [Aiven Console](https://console.aiven.io/), select <ConsoleLabel name="vpcs"/>.
-1. Find the ID of the affected VPC and select it from the **Internal
-   ID** column.
-1. Select **Refresh VPC connections**.
-
-The platform checks the VPC peering connection and rebuilds the peering
-connection state if there are any changes detected.

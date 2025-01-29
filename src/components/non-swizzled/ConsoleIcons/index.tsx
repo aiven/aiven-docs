@@ -189,13 +189,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Bring your own cloud</b>
         </>
       );
-      case 'organizationvpcs':
-        return (
-          <>
-            <ConsoleIconWrapper icon={ConsoleIcons.cloud} />{' '}
-            <b>Organization VPCs</b>
-          </>
-        );
     case 'eventlog':
       return (
         <>
