@@ -250,18 +250,18 @@ permissions to do so.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
    top navigation bar.
-1. Click <ConsoleLabel name="organizationvpcs"/> in the sidebar.
-1. On the **Organization VPCs** page, select an organization VPC to peer.
-1. On the **Organization VPC details** page, go to the **VPC peering connection** field and
-   click **Add peering connection**.
-1. In the **Add peering connection** window:
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, select an organization VPC to peer.
+1. On the **VPC details** page, go to the **VPC peering connections** section and
+   click **Create peering request**.
+1. In the **Create peering request** window:
    1. Enter the following:
       - **Azure subscription ID**
       - **Resource group**
       - **Network name**
       - **Active Directory tenant ID**
       - **Application object ID**
-   1. Click **Add peering connection**.
+   1. Click **Create**.
 
       This adds a connection with the **Pending peer** status in the
       [Aiven Console](https://console.aiven.io/).

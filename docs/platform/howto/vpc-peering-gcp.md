@@ -50,19 +50,19 @@ create a project VPC peering connection using a tool of your choice:
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your project page.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
 1. On the **Virtual private clouds** page, select a project VPC to peer.
-1. On the **VPC details** page, go to the **VPC peering connection** field and click
-   **Add peering connection**.
-1. In the **Add peering connection** window:
+1. On the **VPC details** page, go to the **VPC peering connections** section and click
+   **Create peering request**.
+1. In the **Create peering request** window:
    1. Enter the following:
       - **GCP project ID**
       - **GCP VPC network name**
-   1. Click **Add peering connection**.
+   1. Click **Create**.
 
       This adds a connection with the **Pending peer** status in the
       [Aiven Console](https://console.aiven.io/).
 1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
 1. Click <ConsoleLabel name="service settings"/> in the sidebar, and make a note of your
-   **Project name** in the **Project settings** field.
+   **Project name** in the **Project settings** section.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
