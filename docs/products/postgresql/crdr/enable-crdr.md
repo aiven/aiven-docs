@@ -28,6 +28,7 @@ Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crd
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 
 ## Set up a recovery service
 
@@ -147,6 +148,12 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
   }
   ```
 
+</TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+Use the
+[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource to create the disaster recovery integration between your primary service and
+the recovery service. Set `integration_type` to `disaster_recovery`.
 </TabItem>
 </Tabs>
 
