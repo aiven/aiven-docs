@@ -280,7 +280,6 @@ const sidebars: SidebarsConfig = {
                       },
                       items: [
                         'platform/howto/manage-org-vpc-peering-aws',
-                        'platform/howto/manage-org-vpc-peering-azure',
                         'platform/howto/manage-org-vpc-peering-google',
                         'platform/howto/manage-org-vpc-peering-upcloud',
                       ],
