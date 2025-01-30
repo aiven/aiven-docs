@@ -189,6 +189,7 @@
 /products/opensearch/reference/index-replication           https://aiven.io/docs/products/opensearch/concepts/index-replication
 /products/opensearch/troubleshooting                       https://aiven.io/docs/products/opensearch
 /products/postgresql/concepts                              https://aiven.io/docs/products/postgresql/concepts/aiven-db-migrate
+/products/postgresql/getting-started                       https://aiven.io/docs/products/postgresql/get-started
 /products/postgresql/howto                                 https://aiven.io/docs/products/postgresql/howto/list-code-samples
 /products/postgresql/howto/list-dba-tasks                  https://aiven.io/docs/products/postgresql/howto/create-database
 /products/postgresql/howto/list-get-started                https://aiven.io/docs/products/postgresql/get-started
