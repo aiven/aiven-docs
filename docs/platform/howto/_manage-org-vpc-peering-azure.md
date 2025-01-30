@@ -28,7 +28,7 @@ permissions to do so.
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) and,
   optionally, the [Microsoft Azure portal](https://portal.azure.com/#home)
 - Access to the [Aiven Console](https://console.aiven.io/)
-  <!-- [Aiven CLI](/docs/tools/cli) installed -->
+- [Aiven CLI](/docs/tools/cli) installed
 - Two VPCs to be peered: an
   [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
   in Aiven and a VNet in your Azure account
@@ -245,32 +245,9 @@ permissions to do so.
 
 <!--
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="cli" label="Aiven CLI" default>
 -->
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
-   top navigation bar.
-1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
-1. On the **Virtual private clouds** page, select an organization VPC to peer.
-1. On the **VPC details** page, go to the **VPC peering connections** section and
-   click **Create peering request**.
-1. In the **Create peering request** window:
-   1. Enter the following:
-      - **Azure subscription ID**
-      - **Resource group**
-      - **Network name**
-      - **Active Directory tenant ID**
-      - **Application object ID**
-   1. Click **Create**.
-
-      This adds a connection with the **Pending peer** status in the
-      [Aiven Console](https://console.aiven.io/).
-1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
-
-<!--
-</TabItem>
-
-<TabItem value="cli" label="Aiven CLI">
 By creating a peering from the Aiven organization VPC to the VNet in your Azure subscription,
 you also create a service principal for the application object
 (`--peer-azure-app-id $user_app_id`) and grant it the permission to peer with the Aiven
@@ -325,6 +302,30 @@ or using the `avn vpc list` command.
    - `to-tenant-id`: It will be referred to as `$aiven_tenant_id`.
    - `to-network-id`: It will be referred to as `$aiven_vnet_id`.
    :::
+
+<!--
+</TabItem>
+
+<TabItem value="gui" label="Aiven Console">
+
+1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
+   top navigation bar.
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, select an organization VPC to peer.
+1. On the **VPC details** page, go to the **VPC peering connections** section and
+   click **Create peering request**.
+1. In the **Create peering request** window:
+   1. Enter the following:
+      - **Azure subscription ID**
+      - **Resource group**
+      - **Network name**
+      - **Active Directory tenant ID**
+      - **Application object ID**
+   1. Click **Create**.
+
+      This adds a connection with the **Pending peer** status in the
+      [Aiven Console](https://console.aiven.io/).
+1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
 
 </TabItem>
 </Tabs>
