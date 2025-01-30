@@ -17,9 +17,9 @@ You can also
 
 Before you begin, ensure that you have the following:
 
-- An [Aiven for Apache Kafka® service](https://docs.aiven.io/docs/products/kafka/kafka-connect/howto/enable-connect)
+- An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with Apache Kafka Connect enabled or a
-  [dedicated Aiven for Apache Kafka Connect® service](https://docs.aiven.io/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+  [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 - Access to a ClickHouse service (either Aiven for ClickHouse or an external instance),
   including:
   - Hostname, port, and credentials for the ClickHouse service.

@@ -24,9 +24,19 @@ jobs:
         run: yarn install --immutable
       - name: Build Docusaurus site
         run: yarn build
-      - name: Index docs output
-        run: node scripts/create_index_algolia.js
+      - name: Update global index
+        run: node scripts/create_index_algolia.cjs
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+      - name: Ping on Slack
+        uses: slackapi/slack-github-action@v1.27.0
+        if: ${{ failure() && github.ref_name == 'main' }}
+        with:
+          payload: |
+            {
+              "runId": "${{github.run_id}}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_ALGOLIA_INDEX_UPDATE }}

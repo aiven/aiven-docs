@@ -1,8 +1,6 @@
 3. Paste the certificate from the IdP into the **Certificate** field.
-4. Optional: Paste or upload a JSON file with configuration details
-   for your IdP.
-5. Click **Next**.
-7. Configure the security options for this IdP and click **Next**.
+4. Click **Next**.
+5. Configure the security options for this IdP and click **Next**.
     -   **Require authentication context**: This lets the IdP enforce
         stricter security measures to help prevent unauthorized access,
         such as requiring multi-factor authentication.
@@ -29,8 +27,8 @@
           when the group membership syncs.
         :::
 
-8. Optional: Select a user group to add all users who sign up with this IdP to.
-9. Click **Finish** to complete the setup.
+6. Optional: Select a user group to add all users who sign up with this IdP to.
+7. Click **Finish** to complete the setup.
 
 :::note
 If you set up a SAML authentication method before and are now switching

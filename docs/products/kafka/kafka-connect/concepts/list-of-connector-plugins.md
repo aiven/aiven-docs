@@ -15,10 +15,14 @@ Apache Kafka topic. The available source connectors include:
 - [Debezium for MySQL](https://debezium.io/docs/connectors/mysql/)
 - [Debezium for PostgreSQL®](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-pg)
 - [Debezium for SQL Server](https://debezium.io/docs/connectors/sqlserver/)
+- [Debezium for PostgreSQL with TLS support](/docs/products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg)
+- [Debezium for PostgreSQL with node replacement](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement)
 - [Google Cloud Pub/Sub](https://github.com/googleapis/java-pubsub-group-kafka-connector/)
 - [Google Cloud Pub/Sub Lite](https://github.com/googleapis/java-pubsub-group-kafka-connector/)
-- [JDBC](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/source-connector.md)
-- [Official MongoDB®](https://www.mongodb.com/docs/kafka-connector/current/)
+- [JDBC source for MySQL](/docs/products/kafka/kafka-connect/howto/jdbc-source-connector-mysql)
+- [JDBC source for PostgreSQL](/docs/products/kafka/kafka-connect/howto/jdbc-source-connector-pg)
+- [JDBC source for SQL Server](/docs/products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server)
+- [MongoDB Kafka Connector (Official)](https://www.mongodb.com/docs/kafka-connector/current/) (supports both source and sink functionality)
 - [Stream Reactor Cassandra®](https://docs.lenses.io/5.1/connectors/sources/cassandrasourceconnector/)
 - [Stream Reactor MQTT](https://docs.lenses.io/5.1/connectors/sources/mqttsourceconnector/)
 
@@ -29,6 +33,7 @@ target technology. The available sink connectors include:
 
 - [Amazon S3 sink connector](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-aiven)
 - [Azure Blob Storage sink connector](/docs/products/kafka/kafka-connect/howto/azure-blob-sink)
+- [ClickHouse sink connector](https://github.com/ClickHouse/clickhouse-kafka-connect)
 - [Confluent Amazon S3 sink](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-confluent)
 - [Couchbase®](https://github.com/couchbase/kafka-connect-couchbase)
 - [Elasticsearch](/docs/products/kafka/kafka-connect/howto/elasticsearch-sink)
@@ -38,8 +43,9 @@ target technology. The available sink connectors include:
 - [Google Cloud Storage](/docs/products/kafka/kafka-connect/howto/gcs-sink)
 - [HTTP](https://github.com/aiven/http-connector-for-apache-kafka)
 - [IBM MQ sink connector](/docs/products/kafka/kafka-connect/howto/ibm-mq-sink-connector)
-- [JDBC](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
-- [Official MongoDB®](https://docs.mongodb.com/kafka-connector/current/)
+- [InfluxDB sink connector](/docs/products/kafka/kafka-connect/howto/influx-sink)
+- [JDBC sink](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
+- [MongoDB sink (Lenses)](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses)
 - [OpenSearch®](/docs/products/kafka/kafka-connect/howto/opensearch-sink)
 - [Snowflake](https://docs.snowflake.com/en/user-guide/kafka-connector)
 - [Splunk](https://github.com/splunk/kafka-connect-splunk)
@@ -47,7 +53,8 @@ target technology. The available sink connectors include:
 - [Stream Reactor InfluxDB®](https://docs.lenses.io/5.1/connectors/sinks/influxsinkconnector/)
 - [Stream Reactor MongoDB®](https://docs.lenses.io/5.1/connectors/sinks/mongosinkconnector/)
 - [Stream Reactor MQTT](https://docs.lenses.io/5.1/connectors/sinks/mqttsinkconnector/)
-- [Stream Reactor Redis®*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
+- [Stream Reactor Redis®\*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
+- [S3 IAM Assume Role](/docs/products/kafka/kafka-connect/howto/s3-iam-assume-role)
 
 ## Preview connectors
 

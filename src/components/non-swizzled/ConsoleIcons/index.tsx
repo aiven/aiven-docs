@@ -204,7 +204,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'orgpermissions':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.blockedPerson} /> <b>Permissions</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.blockedPerson} />{' '}
+          <b>Permissions</b>
         </>
       );
     case 'users':
@@ -519,11 +520,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.queries} /> <b>Query editor</b>
         </>
       );
-    case 'replicationflow':
+    case 'opensearchindexes':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />
-          <b>Replication flow</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.indexes} /> <b>Indexes</b>
         </>
       );
 

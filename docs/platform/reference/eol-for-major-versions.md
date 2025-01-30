@@ -100,7 +100,7 @@ after they are made available on the Aiven platform.
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 | ------- | ---------- | -------------------------------- | ------------------------------- |
 | 3       | 2022-07-27 | 2022-04-27                       | 2018-11-08                      |
-| 4.0     | 2024-09-30 | 2024-09-30                       | 2021-12-09                      |
+| 4.0     | 2025-01-31 | 2024-10-31                       | 2021-12-09                      |
 | 4.1     | 2025-09-30 | To be announced                  | 2024-01-18                      |
 
 
