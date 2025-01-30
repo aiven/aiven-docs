@@ -107,7 +107,43 @@ See
 [Aiven Operator for Kubernetes configuration options for Valkey](https://aiven.github.io/aiven-operator/api-reference/valkey.html).
 :::
 
-1. Use the Aiven API to change the type of your service from `redis` to `valkey`: Call the
+1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html)
+   to use the Aiven Operator for Kubernetes.
+
+1. Add the deletion policy annotation in the Aiven for Redis manifest.
+
+   1. In the manifest file of your Aiven for Redis service, for example `redis-service.yaml`,
+      add the deletion policy annotation: `controllers.aiven.io/deletion-policy: Orphan`.
+
+      ```yaml {4,5}
+      apiVersion: aiven.io/v1alpha1
+      kind: Redis
+      metadata:
+        annotations:
+          controllers.aiven.io/deletion-policy: Orphan
+        name: SERVICE_NAME
+      spec:
+        project: PROJECT_NAME
+        cloudName: CLOUD_AND_REGION_NAME
+        plan: SERVICE_PLAN_NAME
+      ```
+
+   1. Update the service by applying the configuration:
+
+      ```bash
+      kubectl apply -f redis-service.yaml
+      ```
+
+   1. Verify that the annotation has been applied:
+
+      ```bash
+      kubectl get redis SERVICE_NAME -o yaml | grep -m 1 Orphan
+       controllers.aiven.io/deletion-policy: Orphan
+      ```
+
+1. Migrate your Aiven for Redis service in the Aiven API.
+
+   Change the service type from `redis` to `valkey` by calling the
    [ServiceServiceTypeUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceServiceTypeUpdate)
    API endpoint, replacing `PROJECT_NAME` and `SERVICE_NAME` with meaningful values.
 
@@ -118,49 +154,91 @@ See
    -d '{"service_type": "valkey"}'
    ```
 
-1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html)
-   to use the Aiven Operator for Kubernetes.
-1. In your service manifest file, here `redis-service.yaml`,  change `kind: Redis` to
-   `kind: Valkey`:
+1. Migrate your Aiven for Redis service in Kubernetes:
 
-   ```yaml {2}
-   apiVersion: aiven.io/v1alpha1
-   kind: Valkey
-   metadata:
-     name: SERVICE_NAME
-   spec:
-     project: PROJECT_NAME
-     cloudName: CLOUD_AND_REGION_NAME
-     plan: SERVICE_PLAN_NAME
-   ```
+   1. Copy the content of the Aiven for Redis manifest file (`redis-service.yaml`) to a new
+      Aiven for Valkey manifest file (`valkey-service.yaml`) with CLI:
 
-1. Update the service by applying the configuration:
+      ```bash
+      cp redis-service.yaml valkey-service.yaml
+      ```
 
-   ```bash
-   kubectl apply -f redis-service.yaml
-   ```
+   1. Modify the new Aiven for Valkey manifest file (`valkey-service.yaml`):
 
-   This creates an Aiven for Valkey resource: a service managed by the Aiven Operator for
-   Kubernetes.
+      - Replace `kind: Redis` with `kind: Valkey`.
+      - Add the `connInfoSecretTarget` object and the `name` property. Set `name` to the
+        name of the secret for the new Aiven for Valkey resource.
 
-1. In the Aiven for Redis manifest file, add `controllers.aiven.io/deletion-policy: Orphan`
-   under `metadata` > `annotations`.
+      :::note
+      By default, the secret for the new Aiven for Valkey resource gets the `VALKEY` prefix.
+      To keep the `REDIS` prefix, add the `prefix: REDIS` property in the
+      `connInfoSecretTarget` object.
+      :::
 
-1. Delete the Aiven for Redis resource in Kubernetes:
+      ```yaml {2,10,11,12}
+      apiVersion: aiven.io/v1alpha1
+      kind: Valkey
+      metadata:
+        name: SERVICE_NAME
+      spec:
+        authSecretRef:
+          name: aiven-token
+          key: token
 
-   ```bash
-   kubectl delete -f redis-service.yaml
-   ```
+        connInfoSecretTarget:
+          name: NEW_VALKEY_SECRET
+        # prefix: REDIS
+      ```
 
-:::important[handling secrets]
+   1. Create the Aiven for Valkey resource by applying the configuration:
 
-- After the migration, the connection secret of your new Aiven for Valkey service has
-  prefixes `REDIS`. To update the secret, change the prefixes manually to `VALKEY`.
-- If you set `connInfoSecretTargetDisabled` to `false` in the service manifest, no secret
-  is created.
-- The secret name is based on `connInfoSecretTarget`.
+      ```bash
+      kubectl apply -f valkey-service.yaml
+      ```
 
-:::
+   1. Verify that the Aiven for Valkey secret has been created:
+
+      ```bash
+      kubectl get secrets
+      ```
+
+      Expected output:
+
+      ```txt
+      NAME               TYPE     DATA   AGE
+      OLD_REDIS_SECRET   Opaque   NN     HHMMSS
+      NEW_VALKEY_SECRET  Opaque   NN     HHMMSS
+      ```
+
+1. Update your applications to use the new Aiven for Valkey secret.
+
+1. Delete your Aiven for Redis resource in Kubernetes:
+
+   1. Run
+
+      ```bash
+      kubectl delete -f redis-service.yaml
+      ```
+
+      Expected output:
+
+      ```txt
+      redis.aiven.io "SERVICE_NAME" deleted
+      ```
+
+   1. Verify that the Aiven for Valkey secret persists and the Aiven for Redis secret is
+      deleted:
+
+      ```bash
+      kubectl get secrets
+      ```
+
+      Expected output:
+
+      ```txt
+      NAME               TYPE     DATA   AGE
+      NEW_VALKEY_SECRET  Opaque   NN     HHMMSS
+      ```
 
 </TabItem>
 </Tabs>
