@@ -175,8 +175,11 @@ Allow time for the process to complete.
    -H "Authorization: Bearer <api_token>" \
    -H "Content-Type: application/json" \
    -d '{
-         "plugin_versions": {
-           "<plugin_name>": "<version>"
+         "user_config": {
+           "plugin_versions": [{
+             "plugin_name": "<plugin_name>",
+             "version": "<version>"
+           }]
          }
        }'
    ```
@@ -203,7 +206,7 @@ Allow time for the process to complete.
 
    ```bash
    avn service update <service_name> --project <project_name> \
-   -c 'plugin_versions={"<plugin_name>": "<version>"}'
+   -c plugin_versions='[{"plugin_name":"<plugin_name>","version":"<version>"}]'
    ```
 
    Parameters:
@@ -225,15 +228,16 @@ Allow time for the process to complete.
 1. Update your Terraform configuration:
 
    ```hcl
-   resource "aiven_service" "kafka_connect" {
+   resource "aiven_kafka_connect" "my_aiven_kafka_connect" {
      service_name = "<service_name>"
      project      = "<project_name>"
 
-     user_config {
-       plugin_versions = {
-         "<plugin_name>" = "<version>"
-       }
-     }
+     kafka_connect_user_config {
+       plugin_versions {
+         plugin_name = "<plugin_name>"
+         version = "<version>"
+      }
+    }
    }
    ```
 
