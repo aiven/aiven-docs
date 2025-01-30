@@ -120,40 +120,24 @@ See
 
 1. [Get authenticated and authorized](https://aiven.github.io/aiven-operator/authentication.html)
    to use the Aiven Operator for Kubernetes.
-1. In your service manifest file, change `kind: Redis` to `kind: Valkey`:
+1. In your service manifest file, here `redis-service.yaml`,  change `kind: Redis` to
+   `kind: Valkey`:
 
-   ```yaml {3}
-   # sample_redis.yaml
+   ```yaml {2}
    apiVersion: aiven.io/v1alpha1
    kind: Valkey
    metadata:
-     name: METADATA_NAME
+     name: SERVICE_NAME
    spec:
-     authSecretRef:
-       name: aiven-token
-       key: token
-
-     connInfoSecretTarget:
-       name: SECRET_NAME
-
      project: PROJECT_NAME
-
      cloudName: CLOUD_AND_REGION_NAME
      plan: SERVICE_PLAN_NAME
-
-     maintenanceWindowDow: DAY_OF_WEEK
-     maintenanceWindowTime: HH:MM:SS
-
-     technicalEmails:
-       - email: test@example.com
-
-     connInfoSecretTargetDisabled: false
    ```
 
 1. Update the service by applying the configuration:
 
    ```bash
-   kubectl apply -f sample_redis.yaml
+   kubectl apply -f redis-service.yaml
    ```
 
    This creates an Aiven for Valkey resource: a service managed by the Aiven Operator for
@@ -162,10 +146,11 @@ See
 1. In the Aiven for Redis manifest file, add `controllers.aiven.io/deletion-policy: Orphan`
    under `metadata` > `annotations`.
 
-1. Delete the Aiven for Redis resource.
+1. Delete the Aiven for Redis resource in Kubernetes:
 
-   As a result, the Aiven for Redis resource is removed and the new Aiven for Valkey resource
-   persists.
+   ```bash
+   kubectl delete -f redis-service.yaml
+   ```
 
 :::important[handling secrets]
 
