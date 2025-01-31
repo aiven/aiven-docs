@@ -25,7 +25,7 @@ The process retains configurations, users, and data without disrupting your serv
 
 ## What to expect during the upgrade
 
-- **No new service created**: The upgrate changes the type of the existing service.
+- **No new service created**: The upgrade changes the type of the existing service.
 - **No service disruption**: The upgrade occurs without interruption. The service
   is recycled, and the nodes are replaced, but your service continues to
   operate during the process.
