@@ -15,6 +15,22 @@ The cross-region disaster recovery (CRDR) feature ensures your business continui
 automatically recovering your workloads to a remote region in the event of a region-wide
 failure.
 
+## Region-wide outage
+
+Although CRDR detects a region failure and recovers your workloads in another region
+automatically, you still might want to look into the region status yourself for a variety
+of reasons. To do that, you can:
+
+- Check your monitoring and alerts, and watch the following metrics:
+  - Instances, notes, services failures
+  - Connectivity loss, latency spikes, packet drops
+  - High error rates, timeouts, 5xx server errors
+- Check your cloud provider's status page:
+  - [AWS](https://health.aws.amazon.com)
+  - [Google Cloud](https://status.cloud.google.com)
+  - [Azure](https://status.azure.com)
+- Test connectivity and DNS resolution for your instances or services.
+
 ## CRDR overview
 
 The CRDR setup is a pair of integrated multi-node services sharing credentials and a
