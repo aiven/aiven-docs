@@ -117,7 +117,12 @@ See
 
       ```bash
       kubectl get redis SERVICE_NAME -o yaml | grep -m 1 Orphan
-       controllers.aiven.io/deletion-policy: Orphan
+      ```
+
+      Expected output:
+
+      ```txt
+      controllers.aiven.io/deletion-policy: Orphan
       ```
 
 1. Migrate your Aiven for Redis service in the Aiven API.
