@@ -49,7 +49,16 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
     Aiven Autoscaler.
 1.  When disk storage consumption reaches the threshold for a specific
     service, usually within minutes Aiven Autoscaler increases available storage space
-    by 10% every time taking the used disk space as a baseline.
+    by **at least 10%** every time, taking used disk space as a baseline.
+
+    :::important
+    The exact increase depends on:
+
+    - The service type
+    - The cloud provider
+
+    Some providers enforce a minimum of 10 GB.
+    :::
 
     :::note[Autoscale thresholds per service type]
     The threshold at which disk autoscaling is triggered is a percentage of
