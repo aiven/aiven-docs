@@ -1,6 +1,7 @@
 ---
 title: Create an Iceberg sink connector for Aiven for Apache Kafka®
 sidebar_label: Iceberg sink connector
+early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -358,7 +359,15 @@ REST Catalog with the following properties:
   "iceberg.control.commit.interval-ms": "1000",
   "iceberg.control.commit.timeout-ms": "2147483647",
   "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-  "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "iceberg.kafka.bootstrap.servers": "kafka.example.com:9092",
+  "iceberg.kafka.security.protocol": "SSL",
+  "iceberg.kafka.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "iceberg.kafka.ssl.keystore.password": "password",
+  "iceberg.kafka.ssl.keystore.type": "PKCS12",
+  "iceberg.kafka.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "iceberg.kafka.ssl.truststore.password": "<your-truststore-password>",
+  "iceberg.kafka.ssl.key.password": "<your-key-password>"
 }
 ```
 
@@ -399,7 +408,15 @@ with the following properties:
   "iceberg.control.commit.interval-ms": "1000",
   "iceberg.control.commit.timeout-ms": "2147483647",
   "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-  "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "iceberg.kafka.bootstrap.servers": "kafka.example.com:9092",
+  "iceberg.kafka.security.protocol": "SSL",
+  "iceberg.kafka.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "iceberg.kafka.ssl.keystore.password": "password",
+  "iceberg.kafka.ssl.keystore.type": "PKCS12",
+  "iceberg.kafka.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "iceberg.kafka.ssl.truststore.password": "<your-truststore-password>",
+  "iceberg.kafka.ssl.key.password": "<your-key-password>"
 }
 ```
 
@@ -408,8 +425,8 @@ with the following properties:
 
 Once these configurations are saved in `iceberg_sink_rest.json` or
 `iceberg_sink_glue.json`, you can create the connector using the Aiven Console or
-Aiven CLI. Verify that data from the Apache Kafka topic `test-topic` is successfully
-ingested into your Iceberg table.
+Aiven CLI. Verify that the connector is running and that data from the Apache Kafka
+topic` test-topic` is successfully written to the Iceberg table.
 
 ## Related pages
 
