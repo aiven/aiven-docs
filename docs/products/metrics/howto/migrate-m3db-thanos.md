@@ -39,7 +39,7 @@ meets the following prerequisites:
    Aiven for Metrics service for your M3DB database migration.
 1. Go to <ConsoleLabel name="service settings"/> from the sidebar.
 1. Scroll to the **Service management** section, and click
-   <ConsoleLabel name="actions"/> > **Import database** to initiate the import process.
+   <ConsoleLabel name="actions"/> > **Migrate database** to initiate the import process.
 1. Follow the wizard to guide you through the database migration process.
 
 ### Step 1: Configure
@@ -106,3 +106,5 @@ with continuous synchronization of new writes from the source database.
 ## Related Pages
 
 - [Aiven for Thanos Metrics Overview](/docs/products/metrics)
+- [Migrate your Terraform M3DB resources](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#migrate-from-m3db-to-thanos-metrics)
+  to Aiven for Thanos Metrics.
