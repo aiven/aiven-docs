@@ -226,7 +226,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       Terraform Provider, CLI, and Kubernetes Operator."
     />
     <Card
-      to="/docs/platform/howto/manage-vpc-peering"
+      to="/docs/platform/howto/manage-project-vpc"
       iconName="clipboard"
       title="Create a virtual private cloud"
       description="Connect private networks with each other without going

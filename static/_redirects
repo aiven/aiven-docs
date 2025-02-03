@@ -235,6 +235,7 @@
 /tools/terraform/reference/troubleshooting/private-access-error       https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                          https://aiven.io/developer
 /valkey                                                               https://aiven.io/docs/products/valkey
+/platform/howto/manage-vpc-peering                         https://aiven.io/docs/platform/howto/manage-project-vpc
 
 #
 # Keep splats at the end
