@@ -127,12 +127,19 @@ a
       </td>
     </tr>
     <tr>
-      <td>Creating a database using SQL</td>
+      <td>Creating or deleting a database using SQL</td>
       <td>
-          You cannot create a database directly using SQL, for example, if you'd
-          like to add a non-default database.
+        <ul>
+          <li>Only the `avnadmin` user can create databases in SQL.</li>
+          <li>You can create a database in SQL with the `Replicated` database engine only.</li>
+          <li>By default, only the `aiven` user can delete a database. The `aiven` user
+              can grant the permission to delete a database to another user.</li>
+        </ul>
       </td>
-      <td>Use the Aiven's public API.</td>
+      <td>
+        To work around this limitation, use [Aiven's API](https://api.aiven.io/doc/)
+        or the [Aiven Console](https://console.aiven.io/).
+      </td>
     </tr>
     <tr>
       <td>Scaling down the number of nodes</td>

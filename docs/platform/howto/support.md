@@ -10,7 +10,8 @@ the [Aiven Community Forum](https://aiven.io/community/forum/).
 ## Change your support tier {#upgrade-support-tier}
 
 To change your organization's support tier, you must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+and have at least the Basic support tier.
 
 1.  In the organization, click **Admin**.
 
