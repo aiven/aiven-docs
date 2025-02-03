@@ -142,6 +142,11 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
+Object storage in your AWS cloud account is where service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+two S3 buckets.
+
 </TabItem>
 <TabItem value="2" label="AWS public">
 
@@ -155,6 +160,12 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
+
+Object storage in your AWS cloud account is where service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+two S3 buckets.
+
 </TabItem>
 <TabItem value="3" label="Google Cloud private">
 
@@ -184,6 +195,11 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
+Object storage in your Google Cloud organization is
+where service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+Google **Cloud Storage** buckets.
+
 </TabItem>
 <TabItem value="4" label="Google Cloud public">
 
@@ -197,6 +213,12 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
+
+Object storage in your Google Cloud organization is
+where service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+Google **Cloud Storage** buckets.
+
 </TabItem>
 </Tabs>
 
@@ -209,10 +231,12 @@ All Aiven communication is encrypted.
 Depending on the BYOC service, Aiven takes
 [regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
 in time recovery (PITR), and disaster recovery.
-These backups by default do not reside in your cloud. If there is a
-requirement to have all backups in your own cloud account, it's still possible.
-To accomplish this, Aiven needs read-write permissions to access the object storage on
-your cloud account.
+
+BYOC-hosted services have user-owned backups stored in object storage in your AWS
+account or your Google Cloud organization. Backups reside in:
+
+- S3 buckets for AWS BYOC environments
+- Cloud Storage buckets for Google Cloud BYOC environments
 
 :::important
 
@@ -233,4 +257,4 @@ Aiven deployment model.
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
--   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)
+-   [Store BYOC data in your own cloud account](/docs/platform/howto/byoc/store-data)
