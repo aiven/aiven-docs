@@ -1,6 +1,7 @@
 ---
 title: Manage an organization VPC peering with AWS
 sidebar_label: AWS peering
+limited: true
 ---
 
 import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";

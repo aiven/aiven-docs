@@ -1,6 +1,7 @@
 ---
 title: Manage organization VPC peering with UpCloud
 sidebar_label: UpCloud peering
+limited: true
 ---
 
 import CollectDataUpcloud from "@site/static/includes/vpc/collect-data-upcloud.md";

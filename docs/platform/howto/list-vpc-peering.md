@@ -33,13 +33,11 @@ the public internet.
 
 Aiven allows you to set up peering connections for
 [project VPCs](/docs/platform/concepts/vpcs#project-vpcs)
-and for [organization VPCs](/docs/platform/concepts/vpcs#organization-vpcs).
+and for [organization VPCs](/docs/platform/concepts/vpcs#vpc-types).
 
 <DocCardList />
 
-Both [project VPCs](/docs/platform/concepts/vpcs#project-vpcs) and
-[organization VPCs](/docs/platform/concepts/vpcs#organization-vpcs) can be peered with
-VPCs in the following cloud platforms:
+Aiven VPCs can be peered with VPCs in the following cloud platforms:
 
 - Google Cloud
 - Amazon Web Services

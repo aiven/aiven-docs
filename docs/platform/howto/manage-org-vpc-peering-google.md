@@ -1,6 +1,7 @@
 ---
 title: Manage organization VPC peering with Google Cloud
 sidebar_label: Google Cloud peering
+limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";

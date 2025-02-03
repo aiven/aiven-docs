@@ -3,6 +3,8 @@ title: Virtual private clouds (VPCs) in Aiven
 sidebar_label: VPCs overview
 ---
 
+import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
+
 Virtual private clouds (VPCs) supported on the Aiven Platform provide enhanced security, flexibility, and network control, allowing efficient traffic, resource, and access management.
 
 A VPC is a logically isolated section of a cloud provider's network, which makes it a
@@ -48,7 +50,7 @@ you define and control to deploy and manage resources.
 
 The Aiven Platform allows creating and using two types of VPCs, which differ in scope:
 [project-wide VPCs](/docs/platform/concepts/vpcs#project-vpcs) and
-[organization-wide VPCs](/docs/platform/concepts/vpcs#organization-vpcs).
+[organization-wide VPCs](/docs/platform/concepts/vpcs#vpc-types
 
 ### Project VPCs
 
@@ -60,7 +62,7 @@ project's services.
 Learn how to
 [create and manage projects VPCs in Aiven](/docs/platform/howto/manage-project-vpc).
 
-### Organization VPCs
+### Organization VPCs <LimitedBadge/>
 
 An organization VPC is a VPC that spans multiple Aiven projects within your Aiven
 organization. An organization-wide VPC allows different projects to share a centralized
