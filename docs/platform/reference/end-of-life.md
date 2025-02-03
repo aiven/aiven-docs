@@ -96,3 +96,24 @@ For upgrade instructions, see
 To ensure uninterrupted service, complete your migration to Aiven for Valkey before
 March 31, 2025. For further assistance, contact the
 [Aiven support team](mailto:support@aiven.io) or your account team.
+
+## Aiven for Apache Cassandra®
+
+**EOL date**: December 31, 2025
+
+### Service impact
+
+- **End of availability (EOA)**: November 30, 2025
+
+  After this date, you can no longer create new Aiven for Apache Cassandra services.
+  Existing services continue to operate until the end of life (EOL) date.
+
+- **End of life (EOL)**: December 31, 2025
+
+  After December 31, 2025, all active Aiven for Apache Cassandra services are powered off
+  and deleted, making data from these services inaccessible.
+
+### Migration options
+
+To ensure uninterrupted service, complete your migration out of Aiven for Apache Cassandra
+before December 31, 2025. For further assistance, contact your account team.
