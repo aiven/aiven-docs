@@ -115,7 +115,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
     "iceberg.control.commit.timeout-ms": "2147483647",
     "iceberg.catalog.type": "rest",
     "iceberg.catalog.uri": "https://glue.<your-aws-region>.amazonaws.com/iceberg",
-    "iceberg.catalog.warehouse": "s3://<your-bucket-name>",
+    "iceberg.catalog.warehouse": "<your-aws-account-id>",
     "iceberg.catalog.client.region": "<your-aws-region>",
     "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
     "iceberg.catalog.rest.signing-name": "glue",
@@ -171,7 +171,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
    - `iceberg.catalog.type`: Specify the Iceberg catalog type. Use `rest` for
      AWS Glue REST catalog.
    - `iceberg.catalog.uri`: Set the URI of the Iceberg REST catalog.
-   - `iceberg.catalog.warehouse`: Set the S3 bucket URI where Iceberg data is stored.
+   - `iceberg.catalog.warehouse`: Set the AWS account ID when using the REST catalog.
    - `iceberg.catalog.client.region`: Set the AWS region for Iceberg catalog operations.
    - `iceberg.catalog.io-impl`: Specify the file I/O implementation. Use
      `org.apache.iceberg.aws.s3.S3FileIO` for AWS S3.
@@ -347,7 +347,7 @@ REST Catalog with the following properties:
   "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
   "iceberg.catalog.s3.access-key-id": "your-access-key-id",
   "iceberg.catalog.s3.secret-access-key": "your-secret-access-key",
-  "iceberg.catalog.warehouse": "s3://my-s3-bucket",
+  "iceberg.catalog.warehouse": "<your-aws-account-id>",
   "iceberg.tables": "mydatabase.mytable",
   "iceberg.tables.auto-create-enabled": "false",
   "iceberg.control.commit.interval-ms": "1000",
@@ -396,7 +396,7 @@ with the following properties:
   "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
   "iceberg.catalog.s3.access-key-id": "your-access-key-id",
   "iceberg.catalog.s3.secret-access-key": "your-secret-access-key",
-  "iceberg.catalog.warehouse": "s3://my-s3-bucket",
+  "iceberg.catalog.warehouse": "s3://<your-bucket-name>",
   "iceberg.tables": "mydatabase.mytable",
   "iceberg.tables.auto-create-enabled": "true",
   "iceberg.control.commit.interval-ms": "1000",
