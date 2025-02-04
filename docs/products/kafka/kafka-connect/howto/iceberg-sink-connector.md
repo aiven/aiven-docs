@@ -8,22 +8,21 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
-Integrate Aiven for Apache Kafka® with Apache Iceberg for real-time data ingestion into Iceberg tables.
+Integrate Aiven for Apache Kafka® with the Iceberg sink connector to ingest real-time data into Iceberg tables for analytics and storage.
 <!-- vale off -->
-The connector supports exactly-once delivery, schema evolution, and metadata management.
-It is optimized for large-scale, high-performance data processing. For more
-details, see the
+It supports exactly-once delivery, schema evolution, and metadata management and is
+optimized for large-scale, high-performance data processing. For more details, see the
 [official Iceberg documentation](https://iceberg.apache.org/docs/latest/kafka-connect/#apache-iceberg-sink-connector).
 
 ## Catalogs in Iceberg
 
 In Apache Iceberg, a catalog stores table metadata and supports key operations such as
-creating, renaming, and deleting tables. Catalogs manage collections of tables organized
-into namespaces and provide the metadata needed for access.
+creating, renaming, and deleting tables. It manages collections of tables organized
+into namespaces and provides the metadata needed for access.
 
 The Iceberg sink connector writes data to storage backends, while the catalog manages
-metadata, enabling multiple compute engines to share a common data layer. It supports
-the following catalog types in Aiven for Apache Kafka Connect:
+metadata, allowing multiple compute engines to share a common data layer. The connector
+supports the following catalog types:
 
 - **AWS Glue REST catalog:** An AWS-managed catalog leveraging the Iceberg REST API.
 - **AWS Glue catalog:** A native AWS Glue implementation for Iceberg.
@@ -46,7 +45,7 @@ The Iceberg sink connector supports the following settings:
 
 ## Future enhancements
 
-Future updates to the Iceberg sink connector includes:
+Future updates to the Iceberg sink connector include:
 
 - **FileIO implementations:** Support for GCS and Azure FileIO.
 - **Write formats:** Additional support for Avro and ORC formats.
@@ -57,6 +56,9 @@ Future updates to the Iceberg sink connector includes:
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with Apache Kafka Connect enabled, or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- Apache Kafka client settings: The Iceberg sink connector requires these settings to
+  connect to the Iceberg control topic. For a full list of supported configurations, see
+  [Iceberg configuration](https://iceberg.apache.org/docs/latest/kafka-connect/#kafka-configuration).
 - AWS-specific setup:
   - Create an **S3 bucket** to store data.
   - Configure **AWS IAM roles** with the following permissions:
@@ -75,17 +77,12 @@ are not supported in this release.
 
 ## Create an Iceberg sink connector configuration
 
-The Iceberg sink connector requires Apache Kafka client settings to connect to the
-Iceberg control topic. See the
-[Iceberg configuration](https://iceberg.apache.org/docs/latest/kafka-connect/#kafka-configuration)
-for a complete list of supported Apache Kafka configurations.
+To configure the Iceberg sink connector, define a JSON configuration file. Use the
+examples below based on your selected catalog type:
 
 :::note
 Loading worker properties is not supported. Use `iceberg.kafka.*` properties instead.
 :::
-
-To configure the Iceberg sink connector, define a JSON configuration file. Use the
-examples below based on your selected catalog type:
 
 <Tabs groupId="setup-method">
   <TabItem value="rest-catalog" label="AWS Glue REST catalog" default>
@@ -266,13 +263,13 @@ examples below based on your selected catalog type:
    - `iceberg.catalog.client.credentials-provider`: Specify the credentials provider for
      AWS Glue catalog.
 
-   :::note
-   The Kafka security settings remain the same as in the AWS Glue REST catalog
-   configuration.
-   :::
-
 </TabItem>
 </Tabs>
+
+:::note
+Apache Kafka security settings are the same for both AWS Glue REST and AWS Glue
+catalog configurations.
+:::
 
 For a complete list of configurations,
 see [Iceberg configuration](https://iceberg.apache.org/docs/latest/kafka-connect/#configuration).
