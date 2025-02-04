@@ -9,10 +9,11 @@ Aiven for M3 consists of `n` number of **M3DB** and **M3 Coordinator**
 pairs (where `n` is the number of nodes as chosen for your Aiven plan).
 
 :::important
-Aiven for M3DB will be deprecated later this year. Consider using
-[Aiven for Metrics](/docs/products/metrics) as an alternative.
+Aiven for M3DB will be **deprecated later this year and will no longer be available.**
+Use [Aiven for Metrics](/docs/products/metrics), powered by Thanos, to store and q
+uery metrics efficiently.
 
-For details about the deprecation timeline and migration options, see
+For details on the deprecation timeline and migration options, see
 [Aiven for M3DB end of life](/docs/platform/reference/end-of-life#aiven-for-m3db).
 :::
 
