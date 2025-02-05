@@ -8,15 +8,13 @@ Aiven for M3 is a fully managed **distributed time series database**, deployable
 Aiven for M3 consists of `n` number of **M3DB** and **M3 Coordinator**
 pairs (where `n` is the number of nodes as chosen for your Aiven plan).
 
-M3 is a great choice if your organization has a very large volume of
-metrics to handle, and it can be used as part of your observability
-solution. It is optimized for storing and serving time series through
-associated pairs of times and values. It also provides a reverse index
-of time series.
+:::important
+Aiven for M3DB will be **deprecated later this year and will no longer be available**.
+Use [Aiven for Metrics](/docs/products/metrics), powered by Thanos, to store and
+query metrics efficiently.
 
-:::note
-Aiven offers M3 because we ourselves needed a solution that would work
-with the size of our own metrics.
+For details on the deprecation timeline and migration options, see
+[Aiven for M3DB end of life](/docs/platform/reference/end-of-life#aiven-for-m3db).
 :::
 
 Read more about [the M3
