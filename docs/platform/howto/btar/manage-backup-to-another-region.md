@@ -4,6 +4,8 @@ sidebar_label: Manage cross-region backup
 limited: true
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 For a service that has the [backup to another region (BTAR)](/docs/platform/concepts/backup-to-another-region) feature [enabled](/docs/platform/howto/btar/enable-backup-to-another-region), you can check the service backup status, change the backup region, monitor the replication lag, fork and restore using [the cross-region backup](/docs/platform/concepts/backup-to-another-region), or migrate to another cloud or region.
 
 ## Prerequisites
@@ -111,7 +113,7 @@ When you migrate your service, locations of service backups, both primary and se
 ones, do not change.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [About the backup to another region feature in Aiven](/docs/platform/concepts/backup-to-another-region)
 - [Enable BTAR for your Aiven service](/docs/platform/howto/btar/enable-backup-to-another-region)

@@ -4,6 +4,7 @@ sidebar_label: Integrate with data source
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
@@ -223,7 +224,7 @@ wizard:
 As a result, your integration is terminated and all the corresponding databases and
 configuration information are deleted.
 
-## Related pages
+<RelatedPages/>
 
 -   [Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview)
 -   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)

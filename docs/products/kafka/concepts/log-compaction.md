@@ -2,6 +2,8 @@
 title: Compacted topics
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 One way to reduce the disk space requirements in Apache Kafka® is to use **compacted topics**.
 This method retains only the newest record
 for each key on a topic, regardless of whether the retention period of
@@ -145,7 +147,7 @@ Lastly, the records in the offset map are added in the tail.
 
 <!-- vale on -->
 
-## Related pages
+<RelatedPages/>
 
 - [Configure log cleaner for topic compaction][url]
 

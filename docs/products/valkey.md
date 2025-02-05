@@ -2,6 +2,8 @@
 title: Aiven for Valkey™
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Valkey™ is a managed, in-memory NoSQL database service that offers high performance, scalability, and security.
 
 Developed under the Linux Foundation, Valkey™ is an open-source fork of Redis® designed
@@ -29,7 +31,7 @@ documentation for detailed instructions and more information.
 - **Migration**: Supports data migration from external Redis® implementations and Valkey
   databases to Aiven for Valkey with minimal downtime.
 
-## Related pages
+<RelatedPages/>
 
 - [Get started](/docs/products/valkey/get-started)
 - [Valkey GitHub repository](https://github.com/valkey-io/valkey)

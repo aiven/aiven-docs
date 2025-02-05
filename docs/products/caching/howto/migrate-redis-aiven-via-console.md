@@ -3,6 +3,7 @@ title: Migrate from Redis®* to Aiven for Caching using Aiven Console
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Caching, using Aiven Console's guided wizard.
 
@@ -134,6 +135,6 @@ Caching database, and any subsequent additions to the connected databases
 are being continuously synchronized.
 :::
 
-## Related pages
+<RelatedPages/>
 
 -   [Get started with Aiven for Caching](/docs/products/caching/get-started)

@@ -39,6 +39,6 @@ See our time series on
 
 :::
 
-## Related pages
+<RelatedPages/>
 
 <DocCardList />

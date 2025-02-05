@@ -3,6 +3,8 @@ title: Schema registry for Aiven for Apache Kafka®
 sidebar_label: Schema registry
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven provides a schema registry for the Aiven for Apache Kafka® service through [Karapace](https://karapace.io/), an open-source solution that acts as a central repository for storing and retrieving schemas.
 Karapace ensures data consistency and compatibility across your Kafka setup, and can be
 used with any Apache Kafka service.
@@ -16,6 +18,6 @@ Karapace offers capability similar to traditional schema registries, with added
 flexibility and the benefits of an open-source solution that works with any
 Apache Kafka environment.
 
-## Related pages
+<RelatedPages/>
 
 - [Karapace schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization)

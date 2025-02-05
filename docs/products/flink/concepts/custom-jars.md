@@ -4,6 +4,8 @@ limited: true
 sidebar_label: Custom JARs
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Apache Flink enables you to upload, deploy, and manage your own Java code as custom JARs within a [JAR application](/docs/products/flink/howto/create-jar-application).
 
 This feature expands the capabilities of Aiven for Apache
@@ -45,6 +47,6 @@ limited to:
     data processing logic and applying custom functions for data
     transformation and enrichment.
 
-## Related pages
+<RelatedPages/>
 
 -   [How to use custom JARs in Aiven for Apache Flink application](/docs/products/flink/howto/create-jar-application).

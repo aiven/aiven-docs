@@ -3,6 +3,7 @@ title: Aiven for MySQL®
 ---
 
 import DocCardList from '@theme/DocCardList';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for MySQL® is a fully managed relational database service, deployable in the cloud of your choice.
 With Aiven for MySQL, you can store, retrieve, or
@@ -16,7 +17,7 @@ a MySQL that you can use.
 
 <DocCardList />
 
-## Related pages
+<RelatedPages/>
 
 -   [Aiven.io](https://aiven.io/mysql)
 -   [MySQL proprietary

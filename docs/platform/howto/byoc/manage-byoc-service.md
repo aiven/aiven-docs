@@ -6,6 +6,7 @@ sidebar_label: Manage BYOC services
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Create a service in your custom cloud or migrate an existing service to your custom cloud.
 
@@ -55,7 +56,7 @@ Migrating a service to a custom cloud in the private deployment model requires n
 reconfiguration. Services are never exposed to the internet, and correct private
 communication must be established. Contact your account team for private migration guidance.
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)

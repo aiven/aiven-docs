@@ -2,6 +2,8 @@
 title: Aiven for Metrics
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Metrics, powered by Thanos, simplifies the management and analysis of large volumes of metrics data. The service is scalable, reliable, and efficient, suitable for organizations of all sizes.
 This service simplifies the management of large-scale metrics systems, allowing
 organizations to focus on deriving insights from their data.
@@ -65,6 +67,6 @@ enhancing metrics management:
 
 - Aiven for Metrics is not currently available on Azure or Google Cloud Marketplace.
 
-## Related pages
+<RelatedPages/>
 
 - [Thanos documentation](https://thanos.io/v0.34/thanos/getting-started.md/)

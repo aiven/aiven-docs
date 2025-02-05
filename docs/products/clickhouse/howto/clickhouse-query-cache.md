@@ -3,6 +3,8 @@ title: Use query cache in Aiven for ClickHouse®
 sidebar_label: Use query cache
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for ClickHouse® provides a query cache mechanism that helps improve query performance
 by caching query results.
 
@@ -71,7 +73,7 @@ You can configure the following query cache settings:
 - Maximum number of query cache entries: 64 entries for each GiB of RAM (for example,
   1024 entries for a 16-GiB service)
 
-## Related pages
+<RelatedPages/>
 
 - [Querying external data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/federated-queries)
 - [Query Aiven for ClickHouse® databases](/docs/products/clickhouse/howto/query-databases)

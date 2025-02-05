@@ -7,6 +7,7 @@ keywords: [Terraform, deployment, deploy, byoc, bring your own cloud, custom clo
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Download a Terraform template and a variables file that define the infrastructure of your
 [custom cloud](/docs/platform/concepts/byoc).
@@ -82,7 +83,7 @@ avn byoc template terraform get-vars                             \
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)

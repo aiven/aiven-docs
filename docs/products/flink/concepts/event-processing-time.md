@@ -2,6 +2,8 @@
 title: Event and processing times
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Event time refers to when events occur, and processing time is when a system observes or processes these events. Understanding the difference between these two is essential for data processing and streaming. It affects data handling, analysis, and storage.
 
 ## Factors affecting processing
@@ -27,6 +29,6 @@ This approach maintains the correct sequence of events throughout the data strea
 pipeline. Additionally, event time allows for consistent data reprocessing,
 improving reliability and system resilience.
 
-## Related pages
+<RelatedPages/>
 
 - [Apache Flink® event time and processing time](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/concepts/time/)

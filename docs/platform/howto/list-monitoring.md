@@ -3,6 +3,7 @@ title: Metrics, logs, and alerts
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Use metrics, logs, alerts, and dashboards to monitor the health of your services and integrations.
 
@@ -71,6 +72,6 @@ You can export logs and metrics **to an Aiven service**:
 
 See [Manage project and service notifications](/docs/platform/howto/technical-emails).
 
-## Related pages
+<RelatedPages/>
 
 - [Manage notifications](/docs/platform/howto/technical-emails)

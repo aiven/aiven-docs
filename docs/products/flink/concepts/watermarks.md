@@ -2,6 +2,8 @@
 title: Watermarks
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Apache Flink® uses watermarks to synchronize and process events in data streams accurately. These watermarks are timestamps embedded in the data stream that track the progression of event time.
 
 ## Role of watermarks
@@ -15,7 +17,7 @@ generators. For example, you can configure Apache Flink to generate
 watermarks either periodically at specific intervals or when an event or element
 with a specific marker triggers it.
 
-## Related pages
+<RelatedPages/>
 
 For detailed information on watermarks and how to generate them in Apache Flink®,
 visit the [official documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.19/docs/dev/datastream/event-time/generating_watermarks/).

@@ -4,6 +4,7 @@ title: Aiven for OpenSearch®
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 import Kibana from "@site/static/includes/trademark-kibana.md"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import DocCardList from '@theme/DocCardList';
 
 Aiven for OpenSearch® is a fully managed distributed search and analytics suite, deployable in the cloud of your choice.
@@ -83,7 +84,7 @@ and working with your OpenSearch service:
     [list of plugins](/docs/products/opensearch/reference/plugins) supported by Aiven for OpenSearch.
 -   Got a question about the OpenSearch project itself? They have an    [FAQ](https://opensearch.org/faq/) for that.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven.io](https://aiven.io/opensearch)
 

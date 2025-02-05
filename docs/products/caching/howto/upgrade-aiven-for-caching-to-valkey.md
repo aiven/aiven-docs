@@ -6,6 +6,7 @@ sidebar_label: Upgrade to Aiven for Valkey™
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Upgrade your Aiven for Caching service to Aiven for Valkey using the Aiven Console or Aiven API.
 The process retains configurations, users, and data without disrupting your service.
@@ -227,6 +228,6 @@ See
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 Learn how to [update Terraform configuration and state after upgrading to Valkey™](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade).

@@ -2,6 +2,8 @@
 title: Disaster recovery in Aiven for ClickHouse®
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for ClickHouse® prevents and mitigates emergencies or crises with multiple disaster recovery methods to keep your data safe and sound.
 
 Disaster recovery is a process of coping with emergencies or crises using dedicated methods
@@ -102,7 +104,7 @@ capability.
 For all the restrictions and limits for Aiven for ClickHouse, see
 [Aiven for ClickHouse limits and limitations](/docs/products/clickhouse/reference/limitations).
 
-## Related pages
+<RelatedPages/>
 
 -   [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
 -   [Failover procedures](/docs/products/postgresql/concepts/upgrade-failover)

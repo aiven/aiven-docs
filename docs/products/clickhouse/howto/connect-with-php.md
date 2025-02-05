@@ -2,6 +2,8 @@
 title: Connect to the Aiven for ClickHouse® service with PHP
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn how to connect to your Aiven for ClickHouse® service with PHP using the PHP ClickHouse client and the HTTPS port.
 
 ## Prerequisites
@@ -61,6 +63,6 @@ service connection and run the code.
 Now you have your service connection set up and you can proceed to
 [uploading data into your database](load-dataset).
 
-## Related pages
+<RelatedPages/>
 
 - [Connect with the ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).

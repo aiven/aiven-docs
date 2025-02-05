@@ -3,6 +3,8 @@ title: Create a JAR application
 limited: true
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your Apache Flink applications with advanced data processing capabilities.
 
 ## Prerequisite
@@ -66,6 +68,6 @@ Custom JARs enabled.
 1.  While deploying, the application status shows **Initializing**. Once
     deployed, the status changes to **Running**.
 
-## Related pages
+<RelatedPages/>
 
 -   [Manage Aiven for Apache Flink® applications](/docs/products/flink/howto/manage-flink-applications)
