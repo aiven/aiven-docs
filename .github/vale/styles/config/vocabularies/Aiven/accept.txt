@@ -186,6 +186,7 @@ multicast
 myhoard
 myhoard
 MySQL
+mysqldump
 namespace/MS
 namespaces?
 netmask
@@ -197,6 +198,7 @@ OAuth
 Okta
 Omni
 onboarding
+Opendistro
 OpenSearch
 OpenSearch Security
 Opensearch_acl_config

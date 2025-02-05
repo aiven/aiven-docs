@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import FAQ from "@site/static/includes/faq-ai.md"
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
-Use Aiven's AI-powered **SQL query optimizer** for PostgreSQL® and MySQL® to get query optimization recomendations for an ad-hoc query.
+Use Aiven's AI-powered **SQL query optimizer** for PostgreSQL® and MySQL® to get query optimization recommendations for an ad-hoc query.
 
 :::important
 If you are running a PostgreSQL or MySQL service, Aiven automatically suggests optimizations for
