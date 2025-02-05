@@ -80,7 +80,7 @@ Google project
 </details>
 For more information on Google Cloud roles, see
 [IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
-in the Goodle Cloud documentation.
+in the Google Cloud documentation.
 
 ## Create a custom cloud
 

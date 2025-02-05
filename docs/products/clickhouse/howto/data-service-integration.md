@@ -34,7 +34,7 @@ ClickHouse® in
 1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline**.
 
    - To create the first integration for that service, click **Add data source**.
-   - To add an integrtion for that service, click <ConsoleIcon name="plus"/>.
+   - To add an integration for that service, click <ConsoleIcon name="plus"/>.
 
    As a result, the **Data service integrations** wizard opens, showing
    a list of all data sources available for integration. If there are no data sources to

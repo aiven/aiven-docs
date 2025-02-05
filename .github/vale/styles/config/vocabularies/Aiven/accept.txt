@@ -152,6 +152,7 @@ JobManager
 Jolokia
 jq
 json
+JSONPath
 JumpCloud
 JVM's
 JWT's
