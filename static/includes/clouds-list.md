@@ -1,3 +1,4 @@
+import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
 
 ## Amazon Web Services
 
@@ -699,12 +700,12 @@
 </tbody>
 </table>
 
-## Oracle Cloud Infrastructure
+## Oracle Cloud Infrastructure <LimitedBadge/>
 
 :::important
-Oracle Cloud Infrastructure (OCI) is supported on the Aiven platform as a
+Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform as a
 [limited availability feature](/docs/platform/concepts/beta_services). For more
-information or access, contact the [sales team](mailto:sales@aiven.io).
+information or access, contact your account team.
 :::
 
 <table>
