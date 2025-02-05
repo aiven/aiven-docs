@@ -724,8 +724,28 @@ information or access, contact your account team.
   </tr>
   <tr>
     <td>Asia-Pacific</td>
+    <td>ap-osaka-1</td>
+    <td>Japan, Japan Central: Osaka</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-seoul-1</td>
+    <td>South Korea, South Korea Central: Seoul</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-singapore-1</td>
+    <td>Singapore, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
     <td>ap-sydney-1</td>
     <td>Australia, Australia East: Sydney</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-tokyo-1</td>
+    <td>Japan, Japan East: Tokyo</td>
   </tr>
   <tr>
     <td>Europe</td>
