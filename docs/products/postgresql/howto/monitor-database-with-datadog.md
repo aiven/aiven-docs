@@ -2,6 +2,8 @@
 title: Monitor a database with Datadog
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 [Database Monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/) enables you to capture key metrics on the Datadog platform for any Aiven for PostgreSQL® service with [Datadog Metrics](/docs/integrations/datadog/datadog-metrics) integration.
 
 Datadog Database Monitoring allows you to view query metrics and explain
@@ -72,7 +74,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
     }
     ```
 
-## Related pages
+<RelatedPages/>
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).

@@ -3,7 +3,10 @@ title: Connect to Aiven for MySQL® with DataGrip
 sidebar_label: Connect with DataGrip
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Use [DataGrip](https://www.jetbrains.com/datagrip/) to connect to your Aiven for MySQL® service.
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 ## Prerequisites
 
@@ -34,7 +37,7 @@ Use [DataGrip](https://www.jetbrains.com/datagrip/) to connect to your Aiven for
 The connection to your Aiven for MySQL service has been established and is visible in
 DataGrip > **Database Explorer**.
 
-## Related pages
+<RelatedPages/>
 
 - [Connect to Aiven for MySQL](/docs/products/mysql/howto/list-code-samples) for more
   tools you can use for connecting to your service

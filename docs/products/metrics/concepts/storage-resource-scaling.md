@@ -2,6 +2,8 @@
 title: Optimize storage and resources
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Metrics optimizes storage and compute resources using tiered storage, disk storage, memory, and compute power to balance cost and performance.
 
 ## Storage solutions
@@ -111,7 +113,7 @@ Consider enabling DDS when:
 - While Aiven's plans work for most workloads, consider using DDS if you
   anticipate a recent large data migration or a significant increase in metric volume.
 
-## Related pages
+<RelatedPages/>
 
 - [Thanos Receiver](https://thanos.io/tip/components/receive.md/)
 - [Thanos Store](https://thanos.io/tip/components/store.md/#store)

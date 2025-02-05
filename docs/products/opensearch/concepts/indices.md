@@ -2,6 +2,8 @@
 title: Indices
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 OpenSearch® uses indices to organize data into types, similar to databases and tables in relational databases.
 
 In your Aiven for OpenSearch cluster, data is distributed across primary shards, which
@@ -161,7 +163,7 @@ recommended to use only one method:
 If both methods are used, the smaller retention setting takes precedence.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Replication factors in Aiven for OpenSearch](/docs/products/opensearch/concepts/index-replication)
 

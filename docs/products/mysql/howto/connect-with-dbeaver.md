@@ -3,7 +3,10 @@ title: Connect to Aiven for MySQL® with DBeaver
 sidebar_label: Connect with DBeaver
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for MySQL® service.
+
 
 ## Prerequisites
 
@@ -36,7 +39,7 @@ Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for MySQL® service
 The connection to your Aiven for MySQL service has been established and is visible in
 DBeaver > **Database Navigator**.
 
-## Related pages
+<RelatedPages/>
 
 - [Connect to Aiven for MySQL](/docs/products/mysql/howto/list-code-samples) for more
   tools you can use for connecting to your service

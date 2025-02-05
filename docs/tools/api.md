@@ -5,6 +5,7 @@ title: Aiven API
 import RIP from "@site/static/includes/run-in-postman.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Use the Aiven API to programmatically access and automate tasks in the Aiven platform.
 
@@ -140,7 +141,7 @@ authenticated, it returns the standard set of cloud regions.
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Personal tokens](/docs/platform/concepts/authentication-tokens)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)

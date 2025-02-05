@@ -3,6 +3,8 @@ title: Create alerts with OpenSearch® Dashboards
 sidebar_label: Create alerts
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 OpenSearch® alerting feature sends notifications when data from one or more indices meets certain conditions that can be customized.
 Use case
 examples are such as monitoring for HTTP status code 503, CPU load
@@ -197,6 +199,6 @@ delivery
 
 Select **Create**.
 
-## Related pages
+<RelatedPages/>
 
 - [Alerting monitors configuration](https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/)
