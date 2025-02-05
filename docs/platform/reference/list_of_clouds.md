@@ -1,6 +1,9 @@
 ---
 title: Available cloud regions
+sidebar_label: Cloud regions
 ---
+
+import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
 
 A reference list of the default available cloud regions.
 
