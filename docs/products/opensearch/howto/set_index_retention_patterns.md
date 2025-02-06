@@ -4,6 +4,7 @@ title: Index retention patterns
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Learn to set index retention patterns and manage maximum indices in your Aiven for OpenSearch® instance.
 
@@ -51,6 +52,6 @@ Parameters:
 </Tabs>
 
 
-## Related pages
+<RelatedPages/>
 
 - [Indices in Aiven for OpenSearch](/docs/products/opensearch/concepts/indices)

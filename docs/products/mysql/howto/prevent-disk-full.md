@@ -2,6 +2,8 @@
 title: Prevent running out of disk space
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn how Aiven prevents running out of disk space from happening and how you can make more space available on your disk when needed. Running out of disk space makes the service start malfunctioning and prevents backups from being properly created.
 
 ## Switch to the read-only mode
@@ -62,6 +64,6 @@ The output of a successful operation is:
 
 This way you can free up space within the next 15 minutes.
 
-## Related pages
+<RelatedPages/>
 
 See [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with a full disk.

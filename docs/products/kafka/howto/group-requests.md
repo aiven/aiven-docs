@@ -3,6 +3,7 @@ title: Manage group requests
 limited: true
 ---
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 The **Group requests** page allows you to view and track requests you and other members of your group made for Aiven for Apache Kafka® resources.
 These requests can include claims for existing topics or requests to create new topics.
@@ -48,7 +49,7 @@ members but cannot delete them.
 1. Click the topic name to delete.
 1. In the **Review request** pane, click **Delete**.
 
-## Related pages
+<RelatedPages/>
 
 - [Governance in Aiven for Apache Kafka](/docs/products/kafka/concepts/governance-overview)
 - [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)

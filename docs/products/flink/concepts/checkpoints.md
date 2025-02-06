@@ -2,6 +2,8 @@
 title: Checkpoints
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Checkpoints in Aiven for Apache Flink® are a key feature for ensuring resiliency and fault tolerance in stateful functions.
 
 By periodically creating snapshots of the data stream and storing them, checkpoints
@@ -33,7 +35,7 @@ graph TD;
     id3-->id6[(State backend)];
 ```
 
-## Related pages
+<RelatedPages/>
 
 - [Apache Flink® documentation on
 checkpoints](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/checkpoints/)

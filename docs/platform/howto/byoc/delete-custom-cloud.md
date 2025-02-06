@@ -6,6 +6,7 @@ sidebar_label: Delete custom clouds
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
@@ -86,7 +87,7 @@ destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 When running `terraform destroy`, add `-var-file=FILE_NAME.tfvars` as an option.
 :::
 
-## Related pages
+<RelatedPages/>
 
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)

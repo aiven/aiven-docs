@@ -3,6 +3,8 @@ title: Querying external data in Aiven for ClickHouse®
 sidebar_label: Federated queries
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Discover federated queries and their capabilities in Aiven for ClickHouse® and how they simplify and speed up migrating into Aiven from external data sources.
 
 Federated queries allow communication between Aiven for ClickHouse and
@@ -71,7 +73,7 @@ see
     table engine. Stay tuned for us supporting the S3 table engine in
     the future.
 
-## Related pages
+<RelatedPages/>
 
 -   [Read and pull data from S3 object storages and web resources over HTTP](/docs/products/clickhouse/howto/run-federated-queries)
 -   [Integrating S3 | ClickHouse Docs](https://clickhouse.com/docs/en/integrations/s3)

@@ -5,6 +5,7 @@ keywords: [data service integration, data source integration, managed credential
 ---
 
 import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for ClickHouse® supports different types of integration allowing you to efficiently connect with other services or data sources and access the data to be processed.
 
@@ -127,7 +128,7 @@ endpoint, by default, data resides outside the Aiven for ClickHouse service in i
 source. Queries aggregate data across sources, and the integrated data is accessed as
 needed in real-time or near-real-time.
 
-## Related pages
+<RelatedPages/>
 
 - [Set up Aiven for ClickHouse® data service integration](/docs/products/clickhouse/howto/data-service-integration)
 - [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)

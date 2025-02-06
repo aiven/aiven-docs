@@ -8,6 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Start using Aiven for MySQL® by creating a service, connecting to it, and loading sample data.
 
@@ -377,7 +378,7 @@ SELECT * FROM category WHERE name = 'Thriller';
 </details>
 <!-- vale on -->
 
-## Related pages
+<RelatedPages/>
 
 - [Connect to Aiven for MySQL with MySQL Workbench](/docs/products/mysql/howto/connect-from-mysql-workbench)
 - [Migrate to Aiven from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql)

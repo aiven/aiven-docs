@@ -3,6 +3,7 @@ title: Aiven for PostgreSQL®
 ---
 
 import DocCardList from '@theme/DocCardList';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for PostgreSQL® is is a fully managed and hosted relational database service. It's a high-performance data warehouse that offers maximum flexibility and functionality with a variety of advanced extensions out of the box.
 
@@ -16,7 +17,7 @@ up and running within a few minutes.
 
 <DocCardList />
 
-## Related pages
+<RelatedPages/>
 
 - Learn more about Aiven for PostgreSQL on [Aiven.io](https://aiven.io/postgresql).
 - Find a comprehensive per-release documentation on the

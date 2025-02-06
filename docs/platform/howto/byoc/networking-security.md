@@ -3,6 +3,8 @@ title: Bring your own cloud networking and security
 sidebar_label: Networking & security
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven combines a multi-cloud strategy with a cloud-agnostic approach to make the [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) experience not only versatile and cost-efficient but also secure.
 
 ## Bastion proxy networking
@@ -113,7 +115,7 @@ routine obligations.
 For more information on Aiven security and compliance, see
 [Aiven Security](https://aiven.io/security-compliance).
 
-## Related pages
+<RelatedPages/>
 
 -   [About bring your own cloud](/docs/platform/concepts/byoc)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)

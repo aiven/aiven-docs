@@ -5,6 +5,7 @@ sidebar_label: Move data between storage devices
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Moving data from SSD to object storage allows you to size down your SSD by selecting
 a service plan with less SSD capacity. You can move the data back to your SSD anytime.
@@ -89,7 +90,7 @@ Your data has been moved to the SSD.
 -   [Check data distribution between SSD and object storage](/docs/products/clickhouse/howto/check-data-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 
-## Related pages
+<RelatedPages/>
 
 -   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)

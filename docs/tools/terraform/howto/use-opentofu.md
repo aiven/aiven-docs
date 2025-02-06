@@ -3,6 +3,8 @@ title: Use OpenTofu with Aiven Provider for Terraform
 sidebar_label: Use OpenTofu
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 [OpenTofu](https://opentofu.org/) is an open source infrastructure-as-code tool that you can use to configure your Aiven infrastructure.
 
 Set up your first Aiven project and service using this example to get started with
@@ -165,7 +167,7 @@ To delete the project, service, and data:
     Destroy complete! Resources: 2 destroyed.
     ```
 
-## Related pages
+<RelatedPages/>
 
 -   Try OpenTofu with [another sample
     project](https://github.com/aiven/terraform-provider-aiven/blob/main/sample_project/sample.tf).

@@ -8,6 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Start using Aiven for Apache Cassandra® by creating and configuring a service, connecting to it, and playing with sample data.
 
@@ -421,7 +422,7 @@ Use `cqlsh` to read data from the `book_tracker` table, for example:
   2024-08-01 00:00:00.000000+0000 |   available
   ```
 
-## Related pages
+<RelatedPages/>
 
 - [Supported Aiven for Apache Cassandra versions](/docs/platform/reference/eol-for-major-versions#h_0f2929c770)
 - [Aiven for Apache Cassandra backups](/docs/platform/concepts/service_backups#aiven-for-apache-cassandra)

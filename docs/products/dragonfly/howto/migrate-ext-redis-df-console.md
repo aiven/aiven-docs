@@ -3,6 +3,7 @@ title: Migrate external Redis®* or Valkey databases to Aiven for Dragonfly®
 sidebar_label: Migrate external Redis®* or Valkey to Dragonfly
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
@@ -143,6 +144,6 @@ When replication mode is active, Aiven for Dragonfly continuously synchronizes n
 writes from the source database, ensuring your data remains up to date.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Dragonfly overview](/docs/products/dragonfly)

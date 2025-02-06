@@ -2,6 +2,8 @@
 title: Aiven CLI
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 The Aiven command line interface (CLI) lets you use the Aiven platform and services in a scriptable way through the API.
 
 import Tabs from '@theme/Tabs';
@@ -68,7 +70,7 @@ You can authenticate using your password or a
 
 To get information in JSON format, use the `--json` switch with any command.
 
-## Related pages
+<RelatedPages/>
 
 - [Learn how to use the Aiven CLI](https://aiven.io/blog/aiven-cmdline) for common tasks.
 - Watch the [how to get started tutorial](https://www.youtube.com/watch?v=nf3PPn5w6K8).

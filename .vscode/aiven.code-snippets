@@ -8,9 +8,14 @@
 
   "Related pages": {
     "scope": "markdown",
-    "prefix": ["related", "pages"],
-    "body": ["## Related pages", "", "$1"],
-    "description": "Inserts a related pages section"
+    "prefix": ["related", "pages", "rp"],
+    "body": [
+      "import RelatedPages from \"@site/src/components/non-swizzled/RelatedPages\";",
+      "",
+      "<RelatedPages/>",
+      "$2"
+    ],
+    "description": "Inserts a related pages title"
   },
   "Title": {
     "scope": "markdown",

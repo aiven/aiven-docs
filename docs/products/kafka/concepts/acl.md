@@ -3,6 +3,8 @@ title: Access Control Lists in Aiven for Apache Kafka®
 sidebar_label: Access control lists
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Access Control Lists (ACLs) in Aiven for Apache Kafka® manage access to topics, consumer groups, clusters, and Schema Registry with permissions.
 
 Aiven supports two ACL models:
@@ -223,7 +225,7 @@ Contact [Aiven support](mailto:support@aiven.io) to request an increase to this 
 
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Manage access control lists](/docs/products/kafka/howto/manage-acls)
 - [Apache Kafka official documentation](https://kafka.apache.org/documentation/#operations_resources_and_protocols)

@@ -7,6 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to fetch data from the nearest replica instead of the leader, optimizing data fetching and enhancing performance.
 
@@ -216,6 +217,6 @@ client.rack=europe-west1-d
 After configuring follower fetching, monitor for a decrease in cross-availability zone
 network costs to verify its effectiveness.
 
-## Related pages
+<RelatedPages/>
 
 - [Follower fetching in Aiven for Apache Kafka®](/docs/products/kafka/concepts/follower-fetching)

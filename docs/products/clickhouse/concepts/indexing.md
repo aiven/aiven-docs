@@ -2,6 +2,8 @@
 title: Indexing and data processing in ClickHouse®
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 ClickHouse® processes data differently from other database management systems. ClickHouse uses sparse and skipping indexes and a vector computation engine.
 
 ## ClickHouse as a columnar database
@@ -91,6 +93,6 @@ help ClickHouse to skip in advance values that do not satisfy the
 request condition.
 :::
 
-## Related pages
+<RelatedPages/>
 
 Learn more about [skipping indexes in the official ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-data_skipping-indexes).

@@ -3,6 +3,7 @@ title: Send metrics to Datadog
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Send metrics from your Aiven service to your external Datadog account.
 
@@ -38,7 +39,7 @@ For Aiven for Apache Kafka® services you can also
 
 You can see the metrics data on your Datadog dashboard.
 
-## Related pages
+<RelatedPages/>
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).

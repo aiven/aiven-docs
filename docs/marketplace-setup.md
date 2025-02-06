@@ -4,6 +4,7 @@ title: Set up marketplace subscriptions
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven makes its services available through the various Marketplaces and you can create a subscription that links the accounts.
 
@@ -153,6 +154,6 @@ show your usage per service:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Use marketplace subscriptions to pay for Aiven services](/docs/platform/howto/list-marketplace-payments)

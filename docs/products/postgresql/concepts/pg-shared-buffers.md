@@ -3,6 +3,8 @@ title: Aiven for PostgreSQL® shared buffers
 sidebar_label: Shared buffers
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Use shared buffers to share memory over multiple sessions. Discover how to inspect the database cache performance and the query cache performance and learn how to put data into cache manually.
 
 There are two primary memory allocations in Aiven for PostgreSQL that
@@ -205,7 +207,7 @@ If the `shared buffers` size is less than pre-loaded data, only the
 tailing end of the data is cached as the earlier data encounters a
 forced ejection.
 
-## Related pages
+<RelatedPages/>
 
 For more information on shared buffers, see [Resource
 Consumption](https://www.postgresql.org/docs/current/runtime-config-resource.html)

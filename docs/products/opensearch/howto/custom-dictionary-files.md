@@ -5,6 +5,7 @@ title: Custom dictionary files
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Custom dictionary files are user-defined files that enhance query analysis and improve search relevance in OpenSearch. By adding domain-specific vocabulary and rules, these files refine search results to be more accurate and relevant.
 
@@ -292,7 +293,7 @@ curl -H 'Content-Type: application/json' -d'{
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Indices](/docs/products/opensearch/concepts/indices)
 - [OpenSearch text analysis](https://opensearch.org/docs/2.13/analyzers/)

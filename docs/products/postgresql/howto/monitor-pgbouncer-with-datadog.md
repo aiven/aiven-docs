@@ -3,6 +3,8 @@ title: Monitor PgBouncer with Datadog
 sidebar_label: Monitor PgBouncer in Datadog
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Integrate PgBouncer with Datadog to track connection pool metrics and monitor application traffic on the Datadog platform.
 
 ## Prerequisites
@@ -77,7 +79,7 @@ Expect the following output confirming that `datadog_pgbouncer_enabled` is set t
 }
 ```
 
-## Related pages
+<RelatedPages/>
 
 - [Database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog)
 - [Access PgBouncer statistics](/docs/products/postgresql/howto/pgbouncer-stats)

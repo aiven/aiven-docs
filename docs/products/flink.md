@@ -2,6 +2,8 @@
 title: Aiven for Apache Flink®
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Apache Flink® is a fully managed service that leverages the power of the [open-source Apache Flink framework](https://flink.apache.org/) to provide distributed, stateful stream processing capabilities, allowing users to perform real-time computation with SQL efficiently.
 
 ## Main features
@@ -162,6 +164,6 @@ for writing processed data from Flink and restrict access if you need
 more strict access management than our default setup offers. This also
 minimizes the risk of accidental write events to the source cluster.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven.io](https://aiven.io/flink)

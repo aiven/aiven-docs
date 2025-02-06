@@ -4,6 +4,8 @@ sidebar_label: Migrate OpenDistro security configuration
 limited: true
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Migrate your security configuration from an OpenDistro service to Aiven for OpenSearch® using a migration script.
 
 The `.opendistro_security` index, which stores security settings, cannot be restored
@@ -100,7 +102,7 @@ You can run the migration script multiple times, but keep the following in mind:
   API does not return password hashes. As a result, the script treats the data as if it
   has changed, even when it has not.
 
-## Related pages
+<RelatedPages/>
 
 - [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)
 - [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)

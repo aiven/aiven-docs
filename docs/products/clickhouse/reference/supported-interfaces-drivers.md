@@ -2,6 +2,8 @@
 title: Interfaces and drivers supported in Aiven for ClickHouse®
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Find out what technologies and tools you can use to interact with Aiven for ClickHouse®.
 
 ## Interfaces (protocols) {#clickhouse-interfaces}
@@ -46,7 +48,7 @@ You can connect to Aiven for ClickHouse with any driver that uses TLS
 and one of the supported protocols.
 :::
 
-## Related pages
+<RelatedPages/>
 
 -   [How to connect to Aiven for ClickHouse using different libraries](/docs/products/clickhouse/howto/list-connect-to-service)
 -   [Drivers and interfaces supported in

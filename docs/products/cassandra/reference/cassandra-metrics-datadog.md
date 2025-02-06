@@ -2,6 +2,8 @@
 title: Aiven for Apache Cassandra® metrics available via Datadog
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn what metrics are available via Datadog for Aiven for Apache
 Cassandra® services.
 
@@ -12,7 +14,7 @@ corresponds to the list of metrics available for the open-source Apache
 Cassandra and can be checked in
 [Metrics](https://docs.datadoghq.com/integrations/cassandra/#metrics).
 
-## Related pages
+<RelatedPages/>
 
 -   Check how to use Datadog with Aiven services in
     [Datadog and Aiven](/docs/integrations/datadog/).

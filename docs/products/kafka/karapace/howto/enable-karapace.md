@@ -2,6 +2,8 @@
 title: Enable Karapace schema registry and REST APIs
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 To enable **Karapace schema registry** and **REST APIs** on Aiven for Apache Kafka® from the Aiven Console:
 
 1. In the [Aiven Console](https://console.aiven.io/), select your
@@ -25,7 +27,7 @@ For automation or integration setups, use the parameters
 APIs on your service.
 :::
 
-## Related pages
+<RelatedPages/>
 
 To set up Karapace with Aiven for Apache Kafka®
 using [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs),

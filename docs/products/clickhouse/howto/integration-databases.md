@@ -3,6 +3,7 @@ title: Manage Aiven for ClickHouse® integration databases
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 You can set up and manage integration databases from the the <ConsoleLabel name="databasesandtables"/> view of your Aiven for ClickHouse service.
 
@@ -147,7 +148,7 @@ Your integration database and/or its tables have been updated.
 
 Your integration database has been removed from the **Databases and tables** list.
 
-## Related pages
+<RelatedPages/>
 
 -   [Manage Aiven for ClickHouse® data service integrations](/docs/products/clickhouse/howto/data-service-integration)
 -   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)

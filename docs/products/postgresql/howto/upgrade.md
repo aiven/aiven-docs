@@ -4,6 +4,7 @@ sidebar_label: Upgrade to a major version
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.
 The whole procedure usually takes 60 seconds or less for small databases.
@@ -103,7 +104,7 @@ can only be launched when a backup taken from the new version is
 available.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Service maintenance](/docs/platform/concepts/maintenance-window)
 - [Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)

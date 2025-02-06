@@ -2,6 +2,8 @@
 title: Aiven for Apache Kafka® Connect metrics available via Prometheus
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Discover metrics offered by Prometheus for the Aiven for Apache Kafka® Connect service.
 
 :::note
@@ -39,7 +41,7 @@ Apache Kafka Connect service.
 | `kafka_connect_connect_worker_rebalance_metrics_rebalance_min_time_ms`         | Minimum time in milliseconds taken by this worker to rebalance              |
 
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Apache Kafka® metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus)
 - [Connect Monitoring section of the Apache Kafka® documentation](https://kafka.apache.org/documentation/#connect_monitoring)

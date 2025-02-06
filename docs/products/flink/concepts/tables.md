@@ -3,6 +3,8 @@ title: Tables in Aiven for Apache Flink®
 sidebar_label: Tables
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 With Aiven for Apache Flink®, you can create and manage data pipelines using [Flink tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table).
 These tables are created within an application on your Aiven for Apache
 Flink service, allowing you to map source and target data structures,
@@ -21,6 +23,6 @@ integrations, such as Aiven for Apache Kafka®, Aiven for PostgreSQL®,
 and Aiven for OpenSearch®, depending on the data source and the type of
 analysis to perform.
 
-## Related pages
+<RelatedPages/>
 
 - [Manage tables in Flink applications](/docs/products/flink/howto/manage-flink-tables)

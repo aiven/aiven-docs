@@ -2,6 +2,8 @@
 title: Connect Aiven for Apache Kafka® with Quix
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Connect your Aiven for Apache Kafka® service with Quix to consume the data and process it in real-time, and produce it back to Kafka via Quix Cloud.
 
 [Quix](https://quix.io?utm_source=aiven) is a complete platform for developing,
@@ -91,7 +93,7 @@ Ensure the `_csv-data_` and `_counted-names_` required topics appear in both Qui
 and Aiven. In Aiven, topics that originate from Quix have the Quix workspace
 and project name as a prefix, such as `_quixdemo-helloquix-csv-data_`.
 
-## Related pages
+<RelatedPages/>
 
 - [Quix documentation](https://quix.io/docs/get-started/welcome)
 - [Quix guide to creating projects](https://quix.io/blog/how-to-create-a-project-from-a-template#cloning-a-project-template-into-github)

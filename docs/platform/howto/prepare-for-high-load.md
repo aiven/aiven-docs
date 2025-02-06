@@ -2,6 +2,8 @@
 title: Prepare services for high load
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Prepare your services for higher than usual traffic to avoid service outages.
 
 ## Monitor service health
@@ -99,7 +101,7 @@ Optimizing a service allows it to perform better under stress therefore
 avoiding the need of an upgrade. The more optimized a service is for
 your usage, the better you can weather spikes in traffic.
 
-## Related pages
+<RelatedPages/>
 
 <!-- vale off -->
 - [Apache Kafka® and Apache Kafka® Connect best practices](/docs/products/kafka/howto/best-practices)

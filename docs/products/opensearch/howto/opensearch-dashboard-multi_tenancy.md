@@ -2,6 +2,8 @@
 title: Set up OpenSearch® Dashboard multi-tenancy
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for OpenSearch® provides support for multi-tenancy through OpenSearch Security Dashboard.
 Multi-tenancy in OpenSearch Security
 enables multiple users or groups to securely access the same OpenSearch
@@ -125,7 +127,7 @@ steps:
     select them from the list and use the **Actions** dropdown to edit,
     delete, or duplicate them according to your needs.
 
-## Related pages
+<RelatedPages/>
 
 -   [OpenSearch Dashboards
     multi-tenancy](https://opensearch.org/docs/2.6/security/multi-tenancy/tenant-index/)

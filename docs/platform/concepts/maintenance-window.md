@@ -3,6 +3,7 @@ title: Service maintenance, updates and upgrades
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven applies some maintenance updates automatically and lets you decide when to apply major version upgrades.
 
@@ -106,7 +107,7 @@ Periodic infrastructure updates are mandatory for all the services
 except for those with maintenance disabled.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Perform a PostgreSQL® major version update][pg]
 
