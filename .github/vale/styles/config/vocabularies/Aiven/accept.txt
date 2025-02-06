@@ -95,6 +95,8 @@ European Union
 eval
 event_type
 exactly-once
+failback
+Failback
 failover
 fileset
 filesets

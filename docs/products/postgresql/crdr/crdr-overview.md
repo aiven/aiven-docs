@@ -91,7 +91,21 @@ and the RRS is the **Passive** service replicating from the PRS.
 
 <img src={crdrSetup} className="centered" alt="CRDR setup" width="100%" />
 
-### Failover to the recovery region
+### Recovery transition
+
+CRDR supports three types of the recovery transition:
+
+- [Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover)
+  - **Self-activating** response to a region-wide outage
+  - **Destroys the primary service** and requires the primary service recreation to fail back.
+- [Manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover)
+  - **Triggered by you** for any purposes other than a region-wide outage
+  - **Destroys the primary service** and requires the primary service recreation to fail back.
+- [Switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region):
+  - **Triggered by you** for any purposes other than a region-wide outage
+  - Leaves the **primary service intact** with no need for recreating it to switch back.
+
+#### Failover to the recovery region
 
 [Failover to the RRS](/docs/products/postgresql/crdr/crdr-failover-to-recovery) is
 performed either
@@ -101,18 +115,22 @@ PRS is **Failed** and the RRS is up and running as an **Active** service.
 
 <img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
 
-#### Automatic failover
+##### Automatic failover
 
 In the even of a region-wide failure, a CRDR process is triggered automatically. The RRS
 takes over from the PRS so that your workloads remain available at all times during
 the region outage.
 
-#### Manual failover
+##### Manual failover
 
 You trigger a failover to the RRS yourself for testing purposes: to simulate a
 disaster scenario and verify the disaster resilience of your infrastructure.
 
-### Revert to the primary region
+#### Switchover to the recovery region
+
+### Recovery reversion
+
+#### Failback to the primary region
 
 The purpose of a revert operation is shifting your workload back to the original region
 and restoring the CRDR setup to its original configuration.
@@ -133,6 +151,8 @@ A revert process consists of two steps you initiate manually at your convenience
    service, and the RRS as a passive service.
 
 <img src={crdrRevert} className="centered" alt="CRDR revert" width="100%" />
+
+#### Switchback to the primary region
 
 ## DNS address and service URI
 
