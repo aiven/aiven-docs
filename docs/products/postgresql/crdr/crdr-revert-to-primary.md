@@ -22,7 +22,7 @@ Shift your workloads back to the primary region, where your service was hosted o
 ## Revert to the primary region
 
 Initiate a
-[revert process](/docs/products/postgresql/crdr/crdr-overview#revert-to-the-primary-region)
+[revert process](/docs/products/postgresql/crdr/crdr-overview#failback-to-the-primary-region)
 using a tool of your choice:
 
 <Tabs groupId="group1">
