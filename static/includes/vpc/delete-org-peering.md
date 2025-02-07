@@ -31,7 +31,7 @@ Run the `avn organization vpc peering-connection delete` command:
 ```bash
 avn organization vpc peering-connection delete \
   --organization-id ORGANIZATION_ID            \
-  --organization-vpc-id ORGANIZATION_VPC_ID                 \
+  --project-vpc-id ORGANIZATION_VPC_ID                 \
   --peering-connection-id ORGANIZATION_VPC_PEERING_ID
 ```
 

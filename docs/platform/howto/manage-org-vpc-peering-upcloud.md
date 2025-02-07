@@ -97,7 +97,7 @@ Run the `avn organization vpc peering-connection create` command:
 ```bash
 avn organization vpc peering-connection create \
   --organization-id AIVEN_ORGANIZATION_ID      \
-  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
+  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
   --peer-cloud-account upcloud                 \
   --peer-vpc UPCLOUD_SDN_NETWORK_UUID
 ```

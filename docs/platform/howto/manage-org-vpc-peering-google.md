@@ -75,7 +75,7 @@ Run the `avn organization vpc peering-connection create` command:
 ```bash
 avn organization vpc peering-connection create \
   --organization-id AIVEN_ORGANIZATION_ID      \
-  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
+  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
   --peer-cloud-account GOOGLE_CLOUD_PROJECT_ID \
   --peer-vpc GOOGLE_CLOUD_VPC_NETWORK_NAME
 ```

@@ -130,7 +130,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 ```bash
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
-  --organization-vpc-id ORGANIZATION_VPC_ID \
+  --project-vpc-id ORGANIZATION_VPC_ID \
   --type SERVICE_TYPE                  \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
@@ -169,7 +169,7 @@ curl --request POST \
       "plan": "SERVICE_PLAN",
       "service_type": "SERVICE_TYPE",
       "disk_space_mb": DISK_SIZE,
-      "organization_vpc_id":"ORGANIZATION_VPC_ID"
+      "project_vpc_id":"ORGANIZATION_VPC_ID"
     }
   '
 ```
@@ -217,7 +217,7 @@ Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```bash
 avn service update SERVICE_NAME \
-  --organization-vpc-id ORGANIZATION_VPC_ID
+  --project-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
@@ -239,7 +239,7 @@ curl --request PUT \
   --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
   -H 'Authorization: Bearer BEARER_TOKEN' \
   -H 'content-type: application/json' \
-  --data '{"organization_vpc_id": "ORGANIZATION_VPC_ID"}'
+  --data '{"project_vpc_id": "ORGANIZATION_VPC_ID"}'
 ```
 
 Replace the following placeholders with meaningful data:
@@ -281,7 +281,7 @@ Run the `avn organization vpc delete` command:
 ```bash
 avn organization vpc delete                     \
   --organization-id ORGANIZATION_ID             \
-  --organization-vpc-id ORGANIZATION_VPC_ID
+  --project-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
