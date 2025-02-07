@@ -12,8 +12,7 @@ import IdPStep3 from "@site/static/includes/idp-step3.md"
 
 You can give your organization users access to Aiven through identity providers (IdPs) that support SAML.
 
-You must be an [organization admin](/docs/platform/concepts/permissions) or a
-[super admin](/docs/platform/howto/make-super-admin) to manage IdPs.
+You must be an [organization admin](/docs/platform/concepts/permissions) to manage IdPs.
 
 The following are general steps for setting up single sign-on with an IdP. Setup
 instructions are also available for these specific providers:
