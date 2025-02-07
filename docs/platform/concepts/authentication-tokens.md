@@ -31,6 +31,7 @@ To keep your personal and application tokens secure:
 - Set a session duration to limit the impact of exposure
 - Refrain from letting users share tokens
 - Rotation your tokens regularly
+- Restrict usage to trusted networks by specifying an allowed IP address range
 - Use application users for non-human users and follow
   [security best practices](/docs/platform/concepts/application-users) for their tokens
 - Control access to your organzation's resources with the
