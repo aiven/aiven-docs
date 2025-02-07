@@ -9,6 +9,7 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import readyForCrdr from "@site/static/images/content/figma/ready-for-crdr.png";
 import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
 import crdrFailover from "@site/static/images/content/figma/crdr-failover.png";
+import crdrSwitchover from "@site/static/images/content/figma/crdr-switchover.png";
 import crdrRevert from "@site/static/images/content/figma/crdr-revert.png";
 
 The cross-region disaster recovery (CRDR) feature ensures your business continuity by
@@ -101,7 +102,7 @@ CRDR supports three types of the recovery transition:
 - [Manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover)
   - **Triggered by you** for any purposes other than a region-wide outage
   - **Destroys the primary service** and requires the primary service recreation to fail back.
-- [Switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region):
+- [Switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region)
   - **Triggered by you** for any purposes other than a region-wide outage
   - Leaves the **primary service intact** with no need for recreating it to switch back.
 
@@ -111,7 +112,8 @@ CRDR supports three types of the recovery transition:
 performed either
 [automatically](/docs/products/postgresql/crdr/crdr-failover-to-recovery) or
 [manually](/docs/products/postgresql/crdr/crdr-failover-to-recovery). When completed, the
-PRS is **Failed** and the RRS is up and running as an **Active** service.
+PRS is **Failed** and the RRS is up and running as an **Active** service. To fail back to
+the PRS, it needs to be recreated first.
 
 <img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
 
@@ -128,14 +130,33 @@ disaster scenario and verify the disaster resilience of your infrastructure.
 
 #### Switchover to the recovery region
 
+[Switchover to the RRS](/docs/products/postgresql/crdr/crdr-failover-to-recovery) is
+performed manually for testing, simulating a disaster scenario, or verifying the
+disaster resilience of your infrastructure. You trigger a switchover yourself at your
+convenience time. When completed, the PRS is **Passive** and the RRS is up and running as
+an **Active** service. To switch back to the primary service, no service recreation is
+needed.
+
+<img src={crdrSwitchover} className="centered" alt="CRDR switchover" width="100%" />
+
 ### Recovery reversion
+
+The recovery reversion is a manual operation you trigger to shift your workload back to
+the primary region and restore the CRDR setup to its original configuration. There are two
+types of the recovery reversion:
+
+- [Failback](/docs/products/postgresql/crdr/crdr-overview#failback-to-the-primary-region)
+  - Reverts an
+    [automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover)
+    or a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover).
+  - Recreates the primary service.
+- [Switchback](/docs/products/postgresql/crdr/crdr-overview#switchback-to-the-primary-region)
+  - Reverts a switchover.
+  - No need to recreate the primary service.
 
 #### Failback to the primary region
 
-The purpose of a revert operation is shifting your workload back to the original region
-and restoring the CRDR setup to its original configuration.
-
-A revert process consists of two steps you initiate manually at your convenience:
+The failback process consists of two steps you initiate manually at your convenience:
 
 1. [Primary service recreation](/docs/products/postgresql/crdr/crdr-revert-to-primary)
 
@@ -153,6 +174,13 @@ A revert process consists of two steps you initiate manually at your convenience
 <img src={crdrRevert} className="centered" alt="CRDR revert" width="100%" />
 
 #### Switchback to the primary region
+
+You initiate a switchback manually at your convenience to switch the direction of the
+replication and route the traffic back to the primary region. When completed, both the PRS
+and the RRS are up and running again: the PRS as an active service, and the RRS as a
+passive service.
+
+<img src={crdrRevert} className="centered" alt="CRDR revert" width="100%" />
 
 ## DNS address and service URI
 
