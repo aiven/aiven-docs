@@ -89,6 +89,7 @@ DZone
 ECEs?
 Elasticsearch
 enablement
+Entra
 Epicurious
 etcd
 European Union
