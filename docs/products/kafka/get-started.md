@@ -6,10 +6,10 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
 
 Start using Aiven for Apache Kafka® by setting up and configuring a service, connecting to it, and managing your data.
 
