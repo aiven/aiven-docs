@@ -3,8 +3,8 @@ title: Services
 sidebar_label: Overview
 ---
 
-import Card from "@site/src/components/AivenCard";
-import GridContainer from "@site/src/components/GridContainer";
+import Card from "@site/src/components/non-swizzled/Card";
+import GridContainer from "@site/src/components/non-swizzled/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
@@ -17,7 +17,7 @@ import PG from "@site/static/images/logos/pg.svg";
 import Valkey from "@site/static/images/logos/valkey.svg";
 import AlloyDBOmni from "@site/static/images/logos/alloydbomni.svg";
 
-Use our fully managed services to stream, store, or analyze your data. Deploy individual services and advanced data pipelines in minutes.
+Use our fully managed services to stream, store, or serve your data. Deploy individual services and advanced data pipelines in minutes.
 
 ## Stream
 

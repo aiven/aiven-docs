@@ -2,7 +2,7 @@
 title: Set authentication policies for organization users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 The authentication policy for your organization specifies the ways that users in your organization can access the organization on the Aiven Platform.
 

@@ -4,7 +4,8 @@ sidebar_label: Add cross-region backup
 limited: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 
 Enable [the backup to another region (BTAR) feature](/docs/platform/concepts/backup-to-another-region) and create an additional cross-region service backup on top of a regular backup stored in the region where your service is hosted.
 
@@ -141,7 +142,7 @@ curl --request PUT                                                              
     }'
 ```
 
-## Related pages
+<RelatedPages/>
 
 - [About the backup to another region feature in Aiven](/docs/platform/concepts/backup-to-another-region)
 - [Manage BTAR for your Aiven service](/docs/platform/howto/btar/manage-backup-to-another-region)

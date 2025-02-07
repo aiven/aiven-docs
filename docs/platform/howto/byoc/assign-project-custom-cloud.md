@@ -5,14 +5,15 @@ sidebar_label: Attach projects
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Select your organizations, units, or project that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
-[create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+[create custom clouds](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
 organization. As a part of the
-[initial custom cloud's setup](/docs/platform/howto/byoc/create-custom-cloud),
+[initial custom cloud's setup](/docs/platform/howto/byoc/create-cloud/create-custom-cloud),
 you select in what projects you'll be able to use your new custom cloud to host Aiven
 services. You can update this setting any time later by following
 by following
@@ -27,19 +28,19 @@ cloud to be available.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
--   [Super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
--   [Super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
 </TabItem>
 </Tabs>
 
@@ -103,11 +104,9 @@ custom cloud, you can:
 - Migrate existing services to your custom cloud if your service and networking
   configuration allows it. For more information, contact your account team.
 
-## Related pages
+<RelatedPages/>
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
+-   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)

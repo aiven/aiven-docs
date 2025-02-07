@@ -6,7 +6,7 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 
 Start using Aiven for ClickHouse® by creating and configuring a service, connecting to it, and loading sample data.

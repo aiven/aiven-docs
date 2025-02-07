@@ -4,7 +4,8 @@ sidebar_label: Delete cross-region backup
 limited: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 
 Delete an [additional service backup](/docs/platform/concepts/backup-to-another-region) [created](/docs/platform/howto/btar/enable-backup-to-another-region) in a region different from your primary backup region.
 
@@ -55,7 +56,7 @@ curl --request PUT                                                              
 The additional cross-region backup has been deleted. You still have the default backup
 located in the primary (service-hosting) region.
 
-## Related pages
+<RelatedPages/>
 
 - [About the backup to another region feature in Aiven](/docs/platform/concepts/backup-to-another-region)
 - [Enable BTAR for your Aiven service](/docs/platform/howto/btar/enable-backup-to-another-region)

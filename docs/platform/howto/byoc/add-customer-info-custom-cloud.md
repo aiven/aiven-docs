@@ -3,17 +3,18 @@ title: Manage customer contacts for a custom cloud
 sidebar_label: Update customer contacts
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
-[create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+[create custom clouds](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
 organizations. While
-[creating a custom cloud](/docs/platform/howto/byoc/create-custom-cloud), you add at least
+[creating a custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud), you add at least
 the **Admin** contact so that the Aiven team can reach out to them if needed. You can change
 the provided contacts any time later by following
 [Update the contacts list](#update-the-contacts-list).
@@ -28,19 +29,19 @@ a mandatory role that is always required as a primary support contact.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
--   [Super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   At least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
--   [Super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
 </TabItem>
 </Tabs>
 
@@ -84,11 +85,9 @@ team if needed.
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Enable the bring your own cloud (BYOC) feature](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
+-   [Rename a custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
 -   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)

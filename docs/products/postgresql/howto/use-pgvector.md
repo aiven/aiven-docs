@@ -3,6 +3,8 @@ title: Enable and use pgvector on Aiven for PostgreSQL®
 sidebar_label: Enable and use pgvector
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 The [pgvector extension](/docs/products/postgresql/concepts/pgvector) allows you to perform the vector similarity search and use embedding techniques directly in Aiven for PostgreSQL.
 
 ## Prerequisites
@@ -113,7 +115,7 @@ following SQL command:
 DROP EXTENSION vector;
 ```
 
-## Related pages
+<RelatedPages/>
 
 -   [pgvector for AI-powered search in Aiven for PostgreSQL®](/docs/products/postgresql/concepts/pgvector)
 -   [pgvector README on

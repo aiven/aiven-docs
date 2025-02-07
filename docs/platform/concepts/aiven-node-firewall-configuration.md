@@ -63,10 +63,6 @@ deployed without any special configuration:
       <td>500, 4500 (UDP)</td>
       <td>IPsec (IKE, IPsec NAT-T)</td>
     </tr>
-    <tr>
-      <td>4501 (UDP)</td>
-      <td>WireGuard</td>
-    </tr>
   </tbody>
 </table>
 

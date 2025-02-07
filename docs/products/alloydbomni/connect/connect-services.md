@@ -4,7 +4,7 @@ early: true
 ---
 
 import DocCardList from '@theme/DocCardList';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to the Aiven for AlloyDB Omni service using various programming languages or tools.
 

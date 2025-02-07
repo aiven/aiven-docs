@@ -1,116 +1,231 @@
 ---
-title: Access control lists and permission mapping
+title: Access Control Lists in Aiven for Apache Kafka®
+sidebar_label: Access control lists
 ---
 
-Aiven for Apache Kafka® uses **access control lists** (ACL) and user definitions to establish individual rights to produce, consume or manage topics.
-To manage users and ACL entries, you can access the
-corresponding options in the left-side navigation menu on the service
-page within the [Aiven Console](https://console.aiven.io/). For detailed
-instructions, see
-[Manage users and access control lists](/docs/products/kafka/howto/manage-acls).
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
-## ACL structure
+Access Control Lists (ACLs) in Aiven for Apache Kafka® manage access to topics, consumer groups, clusters, and Schema Registry with permissions.
 
-The ACL consists of **ACL entries**. An ACL entry is defined as the
-combination of:
+Aiven supports two ACL models:
 
--   the username
--   the permission given to the user
--   the associated topics
+- **Aiven ACLs**: Simplified topic-level access control with basic permissions and
+  wildcard support.
+- **Kafka-native ACLs**: Advanced resource-level access control with fine-grained
+  permissions, including `ALLOW` and `DENY` rules.
 
-The username portion of the ACL entry can be an Apache Kafka® service
-user name, or a string containing wildcards, which can match multiple
-users. Similarly, the topic portion can be a single Apache Kafka® topic
-name or can use a wildcard pattern. The permission is one of `read`,
-`write`, `readwrite` and `admin`.
+## Aiven ACL capabilities
 
-The wildcards supported are:
+Aiven ACLs provide basic permissions and wildcard support, making them suitable
+for simpler access control scenarios.
 
--   `?` matching a single character (equivalent to regular expression
-    `.`)
--   `*` matching zero or more characters (equivalent to regular
-    expression `(.*)`)
-
-The wildcards can be combined for more complex pattern matching:
-
--   `?*` matches a single character, and zero or more other
-    characters (equivalent to regular expression `(.+)`)
-
-Aiven for Apache Kafka® evaluates each topic access against the ACL
-entries. If it finds a matching ACL entry, access is granted. If no
-entry matches, access is denied. The order of the ACL entries is
-irrelevant.
-
-Examples:
-
--   username: `abc`, permission: `read`, topic: `xyz`. User `abc` has
-    read access to topic `xyz`.
--   username: `analyst*`, permission: `read`, topic: `xyz`. All Aiven
-    users with username starting `analyst` have read access to topic
-    `xyz`.
--   username: `developer*`, permission: `read`, topic: `test*`. All
-    Aiven users with username starting `developer` have read access to
-    topics starting with `test`.
-
-:::warning
-By default, Aiven adds an `avnadmin` service user to every new service
-and adds `admin` permission for all topics to that user. When you create
-your own ACLs to restrict access, you probably want to remove this ACL
-entry.
-:::
+- **Permissions**: Assign `read`, `write`, `readwrite`, or `admin` permissions to
+  specific users or multiple users using wildcards at the topic level.
+- **Wildcard support**: Enable patterns for usernames and resource names, such as
+  `logs-*` for topics or `user?` for usernames.
+- **User-specific**: Apply permissions directly to individual users or to multiple users
+  by matching patterns. For example, `username: analyst*` applies to all usernames
+  starting with `analyst`.
 
 :::note
-When using the Aiven Terraform Provider, you can add the `default_acl`
-key to your `resource` and set it to `false` if you do not want to
-create the admin user with wildcard permissions.
+By default, a user named `avnadmin` is created with `admin` permissions for all
+topics. If you are using the Aiven Terraform Provider and want to prevent this behavior,
+set `default_acl: false` in your resource configuration.
 :::
+
+### ACL Structure
+
+An Aiven ACL entry consists of the following elements:
+
+- **Username**: The Aiven for Apache Kafka service username or a wildcard pattern.
+- **Permission**: One of `read`, `write`, `readwrite`, or `admin`.
+- **Associated topics**: Specific Kafka topics or wildcard patterns.
+
+Aiven checks ACL entries and grants access if there's a match. If no entry matches,
+access is denied. The order of ACL entries does not
+influence access evaluation.
+
+:::note
+Aiven ACLs automatically provide access to all consumer groups. You do not need to
+configure separate ACL entries for consumer group access.
+:::
+
+### Examples
+
+- User-specific access:
+
+  ```plaintext
+  username: abc
+  permission: read
+  topic: xyz
+  ```
+
+  Grants user `abc` read access to the topic `xyz`.
+
+- Wildcard-based access:
+
+  ```plaintext
+  username: analyst*
+  permission: read
+  topic: xyz
+  ```
+
+  Grants all users with usernames starting with `analyst` read access to the topic `xyz`.
+
+- Wildcard in topics:
+
+  ```plaintext
+  username: developer*
+  permission: read
+  topic: test*
+  ```
+
+  Grants all users with usernames starting with `developer` read access to topics
+  starting with `test`.
+
+## Kafka-native ACL capabilities
+
+Kafka-native ACLs offer precise control with fine-grained permissions and resource-level
+management. Use them for complex scenarios requiring rules like `ALLOW` and `DENY`.
+
+- **Fine-grained permissions**: Support both `ALLOW` and `DENY` rules to provide
+  precise control over access.
+- **Expanded resource-level control**: Manage access to non-topic resources,
+  such as consumer groups, clusters, and transactional IDs.
+- **Pattern-based matching**: Use `LITERAL` for exact matches or `PREFIXED` for prefixes
+  to specify how resource names are matched.
+
+### ACL structure
+
+A Kafka-native ACL entry consists of the following elements:
+
+- **Principal**: The user or service account, such as `User:Alice`.
+  - Use wildcards, such as `User:alice*`, to match all usernames that start with `alice`.
+  - Only `User:` principals are supported.
+- **Host**: The host to allow. Use `*` to allow all hosts.
+- **Resource type**: The Apache Kafka resource to control, such as `Topic`,
+  `Group`, `Cluster`, or `TransactionalId`.
+- **Pattern type**: How the resource value is matched:
+  - **LITERAL**: Matches an exact resource name, such as `my-topic`.
+  - **PREFIXED**: Matches all resources sharing a specified prefix, such as `logs-*`.
+- **Resource**: The specific Apache Kafka resource, based on the selected pattern type.
+  :::note
+  When the `pattern_type` is `LITERAL`, setting the `resource` to `*` is a special
+  case that matches all resources. This behavior follows standard Apache Kafka conventions.
+  :::
+
+- **Operation**: The Apache Kafka operation to allow or deny, such as `Read`, `Write`, or
+  `Describe`.
+- **Permission type**: Specifies whether the action is `ALLOW` or `DENY`.
+
+### Examples
+
+- Granular topic access (prefixed pattern):
+
+  ```plaintext
+  Principal: User:Alice
+  Resource type: Topic
+  Pattern type: PREFIXED
+  Resource: logs-
+  Operation: Write
+  Permission: ALLOW
+  ```
+
+  Grants `User:Alice` write access to all topics starting with the prefix `logs-`.
+
+- Granular topic access (literal pattern):
+
+  ```plaintext
+  Principal: User:Alice
+  Resource type: Topic
+  Pattern type: LITERAL
+  Resource: my-topic
+  Operation: Write
+  Permission: ALLOW
+  ```
+
+  Grants `User:Alice` write access to the specific topic `my-topic`.
+
+- Restricting sensitive resources (prefixed pattern):
+
+  ```plaintext
+  Principal: User:Alice
+  Resource type: Topic
+  Pattern type: PREFIXED
+  Resource: logs-sensitive-
+  Operation: Write
+  Permission: DENY
+  ```
+
+  Denies `User:Alice` write access to all topics starting with the prefix `logs-sensitive-`.
+
+- Restricting sensitive resources (literal pattern):
+
+  ```plaintext
+  Principal: User:Alice
+  Resource type: Topic
+  Pattern type: LITERAL
+  Resource: logs-sensitive-topic
+  Operation: Write
+  Permission: DENY
+  ```
+
+  Denies `User:Alice` write access to the specific topic `logs-sensitive-topic`.
+
+### Precedence of rules
+
+When multiple ACLs match for the same Apache Kafka resource, such as a topic or
+consumer group, `DENY` rules take precedence over `ALLOW` rules.
+
+**Examples**:
+
+- An `ALLOW` rule grants access to resources matching a general pattern, such as:
+  - Topics starting with `test-*`.
+  - All consumer groups.
+- A `DENY` rule restricts access to resources matching a specific pattern, such as:
+  - Topics starting with `test-sensitive-*`.
+  - Consumer groups with `sensitive` in their names.
 
 ## ACL permission mapping
 
-You can define four types of permission for a particular topic or topic
-pattern. Note each permission is called differently in the Console when
-creating them (for example, Consume) and in the ACL entries list:
+The following table summarizes the permissions supported by Aiven ACLs, along with
+corresponding Apache Kafka actions and Java APIs.
 
--   Admin / `admin`
--   Consume and Produce / `readwrite`
--   Consume / `read`
--   Produce / `write`
+| Action           | Java API Link                                                                                                                                                       | Admin | Consume and Produce | Produce | Consume |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------------|-------------|-------------|
+| **Cluster**          |                                                                                                                                                                        |           |                          |             |             |
+| → `CreateTopics`     | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#createTopics(java.util.Collection))                                               | ✓         |                          |             |             |
+| **Consumer Groups**  |                                                                                                                                                                        |           |                          |             |             |
+| → `Delete`           | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#deleteConsumerGroups(java.util.Collection))                                       | ✓         | ✓                        |             | ✓           |
+| → `Describe`         | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#describeConsumerGroups(java.util.Collection))                                     | ✓         | ✓                        |             | ✓           |
+| → `ListConsumerGroups`| [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#listConsumerGroups(org.apache.kafka.clients.admin.ListConsumerGroupsOptions))   | ✓         | ✓                        |             | ✓           |
+| **Topics**           |                                                                                                                                                                        |           |                          |             |             |
+| → `Read`             | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html#poll(java.time.Duration))                                              | ✓         | ✓                        |             | ✓           |
+| → `Write`            | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html#send(org.apache.kafka.clients.producer.ProducerRecord,org.apache.kafka.clients.producer.Callback)) | ✓         | ✓                        | ✓           |             |
+| → `Describe`         | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#listTransactions())                                                              | ✓         | ✓                        | ✓           | ✓           |
+| → `DescribeConfigs`  | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#describeConfigs(java.util.Map))                                                   | ✓         |                          |             |             |
+| → `AlterConfigs`     | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#alterConfigs(java.util.Map))                                                     | ✓         |                          |             |             |
+| → `Delete`           | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#deleteTopics(java.util.Collection))                                               | ✓         |                          |             |             |
+| **Transactions**     |                                                                                                                                                                        |           |                          |             |             |
+| → `Describe`         | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#describeTransactions(java.util.Collection))                                       | ✓         |                          | ✓           |             |
+| → `BeginTransaction` | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html#beginTransaction())                                                   | ✓         |                          | ✓           |             |
 
-The type of the permission dictates the actions the client is be able to
-perform. The following table contains a summary of the allowed action
-and a link to the Java APIs:
-
-| Action               | Link                                                                                                                                                                                               | Admin | Consume and Produce | Produce | Consume |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------- | ------- | ------- |
-| **Cluster**          |                                                                                                                                                                                                    |       |                     |         |         |
-| → `CreateTopics`     | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#createTopics(java.util.Collection))                                                                           | ✓     |                     |         |         |
-| **Consumer Groups**  |                                                                                                                                                                                                    |       |                     |         |         |
-| → `Delete`           | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#deleteConsumerGroups(java.util.Collection))                                                                   | ✓     | ✓                   |         | ✓       |
-| → `Describe`         | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#describeConsumerGroups(java.util.Collection))                                                                 | ✓     | ✓                   |         | ✓       |
-| → `Read`             | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#listConsumerGroups(org.apache.kafka.clients.admin.ListConsumerGroupsOptions))                                 | ✓     | ✓                   |         | ✓       |
-| **Topics**           |                                                                                                                                                                                                    |       |                     |         |         |
-| → `Read`             | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html#poll(java.time.Duration))                                                                          | ✓     | ✓                   |         | ✓       |
-| → `Write`            | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html#send(org.apache.kafka.clients.producer.ProducerRecord,org.apache.kafka.clients.producer.Callback)) | ✓     | ✓                   | ✓       |         |
-| → `Describe`         | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#listTransactions())                                                                                           | ✓     | ✓                   | ✓       | ✓       |
-| → `Describe_Configs` | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#describeTopics(java.util.Collection))                                                                         | ✓     | ✓                   | ✓       | ✓       |
-| → `Alter`            | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#alterConfigs(java.util.Map))                                                                                  | ✓     |                     |         |         |
-| → `AlterConfigs`     | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#alterConfigs(java.util.Map))                                                                                  | ✓     |                     |         |         |
-| → `Delete`           | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#deleteTopics(java.util.Collection))                                                                           | ✓     |                     |         |         |
-| **Transactions**     |                                                                                                                                                                                                    |       |                     |         |         |
-| → `Describe`         | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#describeTransactions(java.util.Collection))                                                                   | ✓     | ✓                   | ✓       |         |
-| → `Write`            | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html#beginTransaction())                                                                                | ✓     | ✓                   | ✓       |         |
 
 :::warning
-A user with the `Admin` permissions can create topics with any name, as
-the `CreateTopics` permissions is applied at the cluster level.
+Users with `Admin` permissions can create topics with any name because the
+`CreateTopics` permission is applied at the cluster level.
 
-All other permissions related to a topic (`Alter`, `Delete`) **only**
-apply to the topics matching the pattern that you specify.
+Other permissions, such as `Alter` and `Delete`, apply only to topics that match
+the specified pattern in the ACL entry.
 :::
-
-The above mappings are subject to change.
 
 :::note
-By default, the number of users per service is limited to 50 in Kafka.
-Contact Aiven support if you need more users.
+By default, an Aiven for Apache Kafka service can have up to 50 users.
+Contact [Aiven support](mailto:support@aiven.io) to request an increase to this limit.
+
 :::
+
+<RelatedPages/>
+
+- [Manage access control lists](/docs/products/kafka/howto/manage-acls)
+- [Apache Kafka official documentation](https://kafka.apache.org/documentation/#operations_resources_and_protocols)

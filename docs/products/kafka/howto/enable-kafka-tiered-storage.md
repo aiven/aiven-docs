@@ -5,8 +5,9 @@ sidebar_label: Enable tiered storage
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Tiered storage significantly improves the storage efficiency of your Aiven for Apache Kafka® service.
 
@@ -134,7 +135,7 @@ This consumer configuration is no longer necessary starting from Apache Kafka
 version 3.6.2. Consider upgrading to Apache Kafka version 3.6.2 or later before
 enabling tiered storage.
 
-## Related pages
+<RelatedPages/>
 
 - [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)
 - [How tiered storage works in Aiven for Apache Kafka®](/docs/products/kafka/concepts/tiered-storage-how-it-works)

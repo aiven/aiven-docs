@@ -201,6 +201,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Permissions</b>
         </>
       );
+    case 'orgpermissions':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.blockedPerson} />{' '}
+          <b>Permissions</b>
+        </>
+      );
     case 'users':
       return (
         <>
@@ -339,6 +346,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Reset password</b>
         </>
       );
+    case 'reset':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.reset} />{' '}
+          <b>Reset credentials</b>
+        </>
+      );
     case 'replacefile':
       return (
         <>
@@ -361,6 +375,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete topic</b>
+        </>
+      );
+    case 'deleteacl':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete ACL</b>
         </>
       );
     case 'deletedatabase':
@@ -500,11 +520,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.queries} /> <b>Query editor</b>
         </>
       );
-    case 'replicationflow':
+    case 'opensearchindexes':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />
-          <b>Replication flow</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.indexes} /> <b>Indexes</b>
         </>
       );
 

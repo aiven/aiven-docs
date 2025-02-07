@@ -4,7 +4,8 @@ sidebar_label: Integrations
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for ClickHouse® supports different types of integration allowing you to efficiently connect with other services or data sources and access the data to be processed.
 
@@ -101,13 +102,14 @@ For more information on ClickHouse database engines, see
 
 Depending on a data source type, Aiven for ClickHouse supports different integration modes.
 
-| Data source type | Data source integration<br/>(with Aiven service <br/>or external source)| Managed databases integration| Managed credentials integration |
-|------------------|----------------------------|------------------------------|---------------------------------|
-| PostgreSQL       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="tick"/>      |
-| MySQL            | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
-| Apache Kafka     | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="cross"/>     |
-| ClickHouse       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>     |
-| Amazon S3        | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Data source type   | Data source integration<br/>(with Aiven service <br/>or external source)| Managed databases integration| Managed credentials integration |
+|--------------------|----------------------------|------------------------------|---------------------------------|
+| PostgreSQL         | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="tick"/>      |
+| MySQL              | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Apache Kafka       | <ConsoleIcon name="tick"/> | <ConsoleIcon name="tick"/>   | <ConsoleIcon name="cross"/>     |
+| ClickHouse         | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Amazon S3          | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
+| Azure Blob Storage | <ConsoleIcon name="tick"/> | <ConsoleIcon name="cross"/>  | <ConsoleIcon name="tick"/>      |
 
 ## Data flow and residency in integrations
 
@@ -126,7 +128,7 @@ endpoint, by default, data resides outside the Aiven for ClickHouse service in i
 source. Queries aggregate data across sources, and the integrated data is accessed as
 needed in real-time or near-real-time.
 
-## Related pages
+<RelatedPages/>
 
 - [Set up Aiven for ClickHouse® data service integration](/docs/products/clickhouse/howto/data-service-integration)
 - [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)

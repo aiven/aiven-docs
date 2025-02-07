@@ -6,7 +6,8 @@ early: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 [Aiven for Valkey read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
 
@@ -185,6 +186,6 @@ To promote the replica to primary using the Aiven API:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Valkey read replica](/docs/products/valkey/concepts/read-replica)

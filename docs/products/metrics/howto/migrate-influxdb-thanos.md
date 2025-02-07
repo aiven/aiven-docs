@@ -2,7 +2,8 @@
 title: Migrate Aiven for InfluxDB to Aiven for Metrics
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Migrate your Aiven for InfluxDB databases to Aiven for Thanos Metrics using the Aiven Console migration tool.
 
@@ -111,6 +112,6 @@ When replication mode is active, Aiven for Metrics ensures your data remains in 
 with continuous synchronization of new writes from the source database.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Thanos Metrics overview](/docs/products/metrics)

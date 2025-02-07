@@ -1,8 +1,9 @@
 ---
 title: Dashboard preview for Aiven for Grafana®
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Grafana's dashboard previews provide a visual overview of your dashboards, displaying each configured dashboard as a graphical thumbnail.
 
@@ -43,7 +44,7 @@ this feature is disabled on Aiven for Grafana® services.
 - Dashboard previews are not available for Hobbyist and Startup-1 plans.
 - Before downgrading your service plan to Hobbyist or Startup-1, first disable dashboard previews.
 
-## Related pages
+<RelatedPages/>
 
 For more information on Dashboard previews, see [Grafana
 documentation](https://grafana.com/docs/grafana/latest/dashboards/).

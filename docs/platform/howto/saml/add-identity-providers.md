@@ -4,13 +4,16 @@ sidebar_label: Add identity providers
 keywords: [SAML, SSO]
 ---
 <!-- vale off -->
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md"
 
 <!-- vale on -->
 
 You can give your organization users access to Aiven through identity providers (IdPs) that support SAML.
+
+You must be an [organization admin](/docs/platform/concepts/permissions) or a
+[super admin](/docs/platform/howto/make-super-admin) to manage IdPs.
 
 The following are general steps for setting up single sign-on with an IdP. Setup
 instructions are also available for these specific providers:

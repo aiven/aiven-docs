@@ -2,7 +2,7 @@
 title: Enable Apache Kafka® Connect on Aiven for Apache Kafka®
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 For a low-cost way to get started with Aiven for Apache Kafka® Connect, you can run Kafka Connect on the same nodes as your Apache Kafka cluster, sharing the resources. The Kafka service must be running on a business or premium plan.
 

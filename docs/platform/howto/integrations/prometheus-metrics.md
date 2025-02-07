@@ -2,7 +2,8 @@
 title: Use Prometheus with Aiven
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Discover Prometheus as a tool for monitoring your Aiven services. Check why use it and how it works. Learn how to enable and configure Prometheus on your project.
 
@@ -208,7 +209,7 @@ depending on the host role. Most notably for Kafka® only one of the
 nodes provides metrics related to consumer group offsets.
 :::
 
-## Related pages
+<RelatedPages/>
 
 Learn more about integrations with Aiven:
 

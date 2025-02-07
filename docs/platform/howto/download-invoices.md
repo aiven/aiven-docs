@@ -2,13 +2,11 @@
 title: Download invoices
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 You can download monthly invoices from the Aiven Console in PDF or CSV format.
 
-:::info
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
-:::
+You must be an [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions) to access this feature.
 
 1. Click **Billing**.
 1. Click **Invoices**.

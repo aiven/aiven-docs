@@ -65,6 +65,7 @@ the upstream open source project's EOL.
 | 14      | 2026-11-12 | 2026-05-12                       | 2021-11-11                      |
 | 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
 | 16      | 2028-11-09 | 2028-05-09                       | 2024-01-09                      |
+| 17      | 2028-11-09 | 2028-05-09                       | 2024-12-09                      |
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
@@ -99,20 +100,9 @@ after they are made available on the Aiven platform.
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 | ------- | ---------- | -------------------------------- | ------------------------------- |
 | 3       | 2022-07-27 | 2022-04-27                       | 2018-11-08                      |
-| 4.0     | 2024-09-30 | 2024-09-30                       | 2021-12-09                      |
+| 4.0     | 2025-01-31 | 2024-10-31                       | 2021-12-09                      |
 | 4.1     | 2025-09-30 | To be announced                  | 2024-01-18                      |
 
-### Aiven for M3DB
-
-Starting from v1.5, Aiven for M3DB versions will reach EOL six months
-after newer major and minor versions are made available on the Aiven
-platform.
-
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 1.1     | 2023-09-01 | 2023-06-01                       | 2021-02-23                      |
-| 1.2     | 2023-09-01 | 2023-06-01                       | 2021-10-11                      |
-| 1.5     | N/A        | N/A                              | 2022-05-05                      |
 
 ### Aiven for Apache Flink® {#aiven-for-flink}
 

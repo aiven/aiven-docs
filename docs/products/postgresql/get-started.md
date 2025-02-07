@@ -6,8 +6,9 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
@@ -340,7 +341,7 @@ SELECT * FROM customers WHERE firstname = 'John';
 </details>
 <!-- vale on -->
 
-## Related pages
+<RelatedPages/>
 
 - [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling) and
   [Pgbouncer](/docs/products/postgresql/howto/pgbouncer-stats)

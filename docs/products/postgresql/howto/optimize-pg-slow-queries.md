@@ -4,60 +4,22 @@ sidebar_label: Optimize queries
 keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import FAQ from "@site/static/includes/faq-ai.md"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
-Optimize slow queries to ensure maximum service performance. Use Aiven's AI capabilities or  `pg_stat_statements` to identify optimization opportunities.
+Aiven for PostgreSQL allows you to [identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries) using the `pg_stat_statements` view.
 
-:::note
-For one-time query optimizations when you do not run an Aiven for PostgreSQL® service,
-use the [standalone SQL query optimizer][optimizer].
+:::important
+You can also use [Aiven's AI capabilities](/docs/products/postgresql/howto/ai-insights)
+to identify and speed up slow queries.
 :::
 
-## Artificial intelligence recommendations
-
-Use **Aiven AI Database Optimizer** to suggest optimizations to your databases and queries.
-
-Aiven considers various aspects to suggest optimization, for example query
-structure, table size, existing indexes and their cardinality, column types and
-sizes, the connections between the tables and columns in the query.
-
-To optimize a query automatically:
-
-1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for
-   PostgreSQL service.
-1. Click <ConsoleLabel name="AI insights"/>.
-1. For the query of your choice, click **Optimize**.
-1. In the **Query optimization report** window, see the optimization suggestion and apply
-   the suggestion by running the provided SQL queries.
-
-   - To display potential alternative optimization recommendations, click **Advanced options**.
-   - To display the diff view, click **Query diff**.
-   - To display explanations about the optimization, click **Optimization details**.
-
-:::note
-The quality of the optimization suggestions is proportional to the amount of
-data collected about the performance of your database.
-:::
-
-<details>
-  <summary>Frequently asked questions</summary>
-  <FAQ/>
-</details>
-
-## Manual optimization
-
-Aiven for PostgreSQL allows you to
-[identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
-using the `pg_stat_statements` view.
-
-### Limit the number of indexes
+## Limit the number of indexes
 
 Having many database indexes on a table can reduce write performance
 due to the overhead of maintaining them.
 
-### Handle an increase in database connections
+## Handle an increase in database connections
 
 When your application code scales horizontally to accommodate high
 loads, you might find that you inadvertently reach the
@@ -74,7 +36,7 @@ an increase in database connections. You can add and configure the
 connection pooling for your service in the <ConsoleLabel name="pools"/> view in [Aiven
 Console](https://console.aiven.io/).
 
-### Move read-only queries to standby nodes
+## Move read-only queries to standby nodes
 
 If your Aiven for PostgreSQL® service is running a Business or
 Premium plan, you have one or more standby nodes available in a high
@@ -85,16 +47,17 @@ redirect read-only queries to the additional
 [read-only](/docs/products/postgresql/howto/create-read-replica) nodes by
 directly connecting via the **read-only replica URL**.
 
-### Move read-only queries to a remote read-only replica
+## Move read-only queries to a remote read-only replica
 
 You can also create a
 [remote read-only replica](/docs/products/postgresql/howto/create-read-replica) service in the same or a different
 cloud or region that you can use to reduce the query load on the primary service
 for read-only queries.
 
-## Related pages
+<RelatedPages/>
 
-- [Identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries)
+- [AI DB Optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
 - [Standalone query optimizer][optimizer]
+- [Identify PostgreSQL® slow queries with `pg_stat_statements](/docs/products/postgresql/howto/identify-pg-slow-queries)
 
 [optimizer]: /docs/tools/query-optimizer

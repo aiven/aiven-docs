@@ -2,15 +2,14 @@
 title: Service backups
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
 import Variables from "@site/static/variables.json"
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
-**Backed-up services:** All Aiven services, except for Apache Kafka® and M3
-Aggregator/Coordinator.
+**Backed-up services:** All Aiven services, except for Apache Kafka®.
 
 **Backup location:** Backups are stored in the object storage of the cloud region
 where the service is first created, for example, S3 for AWS or GCS for GCP.
@@ -127,20 +126,6 @@ data.
       <td>Hourly backup up to 2 hours</td>
       <td>Hourly backup up to 2 hours</td>
       <td>Plan not available</td>
-    </tr>
-    <tr>
-      <td>Aiven for M3</td>
-      <td>Plan not available</td>
-      <td>Single day backup</td>
-      <td>Daily backup up to 6 days</td>
-      <td>Daily backup up to 13 days</td>
-    </tr>
-    <tr>
-      <td>Aiven for M3 Aggregator / Coordinator</td>
-      <td>Plan not available</td>
-      <td>Plan not available</td>
-      <td>No backups</td>
-      <td>No backups</td>
     </tr>
     <tr>
       <td>Aiven for Grafana®</td>

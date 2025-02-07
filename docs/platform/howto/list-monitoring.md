@@ -2,7 +2,8 @@
 title: Metrics, logs, and alerts
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Use metrics, logs, alerts, and dashboards to monitor the health of your services and integrations.
 
@@ -67,10 +68,10 @@ You can export logs and metrics **to an Aiven service**:
 - Send logs to [Aiven for M3](/docs/products/m3db).
 - Visualize logs with [Aiven for Grafana](/docs/products/grafana).
 
-## Set up alerts and notfications
+## Set up alerts and notifications
 
 See [Manage project and service notifications](/docs/platform/howto/technical-emails).
 
-## Related pages
+<RelatedPages/>
 
 - [Manage notifications](/docs/platform/howto/technical-emails)

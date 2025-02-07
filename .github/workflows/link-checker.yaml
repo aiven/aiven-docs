@@ -10,20 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-         go-version: 'stable'
-
-      - name: Install Muffet
-        run: |
-          go install github.com/raviqqe/muffet/v2@latest
-
-      - name: Run check links
-        id: check-links
+      - name: Run Linkchecker
         run: |
           make check-links
 

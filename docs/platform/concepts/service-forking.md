@@ -4,8 +4,8 @@ title: Service forking
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 [Fork your Aiven service](/docs/platform/concepts/service-forking) to make a copy of the service, for example to create a snapshot to analyze an issue.
 
@@ -136,7 +136,7 @@ A service cannot be renamed after creation. Instead, use a fork:
 1. Point clients to the new service.
 1. Delete the original service when you are ready.
 
-## Related pages
+<RelatedPages/>
 
 - [Create a service](/docs/platform/howto/create_new_service)
 

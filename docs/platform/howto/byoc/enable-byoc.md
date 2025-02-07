@@ -3,9 +3,14 @@ title: Enable bring your own cloud (BYOC)
 sidebar_label: Enable BYOC
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
-Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven organization.
+Enabling [the bring your own cloud (BYOC) feature](/docs/platform/concepts/byoc) allows you to [create custom clouds](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven organization.
+
+To enable [BYOC](/docs/platform/concepts/byoc), open the
+[Aiven Console](https://console.aiven.io/) and
+[set up a call with the Aiven sales team](/docs/platform/howto/byoc/enable-byoc#enable-byoc).
 
 :::note
 Enabling [the BYOC feature](/docs/platform/concepts/byoc) or creating custom
@@ -14,34 +19,25 @@ existing Aiven organizations, projects, or services. It only allows you to run A
 services in your cloud provider account.
 :::
 
-To be able to create custom clouds on the Aiven platform, first you need
-to enable the BYOC feature. The [Aiven Console](https://console.aiven.io/)
-offers a quick and easy way to set up a short call with the Aiven sales
-team to identify your use cases and confirm the requirements. In the
-call, we make sure BYOC can address them, and we check your environment
-eligibility for the feature.
-
 :::important
 Before enabling BYOC, check
-[who is eligible for BYOC](/docs/platform/concepts/byoc#eligible-for-byoc) and review
+[who is eligible for BYOC](/docs/platform/concepts/byoc#who-is-eligible-for-byoc) and review
 [feature limitations](/docs/platform/howto/byoc/enable-byoc#byoc-enable-limitations) and
 [prerequisites](/docs/platform/howto/byoc/enable-byoc#byoc-enable-prerequisites).
 :::
-
-## Required access
-
-You must be a [super admin](/docs/platform/howto/make-super-admin) to enable this feature.
 
 ## Limitations {#byoc-enable-limitations}
 
 -   You need at least the Advanced tier of
     [Aiven support services](https://aiven.io/support-services) to be eligible for
     activating BYOC.
--   Only [super admins](/docs/platform/howto/make-super-admin) can request enabling BYOC.
+-   Only [organization admins](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    can request enabling BYOC.
 
 ## Prerequisites {#byoc-enable-prerequisites}
 
--   [Super admin](/docs/platform/howto/make-super-admin) role for your Aiven organization
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role for your Aiven organization
 -   Access to the [Aiven Console](https://console.aiven.io/)
 -   Active account with your cloud provider
 
@@ -72,13 +68,10 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to enable thi
 ## Next steps
 
 With BYOC activated in your Aiven organization, you can
-[create and use custom clouds](/docs/platform/howto/byoc/create-custom-cloud).
+[create and use custom clouds](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
 
-## Related pages
+<RelatedPages/>
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Create a custom cloud](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
--   [Rename your custom cloud](/docs/platform/howto/byoc/rename-custom-cloud)
+-   [About bring your own cloud](/docs/platform/concepts/byoc)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)

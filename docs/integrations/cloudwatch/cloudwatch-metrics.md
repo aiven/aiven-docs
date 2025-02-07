@@ -2,7 +2,8 @@
 title: Send metrics to Amazon CloudWatch
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven enables you to send your service metrics to your [Amazon (AWS) CloudWatch](https://aws.amazon.com/cloudwatch/).
 
@@ -57,6 +58,6 @@ For each of the services whose metrics should be sent to your AWS CloudWatch:
    go to the **Metrics** section to see your Aiven service metrics
    data. It may take a few minutes until the data arrives.
 
-## Related pages
+<RelatedPages/>
 
 Learn more about [Amazon CloudWatch and Aiven](/docs/integrations/cloudwatch).

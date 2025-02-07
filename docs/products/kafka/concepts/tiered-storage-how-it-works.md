@@ -2,7 +2,7 @@
 title: How tiered storage works in Aiven for Apache Kafka®
 sidebar_label: How it works
 ---
-
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import DataRetention from "@site/static/images/content/figma/data-retention.png";
 
 Aiven for Apache Kafka® tiered storage optimizes data management across two distinct storage tiers:
@@ -81,7 +81,7 @@ to the remote storage. The encryption keys are not shared with the cloud
 storage provider and generally do not leave Aiven management machines
 and the Kafka brokers.
 
-## Related pages
+<RelatedPages/>
 
 -   [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)
 -   [Guarantees](/docs/products/kafka/concepts/tiered-storage-guarantees)

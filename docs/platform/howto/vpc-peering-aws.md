@@ -2,7 +2,7 @@
 title: Set up VPC peering on AWS
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Learn how to set up VPC peering on AWS.
 

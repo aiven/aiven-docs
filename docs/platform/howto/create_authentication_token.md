@@ -2,8 +2,9 @@
 title: Create personal tokens
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Create personal token in the Aiven Console to use with the Aiven CLI or API.
 
@@ -24,7 +25,7 @@ Create personal token in the Aiven Console to use with the Aiven CLI or API.
 
 1.  Click **Close**.
 
-## Related pages
+<RelatedPages/>
 
 - [Create a token using the Aiven CLI](/docs/tools/cli/user/user-access-token)
 - Use [authentication policies](/docs/platform/howto/set-authentication-policies)

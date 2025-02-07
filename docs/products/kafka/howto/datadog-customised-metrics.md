@@ -2,6 +2,8 @@
 title: Configure Apache Kafka® metrics sent to Datadog
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 When creating a [Datadog service integration](https://docs.datadoghq.com/integrations/kafka/?tab=host#kafka-consumer-integration), you can customize which metrics are sent to the Datadog endpoint using the [Aiven CLI](/docs/tools/cli).
 
 ## Supported metrics
@@ -78,6 +80,11 @@ parameters:
 -   `exclude_topics`: Specify a comma-separated list of topics to
     exclude.
 
+    :::warning
+    To use `exclude_topics`, you must specify at least one `include_consumer_groups`
+    value. Without this, `exclude_topics` does not take effect.
+    :::
+
 -   `include_consumer_groups`: Specify a comma-separated list of
     consumer groups to include.
 
@@ -96,6 +103,6 @@ avn service integration-update                                                  
 
 After updating settings, view the collected metrics in your Datadog explorer.
 
-## Related pages
+<RelatedPages/>
 
 - [Datadog and Aiven](/docs/integrations/datadog)

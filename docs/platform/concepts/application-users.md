@@ -2,20 +2,18 @@
 title: Application users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 An application user is a type of user that provides programmatic access to the Aiven platform and services through the [Aiven API](/docs/tools/api.md), [CLI](/docs/tools/), [Aiven Terraform Provider](/docs/tools/terraform.md), and [Aiven Kubernetes Operator](/docs/tools/kubernetes). They're intended for non-human users that need to access Aiven.
 
-:::info
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
-:::
+You must be an [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions) to access this feature.
 
 ## Application user permissions
 
 You [create and manage application users](/docs/platform/howto/manage-application-users)
 at the organization level and you
 [give them access to projects and services](/docs/platform/howto/manage-permissions)
-in the same way as organization users. You can also make application users super admin,
+in the same way as organization users. You can also make application user admin,
 giving them full access to your organization, its organizational units, projects,
 services, and billing and other settings.
 

@@ -2,12 +2,12 @@
 title: Get resource IDs
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Resource IDs like organzation ID or user ID can be useful for working with the developer tools. You can get the IDs for resources in the [Aiven Console](https://console.aiven.io/).
 
-To access the IDs in the **Admin** part of the Console, you must be a
-[super admin](/docs/platform/howto/make-super-admin).
+To access the IDs in the **Admin** part of the Console, you must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 
 ## Get an organization ID
 

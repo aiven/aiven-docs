@@ -21,10 +21,13 @@ jobs:
             automated-pr
             dependencies
           types: |
-            fix
-            feat
-            update
-            add
+            chore
+            ci
             delete
+            deps
+            feat
+            fix
+            style
+            update
           headerPattern: '^(\w*)(?:\(([\w$.\-*/ ]*)\))?: (.*)$'
           headerPatternCorrespondence: type, scope, subject

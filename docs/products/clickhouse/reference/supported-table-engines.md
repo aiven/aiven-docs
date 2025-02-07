@@ -21,6 +21,7 @@ Aiven for ClickHouse supports the following table engines:
 | Engine                                                                                                                | Engine family      |
 |-----------------------------------------------------------------------------------------------------------------------|--------------------|
 | `AggregatingMergeTree` (remapped)                                                                                     | MergeTree          |
+| `AzureBlobStorage`                                                                                                    | Integration engine |
 | `Buffer`                                                                                                              | Special engine     |
 | `CollapsingMergeTree` (remapped)                                                                                      | MergeTree          |
 | `COSN`                                                                                                                | Integration engine |

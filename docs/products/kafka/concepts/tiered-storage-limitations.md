@@ -1,6 +1,7 @@
 ---
 title: Trade-offs and limitations
 ---
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 The main trade-off of tiered storage is the higher latency when accessing and reading data from remote storage compared to local disk storage.
 
@@ -26,7 +27,7 @@ latency entirely.
   [plans and pricing page](https://aiven.io/pricing?product=kafka) for supported plans
   and regions.
 
-## Related pages
+<RelatedPages/>
 
 - [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)
 - [Enabled tiered storage for Aiven for Apache Kafka® service](/docs/products/kafka/howto/enable-kafka-tiered-storage)

@@ -3,12 +3,15 @@ title: Tiered storage in Aiven for ClickHouse®
 sidebar_label: Tiered storage
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's local disk usage.
 
 On top of this default data allocation mechanism, you can control the tier your
 data is stored in using custom data retention periods.
+
+## Tiered storage architecture
 
 The tiered storage in Aiven for ClickHouse® consists of the following two
 layers:
@@ -18,12 +21,22 @@ layers:
 - Object storage - the second tier: Affordable storage device with unlimited capability,
   better suited for historical and more rarely queried data, relatively slower
 
+Aiven for ClickHouse's tiered storage supports
+[local on-disk cache for remote files](/docs/products/clickhouse/howto/local-cache-tiered-storage),
+which is enabled by default. You can
+[disable the cache](/docs/products/clickhouse/howto/local-cache-tiered-storage#disable-the-cache)
+or
+[drop it](/docs/products/clickhouse/howto/local-cache-tiered-storage#free-up-space) to free
+up the space it occupies.
+
+## Supported cloud platforms
+
 On the Aiven tenant (in non-[BYOC](/docs/platform/concepts/byoc) environments), Aiven for
 ClickHouse tiered storage is supported on the following cloud platforms:
 
 - Microsoft Azure
 - Amazon Web Services (AWS)
-- Google Cloud Platform (GCP)
+- Google Cloud
 
 ## Why use it
 
@@ -130,7 +143,7 @@ threshold to control how your data is stored between the two layers.
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 
-## Related pages
+<RelatedPages/>
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
 -   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)

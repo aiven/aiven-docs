@@ -3,7 +3,7 @@ title: Use Azure Private Link with Aiven services
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -16,6 +16,7 @@ Azure Private Link is supported for the following services:
 - Aiven for ClickHouse®
 - Aiven for Grafana®
 - Aiven for InfluxDB®
+- Aiven for Metrics
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®

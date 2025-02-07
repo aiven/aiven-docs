@@ -8,18 +8,14 @@
 
   "Related pages": {
     "scope": "markdown",
-    "prefix": ["related", "pages"],
-    "body": ["## Related pages", "", "$1"],
-    "description": "Inserts a related pages section"
-  },
-  "Required access": {
-    "scope": "markdown",
-    "prefix": "Required access",
+    "prefix": ["related", "pages", "rp"],
     "body": [
-      "## Required access",
-      "You must be a ${1|[super admin](/docs/platform/howto/make-super-admin),[project admin](/docs/platform/concepts/permissions),[project operator](/docs/platform/concepts/permissions)|} to access this feature."
+      "import RelatedPages from \"@site/src/components/non-swizzled/RelatedPages\";",
+      "",
+      "<RelatedPages/>",
+      "$2"
     ],
-    "description": "Inserts a section with information on what role is needed to access a feature"
+    "description": "Inserts a related pages title"
   },
   "Title": {
     "scope": "markdown",
@@ -64,7 +60,7 @@
     "prefix": ["image", "console", "svg", "icon"],
     "description": "Insert an image as component. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
-      "import {ConsoleIcon} from \"@site/src/components/ConsoleIcons\"",
+      "import {ConsoleIcon} from \"@site/src/components/non-swizzled/ConsoleIcons\"",
       "",
       "<ConsoleIcon name=\"$1\"/> $2"
     ]
@@ -73,7 +69,7 @@
     "prefix": ["label", "console", "ui"],
     "description": "Insert a label with its icon. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
-      "import ConsoleLabel from \"@site/src/components/ConsoleIcons\"",
+      "import ConsoleLabel from \"@site/src/components/non-swizzled/ConsoleIcons\"",
       "",
       "<ConsoleLabel name=\"$1\"/> $2"
     ]
@@ -81,7 +77,7 @@
   "Early availability badge": {
     "prefix": ["early availability", "badge", "ea"],
     "body": [
-      "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
+      "import EarlyBadge from \"@site/src/components/non-swizzled/Badges/EarlyBadge\";",
       "",
       "<EarlyBadge/>",
       ""
@@ -90,23 +86,14 @@
   "Limited availability badge": {
     "prefix": ["limited availability", "badge", "la"],
     "body": [
-      "import LimitedBadge from \"@site/src/components/Badges/LimitedBadge\";",
+      "import LimitedBadge from \"@site/src/components/non-swizzled/Badges/LimitedBadge\";",
       "",
       "<LimitedBadge/>",
       ""
     ]
   },
-  "Pro-platform badge": {
-    "prefix": ["enterprise", "badge"],
-    "body": [
-      "import EnterpriseBadge from \"@site/src/components/Badges/EnterpriseBadge\";",
-      "",
-      "<EnterpriseBadge/>",
-      ""
-    ]
-  },
-  "Import reusable comp": {
-    "prefix": ["reuse", "import", "include"],
+  "Import snippet": {
+    "prefix": ["reuse", "import", "include", "snippet"],
     "body": [
       "import ${1:MySnippet} from \"@site/static/includes/$2\"",
       "",
@@ -181,9 +168,19 @@
     "scope": "markdown",
     "prefix": ["button", "cta"],
     "body": [
-      "import Button from \"@site/src/components/Buttons\";",
+      "import Button from \"@site/src/components/non-swizzled/Buttons\";",
       "",
       "<Button to=\"$1\">$2</Button>",
+      ""
+    ]
+  },
+  "Insert secondary button": {
+    "scope": "markdown",
+    "prefix": ["button", "secondary", "cta"],
+    "body": [
+      "import {ButtonSecondary} from \"@site/src/components/non-swizzled/Buttons\";",
+      "",
+      "<ButtonSecondary to=\"$1\">$2</Button>",
       ""
     ]
   }

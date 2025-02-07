@@ -2,6 +2,8 @@
 title: Authentication types
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Use modern encryption protocols to protect data in transit with Apache Kafka®. Aiven for Apache Kafka® provides multiple options to secure your data.
 
 ## Transport Layer Security
@@ -51,7 +53,7 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
   the `sasl_oauthbearer_jwks_endpoint_url` is specified in the configuration. By default,
   it is disabled.
 
-## Related pages
+<RelatedPages/>
 
 - [Enable SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
 - [Enable OIDC authentication for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-oidc)

@@ -3,8 +3,6 @@ title: Carbon footprint
 early: true
 ---
 
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
-
 The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage per project in your organization.
 
 Emissions are measured in metric tons of carbon dioxide-equivalent, which includes
@@ -16,4 +14,7 @@ selected project:
 - Monthly carbon emissions: Shows an estimate of the emissions for the last 3, 6, and
   12 months.
 
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature.
 To view your emissions data, go to **Admin** > **Carbon footprint**.

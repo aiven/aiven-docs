@@ -2,6 +2,9 @@
 title: Retention rules in Aiven for Metrics
 sidebar_label: Retention rules
 ---
+
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Retention rules in Aiven for Metrics define how long your metrics data is stored.
 
 By default, all data is retained indefinitely, ensuring uninterrupted access to
@@ -33,6 +36,6 @@ enhances the speed and efficiency of queries over long periods. This approach op
 storage usage and ensures that the data remains manageable and accessible,
 retaining crucial details.
 
-## Related pages
+<RelatedPages/>
 
 - [Enforcing retention of data](https://thanos.io/tip/components/compact.md/#enforcing-retention-of-data)

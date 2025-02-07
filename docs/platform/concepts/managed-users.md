@@ -2,7 +2,7 @@
 title: Managed users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 The managed users feature lets you centrally manage your organization's users and helps you to secure your organization in Aiven.
 
@@ -15,7 +15,8 @@ With managed users, you can:
 - Set their state, including deactivating and deleting user accounts
 
 Managed users are also restricted from making changes to their profiles and creating new
-organizations. Only [super admin](/docs/platform/howto/make-super-admin)
+organizations.
+[Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 can create organizations.
 
 ## Make organizations user managed users

@@ -2,7 +2,7 @@
 title: Manage users and access control in Aiven for OpenSearch®
 sidebar_label: Manage users and access control
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Manage users and permissions in Aiven for OpenSearch by creating Access Control Lists (ACLs) in the Aiven Console.
 

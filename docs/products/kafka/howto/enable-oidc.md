@@ -4,8 +4,9 @@ title: Enable OAUTH2/OIDC authentication for Apache Kafka®
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for Apache Kafka® enables secure client authentication using OIDC/OAuth2, allowing clients to verify users through an authorization server.
 
@@ -134,7 +135,7 @@ minimize any operational disruptions, plan to implement these changes during a
 maintenance window or at a time that ensures a minimal impact on your operations.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Enable OAuth2/OIDC support for Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
 - [Enable and configure SASL authentication with Aiven for Apache Kafka](/docs/products/kafka/howto/kafka-sasl-auth)

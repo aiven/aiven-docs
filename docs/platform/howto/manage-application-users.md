@@ -2,14 +2,15 @@
 title: Manage application users
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Application users give non-human users programmatic access to Aiven.
 
-:::info
-You must be a [super admin](/docs/platform/howto/make-super-admin) to access this feature.
-:::
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature.
+
 
 :::important
  Application users can be a security risk if not carefully managed and monitored. Follow
@@ -24,22 +25,10 @@ You must be a [super admin](/docs/platform/howto/make-super-admin) to access thi
 1.  Click **Create application user**.
 1.  Enter a name and click **Create application user**.
 
-## Make an application user a super admin
+## Make an application user an organization admin
 
-To create organizations, units, and projects, an application user must have the super
-admin role.
-
-:::important
-The super admin role has full access to an organization, including all
-organizational units, projects, services, billing, and other settings.
-:::
-
-1.  Click **Admin**.
-1.  Click <ConsoleLabel name="application users"/>.
-1.  Find the user and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="make super admin"/>.
-
-To revoke super admin privileges for a user, follow the same steps and
-select **Revoke super admin**.
+To allow an application user to create organizations, units, and projects, you
+[grant them the organization admin role](/docs/platform/howto/manage-permissions).
 
 ## Create a token for an application user
 

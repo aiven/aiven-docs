@@ -1,14 +1,14 @@
 ---
 title: Create organizations and organizational units
+sidebar_label: Create organizations and units
 ---
 
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
 When you sign up for Aiven, an organization is
-automatically created for you. For details and recommendations on creating hierarchical
-organizations in Aiven, see the article on
-[organizations, units, and projects](/docs/platform/concepts/orgs-units-projects).
-
+automatically created for you. You can add organizational units in your organization
+to group related projects and create custom
+[hierarchical organizations](/docs/platform/concepts/orgs-units-projects).
 
 ## Create an organizational unit
 
@@ -36,12 +36,17 @@ units cannot be created within other units.
 ## Create an organization
 
 :::important
-We recommend using only one organization and using organizational units
-to group your projects.
+You can only verify a domain in one organization, meaning you can't set up SAML
+authentication, user provisiong with SCIM, or managed users for the same domain
+in another organization. Additionally, support and commitment contracts cannot
+be shared across organizations.
 
-Creating a new organization requires you to manually configure
-organization-level settings again such as
-[billing groups, authentication settings, and groups](/docs/platform/concepts/orgs-units-projects).
+When you create another organization you also have to manually configure all settings
+for the new organization such as:
+- billing groups
+- authentication policies
+- users and groups
+- roles and permissions
 :::
 
 To create an organization in the [Aiven

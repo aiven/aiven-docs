@@ -2,6 +2,8 @@
 title: Attach VPCs to an AWS Transit Gateway
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 [AWS Transit Gateway (TGW)](https://aws.amazon.com/transit-gateway/) enables transitive routing from on-premises networks through VPN and from other VPC.
 By creating a Transit Gateway VPC attachment, services
 in an Aiven Project VPC can route traffic to all other networks
@@ -121,7 +123,7 @@ attachment is operational, the Project VPC route table has been updated
 to route `$user_peer_network_cidr` to the Transit Gateway, and service
 nodes in the Project VPC have opened firewall access to those networks.
 
-## Related pages
+<RelatedPages/>
 
 - [`avn vpc`][avnvpc]
 

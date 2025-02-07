@@ -2,6 +2,7 @@
 title: Create a JDBC sink connector from Apache Kafka® to another database
 sidebar_label: Create a JDBC sink connector to a database
 ---
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 The JDBC (Java Database Connectivity) sink connector enables you to move data from an Aiven for Apache Kafka® cluster to any relational database offering JDBC drivers like PostgreSQL® or MySQL.
 
@@ -333,6 +334,6 @@ in the MySQL database. This table is populated with data from the `students`
 Apache Kafka topic and includes the `student_id`, `student_name`, `exam`, and
 `exam_result` columns.
 
-## Related pages
+<RelatedPages/>
 
 - View the [Database migration with Apache Kafka® and Apache Kafka® Connect](https://aiven.io/blog/db-technology-migration-with-apache-kafka-and-kafka-connect) blog post

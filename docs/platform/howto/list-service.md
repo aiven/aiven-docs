@@ -3,6 +3,7 @@ title: Service management
 ---
 
 import DocCardList from '@theme/DocCardList';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 ## Overview
 
@@ -39,6 +40,6 @@ See our time series on
 
 :::
 
-## Related pages
+<RelatedPages/>
 
 <DocCardList />

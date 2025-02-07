@@ -25,7 +25,7 @@ This example demonstrates the steps in the automated upgrade procedure for
 a 3-node Apache Kafka service, visualized below:
 <!-- vale on -->
 
-<img src={MyImg} className="centered" alt="3-node Kafka service" width="60%" />
+<img src={MyImg} className="centered" alt="3-node Kafka service" width="50%" />
 
 During an upgrade procedure:
 
@@ -40,7 +40,7 @@ During an upgrade procedure:
 1. **Transfer data and leadership:** The partition data and leadership are transferred
    to new nodes.
 
-    <img src={MyImg2} className="centered" alt="Kafka cluster illustration" width="65%" />
+    <img src={MyImg2} className="centered" alt="Kafka cluster illustration" width="50%" />
 
     :::warning
     This step is CPU intensive due to the additional data movement
@@ -58,7 +58,7 @@ During an upgrade procedure:
 1. **Complete process**: The process is completed once the last old node has been
   removed from the cluster.
 
-    <img src={MyImg3} className="centered" alt="Kafka cluster new node illustration" width="65%" />
+    <img src={MyImg3} className="centered" alt="Kafka cluster new node illustration" width="50%" />
 
 ## No downtime during upgrade
 

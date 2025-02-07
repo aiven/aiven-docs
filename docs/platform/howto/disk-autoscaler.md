@@ -4,8 +4,9 @@ title: Scale disk storage automatically
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 <!-- vale off -->
 
@@ -49,7 +50,16 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
     Aiven Autoscaler.
 1.  When disk storage consumption reaches the threshold for a specific
     service, usually within minutes Aiven Autoscaler increases available storage space
-    by 10% every time taking the used disk space as a baseline.
+    by **at least 10%** every time, taking used disk space as a baseline.
+
+    :::important
+    The exact increase depends on:
+
+    - The service type
+    - The cloud provider
+
+    Some providers enforce a minimum of 10 GB.
+    :::
 
     :::note[Autoscale thresholds per service type]
     The threshold at which disk autoscaling is triggered is a percentage of
@@ -421,6 +431,6 @@ running the commands to delete the following:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 [Scaling service disks manually](/docs/platform/howto/add-storage-space)

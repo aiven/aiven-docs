@@ -3,7 +3,7 @@ title: Connect with DataGrip
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using [JetBrains DataGrip](https://www.jetbrains.com/datagrip/).
 

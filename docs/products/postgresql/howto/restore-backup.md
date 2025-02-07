@@ -3,7 +3,7 @@ title: Restore PostgreSQL® from a backup
 sidebar_label: Restore from a backup
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Aiven for PostgreSQL® databases are automatically backed up and can be restored from a backup at any point in time within the **backup retention period**, which [varies by plan](/docs/products/postgresql/concepts/pg-backups).
 The restore is created by forking: a new PostgreSQL instance is created and content from the original database is restored into it.

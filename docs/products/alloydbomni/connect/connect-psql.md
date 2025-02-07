@@ -3,7 +3,7 @@ title: Connect with psql
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using `psql`, which is a command line tool useful for managing and querying your database.
 

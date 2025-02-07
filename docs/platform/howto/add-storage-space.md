@@ -2,9 +2,10 @@
 title: Scale disk storage
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service's disk storage by a factor of 10 Gi, without upgrading your plan.
 
@@ -145,7 +146,7 @@ maintenance update for performance optimization. Plan increases to avoid reachin
 this limit.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Update service plan](/docs/platform/howto/scale-services)
 - [Automatic disk scaling](/docs/platform/howto/disk-autoscaler)

@@ -47,10 +47,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Organizations and units',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/orgs-and-units',
-              },
               items: [
                 'tools/aiven-console/howto/create-orgs-and-units',
                 'platform/howto/manage-organizations',
@@ -59,10 +55,6 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Projects',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/projects',
-              },
               items: [
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
@@ -85,26 +77,16 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Payment methods',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/payment-methods',
-              },
               items: [
                 'platform/howto/manage-payment-card',
+                'platform/howto/manage-bank-transfers',
                 'platform/howto/list-marketplace-payments',
               ],
             },
             {
               type: 'category',
               label: 'Billing groups',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/billing-groups-overview',
-              },
-              items: [
-                'platform/howto/use-billing-groups',
-                'platform/howto/billing-assign-projects',
-              ],
+              items: ['platform/howto/use-billing-groups'],
             },
             'platform/howto/download-invoices',
           ],
@@ -311,13 +293,26 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/howto/byoc/networking-security',
             'platform/howto/byoc/enable-byoc',
-            'platform/howto/byoc/create-custom-cloud',
+            {
+              type: 'category',
+              label: 'Create custom clouds',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
+              },
+              items: [
+                'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
+                'platform/howto/byoc/create-cloud/create-google-custom-cloud',
+              ],
+            },
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
             'platform/howto/byoc/rename-custom-cloud',
             'platform/howto/byoc/download-infrastructure-template',
             'platform/howto/byoc/delete-custom-cloud',
+            'platform/howto/byoc/manage-byoc-service',
+            'platform/howto/byoc/view-custom-cloud-status',
           ],
         },
         {
@@ -419,9 +414,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'tools/terraform/howto/migrate-from-teams-to-groups',
-            'tools/terraform/howto/update-deprecated-resources',
             'tools/terraform/howto/upgrade-to-opensearch',
-            'tools/terraform/howto/upgrade-caching-valkey-terraform',
             {
               type: 'category',
               label: 'PostgreSQL',
@@ -797,19 +790,19 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Administrative tasks',
                   items: [
+                    'products/kafka/howto/add-manage-service-users',
                     'products/kafka/howto/enable-schema-registry',
-                    'products/kafka/howto/best-practices',
                     'products/kafka/howto/configure-with-kafka-cli',
                     'products/kafka/howto/set-kafka-parameters',
                     'products/kafka/howto/viewing-resetting-offset',
                     'products/kafka/howto/configure-log-cleaner',
                     'products/kafka/howto/prevent-full-disks',
-                    'products/kafka/howto/use-zookeeper',
-                    'products/kafka/howto/avoid-out-of-memory-error',
                     'products/kafka/howto/optimizing-resource-usage',
                     'products/kafka/howto/enabled-consumer-lag-predictor',
                     'products/kafka/howto/manage-quotas',
                     'products/kafka/howto/enable-follower-fetching',
+                    'products/kafka/howto/best-practices',
+                    'products/kafka/howto/avoid-out-of-memory-error',
                   ],
                 },
                 {
@@ -929,6 +922,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/bring-your-own-kafka-connect-cluster',
                         'products/kafka/kafka-connect/howto/enable-connect',
                         'products/kafka/kafka-connect/howto/enable-automatic-restart',
+                        'products/kafka/kafka-connect/howto/manage-connector-versions',
                         'products/kafka/kafka-connect/howto/manage-logging-level',
                         'products/kafka/kafka-connect/howto/request-new-connector',
                         {
@@ -983,6 +977,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcs-sink',
                         'products/kafka/kafka-connect/howto/http-sink',
                         'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
+                        'products/kafka/kafka-connect/howto/iceberg-sink-connector',
                         'products/kafka/kafka-connect/howto/influx-sink',
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
@@ -1059,10 +1054,18 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
+                    'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                     'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Troubleshooting',
+                  items: [
+                    'products/kafka/kafka-mirrormaker/troubleshooting/topic-not-replicated',
                   ],
                 },
                 {
@@ -1120,6 +1123,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/caching/get-started',
+
             {
               type: 'category',
               label: 'Concepts',
@@ -1247,6 +1251,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/run-federated-queries',
                     'products/clickhouse/howto/create-dictionary',
                     'products/clickhouse/howto/sql-user-defined-functions',
+                    'products/clickhouse/howto/clickhouse-query-cache',
                   ],
                 },
                 'products/clickhouse/howto/list-manage-cluster',
@@ -1278,6 +1283,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/configure-tiered-storage',
                     'products/clickhouse/howto/check-data-tiered-storage',
                     'products/clickhouse/howto/transfer-data-tiered-storage',
+                    'products/clickhouse/howto/local-cache-tiered-storage',
                   ],
                 },
               ],
@@ -1295,6 +1301,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/s3-supported-file-formats',
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
+                'products/clickhouse/reference/clickhouse-system-tables',
               ],
             },
           ],
@@ -1521,6 +1528,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Database management',
                   items: [
                     'products/mysql/howto/create-database',
+                    'products/mysql/howto/ai-insights',
                     'products/mysql/howto/create-remote-replica',
                     'products/mysql/howto/migrate-database-mysqldump',
                     'products/mysql/howto/disable-foreign-key-checks',
@@ -1797,6 +1805,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/manage-extensions',
                     'products/postgresql/howto/create-manual-backups',
                     'products/postgresql/howto/restore-backup',
+                    'products/postgresql/howto/ai-insights',
                     'products/postgresql/howto/claim-public-schema-ownership',
                     'products/postgresql/howto/manage-pool',
                     'products/postgresql/howto/pgbouncer-stats',
@@ -1931,7 +1940,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/valkey/reference/advanced-params',
                 'products/valkey/reference/valkey-metrics-in-prometheus',
-              ]
+              ],
             },
           ],
         },

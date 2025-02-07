@@ -24,7 +24,7 @@ There are some limitations:
 
 -   You can only have one trial.
 -   Trial credits are added to a single
-    [billing group](/docs/platform/concepts/billing-groups-overview). You cannot transfer them to
+    [billing group](/docs/platform/howto/use-billing-groups). You cannot transfer them to
     another billing group.
 -   You can't create new services if your remaining credits would be spent too quickly.
 <!-- vale on -->

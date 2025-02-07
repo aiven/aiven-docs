@@ -2,8 +2,8 @@
 title: Connect to Aiven for Apache Kafka® with command line tools
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Learn how to send and receive messages from an Aiven for Apache Kafka® service using command-line tools.
 

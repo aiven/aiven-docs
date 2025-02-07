@@ -3,9 +3,10 @@ title: Delete a custom cloud
 sidebar_label: Delete custom clouds
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
@@ -31,21 +32,21 @@ them earlier, you're advised to do that after deleting your cloud.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 -   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
 -   You have no running services that use a custom cloud to be deleted.
 -   You have access to the [Aiven Console](https://console.aiven.io/).
--   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
 -   You have at least one
-    [custom cloud created](/docs/platform/howto/byoc/create-custom-cloud) in your Aiven
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
 -   You have no running services that use a custom cloud to be deleted.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
--   You have the [super admin](/docs/platform/howto/make-super-admin) role in your Aiven
-    organization.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
 </TabItem>
 </Tabs>
 
@@ -83,14 +84,10 @@ destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
 :::
 
 :::note
-When running `terraform destroy`, add `-var-file=FILE_NAME.vars` as an option.
+When running `terraform destroy`, add `-var-file=FILE_NAME.tfvars` as an option.
 :::
 
-## Related pages
+<RelatedPages/>
 
--   [About bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
--   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
--   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-custom-cloud)
--   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)
--   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)
--   [Tag custom cloud resources](/docs/platform/howto/byoc/tag-custom-cloud-resources)
+-   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
+-   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)

@@ -1,50 +1,95 @@
 ---
-title: MirrorMaker 2 common parameters
+title: Configuration parameters for Aiven for Apache Kafka® MirrorMaker 2
 ---
 
-MirrorMaker 2 (MM2) offers a suite of parameters to help with data replication and monitoring within Apache Kafka® ecosystems.
-This topic outlines common parameters you can adjust, along with tips for
-validating MM2's performance.
+Learn about the configuration layers in Aiven for Apache Kafka® MirrorMaker 2, including service, replication flow, and integration settings.
+Optimize data replication and performance in your Kafka ecosystem.
 
-1.  Increase the value of `kafka_mirrormaker.tasks_max_per_cpu` in the
-    advanced options. Setting this to match the number of partitions can
-    enhance performance.
-1.  Ensure the interval seconds for the following settings match. You
-    can reduce these intervals for more frequent data synchronization:
-    -   Advanced options:
-        -   `kafka_mirrormaker.emit_checkpoints_interval_seconds`
-        -   `kafka_mirrormaker.sync_group_offsets_interval_seconds`
-    -   Replication flow:
-        -   `Sync interval in seconds`.
-1.  To exclude internal topics, add these patterns to your topic
-    blacklist:
-    -   `.*[\-\.]internal` `.*\.replica` `__.*` `connect.*`
-1.  Depending on your use case, consider adjusting these parameters:
-    -   `kafka_mirrormaker.consumer_fetch_min_bytes`
-    -   `kafka_mirrormaker.producer_batch_size`
-    -   `kafka_mirrormaker.producer_buffer_memory`
-    -   `kafka_mirrormaker.producer_linger_ms`
-    -   `kafka_mirrormaker.producer_max_request_size`
+## Configuration layers
 
-## MirrorMaker 2 validation tips
+Aiven for Apache Kafka® MirrorMaker 2 configurations are organized into three layers:
+**service**, **replication flow**, and **integration**. Each layer controls a specific
+aspect of the replication process.
 
-To ensure MirrorMaker 2 is up-to-date with message processing, monitor
-these:
+### Service configurations
 
-1.  **Consumer lag metric**: Monitor the `kafka.consumer_lag` metric.
+Service configurations control the behavior of nodes and workers in the
+Aiven for Apache Kafka® MirrorMaker 2 cluster.
 
-1.  **Dashboard metrics**: If MirrorMaker 2 stops adding records to a
-    topic, the `jmx.kafka.connect.mirror.record_count` metric stops
-    increasing, showing a flat line on the dashboard.
+**Example of a service configuration**:
 
-1.  **Retrieve latest messages with \`kt\`**: Use
-    [kt](https://github.com/fgeller/kt) to retrieve the latest messages
-    from all partitions with the following command:
+- Parameter: [`kafka_mirrormaker.emit_checkpoints_enabled`](https://aiven.io/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_emit_checkpoints_enabled)
+- Description: Enables or disables periodically emitting consumer group offset
+    checkpoints to the target cluster.
+- Impact:
+  - Automatically restarts the workers.
+  - Restarts all connectors and tasks.
 
-    ```
-    kt consume -auth ./mykafka.conf \
-    -brokers SERVICE-PROJECT.aivencloud.com:PORT \
-    -topic topicname -offsets all=newest:newest | \
-    jq -c -s 'sort_by(.partition) | .[] | \
-    {partition: .partition, value: .value, timestamp: .timestamp}'
-    ```
+### Replication-flow configurations
+
+Replication-flow configurations manage the behavior of connectors, such as Source, Sink,
+Checkpoint, and Heartbeat.
+
+**Example of a replication-flow configuration**:
+
+- Parameter: [`topics`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow)
+- Description: Specifies a list of topics or regular expressions to replicate.
+    For more information, see the [topics included in a replication flow](/docs/products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex).
+- Impact:
+  - Automatically restarts the affected connectors.
+  - Restarts their associated tasks.
+
+### Integration configurations
+
+Integration configurations fine-tune the interaction between producers and consumers
+within connectors.
+
+**Example of an integration configuration**:
+
+- Parameter: [`consumer_fetch_min_bytes`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration#nested-schema-for-kafka_mirrormaker_user_configkafka_mirrormaker)
+- Description: Sets the minimum amount of data the server should return for a fetch
+  request.
+- Impact:
+  - Automatically restarts the workers.
+  - Restarts all connectors and tasks.
+
+:::note
+Most configuration parameters are derived from
+[KIP-382: MirrorMaker 2.0 - Configuration Properties](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=95650722#KIP382:MirrorMaker2.0-ConnectorConfigurationProperties). Refer to this resource for additional details.
+:::
+
+## Common parameters
+
+This section describes common parameters that can be adjusted to optimize the performance
+and behavior of Aiven for Apache Kafka MirrorMaker 2 replication.
+
+1. **Optimize task allocation**:
+   Increase the value of
+   [`kafka_mirrormaker.tasks_max_per_cpu`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_tasks_max_per_cpu)
+   in the advanced configuration.
+   Setting this to match the number of partitions can improve performance.
+
+1. **Align interval settings**:
+   Ensure the following interval settings match to achieve more frequent and synchronized
+   data replication:
+   - **Advanced configurations**:
+     - [`kafka_mirrormaker.emit_checkpoints_interval_seconds`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_emit_checkpoints_interval_seconds)
+     - [`kafka_mirrormaker.sync_group_offsets_interval_seconds`](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_sync_group_offsets_interval_seconds)
+   - **Replication flow**:
+     - `Sync interval in seconds`
+
+1. **Exclude internal topics**:
+   Add these patterns to your topic blacklist to exclude internal topics:
+   - `.*[\-\.]internal`
+   - `.*\.replica`
+   - `__.*`
+   - `connect.*`
+
+1. **Adjust integration parameters**:
+   Modify these integration parameters based on your use case to improve producer and
+   consumer performance:
+   - `consumer_fetch_min_bytes`
+   - `producer_batch_size`
+   - `producer_buffer_memory`
+   - `producer_linger_ms`
+   - `producer_max_request_size`

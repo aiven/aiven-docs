@@ -3,7 +3,8 @@ title: Enable governance for Aiven for Apache Kafka®
 sidebar_label: Enable governance
 limited: true
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
@@ -28,8 +29,9 @@ Enable governance in Aiven for Apache Kafka® to establish a secure and complian
 
 - This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
   it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
-- You need [super admin](/docs/platform/howto/make-super-admin) permissions to
-  enable governance.
+- You must be an
+  [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+  to enable governance.
 
 ## Enable governance
 
@@ -105,7 +107,7 @@ To change global topic configurations after enabling governance:
   Apache Kafka resources under the previous default group are assigned to the
   new default governance group.
 
-## Related pages
+<RelatedPages/>
 <!-- vale off -->
 - [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview)
 - [Project member roles and permissions](/docs/platform/concepts/permissions)

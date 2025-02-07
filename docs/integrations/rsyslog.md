@@ -128,7 +128,7 @@ avn service integration-endpoint-create --project your-project \
 
 ### Loggly® {#rsyslog_loggly}
 
-For [Loggly](hthtps://www.loggly.com/) integration, use a
+For [Loggly](https://www.loggly.com/) integration, use a
 custom `logline` format with your token.
 
 ```bash

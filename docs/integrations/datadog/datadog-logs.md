@@ -2,7 +2,8 @@
 title: Send logs to Datadog
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Use the Aiven Rsyslog integration to send logs from your Aiven services to your external Datadog account.
 
@@ -57,7 +58,7 @@ You can use this integration endpoint for multiple services.
 1.  In the **Endpoint integrations** select **Rsyslog**.
 1.  Select the integration endpoint you created and click **Enable**.
 
-## Related pages
+<RelatedPages/>
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).

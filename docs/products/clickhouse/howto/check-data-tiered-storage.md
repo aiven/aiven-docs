@@ -3,7 +3,8 @@ title: Check data distribution between storage devices in Aiven for ClickHouse®
 sidebar_label: Check data distribution
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Monitor how your data is distributed between the two layers of your tiered storage: SSD and object storage.
 
@@ -84,7 +85,7 @@ they use, their total sizes as well as parts counts and sizing.
 -   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 
-## Related pages
+<RelatedPages/>
 
 -   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)

@@ -1,10 +1,11 @@
 ---
-title: About querying external data in Aiven for ClickHouse®
+title: Querying external data in Aiven for ClickHouse®
+sidebar_label: Federated queries
 ---
 
-Discover federated queries and their capabilities in Aiven for ClickHouse® and how they simplify and speed up migrating into Aiven from external data sources.
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
-## About federated queries
+Discover federated queries and their capabilities in Aiven for ClickHouse® and how they simplify and speed up migrating into Aiven from external data sources.
 
 Federated queries allow communication between Aiven for ClickHouse and
 S3-compatible object storages and web resources. The federated queries
@@ -51,7 +52,7 @@ allowed to use the sources via the CREATE TEMPORARY TABLE grant, which
 is required for both sources.
 
 For more information on how to enable new users to use the sources,
-see [Access and permissions](/docs/products/clickhouse/howto/run-federated-queries#access-permissions).
+see [Prerequisites](/docs/products/clickhouse/howto/run-federated-queries#prerequisites).
 
 Federated queries read from external S3-compatible object storage
 utilizing the ClickHouse S3 engine. Once you read from a remote
@@ -72,7 +73,7 @@ see
     table engine. Stay tuned for us supporting the S3 table engine in
     the future.
 
-## Related pages
+<RelatedPages/>
 
 -   [Read and pull data from S3 object storages and web resources over HTTP](/docs/products/clickhouse/howto/run-federated-queries)
 -   [Integrating S3 | ClickHouse Docs](https://clickhouse.com/docs/en/integrations/s3)

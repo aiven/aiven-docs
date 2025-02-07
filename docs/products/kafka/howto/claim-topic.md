@@ -2,7 +2,8 @@
 title: Claim topic ownership
 limited: true
 ---
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 To take ownership of a topic that your group does not currently own, you can submit a claim request. Once you send the request, the current owner can approve or decline it.
 
@@ -72,7 +73,7 @@ To delete your topic ownership claim request:
 
 The review status updates to **Deleted** in the pane and on the **Group requests** page.
 
-## Related pages
+<RelatedPages/>
 
 - [Governance in Aiven for Apache Kafka](/docs/products/kafka/concepts/governance-overview)
 - [Apache Kafka topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)

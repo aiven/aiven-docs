@@ -2,6 +2,8 @@
 title: Check the size of a database, a table or an index
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 PostgreSQL® offers different commands and functions to get disk space usage for a database, a table, or an index.
 
 ## Get the size of a database
@@ -99,7 +101,7 @@ information, see
 [About PostgreSQL® disk usage](/docs/products/postgresql/concepts/pg-disk-usage)
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [PostgreSQL interactive terminal](https://www.postgresql.org/docs/15/app-psql.html)
 - [Database Object Management Functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT)

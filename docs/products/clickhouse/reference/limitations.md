@@ -4,6 +4,7 @@ sidebar_label: Limits and limitations
 ---
 
 import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 By respecting the Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 
@@ -13,13 +14,8 @@ From the information about restrictions on using Aiven for ClickHouse,
 you can draw conclusions on how to get your service to operate
 closer to its full potential. Use **Recommended approach** as guidelines
 on how to work around specific restrictions.
-
+a
 <table>
-  <colgroup>
-    <col />
-    <col />
-    <col />
-  </colgroup>
   <thead>
     <tr>
       <th>Name</th>
@@ -36,7 +32,7 @@ on how to work around specific restrictions.
           <li>When powering off the service, all data after the last backup is lost.</li>
           <li>Point-in-time recovery is not supported. A database can be restored to
             one of the daily backups states only.</li>
-            <li>When creating a database fork,
+          <li>When creating a database fork,
             you can only create a fork that matches the state of one of the backups.</li>
           <li>Any data inserted before the next snapshot is lost if all nodes in a
             given shard malfunction and need to be replaced. This limitation doesn't
@@ -44,129 +40,112 @@ on how to work around specific restrictions.
             automatically.</li>
         </ul>
       </td>
-      <td></td>
+      <td>N/A</td>
     </tr>
     <tr>
       <td>Service integrations</td>
       <td>
-        <p>
           You can integrate your Aiven for ClickHouse service with PostgreSQL®
           and Kafka® only.
-        </p>
       </td>
-      <td><p>-</p></td>
+      <td>N/A</td>
     </tr>
     <tr>
-      <td><p>Table engines support</p></td>
+      <td>Table engines support</td>
       <td>
         <ul>
           <li>
-            <p>
               Some special table engines are not supported in
               Aiven for ClickHouse.
-            </p>
           </li>
           <li>
-            <p>
               Some engines are remapped to their
               <code>Replicated</code> alternatives, for example,
               <code>MergeTree</code> <strong>&gt;</strong>
               <code>ReplicatedMergeTree</code>.
-            </p>
           </li>
         </ul>
       </td>
       <td>
-        <p>
           Use the available table engines listed in
           <a href="/docs/products/clickhouse/reference/supported-table-engines"><span>Supported table engines in Aiven for ClickHouse</span></a>.
-        </p>
       </td>
     </tr>
     <tr>
-      <td><p>Log table engine support</p></td>
+      <td>Log table engine support</td>
       <td>
-        <p>Log engine is not supported in Aiven for ClickHouse.</p>
+        Log engine is not supported in Aiven for ClickHouse.
       </td>
       <td>
-        <p>
           For storing data, use the
           <a href="https://clickhouse.com/docs/en/engines/table-engines/special/buffer/">Buffer engine</a>
           instead of the Log engine.
-        </p>
       </td>
     </tr>
     <tr>
-      <td><p>Kafka table engine support</p></td>
+      <td>Kafka table engine support</td>
       <td>
-        <p>
           The Kafka table engine is supported via
-          [integration](/docs/products/clickhouse/howto/integrate-kafka) only,
+          <a href="/docs/products/clickhouse/howto/integrate-kafka">integration</a> only,
           not by creating a table in SQL.
-        </p>
       </td>
-      <td><p>-</p></td>
+      <td>N/A</td>
     </tr>
     <tr>
-      <td><p>Kafka Schema Registry</p></td>
+      <td>Kafka Schema Registry</td>
       <td>
-        <p>
           Kafka Schema Registry is supported with Aiven for Apache Kafka® and not with an
           external Kafka endpoint.
-        </p>
       </td>
-      <td><p>-</p></td>
+      <td>N/A</td>
     </tr>
     <tr>
-      <td><p>Cloud availability</p></td>
-      <td><p>Available on AWS, GCP, and Azure only</p></td>
-      <td><p>Use the available cloud providers.</p></td>
+      <td>Cloud availability</td>
+      <td>Available on AWS, GCP, and Azure only</td>
+      <td>Use the available cloud providers.</td>
     </tr>
     <tr>
-      <td><p>Querying all shards at once</p></td>
+      <td>Querying all shards at once</td>
       <td>
-        <p>
           If you have a sharded plan, you must use a distributed table on top of
           your MergeTree table to query all the shards at the same time, and you
           should use it for inserts too.
-        </p>
       </td>
       <td>
-        <p>
           Use a distributed table with sharded plans. See
-          <a href="/docs/products/clickhouse/howto/use-shards-with-distributed-table"><span>Query data across shards</span></a>.
-        </p>
+          <a href="/docs/products/clickhouse/howto/use-shards-with-distributed-table">Query data across shards</a>.
       </td>
     </tr>
     <tr>
-      <td><p>ON CLUSTER queries</p></td>
+      <td>ON CLUSTER queries</td>
       <td>
-        <p>
           Aiven for ClickHouse doesn't support ON CLUSTER queries because it
           actually runs each data definition query on all the servers of the
-          cluster without using <cite>ON CLUSTER</cite>.
-        </p>
+          cluster without using <code>ON CLUSTER</code>.
       </td>
       <td>
-        <p>
-          Run queries without <code><span>ON</span> <span>CLUSTER</span></code >.
-        </p>
+          Run queries without <code>ON CLUSTER</code >.
       </td>
     </tr>
     <tr>
-      <td><p>Creating a database using SQL</p></td>
+      <td>Creating or deleting a database using SQL</td>
       <td>
-        <p>
-          You cannot create a database directly using SQL, for example, if you'd
-          like to add a non-default database.
-        </p>
+        <ul>
+          <li>Only the `avnadmin` user can create databases in SQL.</li>
+          <li>You can create a database in SQL with the `Replicated` database engine only.</li>
+          <li>By default, only the `aiven` user can delete a database. The `aiven` user
+              can grant the permission to delete a database to another user.</li>
+        </ul>
       </td>
-      <td><p>Use the Aiven's public API.</p></td>
+      <td>
+        To work around this limitation, use [Aiven's API](https://api.aiven.io/doc/)
+        or the [Aiven Console](https://console.aiven.io/).
+      </td>
     </tr>
     <tr>
-      <td><p>Scaling down the number of nodes</p></td>
-      <td><p>You only can scale up the number of nodes in a cluster.</p></td>
-      <td><p>-</p></td>
+      <td>Scaling down the number of nodes</td>
+      <td>You only can scale up the number of nodes in a cluster.</td>
+      <td>N/A</td>
     </tr>
   </tbody>
 </table>
@@ -191,7 +170,7 @@ If you need a custom plan with capacity beyond the listed limits,
 [contact us](https://aiven.io/contact?department=1306714).
 :::
 
-## Related pages
+<RelatedPages/>
 
 -   [Quotas for specific tiers of Business and Premium plans](https://aiven.io/pricing?tab=plan-pricing&product=clickhouse)
 -   [Plans comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)

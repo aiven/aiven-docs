@@ -61,3 +61,4 @@ languages or through `valkey-cli`:
 - [Node](/docs/products/valkey/howto/connect-node)
 - [PHP](/docs/products/valkey/howto/connect-php)
 - [Python](/docs/products/valkey/howto/connect-python)
+- [Java](/docs/products/valkey/howto/connect-java)

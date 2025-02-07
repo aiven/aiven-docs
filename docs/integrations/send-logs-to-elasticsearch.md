@@ -3,7 +3,7 @@ title: Send logs to Elasticsearch®
 sidebar_label: Elasticsearch
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 You can store logs from one of your Aiven services in an external Elasticsearch service.
 

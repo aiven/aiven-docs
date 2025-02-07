@@ -3,9 +3,10 @@ title: Enable tiered storage in Aiven for ClickHouse®
 sidebar_label: Enable tiered storage
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Enable the [tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on a table in your Aiven for ClickHouse® service.
 
@@ -83,7 +84,7 @@ your table in the [Aiven Console](https://console.aiven.io) > your service's pag
 - [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 - [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
 
-## Related pages
+<RelatedPages/>
 
 - [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 - [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
