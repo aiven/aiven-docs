@@ -49,8 +49,7 @@ you define and control to deploy and manage resources.
 ## VPC types
 
 The Aiven Platform allows creating and using two types of VPCs, which differ in scope:
-[project-wide VPCs](/docs/platform/concepts/vpcs#project-vpcs) and
-[organization-wide VPCs](/docs/platform/concepts/vpcs#vpc-types
+project-wide VPCs and organization-wide VPCs.
 
 ### Project VPCs
 
