@@ -1,6 +1,6 @@
 ---
-title: Revert to Aiven for PostgreSQL® primary service
-sidebar_label: Revert to primary region
+title: Revert to the Aiven for PostgreSQL® primary region
+sidebar_label: Reverse recovery
 limited: true
 keywords: [recovery, primary, outage, failure, failover, CRDR, cross-region disaster recovery]
 ---
