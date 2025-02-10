@@ -45,7 +45,7 @@ function CardContainer({
   return (
     <Link
       href={href}
-      className={clsx('card padding--lg', styles.cardContainer)}>
+      className={clsx('card padding--md', styles.cardContainer)}>
       {children}
     </Link>
   );

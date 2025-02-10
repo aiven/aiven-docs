@@ -1,19 +1,6 @@
-:root {
-  --aiven-card-bg: var(--aiven-primary-05);
-  --aiven-card-border: var(--aiven-blue-10);
-  --aiven-card-bg-hover: var(--aiven-primary-05);
-  --aiven-card-border-hover: var(--aiven-blue-30);
-}
-
-[data-theme='dark'] {
-  --aiven-card-bg: var(--ifm-card-background-color);
-  --aiven-card-border: var(--ifm-color-emphasis-200);
-  --aiven-card-bg-hover: var(--ifm-card-background-color);
-  --aiven-card-border-hover: var(--ifm-color-emphasis-300);
-}
-
 .card {
   margin-bottom: 1em;
+  font-family: var(--aiven-card-font-family)
 }
 
 .card a {
@@ -35,8 +22,10 @@
 }
 
 .title {
-  font-size: 115%;
+  font-size: 110%;
   font-weight: 600;
+  line-height: 1.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .card a:hover,
