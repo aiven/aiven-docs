@@ -1,6 +1,6 @@
 ---
-title: Fail over to Aiven for PostgreSQL® recovery service
-sidebar_label: Fail over to recovery region
+title: Transition Aiven for PostgreSQL® workloads to the recovery region
+sidebar_label: Recover workloads
 limited: true
 keywords: [recovery, primary, outage, failure, failover, CRDR, cross-region disaster recovery]
 ---
