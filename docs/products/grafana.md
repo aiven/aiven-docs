@@ -2,6 +2,8 @@
 title: Aiven for Grafana®
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Grafana® is a fully managed analytics and monitoring solution, deployable in the cloud of your choice, which can bring unlimited scalability and high availability to your monitoring environment and other time series applications.
 
 ## Main features
@@ -62,6 +64,6 @@ performance.
 You can also automate the process of building, configuring, and managing
 Aiven services using the [Aiven Provider for Terraform](/docs/tools/terraform/get-started).
 
-## Related pages
+<RelatedPages/>
 
 - [Plans and pricing](/docs/products/grafana)

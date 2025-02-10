@@ -3,6 +3,7 @@ title: Change a service plan
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 
 Adjust the plan of your services at any time to scale your services as needed and optimize costs.
 You can also [adjust disk storage][storage] without changing your plan.
@@ -35,7 +36,7 @@ state switches to **Running**, your new service plan is active.
 
 <!-- vale off -->
 
-## Related pages
+<RelatedPages/>
 
 - [Adjust disk storage][storage]
 - [Scale disks storage automatically](/docs/platform/howto/disk-autoscaler)

@@ -5,6 +5,7 @@ title: Manage access control lists in Aiven for Apache Kafka®
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Access control lists (ACLs) in Aiven for Apache Kafka® define permissions for topics, schemas, consumer groups, and transactional IDs.
 ACLs control which authenticated users or applications (principals) can perform specific
@@ -483,7 +484,7 @@ To delete ACL entries with Terraform:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Access Control Lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
 - [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)

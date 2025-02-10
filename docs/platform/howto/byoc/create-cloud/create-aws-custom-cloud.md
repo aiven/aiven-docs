@@ -7,6 +7,7 @@ keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud]
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
@@ -810,7 +811,7 @@ Your new custom cloud is ready to use only after its status changes to
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)

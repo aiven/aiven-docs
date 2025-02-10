@@ -3,6 +3,8 @@ title: Create a JAR application
 limited: true
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your Apache Flink applications with advanced data processing capabilities.
 
 ## Prerequisite
@@ -42,7 +44,7 @@ Custom JARs enabled.
     1. Select the **Terms of Service** checkbox to indicate your
        agreement.
     1. Click **Upload version** to upload your JAR file.
-1.  After the upload, you are redirected to the application'soverview
+1.  After the upload, you are redirected to the application's overview
     page.
 1.  To deploy the application, click **Create deployment**. In the
     **Create new deployment** dialog:
@@ -56,7 +58,7 @@ Custom JARs enabled.
        for details.
     1. In the **Program args** field, provide command-line arguments
        consisting of variables and configurations relevant to your
-       application'slogic upon submission. Each argument is limited
+       application's logic upon submission. Each argument is limited
        to 64 characters, with a total limit of 32 separate items.
     1. Specify the number of [parallel
        instances](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/execution/parallel/)
@@ -66,6 +68,6 @@ Custom JARs enabled.
 1.  While deploying, the application status shows **Initializing**. Once
     deployed, the status changes to **Running**.
 
-## Related pages
+<RelatedPages/>
 
 -   [Manage Aiven for Apache Flink® applications](/docs/products/flink/howto/manage-flink-applications)

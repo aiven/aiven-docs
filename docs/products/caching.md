@@ -2,6 +2,8 @@
 title: Aiven for Caching
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for Caching, formerly known as Aiven for Redis®, is a fully managed in-memory NoSQL database. Deployable in the cloud of your choice, it helps you store and access data efficiently.
 This service is compatible with legacy Redis® OSS up to version 7.2.4, facilitating seamless transitions and compatibility.
 
@@ -54,7 +56,7 @@ use:
   reestablished, such as session data. While this service is not inherently a
   persistent storage solution, it can be configured for persistence.
 
-## Related pages
+<RelatedPages/>
 
 - [Redis documentation](https://redis.io/documentation)
 - [Redis refcard on DZone](https://dzone.com/refcardz/getting-started-with-redis)

@@ -4,6 +4,7 @@ sidebar_label: Restrict access
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Restrict access to your Aiven-managed service to a single IP, an address block, or any combination of both.
 
@@ -57,7 +58,7 @@ You can also use the
 create or update the IP filter for your service via the [Aiven CLI](/docs/tools/cli).
 :::
 
-## Related pages
+<RelatedPages/>
 
 For more ways of securing your service, see:
 

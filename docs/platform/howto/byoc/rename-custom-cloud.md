@@ -6,6 +6,7 @@ sidebar_label: Rename custom clouds
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
@@ -63,7 +64,7 @@ avn byoc update                                 \
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Assign a project to your custom cloud](/docs/platform/howto/byoc/assign-project-custom-cloud)

@@ -3,6 +3,8 @@ title: Connect to Aiven for PostgreSQL® with DataGrip
 sidebar_label: Connect with DataGrip
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Use [DataGrip](https://www.jetbrains.com/datagrip/) to connect to your Aiven for
 PostgreSQL® service.
 
@@ -37,7 +39,7 @@ PostgreSQL® service.
 The connection to your Aiven for PostgreSQL service has been established and is visible in
 DataGrip > **Database Explorer**.
 
-## Related pages
+<RelatedPages/>
 
 - [Connect to Aiven for PostgreSQL](/docs/products/postgresql/howto/list-code-samples) for
 more tools you can use for connecting to your service

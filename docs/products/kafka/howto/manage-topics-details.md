@@ -3,6 +3,7 @@ title: Manage Apache Kafka® topics in detail
 sidebar_label: Detailed topic management
 early: true
 ---
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Explore advanced topic management features in the Apache Kafka topic catalog. Navigate through various options and configurations for your Apache Kafka topics.
 
@@ -76,7 +77,7 @@ for your Aiven for Apache Kafka service to use the **Schemas** tab.
 1. To return to the topic overview page in the Apache Kafka topic catalog,
    click **Open topic catalog**.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Apache Kafka® topic catalog overview](/docs/products/kafka/concepts/topic-catalog-overview)
 - [View and manage Apache Kafka topic catalog](/docs/products/kafka/howto/view-kafka-topic-catalog)

@@ -4,6 +4,7 @@ sidebar_label: Enable governance
 limited: true
 ---
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
 
@@ -106,7 +107,7 @@ To change global topic configurations after enabling governance:
   Apache Kafka resources under the previous default group are assigned to the
   new default governance group.
 
-## Related pages
+<RelatedPages/>
 <!-- vale off -->
 - [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview)
 - [Project member roles and permissions](/docs/platform/concepts/permissions)

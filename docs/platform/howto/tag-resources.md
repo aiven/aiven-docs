@@ -3,6 +3,7 @@ title: Use resource tags
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 
 Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 
@@ -131,6 +132,6 @@ After you've added tags, you can read them from:
 - Aiven-client version 1.11.0 or later.
 - APIs, such as the [ProjectUpdate endpoint](https://api.aiven.io/doc/#tag/Project/operation/ProjectUpdate).
 
-## Related pages
+<RelatedPages/>
 
 - [Create a service](/docs/platform/howto/create_new_service)

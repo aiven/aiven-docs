@@ -10,6 +10,7 @@
   --aiven-hero-bg: var(--aiven-primary-05);
   --aiven-nav-active-bg: var(--aiven-grey-0);
   --aiven-radius: 2px;
+  --aiven-h2-override: 1.8rem;
   --badge-radius: 50px;
   --docusaurus-announcement-bar-height: 36px !important;
   --docusaurus-highlighted-code-line-bg: rgba(255, 247, 0, 0.2);
@@ -116,7 +117,7 @@
 }
 
 .markdown>h2 {
-  --ifm-h2-font-size: 1.8rem;
+  --ifm-h2-font-size: var(--aiven-h2-override);
 }
 
 .markdown>h3 {

@@ -2,6 +2,8 @@
 title: Write search queries with OpenSearch® and Python
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn how to write and run search queries on your OpenSearch cluster using a [Python OpenSearch client](https://github.com/opensearch-project/opensearch-py).
 
 For our data, we use a food recipe dataset [from
@@ -603,7 +605,7 @@ As you can see, this search returns results 🍍:
 It is your turn, try out more combinations to better understand the
 fuzzy query.
 
-## Related pages
+<RelatedPages/>
 
 Want to try out OpenSearch with other clients? You can learn how to
 write search queries with NodeJS client, see

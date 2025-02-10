@@ -5,8 +5,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
-Apache Kafka® can automatically create a topic if a message is produced to a topic that doesn’t already exist.
+Apache Kafka® can automatically create a topic if a message is produced to a topic that doesn't already exist.
 
 By default, Aiven for Apache Kafka enables automatic topic creation to remain compatible
 with standard Apache Kafka configurations, making it useful for testing and development.
@@ -79,7 +80,7 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Manage Aiven for Apache Kafka® topics via CLI](/docs/tools/cli/service/topic#avn_cli_service_topic_create)
 - [Create an Apache Kafka® topic](/docs/products/kafka/howto/create-topic)

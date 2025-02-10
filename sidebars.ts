@@ -117,7 +117,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'platform/concepts/permissions',
                 'platform/howto/manage-permissions',
-                'platform/howto/make-super-admin',
               ],
             },
             {

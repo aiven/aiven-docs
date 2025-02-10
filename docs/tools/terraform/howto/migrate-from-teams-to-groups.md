@@ -3,6 +3,8 @@ title: Migrate from teams to groups with Terraform
 sidebar_label: Migrate from teams to groups
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Teams in Aiven are becoming groups. Groups are an easier way to control access to your organization's projects and services for a group of users.
 
 :::important
@@ -100,6 +102,6 @@ Account Owners team.
 1.  After confirming all users have the correct access, delete the team resources and
     apply the changes.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)

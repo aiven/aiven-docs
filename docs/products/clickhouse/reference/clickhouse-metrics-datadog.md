@@ -2,6 +2,8 @@
 title: Aiven for ClickHouse® metrics available via Datadog
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn what metrics are available via Datadog for Aiven for ClickHouse®
 services.
 
@@ -12,7 +14,7 @@ corresponds to the list of metrics available for the open-source
 ClickHouse and can be checked in
 [Metrics](https://docs.datadoghq.com/integrations/clickhouse/?tab=host#metrics).
 
-## Related pages
+<RelatedPages/>
 
 -   Check how to use Datadog with Aiven services in
     [Datadog and Aiven](/docs/integrations/datadog/).

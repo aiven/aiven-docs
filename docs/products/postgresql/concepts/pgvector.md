@@ -3,6 +3,8 @@ title: pgvector for AI-powered search in Aiven for PostgreSQL®
 sidebar_label: AI-powered search with pgvector
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 In machine learning (ML) models, all data items in a particular data set are mapped into one unified n-dimensional vector space, no matter how big the input data set is.
 
 This optimized way of data representation
@@ -99,7 +101,7 @@ vector embeddings:
     have similar sentiment scores.
 :::
 
-## Related pages
+<RelatedPages/>
 
 -   [Enable and use pgvector on Aiven for PostgreSQL®](/docs/products/postgresql/howto/use-pgvector)
 -   [pgvector README on

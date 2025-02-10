@@ -1,6 +1,9 @@
 ---
 title: Restart strategy in SQL and JAR applications
 ---
+
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn how Aiven for Apache Flink® applications uses restart strategies to recover from job failures, ensuring high availability and fault tolerance for your distributed applications.
 
 ## About restart strategy
@@ -88,7 +91,7 @@ following:
   advisable to use the default restart strategy to ensure high
   availability and fault tolerance.
 
-## Related pages
+<RelatedPages/>
 
 - [Restart strategies in Apache
   Flink®](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/task_failure_recovery/#restart-strategies)

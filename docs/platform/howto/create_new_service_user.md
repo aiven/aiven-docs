@@ -3,6 +3,7 @@ title: Create service users
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Service users are users that only exist in the scope of the corresponding Aiven service.
 They are unique to this service and not shared with any other services,
@@ -30,6 +31,7 @@ To increase the maximum number of users allowed for a service,
     a random password is generated automatically. You can modify it later.
 1.  Click **Add service user**.
 <!-- vale off -->
-## Related pages
+
+<RelatedPages/>
 
 - [Create a service user using the Aiven CLI](/docs/tools/cli/service/user#avn-service-user-create)

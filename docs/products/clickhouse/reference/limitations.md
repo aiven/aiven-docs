@@ -4,6 +4,7 @@ sidebar_label: Limits and limitations
 ---
 
 import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 By respecting the Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 
@@ -169,7 +170,7 @@ If you need a custom plan with capacity beyond the listed limits,
 [contact us](https://aiven.io/contact?department=1306714).
 :::
 
-## Related pages
+<RelatedPages/>
 
 -   [Quotas for specific tiers of Business and Premium plans](https://aiven.io/pricing?tab=plan-pricing&product=clickhouse)
 -   [Plans comparison](https://aiven.io/pricing?tab=plan-comparison&product=clickhouse)

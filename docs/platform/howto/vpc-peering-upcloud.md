@@ -3,6 +3,7 @@ title: Set up VPC peering on UpCloud
 ---
 
 import UpcloudVpcPeering from "@site/static/images/content/platform/howto/upcloud-vpc-peer.png";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 
 Network peerings enable traffic between two networks from different accounts or platforms.
 
@@ -204,7 +205,7 @@ commands:
     dhclient NETWORK_INTERFACE_NAME
     ```
 
-## Related pages
+<RelatedPages/>
 
 -   [Manage Virtual Private Cloud (VPC) peering](/docs/platform/howto/manage-vpc-peering)
 -   [Set up Virtual Private Cloud (VPC) peering on AWS](/docs/platform/howto/vpc-peering-aws)

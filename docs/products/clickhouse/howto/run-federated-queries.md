@@ -2,6 +2,8 @@
 title: Read and pull data from S3 object storages and web resources over HTTP
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 With federated queries in Aiven for ClickHouse®, you can read and pull data from an external S3-compatible object storage or any web resource accessible over HTTP.
 
 Learn more about capabilities and applications of federated queries in
@@ -329,7 +331,7 @@ INSERT INTO trips_export_endpoint_table
 VALUES (8765, 10, now() - INTERVAL 15 MINUTE, now(), 50, 20)
 ```
 
-## Related pages
+<RelatedPages/>
 
 -   [About querying external data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/federated-queries)
 -   [Cloud Compatibility \| ClickHouse

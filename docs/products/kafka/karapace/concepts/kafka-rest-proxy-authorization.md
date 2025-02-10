@@ -2,6 +2,8 @@
 title: Apache Kafka® REST proxy authorization
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 The Apache Kafka® REST proxy authorization, when
 [enabled](/docs/products/kafka/karapace/howto/enable-karapace) on your Aiven for Apache Kafka® service, allows the
 delegation of user authentication and authorization to Apache Kafka.
@@ -13,7 +15,7 @@ authorization based on the
 Apache Kafka® REST proxy authorization is **disabled** by default on all
 Aiven for Apache Kafka® services.
 
-## Related pages
+<RelatedPages/>
 
 -   [Enable OAuth2/OIDC support for Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
 -   [Enable Apache Kafka® REST proxy authorization](/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization)

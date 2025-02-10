@@ -4,6 +4,7 @@ sidebar_label: View custom cloud status
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Find out whether your custom cloud is ready to use by viewing its status.
 
@@ -26,7 +27,7 @@ or
 if your service and networking configuration allows it. For more information on migrating
 your existing services to the custom cloud, contact your account team.
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)

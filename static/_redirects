@@ -63,6 +63,7 @@
 /platform/howto/list-identity-providers                https://aiven.io/docs/platform/howto/saml/add-identity-providers
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
 /platform/howto/list-user                              https://aiven.io/docs/platform/howto/manage-org-users
+/platform/howto/make-super-admin                       https://aiven.io/docs/platform/howto/manage-permissions
 /platform/howto/metrics-integrations                   https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/migrate-services                       https://aiven.io/docs/products/postgresql/howto/list-replication-migration
 /platform/howto/monitoring-services                    https://aiven.io/docs/platform/howto/list-monitoring

@@ -11,6 +11,7 @@ import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
 import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Bring your own cloud (BYOC) allows you to use your own cloud infrastructure instead of relying on the Aiven-managed infrastructure.
 
@@ -227,7 +228,7 @@ With BYOC, you can use any standard Aiven method (for example,
 to manage your services and generally have the same user experience as with the regular
 Aiven deployment model.
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)

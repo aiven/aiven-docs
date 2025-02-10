@@ -5,6 +5,7 @@ sidebar_label: Set up data retention
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
 
@@ -99,7 +100,7 @@ available.
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
 
-## Related pages
+<RelatedPages/>
 
 -   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)

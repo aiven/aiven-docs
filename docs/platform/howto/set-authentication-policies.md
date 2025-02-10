@@ -78,6 +78,9 @@ You can restrict access to your organization's resources by allowing only specif
 address ranges, ensuring connections are coming from trusted networks. This helps you
 minimize exposure, reduce the risk of breaches, and comply with policies and regulations.
 
+This authentication policy setting also applies to access through
+personal and application tokens.
+
 ## Set an authentication policy
 
 1.  In the organization, click **Admin**.

@@ -5,6 +5,7 @@ sidebar_label: Manage service users
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Create and manage service users in Aiven for Apache Kafka to enable secure access and interaction with your service.
 
@@ -156,7 +157,7 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Access Control Lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
 - [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)

@@ -5,6 +5,7 @@ keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for PostgreSQL allows you to [identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries) using the `pg_stat_statements` view.
 
@@ -53,7 +54,7 @@ You can also create a
 cloud or region that you can use to reduce the query load on the primary service
 for read-only queries.
 
-## Related pages
+<RelatedPages/>
 
 - [AI DB Optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
 - [Standalone query optimizer][optimizer]

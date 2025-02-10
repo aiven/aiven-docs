@@ -3,6 +3,8 @@ title: Local on-disk cache for remote files in Aiven for ClickHouse®'s tiered s
 sidebar_label: Local on-disk cache for remote files
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for ClickHouse®'s tiered storage features local on-disk cache for remote files for improved query performance and reduced latency.
 
 To manage data, Aiven for ClickHouse's tiered storage uses local storage and remote storage.
@@ -55,7 +57,7 @@ To drop the local cache and free up the used space, use the following cache comm
 SYSTEM DROP FILESYSTEM CACHE 'remote_cache'
 ```
 
-## Related pages
+<RelatedPages/>
 
 -   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 -   [Check data distribution between SSD and object storage](/docs/products/clickhouse/howto/check-data-tiered-storage)

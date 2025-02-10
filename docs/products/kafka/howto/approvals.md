@@ -4,6 +4,7 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 The **Approvals** page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
 These requests can include claims for existing topics or requests to create new topics.
@@ -60,7 +61,7 @@ The approvals page displays the following key elements:
         pop-up window.
      1. Click **Decline** to confirm.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)
 - [Claim topic ownership](/docs/products/kafka/howto/claim-topic)

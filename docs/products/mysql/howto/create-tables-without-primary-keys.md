@@ -3,6 +3,7 @@ title: Create new tables without primary keys
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 If your Aiven for MySQL® service was created after 2020-06-03, by default it does not allow creating new tables without primary keys.
 
@@ -56,7 +57,7 @@ You have two options to create the tables:
     1.  Scroll down to the **Advanced configuration** section and select **Configure**.
     1.  Find `mysql.sql_require_primary_key` and disable it and click **Save configuration**.
 
-## Related pages
+<RelatedPages/>
 
 Learn how to
 [create missing primary keys](/docs/products/mysql/howto/create-missing-primary-keys) in your Aiven for MySQL.

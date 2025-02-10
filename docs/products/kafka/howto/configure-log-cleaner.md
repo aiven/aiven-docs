@@ -2,6 +2,8 @@
 title: Configure the log cleaner for topic compaction
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 The log cleaner serves the purpose of preserving only the latest value associated with a specific message key in a partition for [compacted topics][logcompaction].
 In Aiven for Apache Kafka®, the log cleaner is enabled by
 default, while log compaction remains disabled.
@@ -84,7 +86,7 @@ from being deleted, set the `delete.retention.ms` property for the compacted top
 Consumers can read all tombstone messages as long as they reach the head
 of the topic before the period defined in `delete.retention.ms` is passed.
 
-## Related pages
+<RelatedPages/>
 
 - [Compacted topics][logcompaction]
 - [Kafka advanced parameters](/docs/products/kafka/reference/advanced-params)

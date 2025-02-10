@@ -2,6 +2,8 @@
 title: Availability zones
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Availability zones (AZs) are physically isolated locations (data centers) where cloud services operate.
 
 There are multiple AZs within a region, each with independent power, cooling, and network
@@ -64,7 +66,7 @@ Kafka® partitions into different AZs. Since Aiven automatically
 rebalances the data in your Apache Kafka® cluster, your data remains
 fully available when a node or a whole AZ is lost.
 
-## Related pages
+<RelatedPages/>
 
 -   [List of available cloud regions](/docs/platform/reference/list_of_clouds)
 -   [PostgreSQL® backups](/docs/products/postgresql/concepts/pg-backups)

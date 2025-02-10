@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for Apache Kafka® provides [multiple authentication methods](/docs/products/kafka/concepts/auth-types) to secure your Apache Kafka® data, including the highly secure Simple Authentication and Security Layer ([SASL](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)).
 
@@ -179,7 +180,7 @@ Parameters:
 
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Enable OAUTH2/OIDC authentication for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-oidc)
 - [Authentication types](/docs/products/kafka/concepts/auth-types)

@@ -2,6 +2,8 @@
 title: Identify disk usage issues
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for MySQL® is configured to use `innodb_file_per_table=ON`, which
 means that an `.idb` file is generated per table containing its data and
 indexes.
@@ -45,6 +47,6 @@ By default, statistics in `information_schema.TABLES` are only updated
 every 24 hours or whenever the `ANALYZE TABLE` command runs.
 :::
 
-## Related pages
+<RelatedPages/>
 
 See [reclaim disk space](/docs/products/mysql/howto/reclaim-disk-space) if you are having issues with full disk.

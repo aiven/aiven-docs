@@ -4,6 +4,7 @@ sidebar_label: Integrate with data source
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
@@ -33,7 +34,7 @@ ClickHouse® in
 1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline**.
 
    - To create the first integration for that service, click **Add data source**.
-   - To add an integrtion for that service, click <ConsoleIcon name="plus"/>.
+   - To add an integration for that service, click <ConsoleIcon name="plus"/>.
 
    As a result, the **Data service integrations** wizard opens, showing
    a list of all data sources available for integration. If there are no data sources to
@@ -223,7 +224,7 @@ wizard:
 As a result, your integration is terminated and all the corresponding databases and
 configuration information are deleted.
 
-## Related pages
+<RelatedPages/>
 
 -   [Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview)
 -   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)

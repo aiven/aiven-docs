@@ -4,6 +4,8 @@ limited: true
 sidebar_label: About backup to another region
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
 
 :::important
@@ -85,7 +87,7 @@ flowchart LR
 - Secondary backup is generated only after a primary backup is complete, and there might
   be a data replication lag between the primary region and the secondary region.
 
-## Related pages
+<RelatedPages/>
 
 - [Enable BTAR](/docs/platform/howto/btar/enable-backup-to-another-region)
 - [Manage BTAR](/docs/platform/howto/btar/manage-backup-to-another-region)

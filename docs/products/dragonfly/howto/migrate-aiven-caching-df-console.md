@@ -2,8 +2,10 @@
 title: Migrate Aiven for Caching or Aiven for Valkey™ to Aiven for Dragonfly
 sidebar_label: Migrate Caching or Valkey to Dragonfly
 ---
+
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Migrate your Aiven for Caching or Aiven for Valkey databases to Aiven for Dragonfly using the Aiven Console migration tool.
 
@@ -128,7 +130,7 @@ When replication mode is active, Aiven for Dragonfly continuously synchronizes n
 writes from the source database, ensuring your data remains up to date.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for Caching* documentation](/docs/products/caching/get-started)
 - [Aiven for Dragonfly overview](/docs/products/dragonfly)

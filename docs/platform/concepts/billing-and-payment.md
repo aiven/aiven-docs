@@ -2,6 +2,8 @@
 title: Billing and payment
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 You can make payments by credit card, bank transfer, or using your AWS, Google Cloud, or Azure [marketplace subscriptions](/docs/platform/howto/list-marketplace-payments).
 
 Billing information, invoices, and a breakdown of charges by category and billing group
@@ -70,7 +72,7 @@ of the merchant, processor, bank, and card are different. Aiven is based
 in Finland and the processor is based in the United States. Such fees are not added by
 or visible to Aiven, so they cannot be included in the prices or waived.
 
-## Related pages
+<RelatedPages/>
 
 - Create [billing groups](/docs/platform/howto/use-billing-groups)
   for your organization.

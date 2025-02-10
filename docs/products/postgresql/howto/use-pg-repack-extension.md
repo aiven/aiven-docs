@@ -3,6 +3,8 @@ title: Use the PostgreSQL® pg_repack extension
 sidebar_label: Use the pg_repack extension
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 [`pg_repack`](https://reorg.github.io/pg_repack/) is a PostgreSQL® extension that allows you to efficiently reorganize tables to remove any excess bloat the tables have accumulated.
 Reorganizing a table may take some time, but `pg_repack` tries to minimize the locks required to continue online operations.
 
@@ -46,7 +48,7 @@ To use the `pg_repack` extension:
 - The target table must have a PRIMARY KEY, or at least a UNIQUE total index on a NOT NULL column.
 :::
 
-## Related pages
+<RelatedPages/>
 
 - [`pg_repack` documentation](https://reorg.github.io/pg_repack/)
 - [Install or update extension](/docs/products/postgresql/howto/manage-extensions)

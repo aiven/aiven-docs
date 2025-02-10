@@ -6,6 +6,7 @@ sidebar_label: Attach projects
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Select your organizations, units, or project that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 
@@ -103,7 +104,7 @@ custom cloud, you can:
 - Migrate existing services to your custom cloud if your service and networking
   configuration allows it. For more information, contact your account team.
 
-## Related pages
+<RelatedPages/>
 
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Add customer's contact information for your custom cloud](/docs/platform/howto/byoc/add-customer-info-custom-cloud)

@@ -4,6 +4,8 @@ sidebar_label: Reapply ISM policies
 limited: true
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Reapply Index State Management (ISM) policies to Aiven for OpenSearch® using a script.
 
 After restoring your snapshot, ISM policies that manage index rollover, retention, and
@@ -113,7 +115,7 @@ Alternatively, you can verify the status of individual indices:
 curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain/<index_name>?pretty"
 ```
 
-## Related pages
+<RelatedPages/>
 
 - [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)
 - [Migrate Opendistro security configuration to Aiven for OpenSearch](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)

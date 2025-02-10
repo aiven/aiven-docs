@@ -9,6 +9,7 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Card from "@site/src/components/non-swizzled/Card";
 import GridContainer from "@site/src/components/non-swizzled/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 To create custom clouds in Aiven using self-service, select your cloud provider to integrate with.
 
@@ -41,7 +42,7 @@ To create custom clouds in Aiven using self-service, select your cloud provider 
 -   Only [organization admins](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     can create custom clouds.
 
-#### Related pages
+<RelatedPages/>
 
 -   [About bring your own cloud](/docs/platform/concepts/byoc)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)

@@ -2,6 +2,8 @@
 title: Check and avoid transaction ID wraparound
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 The PostgreSQL® transaction control mechanism assigns a transaction ID
 to every row that is modified in the database; these IDs control the
 visibility of that row to other concurrent transactions.
@@ -46,7 +48,7 @@ controls this behavior, and changing the value from 1500000000
 (1,500,000,000 or 1.5 billion) to 500000000 (500,000,000 or 500 million)
 would make it warn you when appropriate.
 
-## Related pages
+<RelatedPages/>
 
 -   [25.1.5. Preventing Transaction ID Wraparound
     Failures](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND)

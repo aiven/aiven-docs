@@ -2,6 +2,8 @@
 title: Create missing primary keys
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn strategies to create missing primary keys in your Aiven for MySQL® service. They are important [for MySQL replication process](/docs/products/mysql/concepts/mysql-replication).
 
 ## List tables without primary key
@@ -103,7 +105,7 @@ configuration** section > **Configure** > **Add configuration
 options** > `mysql.innodb_online_alter_log_max_size` > set a value >
 **Save configuration**.
 
-## Related pages
+<RelatedPages/>
 
 Learn how to
 [create new tables without primary keys](/docs/products/mysql/howto/create-tables-without-primary-keys) in your Aiven for MySQL.

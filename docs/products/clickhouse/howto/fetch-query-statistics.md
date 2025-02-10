@@ -3,6 +3,8 @@ title: Fetch query statistics for Aiven for ClickHouse®
 sidebar_label: Fetch query statistics
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Usually, query statistics in ClickHouse can be obtained using the `system.query_log` table, which stores statistics of each executed query, including memory usage and duration.
 
 In Aiven for ClickHouse®, the `system.query_log` table is currently not
@@ -28,7 +30,7 @@ endpoint](https://api.aiven.io/doc/#tag/Service:_ClickHouse/operation/ServiceCli
 GET /project/<project>/service/<service_name>/clickhouse/query/stats
 ```
 
-## Related pages
+<RelatedPages/>
 
 Learn more on Aiven API in the
 [Aiven API overview](/docs/tools/api).

@@ -2,6 +2,8 @@
 title: Connect Aiven for Apache Kafka® with Klaw
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 [Klaw](https://www.klaw-project.io/) is an open-source, web-based data governance toolkit for managing Apache Kafka® Topics, ACLs, Schemas, and Connectors. Klaw provides a self-service user interface where teams of Apache Kafka service users can request changes to the Apache Kafka configuration without the intervention of administrators.
 
 ## Prerequisites
@@ -220,7 +222,7 @@ To use protocols, such as `SASL_PLAIN`, `SASL_SSL/PLAIN`, and
 lines starting with `acc1.kafkasasl.jaasconfig.<>`, uncomment the line
 and enter the required values. Save the `application.properties` file.
 
-## Related pages
+<RelatedPages/>
 
 - [Klaw documentation](https://www.klaw-project.io/docs).
 - [Klaw GitHub project repository](https://github.com/aiven/klaw)

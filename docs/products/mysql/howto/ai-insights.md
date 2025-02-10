@@ -6,10 +6,11 @@ description: "Use Aiven's artificial intelligence capabilities to identify slow 
 ---
 
 import AIInsights from "@site/static/includes/ai-insights.md"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 <AIInsights service="Aiven for MySQL®"/>
 
-## Related pages
+<RelatedPages/>
 
 - [AI DB Optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
 - [Standalone SQL query optimizer](https://aiven.io/tools/sql-query-optimizer)

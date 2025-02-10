@@ -7,6 +7,7 @@ keywords: [Google Cloud, GCP, Google Cloud Platform, byoc, bring your own cloud,
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
@@ -79,7 +80,7 @@ Google project
 </details>
 For more information on Google Cloud roles, see
 [IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
-in the Goodle Cloud documentation.
+in the Google Cloud documentation.
 
 ## Create a custom cloud
 
@@ -484,7 +485,7 @@ Your new custom cloud is ready to use only after its status changes to
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)

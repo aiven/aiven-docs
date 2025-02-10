@@ -4,8 +4,7 @@ title: User and access management
 
 There are several types of users in the Aiven Platform:
 
-- [Super admin](/docs/platform/howto/make-super-admin): Users with full access to the
-  organization and are not subject to controls like authentication policies.
+- Super admin: Users with full access to the organization.
   Limit the number of these users in an organization for increased security.
 - [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
    with full access to an organization's users and resources.

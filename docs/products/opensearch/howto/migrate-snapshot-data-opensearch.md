@@ -8,6 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Aiven for OpenSearch lets you restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
 
@@ -522,7 +523,7 @@ During the migration process, you can encounter issues such as:
 - **Common issues**: Address common errors such as missing credentials, incorrect paths,
   or unsupported snapshot versions.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for OpenSearch documentation](/docs/products/opensearch)
 - [Elasticsearch snapshot and restore guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)

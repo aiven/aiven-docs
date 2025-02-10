@@ -3,6 +3,8 @@ title: Aiven for PostgreSQL® backups
 sidebar_label: Backups
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Aiven for PostgreSQL® databases are automatically backed up, with **full backups** made daily, and **write-ahead logs (WAL)** copied at 5 minute intervals, or for every new file generated.
 All backups are encrypted using
 [`pghoard`](https://github.com/aiven/pghoard), an open source tool developed and
@@ -67,7 +69,7 @@ node replacement potentially can be faster for highly updated services
 because fewer WAL files need to be restored since the last backup (WAL
 restoration in PostgreSQL is single-threaded and, therefore, slow).
 
-## Related pages
+<RelatedPages/>
 
 To restore a backup, see
 [Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params).

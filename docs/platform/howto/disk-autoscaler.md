@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 <!-- vale off -->
 
@@ -430,6 +431,6 @@ running the commands to delete the following:
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 [Scaling service disks manually](/docs/platform/howto/add-storage-space)

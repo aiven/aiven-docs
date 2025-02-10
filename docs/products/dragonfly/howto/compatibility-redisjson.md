@@ -2,6 +2,8 @@
 title: RedisJSON v2 syntax compatibility
 ---
 
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+
 Learn how to optimize your experience with RedisJSON in Aiven for Dragonfly® with the v2 JSONPath syntax using the $ root node.
 
 ## JSONPath syntax versions
@@ -27,6 +29,6 @@ see [Dragonfly documentation](https://www.dragonflydb.io/docs/category/json).
   confirm that interactions with RedisJSON operate as expected, particularly in
   areas that rely heavily on JSONPath expressions.
 
-## Related pages
+<RelatedPages/>
 
 - [RedisJSON documentation](https://redis.io/docs/data-types/json/path/)
