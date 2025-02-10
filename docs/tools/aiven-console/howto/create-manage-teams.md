@@ -88,7 +88,7 @@ Account Owners team.
 
     If you create a group named Account Owners, users you add to that group won't
     automatically become super admin. Instead, you can
-    [make them super admin](/docs/platform/howto/make-super-admin).
+    [make them super admin](/docs/platform/howto/manage-permissions).
     :::
 
 1.  Click **Groups**.
