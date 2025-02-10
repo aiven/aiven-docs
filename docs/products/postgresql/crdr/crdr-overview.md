@@ -11,6 +11,7 @@ import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
 import crdrFailover from "@site/static/images/content/figma/crdr-failover.png";
 import crdrSwitchover from "@site/static/images/content/figma/crdr-switchover.png";
 import crdrRevert from "@site/static/images/content/figma/crdr-revert.png";
+import crdrSwitchback from "@site/static/images/content/figma/crdr-switchback.png";
 
 The cross-region disaster recovery (CRDR) feature ensures your business continuity by
 automatically recovering your workloads to a remote region in the event of a region-wide
@@ -180,7 +181,7 @@ replication and route the traffic back to the primary region. When completed, bo
 and the RRS are up and running again: the PRS as an active service, and the RRS as a
 passive service.
 
-<img src={crdrRevert} className="centered" alt="CRDR revert" width="100%" />
+<img src={crdrSwitchback} className="centered" alt="CRDR switchback" width="100%" />
 
 ## DNS address and service URI
 
