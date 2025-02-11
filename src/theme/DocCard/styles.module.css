@@ -1,0 +1,22 @@
+.cardContainer {
+  color: var(--ifm-color-content);
+  background-color: var(--aiven-card-bg);
+  border: 1px solid var(--aiven-card-border);
+  font-family: var(--aiven-card-font-family);
+}
+
+.cardTitle {
+  font-family: var(--aiven-card-font-family);
+}
+
+a.cardContainer:hover,
+a.cardContainer:focus {
+  text-decoration: none;
+  color: var(--ifm-color-content);
+}
+
+.cardContainer:hover,
+.cardContainer:focus {
+  background-color: var(--aiven-card-bg-hover);
+  border-color: var(--aiven-card-border-hover);
+}
