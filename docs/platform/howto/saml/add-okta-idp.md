@@ -72,7 +72,8 @@ To configure user provisioning for Okta:
 1. Click **Provisioning**.
 1. Click **Settings** > **Integration** > **Configure API Integration**.
 1. Select **Enable API Integration**.
-1. In the **API Token field**, paste the **Access token** from the Aiven Console.
+1. In the **Base URL** field, paste the **Base URL** from the Aiven Console.
+1. In the **API Token** field, paste the **Access token** from the Aiven Console.
 1. Click **Test API Credentials** to confirm the connection is working
    and save the configuration.
    :::important
