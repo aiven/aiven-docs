@@ -198,10 +198,26 @@ You can either wait for the backup to finish or contact
 [Aiven Support](mailto:support@aiven.io) to disable backups and start a new migration.
 :::
 
-### Amazon S3
-
 <Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+<TabItem value="console" label="Aiven Console" default>
+
+1. Access the [Aiven Console](https://console.aiven.io/) and select
+   the **Aiven for OpenSearch** service for your migration.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Go to **Service management** section, and click
+   <ConsoleLabel name="actions"/> > **Migrate snapshot**.
+1. In the **Migrate snapshot** wizard, review the prerequisites and click **Get started**.
+1. In **Configure settings**, select your cloud provider and click **Continue**.
+1. Enter the required details based on the selected cloud provider. For details,
+   see [Gather required parameters](#gather-required-parameters).
+1. Once validation is complete, click **Start migration**.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Configure snapshot migration using the Aiven API for different cloud providers:
+
+#### Amazon S3
 
 ```bash
 curl --request PUT \
@@ -225,31 +241,7 @@ curl --request PUT \
   }'
 ```
 
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  SERVICE_NAME \
-  -c s3_migration.bucket="my-bucket" \
-  -c s3_migration.region="us-west-2" \
-  -c s3_migration.base_path="snapshots" \
-  -c s3_migration.access_key="your-access-key" \
-  -c s3_migration.secret_key="your-secret-key" \
-  -c s3_migration.snapshot_name="SNAPSHOT_NAME" \
-  -c s3_migration.restore_global_state="false" \
-  -c s3_migration.include_aliases="true"
-
-```
-
-</TabItem>
-</Tabs>
-
-### Google Cloud Storage (GCS)
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### Google Cloud Storage (GCS)
 
 ```bash
 curl --request PUT \
@@ -270,28 +262,7 @@ curl --request PUT \
   }'
 ```
 
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  SERVICE_NAME \
-  -c gcs_migration.bucket="my-gcs-bucket" \
-  -c gcs_migration.base_path="snapshots" \
-  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
-  -c gcs_migration.snapshot_name="SNAPSHOT_NAME" \
-  -c s3_migration.restore_global_state="false" \
-  -c s3_migration.include_aliases="true"
-```
-
-</TabItem>
-</Tabs>
-
-### Microsoft Azure
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### Microsoft Azure
 
 ```bash
 curl --request PUT \
@@ -313,29 +284,7 @@ curl --request PUT \
   }'
 ```
 
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  SERVICE_NAME \
-  -c azure_migration.container="my-container" \
-  -c azure_migration.base_path="snapshots" \
-  -c azure_migration.account="my-account" \
-  -c azure_migration.key="your-key" \
-  -c azure_migration.snapshot_name="SNAPSHOT_NAME" \
-  -c s3_migration.restore_global_state="false" \
-  -c s3_migration.include_aliases="true"
-```
-
-</TabItem>
-</Tabs>
-
-### S3-Compatible Services
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### S3-Compatible Services
 
 ```bash
 curl --request PUT \
@@ -362,6 +311,56 @@ curl --request PUT \
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
+Configure snapshot migration using Aiven CLI for different cloud providers:
+
+#### Amazon S3
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  SERVICE_NAME \
+  -c s3_migration.bucket="my-bucket" \
+  -c s3_migration.region="us-west-2" \
+  -c s3_migration.base_path="snapshots" \
+  -c s3_migration.access_key="your-access-key" \
+  -c s3_migration.secret_key="your-secret-key" \
+  -c s3_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+
+```
+
+#### Google Cloud Storage (GCS)
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  SERVICE_NAME \
+  -c gcs_migration.bucket="my-gcs-bucket" \
+  -c gcs_migration.base_path="snapshots" \
+  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
+  -c gcs_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+```
+
+#### Microsoft Azure
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  SERVICE_NAME \
+  -c azure_migration.container="my-container" \
+  -c azure_migration.base_path="snapshots" \
+  -c azure_migration.account="my-account" \
+  -c azure_migration.key="your-key" \
+  -c azure_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+```
+
+#### S3-Compatible Services
+
 ```bash
 avn service update \
   --project PROJECT_NAME \
@@ -381,11 +380,34 @@ avn service update \
 </Tabs>
 
 :::note
-The restore call’s return value may be large and contain details that are not
-immediately relevant. You can ignore it unless troubleshooting specific issues.
+When using the Aiven API or CLI, the snapshot restore process returns a detailed
+response, which may include logs, metadata, and system-generated details. In most cases,
+this output is not needed. However, if a restore fails or behaves unexpectedly, check
+the response for error messages or status updates.
 :::
 
 ## Monitor the migration
+
+<Tabs groupId="method">
+<TabItem value="console" label="Aiven Console" default>
+
+The **Migrate snapshot** wizard displays the migration progress. You can close the
+wizard and check the status later on the <ConsoleLabel name="overview"/> page.
+
+To track progress:
+
+- Go to the <ConsoleLabel name="overview"/> page of your Aiven for OpenSearch service.
+- If the migration is running, a **Migration in progress** banner appears.
+- Click **Manage migration** to reopen the wizard and view details.
+
+To stop the migration:
+
+- Click **Stop migration** in the wizard.
+- Confirm the action in the dialog.
+- Any data already transferred remains in the service.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
 
 Check migration status using this API request:
 
@@ -411,7 +433,45 @@ During the snapshot restore process, indices are temporarily closed and do not a
 in the user interface. They reopen once the restore is complete.
 :::
 
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Check migration status using Aiven CLI:
+
+```bash
+avn service migration-status --project PROJECT_NAME SERVICE_NAME
+```
+Parameters:
+
+- `PROJECT_NAME`: The name of your Aiven project.
+- `SERVICE_NAME`: The name of your Aiven for OpenSearch service.
+
+</TabItem>
+</Tabs>
+
 ### Retry the migration
+
+<Tabs groupId="method">
+<TabItem value="console" label="Aiven Console" default>
+
+If the migration fails, a migration error banner appears on
+the <ConsoleLabel name="overview"/> page and in the **Migrate snapshot** wizard.
+
+To retry the snapshot migration:
+
+1. Go to the <ConsoleLabel name="overview"/> page.
+1. Click **Manage migration** in the banner to open the wizard.
+1. Fix the issue and click **Restart migration**.
+
+Alternatively, retry from Service management section:
+
+1. Click <ConsoleLabel name="service settings"/>.
+1. Go to the **Service management** section.
+1. Click **Restart migration** next to **Migrate external snapshot**.
+
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
 
 To retry the migration, use this API request:
 
@@ -420,6 +480,9 @@ curl -X POST "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/
 -H "Authorization: Bearer API_TOKEN" \
 -d '{"command": "retry"}'
 ```
+
+</TabItem>
+</Tabs>
 
 ### Check snapshot status
 
