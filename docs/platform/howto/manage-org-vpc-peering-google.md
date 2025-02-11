@@ -34,8 +34,9 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 
 ### Collect data from Google Cloud
 
-To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-google#create-the-peering-in-aiven),
-first collect required data from Google Cloud:
+To
+[create a peering connection in Aiven](/docs/platform/howto/manage-org-vpc-peering-google#create-the-peering-in-aiven),
+first collect the required data from Google Cloud:
 
 <CollectDataGoogle/>
 
@@ -130,7 +131,7 @@ to create the VPC peering connection in Google Cloud:
 
 To peer multiple Google Cloud VPC networks to your Aiven-managed organization VPC,
 [add peering connections](/docs/platform/howto/manage-org-vpc-peering-google#create-a-peering-connection)
-one by one in the [Aiven Console](https://console.aiven.io).
+one at a time in the [Aiven Console](https://console.aiven.io).
 
 For the limit on the number of VPC peering connections allowed to a single VPC network,
 see the [Google Cloud documentation](https://cloud.google.com/vpc/docs/quota).

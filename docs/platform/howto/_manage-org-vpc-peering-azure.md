@@ -16,9 +16,9 @@ requires creating the peering both from the VPC in Aiven and from the VNet in Az
 To establish the peering from Aiven to Azure, the Aiven Platform's
 [Active Directory application object](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
 needs permissions in your Azure subscription. Because the peering is between different AD
-tenants (the Aiven AD tenant and your Azure AD tenant), another application object is
-needed for your Azure AD tenant to create the peering from Azure to Aiven once granted
-permissions to do so.
+tenants (the Aiven AD tenant and your Azure AD tenant), your Azure AD tenant needs another
+application object. Once granted permissions, this object allows peering
+from Azure to Aiven.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ permissions to do so.
      --key-type Password
    ```
 
-   This creates an entity to your AD that can be used to log into multiple
+   This creates an application object in Azure AD that can be used to log into multiple
    AD tenants ( `--sign-in-audience AzureADMultipleOrgs` ), but only the
    home tenant (the tenant the app was created in) has the credentials to
    authenticate the app.
@@ -76,14 +76,14 @@ permissions to do so.
    Save the `appId` field from the output. It will be referred to as `$user_app_id`.
    :::
 
-1. Create a service principal for your app object to the Azure subscription that the VNet
+1. Create a service principal for your app object in the Azure subscription where the VNet
    to be peered is located in:
 
    ```bash
    az ad sp create --id $user_app_id
    ```
 
-   This creates a service principal to your subscription that may be given
+   This creates a service principal in your subscription, which can be assigned
    permissions to peer your VNet.
 
    :::note
@@ -131,11 +131,11 @@ permissions to do so.
 
 1. Grant your service principal permissions to peer.
 
-   The service principal needs to be assigned a role that has the permission for the
-   `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` action
-   on the scope of your VNet. To limit the amount of permissions the application
-   object and the service principal have, you can create a custom role with just
-   that permission. The built-in network contributor role includes that permission.
+   The service principal needs to be assigned a role that includes the
+   `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` permission at the
+   scope of your VNet. To limit the permissions granted to the application object and the
+   service principal, you can create a custom role with only this permission. The built-in
+   Network Contributor role also includes this permission.
 
    1. Find the id of the role with the required permission:
 
@@ -143,7 +143,7 @@ permissions to do so.
       az role definition list --name "Network Contributor"
       ```
 
-      The `id` field from the output will be referred to as `$network_contributor_role_id`.
+      The `id` field in the output is referred to as `$network_contributor_role_id`.
 
    1. Assign the service principal the network contributor role using
       `$network_contributor_role_id`:
@@ -155,10 +155,11 @@ permissions to do so.
         --scope $user_vnet_id
       ```
 
-      This allows your application object to manage the network in the `--scope`.
-      Since you control the application object, it may also be given permission for the
-      scope of an entire resource group or the whole subscription to allow creating other
-      peerings later without assigning the role for each VNet separately.
+      This allows your application object to manage the network within the specified
+      `--scope`. Since you control the application object, you can also grant it
+      permissions at the scope of an entire resource group or the whole subscription. This
+      enables creating other peerings later without assigning the role to each VNet
+      separately.
 
 ### Aiven app object permissions
 
@@ -365,7 +366,7 @@ from your Azure VNet to the Aiven organization VPC:
      --tenant $aiven_tenant_id
    ```
 
-   At this point, your application object should have an opened session with your Azure AD
+   At this point, your application object should have an open session with your Azure AD
    tenant and the Aiven AD tenant.
 
 1. Create a peering from your Azure VNet to the Aiven organization VPC:

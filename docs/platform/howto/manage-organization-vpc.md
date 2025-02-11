@@ -108,8 +108,8 @@ for details.
 Your organization VPC is available as a geolocation (cloud region) for the new service.
 
 :::note
-You can only create a service in an organization VPC if the organization VPC is located in
-the organization where to create the service.
+You can create a service in an organization VPC only if the organization VPC is in the
+same organization where you are creating the service.
 :::
 
 Create a service in an organization VPC using a tool of your choice:
@@ -193,8 +193,8 @@ Replace the following placeholders with meaningful data:
 Your organization VPC is available as a geolocation (cloud region) for your service.
 
 :::note
-You can only migrate a service to an organization VPC if the organization VPC is located in
-the organization where your service runs.
+You can only migrate a service to an organization VPC if the organization VPC is in the
+same organization where your service runs.
 :::
 
 Migrate a service to an organization VPC using a tool of your choice:

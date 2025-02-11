@@ -58,8 +58,9 @@ type networks.
 
 ### Collect data from UpCloud
 
-To [create a peering in Aiven](/docs/platform/howto/manage-org-vpc-peering-upcloud#create-the-peering-in-aiven),
-first collect required data from UpCloud using either the
+To
+[create a peering connection in Aiven](/docs/platform/howto/manage-org-vpc-peering-upcloud#create-the-peering-in-aiven),
+first collect the required data from UpCloud using either the
 [UpCloud Control Panel](https://hub.upcloud.com/) or the
 [UpCloud API](https://developers.upcloud.com/1.3/):
 

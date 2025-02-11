@@ -61,7 +61,7 @@ permissions to do so.
      --key-type Password
    ```
 
-   This creates an entity to your AD that can be used to log into multiple
+   This creates an application object in Azure AD that can be used to log into multiple
    AD tenants ( `--sign-in-audience AzureADMultipleOrgs` ), but only the
    home tenant (the tenant the app was created in) has the credentials to
    authenticate the app.
@@ -77,8 +77,8 @@ permissions to do so.
    az ad sp create --id $user_app_id
    ```
 
-   This creates a service principal to your subscription that may be given
-   permissions to peer your VNet.
+   This creates a service principal in your subscription, which can be
+   assigned permissions to peer your VNet.
 
    :::note
    Save the `id` field from the JSON output. It will be referred to as `$user_sp_id`.
@@ -237,8 +237,8 @@ permissions to do so.
 
 ## Create the peering in Aiven
 
-By creating a peering from the Aiven project VPC to the VNet in your Azure subscription,
-you also create a service principal for the application object
+By creating a peering connection from the Aiven project VPC to the VNet in your Azure
+subscription, you also create a service principal for the application object
 (`--peer-azure-app-id $user_app_id`) and grant it the permission to peer with the Aiven
 project VPC.
 
@@ -246,8 +246,8 @@ The Aiven application object authenticates with your Azure tenant to grant it ac
 [the service principal of the Aiven application object](/docs/platform/howto/vnet-peering-azure#aiven-app-object-permissions)
 (`--peer-azure-tenant-id $user_tenant_id`).
 
-`$aiven_project_vpc_id` can be found in the [Aiven Console](https://console.aiven.io/) or
-using the `avn vpc list` command.
+Find `$aiven_project_vpc_id` in the [Aiven Console](https://console.aiven.io/) or by
+running the `avn vpc list` command.
 
 1. Run:
 

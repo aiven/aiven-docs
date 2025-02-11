@@ -1,4 +1,4 @@
-You only need to take this step if any of your VMs has been created
+You only need to perform this step if any of your VMs have been created
 before setting up the network peering. In this case, refresh
 the Dynamic Host Configuration Protocol (DHCP) lease for a relevant
 network interface to get new routes.

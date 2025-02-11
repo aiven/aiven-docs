@@ -108,8 +108,8 @@ resource.
 Your project VPC is available as a geolocation (cloud region) for the new service.
 
 :::note
-You can only create a service in a project VPC if the project VPC is located in
-the project where to create the service.
+You can create a service in a project VPC only if it is in the same project
+where you are creating the service.
 :::
 
 Create a service in a project VPC using a tool of your choice:
@@ -191,8 +191,8 @@ Replace the following placeholders with meaningful data:
 Your project VPC is available as a geolocation (cloud region) for your service.
 
 :::note
-You can only migrate a service to a project VPC if the project VPC is located in
-the project where your service runs.
+You can migrate a service to a project VPC only if the project VPC is in the
+same project running your service.
 :::
 
 Migrate a service to a project VPC using a tool of your choice:

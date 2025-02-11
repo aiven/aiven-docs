@@ -13,11 +13,11 @@ the public internet.
 
 ### VPC peering characteristics
 
-- Private communication: Private IP addresses used by VPCs to communicate
-- High performance: Low latency thanks traffic remaining on the cloud provider's network
-- Security: Reduced exposure to public networks without using internet gateways, VPNs, or
+- Private communication:  Uses private IP addresses for direct communication between VPCs
+- High performance: Low latency thanks to traffic remaining on the cloud provider's network
+- Security: Reduces exposure to public networks without using internet gateways, VPNs, or
   NAT
-- Scalability: Connections supported across different accounts and regions, depending on a
+- Scalability: Supports connections across different accounts and regions, depending on a
   cloud provider
 
 ### VPC peering use cases
@@ -26,8 +26,8 @@ the public internet.
   layers, such as web or database
 - Resource sharing: Secure sharing between VPCs hosting different resources,
   for example, datasets or APIs
-- Data isolation: Access control by using separate VPCs for different projects or teams in
-  an organization
+- Data isolation: Enforce access control by using separate VPCs for different projects or
+  teams in an organization
 
 ## How it works
 
