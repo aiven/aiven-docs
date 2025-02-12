@@ -30,7 +30,7 @@ Azure Private Link is supported for the following services:
   installed.
 
 - The Aiven service is in
-  [a project VPC](/docs/platform/howto/manage-vpc-peering). This ensures the service is not accessible from the
+  [a project VPC](/docs/platform/howto/manage-project-vpc). This ensures the service is not accessible from the
   public internet.
 
   :::note
