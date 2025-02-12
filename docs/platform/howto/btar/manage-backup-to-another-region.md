@@ -105,8 +105,7 @@ where this new service is hosted.
 
       - **Latest transaction**
       - **Point in time**: Set it up to no earlier than the time of taking the oldest
-        replicated base backup and no later than the time of taking the latest replicated
-        base backup.
+        replicated base backup.
 
    1. Specify a name for the new fork service.
    1. Select **Create fork**.
@@ -117,7 +116,7 @@ where this new service is hosted.
 Run the [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command
 with the `--service-to-fork-from` option and the `--recovery-target-time`option. Set
 `--recovery-target-time` to no earlier than the time of taking the oldest replicated base
-backup and no later than the time of taking the latest replicated base backup.
+backup.
 
 ```bash {6,7}
 avn service create FORK_SERVICE_NAME                 \
@@ -146,8 +145,7 @@ Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceC
 to create a fork service. When constructing the API request, add the `user_config` object
 to the request body and nest the `service_to_fork_from` field and the
 `recovery_target_time` field inside. Set `recovery_target_time` to no earlier than the
-time of taking the oldest replicated base backup and no later than the time of taking the
-latest replicated base backup.
+time of taking the oldest replicated base backup.
 
 ```bash
 curl --request POST                                                    \
