@@ -79,8 +79,8 @@ flowchart LR
   your service and the primary backup.
 - To
   [restore your service from an additional backup](/docs/platform/howto/btar/manage-backup-to-another-region)
-  using point-in-time recovery (PITR), set up the time to no later than the time of the
-  latest backup.
+  using point-in-time recovery (PITR), set up the time to no earlier than the time of
+  taking the oldest replicated base backup.
 - Secondary backup can only be restored in the region where it was stored.
 - Secondary backup is generated only after a primary backup is complete, and there might
   be a data replication lag between the primary region and the secondary region.
