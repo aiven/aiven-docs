@@ -19,7 +19,7 @@ Send a request to the
 [create network peering](https://developers.upcloud.com/1.3/13-networks/#create-network-peering)
 UpCloud API endpoint.
 
-```bash
+```json
 POST /1.3/network-peering HTTP/1.1
 {
   "network_peering": {
@@ -54,7 +54,7 @@ only.
 If your peering API request is successful, you can expect a response
 similar to the following:
 
-```bash
+```json
 HTTP/1.1 201 Created
 {
   "network_peering": {

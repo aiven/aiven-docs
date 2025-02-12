@@ -16,7 +16,7 @@
 /category/topic-and-schema-management            https://aiven.io/docs/products/kafka/concepts/governance-overview
 /category/troubleshooting                        https://aiven.io/docs/products/services
 /category/user-access                            https://aiven.io/docs/platform/howto/manage-org-users
-/community/documentation/tips-tricks/renaming-files     https://aiven.io/docs
+/community/documentation/tips-tricks/renaming-files    https://aiven.io/docs
 /docs/platform/concepts/projects_accounts_access.html  https://aiven.io/docs/platform/howto/manage-org-users
 /docs/products/opensearch/howto/list-integrations      https://aiven.io/docs/products/opensearch
 /docs/products/opensearch/howto/list-manage-service    https://aiven.io/docs/products/opensearch
@@ -46,7 +46,7 @@
 /platform/howto/billing-aws-marketplace-subscription   https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
-/platform/howto/byoc/create-custom-cloud                               https://aiven.io/docs/platform/howto/byoc/create-cloud/create-custom-cloud
+/platform/howto/byoc/create-custom-cloud               https://aiven.io/docs/platform/howto/byoc/create-cloud/create-custom-cloud
 /platform/howto/change-billing-contact                 https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/change-support-tier                    https://aiven.io/docs/platform/howto/support
 /platform/howto/cleanup-powered-off-services           https://aiven.io/docs/platform/concepts/service-power-cycle
@@ -64,6 +64,7 @@
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
 /platform/howto/list-user                              https://aiven.io/docs/platform/howto/manage-org-users
 /platform/howto/make-super-admin                       https://aiven.io/docs/platform/howto/manage-permissions
+/platform/howto/manage-vpc-peering                     https://aiven.io/docs/platform/howto/manage-project-vpc
 /platform/howto/metrics-integrations                   https://aiven.io/docs/platform/howto/list-monitoring
 /platform/howto/migrate-services                       https://aiven.io/docs/products/postgresql/howto/list-replication-migration
 /platform/howto/monitoring-services                    https://aiven.io/docs/platform/howto/list-monitoring
@@ -122,13 +123,13 @@
 /products/dragonfly/howto/migrate-aiven-redis-df-console https://aiven.io/docs/products/dragonfly/howto/migrate-aiven-caching-df-console
 /products/dragonfly/reference                              https://aiven.io/docs/products/dragonfly/reference/advanced-params
 /products/flink/concepts                                   https://aiven.io/docs/products/flink/concepts/flink-architecture
-/products/flink/concepts/flink-features                     https://aiven.io/docs/products/flink
+/products/flink/concepts/flink-features                    https://aiven.io/docs/products/flink
 /products/flink/concepts/managed-service-features          https://aiven.io/docs/products/flink
 /products/flink/concepts/managed-service-features.html     https://aiven.io/docs/products/flink
 /products/flink/howto                                      https://aiven.io/docs/products/flink/howto/create-integration
 /products/flink/howto/advanced-topics                      https://aiven.io/docs/products/flink/howto/timestamps_opensearch
-/products/flink/howto/list-flink-table-integrations         https://aiven.io/docs/products/flink/howto/connect-kafka
-/products/flink/howto/list-flink-tables                     https://aiven.io/docs/products/flink/howto/list-flink-table-integrations
+/products/flink/howto/list-flink-table-integrations        https://aiven.io/docs/products/flink/howto/connect-kafka
+/products/flink/howto/list-flink-tables                    https://aiven.io/docs/products/flink/howto/list-flink-table-integrations
 /products/flink/howto/list-get-started                     https://aiven.io/docs/products/flink/get-started
 /products/flink/howto/list-integrations                    https://aiven.io/docs/products/flink/howto/create-integration
 /products/flink/howto/real-time-alerting-solution          https://aiven.io/docs/products/flink/howto/list-get-started
@@ -140,7 +141,7 @@
 /products/grafana/list-overview                            https://aiven.io/docs/products/grafana
 /products/grafana/reference                                https://aiven.io/docs/products/grafana/reference/advanced-params
 /products/grafana/user-access                              https://aiven.io/docs/products/grafana/howto/log-in
-/products/influxdb                                          https://aiven.io/docs/products/services
+/products/influxdb                                         https://aiven.io/docs/products/services
 /products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
 /products/kafka/howto                                      https://aiven.io/docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/enable-karapace                      https://aiven.io/docs/products/kafka/howto/enable-schema-registry
@@ -236,7 +237,6 @@
 /tools/terraform/reference/troubleshooting/private-access-error       https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                          https://aiven.io/developer
 /valkey                                                               https://aiven.io/docs/products/valkey
-/platform/howto/manage-vpc-peering                         https://aiven.io/docs/platform/howto/manage-project-vpc
 
 #
 # Keep splats at the end
