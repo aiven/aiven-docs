@@ -5,15 +5,19 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Delete an [additional service backup](/docs/platform/concepts/backup-to-another-region) [created](/docs/platform/howto/btar/enable-backup-to-another-region) in a region different from your primary backup region.
 
-You can delete a cross-region backup using the Aiven [console](#delete-btar-console),
-[CLI](#delete-btar-cli), or [API](#delete-btar-api).
+You can delete a cross-region backup using the [Aiven Console](/docs/tools/aiven-console),
+[API](/docs/tools/api), or [CLI](/docs/tools/cli). When you delete
+the additional cross-region backup, you still have the default backup located in the
+primary (service-hosting) region.
 
-## Delete backup via console {#delete-btar-console}
-
+<Tabs groupId="group1">
+<TabItem value="gui" label="Aiven Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. From the **Services** view, select an Aiven service on which you'd like to disable BTAR.
 1. On your service's page, select **Backups** from the sidebar.
@@ -22,9 +26,8 @@ You can delete a cross-region backup using the Aiven [console](#delete-btar-cons
 
 Your additional service backup is no longer visible on your service's **Backups** page in
 the **Secondary backup location** column.
-
-## Delete backup with CLI {#delete-btar-cli}
-
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
 To remove secondary backups for your service, use the
 [avn service update](/docs/tools/cli/service-cli) command to remove all target regions names
 from the `additional_backup_regions` array.
@@ -34,8 +37,8 @@ avn service update your-sevice-name   \
     -c additional_backup_regions=\[\]
 ```
 
-## Delete backup with API {#delete-btar-api}
-
+</TabItem>
+<TabItem value="api" label="Aiven API">
 To remove secondary backups for your service, update the service configuration. Use the
 [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint
 to remove all target regions names from the `additional_backup_regions` array.
@@ -53,8 +56,8 @@ curl --request PUT                                                              
       }'
 ```
 
-The additional cross-region backup has been deleted. You still have the default backup
-located in the primary (service-hosting) region.
+</TabItem>
+</Tabs>
 
 <RelatedPages/>
 
