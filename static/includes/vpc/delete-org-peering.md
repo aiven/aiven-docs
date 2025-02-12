@@ -47,7 +47,9 @@ Replace the following:
 -->
 <TabItem value="api" label="Aiven API">
 
-Make an API call to the `OrganizationVpcPeeringConnectionDelete` endpoint:
+Make an API call to the
+[OrganizationVpcPeeringConnectionDelete](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcPeeringConnectionDeleteById)
+endpoint:
 
 ```bash
 curl --request DELETE \

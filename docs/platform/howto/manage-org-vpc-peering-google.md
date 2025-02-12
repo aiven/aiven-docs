@@ -88,7 +88,9 @@ and `GOOGLE_CLOUD_VPC_NETWORK_NAME` as needed.
 -->
 <TabItem value="api" label="Aiven API">
 
-Make an API call to the `OrganizationVpcPeeringConnectionCreate` endpoint:
+Make an API call to the
+[OrganizationVpcPeeringConnectionCreate](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcPeeringConnectionCreate)
+endpoint:
 
 ```bash
 curl --request POST \

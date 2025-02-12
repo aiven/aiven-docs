@@ -78,7 +78,9 @@ Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `AWS_ACCOUNT_ID`, 
 -->
 <TabItem value="api" label="Aiven API">
 
-Make an API call to the `OrganizationVpcPeeringConnectionCreate` endpoint:
+Make an API call to the
+[OrganizationVpcPeeringConnectionCreate](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcPeeringConnectionCreate)
+endpoint:
 
 ```bash
 curl --request POST \

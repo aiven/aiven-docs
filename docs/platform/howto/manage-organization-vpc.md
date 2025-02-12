@@ -8,6 +8,7 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CreateService from "@site/static/includes/create-service-console.md";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 Set up or delete an organization-wide VPC on the Aiven Platform. Enable new Aiven projects in the organization VPC or migrate existing Aiven projects to the organization VPC. Access resources within the organization VPC from the public internet.
 
@@ -73,7 +74,9 @@ Replace the following:
 -->
 <TabItem value="api" label="Aiven API">
 
-Make an API call to the `OrganizationVpcCreate` endpoint:
+Make an API call to the
+[OrganizationVpcCreate](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcCreate)
+endpoint:
 
 ```bash
 curl --request POST \
@@ -154,7 +157,7 @@ Replace the following:
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
-[ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+[ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
 endpoint:
 
 ```bash {12}
@@ -231,8 +234,8 @@ Replace the following:
 -->
 <TabItem value="api" label="Aiven API">
 
-Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-to set `vpc_id` of the service to the ID of your organization VPC:
+Call the [ServiceUpdte](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint to set `vpc_id` of the service to the ID of your organization VPC:
 
 ```bash {5}
 curl --request PUT \
@@ -294,7 +297,9 @@ Replace the following:
 -->
 <TabItem value="api" label="Aiven API">
 
-Make an API call to the `OrganizationVpcDelete` endpoint:
+Make an API call to the
+[OrganizationVpcDelete](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcDelete)
+endpoint:
 
 ```bash
 curl --request DELETE \
@@ -317,7 +322,7 @@ for details.
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [VPC peering](/docs/platform/howto/list-vpc-peering)
 - [Manage organization VPC peering connections](/docs/platform/howto/manage-org-vpc-peering-aws)
