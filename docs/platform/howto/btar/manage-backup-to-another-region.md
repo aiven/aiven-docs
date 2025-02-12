@@ -17,7 +17,7 @@ For a service that has the [backup to another region (BTAR)](/docs/platform/conc
   [Aiven service with BTAR enabled](/docs/platform/howto/btar/enable-backup-to-another-region)
 - Access to the [Aiven Console](https://console.aiven.io/)
 - [Aiven API](/docs/tools/api)
-- - [Aiven CLI](/docs/tools/api)
+- [Aiven CLI](/docs/tools/api)
 
 ## Change a backup region
 
@@ -86,7 +86,7 @@ your service using BTAR, [create a fork](/docs/platform/concepts/service-forking
 original service in the region where the secondary backup resides.
 
 :::note
-When you **Fork & restore** from the secondary backup, your new fork service is created in
+When you **fork & restore** from the secondary backup, your new fork service is created in
 the cloud and region where the secondary backup is located. The fork service gets the same
 plan that the primary service uses. Backups of the fork service are located in the region
 where this new service is hosted.
@@ -101,12 +101,12 @@ where this new service is hosted.
 1. In the **New database fork** window:
 
    1. Set **Backup location** to either **Primary location** or **Secondary location**.
-   1. Set **Backup version** to either **Latest transaction** or **Point in time**.
+   1. Set **Backup version** to one of the following:
 
-      :::note
-      For **Point in time**, set up the time to no later than the time of taking the
-      latest backup.
-      :::
+      - **Latest transaction**
+      - **Point in time**: Set it up to no earlier than the time of taking the oldest
+        replicated base backup and no later than the time of taking the latest replicated
+        base backup.
 
    1. Specify a name for the new fork service.
    1. Select **Create fork**.
@@ -116,8 +116,8 @@ where this new service is hosted.
 
 Run the [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) command
 with the `--service-to-fork-from` option and the `--recovery-target-time`option. Set
-`--recovery-target-time` to a point in time between the oldest replicated base backup and
-your current time.
+`--recovery-target-time` to no earlier than the time of taking the oldest replicated base
+backup and no later than the time of taking the latest replicated base backup.
 
 ```bash {6,7}
 avn service create FORK_SERVICE_NAME                 \
@@ -145,8 +145,9 @@ Replace the following with meaningful data:
 Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate) API
 to create a fork service. When constructing the API request, add the `user_config` object
 to the request body and nest the `service_to_fork_from` field and the
-`recovery_target_time` field inside. Set `recovery_target_time` to a point in time between
-the oldest replicated base backup and your current time.
+`recovery_target_time` field inside. Set `recovery_target_time` to no earlier than the
+time of taking the oldest replicated base backup and no later than the time of taking the
+latest replicated base backup.
 
 ```bash
 curl --request POST                                                    \
