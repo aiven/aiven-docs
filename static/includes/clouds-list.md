@@ -779,3 +779,38 @@ information or access, contact your account team.
   </tr>
 </tbody>
 </table>
+
+## Exoscale <LimitedBadge/>
+
+:::important
+Exoscale is supported on the Aiven Platform as a
+[limited availability feature](/docs/platform/concepts/beta_services) for Aiven for
+PostgreSQL® only. For more information or access, contact your account team.
+:::
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Zone</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Europe</td>
+    <td>AT-VIE-1</td>
+    <td>Austria, Vienna</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>DE-FRA-1</td>
+    <td>Germany, Frankfurt</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>DE-MUC-1</td>
+    <td>Germany, Munich</td>
+  </tr>
+</tbody>
+</table>
