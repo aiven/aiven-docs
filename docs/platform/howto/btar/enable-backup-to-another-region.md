@@ -95,11 +95,11 @@ curl --request PUT                                                              
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
-#### 1. Create a service
+#### Step 1: Create a service
 
 <CreateService/>
 
-#### 2. Add a backup for the new service
+#### Step 2: Add a backup for the new service
 
 1. On your service's page, click <ConsoleLabel name="backups"/> in the sidebar.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
