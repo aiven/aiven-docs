@@ -4,6 +4,7 @@ title: Aiven for Apache Kafka® metrics available via Prometheus
 import HostMetrics from "@site/static/includes/host-metrics.md";
 
 Explore common metrics available via Prometheus for your Aiven for Apache Kafka® service.
+The available metrics depend on whether your service runs in KRaft mode or ZooKeeper mode.
 
 ## How to retrieve metrics
 You can retrieve a complete list of metrics from your service by querying the Prometheus
@@ -116,6 +117,12 @@ health of your Apache Kafka controller.
   give insights into the state of the Kafka controller, such as the number of active
   brokers, offline partitions, and replicas to delete.
 
+#### ZooKeeper mode-only metrics
+
+ZooKeeper mode is the traditional metadata management system for Apache Kafka. In this
+mode, a separate ZooKeeper service manages leader elections and stores metadata. The
+following metrics are only available when running Kafka in ZooKeeper mode:
+
 | Metric                                                                                         | Description                                                                                  |
 |------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_50thPercentile`                  | Time taken for leader elections to complete at the 50th percentile                          |
@@ -143,6 +150,49 @@ health of your Apache Kafka controller.
 | `kafka_controller_KafkaController_ReplicasToDeleteCount_Value`                                 | Number of replicas to delete                                                                |
 | `kafka_controller_KafkaController_TopicsIneligibleToDeleteCount_Value`                         | Number of topics ineligible to delete                                                       |
 | `kafka_controller_KafkaController_TopicsToDeleteCount_Value`                                   | Number of topics to delete                                                                  |
+
+#### KRaft mode and metrics changes
+
+Aiven for Apache Kafka services running Apache Kafka 3.9 operate in KRaft mode, which
+no longer exposes certain controller-related metrics previously available in
+ZooKeeper mode. These metrics were removed as part of Kafka’s transition to a new
+metadata and controller management model.
+
+The following controller metrics are **not** available in KRaft mode:
+
+| Metric                                                                   | Description                                |
+| ------------------------------------------------------------------------ | ------------------------------------------ |
+| `kafka_controller_KafkaController_ActiveControllerCount_Value`           | Number of active controllers               |
+| `kafka_controller_KafkaController_OfflinePartitionsCount_Value`          | Number of offline partitions               |
+| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount_Value`  | Number of preferred replica imbalances     |
+| `kafka_controller_KafkaController_TopicsToDeleteCount_Value`             | Number of topics to delete                 |
+| `kafka_controller_KafkaController_ReplicasToDeleteCount_Value`           | Number of replicas to delete               |
+| `kafka_controller_KafkaController_TopicsIneligibleToDeleteCount_Value`   | Number of topics ineligible for deletion   |
+| `kafka_controller_KafkaController_ReplicasIneligibleToDeleteCount_Value` | Number of replicas ineligible for deletion |
+| `kafka_controller_KafkaController_ActiveBrokerCount_Value`               | Number of active brokers                   |
+| `kafka_controller_KafkaController_FencedBrokerCount_Value`               | Number of fenced brokers                   |
+| `kafka_controller_KafkaController_NewActiveControllersCount_Value`       | Number of new active controllers           |
+| `kafka_controller_KafkaController_TimedOutBrokerHeartbeatCount_Value`    | Number of timed-out broker heartbeats      |
+| `kafka_controller_KafkaController_ControllerState_Value`                 | Controller state                           |
+| `kafka_controller_KafkaController_GlobalTopicCount_Value`                | Number of global topics                    |
+| `kafka_controller_KafkaController_GlobalPartitionCount_Value`            | Number of global partitions                |
+| `kafka_controller_KafkaController_MetadataErrorCount_Value`              | Number of metadata errors                  |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`     | Total number of leader elections           |
+| `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`    | Number of unclean leader elections         |
+| `kafka_controller_KafkaController_EventQueueOperationsStartedCount_Value` | Number of event queue operations started   |
+| `kafka_controller_KafkaController_EventQueueOperationsTimedOutCount_Value` | Number of event queue operations timed out |
+| `kafka_controller_KafkaController_LastAppliedRecordOffset_Value`         | Last applied record offset                 |
+| `kafka_controller_KafkaController_LastCommittedRecordOffset_Value`       | Last committed record offset               |
+| `kafka_controller_KafkaController_LastAppliedRecordTimestamp_Value`      | Last applied record timestamp              |
+| `kafka_controller_KafkaController_LastAppliedRecordLagMs_Value`          | Last applied record lag in ms              |
+| `kafka_controller_ControllerEventManager_EventQueueProcessingTimeMs_Value` | Event queue processing time in ms          |
+| `kafka_controller_ControllerEventManager_EventQueueSize_Value`           | Event queue size                           |
+| `kafka_controller_ControllerEventManager_EventQueueTimeMs_Value`         | Event queue time in ms                     |
+| `kafka_controller_ControllerChannelManager_TotalQueueSize_Value`         | Total queue size                           |
+| `kafka_controller_ControllerChannelManager_QueueSize_Value`              | Queue size per broker                      |
+| `kafka_controller_ControllerChannelManager_RequestRateAndQueueTimeMs_Value` | Request rate and queue time per broker     |
+| `kafka_controller_KafkaController_MigratingZkBrokerCount_Value`          | Number of brokers migrating from ZooKeeper to KRaft |
+| `kafka_controller_KafkaController_ZkMigrationState_Value`                | ZooKeeper migration state                  |
 
 ### `Jolokia` collector collect time
 
