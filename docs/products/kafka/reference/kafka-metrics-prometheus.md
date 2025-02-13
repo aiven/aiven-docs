@@ -119,9 +119,8 @@ health of your Apache Kafka controller.
 
 #### ZooKeeper mode-only metrics
 
-ZooKeeper mode is the traditional metadata management system for Apache Kafka. In this
-mode, a separate ZooKeeper service manages leader elections and stores metadata. The
-following metrics are only available when running Kafka in ZooKeeper mode:
+Apache Kafka requires a separate ZooKeeper process that, for example, stores metadata.
+The following metrics are only available when running Kafka in ZooKeeper mode:
 
 | Metric                                                                                         | Description                                                                                  |
 |------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -153,10 +152,11 @@ following metrics are only available when running Kafka in ZooKeeper mode:
 
 #### KRaft mode and metrics changes
 
-Aiven for Apache Kafka services running Apache Kafka 3.9 operate in KRaft mode, which
-no longer exposes certain controller-related metrics previously available in
-ZooKeeper mode. These metrics were removed as part of Kafka’s transition to a new
-metadata and controller management model.
+Aiven for Apache Kafka services running Apache Kafka 3.9 use KRaft mode, which replaces
+ZooKeeper for metadata and controller management. While KRaft tracks similar metrics,
+Aiven does not expose these metrics because they are internal and not needed for
+monitoring. This is similar to ZooKeeper mode, where Kafka did not expose
+ZooKeeper-specific metrics.
 
 The following controller metrics are **not** available in KRaft mode:
 
