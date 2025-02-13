@@ -2,10 +2,10 @@
 title: Service backups
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
-import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
-import Variables from "@site/static/variables.json"
+import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
+import Variables from "@site/static/variables.json";
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
