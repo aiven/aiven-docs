@@ -2,10 +2,10 @@
 title: Service backups
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
-import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md"
-import Variables from "@site/static/variables.json"
+import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
+import Variables from "@site/static/variables.json";
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
@@ -62,6 +62,8 @@ backups with the appropriate tooling:
     `cqlsh`
 -   [OpenSearch®](https://github.com/elasticsearch-dump/elasticsearch-dump):
     `elasticdump`
+-   [Dragonfly®](https://redis.io/docs/latest/operate/rs/references/cli-utilities/redis-cli/): `redis-cli`
+-   [Valkey™](https://valkey.io/topics/cli/): `valkey-cli`
 
 :::note
 These tools are recommendations and are not intended
@@ -140,6 +142,20 @@ data.
       <td>Daily backups up to 2 days</td>
       <td>Daily backups up to 14 days</td>
       <td>Daily backups up to 30 days</td>
+    </tr>
+    <tr>
+      <td>Aiven for Dragonfly®</td>
+      <td>Plan unavailable</td>
+      <td>Backup every 12 hours up to 1 day</td>
+      <td>Backup every 12 hours up to 3 days</td>
+      <td>Backup every 12 hours up to 13 days</td>
+    </tr>
+    <tr>
+      <td>Aiven for Valkey™</td>
+      <td>Single backup only for disaster recovery</td>
+      <td>Backup every 12 hours up to 1 day</td>
+      <td>Backup every 12 hours up to 3 days</td>
+      <td>Backup every 12 hours up to 13 days</td>
     </tr>
   </tbody>
 </table>
@@ -292,6 +308,14 @@ The Append Only File (AOF) persistence method is not supported for the managed
 Aiven for Caching service.
 :::
 
+#### Edit the backup schedule
+
+<EditBackUpSchedule/>
+
+:::note
+When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
+:::
+
 ### Aiven for ClickHouse®
 
 Aiven for ClickHouse® provides automatic daily backups. The
@@ -319,3 +343,80 @@ backups, see
 
 For more information on Aiven for ClickHouse backups, see
 [Backup and restore](/docs/products/clickhouse/concepts/disaster-recovery).
+
+### Aiven for Dragonfly®
+
+Aiven for Dragonfly automatically backs up data every 12 hours and supports configurable
+data persistence using Dragonfly Snapshot (DFS).
+
+#### Persistence settings
+
+You can configure the `dragonfly_persistence` settings from <ConsoleLabel name="actions"/> >
+the **Configure backup settings** section on your <ConsoleLabel name="Backups"/> page
+in the [Aiven Console](https://console.aiven.io).
+
+- **Enabled (`dfs`)**: When you set `dragonfly_persistence` to `dfs`, Aiven for Dragonfly
+  performs DFS dumps every 10 minutes whenever a key changes. These dumps provide
+  additional data protection against Dragonfly service incidents, limiting potential data
+  loss to a maximum of 10 minutes. However, full backups are created only according to
+  the backup schedule (every 12 hours) or when the service is shut down.
+
+- **Disabled (`off`)**: When you set `dragonfly_persistence` to `off`, Aiven for Dragonfly
+  stops all DFS dumps and backups. If the service restarts or powers off for
+  any reason, you may lose any data not yet backed up. Additionally, you cannot
+  fork or replicate the service, which can affect potential scaling or disaster recovery
+  plans.
+
+  :::warning
+  If you disable `dragonfly_persistence`, the system immediately deletes all existing
+  backups, preventing any data recovery from those backups. When you re-enable
+  persistence, it starts a new backup cycle, but it won't restore any previously
+  stored data.
+  :::
+
+:::note
+The Append Only File (AOF) persistence method is not supported for the managed
+Aiven for Dragonfly service.
+:::
+
+### Aiven for Valkey™
+
+Aiven for Valkey automatically backs up data every 12 hours and supports configurable
+data persistence using Redis Database Backup (RDB).
+
+#### Persistence settings
+
+You can configure the `valkey_persistence` settings from <ConsoleLabel name="actions"/> >
+the **Configure backup settings** section on your <ConsoleLabel name="Backups"/> page
+in the [Aiven Console](https://console.aiven.io).
+
+- **Enabled (`rdb`)**: When you set `valkey_persistence` to `rdb`, Aiven for Valkey
+  performs RDB dumps every 10 minutes whenever a key changes. These dumps provide
+  additional data protection against Valkey service incidents, limiting potential data
+  loss to a maximum of 10 minutes. However, full backups are created only according to
+  the backup schedule (every 12 hours) or when the service is shut down.
+- **Disabled (`off`)**: When you set `valkey_persistence` to `off`, Aiven for Valkey
+  stops all RDB dumps and backups. If the service restarts or powers off for
+  any reason, you may lose any data not yet backed up. Additionally, you cannot
+  fork or replicate the service, which can affect potential scaling or disaster recovery
+  plans.
+
+  :::warning
+  If you disable `valkey_persistence`, the system immediately deletes all existing
+  backups, preventing any data recovery from those backups. When you re-enable
+  persistence, it starts a new backup cycle, but it won't restore any previously
+  stored data.
+  :::
+
+:::note
+The Append Only File (AOF) persistence method is not supported for the managed
+Aiven for Valkey service.
+:::
+
+#### Edit the backup schedule
+
+<EditBackUpSchedule/>
+
+:::note
+When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
+:::
