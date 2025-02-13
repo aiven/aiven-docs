@@ -62,7 +62,7 @@ backups with the appropriate tooling:
     `cqlsh`
 -   [OpenSearch®](https://github.com/elasticsearch-dump/elasticsearch-dump):
     `elasticdump`
--   [Dragonfly®](https://www.dragonflydb.io/docs/development/cli): `dragonfly-cli`
+-   [Dragonfly®](https://redis.io/docs/latest/operate/rs/references/cli-utilities/redis-cli/): `redis-cli`
 -   [Valkey™](https://valkey.io/topics/cli/): `valkey-cli`
 
 :::note
