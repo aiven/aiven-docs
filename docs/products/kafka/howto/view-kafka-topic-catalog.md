@@ -12,7 +12,7 @@ The [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic
 
 1. Log in to the [Aiven console](https://console.aiven.io/).
 1. Click **Tools**.
-1. Select **Apache Kafka topic catalog**.
+1. Select **Apache Kafka governance operations**.
 
 ## Browse the topic catalog
 
