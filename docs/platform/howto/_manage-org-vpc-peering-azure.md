@@ -1,31 +1,37 @@
 ---
-title: Manage a project VPC peering with Microsoft Azure
+title: Manage an organization VPC peering with Microsoft Azure
 sidebar_label: Azure peering
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
-import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
+import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
+import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Set up a peering connection between your [Aiven project VPC](/docs/platform/howto/manage-project-vpc) and a [Microsoft Azure virtual network](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
+Set up a peering connection between your [Aiven organization VPC](/docs/platform/howto/manage-organization-vpc) and a [Microsoft Azure virtual network](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
 
-Establishing a peering connection between an Aiven project VPC and an Azure VNet requires
-creating the peering both from the VPC in Aiven and from the VNet in Azure.
+Establishing a peering connection between an Aiven organization VPC and an Azure VNet
+requires creating the peering both from the VPC in Aiven and from the VNet in Azure.
 
 To establish the peering from Aiven to Azure, the Aiven Platform's
 [Active Directory application object](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
 needs permissions in your Azure subscription. Because the peering is between different AD
-tenants (the Aiven AD tenant and your Azure AD tenant), another application object is
-needed for your Azure AD tenant to create the peering from Azure to Aiven once granted
-permissions to do so.
+tenants (the Aiven AD tenant and your Azure AD tenant), your Azure AD tenant needs another
+application object. Once granted permissions, this object allows peering
+from Azure to Aiven.
 
 ## Prerequisites
 
-- [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
-  permissions in Aiven
+- [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)
+  permissions for the Aiven Platform
 - Azure account with at least the application administrator role
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) and,
   optionally, the [Microsoft Azure portal](https://portal.azure.com/#home)
+- Access to the [Aiven Console](https://console.aiven.io/)
 - [Aiven CLI](/docs/tools/cli) installed
+- Two VPCs to be peered: an
+  [organization VPC](/docs/platform/howto/manage-organization-vpc#create-an-organization-vpc)
+  in Aiven and a VNet in your Azure account
 
 ## Set up permissions in Azure
 
@@ -70,15 +76,15 @@ permissions to do so.
    Save the `appId` field from the output. It will be referred to as `$user_app_id`.
    :::
 
-1. Create a service principal for your app object to the Azure subscription that the VNet
+1. Create a service principal for your app object in the Azure subscription where the VNet
    to be peered is located in:
 
    ```bash
    az ad sp create --id $user_app_id
    ```
 
-   This creates a service principal in your subscription, which can be
-   assigned permissions to peer your VNet.
+   This creates a service principal in your subscription, which can be assigned
+   permissions to peer your VNet.
 
    :::note
    Save the `id` field from the JSON output. It will be referred to as `$user_sp_id`.
@@ -125,11 +131,11 @@ permissions to do so.
 
 1. Grant your service principal permissions to peer.
 
-   The service principal needs to be assigned a role that has the permission for the
-   `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` action
-   on the scope of your VNet. To limit the amount of permissions the application
-   object and the service principal have, you can create a custom role with just
-   that permission. The built-in network contributor role includes that permission.
+   The service principal needs to be assigned a role that includes the
+   `Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write` permission at the
+   scope of your VNet. To limit the permissions granted to the application object and the
+   service principal, you can create a custom role with only this permission. The built-in
+   Network Contributor role also includes this permission.
 
    1. Find the id of the role with the required permission:
 
@@ -137,7 +143,7 @@ permissions to do so.
       az role definition list --name "Network Contributor"
       ```
 
-      The `id` field from the output will be referred to as `$network_contributor_role_id`.
+      The `id` field in the output is referred to as `$network_contributor_role_id`.
 
    1. Assign the service principal the network contributor role using
       `$network_contributor_role_id`:
@@ -149,17 +155,18 @@ permissions to do so.
         --scope $user_vnet_id
       ```
 
-      This allows your application object to manage the network in the `--scope`.
-      Since you control the application object, it may also be given permission for the
-      scope of an entire resource group or the whole subscription to allow creating other
-      peerings later without assigning the role for each VNet separately.
+      This allows your application object to manage the network within the specified
+      `--scope`. Since you control the application object, you can also grant it
+      permissions at the scope of an entire resource group or the whole subscription. This
+      enables creating other peerings later without assigning the role to each VNet
+      separately.
 
 ### Aiven app object permissions
 
 1. Create a service principal for the Aiven application object.
 
    The Aiven AD tenant contains an application object that the Aiven Platform uses to
-   create a peering from the Aiven project VPC to the Azure VNet. For this, the Aiven
+   create a peering from the Aiven organization VPC to the Azure VNet. For this, the Aiven
    application object needs a service principal in your Azure subscription. To create it,
    run:
 
@@ -237,27 +244,32 @@ permissions to do so.
 
 ## Create the peering in Aiven
 
-By creating a peering connection from the Aiven project VPC to the VNet in your Azure
-subscription, you also create a service principal for the application object
+<!--
+<Tabs groupId="group1">
+<TabItem value="cli" label="Aiven CLI" default>
+-->
+
+By creating a peering from the Aiven organization VPC to the VNet in your Azure subscription,
+you also create a service principal for the application object
 (`--peer-azure-app-id $user_app_id`) and grant it the permission to peer with the Aiven
-project VPC.
+organization VPC.
 
 The Aiven application object authenticates with your Azure tenant to grant it access to
 [the service principal of the Aiven application object](/docs/platform/howto/vnet-peering-azure#aiven-app-object-permissions)
 (`--peer-azure-tenant-id $user_tenant_id`).
 
-Find `$aiven_project_vpc_id` in the [Aiven Console](https://console.aiven.io/) or by
-running the `avn vpc list` command.
+`$aiven_organization_vpc_id` can be found in the [Aiven Console](https://console.aiven.io/)
+or using the `avn vpc list` command.
 
 1. Run:
 
    ```bash
-   avn vpc peering-connection create            \
-     --project-vpc-id $aiven_project_vpc_id     \
-     --peer-cloud-account $user_subscription_id \
-     --peer-resource-group $user_resource_group \
-     --peer-vpc $user_vnet_name                 \
-     --peer-azure-app-id $user_app_id           \
+   avn organization vpc peering-connection create \
+     --project-vpc-id $aiven_organization_vpc_id  \
+     --peer-cloud-account $user_subscription_id   \
+     --peer-resource-group $user_resource_group   \
+     --peer-vpc $user_vnet_name                   \
+     --peer-azure-app-id $user_app_id             \
      --peer-azure-tenant-id $user_tenant_id
    ```
 
@@ -268,10 +280,10 @@ running the `avn vpc list` command.
 1. Run the following command until the state changes from `APPROVED` to `PENDING_PEER`:
 
    ```bash
-   avn vpc peering-connection get -v            \
-     --project-vpc-id $aiven_project_vpc_id     \
-     --peer-cloud-account $user_subscription_id \
-     --peer-resource-group $user_resource_group \
+   avn organization vpc peering-connection get -v \
+     --project-vpc-id $aiven_organization_vpc_id  \
+     --peer-cloud-account $user_subscription_id   \
+     --peer-resource-group $user_resource_group   \
      --peer-vpc $user_vnet_name
    ```
 
@@ -283,7 +295,7 @@ running the `avn vpc list` command.
 
    Establishing the connection from Aiven to Azure can take a while. When completed,
    the state changes to `PENDING_PEER` and the output shows details for establishing
-   the peering from your Azure VNet to the Aiven project VPC.
+   the peering from your Azure VNet to the Aiven organization VPC.
 
    :::note
    Save the following from the output:
@@ -292,10 +304,39 @@ running the `avn vpc list` command.
    - `to-network-id`: It will be referred to as `$aiven_vnet_id`.
    :::
 
+<!--
+</TabItem>
+
+<TabItem value="gui" label="Aiven Console">
+
+1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
+   top navigation bar.
+1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. On the **Virtual private clouds** page, select an organization VPC to peer.
+1. On the **VPC details** page, go to the **VPC peering connections** section and
+   click **Create peering request**.
+1. In the **Create peering request** window:
+   1. Enter the following:
+      - **Azure subscription ID**
+      - **Resource group**
+      - **Network name**
+      - **Active Directory tenant ID**
+      - **Application object ID**
+   1. Click **Create**.
+
+      This adds a connection with the **Pending peer** status in the
+      [Aiven Console](https://console.aiven.io/).
+1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
+
+</TabItem>
+</Tabs>
+
+-->
+
 ## Create the peering in Azure
 
 [Establish the peering connection](https://learn.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions)
-from your Azure VNet to the Aiven project VPC:
+from your Azure VNet to the Aiven organization VPC:
 
 1. Log out the Azure user
    [you logged in with](/docs/platform/howto/vnet-peering-azure#azure-app-object-permissions):
@@ -325,10 +366,10 @@ from your Azure VNet to the Aiven project VPC:
      --tenant $aiven_tenant_id
    ```
 
-   At this point, your application object should have an opened session with your Azure AD
+   At this point, your application object should have an open session with your Azure AD
    tenant and the Aiven AD tenant.
 
-1. Create a peering from your Azure VNet to the Aiven project VPC:
+1. Create a peering from your Azure VNet to the Aiven organization VPC:
 
    ```bash
    az network vnet peering create          \
@@ -361,26 +402,26 @@ from your Azure VNet to the Aiven project VPC:
 
    Wait until the Aiven peering connection is active. The Aiven Platform polls peering
    connections in state `PENDING_PEER` regularly to see if the peer (your Azure VNet) has
-   created a peering connection to the Aiven project VPC. Once this is detected, the state
-   changes from `PENDING_PEER` to `ACTIVE`, at which point Aiven services in the project
-   VPC can be reached through the peering.
+   created a peering connection to the Aiven organization VPC. Once this is detected, the state
+   changes from `PENDING_PEER` to `ACTIVE`, at which point Aiven services in the
+   organization VPC can be reached through the peering.
 
 1. Check if the status of the peering connection is `ACTIVE`:
 
    ```bash
-   avn vpc peering-connection get -v            \
-     --project-vpc-id $aiven_project_vpc_id     \
-     --peer-cloud-account $user_subscription_id \
-     --peer-resource-group $user_resource_group \
+   avn vpc peering-connection get -v             \
+     --project-vpc-id $aiven_organization_vpc_id \
+     --peer-cloud-account $user_subscription_id  \
+     --peer-resource-group $user_resource_group  \
      --peer-vpc $user_vnet_name
    ```
 
 ## Delete the peering
 
-<DeletePjPeering/>
+<DeleteOrgPeering/>
 
-<RelatedPages/>
+## Related pages
 
-- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)
-- [Set up a project VPC peering](/docs/platform/howto/list-project-vpc-peering)
 - [Manage organization VPCs](/docs/platform/howto/manage-organization-vpc)
+- [Set up an organization VPC peering](/docs/platform/howto/list-organization-vpc-peering)
+- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)
