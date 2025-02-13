@@ -7,24 +7,24 @@ limited: true
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
-Enable governance in Aiven for Apache Kafka® to establish a secure and compliant framework to manage your Aiven for Apache Kafka clusters efficiently.
+Enable governance in Aiven for Apache Kafka® to create a secure and compliant framework to manage your Aiven for Apache Kafka services efficiently.
 
-By default, governance applies to the organization level, and admins can manually
-select specific services to be governed through the Apache Kafka governance settings.
+By default, governance applies at the organization level. Admins can manually select
+specific services to govern through the Apache Kafka governance settings
 
 ## Impact of enabling governance
 
 - **Existing topics**:
-  - The default group will own all existing Apache Kafka resources.
+  - The default group owns all existing Apache Kafka resources.
   - Ownership details for Apache Kafka resources are visible in the
     [Apache Kafka topic catalog](/docs/products/kafka/concepts/topic-catalog-overview).
-  - Users from different groups can still claim ownership of individual resources.
+  - Users in different groups can request ownership of individual resources.
 
 - **Topic creation workflow**:
-  - There is no impact on existing topics.
+  - Existing topics remain unaffected
   - You can continue to [create topics](/docs/products/kafka/howto/create-topic) in your
     Aiven for Apache Kafka service. Governance adds a request-and-approval process for
-    claiming topic ownership from the Apache Kafka topic catalog.
+    claiming topic ownership through the Apache Kafka topic catalog.
   - All topics align with your organization's data management policies.
 
 ## Prerequisites
@@ -59,13 +59,13 @@ select specific services to be governed through the Apache Kafka governance sett
 
     :::note
     Global topic configurations apply only to new topics created after the policies are
-    updated. Existing topics are not be affected by these changes.
+    updated. Existing topics are not affected by these changes.
     :::
 
 ## Select services for governance
 
-Select the Aiven for Apache Kafka services to include in governance. Topics from these
-services become visible in the Topic Catalog, allowing users to claim ownership of
+Choose which Aiven for Apache Kafka services to include in governance. Topics from
+these services will appear in the Topic Catalog, allowing users to claim ownership of
 existing topics.
 
 1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
@@ -97,8 +97,8 @@ Terraform Provider. The Aiven Console provides an audit log of created requests.
    **Terraform**.
 
    :::warning
-   Switching from the Aiven Console to the Terraform method results in losing any
-   pending requests.
+   Switching from the Aiven Console to the Terraform method results in the loss
+   of all pending requests.
    :::
 
 1. Click **Save**.
