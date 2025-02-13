@@ -3,11 +3,11 @@ title: "Sample dataset for PostgreSQL®: Pagila"
 sidebar_label: Sample dataset
 ---
 
-Use an Aiven-provided sample database that you can import in your Aiven for PostgreSQL® service.
+Use a sample database that you can import in your Aiven for PostgreSQL® service.
 
 Pagila is a PostgreSQL® port of the [Sakila Sample
 Database](https://dev.mysql.com/doc/sakila/en/). The examples use one from
-`devrimgunduz`, [version 2.1.0](https://github.com/devrimgunduz/pagila).
+`devrimgunduz`, [version 3.1.0](https://github.com/devrimgunduz/pagila).
 
 Sakila/Pagila is a database representing a DVD rental store, containing
 information about films, rental stores and rentals, where a customer rents a film
@@ -21,25 +21,27 @@ around with PostgreSQL and the SQL language.
 Before exploring the Pagila database, follow the
 [create a service](/docs/platform/howto/create_new_service) to start a PostgreSQL instance.
 
-1.  Download the `pagila-data.sql` from our [GitHub
-    repository](https://github.com/aiven/devportal/blob/main/code/products/postgresql/pagila/pagila-data.sql).
+1.  Download `pagila-schema.sql` and `pagila-data.sql` from the
+    [devrimgunduz/pagila](https://github.com/devrimgunduz/pagila/tree/master) repository.
 
     :::tip
     You may use the following command on your terminal:
 
+    ```bash
+    wget https://raw.githubusercontent.com/devrimgunduz/pagila/refs/heads/master/pagila-schema.sql
+    wget https://raw.githubusercontent.com/devrimgunduz/pagila/refs/heads/master/pagila-data.sql
     ```
-    wget https://raw.githubusercontent.com/aiven/devportal/main/code/products/postgresql/pagila/pagila-data.sql
-    ```
+
     :::
 
-2.  Connect to the PostgreSQL instance using the following command. The
+1.  Connect to the PostgreSQL instance using the following command. The
     `SERVICE_URI` value can be found in the Aiven Console dashboard.
 
     ```shell
     psql 'SERVICE_URI'
     ```
 
-3.  Within the `psql` shell, create a database named `pagila` and
+1.  Within the `psql` shell, create a database named `pagila` and
     connect to it with the command below:
 
     ```psql
@@ -47,14 +49,15 @@ Before exploring the Pagila database, follow the
     \c pagila;
     ```
 
-4.  Populate the database with the command below. This might take some
+1.  Populate the database with the command below. This might take some
     time.
 
     ```psql
     \i pagila-data.sql;
+    \i pagila-schema.sql;
     ```
 
-5.  Once the command finishes, make sure to reconnect to the database to
+1.  Once the command finishes, make sure to reconnect to the database to
     access the imported data:
 
     ```psql
@@ -294,7 +297,7 @@ to answer some of these questions?
 
     </details>
 
-2.  Can you list the top 5 film genres by their gross revenue?
+1.  Can you list the top 5 film genres by their gross revenue?
 
     <details><summary>
     See answer
@@ -339,7 +342,7 @@ to answer some of these questions?
 
     </details>
 
-3.  The `film.description` has the `text` type, allowing for [full text
+1.  The `film.description` has the `text` type, allowing for [full text
     search](https://www.postgresql.org/docs/current/textsearch.html)
     queries, what will you search for?
 
@@ -384,9 +387,3 @@ commands:
 \c defaultdb;
 DROP DATABASE pagila;
 ```
-
-## Source
-
-The [source code for the Pagila
-database](https://github.com/aiven/devportal/tree/main/code/products/postgresql/pagila)
-is available from our repository.
