@@ -49,13 +49,13 @@ For more details, see
 [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies.md).
 :::
 
-### Optional: Collect data for migration validation {#collect-data-for-migration-validation}
+### Optional: Validate migration data {#collect-data-for-migration-validation}
 
-You can collect and compare data from the source and target services to verify the
-migration. This step is optional but recommended to ensure the migration
-was successful.
+To ensure data consistency after migration, you can collect and compare data from the
+source and target services. While optional, this step helps confirm that all expected
+data has been restored successfully.
 
-1. **Collect data from the source service**: Before migration, collect data from
+1. **Collect source service data**: Before migration, collect data from
    the source service and save it in a JSON file
    (for example, `file1.json`). Use the following script from the
    [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/get_migration_validation_data.py):
@@ -68,7 +68,7 @@ was successful.
    --es_host https://YOUR_SOURCE_ES_HOST
    ```
 
-1. **Collect data from the target service after migration**: After migration, collect
+1. **Collect target service data**: After migration, collect
    data from the target Aiven for OpenSearch service and save it in
    a separate JSON file (for example, `file2.json`) using the same script:
 
@@ -79,7 +79,7 @@ was successful.
    --es_host https://YOUR_AIVEN_OPENSEARCH_HOST
    ```
 
-1. **Compare data from the source and target services**: Use the `compare_migration_validation_data.py`
+1. **Compare data**: Use the `compare_migration_validation_data.py`
    script from the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
    to compare the two JSON files:
 
@@ -87,7 +87,7 @@ was successful.
    python compare_migration_validation_data.py file1.json file2.json
    ```
 
-### Gather required parameters {#gather-required-parameters}
+### Collect required parameters {#collect-required-parameters}
 
 Before registering the snapshot repository, collect the following details:
 
@@ -95,7 +95,7 @@ Before registering the snapshot repository, collect the following details:
 - `PROJECT_NAME`: Name of your Aiven project.
 - `SERVICE_NAME`: Name of your Aiven for OpenSearch service.
 
-Information specific to cloud providers:
+Cloud provider-specific information:
 
 - **Amazon S3**
 
@@ -181,27 +181,46 @@ Information specific to cloud providers:
 
 ## Configure snapshot migration settings
 
+Choose one of the following methods to start the migration: Aiven Console, Aiven API, or
+Aiven CLI.
+
+:::warning
+Aiven for OpenSearch allows only one migration at a time. After migration completes,
+backups start automatically, and you cannot start a new migration until the backup
+process finishes.
+
+To start a new migration sooner, wait for backups to finish or
+[contact Aiven Support](mailto:support@aiven.io) to disable backups.
+:::
+
+<Tabs groupId="method">
+<TabItem value="console" label="Aiven Console" default>
+
+1. Access the [Aiven Console](https://console.aiven.io/) and select
+   the **Aiven for OpenSearch** service for your migration.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Go to **Service management** section, and click
+   <ConsoleLabel name="actions"/> > **Migrate snapshot**.
+1. In the **Migrate snapshot** wizard, review the prerequisites and click **Get started**.
+1. In **Configure settings**, select your cloud provider and click **Continue**.
+1. Enter the required details based on the selected cloud provider. For details,
+   see [Collect required parameters](#collect-required-parameters).
+1. Once validation is complete, click **Start migration**.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
 To start the migration, configure the `user-config` object in your
 Aiven for OpenSearch service. The migration starts automatically once these settings are
 applied.
 
 Specify index patterns in the `indices` field of the `user-config` object to restore
 specific indices from the snapshot. For details, see the
-[Gather required parameters](#gather-required-parameters) section.
+[Collect required parameters](#collect-required-parameters) section.
 
-:::warning
-Aiven for OpenSearch allows only one migration at a time. After data migration completes,
-the backup process starts automatically. You cannot begin a new migration until
-the backup process finishes.
+Configure snapshot migration using the Aiven API for different cloud providers:
 
-You can either wait for the backup to finish or contact
-[Aiven Support](mailto:support@aiven.io) to disable backups and start a new migration.
-:::
-
-### Amazon S3
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### Amazon S3
 
 ```bash
 curl --request PUT \
@@ -225,31 +244,7 @@ curl --request PUT \
   }'
 ```
 
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  SERVICE_NAME \
-  -c s3_migration.bucket="my-bucket" \
-  -c s3_migration.region="us-west-2" \
-  -c s3_migration.base_path="snapshots" \
-  -c s3_migration.access_key="your-access-key" \
-  -c s3_migration.secret_key="your-secret-key" \
-  -c s3_migration.snapshot_name="SNAPSHOT_NAME" \
-  -c s3_migration.restore_global_state="false" \
-  -c s3_migration.include_aliases="true"
-
-```
-
-</TabItem>
-</Tabs>
-
-### Google Cloud Storage (GCS)
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### Google Cloud Storage (GCS)
 
 ```bash
 curl --request PUT \
@@ -270,28 +265,7 @@ curl --request PUT \
   }'
 ```
 
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  SERVICE_NAME \
-  -c gcs_migration.bucket="my-gcs-bucket" \
-  -c gcs_migration.base_path="snapshots" \
-  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
-  -c gcs_migration.snapshot_name="SNAPSHOT_NAME" \
-  -c s3_migration.restore_global_state="false" \
-  -c s3_migration.include_aliases="true"
-```
-
-</TabItem>
-</Tabs>
-
-### Microsoft Azure
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### Microsoft Azure
 
 ```bash
 curl --request PUT \
@@ -313,29 +287,7 @@ curl --request PUT \
   }'
 ```
 
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-```bash
-avn service update \
-  --project PROJECT_NAME \
-  SERVICE_NAME \
-  -c azure_migration.container="my-container" \
-  -c azure_migration.base_path="snapshots" \
-  -c azure_migration.account="my-account" \
-  -c azure_migration.key="your-key" \
-  -c azure_migration.snapshot_name="SNAPSHOT_NAME" \
-  -c s3_migration.restore_global_state="false" \
-  -c s3_migration.include_aliases="true"
-```
-
-</TabItem>
-</Tabs>
-
-### S3-Compatible Services
-
-<Tabs groupId="method">
-<TabItem value="api" label="Aiven API" default>
+#### S3-Compatible Services
 
 ```bash
 curl --request PUT \
@@ -362,6 +314,64 @@ curl --request PUT \
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
+To start the migration, configure the `user-config` object in your
+Aiven for OpenSearch service. The migration starts automatically once these settings are
+applied.
+
+Specify index patterns in the `indices` field of the `user-config` object to restore
+specific indices from the snapshot. For details, see the
+[Collect required parameters](#collect-required-parameters) section.
+
+Configure snapshot migration using Aiven CLI for different cloud providers:
+
+#### Amazon S3
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  SERVICE_NAME \
+  -c s3_migration.bucket="my-bucket" \
+  -c s3_migration.region="us-west-2" \
+  -c s3_migration.base_path="snapshots" \
+  -c s3_migration.access_key="your-access-key" \
+  -c s3_migration.secret_key="your-secret-key" \
+  -c s3_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+
+```
+
+#### Google Cloud Storage (GCS)
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  SERVICE_NAME \
+  -c gcs_migration.bucket="my-gcs-bucket" \
+  -c gcs_migration.base_path="snapshots" \
+  -c gcs_migration.credentials="GCS_CREDENTIALS_FILE_CONTENT" \
+  -c gcs_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+```
+
+#### Microsoft Azure
+
+```bash
+avn service update \
+  --project PROJECT_NAME \
+  SERVICE_NAME \
+  -c azure_migration.container="my-container" \
+  -c azure_migration.base_path="snapshots" \
+  -c azure_migration.account="my-account" \
+  -c azure_migration.key="your-key" \
+  -c azure_migration.snapshot_name="SNAPSHOT_NAME" \
+  -c s3_migration.restore_global_state="false" \
+  -c s3_migration.include_aliases="true"
+```
+
+#### S3-Compatible Services
+
 ```bash
 avn service update \
   --project PROJECT_NAME \
@@ -381,11 +391,32 @@ avn service update \
 </Tabs>
 
 :::note
-The restore call’s return value may be large and contain details that are not
-immediately relevant. You can ignore it unless troubleshooting specific issues.
+The restore process may return detailed logs, metadata, and system-generated output. You
+can ignore it unless troubleshooting.
 :::
 
 ## Monitor the migration
+
+<Tabs groupId="method">
+<TabItem value="console" label="Aiven Console" default>
+
+The **Migrate snapshot** wizard displays the migration progress. You can close the
+wizard and check the status later on the <ConsoleLabel name="overview"/> page.
+
+To track progress:
+
+- Go to the <ConsoleLabel name="overview"/> page of your Aiven for OpenSearch service.
+- If the migration is running, a **Migration in progress** banner appears.
+- Click **Manage migration** to reopen the wizard and view details.
+
+To stop the migration:
+
+- Click **Stop migration** in the wizard.
+- Confirm the action in the dialog.
+- Any data already transferred remains in the service.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
 
 Check migration status using this API request:
 
@@ -411,19 +442,42 @@ During the snapshot restore process, indices are temporarily closed and do not a
 in the user interface. They reopen once the restore is complete.
 :::
 
-### Retry the migration
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
 
-To retry the migration, use this API request:
+Check migration status using Aiven CLI:
 
 ```bash
-curl -X POST "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/opensearch/migration" \
--H "Authorization: Bearer API_TOKEN" \
--d '{"command": "retry"}'
+avn service migration-status --project PROJECT_NAME SERVICE_NAME
 ```
+Parameters:
+
+- `PROJECT_NAME`: The name of your Aiven project.
+- `SERVICE_NAME`: The name of your Aiven for OpenSearch service.
+
+</TabItem>
+</Tabs>
+
+### Retry the migration
+
+If the migration fails, an error banner appears on the <ConsoleLabel name="overview"/>
+page and in the **Migrate snapshot** wizard.
+
+To retry the snapshot migration:
+
+1. Go to the <ConsoleLabel name="overview"/> page.
+1. Click **Manage migration** in the banner to open the wizard.
+1. Fix the issue and click **Restart migration**.
+
+Alternatively, retry from Service management section:
+
+1. Click <ConsoleLabel name="service settings"/>.
+1. Go to the **Service management** section.
+1. Click **Restart migration** next to **Migrate external snapshot**.
 
 ### Check snapshot status
 
-To monitor the snapshot process, use this API request:
+For a more detailed view of the snapshot restore progress, use the following API request:
 
 ```bash
 curl -X GET "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/opensearch/snapshot-status" \
@@ -450,34 +504,35 @@ The response shows the snapshot status and details if a snapshot is in progress:
 
 The `details` section is included only if a snapshot is in progress.
 
-## Finalize the migration process
+## Complete your migration
 
-After the restoration process is complete, Aiven for OpenSearch automatically deletes
-the snapshot repository used during the migration to clean up resources.
+Once the migration is complete, verify and restore your configurations:
 
-### Reapply ISM policies and security configurations
+- Check your migrated data
+- Reapply your service configurations
+- Confirm automatic cleanup
 
-Reapply necessary configurations:
+### Check your migrated data
 
-- **Reapply ISM policies**: Reapply Index State Management (ISM) policies to the
-  restored indices. For more information, see
-  [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies).
+<Tabs groupId="method">
+<TabItem value="console" label="Aiven Console" default>
 
-- **Update security configurations**: Review and reconfigure security settings,
-  including OpenDistro security configurations. For more details, see
-  [Migrate OpenDistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
+You can confirm migration completion in one of the following places:
 
-### Verify the migration
+- The <ConsoleLabel name="overview"/> page displays a migration completion banner.
+- The **Migration wizard** shows the status **Migration completed**.
 
-Ensure that your data has been restored successfully by listing the indices and checking
-the document count for your migrated data.
+If you are in the Migration wizard, click **Close** to exit.
+Then, go to <ConsoleLabel name="opensearchindexes" /> in the sidebar.
 
-If you have followed
-[collect data for migration validation](#collect-data-for-migration-validation), you
-can compare data from both the source and target services as part of the
-verification process.
+Verify that:
 
-### Script-based validation
+- All expected indices are present.
+- Document counts match your source data.
+- Index aliases are correct.
+
+</TabItem>
+<TabItem value="script" label="Script-based validation">
 
 To verify migration results, run the `compare_migration_validation_data.py` script
 from [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/blob/main/solutions/validate-elasticsearch-to-opensearch-migration/compare_migration_validation_data.py)
@@ -487,7 +542,8 @@ to compare indices, document counts, aliases, and ISM policies between two datas
 python compare_migration_validation_data.py file1.json file2.json
 ```
 
-### Command-based validation
+</TabItem>
+<TabItem value="command" label="Command-based validation">
 
 To verify indices in your Aiven for OpenSearch service, run the following command,
 replacing `SERVICE_URL` with your service's URL:
@@ -504,6 +560,26 @@ curl $SERVICE_URL/_cat/aliases?v&expand_wildcards=all
 
 Compare the outputs from the source and target services to ensure that document
 counts and aliases match after the migration.
+
+</TabItem>
+</Tabs>
+
+### Reapply ISM policies and security configurations
+
+Reapply necessary configurations:
+
+- **Reapply ISM policies**: Reapply Index State Management (ISM) policies to the
+  restored indices. For more information, see
+  [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies).
+
+- **Update security configurations**: Review and reconfigure security settings,
+  including OpenDistro security configurations. For more details, see
+  [Migrate OpenDistro security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven).
+
+### Confirm automatic cleanup
+
+After the restoration process is complete, Aiven for OpenSearch automatically deletes
+the snapshot repository used during the migration to clean up resources.
 
 ## Backup management during migration
 
