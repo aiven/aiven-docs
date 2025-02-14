@@ -23,22 +23,23 @@ Aiven Management plane traffic to your BYOC environment originates from a set of
 gateways with fixed IPs. Therefore, the bastion subnet needs to whitelist four static IPs
 on relevant ports.
 
-| Source                 | Destination    | Description                                                                                                                                   |
-| ---------------------- | ---------------| --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Aiven Management plane | Bastion subnet | Aiven uses SSH from the Aiven Management plane to the bastion service node for troubleshooting, setup, or configuration tasks on the bastion. |
-| Aiven Management plane | Bastion subnet | Proxy service is used to tunnel the traffic from the Aiven Management plane to workload nodes.                                                |
-| Aiven Management plane | Bastion subnet | Aiven Management plane accesses the bastion service node to retrieve status information and perform routine operations.                       |
+| Source <br/> (Aiven gateway IP)                                       | Destination    | Protocol | Port  | Description                                                                                                                                   |
+| --------------------------------------------------------------------- | ---------------| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3.81.245.38 <br/> 52.72.204.38 <br/> 34.251.73.31 <br/> 54.155.146.41 | Bastion subnet | TCP      | 22    | Aiven uses SSH from the Aiven Management plane to the bastion service node for troubleshooting, setup, or configuration tasks on the bastion. |
+| 3.81.245.38 <br/> 52.72.204.38 <br/> 34.251.73.31 <br/> 54.155.146.41 | Bastion subnet | TCP      | 21027 | Proxy service is used to tunnel the traffic from the Aiven Management plane to workload nodes.                                                |
+| 3.81.245.38 <br/> 52.72.204.38 <br/> 34.251.73.31 <br/> 54.155.146.41 | Bastion subnet | TCP      | 30287 | Aiven Management plane accesses the bastion service node to retrieve status information and perform routine operations.                       |
 
 ### Traffic from the bastion
 
-| Source         | Destination      | Description                                                                                                                             |
-| -------------- | -----------------| --------------------------------------------------------------------------------------------------------------------------------------- |
-| Bastion subnet | Aiven Management | Communication channel with the Aiven Management plane used to collect metrics and logs from the bastion and workload nodes              |
-| Bastion subnet | Aiven Management | Required for the bastion and workload nodes to make calls to the Aiven Management plane                                                 |
-| Bastion subnet | AWS CloudFront   | Used for downloading RPM packages for bastion nodes setup                                                                               |
-| Bastion subnet | Workload subnet  | Aiven uses SSH from the bastion subnet to the workload subnet for troubleshooting, setup, or configuration tasks on the workload nodes. |
-| Bastion subnet | Workload subnet  | Aiven Management plane accesses the workload nodes via the bastion node to retrieve status information and perform routine operations.  |
-| Bastion subnet | DNS & NTP        | Destination dependant on cloud provider                                                                                                 |
+| Source         | Destination                                                                           | Protocol      | Port  | Description                                                                                                                             |
+| -------------- | --------------------------------------------------------------------------------------| ------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Bastion subnet | Aiven Management: <br/> 0.0.0.0/0                                                     | TCP           | 13737 | Communication channel with the Aiven Management plane used to collect metrics and logs from the bastion and workload nodes              |
+| Bastion subnet | Aiven Management: <br/> 0.0.0.0/0                                                     | TCP           | 10148 | Required for the bastion and workload nodes to make calls to the Aiven Management plane                                                 |
+| Bastion subnet | AWS CloudFront                                                                        | TCP           | 443   | Used for downloading RPM packages for bastion nodes setup                                                                               |
+| Bastion subnet | Workload subnet                                                                       | TCP           | 22    | Aiven uses SSH from the bastion subnet to the workload subnet for troubleshooting, setup, or configuration tasks on the workload nodes. |
+| Bastion subnet | Workload subnet                                                                       | TCP           | 30287 | Aiven Management plane accesses the workload nodes via the bastion node to retrieve status information and perform routine operations.  |
+| Bastion subnet | time1.google.com <br/> time2.google.com <br/> time3.google.com <br/> time4.google.com | UDP           | 123   | NTP service, not required for AWS and Google Cloud                                                                                      |
+| Bastion subnet | Azure: 168.63.129.16 <br/> Other: 1.1.1.1, 8.8.8.8                                    | TCP <br/> UDP | 53    | DNS service, not required for AWS and Google Cloud                                                                                      |
 
 :::note
 Aiven Management and CloudFront IP ranges occasionally change and are considered dynamic
@@ -62,25 +63,26 @@ rules from the Customer Networks that need to be defined to allow customer appli
 connect to Aiven services. This depends on the cloud provider being used, and the
 customer's network architecture.
 
-| Source                   | Destination     | Description                                                                                                                             |
-| ------------------------ | ----------------| --------------------------------------------------------------------------------------------------------------------------------------- |
-| Bastion subnet           | Workload subnet | Aiven uses SSH from the bastion subnet to the workload subnet for troubleshooting, setup, or configuration tasks on the workload nodes. |
-| Bastion subnet           | Workload subnet | Aiven Management plane accesses the workload nodes via the bastion node to retrieve status information and perform routine operations.  |
-| Your remote applications | Workload subnet | Varies depending on services being used.                                                                                                |
+| Source                   | Destination     | Protocol      | Port  | Description                                                                                                                             |
+| ------------------------ | ----------------| ------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Bastion subnet           | Workload subnet | TCP           | 22    | Aiven uses SSH from the bastion subnet to the workload subnet for troubleshooting, setup, or configuration tasks on the workload nodes. |
+| Bastion subnet           | Workload subnet | TCP           | 30287 | Aiven Management plane accesses the workload nodes via the bastion node to retrieve status information and perform routine operations.  |
+| Your remote applications | Workload subnet | -             | -     | Varies depending on services being used.                                                                                                |
 
 ### Traffic from the workload
 
 The workload subnet nodes communicate with each other. The nature of these communications
 varies depending on the services, features, and plugins being used.
 
-| Source          | Destination              | Description                                                                                                                |
-| --------------- | -------------------------| -------------------------------------------------------------------------------------------------------------------------- |
-| Workload subnet | Aiven Management         | Communication channel with the Aiven Management plane used to collect metrics and logs from the bastion and workload nodes |
-| Workload subnet | Aiven Management         | Required for the bastion and workload nodes to make calls to the Aiven Management plane                                    |
-| Workload subnet | AWS CloudFront           | Used for downloading RPM packages for workload nodes setup                                                                 |
-| Workload subnet | Workload subnet          | Intra-subnet communication between Aiven nodes. Ports are dynamic and dependent on services, features, and plugins used.   |
-| Workload subnet | Your remote applications | Varies depending on services being used.                                                                                   |
-| Workload subnet | DNS & NTP                | Destination dependant on cloud provider                                                                                    |
+| Source          | Destination                                                                           | Protocol      | Port                | Description                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------- | ------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Workload subnet | Aiven Management: <br/> 0.0.0.0/0                                                     | TCP           | 13737               | Communication channel with the Aiven Management plane used to collect metrics and logs from the bastion and workload nodes |
+| Workload subnet | Aiven Management: <br/> 0.0.0.0/0                                                     | TCP           | 10148               | Required for the bastion and workload nodes to make calls to the Aiven Management plane                                    |
+| Workload subnet | AWS CloudFront                                                                        | TCP           | 443                 | Used for downloading RPM packages for workload nodes setup                                                                 |
+| Workload subnet | Workload subnet                                                                       | TCP <br/> UDP | Any <br/> (1-65535) | Intra-subnet communication between Aiven nodes. Ports are dynamic and dependent on services, features, and plugins used.   |
+| Workload subnet | time1.google.com <br/> time2.google.com <br/> time3.google.com <br/> time4.google.com | UDP           | 123                 | NTP service, not required for AWS and Google Cloud                                                                         |
+| Workload subnet | Azure: 168.63.129.16 <br/> Other: 1.1.1.1, 8.8.8.8                                    | TCP <br/> UDP | 53                  | DNS service, not required for AWS and Google Cloud                                                                         |
+| Workload subnet | Your remote applications                                                              | -             | -                   | Varies depending on services being used.                                                                                   |
 
 :::note
 Aiven Management and CloudFront IP ranges occasionally change and are considered dynamic
