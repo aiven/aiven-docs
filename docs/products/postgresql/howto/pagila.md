@@ -53,8 +53,8 @@ Before exploring the Pagila database, follow the
     time.
 
     ```psql
-    \i pagila-data.sql;
     \i pagila-schema.sql;
+    \i pagila-data.sql;
     ```
 
 1.  Once the command finishes, make sure to reconnect to the database to
