@@ -1,8 +1,7 @@
 ---
-title: Revert to the Aiven for PostgreSQL® primary region
-sidebar_label: Reverse recovery
+title: Perform Aiven for PostgreSQL® failback to the primary region
+sidebar_label: Failback
 limited: true
-keywords: [recovery, primary, outage, failure, failover, CRDR, cross-region disaster recovery]
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
@@ -13,7 +12,7 @@ Shift your workloads back to the primary region, where your service was hosted o
 
 ## Prerequisites
 
-- [CRDR failover](/docs/products/postgresql/crdr/crdr-failover-to-recovery) completed
+- [CRDR failover](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) completed
 - One of the following tools for operating CRDR:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
@@ -188,4 +187,4 @@ using a tool of your choice:
 
 ## Related pages
 
-[Aiven for PostgreSQL® CRDR failover to the recovery region](/docs/products/postgresql/crdr/crdr-failover-to-recovery)
+[Aiven for PostgreSQL® CRDR failover to the recovery region](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)

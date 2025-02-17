@@ -1,18 +1,14 @@
 ---
-title: Transition Aiven for PostgreSQL® workloads to the recovery region
-sidebar_label: Recover workloads
+title: Perform Aiven for PostgreSQL® switchover to the recovery region
+sidebar_label: Switchover
 limited: true
-keywords: [recovery, primary, outage, failure, failover, CRDR, cross-region disaster recovery]
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-At the event of a region outage,
-[failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
-happens automatically. To simulate a disaster and test the resilience of your
-infrastructure, you can also perform a manual failover.
+[Switch over](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region) to your Aiven for PostgreSQL® recovery service to simulate a disaster or test the resilience of your infrastructure.
 
 ## Prerequisites
 
@@ -22,13 +18,7 @@ infrastructure, you can also perform a manual failover.
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
 
-## Automatic failover
-
-[Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover) is
-enabled by default with your CRDR setup. It's triggered automatically at the event of a
-region outage.
-
-## Fail over manually
+## Switch over
 
 Initiate a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover)
 using a tool of your choice:
@@ -119,4 +109,4 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
 
 ## Related pages
 
-[Aiven for PostgreSQL® CRDR revert to the primary region](/docs/products/postgresql/crdr/crdr-revert-to-primary)
+[Aiven for PostgreSQL® CRDR revert to the primary region](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)

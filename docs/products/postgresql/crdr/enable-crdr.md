@@ -1,6 +1,6 @@
 ---
 title: Set up cross-region disaster recovery in Aiven for PostgreSQL®
-sidebar_label: Set up CRDR
+sidebar_label: CRDR setup
 limited: true
 keywords: [recovery, primary, outage, failure, failover]
 ---
@@ -159,5 +159,5 @@ the recovery service. Set `integration_type` to `disaster_recovery`.
 
 ## Related pages
 
-- [Aiven for PostgreSQL® CRDR failover to the recovery region](/docs/products/postgresql/crdr/crdr-failover-to-recovery)
-- [Aiven for PostgreSQL® CRDR revert to the primary region](/docs/products/postgresql/crdr/crdr-revert-to-primary)
+- [Aiven for PostgreSQL® CRDR failover to the recovery region](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
+- [Aiven for PostgreSQL® CRDR revert to the primary region](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
