@@ -6,6 +6,7 @@ keywords: [recovery, primary, outage, failure, failover]
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -157,7 +158,7 @@ the recovery service. Set `integration_type` to `disaster_recovery`.
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for PostgreSQL® CRDR failover to the recovery region](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
 - [Aiven for PostgreSQL® CRDR revert to the primary region](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)

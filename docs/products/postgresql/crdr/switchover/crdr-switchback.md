@@ -25,8 +25,8 @@ using the [Aiven Console](https://console.aiven.io/):
 1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross region disaster recovery** page, click **Manage** >
-   <ConsoleLabel name="actions"/> > **Switchback to primary service**.
+1. On the **Cross region disaster recovery** page, click <ConsoleLabel name="actions"/> >
+   **Switchback to primary service**.
 1. In **Switchback to primary service** window, click **Promote to active** > **Confirm** >
    **Close**.
 

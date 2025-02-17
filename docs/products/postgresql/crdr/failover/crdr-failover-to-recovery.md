@@ -5,6 +5,7 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -38,8 +39,10 @@ using a tool of your choice:
 1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross region disaster recovery** page, click **Manage**.
-1. In **Disaster recovery cycle** wizard, click **Initiate failover** > **Confirm**.
+1. On the **Cross region disaster recovery** page, click <ConsoleLabel name="actions"/> >
+   **Failover to recovery region**.
+1. In **Service recovery cycle** wizard, click **Initiate failover** > **Confirm** >
+   **Close**.
 
 When the failover process is completed, your primary service is **Failed**, and the
 recovery service is **Active**, which means the recovery service is in control over your
@@ -116,6 +119,6 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 [Aiven for PostgreSQL® CRDR revert to the primary region](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
