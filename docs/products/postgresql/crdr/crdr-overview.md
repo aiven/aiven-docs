@@ -6,6 +6,7 @@ keywords: [recovery, primary, outage, failure, failover]
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 import readyForCrdr from "@site/static/images/content/figma/ready-for-crdr.png";
 import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
 import crdrFailover from "@site/static/images/content/figma/crdr-failover.png";
@@ -223,7 +224,7 @@ After a failover to the recovery region in the event of a primary region outage,
 backups start to be taken in the recovery region. You can use this backup history for
 operations and data resiliency purposes.
 
-## Related pages
+<RelatedPages/>
 
 - [Aiven for PostgreSQL high availability](/docs/products/postgresql/concepts/high-availability)
 - [Aiven for PostgreSQL backups](/docs/products/postgresql/concepts/pg-backups)
