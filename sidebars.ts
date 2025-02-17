@@ -1869,8 +1869,30 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/crdr/crdr-overview',
                 'products/postgresql/crdr/enable-crdr',
-                'products/postgresql/crdr/crdr-failover-to-recovery',
-                'products/postgresql/crdr/crdr-revert-to-primary',
+                {
+                  type: 'category',
+                  label: 'Failover & failback',
+                  link: {
+                    id: 'products/postgresql/crdr/failover/list-failover',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/postgresql/crdr/failover/crdr-failover-to-recovery',
+                    'products/postgresql/crdr/failover/crdr-revert-to-primary',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Switchover & switchback',
+                  link: {
+                    id: 'products/postgresql/crdr/switchover/list-switchover',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/postgresql/crdr/switchover/crdr-switchover',
+                    'products/postgresql/crdr/switchover/crdr-switchback',
+                  ],
+                },
               ],
             },
             {

@@ -109,10 +109,10 @@ CRDR supports three types of the recovery transition:
 
 #### Failover to the recovery region
 
-[Failover to the RRS](/docs/products/postgresql/crdr/crdr-failover-to-recovery) is
+[Failover to the RRS](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) is
 performed either
-[automatically](/docs/products/postgresql/crdr/crdr-failover-to-recovery) or
-[manually](/docs/products/postgresql/crdr/crdr-failover-to-recovery). When completed, the
+[automatically](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) or
+[manually](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery). When completed, the
 PRS is **Failed** and the RRS is up and running as an **Active** service. To fail back to
 the PRS, it needs to be recreated first.
 
@@ -131,7 +131,7 @@ disaster scenario and verify the disaster resilience of your infrastructure.
 
 #### Switchover to the recovery region
 
-[Switchover to the RRS](/docs/products/postgresql/crdr/crdr-failover-to-recovery) is
+[Switchover to the RRS](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) is
 performed manually for testing, simulating a disaster scenario, or verifying the
 disaster resilience of your infrastructure. You trigger a switchover yourself at your
 convenience time. When completed, the PRS is **Passive** and the RRS is up and running as
@@ -159,13 +159,13 @@ types of the recovery reversion:
 
 The failback process consists of two steps you initiate manually at your convenience:
 
-1. [Primary service recreation](/docs/products/postgresql/crdr/crdr-revert-to-primary)
+1. [Primary service recreation](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
 
    You initiate this step to restore primary service nodes from the local backups and to
    synchronize (replicate) the most recent data from the active service (RRS).
    When completed, the PRS is restored and in near real-time sync with the RRS.
 
-1. [Primary service takeover](/docs/products/postgresql/crdr/crdr-revert-to-primary)
+1. [Primary service takeover](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
 
    You initiate a takeover as soon as the PRS is recreated. This switches the direction of
    the replication to effectively route the traffic back to the primary region. When
