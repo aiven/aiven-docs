@@ -36,7 +36,7 @@ Before you begin, ensure that:
 
 :::note
 
-When you create the snapshot, configure the following options:
+When creating a snapshot, configure these options:
 
 - `restore_global_state`: Set to `true` to restore the cluster state, which includes
   important metadata like aliases and templates. Default is `false`. If the snapshot
@@ -87,7 +87,7 @@ data has been restored successfully.
    python compare_migration_validation_data.py file1.json file2.json
    ```
 
-### Collect required parameters {#collect-required-parameters}
+### Gather required parameters {#gather-required-parameters}
 
 Before registering the snapshot repository, collect the following details:
 
@@ -202,9 +202,9 @@ To start a new migration sooner, wait for backups to finish or
 1. Go to **Service management** section, and click
    <ConsoleLabel name="actions"/> > **Migrate snapshot**.
 1. In the **Migrate snapshot** wizard, review the prerequisites and click **Get started**.
-1. In **Configure settings**, select your cloud provider and click **Continue**.
+1. In **Configure settings** step, select your cloud provider and click **Continue**.
 1. Enter the required details based on the selected cloud provider. For details,
-   see [Collect required parameters](#collect-required-parameters).
+   see [Gather required parameters](#gather-required-parameters).
 1. Once validation is complete, click **Start migration**.
 
 </TabItem>
@@ -216,7 +216,7 @@ applied.
 
 Specify index patterns in the `indices` field of the `user-config` object to restore
 specific indices from the snapshot. For details, see the
-[Collect required parameters](#collect-required-parameters) section.
+[Collect required parameters](#gather-required-parameters) section.
 
 Configure snapshot migration using the Aiven API for different cloud providers:
 
@@ -320,7 +320,7 @@ applied.
 
 Specify index patterns in the `indices` field of the `user-config` object to restore
 specific indices from the snapshot. For details, see the
-[Collect required parameters](#collect-required-parameters) section.
+[Gather required parameters](#gather-required-parameters) section.
 
 Configure snapshot migration using Aiven CLI for different cloud providers:
 
@@ -517,9 +517,9 @@ Once the migration is complete, verify and restore your configurations:
 <Tabs groupId="method">
 <TabItem value="console" label="Aiven Console" default>
 
-You can confirm migration completion in one of the following places:
+You can confirm that the migration is complete in one of the following places:
 
-- The <ConsoleLabel name="overview"/> page displays a migration completion banner.
+- The <ConsoleLabel name="overview"/> page displays a migration completed banner.
 - The **Migration wizard** shows the status **Migration completed**.
 
 If you are in the Migration wizard, click **Close** to exit.
