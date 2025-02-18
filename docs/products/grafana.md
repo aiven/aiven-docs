@@ -34,7 +34,7 @@ issues.
 ### Secure network connectivity
 
 Aiven offers various options for secure network connectivity, including
-[VPC peering](/docs/platform/howto/manage-vpc-peering),
+[VPC peering](/docs/platform/howto/manage-project-vpc),
 [PrivateLink](/docs/tools/cli/service/privatelink), and TransitGateway
 technologies. These options allow you to securely connect your data
 infrastructure to Aiven services and ensure the highest level of data security.

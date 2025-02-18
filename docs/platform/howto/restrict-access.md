@@ -63,4 +63,4 @@ create or update the IP filter for your service via the [Aiven CLI](/docs/tools/
 For more ways of securing your service, see:
 
 - [Networking with VPC peering](/docs/platform/concepts/cloud-security#networking-with-vpc-peering)
-- [Configure VPC peering](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering).
+- [Configure VPC peering](/docs/platform/howto/manage-project-vpc#create-a-project-vpc).
