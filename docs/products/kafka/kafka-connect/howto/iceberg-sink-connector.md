@@ -61,9 +61,8 @@ Future updates to the Iceberg sink connector include:
   [Iceberg configuration](https://iceberg.apache.org/docs/latest/kafka-connect/#kafka-configuration).
 - AWS-specific setup:
   - Create an **S3 bucket** to store data.
-  - Configure **AWS IAM roles** with the following permissions:
-    - Read and write access to the S3 bucket.
-    - Manage AWS Glue databases and tables.
+  - Configure **AWS IAM roles** with the appropriate permissions. See
+    [Configure AWS IAM permissions](#configure-aws-iam-permissions).
   - Create an **AWS Glue database and tables**:
     - If using the **AWS Glue REST catalog**, manually create tables and ensure the
       schema matches Apache Kafka records.
@@ -74,6 +73,122 @@ Future updates to the Iceberg sink connector include:
 [Aiven for Apache Kafka® Connect secret providers](/docs/products/kafka/kafka-connect/howto/configure-secret-providers)
 are not supported in this release.
 :::
+
+### Configure AWS IAM permissions {#configure-aws-iam-permissions}
+
+The Iceberg sink connector requires an IAM role with permissions to access Amazon S3 and
+AWS Glue. These permissions allow the connector to write data to an S3 bucket and manage
+metadata in the AWS Glue catalog.
+
+To set up the required permissions:
+
+1. Create an IAM role in
+   [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html)
+   with permissions for Amazon S3 and AWS Glue.
+1. Attach the following policy to the IAM role:
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "S3Access",
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetObject",
+           "s3:PutObject",
+           "s3:DeleteObject",
+           "s3:ListBucket",
+           "s3:GetBucketLocation",
+           "s3:AbortMultipartUpload",
+           "s3:ListMultipartUploadParts"
+         ],
+         "Resource": [
+           "arn:aws:s3:::<your-bucket-name>/*"
+         ]
+       },
+       {
+         "Sid": "S3ListBucket",
+         "Effect": "Allow",
+         "Action": "s3:ListBucket",
+         "Resource": [
+           "arn:aws:s3:::<your-bucket-name>"
+         ]
+       },
+       {
+         "Sid": "GlueAccess",
+         "Effect": "Allow",
+         "Action": [
+           "glue:CreateDatabase",
+           "glue:GetDatabase",
+           "glue:GetTables",
+           "glue:SearchTables",
+           "glue:CreateTable",
+           "glue:UpdateTable",
+           "glue:GetTable",
+           "glue:BatchCreatePartition",
+           "glue:CreatePartition",
+           "glue:UpdatePartition",
+           "glue:GetPartition",
+           "glue:GetPartitions"
+         ],
+           "Resource": [
+             "arn:aws:glue:<your-aws-region>:<your-aws-account>:catalog",
+             "arn:aws:glue:<your-aws-region>:<your-aws-account>:database/*",
+             "arn:aws:glue:<your-aws-region>:<your-aws-account>:table/*"
+           ]
+         }
+       ]
+     }
+   ```
+
+   Replace the placeholder values in the policy:
+
+   - `<your-aws-region>`: Your AWS Glue catalog’s region
+   - `<your-aws-account>`: Your AWS account ID
+   - `<your-bucket-name>`: The name of your Amazon S3 bucket
+
+1. Obtain the access key ID and secret access key for this role.
+1. Add these credentials to the Iceberg sink connector configuration.
+
+For more information on creating and managing AWS IAM roles and policies, see the
+[AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
+
+### AWS Glue naming conventions
+
+When creating databases and tables in AWS Glue for the Iceberg sink connector,
+follow these naming conventions to ensure compatibility:
+
+- **Database names**:
+  - Must use only lowercase letters (a–z), numbers (0–9), and underscores (_)
+  - Must be between 1 and 255 characters long
+  - Must not begin or end with an underscore (_)
+  - Are case-insensitive (they are always stored in lowercase)
+  - Examples:
+    - Valid: `sales_data`, `customer_orders_2024`
+    - Invalid: `SalesData` (contains uppercase letters), `customer orders` (contains spaces)
+
+- **Table names**:
+  - Must use only lowercase letters, numbers, and underscores
+  - Must be between 1 and 255 characters long
+  - Must not begin or end with an underscore (_)
+  - Are case-insensitive (they are always stored in lowercase)
+  - Examples:
+    - Valid: `product_catalog`, `order_history_2023`
+    - Invalid: `ProductCatalog` (contains uppercase letters), `order-history` (contains
+      a hyphen)
+
+- **Column names**:
+  - Must use only lowercase letters, numbers, and underscores
+  - Must not begin or end with an underscore (_)
+  - Are case-insensitive (they are always stored in lowercase)
+  - Examples:
+    - Valid: `customer_id`, `total_revenue`
+    - Invalid: `_customerID` (starts with an underscore), `TotalRevenue` (contains
+      uppercase letters)
+
+For more details, see the
+[AWS Athena naming rules documentation](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
 
 ## Create an Iceberg sink connector configuration
 
