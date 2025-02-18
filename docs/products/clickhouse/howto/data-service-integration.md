@@ -1,7 +1,6 @@
 ---
-title: Set up Aiven for ClickHouse® data service integrations
+title: Set up Aiven for ClickHouse® data source integrations
 sidebar_label: Integrate with data source
-keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
@@ -31,7 +30,10 @@ ClickHouse® in
    and a project.
 1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to integrate
    with a data source.
-1. In the service <ConsoleLabel name="overview"/>, go to **Data pipeline**.
+1. On the service's <ConsoleLabel name="overview"/> page, click
+   <ConsoleLabel name="integrations"/> in the sidebar.
+1. On the **Integrations** page, go to the **Data sources** section and click either
+   **PostgreSQL Databases** or **Apache Kafka Databases**.
 
    - To create the first integration for that service, click **Add data source**.
    - To add an integration for that service, click <ConsoleIcon name="plus"/>.
