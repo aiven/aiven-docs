@@ -78,8 +78,8 @@ Although not exhaustive, Aiven is capable of supporting both the Health
 Insurance Portability and Accountability Act (HIPAA) and the Payment
 Card Industry Data Security Standard (PCI DSS) compliances.
 
-If you require compliance beyond these compliances, contact the [sales
-team](mailto:sales@aiven.io) so we can better understand your specific needs.
+If you require compliance beyond these compliances, contact the
+[sales team](http://aiven.io/contact) so we can better understand your specific needs.
 
 Additionally, we offer an alternative deployment option. See
 [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc).
@@ -89,7 +89,7 @@ Additionally, we offer an alternative deployment option. See
 Migrations to Aiven are a standard procedure, but migrating
 to an ECE can add complexity.
 
-To migrate a new service to an ECE, contact [the sales team](mailto:sales@aiven.io)
+To migrate a new service to an ECE, contact [the sales team](http://aiven.io/contact)
 to request help.
 
 To migrate an existing Aiven service to an ECE, the Aiven network team creates a VPN
