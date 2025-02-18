@@ -396,6 +396,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete table</b>
         </>
       );
+    case 'disconnect':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Disconnect</b>
+        </>
+      );
     case 'edit':
       return (
         <>

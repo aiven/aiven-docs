@@ -52,7 +52,7 @@ The following variables will be used later in the code snippets:
 
 To connect Aiven for ClickHouse and Aiven for Apache Kafka by enabling a
 data service integration, see
-[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-data-service-integration).
+[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-apache-kafka-integrations).
 
 The newly created database name has the following format:
 `service_KAFKA_SERVICE_NAME`, where KAFKA_SERVICE_NAME is the name of

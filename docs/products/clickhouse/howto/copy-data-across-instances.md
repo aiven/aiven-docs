@@ -31,7 +31,7 @@ Details of the source (remote) server
     SELECT * FROM remoteSecure('service_YOUR_REMOTE_CLUSTER', db.remote_engine_table) LIMIT 3;
     ```
 
-    See how to [enable the managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources).
+    See how to [enable the managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#create-managed-credentials-integrations).
     :::
 
 1.  Insert the selected data into the target server.

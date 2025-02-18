@@ -60,7 +60,7 @@ is:
 - Optional to
   [run federated queries using the azureBlobStorage table function](/docs/products/clickhouse/howto/run-federated-queries#query-using-the-azureblobstorage-table-function)
 
-[Set up a managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#integrate-with-external-data-sources)
+[Set up a managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#create-managed-credentials-integrations)
 as needed.
 
 ## Limitations
