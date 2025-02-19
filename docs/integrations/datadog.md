@@ -21,6 +21,12 @@ If you're using Aiven for Apache Kafka® you can also
 [customise the metrics sent to Datadog](/docs/products/kafka/howto/datadog-customised-metrics).
 :::
 
+:::note
+New `startup-2` plans in Aiven for Apache Kafka do not support Datadog integration.
+Upgrade to a `business-4` plan or higher to enable Datadog. Existing services with
+Datadog integration are not affected.
+:::
+
 ## Datadog for logs
 
 The RSyslog integration can be used with any Aiven service to send the
