@@ -9,8 +9,8 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 
 Enable governance in Aiven for Apache Kafka® to create a secure and compliant framework to manage your Aiven for Apache Kafka services efficiently.
 
-By default, governance applies at the organization level. Admins can manually select
-specific services to govern through the Apache Kafka governance settings
+By default, governance applies at the organization level. Organization admin can manually
+select specific services to govern through the Apache Kafka governance settings
 
 ## Impact of enabling governance
 
@@ -21,7 +21,7 @@ specific services to govern through the Apache Kafka governance settings
   - Users in different groups can request ownership of individual resources.
 
 - **Topic creation workflow**:
-  - Existing topics remain unaffected
+  - Existing topics remain unaffected.
   - You can continue to [create topics](/docs/products/kafka/howto/create-topic) in your
     Aiven for Apache Kafka service. Governance adds a request-and-approval process for
     claiming topic ownership through the Apache Kafka topic catalog.
@@ -30,7 +30,7 @@ specific services to govern through the Apache Kafka governance settings
 ## Prerequisites
 
 - This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
-  it out, contact the sales team at [sales@aiven.io](mailto:sales@aiven.io).
+  it out, contact the [sales team](http://aiven.io/contact).
 - Ensure you have
   [super admin permissions](/docs/platform/howto/manage-permissions#make-users-super-admin)
   to enable governance.
@@ -76,19 +76,20 @@ existing topics.
 ## Select the governance method
 
 You can manage governance for Aiven for Apache Kafka® service using either the
-Aiven Console or the Terraform Provider.
+Aiven Console or the Aiven Terraform Provider.
 
 Depending on your workflow, choose between:
 
 - **Aiven Console**: Manage governance tasks visually through the Aiven Console. View
   and claim ownership of resources in the Topic Catalog. This method is selected by
   default.
-- **Terraform Provider**: Automate governance with the Terraform Provider. It integrates
-  with GitOps workflows and allows governance management across multiple projects.
+- **Aiven Terraform Provider**: Automate governance with the Terraform Provider. It
+  integrates with GitOps workflows and allows governance management across multiple
+  projects.
 
 :::note
 When using the Terraform method, all governance actions must be performed through
-Terraform Provider. The Aiven Console provides an audit log of created requests.
+Aiven Terraform Provider. The Aiven Console provides an audit log of created requests.
 :::
 
 1. On the **Administration** page, click <ConsoleLabel name="governance"/>.
