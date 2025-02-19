@@ -14,9 +14,11 @@ When creating a [Datadog service integration](https://docs.datadoghq.com/integra
 - A [Datadog integration endpoint](/docs/integrations/datadog/datadog-metrics#add-a-datadog-metrics-integration-to-an-aiven-service)
 
 :::note
-Datadog integration is not available for new `startup-2` plans in Aiven for Apache Kafka.
-Upgrade to a higher-tier plan that supports Datadog. Existing services with
+Datadog integration is not available for new Startup-2 plans in Aiven for Apache Kafka.
+Upgrade to a Business-4 plan or higher to use Datadog. Existing services with
 Datadog integration are not affected.
+
+If you have questions, contact [Aiven Support](mailto:support@aiven.io).
 :::
 
 ## Supported metrics

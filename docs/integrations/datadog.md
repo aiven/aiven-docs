@@ -22,9 +22,11 @@ If you're using Aiven for Apache Kafka® you can also
 :::
 
 :::note
-New `startup-2` plans in Aiven for Apache Kafka do not support Datadog integration.
-Upgrade to a `business-4` plan or higher to enable Datadog. Existing services with
+Datadog integration is not available for new Startup-2 plans in Aiven for Apache Kafka.
+Upgrade to a Business-4 plan or higher to use Datadog. Existing services with
 Datadog integration are not affected.
+
+If you have questions, contact [Aiven Support](mailto:support@aiven.io).
 :::
 
 ## Datadog for logs
