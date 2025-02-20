@@ -100,9 +100,9 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
-Use the `aiven_organization_vpc` resource. See the
-[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-for details.
+Use the
+[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_vpc)
+resource.
 </TabItem>
 </Tabs>
 
@@ -315,10 +315,9 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
-To delete your `aiven_organization_vpc` resource, run `terraform destroy`.
-See the
-[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-for details.
+To delete your
+[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_vpc)
+resource, run `terraform destroy`.
 </TabItem>
 </Tabs>
 

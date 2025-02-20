@@ -66,7 +66,7 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
-To delete your Aiven organization VPC peering connection resource, run `terraform destroy`.
+To delete your `aiven_CLOUD_PROVIDER_NAME_org_vpc_peering_connection` resource, run `terraform destroy`.
 See the
 [Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 for details.

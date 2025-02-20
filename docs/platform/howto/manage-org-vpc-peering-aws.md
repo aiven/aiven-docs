@@ -106,7 +106,7 @@ Replace the following placeholders with meaningful data:
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
 Use the
-[aiven_aws_organization_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aws_organization_vpc_peering_connection)
+[aiven_aws_org_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aws_org_vpc_peering_connection)
 resource.
 </TabItem>
 </Tabs>
