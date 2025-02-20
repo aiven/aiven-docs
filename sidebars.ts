@@ -205,8 +205,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Backup to another region',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/backup-to-another-region',
+              },
               items: [
-                'platform/concepts/backup-to-another-region',
                 'platform/howto/btar/enable-backup-to-another-region',
                 'platform/howto/btar/manage-backup-to-another-region',
                 'platform/howto/btar/disable-backup-to-another-region',
