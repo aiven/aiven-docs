@@ -12,7 +12,7 @@ the standard Aiven deployment environment. This decreases the blast
 radius of the environment to prevent inadvertent data sharing.
 
 <!-- vale off -->
-Users of an ECE **must** encrypt all data before reaching
+Users of an ECE **must** encrypt all regulated data before reaching
 an Aiven service. As part of the increased compliance of the
 environment, enhanced logging is enabled for - `stderr`, `stout`, and
 `stdin`.
