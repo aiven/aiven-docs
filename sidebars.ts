@@ -140,6 +140,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/howto/add-authentication-method',
             'platform/reference/password-policy',
+            'platform/reference/change-password',
             'platform/howto/user-2fa',
             'platform/howto/set-authentication-policies',
             'platform/concepts/authentication-tokens',
