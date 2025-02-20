@@ -232,14 +232,62 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'VPCs',
+              link: {
+                type:'doc',
+                id: 'platform/concepts/vpcs',
+              },
               items: [
-                'platform/howto/manage-vpc-peering',
-                'platform/howto/public-access-in-vpc',
-                'platform/howto/vpc-peering-gcp',
-                'platform/howto/vpc-peering-aws',
-                'platform/howto/vnet-peering-azure',
-                'platform/howto/vpc-peering-upcloud',
+                {
+                  type: 'category',
+                  label: 'Manage VPCs',
+                  link: {
+                    type:'doc',
+                    id: 'platform/howto/list-manage-vpc',
+                  },
+                  items: [
+                    'platform/howto/manage-project-vpc',
+                    'platform/howto/manage-organization-vpc',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Peer VPCs',
+                  link: {
+                    type:'doc',
+                    id: 'platform/howto/list-vpc-peering',
+                  },
+                  items: [
+                    {
+                      type: 'category',
+                      label: 'Project VPC peering',
+                      link: {
+                        type:'doc',
+                        id: 'platform/howto/list-project-vpc-peering',
+                      },
+                      items: [
+                        'platform/howto/vpc-peering-aws',
+                        'platform/howto/vnet-peering-azure',
+                        'platform/howto/vpc-peering-gcp',
+                        'platform/howto/vpc-peering-upcloud',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Organization VPC peering',
+                      link: {
+                        type:'doc',
+                        id: 'platform/howto/list-organization-vpc-peering',
+                      },
+                      items: [
+                        'platform/howto/manage-org-vpc-peering-aws',
+                        'platform/howto/manage-org-vpc-peering-google',
+                        'platform/howto/manage-org-vpc-peering-upcloud',
+                      ],
+                    },
+                  ],
+                },
                 'platform/howto/google-cloud-functions',
+                'platform/howto/public-access-in-vpc',
                 'platform/howto/attach-vpc-aws-tgw',
                 {
                   type: 'category',
