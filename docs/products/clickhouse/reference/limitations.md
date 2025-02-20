@@ -142,11 +142,6 @@ a
         or the [Aiven Console](https://console.aiven.io/).
       </td>
     </tr>
-    <tr>
-      <td>Scaling down the number of nodes</td>
-      <td>You only can scale up the number of nodes in a cluster.</td>
-      <td>N/A</td>
-    </tr>
   </tbody>
 </table>
 
