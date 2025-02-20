@@ -28,6 +28,14 @@ You can use the Datadog integration endpoint for multiple services.
 
 ## Add a Datadog metrics integration to an Aiven service
 
+:::note
+Datadog integration is not available for new Startup-2 plans in Aiven for Apache Kafka.
+Upgrade to a Business-4 plan or higher to use Datadog. Existing services with
+Datadog integration are not affected.
+
+If you have questions, contact [Aiven Support](mailto:support@aiven.io).
+:::
+
 1.  In the service, click **Integrations**.
 1.  In the **Endpoint integrations** select **Datadog Metrics**.
 1.  Select your Datadog integration endpoint and click **Enable**.
