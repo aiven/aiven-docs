@@ -176,6 +176,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Integration endpoints</b>
         </>
       );
+    case 'testconnection':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.code} />{' '}
+          <b>Test connection</b>
+        </>
+      );
     case 'vpcs':
       return (
         <>
@@ -421,12 +428,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
         </>
       );
-      case 'delete':
-        return (
-          <>
-            <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
-          </>
-        );
+    case 'delete':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
+        </>
+      );
+    case 'delete':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} />
+        </>
+      );
     case 'addconfigoptions':
       return (
         <>
@@ -453,6 +466,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Add Advanced Configuration</b>
         </>
       );
+    case 'add':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />
+        </>
+      );
+    case 'addtable':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} /> <b>Add table</b>
+        </>
+      );
     case 'kafkaTopic':
       return (
         <>
@@ -471,6 +496,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit database</b>
+        </>
+      );
+    case 'edittable':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit table</b>
         </>
       );
     case 'editconfig':
@@ -536,6 +567,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.indexes} /> <b>Indexes</b>
+        </>
+      );
+    case 'downarrow':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.chevronDown} />
         </>
       );
 
