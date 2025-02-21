@@ -19,7 +19,7 @@ using an SQL client such as the
 
 :::tip
 You can also create
-[integration databases](/docs/products/clickhouse/howto/integration-databases#create-integ-db)
+[integration databases](/docs/products/clickhouse/howto/integration-databases#create-integration-databases)
 in Aiven for ClickHouse.
 :::
 
@@ -170,4 +170,4 @@ To remove your table in the [Aiven Console](https://console.aiven.io/):
 
 <RelatedPages/>
 
-[Create Aiven for ClickHouse integration databases](/docs/products/clickhouse/howto/integration-databases#create-integ-db)
+[Create Aiven for ClickHouse integration databases](/docs/products/clickhouse/howto/integration-databases#create-integration-databases)

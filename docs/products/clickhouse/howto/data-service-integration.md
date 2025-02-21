@@ -133,10 +133,8 @@ Learn about [managed credentials integrations](/docs/products/clickhouse/concept
 [Set up a managed-credentials integration](/docs/products/clickhouse/howto/data-service-integration#create-managed-credentials-integrations)
 and
 [create tables](/docs/products/clickhouse/howto/data-service-integration#create-tables)
-where the data will
-be available in Aiven for ClickHouse.
-[Access tables](/docs/products/clickhouse/howto/data-service-integration#access-credentials-storage)
-where your credentials are stored.
+for the data to be made available through the integration.
+[Access your stored credentials](/docs/products/clickhouse/howto/data-service-integration#access-credentials-storage).
 
 ### Create managed-credentials integrations
 
@@ -149,11 +147,11 @@ where your credentials are stored.
 1. On the **Integrations** page, go to the **Data sources** section and click
    **ClickHouse Credentials**.
 
-   The **ClickHouse credentials integration** wizard opens and shows a list of external data sources
-   or Aiven-managed data services available for integration, if any. If there are no data
-   sources to integrate with, the wizard allows you to create them either by clicking
-   **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
-   sources).
+   The **ClickHouse credentials integration** wizard opens and shows a list of external
+   data sources or Aiven-managed data services available for integration, if any. If there
+   are no data sources to integrate with, the wizard allows you to create them either by
+   clicking **Create service** (for Aiven-managed sources) or **Add external endpoint**
+   (for external sources).
 
 1. In the **ClickHouse credentials integration** wizard:
 
@@ -168,6 +166,13 @@ where your credentials are stored.
 
    1. Click **Enable integration**.
    1. Optionally, click **Test connection** > **Open in query editor** > **Execute**.
+
+      :::note[Alternative]
+      You can test the connection any time later by going to your Aiven for ClickHouse
+      service's **Integrations** page, finding the credentials integration, and clicking
+       <ConsoleLabel name="actions"/> > <ConsoleLabel name="testconnection"/>.
+      :::
+
    1. Click **Close**.
 
 ### Create tables
@@ -236,8 +241,8 @@ error message related to grants.
    integrations for.
 1. On the service's page, go to one of the following:
 
-   - <ConsoleLabel name="overview"/> > **Integrations**
-   - <ConsoleLabel name="integrations"/>
+   - <ConsoleLabel name="overview"/> in the sidebar > **Integrations**
+   - <ConsoleLabel name="integrations"/> in the sidebar
 
 ## Stop data source integrations
 
@@ -252,10 +257,10 @@ all databases and configuration information from Aiven for ClickHouse.
     want to stop integrations for.
 1.  On the service's page, take one of the following courses of action:
 
-    - On the <ConsoleLabel name="overview"/> page, go to **Integrations**, find an
+    - Click <ConsoleLabel name="overview"/> > **Integrations**, find an
       integration to be stopped, and click <ConsoleLabel name="actions"/> >
       <ConsoleLabel name="disconnect"/>.
-    - Go to the <ConsoleLabel name="integrations"/> page, find an integration to be stopped,
+    - Click <ConsoleLabel name="integrations"/>, find an integration to be stopped,
       and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="disconnect"/>.
 
 Your integration is terminated and all the corresponding databases and configuration
