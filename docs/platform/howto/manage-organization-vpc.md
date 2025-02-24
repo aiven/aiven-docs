@@ -18,7 +18,7 @@ Set up or delete an organization-wide VPC on the Aiven Platform. Enable new Aive
   permissions
 - One of the following tools for operating organization VPCs:
   - [Aiven Console](https://console.aiven.io/)
-    <!-- [Aiven CLI](/docs/tools/cli) -->
+  - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform)
 
@@ -49,7 +49,6 @@ Your new organization VPC is ready to use as soon as its status visible on the
 **Virtual private clouds** page changes to **Active**.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc create` command:
@@ -71,7 +70,6 @@ Replace the following:
   example, `org1a2b3c4d5e6`
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
@@ -125,7 +123,6 @@ Set your organization VPC as a cloud region for the new service:
 <CreateService />
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
@@ -153,7 +150,6 @@ Replace the following:
   created, for example `aws-eu-west-1`
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
@@ -213,7 +209,6 @@ Migrate a service to an organization VPC using a tool of your choice:
    click **Migrate**.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
@@ -231,7 +226,6 @@ Replace the following:
   for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceUpdte](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
@@ -276,7 +270,6 @@ Delete an organization VPC using a tool of your choice:
 1. In the **Confirmation** window, click **Delete VPC**.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc delete` command:
@@ -284,7 +277,7 @@ Run the `avn organization vpc delete` command:
 ```bash
 avn organization vpc delete                     \
   --organization-id ORGANIZATION_ID             \
-  --project-vpc-id ORGANIZATION_VPC_ID
+  --organization-vpc-id ORGANIZATION_VPC_ID
 ```
 
 Replace the following:
@@ -294,7 +287,6 @@ Replace the following:
   `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the

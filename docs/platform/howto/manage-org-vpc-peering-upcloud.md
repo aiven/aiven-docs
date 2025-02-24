@@ -51,7 +51,7 @@ type networks.
   [UpCloud API](https://developers.upcloud.com/1.3/)
 - One of the following tools for operations on the Aiven Platform:
   - [Aiven Console](https://console.aiven.io/)
-    <!-- [Aiven CLI](/docs/tools/cli) -->
+  - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
 
 ## Create a peering connection
@@ -90,23 +90,21 @@ create an organization VPC peering connection using a tool of your choice:
 1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection create` command:
 
 ```bash
-avn organization vpc peering-connection create \
-  --organization-id AIVEN_ORGANIZATION_ID      \
-  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
-  --peer-cloud-account upcloud                 \
+avn organization vpc peering-connection create    \
+  --organization-id AIVEN_ORGANIZATION_ID         \
+  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID \
+  --peer-cloud-account upcloud                    \
   --peer-vpc UPCLOUD_SDN_NETWORK_UUID
 ```
 
 Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, and `UPCLOUD_SDN_NETWORK_UUID` as needed.
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the

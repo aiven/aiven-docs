@@ -244,11 +244,8 @@ from Azure to Aiven.
 
 ## Create the peering in Aiven
 
-<!--
 <Tabs groupId="group1">
 <TabItem value="cli" label="Aiven CLI" default>
--->
-
 By creating a peering from the Aiven organization VPC to the VNet in your Azure subscription,
 you also create a service principal for the application object
 (`--peer-azure-app-id $user_app_id`) and grant it the permission to peer with the Aiven
@@ -264,12 +261,12 @@ or using the `avn vpc list` command.
 1. Run:
 
    ```bash
-   avn organization vpc peering-connection create \
-     --project-vpc-id $aiven_organization_vpc_id  \
-     --peer-cloud-account $user_subscription_id   \
-     --peer-resource-group $user_resource_group   \
-     --peer-vpc $user_vnet_name                   \
-     --peer-azure-app-id $user_app_id             \
+   avn organization vpc peering-connection create      \
+     --organization-vpc-id $aiven_organization_vpc_id  \
+     --peer-cloud-account $user_subscription_id        \
+     --peer-resource-group $user_resource_group        \
+     --peer-vpc $user_vnet_name                        \
+     --peer-azure-app-id $user_app_id                  \
      --peer-azure-tenant-id $user_tenant_id
    ```
 
@@ -280,10 +277,10 @@ or using the `avn vpc list` command.
 1. Run the following command until the state changes from `APPROVED` to `PENDING_PEER`:
 
    ```bash
-   avn organization vpc peering-connection get -v \
-     --project-vpc-id $aiven_organization_vpc_id  \
-     --peer-cloud-account $user_subscription_id   \
-     --peer-resource-group $user_resource_group   \
+   avn organization vpc peering-connection get -v      \
+     --organization-vpc-id $aiven_organization_vpc_id  \
+     --peer-cloud-account $user_subscription_id        \
+     --peer-resource-group $user_resource_group        \
      --peer-vpc $user_vnet_name
    ```
 
@@ -304,9 +301,7 @@ or using the `avn vpc list` command.
    - `to-network-id`: It will be referred to as `$aiven_vnet_id`.
    :::
 
-<!--
 </TabItem>
-
 <TabItem value="gui" label="Aiven Console">
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
@@ -329,9 +324,46 @@ or using the `avn vpc list` command.
 1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
 
 </TabItem>
-</Tabs>
+<TabItem value="api" label="Aiven API">
 
--->
+Make an API call to the
+[OrganizationVpcPeeringConnectionCreate](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcPeeringConnectionCreate)
+endpoint:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '
+    {
+      "peer_azure_app_id":"$user_app_id",
+      "peer_azure_tenant_id":"$user_tenant_id",
+      "peer_cloud_account":"$user_subscription_id",
+      "peer_resource_group":"$user_resource_group",
+      "peer_vpc":"$user_vnet_name"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `ORGANIZATION_ID`
+- `ORGANIZATION_VPC_ID`
+- `BEARER_TOKEN`
+- `$user_subscription_id`
+- `$user_resource_group`
+- `$user_vnet_name`
+- `$user_app_id`
+- `$user_tenant_id`
+
+</TabItem>
+<TabItem value="tf" label="Aiven Provider for Terraform">
+Use the
+[aiven_azure_org_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/azure_org_vpc_peering_connection)
+resource.
+</TabItem>
+</Tabs>
 
 ## Create the peering in Azure
 
@@ -409,10 +441,10 @@ from your Azure VNet to the Aiven organization VPC:
 1. Check if the status of the peering connection is `ACTIVE`:
 
    ```bash
-   avn vpc peering-connection get -v             \
-     --project-vpc-id $aiven_organization_vpc_id \
-     --peer-cloud-account $user_subscription_id  \
-     --peer-resource-group $user_resource_group  \
+   avn vpc peering-connection get -v                  \
+     --organization-vpc-id $aiven_organization_vpc_id \
+     --peer-cloud-account $user_subscription_id       \
+     --peer-resource-group $user_resource_group       \
      --peer-vpc $user_vnet_name
    ```
 

@@ -26,7 +26,7 @@ creating the peering both from the VPC in Aiven and from the VPC in Google Cloud
 - Access to the [Google Cloud console](https://console.cloud.google.com/)
 - One of the following tools for operations on the Aiven Platform:
   - [Aiven Console](https://console.aiven.io/)
-    <!-- [Aiven CLI](/docs/tools/cli) -->
+  - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform)
 
@@ -68,16 +68,15 @@ create an organization VPC peering connection using a tool of your choice:
    **Project name** in the **Project settings** section.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection create` command:
 
 ```bash
-avn organization vpc peering-connection create \
-  --organization-id AIVEN_ORGANIZATION_ID      \
-  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
-  --peer-cloud-account GOOGLE_CLOUD_PROJECT_ID \
+avn organization vpc peering-connection create    \
+  --organization-id AIVEN_ORGANIZATION_ID         \
+  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID \
+  --peer-cloud-account GOOGLE_CLOUD_PROJECT_ID    \
   --peer-vpc GOOGLE_CLOUD_VPC_NETWORK_NAME
 ```
 
@@ -85,7 +84,6 @@ Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `GOOGLE_CLOUD_PROJ
 and `GOOGLE_CLOUD_VPC_NETWORK_NAME` as needed.
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
