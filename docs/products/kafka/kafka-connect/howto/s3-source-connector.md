@@ -135,7 +135,7 @@ For the full set of configuration parameters, see the
    1. In the **Service management** section, click
       <ConsoleLabel name="Actions"/> > **Enable Kafka connect**.
 
-1. In the sink connectors list, **Amazon S3 Source Connector**, and click
+1. In the sink connectors list, select **Amazon S3 source connector**, and click
    **Get started**.
 1. On the **Amazon S3 Source Connector** page, go to the **Common** tab.
 1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.

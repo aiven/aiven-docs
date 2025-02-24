@@ -10,6 +10,7 @@ Discover a variety of connectors available for use with any Aiven for Apache Kaf
 Source connectors enable the integration of data from an existing technology into an
 Apache Kafka topic. The available source connectors include:
 
+- [Amazon S3 source connector](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/tree/main/s3-source-connector)
 - [Couchbase](https://github.com/couchbase/kafka-connect-couchbase)
 - [Debezium for MongoDB®](https://debezium.io/docs/connectors/mongodb/)
 - [Debezium for MySQL](https://debezium.io/docs/connectors/mysql/)
