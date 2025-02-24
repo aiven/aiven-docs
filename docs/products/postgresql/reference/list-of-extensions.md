@@ -61,6 +61,18 @@ installed with a few exceptions.
     type for hierarchical tree-like structures.
 -   [pgvector](https://github.com/pgvector/pgvector). Type for vector
     similarity search. `PG13 and newer`
+-   [pgvectorscale](https://github.com/timescale/pgvectorscale). Type for large-scale,
+    distributed, high-performance vector similarity searches. `PG16 and newer`
+
+    :::important
+    Supported `pgvectorscale` versions:
+    - PG16: pgvectorscale-0.5.1
+    - PG17: pgvectorscale-0.5.1
+
+    Read about all
+    [pgvectorscale releases](https://github.com/timescale/pgvectorscale/releases).
+    :::
+
 -   [seg](https://www.postgresql.org/docs/current/seg.html). Data type
     for representing line segments or floating-point intervals.
 -   [timescaledb](https://github.com/timescale/timescaledb). Enables
