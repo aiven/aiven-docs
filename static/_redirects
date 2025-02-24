@@ -32,7 +32,7 @@
 /platform/concepts/dynamic-disk-sizing                 https://aiven.io/docs/platform/howto/add-storage-space
 /platform/concepts/hourly-billing-model                https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/hourly-billing-model.html           https://aiven.io/docs/platform/concepts/billing-and-payment
-/platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/hourly-billing-model
+/platform/concepts/list-billing                        https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/logs-metrics-alerts                 https://aiven.io/docs/platform/howto/list-monitoring
 /platform/concepts/orgs-and-units                      https://aiven.io/docs/platform/concepts/orgs-units-projects
 /platform/concepts/projects                            https://aiven.io/docs/platform/concepts/orgs-units-projects
@@ -57,10 +57,9 @@
 /platform/howto/list-account                           https://aiven.io/docs/platform/howto/list-user
 /platform/howto/list-backup-to-another-region          https://aiven.io/docs/platform/concepts/backup-to-another-region
 /platform/howto/list-billing                           https://aiven.io/docs/platform/concepts/billing-and-payment
-/platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-groups
+/platform/howto/list-billing-groups                    https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/howto/list-byoc                              https://aiven.io/docs/platform/concepts/byoc
 /platform/howto/list-groups                            https://aiven.io/docs/platform/howto/manage-groups
-/platform/howto/list-identity-providers                https://aiven.io/docs/platform/howto/saml/add-identity-providers
 /platform/howto/list-network                           https://aiven.io/docs/platform/concepts/cloud-security
 /platform/howto/list-user                              https://aiven.io/docs/platform/howto/manage-org-users
 /platform/howto/make-super-admin                       https://aiven.io/docs/platform/howto/manage-permissions
@@ -80,7 +79,6 @@
 /platform/howto/recover-a-deleted-service              https://aiven.io/docs/platform/concepts/service_backups
 /platform/howto/rename-a-service                       https://aiven.io/docs/platform/concepts/service-forking
 /platform/howto/saml/saml-authentication               https://aiven.io/docs/platform/howto/saml/add-identity-providers
-/platform/howto/saml/saml-authentication.html          https://aiven.io/docs/platform/howto/list-identity-providers
 /platform/howto/saml/setup-saml-auth0.html             https://aiven.io/docs/platform/howto/saml/add-auth0-idp
 /platform/howto/saml/setup-saml-azure                  https://aiven.io/docs/platform/howto/saml/add-azure-idp
 /platform/howto/saml/setup-saml-fusionauth             https://aiven.io/docs/platform/howto/saml/add-fusionauth-idp
@@ -95,7 +93,7 @@
 /platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
 /platform/reference/project-member-privileges          https://aiven.io/docs/platform/concepts/permissions
 /platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
-/products/caching/concepts                             https://aiven.io/docs/docs/products/caching/concepts/high-availability-redis
+/products/caching/concepts                             https://aiven.io/docs/products/caching
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
 /products/caching/howto                                https://aiven.io/docs/products/caching/howto/list-code-samples
 /products/caching/howto/list-dba-tasks                 https://aiven.io/docs/products/caching
@@ -211,12 +209,10 @@
 /products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
 /products/valkey/reference                                 https://aiven.io/docs/products/valkey/reference/advanced-params
 /tools/aiven-console/howto/create-accounts                 https://aiven.io/docs/platform/howto/manage-org-users
-/tools/aiven-console/howto/create-accounts.html            https://aiven.io/docs/platform/concepts/projects_accounts_access
 /tools/cli/account                                         https://aiven.io/docs/tools/cli
 /tools/cli/account.html                                    https://aiven.io/docs/tools/cli
 /tools/cli/account/account-team                            https://aiven.io/docs/tools/aiven-console/howto/create-manage-teams
 /tools/cli/project                                         https://aiven.io/docs/tools/cli
-/tools/cli/project.html                                    https://aiven.io/docs/tools/cli
 /tools/cli/service                                         https://aiven.io/docs/tools/cli/service-cli
 /tools/cli/ticket                                          https://aiven.io/docs/platform/howto/support
 /tools/terraform/concepts/data-sources                     https://aiven.io/docs/tools/terraform
