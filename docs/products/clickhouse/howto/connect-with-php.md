@@ -61,7 +61,7 @@ service connection and run the code.
 ```
 
 Now you have your service connection set up and you can proceed to
-[uploading data into your database](load-dataset).
+[uploading data into your database](/docs/products/clickhouse/get-started#load-a-dataset).
 
 <RelatedPages/>
 
