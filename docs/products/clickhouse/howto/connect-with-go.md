@@ -61,7 +61,6 @@ the following variables:
   </tr>
 </table>
 
-
 ### Connect to the service
 
 Replace the placeholders in the code with meaningful information on your
@@ -186,7 +185,7 @@ func main() {
 
 You have your service connection established and
 configured. You can proceed to
-[uploading data into your database](load-dataset).
+[uploading data into your database](/docs/products/clickhouse/get-started#load-a-dataset).
 
 <RelatedPages/>
 
