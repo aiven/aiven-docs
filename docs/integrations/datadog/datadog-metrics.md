@@ -4,6 +4,7 @@ title: Send metrics to Datadog
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import Note from "@site/static/includes/startup-plan-datadog.md"
 
 Send metrics from your Aiven service to your external Datadog account.
 
@@ -27,6 +28,8 @@ You can use the Datadog integration endpoint for multiple services.
 1.  Click **Add endpoint**.
 
 ## Add a Datadog metrics integration to an Aiven service
+
+<Note/>
 
 1.  In the service, click **Integrations**.
 1.  In the **Endpoint integrations** select **Datadog Metrics**.
