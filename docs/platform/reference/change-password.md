@@ -10,5 +10,5 @@ You can change your password for the Aiven Platform in your account information.
 change your password. Enable it again to keep your account secure.
 
 1. Click <ConsoleIcon name="user"/> **User information** > **Authentication**.
-1. In the **Aiven Password** section click **Change password**.
+1. In the **Aiven Password** section, click **Change password**.
 1. Enter your current and new passwords, and click **Change password**.
