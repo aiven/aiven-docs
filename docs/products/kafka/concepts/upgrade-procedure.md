@@ -148,3 +148,8 @@ ACL permissions and governance behaviors remain unchanged.
 - Aiven will provide a migration path once it is ready.
 - To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
   year, allowing sufficient time for planning and migration.
+
+#### Performance impact
+
+Performance testing across different cloud providers and plan sizes has not shown
+significant changes.
