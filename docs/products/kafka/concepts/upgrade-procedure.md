@@ -124,25 +124,28 @@ simplifies architecture while maintaining compatibility with existing features a
 integrations, including Aiven for Apache Kafka Connect, Aiven for Apache Kafka
 MirrorMaker 2, and Aiven for Karapace.
 
-All features and monitoring metrics supported in Apache Kafka 3.8 remain unchanged
-in APache Kafka 3.9, with no updates to ACL permissions or governance behaviors.
+Apache Kafka 3.9 includes all features from Apache Kafka 3.8, but some monitoring
+metrics have changed due to the transition to KRaft mode. For details,
+see [Apache Kafka controller metrics](/docs/products/kafka/reference/kafka-metrics-prometheus#kraft-mode-and-metrics-changes).
+ACL permissions and governance behaviors remain unchanged.
 
 ### Availability and migration
 
 #### New services
 
-- All new Aiven for Apache Kafka services with Apache Kafka 3.9 will run KRaft as the
-  default metadata management protocol.
-- Initially supported on startup and business plans on Google Cloud Platform (GCP).
-- Support for premium and custom plans, as well as additional cloud providers, will be
-  rolled out progressively.
+- All new Aiven for Apache Kafka services with Apache Kafka 3.9 run KRaft as the default
+  metadata management protocol.
+- Startup-2 is not available in Kafka 3.9 and higher. Use Startup-4 instead.
+- Available on all cloud providers with no additional plan restrictions.
 
 #### Existing services
 
-- Migration for existing services is not yet available. Aiven expects to provide a
-  migration path by Q2 2025.
-- The migration consists of two steps:
-  1. Upgrade your service from Apache Kafka 3.8 to 3.9.
-  1. Migrate metadata from ZooKeeper to KRaft within Apache Kafka 3.9.
-- Aiven has extended support for Apache Kafka 3.8 by one year to ensure you have enough
-  time to plan and complete the migration.
+- Migration for existing services, which involves upgrading from Apache Kafka 3.x to 3.9,
+  is not yet available. Aiven expects to provide a migration path by Q2 2025.
+- Migration consists of two separate updates:
+  1. Upgrade from Apache Kafka 3.x to 3.9.
+  1. Migrate metadata from ZooKeeper to KRaft within Kafka 3.9.
+- The exact migration steps are subject to change and are refined as the capability
+  becomes available to users.
+- To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
+  year, allowing sufficient time for planning and migration.
