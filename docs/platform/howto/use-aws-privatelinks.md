@@ -29,8 +29,9 @@ To set up AWS PrivateLink, use the
 need the AWS console or CLI to create a VPC endpoint.
 
 :::note
-AWS PrivateLink is not supported in:
+AWS PrivateLink is not supported for:
 
+- [BYOC](/docs/platform/concepts/byoc)-hosted services
 - Aiven for AlloyDB Omni
 - Aiven for Apache Cassandra®
 - Aiven for Apache Flink®
