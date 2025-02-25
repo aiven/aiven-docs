@@ -14,9 +14,19 @@ The Amazon S3 source connector allows you to ingest data from S3 buckets into Ap
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with Aiven for Kafka Connect enabled, or a [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 - An **Amazon S3 bucket** containing the data to stream into Aiven for Apache Kafka.
+
+- Collect the following information about the S3 bucket:
+
+    - `AWS_S3_BUCKET_NAME`: The name of the S3 bucket
+    - `AWS_S3_REGION`: The AWS region where the S3 bucket has been created
+    - `AWS_USER_ACCESS_KEY_ID`: The AWS user access key ID
+    - `AWS_USER_SECRET_ACCESS_KEY`: The AWS user secret access key
+  
 - **AWS IAM credentials** with the following permissions:
   - `s3:GetObject`
   - `s3:ListBucket`
+
+For more information on [how it works](https://github.com/aiven-open/cloud-storage-connectors-for-apache-kafka/tree/main/s3-source-connector#how-it-works)
 
 ## S3 object key name format
 
@@ -32,18 +42,14 @@ Supported placeholders:
 
 Example patterns:
 
-| Pattern | Example filename | Extracted values |
-|---------|-----------------|------------------|
-| `{{topic}}-{{partition}}-{{start_offset}}` | `customer-topic-1-1734445664111.txt` | topic=`customer-topic`, partition=`1`, start_offset=`1734445664111` |
-| `{{topic}}/{{partition}}/{{start_offset}}` | `customer-topic/1/1734445664111.txt` | topic=`customer-topic`, partition=`1`, start_offset=`1734445664111` |
+#### Pattern match examples
+| pattern | matches                                                          | values                                                        |
+ | ------- |------------------------------------------------------------------|---------------------------------------------------------------|
+| {{topic}}-{{partition}}-{{start_offset}} | `customer-topic-1-1734445664111.txt`                             | topic=customer-topic, partition=1, start_offset=1734445664111 |
+| {{topic}}-{{partition}}-{{start_offset}} | `22-10-12/customer-topic-1-1734445664111.txt`                    | topic=22, partition=10, start_offset=112                      |
+| {{topic}}/{{partition}}/{{start_offset}} | `customer-topic/1/1734445664111.txt`                             | topic=customer-topic, partition=1, start_offset=1734445664111 |
+| topic/{{topic}}/partition/{{partition}}/startOffset/{{start_offset}} | `topic/customer-topic/partition/1/startOffset/1734445664111.txt` | topic=customer-topic, partition=1, start_offset=1734445664111 |
 
-:::note
-Ensure that the `{{topic}}` placeholder does not accidentally capture the wrong part of
-the filename. For example, if `file.name.template` is `{{topic}}-log-{{partition}}.json`
-and the filename is `billing-log-1.json`, the extracted topic will
-be `billing`, not `billing-log`.
-To prevent this, use a clear delimiter, such as `{{topic}}/{{partition}}.json`.
-:::
 
 ## Supported S3 object formats
 
@@ -71,12 +77,12 @@ Create a file named `s3_source_connector.json` with the following configuration:
     "aws.s3.region": "your-s3-region",
     "aws.s3.prefix": "optional/prefix/",
     "aws.credentials.provider": "software.amazon.awssdk.auth.credentials.AwsCredentialsProviderChain",
-    "topics": "your-target-kafka-topic",
+    "topic": "your-target-kafka-topic",
     "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
     "tasks.max": 1,
     "poll.interval.ms": 10000,
     "error.tolerance": "all",
-    "input.format": "bytes"
+    "input.format": "jsonl"
   }
 ```
 
@@ -90,14 +96,10 @@ Parameters:
 - `aws.s3.region`: The AWS region where the bucket is located.
 - `aws.s3.prefix`: Optional. Filters objects within the S3 bucket.
 - `aws.credentials.provider`: Specifies the AWS credentials provider.
-- `topics`: The Kafka topic where the ingested data is published.
+- `topic`: The Kafka topic where the ingested data is published. This is an optional config. If it's not configured,
+  topic is retrieved from file.name.template config.
 - `file.name.template`: Defines how to parse S3 object keys to extract data such as the
-  topic, partition, and starting offset.
-
-  Template variables:
-  - `{{topic}}`: The Kafka topic name.
-  - `{{partition}}`: The Kafka partition number.
-  - `{{start_offset}}`: The offset of the first record in the file.
+  topic, partition, and starting offset. Template variables were defined above.
 
   Example: A template like `{{topic}}-{{partition}}-{{start_offset}}` matches filenames
   such as `test-topic-1-1734445664111.txt`.
@@ -116,6 +118,27 @@ Parameters:
 
 For the full set of configuration parameters, see the
 [Aiven Amazon S3 source connector documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/README.md).
+
+### Create an S3 source connector with Aiven CLI
+
+To create the connector, execute the following
+[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create), replacing the `SERVICE_NAME` with the name of the existing
+Aiven for Apache Kafka® service where the connector needs to run:
+
+```shell
+avn service connector create SERVICE_NAME @s3_source_connector.json
+```
+
+Check the connector status with the following command, replacing the
+`SERVICE_NAME` with the existing Aiven for Apache Kafka® service and the
+`CONNECTOR_NAME` with the name of the connector defined before:
+
+```
+avn service connector status SERVICE_NAME CONNECTOR_NAME
+```
+
+With the connection in place, verify that the data is flowing to the
+target kafka topic.
 
 
 ## Create the connector
@@ -177,7 +200,7 @@ This example shows how to create an Amazon S3 source connector with the followin
 "name": "aiven-s3-source-connector",
 "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
 "tasks.max": "1",
-"topics": "test-topic",
+"topic": "test-topic",
 "aws.access.key.id": "your-access-key-id",
 "aws.secret.access.key": "your-secret-access-key",
 "aws.s3.bucket.name": "my-s3-bucket",
