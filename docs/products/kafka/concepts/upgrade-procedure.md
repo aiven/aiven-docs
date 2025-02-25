@@ -6,6 +6,7 @@ sidebar_label: Upgrade procedure
 import MyImg from "@site/static/images/content/figma/kafka-cluster-overview.png";
 import MyImg2 from "@site/static/images/content/figma/kafka-cluster-overview-upgraded.png";
 import MyImg3 from "@site/static/images/content/figma/kafka-cluster-overview-final.png";
+import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
 
 Aiven for Apache Kafka® offers an automated upgrade procedure, ensuring a smooth transition during various operations.
 
@@ -116,7 +117,7 @@ In critical situations, Aiven's operations team can temporarily add extra storag
 the old nodes.
 :::
 
-## Transitioning to KRaft
+## Transitioning to KRaft <EarlyBadge/>
 
 With the release of Apache Kafka® 3.9, Aiven introduces support for Apache Kafka Raft
 (KRaft), the new consensus protocol for Kafka metadata management. This enhancement
