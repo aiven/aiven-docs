@@ -14,42 +14,44 @@ The Amazon S3 source connector allows you to ingest data from S3 buckets into Ap
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with Aiven for Kafka Connect enabled, or a [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 - An **Amazon S3 bucket** containing the data to stream into Aiven for Apache Kafka.
+- Required S3 bucket details:
 
-- Collect the following information about the S3 bucket:
+  - `AWS_S3_BUCKET_NAME`: The bucket name.
+  - `AWS_S3_REGION`: The AWS region where the bucket is located. For example, us-east-1.
+  - `AWS_S3_PREFIX`: Optional. A prefix path if the data is in a specific folder.
+  - `AWS_ACCESS_KEY_ID`: The AWS access key ID.
+  - `AWS_SECRET_ACCESS_KEY`: The AWS secret access key.
+  - `TARGET_KAFKA_TOPIC`: The Apache Kafka topic where the data is published.
 
-    - `AWS_S3_BUCKET_NAME`: The name of the S3 bucket
-    - `AWS_S3_REGION`: The AWS region where the S3 bucket has been created
-    - `AWS_USER_ACCESS_KEY_ID`: The AWS user access key ID
-    - `AWS_USER_SECRET_ACCESS_KEY`: The AWS user secret access key
-  
 - **AWS IAM credentials** with the following permissions:
   - `s3:GetObject`
   - `s3:ListBucket`
 
-For more information on [how it works](https://github.com/aiven-open/cloud-storage-connectors-for-apache-kafka/tree/main/s3-source-connector#how-it-works)
+For additional details on how the connector works, see the
+[S3 source connector documentation](https://github.com/aiven-open/cloud-storage-connectors-for-apache-kafka/tree/main/s3-source-connector#how-it-works).
 
 ## S3 object key name format
 
 The `file.name.template` parameter defines how the connector extracts metadata from S3
-object keys. If this parameter is missing, no objects will be processed.
+object keys. If this parameter is missing, no objects are processed.
 
-Supported placeholders:
+Use the following placeholders to define the template:
 
 - `{{topic}}`: The Apache Kafka topic name.
 - `{{partition}}`: The Apache Kafka partition number.
 - `{{start_offset}}`: The offset of the first record in the file.
 - `{{timestamp}}`: Optional. The timestamp when the record was processed.
 
-Example patterns:
+### Example templates and extracted values
 
-#### Pattern match examples
-| pattern | matches                                                          | values                                                        |
- | ------- |------------------------------------------------------------------|---------------------------------------------------------------|
-| {{topic}}-{{partition}}-{{start_offset}} | `customer-topic-1-1734445664111.txt`                             | topic=customer-topic, partition=1, start_offset=1734445664111 |
-| {{topic}}-{{partition}}-{{start_offset}} | `22-10-12/customer-topic-1-1734445664111.txt`                    | topic=22, partition=10, start_offset=112                      |
-| {{topic}}/{{partition}}/{{start_offset}} | `customer-topic/1/1734445664111.txt`                             | topic=customer-topic, partition=1, start_offset=1734445664111 |
-| topic/{{topic}}/partition/{{partition}}/startOffset/{{start_offset}} | `topic/customer-topic/partition/1/startOffset/1734445664111.txt` | topic=customer-topic, partition=1, start_offset=1734445664111 |
+The following table shows how different templates extract metadata from S3 object keys:
 
+| Template                                                               | Example S3 object key                                            | Extracted values                                               |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| `{{topic}}-{{partition}}-{{start_offset}}`                             | `customer-topic-1-1734445664111.txt`                             | topic=customer-topic, partition=1, start_offset=1734445664111 |
+| `{{topic}}-{{partition}}-{{start_offset}}`                             | `22-10-12/customer-topic-1-1734445664111.txt`                    | topic=22, partition=10, start_offset=112                      |
+| `{{topic}}/{{partition}}/{{start_offset}}`                             | `customer-topic/1/1734445664111.txt`                             | topic=customer-topic, partition=1, start_offset=1734445664111 |
+| `topic/{{topic}}/partition/{{partition}}/startOffset/{{start_offset}}` | `topic/customer-topic/partition/1/startOffset/1734445664111.txt` | topic=customer-topic, partition=1, start_offset=1734445664111 |
 
 ## Supported S3 object formats
 
@@ -63,9 +65,16 @@ and processing needs:
 | Parquet (`parquet`) | A columnar format optimized for fast queries. Stores data in a compressed, column-based structure.| `input.format=parquet` | Uses a schema similar to Avro but optimized for analytics.|
 | Bytes (`bytes`) (default) | A raw byte stream format for unstructured data. | `input.format=bytes` | No predefined structure |
 
+## Acknowledged records and offset tracking
+
+When a record is acknowledged, Apache Kafka confirms receipt but may not immediately
+write it to the offset topic. If the connector restarts before Apache Kafka updates the
+offset topic, some records may be duplicated. For details on offset tracking and retry
+handling, see the [S3 source connector documentation](https://github.com/aiven-open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/README.md).
+
 ## Create an Amazon S3 source connector configuration file
 
-Create a file named `s3_source_connector.json` with the following configuration:
+Create a file named `s3_source_connector.json` and add the following configuration:
 
 ```json
   {
@@ -94,20 +103,19 @@ Parameters:
   authentication.
 - `aws.s3.bucket.name`: The name of the S3 bucket containing the source data.
 - `aws.s3.region`: The AWS region where the bucket is located.
-- `aws.s3.prefix`: Optional. Filters objects within the S3 bucket.
+- `aws.s3.prefix` objectptional: Filters objects within the S3 bucket.
 - `aws.credentials.provider`: Specifies the AWS credentials provider.
-- `topic`: The Kafka topic where the ingested data is published. This is an optional config. If it's not configured,
-  topic is retrieved from file.name.template config.
+- `topic` optional: The connector publishes ingested data to the specified Apache
+  Kafka topic. If not set, it derives the topic from the `file.name.template`
+  configuration.
 - `file.name.template`: Defines how to parse S3 object keys to extract data such as the
   topic, partition, and starting offset. Template variables were defined above.
-
-  Example: A template like `{{topic}}-{{partition}}-{{start_offset}}` matches filenames
+  For example, a template like `{{topic}}-{{partition}}-{{start_offset}}` matches filenames
   such as `test-topic-1-1734445664111.txt`.
-
-- `tasks.max`: The maximum number of parallel tasks.
-- `poll.interval.ms`: How often (in milliseconds) the connector polls the S3 bucket for
-  new files.
-- `error.tolerance`: Defines how errors are handled.
+- `tasks.max`: The maximum number of tasks that run in parallel.
+- `poll.interval.ms`: The polling interval (in milliseconds) for checking the S3 bucket
+  for new files.
+- `error.tolerance`: Specifies the error handling mode.
   - `all`: Logs and ignores errors.
   - `none`: Fails on errors.
 - `input.format`: Specifies the S3 object format. Supported values:
@@ -116,30 +124,8 @@ Parameters:
   - `parquet` (Parquet)
   - `bytes` (default)
 
-For the full set of configuration parameters, see the
-[Aiven Amazon S3 source connector documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/README.md).
-
-### Create an S3 source connector with Aiven CLI
-
-To create the connector, execute the following
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create), replacing the `SERVICE_NAME` with the name of the existing
-Aiven for Apache Kafka® service where the connector needs to run:
-
-```shell
-avn service connector create SERVICE_NAME @s3_source_connector.json
-```
-
-Check the connector status with the following command, replacing the
-`SERVICE_NAME` with the existing Aiven for Apache Kafka® service and the
-`CONNECTOR_NAME` with the name of the connector defined before:
-
-```
-avn service connector status SERVICE_NAME CONNECTOR_NAME
-```
-
-With the connection in place, verify that the data is flowing to the
-target kafka topic.
-
+For all available configuration options, see the
+[S3 source connector configuration](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/S3SourceConfig.md).
 
 ## Create the connector
 
@@ -169,17 +155,25 @@ target kafka topic.
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-To create the S3 source connector using the Aiven CLI, run:
+To create the S3 source connector using the
+[Aiven CLI](/docs/tools/cli/service/connector#avn_service_connector_create), run:
 
 ```bash
 avn service connector create SERVICE_NAME @s3_source_connector.json
 ```
 
-
 Parameters:
 
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
 - `@s3_source_connector.json`: Path to your JSON configuration file.
+
+To check the connector status, run:
+
+```bash
+avn service connector status SERVICE_NAME CONNECTOR_NAME
+```
+
+Verify that data flows to the target Apache Kafka topic.
 
 </TabItem>
 </Tabs>
