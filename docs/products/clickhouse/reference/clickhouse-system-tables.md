@@ -9,9 +9,7 @@ Aiven for ClickHouse® supports multiple types of system tables, which store met
 
 Aiven for ClickHouse supports
 [system tables available with the open-source ClickHouse](https://clickhouse.com/docs/en/operations/system-tables),
-except a few
-[system log tables](/docs/products/clickhouse/reference/clickhouse-system-tables#supported-system-log-tables)
-and the following:
+except the following:
 
 - `certificates`
 - `build_options`
@@ -22,6 +20,7 @@ and the following:
 - `zookeeper`
 - `dns_cache`
 - `symbols`
+- Several [system log tables](/docs/products/clickhouse/reference/clickhouse-system-tables#supported-system-log-tables)
 
 ## Supported system log tables
 
@@ -37,7 +36,6 @@ except the following:
 - `backup_log`
 - `blob_storage_log`
 - `crash_log`
-- `error_log`
 - `metric_log`
 - `opentelemetry_span_log`
 - `processors_profile_log`
@@ -45,7 +43,6 @@ except the following:
 - `query_thread_log`
 - `session_log`
 - `trace_log`
-- `text_log`
 - `zookeeper_log`
 
 ### System log tables TTL
