@@ -22,6 +22,10 @@ Azure Private Link is supported for the following services:
 - Aiven for PostgreSQL®
 - Aiven for Caching
 
+:::note
+Azure Private Link is not supported for [BYOC](/docs/platform/concepts/byoc)-hosted services.
+:::
+
 ## Prerequisites
 
 - This feature is in [early availability](/docs/platform/concepts/beta_services#early-availability-).

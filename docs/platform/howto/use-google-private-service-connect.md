@@ -9,8 +9,12 @@ import TabItem from '@theme/TabItem';
 
 Discover Google Private Service Connect and benefits of using it with your Aiven services. Learn how to enable Google Private Service Connect for Aiven services.
 
-:::important
-Google Private Service Connect is not supported for Aiven for PostgreSQL®.
+:::note
+Google Private Service Connect is not supported for:
+
+- [BYOC](/docs/platform/concepts/byoc)-hosted services.
+- Aiven for PostgreSQL®
+
 :::
 
 ## About Private Service Connect
