@@ -415,12 +415,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete user</b>
         </>
       );
-      case 'delete':
-        return (
-          <>
-            <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
-          </>
-        );
+    case 'delete':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
+        </>
+      );
     case 'addconfigoptions':
       return (
         <>
@@ -530,6 +530,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.indexes} /> <b>Indexes</b>
+        </>
+      );
+    case 'editversion':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Change version</b>
         </>
       );
 
