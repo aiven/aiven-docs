@@ -125,8 +125,8 @@ simplifies architecture while maintaining compatibility with existing features a
 integrations, including Aiven for Apache Kafka Connect, Aiven for Apache Kafka
 MirrorMaker 2, and Aiven for Karapace.
 
-Apache Kafka 3.9 includes all features from Apache Kafka 3.8, but some monitoring
-metrics have changed due to the transition to KRaft mode. For details,
+Apache Kafka 3.9 includes all features from Apache Kafka 3.8, but some controller metrics
+are no longer available due to the transition to KRaft mode. For details,
 see [Apache Kafka controller metrics](/docs/products/kafka/reference/kafka-metrics-prometheus#kraft-mode-and-metrics-changes).
 ACL permissions and governance behaviors remain unchanged.
 
@@ -136,15 +136,14 @@ ACL permissions and governance behaviors remain unchanged.
 
 - All new Aiven for Apache Kafka services with Apache Kafka 3.9 run KRaft as the default
   metadata management protocol.
-- Startup-2 is not available in Kafka 3.9 and higher. Use Startup-4 instead.
-- Available on all cloud providers with no additional plan restrictions.
+- Startup-4 replaces Startup-2 plans in Apache Kafka 3.9 and later. All feature
+  restrictions from Startup-2 also apply to Startup-4, including Datadog restrictions.
+- Available on all cloud providers.
 
 #### Existing services
 
 - Migration for existing services, which involves upgrading from Apache Kafka 3.x to 3.9,
-  is not yet available. The process consists of two separate updates:
-  1. Upgrade from Apache Kafka 3.x to 3.9.
-  1. Migrate metadata from ZooKeeper to KRaft within Kafka 3.9.
+  is not yet available.
 - Aiven will provide a migration path once it is ready.
 - To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
   year, allowing sufficient time for planning and migration.
