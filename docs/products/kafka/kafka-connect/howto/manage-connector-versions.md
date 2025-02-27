@@ -23,7 +23,7 @@ service configuration.
 - Support is limited to the latest connector version and the most recent previous
   version. Breaking changes, if any, are detailed in
   [maintenance update notifications](/docs/platform/concepts/maintenance-window#maintenance-updates).
-- Pinning a connector version applies to the entire plugin, ensuring that all
+- Setting a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
 - Multi-version support is available for all connectors where Aiven has published and
@@ -167,20 +167,22 @@ For detailed steps and examples, see [Set a connector version](#set-version).
 </TabItem>
 </Tabs>
 
-
 ## Set a connector version {#set-version}
 
 To set a specific connector version, update the `plugin_versions` property in the
 service configuration using the API, CLI, or Terraform. In the Aiven Console, you can
-select the version through the UI. Setting a **plugin version** applies to all
-connectors (source and sink) that use the plugin. For example, setting
+select the version through the UI.
+
+The selected version applies to all instances of the connector, including both source and
+sink connectors. For example, setting
 the `aiven-kafka-connect-jdbc` plugin to version `6.9.0` affects both the JDBC source
 and sink connectors.
 
 :::note
-Setting a plugin version restarts Apache Kafka Connect and reloads all plugins.
-Allow time for the process to complete.
+Changing the connector version restarts the Apache Kafka Connect service and reloads
+all plugins. This process can take several minutes.
 :::
+
 
 <Tabs groupId="check-method">
 <TabItem value="console" label="Aiven Console" default>
@@ -190,16 +192,23 @@ Allow time for the process to complete.
 1. Click <ConsoleLabel name="actions"/> > **Change connector version**.
 1. In the **Version setup** window:
    - Select the version to use.
-   - Optional: **Enable version updates** to allow the connector to update
-     automatically during maintenance updates.
-1. Click **Install version and restart service** to apply the selected version.
+   - Optional: If you select the latest version, you can turn on
+     **Enable version updates** to automatically update the connector to newer
+     versions during maintenance updates.
+
+     :::note
+     **Enable version updates** is available only for the latest (default) version. This
+     option is unavailable for older versions because automatic updates apply only to the latest version.
+     :::
+1. Depending on your selection, click:
+   - **Install version and restart service**. Applies the selected version.
+   - **Confirm version**. Keeps the current version.
 
 :::note
 If you change the version, the connector installs the new package and restarts. The
 selected version applies to all instances of the connector, including both source and
 sink connectors.
 :::
-
 
 </TabItem>
 <TabItem value="api" label="Aiven API" default>
