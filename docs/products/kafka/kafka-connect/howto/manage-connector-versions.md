@@ -64,14 +64,14 @@ your configuration. For details, see [Set a connector version](#set-version).
 - [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with a [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
   enabled
+
+  :::note
+  Multi-version support is only available for dedicated Apache Kafka Connect services.
+  :::
 - [Aiven CLI](/docs/tools/cli)
 - [Aiven API](/docs/tools/api)
 - [Aiven Provider for Terraform](/docs/tools/terraform)
 
-:::note
-Multi-version support is only available for **dedicated Kafka Connect services**. Ensure
-that your service is updated to enable this feature.
-:::
 
 ## Check available connector versions {#check-available-connector-versions}
 
@@ -87,7 +87,12 @@ supported and can be set if needed. Use one of the following methods:
 1. Click <ConsoleLabel name="Connectors"/>.
 
 Connectors that support multiple versions display **2 versions** next to their names on
-the Connectors page, indicating multi-version support.
+the Connectors page.
+
+:::note
+When setting up a new connector, a default version is selected. To change it, go to the
+connector details page and click **Change version**.
+:::
 
 </TabItem>
 <TabItem value="api" label="Aiven API" default>
@@ -162,10 +167,6 @@ For detailed steps and examples, see [Set a connector version](#set-version).
 </TabItem>
 </Tabs>
 
-:::note
-When configuring a new connector, a default version is preselected. To change it,
-click **Change version** in the connector details page.
-:::
 
 ## Set a connector version {#set-version}
 
