@@ -9,17 +9,12 @@ By creating a Transit Gateway VPC attachment, services
 in an Aiven Project VPC can route traffic to all other networks
 attached, directly or indirectly, to the Transit Gateway.
 
-## Set up a project VPC
+## Prerequisites
 
-Create a VPC on the Aiven platform in the same region as your Transit
-Gateway.
+- Install the [Aiven CLI](/docs/tools/cli). See the [`avn vpc`][avnvpc] documentation.
+- Create a VPC on the Aiven platform in the same region as your Transit Gateway.
 
-## Set up a VPC attachment for your Project VPC
-
-### Install the Aiven CLI
-
-1. Install the [Aiven CLI](/docs/tools/cli)
-1. See the [`avn vpc`][avnvpc] documentation.
+## Prepare for attaching the VPC
 
 ### Locate your AWS account and AWS Transit Gateway ID
 
@@ -30,7 +25,7 @@ Gateway itself is needed. This has the format `tgw-...` with the dots
 being 17 hexadecimal characters. It will be referred to as
 `$user_tgw_id`.
 
-### Share the AWS Transit Gateway with the Aiven AWS account
+### Share the TGW with the Aiven AWS account
 
 Before the Aiven platform can attach the Project VPC located in the
 Aiven AWS account with the Transit Gateway in your account, the TGW
@@ -73,7 +68,7 @@ must be configured when creating the attachment for an Aiven Project
 VPC. The IPv4 range will be referred below to as
 `$user_peer_network_cidr`.
 
-### Create Aiven peering connection
+## Create Aiven peering connection
 
 A Transit Gateway VPC attachment is created by making a request to the
 Aiven API for a peering connection. The Aiven API handles both actual
@@ -99,7 +94,7 @@ attachment will be not be of any use until that is done since no
 addresses will be routed through the TGW from the Project VPC.
 :::
 
-### Accept AWS Transit Gateway VPC attachment
+## Accept AWS Transit Gateway VPC attachment
 
 Once the Aiven platform has built the connection by creating an AWS Transit Gateway VPC attachment,
 the state changes to `PENDING_PEER` if everything went well. Otherwise
