@@ -76,16 +76,16 @@ are not supported in this release.
 
 ### Configure AWS IAM permissions {#configure-aws-iam-permissions}
 
-The Iceberg sink connector requires an IAM role with permissions to access Amazon S3 and
+The Iceberg sink connector requires an IAM user with permissions to access Amazon S3 and
 AWS Glue. These permissions allow the connector to write data to an S3 bucket and manage
 metadata in the AWS Glue catalog.
 
 To set up the required permissions:
 
-1. Create an IAM role in
+1. Create an IAM user in
    [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html)
    with permissions for Amazon S3 and AWS Glue.
-1. Attach the following policy to the IAM role:
+1. Attach the following policy to the IAM user:
 
    ```json
    {
@@ -148,7 +148,7 @@ To set up the required permissions:
    - `<your-aws-account>`: Your AWS account ID
    - `<your-bucket-name>`: The name of your Amazon S3 bucket
 
-1. Obtain the access key ID and secret access key for this role.
+1. Obtain the access key ID and secret access key for the service user.
 1. Add these credentials to the Iceberg sink connector configuration.
 
 For more information on creating and managing AWS IAM roles and policies, see the
@@ -159,33 +159,28 @@ For more information on creating and managing AWS IAM roles and policies, see th
 When creating databases and tables in AWS Glue for the Iceberg sink connector,
 follow these naming conventions to ensure compatibility:
 
+For more details, see the [AWS Athena naming conventions](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
+
 - **Database names**:
-  - Must use only lowercase letters (a–z), numbers (0–9), and underscores (_)
-  - Must be between 1 and 255 characters long
-  - Must not begin or end with an underscore (_)
-  - Are case-insensitive (they are always stored in lowercase)
+  - Use only lowercase letters (a–z), numbers (0–9), and underscores (_).
+  - Must be between **1 and 252 characters** long.
   - Examples:
     - Valid: `sales_data`, `customer_orders_2024`
-    - Invalid: `SalesData` (contains uppercase letters), `customer orders` (contains spaces)
+    - Invalid: `SalesData`, `customer orders`
 
 - **Table names**:
-  - Must use only lowercase letters, numbers, and underscores
-  - Must be between 1 and 255 characters long
-  - Must not begin or end with an underscore (_)
-  - Are case-insensitive (they are always stored in lowercase)
+  - Use only lowercase letters, numbers, and underscores.
+  - Must be between **1 and 255 characters** long.
   - Examples:
     - Valid: `product_catalog`, `order_history_2023`
-    - Invalid: `ProductCatalog` (contains uppercase letters), `order-history` (contains
-      a hyphen)
+    - Invalid: `ProductCatalog` , `order-history`
 
 - **Column names**:
-  - Must use only lowercase letters, numbers, and underscores
-  - Must not begin or end with an underscore (_)
-  - Are case-insensitive (they are always stored in lowercase)
+  - Column names can include uppercase letters, but they are stored in lowercase.
+  - Can contain letters, numbers, and underscores.
   - Examples:
     - Valid: `customer_id`, `total_revenue`
-    - Invalid: `_customerID` (starts with an underscore), `TotalRevenue` (contains
-      uppercase letters)
+    - Invalid: `revenue.cost`
 
 For more details, see the
 [AWS Athena naming rules documentation](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
