@@ -87,7 +87,7 @@ supported and can be set if needed. Use one of the following methods:
 1. Click <ConsoleLabel name="Connectors"/>.
 
 Connectors that support multiple versions display **2 versions** next to their names on
-the Connectors page.
+the **Connectors** page.
 
 :::note
 When setting up a new connector, a default version is selected. To change it, go to the
@@ -201,8 +201,8 @@ all plugins. This process can take several minutes.
      option is unavailable for older versions because automatic updates apply only to the latest version.
      :::
 1. Depending on your selection, click:
-   - **Install version and restart service**. Applies the selected version.
-   - **Confirm version**. Keeps the current version.
+   - **Install version and restart service** to apply the selected version.
+   - **Confirm version** to keep the current version.
 
 :::note
 If you change the version, the connector installs the new package and restarts. The
