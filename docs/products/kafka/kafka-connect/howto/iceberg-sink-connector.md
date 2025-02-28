@@ -148,7 +148,7 @@ To set up the required permissions:
    - `<your-aws-account>`: Your AWS account ID
    - `<your-bucket-name>`: The name of your Amazon S3 bucket
 
-1. Obtain the access key ID and secret access key for the service user.
+1. Obtain the access key ID and secret access key for the IAM user.
 1. Add these credentials to the Iceberg sink connector configuration.
 
 For more information on creating and managing AWS IAM roles and policies, see the
