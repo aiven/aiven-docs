@@ -6,23 +6,23 @@ sidebar_label: Upgrade procedure
 import MyImg from "@site/static/images/content/figma/kafka-cluster-overview.png";
 import MyImg2 from "@site/static/images/content/figma/kafka-cluster-overview-upgraded.png";
 import MyImg3 from "@site/static/images/content/figma/kafka-cluster-overview-final.png";
+import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
 
-One of the benefits of using a managed service like Aiven for Apache Kafka® is the automated upgrade procedure.
+Aiven for Apache Kafka® offers an automated upgrade procedure, ensuring a smooth transition during various operations.
 
-The upgrade procedure is executed during:
+The upgrade process is performed during:
 
 - Maintenance updates
 - Plan changes
 - Cloud region migrations
 - Manual node replacements performed by an Aiven operator
 
-All the preceding operations involve creating new broker nodes to replace existing ones.
+These operations involve creating new broker nodes to replace existing ones.
 
 ## Upgrade procedure steps
 
 <!-- vale off -->
-This example demonstrates the steps in the automated upgrade procedure for
-a 3-node Apache Kafka service, visualized below:
+The following steps outline the upgrade procedure for a 3-node Apache Kafka service:
 <!-- vale on -->
 
 <img src={MyImg} className="centered" alt="3-node Kafka service" width="50%" />
@@ -31,7 +31,7 @@ During an upgrade procedure:
 
 1. **Start new nodes:** New Apache Kafka® nodes are started alongside the existing nodes.
 
-1. **Join cluster:** The new nodes join the Apache Kafka cluster once they are running.
+1. **Join the cluster:** The new nodes join the Apache Kafka cluster once they are running.
 
    :::note
    The Apache Kafka cluster now contains a mix of old and new nodes.
@@ -47,82 +47,108 @@ During an upgrade procedure:
     overhead.
     :::
 
-1. **Retire old nodes:** Once old nodes no longer have partition data, they are retired
-   from the cluster.
+1. **Retire old nodes:** Old nodes are retired after their data is fully transferred.
 
    :::note
-   Depending on the cluster size, more new nodes are added (by default, up to 6 nodes
-   are replaced at a time).
+   The number of new nodes added depends on the cluster size. By default, up to 6 nodes
+   are replaced at a time during the upgrade.
    :::
 
-1. **Complete process**: The process is completed once the last old node has been
-  removed from the cluster.
+1. **Complete process**: The upgrade is complete when all old nodes are removed.
 
     <img src={MyImg3} className="centered" alt="Kafka cluster new node illustration" width="50%" />
 
-## No downtime during upgrade
+## Zero downtime during upgrade
 
-The preceding upgrade process has no downtime because there are always active nodes
-in the cluster, and the same service URI resolves to all active nodes. However, the
-upgrade generates extra load during the transfer of partitions. This can slow down
-overall cluster performance or even prevent normal work progress if the cluster is
-already under heavy load.
+The upgrade process ensures no downtime. Active nodes remain operational, and the
+service URI continues to resolve to all active nodes. However, partition transfers
+create additional load, which can slow cluster performance if the cluster is already
+under heavy load.
 
-When Apache Kafka clients attempt to produce or consume messages, they might encounter
-`leader not found` warnings as partitions are being moved between brokers. Although
-most client libraries handle this automatically, the warnings can appear
-alarming in the logs. To learn more, see [NOT_LEADER_FOR_PARTITION errors](/docs/products/kafka/concepts/non-leader-for-partition).
+During partition transfers, clients attempting to produce or consume messages might
+encounter `leader not found` warnings. Most client libraries handle these warnings
+automatically, but they can still appear in logs. For more information,
+see [NOT\_LEADER\_FOR\_PARTITION errors](/docs/products/kafka/concepts/non-leader-for-partition).
 
 ## Upgrade duration
 
-The duration of the upgrade can vary significantly and depends on several factors:
+The upgrade duration depends on several factors:
 
-- **Amount of data:** The more data stored in the cluster, the longer
-  the upgrade will take.
-- **Number of partitions:** Each partition adds overhead, as partition leadership
-  also needs to be moved to the new nodes.
-- **Spare resources:** If the cluster is already under heavy load, there will be
-  minimal resources available for the upgrade procedure.
+- **Data volume:** Larger data volumes increase the time required.
+- **Number of partitions:** Each partition adds processing overhead.
+- **Cluster load:** Heavily loaded clusters have fewer resources available for upgrades.
 
-To achieve faster upgrades, Aiven recommends running the procedure during periods of
-low load to reduce the overhead on producers and consumers. If the service is already
-tightly constrained on resources, it is recommended to disable all non-essential
-usage during the upgrade. This allows more resources to be dedicated to
-coordinating and moving data between nodes.
+To reduce upgrade times, Aiven recommends performing upgrades during periods of low
+traffic to minimize the impact on producers and consumers. If your service is
+constrained by resources, consider disabling non-essential workloads during the upgrade.
+This frees up resources for coordinating and transferring data between nodes, improving
+efficiency.
 
-## Upgrade rollback
+## Rollback options
 
-Rollback is unavailable because old nodes are deleted once they are removed from the
-cluster.
+Rollback is not available because old nodes are removed once the upgrade progresses.
 
 :::note
-Nodes are not removed from the cluster while they hold data. If an upgrade doesn't
-progress, the nodes are not removed to prevent data loss.
+Nodes holding data are not removed from the cluster to prevent data loss.
+If the upgrade does not progress, old nodes remain in the cluster.
 :::
 
-If there is enough disk capacity on the smaller plan, you can downgrade from a
-larger service plan to a smaller one. This can be done via the
-[Aiven Console](/docs/platform/howto/scale-services) or the [Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-update).
+If sufficient disk capacity is available, you can downgrade to a smaller plan. Use the
+[Aiven Console](/docs/platform/howto/scale-services) or the
+[Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-update) to perform the downgrade.
 
-The upgrade procedure remains the same when changing the node type during a service plan
-change. If you downgrade to a service plan with nodes that have fewer CPUs, memory, or
-disk space, the latest system software versions are used for all newly created nodes.
-The upgrade mechanism, as explained in this document, is used to transfer data to
-the new nodes.
+The upgrade process remains the same when changing the node type during a service plan
+change. For instance, when downgrading to a plan with fewer resources, such as fewer
+CPUs, memory, or disk space, the latest system software versions are applied to all
+new nodes, and data is transferred accordingly.
 
 ## Upgrade impact and risks
 
-During the upgrade procedure, partition leadership coordination and streaming data to
-new nodes generate additional CPU load. To mitigate the risk, run the upgrade at a
-time of low traffic and reduce the normal workload on the cluster by disabling
-non-essential producers and consumers.
+Upgrading your cluster can increase CPU usage due to partition leadership coordination
+and data streaming to new nodes. To reduce the risk of disruptions, schedule the
+upgrade during low-traffic periods and minimize the cluster's normal workload by pausing non-essential producers and consumers.
 
-Specifically, when upgrading to a smaller plan, the disk can reach the
+If you are upgrading to a smaller plan, the disk may reach the
 [maximum allowed limit](https://aiven.io/docs/products/kafka/howto/prevent-full-disks),
-which can prevent the procedure from progressing. To mitigate the risk, check the disk
-usage before the upgrade and evaluate the amount of space left.
+which can block the upgrade. Check disk usage before upgrading and ensure there is enough free space.
 
 :::note
-In an emergency, our operations team can temporarily add additional volumes to
+In critical situations, Aiven's operations team can temporarily add extra storage to
 the old nodes.
 :::
+
+## Transitioning to KRaft <EarlyBadge/>
+
+With the release of Apache Kafka® 3.9, Aiven introduces support for Apache Kafka Raft
+(KRaft), the new consensus protocol for Kafka metadata management. This enhancement
+simplifies architecture while maintaining compatibility with existing features and
+integrations, including Aiven for Apache Kafka Connect, Aiven for Apache Kafka
+MirrorMaker 2, and Aiven for Karapace.
+
+Apache Kafka 3.9 includes all features from Apache Kafka 3.8, but some controller metrics
+are no longer available due to the transition to KRaft mode. For details,
+see [Apache Kafka controller metrics](/docs/products/kafka/reference/kafka-metrics-prometheus#kraft-mode-and-metrics-changes).
+ACL permissions and governance behaviors remain unchanged.
+
+### Availability and migration
+
+#### New services
+
+- All new Aiven for Apache Kafka services with Apache Kafka 3.9 run KRaft as the default
+  metadata management protocol.
+- Startup-4 replaces Startup-2 plans in Apache Kafka 3.9 and later. All feature
+  restrictions from Startup-2 also apply to Startup-4, including Datadog restrictions.
+- Available on all cloud providers.
+
+#### Existing services
+
+- Migration for existing services, which involves upgrading from Apache Kafka 3.x to 3.9,
+  is not yet available.
+- Aiven will provide a migration path once it is ready.
+- To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
+  year, allowing sufficient time for planning and migration.
+
+#### Performance impact
+
+Performance testing across different cloud providers and plan sizes has not shown
+significant changes.
