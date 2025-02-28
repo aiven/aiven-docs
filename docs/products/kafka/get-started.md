@@ -10,6 +10,7 @@ import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
 import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
 
 Start using Aiven for Apache Kafka® by setting up and configuring a service, connecting to it, and managing your data.
 
@@ -387,7 +388,7 @@ governance.
 
 Learn more about the [Aiven for Apache Kafka® governance overview](/docs/products/kafka/concepts/governance-overview).
 
-## Related pages
+<RelatedPages/>
 
 - Explore [examples project](https://github.com/aiven/aiven-examples) for code samples.
 - Use the [sample data generator project](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
