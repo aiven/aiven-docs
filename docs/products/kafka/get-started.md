@@ -378,8 +378,8 @@ control through policies and roles, ensuring compliance and enforcing standards 
 your Aiven for Apache Kafka environments.
 
 :::note
-You need [super admin](/docs/platform/howto/make-super-admin) permissions to enable
-governance.
+You need [super admin](/docs/platform/howto/manage-permissions#make-users-super-admin)
+permissions to enable governance.
 :::
 
 1. Access the [Aiven Console](https://console.aiven.io/) and click **Admin**.
