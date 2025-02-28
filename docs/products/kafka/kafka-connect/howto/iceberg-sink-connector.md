@@ -151,7 +151,7 @@ To set up the required permissions:
 1. Obtain the access key ID and secret access key for the IAM user.
 1. Add these credentials to the Iceberg sink connector configuration.
 
-For more information on creating and managing AWS IAM roles and policies, see the
+For more information on creating and managing AWS IAM users and policies, see the
 [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
 ### AWS Glue naming conventions
@@ -176,11 +176,8 @@ For more details, see the [AWS Athena naming conventions](https://docs.aws.amazo
     - Invalid: `ProductCatalog` , `order-history`
 
 - **Column names**:
-  - Column names can include uppercase letters, but they are stored in lowercase.
-  - Can contain letters, numbers, and underscores.
-  - Examples:
-    - Valid: `customer_id`, `total_revenue`
-    - Invalid: `revenue.cost`
+  AWS Glue has minimal restrictions on column names. Using only letters, numbers, and
+  underscores is recommended for best compatibility.
 
 For more details, see the
 [AWS Athena naming rules documentation](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
