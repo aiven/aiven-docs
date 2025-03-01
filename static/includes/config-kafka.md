@@ -865,6 +865,13 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="kafka_rest_config_consumer_idle_disconnect_timeout"/><Link to="#kafka_rest_config_consumer_idle_disconnect_timeout"><strong>kafka_rest_config.consumer_idle_disconnect_timeout</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>2147483647</code></li></ul></div>
+              <p className="title">consumer.idle.disconnect.timeout</p>
+              <div className="description"><p>Specifies the maximum duration (in seconds) a client can remain idle before it is deleted. If a consumer is inactive, it will exit the consumer group, and its state will be discarded. A value of 0 (default) indicates that the consumer will not be disconnected automatically due to inactivity.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="kafka_rest_config_consumer_request_max_bytes"/><Link to="#kafka_rest_config_consumer_request_max_bytes"><strong>kafka_rest_config.consumer_request_max_bytes</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>671088640</code></li><li>default: <code>67108864</code></li></ul></div>
               <p className="title">consumer.request.max.bytes</p>
               <div className="description"><p>Maximum number of bytes in unencoded message keys and values by a single request</p></div>
