@@ -972,6 +972,13 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="opensearch_disk_watermarks"/><Link to="#opensearch_disk_watermarks"><strong>opensearch.disk_watermarks</strong></Link></p><p><code className="type">object</code></p></div>
+              <p className="title">Watermark settings</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="opensearch_segrep"/><Link to="#opensearch_segrep"><strong>opensearch.segrep</strong></Link></p><p><code className="type">object</code></p></div>
               <p className="title">Segment Replication Backpressure Settings</p>
               
