@@ -355,6 +355,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="valkey_active_expire_effort"/><Link to="#valkey_active_expire_effort"><strong>valkey_active_expire_effort</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>10</code></li><li>default: <code>1</code></li></ul></div>
+        <p className="title">Active expire effort</p>
+        <div className="description"><p>Valkey reclaims expired keys both when accessed and in the background. The background process scans for expired keys to free memory. Increasing the active-expire-effort setting (default 1, max 10) uses more CPU to reclaim expired keys faster, reducing memory usage but potentially increasing latency.</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="valkey_acl_channels_default"/><Link to="#valkey_acl_channels_default"><strong>valkey_acl_channels_default</strong></Link></p><p><code className="type">string</code></p></div>
         <p className="title">Default ACL for pub/sub channels used when a Valkey user is created</p>
         <div className="description"><p>Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Valkey configuration acl-pubsub-default.</p></div>
@@ -380,6 +391,17 @@ import Link from '@docusaurus/Link'
         <div className="param"><p className="name"><Link id="project_to_fork_from"/><Link to="#project_to_fork_from"><strong>project_to_fork_from</strong></Link></p><p><code className="type">string,null</code></p></div>
         <p className="title">Name of another project to fork a service from. This has effect only when a new service is being created.</p>
         
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="enable_ipv6"/><Link to="#enable_ipv6"><strong>enable_ipv6</strong></Link></p><p><code className="type">boolean</code></p></div>
+        <p className="title">Enable IPv6</p>
+        <div className="description"><p>Register AAAA DNS records for the service, and allow IPv6 packets to service ports</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
