@@ -28,7 +28,7 @@ The Amazon S3 source connector allows you to ingest data from S3 buckets into Ap
   - `s3:ListBucket`
 
 For additional details on how the connector works, see the
-[S3 source connector documentation](https://github.com/aiven-open/cloud-storage-connectors-for-apache-kafka/tree/main/s3-source-connector#how-it-works).
+[S3 source connector documentation](https://github.com/aiven-open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/README.md).
 
 ## S3 object key name format
 
