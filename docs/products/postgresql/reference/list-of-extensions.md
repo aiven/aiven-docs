@@ -18,7 +18,7 @@ run the following command in your Aiven for PostgreSQL server:
 
 ```sql
 SELECT *
-FROM pg_available_extensions
+FROM pg_available_extensions;
 ```
 
 :::note
