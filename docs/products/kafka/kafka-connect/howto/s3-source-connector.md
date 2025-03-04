@@ -124,8 +124,6 @@ Parameters:
   - `parquet` (Parquet)
   - `bytes` (default)
 
-For all available configuration options, see the
-[S3 source connector configuration](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/S3SourceConfig.md).
 
 ## Create the connector
 
