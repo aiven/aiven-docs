@@ -237,7 +237,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'VPCs',
               link: {
-                type:'doc',
+                type: 'doc',
                 id: 'platform/concepts/vpcs',
               },
               items: [
@@ -245,7 +245,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Manage VPCs',
                   link: {
-                    type:'doc',
+                    type: 'doc',
                     id: 'platform/howto/list-manage-vpc',
                   },
                   items: [
@@ -257,7 +257,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Peer VPCs',
                   link: {
-                    type:'doc',
+                    type: 'doc',
                     id: 'platform/howto/list-vpc-peering',
                   },
                   items: [
@@ -265,7 +265,7 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Project VPC peering',
                       link: {
-                        type:'doc',
+                        type: 'doc',
                         id: 'platform/howto/list-project-vpc-peering',
                       },
                       items: [
@@ -279,7 +279,7 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Organization VPC peering',
                       link: {
-                        type:'doc',
+                        type: 'doc',
                         id: 'platform/howto/list-organization-vpc-peering',
                       },
                       items: [
@@ -1009,6 +1009,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcp-pubsub-source',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-source',
                         'products/kafka/kafka-connect/howto/couchbase-source',
+                        'products/kafka/kafka-connect/howto/s3-source-connector',
                       ],
                     },
                     {
