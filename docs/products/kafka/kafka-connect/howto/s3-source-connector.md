@@ -125,7 +125,7 @@ Parameters:
   - `bytes` (default)
 
 For all available configuration options, see the
-[S3 source connector configuration](/docs/products/kafka/kafka-connect/howto/S3SourceConfig).
+[S3 source connector configuration](/docs/products/kafka/kafka-connect/howto/s3-source-config).
 
 ## Create the connector
 
