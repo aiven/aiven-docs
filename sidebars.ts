@@ -1009,6 +1009,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-source',
                         'products/kafka/kafka-connect/howto/couchbase-source',
                         'products/kafka/kafka-connect/howto/s3-source-connector',
+                        'products/kafka/kafka-connect/howto/s3-source-config',
                       ],
                     },
                     {
