@@ -23,7 +23,6 @@ Delete an organization VPC peering using a tool of your choice:
 1. In the **Confirmation** window, click **Delete VPC peering**.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection delete` command:
@@ -31,7 +30,7 @@ Run the `avn organization vpc peering-connection delete` command:
 ```bash
 avn organization vpc peering-connection delete \
   --organization-id ORGANIZATION_ID            \
-  --project-vpc-id ORGANIZATION_VPC_ID                 \
+  --organization-vpc-id ORGANIZATION_VPC_ID    \
   --peering-connection-id ORGANIZATION_VPC_PEERING_ID
 ```
 
@@ -44,7 +43,6 @@ Replace the following:
   `1a2b3c4d-1234-a1b2-c3d4-1a2b3c4d5e6f`
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
