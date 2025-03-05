@@ -764,6 +764,11 @@ information or access, contact your account team.
   </tr>
   <tr>
     <td>North America</td>
+    <td>ca-montreal-1</td>
+    <td>Canada, Canada Southeast: Montreal</td>
+  </tr>
+  <tr>
+    <td>North America</td>
     <td>us-ashburn-1</td>
     <td>US East, Virginia: Ashburn</td>
   </tr>
