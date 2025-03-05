@@ -67,7 +67,7 @@ You can change your service settings by updating the service configuration.
 
 :::tip
 See configuration options in
-[Advanced parameters for Aiven for AlloyDB Omni](/docs/products/alloydbomni/advanced-params).
+[Advanced parameters for Aiven for AlloyDB Omni](/docs/products/alloydbomni/reference/advanced-params).
 :::
 
 <Tabs groupId="group1">
