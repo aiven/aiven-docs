@@ -300,7 +300,7 @@ changes to `RUNNING`, you are ready to access it.
 
 See the available configuration options in:
 
-- [Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/api-reference/clickhouse.html)
+- [Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/resources/clickhouse.html)
 - [Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 
 ## Connect to the service{#connect-to-service}
