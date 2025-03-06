@@ -48,10 +48,10 @@ Depending on your data source, select **PostgreSQL**, **Apache Kafka**, or **All
 <TabItem value="kafka" label="Apache Kafka">
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service.
-1.  On your service's page, click <ConsoleLabel name="databasesandtables"/> in the
+1.  On your service's page, click <ConsoleLabel name="integrations"/> in the
     sidebar.
-1.  On the **Databases and tables** page, click **Create database** >
-    **Kafka integration database**.
+1.  On the **Integrations** page, find your data source integration and click
+    <ConsoleLabel name="actions"/> > **Create database**.
 1.  In the **Create Kafka integration database** wizard:
 
     1. Select a service to be a data source for the integration database, and click
