@@ -11,6 +11,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Fetch all branches
+      run: git fetch --all
 
     - name: Check for deleted or renamed Markdown files
       id: check_files
