@@ -432,7 +432,7 @@ In the **Create custom cloud** wizard:
     -   Custom cloud name
     -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 
-    Click **Next**.
+1.  Click **Next**.
 
 1.  Specify deployment and storage details:
 
@@ -493,7 +493,7 @@ In the **Create custom cloud** wizard:
           infrastructure template to be generated upon completing this step.
         :::
 
-    Click **Generate template**.
+1.  Click **Generate template**.
 
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
