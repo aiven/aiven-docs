@@ -5,6 +5,7 @@ keywords: [bring your own cloud, byoc, custom cloud, BYOC cloud, object storage,
 ---
 
 import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
 
 BYOC environments use the tiered storage capability for data allocation. Cold data in your
 custom cloud is stored in your AWS cloud account or your Google Cloud organization.
@@ -34,7 +35,7 @@ account or your Google Cloud organization. One bucket is created per custom clou
 
 :::
 
-To use tiered storage in an BYOC-hosted service, tiered storage needs to be enabled both
+To use tiered storage in a BYOC-hosted service, tiered storage needs to be enabled both
 [in your custom cloud](/docs/platform/howto/byoc/store-data#enable-tiered-storage-in-a-custom-cloud)
 and
 [in the BYOC-hosted service](/docs/platform/howto/byoc/store-data#enable-tiered-storage-on-a-service).
@@ -54,7 +55,7 @@ and
 
 - At least one [custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
 - At least one [Aiven-manged service](/docs/platform/howto/create_new_service), either
-  Aiven for Apache Kafka® or Aiven for ClickHouse®, hosted in an custom cloud
+  Aiven for Apache Kafka® or Aiven for ClickHouse®, hosted in a custom cloud
 
   :::note
   If your Aiven-managed service is not hosted in a custom cloud, you can
@@ -64,9 +65,9 @@ and
 ### Activate tiered storage
 
 - [Enable for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-kafka-tiered-storage)
-- [Enable for Aiven for Clickhouse](/docs/products/clickhouse/howto/enable-tiered-storage)
+- [Enable for Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)
 
-## Related pages
+<RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)

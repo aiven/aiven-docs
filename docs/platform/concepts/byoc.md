@@ -142,7 +142,7 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
-Object storage in your AWS cloud account is where service's
+Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
 two S3 buckets.
@@ -161,7 +161,7 @@ using the public address, and the Aiven management plane can access the service 
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
 
-Object storage in your AWS cloud account is where service's
+Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
 two S3 buckets.
@@ -196,7 +196,7 @@ from Aiven repositories).
 :::
 
 Object storage in your Google Cloud organization is
-where service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+where your service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
 Google **Cloud Storage** buckets.
 
@@ -215,7 +215,7 @@ directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
 
 Object storage in your Google Cloud organization is
-where service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+where your service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
 Google **Cloud Storage** buckets.
 
