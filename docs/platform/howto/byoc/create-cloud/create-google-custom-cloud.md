@@ -112,7 +112,7 @@ In the **Create custom cloud** wizard:
     -   Custom cloud name
     -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 
-    Click **Next**.
+1.  Click **Next**.
 
 1.  Specify deployment and storage details:
 
@@ -124,7 +124,7 @@ In the **Create custom cloud** wizard:
         - Public model, which allows the Aiven control plane to connect to the service
           nodes via the public internet.
 
-    -   CIDR
+    -   CIDR for BYOC resources
 
         The **CIDR** block defines the IP address range of the VPC that
         Aiven creates in your own cloud account. Any Aiven service created in
@@ -159,7 +159,22 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    Click **Generate template**.
+    -   Object storage
+
+        By default, the following data is stored in the BYOC object storage in your own
+        cloud account:
+
+        -   [Cold data managed by the service](/docs/platform/howto/byoc/store-data)
+        -   [Backups of the service](/docs/platform/concepts/byoc#byoc-service-backups)
+
+        :::note
+        - Data is stored in your BYOC object storage using one Cloud Storage bucket per
+          custom cloud.
+        - Permissions for Cloud Storage bucket management will be included in the Terraform
+          infrastructure template to be generated upon completing this step.
+        :::
+
+1.  Click **Generate template**.
 
 Your infrastructure Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to acquire a privilege-bearing
