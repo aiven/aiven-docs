@@ -20,24 +20,6 @@ FROM pg_available_extensions;
 
 - Some extensions have dependencies and need to be created in a predetermined order.
 - Some extensions require resetting the client connection before they are fully available.
-- Most of superuser-only and untrusted extensions listed in `pg_available_extensions`
-  cannot be installed.
-
-  - To list superuser-only and untrusted extensions **available for installation**, run
-
-    ```sql
-    SELECT *
-    FROM pg_available_extension_versions
-    WHERE name = ANY(string_to_array(current_setting('extwlist.extensions'), ','));
-    ```
-
-  - To list all superuser-only and untrusted extensions, run
-
-    ```sql
-    SELECT name, version
-    FROM pg_available_extension_versions
-    WHERE superuser AND NOT trusted
-    ```
 
 ## List of extensions
 
@@ -58,9 +40,9 @@ FROM pg_available_extensions;
 -   [ltree](https://www.postgresql.org/docs/current/ltree.html): Data
     type for hierarchical tree-like structures
 -   [pgvector](https://github.com/pgvector/pgvector): Type for vector
-    similarity search; `PG13 and newer`
+    similarity search
 -   [postgresql-hll](https://github.com/citusdata/postgresql-hll): Type for storing
-    `hyperloglog` data; `PG11 and newer`
+    `hyperloglog` data
 -   [uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html):
     Generate universally unique identifiers (UUIDs)
 
@@ -76,10 +58,8 @@ FROM pg_available_extensions;
     Text search dictionary template for integers
 -   [fuzzystrmatch](https://www.postgresql.org/docs/current/fuzzystrmatch.html):
     Determine similarities and distance between strings
--   [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html): Provides full text search
-    capability in PostgreSQL using 2-gram (bigram) indexes for faster full text searches
 -   [pg_similarity](https://github.com/eulerto/pg_similarity): Support
-    similarity queries; `PG13 and newer`
+    similarity queries
 -   [pg_trgm](https://www.postgresql.org/docs/current/pgtrgm.html): Text
     similarity measurement and index searching based on trigrams
 -   [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html):
@@ -141,8 +121,6 @@ FROM pg_available_extensions;
   maintenance
 - [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-MODDATETIME):
   Functions for tracking last modification time
-- [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html):
-  Inspect the contents of database pages at a low level
 - [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html):
   Examine the shared buffer cache
 - [pg_freespacemap](https://www.postgresql.org/docs/15/pgfreespacemap.html): Examines the
@@ -152,9 +130,7 @@ FROM pg_available_extensions;
 - [pg_partman](https://github.com/pgpartman/pg_partman): Extension to
   manage partitioned tables by time or ID
 - [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html):
-  Prewarm relation data, `PG11 and newer`
-- [pg_proctab](https://gitlab.com/pg_proctab/pg_proctab): Enables you to use pg_top with
-  AlloyDB, and generate reports from the operating system process table
+  Prewarm relation data
 - [pg_repack](https://pgxn.org/dist/pg_repack/1.4.6/): Reorganize
   tables in AlloyDB Omni databases with minimal locks
 - [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html):
@@ -162,8 +138,6 @@ FROM pg_available_extensions;
   executed
 - [pg_visibility](https://www.postgresql.org/docs/15/pgvisibility.html): Provides a way to
   examine the visibility map (VM) and the page-level visibility information of a table
-- [pgfincore](https://github.com/klando/pgfincore): Functions to manage pages in operating
-  system disk cache memory from PostgreSQL
 - [pgrowlocks](https://www.postgresql.org/docs/current/pgrowlocks.html):
   Show row-level locking information
 - [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html):
