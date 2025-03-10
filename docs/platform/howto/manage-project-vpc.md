@@ -55,7 +55,7 @@ The state of the VPC is shown in the table.
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 Run the
-[avn vpc create](/docs/tools/cli/vpc#avn-vpc-create)
+[avn vpc create](/docs/tools/cli/vpc#create-vpcs)
 command:
 
 ```bash
@@ -270,7 +270,7 @@ Delete a project VPC using a tool of your choice:
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-Run the [avn vpc delete](/docs/tools/cli/vpc#avn-vpc-delete) command:
+Run the [avn vpc delete](/docs/tools/cli/vpc#delete-vpcs) command:
 
 ```bash
 avn vpc delete                    \
