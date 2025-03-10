@@ -93,6 +93,7 @@
 /platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
 /platform/reference/project-member-privileges          https://aiven.io/docs/platform/concepts/permissions
 /platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
+/products/alloydbomni/advanced-params                  https://aiven.io/docs/products/alloydbomni/reference/advanced-params
 /products/caching/concepts                             https://aiven.io/docs/products/caching
 /products/caching/concepts/overview                    https://aiven.io/docs/products/caching
 /products/caching/howto                                https://aiven.io/docs/products/caching/howto/list-code-samples

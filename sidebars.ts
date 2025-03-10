@@ -576,7 +576,14 @@ const sidebars: SidebarsConfig = {
             'products/alloydbomni/use-columnar-engine',
             'products/alloydbomni/manage-credentials',
             'products/alloydbomni/access-ai-models',
-            'products/alloydbomni/advanced-params',
+            {
+              type: 'category',
+              label: 'Reference',
+              items: [
+                'products/alloydbomni/reference/advanced-params',
+                'products/alloydbomni/reference/list-of-extensions',
+              ],
+            },
           ],
         },
         {
