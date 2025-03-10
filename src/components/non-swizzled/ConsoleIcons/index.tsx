@@ -533,6 +533,12 @@ export default function ConsoleLabel({name}): ReactElement {
         </>
       );
 
+    case 'disasterrecovery':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.disasterRecovery} /> <b>Disaster recovery</b>
+        </>
+      );
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
