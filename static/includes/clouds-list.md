@@ -565,6 +565,11 @@ import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge"
   </tr>
   <tr>
     <td>north america</td>
+    <td>google-northamerica-south1</td>
+    <td>North America, Mexico: Queretaro</td>
+  </tr>
+  <tr>
+    <td>north america</td>
     <td>google-us-central1</td>
     <td>United States, Iowa: Iowa</td>
   </tr>
