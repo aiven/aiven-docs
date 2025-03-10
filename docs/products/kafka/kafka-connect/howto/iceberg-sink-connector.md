@@ -179,8 +179,6 @@ For more details, see the [AWS Athena naming conventions](https://docs.aws.amazo
   AWS Glue has minimal restrictions on column names. Using only letters, numbers, and
   underscores is recommended for best compatibility.
 
-For more details, see the
-[AWS Athena naming rules documentation](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
 
 ## Create an Iceberg sink connector configuration
 
