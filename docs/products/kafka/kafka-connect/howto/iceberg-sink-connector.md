@@ -159,8 +159,6 @@ For more information on creating and managing AWS IAM users and policies, see th
 When creating databases and tables in AWS Glue for the Iceberg sink connector,
 follow these naming conventions to ensure compatibility:
 
-For more details, see the [AWS Athena naming conventions](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
-
 - **Database names**:
   - Use only lowercase letters (a–z), numbers (0–9), and underscores (_).
   - Must be between **1 and 252 characters** long.
@@ -179,6 +177,7 @@ For more details, see the [AWS Athena naming conventions](https://docs.aws.amazo
   AWS Glue has minimal restrictions on column names. Using only letters, numbers, and
   underscores is recommended for best compatibility.
 
+For more details, see the [AWS Athena naming conventions](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html).
 
 ## Create an Iceberg sink connector configuration
 
