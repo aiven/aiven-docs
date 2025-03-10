@@ -17,12 +17,12 @@ jobs:
     - name: Fetch all branches
       run: git fetch --all
 
-    - name: Check for deleted or renamed Markdown files
+    - name: Check for deleted or renamed Markdown files in docs folder
       id: check_files
       run: |
-        DELETED_MD_FILES=$(git diff --name-status origin/main...HEAD | grep ^D | grep '\.md$' | wc -l)
-        RENAMED_MD_FILES=$(git diff --name-status origin/main...HEAD | grep ^R | grep '\.md$' | wc -l)
-        REDIRECTS_MODIFIED=$(git diff --name-only origin/main...HEAD | grep ^_redirects | wc -l)
+        DELETED_MD_FILES=$(git diff --name-status origin/main...HEAD | grep ^D | grep 'docs/.*\.md$' | wc -l)
+        RENAMED_MD_FILES=$(git diff --name-status origin/main...HEAD | grep ^R | grep 'docs/.*\.md$' | wc -l)
+        REDIRECTS_MODIFIED=$(git diff --name-only origin/main...HEAD | grep '^_redirects' | wc -l)
         echo "deleted_md_files=$DELETED_MD_FILES" >> $GITHUB_ENV
         echo "renamed_md_files=$RENAMED_MD_FILES" >> $GITHUB_ENV
         echo "redirects_modified=$REDIRECTS_MODIFIED" >> $GITHUB_ENV
