@@ -14,7 +14,7 @@ By adding integrations databases in Aiven for ClickHouse, you create
 streaming data pipelines across services. From Aiven for ClickHouse, you
 can add integration databases connecting to:
 
-- Aiven for Kafka®
+- Aiven for Apache Kafka®
 - Aiven for PostgreSQL®
 
 ## Prerequisites
