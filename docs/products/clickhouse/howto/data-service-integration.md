@@ -35,8 +35,8 @@ Make Apache Kafka data available in Aiven for ClickHouse using the Kafka engine:
 1. On the **Integrations** page, go to the **Data sources** section and click
    **Apache Kafka Databases**.
 
-   The **Apache Kafka database integration** wizard opens and shows a list of external data
-   sources or Aiven-managed data services available for integration, if any. If there are
+   The **Apache Kafka database integration** wizard opens and displays a list of external
+   data sources or Aiven-managed data services available for integration. If there are
    no data sources to integrate with, the wizard allows you to create them either by clicking
    **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
    sources).
@@ -85,9 +85,9 @@ Make PostgreSQL data available in Aiven for ClickHouse using the PostgreSQL engi
 1. On the **Integrations** page, go to the **Data sources** section and click
    **PostgreSQL Databases**.
 
-   The **PostgreSQL database integration** wizard opens and shows a list of external data sources
-   or Aiven-managed data services available for integration, if any. If there are no data
-   sources to integrate with, the wizard allows you to create them either by clicking
+   The **PostgreSQL database integration** wizard opens and displays a list of external
+   data sources or Aiven-managed data services available for integration. If there are no
+   data sources to integrate with, the wizard allows you to create them either by clicking
    **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
    sources).
 
@@ -147,9 +147,9 @@ for the data to be made available through the integration.
 1. On the **Integrations** page, go to the **Data sources** section and click
    **ClickHouse Credentials**.
 
-   The **ClickHouse credentials integration** wizard opens and shows a list of external
-   data sources or Aiven-managed data services available for integration, if any. If there
-   are no data sources to integrate with, the wizard allows you to create them either by
+   The **ClickHouse credentials integration** wizard opens and displays a list of external
+   data sources or Aiven-managed data services available for integration. If there are no
+   data sources to integrate with, the wizard allows you to create them either by
    clicking **Create service** (for Aiven-managed sources) or **Add external endpoint**
    (for external sources).
 
