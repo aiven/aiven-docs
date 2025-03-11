@@ -16,19 +16,18 @@ can add integration databases connecting to:
 
 - Aiven for Kafka®
 - Aiven for PostgreSQL®
-- Aiven for AlloyDB Omni
 
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io/)
 - Running Aiven for ClickHouse service
 - [Service integration](/docs/products/clickhouse/howto/data-service-integration) between
-  the Aiven for ClickHouse service and a data source service (Aiven for Kafka, Aiven for
-  PostgreSQL, or Aiven for AlloyDB Omni)
+  the Aiven for ClickHouse service and a data source service (Aiven for Kafka or Aiven for
+  PostgreSQL)
 
 ## Create integration databases
 
-Depending on your data source, select **PostgreSQL**, **Apache Kafka**, or **AlloyDB Omni**.
+Depending on your data source, select **PostgreSQL** or **Apache Kafka**.
 
 <Tabs groupId="group1">
 <TabItem value="pg" label="PostgreSQL" default>
@@ -63,20 +62,6 @@ Depending on your data source, select **PostgreSQL**, **Apache Kafka**, or **All
        - Select a data format.
        - Enter table columns.
     1. Click **Save table details** > **Save**.
-
-</TabItem>
-<TabItem value="alloydb" label="AlloyDB Omni">
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
-1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service.
-1.  On your service's page, click <ConsoleLabel name="databasesandtables"/> in the
-    sidebar.
-1.  On the **Databases and tables** page, click **Create database** >
-    **AlloyDB Omni integration database**.
-1.  In the **Create AlloyDB Omni integration database** wizard:
-
-    1. Select a service to be a data source for the integration database, and click
-       **Continue**.
-    1. Enter **Database name** and **Schema name**, and click **Save**.
 
 </TabItem>
 </Tabs>
