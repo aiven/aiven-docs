@@ -29,7 +29,7 @@ to all other networks attached, directly or indirectly, to the Transit Gateway.
    [AWS Management Console](https://console.aws.amazon.com).
 
    The AWS account ID and the AWS Transit Gateway ID will be referred to as
-   `$user_account_id` and `$user_tgw_id`, respectively.
+   `USER_ACCOUNT_ID` and `USER_TGW_ID`, respectively.
 
 1. Share the TGW with the Aiven AWS account using one of the following:
 
@@ -70,7 +70,15 @@ to all other networks attached, directly or indirectly, to the Transit Gateway.
    </TabItem>
    </Tabs>
 
-   The Aiven VPC ID will be referred to as `$vpc_id`.
+   The Aiven VPC ID will be referred to as `VPC_ID`.
+
+1. If your Aiven VPC is an [organization VPC](/docs/platform/concepts/vpcs#vpc-types),
+   find your organization ID. Otherwise, skip this step.
+
+   [Find your organization ID in the Aiven Console](/docs/platform/reference/get-resource-IDs#get-an-organization-id)
+   or retrieve your organization ID from the output of the `avn organization list` command.
+
+   The organization ID, if applicable, will be referred to as `ORG_ID`.
 
 1. Determine the IP ranges to route from the VPC to the AWS Transit Gateway.
 
@@ -81,7 +89,7 @@ to all other networks attached, directly or indirectly, to the Transit Gateway.
    any IP range (CIDR) to be routed using the VPC attachment.
    :::
 
-   The IP ranges will be referred to as `$user_peer_network_cidr`.
+   The IP ranges will be referred to as `USER_PEER_NETWORK_CIDR`.
 
 ## Request the attachment
 
@@ -97,25 +105,26 @@ but you would need to add it later to make your attachment operational.
 :::
 
 Depending on the type of your Aiven VPC, select **Project VPC** or **Organization VPC**,
-and run the provided commands, replacing `$` placeholders with meaningful values.
+and run the provided commands, replacing placeholders with meaningful values.
 
    <Tabs groupId="group1">
    <TabItem value="pj-vpc" label="Project VPC" default>
 ```bash
 avn vpc peering-connection create       \
-  --project-vpc-id $vpc_id              \
-  --peer-cloud-account $user_account_id \
-  --peer-vpc $user_tgw_id               \
-  --user-peer-network-cidr $user_peer_network_cidr
+  --project-vpc-id VPC_ID               \
+  --peer-cloud-account USER_ACCOUNT_ID  \
+  --peer-vpc USER_TGW_ID                \
+  --user-peer-network-cidr USER_PEER_NETWORK_CIDR
 ```
    </TabItem>
    <TabItem value="org-vpc" label="Organization VPC">
 ```bash
 avn organization vpc peering-connection create \
-  --organization-vpc-id $vpc_id                \
-  --peer-cloud-account $user_account_id        \
-  --peer-vpc $user_tgw_id                      \
-  --user-peer-network-cidr $user_peer_network_cidr
+  --organization-id ORG_ID                     \
+  --organization-vpc-id VPC_ID                 \
+  --peer-cloud-account USER_ACCOUNT_ID         \
+  --peer-vpc USER_TGW_ID                       \
+  --user-peer-network-cidr USER_PEER_NETWORK_CIDR
 ```
    </TabItem>
    </Tabs>
@@ -128,23 +137,24 @@ a few minutes. Once the connection is built, the status changes to `PENDING_PEER
 
 To check the status of your peering connection request, select either **Project VPC** or
 **Organization VPC**, depending on your Aiven VPC type, and run the provided commands,
-replacing `$` placeholders with meaningful values.
+replacing placeholders with meaningful values.
 
    <Tabs groupId="group1">
    <TabItem value="pj-vpc" label="Project VPC" default>
 ```bash
-avn vpc peering-connection get          \
-  --project-vpc-id $vpc_id              \
-  --peer-cloud-account $user_account_id \
-  --peer-vpc $user_tgw_id -v
+avn vpc peering-connection get         \
+  --project-vpc-id VPC_ID              \
+  --peer-cloud-account USER_ACCOUNT_ID \
+  --peer-vpc USER_TGW_ID -v
 ```
    </TabItem>
    <TabItem value="org-vpc" label="Organization VPC">
 ```bash
-avn organization vpc peering-connection get \
-  --organization-vpc-id $vpc_id             \
-  --peer-cloud-account $user_account_id     \
-  --peer-vpc $user_tgw_id -v
+avn organization vpc get               \
+  --organization-id ORG_ID             \
+  --organization-vpc-id VPC_ID         \
+  --peer-cloud-account USER_ACCOUNT_ID \
+  --peer-vpc USER_TGW_ID -v
 ```
    </TabItem>
    </Tabs>
@@ -162,7 +172,7 @@ Once the status is `PENDING_PEER`, accept the attachment in your AWS account.
 
 The Aiven Platform monitors the attachment until it is accepted. Once it detects that the
 request is accepted, the status changes to `ACTIVE`. This indicates that your attachment
-is operational, the VPC route table is updated to route `$user_peer_network_cidr` to the
+is operational, the VPC route table is updated to route `USER_PEER_NETWORK_CIDR` to the
 Transit Gateway, and service nodes in the VPC have open firewall access to those networks.
 
 <RelatedPages/>
