@@ -570,17 +570,16 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.indexes} /> <b>Indexes</b>
         </>
       );
-<<<<<<< HEAD
     case 'editversion':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Change version</b>
-=======
+        </>
+      );
     case 'downarrow':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.chevronDown} />
->>>>>>> 0a6c582f (integration databases)
         </>
       );
     case 'streamingcatalog':
