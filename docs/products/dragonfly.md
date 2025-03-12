@@ -4,7 +4,7 @@ title: Aiven for Dragonfly®
 
 import DocCardList from '@theme/DocCardList';
 import Note from "@site/static/includes/dragonflysla-note.md"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Dragonfly is an advanced, **high-scale, and Aiven for Caching compatible in-memory database service** that can be deployed in your preferred cloud environment.
 It provides lightning-fast data storage and retrieval capabilities, making it ideal for

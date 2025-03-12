@@ -3,7 +3,7 @@ title: Querying external data in Aiven for ClickHouse®
 sidebar_label: Federated queries
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Discover federated queries and their capabilities in Aiven for ClickHouse® and how they simplify and speed up migrating into Aiven from external data sources.
 

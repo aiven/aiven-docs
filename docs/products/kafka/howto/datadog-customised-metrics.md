@@ -2,7 +2,7 @@
 title: Configure Apache Kafka® metrics sent to Datadog
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 import Note from "@site/static/includes/startup-plan-datadog.md"
 
 When creating a [Datadog service integration](https://docs.datadoghq.com/integrations/kafka/?tab=host#kafka-consumer-integration), you can customize which metrics are sent to the Datadog endpoint using the [Aiven CLI](/docs/tools/cli).

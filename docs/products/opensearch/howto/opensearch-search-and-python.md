@@ -2,7 +2,7 @@
 title: Write search queries with OpenSearch® and Python
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how to write and run search queries on your OpenSearch cluster using a [Python OpenSearch client](https://github.com/opensearch-project/opensearch-py).
 

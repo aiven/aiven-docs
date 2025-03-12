@@ -2,7 +2,7 @@
 title: Apache Kafka® REST proxy authorization
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Apache Kafka® REST proxy authorization, when
 [enabled](/docs/products/kafka/karapace/howto/enable-karapace) on your Aiven for Apache Kafka® service, allows the

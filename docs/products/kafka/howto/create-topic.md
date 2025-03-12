@@ -3,7 +3,7 @@ title: Create an Apache Kafka® topic
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 You can configure Aiven for Apache Kafka® to [automatically create topics when a message is produced to a non-existent topic](create-topics-automatically), but it is recommended to create topics beforehand, especially in production environments.
 

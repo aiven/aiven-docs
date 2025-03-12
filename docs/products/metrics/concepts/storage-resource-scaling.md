@@ -2,7 +2,7 @@
 title: Optimize storage and resources
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Metrics optimizes storage and compute resources using tiered storage, disk storage, memory, and compute power to balance cost and performance.
 

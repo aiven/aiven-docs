@@ -2,10 +2,10 @@
 title: Manage service users in Aiven for Apache Kafka®
 sidebar_label: Manage service users
 ---
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Create and manage service users in Aiven for Apache Kafka to enable secure access and interaction with your service.
 

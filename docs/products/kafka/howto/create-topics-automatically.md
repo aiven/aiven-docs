@@ -3,9 +3,9 @@ title: Create Apache Kafka® topics automatically
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Apache Kafka® can automatically create a topic if a message is produced to a topic that doesn't already exist.
 

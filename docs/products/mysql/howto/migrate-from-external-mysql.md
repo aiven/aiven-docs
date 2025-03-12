@@ -2,7 +2,7 @@
 title: Migrate to Aiven for MySQL from an external MySQL
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for MySQL offers a managed process for migrating from an external MySQL into the Aiven-hosted database. It supports both a one-off dump-and-restore process and using the ongoing replication functionality built-in to MySQL.
 

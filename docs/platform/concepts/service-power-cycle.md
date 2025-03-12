@@ -6,8 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Controlling when to power on and off your Aiven services allows you to control the use of resources and save credits.
 Idle resources are released and only the necessary data is kept after a power-off.

@@ -2,7 +2,7 @@
 title: Authentication types
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use modern encryption protocols to protect data in transit with Apache Kafka®. Aiven for Apache Kafka® provides multiple options to secure your data.
 

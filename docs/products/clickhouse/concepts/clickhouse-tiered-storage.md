@@ -3,8 +3,8 @@ title: Tiered storage in Aiven for ClickHouse®
 sidebar_label: Tiered storage
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's local disk usage.
 

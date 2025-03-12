@@ -5,7 +5,7 @@ sidebar_label: Manage connector versions
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
 It prevents compatibility issues from automatic updates, avoids breaking changes

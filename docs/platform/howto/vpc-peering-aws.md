@@ -6,7 +6,7 @@ sidebar_label: AWS peering
 import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
 import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
 import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

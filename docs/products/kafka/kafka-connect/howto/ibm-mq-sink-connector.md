@@ -3,7 +3,7 @@ title: Create an IBM MQ sink connector in Aiven for Apache Kafka®
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 The IBM MQ sink connector allows you to route messages from Apache Kafka® topics to IBM MQ queues.
 

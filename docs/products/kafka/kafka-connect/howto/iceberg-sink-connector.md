@@ -6,7 +6,7 @@ early: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Integrate Aiven for Apache Kafka® with the Iceberg sink connector to ingest real-time data into Iceberg tables for analytics and storage.
 <!-- vale off -->

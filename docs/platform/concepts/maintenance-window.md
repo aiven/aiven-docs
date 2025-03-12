@@ -2,8 +2,8 @@
 title: Service maintenance, updates and upgrades
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven applies some maintenance updates automatically and lets you decide when to apply major version upgrades.
 

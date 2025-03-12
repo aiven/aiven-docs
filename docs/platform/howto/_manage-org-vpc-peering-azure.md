@@ -4,7 +4,7 @@ sidebar_label: Azure peering
 ---
 
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

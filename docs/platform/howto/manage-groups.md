@@ -2,7 +2,7 @@
 title: Manage groups of users
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Create groups of users in your organization to make it easier to manage access to your organization's resources.
 

@@ -2,8 +2,8 @@
 title: Use Prometheus with Aiven
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Discover Prometheus as a tool for monitoring your Aiven services. Check why use it and how it works. Learn how to enable and configure Prometheus on your project.
 

@@ -5,7 +5,7 @@ sidebar_label: Move data between storage devices
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Moving data from SSD to object storage allows you to size down your SSD by selecting
 a service plan with less SSD capacity. You can move the data back to your SSD anytime.

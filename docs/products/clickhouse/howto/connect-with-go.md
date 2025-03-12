@@ -2,7 +2,7 @@
 title: Connect to the Aiven for ClickHouse® service with Go
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To connect to your Aiven for ClickHouse® service with Go, you can use
 the native protocol or the HTTPS protocol in specific cases. This

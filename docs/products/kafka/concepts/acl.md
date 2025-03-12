@@ -3,7 +3,7 @@ title: Access Control Lists in Aiven for Apache Kafka®
 sidebar_label: Access control lists
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Access Control Lists (ACLs) in Aiven for Apache Kafka® manage access to topics, consumer groups, clusters, and Schema Registry with permissions.
 

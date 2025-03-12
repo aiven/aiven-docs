@@ -4,7 +4,7 @@ title: Enable and configure tiered storage for topics
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Aiven for Apache Kafka® allows you to configure tiered storage and set retention policies for individual topics.
 

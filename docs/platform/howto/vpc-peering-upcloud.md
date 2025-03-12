@@ -3,12 +3,12 @@ title: Manage a project VPC peering with UpCloud
 sidebar_label: UpCloud peering
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
+import RelatedPages from "@site/src/components/RelatedPages"
 import CollectDataUpcloud from "@site/static/includes/vpc/collect-data-upcloud.md";
 import AcceptPeeringUpcloud from "@site/static/includes/vpc/accept-peering-upcloud.md";
 import DeletePjPeering from "@site/static/includes/vpc/delete-pj-peering.md";
 import RenewLeaseUpcloud from "@site/static/includes/vpc/renew-lease-upcloud.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

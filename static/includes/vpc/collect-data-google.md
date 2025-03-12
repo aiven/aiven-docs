@@ -1,4 +1,4 @@
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 1. Log in to the [Google Cloud console](https://console.cloud.google.com/), open the
    navigation menu, and select **Cloud overview** > **Dashboard**.

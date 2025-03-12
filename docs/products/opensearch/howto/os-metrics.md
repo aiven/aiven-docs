@@ -6,8 +6,8 @@ sidebar_label: OpenSearch metrics with Prometheus
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import HostMetrics from "@site/static/includes/host-metrics.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Monitor and optimize your Aiven for OpenSearch service with metrics available via Prometheus.
 These metrics help track cluster health, replication status, and overall performance.

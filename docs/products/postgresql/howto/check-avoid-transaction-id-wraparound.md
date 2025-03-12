@@ -2,7 +2,7 @@
 title: Check and avoid transaction ID wraparound
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The PostgreSQL® transaction control mechanism assigns a transaction ID
 to every row that is modified in the database; these IDs control the

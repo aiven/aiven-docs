@@ -2,7 +2,7 @@
 title: Migrate PostgreSQL® databases to Aiven using the console
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Migrate PostgreSQL databases to the Aiven platform using the Aiven Console.
 

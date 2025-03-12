@@ -3,7 +3,7 @@ title: Local on-disk cache for remote files in Aiven for ClickHouse®'s tiered s
 sidebar_label: Local on-disk cache for remote files
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for ClickHouse®'s tiered storage features local on-disk cache for remote files for improved query performance and reduced latency.
 

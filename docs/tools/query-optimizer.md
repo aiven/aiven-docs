@@ -3,9 +3,9 @@ title: Standalone SQL query optimizer
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import FAQ from "@site/static/includes/faq-ai.md"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use Aiven's AI-powered **SQL query optimizer** for PostgreSQL® and MySQL® to get query optimization recommendations for an ad-hoc query.
 

@@ -2,8 +2,8 @@
 title: Send metrics to Datadog
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 import Note from "@site/static/includes/startup-plan-datadog.md"
 
 Send metrics from your Aiven service to your external Datadog account.

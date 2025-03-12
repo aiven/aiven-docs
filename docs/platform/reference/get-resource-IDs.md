@@ -2,7 +2,7 @@
 title: Get resource IDs
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Resource IDs like organzation ID or user ID can be useful for working with the developer tools. You can get the IDs for resources in the [Aiven Console](https://console.aiven.io/).
 

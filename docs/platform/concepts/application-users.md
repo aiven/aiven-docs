@@ -2,7 +2,7 @@
 title: Application users
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 An application user is a type of user that provides programmatic access to the Aiven platform and services through the [Aiven API](/docs/tools/api.md), [CLI](/docs/tools/), [Aiven Terraform Provider](/docs/tools/terraform.md), and [Aiven Kubernetes Operator](/docs/tools/kubernetes). They're intended for non-human users that need to access Aiven.
 

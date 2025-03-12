@@ -5,7 +5,7 @@ sidebar_label: Use marketplace subscriptions
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven makes its services available through various Marketplaces. If you already have services running in a project, which is billed directly through Aiven, you can move to a Marketplace subscription without disrupting your services.
 

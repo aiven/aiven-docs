@@ -2,7 +2,7 @@
 title: Configure Prometheus for Aiven for Apache Kafka® using Privatelink
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 You can integrate Prometheus with your Aiven for Apache Kafka® service using Privatelink for secure monitoring.
 This setup uses a Privatelink load balancer, which allows for efficient service

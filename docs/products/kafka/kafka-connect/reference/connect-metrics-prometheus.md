@@ -2,7 +2,7 @@
 title: Aiven for Apache Kafka® Connect metrics available via Prometheus
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Discover metrics offered by Prometheus for the Aiven for Apache Kafka® Connect service.
 

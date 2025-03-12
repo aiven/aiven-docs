@@ -4,7 +4,7 @@ sidebar_label: Limits and limitations
 ---
 
 import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 By respecting the Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 

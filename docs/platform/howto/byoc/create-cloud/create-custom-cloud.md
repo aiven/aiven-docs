@@ -5,11 +5,11 @@ keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring you
 ---
 
 import DocCardList from '@theme/DocCardList';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import Card from "@site/src/components/non-swizzled/Card";
-import GridContainer from "@site/src/components/non-swizzled/GridContainer";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Card from "@site/src/components/Card";
+import GridContainer from "@site/src/components/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To create custom clouds in Aiven using self-service, select your cloud provider to integrate with.
 

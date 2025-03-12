@@ -4,7 +4,7 @@ limited: true
 sidebar_label: Backup to another region
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
 

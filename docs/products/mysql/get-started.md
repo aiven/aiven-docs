@@ -6,9 +6,9 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Start using Aiven for MySQL® by creating a service, connecting to it, and loading sample data.
 

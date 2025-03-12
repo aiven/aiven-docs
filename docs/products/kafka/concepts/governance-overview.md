@@ -4,7 +4,7 @@ sidebar_label: Governance
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Governance in Aiven for Apache Kafka® provides a structured and secure way to manage your Aiven for Apache Kafka clusters, ensuring security, compliance, and efficiency.
 It includes policies, roles, and processes that streamline operations, enforce standards,

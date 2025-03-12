@@ -2,7 +2,7 @@
 title: Prevent running out of disk space
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven prevents running out of disk space from happening and how you can make more space available on your disk when needed. Running out of disk space makes the service start malfunctioning and prevents backups from being properly created.
 

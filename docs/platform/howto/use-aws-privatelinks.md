@@ -2,7 +2,7 @@
 title: Use AWS PrivateLink with Aiven services
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AivenConsolePrivateLinkConfiguration from "@site/static/images/content/platform/howto/use-aws-privatelink_image2.png";
 
 AWS [PrivateLink](https://aws.amazon.com/privatelink/) brings Aiven services to the selected virtual private cloud (VPC) in your AWS account.

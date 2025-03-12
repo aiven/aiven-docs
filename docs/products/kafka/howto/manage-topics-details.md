@@ -3,7 +3,7 @@ title: Manage Apache Kafka® topics in detail
 sidebar_label: Detailed topic management
 early: true
 ---
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Explore advanced topic management features in the Apache Kafka topic catalog. Navigate through various options and configurations for your Apache Kafka topics.
 

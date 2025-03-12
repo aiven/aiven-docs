@@ -2,7 +2,7 @@
 title: Aiven for Apache Flink®
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 import Note from "@site/static/includes/flink-service-creation-limitation.md"
 
 <Note/>

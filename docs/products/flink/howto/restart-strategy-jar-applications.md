@@ -2,7 +2,7 @@
 title: Restart strategy in SQL and JAR applications
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven for Apache Flink® applications uses restart strategies to recover from job failures, ensuring high availability and fault tolerance for your distributed applications.
 

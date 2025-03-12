@@ -3,7 +3,7 @@ title: Bring your own cloud networking and security
 sidebar_label: Networking & security
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven combines a multi-cloud strategy with a cloud-agnostic approach to make the [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) experience not only versatile and cost-efficient but also secure.
 

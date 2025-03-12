@@ -2,7 +2,7 @@
 title: Indices
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 OpenSearch® uses indices to organize data into types, similar to databases and tables in relational databases.
 

@@ -2,7 +2,7 @@
 title: Migrate MySQL® databases to Aiven using the Console
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use the Console to migrate MySQL® databases to managed MySQL clusters in your Aiven organization.
 

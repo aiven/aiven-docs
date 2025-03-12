@@ -2,7 +2,7 @@
 title: Compacted topics
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 One way to reduce the disk space requirements in Apache Kafka® is to use **compacted topics**.
 This method retains only the newest record

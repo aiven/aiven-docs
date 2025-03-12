@@ -1,4 +1,4 @@
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 1. Log in to the [AWS Management Console](https://console.aws.amazon.com), open the
    navigation menu, and select **All services**.

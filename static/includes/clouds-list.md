@@ -1,4 +1,4 @@
-import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 ## Amazon Web Services
 

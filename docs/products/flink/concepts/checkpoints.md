@@ -2,7 +2,7 @@
 title: Checkpoints
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Checkpoints in Aiven for Apache Flink® are a key feature for ensuring resiliency and fault tolerance in stateful functions.
 

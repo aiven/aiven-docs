@@ -3,7 +3,7 @@ title: Tables in Aiven for Apache Flink®
 sidebar_label: Tables
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 With Aiven for Apache Flink®, you can create and manage data pipelines using [Flink tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table).
 These tables are created within an application on your Aiven for Apache
