@@ -2,7 +2,7 @@
 title: Configure the log cleaner for topic compaction
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The log cleaner serves the purpose of preserving only the latest value associated with a specific message key in a partition for [compacted topics][logcompaction].
 In Aiven for Apache Kafka®, the log cleaner is enabled by

@@ -2,8 +2,8 @@
 title: Manage Aiven for ClickHouse® integration databases
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 You can set up and manage integration databases from the the <ConsoleLabel name="databasesandtables"/> view of your Aiven for ClickHouse service.
 

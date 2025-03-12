@@ -5,8 +5,8 @@ sidebar_label: Download InfluxDB data
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Download a backup of your Aiven for InfluxDB service data by requesting a backup. This creates a snapshot of your latest data, ready for download.
 

@@ -3,7 +3,7 @@ title: Connect to Aiven for PostgreSQL® with DBeaver
 sidebar_label: Connect with DBeaver
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use [DBeaver](https://dbeaver.com/) to connect to your Aiven for PostgreSQL® service.
 

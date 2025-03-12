@@ -2,7 +2,7 @@
 title: Indexing and data processing in ClickHouse®
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 ClickHouse® processes data differently from other database management systems. ClickHouse uses sparse and skipping indexes and a vector computation engine.
 

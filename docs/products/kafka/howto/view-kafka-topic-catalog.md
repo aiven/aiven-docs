@@ -4,7 +4,7 @@ sidebar_label: Manage topic catalog
 early: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview) offers a user-friendly interface to manage your Apache Kafka topics within your Aiven for Apache Kafka services.
 

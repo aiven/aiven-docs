@@ -6,7 +6,7 @@ sidebar_label: Valkey™ metrics in Prometheus
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import HostMetrics from "@site/static/includes/host-metrics.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Monitor and optimize your Aiven for Valkey service with metrics available via Prometheus.
 These metrics help track cluster health, replication status, and overall performance.

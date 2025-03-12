@@ -3,8 +3,8 @@ title: Services
 sidebar_label: Overview
 ---
 
-import Card from "@site/src/components/non-swizzled/Card";
-import GridContainer from "@site/src/components/non-swizzled/GridContainer";
+import Card from "@site/src/components/Card";
+import GridContainer from "@site/src/components/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";

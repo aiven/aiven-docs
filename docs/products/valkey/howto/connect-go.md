@@ -3,7 +3,7 @@ title: Connect with Go
 ---
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.go';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Establish a connection to the Aiven for Valkey™ service using Go. This example demonstrates how to connect to Aiven for Valkey from Go using the `go-valkey/valkey` library, designed to interact with the Valkey protocol.
 

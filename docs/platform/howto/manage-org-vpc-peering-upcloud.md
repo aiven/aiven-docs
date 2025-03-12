@@ -8,7 +8,7 @@ import CollectDataUpcloud from "@site/static/includes/vpc/collect-data-upcloud.m
 import AcceptPeeringUpcloud from "@site/static/includes/vpc/accept-peering-upcloud.md";
 import RenewLeaseUpcloud from "@site/static/includes/vpc/renew-lease-upcloud.md";
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

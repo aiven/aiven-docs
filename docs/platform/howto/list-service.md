@@ -3,7 +3,7 @@ title: Service management
 ---
 
 import DocCardList from '@theme/DocCardList';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 ## Overview
 

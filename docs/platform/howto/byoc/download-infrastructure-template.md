@@ -4,10 +4,10 @@ sidebar_label: Download TF template & tfvars file
 keywords: [Terraform, deployment, deploy, byoc, bring your own cloud, custom cloud]
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Download a Terraform template and a variables file that define the infrastructure of your
 [custom cloud](/docs/platform/concepts/byoc).

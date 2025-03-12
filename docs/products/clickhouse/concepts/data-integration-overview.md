@@ -4,8 +4,8 @@ sidebar_label: Integrations
 keywords: [data service integration, data source integration, managed credentials integration, managed databases integration, named collections]
 ---
 
-import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for ClickHouse® supports different types of integration allowing you to efficiently connect with other services or data sources and access the data to be processed.
 

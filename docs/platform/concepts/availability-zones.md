@@ -2,7 +2,7 @@
 title: Availability zones
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Availability zones (AZs) are physically isolated locations (data centers) where cloud services operate.
 

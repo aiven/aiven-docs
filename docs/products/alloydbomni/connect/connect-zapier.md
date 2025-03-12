@@ -3,7 +3,7 @@ title: Connect with Zapier
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using the [Zapier](https://zapier.com/) automation platform.
 

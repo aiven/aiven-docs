@@ -3,7 +3,7 @@ title: OpenSearch® cross-cluster replication
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Cross-cluster replication (CCR) in Aiven for OpenSearch allows you to replicate an entire cluster, including all indexes, mappings, and metadata, from one service to another across different regions and cloud providers.
 

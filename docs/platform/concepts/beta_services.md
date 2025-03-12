@@ -2,8 +2,8 @@
 title: Service and feature releases
 ---
 
-import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
-import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
 New services and features follow a release lifecycle that promotes quality by giving customers the chance to test them and provide feedback.
 

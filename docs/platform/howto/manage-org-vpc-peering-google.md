@@ -4,7 +4,7 @@ sidebar_label: Google Cloud peering
 limited: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md"
 import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md"
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";

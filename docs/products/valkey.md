@@ -2,7 +2,7 @@
 title: Aiven for Valkey™
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Valkey™ is a managed, in-memory NoSQL database service that offers high performance, scalability, and security.
 

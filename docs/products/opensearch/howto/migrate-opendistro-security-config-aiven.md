@@ -4,7 +4,7 @@ sidebar_label: Migrate OpenDistro security configuration
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Migrate your security configuration from an OpenDistro service to Aiven for OpenSearch® using a migration script.
 

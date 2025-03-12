@@ -1,4 +1,4 @@
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

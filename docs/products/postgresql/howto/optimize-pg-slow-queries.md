@@ -4,8 +4,8 @@ sidebar_label: Optimize queries
 keywords: ["AI", "Artificial intelligence", "Aiven AI Database Optimizer"]
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for PostgreSQL allows you to [identify slow queries](/docs/products/postgresql/howto/identify-pg-slow-queries) using the `pg_stat_statements` view.
 

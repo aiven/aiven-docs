@@ -5,7 +5,7 @@ sidebar_label: S3 source connector
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 The Amazon S3 source connector allows you to ingest data from S3 buckets into Apache Kafka® topics for real-time processing and analytics.
 
@@ -103,7 +103,7 @@ Parameters:
   authentication.
 - `aws.s3.bucket.name`: The name of the S3 bucket containing the source data.
 - `aws.s3.region`: The AWS region where the bucket is located.
-- `aws.s3.prefix` objectptional: Filters objects within the S3 bucket.
+- `aws.s3.prefix` optional: Filters objects within the S3 bucket.
 - `aws.credentials.provider`: Specifies the AWS credentials provider.
 - `topic` optional: The connector publishes ingested data to the specified Apache
   Kafka topic. If not set, it derives the topic from the `file.name.template`

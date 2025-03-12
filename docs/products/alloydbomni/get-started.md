@@ -7,7 +7,7 @@ early: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 import Help from "@site/static/includes/cli-help.md"
 

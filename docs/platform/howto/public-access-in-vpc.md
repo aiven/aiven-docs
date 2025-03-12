@@ -2,7 +2,7 @@
 title: Enable public access in VPCs
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 To enable public access for a service running within a virtual private cloud (VPC):
 

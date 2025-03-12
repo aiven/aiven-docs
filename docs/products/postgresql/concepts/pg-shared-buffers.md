@@ -3,7 +3,7 @@ title: Aiven for PostgreSQL® shared buffers
 sidebar_label: Shared buffers
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use shared buffers to share memory over multiple sessions. Discover how to inspect the database cache performance and the query cache performance and learn how to put data into cache manually.
 

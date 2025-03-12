@@ -2,7 +2,7 @@
 title: Change your password
 ---
 
-import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
 You can change your password for the Aiven Platform in your account information.
 

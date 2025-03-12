@@ -3,10 +3,10 @@ title: Manage services hosted in custom clouds
 sidebar_label: Manage BYOC services
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Create a service in your custom cloud or migrate an existing service to your custom cloud.
 

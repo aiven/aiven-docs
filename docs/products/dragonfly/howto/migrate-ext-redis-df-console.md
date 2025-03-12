@@ -3,9 +3,9 @@ title: Migrate external Redis®* or Valkey databases to Aiven for Dragonfly®
 sidebar_label: Migrate external Redis®* or Valkey to Dragonfly
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Migrate external Redis® or Valkey databases to Aiven for Dragonfly® using the Aiven Console migration tool.
 

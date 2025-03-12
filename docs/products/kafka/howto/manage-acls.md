@@ -4,8 +4,8 @@ title: Manage access control lists in Aiven for Apache Kafka®
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Access control lists (ACLs) in Aiven for Apache Kafka® define permissions for topics, schemas, consumer groups, and transactional IDs.
 ACLs control which authenticated users or applications (principals) can perform specific

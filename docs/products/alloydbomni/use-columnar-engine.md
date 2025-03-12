@@ -4,7 +4,7 @@ sidebar_label: Use columnar engine
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Enable or disable the Aiven for AlloyDB Omni columnar engine, and control how much RAM it can use to leverage AI and analytics capabilities of your service.
 

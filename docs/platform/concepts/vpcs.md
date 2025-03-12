@@ -3,8 +3,8 @@ title: Virtual private clouds (VPCs) in Aiven
 sidebar_label: VPCs overview
 ---
 
-import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Virtual private clouds (VPCs) supported on the Aiven Platform provide enhanced security, flexibility, and network control, allowing efficient traffic, resource, and access management.
 

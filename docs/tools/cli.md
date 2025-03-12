@@ -2,7 +2,7 @@
 title: Aiven CLI
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Aiven command line interface (CLI) lets you use the Aiven platform and services in a scriptable way through the API.
 

@@ -5,8 +5,8 @@ sidebar_label: Attach projects
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Select your organizations, units, or project that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 

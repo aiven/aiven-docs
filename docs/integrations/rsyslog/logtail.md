@@ -2,7 +2,7 @@
 title: Send Aiven logs to Logtail
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 [Logtail](https://betterstack.com/logs) is a logging service. You can use the Aiven [Remote syslog integration](/docs/integrations/rsyslog) to send your logs to Logtail.
 

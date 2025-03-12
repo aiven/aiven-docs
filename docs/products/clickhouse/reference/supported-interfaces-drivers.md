@@ -2,7 +2,7 @@
 title: Interfaces and drivers supported in Aiven for ClickHouse®
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Find out what technologies and tools you can use to interact with Aiven for ClickHouse®.
 

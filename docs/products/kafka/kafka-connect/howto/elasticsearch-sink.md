@@ -1,7 +1,7 @@
 ---
 title: Create a sink connector from Apache Kafka® to Elasticsearch
 ---
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Elasticsearch sink connector enables you to move data from an Aiven for Apache Kafka® cluster to an Elasticsearch instance for further processing and analysis.
 

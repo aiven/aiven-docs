@@ -4,8 +4,8 @@ sidebar_label: Valkey read replica
 early: true
 ---
 
-import Button from "@site/src/components/non-swizzled/Buttons";
-import GridContainer from "@site/src/components/non-swizzled/GridContainer";
+import Button from "@site/src/components/Buttons";
+import GridContainer from "@site/src/components/GridContainer";
 
 Aiven for Valkey read replica replicates data from a primary service to a replica service across different DNS zones, clouds, or regions, enhancing data availability and supporting disaster recovery.
 

@@ -4,8 +4,8 @@ sidebar_label: Manage cross-region backup
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

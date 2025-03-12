@@ -2,8 +2,8 @@
 title: Manage projects
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
 Learn how to manage your projects with the Aiven Console.
 

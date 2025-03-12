@@ -2,7 +2,7 @@
 title: Configure Apache Kafka® MirrorMaker 2 metrics sent to Datadog
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 When creating a [Datadog service integration](https://docs.datadoghq.com/integrations/kafka/?tab=host#kafka-consumer-integration), customize which metrics are sent to the Datadog endpoint using the [Aiven CLI](/docs/tools/cli).
 

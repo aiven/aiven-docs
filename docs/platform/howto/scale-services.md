@@ -2,8 +2,8 @@
 title: Change a service plan
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages"
 
 Adjust the plan of your services at any time to scale your services as needed and optimize costs.
 You can also [adjust disk storage][storage] without changing your plan.

@@ -5,7 +5,7 @@ title: Aiven API
 import RIP from "@site/static/includes/run-in-postman.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use the Aiven API to programmatically access and automate tasks in the Aiven platform.
 

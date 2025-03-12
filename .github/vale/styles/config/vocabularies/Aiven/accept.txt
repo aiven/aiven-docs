@@ -2,6 +2,7 @@
 ACL
 ACLs
 Addons
+africa
 AIInsights
 Aiven
 Aiven's
@@ -9,13 +10,16 @@ allowlist
 allowlists
 Altinity
 Amazon
+america
 Apache
 API
 APIs
 args
 ARN
 ARNs
+Ashburn
 Astacus
+australia
 Auth0
 autojoin
 autoscaler
@@ -93,6 +97,7 @@ enablement
 Entra
 Epicurious
 etcd
+europe
 European Union
 eval
 event_type
@@ -115,6 +120,9 @@ geospatial
 GitHub
 go
 Google Cloud Platform
+google_columnar_engine_enabled
+google_columnar_engine_enabled
+google_columnar_engine_memory_size_percentage
 Gradle
 Grafana
 Grafana/M
@@ -189,6 +197,7 @@ myhoard
 myhoard
 MySQL
 mysqldump
+NACLs
 namespace/MS
 namespaces?
 netmask
@@ -214,6 +223,7 @@ Pagerduty
 Pagila
 Papertrail
 parallelization
+Paulo
 peering
 peerings
 Percona
@@ -247,6 +257,7 @@ rebalances
 rebalancing
 Redis
 Redis OSS
+redis_ssl
 redis_timeout
 Redli
 refcard
@@ -260,6 +271,7 @@ safelist
 safelisting
 Sakila
 SAML
+Sao
 Sarama
 savepoint
 savepoints

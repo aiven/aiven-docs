@@ -4,7 +4,7 @@ title: Aiven for OpenSearch®
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 import Kibana from "@site/static/includes/trademark-kibana.md"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 import DocCardList from '@theme/DocCardList';
 
 Aiven for OpenSearch® is a fully managed distributed search and analytics suite, deployable in the cloud of your choice.

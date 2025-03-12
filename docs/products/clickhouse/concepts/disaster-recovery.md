@@ -2,7 +2,7 @@
 title: Disaster recovery in Aiven for ClickHouse®
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for ClickHouse® prevents and mitigates emergencies or crises with multiple disaster recovery methods to keep your data safe and sound.
 

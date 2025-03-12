@@ -2,7 +2,7 @@
 title: Manage connection pooling
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling) lets you maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 

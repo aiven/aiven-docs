@@ -2,7 +2,7 @@
 title: Guarantees
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 With Aiven for Apache Kafka®'s tiered storage, there are two primary types of data retention guarantees: **total retention** and **local retention**.
 

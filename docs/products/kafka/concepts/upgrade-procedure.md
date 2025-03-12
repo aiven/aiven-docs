@@ -6,7 +6,7 @@ sidebar_label: Upgrade procedure
 import MyImg from "@site/static/images/content/figma/kafka-cluster-overview.png";
 import MyImg2 from "@site/static/images/content/figma/kafka-cluster-overview-upgraded.png";
 import MyImg3 from "@site/static/images/content/figma/kafka-cluster-overview-final.png";
-import EarlyBadge from "@site/src/components/non-swizzled/Badges/EarlyBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
 Aiven for Apache Kafka® offers an automated upgrade procedure, ensuring a smooth transition during various operations.
 

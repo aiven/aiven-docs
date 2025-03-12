@@ -4,8 +4,8 @@ sidebar_label: Migrate Caching or Valkey to Dragonfly
 ---
 
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Migrate your Aiven for Caching or Aiven for Valkey databases to Aiven for Dragonfly using the Aiven Console migration tool.
 

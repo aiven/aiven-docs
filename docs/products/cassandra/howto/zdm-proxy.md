@@ -2,7 +2,7 @@
 title: Migrate to Aiven for Apache Cassandra® with no downtime
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Zero Downtime Migration (ZDM) Proxy is an open-source component developed in Go and based on client-server architecture. It enables you to migrate from one Apache Cassandra® cluster to another without downtime or code changes in the application client.
 

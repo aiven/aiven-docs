@@ -3,10 +3,10 @@ title: Enable tiered storage in Aiven for ClickHouse®
 sidebar_label: Enable tiered storage
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Enable the [tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on a table in your Aiven for ClickHouse® service.
 

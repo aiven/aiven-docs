@@ -2,8 +2,8 @@
 title: Manage group requests
 limited: true
 ---
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The **Group requests** page allows you to view and track requests you and other members of your group made for Aiven for Apache Kafka® resources.
 These requests can include claims for existing topics or requests to create new topics.

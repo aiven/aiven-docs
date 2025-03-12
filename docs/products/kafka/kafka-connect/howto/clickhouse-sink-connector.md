@@ -4,7 +4,7 @@ sidebar_label: ClickHouse sink connector
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 The ClickHouse sink connector delivers data from Apache Kafka® topics to a ClickHouse database for efficient querying and analysis.
 

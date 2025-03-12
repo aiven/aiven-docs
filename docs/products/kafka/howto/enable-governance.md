@@ -4,8 +4,8 @@ sidebar_label: Enable governance
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Enable governance in Aiven for Apache Kafka® to create a secure and compliant framework to manage your Aiven for Apache Kafka services efficiently.
 

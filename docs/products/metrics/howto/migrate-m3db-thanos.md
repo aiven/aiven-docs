@@ -2,7 +2,7 @@
 title: Migrate Aiven for M3DB to Aiven for Metrics
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Migrate your Aiven for M3DB databases to Aiven for Thanos Metrics using the Aiven Console migration tool.
 

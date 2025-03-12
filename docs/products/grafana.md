@@ -2,7 +2,7 @@
 title: Aiven for Grafana®
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Grafana® is a fully managed analytics and monitoring solution, deployable in the cloud of your choice, which can bring unlimited scalability and high availability to your monitoring environment and other time series applications.
 

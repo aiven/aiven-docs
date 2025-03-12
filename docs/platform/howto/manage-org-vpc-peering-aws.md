@@ -7,7 +7,7 @@ limited: true
 import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
 import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

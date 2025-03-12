@@ -3,7 +3,7 @@ title: Aiven for M3
 ---
 
 import DocCardList from '@theme/DocCardList';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for M3 is a fully managed **distributed time series database**, deployable in the cloud of your choice which can bring unlimited scalability and high-availability to your monitoring environment and other time series applications.
 
