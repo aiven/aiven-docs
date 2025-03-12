@@ -2,6 +2,7 @@
 ACL
 ACLs
 Addons
+africa
 AIInsights
 Aiven
 Aiven's
@@ -9,13 +10,16 @@ allowlist
 allowlists
 Altinity
 Amazon
+america
 Apache
 API
 APIs
 args
 ARN
 ARNs
+Ashburn
 Astacus
+australia
 Auth0
 autojoin
 autoscaler
@@ -93,6 +97,7 @@ enablement
 Entra
 Epicurious
 etcd
+europe
 European Union
 eval
 event_type
@@ -218,6 +223,7 @@ Pagerduty
 Pagila
 Papertrail
 parallelization
+Paulo
 peering
 peerings
 Percona
@@ -265,6 +271,7 @@ safelist
 safelisting
 Sakila
 SAML
+Sao
 Sarama
 savepoint
 savepoints
