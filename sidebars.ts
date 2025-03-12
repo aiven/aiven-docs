@@ -914,6 +914,7 @@ const sidebars: SidebarsConfig = {
                         id: 'products/kafka/howto/manage-resource-requests',
                       },
                       items: [
+                        'products/kafka/howto/request-access-topic',
                         'products/kafka/howto/approvals',
                         'products/kafka/howto/group-requests',
                       ],
