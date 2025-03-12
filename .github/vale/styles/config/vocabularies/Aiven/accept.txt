@@ -115,6 +115,9 @@ geospatial
 GitHub
 go
 Google Cloud Platform
+google_columnar_engine_enabled
+google_columnar_engine_enabled
+google_columnar_engine_memory_size_percentage
 Gradle
 Grafana
 Grafana/M
@@ -189,6 +192,7 @@ myhoard
 myhoard
 MySQL
 mysqldump
+NACLs
 namespace/MS
 namespaces?
 netmask
