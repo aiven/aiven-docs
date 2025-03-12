@@ -150,12 +150,11 @@ avn vpc peering-connection get         \
    </TabItem>
    <TabItem value="org-vpc" label="Organization VPC">
 ```bash
-avn organization vpc get               \
-  --organization-id ORG_ID             \
-  --organization-vpc-id VPC_ID         \
-  --peer-cloud-account USER_ACCOUNT_ID \
-  --peer-vpc USER_TGW_ID -v
+avn organization vpc get   \
+  --organization-id ORG_ID \
+  --organization-vpc-id VPC_ID
 ```
+
    </TabItem>
    </Tabs>
 

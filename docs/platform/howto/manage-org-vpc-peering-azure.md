@@ -464,12 +464,9 @@ from your Azure VNet to the Aiven organization VPC:
 1. Check if the status of the peering connection is `ACTIVE`:
 
    ```bash
-   avn organization vpc get -v                       \
-     --organization-id AIVEN_ORG_ID                  \
-     --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID \
-     --peer-cloud-account USER_SUBSCRIPTION_ID       \
-     --peer-resource-group USER_RESOURCE_GROUP       \
-     --peer-vpc USER_VNET_NAME
+   avn organization vpc get         \
+     --organization-id AIVEN_ORG_ID \
+     --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID
    ```
 
 ## Delete the peering
