@@ -542,7 +542,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'streamingcatalog':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />{' '}
+          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />
           <b>Streaming catalog</b>
         </>
       );

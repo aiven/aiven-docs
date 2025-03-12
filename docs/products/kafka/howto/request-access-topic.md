@@ -22,7 +22,7 @@ You can view the service user and ACLs in the following locations in the
 - Select your **Aiven for Apache Kafka** service. In the sidebar,
   click <ConsoleLabel name="acl" /> or <ConsoleLabel name="serviceusers" />.
 - Click **Tools** > **Apache Kafka governance operations**. In the sidebar,
-  click <ConsoleLabel name="Streaming catalog" /> > **Access**.
+  click <ConsoleLabel name="streamingcatalog" /> > **Access**.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ After submitting:
   [Group requests](/docs/products/kafka/howto/group-requests) page under
   **Governance operations**.
 - If approved, you can view and download the credentials for authentication in
-  <ConsoleLabel name="Streaming catalog"/> > Access overview.
+  <ConsoleLabel name="Streaming catalog"/> > **Access**.
 
 ## View and download service user credentials
 
