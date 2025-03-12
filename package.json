@@ -16,8 +16,8 @@
     "aiven-upgrade": "yarn up @docusaurus/core@latest @docusaurus/plugin-client-redirects@latest @docusaurus/plugin-google-gtag@latest @docusaurus/preset-classic@latest @docusaurus/theme-mermaid@latest @docusaurus/module-type-aliases@latest @docusaurus/tsconfig@latest @docusaurus/types@latest @docusaurus/faster algoliasearch @algolia/client-search @aivenio/aquarium"
   },
   "dependencies": {
-    "@aivenio/aquarium": "^1.73.0",
-    "@algolia/client-search": "^5.19.0",
+    "@aivenio/aquarium": "^2.16.0",
+    "@algolia/client-search": "^5.21.0",
     "@docusaurus/core": "^3.7.0",
     "@docusaurus/faster": "^3.7.0",
     "@docusaurus/plugin-client-redirects": "^3.7.0",
@@ -27,7 +27,7 @@
     "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
     "@types/react": "^18.2.48",
-    "algoliasearch": "^5.19.0",
+    "algoliasearch": "^5.21.0",
     "axios": "^1.8.2",
     "cheerio": "^1.0.0",
     "clsx": "^1.2.1",
