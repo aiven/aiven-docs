@@ -1,27 +1,23 @@
 ---
 title: Aiven for AlloyDB Omni
-early: true
 ---
 
 Harness the speed and scalability of Google AlloyDB Omni on any cloud, managed by Aiven.
 
-:::note
-Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-:::
-
 Aiven for AlloyDB Omni is a managed version of Google AlloyDB Omni purpose-built for
-mission-critical PostgreSQL® workloads. It combines the power of Google's advanced database
-technology, new columnar engine, and AI capabilities with the ease of use and multi-cloud
-flexibility of the Aiven platform for Google Cloud, Amazon Web Services, and Microsoft Azure.
+mission-critical PostgreSQL® workloads. It combines the power of Google's advanced
+database technology, new columnar engine, and AI capabilities with the ease of use and
+multi-cloud flexibility of the Aiven Platform for Google Cloud, Amazon Web Services (AWS),
+Microsoft Azure, and Oracle Cloud Infrastructure (OCI).
 
 ## Features and benefits
 
 - Full PostgreSQL compatibility
 
-  Aiven for AlloyDB Omni is designed to be fully compatible with PostgreSQL, ensuring that existing
-  applications and tools work seamlessly without requiring any code changes. It utilizes
-  standard PostgreSQL drivers and supports a wide range of PostgreSQL extensions and flags.
+  Aiven for AlloyDB Omni is designed to be fully compatible with PostgreSQL, ensuring that
+  existing applications and tools work seamlessly without requiring any code changes. It
+  utilizes standard PostgreSQL drivers and supports a wide range of PostgreSQL extensions
+  and flags.
 
   :::note
   Aiven for AlloyDB Omni version 15 is compatible with PostgreSQL version 15.
@@ -34,20 +30,21 @@ flexibility of the Aiven platform for Google Cloud, Amazon Web Services, and Mic
 
 - Managed service simplicity
 
-  Aiven handles the provisioning of Aiven for AlloyDB Omni on any major cloud and takes care
-  of routine tasks like backups, scaling, upgrades, and high availability. This gives you the
-  freedom to focus on innovation and building applications, not database management.
+  Aiven handles the provisioning of Aiven for AlloyDB Omni on any major cloud and takes
+  care of routine tasks like backups, scaling, upgrades, and high availability. This gives
+  you the freedom to focus on innovation and building applications, not database
+  management.
 
 - Built-in generative AI
 
   Build and deploy powerful generative AI applications directly on your operational data.
-  Leverage vector embeddings, perform lightning-fast vector similarity searches, and access
-  cutting-edge AI models within your database, all with the familiarity of SQL.
+  Leverage vector embeddings, perform lightning-fast vector similarity searches, and
+  access cutting-edge AI models within your database, all with the familiarity of SQL.
 
 - Multi-cloud and hybrid flexibility
 
-  Deploy and manage Aiven for AlloyDB Omni seamlessly across AWS, Google Cloud, or Azure.
-  Achieve maximum flexibility and agility anywhere you use PostgreSQL.
+  Deploy and manage Aiven for AlloyDB Omni seamlessly across AWS, Google Cloud, Azure, or
+  OCI. Achieve maximum flexibility and agility anywhere you use PostgreSQL.
 
 - Enterprise-grade security
 
@@ -109,7 +106,7 @@ including:
 ### Setting up Aiven for AlloyDB Omni
 
 - In the Aiven Console, create an Aiven for AlloyDB Omni service. Select a cloud
-  provider (AWS, Google Cloud, Microsoft Azure) and a pricing plan.
+  provider (AWS, Google Cloud, Azure, OCI) and a pricing plan.
 - Aiven handles the infrastructure provisioning and deployment of Aiven for AlloyDB Omni.
 - Once the cluster is up and running, find connection details (host, port, credentials)
   to access your Aiven for AlloyDB Omni database.
@@ -123,9 +120,11 @@ including:
 ### Managing Aiven for AlloyDB Omni
 
 - Manage your Aiven for AlloyDB Omni cluster using the Aiven Console.
-- Scale up or down, fork clusters, upgrade versions, and create read replicas with a few clicks.
+- Scale up or down, fork clusters, upgrade versions, and create read replicas with a few
+  clicks.
 - Use your favorite PostgreSQL tools and extensions compatible with Aiven for AlloyDB Omni.
-- Deploy read replicas across clouds or regions for disaster recovery and improved performance.
+- Deploy read replicas across clouds or regions for disaster recovery and improved
+  performance.
 - Integrate with your preferred monitoring tools or use Aiven's built-in observability
   features for deep insights.
 

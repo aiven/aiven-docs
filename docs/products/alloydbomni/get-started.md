@@ -2,7 +2,6 @@
 title: Get started with Aiven for AlloyDB Omni
 sidebar_label: Get started
 keywords: [quick start]
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,11 +13,6 @@ import Help from "@site/static/includes/cli-help.md"
 Start using Aiven for AlloyDB Omni by setting up a service and connecting to your new default database with a programming language of your choice.
 
 ## Prerequisites
-
-:::note
-Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-:::
 
 - [Aiven CLI](https://github.com/aiven/aiven-client) installed
 - Access to the [Aiven Console](https://console.aiven.io)
@@ -40,7 +34,7 @@ Aiven for AlloyDB Omni is in the
    `demo-alloydbomni`:
 
    ```bash
-    avn service create demo-alloydbomni     \
+    avn service create demo-alloydbomni      \
     --service-type alloydbomni               \
     --cloud CLOUD_AND_REGION                 \
     --plan PLAN                              \

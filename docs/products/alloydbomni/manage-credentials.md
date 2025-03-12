@@ -1,7 +1,6 @@
 ---
 title: Manage Google service account credentials in Aiven for AlloyDB Omni
 sidebar_label: Manage Google credentials
-early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -17,12 +16,6 @@ using either the [Aiven Console](https://console.aiven.io) or the
 ## Prerequisites
 
 - Aiven for AlloyDB Omni service running
-
-  :::note
-  Aiven for AlloyDB Omni is in the
-  [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-  :::
-
 - Access to the [Aiven Console](https://console.aiven.io)
 - [Aiven CLI client](/docs/tools/cli) installed
 - [Service account created with Google Cloud](https://cloud.google.com/iam/docs/service-accounts-create)

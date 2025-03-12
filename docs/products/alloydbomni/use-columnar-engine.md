@@ -1,7 +1,6 @@
 ---
 title: Manage the Aiven for AlloyDB Omni columnar engine
 sidebar_label: Use columnar engine
-early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -19,12 +18,6 @@ Any change to columnar engine settings results in restarting the service.
 ## Prerequisites
 
 - Aiven for AlloyDB Omni service running
-
-  :::note
-  Aiven for AlloyDB Omni is in the
-  [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-  :::
-
 - Access to the [Aiven Console](https://console.aiven.io/)
 
 ## Enable the columnar engine
