@@ -32,7 +32,7 @@ using either the [Aiven Console](https://console.aiven.io) or the
 1. Click **Upload file** > **Choose file**, select the JSON file including your Google
    service account key, and click **Upload**.
 </TabItem>
-<TabItem value="2" label="Aiven CLI client">
+<TabItem value="2" label="Aiven CLI">
 Run:
 
 ```bash
@@ -56,7 +56,7 @@ where:
 1. Click <ConsoleLabel name="actions"/> > **Replace file** > **Choose file**, select the
    JSON file including your new Google service account key, and click **Upload**.
 </TabItem>
-<TabItem value="2" label="Aiven CLI client">
+<TabItem value="2" label="Aiven CLI">
 Run:
 
 ```bash
@@ -79,7 +79,7 @@ where:
 1. Go to <ConsoleLabel name="generativeai"/> > **Goolge service account key**.
 1. Click <ConsoleLabel name="actions"/> > **Delete file** > **Delete**.
 </TabItem>
-<TabItem value="2" label="Aiven CLI client">
+<TabItem value="2" label="Aiven CLI">
 Run:
 
 ```bash
@@ -98,7 +98,7 @@ Display the key ID and the client email associated with your key.
 1. Go to the [Aiven Console](https://console.aiven.io) and your Aiven for AlloyDB Omni service.
 1. Go to <ConsoleLabel name="generativeai"/> > **Google service account key**.
 </TabItem>
-<TabItem value="2" label="Aiven CLI client">
+<TabItem value="2" label="Aiven CLI">
 Run:
 
 ```bash
