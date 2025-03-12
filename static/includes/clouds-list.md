@@ -1,5 +1,7 @@
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+
 <!-- vale off -->
+
 ## Amazon Web Services
 
 <table>
