@@ -3,8 +3,9 @@ title: Manage Aiven for ClickHouse® databases and tables
 sidebar_label: Manage databases and tables
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -15,6 +16,12 @@ Create and work with databases and tables in Aiven for ClickHouse®.
 You can create a database either in the [Aiven Console](https://console.aiven.io/) or
 using an SQL client such as the
 [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
+
+:::tip
+You can also create
+[integration databases](/docs/products/clickhouse/howto/integration-databases#create-integration-databases)
+in Aiven for ClickHouse.
+:::
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
@@ -160,3 +167,7 @@ To remove your table in the [Aiven Console](https://console.aiven.io/):
 
 </TabItem>
 </Tabs>
+
+<RelatedPages/>
+
+[Create Aiven for ClickHouse integration databases](/docs/products/clickhouse/howto/integration-databases#create-integration-databases)
