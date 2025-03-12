@@ -2,7 +2,7 @@
 title: Available cloud regions
 sidebar_label: Cloud regions
 ---
-
+<!-- vale off -->
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 A reference list of the default available cloud regions.
