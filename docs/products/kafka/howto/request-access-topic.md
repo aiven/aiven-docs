@@ -3,8 +3,8 @@ title: Request access to an Apache Kafka topic
 sidebar_label: Request access
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Request access to an Apache Kafka topic in Aiven for Apache Kafka Governance to produce or consume messages using access control lists (ACLs).
 
@@ -22,7 +22,7 @@ You can view the service user and ACLs in the following locations in the
 - Select your **Aiven for Apache Kafka** service. In the sidebar,
   click <ConsoleLabel name="acl" /> or <ConsoleLabel name="serviceusers" />.
 - Click **Tools** > **Apache Kafka governance operations**. In the sidebar,
-  click <ConsoleLabel name="Streaming catalog" /> > **Access**.
+  click <ConsoleLabel name="streamingcatalog" /> > **Access**.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ After submitting:
   [Group requests](/docs/products/kafka/howto/group-requests) page under
   **Governance operations**.
 - If approved, you can view and download the credentials for authentication in
-  <ConsoleLabel name="Streaming catalog"/> > Access overview.
+  <ConsoleLabel name="Streaming catalog"/> > **Access**.
 
 ## View and download service user credentials
 
