@@ -420,3 +420,9 @@ Aiven for Valkey service.
 :::note
 When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
 :::
+
+## BYOC service backups
+
+Learn about
+[backups for services hosted in custom clouds](/docs/platform/concepts/byoc#byoc-service-backups)
+or [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) environments.
