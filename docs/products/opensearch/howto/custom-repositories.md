@@ -3,6 +3,7 @@ title: Create and manage custom repositories in Aiven for OpenSearch®
 sidebar_label: Custom repositories
 limited: true
 ---
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for OpenSearch lets you configure custom repositories to store snapshots in your cloud storage.
 
@@ -10,7 +11,7 @@ Aiven for OpenSearch lets you configure custom repositories to store snapshots i
 
 You can configure custom repositories for the following object storage services:
 
-- Amazon S3**
+- Amazon S3
 - Google Cloud Storage (GCS)
 - Microsoft Azure Blob Storage
 
@@ -249,3 +250,7 @@ Example response:
 
 If an error occurs (such as `429`, `500`, or `503`), the Aiven API response includes the
 original OpenSearch error details in the `metadata` field of the response.
+
+<RelatedPages/>
+
+[OpenSearch snapshot API reference](https://opensearch.org/docs/latest/api-reference/snapshots/index/).
