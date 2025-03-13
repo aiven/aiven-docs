@@ -1,3 +1,6 @@
+#
+# Production build target
+#
 FROM alpine:latest
 
 RUN apk add --no-cache nodejs npm
@@ -11,6 +14,5 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn add @rspack/binding-linux-arm64-musl # required by "docusaurus faster"
-
-RUN yarn build
+# required by "docusaurus faster"
+RUN yarn add @rspack/binding-linux-arm64-musl
