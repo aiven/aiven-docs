@@ -11,11 +11,23 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
 
 ## ️🚀 Building the docs
 
+### With Docker
+
+1. Run:
+
+   ```bash
+   docker compose dev
+   ```
+
+1. Go to http://localhost:3000/docs/. Updating files in the local repo refreshes the website.
+
+### Without Docker
+
 <details>
   <summary><b>Requirements</b></summary>
   <div>
    <ul>
-     <li>Node ≥ 22</li>
+     <li>Node ≥ 23</li>
      <li><a href="https://yarnpkg.com/getting-started/install">yarn 4</a></li>
    </ul>
   </div>
@@ -44,14 +56,11 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    yarn start
    ```
 
-   A local development server starts and a browser window opens. Modify the content and
-   save to automatically refresh the output.
+   **💡 Tip:** If you use VS Code, you can use the build task: **⌘+⇧+B** > **Build the docs**
 
-   **💡 Tip:**
-   - If you use VS Code, you can use the build task: **⌘+⇧+B** > **Build the docs**
+1. Go to http://localhost:3000/docs/. Updating files in the local repo refreshes the website.
 
-   **☝ ️Caution:**
-   - `yarn start` doesn't check for broken links, use `yarn build` instead. This command
-     doesn't start a live server.
+## Opening a PR
 
-1. When you are happy with your changes, open a PR.
+1. Check for potential broken links with `yarn build` (`yarn start` doesn't check for broken links).
+1. If you get a green build and when you are happy with your changes, open a PR.
