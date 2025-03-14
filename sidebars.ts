@@ -25,7 +25,7 @@ const sidebars: SidebarsConfig = {
         'platform/concepts/free-trial',
         'marketplace-setup',
         'tools/aiven-console',
-        'platform/concepts/beta_services',
+        'platform/concepts/service-and-feature-releases',
         'platform/howto/feature-preview',
       ],
     },
