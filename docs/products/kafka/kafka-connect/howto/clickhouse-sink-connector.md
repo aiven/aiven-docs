@@ -58,7 +58,7 @@ Ensure all potential duplicates are processed before removing them:
    1. In the ClickHouse service, access the query editor.
    1. If you are using Aiven for ClickHouse®, go to the service's
       <ConsoleLabel name="overview"/> page, and click
-      <ConsoleLabel name="query editor" />.
+      <ConsoleLabel name="queryeditor" />.
    1. Run the following query to get offset details:
 
       ```sql

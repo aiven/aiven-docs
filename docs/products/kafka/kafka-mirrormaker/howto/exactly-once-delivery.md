@@ -43,7 +43,7 @@ review and adjust these ACLs as needed to enable exactly-once delivery.
    service with the Aiven for Apache Kafka MirrorMaker 2 integration.
 1. Click <ConsoleLabel name="integrations"/>.
 1. Click the Aiven for Apache Kafka MirrorMaker 2 integration.
-1. Click <ConsoleLabel name="Replication flow" /> in the sidebar.
+1. Click <ConsoleLabel name="replicationflow" /> in the sidebar.
    - To create a new flow, click **Create replication flow** .
    - To modify an existing flow, select <ConsoleLabel name="edit"/>.
 1. Set **Exactly-once message delivery enabled** to **Enabled** to turn it on or

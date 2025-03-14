@@ -523,7 +523,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'queryeditor':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.queries} /> <b>Query editor</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.queriesEditor} />
+          <b>Query editor</b>
         </>
       );
     case 'opensearchindexes':
@@ -536,6 +537,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Change version</b>
+        </>
+      );
+    case 'replicationflow':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />{' '}
+          <b>Replication flow</b>
         </>
       );
 
