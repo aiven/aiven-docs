@@ -822,6 +822,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Tools',
                   items: [
                     'products/kafka/howto/kafka-tools-config-file',
+                    'products/kafka/howto/kafbat-ui',
                     'products/kafka/howto/kcat',
                     'products/kafka/howto/kafka-conduktor',
                     'products/kafka/howto/kafdrop',
