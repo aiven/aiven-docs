@@ -2,7 +2,6 @@
 title: Access and use AI models with Aiven for AlloyDB Omni
 sidebar_label: Use AI models
 keywords: [Vertex AI, VertexAI]
-early: true
 ---
 
 Enable and use AI models in Aiven for AlloyDB Omni to build and deploy generative AI applications directly on your operational data.
@@ -18,12 +17,6 @@ capability.
 ## Prerequisites
 
 - Aiven for AlloyDB Omni service running
-
-  :::note
-  Aiven for AlloyDB Omni is in the
-  [early availability](/docs/platform/concepts/beta_services#early-availability-) stage.
-  :::
-
 - [`psql` CLI client installed](https://www.postgresql.org/download/)
 - [`gcloud` CLI client installed](https://cloud.google.com/sdk/docs/install)
 - [Google service account credentials uploaded into Aiven for AlloyDB Omni](/docs/products/alloydbomni/manage-credentials)
