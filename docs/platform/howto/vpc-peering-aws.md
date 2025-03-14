@@ -58,7 +58,7 @@ create a project VPC peering connection using a tool of your choice:
 <TabItem value="cli" label="Aiven CLI">
 
 Run the
-[avn vpc peering-connection create](/docs/tools/cli/vpc#avn-vpc-peering-connection-create)
+[avn vpc peering-connection create](/docs/tools/cli/vpc#create-peering-connections)
 command:
 
 ```bash
