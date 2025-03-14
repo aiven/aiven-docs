@@ -109,8 +109,12 @@ resource.
 Your organization VPC is available as a geolocation (cloud region) for the new service.
 
 :::note
-You can create a service in an organization VPC only if the organization VPC is in the
-same organization where you are creating the service.
+You can create a service in an organization VPC only if:
+
+- The organization VPC is in the same organization where you are creating the service.
+- For the service to be created, you use the cloud provider and region that hosts the
+  organization VPC.
+
 :::
 
 Create a service in an organization VPC using a tool of your choice:
@@ -131,7 +135,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
   --project-vpc-id ORGANIZATION_VPC_ID \
-  --type SERVICE_TYPE                  \
+  --service-type SERVICE_TYPE          \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
 ```
@@ -146,8 +150,8 @@ Replace the following:
   `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 - `SERVICE_TYPE` with the type of the service to be created, for example, `pg`
 - `SERVICE_PLAN` with the plan of the service to be created, for example, `hobbyist`
-- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the service to be
-  created, for example `aws-eu-west-1`
+- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the organization VPC,
+  for example `aws-eu-west-1`
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -192,8 +196,11 @@ Replace the following placeholders with meaningful data:
 Your organization VPC is available as a geolocation (cloud region) for your service.
 
 :::note
-You can only migrate a service to an organization VPC if the organization VPC is in the
-same organization where your service runs.
+You can only migrate a service to an organization VPC if:
+
+- The organization VPC is in the same organization where the service runs.
+- The service and the organization VPC are hosted using the same cloud provider and region.
+
 :::
 
 Migrate a service to an organization VPC using a tool of your choice:
@@ -214,8 +221,9 @@ Migrate a service to an organization VPC using a tool of your choice:
 Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```bash
-avn service update SERVICE_NAME \
-  --project-vpc-id ORGANIZATION_VPC_ID
+avn service update SERVICE_NAME        \
+  --project-vpc-id ORGANIZATION_VPC_ID \
+  --project PROJECT_NAME
 ```
 
 Replace the following:
@@ -224,6 +232,8 @@ Replace the following:
   `pg-test`
 - `ORGANIZATION_VPC_ID` with the ID of your organization VPC where to migrate the service,
   for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+- `PROJECT_NAME` with the name of the project where your service resides, for example,
+  `pj-test`
 
 </TabItem>
 <TabItem value="api" label="Aiven API">

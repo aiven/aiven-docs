@@ -130,7 +130,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
   --project-vpc-id PROJECT_VPC_ID      \
-  --type SERVICE_TYPE                  \
+  --service-type SERVICE_TYPE          \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
 ```
