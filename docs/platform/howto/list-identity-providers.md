@@ -1,5 +1,5 @@
 ---
-title: Identity providers and SAML authentication
+title: SAML identity providers and verified domains
 sidebar_label: Identity providers
 ---
 
