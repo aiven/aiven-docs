@@ -24,6 +24,7 @@
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
 /kafka-connect/opensearch                              https://aiven.io/docs/products/kafka/kafka-connect/howto/opensearch-sink
+/platform/concepts/beta_services                       https://aiven.io/docs/platform/concepts/service-and-feature-releases
 /platform/concepts/billing-groups                      https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/billing-groups-overview             https://aiven.io/docs/platform/concepts/billing-and-payment
 /platform/concepts/choosing-timeseries-database        https://aiven.io/docs/platform/howto/list-service

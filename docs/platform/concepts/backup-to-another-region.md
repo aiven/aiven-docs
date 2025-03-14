@@ -9,7 +9,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
 
 :::important
-This feature is in [limited availability](/docs/platform/concepts/beta_services).
+This feature is in [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 Contact your account team to enable it.
 :::
 

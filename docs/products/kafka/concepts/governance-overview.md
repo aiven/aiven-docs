@@ -13,7 +13,7 @@ Aiven for Apache Kafka environments effectively.
 
 :::note
 Governance for Aiven for Apache Kafka is in
-[limited availability (LA)](/docs/platform/concepts/beta_services#limited-availability-).
+[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 Only a subset of governance features are available at this stage. More features and
 functionalities are incrementally added as development continues.
 :::

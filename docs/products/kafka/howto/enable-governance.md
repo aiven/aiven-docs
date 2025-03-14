@@ -29,7 +29,7 @@ select specific services to govern through the Apache Kafka governance settings
 
 ## Prerequisites
 
-- This is a [limited availability feature](/docs/platform/concepts/beta_services). To try
+- This is a [limited availability feature](/docs/platform/concepts/service-and-feature-releases). To try
   it out, contact the [sales team](http://aiven.io/contact).
 - Ensure you have
   [super admin permissions](/docs/platform/howto/manage-permissions#make-users-super-admin)
