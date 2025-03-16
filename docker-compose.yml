@@ -1,24 +1,24 @@
-version: '3.8'
-
 services:
-  prod:
-    build: .
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
     container_name: aiven-docs-app
-    ports:
-      - '3000:3000'
-    environment:
-      - NODE_ENV=production
-    command: yarn run build && yarn run serve
+    command: yarn run build
 
   dev:
     build:
       context: .
+      dockerfile: Dockerfile
       target: dev
     container_name: aiven-docs-app-dev
     volumes:
-      - .:/app
+      - ./docs:/app/docs
+      - ./static:/app/static
+      - ./src:/app/src
+      - ./scripts:/app/scripts
+      - ./sidebar.ts:/app/sidebar.ts
+      - /app/node_modules
     ports:
       - '3000:3000'
-    environment:
-      - NODE_ENV=development
-    command: yarn start

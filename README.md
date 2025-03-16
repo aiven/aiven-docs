@@ -19,7 +19,7 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    docker compose dev
    ```
 
-1. Go to http://localhost:3000/docs/. Updating files in the local repo refreshes the website.
+1. Go to http://localhost:3000/docs/. Updating files in your local repo refreshes the website.
 
 ### Without Docker
 
