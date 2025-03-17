@@ -16,7 +16,7 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
 1. Run:
 
    ```bash
-   docker compose dev
+   docker compose up dev
    ```
 
 1. Go to http://localhost:3000/docs/. Updating files in your local repo refreshes the website.
