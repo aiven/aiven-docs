@@ -66,3 +66,5 @@ tech:
       - any-glob-to-any-file: 'scripts/**'
       - any-glob-to-any-file: '.github/**'
       - any-glob-to-any-file: 'src/**'
+      - any-glob-to-any-file: 'Dockerfile'
+      - any-glob-to-any-file: 'docker-compose.yml'
