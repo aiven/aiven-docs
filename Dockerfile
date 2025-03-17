@@ -24,6 +24,6 @@ CMD [ "yarn", "run","build" ]
 #
 FROM base AS dev
 WORKDIR /app
-COPY --from=base /app ./
+COPY --from=base /app/node_modules ./
 EXPOSE 3000
 CMD [ "yarn", "run", "start", "--host", "0.0.0.0" ]

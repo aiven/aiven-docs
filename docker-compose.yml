@@ -19,6 +19,5 @@ services:
       - ./src:/app/src
       - ./scripts:/app/scripts
       - ./sidebar.ts:/app/sidebar.ts
-      - /app/node_modules
     ports:
       - '3000:3000'
