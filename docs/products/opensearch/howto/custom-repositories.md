@@ -81,7 +81,7 @@ provides a direct interface to the OpenSearch snapshot API.
 Use the Aiven API to retrieve a list of custom repositories:
 
 ```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/custom_repo" \
+curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot"\
 --header "Authorization: Bearer $TOKEN" \
 --header "Content-Type: application/json"
 ```
@@ -127,7 +127,7 @@ Create a snapshot in a custom repository.
 
 ```sh
 curl -s -X POST \
---url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/custom_repo/aws-repo/first-snapshot" \
+--url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
 --header "Authorization: Bearer $TOKEN" \
 --header "Content-Type: application/json" \
 -d '{"indices": "test*", "include_global_state": false}'
@@ -146,7 +146,7 @@ Example response:
 Retrieve snapshots that are still being created in a repository.
 
 ```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/custom_repo/aws-repo/_status" \
+curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/_status" \
 --header "Authorization: Bearer $TOKEN"
 --header "Content-Type: application/json"
 ```
@@ -176,7 +176,7 @@ Example response:
 Retrieve all snapshots, including completed and failed ones.
 
 ```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/custom_repo/aws-repo/_all" \
+curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/_all" \
 --header "Authorization: Bearer $TOKEN"
 --header "Content-Type: application/json"
 ```
@@ -207,7 +207,7 @@ Example response:
 Get details of a specific snapshot.
 
 ```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/custom_repo/aws-repo/first-snapshot" \
+curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
 --header "Authorization: Bearer $TOKEN"
 --header "Content-Type: application/json"
 ```
@@ -233,7 +233,7 @@ Delete a snapshot from a repository.
 
 ```sh
 curl -s -X DELETE \
---url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/custom_repo/aws-repo/first-snapshot" \
+--url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
 --header "Authorization: Bearer $TOKEN"
 --header "Content-Type: application/json"
 ```
