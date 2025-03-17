@@ -14,6 +14,8 @@ The list of commands for project VPCs (`avn vpc`) and organization VPCs (`avn or
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
 
+#### Command: `avn vpc create`
+
 | Parameter        | Information                                                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `--project`      | The project to fetch details for                                                                                                                      |
@@ -39,6 +41,8 @@ PROJECT_VPC_ID                        STATE     CLOUD_NAME     NETWORK_CIDR
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc create`
 
 | Parameter        | Information                                                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -66,10 +70,38 @@ ORGANIZATION_VPC_ID                   STATE     CLOUD_NAME     NETWORK_CIDR
 </TabItem>
 </Tabs>
 
+### Get VPCs
+
+#### Command: `avn organization vpc get`
+
+| Parameter               | Information                                            |
+| ----------------------- | ------------------------------------------------------ |
+| `--organization-id`     | ID of the organization where the organization VPC runs |
+| `--organization-vpc-id` | ID of the organization VPC to be detailed              |
+
+**Example:** Retrieve information about the organization VPC with ID
+`abcd1234-abcd-1234-abcd-abcd1234` in organization `org123abc`:
+
+```bash
+avn organization vpc get                                 \
+  --organization-id org123abc                            \
+  --organization-vpc-id abcd1234-abcd-1234-abcd-abcd1234
+```
+
+The command output is similar to:
+
+```text
+CLOUDS                                                     CREATE_TIME           ORGANIZATION_ID  ORGANIZATION_VPC_ID                   PEERING_CONNECTIONS
+========================================================== ====================  ===============  ====================================  ============================================================================
+{"cloud_name": "acb-123", "network_cidr": "NNN.NN.N.N/NN"} YYYY-MM-DDTHH:MM:SSZ  org123abc        abcd1234-abcd-1234-abcd-abcd1234abcd  {... , "peering_connection_id": "1a2b3c4d-4321-dcba-4321-123abc456def", ...}
+```
+
 ### Delete VPCs
 
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
+
+#### Command: `avn vpc delete`
 
 | Parameter          | Information                                                                      |
 | ------------------ | -------------------------------------------------------------------------------- |
@@ -94,6 +126,8 @@ PROJECT_VPC_ID                        STATE     CLOUD_NAME     NETWORK_CIDR
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc delete`
 
 | Parameter          | Information                                                                      |
 | ------------------ | -------------------------------------------------------------------------------- |
@@ -124,6 +158,8 @@ ORGANIZATION_VPC_ID                   STATE     CLOUD_NAME     NETWORK_CIDR
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
 
+#### Command: `avn vpc list`
+
 | Parameter   | Information                                                            |
 | ----------- | ---------------------------------------------------------------------- |
 | `--project` | The project to use when a project isn't specified for an `avn` command |
@@ -152,6 +188,8 @@ c4bc3a59-87da-4dce-9243-c197edb43qq2  google-us-west3     10.1.13.0/24   ACTIVE
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc list`
 
 | Parameter   | Information                                                            |
 | ----------- | ---------------------------------------------------------------------- |
@@ -191,6 +229,8 @@ Manage VPC peering connections to AWS, GCP, or Azure.
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
 
+#### Command: `avn vpc peering-connection create`
+
 | Parameter                  | Information                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `--project`                | The project to use when a project isn't specified for an `avn` command                |
@@ -222,6 +262,8 @@ CREATE_TIME           PEER_AZURE_APP_ID  PEER_AZURE_TENANT_ID  PEER_CLOUD_ACCOUN
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc peering-connection create`
 
 | Parameter                  | Information                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------- |
@@ -260,6 +302,8 @@ CREATE_TIME           PEER_AZURE_APP_ID  PEER_AZURE_TENANT_ID  PEER_CLOUD_ACCOUN
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
 
+#### Command: `avn vpc peering-connection delete`
+
 | Parameter               | Information                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------- |
 | `--project`             | The project to use when a project isn't specified for an `avn` command                |
@@ -290,6 +334,8 @@ CREATE_TIME           PEER_AZURE_APP_ID  PEER_AZURE_TENANT_ID  PEER_CLOUD_ACCOUN
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc peering-connection delete`
 
 | Parameter               | Information                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------- |
@@ -327,6 +373,8 @@ CREATE_TIME           PEER_AZURE_APP_ID  PEER_AZURE_TENANT_ID  PEER_CLOUD_ACCOUN
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
 
+#### Command: `avn vpc peering-connection get`
+
 | Parameter              | Information                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------- |
 | `--project`            | The project to use when a project isn't specified for an `avn` command             |
@@ -358,6 +406,8 @@ pcx-abcdef01234567890          aws-vpc-peering-connection-active
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc peering-connection get`
 
 | Parameter              | Information                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------- |
@@ -396,6 +446,8 @@ pcx-abcdef01234567890          aws-vpc-peering-connection-active
 <Tabs groupId="group1">
 <TabItem value="pj" label="Project VPC" default>
 
+#### Command: `avn vpc peering-connection list`
+
 | Parameter          | Information                                                                        |
 | ------------------ | ---------------------------------------------------------------------------------- |
 | `--project`        | The project to use when a project isn't specified for an `avn` command             |
@@ -418,6 +470,8 @@ PEER_CLOUD_ACCOUNT  PEER_RESOURCE_GROUP  PEER_VPC               PEER_REGION  STA
 
 </TabItem>
 <TabItem value="org" label="Organization VPC">
+
+#### Command: `avn organization vpc peering-connection list`
 
 | Parameter          | Information                                                                        |
 | ------------------ | ---------------------------------------------------------------------------------- |
