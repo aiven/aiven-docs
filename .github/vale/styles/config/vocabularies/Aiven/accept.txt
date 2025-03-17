@@ -224,6 +224,7 @@ Pagila
 Papertrail
 parallelization
 Paulo
+Paxos
 peering
 peerings
 Percona

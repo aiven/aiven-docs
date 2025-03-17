@@ -20,12 +20,13 @@ of relying on a separate ZooKeeper cluster for metadata storage and coordination
 Apache Kafka uses dedicated **controller nodes** that operate using
 the **Raft consensus algorithm**.
 
-| Feature              | ZooKeeper                                | KRaft                                        |
-|--------------------------|----------------------------------------------|--------------------------------------------------|
-| Consensus algorithm  | Uses Paxos                                  | Uses Raft                                       |
-| Architecture         | Requires a separate ZooKeeper cluster       | Built into Kafka with dedicated controllers     |
-| Metadata storage     | Stored externally in ZooKeeper              | Stored internally in Kafka                     |
-| Operational overhead | Requires managing a separate ZooKeeper cluster | Reduces complexity by eliminating ZooKeeper |
+
+| Feature.        |  ZooKeeper                                                                 | KRaft                                                                     |
+|------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Consensus algorithm | Uses Paxos, managed externally in ZooKeeper                                  | Uses Raft, built into Kafka for internal coordination                         |
+| Architecture       | Requires a separate ZooKeeper cluster for metadata management                 | Built into Kafka with dedicated controllers                                    |
+| Metadata storage   | Stored externally in ZooKeeper                                               | Stored internally in Kafka                                                    |
+| Operational overhead | Requires managing a separate ZooKeeper cluster                              | Reduces complexity by eliminating ZooKeeper
 
 
 
