@@ -60,13 +60,11 @@ You can view the service user and ACLs in the following locations in the
 
 After submitting:
 
-- The request is sent for approval and you receive a notification when the request
-  is approved or rejected.
-- To view and track requests, go to the
+- The request is sent for approval. To check the status, go to the
   [Group requests](/docs/products/kafka/howto/group-requests) page under
   **Governance operations**.
 - If approved, you can view and download the credentials for authentication in
-  <ConsoleLabel name="Streaming catalog"/> > **Access**.
+  <ConsoleLabel name="Streaming catalog"/> > **Access overview**.
 
 ## View and download service user credentials
 
@@ -75,9 +73,10 @@ service user.
 
 ### Why credentials can be viewed once
 
-For security reasons, access certificates and access keys are displayed only once. To
-access credentials later or perform tasks like resetting credentials, go
-to the **Aiven for Apache Kafka** service page > <ConsoleLabel name="serviceusers" />.
+For security reasons, access certificates and access keys are shown only once to limit
+exposure and prevent unauthorized access. To access credentials later or perform tasks
+like resetting credentials, go to the
+**Aiven for Apache Kafka** service page > <ConsoleLabel name="serviceusers" />.
 For more information, see [Manage service users](/docs/products/kafka/howto/add-manage-service-users#manage-users).
 
 This approach:
@@ -92,7 +91,7 @@ This approach:
 
 1. Access the [Aiven console](https://console.aiven.io/) and go to
    **Tools > Apache Kafka governance operations**.
-1. In the sidebar, click <ConsoleLabel name="Streaming catalog"/> > **Access**.
+1. In the sidebar, click <ConsoleLabel name="Streaming catalog"/> > **Access overview**.
 1. In the **Access overview** page, locate the service user for which you need
    credentials.
 1. Click <ConsoleLabel name="actions"/> > **View credentials**.
