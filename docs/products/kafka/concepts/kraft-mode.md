@@ -3,6 +3,9 @@ title: KRaft in Aiven for Apache Kafka®
 sidebar_label: KRaft
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
+
 Aiven for Apache Kafka 3.9 and later uses **KRaft** (Kafka Raft) to manage metadata and controllers, replacing ZooKeeper.
 KRaft runs within Kafka, reducing complexity and improving efficiency.
 
@@ -29,7 +32,6 @@ the **Raft consensus algorithm**.
 | Operational overhead | Requires managing a separate ZooKeeper cluster                              | Reduces complexity by eliminating ZooKeeper
 
 
-
 ## How KRaft works
 
 KRaft introduces two key roles within an Aiven for Apache Apache Kafka service:
@@ -40,7 +42,7 @@ KRaft introduces two key roles within an Aiven for Apache Apache Kafka service:
 Separating these roles improves metadata management efficiency without affecting broker
 performance.
 
-## Impact of KRaft on Aiven for Apache Kafka users
+## Impact of KRaft
 
 ### Compatibility and impact
 
@@ -52,3 +54,8 @@ Aiven for Apache MirrorMaker 2, and Karapace, continue to function as expected.
 
 Some ZooKeeper-related controller metrics are not available in KRaft. For a list of
 removed metrics, see [KRaft and metrics changes](/docs/products/kafka/reference/kafka-metrics-prometheus#kraft-mode-and-metrics-changes)
+
+
+<RelatedPages/>
+
+[Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft-)
