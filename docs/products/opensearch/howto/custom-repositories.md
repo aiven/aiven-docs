@@ -24,8 +24,8 @@ You can configure custom repositories for the following object storage services:
 
 ## Limitations
 
-- The Aiven API does not support automatic snapshot scheduling. You must create
-  snapshots manually.
+- The Aiven API does not support automatic snapshot scheduling. You must create, list,
+  and delete them manually using the API.
 - Repository credentials are omitted from API responses for security reasons.
 
 ## Configure custom repositories
@@ -250,6 +250,14 @@ Example response:
 
 If an error occurs (such as `429`, `500`, or `503`), the Aiven API response includes the
 original OpenSearch error details in the `metadata` field of the response.
+
+The Aiven API returns OpenSearch errors as they are.
+
+**Exceptions:**
+
+- 502: OpenSearch did not respond.
+- 409: The service is not powered on or does not support this feature.
+
 
 <RelatedPages/>
 
