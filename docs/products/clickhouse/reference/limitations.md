@@ -153,7 +153,7 @@ Service limits are determined by a plan that this service uses.
 | ------------------------------ | -------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
 | VMs                            | 1                          | 1                            | 3                            | 6 - 30                       |
 | CPU per VM                     | 1 (2 for AWS only)         | 2                            | 2 - 8                        | 2 - 8                        |
-| RAM per VM                     | 4 GB                       | 16 GB                        | 16 - 64 GB                   | 16 - 64 GB                   |
+| RAM per VM                     | 4 GB                       | 16 - 64 GB                   | 16 - 64 GB                   | 16 - 64 GB                   |
 | Total storage                  | 180 GB                     | 1150 GB                      | 1150 - 4600 GB               | 2300 - 46000 GB              |
 | Maximum concurrent queries     | 25 queries per 4 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM |
 | Maximum concurrent connections | 1000 connections per node  | 4000 connections per node    | 4000 connections per node    | 4000 connections per node    |
