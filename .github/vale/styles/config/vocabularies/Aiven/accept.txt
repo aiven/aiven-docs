@@ -166,6 +166,7 @@ JSONPath
 JumpCloud
 JVM's
 JWT's
+Kafbat
 Kafdrop
 kafka
 Kafka
