@@ -45,8 +45,8 @@ performance.
 
 ### Compatibility and impact
 
-KRaft does not change how Apache Kafka services work. Applications, clients, and
-integrations, such as Apache Kafka brokers, Aiven for Apache Kafka Connect,
+KRaft does not change how Apache for Apache Kafka services work. Applications, clients,
+and integrations, such as Apache Kafka brokers, Aiven for Apache Kafka Connect,
 Aiven for Apache MirrorMaker 2, and Karapace, continue to function as expected.
 
 ### Monitoring and metrics
