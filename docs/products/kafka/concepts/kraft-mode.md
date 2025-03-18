@@ -12,7 +12,7 @@ KRaft runs within Kafka, reducing complexity and improving efficiency.
 ## What is KRaft?
 
 KRaft is the built-in metadata management system in Aiven for Apache Kafka 3.9 and later,
-replacing ZooKeeper. Aiven for Apache Apache Kafka services use KRaft to manage metadata
+replacing ZooKeeper. Aiven for Apache Kafka services use KRaft to manage metadata
 internally, eliminating the need for a separate ZooKeeper cluster. Apache Kafka manages
 metadata and controllers using the **Raft consensus algorithm**.
 
@@ -34,7 +34,7 @@ the **Raft consensus algorithm**.
 
 ## How KRaft works
 
-KRaft introduces two key roles within an Aiven for Apache Apache Kafka service:
+KRaft introduces two key roles within an Aiven for Apache Kafka service:
 
 - **Brokers**: Handle message storage and processing.
 - **Controllers**: Manage cluster metadata using the Raft consensus algorithm.
@@ -46,7 +46,7 @@ performance.
 
 ### Compatibility and impact
 
-KRaft does not affect how Apache Kafka services work. Applications, clients, and
+KRaft does not change how Apache Kafka services work. Applications, clients, and
 integrations, such as Apache Kafka brokers, Aiven for Apache Kafka Connect,
 Aiven for Apache MirrorMaker 2, and Karapace, continue to function as expected.
 

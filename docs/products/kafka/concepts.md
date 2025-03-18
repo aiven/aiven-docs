@@ -36,6 +36,12 @@ A single discrete data unit in Apache Kafka, consisting of a `value`
 (the message body) and often a `key` (for quick identification) and
 `headers` (metadata about the message).
 
+## KRaft
+
+Kafka Raft (KRaft) is the metadata management system in Apache Kafka, replacing
+[ZooKeeper](#zookeeper). Aiven for Apache Kafka uses [KRaft](/docs/products/kafka/concepts/kraft-mode)
+to manage metadata and controllers, removing the need for a separate ZooKeeper cluster.
+
 ## Kafka node
 
 See [Broker](#Broker)
@@ -87,3 +93,9 @@ per topic.
 Logical channels in Apache Kafka through which messages are organized.
 Topics are named in a human-readable manner, like `sensor-readings` or
 `kubernetes-logs`.
+
+## ZooKeeper
+
+A distributed system that managed metadata, controller election, and configuration
+storage in Apache Kafka. Starting in Apache Kafka version 3.9, Aiven for Apache Kafka
+uses [KRaft](#kraft) instead.
