@@ -5,9 +5,9 @@ sidebar_label: KRaft
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-
 Aiven for Apache Kafka 3.9 and later uses **KRaft** (Kafka Raft) to manage metadata and controllers, replacing ZooKeeper.
-KRaft runs within Kafka, reducing complexity and improving efficiency.
+KRaft is built into Apache Kafka, reducing complexity and improving efficiency.
+
 
 ## What is KRaft?
 
@@ -16,7 +16,7 @@ replacing ZooKeeper. Aiven for Apache Kafka services use KRaft to manage metadat
 internally, eliminating the need for a separate ZooKeeper cluster. Apache Kafka manages
 metadata and controllers using the **Raft consensus algorithm**.
 
-### Key differences from ZooKeeper
+### Key differences between KRaft and ZooKeeper
 
 KRaft introduces a new way of managing metadata directly within Apache Kafka. Instead
 of relying on a separate ZooKeeper cluster for metadata storage and coordination,
@@ -24,13 +24,12 @@ Apache Kafka uses dedicated **controller nodes** that operate using
 the **Raft consensus algorithm**.
 
 
-| Feature.        |  ZooKeeper                                                                 | KRaft                                                                     |
-|------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Consensus algorithm | Uses Paxos, managed externally in ZooKeeper                                  | Uses Raft, built into Kafka for internal coordination                         |
-| Architecture       | Requires a separate ZooKeeper cluster for metadata management                 | Built into Kafka with dedicated controllers                                    |
-| Metadata storage   | Stored externally in ZooKeeper                                               | Stored internally in Kafka                                                    |
-| Operational overhead | Requires managing a separate ZooKeeper cluster                              | Reduces complexity by eliminating ZooKeeper
-
+ Feature              | ZooKeeper                                        | KRaft                                      |
+|----------------------|------------------------------------------------|--------------------------------------------|
+| Consensus algorithm | Uses Zab (ZooKeeper Atomic Broadcast)          | Uses Raft, built into Kafka for internal coordination                 |
+| Architecture      | Requires a separate ZooKeeper cluster for metadata management           | Built into Apache Kafka with dedicated controllers |
+| Metadata storage  | Stored externally in ZooKeeper                 | Stored internally in Kafka                 |
+| Operational overhead | Requires ZooKeeper cluster management       | No external cluster required               |
 
 ## How KRaft works
 
