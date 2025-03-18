@@ -133,8 +133,14 @@ post](https://aiven.io/blog/aiven-for-pg-recreates-logical-replication-slots).
 :::
 
 :::important
-Replication slots are not recovered after major version upgrades of
-Aiven for PostgreSQL.
+
+- Replication slots are not recovered after major version upgrades of Aiven for PostgreSQL.
+- To prevent losing a replication slot when promoting a new primary server, all changes
+  from the old primary have to be fully replicated before promotion. This requires waiting
+  until the replication slot has caught up so that no changes exist on the primary that are
+  missing from the standby. If the new node is still syncing, it can take up to 30 minutes
+  for the process to complete before timing out.
+
 :::
 
 ### One-node cluster
