@@ -6,15 +6,15 @@ sidebar_label: KRaft
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Apache Kafka 3.9 and later uses **KRaft** (Kafka Raft) to manage metadata and controllers, replacing ZooKeeper.
-KRaft is built into Apache Kafka, reducing complexity and improving efficiency.
-
+Like ZooKeeper, KRaft is an internal component of Apache Kafka, reducing complexity and
+improving efficiency.
 
 ## What is KRaft?
 
-KRaft is the built-in metadata management system in Aiven for Apache Kafka 3.9 and later,
-replacing ZooKeeper. Aiven for Apache Kafka services use KRaft to manage metadata
-internally, eliminating the need for a separate ZooKeeper cluster. Apache Kafka manages
-metadata and controllers using the **Raft consensus algorithm**.
+KRaft is the built-in metadata and consensus management system in Aiven for Apache Kafka
+3.9 and later, replacing ZooKeeper. Aiven for Apache Kafka services use KRaft to
+manage metadata internally, eliminating the need for a separate ZooKeeper cluster.
+Apache Kafka manages metadata and controllers using the **Raft consensus algorithm**.
 
 ### Key differences between KRaft and ZooKeeper
 

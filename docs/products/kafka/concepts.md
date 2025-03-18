@@ -38,9 +38,11 @@ A single discrete data unit in Apache Kafka, consisting of a `value`
 
 ## KRaft
 
-Kafka Raft (KRaft) is the metadata management system in Apache Kafka, replacing
-[ZooKeeper](#zookeeper). Aiven for Apache Kafka uses [KRaft](/docs/products/kafka/concepts/kraft-mode)
-to manage metadata and controllers, removing the need for a separate ZooKeeper cluster.
+Kafka Raft (KRaft) is the metadata and consensus management system in
+Apache Kafka 3.9 and later, replacing [ZooKeeper](#zookeeper). Aiven for Apache Kafka
+uses [KRaft](/docs/products/kafka/concepts/kraft-mode)
+to manage metadata, controllers, and consensus, removing the need for a separate
+ZooKeeper cluster.
 
 ## Kafka node
 
