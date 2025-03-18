@@ -425,6 +425,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   </thead>
   <tbody>
+    <tr>
+    <td>africa</td>
+    <td>google-africa-south1</td>
+    <td>Africa, South Africa: Johannesburg</td>
+  </tr>
   <tr>
     <td>asia-pacific</td>
     <td>google-asia-east1</td>
