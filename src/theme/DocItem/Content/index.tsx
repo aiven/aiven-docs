@@ -36,8 +36,7 @@ export default function DocItemContent({children}: Props): JSX.Element {
       {syntheticTitle && (
         <header>
           <Heading as="h1">
-            {syntheticTitle} {frontMatter.enterprise && <EnterpriseBadge />}{' '}
-            {frontMatter.limited && <LimitedBadge />}{' '}
+            {syntheticTitle} {frontMatter.limited && <LimitedBadge />}{' '}
             {frontMatter.early && <EarlyBadge />}{' '}
           </Heading>
         </header>
