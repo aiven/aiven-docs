@@ -104,14 +104,14 @@ from Azure to Aiven.
 
    - Resource ID
      - In the [Azure portal](https://portal.azure.com/#home): **Virtual networks** >
-       name of your network > **JSON View** > **id**
+       name of your network > **JSON View** > **Resource ID**
      - Using the Azure CLI:
 
        ```bash
        az network vnet list
        ```
 
-     :::tip
+     :::note
      The `id` field should have format
      `/subscriptions/USER_SUBSCRIPTION_ID/ resourceGroups/USER_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/USER_VNET_NAME`. It will be referred to as `USER_VNET_ID`.
 
@@ -199,13 +199,16 @@ from Azure to Aiven.
    the peering action only allowed:
 
    ```bash
-   az role definition create --role-definition '
-     {
-       "Name": "NAME_OF_YOUR_CHOICE",
-       "Description": "Allows creating a peering to vnets in scope (but not from)",
-       "Actions": ["Microsoft.Network/virtualNetworks/peer/action"],
-       "AssignableScopes": ["/subscriptions/'USER_SUBSCRIPTION_ID'"]
-     }'
+   az role definition create --role-definition '{
+     "Name": "NAME_OF_YOUR_CHOICE",
+     "Description": "Allows creating a peering to vnets in scope (but not from)",
+     "Actions": [
+       "Microsoft.Network/virtualNetworks/peer/action"
+     ],
+     "AssignableScopes": [
+       "/subscriptions/USER_SUBSCRIPTION_ID"
+     ]
+   }'
    ```
 
    `AssignableScopes` includes your Azure subscription ID to restrict scopes that a role
@@ -299,12 +302,9 @@ The Aiven application object authenticates with your Azure tenant to grant it ac
 1. Run the following command until the state changes from `APPROVED` to `PENDING_PEER`:
 
    ```bash
-   avn organization vpc peering-connection get -v     \
-     --organization-id AIVEN_ORG_ID                   \
-     --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID  \
-     --peer-cloud-account USER_SUBSCRIPTION_ID        \
-     --peer-resource-group USER_RESOURCE_GROUP        \
-     --peer-vpc USER_VNET_NAME
+   avn organization vpc peering-connection list \
+     --organization-id AIVEN_ORG_ID             \
+     --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID
    ```
 
    :::tip

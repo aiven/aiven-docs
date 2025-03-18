@@ -473,24 +473,26 @@ PEER_CLOUD_ACCOUNT  PEER_RESOURCE_GROUP  PEER_VPC               PEER_REGION  STA
 
 #### Command: `avn organization vpc peering-connection list`
 
-| Parameter          | Information                                                                        |
-| ------------------ | ---------------------------------------------------------------------------------- |
-| `--organization`        | The organization to use when an organization isn't specified for an `avn` command             |
-| `--organization-vpc-id` | Aiven organization VPC ID. To get the list of VPC IDs execute `avn vpc list` (required) |
+| Parameter               | Information                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------- |
+| `--organization-id`     | The organization where the peered VPC resides                                               |
+| `--organization-vpc-id` | The ID of the peered VPC obtainable with the `avn organization vpc list` command (required) |
 
 **Example:** List VPC peering connections for the VPC with id
-`b032dfbf-b035-4cf5-8b15-b7cd6a68aabd`.
+`b032dfbf-b035-4cf5-8b15-b7cd6a68aabd` in the `org123abc456de` organization.
 
 ```bash
-avn organization vpc peering-connection list --organization-vpc-id b032dfbf-b035-4cf5-8b15-b7cd6a68aabd
+avn organization vpc peering-connection list \
+  --organization-id org123abc456de           \
+  --organization-vpc-id b032dfbf-b035-4cf5-8b15-b7cd6a68aabd
 ```
 
-The command output is:
+The command output is similar to:
 
 ```text
-PEER_CLOUD_ACCOUNT  PEER_RESOURCE_GROUP  PEER_VPC               PEER_REGION  STATE
-==================  ===================  =====================  ===========  ======
-012345678901        null                 vpc-abcdef01234567890  us-east-1    ACTIVE
+PEERING_CONNECTION_ID                 PEER_CLOUD_ACCOUNT                    PEER_RESOURCE_GROUP  PEER_VPC  PEER_REGION  STATE
+====================================  ====================================  ===================  ========  ===========  ============
+123abc45-abcd-1234-abcd-123abc456def  123abc45-1234-abcd-1234-123abc456def  test_resource_group  test_net  null         PENDING_PEER
 ```
 
 </TabItem>
