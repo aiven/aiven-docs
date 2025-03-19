@@ -539,6 +539,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Change version</b>
         </>
       );
+    case 'streamingcatalog':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />
+          <b>Streaming catalog</b>
+        </>
+      );
     case 'replicationflow':
       return (
         <>
