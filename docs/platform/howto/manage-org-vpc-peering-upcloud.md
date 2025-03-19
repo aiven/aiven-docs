@@ -87,7 +87,8 @@ create an organization VPC peering connection using a tool of your choice:
       This adds a connection with the **Pending peer** status in the
       [Aiven Console](https://console.aiven.io/).
 
-1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
+1. While still on the **VPC details** page, make a note of **Aiven Network ID** in the
+   **VPC peering connections** section.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -136,7 +137,7 @@ Replace the following placeholders with meaningful data:
 
 ### Create the peering in UpCloud
 
-Use the Aiven VPC network ID
+Use the Aiven network ID
 [collected in the Aiven Console](/docs/platform/howto/manage-org-vpc-peering-upcloud#create-the-peering-in-aiven)
 to create the VPC peering connection in UpCloud either in the
 [UpCloud Control Panel](https://hub.upcloud.com/) or through the

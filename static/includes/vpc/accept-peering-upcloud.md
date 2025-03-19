@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
    **Peering**.
 1. Click **Create network peering**, and in the **Create network peering** window:
    1. Specify the peering name.
-   1. Select the source peer network (your UpCloud SDN network).
-   1. Provide the UUID of the target peer network (the ID of your Aiven VPC).
+   1. Select the source peer network, which is your UpCloud SDN network.
+   1. Provide the UUID of the target peer network, which is the Aiven network ID.
    1. Click **Create**.
 
 This creates the peering connection between your Aiven VPC and your UpCloud SDN network.
@@ -29,7 +29,7 @@ POST /1.3/network-peering HTTP/1.1
       "uuid": "UPCLOUD_SDN_NETWORK_UUID"
     },
     "peer_network": {
-      "uuid": "AIVEN_VPC_NETWORK_UUID"
+      "uuid": "AIVEN_NETWORK_ID"
     }
   }
 }
@@ -42,7 +42,7 @@ POST /1.3/network-peering HTTP/1.1
 | `configured_status` | `active` or `disabled`     | `active`      | No       | Controls whether the peering is administratively up or down.                                                                                               | `active`                               |
 | `name`              | String of 1-255 characters | None          | Yes      | Descriptive name for the peering                                                                                                                           | `peering upcloud->aiven`               |
 | `network.uuid`      | Valid network UUID         | None          | Yes      | Sets the local network of the peering. Use the UpCloud SDN network UUID. | `03126dc1-a69f-4bc2-8b24-e31c22d64712` |
-| `peer_network.uuid` | Valid network UUID         | None          | Yes      | Sets the peer network of the peering. Use the Aiven VPC network ID.     | `03585987-bf7d-4544-8e9b-5a1b4d74a333` |
+| `peer_network.uuid` | Valid network UUID         | None          | Yes      | Sets the peer network of the peering. Use the Aiven network ID.     | `03585987-bf7d-4544-8e9b-5a1b4d74a333` |
 
 #### Expected response
 
