@@ -477,9 +477,9 @@ Parameters:
 To delete ACL entries with Terraform:
 
 - For **Kafka-native ACLs**, remove the relevant `aiven_kafka_native_acl` resource from
-  your Terraform configuration or use `terraform destroy`.
+  your Terraform configuration.
 - For **Aiven ACLs**, remove the relevant `aiven_kafka_acl` resource from your Terraform
-  configuration or use `terraform destroy`.
+  configuration.
 
 </TabItem>
 </Tabs>

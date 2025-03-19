@@ -299,11 +299,6 @@ Replace the following placeholders with meaningful data:
 - `BEARER_TOKEN`
 
 </TabItem>
-<TabItem value="tf" label="Aiven Provider for Terraform">
-To delete your
-[aiven_project_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project_vpc)
-resource, run `terraform destroy`.
-</TabItem>
 </Tabs>
 
 ## Access project VPC services from the public internet

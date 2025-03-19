@@ -314,11 +314,7 @@ Replace the following placeholders with meaningful data:
 - `BEARER_TOKEN`
 
 </TabItem>
-<TabItem value="tf" label="Aiven Provider for Terraform">
-To delete your
-[aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_vpc)
-resource, run `terraform destroy`.
-</TabItem>
+
 </Tabs>
 
 <RelatedPages/>
