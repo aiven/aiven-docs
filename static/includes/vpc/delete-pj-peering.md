@@ -69,10 +69,4 @@ Replace the following placeholders with meaningful data:
 - `BEARER_TOKEN`
 
 </TabItem>
-<TabItem value="tf" label="Aiven Provider for Terraform">
-To delete your Aiven project VPC peering connection resource, run `terraform destroy`.
-See the
-[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-for details.
-</TabItem>
 </Tabs>
