@@ -1,0 +1,3 @@
+[submodule "external/terraform-provider"]
+	path = external/terraform-provider
+	url = https://github.com/staceysalamon-aiven/test-terraform-provider-aiven.git
