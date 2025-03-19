@@ -769,6 +769,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/concepts/upgrade-procedure',
                 'products/kafka/concepts/horizontal-vertical-scaling',
+                'products/kafka/concepts/kraft-mode',
                 'products/kafka/concepts/acl',
                 'products/kafka/concepts/schema-registry-authorization',
                 'products/kafka/concepts/kafka-rest-api',

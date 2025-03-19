@@ -225,6 +225,7 @@ Pagila
 Papertrail
 parallelization
 Paulo
+Paxos
 peering
 peerings
 Percona
@@ -359,6 +360,7 @@ Wireshark
 Workbench
 Worldmap
 worldPing
+Zab
 Zabbix
 zapier
 zdm-proxy
