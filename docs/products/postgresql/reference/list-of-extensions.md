@@ -66,8 +66,8 @@ installed with a few exceptions.
 
     :::important
     Supported `pgvectorscale` versions:
-    - PG16: pgvectorscale-0.5.1
-    - PG17: pgvectorscale-0.5.1
+    - PG16: pgvectorscale-0.6.0
+    - PG17: pgvectorscale-0.6.0
 
     Read about all
     [pgvectorscale releases](https://github.com/timescale/pgvectorscale/releases).
