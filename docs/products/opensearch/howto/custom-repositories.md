@@ -30,7 +30,7 @@ You can configure custom repositories for the following object storage services:
 
 ## Configure custom repositories
 
-Custom repositories are configured in the `user_config` of your Aiven for OpenSearch
+Custom repositories are configured in the `user_config` of your Aiven for OpenSearch
 service. Each repository requires a unique name, a storage type (such as S3, Azure, or
 GCS), and the appropriate settings for the selected storage provider. Use the following
 API request to configure custom repositories:
@@ -248,16 +248,12 @@ Example response:
 
 ## Error handling
 
-If an error occurs (such as `429`, `500`, or `503`), the Aiven API response includes the
-original OpenSearch error details in the `metadata` field of the response.
-
 The Aiven API returns OpenSearch errors as they are.
 
 **Exceptions:**
 
 - 502: OpenSearch did not respond.
 - 409: The service is not powered on or does not support this feature.
-
 
 <RelatedPages/>
 
