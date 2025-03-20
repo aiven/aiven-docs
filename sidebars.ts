@@ -1717,6 +1717,7 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
                     },
+                    'products/opensearch/howto/custom-repositories',
                   ],
                 },
                 {
