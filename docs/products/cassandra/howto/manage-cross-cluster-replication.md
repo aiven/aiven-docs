@@ -9,7 +9,7 @@ Learn how to update Apache Cassandra® services that has cross-cluster replicati
 
 ## Prerequisites
 
-This feature is in [limited availability](/docs/platform/concepts/beta_services).
+This feature is in [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 Contact the [sales team](http://aiven.io/contact)
 
 ### Aiven-wise

@@ -25,7 +25,7 @@ or API. You can enable BTAR for
 
 ## Prerequisites
 
-- This feature is in [limited availability](/docs/platform/concepts/beta_services).
+- This feature is in [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
   Enable it by contacting your account team.
 - Make sure you have at least one running Aiven for MySQL® or Aiven for PostgreSQL® service.
 - Depending on your preferred tool to manage BTAR with, make sure you can access or use:

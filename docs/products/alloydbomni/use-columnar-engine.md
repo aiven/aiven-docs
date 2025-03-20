@@ -22,7 +22,7 @@ Any change to columnar engine settings results in restarting the service.
 
   :::note
   Aiven for AlloyDB Omni is in the
-  [early availability](/docs/platform/concepts/beta_services#early-availability-) stage.
+  [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
   :::
 
 - Access to the [Aiven Console](https://console.aiven.io/)

@@ -28,7 +28,7 @@ Azure Private Link is not supported for [BYOC](/docs/platform/concepts/byoc)-hos
 
 ## Prerequisites
 
-- This feature is in [early availability](/docs/platform/concepts/beta_services#early-availability-).
+- This feature is in [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
 
 - [Aiven CLI](/docs/tools/cli) is
   installed.

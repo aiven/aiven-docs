@@ -7,7 +7,7 @@ Harness the speed and scalability of Google AlloyDB Omni on any cloud, managed b
 
 :::note
 Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/beta_services#early-availability-) stage.
+[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
 :::
 
 Aiven for AlloyDB Omni is a managed version of Google AlloyDB Omni purpose-built for
