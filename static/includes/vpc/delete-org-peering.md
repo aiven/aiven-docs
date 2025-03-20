@@ -23,7 +23,6 @@ Delete an organization VPC peering using a tool of your choice:
 1. In the **Confirmation** window, click **Delete VPC peering**.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection delete` command:
@@ -31,7 +30,7 @@ Run the `avn organization vpc peering-connection delete` command:
 ```bash
 avn organization vpc peering-connection delete \
   --organization-id ORGANIZATION_ID            \
-  --project-vpc-id ORGANIZATION_VPC_ID                 \
+  --organization-vpc-id ORGANIZATION_VPC_ID    \
   --peering-connection-id ORGANIZATION_VPC_PEERING_ID
 ```
 
@@ -40,11 +39,12 @@ Replace the following:
 - `ORGANIZATION_ID` with the ID of your Aiven organization, for example, `org1a2b3c4d5e6`
 - `ORGANIZATION_VPC_ID` with the ID of your Aiven organization VPC, for example,
   `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
-- `ORGANIZATION_VPC_PEERING_ID` with the ID of your peering connection, for example
-  `1a2b3c4d-1234-a1b2-c3d4-1a2b3c4d5e6f`
+- `ORGANIZATION_VPC_PEERING_ID` with your Aiven peering connection ID obtainable in the
+  output of the
+  [avn organization vpc get](/docs/tools/cli/vpc#command-avn-organization-vpc-get) command,
+  for example `1a2b3c4d-1234-a1b2-c3d4-1a2b3c4d5e6f`
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
@@ -61,7 +61,9 @@ Replace the following placeholders with meaningful data:
 
 - `ORGANIZATION_ID`: Aiven organization ID
 - `ORGANIZATION_VPC_ID`: Aiven organization VPC ID
-- `PEERING_CONNECTION_ID`: ID or name of your cloud provider VPC
+- `PEERING_CONNECTION_ID`: Aiven peering connection ID obtainable by calling the
+  [OrganizationVpcGet](https://api.aiven.io/doc/#tag/Organization_Vpc/operation/OrganizationVpcGet)
+  endpoint
 - `BEARER_TOKEN`
 
 </TabItem>
