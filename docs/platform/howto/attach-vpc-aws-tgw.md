@@ -45,7 +45,7 @@ to all other networks attached, directly or indirectly, to the Transit Gateway.
    :::
 
 1. Find your Aiven VPC ID using either the [Aiven Console](https://console.aiven.io/) or
-   the [Aiven CLI](/docs/tools/cli).
+   the [Aiven CLI](/docs/tools/cli/vpc#list-vpcs).
 
    Depending on the type of your Aiven VPC, select **Project VPC** or **Organization VPC**:
 
@@ -150,7 +150,7 @@ avn vpc peering-connection get         \
    </TabItem>
    <TabItem value="org-vpc" label="Organization VPC">
 ```bash
-avn organization vpc get   \
+avn organization vpc list   \
   --organization-id ORG_ID \
   --organization-vpc-id VPC_ID
 ```
