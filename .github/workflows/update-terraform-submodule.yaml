@@ -1,0 +1,42 @@
+name: Update Aiven Terraform Provider submodule to sync code samples
+on:
+  schedule:
+    - cron: '0 8 1,15 * *' # Runs at 08:00 on the 1st and 15th every month
+  workflow_dispatch:
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "noreply@github.com"
+
+      - name: Update submodule
+        run: |
+          git submodule update --remote --merge
+          git add external/terraform-provider
+          git commit -m "update Terraform submodule" || echo "No changes to commit"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          title: Update Terraform samples
+          body: |
+            > [!NOTE]
+            > Auto-generated PR.
+
+            Updates the Aiven Provider for Terraform submodule to sync the code samples in the docs.
+          base: main
+          labels: automated-pr, review/TW
+          branch: update-terraform-samples
+          delete-branch: true
