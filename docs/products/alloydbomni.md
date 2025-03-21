@@ -8,7 +8,7 @@ Aiven for AlloyDB Omni is a managed version of Google AlloyDB Omni purpose-built
 mission-critical PostgreSQL® workloads. It combines the power of Google's advanced
 database technology, new columnar engine, and AI capabilities with the ease of use and
 multi-cloud flexibility of the Aiven Platform for Google Cloud, Amazon Web Services (AWS),
-Microsoft Azure, and Oracle Cloud Infrastructure (OCI).
+and Microsoft Azure.
 
 ## Features and benefits
 
@@ -43,8 +43,8 @@ Microsoft Azure, and Oracle Cloud Infrastructure (OCI).
 
 - Multi-cloud and hybrid flexibility
 
-  Deploy and manage Aiven for AlloyDB Omni seamlessly across AWS, Google Cloud, Azure, or
-  OCI. Achieve maximum flexibility and agility anywhere you use PostgreSQL.
+  Deploy and manage Aiven for AlloyDB Omni seamlessly across AWS, Google Cloud, or Azure.
+  Achieve maximum flexibility and agility anywhere you use PostgreSQL.
 
 - Enterprise-grade security
 
@@ -106,7 +106,7 @@ including:
 ### Setting up Aiven for AlloyDB Omni
 
 - In the Aiven Console, create an Aiven for AlloyDB Omni service. Select a cloud
-  provider (AWS, Google Cloud, Azure, OCI) and a pricing plan.
+  provider (AWS, Google Cloud, Azure) and a pricing plan.
 - Aiven handles the infrastructure provisioning and deployment of Aiven for AlloyDB Omni.
 - Once the cluster is up and running, find connection details (host, port, credentials)
   to access your Aiven for AlloyDB Omni database.
