@@ -1,5 +1,6 @@
 ---
 title: Disaster recovery in Aiven for ClickHouse®
+sidebar_label: Disaster recovery
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -106,5 +107,6 @@ For all the restrictions and limits for Aiven for ClickHouse, see
 
 <RelatedPages/>
 
--   [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
--   [Failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
+- [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
+- [Configure Aiven for ClickHouse® backup settings](/docs/products/clickhouse/howto/configure-backup)
+- [Fork and restore from Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/restore-backup)
