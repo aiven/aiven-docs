@@ -21,11 +21,8 @@ for your Aiven for ClickHouse® service.
 - At least one Aiven for ClickHouse service backup to be configured
 
 :::note
-
-- Changing or adding some settings causes the service to restart.
-- To reset already configured setting to default or to delete them, use the
-  Aiven [API](/docs/tools/api) or [CLI](/docs/tools/cli).
-
+To reset already configured setting to default or to delete them, use the Aiven
+[API](/docs/tools/api) or [CLI](/docs/tools/cli).
 :::
 
 ## Configure backup time
@@ -68,7 +65,7 @@ Replace the following placeholders with meaningful values:
 
 - `SERVICE_NAME`: the name of your service
 - `PROJECT_NAME`: the name of your project
-- `BACKUP_HOUR`: the hour when the service backup is started, an integer from `0` to `24`
+- `BACKUP_HOUR`: the hour when the service backup is started, an integer from `0` to `23`
 - `BACKUP_MINUTE`: the minute when the service backup is started, an integer from `0` to `59`
 
 </TabItem>
@@ -89,7 +86,7 @@ Replace the following placeholders with meaningful values:
 
 - `SERVICE_NAME`: the name of your service
 - `PROJECT_NAME`: the name of your project
-- `BACKUP_HOUR`: the hour when the service backup is started, an integer from `0` to `24`
+- `BACKUP_HOUR`: the hour when the service backup is started, an integer from `0` to `23`
 - `BACKUP_MINUTE`: the minute when the service backup is started, an integer from `0` to `59`
 
 </TabItem>
