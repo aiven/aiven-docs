@@ -35,7 +35,8 @@ to access this feature.
 
 <TerraformSample filename='resources/aiven_organization_application_user/resource.tf' />
 
-More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_application_user).
+More information on this resource and its configuration options are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_application_user).
 
 </TabItem>
 </Tabs>
@@ -65,7 +66,8 @@ More information on this resource and its configuration options are available in
 
 <TerraformSample filename='resources/aiven_organization_application_user_token/resource.tf' />
 
-More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_application_user_token).
+More information on this resource and its configuration options are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_application_user_token).
 
 </TabItem>
 </Tabs>
