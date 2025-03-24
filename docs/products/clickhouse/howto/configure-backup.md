@@ -1,5 +1,5 @@
 ---
-title: Configure Aiven for ClickHouse® backup scheduling settings
+title: Schedule Aiven for ClickHouse® backups
 sidebar_label: Configure backups
 ---
 
@@ -14,16 +14,18 @@ for your Aiven for ClickHouse® service.
 
 ## Prerequisites
 
-- Depending on what tools to use for configuring backup settings:
+- To
+  [configure backup time](/docs/products/clickhouse/howto/configure-backup#configure-backup-time),
+  one of the following tools:
   - [Aiven Console](https://console.aiven.io)
   - [Aiven API](/docs/tools/api)
   - [Aiven CLI](/docs/tools/cli)
+- To
+  [reset or delete configured backup settings](/docs/products/clickhouse/howto/configure-backup#restore-defaults),
+  one of the following tools:
+  - [Aiven API](/docs/tools/api)
+  - [Aiven CLI](/docs/tools/cli)
 - At least one Aiven for ClickHouse service backup to be configured
-
-:::note
-To reset already configured setting to default or to delete them, use the Aiven
-[API](/docs/tools/api) or [CLI](/docs/tools/cli).
-:::
 
 ## Configure backup time
 
