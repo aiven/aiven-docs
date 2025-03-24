@@ -29,11 +29,12 @@ a
       <td>
         Since Aiven for ClickHouse service takes a single snapshot a day only:
         <ul>
-          <li>When powering off the service, all data after the last backup is lost.</li>
-          <li>Point-in-time recovery is not supported. A database can be restored to
-            one of the daily backups states only.</li>
+          <li>Point-in-time recovery is not supported. A database can be
+            [restored to one of the daily backup states](/docs/products/clickhouse/howto/restore-backup)
+            only.</li>
           <li>When creating a database fork,
-            you can only create a fork that matches the state of one of the backups.</li>
+            you can only [create a fork](/docs/products/clickhouse/howto/restore-backup)
+            that matches the state of one of the backups.</li>
           <li>Any data inserted before the next snapshot is lost if all nodes in a
             given shard malfunction and need to be replaced. This limitation doesn't
             apply to patches, migrations, or scaling, which are handled safely and

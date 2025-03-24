@@ -34,9 +34,9 @@ Also see [cross-availability-zone data distribution](/docs/platform/concepts/ava
 ### Service backup
 
 Backups of Aiven for ClickHouse services happen automatically on a daily
-basis.
+basis. An automatic backup is also taken before powering off a service.
 
-They cover the following:
+Backups cover the following:
 
 -   Access entities (for example, users, roles, passwords, or secrets)
     stored in Zookeeper
