@@ -29,7 +29,7 @@ a
         Since Aiven for ClickHouse service takes a single snapshot a day only:
         <ul>
           <li>Point-in-time recovery is not supported. A database can be
-            [restored to one of the daily backups states](/docs/products/clickhouse/howto/restore-backup)
+            [restored to one of the daily backup states](/docs/products/clickhouse/howto/restore-backup)
             only.</li>
           <li>When creating a database fork,
             you can only [create a fork](/docs/products/clickhouse/howto/restore-backup)
