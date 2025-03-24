@@ -22,7 +22,7 @@ the public internet.
 
 ### VPC peering use cases
 
-- Multi-tier applications: Secure connnection between VPCs hosting different application
+- Multi-tier applications: Secure connection between VPCs hosting different application
   layers, such as web or database
 - Resource sharing: Secure sharing between VPCs hosting different resources,
   for example, datasets or APIs
