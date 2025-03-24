@@ -13,9 +13,9 @@ You must be an [organization admin](/docs/platform/concepts/permissions#organiza
 You [create and manage application users](/docs/platform/howto/manage-application-users)
 at the organization level and you
 [give them access to projects and services](/docs/platform/howto/manage-permissions)
-in the same way as organization users. You can also make application user admin,
-giving them full access to your organization, its organizational units, projects,
-services, and billing and other settings.
+in the same way as organization users. You can also grant application users the
+organization admin role, giving them full access to your organization,
+its organizational units, projects, services, billing, and other settings.
 
 Unlike organization users, application users can't log in to the Aiven Console and the
 authentication policies don't apply to them.
