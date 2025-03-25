@@ -81,7 +81,7 @@ times during the whole upgrade operation.
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Use the `maintenance_window_dow` and `maintenance_window_time ` attributes in
+Use the `maintenance_window_dow` and `maintenance_window_time` attributes in
 [your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 </TabItem>
