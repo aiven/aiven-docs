@@ -66,8 +66,8 @@ see [Use resource tags](/docs/platform/howto/tag-resources#add-tags-to-services)
 you also find limits and limitations that apply to service tags and tagging.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
-For your BYOC service, [create tags using the Aiven CLI the same way you create it for a
-regular Aiven-managed service](/docs/platform/howto/tag-resources#add-and-modify-service-tags).
+For your BYOC service, [create tags using the Aiven CLI the same way you create them for a
+regular Aiven-managed service](/docs/tools/cli/service-cli#avn-service-tags).
 Ensure you use the `byoc_resource_tag` prefix in the tag key.
 
 ```bash
@@ -77,7 +77,7 @@ avn service tags update SERVICE_NAME
 ```
 
 For instructions on how to add, update, remove, or list service tags via Aiven CLI, see
-[Use resource tags](/docs/platform/howto/tag-resources#add-and-modify-service-tags), where
+[the avn service tags documentation](/docs/tools/cli/service-cli#avn-service-tags), where
 you also find limits and limitations that apply to service tags and tagging.
 </TabItem>
 </Tabs>
