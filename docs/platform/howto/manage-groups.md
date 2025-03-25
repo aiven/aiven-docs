@@ -3,6 +3,9 @@ title: Manage groups of users
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Create groups of users in your organization to make it easier to manage access to your organization's resources.
 
@@ -11,7 +14,8 @@ for projects, giving them the right level of access to the project and its servi
 
 ## Create a group
 
-To create a group in an organization:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  Click **Admin** > **Groups**.
 1.  Click **Create group**.
@@ -20,18 +24,39 @@ To create a group in an organization:
     the users to add.
 1.  Click **Create group**.
 
+</TabItem>
+<TabItem value="terraform" label="Terraform example usage">
+
+<TerraformSample filename='resources/aiven_organization_user_group/resource.tf' />
+
+More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_user_group).
+
+</TabItem>
+</Tabs>
+
 ## Add users to a group
 
 You can only add users that are
 [part of your organization](/docs/platform/howto/manage-org-users) to your groups.
 
-To add users to a group:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  Click **Admin** > **Groups**.
 1.  Select the group to add users to.
 1.  Click **Add users**.
 1.  Choose the users to add.
 1.  Click **Add users**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform example usage">
+
+<TerraformSample filename='resources/aiven_organization_user_group_member/resource.tf' />
+
+More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_user_group_member).
+
+</TabItem>
+</Tabs>
 
 ## Rename a group
 
@@ -43,7 +68,7 @@ To add users to a group:
 ## Remove a group
 
 When you remove a group, the users in that group will lose access to any
-projects the group has permissions for unless they are part of another
+resources the group has permissions for unless they are part of another
 group with that access.
 
 1.  Click **Admin** > **Groups**.
