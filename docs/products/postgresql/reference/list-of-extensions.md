@@ -43,9 +43,21 @@ installed with a few exceptions.
 
 :::
 
-## Data types
-
 <!-- vale off -->
+
+## Auditing
+
+-   [tcn](https://www.postgresql.org/docs/current/tcn.html). Triggered
+    change notifications.
+
+## Connectivity
+
+-   [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html).
+    Connect to other PostgreSQL databases from within a database.
+-   [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html).
+    Foreign-data wrapper for remote PostgreSQL servers.
+
+## Data types
 
 -   [citext](https://www.postgresql.org/docs/current/citext.html). Data
     type for case-insensitive character strings.
@@ -59,8 +71,6 @@ installed with a few exceptions.
     for international product numbering standards.
 -   [ltree](https://www.postgresql.org/docs/current/ltree.html). Data
     type for hierarchical tree-like structures.
--   [pgvector](https://github.com/pgvector/pgvector). Type for vector
-    similarity search. `PG13 and newer`
 -   [seg](https://www.postgresql.org/docs/current/seg.html). Data type
     for representing line segments or floating-point intervals.
 -   [timescaledb](https://github.com/timescale/timescaledb). Enables
@@ -69,33 +79,6 @@ installed with a few exceptions.
     extension.
 -   [uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html).
     Generate universally unique identifiers (UUIDs).
-
-## Search and text handling
-
--   [bloom](https://www.postgresql.org/docs/current/bloom.html). Bloom
-    access method - signature file based index.
--   [btree_gin](https://www.postgresql.org/docs/current/btree-gin.html).
-    Support for indexing common data types in GIN.
--   [btree_gist](https://www.postgresql.org/docs/current/btree-gist.html).
-    Support for indexing common data types in GiST.
--   [dict_int](https://www.postgresql.org/docs/current/dict-int.html).
-    Text search dictionary template for integers.
--   [fuzzystrmatch](https://www.postgresql.org/docs/current/fuzzystrmatch.html).
-    Determine similarities and distance between strings.
--   [pg_similarity](https://github.com/eulerto/pg_similarity). Support
-    similarity queries. `PG13 and newer`
--   [pg_trgm](https://www.postgresql.org/docs/current/pgtrgm.html). Text
-    similarity measurement and index searching based on trigrams.
--   [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html).
-    Cryptographic functions.
--   [rum](https://github.com/postgrespro/rum). RUM index access method.
--   [unaccent](https://www.postgresql.org/docs/current/unaccent.html).
-    Text search dictionary that removes accents.
-
-## Auditing
-
--   [tcn](https://www.postgresql.org/docs/current/tcn.html). Triggered
-    change notifications.
 
 ## Geographical features
 
@@ -125,6 +108,23 @@ installed with a few exceptions.
 -   [postgis_topology](https://postgis.net/docs/Topology.html). PostGIS
     topology spatial types and functions.
 
+## Machine learning (ML) and artificial intelligence (AI)
+
+-   [pgvector](https://github.com/pgvector/pgvector) designed for vector
+    similarity search for PostgreSQL. `PG13 and newer`
+-   [pgvectorscale](https://github.com/timescale/pgvectorscale) complements
+    [pgvector](https://github.com/pgvector/pgvector) as a vector data extension for
+    PostgreSQL. `PG16 and newer`
+
+    :::important
+    Supported `pgvectorscale` versions:
+    - PG16: pgvectorscale-0.6.0
+    - PG17: pgvectorscale-0.6.0
+
+    Read about all
+    [pgvectorscale releases](https://github.com/timescale/pgvectorscale/releases).
+    :::
+
 ## Procedural language
 
 -   [plperl](https://www.postgresql.org/docs/current/plperl.html).
@@ -132,12 +132,27 @@ installed with a few exceptions.
 -   [plpgsql](https://www.postgresql.org/docs/current/plpgsql.html).
     PL/pgSQL procedural language.
 
-## Connectivity
+## Search and text handling
 
--   [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html).
-    Connect to other PostgreSQL databases from within a database.
--   [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html).
-    Foreign-data wrapper for remote PostgreSQL servers.
+-   [bloom](https://www.postgresql.org/docs/current/bloom.html). Bloom
+    access method - signature file based index.
+-   [btree_gin](https://www.postgresql.org/docs/current/btree-gin.html).
+    Support for indexing common data types in GIN.
+-   [btree_gist](https://www.postgresql.org/docs/current/btree-gist.html).
+    Support for indexing common data types in GiST.
+-   [dict_int](https://www.postgresql.org/docs/current/dict-int.html).
+    Text search dictionary template for integers.
+-   [fuzzystrmatch](https://www.postgresql.org/docs/current/fuzzystrmatch.html).
+    Determine similarities and distance between strings.
+-   [pg_similarity](https://github.com/eulerto/pg_similarity). Support
+    similarity queries. `PG13 and newer`
+-   [pg_trgm](https://www.postgresql.org/docs/current/pgtrgm.html). Text
+    similarity measurement and index searching based on trigrams.
+-   [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html).
+    Cryptographic functions.
+-   [rum](https://github.com/postgrespro/rum). RUM index access method.
+-   [unaccent](https://www.postgresql.org/docs/current/unaccent.html).
+    Text search dictionary that removes accents.
 
 ## Utilities
 
