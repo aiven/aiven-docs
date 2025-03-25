@@ -4,6 +4,8 @@ title: Service maintenance, updates and upgrades
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Aiven applies some maintenance updates automatically and lets you decide when to apply major version upgrades.
 
@@ -68,12 +70,22 @@ times during the whole upgrade operation.
 
 ### Set the maintenance window
 
-To set the maintenance window:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1. From the Aiven Console, open your service.
 1. From the <ConsoleLabel name="overview"/> page, scroll to the **Maintenance** section.
 1. Click <ConsoleLabel name="actions"/> > **Change maintenance window**.
 1. Set the date and time of your choice and click **Save changes**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `maintenance_window_dow` and `maintenance_window_time ` attributes in
+[your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
+
+</TabItem>
+</Tabs>
 
 ## Maintenance updates
 
