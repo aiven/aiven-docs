@@ -130,6 +130,12 @@ avn service update --disk-space-gib 90 --project PROJECT_NAME SERVICE_NAME
 :::
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `additional_disk_space` attribute in
+[your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
+
+</TabItem>
 </Tabs>
 
 If you added storage, the additional storage is available immediately.

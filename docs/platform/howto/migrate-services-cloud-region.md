@@ -41,8 +41,6 @@ To change the cloud provider or region, update the `cloud_name` attribute in
 </TabItem>
 </Tabs>
 
-
-
 Your service is in the **Rebuilding** state. Once the rebuilding is over,
 your new cloud provider and region will be in use.
 
