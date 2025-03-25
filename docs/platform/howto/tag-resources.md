@@ -69,10 +69,8 @@ For billing tags, prefix the `key` with `billing:`. For example:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-To add billing and project tags, use the `tag` attribute in
-[your `aiven_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project#nestedblock--tag).
-For billing tags, prefix the `key` with `billing:`. For example:
-`key = "billing:PO"`.
+Use the `tag` attribute in
+[your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 </TabItem>
 </Tabs>
