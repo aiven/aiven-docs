@@ -31,7 +31,7 @@ within other units.
 
 </TabItem>
 
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_organizational_unit/resource.tf' />
 
@@ -70,7 +70,7 @@ for the new organization such as:
 1.  Click **Create organization**.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_organization/resource.tf' />
 
