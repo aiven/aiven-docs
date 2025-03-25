@@ -6,6 +6,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
 import Variables from "@site/static/variables.json";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Most services have automatic time-based backups that are encrypted and securely stored.
 
@@ -227,7 +229,21 @@ and promote to master if needed.
 
 #### Edit the backup schedule
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 <EditBackUpSchedule/>
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `backup_hour` and `backup_minute` attributes in
+[your `aiven_pg` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg#nested-schema-for-pg_user_config)
+to set the start time for backups.
+
+</TabItem>
+</Tabs>
+
 
 For more information, refer to:
 
@@ -245,7 +261,20 @@ internally for taking full (or incremental) snapshots for MySQL.
 
 #### Edit the backup schedule
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 <EditBackUpSchedule/>
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `backup_hour` and `backup_minute` attributes in
+[your `aiven_mysql` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql#nested-schema-for-mysql_user_config)
+to set the start time for backups.
+
+</TabItem>
+</Tabs>
 
 For more information, refer to [MySQL Backups](/docs/products/mysql/concepts/mysql-backups).
 
@@ -351,21 +380,35 @@ data persistence using Dragonfly Snapshot (DFS).
 
 #### Persistence settings
 
-You can configure the `dragonfly_persistence` settings from <ConsoleLabel name="actions"/> >
-the **Configure backup settings** section on your <ConsoleLabel name="Backups"/> page
-in the [Aiven Console](https://console.aiven.io).
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-- **Enabled (`dfs`)**: When you set `dragonfly_persistence` to `dfs`, Aiven for Dragonfly
-  performs DFS dumps every 10 minutes whenever a key changes. These dumps provide
-  additional data protection against Dragonfly service incidents, limiting potential data
-  loss to a maximum of 10 minutes. However, full backups are created only according to
-  the backup schedule (every 12 hours) or when the service is shut down.
+1. Go to your Dragonfly service and click <ConsoleLabel name="Backups"/>.
+1. Click <ConsoleLabel name="actions"/> > **Configure backup settings**.
+1. Click <ConsoleLabel name="addconfigoptions"/> and select `dragonfly_persistence`.
+1. Select a value:
 
-- **Disabled (`off`)**: When you set `dragonfly_persistence` to `off`, Aiven for Dragonfly
-  stops all DFS dumps and backups. If the service restarts or powers off for
-  any reason, you may lose any data not yet backed up. Additionally, you cannot
-  fork or replicate the service, which can affect potential scaling or disaster recovery
-  plans.
+   - **Enabled (`dfs` or `rdb`)**: Dragonfly performs DFS or RDB dumps every 10 minutes
+     whenever a key changes. These dumps provide additional data protection against
+     service incidents, limiting potential data loss to a maximum of 10 minutes.
+     However, full backups are created only according to the backup schedule
+     every 12 hours or when the service is powered off.
+
+   - **Disabled (`off`)**: Dragonfly stops all dumps and backups. If the service
+     restarts or powers off, you may lose data not yet backed up. Additionally,
+     you cannot fork or replicate the service, which can affect scaling or disaster
+     recovery plans.
+
+1. Click **Save configuration**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `dragonfly_persistence` attribute in
+[your `aiven_dragonfly` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/dragonfly#nested-schema-for-dragonfly_user_config).
+
+</TabItem>
+</Tabs>
 
   :::warning
   If you disable `dragonfly_persistence`, the system immediately deletes all existing
@@ -386,20 +429,35 @@ data persistence using Redis Database Backup (RDB).
 
 #### Persistence settings
 
-You can configure the `valkey_persistence` settings from <ConsoleLabel name="actions"/> >
-the **Configure backup settings** section on your <ConsoleLabel name="Backups"/> page
-in the [Aiven Console](https://console.aiven.io).
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-- **Enabled (`rdb`)**: When you set `valkey_persistence` to `rdb`, Aiven for Valkey
-  performs RDB dumps every 10 minutes whenever a key changes. These dumps provide
-  additional data protection against Valkey service incidents, limiting potential data
-  loss to a maximum of 10 minutes. However, full backups are created only according to
-  the backup schedule (every 12 hours) or when the service is shut down.
-- **Disabled (`off`)**: When you set `valkey_persistence` to `off`, Aiven for Valkey
-  stops all RDB dumps and backups. If the service restarts or powers off for
-  any reason, you may lose any data not yet backed up. Additionally, you cannot
-  fork or replicate the service, which can affect potential scaling or disaster recovery
-  plans.
+1. Go to your Valkey service and click <ConsoleLabel name="Backups"/>.
+1. Click <ConsoleLabel name="actions"/> > **Configure backup settings**.
+1. Click <ConsoleLabel name="addconfigoptions"/> and select `valkey_persistence`.
+1. Select a value:
+
+   - **Enabled (`rdb`)**: Valkey performs RDB dumps every 10 minutes whenever a key
+    changes. These dumps provide additional data protection against Valkey service
+    incidents, limiting potential data loss to a maximum of 10 minutes. However,
+    full backups are created only according to the backup schedule every 12 hours or
+    when the service is powered off.
+
+   - **Disabled (`off`)**: Valkey stops all RDB dumps and backups. If the service
+     restarts or powers off, you may lose any data not yet backed up. Additionally,
+     you cannot fork or replicate the service, which can affect potential scaling or
+     disaster recovery plans.
+
+1. Click **Save configuration**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `valkey_persistence` attribute in
+[your `aiven_valkey` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey#nested-schema-for-valkey_user_config).
+
+</TabItem>
+</Tabs>
 
   :::warning
   If you disable `valkey_persistence`, the system immediately deletes all existing
@@ -415,7 +473,20 @@ Aiven for Valkey service.
 
 #### Edit the backup schedule
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 <EditBackUpSchedule/>
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `backup_hour` and `backup_minute` attributes in
+[your `aiven_valkey` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey#nested-schema-for-valkey_user_config)
+to set the start time for backups.
+
+</TabItem>
+</Tabs>
 
 :::note
 When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
