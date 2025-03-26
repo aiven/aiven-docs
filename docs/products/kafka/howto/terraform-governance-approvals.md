@@ -9,7 +9,6 @@ Aiven for Apache Kafka® Governance lets you manage approval workflows for Apach
 
 ## Prerequisites
 
-- [Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization
 - [Authentication token](/docs/platform/howto/create_authentication_token) to
   authenticate Terraform requests
 - [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
@@ -78,8 +77,8 @@ Set up approval workflows using Terraform and GitHub Actions.
 
 ### Step 1. Define topic ownership and user groups
 
-To restrict modifications to a specific user group, specify the
-`owner_user_group_id` in your Terraform configuration:
+To restrict modifications to authorized users, you must specify `owner_user_group_id`
+in your Terraform configuration:
 
 <TerraformSample filename="resources/aiven_kafka_topic/resource.tf" />
 
@@ -179,7 +178,12 @@ If your workflow does not automatically apply Terraform changes, run:
 terraform apply "tfplan"
 ```
 
-Only approved changes are applied. Terraform fails if changes violate governance rules.
+:::note
+Terraform does not enforce governance rules. It applies changes as long as the
+authentication token is valid. The GitHub Action validates compliance by checking the
+Terraform plan. Repository administrators must configure GitHub to enforce workflow
+checks before merging changes.
+:::
 
 ### Step 5. View compliance check results
 
@@ -208,8 +212,9 @@ After validation, check the GitHub Actions logs or Terraform output to verify co
   }
   ```
 
-If a check fails, GitHub blocks the pull request until the issue is resolved. To fix
-this:
+The GitHub Action reports compliance results but does not block pull requests or fail
+workflows automatically. To enforce workflow checks, repository administrators must
+configure GitHub before merging changes.
 
 - Ensure that the requester is a member of the owner user group for the Apache Kafka
   topic.
