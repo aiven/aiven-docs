@@ -10,8 +10,8 @@ Aiven for Apache Kafka® Governance lets you manage approval workflows for Apach
 ## Prerequisites
 
 - [Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization
-- [Aiven API token](/docs/platform/howto/manage-api-tokens) to authenticate Terraform
-  requests
+- [Authentication token](/docs/platform/howto/create_authentication_token) to
+  authenticate Terraform requests
 - [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
   with GitHub Actions enabled
 - [Aiven user groups](/docs/platform/howto/manage-groups) configured
