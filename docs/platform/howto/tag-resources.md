@@ -4,13 +4,15 @@ title: Use resource tags
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 
 Typical uses include:
 
 - Tagging for governance to deploy services with specific tags only.
-- Tagging for internal cost reporting, ownership, allocation, accountability, etc.
+- Tagging for internal cost reporting, ownership, allocation and accountability.
 
 A tag is a key/value pair, where:
 
@@ -19,34 +21,39 @@ A tag is a key/value pair, where:
   length for a key is 64 characters.
 - **value**: A string value limited to 64 UTF-8 characters.
 
-:::note
 An Aiven resource can have up to 10 tags. Within a resource, the tag keys must be unique.
-:::
 
 ## Add tags to resources in Aiven Console
 
 ### Add tags to projects
 
-You can add the following types of tags to projects:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-|       Tag type        |                                Description                                |
-|-----------------------|---------------------------------------------------------------------------|
-| Billing reference tag | Returned in the Invoice API and displayed on PDF invoices for the project |
-| Project tag           | Returned for resources in the API and displayed in the list of projects   |
+1. In your project, click **Settings**.
+1. In the **Billing tags** or **Project tags** click **Add tag**.
+   - Billing tags are returned in the invoice API and displayed on PDF
+     invoices for the project.
+   - Project tags are returned for resources in the API and displayed
+     in the list of projects.
+1. Enter a key and value for each tag.
+1. Click **Save changes**.
 
-To add tags to a project:
+</TabItem>
+<TabItem value="terraform" label="Terraform">
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and select your
-   organization and your project from the top navigation bar.
-1. On the project's page, select **Settings** from the sidebar.
-1. On the **Settings** page, click **Add tag** and enter a key and its
-   value in the **Billing Reference Tags** or **Project Tags** fields,
-   and select the **+** icon to add more tags in the same manner.
-1. Select **Save changes** to save your tags.
+To add billing and project tags, use the `tag` attribute in
+[your `aiven_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project#nestedblock--tag).
+For billing tags, prefix the `key` with `billing:`. For example:
+`key = "billing:PO"`.
 
-You can see the tags listed in the table on the **Projects** page.
+</TabItem>
+</Tabs>
 
 ### Add tags to services
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    your organization and your project from the top navigation bar.
@@ -59,78 +66,14 @@ You can see the tags listed in the table on the **Projects** page.
 1. Click **Add tag** to add additional tags.
 1. Click **Save changes** to apply the tags.
 
-You can see the tags listed in the table on the **Projects** page.
+</TabItem>
+<TabItem value="terraform" label="Terraform">
 
-## Add and modify resource tags with the Aiven client
+Use the `tag` attribute in
+[your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
-### Add and modify service tags
-
--   Add new tags to a service:
-
-    ```bash
-    avn service tags update your-service --add-tag business_unit=sales --add-tag env=smoke_test
-    ```
-
--   Modify or remove tags:
-
-    ```bash
-    avn service tags update your-service --add-tag env=production --remove-tag business_unit
-    ```
-
--   List service tags:
-
-    ```bash
-    avn service tags list your-service
-    KEY  VALUE
-    ===  ==========
-    env  production
-    ```
-
--   Replace tags with a set of new ones, removing the old ones:
-
-    ```bash
-    avn service tags replace your-service --tag cost_center=U1345
-
-    avn service tags list your-service
-    KEY          VALUE
-    ===========  =====
-    cost_center  U1345
-    ```
-
-### Add and modify project tags
-
-The commands `update`, `list` and `replace` exist for tagging projects
-too, and work the same way:
-
--   Add tags to a project:
-
-    ```bash
-    avn project tags update --project your-project --add-tag business_unit=sales
-    ```
-
--   Replace project tags:
-
-    ```bash
-    avn project tags replace --project your-project --tag env=smoke_test
-    ```
-
--   List project tags:
-
-    ```bash
-    avn project tags list
-
-    KEY  VALUE
-    ===  ==========
-    env  smoke_test
-    ```
-
-## Reading tags
-
-After you've added tags, you can read them from:
-
-- The [Aiven Console](https://console.aiven.io/).
-- Aiven-client version 1.11.0 or later.
-- APIs, such as the [ProjectUpdate endpoint](https://api.aiven.io/doc/#tag/Project/operation/ProjectUpdate).
+</TabItem>
+</Tabs>
 
 <RelatedPages/>
 

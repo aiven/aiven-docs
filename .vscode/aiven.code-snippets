@@ -190,8 +190,8 @@
       "import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';",
       "",
       "<TerraformSample filename='${1:EXAMPLE_PATH/FILENAME}.tf' />",
-      ""
-      "More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs)."
+      "",
+      "More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).",
       ""
     ]
   }
