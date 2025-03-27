@@ -919,6 +919,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/howto/request-access-topic',
                         'products/kafka/howto/approvals',
                         'products/kafka/howto/group-requests',
+                        'products/kafka/howto/terraform-governance-approvals',
                       ],
                     },
                   ],
