@@ -25,7 +25,7 @@ Delete a project VPC peering using a tool of your choice:
 <TabItem value="cli" label="Aiven CLI">
 
 Run the
-[avn vpc peering-connection delete](/docs/tools/cli/vpc#avn-vpc-peering-connection-delete)
+[avn vpc peering-connection delete](/docs/tools/cli/vpc#delete-peering-connections)
 command:
 
 ```bash

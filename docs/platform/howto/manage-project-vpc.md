@@ -55,7 +55,7 @@ The state of the VPC is shown in the table.
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 Run the
-[avn vpc create](/docs/tools/cli/vpc#avn-vpc-create)
+[avn vpc create](/docs/tools/cli/vpc#create-vpcs)
 command:
 
 ```bash
@@ -130,7 +130,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 avn service create SERVICE_NAME        \
   --project PROJECT_NAME               \
   --project-vpc-id PROJECT_VPC_ID      \
-  --type SERVICE_TYPE                  \
+  --service-type SERVICE_TYPE          \
   --plan SERVICE_PLAN                  \
   --cloud CLOUD_PROVIDER_REGION
 ```
@@ -270,7 +270,7 @@ Delete a project VPC using a tool of your choice:
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-Run the [avn vpc delete](/docs/tools/cli/vpc#avn-vpc-delete) command:
+Run the [avn vpc delete](/docs/tools/cli/vpc#delete-vpcs) command:
 
 ```bash
 avn vpc delete                    \

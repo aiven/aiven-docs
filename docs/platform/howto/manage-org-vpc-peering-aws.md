@@ -23,7 +23,7 @@ Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 - Access to the [AWS Management Console](https://console.aws.amazon.com)
 - One of the following tools for operations on the Aiven Platform:
   - [Aiven Console](https://console.aiven.io/)
-    <!-- [Aiven CLI](/docs/tools/cli) -->
+  - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform)
 
@@ -58,16 +58,15 @@ create an organization VPC peering connection using a tool of your choice:
    1. Click **Create**.
 
 </TabItem>
-<!--
 <TabItem value="cli" label="Aiven CLI">
 
 Run the `avn organization vpc peering-connection create` command:
 
 ```bash
-avn organization vpc peering-connection create \
-  --organization-id AIVEN_ORGANIZATION_ID      \
-  --project-vpc-id AIVEN_ORGANIZATION_VPC_ID   \
-  --peer-cloud-account AWS_ACCOUNT_ID          \
+avn organization vpc peering-connection create    \
+  --organization-id AIVEN_ORGANIZATION_ID         \
+  --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID \
+  --peer-cloud-account AWS_ACCOUNT_ID             \
   --peer-vpc AWS_VPC_ID
 ```
 
@@ -75,7 +74,6 @@ Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `AWS_ACCOUNT_ID`, 
 `AWS_VPC_ID` as needed.
 
 </TabItem>
--->
 <TabItem value="api" label="Aiven API">
 
 Make an API call to the
