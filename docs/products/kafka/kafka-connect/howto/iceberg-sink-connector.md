@@ -33,7 +33,7 @@ manually create tables in AWS Glue and ensure the schema matches the Apache Kafk
 :::
 
 For more details, see the
-[Iceberg catalogs documentation](https://iceberg.apache.org/concepts/catalog/).
+[Iceberg catalogs documentation](https://iceberg.apache.org/terms/#catalog/).
 
 ## File I/O and write format
 
