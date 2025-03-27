@@ -21,7 +21,7 @@ A tag is a key/value pair, where:
   length for a key is 64 characters.
 - **value**: A string value limited to 64 UTF-8 characters.
 
-An Aiven resource can have up to 10 tags. Within a resource, the tag keys must be unique.
+Within a resource, the tag keys must be unique.
 
 ## Add tags to resources in Aiven Console
 
