@@ -6,8 +6,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When creating an Aiven service, you are not tied to a cloud provider
-or region. You can migrate your services later to better match your needs.
+When creating an Aiven service, you are not tied to a cloud provider or region. You can migrate your services later to better match your needs.
 Services can be moved to another cloud provider, another region within the same provider,
 or both.
 
