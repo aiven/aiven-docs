@@ -26,7 +26,7 @@ projects in your organization or its organizational units.
     payment method for this billing group.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_project/resource.tf' />
 

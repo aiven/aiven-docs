@@ -31,7 +31,7 @@ to access this feature.
 1.  Enter a name and click **Create application user**.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_organization_application_user/resource.tf' />
 
@@ -62,7 +62,7 @@ More information on this resource and its configuration options are available in
 1.  Click **Close**.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_organization_application_user_token/resource.tf' />
 
