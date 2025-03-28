@@ -143,6 +143,15 @@ a
         or the [Aiven Console](https://console.aiven.io/).
       </td>
     </tr>
+    <tr>
+      <td>Maximum number of databases per service</td>
+      <td>
+          Your Aiven for ClickHouse service can support up to 400 databases simultaneously.
+      </td>
+      <td>
+        N/A
+      </td>
+    </tr>
   </tbody>
 </table>
 

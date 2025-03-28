@@ -27,6 +27,10 @@ can add integration databases connecting to:
 
 ## Create integration databases
 
+:::note
+Your Aiven for ClickHouse service can support up to 400 databases simultaneously.
+:::
+
 Depending on your data source, select **PostgreSQL** or **Apache Kafka**.
 
 <Tabs groupId="group1">
