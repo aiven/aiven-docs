@@ -21,13 +21,13 @@ To apply your Terraform configuration:
    ...
    ```
 
-5. To create an execution plan and preview the changes, run:
+1. To create an execution plan and preview the changes, run:
 
    ```bash
    terraform plan
    ```
 
-6. To deploy your changes, run:
+1. To deploy your changes, run:
 
    ```bash
    terraform apply --auto-approve
