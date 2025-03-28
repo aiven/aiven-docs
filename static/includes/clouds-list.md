@@ -497,8 +497,13 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>europe</td>
+    <td>google-europe-north2</td>
+    <td>Europe, Sweden: Stockholm</td>
+  </tr>
+  <tr>
+    <td>europe</td>
     <td>google-europe-southwest1</td>
-    <td>Europe, Madrid: Spain</td>
+    <td>Europe, Spain: Madrid</td>
   </tr>
   <tr>
     <td>europe</td>
