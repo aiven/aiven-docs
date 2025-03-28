@@ -25,7 +25,7 @@ for projects, giving them the right level of access to the project and its servi
 1.  Click **Create group**.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_organization_user_group/resource.tf' />
 
@@ -49,7 +49,7 @@ You can only add users that are
 1.  Click **Add users**.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform example usage">
+<TabItem value="terraform" label="Terraform">
 
 <TerraformSample filename='resources/aiven_organization_user_group_member/resource.tf' />
 
