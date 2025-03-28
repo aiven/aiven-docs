@@ -7,7 +7,10 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import CreateService from "@site/static/includes/create-service-console.md"
+import CreateService from "@site/static/includes/create-service-console.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Learn how to use Aiven for OpenSearch®, create a service, secure access, manage indices, and explore your data.
 
@@ -19,20 +22,39 @@ supports integrations for logs and monitoring.
 
 Ensure you have the following before getting started:
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 - Access to the [Aiven Console](https://console.aiven.io)
+
+</TabItem>
+<TabItem value="api" label="API" default>
+
+- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+
+</TabItem>
+<TabItem value="cli" label="CLI" default>
+
 - [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
-- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs) installed
-- [API token](/docs/platform/howto/create_authentication_token)
+- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+
+</TabItem>
+<TabItem value="terraform" label="Terraform" default>
+
+<TerraformPrereqs />
+
+</TabItem>
+</Tabs>
 
 ## Create an Aiven for OpenSearch® service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="OpenSearch®"/>
 
 </TabItem>
-<TabItem value="API" label="API">
+<TabItem value="api" label="API">
 
 Create the service using the Aiven API, run:
 
@@ -54,7 +76,7 @@ Parameters:
 - `<api-token>`: Your [API token](/docs/platform/howto/create_authentication_token).
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="cli" label="CLI">
 
 Create the service using the Aiven CLI, run:
 
@@ -72,53 +94,37 @@ Parameters:
 - `<service-plan>`: Subscription plan (for example, `startup-4`).
 
 </TabItem>
-<TabItem value="Terraform" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-1. Create a `main.tf` file with the following content:
+The following example does....
 
-   ```hcl
-    variable "aiven_token" {
-      type = string
-    }
+You can also see this example in GitHub....
 
-    variable "aiven_project_name" {
-      type = string
-    }
+1. Create a file named `provider.tf` file and add the following:
 
-    terraform {
-      required_providers {
-        aiven = {
-          source  = "aiven/aiven"
-          version = ">=4.0.0"
-        }
-      }
-    }
+    <TerraformSample filename='opensearch/provider.tf' />
 
-    provider "aiven" {
-      api_token = var.aiven_token
-    }
+1. Create a file named `project.tf` file and add the following:
 
-    resource "aiven_opensearch" "example" {
-      project      = var.aiven_project_name
-      service_name = "example-opensearch"
-      cloud_name   = "google-europe-west1"
-      plan         = "startup-4"
-    }
-    ```
+    <TerraformSample filename='opensearch/project.tf' />
 
-1. Create a `terraform.tfvars` file:
+    Where `PROJECT_NAME` is the name of one of your Aiven projects.
 
-   ```hcl
-    aiven_token = "your-api-token"
-    aiven_project_name = "your-project-name"
-    ```
+1. Create a file named `service.tf` file and add the following:
 
-1. Run the Terraform commands to apply the configuration:
+    <TerraformSample filename='opensearch/opensearch_service.tf' />
 
-   ```bash
-   terraform init
-   terraform apply --auto-approve
-   ```
+1. Create a file named `variables.tf` file and add the following:
+
+    <TerraformSample filename='opensearch/variables.tf' />
+
+1. Create a file named `terraform.tfvars` file and add the following:
+
+    <TerraformSample filename='opensearch/terraform.tfvars.tmp' />
+
+    Where `AIVEN_TOKEN` is your personal token.
+
+<TerraformApply />
 
 </TabItem>
 </Tabs>
