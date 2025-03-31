@@ -14,7 +14,8 @@ Aiven for Apache Kafka® Governance lets you manage approval workflows for Apach
   Terraform, and assigned to a user group with governance permissions
 - [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
   with GitHub Actions enabled
-- [User groups](/docs/platform/howto/manage-groups) configured
+- [User groups](/docs/platform/howto/manage-groups) configured to manage governance
+   workflows
 - Optional: To access early stage Aiven Terraform Provider features, enable the following
   environment variable:
 
