@@ -149,7 +149,11 @@ a
           Your Aiven for ClickHouse service can support up to 400 databases simultaneously.
       </td>
       <td>
-        N/A
+        Instead of creating multiple databases of the same structure for isolation purposes,
+        it's recommended to create one database where you add an extra column to filter by
+        it. Consider including this column into the primary key or partitioning by it. You
+        can also limit scope of data on which SQL queries can be run by using the
+        `additional_table_filters` query setting.
       </td>
     </tr>
   </tbody>
