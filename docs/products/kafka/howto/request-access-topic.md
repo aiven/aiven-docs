@@ -16,7 +16,8 @@ Request access to an Apache Kafka topic in Aiven for Apache Kafka Governance to 
 When you request access to an Apache Kafka topic, the following happens:
 
 - A **service user** is created to authenticate and authorize access to the topic.
-- A **Kafka-native ACL** is created to define the permissions.
+- A [Kafka-native ACL](/docs/products/kafka/concepts/acl#kafka-native-acl-capabilities)
+  is created to define the permissions.
 - The request goes through an approval process before the credentials are available.
 
 You can view the service user and ACLs in the following locations in the
@@ -60,7 +61,7 @@ You can view the service user and ACLs in the following locations in the
      - **Pattern type**: Auto-populated as **Literal**.
 
        :::note
-       Only the **Literal** is supported. **Prefix** will be available later.
+       Only the **Literal** pattern type is supported. **Prefix** will be available later.
        :::
 
      - **Topic**: Auto-populated from the selected topic.
@@ -85,37 +86,43 @@ After submitting:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Use the `aiven_governance_access` Terraform resource to request access to an Apache
-Kafka topic. GitHub Actions manages the approval flow and applies the configuration.
+Use the `aiven_governance_access` Terraform resource to request access to an Apache Kafka
+topic. The request is reviewed and approved in a GitHub pull request before access is
+granted.
 
-### Workflow overview
+### How it works
 
-1. Write and push the configuration:
+1. Define the request:
 
-   - Use the `aiven_governance_access` resource to define access to a Kafka topic,
-   including the required ACLs.
+   - Use Terraform to define the service user, topic, and the required access control
+     lists (ACLs).
+   - Specify the `owner_user_group_id` to indicate the group responsible for approving
+     the request.
 
    <TerraformSample filename='resources/aiven_governance_access/resource.tf' />
 
-   -  Commit and push the configuration to a GitHub repository with GitHub Actions enabled.
+   - Commit and push the configuration to a GitHub repository with governance approval
+     workflows enabled.
 
-1. Approval process:
+1. Review and approve the request:
 
-   - If approval is required, the request enters the Apache Kafka Governance approval flow.
-   - The group defined by `owner_user_group_id` must approve it.
+   - The request appears as a pull request in GitHub.
+   - A GitHub Action checks the request:
+     - The requester must belong to the group defined by `owner_user_group_id`.
+     - An approval must come from another member of the same group.
+   - If the request meets all governance rules, the workflow applies the configuration
+     using `terraform apply`.
 
-1. Apply the configuration:
+1. Provision access:
 
-   - GitHub Actions runs `terraform apply`, which creates the governance access resource
-     for your Aiven for Apache Kafka service.
-   - Aiven creates the service user and applies the ACLs.
-   - Credentials for the service user are generated.
+   - Aiven creates the service user and applies the ACLs to the specified topic.
+   - Credentials are generated for the service user.
 
 1. Download the credentials:
 
-   After approval, download the
-   [credentials manually](#view-and-download-service-user-credentials) from
-   the [Aiven Console](https://console.aiven.io/).
+   After access is provisioned, download the credentials from the
+   [Aiven Console](https://console.aiven.io/). For more details, see
+   [View and download service user credentials](#view-and-download-service-user-credentials).
 
    :::note
    Credentials are not available in Terraform or GitHub Actions output.
@@ -124,9 +131,9 @@ Kafka topic. GitHub Actions manages the approval flow and applies the configurat
 </TabItem>
 </Tabs>
 
-## View and download service user credentials
+## View and download credentials
 
-After your request is approved, you can view and download the credentials for the
+After the request is approved, you can view and download the credentials for the
 service user.
 
 ### Why credentials can be viewed once
