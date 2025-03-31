@@ -43,21 +43,21 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Create a file named `provider.tf` file and add the following:
+1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='postgres/provider.tf' />
 
-1. Create a file named `service.tf` file and add the following:
+1. Create a file named `service.tf` and add the following:
 
     <TerraformSample filename='postgres/service.tf' />
 
     Where `PROJECT_NAME` is the name of one of your Aiven projects.
 
-1. Create a file named `variables.tf` file and add the following:
+1. Create a file named `variables.tf` and add the following:
 
     <TerraformSample filename='opensearch/variables.tf' />
 
-1. Create a file named `terraform.tfvars` file and add your token.
+1. Create a file named `terraform.tfvars` and add your token.
 
 <TerraformApply />
 
@@ -84,7 +84,7 @@ See the available configuration options in
 <TabItem value="terraform" label="Terraform">
 
 See
-[the aiven_pg resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg)
+[the `aiven_pg` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg)
 for the full schema.
 
 </TabItem>

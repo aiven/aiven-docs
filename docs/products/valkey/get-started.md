@@ -6,17 +6,38 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CreateService from "@site/static/includes/create-service-console.md"
-import Help from "@site/static/includes/cli-help.md"
+import CreateService from "@site/static/includes/create-service-console.md";
+import Help from "@site/static/includes/cli-help.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Begin your journey with Aiven for Valkey™, the versatile in-memory data store offering high-performance capabilities for caching, message queues, and efficient data storage solutions.
 
 ## Prerequisites
 
-- Access to the [Aiven Console](https://console.aiven.io/)
-- [Aiven CLI](https://github.com/aiven/aiven-client) installed
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-<Tabs groupId="setup">
+- Access to the [Aiven Console](https://console.aiven.io)
+
+</TabItem>
+<TabItem value="cli" label="CLI" default>
+
+- [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
+- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+
+</TabItem>
+<TabItem value="terraform" label="Terraform" default>
+
+<TerraformPrereqs />
+
+</TabItem>
+</Tabs>
+
+## Create a service
+
+<Tabs groupId="group1">
 <TabItem value="Console" label="Console" default>
 
 <CreateService serviceType="Valkey"/>
@@ -47,6 +68,27 @@ Begin your journey with Aiven for Valkey™, the versatile in-memory data store 
     - `--project PROJECT_NAME`: Specifies the project where the service will be created.
 
 <Help/>
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='valkey/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+    <TerraformSample filename='valkey/service.tf' />
+
+    Where `PROJECT_NAME` is the name of one of your Aiven projects.
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='valkey/variables.tf' />
+
+1. Create the `terraform.tfvars` file and add your token.
+
+<TerraformApply />
 
 </TabItem>
 </Tabs>

@@ -100,21 +100,21 @@ The following example does....
 
 You can also see this example in GitHub....
 
-1. Create a file named `provider.tf` file and add the following:
+1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='opensearch/provider.tf' />
 
-1. Create a file named `service.tf` file and add the following:
+1. Create a file named `service.tf` and add the following:
 
     <TerraformSample filename='opensearch/opensearch_service.tf' />
 
     Where `PROJECT_NAME` is the name of one of your Aiven projects.
 
-1. Create a file named `variables.tf` file and add the following:
+1. Create a file named `variables.tf` and add the following:
 
     <TerraformSample filename='opensearch/variables.tf' />
 
-1. Create a file named `terraform.tfvars` file and add your token.
+1. Create a file named `terraform.tfvars` and add your token.
 
 <TerraformApply />
 

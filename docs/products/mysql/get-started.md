@@ -43,23 +43,29 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Create a file named `provider.tf` file and add the following:
+1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='mysql/provider.tf' />
 
-1. Create a file named `service.tf` file and add the following:
+1. Create a file named `service.tf` and add the following:
 
     <TerraformSample filename='mysql/service.tf' />
 
     Where `PROJECT_NAME` is the name of one of your Aiven projects.
 
-1. Create a file named `variables.tf` file and add the following:
+1. Create a file named `variables.tf` and add the following:
 
     <TerraformSample filename='mysql/variables.tf' />
 
-1. Create a file named `terraform.tfvars` file and add:
-   - your token in the `aiven_token` variable
-   - a password for the admin service user in the `mysql_user_password` variable
+1. Create a file named `terraform.tfvars` and add:
+
+   - Your token in the `aiven_token` variable
+   - A password for the service user in the `mysql_user_password` variable
+   - Optional: a username for the service user in the `mysql_username` variable
+
+1. To output connection details, create a file named `output.tf` and add the following:
+
+    <TerraformSample filename='mysql/output.tf' />
 
 <TerraformApply />
 
@@ -86,7 +92,7 @@ See the available configuration options in
 <TabItem value="terraform" label="Terraform">
 
 See
-[the aiven_mysql resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql)
+[the `aiven_mysql` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql)
 for the full schema.
 
 </TabItem>
