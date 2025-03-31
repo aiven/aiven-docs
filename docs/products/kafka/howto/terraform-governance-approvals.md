@@ -3,9 +3,14 @@ title: Manage approvals in Aiven for Apache Kafka® Governance using Terraform &
 sidebar_label: Governance with Terraform
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Aiven for Apache Kafka® Governance lets you manage approval workflows for Apache Kafka topic changes using Terraform and GitHub Actions.
+
+To manage approvals in the Aiven Console, see
+[Manage approvals in the Aiven Console](/docs/products/kafka/howto/approvals).
+
 
 ## Prerequisites
 
@@ -229,3 +234,7 @@ configure GitHub before merging changes.
 | **Invalid plan JSON file** | Missing or incorrectly formatted plan file | Ensure a valid plan JSON file is provided |
 | **User is not a member of the owner group** | Requester lacks required permissions | Assign requester to the correct user group |
 | **Approval required from a member of the owner group** | PR lacks required approval | Ensure a valid team member has approved the PR |
+
+<RelatedPages/>
+
+[Manage approvals in the Aiven Console](/docs/products/kafka/howto/approvals)
