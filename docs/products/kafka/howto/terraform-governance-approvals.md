@@ -138,18 +138,18 @@ approvals.
 **Example GitHub Actions workflow**
 
 ```yaml
- name: Kafka governance compliance check
+name: Kafka governance compliance check
 
- on:
-   pull_request:
-     types: [opened, synchronize, reopened]
-   pull_request_review:
-     types: [submitted]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  pull_request_review:
+    types: [submitted]
 
- jobs:
-   compliance:
-   runs-on: ubuntu-latest
-   steps:
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -162,7 +162,7 @@ approvals.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run compliance check
-        uses: aiven/aiven-terraform-governance-compliance-checker@v0.1.0
+        uses: Aiven-Open/Aiven-apache-kafka-governance-compliance-checker-for-terraform@v1.2.0
         with:
           requester: ${{ github.event.pull_request.user.login }}
           approvers: ${{ steps.get_approvers.outputs.data }}
