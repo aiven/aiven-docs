@@ -191,7 +191,7 @@ your service.
    sure to include the replica DNS names in the list. If you have
    `<PROMETHEUS_SERVICE_URI>` as `public-example.aivencloud.com`, then you
    will need to add `public-replica-example.aivencloud.com`. This applies
-   to PostgreSQL®, MySQL®, Apache Kafka®, and Caching services.
+   to PostgreSQL®, MySQL®, and Caching services.
    :::
 
 ### View full list of metrics
