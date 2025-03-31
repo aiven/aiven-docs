@@ -9,11 +9,12 @@ Aiven for Apache Kafka® Governance lets you manage approval workflows for Apach
 
 ## Prerequisites
 
-- [Authentication token](/docs/platform/howto/create_authentication_token) to
-  authenticate Terraform requests
+- [Authentication token](/docs/platform/howto/create_authentication_token) for an
+  [application user](/docs/platform/concepts/application-users) created specifically for
+  Terraform, and assigned to a user group with governance permissions
 - [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
   with GitHub Actions enabled
-- [Aiven user groups](/docs/platform/howto/manage-groups) configured
+- [User groups](/docs/platform/howto/manage-groups) configured
 - Optional: To access early stage Aiven Terraform Provider features, enable the following
   environment variable:
 
@@ -87,7 +88,7 @@ be integrated to validate changes and enforce compliance.
 
 ### Step 2. Map GitHub users to Aiven identities
 
-To verify requesters and approvers, assign them to the appropriate Aiven user group
+To verify requesters and approvers, assign them to the appropriate user group
 using the `aiven_external_identity` resource. For more information, see the
 [Aiven Terraform Provider documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/external_identity).
 
