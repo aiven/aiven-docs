@@ -61,6 +61,9 @@ You create the service, two service users, and assign each user a role:
 - Give the ETL user permission to insert data.
 - Give the analyst user access to view data in the measurements database.
 
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/clickhouse) on GitHub.
+
 1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='clickhouse/provider.tf' />

@@ -72,6 +72,9 @@ Begin your journey with Aiven for Valkey™, the versatile in-memory data store 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/valkey) on GitHub.
+
 1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='valkey/provider.tf' />

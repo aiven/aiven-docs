@@ -96,9 +96,8 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-The following example does....
-
-You can also see this example in GitHub....
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/opensearch) on GitHub.
 
 1. Create a file named `provider.tf` and add the following:
 

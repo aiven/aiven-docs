@@ -43,6 +43,9 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/postgres) on GitHub.
+
 1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='postgres/provider.tf' />
