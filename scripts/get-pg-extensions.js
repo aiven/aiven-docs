@@ -35,6 +35,7 @@ async function fetchPostgreSQLExtensions() {
 
     // Generate Markdown table
     const markdownTable = `
+<!-- vale off -->
 | Extension Name | Default Version | Description |
 |----------------|-----------------|-------------|
 ${extensions

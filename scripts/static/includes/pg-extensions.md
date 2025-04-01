@@ -1,3 +1,4 @@
+<!-- vale off -->
 | Extension Name | Default Version | Description |
 |----------------|-----------------|-------------|
 | address_standardizer | 3.5.0 | N/A |
