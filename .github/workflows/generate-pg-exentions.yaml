@@ -1,0 +1,39 @@
+name: Generate PostgreSQL Extensions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-pg-extensions:
+    name: Generate PostgreSQL Extensions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run script to generate PostgreSQL extensions
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+        run: node scripts/get-pg-extensions.js
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: Generate PostgreSQL extensions
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          title: Generate PostgreSQL extensions
+          body: |
+            > [!NOTE]
+            > Auto-generated PR. Do not update the content of this PR.
+          base: main
+          branch: generate-pg-extensions
+          labels: automated-pr, review/TW
+          delete-branch: true
