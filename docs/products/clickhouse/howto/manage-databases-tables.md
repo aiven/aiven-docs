@@ -11,16 +11,19 @@ import TabItem from '@theme/TabItem';
 
 Create and work with databases and tables in Aiven for ClickHouse®.
 
+:::tip
+Additionally to regular databases, you can also create
+[integration databases](/docs/products/clickhouse/howto/integration-databases#create-integration-databases).
+:::
+
 ## Create a database {#create-a-clickhouse-database}
 
 You can create a database either in the [Aiven Console](https://console.aiven.io/) or
 using an SQL client such as the
 [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
 
-:::tip
-You can also create
-[integration databases](/docs/products/clickhouse/howto/integration-databases#create-integration-databases)
-in Aiven for ClickHouse.
+:::note
+Your Aiven for ClickHouse service can support up to 400 databases simultaneously.
 :::
 
 <Tabs groupId="group1">
