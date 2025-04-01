@@ -1,11 +1,11 @@
-name: Generate PostgreSQL Extensions
+name: Generate PostgreSQL extensions
 
 on:
   workflow_dispatch:
 
 jobs:
   generate-pg-extensions:
-    name: Generate PostgreSQL Extensions
+    name: Generate PostgreSQL extensions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
         run: yarn install --immutable
       - name: Run script to generate PostgreSQL extensions
         env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
+          TENANT_ID: ${{ secrets.TENANT_ID }}
         run: node scripts/get-pg-extensions.js
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6

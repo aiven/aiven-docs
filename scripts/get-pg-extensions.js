@@ -1,68 +1,87 @@
-const axios = require('axios');
-const fs = require('fs');
+const fs = require('fs').promises;
+const https = require('https');
+const path = require('path');
 
-// Fetch PostgreSQL extensions and generate a Markdown table
-async function fetchPostgreSQLExtensions() {
-  const project = process.env.AIVEN_PROJECT;
-  const service = process.env.AIVEN_SERVICE;
+const tenant = process.env.TENANT_ID;
 
-  if (!project || !service) {
+// API endpoint
+const apiEndpoint = `https://api.aiven.io/v1/tenants/${tenant}/pg-available-extensions`;
+
+// Output Markdown file path (relative path)
+const markdownFilePath = path.join(
+  __dirname,
+  '../static/includes/pg-extensions.md',
+);
+
+// Helper function to fetch data from the API
+function fetchData(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        let data = '';
+        res.on('data', (chunk) => (data += chunk));
+        res.on('end', () => resolve(data));
+        res.on('error', (err) => reject(err));
+      })
+      .on('error', (err) => reject(err));
+  });
+}
+
+// Function to generate a Markdown table for a specific PostgreSQL version
+function generateMarkdownTableForVersion(pgVersion) {
+  let markdown = `## Extensions for PostgreSQL ${pgVersion.version}\n\n`;
+  markdown += '| Extension Name | Versions | Default Version |\n';
+  markdown += '|----------------|----------|-----------------|\n';
+
+  if (!pgVersion.extensions || !Array.isArray(pgVersion.extensions)) {
     console.error(
-      '⚠️ AIVEN_PROJECT or AIVEN_SERVICE environment variable is not set.',
+      `⚠️ Unexpected API response structure for version ${pgVersion.version}. "extensions" field is missing or not an array.`,
     );
-    process.exit(1);
+    return markdown;
   }
 
-  const apiUrl = `https://api.aiven.io/v1/project/${project}/service/${service}/pg/available-extensions`;
-  const apiToken = process.env.API_TOKEN;
-  if (!apiToken) {
-    console.error('⚠️ API_TOKEN environment variable is not set.');
-    process.exit(1);
-  }
+  pgVersion.extensions.forEach((extension) => {
+    const versions = extension.versions.join(', ');
+    const defaultVersion = extension.default_version || 'N/A';
+    markdown += `| ${extension.name} | ${versions} | ${defaultVersion} |\n`;
+  });
 
+  return markdown;
+}
+
+// Main function to fetch data and write Markdown
+async function generateMarkdown() {
   try {
-    const response = await axios.get(apiUrl, {
-      headers: {
-        Authorization: `aivenv1 ${apiToken}`, // Updated to use the correct authorization format
-      },
-    });
+    const data = await fetchData(apiEndpoint);
+    const json = JSON.parse(data);
 
-    const extensions = response.data.extensions;
-    if (!extensions || extensions.length === 0) {
-      console.error('⚠️ No extensions found in the response.');
+    if (json.errors && json.errors.length > 0) {
+      console.error('API returned errors:', json.errors);
       return;
     }
 
-    // Generate Markdown table
-    const markdownTable = `
-<!-- vale off -->
-| Extension Name | Default Version | Description |
-|----------------|-----------------|-------------|
-${extensions
-  .map(
-    (ext) =>
-      `| ${ext.name} | ${ext.default_version || 'N/A'} | ${
-        ext.description || 'N/A'
-      } |`,
-  )
-  .join('\n')}
-`;
-
-    // Write the Markdown table to a file
-    const outputFileName = 'static/includes/pg-extensions.md';
-    const outputDir = 'static/includes';
-
-    // Ensure the directory exists
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, {recursive: true});
+    if (!json.pg || !Array.isArray(json.pg)) {
+      console.error(
+        '⚠️ Unexpected API response structure. "pg" field is missing or not an array.',
+      );
+      return;
     }
 
-    fs.writeFileSync(outputFileName, markdownTable.trim());
-    console.log(`👌 PostgreSQL extensions table written to ${outputFileName}`);
-  } catch (error) {
-    console.error('⚠️ Error fetching PostgreSQL extensions:', error.message);
+    // Sort PostgreSQL versions in decreasing order
+    json.pg.sort((a, b) => parseFloat(b.version) - parseFloat(a.version));
+
+    let markdownContent = '<!-- vale off -->';
+
+    json.pg.forEach((pgVersion) => {
+      markdownContent += generateMarkdownTableForVersion(pgVersion);
+      markdownContent += '\n'; // Add spacing between tables
+    });
+
+    await fs.writeFile(markdownFilePath, markdownContent, 'utf8');
+    console.log(`👌 Markdown content written to ${markdownFilePath}`);
+  } catch (err) {
+    console.error('Error:', err.message);
   }
 }
 
-// Execute the function
-fetchPostgreSQLExtensions();
+generateMarkdown();
