@@ -81,7 +81,7 @@ PostgreSQL 15 or later to enable `pgaudit` on your database.
 1. Run the following query:
 
    ```sql
-   SET pgaudit.feature_enabled='all';
+   SET pgaudit.log='ddl';
    ```
 
 #### Enable for a user's role
@@ -95,7 +95,7 @@ PostgreSQL 15 or later to enable `pgaudit` for a user's role.
 1. Run the following query:
 
    ```sql
-   SET pgaudit.feature_enabled='all';
+   ALTER ROLE ROLE_NAME SET pgaudit.log='ddl';
    ```
 
 </TabItem>
@@ -181,7 +181,7 @@ PostgreSQL 15 or later to configure `pgaudit` for a user's role.
 1. Run the following query:
 
    ```sql
-   SET pgaudit.PARAMETER_NAME='all';
+   ALTER ROLE_NAME SET pgaudit.PARAMETER_NAME=PARAMETER_VALUE;
    ```
 
 </TabItem>
@@ -200,13 +200,13 @@ PostgreSQL 15 or later to use the session audit logging.
 To enable the session audit logging, run the following query:
 
 ```sql
-SET pgaudit.PARAMETER_NAME='all';
+ALTER DATABASE DATABASE_NAME SET pgaudit.log='ddl';
 ```
 
 :::note[Example]
 
 ```sql
-SET pgaudit.PARAMETER_NAME='all';
+ALTER DATABASE defaultdb SET pgaudit.log='read,ddl';
 ```
 
 :::
@@ -352,7 +352,7 @@ PostgreSQL 15 or later to disable `pgaudit` on your database.
 1. Run the following query:
 
    ```sql
-   SET pgaudit.PARAMETER_NAME='all';
+   ALTER DATABASE DATABASE_NAME SET pgaudit.log='none';
    ```
 
 #### Disable for a user's role
@@ -366,7 +366,7 @@ PostgreSQL 15 or later to disable `pgaudit` for a user's role.
 1. Run the following query:
 
    ```sql
-   SET pgaudit.PARAMETER_NAME='all';
+   ALTER ROLE_NAME SET pgaudit.log='none';
    ```
 
 </TabItem>
