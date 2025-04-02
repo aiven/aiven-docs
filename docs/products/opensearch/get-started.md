@@ -107,13 +107,11 @@ The following example files are also available in the
 
     <TerraformSample filename='opensearch/opensearch_service.tf' />
 
-    Where `PROJECT_NAME` is the name of one of your Aiven projects.
-
 1. Create a file named `variables.tf` and add the following:
 
     <TerraformSample filename='opensearch/variables.tf' />
 
-1. Create a file named `terraform.tfvars` and add your token.
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
 <TerraformApply />
 
