@@ -32,7 +32,7 @@ The columnar engine is enabled by default.
 :::
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. On the <ConsoleLabel name="Services"/> page, select a service.
 1. Click <ConsoleLabel name="service settings"/>, and go to **Columnar engine**.
@@ -40,14 +40,14 @@ The columnar engine is enabled by default.
 1. Set **google_columnar_engine_enabled** to `Enabled`.
 1. Click **Save configuration**.
 </TabItem>
-<TabItem value="tf" label="Aiven Provider for Terraform">
+<TabItem value="tf" label="Terraform">
 Update the
 [aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
 resource: in the `alloydbomni_user_config` block, set attribute
 [google_columnar_engine_enabled](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni#google_columnar_engine_enabled-1)
 to `true`.
 </TabItem>
-<TabItem value="k8" label="Aiven Operator for Kubernetes®">
+<TabItem value="k8" label="Kubernetes">
 Update the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource: in the
 [userConfig](https://aiven.github.io/aiven-operator/resources/alloydbomni.html#spec.userConfig)
@@ -66,7 +66,7 @@ modify the size of the columnar engine memory to a maximum of 50% of the service
 memory.
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. On the <ConsoleLabel name="Services"/> page, select a service.
 1. Click <ConsoleLabel name="service settings"/>, and go to **Columnar engine**.
@@ -74,14 +74,14 @@ memory.
 1. Set **google_columnar_engine_memory_size_percentage** to a value between `0` and `50`.
 1. Click **Save configuration**.
 </TabItem>
-<TabItem value="tf" label="Aiven Provider for Terraform">
+<TabItem value="tf" label="Terraform">
 Update the
 [aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
 resource: in the `alloydbomni_user_config` block, set attribute
 [google_columnar_engine_memory_size_percentage](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni#google_columnar_engine_memory_size_percentage-1)
 to a value between `0` and `50`.
 </TabItem>
-<TabItem value="k8" label="Aiven Operator for Kubernetes®">
+<TabItem value="k8" label="Kubernetes">
 Update the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource: in the
 [userConfig](https://aiven.github.io/aiven-operator/resources/alloydbomni.html#spec.userConfig)
@@ -100,7 +100,7 @@ requirements. Disabling the columnar engine releases resources allocated for the
 engine.
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. On the <ConsoleLabel name="Services"/> page, select a service.
 1. Click <ConsoleLabel name="service settings"/>, and go to **Columnar engine**.
@@ -108,14 +108,14 @@ engine.
 1. Set **google_columnar_engine_enabled** to `Disabled`.
 1. Click **Save configuration**.
 </TabItem>
-<TabItem value="tf" label="Aiven Provider for Terraform">
+<TabItem value="tf" label="Terraform">
 Update the
 [aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
 resource: in the `alloydbomni_user_config` block, set attribute
 [google_columnar_engine_enabled](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni#google_columnar_engine_enabled-1)
 to `false`.
 </TabItem>
-<TabItem value="k8" label="Aiven Operator for Kubernetes®">
+<TabItem value="k8" label="Kubernetes">
 Update the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource: in the
 [userConfig](https://aiven.github.io/aiven-operator/resources/alloydbomni.html#spec.userConfig)

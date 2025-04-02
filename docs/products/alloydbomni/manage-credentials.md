@@ -28,13 +28,13 @@ using either the [Aiven Console](https://console.aiven.io) or the
 ### Add a key
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Go to the [Aiven Console](https://console.aiven.io) and your Aiven for AlloyDB Omni service.
 1. Go to <ConsoleLabel name="generativeai"/> > **Goolge service account key**.
 1. Click **Upload file** > **Choose file**, select the JSON file including your Google
    service account key, and click **Upload**.
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 Run:
 
 ```bash
@@ -47,7 +47,7 @@ where:
 - `PRIVATE_KEY_FILE` is the path to your key file
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 Make a request to the
 [AlloyDbOmniGoogleCloudPrivateKeySet](https://api.aiven.io/doc/#tag/Service:_AlloyDB_Omni/operation/AlloyDbOmniGoogleCloudPrivateKeySet)
 endpoint.
@@ -57,13 +57,13 @@ endpoint.
 ### Update a key
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Go to the [Aiven Console](https://console.aiven.io) and your Aiven for AlloyDB Omni service.
 1. Go to <ConsoleLabel name="generativeai"/> > **Goolge service account key**.
 1. Click <ConsoleLabel name="actions"/> > **Replace file** > **Choose file**, select the
    JSON file including your new Google service account key, and click **Upload**.
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 Run:
 
 ```bash
@@ -76,7 +76,7 @@ where:
 - `PRIVATE_KEY_FILE` is the path to your new key file
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 Make a request to the
 [AlloyDbOmniGoogleCloudPrivateKeySet](https://api.aiven.io/doc/#tag/Service:_AlloyDB_Omni/operation/AlloyDbOmniGoogleCloudPrivateKeySet)
 endpoint.
@@ -86,12 +86,12 @@ endpoint.
 ### Delete a key
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Go to the [Aiven Console](https://console.aiven.io) and your Aiven for AlloyDB Omni service.
 1. Go to <ConsoleLabel name="generativeai"/> > **Goolge service account key**.
 1. Click <ConsoleLabel name="actions"/> > **Delete file** > **Delete**.
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 Run:
 
 ```bash
@@ -99,7 +99,7 @@ avn service alloydbomni google-cloud-private-key delete --service SERVICE_NAME
 ```
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 Make a request to the
 [AlloyDbOmniGoogleCloudPrivateKeyRemove](https://api.aiven.io/doc/#tag/Service:_AlloyDB_Omni/operation/AlloyDbOmniGoogleCloudPrivateKeyRemove)
 endpoint.
@@ -111,11 +111,11 @@ endpoint.
 Display the key ID and the client email associated with your key.
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="gui" label="Console" default>
 1. Go to the [Aiven Console](https://console.aiven.io) and your Aiven for AlloyDB Omni service.
 1. Go to <ConsoleLabel name="generativeai"/> > **Google service account key**.
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 Run:
 
 ```bash
@@ -123,7 +123,7 @@ avn service alloydbomni google-cloud-private-key show --service SERVICE_NAME
 ```
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 Make a request to the
 [AlloyDbOmniGoogleCloudPrivateKeyIdentify](https://api.aiven.io/doc/#tag/Service:_AlloyDB_Omni/operation/AlloyDbOmniGoogleCloudPrivateKeyIdentify)
 endpoint.
