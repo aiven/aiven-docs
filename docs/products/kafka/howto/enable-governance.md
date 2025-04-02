@@ -10,11 +10,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 Enable governance in Aiven for Apache Kafka® to create a secure and compliant framework to manage your Aiven for Apache Kafka services efficiently.
 
 By default, governance applies at the organization level. Users with either
-the [organization admin](/docs/platform/concepts/permissions#organization-roles) or
-[super admin](/docs/platform/howto/manage-permissions#make-users-super-admin) role
+the [super admin](/docs/platform/howto/manage-permissions#make-users-super-admin) or
+[organization admin](/docs/platform/concepts/permissions#organization-roles) role
 can manually select which services to govern through the Apache Kafka governance settings.
-
-
 
 ## Impact of enabling governance
 
