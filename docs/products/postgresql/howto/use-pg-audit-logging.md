@@ -72,20 +72,30 @@ or for a database-role combination.
 
 #### Enable on a database
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to enable `pgaudit` on your database.
+:::
+
 1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
 1. Run the following query:
 
    ```sql
-   SELECT aiven_extras.set_pgaudit_parameter('log', DATABASE_NAME, 'ddl');
+   SET pgaudit.feature_enabled='all';
    ```
 
 #### Enable for a user's role
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to enable `pgaudit` for a user's role.
+:::
+
 1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
 1. Run the following query:
 
    ```sql
-   SELECT aiven_extras.set_pgaudit_role_parameter('log', ROLE_NAME, 'ddl');
+   SET pgaudit.feature_enabled='all';
    ```
 
 </TabItem>
@@ -148,20 +158,30 @@ role, or for a database-role combination.
 
 #### Configure on a database
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to configure `pgaudit` on your database.
+:::
+
 1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
 1. Run the following query:
 
    ```sql
-   SELECT aiven_extras.set_pgaudit_parameter(PARAMETER_NAME, DATABASE_NAME, ROLE_NAME, PARAMETER_VALUE);
+   SET pgaudit.PARAMETER_NAME='all';
    ```
 
 #### Configure for a user's role
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to configure `pgaudit` for a user's role.
+:::
+
 1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
 1. Run the following query:
 
    ```sql
-   SELECT aiven_extras.set_pgaudit_role_parameter(PARAMETER_NAME, ROLE_NAME, PARAMETER_VALUE);
+   SET pgaudit.PARAMETER_NAME='all';
    ```
 
 </TabItem>
@@ -172,16 +192,21 @@ role, or for a database-role combination.
 Session audit logging allows recording detailed logs of all SQL statements and commands
 executed during a database session in the system's backend.
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to use the session audit logging.
+:::
+
 To enable the session audit logging, run the following query:
 
 ```sql
-SELECT aiven_extras.set_pgaudit_parameter('log', 'DATABASE_NAME', 'CLASSES_OF_STATEMENTS_TO_BE_LOGGED');
+SET pgaudit.PARAMETER_NAME='all';
 ```
 
 :::note[Example]
 
 ```sql
-SELECT aiven_extras.set_pgaudit_parameter('log', 'defaultdb', 'read, ddl');
+SET pgaudit.PARAMETER_NAME='all';
 ```
 
 :::
@@ -318,20 +343,30 @@ database-role combination.
 
 #### Disable on a database
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to disable `pgaudit` on your database.
+:::
+
 1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
 1. Run the following query:
 
    ```sql
-   SELECT aiven_extras.set_pgaudit_parameter('log', DATABASE_NAME, ROLE_NAME, 'none');
+   SET pgaudit.PARAMETER_NAME='all';
    ```
 
 #### Disable for a user's role
 
+:::important
+If you use PostgreSQL 14 or earlier, [upgrade](/docs/products/postgresql/howto/upgrade) to
+PostgreSQL 15 or later to disable `pgaudit` for a user's role.
+:::
+
 1. [Connect to your Aiven for PostgreSQL service](/docs/products/postgresql/howto/list-code-samples).
 1. Run the following query:
 
    ```sql
-   SELECT aiven_extras.set_pgaudit_role_parameter('log', ROLE_NAME, 'none');
+   SET pgaudit.PARAMETER_NAME='all';
    ```
 
 </TabItem>
