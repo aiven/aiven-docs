@@ -54,17 +54,15 @@ The following example files are also available in the
 
     <TerraformSample filename='mysql/service.tf' />
 
-    Where `PROJECT_NAME` is the name of one of your Aiven projects.
-
 1. Create a file named `variables.tf` and add the following:
 
     <TerraformSample filename='mysql/variables.tf' />
 
-1. Create a file named `terraform.tfvars` and add:
+1. Create a file named `terraform.tfvars` and add values for the variables:
 
-   - Your token in the `aiven_token` variable
-   - A password for the service user in the `mysql_user_password` variable
-   - Optional: a username for the service user in the `mysql_username` variable
+   - `aiven_token`: your token
+   - `aiven_project_name`: the name of one of your Aiven projects
+   - `mysql_password`: a password for the service user
 
 1. To output connection details, create a file named `output.tf` and add the following:
 
