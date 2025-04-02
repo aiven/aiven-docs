@@ -60,7 +60,7 @@ creators and approvers meet governance requirements before changes are applied.
 
    - A user submits a pull request (PR) to modify an Apache Kafka topic.
    - The GitHub Action automatically runs governance compliance checks.
-   - If the requester lacks approval permissions, the check fails.
+   - Without all required approvals, the check fails.
 
 1. Approve and apply changes
 
@@ -72,7 +72,7 @@ creators and approvers meet governance requirements before changes are applied.
 
 Governance enforces approval policies to maintain security and compliance:
 
-- If an approver is a member of multiple teams, their approval applies to all teams
+- If an approver is a member of multiple user groups, their approval applies to all teams
   they belong to.
 - If a second approval is required, another member of the same user group must approve.
 - The pull request creator must be a member of the user group that owns the Apache
