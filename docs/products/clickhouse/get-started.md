@@ -72,24 +72,21 @@ The following example files are also available in the
 
     <TerraformSample filename='clickhouse/service.tf' />
 
-    Where `PROJECT_NAME` is the name of one of your Aiven projects.
-
 1. Create a file named `service_users.tf` and add the following:
 
     <TerraformSample filename='clickhouse/service_users.tf' />
 
-1. Create the `terraform.tfvars` file and add your token.
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='clickhouse/variables.tf' />
+
+1. Create the `terraform.tfvars` file and the values for your token and project name.
 
 1. To output connection details, create a file named `output.tf` and add the following:
 
     <TerraformSample filename='clickhouse/output.tf' />
 
 <TerraformApply />
-
-
-
-
-
 
 </TabItem>
 <TabItem value="3" label="Kubernetes">
