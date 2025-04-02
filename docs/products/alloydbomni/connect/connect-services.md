@@ -7,14 +7,6 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect to the Aiven for AlloyDB Omni service using various programming languages or tools.
 
-<<<<<<< HEAD
-:::note
-Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-:::
-
-=======
->>>>>>> 1c5dc2c5 (reomved LA labels and added OCI support)
 :::tip
 Preview connection instructions in the [Aiven Console](https://console.aiven.io/):
 
