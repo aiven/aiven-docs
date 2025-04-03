@@ -7,6 +7,7 @@ Explore common metrics available via Prometheus for your Aiven for Apache KafkaÂ
 The available metrics depend on whether your service runs in KRaft mode or ZooKeeper mode.
 
 ## How to retrieve metrics
+
 You can retrieve a complete list of metrics from your service by querying the Prometheus
 endpoint. To do this:
 
