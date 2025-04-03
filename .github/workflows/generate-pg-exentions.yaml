@@ -2,7 +2,7 @@ name: Generate PostgreSQL extensions
 
 on:
   schedule:
-    - cron: '0 1 * * 4' # every Thursday, at 1AM
+    - cron: '0 1 1 * *' # once a month
   workflow_dispatch:
 
 jobs:
