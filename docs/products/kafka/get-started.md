@@ -10,7 +10,10 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
-import RelatedPages from "@site/src/components/RelatedPages"
+import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Start using Aiven for Apache Kafka® by setting up and configuring a service, connecting to it, and managing your data.
 
@@ -18,9 +21,24 @@ Start using Aiven for Apache Kafka® by setting up and configuring a service, co
 
 Before you begin, ensure you have access to the following tools:
 
-- [Aiven Console](https://console.aiven.io)
-- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-- [Aiven CLI](/docs/tools/cli)
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
+- Access to the [Aiven Console](https://console.aiven.io)
+
+</TabItem>
+<TabItem value="terraform" label="Terraform" default>
+
+<TerraformPrereqs />
+
+</TabItem>
+<TabItem value="cli" label="CLI" default>
+
+- [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
+- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+
+</TabItem>
+</Tabs>
 
 ## Create an Aiven for Apache Kafka® service
 
@@ -28,96 +46,35 @@ You can create your Aiven for Apache Kafka service using the Aiven Console, the 
 or automate the process with Terraform.
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="Apache Kafka®"/>
 
 </TabItem>
-<TabItem value="2" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-1. [Create a personal token](/docs/platform/howto/create_authentication_token).
-1. Create a `sample.tf` file for the `aiven` provider configuration and the `aiven_kafka`
-   resource.
+1. Create a file named `provider.tf` and add the following:
 
-   ```hcl
-   variable "aiven_token" {
-     type = string
-   }
+    <TerraformSample filename='kafka_connect/provider.tf' />
 
-   variable "aiven_project_name" {
-     type = string
-   }
+1. Create a file named `service.tf` and add the following:
 
-   terraform {
-     required_providers {
-       aiven = {
-         source  = "aiven/aiven"
-         version = ">=4.0.0, <5.0.0"
-       }
-     }
-   }
+    <TerraformSample filename='kafka_connect/service.tf' />
 
-   provider "aiven" {
-     api_token = var.aiven_token
-   }
+1. Create a file named `variables.tf` and add the following:
 
-   resource "aiven_kafka" "kafka" {
-     project                 = var.aiven_project_name
-     cloud_name              = "google-europe-west1"
-     plan                    = "startup-2"
-     service_name            = "my-kafka"
-     maintenance_window_dow  = "friday"
-     maintenance_window_time = "23:00:00"
+    <TerraformSample filename='kafka_connect/variables.tf' />
 
-     kafka_user_config {
-       kafka_version = "3.7"
-     }
-   }
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
-   output "kafka_service_host" {
-     value = aiven_kafka.kafka.service_host
-   }
+1. Optional: To output connection details, create a file named `output.tf` and add the following:
 
-   output "kafka_service_port" {
-     value = aiven_kafka.kafka.service_port
-   }
+    <TerraformSample filename='kafka_connect/output.tf' />
 
-   output "kafka_service_username" {
-     value = aiven_kafka.kafka.service_username
-   }
-
-   output "kafka_service_password" {
-     value     = aiven_kafka.kafka.service_password
-     sensitive = true
-   }
-   ```
-
-1. Create a `terraform.tfvars` file to assign values to your declared variables.
-
-    ```hcl
-    aiven_token       = "AIVEN_TOKEN"
-    aiven_project_name = "PROJECT_NAME"
-    ```
-
-1. Run the following commands to initialize and apply the configuration:
-
-   ```bash
-   terraform init
-   terraform plan
-   terraform apply --auto-approve
-   ```
-
-1. Store the Terraform outputs in environment variables to use them when [connecting](#connect):
-
-    ```bash
-    KAFKA_HOST="$(terraform output -raw kafka_service_host)"
-    KAFKA_PORT="$(terraform output -raw kafka_service_port)"
-    KAFKA_USER="$(terraform output -raw kafka_service_username)"
-    KAFKA_PASSWORD="$(terraform output -raw kafka_service_password)"
-    ```
+<TerraformApply />
 
 </TabItem>
-<TabItem value="3" label="CLI">
+<TabItem value="cli" label="CLI">
 
 Open your terminal and run the following command:
 
@@ -149,8 +106,8 @@ Parameters:
 Once your service is created, you can add topics for organizing and managing your
 messages.
 
-<Tabs groupId="setup">
-<TabItem value="Console" label="Console" default>
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select the
    Aiven for Apache Kafka® service.
@@ -162,47 +119,15 @@ messages.
 1. Click **Create topic**.
 
 </TabItem>
-<TabItem value="Terraform" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-1. Add the following Terraform configuration to your `.tf` file:
+<TerraformSample filename='resources/aiven_kafka_topic/resource.tf' />
 
-   ```hcl
-   resource "aiven_kafka_topic" "example_topic" {
-     project                = data.aiven_project.example_project.project
-     service_name           = aiven_kafka.example_kafka.service_name
-     topic_name             = "example-topic"
-     partitions             = 5
-     replication            = 3
-     termination_protection = true
-
-     config {
-       flush_ms       = 10
-       cleanup_policy = "compact,delete"
-     }
-
-     timeouts {
-       create = "1m"
-       read   = "5m"
-     }
-   }
-   ```
-
-   Parameters:
-   - `project`: Name of the project.
-   - `service_name`: Name of the Aiven for Apache Kafka service.
-   - `topic_name`: Name of the Apache Kafka topic.
-   - `partitions`: Number of partitions for the topic.
-   - `replication`: Replication factor for the topic.
-   - `termination_protection`: Enables or disables deletion protection for the topic.
-   - `config`: Additional Apache Kafka settings, such as flush interval and
-     cleanup policy. For a list of supported configurations, see
-     [Aiven for Apache Kafka topic configurations](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka#nested-schema-for-kafka_user_configkafka).
-   - `timeouts`: Optional timeouts for creating and reading the topic.
-
-1. Run `terraform apply` to create the topic with the defined configurations.
+More information on this resource and its configuration options are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic).
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="cli" label="CLI">
 
 1. Determine the topic specifications, including the number of partitions, replication
    factor, and other settings.
