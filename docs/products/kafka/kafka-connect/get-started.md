@@ -70,6 +70,9 @@ important to wait until the service status changes from *REBUILDING* to
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka_connect) on GitHub.
+
 1. Create a file named `provider.tf` and add the following:
 
     <TerraformSample filename='kafka_connect/provider.tf' />
