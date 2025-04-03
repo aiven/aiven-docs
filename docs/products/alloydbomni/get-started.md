@@ -2,7 +2,6 @@
 title: Get started with Aiven for AlloyDB Omni
 sidebar_label: Get started
 keywords: [quick start]
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,23 +14,22 @@ Start using Aiven for AlloyDB Omni by setting up a service and connecting to you
 
 ## Prerequisites
 
-:::note
-Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-:::
+Depending on a dev tool to use for working with Aiven for AlloyDB Omni:
 
-- [Aiven CLI](https://github.com/aiven/aiven-client) installed
 - Access to the [Aiven Console](https://console.aiven.io)
+- [Aiven CLI](/docs/tools/cli)
+- [Aiven Provider for Terraform](/docs/tools/terraform)
+- [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 
 ## Create an Aiven for AlloyDB Omni service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="gui" label="Console" default>
 
 <CreateService serviceType="AlloyDB Omni"/>
 
 </TabItem>
-<TabItem value="2" label="CLI">
+<TabItem value="cli" label="CLI">
 
 1. Determine the service specifications, including plan, cloud provider, region,
    and project name.
@@ -40,7 +38,7 @@ Aiven for AlloyDB Omni is in the
    `demo-alloydbomni`:
 
    ```bash
-    avn service create demo-alloydbomni     \
+    avn service create demo-alloydbomni      \
     --service-type alloydbomni               \
     --cloud CLOUD_AND_REGION                 \
     --plan PLAN                              \
@@ -59,6 +57,19 @@ Aiven for AlloyDB Omni is in the
 <Help/>
 
 </TabItem>
+<TabItem value="tf" label="Terraform">
+
+Use the
+[aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
+resource.
+
+</TabItem>
+<TabItem value="k8" label="Kubernetes">
+
+Use the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
+resource.
+
+</TabItem>
 </Tabs>
 
 ## Configure the service
@@ -71,14 +82,14 @@ See configuration options in
 :::
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="gui" label="Console" default>
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
    from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service configuration.
 </TabItem>
-<TabItem value="2" label="CLI">
+<TabItem value="cli" label="CLI">
 Use the [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) command
 to change basic service settings, such as service version, IP filtering, cloud region,
 termination protection, or service plan.
@@ -89,12 +100,25 @@ operations on your service.
 :::
 
 </TabItem>
+<TabItem value="tf" label="Terraform">
+
+Update your
+[aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
+resource.
+
+</TabItem>
+<TabItem value="k8" label="Kubernetes">
+
+Update your [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
+resource.
+
+</TabItem>
 </Tabs>
 
 ## Connect to the service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="gui" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for AlloyDB Omni service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
@@ -103,7 +127,7 @@ operations on your service.
    the connection instructions, and click **Done**.
 
 </TabItem>
-<TabItem value="2" label="CLI">
+<TabItem value="cli" label="CLI">
 [Connect to your new service](/docs/products/alloydbomni/connect/connect-psql) with
 [psql](https://www.postgresql.org/download/) CLI tool.
 </TabItem>
