@@ -1,0 +1,51 @@
+name: Generate PostgreSQL extensions
+
+on:
+  schedule:
+    - cron: '0 1 1 * *' # once a month
+  workflow_dispatch:
+
+jobs:
+  generate-pg-extensions:
+    name: Generate PostgreSQL extensions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run script to generate PostgreSQL extensions
+        env:
+          TENANT_ID: ${{ secrets.TENANT_ID }}
+        run: node scripts/get-pg-extensions.js
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: Generate PostgreSQL extensions
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          title: Generate PostgreSQL extensions
+          body: |
+            > [!NOTE]
+            > Auto-generated PR. Do not update the content of this PR.
+          base: main
+          branch: generate-pg-extensions
+          labels: automated-pr, review/TW
+          delete-branch: true
+      - name: Ping on Slack
+        uses: slackapi/slack-github-action@v1.27.0
+        if: ${{ failure() && github.ref_name == 'main' }}
+        with:
+          payload: |
+            {
+              "runId": "${{github.run_id}}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_PG_EXTENSIONS }}

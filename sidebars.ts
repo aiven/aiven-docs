@@ -1943,6 +1943,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/reference/pg-connection-limits',
                 'products/postgresql/reference/use-of-deprecated-tls-versions',
                 'products/postgresql/reference/list-of-extensions',
+                'products/postgresql/reference/list-of-extensions-for-each-version',
                 'products/postgresql/reference/idle-connections',
                 'products/postgresql/reference/pg-metrics',
                 'products/postgresql/reference/resource-capability',
