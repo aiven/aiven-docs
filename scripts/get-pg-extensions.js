@@ -29,9 +29,9 @@ function fetchData(url) {
 
 // Function to generate a Markdown table for a specific PostgreSQL version
 function generateMarkdownTableForVersion(pgVersion) {
-  let markdown = `## Extensions for PostgreSQL ${pgVersion.version}\n\n`;
-  markdown += '| Extension Name | Versions | Default Version |\n';
-  markdown += '|----------------|----------|-----------------|\n';
+  let markdown = `## PostgreSQL ${pgVersion.version} extensions\n\n`;
+  markdown += '| Extension name | Supported versions | Default version |\n';
+  markdown += '|----------------|--------------------|-----------------|\n';
 
   if (!pgVersion.extensions || !Array.isArray(pgVersion.extensions)) {
     console.error(

@@ -1,9 +1,9 @@
 <!-- vale off -->
 
-## Extensions for PostgreSQL 17
+## PostgreSQL 17 extensions
 
-| Extension Name | Versions | Default Version |
-|----------------|----------|-----------------|
+| Extension name | Supported versions | Default version |
+|----------------|--------------------|-----------------|
 | address_standardizer | 3.3.5, 3.5.0 | 3.5.0 |
 | address_standardizer_data_us | 3.3.5, 3.5.0 | 3.5.0 |
 | aiven_extras | 1.1.16 | 1.1.16 |
@@ -63,10 +63,10 @@
 | vector | 0.7.4 | 0.7.4 |
 | vectorscale | 0.6.0 | 0.6.0 |
 
-## Extensions for PostgreSQL 16
+## PostgreSQL 16 extensions
 
-| Extension Name | Versions | Default Version |
-|----------------|----------|-----------------|
+| Extension name | Supported versions | Default version |
+|----------------|--------------------|-----------------|
 | address_standardizer | 3.3.5, 3.5.0 | 3.5.0 |
 | address_standardizer_data_us | 3.3.5, 3.5.0 | 3.5.0 |
 | aiven_extras | 1.1.16 | 1.1.16 |
@@ -126,10 +126,10 @@
 | vector | 0.7.4 | 0.7.4 |
 | vectorscale | 0.6.0 | 0.6.0 |
 
-## Extensions for PostgreSQL 15
+## PostgreSQL 15 extensions
 
-| Extension Name | Versions | Default Version |
-|----------------|----------|-----------------|
+| Extension name | Supported versions | Default version |
+|----------------|--------------------|-----------------|
 | address_standardizer | 3.2.6, 3.3.5 | 3.3.5 |
 | address_standardizer_data_us | 3.2.6, 3.3.5 | 3.3.5 |
 | aiven_extras | 1.1.16 | 1.1.16 |
@@ -189,10 +189,10 @@
 | uuid-ossp | 1.1 | 1.1 |
 | vector | 0.7.4 | 0.7.4 |
 
-## Extensions for PostgreSQL 14
+## PostgreSQL 14 extensions
 
-| Extension Name | Versions | Default Version |
-|----------------|----------|-----------------|
+| Extension name | Supported versions | Default version |
+|----------------|--------------------|-----------------|
 | address_standardizer | 3.1.7, 3.2.6, 3.3.5 | 3.3.5 |
 | address_standardizer_data_us | 3.1.7, 3.2.6, 3.3.5 | 3.3.5 |
 | aiven_extras | 1.1.16 | 1.1.16 |
@@ -252,10 +252,10 @@
 | uuid-ossp | 1.1 | 1.1 |
 | vector | 0.7.4 | 0.7.4 |
 
-## Extensions for PostgreSQL 13
+## PostgreSQL 13 extensions
 
-| Extension Name | Versions | Default Version |
-|----------------|----------|-----------------|
+| Extension name | Supported versions | Default version |
+|----------------|--------------------|-----------------|
 | address_standardizer | 2.5.8, 3.0.7, 3.1.7, 3.2.6, 3.3.5 | 3.3.5 |
 | address_standardizer_data_us | 2.5.8, 3.0.7, 3.1.7, 3.2.6, 3.3.5 | 3.3.5 |
 | aiven_extras | 1.1.16 | 1.1.16 |
@@ -313,10 +313,10 @@
 | uuid-ossp | 1.1 | 1.1 |
 | vector | 0.7.4 | 0.7.4 |
 
-## Extensions for PostgreSQL 12
+## PostgreSQL 12 extensions
 
-| Extension Name | Versions | Default Version |
-|----------------|----------|-----------------|
+| Extension name | Supported versions | Default version |
+|----------------|--------------------|-----------------|
 | address_standardizer | 2.5.8, 3.0.7, 3.1.7, 3.2.6, 3.3.5 | 3.3.5 |
 | address_standardizer_data_us | 2.5.8, 3.0.7, 3.1.7, 3.2.6, 3.3.5 | 3.3.5 |
 | aiven_extras | 1.1.16 | 1.1.16 |
