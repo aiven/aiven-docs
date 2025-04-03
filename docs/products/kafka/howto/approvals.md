@@ -9,6 +9,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 The **Approvals** page allows you to manage requests for Aiven for Apache Kafka® resources owned by your group.
 These requests can include claims for existing topics or requests to create new topics.
 
+To manage approvals using Terraform and GitHub, see
+[Manage approvals using Terraform and GitHub](/docs/products/kafka/howto/terraform-governance-approvals).
+
 ## Requests flow
 
 Managing requests involves several key steps:
@@ -64,5 +67,6 @@ The approvals page displays the following key elements:
 <RelatedPages/>
 
 - [Aiven for Apache Kafka® topic catalog](/docs/products/kafka/concepts/topic-catalog-overview)
+- [Manage approvals using Terraform and GitHub](/docs/products/kafka/howto/terraform-governance-approvals)
 - [Claim topic ownership](/docs/products/kafka/howto/claim-topic)
 - [Group requests](/docs/products/kafka/howto/group-requests)
