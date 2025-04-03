@@ -14,7 +14,7 @@ To manage approvals in the Aiven Console, see
 
 ## Prerequisites
 
-- [Authentication token](/docs/platform/howto/create_authentication_token) for an
+- [Token](/docs/platform/howto/manage-application-users) for an
   [application user](/docs/platform/concepts/application-users) created specifically for
   Terraform, and assigned to a user group with governance permissions
 - [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo)
@@ -56,13 +56,13 @@ creators and approvers meet governance requirements before changes are applied.
    - Link GitHub usernames to Aiven users using the `aiven_external_identity` resource.
    - Ensure that only mapped users can request or approve changes.
 
-1. Submit and validate changes in GitHub
+1. Submit and validate changes in GitHub:
 
    - A user submits a pull request (PR) to modify an Apache Kafka topic.
    - The GitHub Action automatically runs governance compliance checks.
    - Without all required approvals, the check fails.
 
-1. Approve and apply changes
+1. Approve and apply changes:
 
    - An authorized user approves the PR.
    - The GitHub Action reruns governance validation.
