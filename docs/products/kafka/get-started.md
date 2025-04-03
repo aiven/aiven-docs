@@ -59,7 +59,7 @@ or automate the process with Terraform.
 
 1. Create a file named `service.tf` and add the following:
 
-    <TerraformSample filename='kafka_connect/service.tf' />
+    <TerraformSample filename='kafka_connect/kafka_service.tf' />
 
 1. Create a file named `variables.tf` and add the following:
 
