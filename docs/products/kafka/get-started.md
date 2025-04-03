@@ -27,12 +27,12 @@ Before you begin, ensure you have access to the following tools:
 - Access to the [Aiven Console](https://console.aiven.io)
 
 </TabItem>
-<TabItem value="terraform" label="Terraform" default>
+<TabItem value="terraform" label="Terraform">
 
 <TerraformPrereqs />
 
 </TabItem>
-<TabItem value="cli" label="CLI" default>
+<TabItem value="cli" label="CLI">
 
 - [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
 - [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)

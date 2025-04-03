@@ -24,7 +24,7 @@ service, [create one](/docs/platform/howto/create_new_service).
 - Access to the [Aiven Console](https://console.aiven.io)
 
 </TabItem>
-<TabItem value="terraform" label="Terraform" default>
+<TabItem value="terraform" label="Terraform">
 
 <TerraformPrereqs />
 
@@ -68,7 +68,7 @@ important to wait until the service status changes from *REBUILDING* to
 *RUNNING*.
 
 </TabItem>
-<TabItem value="terraform" label="Terraform" default>
+<TabItem value="terraform" label="Terraform">
 
 1. Create a file named `provider.tf` and add the following:
 
