@@ -39,3 +39,13 @@ jobs:
           branch: generate-pg-extensions
           labels: automated-pr, review/TW
           delete-branch: true
+      - name: Ping on Slack
+        uses: slackapi/slack-github-action@v1.27.0
+        if: ${{ failure() && github.ref_name == 'main' }}
+        with:
+          payload: |
+            {
+              "runId": "${{github.run_id}}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_PG_EXTENSIONS }}
