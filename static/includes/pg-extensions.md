@@ -1,4 +1,6 @@
-<!-- vale off -->## Extensions for PostgreSQL 17
+<!-- vale off -->
+
+## Extensions for PostgreSQL 17
 
 | Extension Name | Versions | Default Version |
 |----------------|----------|-----------------|

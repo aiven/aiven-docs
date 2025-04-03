@@ -70,7 +70,7 @@ async function generateMarkdown() {
     // Sort PostgreSQL versions in decreasing order
     json.pg.sort((a, b) => parseFloat(b.version) - parseFloat(a.version));
 
-    let markdownContent = '<!-- vale off -->';
+    let markdownContent = '<!-- vale off -->\n\n';
 
     json.pg.forEach((pgVersion) => {
       markdownContent += generateMarkdownTableForVersion(pgVersion);
