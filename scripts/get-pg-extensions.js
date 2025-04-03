@@ -4,6 +4,11 @@ const path = require('path');
 
 const tenant = process.env.TENANT_ID;
 
+if (!tenant) {
+  console.error('❌ Error: TENANT_ID environment variable is not set.');
+  process.exit(1);
+}
+
 // API endpoint
 const apiEndpoint = `https://api.aiven.io/v1/tenants/${tenant}/pg-available-extensions`;
 
