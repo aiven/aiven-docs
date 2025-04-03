@@ -5,6 +5,9 @@ sidebar_label: Request access
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Request access to an Apache Kafka topic in Aiven for Apache Kafka Governance to produce or consume messages using access control lists (ACLs).
 
@@ -26,9 +29,22 @@ You can view the service user and ACLs in the following locations in the
 
 ## Prerequisites
 
-[Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization.
+- [Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization
+- For Terraform:
+
+  - [Aiven Provider for Terraform](/docs/tools/terraform)
+  - [Authentication token](/docs/platform/howto/create_authentication_token)
+  - To use beta features of the Aiven Provider for Terraform, set:
+
+    ```bash
+    export PROVIDER_AIVEN_ENABLE_BETA=1
+
+    ```
 
 ## Request access to a topic
+
+<Tabs groupId="methods">
+<TabItem value="console" label="Aiven Console" default>
 
 1. In the [Aiven console](https://console.aiven.io/),
    click **Tools** > **Apache Kafka governance operations**.
@@ -65,6 +81,48 @@ After submitting:
   **Governance operations**.
 - If approved, you can view and download the credentials for authentication in
   <ConsoleLabel name="Streaming catalog"/> > **Access overview**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `aiven_governance_access` Terraform resource to request access to an Apache
+Kafka topic. GitHub Actions manages the approval flow and applies the configuration.
+
+### Workflow overview
+
+1. Write and push the configuration:
+
+   - Use the `aiven_governance_access` resource to define access to a Kafka topic,
+   including the required ACLs.
+
+   <TerraformSample filename='resources/aiven_governance_access/resource.tf' />
+
+   -  Commit and push the configuration to a GitHub repository with GitHub Actions enabled.
+
+1. Approval process:
+
+   - If approval is required, the request enters the Apache Kafka Governance approval flow.
+   - The group defined by `owner_user_group_id` must approve it.
+
+1. Apply the configuration:
+
+   - GitHub Actions runs `terraform apply`, which creates the governance access resource
+     for your Aiven for Apache Kafka service.
+   - Aiven creates the service user and applies the ACLs.
+   - Credentials for the service user are generated.
+
+1. Download the credentials:
+
+   After approval, download the
+   [credentials manually](#view-and-download-service-user-credentials) from
+   the [Aiven Console](https://console.aiven.io/).
+
+   :::note
+   Credentials are not available in Terraform or GitHub Actions output.
+   :::
+
+</TabItem>
+</Tabs>
 
 ## View and download service user credentials
 
