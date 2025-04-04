@@ -53,10 +53,11 @@ or automate the process with Terraform.
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-The following example files are part of the Kafka Connect example in the
-[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka_connect) on GitHub. The complete example creates a Kafka service and
-integrates it with a Kafka Connect service. You can create just the Kafka service
-by using the following files.
+The following example files create only one Kafka service in your Aiven project.
+They are part of the Kafka Connect example in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka_connect) on GitHub. The complete example in the repository creates a
+Kafka service and
+[integrates it with a Kafka Connect service](/docs/products/kafka/kafka-connect/get-started).
 
 1. Create a file named `provider.tf` and add the following:
 
