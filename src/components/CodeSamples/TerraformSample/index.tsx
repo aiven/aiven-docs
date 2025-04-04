@@ -21,7 +21,7 @@ const TerraformSample: React.FC<TerraformSampleProps> = ({filename}) => {
         console.error(`Error loading ${filename}:`, error);
         setCode(null);
         setError(
-          `Loading failed. See the Terraform documentation for example usage.`,
+          `Loading failed. See the Terraform documentation for examples.`,
         );
       });
   }, [filename]);
