@@ -54,7 +54,7 @@ and applications:
    version and applications. Terraform will automatically handle the recreation and
    deployment of your applications.
 
-For more information, see [aiven_flink](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/flink).
+For more information, see [`aiven_flink`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/flink).
 
 </TabItem>
 </Tabs>

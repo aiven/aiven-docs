@@ -108,7 +108,7 @@ Depending on what you intend to edit, select **Database** or **Table**.
 
 :::note[Alternative for PostgreSQL]
 Go to your Aiven for ClickHouse service's **Integrations** page,
-find an integration, and clicking click <ConsoleLabel name="actions"/> >
+find an integration, and click <ConsoleLabel name="actions"/> >
 <ConsoleLabel name="editdatabase"/>.
 :::
 

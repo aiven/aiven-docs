@@ -3,8 +3,7 @@ title: Use SQL user defined functions in Aiven for ClickHouse®
 sidebar_label: SQL UDFs
 ---
 
-Use SQL user defined functions (UDFs) in Aiven for ClickHouse® to speed up your queries
-and optimize your appilication performance.
+Use SQL user defined functions (UDFs) in Aiven for ClickHouse® to speed up your queries and optimize your application performance.
 
 You can define your own SQL UDFs, which are automatically replicated to all nodes in
 the cluster and contained in backups.
