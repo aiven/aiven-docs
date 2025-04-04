@@ -47,6 +47,8 @@ installed with a few exceptions.
 
 ## Auditing
 
+-   [pgaudit](https://github.com/pgaudit/pgaudit) provides session and object audit logging
+    often required for compliance with government, financial, or ISO certifications.
 -   [tcn](https://www.postgresql.org/docs/current/tcn.html). Triggered
     change notifications.
 
