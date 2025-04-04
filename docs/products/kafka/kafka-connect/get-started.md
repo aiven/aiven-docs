@@ -4,17 +4,37 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+
 Get started with Aiven for Apache Kafka® Connect and integrate it with your Apache Kafka® service.
 
 ## Prerequisites
 
 Ensure that you have at least one Aiven for Apache Kafka® service in your project.
-If your project does not have any Aiven for Apache Kafka
+If your project does not have an Aiven for Apache Kafka
 service, [create one](/docs/platform/howto/create_new_service).
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
+- Access to the [Aiven Console](https://console.aiven.io)
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+<TerraformPrereqs />
+
+</TabItem>
+</Tabs>
 
 ## Create a dedicated Aiven for Apache Kafka® Connect service {#apache_kafka_connect_dedicated_cluster}
 
-To create an Aiven for Apache Kafka Connect dedicated service:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  Log into [Aiven Console](https://console.aiven.io) and select the
     **Aiven for Apache Kafka** service where to create a
@@ -46,6 +66,31 @@ integration. Selecting the service name will take you to the **Service
 Overview** page to monitor the service status. Before using it, it's
 important to wait until the service status changes from *REBUILDING* to
 *RUNNING*.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka_connect) on GitHub.
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='kafka_connect/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+    <TerraformSample filename='kafka_connect/kafka_connect_service.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='kafka_connect/variables.tf' />
+
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
+
+<TerraformApply />
+
+</TabItem>
+</Tabs>
 
 ## Next steps
 
