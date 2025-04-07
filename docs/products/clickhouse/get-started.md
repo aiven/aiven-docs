@@ -23,12 +23,6 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 - [Docker](https://docs.docker.com/desktop/) installed
 
 </TabItem>
-<TabItem value="clickhousecli" label="ClickHouse client" default>
-
-- [ClickHouse CLI client](https://clickhouse.com/docs/en/install) installed
-- [Docker](https://docs.docker.com/desktop/) installed
-
-</TabItem>
 <TabItem value="terraform" label="Terraform" default>
 
 - [Terraform installed](https://www.terraform.io/downloads)
@@ -43,6 +37,12 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 - A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
 - A [Kubernetes secret](https://aiven.github.io/aiven-operator/authentication.html)
   storing your token
+- [Docker](https://docs.docker.com/desktop/) installed
+
+</TabItem>
+<TabItem value="clickhousecli" label="ClickHouse client" default>
+
+- [ClickHouse CLI client](https://clickhouse.com/docs/en/install) installed
 - [Docker](https://docs.docker.com/desktop/) installed
 
 </TabItem>

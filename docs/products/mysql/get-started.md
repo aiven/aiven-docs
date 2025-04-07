@@ -21,17 +21,19 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 <TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
+- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+  installed
 
 </TabItem>
 <TabItem value="terraform" label="Terraform" default>
 
-<TerraformPrereqs />
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+  installed
 
 </TabItem>
 </Tabs>
-
-- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
-  installed
 
 ## Create a service
 
@@ -58,7 +60,8 @@ The following example files are also available in the
 
     <TerraformSample filename='mysql/variables.tf' />
 
-1. Create a file named `terraform.tfvars` and add values for the variables:
+1. Create a file named `terraform.tfvars` and add values for the variables
+   without defaults:
 
    - `aiven_token`: your token
    - `aiven_project_name`: the name of one of your Aiven projects
@@ -120,7 +123,7 @@ for the full schema.
 Access your new service with [the MySQL client](/docs/products/mysql/howto/connect-from-cli)
 using the outputs.
 
-1. Store the outputs in environment variables:
+1. To store the outputs in environment variables, run:
 
    ```bash
    MYSQL_HOST="$(terraform output -raw mysql_service_host)"
@@ -129,7 +132,7 @@ using the outputs.
    MYSQL_PASSWORD="$(terraform output -raw mysql_service_password)"
    ```
 
-1. Use the environment variables with the MySQL client to connect to the service:
+1. To use the environment variables with the MySQL client to connect to the service, run:
 
    ```bash
    mysql --host=$MYSQL_HOST --port=$MYSQL_PORT --user=$MYSQL_USER --password=$MYSQL_PASSWORD --database defaultdb
