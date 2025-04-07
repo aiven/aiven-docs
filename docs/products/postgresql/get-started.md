@@ -13,7 +13,6 @@ import TerraformPrereqs from "@site/static/includes/terraform-get-started-prereq
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-
 Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
 ## Prerequisites
@@ -22,16 +21,17 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 <TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
+- [psql](https://www.postgresql.org/download/) command line tool installed
 
 </TabItem>
 <TabItem value="terraform" label="Terraform" default>
 
-<TerraformPrereqs />
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [psql](https://www.postgresql.org/download/) command line tool installed
 
 </TabItem>
 </Tabs>
-
-- [psql](https://www.postgresql.org/download/) command line tool installed
 
 ## Create a service
 
@@ -110,13 +110,13 @@ for the full schema.
 <TabItem value="terraform" label="Terraform">
 
 Access your service with [the psql client](/docs/products/postgresql/howto/connect-psql)
-using the ``postgresql_service_uri`` output.
+using the ``postgresql_service_uri`` Terraform output.
 
 ```bash
 psql "$(terraform output -raw postgresql_service_uri)"
 ```
 
-The output is similar to the following:
+The output of the command is similar to the following:
 ```bash
 psql (13.2)
 SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
