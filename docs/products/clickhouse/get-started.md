@@ -20,16 +20,20 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 <TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
+- [Docker](https://docs.docker.com/desktop/) installed
 
 </TabItem>
 <TabItem value="clickhousecli" label="ClickHouse client" default>
 
 - [ClickHouse CLI client](https://clickhouse.com/docs/en/install) installed
+- [Docker](https://docs.docker.com/desktop/) installed
 
 </TabItem>
 <TabItem value="terraform" label="Terraform" default>
 
-<TerraformPrereqs />
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [Docker](https://docs.docker.com/desktop/) installed
 
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes" default>
@@ -39,11 +43,10 @@ Start using Aiven for ClickHouse® by creating and configuring a service, connec
 - A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
 - A [Kubernetes secret](https://aiven.github.io/aiven-operator/authentication.html)
   storing your token
+- [Docker](https://docs.docker.com/desktop/) installed
 
 </TabItem>
 </Tabs>
-
-- [Docker](https://docs.docker.com/desktop/) installed
 
 ## Create an Aiven for ClickHouse® service
 
@@ -155,6 +158,9 @@ You can change your service settings by updating the service configuration.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
    from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service configuration.
+
+See the available configuration options in
+[Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 </TabItem>
 <TabItem value="2" label="Terraform">
 
@@ -208,13 +214,12 @@ for the full schema.
 
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
+
+See the available configuration options in
+[Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/resources/clickhouse.html)
+
 </TabItem>
 </Tabs>
-
-See the available configuration options in:
-
-- [Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/resources/clickhouse.html)
-- [Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 
 ## Connect to the service{#connect-to-service}
 
@@ -240,9 +245,11 @@ See the available configuration options in:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Access your new service with the ClickHouse client using the Terraform outputs.
+[Access your new service](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)
+with the [ClickHouse client](https://clickhouse.com/docs/en/integrations/sql-clients/cli)
+using the Terraform outputs.
 
-1. Store the outputs in environment variables:
+1. to store the outputs in environment variables, run:
 
    ```bash
    CLICKHOUSE_HOST="$(terraform output -raw clickhouse_service_host)"
@@ -251,7 +258,7 @@ Access your new service with the ClickHouse client using the Terraform outputs.
    CLICKHOUSE_PASSWORD="$(terraform output -raw clickhouse_service_password)"
    ```
 
-1. Use the environment variables with the ClickHouse client to connect to the service:
+1. To use the environment variables to connect to the service, run:
 
    ```bash
    docker run -it                    \
