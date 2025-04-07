@@ -168,7 +168,7 @@ For more information, see
 ## Connect to your service
 
 <Tabs groupId="group1">
-<TabItem value="Console" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 1. Go to the <ConsoleLabel name="overview"/>  page of your service in the [Aiven Console](https://console.aiven.io/).
 1. Click **Quick connect**.
