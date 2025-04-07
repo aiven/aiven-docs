@@ -92,7 +92,7 @@ The following example files are also available in the
 <TerraformApply />
 
 </TabItem>
-<TabItem value="3" label="Kubernetes">
+<TabItem value="kubernetes" label="Kubernetes">
 
 Create an Aiven for ClickHouse service using the Aiven Operator for Kubernetes.
 
@@ -152,7 +152,7 @@ changes to `RUNNING`, you are ready to access it.
 You can change your service settings by updating the service configuration.
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
@@ -162,7 +162,7 @@ You can change your service settings by updating the service configuration.
 See the available configuration options in
 [Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 </TabItem>
-<TabItem value="2" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
 See
 [the `aiven_clickhouse` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/clickhouse)
