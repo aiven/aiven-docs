@@ -38,12 +38,12 @@ Begin your journey with Aiven for Valkey™, the versatile in-memory data store 
 ## Create a service
 
 <Tabs groupId="group1">
-<TabItem value="Console" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="Valkey"/>
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="cli" label="CLI">
 
 1. Determine the service specifications, including plan, cloud provider, region,
    and project name.
