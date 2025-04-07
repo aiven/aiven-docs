@@ -6,111 +6,93 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import CreateService from "@site/static/includes/create-service-console.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Start using Aiven for ClickHouse® by creating and configuring a service, connecting to it, and loading sample data.
 
 ## Prerequisites
 
-Depending on a dev tool to use for working with Aiven for ClickHouse:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- [ClickHouse CLI client](https://clickhouse.com/docs/en/install)
-- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+- [Docker](https://docs.docker.com/desktop/) installed
+
+</TabItem>
+<TabItem value="terraform" label="Terraform" default>
+
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [Docker](https://docs.docker.com/desktop/) installed
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes" default>
+
 - [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/helm.html)
-- [Docker](https://docs.docker.com/desktop/)
+  installed
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- A [Kubernetes secret](https://aiven.github.io/aiven-operator/authentication.html)
+  storing your token
+- [Docker](https://docs.docker.com/desktop/) installed
+
+</TabItem>
+<TabItem value="clickhousecli" label="ClickHouse client" default>
+
+- [ClickHouse CLI client](https://clickhouse.com/docs/en/install) installed
+- [Docker](https://docs.docker.com/desktop/) installed
+
+</TabItem>
+</Tabs>
 
 ## Create an Aiven for ClickHouse® service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="ClickHouse®"/>
 
 </TabItem>
-<TabItem value="2" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-1. [Create a token](/docs/platform/howto/create_authentication_token).
+In this example, an Aiven for ClickHouse service is used to store IoT sensor data.
+You create the service, two service users, and assign each user a role:
 
-1. Create the `sample.tf` file for the `aiven` provider configuration and
-   the `aiven_clickhouse` resource.
+- Give the ETL user permission to insert data.
+- Give the analyst user access to view data in the measurements database.
 
-    ```hcl
-    variable "aiven_token" {
-      type = string
-    }
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/clickhouse) on GitHub.
 
-    variable "aiven_project_name" {
-      type = string
-    }
+1. Create a file named `provider.tf` and add the following:
 
-    terraform {
-      required_providers {
-        aiven = {
-          source  = "aiven/aiven"
-          version = ">=4.0.0, <5.0.0"
-        }
-      }
-    }
+    <TerraformSample filename='clickhouse/provider.tf' />
 
-    provider "aiven" {
-      api_token = var.aiven_token
-    }
+1. Create a file named `service.tf` and add the following:
 
-    resource "aiven_clickhouse" "clickhouse" {
-      project                 = var.aiven_project_name
-      cloud_name              = "google-europe-west1"
-      plan                    = "startup-16"
-      service_name            = "my-clickhouse"
-      maintenance_window_dow  = "friday"
-      maintenance_window_time = "23:00:00"
+    <TerraformSample filename='clickhouse/service.tf' />
 
-      clickhouse_user_config {
-        service_log = false
-      }
-    }
+1. Create a file named `service_users.tf` and add the following:
 
-    output "clickhouse_service_host" {
-      value = aiven_clickhouse.clickhouse.service_host
-    }
+    <TerraformSample filename='clickhouse/service_users.tf' />
 
-    output "clickhouse_service_port" {
-      value = aiven_clickhouse.clickhouse.service_port
-    }
+1. Create a file named `variables.tf` and add the following:
 
-    output "clickhouse_service_username" {
-      value = aiven_clickhouse.clickhouse.service_username
-    }
+    <TerraformSample filename='clickhouse/variables.tf' />
 
-    output "clickhouse_service_password" {
-      value     = aiven_clickhouse.clickhouse.service_password
-      sensitive = true
-    }
-    ```
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
-1. Create the `terraform.tfvars` file for assigning actual values to your previously
-   declared variables.
+1. To output connection details, create a file named `output.tf` and add the following:
 
-   ```hcl
-   aiven_token    = "AIVEN_TOKEN"
-   aiven_project_name = "PROJECT_NAME"
-   ```
+    <TerraformSample filename='clickhouse/output.tf' />
 
-1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
-
-1. Store Terraform outputs in environment variables so that they can be used for
-   [connecting](#connect-to-service):
-
-   ```bash
-   CLICKHOUSE_HOST="$(terraform output -raw clickhouse_service_host)"
-   CLICKHOUSE_PORT="$(terraform output -raw clickhouse_service_port)"
-   CLICKHOUSE_USER="$(terraform output -raw clickhouse_service_username)"
-   CLICKHOUSE_PASSWORD="$(terraform output -raw clickhouse_service_password)"
-   ```
+<TerraformApply />
 
 </TabItem>
-<TabItem value="3" label="Kubernetes">
+<TabItem value="kubernetes" label="Kubernetes">
 
 Create an Aiven for ClickHouse service using the Aiven Operator for Kubernetes.
 
@@ -170,87 +152,24 @@ changes to `RUNNING`, you are ready to access it.
 You can change your service settings by updating the service configuration.
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
    from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service configuration.
+
+See the available configuration options in
+[Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 </TabItem>
-<TabItem value="2" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-:::note
-Your changes can force the recreation of the `aiven_clickhouse` resource.
-:::
-
-:::tip
-For all the attributes available for the `aiven_clickhouse` resource, see
-[the Aiven Provider for Terraform® documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/clickhouse).
-:::
-
-1. Updating the `aiven_clickhouse` resource in the `sample.tf` file:
-
-   - Add `service_log = true` and `termination_protection = true`.
-   - Update `maintenance_window_dow = "sunday"` and `maintenance_window_time = "22:00:00"`.
-
-    ```hcl
-    variable "aiven_token" {
-      type = string
-    }
-
-    variable "aiven_project_name" {
-      type = string
-    }
-
-    terraform {
-      required_providers {
-        aiven = {
-          source  = "aiven/aiven"
-          version = ">=4.0.0, <5.0.0"
-        }
-      }
-    }
-
-    provider "aiven" {
-      api_token = var.aiven_token
-    }
-
-    resource "aiven_clickhouse" "clickhouse" {
-      project                 = var.aiven_project_name
-      cloud_name              = "google-europe-west1"
-      plan                    = "startup-16"
-      service_name            = "my-clickhouse"
-      maintenance_window_dow  = "sunday"
-      maintenance_window_time = "22:00:00"
-      termination_protection  = true
-
-      clickhouse_user_config {
-        service_log = true
-      }
-    }
-
-    output "clickhouse_service_host" {
-      value = aiven_clickhouse.clickhouse.service_host
-    }
-
-    output "clickhouse_service_port" {
-      value = aiven_clickhouse.clickhouse.service_port
-    }
-
-    output "clickhouse_service_username" {
-      value = aiven_clickhouse.clickhouse.service_username
-    }
-
-    output "clickhouse_service_password" {
-      value     = aiven_clickhouse.clickhouse.service_password
-      sensitive = true
-    }
-    ```
-
-1. Run `terraform plan` > `terraform apply --auto-approve`.
+See
+[the `aiven_clickhouse` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/clickhouse)
+for the full schema.
 
 </TabItem>
-<TabItem value="3" label="Kubernetes">
+<TabItem value="kubernetes" label="Kubernetes">
 1. Update file `example.yaml`:
 
    - Add `service_log: true` and `terminationProtection: true`.
@@ -295,18 +214,17 @@ For all the attributes available for the `aiven_clickhouse` resource, see
 
 The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
+
+See the available configuration options in
+[Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/resources/clickhouse.html)
+
 </TabItem>
 </Tabs>
-
-See the available configuration options in:
-
-- [Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/resources/clickhouse.html)
-- [Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params).
 
 ## Connect to the service{#connect-to-service}
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for ClickHouse service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
@@ -325,22 +243,35 @@ See the available configuration options in:
    ```
 
 </TabItem>
-<TabItem value="2" label="Terraform">
-Access your new service with the ClickHouse client using the environment variables
-assigned to Terraform outputs:
+<TabItem value="terraform" label="Terraform">
 
-```bash
-docker run -it                    \
---rm clickhouse/clickhouse-client \
---user=$CLICKHOUSE_USER           \
---password=$CLICKHOUSE_PASSWORD   \
---host=$CLICKHOUSE_HOST           \
---port=$CLICKHOUSE_PORT           \
---secure
-```
+[Access your new service](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)
+with the [ClickHouse client](https://clickhouse.com/docs/en/integrations/sql-clients/cli)
+using the Terraform outputs.
+
+1. to store the outputs in environment variables, run:
+
+   ```bash
+   CLICKHOUSE_HOST="$(terraform output -raw clickhouse_service_host)"
+   CLICKHOUSE_PORT="$(terraform output -raw clickhouse_service_port)"
+   CLICKHOUSE_USER="$(terraform output -raw clickhouse_service_username)"
+   CLICKHOUSE_PASSWORD="$(terraform output -raw clickhouse_service_password)"
+   ```
+
+1. To use the environment variables to connect to the service, run:
+
+   ```bash
+   docker run -it                    \
+   --rm clickhouse/clickhouse-client \
+   --user=$CLICKHOUSE_USER           \
+   --password=$CLICKHOUSE_PASSWORD   \
+   --host=$CLICKHOUSE_HOST           \
+   --port=$CLICKHOUSE_PORT           \
+   --secure
+   ```
 
 </TabItem>
-<TabItem value="3" label="ClickHouse client">
+<TabItem value="clickhousecli" label="ClickHouse client">
 [Connect to your new service with CLI](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)
 using the
 [ClickHouse client](https://clickhouse.com/docs/en/integrations/sql-clients/cli).

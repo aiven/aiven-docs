@@ -9,130 +9,69 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Start using Aiven for MySQL® by creating a service, connecting to it, and loading sample data.
 
 ## Prerequisites
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 - Access to the [Aiven Console](https://console.aiven.io)
 - [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
   installed
-- [Terraform installed](https://developer.hashicorp.com/terraform/install) if you prefer
-  to get started using code
+
+</TabItem>
+<TabItem value="terraform" label="Terraform" default>
+
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+  installed
+
+</TabItem>
+</Tabs>
 
 ## Create a service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="MySQL"/>
 
 </TabItem>
-<TabItem value="2" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-1. [Create a token](/docs/platform/howto/create_authentication_token).
-1. Store the token in an environment variable:
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/mysql) on GitHub.
 
-   ```bash
-   export TF_VAR_aiven_api_token=YOUR_AIVEN_TOKEN
-   ```
+1. Create a file named `provider.tf` and add the following:
 
-1. Create the following Terraform files:
+    <TerraformSample filename='mysql/provider.tf' />
 
-   - `provider.tf` for the `aiven` provider configuration
+1. Create a file named `service.tf` and add the following:
 
-      ```hcl
-      terraform {
-        required_providers {
-          aiven = {
-            source  = "aiven/aiven"
-            version = ">=4.0.0, < 5.0.0"
-          }
-        }
-      }
+    <TerraformSample filename='mysql/service.tf' />
 
-      provider "aiven" {
-        api_token = var.aiven_api_token
-      }
-      ```
+1. Create a file named `variables.tf` and add the following:
 
-   - `mysql.tf` including the `aiven_mysql` resource
+    <TerraformSample filename='mysql/variables.tf' />
 
-      ```hcl
-      resource "aiven_mysql" "mysql" {
-        project      = var.project_name
-        service_name = var.service_name
-        cloud_name   = var.cloud_name
-        plan         = var.service_plan
-      }
+1. Create a file named `terraform.tfvars` and add values for the variables
+   without defaults:
 
-      output "mysql_service_host" {
-        value = aiven_mysql.mysql.service_host
-      }
+   - `aiven_token`: your token
+   - `aiven_project_name`: the name of one of your Aiven projects
+   - `mysql_password`: a password for the service user
 
-      output "mysql_service_port" {
-        value = aiven_mysql.mysql.service_port
-      }
+1. To output connection details, create a file named `output.tf` and add the following:
 
-      output "mysql_service_username" {
-        value = aiven_mysql.mysql.service_username
-      }
+    <TerraformSample filename='mysql/output.tf' />
 
-      output "mysql_service_password" {
-        value     = aiven_mysql.mysql.service_password
-        sensitive = true
-      }
-      ```
-
-   - `variables.tf` for declaring your project variables
-
-      ```hcl
-      variable "aiven_api_token" {
-        description = "Aiven token"
-        type        = string
-      }
-
-      variable "project_name" {
-        description = "Project name"
-        type        = string
-      }
-
-      variable "cloud_name" {
-        description = "Cloud name"
-        type        = string
-      }
-
-      variable "service_name" {
-        description = "Service name"
-        type        = string
-      }
-
-      variable "service_plan" {
-        description = "Service plan"
-        type        = string
-      }
-      ```
-
-   - `terraform.tfvars` for assigning actual values to your previously declared variables
-
-      ```hcl
-      project_name = "testproject-o3jb"
-      cloud_name   = "google-europe-west3"
-      service_name = "mysql"
-      service_plan = "startup-4"
-      ```
-
-1. Run `terraform init` > `terraform plan` > `terraform apply --auto-approve`.
-
-1. Store Terraform outputs in environment variables so that they can be used for
-   [connecting](#connect-to-service):
-
-   ```bash
-   MYSQL_HOST="$(terraform output -raw mysql_service_host)"
-   MYSQL_PORT="$(terraform output -raw mysql_service_port)"
-   MYSQL_USER="$(terraform output -raw mysql_service_username)"
-   MYSQL_PASSWORD="$(terraform output -raw mysql_service_password)"
-   ```
+<TerraformApply />
 
 </TabItem>
 </Tabs>
@@ -142,69 +81,31 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 Edit your service settings if the default service configuration doesn't meet your needs.
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
+
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
    from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service configuration.
-</TabItem>
-<TabItem value="2" label="Terraform">
-
-Configure service parameters by updating the `aiven_mysql` resource, for example:
-
-```hcl
-resource "aiven_mysql" "mysql" {
-  project      = var.project_name
-  service_name = var.service_name
-  cloud_name   = var.cloud_name
-  plan         = var.service_plan
-+
-+  maintenance_window_dow  = "monday"
-+  maintenance_window_time = "01:00:00"
-+  termination_protection  = true
-+
-+  mysql_user_config {
-+    backup_hour      = 01
-+    backup_minute    = 30
-+    ip_filter_string = ["10.20.0.0/16"]
-+    service_log      = true
-+
-+    mysql {
-+      slow_query_log  = true
-+      long_query_time = 5
-+    }
-+  }
-}
-
-output "mysql_service_host" {
-  value = aiven_mysql.mysql.service_host
-}
-
-output "mysql_service_port" {
-  value = aiven_mysql.mysql.service_port
-}
-
-output "mysql_service_username" {
-  value = aiven_mysql.mysql.service_username
-}
-
-output "mysql_service_password" {
-  value     = aiven_mysql.mysql.service_password
-  sensitive = true
-}
-```
-
-</TabItem>
-</Tabs>
 
 See the available configuration options in
 [Advanced parameters for Aiven for MySQL](/docs/products/mysql/reference/advanced-params).
 
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+See
+[the `aiven_mysql` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql)
+for the full schema.
+
+</TabItem>
+</Tabs>
+
 ## Connect to the service{#connect-to-service}
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for MySQL service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
@@ -217,17 +118,28 @@ See the available configuration options in
    ```
 
 </TabItem>
-<TabItem value="2" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-Access your new service with the MySQL client using the environment variables assigned to
-Terraform outputs:
+Access your new service with [the MySQL client](/docs/products/mysql/howto/connect-from-cli)
+using the outputs.
 
-```bash
-mysql --host=$MYSQL_HOST --port=$MYSQL_PORT --user=$MYSQL_USER --password=$MYSQL_PASSWORD --database defaultdb
-```
+1. To store the outputs in environment variables, run:
+
+   ```bash
+   MYSQL_HOST="$(terraform output -raw mysql_service_host)"
+   MYSQL_PORT="$(terraform output -raw mysql_service_port)"
+   MYSQL_USER="$(terraform output -raw mysql_service_username)"
+   MYSQL_PASSWORD="$(terraform output -raw mysql_service_password)"
+   ```
+
+1. To use the environment variables with the MySQL client to connect to the service, run:
+
+   ```bash
+   mysql --host=$MYSQL_HOST --port=$MYSQL_PORT --user=$MYSQL_USER --password=$MYSQL_PASSWORD --database defaultdb
+   ```
 
 </TabItem>
-<TabItem value="3" label="mysql">
+<TabItem value="mysql" label="mysql">
 [Connect to your new service](/docs/products/mysql/howto/connect-from-cli) with
 [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
 </TabItem>

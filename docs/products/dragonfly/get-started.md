@@ -9,21 +9,45 @@ import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md
 import Note from "@site/static/includes/dragonflysla-note.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Help from "@site/static/includes/cli-help.md"
+import Help from "@site/static/includes/cli-help.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Get started with Aiven for Dragonfly by creating your service using the [Aiven Console](https://console.aiven.io/) or [Aiven CLI](https://github.com/aiven/aiven-client).
+Get started with Aiven for Dragonfly by creating your service, integrating it with other services, and connecting to it with your preferred programming language.
 
 <Note/>
+
+## Prerequisites
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
+- Access to the [Aiven Console](https://console.aiven.io)
+
+</TabItem>
+<TabItem value="cli" label="CLI" default>
+
+- [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
+- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+
+</TabItem>
+<TabItem value="terraform" label="Terraform" default>
+
+<TerraformPrereqs />
+
+</TabItem>
+</Tabs>
 
 ## Create an Aiven for Dragonfly® service
 
 <Tabs groupId="group1">
-<TabItem value="Console" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="Dragonfly"/>
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="cli" label="CLI">
 
 Use [Aiven CLI](/docs/tools/cli) to create your service:
 
@@ -44,13 +68,36 @@ Use [Aiven CLI](/docs/tools/cli) to create your service:
 <Help/>
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/dragonfly) on GitHub.
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='dragonfly/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+    <TerraformSample filename='dragonfly/service.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='dragonfly/variables.tf' />
+
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
+
+<TerraformApply />
+
+</TabItem>
 </Tabs>
 
 ## Create service integrations
 
 Integrate Aiven for Dragonfly® with other Aiven services or third-party tools using the
-integration wizard available on the [Aiven Console](https://console.aiven.io/) or
-[Aiven CLI](https://github.com/aiven/aiven-client).
+integration wizard available on the [Aiven Console](https://console.aiven.io/),
+[Aiven CLI](https://github.com/aiven/aiven-client), or
+[Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
 Learn how to [create service integrations](/docs/platform/howto/create-service-integration).
 
 ## Connect to Aiven for Dragonfly
