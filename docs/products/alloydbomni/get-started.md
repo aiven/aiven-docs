@@ -20,18 +20,36 @@ Aiven for AlloyDB Omni is in the
 [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
 :::
 
-- [Aiven CLI](https://github.com/aiven/aiven-client) installed
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 - Access to the [Aiven Console](https://console.aiven.io)
+- [psql](https://www.postgresql.org/download/) command line tool installed
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+- [Aiven CLI](https://github.com/aiven/aiven-client) installed
+- [psql](https://www.postgresql.org/download/) command line tool installed
+
+<TabItem value="terraform" label="Terraform">
+
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [psql](https://www.postgresql.org/download/) command line tool installed
+
+</TabItem>
+</Tabs>
 
 ## Create an Aiven for AlloyDB Omni service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="AlloyDB Omni"/>
 
 </TabItem>
-<TabItem value="2" label="CLI">
+<TabItem value="cli" label="CLI">
 
 1. Determine the service specifications, including plan, cloud provider, region,
    and project name.
@@ -59,6 +77,32 @@ Aiven for AlloyDB Omni is in the
 <Help/>
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/alloydbomni) on GitHub.
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/service.tf' />
+
+1. To output connection details, create a file named `output.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/output.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/variables.tf' />
+
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
+
+<TerraformApply />
+
+</TabItem>
 </Tabs>
 
 ## Configure the service
@@ -71,14 +115,14 @@ See configuration options in
 :::
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
    from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service configuration.
 </TabItem>
-<TabItem value="2" label="CLI">
+<TabItem value="cli" label="CLI">
 Use the [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) command
 to change basic service settings, such as service version, IP filtering, cloud region,
 termination protection, or service plan.
@@ -89,12 +133,19 @@ operations on your service.
 :::
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+See
+[the `aiven_alloydbomni` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
+for the full schema.
+
+</TabItem>
 </Tabs>
 
 ## Connect to the service
 
 <Tabs groupId="group1">
-<TabItem value="1" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for AlloyDB Omni service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
@@ -103,9 +154,21 @@ operations on your service.
    the connection instructions, and click **Done**.
 
 </TabItem>
-<TabItem value="2" label="CLI">
+<TabItem value="cli" label="CLI">
+
 [Connect to your new service](/docs/products/alloydbomni/connect/connect-psql) with
 [psql](https://www.postgresql.org/download/) CLI tool.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Access your service with [the psql client](/docs/products/postgresql/howto/connect-psql)
+using the `alloydb_service_uri` Terraform output.
+
+```bash
+psql "$(terraform output -raw alloydb_service_uri)"
+```
+
 </TabItem>
 </Tabs>
 

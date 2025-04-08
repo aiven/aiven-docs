@@ -24,7 +24,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 - [psql](https://www.postgresql.org/download/) command line tool installed
 
 </TabItem>
-<TabItem value="terraform" label="Terraform" default>
+<TabItem value="terraform" label="Terraform">
 
 - [Terraform installed](https://www.terraform.io/downloads)
 - A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
@@ -110,7 +110,7 @@ for the full schema.
 <TabItem value="terraform" label="Terraform">
 
 Access your service with [the psql client](/docs/products/postgresql/howto/connect-psql)
-using the ``postgresql_service_uri`` Terraform output.
+using the `postgresql_service_uri` Terraform output.
 
 ```bash
 psql "$(terraform output -raw postgresql_service_uri)"
