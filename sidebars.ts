@@ -920,6 +920,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/howto/approvals',
                         'products/kafka/howto/group-requests',
                         'products/kafka/howto/terraform-governance-approvals',
+                        'products/kafka/howto/rotate-credentials',
                       ],
                     },
                   ],
