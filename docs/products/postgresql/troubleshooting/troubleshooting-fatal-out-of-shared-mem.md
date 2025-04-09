@@ -3,14 +3,14 @@ title: Troubleshoot out of shared memory errors
 sidebar_label: Connection problems
 ---
 
-How to solve the out of shared memory error caused by stuck sessions
+Identify and resolve the `out of shared memory` issue caused by stuck sessions.
 
 ## Symptoms
 
 If your PostgreSQL service becomes unavailable and you see repeated FATAL: out of shared
 memory messages in the logs, it may indicate a blocking session, particularly one in an
-idle in transaction state. This article walks you through identifying and resolving this
-issue. You might notice the following types of messages in your PostgreSQL logs:
+idle in transaction state. You might notice the following types of messages in your
+PostgreSQL logs:
 
 FATAL: out of shared memory
 
