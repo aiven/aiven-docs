@@ -7,9 +7,12 @@ early: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
-import Help from "@site/static/includes/cli-help.md"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import CreateService from "@site/static/includes/create-service-console.md";
+import Help from "@site/static/includes/cli-help.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Start using Aiven for AlloyDB Omni by setting up a service and connecting to your new default database with a programming language of your choice.
 
@@ -32,6 +35,7 @@ Aiven for AlloyDB Omni is in the
 - [Aiven CLI](https://github.com/aiven/aiven-client) installed
 - [psql](https://www.postgresql.org/download/) command line tool installed
 
+</TabItem>
 <TabItem value="terraform" label="Terraform">
 
 - [Terraform installed](https://www.terraform.io/downloads)
@@ -101,7 +105,6 @@ The following example files are also available in the
 1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
 <TerraformApply />
-
 </TabItem>
 </Tabs>
 
