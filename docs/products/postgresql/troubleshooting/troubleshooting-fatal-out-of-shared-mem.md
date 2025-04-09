@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot out of shared memory errors
+title: Troubleshoot out-of-shared-memory errors
 sidebar_label: Connection problems
 ---
 
@@ -7,26 +7,22 @@ Identify and resolve the `out of shared memory` issue caused by stuck sessions.
 
 ## Symptoms
 
-If your PostgreSQL service becomes unavailable and you see repeated FATAL: out of shared
-memory messages in the logs, it may indicate a blocking session, particularly one in an
-idle in transaction state. You might notice the following types of messages in your
-PostgreSQL logs:
-
-FATAL: out of shared memory
-
-Example:
+If your Aiven for PostgreSQL® service becomes unavailable and you see repeated `FATAL: out
+of shared memory` messages in the logs, it may indicate a blocking session — particularly
+one that is in an `idle in transaction` state. Your Aiven for PostgreSQL logs might show
+messages similar to the following:
 
 ```bash
 2024-09-11T18:31:19.653257+0000 postgresql-13: pid=1031851,user=_db,db=_db FATAL: out of shared memory
 pgbouncer_internal: login failed: FATAL: out of shared memory
 ```
 
-This may even prevent superuser connections.
+This may prevent superuser connections.
 
 ## Root cause
 
-A common reason for this issue is a session stuck in the idle in transaction state. Such a
-session may hold on to locks and memory resources indefinitely, eventually leading to
+A common reason for this issue is a session stuck in the `idle in transaction` state. Such
+a session may hold on to locks and memory resources indefinitely, eventually leading to
 memory exhaustion.
 
 ## Identify the problem
