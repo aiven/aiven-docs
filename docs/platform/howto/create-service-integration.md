@@ -98,20 +98,16 @@ To view the Apache Kafka metrics data in Grafana:
 
 1.  On the dashboards page in Grafana, click the dashboard name to view it.
 
-:::note
 If you don't see a dashboard after logging in, search for
-`Aiven Kafka - <YOUR_KAFKA_SERVICE_NAME> - Resources` in the Grafana console.
-This is a predefined dashboard automatically maintained by Aiven.
-:::
-
-:::note
-Data may take a minute to appear on the dashboard if you've just
-enabled the integrations. Refresh the view by reloading the page.
-You can create custom dashboards either from scratch in Grafana or by saving a copy
-of the predefined dashboard under a different name that does not start with `Aiven`.
-:::
+`Aiven Kafka - <KAFKA_SERVICE_NAME> - Resources` in the Grafana console.
+This is a predefined dashboard automatically maintained by Aiven. Data can take a minute
+to appear on the dashboard after enabling the integrations. Refresh the view by reloading
+the page.
 
 :::warning
-Any modifications to the predefined dashboard will be automatically
-overwritten by the system in time.
+Any modifications you make to the predefined dashboard are automatically
+overwritten by the system during updates.
 :::
+
+You can create your own custom dashboards, or make a copy of this predefined dashboard
+to customize it. Don't use `Aiven` at the start of your dashboard names.
