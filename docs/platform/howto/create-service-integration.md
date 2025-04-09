@@ -41,7 +41,7 @@ The following example shows you how to create and integrate these services:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  In the [Aiven Console](https://console.aiven.io/),
+1.  In the Aiven Console,
     [create the 3 services](create_new_service): Aiven for Apache Kafka®, Aiven for
     PostgreSQL®, and Aiven for Grafana®.
 
@@ -62,22 +62,41 @@ The following example shows you how to create and integrate these services:
 
 1.  Click **Enable**.
 
-1.  To view the Apache Kafka metrics data in Grafana, go to your Grafana service.
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='kafka_pg_grafana/provider.tf' />
+
+1. For the services, create a file named `services.tf` and add the following:
+
+    <TerraformSample filename='kafka_pg_grafana/services.tf' />
+
+1. To integrate the services, create a file named `integrations.tf` and add
+   the following:
+
+    <TerraformSample filename='kafka_pg_grafana/integrations.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='kafka_pg_grafana/variables.tf' />
+
+1. Create a file named `terraform.tfvars` and add values for your token and Aiven project.
+
+</TabItem>
+</Tabs>
+
+To view the Apache Kafka metrics data in Grafana:
+
+1.  In the [Aiven Console](https://console.aiven.io/), go to your Grafana service.
 
 1.  In the **Connection information** section, click the **Service URI** to open Grafana.
 
 1.  Log in using the **User** and **Password** provided in the **Connection information**
     section.
 
-1.  On the dashboards page, click the dashboard name to view it.
-
-</TabItem>
-<TabItem value="terraform" label="Terraform" default>
-
-
-
-</TabItem>
-</Tabs>
+1.  On the dashboards page in Grafana, click the dashboard name to view it.
 
 :::note
 If you don't see a dashboard after logging in, search for
