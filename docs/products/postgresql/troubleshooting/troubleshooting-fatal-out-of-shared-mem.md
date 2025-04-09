@@ -8,7 +8,7 @@ Identify and resolve the `out of shared memory` issue caused by stuck sessions.
 ## Symptoms
 
 If your Aiven for PostgreSQL® service becomes unavailable and you see repeated `FATAL: out
-of shared memory` messages in the logs, it may indicate a blocking session — particularly
+of shared memory` messages in the logs, it may indicate a blocking session, particularly
 one that is in an `idle in transaction` state. Your Aiven for PostgreSQL logs might show
 messages similar to the following:
 
