@@ -6,7 +6,7 @@ sidebar_label: Rotate credentials
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Rotate credentials for an Apache Kafka subscription to replace outdated credentials and maintain secure, approved access.
+Rotate credentials for an Apache Kafka subscription to replace outdated credentials and keep access secure and approved.
 The request must be approved by another member of the owner group before new
 credentials can be downloaded.
 
