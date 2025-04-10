@@ -285,27 +285,4 @@ After setting a version, confirm that the correct version is in use.
 1. Review the `plugin_versions` property in the response to verify the set version.
 
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
-
-1. Run the following command:
-
-   ```bash
-   avn service get <service_name>
-   ```
-
-1. Check the `plugin_versions` property in the output to confirm the version.
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-1. To verify the version in your Terraform state file after applying changes, run:
-
-   ```bash
-   terraform state show aiven_kafka_connect.KAFKA_CONNECT_RESOURCE_NAME
-   ```
-
-1. In the `kafka_connect_user_config` block, check the `plugin_versions`
-   to confirm the version.
-
-</TabItem>
 </Tabs>
