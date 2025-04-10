@@ -156,15 +156,6 @@ connector details page and click **Change version**.
    ```
 
 </TabItem>
-<TabItem value="terraform" label="Terraform">
-
-In Terraform, you can specify the desired connector version using the `plugin_versions`
-attribute in your configuration. This ensures that your Apache Kafka Connect service
-uses the exact version you need.
-
-For detailed steps and examples, see [Set a connector version](#set-version).
-
-</TabItem>
 </Tabs>
 
 ## Set a connector version {#set-version}
@@ -270,43 +261,8 @@ sink connectors.
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Update your Terraform configuration:
-
-   ```hcl
-   resource "aiven_kafka_connect" "my_aiven_kafka_connect" {
-     service_name = "<service_name>"
-     project      = "<project_name>"
-
-     kafka_connect_user_config {
-       plugin_versions {
-         plugin_name = "<plugin_name>"
-         version = "<version>"
-      }
-    }
-   }
-   ```
-
-   Parameters:
-
-   - `<service_name>`: Apache Kafka Connect service name.
-   - `<project_name>`: Aiven project name.
-   - `<plugin_name>`: Plugin name. For example, `aiven-kafka-connect-jdbc`.
-   - `<version>`: Desired version of the plugin. For example, `6.9.0`.
-
-1. Apply the changes:
-
-   ```bash
-   terraform apply
-   ```
-
-1. Confirm the updated configuration:
-
-   ```bash
-   terraform show
-   ```
-
-For detailed information, refer to the
-[Terraform Registry - `plugin_versions`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_connect#plugin_versions-1).
+Use [the `plugin_versions` attribute](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_connect#nestedblock--kafka_connect_user_config--plugin_versions)
+in your `aiven_kafka_connect` resource.
 
 </TabItem>
 </Tabs>
@@ -342,16 +298,14 @@ After setting a version, confirm that the correct version is in use.
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Verify the version in your Terraform state or configuration after applying changes:
-
-1. Run:
+1. To verify the version in your Terraform state file after applying changes, run:
 
    ```bash
-   terraform show
+   terraform state show aiven_kafka_connect.KAFKA_CONNECT_RESOURCE_NAME
    ```
 
-1. Locate the `plugin_versions` property under the Kafka Connect service resource.
-   It displays the set version of the connector.
+1. In the `kafka_connect_user_config` block, check the `plugin_versions`
+   to confirm the version.
 
 </TabItem>
 </Tabs>
