@@ -76,7 +76,7 @@ AWS PrivateLink is not supported for:
 1.  In the AWS CLI, run the following command to create a VPC endpoint:
 
     ```bash
-    aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
+    aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_aws_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
     ```
 
     Replace the `--service-name` value with the value shown either in
@@ -85,7 +85,7 @@ AWS PrivateLink is not supported for:
     or as an output of:
 
     ```bash
-    avn service privatelink aws get aws_service_name
+    avn service privatelink aws get aiven_service_name
     ```
 
     Note that for fault tolerance, you should specify a subnet ID for
@@ -130,7 +130,7 @@ AWS PrivateLink is not supported for:
         ```bash
         # For PostgreSQL
 
-        avn service update -c privatelink_access.postgresql=true --project $project_name $Aiven_service_name
+        avn service update -c privatelink_access.pg=true --project $project_name $Aiven_service_name
         ```
 
         ```bash
@@ -198,7 +198,8 @@ PrivateLink connection.
 
 Each endpoint (connection) has a `PRIVATELINK_CONNECTION_ID`, which you can
 check using the
-[avn service privatelink AWS connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
+[`avn service privatelink aws connection list`](/docs/tools/cli/service/privatelink#avn_service_privatelink_aws_connection_list)
+command.
 
 To acquire connection information for your service component using AWS
 PrivateLink, run the
@@ -257,7 +258,7 @@ allowed to connect a VPC endpoint:
 
 -   In [Aiven Console](https://console.aiven.io):
 
-    1.  click your service from the **Services** page.
+    1.  Click your service from the **Services** page.
     1.  On the **Overview** page, click **Service settings** from the
         sidebar.
     1.  On the **Service settings** page, go to the **Cloud and
