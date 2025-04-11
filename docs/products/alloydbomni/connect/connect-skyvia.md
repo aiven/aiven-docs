@@ -1,6 +1,5 @@
 ---
 title: Connect with Skyvia
-early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
