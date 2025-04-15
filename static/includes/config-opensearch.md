@@ -1030,6 +1030,13 @@ import Link from '@docusaurus/Link'
               
             </td>
           </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_enable_searchable_snapshots"/><Link to="#opensearch_enable_searchable_snapshots"><strong>opensearch.enable_searchable_snapshots</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable searchable snapshots</p>
+              
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>

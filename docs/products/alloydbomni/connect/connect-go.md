@@ -1,6 +1,5 @@
 ---
 title: Connect with Go
-early: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

@@ -2,7 +2,6 @@
 title: Get started with Aiven for AlloyDB Omni
 sidebar_label: Get started
 keywords: [quick start]
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -17,11 +16,6 @@ import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 Start using Aiven for AlloyDB Omni by setting up a service and connecting to your new default database with a programming language of your choice.
 
 ## Prerequisites
-
-:::note
-Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-) stage.
-:::
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -62,7 +56,7 @@ Aiven for AlloyDB Omni is in the
    `demo-alloydbomni`:
 
    ```bash
-    avn service create demo-alloydbomni     \
+    avn service create demo-alloydbomni      \
     --service-type alloydbomni               \
     --cloud CLOUD_AND_REGION                 \
     --plan PLAN                              \
@@ -105,6 +99,13 @@ The following example files are also available in the
 1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
 <TerraformApply />
+  
+</TabItem>
+<TabItem value="k8" label="Kubernetes">
+
+Use the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
+resource.
+
 </TabItem>
 </Tabs>
 
@@ -141,6 +142,12 @@ operations on your service.
 See
 [the `aiven_alloydbomni` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
 for the full schema.
+
+</TabItem>
+<TabItem value="k8" label="Kubernetes">
+
+Update your [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
+resource.
 
 </TabItem>
 </Tabs>

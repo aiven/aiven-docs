@@ -1,6 +1,5 @@
 ---
 title: Connect with DataGrip
-early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

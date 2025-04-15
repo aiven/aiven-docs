@@ -1,6 +1,5 @@
 ---
 title: Connect with pgAdmin
-early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

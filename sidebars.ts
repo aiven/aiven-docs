@@ -1266,7 +1266,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/reference/limitations',
                 'products/clickhouse/concepts/olap',
                 'products/clickhouse/concepts/columnar-databases',
                 'products/clickhouse/concepts/indexing',
@@ -1366,6 +1365,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/clickhouse-system-tables',
+                'products/clickhouse/reference/limitations',
               ],
             },
           ],
@@ -1832,6 +1832,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/concepts/timescaledb',
                 'products/postgresql/concepts/upgrade-failover',
                 'products/postgresql/concepts/pgvector',
+                'products/postgresql/concepts/pg-audit-logging',
               ],
             },
             {
@@ -1887,6 +1888,18 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pgvector',
                     'products/postgresql/howto/pg-object-size',
                     'products/postgresql/howto/readonly-user',
+                    {
+                      type: 'category',
+                      label: 'PGAudit',
+                      link: {
+                        type: 'doc',
+                        id: 'products/postgresql/howto/list-pgaudit',
+                      },
+                      items: [
+                        'products/postgresql/concepts/pg-audit-logging',
+                        'products/postgresql/howto/use-pg-audit-logging',
+                      ],
+                    },
                   ],
                 },
                 {
@@ -1933,6 +1946,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
+                'products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem',
               ],
             },
             {
