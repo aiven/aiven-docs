@@ -13,7 +13,7 @@ const config: Config = {
     experimental_faster: true,
   },
   title: 'Aiven docs',
-  tagline: 'Your trusted data & AI platform',
+  tagline: 'Your AI-ready Open Source Data Platform',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
   baseUrl: process.env.BASEURL || '/docs/',
