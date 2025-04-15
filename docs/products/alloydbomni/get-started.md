@@ -37,6 +37,15 @@ Start using Aiven for AlloyDB Omni by setting up a service and connecting to you
 - [psql](https://www.postgresql.org/download/) command line tool installed
 
 </TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+- [Install the Aiven Operator](https://aiven.github.io/aiven-operator/installation/helm.html).
+- Have admin access to a Kubernetes cluster where you can run the operator.
+- Create a [personal token](/docs/platform/howto/create_authentication_token).
+- [Create a Kubernetes Secret](https://aiven.github.io/aiven-operator/authentication.html).
+
+</TabItem>
+
 </Tabs>
 
 ## Create an Aiven for AlloyDB Omni service
@@ -99,7 +108,7 @@ The following example files are also available in the
 1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
 <TerraformApply />
-  
+
 </TabItem>
 <TabItem value="k8" label="Kubernetes">
 
