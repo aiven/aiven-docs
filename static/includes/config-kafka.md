@@ -768,6 +768,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="kafka_connect_plugin_versions"/><Link to="#kafka_connect_plugin_versions"><strong>kafka_connect_plugin_versions</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Kafka Connect plugins</p>
+        <div className="description"><p>The plugin selected by the user</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="kafka_connect_secret_providers"/><Link to="#kafka_connect_secret_providers"><strong>kafka_connect_secret_providers</strong></Link></p><p><code className="type">array</code></p></div>
         <p className="title">Kafka Connect secret providers</p>
         <div className="description"><p>Configure external secret providers in order to reference external secrets in connector configuration. Currently Hashicorp Vault (provider: vault, auth_method: token) and AWS Secrets Manager (provider: aws, auth_method: credentials) are supported. Secrets can be referenced in connector config with $\{&lt;provider_name&gt;:&lt;secret_path&gt;:&lt;key_name&gt;\}</p></div>
