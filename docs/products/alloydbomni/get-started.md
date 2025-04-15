@@ -111,7 +111,7 @@ The following example files are also available in the
 <TerraformApply />
 
 </TabItem>
-<TabItem value="k8" label="Kubernetes">
+<TabItem value="k8s" label="Kubernetes">
 
 Use the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource.
@@ -154,7 +154,7 @@ See
 for the full schema.
 
 </TabItem>
-<TabItem value="k8" label="Kubernetes">
+<TabItem value="k8s" label="Kubernetes">
 
 Update your [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource.
