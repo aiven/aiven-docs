@@ -6,25 +6,53 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
-import Help from "@site/static/includes/cli-help.md"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import CreateService from "@site/static/includes/create-service-console.md";
+import Help from "@site/static/includes/cli-help.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Start using Aiven for AlloyDB Omni by setting up a service and connecting to your new default database with a programming language of your choice.
 
 ## Prerequisites
 
-Depending on a dev tool to use for working with Aiven for AlloyDB Omni:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- [Aiven CLI](/docs/tools/cli)
-- [Aiven Provider for Terraform](/docs/tools/terraform)
-- [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
+- [psql](https://www.postgresql.org/download/) command line tool installed
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+- [Aiven CLI](https://github.com/aiven/aiven-client) installed
+- [psql](https://www.postgresql.org/download/) command line tool installed
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- [psql](https://www.postgresql.org/download/) command line tool installed
+
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+- [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/helm.html)
+  installed
+- Admin access to a Kubernetes cluster where you can run the operator
+- A [personal token](/docs/platform/howto/create_authentication_token)
+- [A Kubernetes Secret](https://aiven.github.io/aiven-operator/authentication.html)
+
+</TabItem>
+
+</Tabs>
 
 ## Create an Aiven for AlloyDB Omni service
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <CreateService serviceType="AlloyDB Omni"/>
 
@@ -57,14 +85,33 @@ Depending on a dev tool to use for working with Aiven for AlloyDB Omni:
 <Help/>
 
 </TabItem>
-<TabItem value="tf" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-Use the
-[aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
-resource.
+The following example files are also available in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/alloydbomni) on GitHub.
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/service.tf' />
+
+1. To output connection details, create a file named `output.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/output.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='alloydbomni/variables.tf' />
+
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
+
+<TerraformApply />
 
 </TabItem>
-<TabItem value="k8" label="Kubernetes">
+<TabItem value="k8s" label="Kubernetes">
 
 Use the [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource.
@@ -82,7 +129,7 @@ See configuration options in
 :::
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
@@ -100,14 +147,14 @@ operations on your service.
 :::
 
 </TabItem>
-<TabItem value="tf" label="Terraform">
+<TabItem value="terraform" label="Terraform">
 
-Update your
-[aiven_alloydbomni](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
-resource.
+See
+[the `aiven_alloydbomni` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni)
+for the full schema.
 
 </TabItem>
-<TabItem value="k8" label="Kubernetes">
+<TabItem value="k8s" label="Kubernetes">
 
 Update your [AlloyDBOmni](https://aiven.github.io/aiven-operator/resources/alloydbomni.html)
 resource.
@@ -118,7 +165,7 @@ resource.
 ## Connect to the service
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Console" default>
+<TabItem value="console" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for AlloyDB Omni service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
@@ -128,8 +175,20 @@ resource.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
+
 [Connect to your new service](/docs/products/alloydbomni/connect/connect-psql) with
 [psql](https://www.postgresql.org/download/) CLI tool.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Access your service with [the psql client](/docs/products/postgresql/howto/connect-psql)
+using the `alloydb_service_uri` Terraform output.
+
+```bash
+psql "$(terraform output -raw alloydb_service_uri)"
+```
+
 </TabItem>
 </Tabs>
 
