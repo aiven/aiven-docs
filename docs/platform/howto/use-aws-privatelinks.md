@@ -1,5 +1,6 @@
 ---
 title: Use AWS PrivateLink with Aiven services
+sidebar_label: Use AWS PrivateLink
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -31,7 +32,6 @@ need the AWS console or CLI to create a VPC endpoint.
 :::note
 AWS PrivateLink is not supported for:
 
-- [BYOC](/docs/platform/concepts/byoc)-hosted services
 - Aiven for AlloyDB Omni
 - Aiven for Apache Cassandra®
 - Aiven for Apache Flink®
@@ -40,6 +40,8 @@ AWS PrivateLink is not supported for:
 - Aiven for Metrics
 
 :::
+
+## Enable AWS PrivateLink
 
 1.  Create an AWS PrivateLink resource on the Aiven service.
 
@@ -109,6 +111,21 @@ AWS PrivateLink is not supported for:
     provisions network interfaces to each of the subnets and connects
     them to the Aiven VPC endpoint service. Once the AWS endpoint state
     changes to `available`, the connection is visible in Aiven.
+    :::
+
+1.  If
+    [your Aiven service is deployed using BYOC](/docs/platform/howto/byoc/aws-privatelink-byoc),
+    run the `avn service privatelink aws refresh` command. Otherwise, skip this step.
+
+    ```bash
+    avn service privatelink aws refresh --project $project_name $byoc_service_name
+    ```
+
+    :::tip
+    Check the deployment model of your service in the
+    [Aiven Console](https://console.aiven.io/):
+    Go to your service's <ConsoleLabel name="overview"/> page > **Network** >
+    **Deployment model**.
     :::
 
 1.  Enable PrivateLink access for Aiven service components:
