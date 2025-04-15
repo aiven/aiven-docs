@@ -84,6 +84,8 @@ The following example shows you how to create and integrate these services:
 
 1. Create a file named `terraform.tfvars` and add values for your token and Aiven project.
 
+<TerraformApply />
+
 </TabItem>
 </Tabs>
 
