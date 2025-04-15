@@ -39,10 +39,11 @@ Start using Aiven for AlloyDB Omni by setting up a service and connecting to you
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
 
-- [Install the Aiven Operator](https://aiven.github.io/aiven-operator/installation/helm.html).
-- Have admin access to a Kubernetes cluster where you can run the operator.
-- Create a [personal token](/docs/platform/howto/create_authentication_token).
-- [Create a Kubernetes Secret](https://aiven.github.io/aiven-operator/authentication.html).
+- [Aiven Operator for Kubernetes®](https://aiven.github.io/aiven-operator/installation/helm.html)
+  installed
+- Admin access to a Kubernetes cluster where you can run the operator
+- A [personal token](/docs/platform/howto/create_authentication_token)
+- [A Kubernetes Secret](https://aiven.github.io/aiven-operator/authentication.html)
 
 </TabItem>
 
