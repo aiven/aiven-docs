@@ -1266,7 +1266,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/reference/limitations',
                 'products/clickhouse/concepts/olap',
                 'products/clickhouse/concepts/columnar-databases',
                 'products/clickhouse/concepts/indexing',
@@ -1366,6 +1365,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/clickhouse-system-tables',
+                'products/clickhouse/reference/limitations',
               ],
             },
           ],
