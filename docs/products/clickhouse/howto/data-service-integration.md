@@ -56,14 +56,20 @@ Make Apache Kafka data available in Aiven for ClickHouse using the Kafka engine:
       for ClickHouse. Enter **Table name**, **Consumer group name**, **Topics**, **Data
       format**, and **Table columns**. Click **Save table details**.
 
-      :::tip
-      You can query the created tables using the following statement:
+      :::note
+      - You can have up to 400 such tables for receiving and sending messages from multiple
+        topics.
+      - To query the tables, use the following statement:
 
-      ```sql
-      SELECT *
-      FROM APACHE_KAFKA_RESOURCE_NAME.APACHE_KAFKA_TABLE_NAME
-      ```
+         ```sql
+         SELECT *
+         FROM APACHE_KAFKA_RESOURCE_NAME.APACHE_KAFKA_TABLE_NAME
+         ```
 
+      - To set up **Data format**, see
+        [Formats for Aiven for ClickHouse® - Aiven for Apache Kafka® data exchange](/docs/products/clickhouse/reference/supported-input-output-formats).
+      - For more integration configuration options, see
+        [Update Apache Kafka integration settings](/docs/products/clickhouse/howto/integrate-kafka#update-apache-kafka-integration-settings).
       :::
 
    1. Click **Enable integration** > **Close**.
