@@ -94,7 +94,7 @@ be integrated to validate changes and enforce compliance.
 
 ### Step 2. Map GitHub users to Aiven identities
 
-To verify requesters and approvers, assign them to the appropriate user group
+To verify requesters and approvers, map their GitHub user IDs to their Aiven user IDs
 using the `aiven_external_identity` resource.
 
 <TerraformSample filename="data-sources/aiven_external_identity/data-source.tf" />
