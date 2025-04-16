@@ -95,35 +95,12 @@ be integrated to validate changes and enforce compliance.
 ### Step 2. Map GitHub users to Aiven identities
 
 To verify requesters and approvers, assign them to the appropriate user group
-using the `aiven_external_identity` resource. For more information, see the
+using the `aiven_external_identity` resource.
+
+<TerraformSample filename="data-sources/aiven_external_identity/data-source.tf" />
+
+For more information, see the
 [Aiven Terraform Provider documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/external_identity).
-
-**Example Terraform configuration**
-
-```hcl
-data "aiven_organization" "example_org" {
-  name = "Example Organization"
-}
-
-resource "aiven_organization_user_group" "example_group" {
-  organization_id = data.aiven_organization.example_org.id
-  name            = "example-group"
-  description     = "A group for governance approvals"
-}
-
-resource "aiven_organization_user_group_member" "example_user" {
-  organization_id = data.aiven_organization.example_org.id
-  group_id        = aiven_organization_user_group.example_group.group_id
-  user_id         = "aiven_user_id"
-}
-
-data "aiven_external_identity" "github_identity" {
-  organization_id       = data.aiven_organization.example_org.id
-  internal_user_id      = "aiven_user_id"
-  external_user_id      = "github_username"
-  external_service_name = "github"
-}
-```
 
 - This mapping ensures that GitHub users are recognized as Aiven users for governance
   approvals.
