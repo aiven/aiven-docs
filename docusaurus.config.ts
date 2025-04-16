@@ -183,11 +183,6 @@ const config: Config = {
               href: '/docs/platform/howto/support',
             },
             {
-              label: 'Community forum',
-              href: 'https://aiven.io/community/forum/',
-            },
-
-            {
               label: 'Company website',
               href: 'https://aiven.io/',
             },
