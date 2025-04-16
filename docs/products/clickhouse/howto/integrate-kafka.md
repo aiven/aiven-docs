@@ -1,5 +1,6 @@
 ---
-title: Connect Apache Kafka® to Aiven for ClickHouse®
+title: Connect Aiven for Apache Kafka® to Aiven for ClickHouse®
+sidebar_label: Connect Apache Kafka® to ClickHouse®
 ---
 
 You can integrate Aiven for ClickHouse® with either Aiven for Apache Kafka® service located in the same project, or an external Apache Kafka endpoint.
@@ -67,10 +68,9 @@ configuration, see the section below.
 
 ## Update Apache Kafka integration settings
 
-Configure the topic and data format options for the
-integration. This will create a virtual table in Aiven for ClickHouse
-that can receive and send messages from multiple topics. You can have as
-many of such tables as you need.
+Configure the topic and data format options for the integration. This will create a virtual
+table in Aiven for ClickHouse that can receive and send messages from multiple topics. You
+can have up to 400 such tables.
 
 ### Mandatory settings
 
@@ -117,6 +117,7 @@ For each table, you can define the following optional settings:
 | `skip_broken_messages`   | Minimum number of broken messages from Kafka topic per block to be skipped                               | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
 
 :::note[JSON format]
+
 ```json
 {
     "tables": [
@@ -134,6 +135,7 @@ For each table, you can define the following optional settings:
     ]
 }
 ```
+
 :::
 
 ## Configure integration with CLI
@@ -145,7 +147,7 @@ Currently the configurations can be set only with the help of CLI command
     integrations. Replace `PROJECT`, `CLICKHOUSE_SERVICE_NAME` and
     `KAFKA_SERVICE_NAME` with the names of your services:
 
-     ```
+     ```bash
      avn service integration-list                      \
      --project PROJECT_NAME                            \
      CLICKHOUSE_SERVICE_NAME | grep KAFKA_SERVICE_NAME
@@ -156,7 +158,7 @@ Currently the configurations can be set only with the help of CLI command
     Replace `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`,
     `DATA_FORMAT` and `CONSUMER_NAME` with your values:
 
-    ```
+    ```bash
     avn service integration-update SERVICE_INTEGRATION_ID \
     --project PROJECT_NAME                                \
     --user-config-json '{
