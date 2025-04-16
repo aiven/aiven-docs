@@ -38,8 +38,7 @@ There are some limitations of the free plan services:
 -   No external service integrations
 -   No forking
 -   For PostgreSQL: no connection pooling
--   Support only through the [Aiven Community
-    Forum](https://aiven.io/community/forum/)
+-   No support services
 -   Only one service per service type per user and
     [organization](/docs/platform/concepts/orgs-units-projects)
 -   Not covered under Aiven's 99.99% SLA
