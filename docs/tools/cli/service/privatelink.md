@@ -18,7 +18,7 @@ Lists PrivateLink cloud availability and prices.
 
 **Example:** Lists PrivateLink cloud availability and prices.
 
-```
+```bash
 avn service privatelink availability
 ```
 
@@ -48,7 +48,7 @@ Lists AWS PrivateLink connection information for a service.
 **Example:** List AWS PrivateLink connection information for the
 `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink aws connection list kafka-12a3b4c5
 ```
 
@@ -77,7 +77,7 @@ repeat `\--principal` parameter.
 
 **Example:** Create an AWS PrivateLink for the `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink aws create --principal 'arn:aws:iam::123456789012:user/cloud_user' --principal 'arn:aws:iam::987654321098:user/cloud_user' kafka-12a3b4c5
 ```
 
@@ -102,7 +102,7 @@ Deletes an AWS PrivateLink defined for a service.
 **Example:** Delete the AWS PrivateLink for the `kafka-12a3b4c5`
 service.
 
-```
+```bash
 avn service privatelink aws delete kafka-12a3b4c5
 ```
 
@@ -132,7 +132,7 @@ Lists AWS PrivateLink information for a service.
 **Example:** List AWS PrivateLink information for the `kafka-12a3b4c5`
 service.
 
-```
+```bash
 avn service privatelink aws get kafka-12a3b4c5
 ```
 
@@ -158,7 +158,7 @@ principals, repeat `\--principal` parameter.
 
 **Example:** Update AWS principals for the `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink aws update                        \
   --principal 'arn:aws:iam::123456789012:user/cloud_user' \
   kafka-12a3b4c5
@@ -170,6 +170,23 @@ An example of output:
 AWS_SERVICE_ID              AWS_SERVICE_NAME                                         PRINCIPALS                                 STATE
 ==========================  =======================================================  =========================================  ======
 vpce-svc-1234567890abc1234  com.amazonaws.vpce.us-east-1.vpce-svc-1234567890abc1234  arn:aws:iam::123456789012:user/cloud_user  active
+```
+
+### `avn service privatelink aws refresh` {#avn_service_privatelink_aws_refresh}
+
+Refreshes incoming AWS PrivateLink endpoint connections.
+
+| Parameter      | Information                      |
+| -------------- | -------------------------------- |
+| `service_name` | The name of the service          |
+| `--project`    | The project to fetch details for |
+| `--format`     | Format of the output string      |
+
+**Example:** Refresh incoming AWS PrivateLink endpoint connections
+for the `kafka-12a3b4c5` service.
+
+```bash
+avn service privatelink aws refresh kafka-12a3b4c5
 ```
 
 ### `avn service privatelink azure connection approve` {#avn_service_privatelink_azure_connection_approve}
@@ -186,7 +203,7 @@ Approves a pending Azure Private Link connection endpoint.
 **Example:** Approve the Azure Private Link `plc12345abcdef` connection
 for the `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink azure connection approve kafka-12a3b4c5 plc12345abcdef
 ```
 
@@ -211,7 +228,7 @@ Lists Azure Private Link connection information for a service.
 **Example:** List Azure Private Link connection information for the
 `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink azure connection list kafka-12a3b4c5
 ```
 
@@ -239,7 +256,7 @@ the private endpoint's Network interface.
 **Example:** In the `kafka-12a3b4c5` service, update the IP of the Azure
 Private Link connection `plc12345abcdef` to `10.19.1.4`.
 
-```
+```bash
 avn service privatelink azure connection update   \
   --endpoint-ip-address 10.19.1.4                 \
   kafka-12a3b4c5                                  \
@@ -268,7 +285,7 @@ Creates an Azure Private Link for a service.
 **Example:** Create an Azure Private Link for the `kafka-12a3b4c5`
 service.
 
-```
+```bash
 avn service privatelink azure create    \
   --user-subscription-id                \
   12345678-90ab-cdef-0987-6543210abcde  \
@@ -295,7 +312,7 @@ Deletes an Azure Private Link defined for a service.
 
 **Example:** Delete Azure Private Link for the `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink azure delete kafka-12a3b4c5
 ```
 
@@ -320,7 +337,7 @@ Lists Azure Private Link information for a service.
 **Example:** List Azure Private Link information for the
 `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink azure get kafka-12a3b4c5
 ```
 
@@ -345,6 +362,6 @@ Refreshes incoming Azure Private Link endpoint connections.
 **Example:** Refresh incoming Azure Private Link endpoint connections
 for the `kafka-12a3b4c5` service.
 
-```
+```bash
 avn service privatelink azure refresh kafka-12a3b4c5
 ```

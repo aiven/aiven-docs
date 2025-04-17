@@ -115,7 +115,9 @@ AWS PrivateLink is not supported for:
 
 1.  If
     [your Aiven service is deployed using BYOC](/docs/platform/howto/byoc/aws-privatelink-byoc),
-    run the `avn service privatelink aws refresh` command. Otherwise, skip this step.
+    run the
+    [avn service privatelink aws refresh](/docs/tools/cli/service/privatelink#avn_service_privatelink_aws_refresh)
+    command. Otherwise, skip this step.
 
     ```bash
     avn service privatelink aws refresh --project $project_name $byoc_service_name

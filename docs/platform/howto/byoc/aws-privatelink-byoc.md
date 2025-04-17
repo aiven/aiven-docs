@@ -17,7 +17,14 @@ Enable and manage AWS PrivateLink for your Aiven services deployed in your own c
 
 ## Prerequisites
 
-### Permissions
+- [Aiven CLI](/docs/tools/cli)
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [Terraform](https://developer.hashicorp.com/terraform)
+- Optionally, access to:
+  - [Aiven Console](https://console.aiven.io/)
+  - [AWS Management Console](https://console.aws.amazon.com)
+
+## Set up permissions
 
 1. [Download the latest version of your Terraform template](/docs/platform/howto/byoc/download-infrastructure-template).
 
@@ -29,17 +36,9 @@ Enable and manage AWS PrivateLink for your Aiven services deployed in your own c
    This will automatically add the required permissions to your own AWS account, allowing
    Aiven to set up and manage the secure PrivateLink connection for your BYOC service.
 
-### Tools
+## Enable AWS PrivateLink
 
-- [Aiven CLI](/docs/tools/cli)
-- [AWS CLI](https://aws.amazon.com/cli/)
-- Optionally, access to
-  - [Aiven Console](https://console.aiven.io/)
-  - [AWS Management Console](https://console.aws.amazon.com)
-
-## Use AWS PrivateLink
-
-Follow the steps in
+See
 [Use AWS PrivateLink with Aiven services](/docs/platform/howto/use-aws-privatelinks#enable-aws-privatelink).
 
 <RelatedPages/>
