@@ -69,7 +69,7 @@ Make Apache Kafka data available in Aiven for ClickHouse using the Kafka engine:
       - To set up **Data format**, see
         [Formats for Aiven for ClickHouse® - Aiven for Apache Kafka® data exchange](/docs/products/clickhouse/reference/supported-input-output-formats).
       - For more integration configuration options, see
-        [Update Apache Kafka integration settings](/docs/products/clickhouse/howto/integrate-kafka#update-apache-kafka-integration-settings).
+        [Update Apache Kafka integration settings](/docs/products/clickhouse/howto/integrate-kafka#update-integration-settings).
       :::
 
    1. Click **Enable integration** > **Close**.
