@@ -76,12 +76,11 @@ Upon creating the integration and configuring your tables, you can edit them at 
 See the mandatory settings
 </summary>
 -   `name` - name of the connector table
--   `columns` - array of columns, with names and types
--   `topics` - array of topics, where to bring the data from
--   `data_format` - your preferred format for data input, see
-    [Formats for ClickHouse®-Kafka® data exchange](/docs/products/clickhouse/reference/supported-input-output-formats)
--   `group_name` - consumer group name, that will be created on your
-    behalf
+-   `columns` - array of columns with names and types
+-   `topics` - array of topics to pull data from
+-   `data_format` - format for input data
+    ([see supported formats](/docs/products/clickhouse/reference/supported-input-output-formats))
+-   `group_name` - consumer group name to be created on your behalf
 </details>
 
 Choose the tool for editing mandatory settings:
