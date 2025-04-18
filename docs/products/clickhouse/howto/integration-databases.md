@@ -127,7 +127,7 @@ find an integration, and click <ConsoleLabel name="actions"/> >
 1.  Add or delete tables using <ConsoleLabel name="addtable"/> or
     <ConsoleLabel name="delete"/> respectively, and click **Save**.
 
-#### Update table details
+#### Update table details{#update-table-details}
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service

@@ -45,10 +45,12 @@ a
     </tr>
     <tr>
       <td>Service integrations</td>
-      <td>
-          You can integrate your Aiven for ClickHouse service with PostgreSQL®
-          and Kafka® only.
-      </td>
+        <ul>
+          <li>You can integrate your Aiven for ClickHouse service with PostgreSQL®
+          and Apache Kafka® only.</li>
+          <li>[Integrations of Aiven for ClickHouse and Apache Kafka](/docs/products/clickhouse/howto/integrate-kafka)
+          support the maximum of 400 virtual connector tables.</li>
+        </ul>
       <td>N/A</td>
     </tr>
     <tr>

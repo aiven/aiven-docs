@@ -25,15 +25,20 @@ plans and higher.
 
 ## Prerequisites
 
--   Aiven for ClickHouse service
--   Aiven for Apache Kafka service or a self-hosted Apache Kafka service
+-   Services to integrate:
+    -   Aiven for ClickHouse service
+    -   Aiven for Apache Kafka service or a self-hosted Apache Kafka service
 
-    :::tip
-    If you use the self-hosted Apache Kafka service, an external Apache
-    Kafka endpoint should be configured in **Integration endpoints**.
-    :::
+        :::tip
+        If you use the self-hosted Apache Kafka service, an external Apache
+        Kafka endpoint should be configured in **Integration endpoints**.
+        :::
 
 -   At least one topic in the Apache Kafka service
+-   Tools
+    -   [Aiven Console](https://console.aiven.io/)
+    -   [Aiven CLI](/docs/tools/cli)
+    -   SQL client
 
 ## Variables
 
@@ -61,77 +66,51 @@ which is also a part of the
 [integration creation in the Aiven Console](/docs/products/clickhouse/howto/data-service-integration#create-apache-kafka-integrations).
 You can have up to 400 such tables for receiving and sending messages from multiple topics.
 
-## Update Apache Kafka integration settings
+## Update integration settings
 
 Upon creating the integration and configuring your tables, you can edit them at any time.
 
--   Mandatory settings
+### Update mandatory settings
 
-    -   `name` - name of the connector table
-    -   `columns` - array of columns, with names and types
-    -   `topics` - array of topics, where to bring the data from
-    -   `data_format` - your preferred format for data input, see
-        [Formats for ClickHouse®-Kafka® data exchange](/docs/products/clickhouse/reference/supported-input-output-formats)
-    -   `group_name` - consumer group name, that will be created on your
-        behalf
+<details><summary>
+See the mandatory settings
+</summary>
+-   `name` - name of the connector table
+-   `columns` - array of columns with names and types
+-   `topics` - array of topics to pull data from
+-   `data_format` - format for input data
+    ([see supported formats](/docs/products/clickhouse/reference/supported-input-output-formats))
+-   `group_name` - consumer group name to be created on your behalf
+</details>
 
-    ```json
-    {
-      "tables": [
-        {
-          "name": "CONNECTOR_TABLE_NAME",
-          "columns": [
-              {"name": "id", "type": "UInt64"},
-              {"name": "name", "type": "String"}
-          ],
-          "topics": [{"name": "topic1"}, {"name": "topic2"}],
-          "data_format": "DATA_FORMAT",
-          "group_name": "CONSUMER_NAME"
-        }
-      ]
-    }
-    ```
+Choose the tool for editing mandatory settings:
 
-- Optional settings
+- [Update in the Aiven Console](/docs/products/clickhouse/howto/integration-databases#update-table-details)
+- [Update in the Aiven CLI](/docs/products/clickhouse/howto/integrate-kafka#update-optional-settings)
+  (using the same steps as for optional settings)
 
-    | Name                     | Description                                                                                              | Default    | Allowed values                                                  | Minimum | Maximum value   |
-    | ------------------------ | -------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------- | ------- | --------------- |
-    | `auto_offset_reset`      | Action to take when there is no initial offset in the offset store or the desired offset is out of range | `earliest` | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` | \--     | \--             |
-    | `date_time_input_format` | Method to read `DateTime` from text input formats                                                        | `basic`    | `basic`, `best_effort`, `best_effort_us`                        | \--     | \--             |
-    | `handle_error_mode`      | Method to handle errors for the Kafka engine                                                             | `default`  | `default`, `stream`                                             | \--     | \--             |
-    | `max_block_size`         | Number of rows collected by a poll for flushing data from Kafka                                         | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
-    | `max_rows_per_message`   | Maximum number of rows produced in one Kafka message for row-based formats                               | `1`        | `1` - `1_000_000_000`                                           | `1`     | `1_000_000_000` |
-    | `num_consumers`          | Number of consumers per table per replica                                                                | `1`        | `1` - `10`                                                      | `1`     | `10`            |
-    | `poll_max_batch_size`    | Maximum amount of messages to be polled in a single Kafka poll                                           | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
-    | `skip_broken_messages`   | Minimum number of broken messages from Kafka topic per block to be skipped                               | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+### Update optional settings
 
-    ```json
-    {
-        "tables": [
-            {
-                "name": "CONNECTOR_TABLE_NAME",
-                "columns": [
-                    {"name": "id", "type": "UInt64"},
-                    {"name": "name", "type": "String"}
-                ],
-                "topics": [{"name": "topic1"}, {"name": "topic2"}],
-                "data_format": "DATA_FORMAT",
-                "group_name": "CONSUMER_NAME",
-                "auto_offset_reset": "earliest"
-            }
-        ]
-    }
+<details><summary>
+See the optional settings
+</summary>
+| Name                     | Description                                                                                              | Default    | Allowed values                                                  | Minimum | Maximum value   |
+| ------------------------ | -------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------- | ------- | --------------- |
+| `auto_offset_reset`      | Action to take when there is no initial offset in the offset store or the desired offset is out of range | `earliest` | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` | \--     | \--             |
+| `date_time_input_format` | Method to read `DateTime` from text input formats                                                        | `basic`    | `basic`, `best_effort`, `best_effort_us`                        | \--     | \--             |
+| `handle_error_mode`      | Method to handle errors for the Kafka engine                                                             | `default`  | `default`, `stream`                                             | \--     | \--             |
+| `max_block_size`         | Number of rows collected by a poll for flushing data from Kafka                                         | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+| `max_rows_per_message`   | Maximum number of rows produced in one Kafka message for row-based formats                               | `1`        | `1` - `1_000_000_000`                                           | `1`     | `1_000_000_000` |
+| `num_consumers`          | Number of consumers per table per replica                                                                | `1`        | `1` - `10`                                                      | `1`     | `10`            |
+| `poll_max_batch_size`    | Maximum amount of messages to be polled in a single Kafka poll                                           | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+| `skip_broken_messages`   | Minimum number of broken messages from Kafka topic per block to be skipped                               | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
+</details>
 
-    :::
+Use the [Aiven CLI](/docs/tools/cli):
 
-## Configure integration with CLI
-
-Currently the configurations can be set only with the help of CLI command
-[avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update):
-
-1.  Get *the service integration id* by requesting the full list of
-    integrations. Replace `PROJECT`, `CLICKHOUSE_SERVICE_NAME` and
-    `KAFKA_SERVICE_NAME` with the names of your services:
+1.  Get your service integration ID by requesting the full list of integrations. Replace
+    `PROJECT`, `CLICKHOUSE_SERVICE_NAME` and `KAFKA_SERVICE_NAME` with the names of your
+    services:
 
      ```bash
      avn service integration-list                      \
@@ -139,12 +118,13 @@ Currently the configurations can be set only with the help of CLI command
      CLICKHOUSE_SERVICE_NAME | grep KAFKA_SERVICE_NAME
      ```
 
-1.  Update the configuration settings using the service integration id
-    retrieved in the previous step and your integration settings.
-    Replace `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`,
-    `DATA_FORMAT` and `CONSUMER_NAME` with your values:
+1.  Run
+    [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
+    with the service integration id and your integration settings. Replace
+    `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`, `DATA_FORMAT` and `CONSUMER_NAME`
+    with your values:
 
-    ```bash
+    ```bash {14}
     avn service integration-update SERVICE_INTEGRATION_ID \
     --project PROJECT_NAME                                \
     --user-config-json '{
@@ -157,7 +137,8 @@ Currently the configurations can be set only with the help of CLI command
                 ],
                 "topics": [{"name": "topic1"}, {"name": "topic2"}],
                 "data_format": "DATA_FORMAT",
-                "group_name": "CONSUMER_NAME"
+                "group_name": "CONSUMER_NAME",
+                "auto_offset_reset": "earliest"
             }
         ]
     }'
