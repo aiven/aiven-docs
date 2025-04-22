@@ -35,6 +35,7 @@ Free plans include:
 There are some limitations of the free plan services:
 
 -   No VPC peering
+-   No static IPs
 -   No external service integrations
 -   No forking
 -   For PostgreSQL: no connection pooling
