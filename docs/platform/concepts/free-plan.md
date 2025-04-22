@@ -23,7 +23,7 @@ Free plans include:
 -   A single node
 -   1 CPU per virtual machine
 -   1 GB RAM
--   For PostgreSQL and MySQL: 5 GB disk storage
+-   For PostgreSQL and MySQL: 1 GB disk storage
 -   For Valkey: `maxmemory` set to 50%
 -   Management through the Aiven Console, CLI, API, Terraform Provider, or
     Kubernetes Operator
