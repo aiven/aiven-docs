@@ -30,17 +30,25 @@ You can view the service user and ACLs in the following locations in the
 
 ## Prerequisites
 
-- [Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization
-- For Terraform:
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
-  - [Aiven Provider for Terraform](/docs/tools/terraform)
-  - [Authentication token](/docs/platform/howto/create_authentication_token)
-  - To use beta features of the Aiven Provider for Terraform, set:
+[Governance](/docs/products/kafka/howto/enable-governance) enabled for your organization
 
-    ```bash
-    export PROVIDER_AIVEN_ENABLE_BETA=1
+</TabItem>
+<TabItem value="terraform" label="Terraform">
 
-    ```
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- To use beta features of the Aiven Provider for Terraform, set:
+
+  ```bash
+  export PROVIDER_AIVEN_ENABLE_BETA=1
+
+  ```
+
+</TabItem>
+</Tabs>
 
 ## Request access to a topic
 
@@ -90,6 +98,8 @@ Use the `aiven_governance_access` Terraform resource to request access to an Apa
 topic. The request is reviewed and approved in a GitHub pull request before access is
 granted.
 
+<div style={{ marginTop: "1.25rem" }} />
+
 ### How it works
 
 1. Define the request:
@@ -110,6 +120,14 @@ granted.
    - A GitHub Action checks the request:
      - The requester must belong to the group defined by `owner_user_group_id`.
      - An approval must come from another member of the same group.
+
+     :::note
+       To verify group membership, GitHub user IDs must be mapped to Aiven user IDs using
+       the
+       [`aiven_external_identity`](/docs/products/kafka/howto/terraform-governance-approvals#step-2-map-github-users-to-aiven-identities)
+       resource.
+        :::
+
    - If the request meets all governance rules, the workflow applies the configuration
      using `terraform apply`.
 
