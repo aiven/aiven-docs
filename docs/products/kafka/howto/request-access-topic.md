@@ -140,7 +140,7 @@ granted.
 
    After access is provisioned, download the credentials from the
    [Aiven Console](https://console.aiven.io/). For more details, see
-   [View and download service user credentials](#view-and-download-service-user-credentials).
+   [View and download service user credentials](#view-and-download-credentials).
 
    :::note
    Credentials are not available in Terraform or GitHub Actions output.
