@@ -83,7 +83,7 @@ personal and application tokens.
 
 ## Set an authentication policy
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click <ConsoleLabel name="authenticationpolicy"/>.
 1.  Configure the settings for your authentication policy.
 1.  Click **Save changes**.

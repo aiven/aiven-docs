@@ -9,8 +9,9 @@ Learn how to manage your organizations via the Aiven Console.
 ## Delete an organization
 
 1.  Delete all
-    [projects](/docs/platform/howto/manage-project) in the organization and in the organizational units.
-1.  Click **Admin**.
+    [projects](/docs/platform/howto/manage-project) in the organization
+    and in the organizational units.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click **Organization**.
 1.  Open each organizational unit by clicking its name then click
     **Delete** to delete it.
@@ -21,7 +22,7 @@ Learn how to manage your organizations via the Aiven Console.
 
 ## Rename an organization
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click **Organization**.
 1.  Click **Rename**.
 1.  Select **Rename**.

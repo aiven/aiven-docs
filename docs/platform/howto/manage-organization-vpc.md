@@ -29,8 +29,8 @@ Create an organization VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
-   top navigation bar.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to
+   <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar and **Create VPC** on the
    **Virtual private clouds** page.
 1. In the **Create VPC** window:
@@ -272,8 +272,8 @@ Delete an organization VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
-   top navigation bar.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to
+   <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
 1. On the **Virtual private clouds** page, find a VPC to be deleted and click
    <ConsoleLabel name="actions"/> > <ConsoleLabel name="delete"/>.

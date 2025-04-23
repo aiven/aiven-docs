@@ -17,13 +17,13 @@ You can see the ID for each organization you were invited to or are a member of.
 
 ## Get an organizational unit ID
 
-1. Click **Admin**.
+1. Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="organization"/>.
 1. In the list of **Organizational units**, get the **ID**.
 
 ## Get a user ID
 
-1. Click **Admin**.
+1. Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="users"/>.
 1. Get the user ID from the URL. User IDs start with `u` and are usually at the
    end of the URL. For example, the user ID is `u1abc2345678` in the following URL:
@@ -31,13 +31,13 @@ You can see the ID for each organization you were invited to or are a member of.
 
 ## Get an application user ID
 
-1. Click **Admin**.
+1. Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="applicationusers"/>.
 1. Find the application user and get its **User ID**.
 
 ## Get a group ID
 
-1. Click **Admin**.
+1. Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="groups"/>.
 1. Get the group ID from the URL. Group IDs start with `ug` and are usually at the
    end of the URL. For example, the user ID is `ug1a2bc3d45e6` in the following URL:

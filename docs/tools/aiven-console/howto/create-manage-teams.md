@@ -27,7 +27,7 @@ Teams are groups of users that you can assign to projects.
 
 ## Create a team
 
-1.  In the organization, click **Admin**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click **Teams**.
 1.  Click **Create new team**.
 1.  Enter a **Team Name**.
@@ -37,7 +37,7 @@ Teams are groups of users that you can assign to projects.
 
 Users must be part of an organization before being added to a team.
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click **Teams**.
 1.  Click the name of the team to add users to.
 1.  On the **Team Members** tab, click **Invite users**.
@@ -73,7 +73,7 @@ will disable the teams feature.** You won't be able to create new teams or acces
 Account Owners team.
 :::
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 
 1.  On the **Teams** tab, click each team name to view it and make a note of:
 

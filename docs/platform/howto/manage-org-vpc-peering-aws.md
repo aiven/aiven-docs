@@ -44,7 +44,8 @@ create an organization VPC peering connection using a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
-1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to
+   <ConsoleLabel name="userinformation"/> > **Admin**. in the
    top navigation bar.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
 1. On the **Virtual private clouds** page, select an organization VPC to peer.

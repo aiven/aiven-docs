@@ -3,12 +3,11 @@ title: Add SAML identity providers
 sidebar_label: Add identity providers
 keywords: [SAML, SSO]
 ---
-<!-- vale off -->
+
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import IdPStep1 from "@site/static/includes/idp-step1.md";
-import IdPStep3 from "@site/static/includes/idp-step3.md"
-
-<!-- vale on -->
+import IdPStep3 from "@site/static/includes/idp-step3.md";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 You can give your organization users access to Aiven through identity providers (IdPs) that support SAML.
 
@@ -54,7 +53,7 @@ You don't need to manually link organization users who have an email address tha
 a verified domain linked to one of your identity providers.
 :::
 
-1. On the **Identity providers** page, click the name of the IdP.
+1. On the <ConsoleLabel name="idp"/> page, click the name of the IdP.
 
 1. In the **Overview** section there are two URLs:
     -   **Signup URL**: Users that don't have an Aiven user account can

@@ -110,12 +110,6 @@ const config: Config = {
           href: 'https://api.aiven.io/doc/',
         },
         {
-          type: 'doc',
-          position: 'left',
-          docId: 'platform/howto/support',
-          label: 'Support',
-        },
-        {
           label: 'Changelog',
           href: 'https://aiven.io/changelog',
           position: 'right',

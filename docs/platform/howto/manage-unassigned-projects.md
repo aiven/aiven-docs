@@ -2,6 +2,8 @@
 title: Manage unassigned projects
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 An unassigned project is a project that isn't assigned to an organization or organizational unit. Projects that are part of an organization or unit are easier to maintain as common settings, like authentication, are centrally managed at the organization level. These projects also get the latest feature updates.
 
 Learn more about
@@ -47,7 +49,9 @@ To create an organization:
 
 <!-- vale off -->
 
-1. At the top-right side, click **Create organization**.
+1. Click <ConsoleLabel name="userinformation"/> > <ConsoleLabel name="organizations"/>.
+
+1. Click **Create organization**.
 
 1. Enter a name for the organization.
 

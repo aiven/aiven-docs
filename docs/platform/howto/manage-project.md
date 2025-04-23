@@ -65,7 +65,8 @@ or super admin of both organizations.
 All users with permission to access the project lose the permissions when you
 move it to a different organization.
 
-1.  In the organization with the project, click **Admin**.
+1.  In the organization with the project, click
+    <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click <ConsoleLabel name="Projects"/> and find the project to move.
 1.  Click <ConsoleIcon name="more"/> > <ConsoleLabel name="Move project"/>.
 1.  Select the organization or organizational unit to move the project to.

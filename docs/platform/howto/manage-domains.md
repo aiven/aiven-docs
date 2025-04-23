@@ -15,9 +15,9 @@ There are two ways you can verify a domain:
 
 ## Add a domain using a DNS TXT record
 
-1. In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 
-1. Click **Domains**.
+1. Click <ConsoleLabel name="domains"/>.
 
 1. Click **Add domain**.
 
@@ -54,8 +54,8 @@ can retry it by repeating the last step.
 
 ## Add a domain using an HTML file
 
-1. In the organization, click **Admin**.
-1. Click **Domains**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
+1. Click <ConsoleLabel name="domains"/>.
 1. Click **Add domain**.
 1. Enter a **Domain name**.
 1. In the **Verification method**, select **Upload an HTML file to your website**.
@@ -72,6 +72,6 @@ can retry it by repeating the last step.
 Removing a domain is an irreversible action.
 :::
 
-1. In the organization, click **Admin**.
-1. Click **Domains**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
+1. Click <ConsoleLabel name="domains"/>.
 1. Find the domain and click <ConsoleLabel name="actions"/> > **Remove**.
