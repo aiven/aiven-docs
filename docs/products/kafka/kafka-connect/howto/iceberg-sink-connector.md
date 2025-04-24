@@ -4,9 +4,7 @@ sidebar_label: Iceberg sink connector
 early: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use the Iceberg sink connector to write real-time Apache Kafka® data to Iceberg tables for analytics and long-term storage.
 
@@ -58,3 +56,10 @@ Future updates to the Iceberg sink connector include:
 
 [Aiven for Apache Kafka® Connect secret providers](/docs/products/kafka/kafka-connect/howto/configure-secret-providers)
 are not supported in this release.
+
+<RelatedPages/>
+
+- [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
+- [AWS Glue catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-catalog)
+- [Official Apache Iceberg sink connector docs](https://iceberg.apache.org/docs/latest/kafka-connect/)
+- [Configure secret providers for Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/configure-secret-providers)

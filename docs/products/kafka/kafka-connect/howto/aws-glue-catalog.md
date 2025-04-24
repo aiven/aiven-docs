@@ -7,6 +7,7 @@ import CreateIcebergSinkConnector from "@site/static/includes/create-iceberg-sin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from '@site/src/components/ConsoleIcons';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The AWS Glue catalog directly manages Iceberg metadata within AWS Glue. It supports automatic table creation and schema evolution.
 
@@ -253,3 +254,10 @@ with the following properties:
   "iceberg.kafka.ssl.key.password": "password"
 }
 ```
+
+<RelatedPages/>
+
+- [Iceberg sink connector overview](/docs/products/kafka/kafka-connect/howto/iceberg-sink-connector)
+- [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
+- [AWS Glue documentation](https://docs.aws.amazon.com/glue/latest/dg/start-data-catalog.html)
+- [Iceberg connector configuration](https://iceberg.apache.org/docs/latest/kafka-connect/)
