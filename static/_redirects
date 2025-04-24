@@ -222,12 +222,12 @@
 /tools/terraform/howto/terraform-logging                   https://aiven.io/docs/tools/terraform
 /tools/terraform/howto/update-deprecated-resources         https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources
 /tools/terraform/howto/upgrade-caching-valkey-terraform    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade
-/tools/terraform/howto/vnet-peering-azure                  https://github.com/Aiven-Open/terraform-example-projects/blob/main/virtual_private_networking/azure_vnet_peering
-/tools/terraform/howto/vpc-peering-aws                     https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking/aws_vpc_peering
-/tools/terraform/howto/vpc-peering-gcp                     https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking/google_vpc_peering
+/tools/terraform/howto/vnet-peering-azure                  https://github.com/aiven/terraform-provider-aiven/tree/main/examples/azure_vnet_peering
+/tools/terraform/howto/vpc-peering-aws                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/aws_vpc_peering
+/tools/terraform/howto/vpc-peering-gcp                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/gcp_vpc_peering
 /tools/terraform/index.html                                https://aiven.io/docs/tools/terraform
 /tools/terraform/list-upgrade-terraform                    https://aiven.io/docs/tools/terraform/howto/upgrade-provider-v3-v4
-/tools/terraform/list-vpc-terraform                        https://github.com/Aiven-Open/terraform-example-projects/tree/main/virtual_private_networking
+/tools/terraform/list-vpc-terraform                        https://github.com/aiven/terraform-provider-aiven/tree/main/examples
 /tools/terraform/reference/cookbook                        https://aiven.io/docs/tools/terraform/get-started
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    https://aiven.io/docs/tools/terraform/get-started
 /tools/terraform/reference/cookbook/kafka-flink-integration-recipe    https://aiven.io/developer/apache-kafka-to-opensearch-terraform
