@@ -1050,6 +1050,7 @@ const sidebars: SidebarsConfig = {
                           items: [
                             'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
                             'products/kafka/kafka-connect/howto/aws-glue-catalog',
+                            'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
                           ],
                         },
                         'products/kafka/kafka-connect/howto/influx-sink',

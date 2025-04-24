@@ -26,7 +26,7 @@ The connector supports the following catalog types:
 
 - [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
 - [AWS Glue catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-catalog)
-
+- [JDBC catalog (PostgreSQL)](/docs/products/kafka/kafka-connect/howto/jdbc-catalog-postgres)
 
 :::note
 The AWS Glue REST catalog does not support automatic table creation. You must
@@ -50,7 +50,7 @@ Future updates to the Iceberg sink connector include:
 
 - **FileIO implementations:** Support for GCS and Azure FileIO.
 - **Write formats:** Additional support for Avro and ORC formats.
-- **Catalogs:** Planned support for Hive, JDBC, and Amazon S3 Tables.
+- **Catalogs:** Planned support for Hive and Amazon S3 Tables.
 
 ## Limitations
 
