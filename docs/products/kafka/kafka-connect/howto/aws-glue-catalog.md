@@ -187,9 +187,8 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
    Parameters:
 
    Most connector parameters are shared with the
-   [AWS Glue REST catalog](#rest-catalog-parameters) configuration. The key differences
-   for the AWS Glue catalog are:
-
+   [AWS Glue REST catalog parameters](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog#parameters)
+   configuration. The key differences for the AWS Glue catalog are:
 
    - `iceberg.tables.auto-create-enabled`: Set to `true` to enable automatic table
      creation for AWS Glue catalog.

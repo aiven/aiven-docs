@@ -195,8 +195,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
      }
    ```
 
-   <a id="rest-catalog-parameters"></a>
-   Parameters:
+   ### Parameters
 
     - `name`: Specify the connector name.
     - `connector.class`: Defines the connector class.
