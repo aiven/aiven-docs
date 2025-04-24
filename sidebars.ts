@@ -1040,7 +1040,18 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcs-sink',
                         'products/kafka/kafka-connect/howto/http-sink',
                         'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
-                        'products/kafka/kafka-connect/howto/iceberg-sink-connector',
+                        {
+                          type: 'category',
+                          label: 'Iceberg sink connector',
+                          link: {
+                            type: 'doc',
+                            id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
+                          },
+                          items: [
+                            'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
+                            'products/kafka/kafka-connect/howto/aws-glue-catalog',
+                          ],
+                        },
                         'products/kafka/kafka-connect/howto/influx-sink',
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
