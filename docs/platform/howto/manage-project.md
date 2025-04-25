@@ -60,10 +60,13 @@ within an organization.
 
 To move a project to a different organization, you must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-or super admin of both organizations.
+or super admin of both organizations. All users with permission to access the project
+lose the permissions when you move it to a different organization unless they are
+members of the target organization.
 
-All users with permission to access the project lose the permissions when you
-move it to a different organization.
+Services in the project continue running during the move.
+
+To move a project:
 
 1.  In the organization with the project, click **Admin**.
 1.  Click <ConsoleLabel name="Projects"/> and find the project to move.
