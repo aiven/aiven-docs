@@ -1736,6 +1736,7 @@ const sidebars: SidebarsConfig = {
                       ],
                     },
                     'products/opensearch/howto/custom-repositories',
+                    'products/opensearch/howto/manage-snapshots',
                   ],
                 },
                 {

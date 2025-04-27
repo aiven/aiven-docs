@@ -4,8 +4,11 @@ sidebar_label: Custom repositories
 limited: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Aiven for OpenSearch lets you configure custom repositories to store snapshots in your cloud storage.
+Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs/products/opensearch/howto/manage-snapshots) in your cloud storage.
 
 ## Supported storage services
 
@@ -17,23 +20,54 @@ You can configure custom repositories for the following object storage services:
 
 ## Prerequisites
 
-- An active Aiven for OpenSearch service
-- An Aiven authentication [token](/docs/platform/howto/create_authentication_token)
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
+
+- Running Aiven for OpenSearch service
+- Access to the [Aiven Console](https://console.aiven.io/)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
 - Credentials for the selected storage provider
 
-## Limitations
+</TabItem>
+<TabItem value="api" label="API">
 
-- The Aiven API does not support automatic snapshot scheduling. You must create, list,
-  and delete them manually using the API.
+- Running Aiven for OpenSearch service
+- [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
+- Access to a supported object storage service (AWS S3, GCS, or Azure)
+- Credentials for the selected storage provider
+
+:::note
+
 - Repository credentials are omitted from API responses for security reasons.
+- Aiven API provides a direct interface to the OpenSearch snapshot API.
+
+:::
+
+</TabItem>
+</Tabs>
 
 ## Configure custom repositories
 
+Each repository requires a unique name, a storage type (such as S3, Azure, or GCS), and
+the appropriate settings for the selected storage provider.
+
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
+
+1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
+   open your service's page.
+1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
+1. On the **Snapshots** page, click **Add repository**.
+1. In the **Add custom repository** window:
+   1. Enter a repository name.
+   1. Select a storage provider.
+   1. Give provider-specific details required for accessing the storage.
+   1. Click **Add**.
+
+</TabItem>
+<TabItem value="api" label="API">
 Custom repositories are configured in the `user_config` of your Aiven for OpenSearch
-service. Each repository requires a unique name, a storage type (such as S3, Azure, or
-GCS), and the appropriate settings for the selected storage provider. Use the following
-API request to configure custom repositories:
+service. Use the following API request to configure custom repositories:
 
 ```sh
 curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}" \
@@ -71,15 +105,22 @@ curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_n
 }'
 ```
 
-## Manage custom repositories
+</TabItem>
+</Tabs>
 
-After configuring custom repositories, you can manage them using the Aiven API, which
-provides a direct interface to the OpenSearch snapshot API.
+## List custom repositories
 
-### List custom repositories
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
 
-Use the Aiven API to retrieve a list of custom repositories:
+1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
+   open your service's page.
+1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 
+Find your custom repositories listed on the **Snapshots** page.
+
+</TabItem>
+<TabItem value="api" label="API">
 ```sh
 curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot"\
 --header "Authorization: Bearer $TOKEN" \
@@ -116,135 +157,33 @@ Example response:
 }
 ```
 
-## Manage snapshots in custom repositories
+</TabItem>
+</Tabs>
 
-After setting up a custom repository, you can use the Aiven API to create, list,
-retrieve, and delete snapshots.
+## View repository details
 
-### Create a snapshot
+1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
+   open your service's page.
+1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
+1. On the **Snapshots** page, find your custom repository and click
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewrepo"/>.
 
-Create a snapshot in a custom repository.
+## Edit repository details
 
-```sh
-curl -s -X POST \
---url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
---header "Authorization: Bearer $TOKEN" \
---header "Content-Type: application/json" \
--d '{"indices": "test*", "include_global_state": false}'
-```
+1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
+   open your service's page.
+1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
+1. On the **Snapshots** page, find your custom repository and click
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/>.
+1. Edit repository details and save your changes.
 
-Example response:
+## Disconnect from a repository
 
-```json
-{
-  "accepted": true
-}
-```
-
-### List snapshots in progress
-
-Retrieve snapshots that are still being created in a repository.
-
-```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/_status" \
---header "Authorization: Bearer $TOKEN"
---header "Content-Type: application/json"
-```
-
-Example response:
-
-```json
-{
-  "snapshots": [
-    {
-      "repository": "aws-repo",
-      "snapshot": "second-snapshot",
-      "state": "SUCCESS",
-      "shards_stats": {
-        "done": 1,
-        "failed": 0,
-        "total": 1
-      },
-      "uuid": "osmCbdF-RMyyUKpWD-4bJA"
-    }
-  ]
-}
-```
-
-### List all snapshots in a repository
-
-Retrieve all snapshots, including completed and failed ones.
-
-```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/_all" \
---header "Authorization: Bearer $TOKEN"
---header "Content-Type: application/json"
-```
-
-Example response:
-
-```json
-{
-  "snapshots": [
-    {
-      "snapshot": "first-snapshot",
-      "state": "SUCCESS",
-      "indices": ["test"],
-      "uuid": "7cdWedW7RC6FMSktlZTCDw"
-    },
-    {
-      "snapshot": "second-snapshot",
-      "state": "SUCCESS",
-      "indices": ["test"],
-      "uuid": "osmCbdF-RMyyUKpWD-4bJA"
-    }
-  ]
-}
-```
-
-### Retrieve a snapshot summary
-
-Get details of a specific snapshot.
-
-```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
---header "Authorization: Bearer $TOKEN"
---header "Content-Type: application/json"
-```
-
-Example response:
-
-```json
-{
-  "snapshots": [
-    {
-      "snapshot": "first-snapshot",
-      "state": "SUCCESS",
-      "indices": ["test"],
-      "uuid": "7cdWedW7RC6FMSktlZTCDw"
-    }
-  ]
-}
-```
-
-### Delete a snapshot
-
-Delete a snapshot from a repository.
-
-```sh
-curl -s -X DELETE \
---url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
---header "Authorization: Bearer $TOKEN"
---header "Content-Type: application/json"
-```
-
-Example response:
-
-```json
-{
-  "acknowledged": true
-}
-```
+1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
+   open your service's page.
+1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
+1. On the **Snapshots** page, find your custom repository and click
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="disconnect"/>.
 
 ## Error handling
 

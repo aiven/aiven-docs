@@ -385,6 +385,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit topic </b>
         </>
       );
+    case 'editrepo':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit repository</b>
+        </>
+      );
     case 'deletetopic':
       return (
         <>
@@ -550,6 +556,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
         </>
       );
+    case 'viewrepo':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View repository details</b>
+        </>
+      );
+    case 'viewsnapshot':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View snapshot details</b>
+        </>
+      );
     case 'activatetieredstorage':
       return (
         <>
@@ -601,6 +619,13 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />{' '}
           <b>Replication flow</b>
+        </>
+      );
+    case 'snapshots':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.moveProject} />{' '}
+          <b>Snapshots</b>
         </>
       );
 
