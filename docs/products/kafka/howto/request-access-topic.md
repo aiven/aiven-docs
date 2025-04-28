@@ -133,6 +133,10 @@ granted.
      }
      ```
 
+     For more information, see
+     [aiven_governance_access](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/governance_access)
+     resource.
+
    - Commit and push the configuration to a GitHub repository with governance approval
      workflows enabled.
 
