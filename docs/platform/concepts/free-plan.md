@@ -39,8 +39,8 @@ There are some limitations of the free plan services:
 -   No external service integrations
 -   No forking
 -   For PostgreSQL:
-    -   no connection pooling
-    -   `max_connections` limit set to 20
+    -   No connection pooling
+    -   `max_connections` limit set to `20`
 -   No support services
 -   Only one service per service type per user and
     [organization](/docs/platform/concepts/orgs-units-projects)
