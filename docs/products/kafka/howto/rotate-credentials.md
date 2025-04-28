@@ -30,7 +30,7 @@ You must be a member of the **owner group** of the access to rotate.
 - The request is sent to the **owner group** for approval.
 - The request must be approved by another member of the owner group.
 - After approval:
-  - New credentials are generated for the service user associated with the subscription.
+  - New credentials are generated for the service user associated with the access.
   - The requester is notified when credentials are ready.
   - The requester can download the credentials from the request details.
 - Only one active rotation request is allowed per access at a time.
