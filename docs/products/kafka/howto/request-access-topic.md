@@ -39,6 +39,7 @@ You can view the service user and ACLs in the following locations in the
 
 - [Terraform installed](https://www.terraform.io/downloads)
 - A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- A GitHub repository with [approval workflows configured](/docs/products/kafka/howto/terraform-governance-approvals)
 - To use beta features of the Aiven Provider for Terraform, set:
 
   ```bash
@@ -51,8 +52,8 @@ You can view the service user and ACLs in the following locations in the
 
 ## Request access to a topic
 
-<Tabs groupId="methods">
-<TabItem value="console" label="Aiven Console" default>
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1. In the [Aiven console](https://console.aiven.io/),
    click **Tools** > **Apache Kafka governance operations**.
@@ -93,8 +94,9 @@ After submitting:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Use the `aiven_governance_access` Terraform resource to request access to an Apache Kafka
-topic. The request is reviewed and approved in a GitHub pull request before access is
+Use the [`aiven_governance_access` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/governance_access)
+to request access to an Apache Kafka topic. The request is reviewed and approved in a
+GitHub pull request before access is
 granted.
 
 <div style={{ marginTop: "1.25rem" }} />
@@ -133,10 +135,6 @@ granted.
      }
      ```
 
-     For more information, see
-     [aiven_governance_access](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/governance_access)
-     resource.
-
    - Commit and push the configuration to a GitHub repository with governance approval
      workflows enabled.
 
@@ -156,11 +154,8 @@ granted.
 
    - If the request meets all governance rules, the workflow applies the configuration
      using `terraform apply`.
-
-1. Provision access:
-
-   - Aiven creates the service user and applies the ACLs to the specified topic.
-   - Credentials are generated for the service user.
+   - After the request is approved, Aiven creates the service user, applies the ACLs to
+     the specified topic, and generates the credentials.
 
 1. Download the credentials:
 
