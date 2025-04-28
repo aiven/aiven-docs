@@ -7,7 +7,6 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Request access to an Apache Kafka topic in Aiven for Apache Kafka Governance to produce or consume messages using access control lists (ACLs).
 
@@ -109,7 +108,30 @@ granted.
    - Specify the `owner_user_group_id` to indicate the group responsible for approving
      the request.
 
-   <TerraformSample filename='resources/aiven_governance_access/resource.tf' />
+     **Example Terraform configuration:**
+
+     ```hcl
+     resource "aiven_governance_access" "example" {
+      organization_id = data.aiven_organization.main.id
+      access_name     = "example-topic-access"
+      access_type     = "KAFKA"
+
+      access_data {
+        project      = data.aiven_project.main.project
+        service_name = aiven_kafka.main.service_name
+
+        acls {
+          resource_name   = "example-topic"
+          resource_type   = "Topic"
+          operation       = "Read"
+          permission_type = "ALLOW"
+          host            = "*"
+        }
+      }
+
+      owner_user_group_id = aiven_organization_user_group.example.group_id
+     }
+     ```
 
    - Commit and push the configuration to a GitHub repository with governance approval
      workflows enabled.
@@ -189,3 +211,8 @@ This approach:
 1. In the **Save service user credentials** window, click **Show** to reveal the
    password, access certificate, or access key. Click **Download credentials** to save
    all at once.
+
+
+<RelatedPages/>
+
+- [Manage approvals in the Aiven Console](/docs/products/kafka/howto/approvals)
