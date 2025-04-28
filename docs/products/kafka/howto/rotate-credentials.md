@@ -1,12 +1,12 @@
 ---
-title: Rotate credentials for an Apache Kafka subscription
+title: Rotate credentials for an Apache Kafka® subscription
 sidebar_label: Rotate credentials
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Rotate credentials for an Apache Kafka subscription to replace outdated credentials and keep access secure and approved.
+Rotate credentials for an Apache Kafka® subscription to replace outdated credentials and maintain secure, approved access.
 The request must be approved by another member of the owner group before new
 credentials can be downloaded.
 
@@ -25,7 +25,7 @@ You must be a member of the **owner group** of the access to rotate.
 1. In the **Request credential rotation** dialog, enter a message for the approvers.
 1. Click **Submit**.
 
-### What happens after you submit a rotation request
+After you submit a rotation request:
 
 - The request is sent to the **owner group** for approval.
 - The request must be approved by another member of the owner group.
@@ -38,7 +38,7 @@ You must be a member of the **owner group** of the access to rotate.
 ## Approve a credential rotation
 
 1. Go to **Tools > Apache Kafka governance operations**.
-1. In sidebar, click **Approvals**.
+1. In the sidebar, click **Approvals**.
 1. Find the request with type **Rotate credentials**.
 1. Click the request to view details.
 1. Click **Approve** or **Decline**.
