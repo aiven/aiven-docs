@@ -1,2 +1,2 @@
 - [Terraform installed](https://www.terraform.io/downloads)
-- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
+- A [personal token](/docs/platform/howto/create_authentication_token)

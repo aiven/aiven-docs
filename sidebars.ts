@@ -454,7 +454,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/terraform/get-started',
             {
               type: 'category',
               label: 'Upgrade Aiven Provider',
