@@ -361,7 +361,9 @@ Replace the following placeholders with meaningful data:
 ## Migrate a service deployed in a VPC to another cloud
 
 Aiven doesn't natively support automatic migration of a service from a VPC in one cloud
-provider to another. The migration is possible manually:
+provider to another. The migration is possible manually by following these generic
+instructions, which may need to be adapted to meet specific security or compliance
+requirements:
 
 1. [Create a new service in the destination cloud/VPC](/docs/platform/howto/vpc-service-management#create-a-service-in-a-vpc).
 1. Set up replication or export/import, depending on the service:
@@ -375,7 +377,7 @@ provider to another. The migration is possible manually:
 1. Decommission the old service.
 
 :::note
-Aiven support can assist you with best practices and migration guidance.
+Reach out to your account team if you need more migration guidance or best practices.
 :::
 
 ## Access a service deployed in a VPC from the public internet
