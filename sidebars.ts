@@ -1054,7 +1054,11 @@ const sidebars: SidebarsConfig = {
                           items: [
                             'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
                             'products/kafka/kafka-connect/howto/aws-glue-catalog',
+<<<<<<< HEAD
                             'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
+=======
+                            'products/kafka/howto/snowflake-open-catalog',
+>>>>>>> 2861c444 (feat: Snowflake Open Catalog for Iceberg sink connector)
                           ],
                         },
                         'products/kafka/kafka-connect/howto/influx-sink',

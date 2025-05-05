@@ -27,6 +27,7 @@ The connector supports the following catalog types:
 - [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
 - [AWS Glue catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-catalog)
 - [PostgreSQL JDBC catalog](/docs/products/kafka/kafka-connect/howto/jdbc-catalog-postgres)
+- [Snowflake Open Catalog](/docs/products/kafka/howto/snowflake-open-catalog)
 
 :::note
 The AWS Glue REST catalog does not support automatic table creation. You must
