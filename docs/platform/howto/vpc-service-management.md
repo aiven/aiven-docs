@@ -64,7 +64,7 @@ Set your project VPC as a cloud region for the new service:
 <CreateService />
 
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 
 Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 
@@ -91,7 +91,7 @@ Replace the following:
   created, for example `aws-eu-west-1`
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 
 Make an API call to the
 [ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
@@ -145,14 +145,14 @@ You can create a service in an organization VPC only if:
 Create a service in an organization VPC using a tool of your choice:
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Aiven Console" default>
+<TabItem value="console" label="Console" default>
 
 Set your organization VPC as a cloud region for the new service:
 
 <CreateService />
 
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 
 Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 
@@ -179,7 +179,7 @@ Replace the following:
   for example `aws-eu-west-1`
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 
 Make an API call to the
 [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
@@ -236,9 +236,9 @@ same project running your service.
 Migrate a service to a project VPC using a tool of your choice:
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Aiven Console" default>
+<TabItem value="console" label="Console" default>
 
-1. In [Aiven Console](https://console.aiven.io/), open your service page and click
+1. In the [Aiven Console](https://console.aiven.io/), open your service page and click
    <ConsoleLabel name="Service settings"/>.
 1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
    **Change cloud or region**.
@@ -246,7 +246,7 @@ Migrate a service to a project VPC using a tool of your choice:
    click **Migrate**.
 
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 
 Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
@@ -263,9 +263,9 @@ Replace the following:
   for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 
-Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+Call the [ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
 to set `project_vpc_id` of the service to the ID of your project VPC:
 
 ```bash {5}
@@ -302,9 +302,9 @@ You can only migrate a service to an organization VPC if:
 Migrate a service to an organization VPC using a tool of your choice:
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Aiven Console" default>
+<TabItem value="console" label="Console" default>
 
-1. In [Aiven Console](https://console.aiven.io/), open your service and click
+1. In the [Aiven Console](https://console.aiven.io/), open your service and click
    <ConsoleLabel name="Service settings"/>.
 1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
    **Change cloud or region**.
@@ -312,7 +312,7 @@ Migrate a service to an organization VPC using a tool of your choice:
    click **Migrate**.
 
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label="CLI">
 
 Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
@@ -332,9 +332,9 @@ Replace the following:
   `pj-test`
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 
-Call the [ServiceUpdte](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+Call the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
 endpoint to set `vpc_id` of the service to the ID of your organization VPC:
 
 ```bash {5}
