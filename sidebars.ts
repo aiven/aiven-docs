@@ -290,6 +290,7 @@ const sidebars: SidebarsConfig = {
                     },
                   ],
                 },
+                'platform/howto/vpc-service-management',
                 'platform/howto/google-cloud-functions',
                 'platform/howto/public-access-in-vpc',
                 'platform/howto/attach-vpc-aws-tgw',
