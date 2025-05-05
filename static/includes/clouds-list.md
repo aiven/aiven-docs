@@ -425,7 +425,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   </thead>
   <tbody>
-    <tr>
+  <tr>
     <td>africa</td>
     <td>google-africa-south1</td>
     <td>Africa, South Africa: Johannesburg</td>
@@ -578,7 +578,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   <tr>
     <td>north america</td>
     <td>google-northamerica-south1</td>
-    <td>North America, Mexico: Queretaro</td>
+    <td>North America, Mexico: Querétaro</td>
   </tr>
   <tr>
     <td>north america</td>
@@ -698,6 +698,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>europe</td>
     <td>upcloud-se-sto</td>
     <td>Europe, Sweden: Stockholm</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-uk-lon</td>
+    <td>Europe, England: London</td>
   </tr>
   <tr>
     <td>north america</td>
