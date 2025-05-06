@@ -1,6 +1,6 @@
 ---
-title: Configure the Iceberg sink connector with JDBC catalog (PostgreSQL)
-sidebar_label: JDBC catalog (PostgreSQL)
+title: Configure the Iceberg sink connector with a PostgreSQL JDBC catalog
+sidebar_label: PostgreSQL JDBC catalog
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
