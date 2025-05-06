@@ -52,6 +52,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
 "iceberg.catalog.type": "jdbc",
 "iceberg.catalog.uri": "jdbc:postgresql://<host>:<port>/<database>?user=<username>&password=<password>&ssl=require",
 "iceberg.catalog.warehouse": "s3://<bucket-name>",
+"iceberg.catalog.client.region": "<region>",
 "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
 "iceberg.catalog.jdbc.useSSL": "true",
 "iceberg.catalog.jdbc.verifyServerCertificate": "true",
@@ -77,6 +78,8 @@ Parameters
 - `iceberg.catalog.type`: Catalog type. Use `jdbc` for PostgreSQL.
 - `iceberg.catalog.uri`: JDBC connection string for PostgreSQL.
 - `iceberg.catalog.warehouse`: S3 bucket for table storage.
+- `iceberg.catalog.client.region`: AWS region where the S3 bucket is located. Required if
+  no region is set in the environment or system properties.
 - `iceberg.tables`: Target Iceberg table in `<database>.<table>` format.
 - `iceberg.tables.auto-create-enabled`: Automatically create tables if they do not exist.
 - `iceberg.catalog.io-impl`: File I/O implementation for S3.
@@ -102,6 +105,7 @@ This example creates an Iceberg sink connector with PostgreSQL as the catalog:
 "iceberg.catalog.type": "jdbc",
 "iceberg.catalog.uri": "jdbc:postgresql://postgres.example.com:5432/iceberg_db?user=iceberg_user&password=secret&ssl=require",
 "iceberg.catalog.warehouse": "s3://my-s3-bucket",
+"iceberg.catalog.client.region": "us-west-2",
 "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
 "iceberg.catalog.s3.access-key-id": "your-access-key-id",
 "iceberg.catalog.s3.secret-access-key": "your-secret-access-key",
@@ -133,4 +137,3 @@ This example creates an Iceberg sink connector with PostgreSQL as the catalog:
 - [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
 - [PostgreSQL documentation](https://www.postgresql.org/docs/)
 - [Iceberg Kafka Connect configuration](https://iceberg.apache.org/docs/latest/kafka-connect/)
-```
