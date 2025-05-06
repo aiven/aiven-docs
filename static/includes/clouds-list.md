@@ -398,6 +398,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>north america</td>
+    <td>do-atl</td>
+    <td>United States, Georgia: Atlanta</td>
+  </tr>
+  <tr>
+    <td>north america</td>
     <td>do-nyc</td>
     <td>United States, New York: New York</td>
   </tr>
