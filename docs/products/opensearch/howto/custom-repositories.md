@@ -1,6 +1,6 @@
 ---
 title: Create and manage custom repositories in Aiven for OpenSearch®
-sidebar_label: Custom repositories
+sidebar_label: Manage custom repositories
 limited: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -160,30 +160,22 @@ Example response:
 </TabItem>
 </Tabs>
 
-## View repository details
+## View or edit repository details
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository and click
-   <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewrepo"/>.
-
-## Edit repository details
-
-1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
-   open your service's page.
-1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
-1. On the **Snapshots** page, find your custom repository and click
-   <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/>.
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/> > **Edit**.
 1. Edit repository details and save your changes.
 
-## Disconnect from a repository
+## Remove a repository
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository and click
-   <ConsoleLabel name="actions"/> > <ConsoleLabel name="disconnect"/>.
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="removerepo"/> > **Remove**.
 
 ## Error handling
 

@@ -416,6 +416,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete table</b>
         </>
       );
+    case 'deletesnapshot':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete snapshot</b>
+        </>
+      );
     case 'disconnect':
       return (
         <>
@@ -556,10 +562,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
         </>
       );
-    case 'viewrepo':
+    case 'removerepo':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View repository details</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Remove repository</b>
         </>
       );
     case 'viewsnapshot':
