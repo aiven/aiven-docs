@@ -71,7 +71,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
   "iceberg.catalog.uri": "https://<snowflake_account_id>.<your-aws-region>.snowflakecomputing.com/polaris/api/catalog",
   "iceberg.catalog.scope": "PRINCIPAL_ROLE:<role_name_in_open_catalog>",
   "iceberg.catalog.credential": "<catalog_credentials>",
-  "iceberg.catalog.warehouse": "<your-bucket-name>",
+  "iceberg.catalog.warehouse": "<your-catalog-name>",
   "iceberg.catalog.client.region": "<your-aws-region>",
   "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
   "iceberg.catalog.s3.access-key-id": "<your-access-key-id>",
@@ -115,12 +115,13 @@ Parameters:
 - `iceberg.catalog.uri`: Polaris REST catalog endpoint (from the Snowflake Open Catalog
   console)
 - `iceberg.catalog.scope`: Role scope in the format `PRINCIPAL_ROLE:<role_name>`
-- `iceberg.catalog.credential`: Polaris authentication token (from the Snowflake console)
-- `iceberg.catalog.warehouse`: Name of the S3 bucket used to store Iceberg table data.
-  Use the bucket name only (for example, `my-bucket-name`). Do not include `s3a://`,
-  folders, or a path.
+- `iceberg.catalog.credential`: Authentication credential for Snowflake Open Catalog
+  Use the format `<client_id>:<secret>` from the configured service connection that
+  uses a Principal role
+- `iceberg.catalog.warehouse`: Name of the catalog created in Snowflake Open Catalog.
+  This is not the S3 bucket name
 - `iceberg.catalog.client.region`: AWS region of the S3 bucket
-- `iceberg.catalog.io-impl`: Set to `org.apache.iceberg.aws.s3.S3FileIO` for S3
+- `iceberg.catalog.io-impl`: Set to `org.apache.iceberg.aws.s3.S3FileIO`
 - `iceberg.catalog.s3.access-key-id`: AWS access key ID with write permissions
 - `iceberg.catalog.s3.secret-access-key`: AWS secret access key
 - `iceberg.catalog.s3.path-style-access`: Enable (`true`) or disable (`false`)
