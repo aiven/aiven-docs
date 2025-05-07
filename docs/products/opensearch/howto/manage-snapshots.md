@@ -53,9 +53,9 @@ Create a snapshot in a custom repository.
    1. Select a snapshot version.
    1. Specify which indices to include or exclude using by providing patterns.
    1. Select a destination repository.
-   1. Click **Start creation**.
+   1. Click **Create**.
 
-Your snapshot is being created. Monitor its status until it shows **Available**.
+Your snapshot is being created. Monitor its status until it shows **Success**.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -224,7 +224,8 @@ Delete a snapshot from a repository.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository, click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside, find a snapshot
-   to be deleted, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="delete"/>.
+   to be deleted, click <ConsoleLabel name="actions"/> >
+   <ConsoleLabel name="deletesnapshot"/> > **Delete**.
 
 </TabItem>
 <TabItem value="api" label="API">
