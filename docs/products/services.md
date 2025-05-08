@@ -19,7 +19,7 @@ import AlloyDBOmni from "@site/static/images/logos/alloydbomni.svg";
 
 Use our fully managed services to stream, store, or serve your data. Deploy individual services and advanced data pipelines in minutes.
 
-## Stream
+## Streaming
 
 <GridContainer>
   <Card
@@ -36,7 +36,7 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
   />
 </GridContainer>
 
-## Store
+## Databases
 
 <GridContainer>
   <Card
@@ -77,7 +77,7 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
   />
 </GridContainer>
 
-## Serve
+## Apps
 
 <GridContainer>
   <Card
