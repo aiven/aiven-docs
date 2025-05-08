@@ -634,6 +634,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Snapshots</b>
         </>
       );
+    case 'createsnapshot':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.moveProject} />{' '}
+          <b>Create snapshot</b>
+        </>
+      );
 
     default:
       return (

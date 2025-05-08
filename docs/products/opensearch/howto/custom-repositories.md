@@ -46,7 +46,7 @@ You can configure custom repositories for the following object storage services:
 </TabItem>
 </Tabs>
 
-## Configure custom repositories
+## Create custom repositories
 
 Each repository requires a unique name, a storage type (such as S3, Azure, or GCS), and
 the appropriate settings for the selected storage provider.
@@ -166,8 +166,8 @@ Example response:
    open your service's page.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository and click
-   <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/> > **Edit**.
-1. Edit repository details and save your changes.
+   <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/>.
+1. Edit repository details and save your changes by clicking **Update**.
 
 ## Remove a repository
 
