@@ -48,11 +48,18 @@ Create a snapshot in a custom repository.
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
-1. On the **Snapshots** page, click **Create snapshot**.
+1. On the **Snapshots** page, do one of the following:
+   - Click **Create snapshot**.
+   - Find your custom repository and click <ConsoleLabel name="actions"/> >
+     <ConsoleLabel name="createsnapshot"/>.
 1. In the **Create snapshot** window:
-   1. Select a snapshot version.
-   1. Specify which indices to include or exclude using by providing patterns.
    1. Select a destination repository.
+   1. Enter a snapshot name.
+   1. Specify which indices to include.
+   1. Optionally, enable the following:
+      - **Ignore unavailable indices**
+      - **Include global state**
+      - **Partial snapshot**
    1. Click **Create**.
 
 Your snapshot is being created. Monitor its status until it shows **Success**.
