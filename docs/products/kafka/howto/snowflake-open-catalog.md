@@ -169,6 +169,5 @@ This example shows a full configuration using Polaris:
 <RelatedPages/>
 
 - [Iceberg sink connector overview](/docs/products/kafka/kafka-connect/howto/iceberg-sink-connector)
-- [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
 - [Snowflake Open Catalog documentation](https://other-docs.snowflake.com/en/opencatalog)
 - [Iceberg REST catalog specification](https://iceberg.apache.org/spec/#rest-catalog)
