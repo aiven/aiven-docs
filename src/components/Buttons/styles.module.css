@@ -9,7 +9,7 @@
 .button:hover,
 .button:focus {
   text-decoration: none;
-  color: unset !important;
+  color: unset;
 }
 
 .buttonPrimary {
@@ -32,4 +32,25 @@
 .buttonSecondary:focus {
   color: var(--aiven-button-secondary-bg-hover) !important;
   border-color: var(--aiven-button-secondary-bg-hover);
+}
+
+.kapaAIButton {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  height: 36px;
+  gap: 8px;
+  background-color: var(--aiven-primary-orange);
+  border-width: 0;
+  color: white;
+  cursor: pointer;
+  font-family: var(--aiven-card-font-family);
+  margin: 0 16px 0 6px;
+}
+
+.kapaAIButton:hover,
+.kapaAIButton:focus,
+.kapaAIButton:active {
+  color: white;
+  background-color: var(--aiven-orange-90);
 }

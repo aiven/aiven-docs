@@ -27,6 +27,7 @@ const sidebars: SidebarsConfig = {
         'tools/aiven-console',
         'platform/concepts/service-and-feature-releases',
         'platform/howto/feature-preview',
+        'platform/howto/support',
       ],
     },
     {
