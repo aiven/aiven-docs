@@ -12,7 +12,7 @@ You can interact with the Aiven platform with various interfaces and tools that 
 
  <GridContainer>
     <Card
-      to="/docs/tools/terraform/get-started"
+      to="/docs/tools/terraform"
       iconName="terraform"
       title="Aiven Terraform Provider"
       description="Discover our Terraform Provider."

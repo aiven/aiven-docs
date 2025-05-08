@@ -219,6 +219,7 @@
 /tools/cli/service                                         https://aiven.io/docs/tools/cli/service-cli
 /tools/cli/ticket                                          https://aiven.io/docs/platform/howto/support
 /tools/terraform/concepts/data-sources                     https://aiven.io/docs/tools/terraform
+/tools/terraform/get-started                               https://aiven.io/docs/tools/terraform
 /tools/terraform/howto/terraform-logging                   https://aiven.io/docs/tools/terraform
 /tools/terraform/howto/update-deprecated-resources         https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources
 /tools/terraform/howto/upgrade-caching-valkey-terraform    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade
