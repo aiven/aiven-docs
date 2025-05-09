@@ -152,114 +152,113 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
 
 1. Add the following configurations to the Iceberg sink connector:
 
-
    ```json
     {
-     "name": "<your-connector-name>",
-     "connector.class": "org.apache.iceberg.connect.IcebergSinkConnector",
-     "tasks.max": "2",
-     "topics": "<your-topics>",
-     "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "name": "CONNECTOR_NAME",
+      "connector.class": "org.apache.iceberg.connect.IcebergSinkConnector",
+      "tasks.max": "2",
+      "topics": "KAFKA_TOPICS",
+      "key.converter": "org.apache.kafka.connect.json.JsonConverter",
       "value.converter": "org.apache.kafka.connect.json.JsonConverter",
       "key.converter.schemas.enable": "false",
       "value.converter.schemas.enable": "false",
       "consumer.override.auto.offset.reset": "earliest",
       "iceberg.kafka.auto.offset.reset": "earliest",
-      "iceberg.tables": "<database-name>.<table-name>",
+      "iceberg.tables": "DATABASE_NAME.TABLE_NAME",
       "iceberg.tables.auto-create-enabled": "false",
-      "iceberg.control.topic": "<your-iceberg-control-topic-name>",
+      "iceberg.control.topic": "ICEBERG_CONTROL_TOPIC_NAME",
       "iceberg.control.commit.interval-ms": "1000",
       "iceberg.control.commit.timeout-ms": "2147483647",
       "iceberg.catalog.type": "rest",
-      "iceberg.catalog.uri": "https://glue.<your-aws-region>.amazonaws.com/iceberg",
-      "iceberg.catalog.warehouse": "<your-aws-account-id>",
-      "iceberg.catalog.client.region": "<your-aws-region>",
+      "iceberg.catalog.uri": "https://glue.AWS_REGION.amazonaws.com/iceberg",
+      "iceberg.catalog.warehouse": "AWS_ACCOUNT_ID",
+      "iceberg.catalog.client.region": "AWS_REGION",
       "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
       "iceberg.catalog.rest.signing-name": "glue",
-      "iceberg.catalog.rest.signing-region": "<your-aws-region>",
+      "iceberg.catalog.rest.signing-region": "AWS_REGION",
       "iceberg.catalog.rest.sigv4-enabled": "true",
-      "iceberg.catalog.rest.access-key-id": "<your-access-key-id>",
-      "iceberg.catalog.rest.secret-access-key": "<your-secret-access-key>",
+      "iceberg.catalog.rest.access-key-id": "AWS_ACCESS_KEY_ID",
+      "iceberg.catalog.rest.secret-access-key": "AWS_SECRET_ACCESS_KEY",
       "iceberg.catalog.rest-metrics-reporting-enabled": "false",
-      "iceberg.catalog.s3.access-key-id": "<your-access-key-id>",
-      "iceberg.catalog.s3.secret-access-key": "<your-secret-access-key>",
+      "iceberg.catalog.s3.access-key-id": "AWS_ACCESS_KEY_ID",
+      "iceberg.catalog.s3.secret-access-key": "AWS_SECRET_ACCESS_KEY",
       "iceberg.catalog.s3.path-style-access": "true",
-      "iceberg.kafka.bootstrap.servers": "<APACHE_KAFKA_HOST>:<APACHE_KAFKA_PORT>",
+      "iceberg.kafka.bootstrap.servers": "KAFKA_HOST:KAFKA_PORT",
       "iceberg.kafka.security.protocol": "SSL",
       "iceberg.kafka.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
-      "iceberg.kafka.ssl.keystore.password": "password",
+      "iceberg.kafka.ssl.keystore.password": "KEYSTORE_PASSWORD",
       "iceberg.kafka.ssl.keystore.type": "PKCS12",
       "iceberg.kafka.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
-      "iceberg.kafka.ssl.truststore.password": "password",
-      "iceberg.kafka.ssl.key.password": "password"
+      "iceberg.kafka.ssl.truststore.password": "TRUSTSTORE_PASSWORD",
+      "iceberg.kafka.ssl.key.password": "KEY_PASSWORD"
      }
    ```
 
    ### Parameters
 
-    - `name`: Specify the connector name.
-    - `connector.class`: Defines the connector class.
-      Use `org.apache.iceberg.connect.IcebergSinkConnector`.
-    - `tasks.max`: Define the maximum number of tasks the connector can run.
-    - `topics`: List the Apache Kafka topics containing data for Iceberg tables.
+    - `name`: Specify the connector name
+    - `connector.class`: Defines the connector class
+      Use `org.apache.iceberg.connect.IcebergSinkConnector`
+    - `tasks.max`: Define the maximum number of tasks the connector can run
+    - `topics`: List the Apache Kafka topics containing data for Iceberg tables
     - `key.converter`: Set the key converter class. Use
-      `org.apache.kafka.connect.json.JsonConverter` for JSON data.
+      `org.apache.kafka.connect.json.JsonConverter` for JSON data
     - `value.converter`: Set the value converter class. Use
-      `org.apache.kafka.connect.json.JsonConverter` for JSON data.
+      `org.apache.kafka.connect.json.JsonConverter` for JSON data
     - `key.converter.schemas.enable`: Enable (`true`) or disable (`false`) schema support
-      for the key converter.
+      for the key converter
     - `value.converter.schemas.enable`: Enable (`true`) or disable (`false`) schema
-      support for the value converter.
-    - `consumer.override.auto.offset.reset`: Set the Kafka consumer offset reset policy.
-      Options: `earliest` (consume from the beginning) or `latest` (consume new messages).
+      support for the value converter
+    - `consumer.override.auto.offset.reset`: Set the Kafka consumer offset reset policy
+      Options: `earliest` (consume from the beginning) or `latest` (consume new messages)
     - `iceberg.kafka.auto.offset.reset`: Set the offset reset policy for Iceberg’s
-      Apache Kafka consumer.
-    - `iceberg.tables`: Define the target Iceberg table in `<database-name>.<table-name>`
-      format.
+      Apache Kafka consumer
+    - `iceberg.tables`: Define the target Iceberg table in `DATABASE_NAME.TABLE_NAME`
+      format
     - `iceberg.tables.auto-create-enabled`: Enable (`true`) or disable (`false`)
-      automatic table creation.
+      automatic table creation
     - `iceberg.control.topic`: Set the Kafka topic for Iceberg control operations.
-      Defaults to `control-iceberg` if not set.
+      Defaults to `control-iceberg` if not set
     - `iceberg.control.commit.interval-ms`: Define how often (in milliseconds) the
-      connector commits data to Iceberg tables. Default: `1000` (1 second).
+      connector commits data to Iceberg tables. Default: `1000` (1 second)
     - `iceberg.control.commit.timeout-ms`: Set the maximum wait time (in milliseconds)
-      for a commit before timing out. Default: `2147483647` (~24 days).
+      for a commit before timing out. Default: `2147483647` (~24 days)
     - `iceberg.catalog.type`: Specify the Iceberg catalog type. Use `rest` for
-      AWS Glue REST catalog.
-    - `iceberg.catalog.uri`: Set the URI of the Iceberg REST catalog.
-    - `iceberg.catalog.warehouse`: Set the AWS account ID when using the REST catalog.
-    - `iceberg.catalog.client.region`: Set the AWS region for Iceberg catalog operations.
+      AWS Glue REST catalog
+    - `iceberg.catalog.uri`: Set the URI of the Iceberg REST catalog
+    - `iceberg.catalog.warehouse`: Set the AWS account ID when using the REST catalog
+    - `iceberg.catalog.client.region`: Set the AWS region for Iceberg catalog operations
     - `iceberg.catalog.io-impl`: Specify the file I/O implementation. Use
-      `org.apache.iceberg.aws.s3.S3FileIO` for AWS S3.
+      `org.apache.iceberg.aws.s3.S3FileIO` for AWS S3
     - `iceberg.catalog.rest.signing-name`: Specify the AWS service name for signing
-      requests (for example, `glue`).
+      requests (for example, `glue`)
     - `iceberg.catalog.rest.signing-region`: Set the AWS region used for request signing.
     - `iceberg.catalog.rest.sigv4-enabled`: Enable (`true`) or disable (`false`)
-      AWS SigV4 authentication for REST requests.
+      AWS SigV4 authentication for REST requests
     - `iceberg.catalog.rest.access-key-id`: Set the AWS access key ID for REST catalog
-      authentication.
+      authentication
     - `iceberg.catalog.rest.secret-access-key`: Set the AWS secret access key for
-      REST catalog authentication.
+      REST catalog authentication
     - `iceberg.catalog.rest-metrics-reporting-enabled`: Enable (`true`) or disable
-      (`false`) metrics reporting for the Iceberg REST catalog.
-    - `iceberg.catalog.s3.access-key-id`: Set the AWS access key ID for S3 authentication.
+      (`false`) metrics reporting for the Iceberg REST catalog
+    - `iceberg.catalog.s3.access-key-id`: Set the AWS access key ID for S3 authentication
     - `iceberg.catalog.s3.secret-access-key`: Set the AWS secret access key for
-      S3 authentication.
+      S3 authentication
     - `iceberg.catalog.s3.path-style-access`: Enable (`true`) or disable (`false`)
-      path-style access for S3 buckets.
+      path-style access for S3 buckets
     - `iceberg.kafka.bootstrap.servers`: Define the Kafka broker connection details
-      in `<APACHE_KAFKA_HOST>:<APACHE_KAFKA_PORT>` format.
+      in `KAFKA_HOST:KAFKA_PORT` format
     - `iceberg.kafka.security.protocol`: Defines the security protocol. Use `SSL` for
-      encrypted communication.
+      encrypted communication
     - `iceberg.kafka.ssl.keystore.location`: Specify the file path to the keystore
-      containing the SSL certificate.
-    - `iceberg.kafka.ssl.keystore.password`: Set the password for the keystore.
+      containing the SSL certificate
+    - `iceberg.kafka.ssl.keystore.password`: Set the password for the keystore
     - `iceberg.kafka.ssl.keystore.type`: Set the keystore type (for example, `PKCS12`).
     - `iceberg.kafka.ssl.truststore.location`: Specify the file path to the truststore
-      containing trusted SSL certificates.
-    - `iceberg.kafka.ssl.truststore.password`: Set the password for the truststore.
+      containing trusted SSL certificates
+    - `iceberg.kafka.ssl.truststore.password`: Set the password for the truststore
     - `iceberg.kafka.ssl.key.password`: Set the password to access the private key
-      stored in the keystore.
+      stored in the keystore
 
 :::note
 Apache Kafka security settings are the same for both AWS Glue REST and AWS Glue
@@ -270,8 +269,7 @@ catalog configurations.
 
 <CreateIcebergSinkConnector />
 
-
-## Example: Define and create an Iceberg sink connector
+## Example
 
 This example shows how to create an Iceberg sink connector using AWS Glue as
 REST Catalog with the following properties:

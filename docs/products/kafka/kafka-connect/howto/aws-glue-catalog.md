@@ -147,40 +147,41 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
 
    ```json
    {
-    "name": "<your-connector-name>",
-    "connector.class": "org.apache.iceberg.connect.IcebergSinkConnector",
-    "tasks.max": "2",
-    "topics": "<your-topics>",
-    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "key.converter.schemas.enable": "false",
-    "value.converter.schemas.enable": "false",
-    "consumer.override.auto.offset.reset": "earliest",
-    "iceberg.kafka.auto.offset.reset": "earliest",
-    "iceberg.tables": "<database-name>.<table-name>",
-    "iceberg.tables.auto-create-enabled": "true",
-    "iceberg.control.topic": "<your-iceberg-control-topic-name>",
-    "iceberg.control.commit.interval-ms": "1000",
-    "iceberg.control.commit.timeout-ms": "2147483647",
-    "iceberg.catalog.type": "glue",
-    "iceberg.catalog.glue_catalog.glue.id": "<your-aws-account-id>",
-    "iceberg.catalog.warehouse": "s3://<your-bucket-name>",
-    "iceberg.catalog.client.region": "<your-aws-region>",
-    "iceberg.catalog.client.credentials-provider": "org.apache.iceberg.aws.StaticCredentialsProvider",
-    "iceberg.catalog.client.credentials-provider.access-key-id": "<your-access-key-id>",
-    "iceberg.catalog.client.credentials-provider.secret-access-key": "<your-secret-access-key>",
-    "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "iceberg.catalog.s3.access-key-id": "<your-access-key-id>",
-    "iceberg.catalog.s3.secret-access-key": "<your-secret-access-key>",
-    "iceberg.catalog.s3.path-style-access": "true",
-    "iceberg.kafka.bootstrap.servers": "<APACHE_KAFKA_HOST>:<APACHE_KAFKA_PORT>",
-    "iceberg.kafka.security.protocol": "SSL",
-    "iceberg.kafka.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
-    "iceberg.kafka.ssl.keystore.password": "password",
-    "iceberg.kafka.ssl.keystore.type": "PKCS12",
-    "iceberg.kafka.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
-    "iceberg.kafka.ssl.truststore.password": "password",
-    "iceberg.kafka.ssl.key.password": "password"
+
+     "name": "CONNECTOR_NAME",
+     "connector.class": "org.apache.iceberg.connect.IcebergSinkConnector",
+     "tasks.max": "2",
+     "topics": "KAFKA_TOPICS",
+     "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+     "key.converter.schemas.enable": "false",
+     "value.converter.schemas.enable": "false",
+     "consumer.override.auto.offset.reset": "earliest",
+     "iceberg.kafka.auto.offset.reset": "earliest",
+     "iceberg.tables": "DATABASE_NAME.TABLE_NAME",
+     "iceberg.tables.auto-create-enabled": "true",
+     "iceberg.control.topic": "ICEBERG_CONTROL_TOPIC_NAME",
+     "iceberg.control.commit.interval-ms": "1000",
+     "iceberg.control.commit.timeout-ms": "2147483647",
+     "iceberg.catalog.type": "glue",
+     "iceberg.catalog.glue_catalog.glue.id": "AWS_ACCOUNT_ID",
+     "iceberg.catalog.warehouse": "s3://BUCKET_NAME",
+     "iceberg.catalog.client.region": "AWS_REGION",
+     "iceberg.catalog.client.credentials-provider": "org.apache.iceberg.aws.StaticCredentialsProvider",
+     "iceberg.catalog.client.credentials-provider.access-key-id": "AWS_ACCESS_KEY_ID",
+     "iceberg.catalog.client.credentials-provider.secret-access-key": "AWS_SECRET_ACCESS_KEY",
+     "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
+     "iceberg.catalog.s3.access-key-id": "AWS_ACCESS_KEY_ID",
+     "iceberg.catalog.s3.secret-access-key": "AWS_SECRET_ACCESS_KEY",
+     "iceberg.catalog.s3.path-style-access": "true",
+     "iceberg.kafka.bootstrap.servers": "KAFKA_HOST:KAFKA_PORT",
+     "iceberg.kafka.security.protocol": "SSL",
+     "iceberg.kafka.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+     "iceberg.kafka.ssl.keystore.password": "KEYSTORE_PASSWORD",
+     "iceberg.kafka.ssl.keystore.type": "PKCS12",
+     "iceberg.kafka.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+     "iceberg.kafka.ssl.truststore.password": "TRUSTSTORE_PASSWORD",
+     "iceberg.kafka.ssl.key.password": "KEY_PASSWORD"
    }
    ```
 
@@ -191,11 +192,11 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
    configuration. The key differences for the AWS Glue catalog are:
 
    - `iceberg.tables.auto-create-enabled`: Set to `true` to enable automatic table
-     creation for AWS Glue catalog.
-   - `iceberg.catalog.type`: Specify `glue` for AWS Glue catalog.
-   - `iceberg.catalog.glue_catalog.glue.id`: Enter the AWS account ID for AWS Glue catalog.
+     creation for AWS Glue catalog
+   - `iceberg.catalog.type`: Specify `glue` for AWS Glue catalog
+   - `iceberg.catalog.glue_catalog.glue.id`: Enter the AWS account ID for AWS Glue catalog
    - `iceberg.catalog.client.credentials-provider`: Specify the credentials provider for
-     AWS Glue catalog.
+     AWS Glue catalog
 
 :::note
 Apache Kafka security settings are the same for both AWS Glue REST and AWS Glue
@@ -206,7 +207,7 @@ catalog configurations.
 
 <CreateIcebergSinkConnector />
 
-## Example: Define and create an Iceberg sink connector
+## Example
 
 This example shows how to create an Iceberg sink connector using AWS Glue Catalog
 with the following properties:
