@@ -313,7 +313,8 @@ You need [super admin](/docs/platform/howto/manage-permissions#make-users-super-
 permissions to enable governance.
 :::
 
-1. Access the [Aiven Console](https://console.aiven.io/) and click **Admin**.
+1. Access the [Aiven Console](https://console.aiven.io/) and click
+   <ConsoleLabel name="userinformation"/> > **Admin**.
 1. On the organization page, click <ConsoleLabel name="governance"/>.
 1. Click **Enable governance**.
 

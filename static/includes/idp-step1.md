@@ -1,7 +1,9 @@
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 ## Step 1: Add the IdP in the Aiven Console {#add-idp-aiven-console}
 
-1. In the organization, click **Admin**.
-1. Click **Identity providers**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
+1. Click <ConsoleLabel name="idp"/>.
 1. Click **Add identity provider**.
 1. Select an identity provider and enter a name.
 1. Select a [verified domain](/docs/platform/howto/manage-domains) to link

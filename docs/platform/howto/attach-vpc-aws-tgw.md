@@ -63,7 +63,8 @@ to all other networks attached, directly or indirectly, to the Transit Gateway.
     - In the [Aiven CLI](/docs/tools/cli), run the
       [avn organization vpc list](/docs/tools/cli/vpc) command.
     - In the [Aiven Console](https://console.aiven.io/):
-      1. Go to your organization, and click **Admin** in the top navigation bar.
+      1. Go to your organization, and click
+         <ConsoleLabel name="userinformation"/> > **Admin**.
       1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
       1. On the **Virtual private clouds** page, select your organization VPC.
       1. On the **VPC details** page, go to the **Overview** section, and copy **ID**.
