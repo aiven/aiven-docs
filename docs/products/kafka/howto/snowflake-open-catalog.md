@@ -30,8 +30,9 @@ Iceberg tables managed by Snowflake Open Catalog.
   - `iceberg.catalog.credential`: A token or hash for authenticating with the catalog
 
 :::note
-Snowflake Open Catalog does not support automatic catalog creation. You must create the
-catalog manually in the Snowflake console.
+Snowflake Open Catalog does not support automatic catalog creation.
+[Create the catalog](https://other-docs.snowflake.com/en/opencatalog/create-catalog)
+manually in the Snowflake console.
 :::
 
 ## Create an Iceberg sink connector configuration
@@ -44,38 +45,39 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
 
 ```json
 {
-  "name": "<your-connector-name>",
+
+  "name": "CONNECTOR_NAME",
   "connector.class": "org.apache.iceberg.connect.IcebergSinkConnector",
   "tasks.max": "2",
-  "topics": "<your-topics>",
+  "topics": "KAFKA_TOPICS",
   "key.converter": "org.apache.kafka.connect.json.JsonConverter",
   "value.converter": "org.apache.kafka.connect.json.JsonConverter",
   "key.converter.schemas.enable": "false",
   "value.converter.schemas.enable": "false",
   "consumer.override.auto.offset.reset": "earliest",
   "iceberg.kafka.auto.offset.reset": "earliest",
-  "iceberg.kafka.bootstrap.servers": "<your-kafka-host>:<your-kafka-port>",
+  "iceberg.kafka.bootstrap.servers": "KAFKA_HOST:KAFKA_PORT",
   "iceberg.kafka.security.protocol": "SSL",
-  "iceberg.kafka.ssl.key.password": "password",
+  "iceberg.kafka.ssl.key.password": "KEY_PASSWORD",
   "iceberg.kafka.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
-  "iceberg.kafka.ssl.keystore.password": "password",
+  "iceberg.kafka.ssl.keystore.password": "KEYSTORE_PASSWORD",
   "iceberg.kafka.ssl.keystore.type": "PKCS12",
   "iceberg.kafka.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
-  "iceberg.kafka.ssl.truststore.password": "password",
-  "iceberg.tables": "<database>.<table>",
+  "iceberg.kafka.ssl.truststore.password": "TRUSTSTORE_PASSWORD",
+  "iceberg.tables": "DATABASE.TABLE",
   "iceberg.tables.auto-create-enabled": "true",
   "iceberg.control.commit.interval-ms": "1000",
   "iceberg.control.commit.timeout-ms": "20000",
-  "iceberg.control.topic": "control-iceberg",
+  "iceberg.control.topic": "CONTROL_TOPIC",
   "iceberg.catalog.type": "rest",
-  "iceberg.catalog.uri": "https://<snowflake_account_id>.<your-aws-region>.snowflakecomputing.com/polaris/api/catalog",
-  "iceberg.catalog.scope": "PRINCIPAL_ROLE:<role_name_in_open_catalog>",
-  "iceberg.catalog.credential": "<catalog_credentials>",
-  "iceberg.catalog.warehouse": "<your-catalog-name>",
-  "iceberg.catalog.client.region": "<your-aws-region>",
+  "iceberg.catalog.uri": "https://SNOWFLAKE_ACCOUNT_ID.AWS_REGION.snowflakecomputing.com/polaris/api/catalog",
+  "iceberg.catalog.scope": "PRINCIPAL_ROLE:ROLE_NAME",
+  "iceberg.catalog.credential": "CATALOG_CREDENTIAL",
+  "iceberg.catalog.warehouse": "CATALOG_NAME",
+  "iceberg.catalog.client.region": "AWS_REGION",
   "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-  "iceberg.catalog.s3.access-key-id": "<your-access-key-id>",
-  "iceberg.catalog.s3.secret-access-key": "<your-secret-access-key>",
+  "iceberg.catalog.s3.access-key-id": "AWS_ACCESS_KEY_ID",
+  "iceberg.catalog.s3.secret-access-key": "AWS_SECRET_ACCESS_KEY",
   "iceberg.catalog.s3.path-style-access": "true"
 }
 ```
@@ -96,8 +98,8 @@ Parameters:
   (recommended: `earliest`)
 - `iceberg.kafka.auto.offset.reset`: Offset reset policy for the Iceberg internal Apache
   Kafka consumer
-- `iceberg.kafka.bootstrap.servers`: Apache Kafka broker address in `<hostname>:<port>`
-  format
+- `iceberg.kafka.bootstrap.servers`: Apache Kafka broker address in
+  `KAFKA_HOST:KAFKA_PORT` format
 - `iceberg.kafka.security.protocol`: Use `SSL` for secure communication
 - `iceberg.kafka.ssl.keystore.location`: File path to the SSL keystore
 - `iceberg.kafka.ssl.keystore.password`: Keystore password
@@ -105,7 +107,7 @@ Parameters:
 - `iceberg.kafka.ssl.truststore.location`: File path to the truststore
 - `iceberg.kafka.ssl.truststore.password`: Truststore password
 - `iceberg.kafka.ssl.key.password`: Password for the SSL private key
-- `iceberg.tables`: Iceberg table name in `<database>.<table>` format
+- `iceberg.tables`: Iceberg table name in `DATABASE.TABLE` format
 - `iceberg.tables.auto-create-enabled`: Enable (`true`) or disable (`false`) automatic
   table creation
 - `iceberg.control.commit.interval-ms`: Frequency (in ms) to commit data to Iceberg
@@ -114,9 +116,9 @@ Parameters:
 - `iceberg.catalog.type`: Set to `rest` for Snowflake Open Catalog
 - `iceberg.catalog.uri`: Polaris REST catalog endpoint (from the Snowflake Open Catalog
   console)
-- `iceberg.catalog.scope`: Role scope in the format `PRINCIPAL_ROLE:<role_name>`
+- `iceberg.catalog.scope`: Role scope in the format `PRINCIPAL_ROLE:ROLE_NAME`
 - `iceberg.catalog.credential`: Authentication credential for Snowflake Open Catalog
-  Use the format `<client_id>:<secret>` from the configured service connection that
+  Use the format `CLIENT_ID:CLIENT_SECRET` from the configured service connection that
   uses a Principal role
 - `iceberg.catalog.warehouse`: Name of the catalog created in Snowflake Open Catalog.
   This is not the S3 bucket name
@@ -131,9 +133,10 @@ Parameters:
 
 <CreateIcebergSinkConnector />
 
-## Example: Define and create an Iceberg sink connector
+## Example
 
-This example shows a full configuration using Polaris:
+This example shows a complete connector configuration that uses Snowflake Open
+Catalog (Polaris) as the catalog and Amazon S3 for storage.
 
 ```json
 {
