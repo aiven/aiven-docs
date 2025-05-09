@@ -197,7 +197,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
    ### Parameters
 
     - `name`: Specify the connector name
-    - `connector.class`: Defines the connector class.
+    - `connector.class`: Defines the connector class
       Use `org.apache.iceberg.connect.IcebergSinkConnector`
     - `tasks.max`: Define the maximum number of tasks the connector can run
     - `topics`: List the Apache Kafka topics containing data for Iceberg tables
@@ -209,12 +209,12 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
       for the key converter
     - `value.converter.schemas.enable`: Enable (`true`) or disable (`false`) schema
       support for the value converter
-    - `consumer.override.auto.offset.reset`: Set the Kafka consumer offset reset policy.
+    - `consumer.override.auto.offset.reset`: Set the Kafka consumer offset reset policy
       Options: `earliest` (consume from the beginning) or `latest` (consume new messages)
     - `iceberg.kafka.auto.offset.reset`: Set the offset reset policy for Iceberg’s
       Apache Kafka consumer
     - `iceberg.tables`: Define the target Iceberg table in `DATABASE_NAME.TABLE_NAME`
-      format.
+      format
     - `iceberg.tables.auto-create-enabled`: Enable (`true`) or disable (`false`)
       automatic table creation
     - `iceberg.control.topic`: Set the Kafka topic for Iceberg control operations.
@@ -247,7 +247,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
     - `iceberg.catalog.s3.path-style-access`: Enable (`true`) or disable (`false`)
       path-style access for S3 buckets
     - `iceberg.kafka.bootstrap.servers`: Define the Kafka broker connection details
-      in `KAFKA_HOST:KAFKA_PORT` format.
+      in `KAFKA_HOST:KAFKA_PORT` format
     - `iceberg.kafka.security.protocol`: Defines the security protocol. Use `SSL` for
       encrypted communication
     - `iceberg.kafka.ssl.keystore.location`: Specify the file path to the keystore

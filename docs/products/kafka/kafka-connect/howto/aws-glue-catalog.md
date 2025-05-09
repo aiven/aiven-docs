@@ -192,11 +192,11 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
    configuration. The key differences for the AWS Glue catalog are:
 
    - `iceberg.tables.auto-create-enabled`: Set to `true` to enable automatic table
-     creation for AWS Glue catalog.
-   - `iceberg.catalog.type`: Specify `glue` for AWS Glue catalog.
-   - `iceberg.catalog.glue_catalog.glue.id`: Enter the AWS account ID for AWS Glue catalog.
+     creation for AWS Glue catalog
+   - `iceberg.catalog.type`: Specify `glue` for AWS Glue catalog
+   - `iceberg.catalog.glue_catalog.glue.id`: Enter the AWS account ID for AWS Glue catalog
    - `iceberg.catalog.client.credentials-provider`: Specify the credentials provider for
-     AWS Glue catalog.
+     AWS Glue catalog
 
 :::note
 Apache Kafka security settings are the same for both AWS Glue REST and AWS Glue
