@@ -21,16 +21,30 @@ You can configure custom repositories for the following object storage services:
 ## Prerequisites
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Console" default>
+<TabItem value="gui" label="Aiven Console" default>
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - Access to the [Aiven Console](https://console.aiven.io/)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
 - Credentials for the selected storage provider
 
 </TabItem>
-<TabItem value="api" label="API">
+<TabItem value="os-api" label="OpenSearch API">
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+- `Enable snapshot API for custom repositories in OpenSearch` maintenance update applied
+- Security management enabled for your service (for managing users and their permissions
+  with the native OpenSearch security APIs directly)
+- Permissions per operation: `cluster:admin/snapshot/*` and `index:*`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
@@ -52,7 +66,7 @@ Each repository requires a unique name, a storage type (such as S3, Azure, or GC
 the appropriate settings for the selected storage provider.
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Console" default>
+<TabItem value="gui" label="Aiven Console" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
@@ -65,7 +79,7 @@ the appropriate settings for the selected storage provider.
    1. Click **Add**.
 
 </TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="Aiven API">
 Custom repositories are configured in the `user_config` of your Aiven for OpenSearch
 service. Use the following API request to configure custom repositories:
 
@@ -111,7 +125,7 @@ curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_n
 ## List custom repositories
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Console" default>
+<TabItem value="gui" label="Aiven Console" default>
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
@@ -120,7 +134,7 @@ curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_n
 Find your custom repositories listed on the **Snapshots** page.
 
 </TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="Aiven API">
 ```sh
 curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot"\
 --header "Authorization: Bearer $TOKEN" \
@@ -162,12 +176,25 @@ Example response:
 
 ## View or edit repository details
 
+<Tabs groupId="group1">
+<TabItem value="gui" label="Aiven Console" default>
+
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/>.
 1. Edit repository details and save your changes by clicking **Update**.
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+To view details on a repository, use the
+[Get Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/)
+native OpenSearch API endpoint.
+
+</TabItem>
+</Tabs>
 
 ## Remove a repository
 
