@@ -86,6 +86,8 @@ Example response:
 </TabItem>
 </Tabs>
 
+## Restore from snapshots
+
 ## List snapshots in progress
 
 Preview snapshots that are still being created in a repository.
