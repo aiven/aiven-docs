@@ -79,7 +79,7 @@ You can configure custom repositories for the following object storage services:
   - [Create a repository](/docs/products/opensearch/howto/custom-repositories#create-custom-repositories)
   - [Remove a repository](/docs/products/opensearch/howto/custom-repositories#remove-a-repository)
   - [Edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
-  - [List custom repositories](docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
+  - [List custom repositories](/docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
