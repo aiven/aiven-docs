@@ -53,14 +53,7 @@ Future updates to the Iceberg sink connector include:
 - **Write formats:** Additional support for Avro and ORC formats.
 - **Catalogs:** Planned support for Hive and Amazon S3 Tables.
 
-## Limitations
-
-[Aiven for Apache Kafka® Connect secret providers](/docs/products/kafka/kafka-connect/howto/configure-secret-providers)
-are not supported in this release.
-
 <RelatedPages/>
 
-- [AWS Glue REST catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog)
-- [AWS Glue catalog](/docs/products/kafka/kafka-connect/howto/aws-glue-catalog)
 - [Official Apache Iceberg sink connector docs](https://iceberg.apache.org/docs/latest/kafka-connect/)
 - [Configure secret providers for Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/configure-secret-providers)
