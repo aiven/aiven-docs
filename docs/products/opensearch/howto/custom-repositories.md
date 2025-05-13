@@ -10,14 +10,6 @@ import TabItem from '@theme/TabItem';
 
 Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs/products/opensearch/howto/manage-snapshots) in your cloud storage.
 
-## Supported storage services
-
-You can configure custom repositories for the following object storage services:
-
-- Amazon S3
-- Google Cloud Storage (GCS)
-- Microsoft Azure Blob Storage
-
 ## Prerequisites
 
 <Tabs groupId="group1">
@@ -35,10 +27,15 @@ You can configure custom repositories for the following object storage services:
 
 - Custom repositories
   [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-- `Enable snapshot API for custom repositories in OpenSearch` maintenance update applied
-- Security management enabled for your service (for managing users and their permissions
+- [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
+  applied for your service
+- [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
+  for your service
   with the native OpenSearch security APIs directly)
-- Permissions per operation: `cluster:admin/snapshot/*` and `index:*`
+- [Snapshot permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-permissions)
+  and
+  [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
+  configured
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -56,6 +53,47 @@ You can configure custom repositories for the following object storage services:
 - Aiven API provides a direct interface to the OpenSearch snapshot API.
 
 :::
+
+</TabItem>
+</Tabs>
+
+## Limitations
+
+<Tabs groupId="group1">
+<TabItem value="gui" label="Aiven Console" default>
+
+You can configure custom repositories for the following object storage services:
+
+- Amazon S3
+- Google Cloud Storage (GCS)
+- Microsoft Azure Blob Storage
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+- Supported storage services
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
+- The following operations are not supported via native OpenSearch API:
+  - [Create a repository](/docs/products/opensearch/howto/custom-repositories#create-custom-repositories)
+  - [Remove a repository](/docs/products/opensearch/howto/custom-repositories#remove-a-repository)
+  - [Edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
+  - [List custom repositories](docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+- Supported storage services
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
+- To
+  [edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details),
+  you can only use the Aiven Console.
+- The following operations are not supported via Aiven API:
+  - [Remove a repository](/docs/products/opensearch/howto/custom-repositories#remove-a-repository)
+  - [View or edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
 
 </TabItem>
 </Tabs>

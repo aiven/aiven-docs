@@ -28,10 +28,14 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 
 - Custom repositories
   [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-- `Enable snapshot API for custom repositories in OpenSearch` maintenance update applied
-- Security management enabled for your service (for managing users and their permissions
-  with the native OpenSearch security APIs directly)
-- Permissions per operation: `cluster:admin/snapshot/*` and `index:*`
+- [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
+  applied for your service
+- [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
+  for your service
+- [Snapshot permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-permissions)
+  and
+  [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
+  configured
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -51,6 +55,49 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 Automatic snapshot scheduling is not supported. You must create, list, and delete snapshots
 manually.
 :::
+
+## Limitations
+
+<Tabs groupId="group1">
+<TabItem value="gui" label="Aiven Console" default>
+
+- Supported storage services are:
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
+- [Restoring from snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
+  is not supported in the Aiven Console.
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+- Supported storage services are:
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
+- The following operations are not supported via native OpenSearch API:
+  - [List snapshots in progress](/docs/products/opensearch/howto/manage-snapshots#list-snapshots-in-progress)
+  - [List snapshots in a repository](http://localhost:3000/docs/products/opensearch/howto/manage-snapshots#list-snapshots-in-a-repository)
+- [Restore from snapshot](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
+  has a couple of
+  [security-related restrictions](https://docs.opensearch.org/docs/2.19/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).
+- [Create a snapshot](/docs/products/opensearch/howto/manage-snapshots#create-a-snapshot)
+  and
+  [delete a snapshot](/docs/products/opensearch/howto/manage-snapshots#delete-a-snapshot)
+  are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+- Supported storage services are:
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
+- [Restoring from snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
+  is not supported in the Aiven API.
+
+</TabItem>
+</Tabs>
 
 ## Create a snapshot
 
