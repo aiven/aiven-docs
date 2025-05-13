@@ -1,7 +1,6 @@
 ---
 title: Create an Iceberg sink connector for Aiven for Apache Kafka®
 sidebar_label: Iceberg sink connector
-early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
