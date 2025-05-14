@@ -13,6 +13,7 @@ to access this feature in the Aiven Console.
 ## Create a billing group
 
 1.  In the organization, click **Billing**.
+1.  Click **Billing groups**.
 1.  Click **Create billing group**.
 1.  Enter a name for the billing group and click **Continue**.
 1.  Enter the billing details. You can also copy these details from
@@ -32,8 +33,8 @@ to access this feature in the Aiven Console.
 
 ## Update a billing group
 
-To change the payment method, address, billing contact emails, invoice emails,
-or other billing details:
+To change the payment method, billing and shipping address, VAT ID,
+billing contact emails, invoice emails, or other billing details:
 
 1.  In the organization, click **Billing**.
 1.  Select the name of the billing group to update.
