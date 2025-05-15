@@ -85,6 +85,7 @@ Dev
 Digitransit
 diskio_io_time
 diskio_iops_in_progress
+Diskless
 Distro
 Docker
 dockerized

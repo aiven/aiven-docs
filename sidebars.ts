@@ -1192,7 +1192,35 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-
+        {
+          type: 'category',
+          label: 'Diskless Topics BYOC',
+          link: {
+            type: 'doc',
+            id: 'products/diskless',
+          },
+          items: [
+            'products/diskless/get-started',
+            {
+              type: 'category',
+              label: 'Architecture',
+              link: {
+                type: 'doc',
+                id: 'products/diskless/concepts/architecture',
+              },
+              items: [
+                'products/diskless/concepts/topics-vs-classic',
+                'products/diskless/concepts/batching-and-delivery',
+                'products/diskless/concepts/partitions-and-objects',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              items: ['products/diskless/howto/create-diskless-topic'],
+            },
+          ],
+        },
         {
           type: 'category',
           label: 'Aiven for Caching',
