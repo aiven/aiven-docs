@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import CreateService from "@site/static/includes/create-service-console.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Set up or delete an organization-wide VPC on the Aiven Platform.
+Set up or delete an organization-wide VPC on the Aiven Platform. Enable new Aiven projects in the organization VPC or migrate existing Aiven projects to the organization VPC. Access resources within the organization VPC from the public internet.
 
 ## Prerequisites
 
@@ -104,6 +104,161 @@ resource.
 </TabItem>
 </Tabs>
 
+## Create a service in an organization VPC
+
+Your organization VPC is available as a geolocation (cloud region) for the new service.
+
+:::note
+You can create a service in an organization VPC only if:
+
+- The organization VPC is in the same organization where you are creating the service.
+- For the service to be created, you use the cloud provider and region that hosts the
+  organization VPC.
+
+:::
+
+Create a service in an organization VPC using a tool of your choice:
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
+
+Set your organization VPC as a cloud region for the new service:
+
+<CreateService />
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
+
+```bash
+avn service create SERVICE_NAME        \
+  --project PROJECT_NAME               \
+  --project-vpc-id ORGANIZATION_VPC_ID \
+  --service-type SERVICE_TYPE          \
+  --plan SERVICE_PLAN                  \
+  --cloud CLOUD_PROVIDER_REGION
+```
+
+Replace the following:
+
+- `SERVICE_NAME` with the name of the service to be created, for example,
+  `pg-vpc-test`
+- `PROJECT_NAME` with the name of the project where to create the service, for example,
+  `pj-test`
+- `ORGANIZATION_VPC_ID` with the ID of your organization VPC, for example,
+  `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+- `SERVICE_TYPE` with the type of the service to be created, for example, `pg`
+- `SERVICE_PLAN` with the plan of the service to be created, for example, `hobbyist`
+- `CLOUD_PROVIDER_REGION` with the cloud provider and region to host the organization VPC,
+  for example `aws-eu-west-1`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Make an API call to the
+[ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+endpoint:
+
+```bash {12}
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data-raw '
+    {
+      "service_name": "SERVICE_NAME",
+      "cloud": "CLOUD_PROVIDER_REGION",
+      "plan": "SERVICE_PLAN",
+      "service_type": "SERVICE_TYPE",
+      "disk_space_mb": DISK_SIZE,
+      "project_vpc_id":"ORGANIZATION_VPC_ID"
+    }
+  '
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `org-vpc-test`
+- `BEARER_TOKEN`
+- `SERVICE_NAME`, for example `org-vpc-test-project`
+- `CLOUD_PROVIDER_REGION`, for example `google-europe-west10`
+- `SERVICE_PLAN`, for example `startup-4`
+- `SERVICE_TYPE`, for example `pg`
+- `DISK_SIZE` in MiB, for example `81920`
+- `ORGANIZATION_VPC_ID`
+
+</TabItem>
+</Tabs>
+
+## Migrate a service to an organization VPC
+
+Your organization VPC is available as a geolocation (cloud region) for your service.
+
+:::note
+You can only migrate a service to an organization VPC if:
+
+- The organization VPC is in the same organization where the service runs.
+- The service and the organization VPC are hosted using the same cloud provider and region.
+
+:::
+
+Migrate a service to an organization VPC using a tool of your choice:
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
+
+1. In [Aiven Console](https://console.aiven.io/), open your service and click
+   <ConsoleLabel name="Service settings"/>.
+1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
+   **Change cloud or region**.
+1. In the **Region** section, go to the **VPCs** tab, select your organization VPC and
+   click **Migrate**.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
+
+```bash
+avn service update SERVICE_NAME        \
+  --project-vpc-id ORGANIZATION_VPC_ID \
+  --project PROJECT_NAME
+```
+
+Replace the following:
+
+- `SERVICE_NAME` with the name of the service to be migrated, for example,
+  `pg-test`
+- `ORGANIZATION_VPC_ID` with the ID of your organization VPC where to migrate the service,
+  for example, `12345678-1a2b-3c4d-5f6g-1a2b3c4d5e6f`
+- `PROJECT_NAME` with the name of the project where your service resides, for example,
+  `pj-test`
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Call the [ServiceUpdte](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint to set `vpc_id` of the service to the ID of your organization VPC:
+
+```bash {5}
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  -H 'Authorization: Bearer BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data '{"project_vpc_id": "ORGANIZATION_VPC_ID"}'
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME`, for example `org-vpc-test`
+- `SERVICE_NAME`, for example `org-vpc-service`
+- `BEARER_TOKEN`
+- `ORGANIZATION_VPC_ID`
+
+</TabItem>
+</Tabs>
+
 ## Delete an organization VPC
 
 :::important
@@ -161,6 +316,7 @@ Replace the following placeholders with meaningful data:
 - `BEARER_TOKEN`
 
 </TabItem>
+
 </Tabs>
 
 <RelatedPages/>

@@ -6,7 +6,7 @@ Aiven offers invoice billing and bank transfer payments for customers who have a
 
 Invoices are generated at the end of the month based on actual usage
 and a PDF is emailed to the
-[billing contacts](/docs/platform/howto/use-billing-groups#update-a-billing-group)
+[billing contacts](/docs/platform/howto/use-billing-groups#update-your-billing-information)
 for each billing group.
 
 Prices for Aiven services are always in US dollars, but invoices

@@ -1,5 +1,6 @@
 ---
 title: Connect with psql
+early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

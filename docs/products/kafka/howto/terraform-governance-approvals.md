@@ -41,13 +41,6 @@ usernames to Aiven users, ensuring that requesters and approvers are correctly i
 - **Approval validation**: A GitHub Action automatically checks that pull request
 creators and approvers meet governance requirements before changes are applied.
 
-:::note
-When Terraform governance is enabled, operational requests such as access rotation must
-be performed in the [Aiven Console](https://console.aiven.io/). These actions are not
-available through Terraform. To learn how to rotate access credentials,
-see [Rotate credentials](/docs/products/kafka/howto/rotate-credentials).
-:::
-
 ### Workflow steps:
 
 1. Define governance policies using Aiven Terraform Provider:
@@ -101,13 +94,36 @@ be integrated to validate changes and enforce compliance.
 
 ### Step 2. Map GitHub users to Aiven identities
 
-To verify requesters and approvers, map their GitHub user IDs to their Aiven user IDs
-using the `aiven_external_identity` resource.
-
-<TerraformSample filename="data-sources/aiven_external_identity/data-source.tf" />
-
-For more information, see the
+To verify requesters and approvers, assign them to the appropriate user group
+using the `aiven_external_identity` resource. For more information, see the
 [Aiven Terraform Provider documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/external_identity).
+
+**Example Terraform configuration**
+
+```hcl
+data "aiven_organization" "example_org" {
+  name = "Example Organization"
+}
+
+resource "aiven_organization_user_group" "example_group" {
+  organization_id = data.aiven_organization.example_org.id
+  name            = "example-group"
+  description     = "A group for governance approvals"
+}
+
+resource "aiven_organization_user_group_member" "example_user" {
+  organization_id = data.aiven_organization.example_org.id
+  group_id        = aiven_organization_user_group.example_group.group_id
+  user_id         = "aiven_user_id"
+}
+
+data "aiven_external_identity" "github_identity" {
+  organization_id       = data.aiven_organization.example_org.id
+  internal_user_id      = "aiven_user_id"
+  external_user_id      = "github_username"
+  external_service_name = "github"
+}
+```
 
 - This mapping ensures that GitHub users are recognized as Aiven users for governance
   approvals.

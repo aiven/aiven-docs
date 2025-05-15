@@ -45,12 +45,10 @@ a
     </tr>
     <tr>
       <td>Service integrations</td>
-        <ul>
-          <li>You can integrate your Aiven for ClickHouse service with PostgreSQL®
-          and Apache Kafka® only.</li>
-          <li>[Integrations of Aiven for ClickHouse and Apache Kafka](/docs/products/clickhouse/howto/integrate-kafka)
-          support the maximum of 400 virtual connector tables.</li>
-        </ul>
+      <td>
+          You can integrate your Aiven for ClickHouse service with PostgreSQL®
+          and Kafka® only.
+      </td>
       <td>N/A</td>
     </tr>
     <tr>
@@ -168,7 +166,7 @@ Service limits are determined by a plan that this service uses.
 | Aiven for ClickHouse           | Hobbyist                   | Startup                      | Business                     | Premium                      |
 | ------------------------------ | -------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
 | VMs                            | 1                          | 1                            | 3                            | 6 - 30                       |
-| CPU per VM                     | 1 (2 for AWS only)         | 2 - 8                        | 2 - 8                        | 2 - 8                        |
+| CPU per VM                     | 1 (2 for AWS only)         | 2                            | 2 - 8                        | 2 - 8                        |
 | RAM per VM                     | 4 GB                       | 16 - 64 GB                   | 16 - 64 GB                   | 16 - 64 GB                   |
 | Total storage                  | 180 GB                     | 1150 GB                      | 1150 - 4600 GB               | 2300 - 46000 GB              |
 | Maximum concurrent queries     | 25 queries per 4 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM |

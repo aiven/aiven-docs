@@ -6,7 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
-import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Access control lists (ACLs) in Aiven for Apache Kafka® define permissions for topics, schemas, consumer groups, and transactional IDs.
 ACLs control which authenticated users or applications (principals) can perform specific
@@ -36,7 +35,7 @@ For more information, see
 - Installed and authenticated [Aiven CLI](/docs/tools/cli).
 - An [API token](https://aiven.io/docs/platform/howto/create_authentication_token) for
   authenticating API requests.
-- [Aiven Provider for Terraform](/docs/tools/terraform).
+- [Aiven Provider for Terraform](/docs/tools/terraform/get-started).
 
 ## Add a Kafka-native ACL entry
 
@@ -142,10 +141,37 @@ Parameter:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-<TerraformSample filename='resources/aiven_kafka_native_acl/resource.tf' />
+To add a
+[Kafka-native ACL entry using Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_native_acl),
+define the following resource in your Terraform configuration:
 
-More information on this resource and its configuration options are available in the
-[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_native_acl).
+```terraform
+resource "aiven_kafka_native_acl" "example" {
+  project         = "my_project"
+  service_name    = "kafka-service"
+  resource_name   = "example-topic"
+  resource_type   = "Topic"
+  pattern_type    = "LITERAL"
+  principal       = "User:example-user"
+  host            = "*"
+  operation       = "Read"
+  permission_type = "ALLOW"
+}
+```
+
+ Parameters:
+
+- `project`: Enter the name of your Aiven project.
+- `service_name`: Enter the name of your Aiven for Apache Kafka service.
+- `resource_name`: Enter the resource name or prefix for pattern-based matching.
+- `resource_type`: Enter the type of resource to manage, such as
+  `Topic`, `Group`, `Cluster`, or `TransactionalId`.
+- `pattern_type`: Enter the pattern type for resource matching. Use `LITERAL` for
+  exact matches or `PREFIXED` for pattern-based matching.
+- `principal`: Enter the principal in the format `User:<username>`.
+- `operation`: Enter the Apache Kafka operation, such as `Read`, `Write`, or `Create`.
+- `permission_type`: Enter the type of permission. Use `ALLOW` or `DENY`.
+- `host`: Enter the allowed host, or use `*` to apply to all hosts.
 
 </TabItem>
 </Tabs>
@@ -252,18 +278,39 @@ or the [Schema Registry ACL API documentation](https://api.aiven.io/doc/#tag/Ser
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-<TerraformSample filename='resources/aiven_kafka_native_acl/resource.tf' />
+To add an
+[Aiven ACL entry using Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_acl),
+define the following resource in your Terraform configuration:
 
-More information on this resource and its configuration options are available in the
-[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_native_acl).
+```terraform
+resource "aiven_kafka_acl" "example_acl" {
+  project      = "<project_name>"
+  service_name = "<service_name>"
+  topic        = "<topic_name>"
+  permission   = "<permission_type>"
+  username     = "<username_pattern>"
+}
+```
+
+ Parameters:
+
+- `project`: Enter the name of your Aiven project.
+- `service_name`: Enter the name of your Aiven for Apache Kafka service.
+- `topic`: Enter the name of the topic or pattern to apply the ACL to. Supports
+  wildcards `*` and `?`.
+- `permission`: Enter the permission type. Valid values are `read`, `write`, or
+  `readwrite`.
+- `username`: Enter the username or pattern to apply the ACL to. Supports wildcards `*`
+  and `?`.
 
 :::tip
-In [the `aiven_kafka` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka),
-set the `default_acl` attribute to `false` to prevent the creation of an
-admin user with wildcard permissions.
+When using the [Aiven Terraform Provider](/docs/tools/terraform), set the
+`default_acl` key to `false` in your resource configuration to prevent the creation of
+an admin user with wildcard permissions.
 :::
 
 </TabItem>
+
 </Tabs>
 
 ## View ACL entries
@@ -319,6 +366,36 @@ To view ACL entries, use the following API request:
   ```
 
 Parameters:
+
+- `project`: Enter the name of your Aiven project.
+- `service_name`: Enter the name of your Aiven for Apache Kafka service.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+To view ACL entries with Terraform:
+
+- **Kafka-native ACLs**:
+
+  ```hcl
+     data "aiven_kafka_native_acl" "native_acl" {
+       project      = "<project_name>"
+       service_name = "<service_name>"
+  }
+  ```
+
+- **Aiven ACLs**:
+
+  ```hcl
+    data "aiven_kafka_acl" "aiven_acl" {
+       project      = "<project_name>"
+       service_name = "<service_name>"
+  }
+  ```
+
+- Run `terraform apply`, and use `terraform console` to view the ACL entries.
+
+Parameters
 
 - `project`: Enter the name of your Aiven project.
 - `service_name`: Enter the name of your Aiven for Apache Kafka service.
@@ -393,6 +470,16 @@ Parameters:
 - `project_name`: Enter the name of the project.
 - `service_name`: Enter the name of the Aiven for Apache Kafka service.
 - `acl_id` or `kafka_acl_id`: Enter the ID of the ACL entry to delete.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+To delete ACL entries with Terraform:
+
+- For **Kafka-native ACLs**, remove the relevant `aiven_kafka_native_acl` resource from
+  your Terraform configuration.
+- For **Aiven ACLs**, remove the relevant `aiven_kafka_acl` resource from your Terraform
+  configuration.
 
 </TabItem>
 </Tabs>

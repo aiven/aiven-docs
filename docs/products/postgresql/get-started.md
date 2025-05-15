@@ -9,58 +9,86 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 import RelatedPages from "@site/src/components/RelatedPages";
-import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
-import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
-import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Start using Aiven for PostgreSQL® by creating a service, connecting to it, and loading sample data.
 
 ## Prerequisites
 
-<Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
 - Access to the [Aiven Console](https://console.aiven.io)
 - [psql](https://www.postgresql.org/download/) command line tool installed
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-- [Terraform installed](https://www.terraform.io/downloads)
-- A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
-- [psql](https://www.postgresql.org/download/) command line tool installed
-
-</TabItem>
-</Tabs>
+- [Terraform installed](https://developer.hashicorp.com/terraform/install) if you prefer
+  to get started using code
 
 ## Create a service
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
+<TabItem value="1" label="Console" default>
 
 <CreateService serviceType="PostgreSQL®"/>
 
 </TabItem>
-<TabItem value="terraform" label="Terraform">
+<TabItem value="2" label="Terraform">
 
-The following example files are also available in the
-[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/postgres) on GitHub.
+1. [Create a token](/docs/platform/howto/create_authentication_token).
+1. Create the following Terraform files:
 
-1. Create a file named `provider.tf` and add the following:
+   - ``provider.tf``, where you specify the version in the ``required_providers`` block
 
-    <TerraformSample filename='postgres/provider.tf' />
+      ```hcl
+        terraform {
+          required_providers {
+            aiven = {
+              source  = "aiven/aiven"
+              version = ">=4.0.0, < 5.0.0"
+            }
+          }
+        }
 
-1. Create a file named `service.tf` and add the following:
+        provider "aiven" {
+          api_token = var.aiven_api_token
+        }
+      ```
 
-    <TerraformSample filename='postgres/service.tf' />
+   - ``postgresql.tf``, where you include the ``aiven_pg`` resource
 
-1. Create a file named `variables.tf` and add the following:
+      ```hcl
+        resource "aiven_pg" "pg" {
+          project                = data.aiven_project.my_project.project
+          service_name           = "postgresql"
+          cloud_name             = "google-europe-west3"
+          plan                   = "startup-4"
+        }
 
-    <TerraformSample filename='postgres/variables.tf' />
+        output "postgresql_service_uri" {
+          value     = aiven_pg.postgresql.service_uri
+          sensitive = true
+        }
+      ```
 
-1. Create the `terraform.tfvars` file and add the values for your token and project name.
+   - ``variables.tf``, where you declare the token and project name variables
 
-<TerraformApply />
+      ```hcl
+      variable "aiven_api_token" {
+        description = "Aiven token"
+        type        = string
+      }
+
+      variable "project_name" {
+        description = "Aiven console project name"
+        type        = string
+      }
+      ```
+
+   - ``terraform.tfvars``, where you add the Aiven token and project name
+
+      ```hcl
+        aiven_api_token = "AIVEN_TOKEN"
+        project_name    = "AIVEN_PROJECT_NAME"
+        admin_username  = "YOUR_SERVICE_USERNAME"
+        admin_password  = "YOUR_SERVICE_PASSWORD"
+      ```
+
+1. Run ``terraform init`` > ``terraform plan`` > ``terraform apply --auto-approve``.
 
 </TabItem>
 </Tabs>
@@ -70,31 +98,81 @@ The following example files are also available in the
 Edit your service settings if the default service configuration doesn't meet your needs.
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
+<TabItem value="1" label="Console" default>
 1. Select the new service from the list of services on
    the <ConsoleLabel name="Services"/> page.
 1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/> from the sidebar.
 1. In the **Advanced configuration** section, make changes to the service
 configuration.
-
-See the available configuration options in
-[Advanced parameters for Aiven for PostgreSQL](/docs/products/postgresql/reference/advanced-params).
-
 </TabItem>
-<TabItem value="terraform" label="Terraform">
+<TabItem value="2" label="Terraform">
 
-See
-[the `aiven_pg` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg)
-for the full schema.
+Configure service parameters by updating the ``aiven_pg`` resource, for example:
+
+```hcl
+resource "aiven_pg" "pg" {
+  project                = data.aiven_project.my_project.project
+  service_name           = "postgresql"
+  cloud_name             = "google-europe-west3"
+  plan                   = "startup-4"
+  maintenance_window_dow  = "monday"
+  maintenance_window_time = "10:00:00"
+  termination_protection = true
+
+  static_ips = toset([
+    aiven_static_ip.ips[0].static_ip_address_id,
+    aiven_static_ip.ips[1].static_ip_address_id,
+    aiven_static_ip.ips[2].static_ip_address_id,
+    aiven_static_ip.ips[3].static_ip_address_id,
+  ])
+
+  pg_user_config {
+    pg_version = 14
+    backup_hour               = 01
+    backup_minute             = 30
+    shared_buffers_percentage = 40
+    static_ips = true
+    ip_filter_string = ["0.0.0.0/0"]
+    admin_username = var.admin_username
+    admin_password = var.admin_password
+
+    pgbouncer {
+      autodb_max_db_connections = 200
+    }
+
+    public_access {
+      pg         = true
+      prometheus = false
+    }
+
+    ## project_to_fork_from  = "source-project-name"
+    ## service_to_fork_from  = "source-pg-service"
+    ## pg_read_replica       = true
+
+    pg {
+      idle_in_transaction_session_timeout = 900
+      log_min_duration_statement          = -1
+      deadlock_timeout                    = 2000
+    }
+  }
+
+  timeouts {
+    create = "20m"
+    update = "15m"
+  }
+}
+```
 
 </TabItem>
 </Tabs>
 
+See the available configuration options in
+[Advanced parameters for Aiven for PostgreSQL](/docs/products/postgresql/reference/advanced-params).
+
 ## Connect to the service
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
+<TabItem value="1" label="Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
    organization > project > Aiven for PostgreSQL service.
 1. On the <ConsoleLabel name="overview"/> page of your service, click
@@ -107,24 +185,22 @@ for the full schema.
    ```
 
 </TabItem>
-<TabItem value="terraform" label="Terraform">
+<TabItem value="2" label="Terraform">
 
-Access your service with [the psql client](/docs/products/postgresql/howto/connect-psql)
-using the `postgresql_service_uri` Terraform output.
+Access your new service with ``psql`` using the ``postgresql_service_uri`` output you
+received after running ``terraform apply --auto-approve``.
 
-```bash
+```sql
 psql "$(terraform output -raw postgresql_service_uri)"
-```
-
-The output of the command is similar to the following:
-```bash
 psql (13.2)
 SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
 Type "help" for help.
+
+defaultdb=>
 ```
 
 </TabItem>
-<TabItem value="psql" label="psql">
+<TabItem value="3" label="psql">
 [Connect to your new service](/docs/products/postgresql/howto/connect-psql) with
 [psql](https://www.postgresql.org/download/) CLI tool.
 </TabItem>

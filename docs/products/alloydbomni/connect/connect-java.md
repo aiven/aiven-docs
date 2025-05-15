@@ -1,5 +1,6 @@
 ---
 title: Connect with Java
+early: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

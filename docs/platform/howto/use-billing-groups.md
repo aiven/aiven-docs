@@ -6,8 +6,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 With [billing groups](/docs/platform/howto/use-billing-groups) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+You must be an [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature in the Aiven Console.
 
 ## Create a billing group
@@ -30,10 +29,10 @@ to access this feature in the Aiven Console.
 1.  Find the billing group to rename, click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Rename**.
 
-## Update a billing group
+## Update your billing information
 
-To change the payment method, address, billing contact emails, invoice emails,
-or other billing details:
+To change the payment card, address, billing contacts, or other billing
+details:
 
 1.  In the organization, click **Billing**.
 1.  Select the name of the billing group to update.

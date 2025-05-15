@@ -1,5 +1,6 @@
 ---
 title: Connect with PHP
+early: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

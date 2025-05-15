@@ -1,5 +1,6 @@
 ---
 title: Connect with Python
+early: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

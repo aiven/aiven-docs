@@ -31,7 +31,7 @@ AZ
 AZs
 Azure
 binlog
-booleans?
+boolean
 boot
 BTAR
 Bucardo
@@ -72,7 +72,6 @@ datasource
 Datastax
 datastore
 DBeaver
-dblink
 DBMS
 DBMSs
 deallocation
@@ -104,9 +103,9 @@ European Union
 eval
 event_type
 exactly-once
-expirations?
-failovers?
-filesets?
+failover
+fileset
+filesets
 Flink
 Followerfetching
 Forecast
@@ -130,7 +129,6 @@ Grafana
 Grafana/M
 GSuite
 GTID
-GTIDs?
 HAProxy
 hardcoded
 HashiCorp
@@ -153,7 +151,6 @@ InfluxDB
 InnoDB
 inodes
 Instana
-intermedia_max_connections
 io
 iops
 IPs
@@ -178,8 +175,10 @@ Kaggle
 Kaggle/M
 Karapace
 keypair
-keyspaces?
-keystores?
+keyspace
+keyspaces
+keystore
+keystores
 Kibana
 Klaw
 Kpow
@@ -191,7 +190,6 @@ Logtail
 Lua
 Lucene
 M3
-max_connections?
 Memorystore
 Mezmo
 MirrorMaker
@@ -201,7 +199,6 @@ myhoard
 myhoard
 MySQL
 mysqldump
-mysqlsh
 NACLs
 namespace/MS
 namespaces?
@@ -236,14 +233,10 @@ Percona
 performant
 pg_dump
 pgAdmin
-PGAudit
 PgBouncer
-pg_dump
 PGHoard
 pglookout
 pgoutput
-pg_repack
-pg_restore
 pgvector
 plaintext
 plc
@@ -274,8 +267,8 @@ refcard
 reindex
 reindexing
 remoteSecure
-requesters
 reStructuredText
+requesters
 rivery
 rsyslog
 safelist
@@ -352,11 +345,13 @@ untrusted
 UpCloud
 upsert
 URIs?
-UUIDs?
+UUID
+UUIDs
 Valkey
 vectorizing
 virtualized
-VMs?
+VM
+VMs
 VNet
 VPC/MS
 VPCs?

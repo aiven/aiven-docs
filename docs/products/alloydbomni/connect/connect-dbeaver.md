@@ -1,5 +1,6 @@
 ---
 title: Connect with DBeaver
+early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

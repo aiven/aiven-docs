@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot connection pooling problems
-sidebar_label: Connection pooling issues
+sidebar_label: Connection pooling problems
 ---
 
 Discover the PgBouncer connection pooler and learn how to cope with some specific connection pooling issues.

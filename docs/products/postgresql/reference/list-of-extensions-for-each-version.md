@@ -1,11 +1,11 @@
 ---
-title: Default extension versions for each PostgreSQL version
-sidebar_label: Default extension versions
+title: Extension versions for each PostgreSQL version
+sidebar_label: Extension versions per PG version
 ---
 
 import MySnippet from "@site/static/includes/pg-extensions.md"
 
-Each major version of Aiven for PostgreSQL® comes with its own set of default extension versions.
+Each major version of Aiven for PostgreSQL® can support multiple versions of an extension, with one set as the default.
 
 <!-- vale off -->
 

@@ -315,15 +315,3 @@ ul+div {
   background-color: var(--aiven-card-bg-hover);
   border-color: var(--aiven-card-border-hover);
 }
-
-@media screen and (max-width: 996px) {
-  .navbar__items--right {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
-  .navbar__items--right div {
-    position: relative;
-    right: 0;
-  }
-}

@@ -2,8 +2,6 @@
 title: Manage organizations
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-
 Learn how to manage your organizations via the Aiven Console.
 
 ## Delete an organization
@@ -27,8 +25,3 @@ Learn how to manage your organizations via the Aiven Console.
 1.  Select **Rename**.
 1.  Enter the new name.
 1.  Click **Rename**.
-
-## Leave an organization
-
-1.  Go to <ConsoleLabel name="userinformation"/> > <ConsoleLabel name="Organizations"/>.
-1.  Find the organization and click **Leave**.

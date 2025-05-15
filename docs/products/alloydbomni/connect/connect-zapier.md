@@ -1,5 +1,6 @@
 ---
 title: Connect with Zapier
+early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

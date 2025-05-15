@@ -36,7 +36,7 @@ the development and deployment of Flink applications. Applications are
 with new transformations and revert to a previously stored definition if
 the result of the edits doesn't meet expectations.
 
-For information on how to create applications, see
+For infromation on how to create applications, see
 [Create an Aiven for Apache Flink® application](/docs/products/flink/howto/create-flink-applications)
 
 ## Application features

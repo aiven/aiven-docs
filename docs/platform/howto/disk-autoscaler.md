@@ -239,12 +239,6 @@ running the commands to create the following:
     ```
 
 </TabItem>
-<TabItem value="terraform" label="Terraform">
-
-Follow the
-[guide to enable disk autoscaler using Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/disk-autoscaler).
-
-</TabItem>
 </Tabs>
 
 ## Change the maximum disk space for autoscaling{#change-max-disk-space}
@@ -321,12 +315,6 @@ avn service integration-endpoint-update AUTOSCALER_ENDPOINT_ID
 :::note[Example]
 <Example/>
 :::
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-Use the `cap_gb` attribute in your
-[`aiven_service_integration_endpoint` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration_endpoint).
 
 </TabItem>
 </Tabs>

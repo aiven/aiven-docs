@@ -108,7 +108,7 @@ Depending on what you intend to edit, select **Database** or **Table**.
 
 :::note[Alternative for PostgreSQL]
 Go to your Aiven for ClickHouse service's **Integrations** page,
-find an integration, and click <ConsoleLabel name="actions"/> >
+find an integration, and clicking click <ConsoleLabel name="actions"/> >
 <ConsoleLabel name="editdatabase"/>.
 :::
 
@@ -127,7 +127,7 @@ find an integration, and click <ConsoleLabel name="actions"/> >
 1.  Add or delete tables using <ConsoleLabel name="addtable"/> or
     <ConsoleLabel name="delete"/> respectively, and click **Save**.
 
-#### Update table details{#update-table-details}
+#### Update table details
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service

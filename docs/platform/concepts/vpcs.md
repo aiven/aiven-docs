@@ -75,7 +75,7 @@ Learn how to
 
 For information on VPCs supported by particular cloud providers, see the following:
 
-- AWS: [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html)
+- AWS: [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html])
 - Google Cloud: [VPC networks](https://cloud.google.com/vpc/docs/vpc)
 - Azure: [What is Azure Virtual Network?](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
 - UpCloud:

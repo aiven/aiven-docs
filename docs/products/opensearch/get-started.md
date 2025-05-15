@@ -7,10 +7,7 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import CreateService from "@site/static/includes/create-service-console.md";
-import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
-import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
-import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import CreateService from "@site/static/includes/create-service-console.md"
 
 Learn how to use Aiven for OpenSearch®, create a service, secure access, manage indices, and explore your data.
 
@@ -22,39 +19,20 @@ supports integrations for logs and monitoring.
 
 Ensure you have the following before getting started:
 
-<Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
 - Access to the [Aiven Console](https://console.aiven.io)
-
-</TabItem>
-<TabItem value="api" label="API" default>
-
-- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
-
-</TabItem>
-<TabItem value="cli" label="CLI" default>
-
 - [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
-- [A personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
-
-</TabItem>
-<TabItem value="terraform" label="Terraform" default>
-
-<TerraformPrereqs />
-
-</TabItem>
-</Tabs>
+- [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs) installed
+- [API token](/docs/platform/howto/create_authentication_token)
 
 ## Create an Aiven for OpenSearch® service
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
+<TabItem value="1" label="Console" default>
 
 <CreateService serviceType="OpenSearch®"/>
 
 </TabItem>
-<TabItem value="api" label="API">
+<TabItem value="API" label="API">
 
 Create the service using the Aiven API, run:
 
@@ -76,7 +54,7 @@ Parameters:
 - `<api-token>`: Your [API token](/docs/platform/howto/create_authentication_token).
 
 </TabItem>
-<TabItem value="cli" label="CLI">
+<TabItem value="CLI" label="CLI">
 
 Create the service using the Aiven CLI, run:
 
@@ -94,26 +72,53 @@ Parameters:
 - `<service-plan>`: Subscription plan (for example, `startup-4`).
 
 </TabItem>
-<TabItem value="terraform" label="Terraform">
+<TabItem value="Terraform" label="Terraform">
 
-The following example files are also available in the
-[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/opensearch) on GitHub.
+1. Create a `main.tf` file with the following content:
 
-1. Create a file named `provider.tf` and add the following:
+   ```hcl
+    variable "aiven_token" {
+      type = string
+    }
 
-    <TerraformSample filename='opensearch/provider.tf' />
+    variable "aiven_project_name" {
+      type = string
+    }
 
-1. Create a file named `service.tf` and add the following:
+    terraform {
+      required_providers {
+        aiven = {
+          source  = "aiven/aiven"
+          version = ">=4.0.0"
+        }
+      }
+    }
 
-    <TerraformSample filename='opensearch/opensearch_service.tf' />
+    provider "aiven" {
+      api_token = var.aiven_token
+    }
 
-1. Create a file named `variables.tf` and add the following:
+    resource "aiven_opensearch" "example" {
+      project      = var.aiven_project_name
+      service_name = "example-opensearch"
+      cloud_name   = "google-europe-west1"
+      plan         = "startup-4"
+    }
+    ```
 
-    <TerraformSample filename='opensearch/variables.tf' />
+1. Create a `terraform.tfvars` file:
 
-1. Create the `terraform.tfvars` file and add the values for your token and project name.
+   ```hcl
+    aiven_token = "your-api-token"
+    aiven_project_name = "your-project-name"
+    ```
 
-<TerraformApply />
+1. Run the Terraform commands to apply the configuration:
+
+   ```bash
+   terraform init
+   terraform apply --auto-approve
+   ```
 
 </TabItem>
 </Tabs>
@@ -167,8 +172,8 @@ For more information, see
 
 ## Connect to your service
 
-<Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
+<Tabs groupId="connect-service">
+<TabItem value="Console" label="Console" default>
 
 1. Go to the <ConsoleLabel name="overview"/>  page of your service in the [Aiven Console](https://console.aiven.io/).
 1. Click **Quick connect**.

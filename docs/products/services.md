@@ -19,7 +19,7 @@ import AlloyDBOmni from "@site/static/images/logos/alloydbomni.svg";
 
 Use our fully managed services to stream, store, or serve your data. Deploy individual services and advanced data pipelines in minutes.
 
-## Streaming
+## Stream
 
 <GridContainer>
   <Card
@@ -29,6 +29,12 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
     description="Build your streaming data pipelines."
   />
   <Card
+    to="/docs/products/diskless"
+    iconComponent={Kafka}
+    title="Diskless Topics BYOC"
+    description="Kafka-compatible service using cloud object storage."
+  />
+  <Card
     to="/docs/products/flink"
     iconComponent={Flink}
     title="Aiven for Apache Flink®"
@@ -36,7 +42,7 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
   />
 </GridContainer>
 
-## Databases
+## Store
 
 <GridContainer>
   <Card
@@ -77,7 +83,7 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
   />
 </GridContainer>
 
-## Apps
+## Serve
 
 <GridContainer>
   <Card

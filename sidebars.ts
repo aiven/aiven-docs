@@ -27,7 +27,6 @@ const sidebars: SidebarsConfig = {
         'tools/aiven-console',
         'platform/concepts/service-and-feature-releases',
         'platform/howto/feature-preview',
-        'platform/howto/support',
       ],
     },
     {
@@ -291,7 +290,6 @@ const sidebars: SidebarsConfig = {
                     },
                   ],
                 },
-                'platform/howto/vpc-service-management',
                 'platform/howto/google-cloud-functions',
                 'platform/howto/public-access-in-vpc',
                 'platform/howto/attach-vpc-aws-tgw',
@@ -456,6 +454,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
+            'tools/terraform/get-started',
             {
               type: 'category',
               label: 'Upgrade Aiven Provider',
@@ -909,7 +908,6 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/howto/enable-governance',
                     'products/kafka/howto/claim-topic',
-                    'products/kafka/howto/terraform-governance-approvals',
                     {
                       type: 'category',
                       label: 'Manage topic requests',
@@ -921,8 +919,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/howto/request-access-topic',
                         'products/kafka/howto/approvals',
                         'products/kafka/howto/group-requests',
-
-                        'products/kafka/howto/rotate-credentials',
+                        'products/kafka/howto/terraform-governance-approvals',
                       ],
                     },
                   ],
@@ -1043,20 +1040,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcs-sink',
                         'products/kafka/kafka-connect/howto/http-sink',
                         'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
-                        {
-                          type: 'category',
-                          label: 'Iceberg sink connector',
-                          link: {
-                            type: 'doc',
-                            id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
-                          },
-                          items: [
-                            'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
-                            'products/kafka/kafka-connect/howto/aws-glue-catalog',
-                            'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
-                            'products/kafka/howto/snowflake-open-catalog',
-                          ],
-                        },
+                        'products/kafka/kafka-connect/howto/iceberg-sink-connector',
                         'products/kafka/kafka-connect/howto/influx-sink',
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
@@ -1192,6 +1176,35 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Diskless Topics BYOC',
+          link: {
+            type: 'doc',
+            id: 'products/diskless',
+          },
+          items: [
+            'products/diskless/get-started',
+            {
+              type: 'category',
+              label: 'Architecture',
+              link: {
+                type: 'doc',
+                id: 'products/diskless/concepts/architecture',
+              },
+              items: [
+                'products/diskless/concepts/topics-vs-classic',
+                'products/diskless/concepts/batching-and-delivery',
+                'products/diskless/concepts/partitions-and-objects',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              items: ['products/diskless/howto/create-diskless-topic'],
+            },
+          ],
+        },
 
         {
           type: 'category',
@@ -1282,6 +1295,7 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'products/clickhouse/concepts/service-architecture',
+                'products/clickhouse/reference/limitations',
                 'products/clickhouse/concepts/olap',
                 'products/clickhouse/concepts/columnar-databases',
                 'products/clickhouse/concepts/indexing',
@@ -1381,7 +1395,6 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/clickhouse-system-tables',
-                'products/clickhouse/reference/limitations',
               ],
             },
           ],
@@ -1848,7 +1861,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/concepts/timescaledb',
                 'products/postgresql/concepts/upgrade-failover',
                 'products/postgresql/concepts/pgvector',
-                'products/postgresql/concepts/pg-audit-logging',
               ],
             },
             {
@@ -1904,18 +1916,6 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pgvector',
                     'products/postgresql/howto/pg-object-size',
                     'products/postgresql/howto/readonly-user',
-                    {
-                      type: 'category',
-                      label: 'PGAudit',
-                      link: {
-                        type: 'doc',
-                        id: 'products/postgresql/howto/list-pgaudit',
-                      },
-                      items: [
-                        'products/postgresql/concepts/pg-audit-logging',
-                        'products/postgresql/howto/use-pg-audit-logging',
-                      ],
-                    },
                   ],
                 },
                 {
@@ -1962,7 +1962,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
-                'products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem',
               ],
             },
             {
