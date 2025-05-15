@@ -179,8 +179,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'testconnection':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.code} />{' '}
-          <b>Test connection</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.code} /> <b>Test connection</b>
         </>
       );
     case 'vpcs':
@@ -244,8 +243,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'userprofile':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.user} />{' '}
-          <b>User profile</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>User profile</b>
         </>
       );
     case 'authenticationmethod':
@@ -266,11 +264,31 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.bankAccount} /> <b>Billing</b>
         </>
       );
+    case 'invoices':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.inbox} /> <b>Invoices</b>
+        </>
+      );
     case 'billinggroups':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.applications} />{' '}
           <b>Billing groups</b>
+        </>
+      );
+    case 'paymentmethods':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.creditCard} />{' '}
+          <b>Payment methods</b>
+        </>
+      );
+    case 'billingaddress':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.deliveryLocation} />{' '}
+          <b>Addresses</b>
         </>
       );
     case 'acl':

@@ -13,7 +13,7 @@ to access this feature in the Aiven Console.
 ## Create a billing group
 
 1.  In the organization, click **Billing**.
-1.  Click **Billing groups**.
+1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Click **Create billing group**.
 1.  Enter a name for the billing group and click **Continue**.
 1.  Enter the billing details. You can also copy these details from

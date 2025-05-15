@@ -13,7 +13,7 @@ to access this feature in the Aiven Console.
 ## Create an address
 
 1.  In the organization, click **Billing**.
-1.  Click **Addresses**.
+1.  Click <ConsoleLabel name="billingaddress"/>.
 1.  Click **Create address**.
 1.  Enter the address details and click **Create address**.
 1.  Optional: Assign the address to your billing groups.
@@ -25,14 +25,14 @@ to access this feature in the Aiven Console.
 ## Update an address
 
 1.  In the organization, click **Billing**.
-1.  Click **Addresses**.
+1.  Click <ConsoleLabel name="billingaddress"/>.
 1.  In the address to update, click **Edit**.
 1.  Edit the address and click **Save changes**.
 
 ## Assign addresses to a billing group
 
 1.  In the organization, click **Billing**.
-1.  Click **Billing groups**.
+1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Select the name of the billing group and click the **Billing information** tab.
 1.  In the **Company addresses** section, click **Edit**.
 1.  Select an address for the billing address or shipping address.
@@ -48,5 +48,5 @@ that is used for a billing group
 [assign a different address](#assign-addresses-to-a-billing-group).
 
 1.  In the organization, click **Billing**.
-1.  Click **Addresses**.
+1.  Click <ConsoleLabel name="billingaddress"/>.
 1.  In the address to update, click **Delete**.
