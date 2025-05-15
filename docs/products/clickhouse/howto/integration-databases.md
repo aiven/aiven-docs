@@ -2,6 +2,7 @@
 title: Manage Aiven for ClickHouse® integration databases
 ---
 
+<!-- vale off -->
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
