@@ -3,6 +3,7 @@ title: Set up Aiven for ClickHouse® data source integrations
 sidebar_label: Integrate with data source
 ---
 
+<!-- vale off -->
 import RelatedPages from "@site/src/components/RelatedPages";
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
