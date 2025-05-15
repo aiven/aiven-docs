@@ -7,7 +7,7 @@ limited: true
 Migrate an existing OpenSearch or Elasticsearch® snapshot to Aiven for OpenSearch® with minimal downtime and data integrity.
 The migration process consists of three key phases:
 
-- **[Data migration](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)**:
+- **[Data migration](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)**:
   Restore your data from external snapshots stored on supported
   platforms like Amazon S3, Google Cloud Storage (GCS), Microsoft Azure, or other
   S3-compatible services.
