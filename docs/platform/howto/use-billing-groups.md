@@ -4,7 +4,11 @@ title: Manage billing groups
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-With [billing groups](/docs/platform/howto/use-billing-groups) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
+Costs associated with services and features in an Aiven project are charged to the payment method assigned to its [billing group](/docs/platform/concepts/billing-and-payment#billing-groups).
+
+Billing groups let you set up billing profiles and use them across different projects
+in your organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups)
+is created for each billing group.
 
 You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
