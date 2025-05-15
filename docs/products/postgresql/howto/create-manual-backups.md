@@ -26,7 +26,7 @@ Where:
 
 This command creates a backup in `directory` format (ready for use with
 `pg_restore`) using 2 concurrent jobs and storing the output to a folder
-called `backup_folder`.
+called `backup_folder` as *.dat file.
 
 :::tip
 `pg_dump` can be run against any **standby** node, using the *Replica
