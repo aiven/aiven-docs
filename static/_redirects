@@ -220,9 +220,15 @@
 /tools/cli/ticket                                          https://aiven.io/docs/platform/howto/support
 /tools/terraform/concepts/data-sources                     https://aiven.io/docs/tools/terraform
 /tools/terraform/get-started                               https://aiven.io/docs/tools/terraform
+/tools/terraform/howto/config-postgresql-provider          https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/use-pg-provider-for-config
+/tools/terraform/howto/promote-to-master-pg-rr             https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/manage-read-replicas
 /tools/terraform/howto/terraform-logging                   https://aiven.io/docs/tools/terraform
 /tools/terraform/howto/update-deprecated-resources         https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources
 /tools/terraform/howto/upgrade-caching-valkey-terraform    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade
+/tools/terraform/howto/upgrade-provider-v1-v2              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v1-to-v2
+/tools/terraform/howto/upgrade-provider-v2-v3              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v2-to-v3
+/tools/terraform/howto/upgrade-provider-v3-v4              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4
+/tools/terraform/howto/upgrade-to-opensearch               https://aiven.io/docs/products/opensearch/get-started
 /tools/terraform/howto/vnet-peering-azure                  https://github.com/aiven/terraform-provider-aiven/tree/main/examples/azure_vnet_peering
 /tools/terraform/howto/vpc-peering-aws                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/aws_vpc_peering
 /tools/terraform/howto/vpc-peering-gcp                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/gcp_vpc_peering
