@@ -2,6 +2,8 @@
 title: Tax information for Aiven services
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 Aiven services are provided by Aiven Ltd, a private limited company incorporated in Finland, but operating in various countries. None of Aiven's marketed prices include value-added or other taxes.
 
 ## Aiven's tax status
@@ -46,8 +48,9 @@ You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature in the Aiven Console.
 
-1.  Click **Billing**.
-1.  Click **Billing groups**.
+1.  In your organization, go to <ConsoleLabel name="userinformation"/> >
+    <ConsoleLabel name="billing"/>.
+1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Select the billing group to update.
 1.  Click **Billing information**.
 1.  Optional: In the **Company details** section, click **Edit**, update

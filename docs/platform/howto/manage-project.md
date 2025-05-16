@@ -68,7 +68,8 @@ Services in the project continue running during the move.
 
 To move a project:
 
-1.  In the organization with the project, click **Admin**.
+1.  In the organization with the project, click
+    <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click <ConsoleLabel name="Projects"/> and find the project to move.
 1.  Click <ConsoleIcon name="more"/> > <ConsoleLabel name="Move project"/>.
 1.  Select the organization or organizational unit to move the project to.

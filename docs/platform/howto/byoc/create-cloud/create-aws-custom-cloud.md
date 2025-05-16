@@ -411,7 +411,7 @@ Create a custom cloud either in the Aiven Console or with the Aiven CLI.
 #### Launch the BYOC setup
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization.
-1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+1.  1.  Click <ConsoleLabel name="userinformation"/> > **Admin**,  and click <ConsoleLabel name="bringyourowncloud"/>
     in the sidebar.
 1.  In the **Bring your own cloud** view, select **Create custom cloud**.
 

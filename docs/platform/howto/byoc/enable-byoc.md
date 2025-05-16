@@ -44,8 +44,8 @@ Before enabling BYOC, check
 ## Enable BYOC
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
-1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
-    in the sidebar.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**, and click
+    <ConsoleLabel name="bringyourowncloud"/> in the sidebar.
 1.  In the **Bring your own cloud** view, click **Contact us**.
 1.  In the **Contact us** window, enter your email address and country.
     Select the cloud provider, add any other information

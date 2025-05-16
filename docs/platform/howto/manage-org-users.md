@@ -10,7 +10,8 @@ Adding users to your organization lets you give them access to specific projects
 
 To add users to your organization, send them an invite:
 
-1.  Click **Admin** > **Users**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="users"/>.
 1.  Click **Invite users**.
 1.  Enter the email addresses of the people to invite.
 1.  Click **Invite users**.
@@ -26,7 +27,8 @@ in the organization.
 
 To remove a user from an organization:
 
-1.  Click **Admin** > **Users**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="users"/>.
 1.  Find the user to remove and click
     <ConsoleLabel name="actions"/> > **Remove** and confirm.
 
@@ -34,7 +36,8 @@ To remove a user from an organization:
 
 To resend an invite to a user:
 
-1.  Click **Admin** > **Users**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="users"/>.
 1.  Find the email address to resend an invite to and click
     <ConsoleLabel name="actions"/> > **Resend invite**.
 
