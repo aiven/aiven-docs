@@ -801,6 +801,13 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="opensearch_enable_snapshot_api"/><Link to="#opensearch_enable_snapshot_api"><strong>opensearch.enable_snapshot_api</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable/Disable snapshot API</p>
+              <div className="description"><p>Enable/Disable snapshot API for custom repositories, this requires security management to be enabled</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="opensearch_thread_pool_search_size"/><Link to="#opensearch_thread_pool_search_size"><strong>opensearch.thread_pool_search_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>128</code></li></ul></div>
               <p className="title">search thread pool size</p>
               <div className="description"><p>Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</p></div>
