@@ -87,7 +87,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Billing groups',
-              items: ['platform/howto/use-billing-groups'],
+              items: [
+                'platform/howto/use-billing-groups',
+                'platform/howto/manage-billing-addresses',
+              ],
             },
             'platform/howto/download-invoices',
           ],

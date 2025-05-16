@@ -2,6 +2,8 @@
 title: Manage payment cards
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 The default payment method for new customers is credit card. All costs accrued over a calendar month are charged on the first day of the following month.
 
 You can add credit cards as a payment method to your organization and use
@@ -16,7 +18,7 @@ your billing groups. You must be an
 to access this feature.
 
 1. Click **Billing**.
-1. Click **Payment methods**.
+1. Click <ConsoleLabel name="paymentmethods"/>.
 1. On the **Payment cards** tab in the **Add payment card** section,
    enter the credit card details.
 1. Click **Add card**.
@@ -27,6 +29,6 @@ To delete a payment card,
 [remove it from all billing groups](/docs/platform/howto/use-billing-groups) first.
 
 1. Click **Billing**.
-1. Click **Payment methods**.
+1. Click <ConsoleLabel name="paymentmethods"/>.
 1. On the **Payment cards** tab, find the card to delete.
 1. Click **Delete** and confirm.
