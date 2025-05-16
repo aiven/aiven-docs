@@ -1,7 +1,7 @@
 import valkey
 
 def main():
-    valkey_uri = 'VALKEY_URI'  # Replace 'VALKEY_URI' with your actual Valkey service URI
+    valkey_uri = 'VALKEY_SERVICE_URI'  # Replace 'VALKEY_SERVICE_URI' with your actual Valkey service URI
     valkey_client = valkey.from_url(valkey_uri)
 
     valkey_client.set('key', 'hello world')
