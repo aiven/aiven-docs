@@ -457,25 +457,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Upgrade Aiven Provider',
-              items: [
-                'tools/terraform/howto/upgrade-provider-v1-v2',
-                'tools/terraform/howto/upgrade-provider-v2-v3',
-                'tools/terraform/howto/upgrade-provider-v3-v4',
-              ],
-            },
             'tools/terraform/howto/migrate-from-teams-to-groups',
-            'tools/terraform/howto/upgrade-to-opensearch',
-            {
-              type: 'category',
-              label: 'PostgreSQL',
-              items: [
-                'tools/terraform/howto/config-postgresql-provider',
-                'tools/terraform/howto/promote-to-master-pg-rr',
-              ],
-            },
             'tools/terraform/howto/use-opentofu',
           ],
         },
