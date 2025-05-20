@@ -108,6 +108,7 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/application-users',
                 'platform/howto/manage-application-users',
                 'platform/concepts/managed-users',
+                'platform/concepts/discovered-organizations',
                 'platform/howto/manage-groups',
                 'tools/aiven-console/howto/create-manage-teams',
               ],
