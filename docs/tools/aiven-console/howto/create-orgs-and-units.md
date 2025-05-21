@@ -61,6 +61,12 @@ for the new organization such as:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
+:::note
+To create an organization you have to log into the Aiven Console using your
+email and password. You cannot create an organization if you logged in using
+an [identity provider](/docs/platform/howto/list-identity-providers).
+:::
+
 1.  Click the user information icon in the top right and select
     **Organizations**.
 1.  Click **Create organization**.
@@ -71,6 +77,11 @@ for the new organization such as:
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
+
+:::note
+You cannot create an organization with a token that you created when you were logged in
+using an [identity provider](/docs/platform/howto/list-identity-providers).
+:::
 
 <TerraformSample filename='resources/aiven_organization/resource.tf' />
 
