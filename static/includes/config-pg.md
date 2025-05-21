@@ -365,7 +365,7 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="pg_stat_monitor_enable"/><Link to="#pg_stat_monitor_enable"><strong>pg_stat_monitor_enable</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Enable pg_stat_monitor extension if available for the current cluster</p>
-        <div className="description"><p>Enable the pg_stat_monitor extension. Enabling this extension will cause the cluster to be restarted.When this extension is enabled, pg_stat_statements results for utility commands are unreliable</p></div>
+        <div className="description"><p>Enable the pg_stat_monitor extension. Enabling this extension will cause the cluster to be restarted. When this extension is enabled, pg_stat_statements results for utility commands are unreliable</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
