@@ -55,8 +55,8 @@ them earlier, you're advised to do that after deleting your cloud.
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
-1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
-    in the sidebar.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**, and click
+    <ConsoleLabel name="bringyourowncloud"/> in the sidebar.
 1.  In the **Bring your own cloud** view, select a cloud.
 1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Delete**.
 1.  Click **Delete** in the **Warning** window.

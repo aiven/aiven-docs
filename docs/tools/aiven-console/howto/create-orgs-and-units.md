@@ -6,6 +6,7 @@ sidebar_label: Create organizations and units
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
@@ -24,7 +25,7 @@ within other units.
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  In the **Organizational units** section, click **Create organizational unit**.
 1.  Enter a name for the unit.
 1.  Click **Create organizational unit**.
@@ -61,8 +62,7 @@ for the new organization such as:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  Click the user information icon in the top right and select
-    **Organizations**.
+1.  Click <ConsoleLabel name="userinformation"/> > <ConsoleLabel name="organizations"/>.
 1.  Click **Create organization**.
 1.  Enter a name for the organization.
 1.  Optional: Select any projects to assign to this

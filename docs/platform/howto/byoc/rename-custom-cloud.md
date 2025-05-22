@@ -43,7 +43,7 @@ custom cloud name. You can change this name any time later by following
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
-1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
+1.  1.  Click <ConsoleLabel name="userinformation"/> > **Admin**,  and click <ConsoleLabel name="bringyourowncloud"/>
     in the sidebar.
 1.  In the **Bring your own cloud** view, select a cloud.
 1.  On the selected cloud's page, click <ConsoleLabel name="actions"/> > **Rename**.

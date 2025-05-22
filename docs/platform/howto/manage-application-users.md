@@ -25,7 +25,7 @@ to access this feature.
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  Click **Admin**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click <ConsoleLabel name="application users"/>.
 1.  Click **Create application user**.
 1.  Enter a name and click **Create application user**.
@@ -46,7 +46,7 @@ More information on this resource and its configuration options are available in
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  Click **Admin**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click <ConsoleLabel name="application users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> >
     <ConsoleLabel name="viewappuserprofile"/>.
@@ -74,7 +74,8 @@ More information on this resource and its configuration options are available in
 
 ## Revoke a token for an application user
 
-1.  Click **Admin** > <ConsoleLabel name="application users"/>.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="application users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> >
     <ConsoleLabel name="viewappuserprofile"/>.
 1.  In the **Authentication tokens** section, click <ConsoleLabel name="actions"/>.
@@ -82,6 +83,7 @@ More information on this resource and its configuration options are available in
 
 ## Delete an application user
 
-1.  Click **Admin** > <ConsoleLabel name="application users"/>.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="application users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> >
 <ConsoleIcon name="delete"/> **Delete**.

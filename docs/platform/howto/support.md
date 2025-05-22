@@ -2,6 +2,8 @@
 title: Support
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 All customers using paid service plans have access to the Basic support tier. Aiven also offers [paid support tiers](https://aiven.io/support-services) with faster response times, phone support, and other services. Custom [service level agreements](https://aiven.io/sla) are available for the Premium support tier.
 
 Customers who use only free services do not have access to support services.
@@ -12,7 +14,7 @@ To change your organization's support tier, you must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 and have at least the Basic support tier.
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 
 1.  In the **Support tier** section, click **View details or change tier**.
 
@@ -36,8 +38,10 @@ Create a ticket for issues or problems with the platform. For other services inc
 in your support tier like business reviews or disaster recovery planning, contact
 your account team.
 
-1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
-    to open the Aiven Support Center.
+1.  In the [Aiven Console](https://console.aiven.io/), click
+    <ConsoleLabel name="support"/>.
+
+1.  Click **Support tickets** to open the Aiven Support Center.
 
 1.  Click **Create ticket**.
 
@@ -91,8 +95,9 @@ tickets in your organization contact your account team.
 
 To add Aiven users to a support ticket:
 
-1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
-    to open the Aiven Support Center.
+1.  In the [Aiven Console](https://console.aiven.io/), click
+    <ConsoleLabel name="support"/>.
+1.  Click **Support tickets** to open the Aiven Support Center.
 1.  On the **My tickets** page, open the ticket.
 1.  Click **Add to conversation**.
 1.  Add the email addresses in the **CC** field separated by a space.
@@ -104,8 +109,9 @@ To add Aiven users to a support ticket:
 [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 can get notifications for updates on all tickets in their organization.
 
-1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
-    to open the Aiven Support Center.
+1.  In the [Aiven Console](https://console.aiven.io/), click
+    <ConsoleLabel name="support"/>.
+1.  Click **Support tickets** to open the Aiven Support Center.
 1.  Click **My tickets**.
 1.  On the **Tickets in my organization** tab, click **Follow all tickets**.
 

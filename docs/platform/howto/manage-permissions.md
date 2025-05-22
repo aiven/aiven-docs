@@ -22,7 +22,7 @@ this type of access, reset all service passwords.
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In the organization, click **Admin**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 
 1. Click <ConsoleLabel name="orgpermissions"/>.
 
@@ -44,7 +44,7 @@ and set the `resource_type` to `organization`.
 
 ### Change organization permissions for a user or group
 
-1. In the organization, click **Admin**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 
 1. Click <ConsoleLabel name="orgpermissions"/>.
 
@@ -62,7 +62,7 @@ to the organization.
 
 To remove all organization permissions for a user or group:
 
-1. In the organization, click **Admin**.
+1. In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 
 1. Click <ConsoleLabel name="orgpermissions"/>.
 
@@ -84,7 +84,7 @@ Aiven also highly recommends enabling
 [two-factor authentication](/docs/platform/howto/user-2fa) for super admin.
 :::
 
-1.  In the organization, click **Admin**.
+1.  In the organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
 1.  Click <ConsoleLabel name="users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="make super admin"/>.
 
