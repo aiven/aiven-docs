@@ -385,6 +385,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit topic </b>
         </>
       );
+    case 'editrepo':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit repository</b>
+        </>
+      );
     case 'deletetopic':
       return (
         <>
@@ -408,6 +414,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete table</b>
+        </>
+      );
+    case 'deletesnapshot':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete snapshot</b>
         </>
       );
     case 'disconnect':
@@ -550,6 +562,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
         </>
       );
+    case 'removerepo':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Remove repository</b>
+        </>
+      );
+    case 'viewsnapshot':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View snapshot details</b>
+        </>
+      );
     case 'activatetieredstorage':
       return (
         <>
@@ -601,6 +625,20 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />{' '}
           <b>Replication flow</b>
+        </>
+      );
+    case 'snapshots':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.moveProject} />{' '}
+          <b>Snapshots</b>
+        </>
+      );
+    case 'createsnapshot':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.moveProject} />{' '}
+          <b>Create snapshot</b>
         </>
       );
 
