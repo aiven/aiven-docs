@@ -44,6 +44,7 @@ target technology. The available sink connectors include:
 - [Google Cloud Storage](/docs/products/kafka/kafka-connect/howto/gcs-sink)
 - [HTTP](https://github.com/aiven/http-connector-for-apache-kafka)
 - [IBM MQ sink connector](/docs/products/kafka/kafka-connect/howto/ibm-mq-sink-connector)
+- [Iceberg sink connector](/docs/products/kafka/kafka-connect/howto/iceberg-sink-connector)
 - [InfluxDB sink connector](/docs/products/kafka/kafka-connect/howto/influx-sink)
 - [JDBC sink](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
 - [MongoDB sink (Lenses)](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses)
@@ -56,14 +57,6 @@ target technology. The available sink connectors include:
 - [Stream Reactor MQTT](https://docs.lenses.io/5.1/connectors/sinks/mqttsinkconnector/)
 - [Stream Reactor Redis®\*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
 - [S3 IAM Assume Role](/docs/products/kafka/kafka-connect/howto/s3-iam-assume-role)
-
-## Preview connectors
-
-![Preview icon next to an OpenSearch® Apache Kafka® Connect connector](/images/content/products/kafka/kafka-connect/preview-kafka-connect-connectors.png)
-
-Some connectors have a preview tag. **Preview connectors are not covered by our SLA**,
-so consider this before using them in production environments. Report bugs directly to
-the code owner.
 
 ## Requesting new connectors
 
@@ -84,10 +77,6 @@ Apache Kafka service.
 
 
 ------------------------------------------------------------------------
-
-import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
-
-<ElasticSearch/>
 
 import CouchBase from "@site/static/includes/trademark-couchbase.md"
 

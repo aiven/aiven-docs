@@ -36,7 +36,6 @@ You can fork the following Aiven services:
 -   Caching
 -   Apache Cassandra® (Limitation: you cannot fork to a lower amount of
     nodes)
--   Elasticsearch
 -   OpenSearch®
 
     :::important
@@ -139,7 +138,3 @@ A service cannot be renamed after creation. Instead, use a fork:
 <RelatedPages/>
 
 - [Create a service](/docs/platform/howto/create_new_service)
-
-import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
-
-<ElasticSearch/>
