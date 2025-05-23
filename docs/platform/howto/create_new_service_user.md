@@ -16,8 +16,8 @@ You can add service users for all the Aiven services except Aiven for Apache Fli
 and Aiven for Grafana®.
 
 :::note
-By default, the maximum amount of users allowed on a service is 50. This limitation doesn't
-apply to the following Aiven-managed services:
+By default, Aiven-managed services allow up to 50 users.
+This limit does not apply to the following services:
 
 - Aiven for AlloyDB Omni
 - Aiven for Apache Cassandra®
