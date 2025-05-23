@@ -4,7 +4,7 @@ title: Change unsafe passwords
 
 The Aiven Platform checks your email and password combination against a database of exposed credentials every time you log in and change your password.
 
-If Aiven detects an unsafe password, your login will be blocked until you
+If Aiven detects an unsafe password,  your login is blocked until you
 [reset your password](/docs/platform/reference/change-password#reset-your-password) to
 keep your account safe.
 
