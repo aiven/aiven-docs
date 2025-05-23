@@ -29,34 +29,21 @@ service configuration.
 - Multi-version support is available for all connectors where Aiven has published and
   supports more than one version. Support will continue to expand as new versions are
   released.
-- If no version is set, the latest available version is used.
-- Refer to [Check available connector versions](#check-available-connector-versions) to
+- Set a specific version to prevent automatic upgrades. If not set, the latest published
+  version is used.
+- See [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
 
-## Supported connectors and versions
-
 :::note
-All versions listed in the table are supported unless explicitly noted otherwise.
-:::
+Aiven supports multiple Debezium versions through multi-version support, including
+versions 1.9.7, 2.5.0, 2.7.4, and 3.1.0.
 
+To prevent automatic upgrades during maintenance, pin the connector version using
+the `plugin_versions` property.
+If you use Debezium for PostgreSQL with version 1.9.7 and the `wal2json` format, do not
+upgrade to version 2.0 or later until you migrate to `pgoutput`.
 
-| Connector          | Versions              |
-|---------------------|-----------------------|
-| Debezium            | `2.5.0` (recommended) <br /> `1.9.7` (deprecated) |
-| JDBC                | `6.10.0` (recommended) <br /> `6.9.0` (deprecated) |
-| Snowflake           | `2.3.0` (recommended) <br /> `2.2.0`               |
-
-
-:::tip
-This is a partial list of connectors, and it may change as new versions are released. To
-view the most up-to-date versions, see
-[Check available connector versions](#check-available-connector-versions).
-:::
-
-:::note
-If you are using version `1.9.7` of the Debezium connector, you can upgrade to
-version `2.5.0` without raising a support ticket. To upgrade, set version `2.5.0` in
-your configuration. For details, see [Set a connector version](#set-version).
+For upgrade steps, see [Set a connector version](#set-version).
 :::
 
 ## Prerequisites
