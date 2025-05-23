@@ -133,6 +133,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/delete-user',
               ],
             },
+            'platform/howto/unsafe-passwords',
           ],
         },
         {
