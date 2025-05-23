@@ -6,6 +6,10 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 You can make payments by credit card, bank transfer, or using your AWS, Google Cloud, or Azure [marketplace subscriptions](/docs/platform/howto/list-marketplace-payments).
 
+The [costs of services](#service-charges) in a project are charged to the
+[payment methods](/docs/platform/howto/manage-payment-card) of the
+[billing group](#billing-groups) assigned to that project.
+
 Billing information, invoices, and a breakdown of charges by category and billing group
 are available in the **Billing** section of the Aiven Console.
 To access this section, you must be an
@@ -18,9 +22,10 @@ and invoices using the API.
 
 [Billing groups](/docs/platform/howto/use-billing-groups)
 store your billing details in one place,
-including [payment methods](/docs/platform/howto/manage-payment-card), billing addresses,
-and billing contacts. This lets you use the same payment details across all projects
-within your organization, including those in organizational units.
+including payment methods,
+[billing and shipping addresses](/docs/platform/howto/manage-billing-addresses),
+and billing contacts. This lets you use the same payment details across
+all projects within your organization, including those in organizational units.
 
 You can use billing groups to combine costs based on categories like your organization's
 departments or IT environments. You receive a
