@@ -62,9 +62,9 @@ for the new organization such as:
 <TabItem value="console" label="Console" default>
 
 :::note
-You cannot create an organization if you logged in using
+You cannot create an organization while logged in with
 an [identity provider](/docs/platform/howto/list-identity-providers). To create an
-organization log into the Aiven Console using another authentication method.
+organization, log in to the Aiven Console using another authentication method.
 :::
 
 1.  Click the user information icon in the top right and select
