@@ -31,14 +31,8 @@ service configuration.
   released.
 - Set a specific version to prevent automatic upgrades. If not set, the latest published
   version is used.
-- Refer to [Check available connector versions](#check-available-connector-versions) to
+- See [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
-
-:::tip
-This is a partial list of connectors, and it may change as new versions are released. To
-view the most up-to-date versions, see
-[Check available connector versions](#check-available-connector-versions).
-:::
 
 :::note
 Aiven supports multiple Debezium versions through multi-version support, including
@@ -51,7 +45,6 @@ upgrade to version 2.0 or later until you migrate to `pgoutput`.
 
 For upgrade steps, see [Set a connector version](#set-version).
 :::
-
 
 ## Prerequisites
 
