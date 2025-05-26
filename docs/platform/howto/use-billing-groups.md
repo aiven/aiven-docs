@@ -47,6 +47,10 @@ billing contact emails, invoice emails, or other billing details:
 
 ## Assign projects to a billing group
 
+You can assign a project to any billing group in your organization. To assign a project
+to a billing group in another organization, you have to
+[move the project to that organization](/docs/platform/howto/manage-project#move-a-project).
+
 1.  In the organization, click **Billing**.
 1.  Select the name of the billing group to assign projects to.
 1.  On the **Projects** tab, click **Assign projects**.
