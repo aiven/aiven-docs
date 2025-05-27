@@ -138,7 +138,7 @@ To configure the Iceberg sink connector, define a JSON configuration file based 
 catalog type.
 
 :::note
-Loading worker properties is not supported. Use `iceberg.kafka.*` properties instead.
+Loading worker properties is not supported yet. Use `iceberg.kafka.*` properties instead.
 :::
 
 1. Create AWS resources, including an S3 bucket, Glue database, and tables.
@@ -162,7 +162,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
      "iceberg.tables.auto-create-enabled": "true",
      "iceberg.control.topic": "ICEBERG_CONTROL_TOPIC_NAME",
      "iceberg.control.commit.interval-ms": "1000",
-     "iceberg.control.commit.timeout-ms": "2147483647",
+     "iceberg.control.commit.timeout-ms": "60000",
      "iceberg.catalog.type": "glue",
      "iceberg.catalog.glue_catalog.glue.id": "AWS_ACCOUNT_ID",
      "iceberg.catalog.warehouse": "s3://BUCKET_NAME",
@@ -214,8 +214,9 @@ with the following properties:
 
 - Connector name: `iceberg_sink_glue`
 - Apache Kafka topic: `test-topic`
+- AWS Account ID: `your-aws-account-id`
 - AWS Glue region: `us-west-1`
-- AWS S3 bucket: `my-s3-bucket`
+- AWS S3 bucket: `your-s3-bucket`
 - AWS IAM access key ID: `your-access-key-id`
 - AWS IAM secret access key: `your-secret-access-key`
 - Target table: `mydatabase.mytable`
@@ -229,7 +230,7 @@ with the following properties:
   "tasks.max": "2",
   "topics": "test-topic",
   "iceberg.catalog.type": "glue",
-  "iceberg.catalog.glue_catalog.glue.id": "123456789012",
+  "iceberg.catalog.glue_catalog.glue.id": "your-aws-account-id",
   "iceberg.catalog.client.region": "us-west-1",
   "iceberg.catalog.client.credentials-provider": "org.apache.iceberg.aws.StaticCredentialsProvider",
   "iceberg.catalog.client.credentials-provider.access-key-id": "your-access-key-id",
@@ -237,11 +238,11 @@ with the following properties:
   "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
   "iceberg.catalog.s3.access-key-id": "your-access-key-id",
   "iceberg.catalog.s3.secret-access-key": "your-secret-access-key",
-  "iceberg.catalog.warehouse": "s3://<your-bucket-name>",
+  "iceberg.catalog.warehouse": "s3://your-s3-bucket",
   "iceberg.tables": "mydatabase.mytable",
   "iceberg.tables.auto-create-enabled": "true",
   "iceberg.control.commit.interval-ms": "1000",
-  "iceberg.control.commit.timeout-ms": "2147483647",
+  "iceberg.control.commit.timeout-ms": "60000",
   "key.converter": "org.apache.kafka.connect.json.JsonConverter",
   "value.converter": "org.apache.kafka.connect.json.JsonConverter",
   "iceberg.kafka.bootstrap.servers": "kafka.example.com:9092",

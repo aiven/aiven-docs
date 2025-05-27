@@ -24,8 +24,10 @@ The AWS Glue REST catalog stores metadata using the Iceberg REST API. It integra
   - Configure **AWS IAM roles** with the appropriate permissions. See
     [Configure AWS IAM permissions](#configure-aws-iam-permissions).
   - Create an **AWS Glue database and tables**:
-    - If using the **AWS Glue REST catalog**, manually create tables and ensure the
-      schema matches Apache Kafka records.
+    - If you use the **AWS Glue REST catalog**, manually create tables. Follow
+      the [naming conventions](/docs/products/kafka/kafka-connect/howto/aws-glue-rest-catalog#aws-glue-naming-conventions),
+      select **Apache Iceberg table** as the type, make sure the table definition
+      matches the schema of Apache Kafka record schema.
     - Specify the S3 bucket as the storage location. For more details, see the
       [AWS Glue data catalog documentation](https://docs.aws.amazon.com/glue/latest/dg/start-data-catalog.html).
 
@@ -140,7 +142,7 @@ To configure the Iceberg sink connector, define a JSON configuration file based 
 catalog type.
 
 :::note
-Loading worker properties is not supported. Use `iceberg.kafka.*` properties instead.
+Loading worker properties is not supported yet. Use `iceberg.kafka.*` properties instead.
 :::
 
 1. Create AWS resources, including an S3 bucket, Glue database, and tables.
@@ -168,7 +170,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
       "iceberg.tables.auto-create-enabled": "false",
       "iceberg.control.topic": "ICEBERG_CONTROL_TOPIC_NAME",
       "iceberg.control.commit.interval-ms": "1000",
-      "iceberg.control.commit.timeout-ms": "2147483647",
+      "iceberg.control.commit.timeout-ms": "60000",
       "iceberg.catalog.type": "rest",
       "iceberg.catalog.uri": "https://glue.AWS_REGION.amazonaws.com/iceberg",
       "iceberg.catalog.warehouse": "AWS_ACCOUNT_ID",
@@ -222,7 +224,7 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
     - `iceberg.control.commit.interval-ms`: Define how often (in milliseconds) the
       connector commits data to Iceberg tables. Default: `1000` (1 second)
     - `iceberg.control.commit.timeout-ms`: Set the maximum wait time (in milliseconds)
-      for a commit before timing out. Default: `2147483647` (~24 days)
+      for a commit before timing out. Default: `30000` (30 seconds)
     - `iceberg.catalog.type`: Specify the Iceberg catalog type. Use `rest` for
       AWS Glue REST catalog
     - `iceberg.catalog.uri`: Set the URI of the Iceberg REST catalog
@@ -234,7 +236,10 @@ Loading worker properties is not supported. Use `iceberg.kafka.*` properties ins
       requests (for example, `glue`)
     - `iceberg.catalog.rest.signing-region`: Set the AWS region used for request signing.
     - `iceberg.catalog.rest.sigv4-enabled`: Enable (`true`) or disable (`false`)
-      AWS SigV4 authentication for REST requests
+      AWS SigV4 authentication for REST requests. Deprecated in version 1.8
+    - `iceberg.catalog.rest.auth.type`: Sets the authentication method for REST requests
+      to `basic` (HTTP credentials), `sigv4` (AWS access key), or `oauth2` (OIDC token).
+      Introduced in version 1.8
     - `iceberg.catalog.rest.access-key-id`: Set the AWS access key ID for REST catalog
       authentication
     - `iceberg.catalog.rest.secret-access-key`: Set the AWS secret access key for
@@ -276,8 +281,8 @@ REST Catalog with the following properties:
 
 - Connector name: `iceberg_sink_rest`
 - Apache Kafka topic: `test-topic`
+- AWS Account ID: `your-aws-account-id`
 - AWS Glue region: `us-west-1`
-- AWS S3 bucket: `my-s3-bucket`
 - AWS IAM access key ID: `your-access-key-id`
 - AWS IAM secret access key: `your-secret-access-key`
 - Target table: `mydatabase.mytable`
@@ -294,14 +299,17 @@ REST Catalog with the following properties:
   "iceberg.catalog.uri": "https://glue.us-west-1.amazonaws.com/iceberg",
   "iceberg.catalog.rest.signing-name": "glue",
   "iceberg.catalog.rest.signing-region": "us-west-1",
+  "iceberg.catalog.rest.sigv4-enabled": "true",
+  "iceberg.catalog.rest.access-key-id": "your-access-key-id",
+  "iceberg.catalog.rest.secret-access-key": "your-secret-access-key",
   "iceberg.catalog.io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
   "iceberg.catalog.s3.access-key-id": "your-access-key-id",
   "iceberg.catalog.s3.secret-access-key": "your-secret-access-key",
-  "iceberg.catalog.warehouse": "<your-aws-account-id>",
+  "iceberg.catalog.warehouse": "your-aws-account-id",
   "iceberg.tables": "mydatabase.mytable",
   "iceberg.tables.auto-create-enabled": "false",
   "iceberg.control.commit.interval-ms": "1000",
-  "iceberg.control.commit.timeout-ms": "2147483647",
+  "iceberg.control.commit.timeout-ms": "60000",
   "key.converter": "org.apache.kafka.connect.json.JsonConverter",
   "value.converter": "org.apache.kafka.connect.json.JsonConverter",
   "iceberg.kafka.bootstrap.servers": "kafka.example.com:9092",
