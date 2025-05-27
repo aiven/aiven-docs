@@ -98,12 +98,12 @@ const config: Config = {
       'data-modal-disclaimer-font-size': '12px',
       'data-modal-disclaimer-text-color': '#4A4B57',
       'data-modal-disclaimer-bg-color': 'transparent',
-      'data-modal-ask-ai-input-placeholder': 'Ask me a question about Aiven...',
+      'data-modal-ask-ai-input-placeholder': 'Ask me a question about Aiven',
       'data-modal-disclaimer':
         "This helpful AI assistant is powered by kapa.ai and draws its answers from Aiven's documentation. Just so we're clear, Aiven owns all rights to their docs and anything based on them. Please note that responses might contain errors, and shouldn't be taken as formal advice, and aren't legally binding. By using this assistant, ensure you own necessary rights to your inputs as you let us and our licensees use your input, and you agree to indemnify us for any claims arising from your inputs. Please keep personal info out - kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy) applies. We offer this as-is, without warranties, and aren't liable for any damages.",
-      async: true,
       // 'data-modal-example-questions': 'example question 1, example question 2'
     },
+    {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
   plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
   themeConfig: {
