@@ -14,7 +14,7 @@ Enable Google Private Service Connect and use it with your Aiven-managed service
 - Google Private Service Connect is not supported for
 [BYOC](/docs/platform/concepts/byoc)-hosted services.
 - To activate Google Private Service Connect for Aiven for PostgreSQL®,
-  [contact us](https://aiven.io/contact?department=1306714).
+  contact your account team.
 
 :::
 
