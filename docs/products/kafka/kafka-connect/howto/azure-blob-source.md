@@ -158,7 +158,7 @@ This example creates an Azure Blob Storage source connector with the following s
 
 To use the Azure Blob Storage source connector for disaster recovery:
 
-1. Configure an [Azure Blob sink connector](/docs/products/kafka/kafka-connect/howto/azure-blob-sink-connector)
+1. Configure an [Azure Blob sink connector](/docs/products/kafka/kafka-connect/howto/azure-blob-sink)
    on your primary Aiven for Apache Kafka service or a dedicated Aiven for Apache Kafka
    Connect service to write Kafka messages to Azure Blob Storage.
 1. Configure an Azure Blob source connector using your DR Aiven for Apache Kafka service
