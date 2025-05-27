@@ -1025,6 +1025,34 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.remote_store"/><Link to="#opensearch_cluster.remote_store"><strong>opensearch.cluster.remote_store</strong></Link></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_remote_store"/><Link to="#opensearch_remote_store"><strong>opensearch.remote_store</strong></Link></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.filecache.remote_data_ratio"/><Link to="#opensearch_cluster.filecache.remote_data_ratio"><strong>opensearch.cluster.filecache.remote_data_ratio</strong></Link></p><p><code className="type">number,null</code></p></div><div className="constraints"><ul><li>max: <code>100</code></li></ul></div>
+              <p className="title">The limit of how much total remote data can be referenced</p>
+              <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 0.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_node.search.cache.size"/><Link to="#opensearch_node.search.cache.size"><strong>opensearch.node.search.cache.size</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">The limit of how much total remote data can be referenced</p>
+              <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 5gb. Requires restarting all OpenSearch nodes.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="opensearch_cluster.search.request.slowlog"/><Link to="#opensearch_cluster.search.request.slowlog"><strong>opensearch.cluster.search.request.slowlog</strong></Link></p><p><code className="type">object</code></p></div>
               
               
