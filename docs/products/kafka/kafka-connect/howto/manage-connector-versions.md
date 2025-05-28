@@ -46,6 +46,16 @@ upgrade to version 2.0 or later until you migrate to `pgoutput`.
 For upgrade steps, see [Set a connector version](#set-version).
 :::
 
+## Limitations
+
+You can select connector versions in the Aiven Console only for
+[dedicated Aiven for Apache Kafka Connect services](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+
+If you enabled [Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/enable-connect)
+as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.aiven.io/doc/)
+or [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+to set the connector version.
+
 ## Prerequisites
 
 - [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
@@ -165,6 +175,17 @@ all plugins. This process can take several minutes.
 <Tabs groupId="check-method">
 <TabItem value="console" label="Aiven Console" default>
 
+:::note
+Connector version selection is available in the Aiven Console only for dedicated
+Aiven for Apache Kafka Connect services.
+If you enabled Apache Kafka Connect as part of an Aiven for Apache Kafka service, use
+the Aiven API or Aiven Provider for Terraform to set the connector version.
+
+If you change the version, the connector installs the new package and restarts. The
+selected version applies to all instances of the connector, including both source and
+sink connectors.
+:::
+
 1. In your Aiven for Apache Kafka Connect service, click <ConsoleLabel name="Connectors"/>.
 1. In the **Enabled connectors** section, locate the connector to update.
 1. Click <ConsoleLabel name="actions"/> > **Change connector version**.
@@ -182,11 +203,6 @@ all plugins. This process can take several minutes.
    - **Install version and restart service** to apply the selected version.
    - **Confirm version** to keep the current version.
 
-:::note
-If you change the version, the connector installs the new package and restarts. The
-selected version applies to all instances of the connector, including both source and
-sink connectors.
-:::
 
 </TabItem>
 <TabItem value="api" label="Aiven API" default>
