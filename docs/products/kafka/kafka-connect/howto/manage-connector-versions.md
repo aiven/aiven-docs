@@ -34,7 +34,6 @@ service configuration.
 - See [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
 
-<<<<<<< HEAD
 :::warning
 Breaking changes may exist between different connector versions. These changes often
 involve updates to configuration parameters, such as the removal of deprecated parameters
@@ -45,8 +44,6 @@ Before upgrading:
 in production.
 :::
 
-=======
->>>>>>> 84fc7aae (update: content)
 :::note
 Aiven supports multiple Debezium versions through multi-version support, including
 versions 1.9.7, 2.5.0, 2.7.4, and 3.1.0.
@@ -60,7 +57,7 @@ upgrade to version 2.0 or later until you migrate to `pgoutput`.
 For upgrade steps, see [Set a connector version](#set-version).
 :::
 
-<<<<<<< HEAD
+
 ## Limitations
 
 Connector version selection is available in the Aiven Console only
@@ -73,8 +70,6 @@ as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.ai
 to set the connector version.
 
 
-=======
->>>>>>> 84fc7aae (update: content)
 ## Prerequisites
 
 - [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
@@ -210,6 +205,12 @@ Connector version selection in the Aiven Console is available only for
 1. Depending on your selection, click:
    - **Install version and restart service** to apply the selected version.
    - **Confirm version** to keep the current version.
+
+:::note
+If you change the version, the connector installs the new package and restarts. The
+selected version applies to all instances of the connector, including both source and
+sink connectors.
+:::
 
 </TabItem>
 <TabItem value="api" label="Aiven API" default>
