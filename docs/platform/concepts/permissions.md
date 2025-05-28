@@ -13,16 +13,16 @@ Principals are
 [application users](/docs/platform/concepts/application-users),
 and [groups](/docs/platform/howto/manage-groups).
 
-You can grant access to principals at the organization and project level.
+You can grant access to principals at the organization, organizational unit,
+and project level.
 
 To give users access to a specific service,
 [create service users](/docs/platform/howto/create_new_service_user).
 
 ## Organization roles and permissions
 
-You can grant the following roles and permissions to principals at the organization level.
-Roles and permissions at this level apply to the organization and all units, projects,
-and services within it.
+Roles and permissions at the organization level apply to the organization and all units,
+projects, and services within it.
 
 ### Organization roles
 
@@ -32,7 +32,7 @@ and services within it.
 | ------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Organization member | None                      | This is the default role for all organization users. **You cannot grant this role to users.** <br/> <br/> All non-managed organization users can: <ul> <li> Edit their profiles. </li> <li> Create organizations. </li> <li> Leave organizations. </li> <li> Add [allowed authentication methods](/docs/platform/howto/set-authentication-policies). </li> <li> Generate and revoke personal tokens, if allowed by the [authentication policy](/docs/platform/howto/set-authentication-policies). </li> <li> Enable and disable feature previews. </li> </ul> <br/> [Managed users](/docs/platform/concepts/managed-users) have more restrictions. |
 | Super admin         | None                      | <ul> <li> Completely unrestricted access to all organization resources and settings, including: all units and projects, billing information, the authentication policy, [other super admin](/docs/platform/howto/manage-permissions#make-users-super-admin), organization users, application users, groups, domains, and identity providers. </li> <li> Rename the organization. </li> <li> Delete the organization. </li> </ul>                                                                                                                                                                                                                   |
-| Admin               | `role:organization:admin` | <ul> <li> Full access to the organization. </li> <li> View and change billing information. </li> <li> Change the authentication policy. </li> <li> Create and delete organizational units and projects. </li> <li> Move projects within an organization and to other organizations. </li> <li> Invite, deactivate, and remove organization users. </li> <li> Create, edit, and delete groups. </li> <li> Create and delete application users and their tokens. </li> <li> Add and remove domains. </li> <li> Add, enable, disable, and remove identity providers. </li> </ul> Cannot delete an organization or manage its super admin.             |
+| Admin               | `role:organization:admin` | <ul> <li> Full access to the organization. </li> <li> View and change billing information. </li> <li> Change the authentication policy. </li> <li> Create and delete organizational units and projects. </li> <li> Move projects within an organization and to other organizations. </li> <li> Invite, deactivate, and remove organization users. </li> <li> Create, edit, and delete groups. </li> <li> Create and delete application users and their tokens. </li> <li> Add and remove domains. </li> <li> Add, enable, disable, and remove identity providers. </li> </ul> Cannot delete an organization or manage its super admin. <br/> <br/> Users who are granted this role on the **unit level** can: <ul> <li> Create and manage projects within the unit. </li> <li> Grant users and groups permission to the unit. </li> </ul>           |
 
 ### Organization permissions
 
@@ -52,8 +52,11 @@ and services within it.
 | Manage organization users      | `organization:users:write`      | <ul> <li> Invite new users to the organization. </li> <li> View all invited users. </li> <li> Remove user invites. </li> <li> Deactivate, edit and delete [managed users](/docs/platform/concepts/managed-users), including organization admin. </li> <li> Remove non-managed users from the organization, including organization admin. </li> <li> Reset passwords for managed users. </li> <li> View all authentication methods for an organization user. </li> <li> Revoke tokens for managed users. </li> <li> View all tokens generated by managed users. </li> </ul> |
 
 ## Project roles and permissions
+
 You can grant the following roles and permissions to principals. Roles and permissions
-granted at this level apply to the project and all services within it.
+granted at the project level apply to the project and all services within it. Project
+roles and permissions granted at the unit level apply to all projects and services
+within the unit.
 
 These permissions apply to the
 [project API endpoint](https://api.aiven.io/doc/#tag/Organizations/operation/OrganizationProjectsCreate)
