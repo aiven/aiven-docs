@@ -31,11 +31,17 @@ need to be re-established for each new copy.
 
 You can fork the following Aiven services:
 
--   PostgreSQL®
--   MySQL
+-   Apache Cassandra®
+
+    :::important
+    You cannot fork to a lower amount of nodes.
+    :::
+
 -   Caching
--   Apache Cassandra® (Limitation: you cannot fork to a lower amount of
-    nodes)
+-   ClickHouse®
+-   Grafana®
+-   M3DB
+-   MySQL
 -   OpenSearch®
 
     :::important
@@ -48,8 +54,7 @@ You can fork the following Aiven services:
     access.
     :::
 
--   M3DB
--   Grafana®
+-   PostgreSQL®
 
 ## Fork a service
 
