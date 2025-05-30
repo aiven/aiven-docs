@@ -58,7 +58,7 @@ target technology. The available sink connectors include:
 - [Stream Reactor Redis®\*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
 - [S3 IAM Assume Role](/docs/products/kafka/kafka-connect/howto/s3-iam-assume-role)
 
-## Requesting new connectors
+## Request new connectors
 
 To request a new connector,
 [submit an idea through the Aiven Ideas portal](https://ideas.aiven.io/). Aiven regularly
@@ -71,9 +71,9 @@ Aiven evaluates new Apache Kafka Connect connectors based on the following crite
 - Active repository maintenance
 
 :::tip
-If the connector is not on the pre-approved list, mention which
-Aiven for Apache Kafka service to use it with. This helps us better understand your
-use case.
+If the connector is not on the pre-approved list, include the name of the
+Aiven for Apache Kafka service you plan to use it with. This helps us better
+understand your use case.
 :::
 
 ------------------------------------------------------------------------
