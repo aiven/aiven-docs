@@ -72,10 +72,26 @@ Parameters:
 - `poll.interval.ms`: Optional. How often the connector checks for new blobs, in
   milliseconds. The default is `5000`
 
+**Advanced options**
+
+For advanced use cases such as Avro format, byte buffering, or topic overrides,
+consider these additional parameters:
+
+- `schema.registry.url`: Schema registry URL used with Avro or Parquet input format
+- `value.converter.schema.registry.url`: Schema registry URL used by the value converter
+- `value.serializer`: Serializer used for values with Avro input format
+- `transformer.max.buffer.size`: Maximum size, in bytes, of each blob read when using
+  the `bytes` input format with byte distribution
+- `distribution.type`: File distribution strategy. Valid values are `hash` (default)
+  or `partition`
+- `errors.tolerance`: Whether to skip records with decoding or formatting errors. Set to
+  `all` to prevent connector failure
+- `topic`: Kafka topic to use if not specified in the file name template, or to
+  override the topic defined in the template
+
 
 For a complete list of configuration options, see the
 [Azure Blob source connector configuration reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/AzureBlobSourceConfig.html).
-
 
 ## Create the connector
 
