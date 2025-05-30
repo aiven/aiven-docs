@@ -60,21 +60,21 @@ target technology. The available sink connectors include:
 
 ## Requesting new connectors
 
-If there are connectors you'd like us to support, submit a support request. Your
-feedback helps shape our roadmap. To request a new connector,
-[create a support ticket](/docs/platform/howto/support#create-a-support-ticket).
+To request a new connector,
+[submit an idea through the Aiven Ideas portal](https://ideas.aiven.io/). Aiven regularly
+reviews new ideas to help prioritize future updates.
 
-Aiven evaluates new Apache Kafka Connect connectors based on:
+Aiven evaluates new Apache Kafka Connect connectors based on the following criteria:
 
 - License compatibility
 - Technical implementation
 - Active repository maintenance
 
 :::tip
-When requesting connectors not on the pre-approved list, specify the target Aiven for
-Apache Kafka service.
+If the connector is not on the pre-approved list, mention which
+Aiven for Apache Kafka service to use it with. This helps us better understand your
+use case.
 :::
-
 
 ------------------------------------------------------------------------
 
