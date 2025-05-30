@@ -15,31 +15,25 @@ The Azure Blob Storage source connector allows you to ingest data from Azure Blo
   with Apache Kafka Connect enabled, or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 - An Azure Storage container with data to stream into an Apache Kafka topic.
-- Authentication credentials using one of the following methods:
-  - Shared Access Signature (SAS) token: `azblob.sas.token`
-  - Storage account key: `azure.storage.connection.string`
-
-  :::note
-  Use either `azblob.sas.token` or `azure.storage.connection.string`, not both. If both
-  are provided, the SAS token is used.
-  :::
-
+- Authentication credentials provided as a storage account connection
+  string (`azure.storage.connection.string`).
 - Azure Blob Storage details:
   - `azure.storage.container.name`: Name of the container to read from.
   - Optional: `azure.blob.prefix` or `file.name.prefix` to filter files.
 - A target Apache Kafka topic that exists before you create the connector.
 
-## Supported input formats
+## Input formats
 
-Specify the input format of your files using the `format.class` parameter:
+Specify the input format of the source files using the `input.format` parameter.
+Supported values:
 
-| Format    | Description                                | Configuration               |
-| --------- | ------------------------------------------ | --------------------------- |
-| `csv`     | Flat structure with comma-separated values | `format.class=csv`     |
-| `jsonl`   | One JSON object per line                   | `format.class=jsonl`   |
-| `json`    | JSON array of objects                      | `format.class=json`    |
-| `avro`    | Avro Object Container File                 | `format.class=avro`    |
-| `parquet` | Apache Parquet columnar format             | `format.class=parquet` |
+- `bytes` (default)
+- `json`
+- `avro`
+- `parquet`
+
+For more information, see the
+[Azure Blob source connector configuration reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/AzureBlobSourceConfig.html#input.format).
 
 ## Create an Azure Blob Storage source connector configuration file
 
@@ -48,37 +42,40 @@ Create a file named `azure_blob_source_config.json` with the following configura
 ```json
 {
   "name": "azure-blob-source",
-  "connector.class": "io.aiven.connect.azure.blob.storage.source.AzureBlobStorageSourceConnector",
+  "connector.class": "io.aiven.kafka.connect.azure.source.AzureBlobSourceConnector",
   "azure.storage.connection.string": "your-connection-string",
   "azure.storage.container.name": "your-container",
-  "azure.blob.prefix": "data/logs/",
-  "format.class": "json",
-  "kafka.topic": "blob-ingest-topic",
-  "format.output.fields": "key,value,offset,timestamp",
-  "file.name.prefix": "data/logs/",
-  "file.compression.type": "gzip",
+  "file.name.template": "{{topic}}-{{timestamp}}.gz",
   "tasks.max": 1,
+  "azure.blob.prefix": "data/logs/",
+  "file.compression.type": "gzip",
+  "input.format": "json",
   "poll.interval.ms": 10000
 }
 ```
 
 Parameters:
 
-- `name`: Name of the connector.
-- `connector.class`: Connector class for Azure Blob Storage source.
-- `azure.storage.connection.string`: Azure Storage connection string.
-- `azure.storage.container.name`: Name of the blob container.
-- `azure.blob.prefix` (optional): Filters files by prefix path.
-- `format.class`: Format of the input files (see supported formats above).
-- `kafka.topic`: Target Apache Kafka topic.
-- `format.output.fields`: Fields to include in the Kafka record.
-- `file.name.prefix` (optional): Prefix pattern to match blob filenames.
-- `file.compression.type` (optional): Set to `gzip` for compressed files.
-- `tasks.max`: Number of parallel ingestion tasks.
-- `poll.interval.ms`: How often the connector checks for new blobs (in milliseconds)
+- `name`: Name of the connector
+- `connector.class`: Class name of the Azure Blob Storage source connector
+- `azure.storage.connection.string`: Connection string for the Azure Storage account
+- `azure.storage.container.name`: Name of the Azure blob container to read from
+- `file.name.template`: Pattern used to match blob filenames. For example,
+  `{{topic}}-{{timestamp}}.gz`. For supported placeholders, see the
+   [object key name format documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/README.md#s3-object-key-name-format)
+- `tasks.max`: Maximum number of parallel ingestion tasks
+- `azure.blob.prefix`: Optional. Prefix path in the container to filter files
+- `file.compression.type`: Optional. Compression type used in the files. Valid values
+  are `none`, `gzip`, `snappy`, or `zstd`
+- `input.format`: Optional. Format of the input files. Valid values are
+  `bytes` (default), `avro`, `json`, or `parquet`
+- `poll.interval.ms`: Optional. How often the connector checks for new blobs, in
+  milliseconds. The default is `5000`
 
-For advanced settings and additional configuration options, see the
-[Azure Blob source connector reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/index.html).
+
+For a complete list of configuration options, see the
+[Azure Blob source connector configuration reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/AzureBlobSourceConfig.html).
+
 
 ## Create the connector
 
@@ -106,7 +103,6 @@ For advanced settings and additional configuration options, see the
 1. Click **Create connector**.
 1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
 
-
 </TabItem>
 <TabItem value="cli" label="CLI">
 
@@ -121,7 +117,8 @@ Replace:
 - `SERVICE_NAME`: Name of your Apache Kafka or Apache Kafka Connect service.
 - `@azure_blob_source_config.json`: Path to your JSON configuration file.
 
-</TabItem> </Tabs>
+</TabItem>
+</Tabs>
 
 ## Example: Define and create an Azure Blob Storage source connector
 
@@ -132,24 +129,23 @@ This example creates an Azure Blob Storage source connector with the following s
 - Azure Storage connection string: `your-connection-string`
 - Azure container: `my-container`
 - File prefix: `data/logs/`
+- File name template: `{{topic}}-{{timestamp}}.gz`
 - Input format: `json`
-- Output fields: `key, value, offset, timestamp`
 - Compression type: `gzip`
 - Poll interval: `10 seconds`
 
 ```json
 {
   "name": "azure_blob_source",
-  "connector.class": "io.aiven.connect.azure.blob.storage.source.AzureBlobStorageSourceConnector",
+  "connector.class": "io.aiven.kafka.connect.azure.source.AzureBlobSourceConnector",
   "tasks.max": 1,
   "kafka.topic": "blob-ingest-topic",
   "azure.storage.connection.string": "your-connection-string",
   "azure.storage.container.name": "my-container",
   "azure.blob.prefix": "data/logs/",
-  "file.name.prefix": "data/logs/",
-  "format.class": "json",
-  "format.output.fields": "key,value,offset,timestamp",
+  "file.name.template": "{{topic}}-{{timestamp}}.gz",
   "file.compression.type": "gzip",
+  "input.format": "json",
   "poll.interval.ms": 10000
 }
 ```
@@ -169,10 +165,14 @@ To use the Azure Blob Storage source connector for disaster recovery:
 
 Both connectors must use identical settings:
 
-- File naming: Same `file.name.template`, such
-  as `{{topic}}-{{partition:padding=true}}-{{start_offset:padding=true}}.gz`
-- Format: Same `format.class`, `format.output.fields`, and envelope settings if used
-- Compression: Same compression method
+- File naming: Use the same `file.name.template`.
+  For source connectors, a recommended format is
+  `{{topic}}-{{timestamp:padding=true}}.gz`.
+  For sink connectors, formats like
+  `{{topic}}-{{partition:padding=true}}-{{start_offset:padding=true}}.gz`
+  are more common, but may not be practical for use in source connectors.
+- Format: Same `input.format`, and schema/envelope settings if used.
+- Compression: Same file compression method.
 
 Mismatched settings can cause the source connector to skip files, fail to
 deserialize the data, or restore records with incorrect topic, partition, or
