@@ -6,7 +6,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.5.0 |
 | address_standardizer_data_us | 3.5.0 |
-| aiven_extras | 1.1.16 |
+| aiven_extras | 1.1.17 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -69,7 +69,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.5.0 |
 | address_standardizer_data_us | 3.5.0 |
-| aiven_extras | 1.1.16 |
+| aiven_extras | 1.1.17 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -132,7 +132,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.16 |
+| aiven_extras | 1.1.17 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -195,7 +195,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.16 |
+| aiven_extras | 1.1.17 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -258,7 +258,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.16 |
+| aiven_extras | 1.1.17 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -319,7 +319,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.16 |
+| aiven_extras | 1.1.17 |
 | bloom | 1.0 |
 | btree_gin | 1.3 |
 | btree_gist | 1.5 |
