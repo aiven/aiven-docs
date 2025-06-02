@@ -74,13 +74,24 @@ Parameters:
 
 **Advanced options**
 
-For advanced use cases such as Avro format, byte buffering, or topic overrides,
-consider these additional parameters:
+For advanced use cases, such as Avro or Parquet formats, byte buffering, or topic
+overrides, you can customize the following settings:
 
-- `schema.registry.url`: Schema registry URL used with Avro or Parquet input format
-- `value.converter.schema.registry.url`: Schema registry URL used by the value converter
+- `schema.registry.url`: URL of the schema registry. Required when `input.format` is
+  set to `avro` or `parquet`
+
+  If the schema registry requires authentication, provide the following properties:
+
+  ```json
+  "basic.auth.credentials.source": "USER_INFO",
+  "basic.auth.user.info": "username:password"
+  ```
+
+  The `basic.auth.user.info` value should contain your Schema Registry credentials in
+  the format `username:password`.
+
 - `value.serializer`: Serializer used for values with Avro input format
-- `transformer.max.buffer.size`: Maximum size, in bytes, of each blob read when using
+- `transformer.max.buffer.size`: Maximum size in bytes of each blob read when using
   the `bytes` input format with byte distribution
 - `distribution.type`: File distribution strategy. Valid values are `hash` (default)
   or `partition`
@@ -88,7 +99,6 @@ consider these additional parameters:
   `all` to prevent connector failure
 - `topic`: Kafka topic to use if not specified in the file name template, or to
   override the topic defined in the template
-
 
 For a complete list of configuration options, see the
 [Azure Blob source connector configuration reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/AzureBlobSourceConfig.html).
