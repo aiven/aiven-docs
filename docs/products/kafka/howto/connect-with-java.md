@@ -13,8 +13,12 @@ see [Authentication types](/docs/products/kafka/concepts/auth-types).
 
 Before you begin:
 
-1. Add the `kafka-clients` dependency to your Java project from your preferred artifact
-   repository, such as [Maven Central](https://maven.apache.org/index.html).
+1. Add the following dependencies to your Java project using your preferred
+   artifact repository, such as [Maven Central](https://maven.apache.org/index.html):
+
+   - `kafka-clients`: Provides the core Kafka client library.
+   - `kafka-avro-serializer`: Enables Avro serialization and integration with
+     Schema Registry.
 
 1. In the Aiven Console, go to the <ConsoleLabel name="overview"/> page of your
    Aiven for Apache Kafka service and choose your authentication method:
@@ -126,7 +130,7 @@ properties.setProperty("schema.registry.basic.auth.user.info", "{SCHEMA_REGISTRY
 properties.setProperty("auto.register.schemas", "false");
 properties.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "{SCHEMA_REGISTRY_URL}");
 
-// Create a producer with String key and Avro value
+// Create a producer with StringSerializer for key and AvroSerializer for value
 KafkaProducer<String, GenericRecord> producer = new KafkaProducer<>(properties);
 
 // Define schema
@@ -213,7 +217,7 @@ properties.setProperty("basic.auth.credentials.source", "USER_INFO");
 properties.setProperty("schema.registry.basic.auth.user.info", "{SCHEMA_REGISTRY_USER}:{SCHEMA_REGISTRY_PASS}");
 properties.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "{SCHEMA_REGISTRY_URL}");
 
-// Create a consumer with String key and Avro value
+// Create a consumer with StringDeserializer for key and AvroDeserializer for value
 KafkaConsumer<String, GenericRecord> consumer = new KafkaConsumer<>(properties);
 
 // Process records
