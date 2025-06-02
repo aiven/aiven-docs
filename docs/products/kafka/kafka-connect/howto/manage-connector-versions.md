@@ -48,12 +48,13 @@ For upgrade steps, see [Set a connector version](#set-version).
 
 ## Limitations
 
-You can select connector versions in the Aiven Console only for
+You can currently select connector versions in the Aiven Console only for
 [dedicated Aiven for Apache Kafka Connect services](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
 If you enabled [Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/enable-connect)
-as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.aiven.io/doc/)
-or [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.aiven.io/doc/),
+[Aiven CLI](/docs/tools/cli), or
+[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 to set the connector version.
 
 ## Prerequisites
