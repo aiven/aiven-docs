@@ -21,7 +21,7 @@ service configuration.
   upgrade. The connector will continue to run, but upgrading to a supported version is
   recommended to avoid compatibility issues.
 - Support is limited to the latest connector version and the most recent previous
-  version. Breaking changes, if any, are detailed in
+  version. Breaking changes, if known, are mentioned in
   [maintenance update notifications](/docs/platform/concepts/maintenance-window#maintenance-updates).
 - Setting a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
@@ -32,6 +32,16 @@ service configuration.
 - If no version is set, the latest available version is used.
 - Refer to [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
+
+:::warning
+Breaking changes may exist between different connector versions. These changes often 
+involve updates to configuration parameters, such as the removal of deprecated parameters 
+or the introduction of new ones.
+Before upgrading:
+- Review the connector release notes for details on changes.
+- Always test a connector version change in a non-production environment before applying it
+in production.
+:::
 
 ## Supported connectors and versions
 
