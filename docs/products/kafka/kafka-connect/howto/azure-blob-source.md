@@ -24,16 +24,13 @@ The Azure Blob Storage source connector allows you to ingest data from Azure Blo
 
 ## Input formats
 
-Specify the input format of the source files using the `input.format` parameter.
-Supported values:
+Use the `input.format` parameter to configure how the connector interprets the
+contents of source files. Supported formats:
 
 - `bytes` (default)
-- `json`
+- `jsonl`
 - `avro`
 - `parquet`
-
-For more information, see the
-[Azure Blob source connector configuration reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/AzureBlobSourceConfig.html#input.format).
 
 ## Create an Azure Blob Storage source connector configuration file
 
@@ -49,7 +46,7 @@ Create a file named `azure_blob_source_config.json` with the following configura
   "tasks.max": 1,
   "azure.blob.prefix": "data/logs/",
   "file.compression.type": "gzip",
-  "input.format": "json",
+  "input.format": "jsonl",
   "poll.interval.ms": 10000
 }
 ```
