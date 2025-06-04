@@ -29,14 +29,12 @@ Free plans include:
     Kubernetes Operator
 -   Monitoring for metrics and logs
 -   Backups
--   Integrations between different Aiven services including free, paid,
-    and trial services
 
 There are some limitations of the free plan services:
 
 -   No VPC peering
 -   No static IPs
--   No external service integrations
+-   No integrations
 -   No forking
 -   For PostgreSQL:
     -   No connection pooling
