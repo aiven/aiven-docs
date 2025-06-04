@@ -6,7 +6,7 @@ All customers using paid service plans have access to the Basic support tier. Ai
 
 Customers who use only free services do not have access to support services.
 
-## Change your support tier {#upgrade-support-tier}
+## Change your support tier
 
 To change your organization's support tier, you must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
@@ -29,6 +29,12 @@ and have at least the Basic support tier.
 1.  Click **Change tier**.
 
 It typically takes 1-2 business days to set up the new support tier.
+
+## Cancel a paid support contract
+
+To cancel your paid support contract, you can
+[change your support tier](#change-your-support-tier) to Basic.
+Your paid support will end after the current month.
 
 ## Create a support ticket
 
