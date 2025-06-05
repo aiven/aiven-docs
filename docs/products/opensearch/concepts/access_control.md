@@ -8,7 +8,7 @@ Access control is a crucial security measure that allows you to control who can 
 :::important
 Make sure to restrict service user permissions using
 [Access Control Lists (ACLs)](/docs/products/opensearch/get-started#secure-access-with-acls)
-or [OpenSearch Security](/docs/products/opensearch/concepts/os-security). Without proper
+or [OpenSearch Security](/docs/products/opensearch/concepts/os-security). Without these
 restrictions, all roles can use `avnadmin` credentials to perform operations outside their
 intended scope.
 :::
