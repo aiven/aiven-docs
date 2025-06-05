@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service's disk storage by a factor of 10 Gi, without upgrading your plan.
+Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service's disk storage, without upgrading your plan.
 
 This operation does not disrupt your running service. You pay only for the
 additional storage, not for the compute resources that are part of an upgraded
@@ -16,13 +16,14 @@ service plan.
 :::note[Availability]
 DDS is available for the following services:
 
+- Aiven for Apache Cassandra®
 - Aiven for Apache Kafka®
-- Aiven for PostgreSQL®
+- Aiven for ClickHouse®
+- Aiven for M3DB®
+- Aiven for Metrics®
 - Aiven for MySQL®
 - Aiven for OpenSearch®
-- Aiven for Apache Cassandra®
-- Aiven for Metrics®
-- Aiven for M3DB®
+- Aiven for PostgreSQL®
 
 DDS is not supported on custom plans.
 :::
