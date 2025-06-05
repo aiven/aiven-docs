@@ -1,13 +1,13 @@
 ---
-title: Enable OpenSearch® Security management for Aiven for OpenSearch®
+title: Enable OpenSearch Security management for Aiven for OpenSearch®
 sidebar_label: Enable OpenSearch Security
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-[OpenSearch Security](/docs/products/opensearch/concepts/os-security) provides a range of security features, including fine-grained access controls, SAML authentication, and audit logging to monitor activity within your OpenSearch service.
-By enabling this, you
-can manage user permissions, roles, and other security aspects
+[OpenSearch Security](/docs/products/opensearch/concepts/os-security) provides a range of security features, including fine-grained access controls, SAML authentication, and audit logging to monitor activity within your Aiven for OpenSearch® service.
+
+By enabling this, you can manage user permissions, roles, and other security aspects
 through the OpenSearch Dashboard.
 
 ## Considerations before enabling OpenSearch Security
@@ -35,7 +35,7 @@ OpenSearch service, note the following:
     [Aiven Terraform Provider](/docs/tools/terraform) or
     [Aiven Operator for Kubernetes®](/docs/tools/kubernetes) to manage access controls.
 
-## Enable OpenSearch® Security
+## Enable OpenSearch Security
 
 To activate OpenSearch Security management for your Aiven for OpenSearch service:
 
@@ -58,11 +58,11 @@ To activate OpenSearch Security management for your Aiven for OpenSearch service
     :::
 
 1.  Click **Enable OpenSearch Security** to create the administrator user and activate
-    OpenSearch Security.
+    OpenSearch Security management.
 
-After activating OpenSearch Security, you are redirected to the **Users** page, where you
-can verify that the security feature is enabled.
+After activating OpenSearch Security management, you are redirected to the **Users** page,
+where you can verify that the security feature is enabled.
 
-To manage user permissions and other security settings, access OpenSearch Security by
-logging in to the [OpenSearch Dashboard](/docs/products/opensearch/dashboards) using your
-security admin credentials.
+To manage user permissions and other security settings, access OpenSearch Security
+management by logging in to the [OpenSearch Dashboard](/docs/products/opensearch/dashboards)
+using your security admin credentials.
