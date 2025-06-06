@@ -5,8 +5,15 @@ sidebar_label: Access control
 
 Access control is a crucial security measure that allows you to control who can access your data and resources. By setting up access control rules, you can restrict access to sensitive data and prevent unauthorized changes or deletions.
 
+:::important
+`avnadmin` is the default service user, and its credentials are included in the default
+connection string for logging into OpenSearch Dashboards. If you require different access
+permissions for other service users, restrict their permissions as needed with
+[Access Control Lists (ACLs)](/docs/products/opensearch/get-started#secure-access-with-acls).
+:::
+
 Aiven for OpenSearch® provides the following ways to manage user
-accounts and access control in OpenSearch®.
+accounts and access control in OpenSearch®:
 
 ## Method 1: Enable access control on the Aiven Console
 
