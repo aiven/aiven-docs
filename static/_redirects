@@ -245,6 +245,15 @@
 /valkey                                                               https://aiven.io/docs/products/valkey
 
 #
+# Redirects for legacy urls
+#
+/index.html                                                https://aiven.io/docs
+/docs/*                                                    https://aiven.io/docs/:splat
+/*/index.html                                              https://aiven.io/docs/:splat
+/*.html                                                    https://aiven.io/docs/:splat
+/*/                                                        https://aiven.io/docs/:splat
+
+#
 # Keep splats at the end
 #
 /platform/howto/byoc/create-custom-cloud/*                 https://aiven.io/docs/platform/howto/byoc/create-cloud/:splat
