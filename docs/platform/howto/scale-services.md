@@ -12,7 +12,7 @@ You can also [adjust disk storage][storage] without changing your plan.
 
 :::important
 
-- Downgrading to a plan with less VMs is not supported.
+- Downgrading to a plan with fewer VMs is not supported.
 - Changing a service plan triggers a node recycle, service rebuilding, and pending
   maintenance updates, if any.
 
