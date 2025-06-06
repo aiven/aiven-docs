@@ -2,7 +2,7 @@
 title: Watermarks
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Apache Flink® uses watermarks to synchronize and process events in data streams accurately. These watermarks are timestamps embedded in the data stream that track the progression of event time.
 

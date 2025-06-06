@@ -1,11 +1,10 @@
 ---
 title: Connect with Java
-early: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/postgresql/connect.java';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database from Java, using JDBC Driver.
 

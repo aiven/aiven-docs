@@ -5,8 +5,8 @@ sidebar_label: Tag resources
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Tagging allows resource categorization, which simplifies governance, cost allocation, and system performance review. Custom cloud tags propagate to resources on the Aiven platform and in your own cloud infrastructure.
 
@@ -66,8 +66,8 @@ see [Use resource tags](/docs/platform/howto/tag-resources#add-tags-to-services)
 you also find limits and limitations that apply to service tags and tagging.
 </TabItem>
 <TabItem value="2" label="Aiven CLI">
-For your BYOC service, [create tags using the Aiven CLI the same way you create it for a
-regular Aiven-managed service](/docs/platform/howto/tag-resources#add-and-modify-service-tags).
+For your BYOC service, [create tags using the Aiven CLI the same way you create them for a
+regular Aiven-managed service](/docs/tools/cli/service-cli#avn-service-tags).
 Ensure you use the `byoc_resource_tag` prefix in the tag key.
 
 ```bash
@@ -77,7 +77,7 @@ avn service tags update SERVICE_NAME
 ```
 
 For instructions on how to add, update, remove, or list service tags via Aiven CLI, see
-[Use resource tags](/docs/platform/howto/tag-resources#add-and-modify-service-tags), where
+[the avn service tags documentation](/docs/tools/cli/service-cli#avn-service-tags), where
 you also find limits and limitations that apply to service tags and tagging.
 </TabItem>
 </Tabs>

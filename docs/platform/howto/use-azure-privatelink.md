@@ -3,7 +3,7 @@ title: Use Azure Private Link with Aiven services
 early: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -22,15 +22,19 @@ Azure Private Link is supported for the following services:
 - Aiven for PostgreSQL®
 - Aiven for Caching
 
+:::note
+Azure Private Link is not supported for [BYOC](/docs/platform/concepts/byoc)-hosted services.
+:::
+
 ## Prerequisites
 
-- This feature is in [early availability](/docs/platform/concepts/beta_services#early-availability-).
+- This feature is in [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
 
 - [Aiven CLI](/docs/tools/cli) is
   installed.
 
 - The Aiven service is in
-  [a project VPC](/docs/platform/howto/manage-vpc-peering). This ensures the service is not accessible from the
+  [a project VPC](/docs/platform/howto/manage-project-vpc). This ensures the service is not accessible from the
   public internet.
 
   :::note

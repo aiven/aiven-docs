@@ -2,7 +2,7 @@
 title: Aiven for Apache Cassandra® metrics available via Datadog
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn what metrics are available via Datadog for Aiven for Apache
 Cassandra® services.

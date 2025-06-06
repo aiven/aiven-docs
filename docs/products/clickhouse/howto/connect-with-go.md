@@ -2,7 +2,7 @@
 title: Connect to the Aiven for ClickHouse® service with Go
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To connect to your Aiven for ClickHouse® service with Go, you can use
 the native protocol or the HTTPS protocol in specific cases. This
@@ -60,7 +60,6 @@ the following variables:
     <td><strong>Password</strong> for the ClickHouse connection available in the Aiven console: Service <strong>Overview</strong> &gt; <strong>Connection information</strong> &gt; <strong>ClickHouse native</strong></td>
   </tr>
 </table>
-
 
 ### Connect to the service
 
@@ -186,7 +185,7 @@ func main() {
 
 You have your service connection established and
 configured. You can proceed to
-[uploading data into your database](load-dataset).
+[uploading data into your database](/docs/products/clickhouse/get-started#load-a-dataset).
 
 <RelatedPages/>
 

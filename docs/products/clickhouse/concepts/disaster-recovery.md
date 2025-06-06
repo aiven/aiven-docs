@@ -1,8 +1,9 @@
 ---
 title: Disaster recovery in Aiven for ClickHouse®
+sidebar_label: Disaster recovery
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for ClickHouse® prevents and mitigates emergencies or crises with multiple disaster recovery methods to keep your data safe and sound.
 
@@ -33,9 +34,9 @@ Also see [cross-availability-zone data distribution](/docs/platform/concepts/ava
 ### Service backup
 
 Backups of Aiven for ClickHouse services happen automatically on a daily
-basis.
+basis. An automatic backup is also taken before powering off a service.
 
-They cover the following:
+Backups cover the following:
 
 -   Access entities (for example, users, roles, passwords, or secrets)
     stored in Zookeeper
@@ -106,5 +107,6 @@ For all the restrictions and limits for Aiven for ClickHouse, see
 
 <RelatedPages/>
 
--   [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
--   [Failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
+- [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
+- [Configure Aiven for ClickHouse® backup settings](/docs/products/clickhouse/howto/configure-backup)
+- [Fork and restore from Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/restore-backup)

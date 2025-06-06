@@ -3,11 +3,11 @@ title: Get started with Aiven
 sidebar_label: Get started
 ---
 
-import Button from "@site/src/components/non-swizzled/Buttons";
-import {ButtonSecondary} from "@site/src/components/non-swizzled/Buttons";
-import Card from "@site/src/components/non-swizzled/Card";
+import Button from "@site/src/components/Buttons";
+import {ButtonSecondary} from "@site/src/components/Buttons";
+import Card from "@site/src/components/Card";
 import Overview from "@site/static/images/content/platform/platform-overview.png";
-import GridContainer from "@site/src/components/non-swizzled/GridContainer";
+import GridContainer from "@site/src/components/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
@@ -24,8 +24,8 @@ import TabItem from '@theme/TabItem';
 
 <!-- vale off -->
 
-Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
-All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external 3rd party tools.
+Aiven provides managed open source services for streaming, databases, and applications across major cloud platforms.
+All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external  third-party tools.
 
 <img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
 
@@ -226,7 +226,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       Terraform Provider, CLI, and Kubernetes Operator."
     />
     <Card
-      to="/docs/platform/howto/manage-vpc-peering"
+      to="/docs/platform/howto/manage-project-vpc"
       iconName="clipboard"
       title="Create a virtual private cloud"
       description="Connect private networks with each other without going

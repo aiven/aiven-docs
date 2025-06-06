@@ -2,16 +2,22 @@
 title: Manage billing groups
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-With [billing groups](/docs/platform/howto/use-billing-groups) you can set up billing profiles to be used across all the projects in an organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups) is created for each billing group.
+Costs associated with services and features in an Aiven project are charged to the payment method assigned to its [billing group](/docs/platform/concepts/billing-and-payment#billing-groups).
 
-You must be an [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+Billing groups let you set up billing profiles and use them across different projects
+in your organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups)
+is created for each billing group.
+
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature in the Aiven Console.
 
 ## Create a billing group
 
 1.  In the organization, click **Billing**.
+1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Click **Create billing group**.
 1.  Enter a name for the billing group and click **Continue**.
 1.  Enter the billing details. You can also copy these details from
@@ -29,10 +35,10 @@ to access this feature in the Aiven Console.
 1.  Find the billing group to rename, click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Rename**.
 
-## Update your billing information
+## Update a billing group
 
-To change the payment card, address, billing contacts, or other billing
-details:
+To change the payment method, billing and shipping address, VAT ID,
+billing contact emails, invoice emails, or other billing details:
 
 1.  In the organization, click **Billing**.
 1.  Select the name of the billing group to update.
@@ -40,6 +46,10 @@ details:
     details for that section.
 
 ## Assign projects to a billing group
+
+You can assign a project to any billing group in your organization. To assign a project
+to a billing group in another organization, you have to
+[move the project to that organization](/docs/platform/howto/manage-project#move-a-project).
 
 1.  In the organization, click **Billing**.
 1.  Select the name of the billing group to assign projects to.

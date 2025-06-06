@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0,::/0</code></li></ul></div>
         <p className="title">IP filter</p>
         <div className="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
         <table className="service-param-children">
@@ -768,6 +768,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="kafka_connect_plugin_versions"/><Link to="#kafka_connect_plugin_versions"><strong>kafka_connect_plugin_versions</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Kafka Connect plugins</p>
+        <div className="description"><p>The plugin selected by the user</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="kafka_connect_secret_providers"/><Link to="#kafka_connect_secret_providers"><strong>kafka_connect_secret_providers</strong></Link></p><p><code className="type">array</code></p></div>
         <p className="title">Kafka Connect secret providers</p>
         <div className="description"><p>Configure external secret providers in order to reference external secrets in connector configuration. Currently Hashicorp Vault (provider: vault, auth_method: token) and AWS Secrets Manager (provider: aws, auth_method: credentials) are supported. Secrets can be referenced in connector config with $\{&lt;provider_name&gt;:&lt;secret_path&gt;:&lt;key_name&gt;\}</p></div>
@@ -861,6 +872,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="kafka_rest_config_consumer_enable_auto_commit"/><Link to="#kafka_rest_config_consumer_enable_auto_commit"><strong>kafka_rest_config.consumer_enable_auto_commit</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
               <p className="title">consumer.enable.auto.commit</p>
               <div className="description"><p>If true the consumer's offset will be periodically committed to Kafka in the background</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="kafka_rest_config_consumer_idle_disconnect_timeout"/><Link to="#kafka_rest_config_consumer_idle_disconnect_timeout"><strong>kafka_rest_config.consumer_idle_disconnect_timeout</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>2147483647</code></li></ul></div>
+              <p className="title">consumer.idle.disconnect.timeout</p>
+              <div className="description"><p>Specifies the maximum duration (in seconds) a client can remain idle before it is deleted. If a consumer is inactive, it will exit the consumer group, and its state will be discarded. A value of 0 (default) indicates that the consumer will not be disconnected automatically due to inactivity.</p></div>
             </td>
           </tr>
           <tr>

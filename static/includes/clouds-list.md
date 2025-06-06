@@ -1,4 +1,6 @@
-import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+
+<!-- vale off -->
 
 ## Amazon Web Services
 
@@ -424,6 +426,11 @@ import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge"
   </thead>
   <tbody>
   <tr>
+    <td>africa</td>
+    <td>google-africa-south1</td>
+    <td>Africa, South Africa: Johannesburg</td>
+  </tr>
+  <tr>
     <td>asia-pacific</td>
     <td>google-asia-east1</td>
     <td>Asia, Taiwan: Taiwan</td>
@@ -490,8 +497,13 @@ import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge"
   </tr>
   <tr>
     <td>europe</td>
+    <td>google-europe-north2</td>
+    <td>Europe, Sweden: Stockholm</td>
+  </tr>
+  <tr>
+    <td>europe</td>
     <td>google-europe-southwest1</td>
-    <td>Europe, Madrid: Spain</td>
+    <td>Europe, Spain: Madrid</td>
   </tr>
   <tr>
     <td>europe</td>
@@ -562,6 +574,11 @@ import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge"
     <td>north america</td>
     <td>google-northamerica-northeast2</td>
     <td>Canada, Ontario: Toronto</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>google-northamerica-south1</td>
+    <td>North America, Mexico: Querétaro</td>
   </tr>
   <tr>
     <td>north america</td>
@@ -683,6 +700,11 @@ import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge"
     <td>Europe, Sweden: Stockholm</td>
   </tr>
   <tr>
+    <td>europe</td>
+    <td>upcloud-uk-lon</td>
+    <td>Europe, England: London</td>
+  </tr>
+  <tr>
     <td>north america</td>
     <td>upcloud-us-chi</td>
     <td>United States, Illinois: Chicago</td>
@@ -761,6 +783,11 @@ For more information or access, contact your account team.
     <td>Middle East</td>
     <td>me-dubai-1</td>
     <td>UAE, UAE East: Dubai</td>
+  </tr>
+  <tr>
+    <td>North America</td>
+    <td>ca-montreal-1</td>
+    <td>Canada, Canada Southeast: Montreal</td>
   </tr>
   <tr>
     <td>North America</td>

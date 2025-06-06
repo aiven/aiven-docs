@@ -2,10 +2,10 @@
 title: Scale disk storage
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service's disk storage by a factor of 10 Gi, without upgrading your plan.
 
@@ -128,6 +128,12 @@ avn service update --disk-space-gib 90 --project PROJECT_NAME SERVICE_NAME
 -  When you fork an existing service, include all additional disks the service uses.
 
 :::
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `additional_disk_space` attribute in
+[your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 </TabItem>
 </Tabs>

@@ -4,8 +4,8 @@ title: Service forking
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 [Fork your Aiven service](/docs/platform/concepts/service-forking) to make a copy of the service, for example to create a snapshot to analyze an issue.
 
@@ -31,12 +31,17 @@ need to be re-established for each new copy.
 
 You can fork the following Aiven services:
 
--   PostgreSQL®
--   MySQL
+-   Apache Cassandra®
+
+    :::important
+    You cannot fork to a lower amount of nodes.
+    :::
+
 -   Caching
--   Apache Cassandra® (Limitation: you cannot fork to a lower amount of
-    nodes)
--   Elasticsearch
+-   ClickHouse®
+-   Grafana®
+-   M3DB
+-   MySQL
 -   OpenSearch®
 
     :::important
@@ -49,8 +54,7 @@ You can fork the following Aiven services:
     access.
     :::
 
--   M3DB
--   Grafana®
+-   PostgreSQL®
 
 ## Fork a service
 
@@ -139,7 +143,3 @@ A service cannot be renamed after creation. Instead, use a fork:
 <RelatedPages/>
 
 - [Create a service](/docs/platform/howto/create_new_service)
-
-import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
-
-<ElasticSearch/>

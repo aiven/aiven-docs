@@ -36,7 +36,7 @@ Apache Kafka® service.
 | `connector_config` | JSON string or path (preceded by `@`) to a Kafka Connect connector JSON configuration file |
 
 **Example:** Create a JDBC source Kafka Connect connector in the
-service `kafka-demo` passing the JSON configuation string.
+service `kafka-demo` passing the JSON configuration string.
 
 ```
 avn service connector create kafka-demo '{
@@ -251,7 +251,7 @@ Kafka® service.
 
 **Example:** Update a the JDBC source Kafka Connect connector named
 `pg-bulk-invoices-source` in the service `kafka-demo` with the JSON
-configuation string contained in the file `kafka-connect-config.json`.
+configuration string contained in the file `kafka-connect-config.json`.
 
 ```
 avn service connector update kafka-demo pg-bulk-invoices-source @kafka-connect-config.json

@@ -2,7 +2,7 @@
 title: Connect to the Aiven for ClickHouse® service with Java
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how to connect to your Aiven for ClickHouse® service with Java
 using the ClickHouse JDBC driver and the HTTPS port.
@@ -77,7 +77,7 @@ the following variables:
     ```
 
 Now you have your service connection set up and you can proceed to
-[uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
+[uploading data into your database](/docs/products/clickhouse/get-started#load-a-dataset).
 
 <RelatedPages/>
 

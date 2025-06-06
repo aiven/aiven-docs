@@ -4,7 +4,7 @@ sidebar_label: Reapply ISM policies
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Reapply Index State Management (ISM) policies to Aiven for OpenSearch® using a script.
 

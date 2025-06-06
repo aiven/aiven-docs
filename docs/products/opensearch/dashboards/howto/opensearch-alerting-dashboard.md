@@ -3,7 +3,7 @@ title: Create alerts with OpenSearch® Dashboards
 sidebar_label: Create alerts
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 OpenSearch® alerting feature sends notifications when data from one or more indices meets certain conditions that can be customized.
 Use case

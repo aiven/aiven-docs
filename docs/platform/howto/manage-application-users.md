@@ -2,15 +2,17 @@
 title: Manage application users
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Application users give non-human users programmatic access to Aiven.
+Application users give non-human users programmatic access to Aiven. You grant them access to organization resources using [roles and permissions](/docs/platform/concepts/permissions).
 
 You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature.
-
 
 :::important
  Application users can be a security risk if not carefully managed and monitored. Follow
@@ -20,17 +22,29 @@ to access this feature.
 
 ## Create an application user
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 1.  Click **Admin**.
 1.  Click <ConsoleLabel name="application users"/>.
 1.  Click **Create application user**.
 1.  Enter a name and click **Create application user**.
 
-## Make an application user an organization admin
+</TabItem>
+<TabItem value="terraform" label="Terraform">
 
-To allow an application user to create organizations, units, and projects, you
-[grant them the organization admin role](/docs/platform/howto/manage-permissions).
+<TerraformSample filename='resources/aiven_organization_application_user/resource.tf' />
+
+More information on this resource and its configuration options are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_application_user).
+
+</TabItem>
+</Tabs>
 
 ## Create a token for an application user
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  Click **Admin**.
 1.  Click <ConsoleLabel name="application users"/>.
@@ -46,6 +60,17 @@ To allow an application user to create organizations, units, and projects, you
     :::
 
 1.  Click **Close**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+<TerraformSample filename='resources/aiven_organization_application_user_token/resource.tf' />
+
+More information on this resource and its configuration options are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_application_user_token).
+
+</TabItem>
+</Tabs>
 
 ## Revoke a token for an application user
 

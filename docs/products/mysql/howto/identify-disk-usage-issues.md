@@ -2,7 +2,7 @@
 title: Identify disk usage issues
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for MySQL® is configured to use `innodb_file_per_table=ON`, which
 means that an `.idb` file is generated per table containing its data and

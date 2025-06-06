@@ -2,6 +2,8 @@
 title: Manage Karapace schema registry authorization
 ---
 
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+
 Karapace schema registry authorization allows you to authenticate the user, to control access to individual [Karapace schema registry REST API endpoints](https://github.com/aiven/karapace), and to filter the content the endpoints return.
 
 :::tip
@@ -35,12 +37,4 @@ documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/r
 
 An example of resource configuration via Terraform is as shown below:
 
-```hcl
-resource "aiven_kafka_schema_registry_acl" "my_resource" {
-  project      = aiven_kafka_topic.demo.project
-  service_name = aiven_kafka_topic.demo.service_name
-  resource     = "Subject:${aiven_kafka_topic.demo.topic_name}"
-  username     = aiven_kafka_user.demo.username
-  permission   = "schema_registry_read"
-}
-```
+<TerraformSample filename='resources/aiven_kafka_schema_registry_acl/resource.tf' />

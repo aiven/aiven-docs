@@ -2,7 +2,7 @@
 title: Connect Aiven for Apache Kafka® with Klaw
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 [Klaw](https://www.klaw-project.io/) is an open-source, web-based data governance toolkit for managing Apache Kafka® Topics, ACLs, Schemas, and Connectors. Klaw provides a self-service user interface where teams of Apache Kafka service users can request changes to the Apache Kafka configuration without the intervention of administrators.
 

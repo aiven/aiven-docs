@@ -78,7 +78,7 @@ print(response.text)
 ```
 
 Now you have your service connection set up and you can proceed to
-[uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
+[uploading data into your database](/docs/products/clickhouse/get-started#load-a-dataset).
 
 For information on how to connect to the Aiven for ClickHouse service
 with the ClickHouse client, see

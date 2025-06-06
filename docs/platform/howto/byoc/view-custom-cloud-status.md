@@ -3,8 +3,8 @@ title: View the status of a custom cloud
 sidebar_label: View custom cloud status
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Find out whether your custom cloud is ready to use by viewing its status.
 

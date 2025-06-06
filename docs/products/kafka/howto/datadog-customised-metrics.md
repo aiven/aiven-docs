@@ -2,9 +2,19 @@
 title: Configure Apache Kafka® metrics sent to Datadog
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
+import Note from "@site/static/includes/startup-plan-datadog.md"
 
 When creating a [Datadog service integration](https://docs.datadoghq.com/integrations/kafka/?tab=host#kafka-consumer-integration), you can customize which metrics are sent to the Datadog endpoint using the [Aiven CLI](/docs/tools/cli).
+
+## Prerequisites
+
+- A running Aiven for Apache Kafka service
+- A Datadog account
+- A Datadog [API key](https://docs.datadoghq.com/account_management/api-app-keys/)
+- A [Datadog integration endpoint](/docs/integrations/datadog/datadog-metrics#add-a-datadog-metrics-integration-to-an-aiven-service)
+
+<Note/>
 
 ## Supported metrics
 
@@ -35,23 +45,21 @@ avn service integration-list SERVICE_NAME
 
 ## Customize metrics for Datadog
 
-Before customizing metrics, ensure a Datadog endpoint is configured and
-enabled in your Aiven for Apache Kafka service. For setup instructions,
-see
+Before customizing metrics, configure and enable a Datadog endpoint in your
+Aiven for Apache Kafka service.
+For setup instructions, see
 [Send metrics to Datadog](/docs/integrations/datadog/datadog-metrics).
+
 Format any listed parameters as a comma-separated list:
 `['value0', 'value1', 'value2', ...]`.
 
-To customize the metrics sent to Datadog, you can use the
-`service integration-update` passing the following customized
-parameters:
-
--   `kafka_custom_metrics`: defining the comma-separated list of custom
-    metrics to include (within `kafka.log.log_size`,
-    `kafka.log.log_start_offset` and `kafka.log.log_end_offset`).
+To customize the metrics sent to Datadog, use the `service integration-update` command
+with the `kafka_custom_metrics` parameter. Specify a comma-separated list of custom
+metrics, such as `kafka.log.log_size`, `kafka.log.log_start_offset`, and
+`kafka.log.log_end_offset`.
 
 For example, to send the `kafka.log.log_size` and
-`kafka.log.log_end_offset` metrics, execute the following code:
+`kafka.log.log_end_offset` metrics, run:
 
 ```bash
 avn service integration-update                                                \
@@ -66,33 +74,28 @@ After updating settings, view the collected metrics in your Datadog explorer.
 [Apache Kafka Consumer
 Integration](https://docs.datadoghq.com/integrations/kafka/?tab=host#kafka-consumer-integration)
 collects metrics for message offsets. To customize the metrics sent from
-this Datadog integration to Datadog, you can use the
-`service integration-update` passing the following customized
-parameters:
+this Datadog integration to Datadog, use the `service integration-update` command with
+the following parameters:
 
--   `include_topics`: Specify a comma-separated list of topics to
-    include.
+- `include_topics`: A comma-separated list of topics to include.
 
-    :::note
-    By default, all topics are included.
-    :::
+  :::note
+  By default, all topics are included.
+  :::
 
--   `exclude_topics`: Specify a comma-separated list of topics to
-    exclude.
+- `exclude_topics`: A comma-separated list of topics to exclude.
 
-    :::warning
-    To use `exclude_topics`, you must specify at least one `include_consumer_groups`
-    value. Without this, `exclude_topics` does not take effect.
-    :::
+  :::warning
+  To use `exclude_topics`, you must specify at least one `include_consumer_groups`
+  value. Otherwise, `exclude_topics` does not take effect.
+  :::
 
--   `include_consumer_groups`: Specify a comma-separated list of
-    consumer groups to include.
+- `include_consumer_groups`: A comma-separated list of consumer groups to include.
 
--   `exclude_consumer_groups`: Specify a comma-separated list of
-    consumer groups to exclude.
+- `exclude_consumer_groups`: A comma-separated list of consumer groups to exclude.
 
 For example, to include topics `topic1` and `topic2`, and exclude
-`topic3`, execute the following command:
+`topic3`, run:
 
 ```bash
 avn service integration-update                                                  \

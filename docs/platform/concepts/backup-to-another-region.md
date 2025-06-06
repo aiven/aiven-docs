@@ -1,19 +1,17 @@
 ---
-title: About backup to another region for Aiven services
+title: Backup to another region for Aiven services
 limited: true
-sidebar_label: About backup to another region
+sidebar_label: Backup to another region
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 In addition to the primary service backup, you can have a secondary backup in an alternative location.
 
 :::important
-This feature is in [limited availability](/docs/platform/concepts/beta_services).
+This feature is in [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 Contact your account team to enable it.
 :::
-
-## About BTAR
 
 Backup to another region (BTAR) is a disaster recovery feature that allows backup
 files to be copied from the service's primary backup region to an additional (secondary)
@@ -79,10 +77,10 @@ flowchart LR
 - BTAR is supported for Aiven for MySQL®, Aiven for PostgreSQL®, and Aiven for OpenSearch®.
 - The cloud provider for your additional backup region must match the cloud provider for
   your service and the primary backup.
-<!-- - To
+- To
   [restore your service from an additional backup](/docs/platform/howto/btar/manage-backup-to-another-region)
-  using point-in-time recovery (PITR), set up the time to no later than the time of the
-  latest backup.-->
+  using point-in-time recovery (PITR), set up the time to no earlier than the time of
+  taking the oldest replicated base backup.
 - Secondary backup can only be restored in the region where it was stored.
 - Secondary backup is generated only after a primary backup is complete, and there might
   be a data replication lag between the primary region and the secondary region.

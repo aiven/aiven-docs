@@ -4,7 +4,7 @@ sidebar_label: ClickHouse sink connector
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 The ClickHouse sink connector delivers data from Apache Kafka® topics to a ClickHouse database for efficient querying and analysis.
 
@@ -58,7 +58,7 @@ Ensure all potential duplicates are processed before removing them:
    1. In the ClickHouse service, access the query editor.
    1. If you are using Aiven for ClickHouse®, go to the service's
       <ConsoleLabel name="overview"/> page, and click
-      <ConsoleLabel name="query editor" />.
+      <ConsoleLabel name="queryeditor" />.
    1. Run the following query to get offset details:
 
       ```sql

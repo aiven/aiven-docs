@@ -2,8 +2,8 @@
 title: Metrics, logs, and alerts
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use metrics, logs, alerts, and dashboards to monitor the health of your services and integrations.
 

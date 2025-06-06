@@ -4,7 +4,7 @@ limited: true
 sidebar_label: Cross-cluster replication
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -89,28 +89,12 @@ Parameters:
 </TabItem>
 <TabItem value="Terraform" label="Terraform">
 
-To set up cross-cluster replication with Terraform, configure
- the [Aiven Provider for Terraform](/docs/tools/terraform) and
- set the `integration-type` to `opensearch_cross_cluster_replication` in the
- service integration resource. For example:
-
-```hcl
-resource "aiven_service_integration" "ccr" {
-  project                  = "<PROJECT_NAME>"
-  integration_type         = "opensearch_cross_cluster_replication"
-  source_service_name      = "<LEADER_SERVICE_NAME>"
-  destination_service_name = "<FOLLOWER_SERVICE_NAME>"
-}
-```
-
-Parameters:
-
-- `<PROJECT_NAME>`: Aiven project name.
-- `<LEADER_SERVICE_NAME>`: Leader (source) service name.
-- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
-
-For detailed information, see the
-[Service Integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
+To set up cross-cluster replication with Terraform, use
+[the `aiven_service_integration` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+and set:
+ - the `integration_type` to `opensearch_cross_cluster_replication`
+ - the `source_service_name` to the leader service
+ - the `destination_service_name` to the follower service
 
 </TabItem>
 </Tabs>
@@ -202,15 +186,6 @@ Deleting the integration transitions the follower service to a standalone servic
 
 To promote a follower service to standalone using [Terraform](/docs/tools/terraform),
 delete the `opensearch_cross_cluster_replication` integration from your configuration.
-
-```hcl
-resource "aiven_service_integration" "ccr" {
-  project                  = "<PROJECT_NAME>"
-  integration_type         = "opensearch_cross_cluster_replication"
-  source_service_name      = "<LEADER_SERVICE_NAME>"
-  destination_service_name = "<FOLLOWER_SERVICE_NAME>"
-}
-```
 
 Run `terraform apply` to apply the changes.
 After the changes are applied, the follower service transitions to a standalone service.

@@ -2,7 +2,7 @@
 title: Aiven CLI
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Aiven command line interface (CLI) lets you use the Aiven platform and services in a scriptable way through the API.
 
@@ -65,6 +65,16 @@ You can authenticate using your password or a
 
 </TabItem>
 </Tabs>
+
+:::note
+If you are registered on Aiven through the AWS or GCP marketplace, use the `--tenant` option.
+For example:
+
+```bash
+avn user login EMAIL_ADDRESS --tenant aws
+```
+
+:::
 
 ## Configure the output format
 

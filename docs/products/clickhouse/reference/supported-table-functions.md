@@ -23,16 +23,22 @@ security reasons.
 Aiven for ClickHouse® supports the following table functions:
 
 -   `azureBlobStorage`
+-   `base64URLEncode`
+-   `base64URLDecode`
 -   `cluster`
 -   `clusterAllReplicas`
 -   `cosn`
 -   `deltaLake`
 -   `format`
+-   `fuzzQuery`
 -   `gcs`
 -   `generateRandom`
+-   `generateSnowflakeID`
+-   `generateUUIDv7`
 -   `hudi`
 -   `iceberg`
 -   `input`
+-   `loop`
 -   `merge`
 -   `mysql`
 -   `null`
@@ -40,9 +46,11 @@ Aiven for ClickHouse® supports the following table functions:
 -   `numbers_mt`
 -   `oss`
 -   `postgresql`
+-   `printf`
 -   `remoteSecure`
 -   `s3`
 -   `s3Cluster`
+-   `snowflakeIDToDateTime`
 -   `url`
 -   `values`
 -   `view`

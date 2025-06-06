@@ -3,7 +3,7 @@ title: Retention rules in Aiven for Metrics
 sidebar_label: Retention rules
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Retention rules in Aiven for Metrics define how long your metrics data is stored.
 

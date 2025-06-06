@@ -3,8 +3,8 @@ title: Services
 sidebar_label: Overview
 ---
 
-import Card from "@site/src/components/non-swizzled/Card";
-import GridContainer from "@site/src/components/non-swizzled/GridContainer";
+import Card from "@site/src/components/Card";
+import GridContainer from "@site/src/components/GridContainer";
 import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
@@ -27,6 +27,12 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
     iconComponent={Kafka}
     title="Aiven for Apache Kafka®"
     description="Build your streaming data pipelines."
+  />
+  <Card
+    to="/docs/products/diskless"
+    iconComponent={Kafka}
+    title="Diskless Topics BYOC"
+    description="Kafka-compatible service using cloud object storage."
   />
   <Card
     to="/docs/products/flink"

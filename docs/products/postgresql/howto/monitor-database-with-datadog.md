@@ -2,7 +2,7 @@
 title: Monitor a database with Datadog
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 [Database Monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/) enables you to capture key metrics on the Datadog platform for any Aiven for PostgreSQL® service with [Datadog Metrics](/docs/integrations/datadog/datadog-metrics) integration.
 

@@ -2,7 +2,7 @@
 title: Event and processing times
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Event time refers to when events occur, and processing time is when a system observes or processes these events. Understanding the difference between these two is essential for data processing and streaming. It affects data handling, analysis, and storage.
 

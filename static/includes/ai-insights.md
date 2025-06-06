@@ -1,5 +1,5 @@
 import FAQ from "@site/static/includes/faq-ai.md"
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Use **Aiven AI Database Optimizer** to receive optimization suggestions to your databases and queries.
 

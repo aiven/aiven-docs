@@ -2,7 +2,7 @@
 title: Connect Aiven for Apache Kafka® with Quix
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Connect your Aiven for Apache Kafka® service with Quix to consume the data and process it in real-time, and produce it back to Kafka via Quix Cloud.
 

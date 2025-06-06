@@ -5,8 +5,8 @@ sidebar_label: Shutdown for invalid schema records
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 You can configure the Karapace schema registry to shut down when corrupt schema records are detected in the `_schemas` topic.
 

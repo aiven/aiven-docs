@@ -14,18 +14,6 @@ Application tokens are linked to
 tokens are a more secure option for non-human users like external applications. You can
 create multiple personal or application tokens for different use cases.
 
-## Token limits
-
-The maximum number of personal tokens that you can create is 10. Personal tokens are
-never invalidated unless they expire or are revoked. For automatically created tokens
-the limit is 1000. Aiven automatically deletes tokens when the limit is reached,
-meaning an old token can stop working even if it hasn't expired or been revoked.
-
-To avoid problems, you can configure session duration times for your tokens.
-This is especially useful for automation that creates tokens.
-
-## Token security
-
 To keep your personal and application tokens secure:
 
 - Set a session duration to limit the impact of exposure
@@ -34,5 +22,5 @@ To keep your personal and application tokens secure:
 - Restrict usage to trusted networks by specifying an allowed IP address range
 - Use application users for non-human users and follow
   [security best practices](/docs/platform/concepts/application-users) for their tokens
-- Control access to your organzation's resources with the
+- Control access to your organization's resources with the
   [authentication policy](/docs/platform/howto/set-authentication-policies)

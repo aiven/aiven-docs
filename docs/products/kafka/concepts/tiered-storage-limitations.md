@@ -1,7 +1,7 @@
 ---
 title: Trade-offs and limitations
 ---
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The main trade-off of tiered storage is the higher latency when accessing and reading data from remote storage compared to local disk storage.
 

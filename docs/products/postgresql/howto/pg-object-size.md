@@ -2,7 +2,7 @@
 title: Check the size of a database, a table or an index
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 PostgreSQL® offers different commands and functions to get disk space usage for a database, a table, or an index.
 

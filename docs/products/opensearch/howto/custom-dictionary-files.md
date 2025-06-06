@@ -4,8 +4,8 @@ title: Custom dictionary files
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Custom dictionary files are user-defined files that enhance query analysis and improve search relevance in OpenSearch. By adding domain-specific vocabulary and rules, these files refine search results to be more accurate and relevant.
 
@@ -165,7 +165,6 @@ Parameters:
 
 ## Limitations
 
-- This feature requires Aiven Enterprise.
 - Files cannot be deleted. They can only be replaced.
 - The file location is fixed and cannot be customized.
 - If you move to a different cloud or project, files are copied or moved accordingly.

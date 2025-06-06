@@ -2,7 +2,7 @@
 title: Create missing primary keys
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn strategies to create missing primary keys in your Aiven for MySQL® service. They are important [for MySQL replication process](/docs/products/mysql/concepts/mysql-replication).
 

@@ -2,7 +2,7 @@
 title: Connect to the Aiven for ClickHouse® service with Node.js
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how to connect to your Aiven for ClickHouse® service with Node.js
 using the official Node.js client for connecting to ClickHouse and the
@@ -56,7 +56,7 @@ console.log(data)
 ```
 
 Now you have your service connection set up and you can proceed to
-[uploading data into your database](/docs/products/clickhouse/howto/load-dataset).
+[uploading data into your database](/docs/products/clickhouse/get-started#load-a-dataset).
 
 <RelatedPages/>
 

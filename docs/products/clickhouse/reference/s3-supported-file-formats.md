@@ -2,7 +2,7 @@
 title: File formats for the S3 table function in Aiven for ClickHouse®
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The [S3 table
 function](https://clickhouse.com/docs/en/sql-reference/table-functions/s3)

@@ -2,7 +2,7 @@
 title: Enable Karapace schema registry and REST APIs
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To enable **Karapace schema registry** and **REST APIs** on Aiven for Apache Kafka® from the Aiven Console:
 

@@ -2,7 +2,7 @@
 title: Migrate a public service to a Virtual Private Cloud (VPC)
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 When operating your Aiven service over the public Internet, you might consider enhancing security or connectivity by transitioning to a Virtual Private Cloud (VPC, also known as VNet).
 This move allows you to
@@ -28,7 +28,7 @@ phase, conduct a few simple tests to verify connectivity.
 ## Migrate a public service to a VPN
 
 1.  **VPC creation and peering**:
-    [Create a VPC](/docs/platform/howto/manage-vpc-peering) and establish peering.
+    [Create a VPC](/docs/platform/howto/manage-project-vpc) and establish peering.
 1.  **Network peering validation**: Test the network peering with a
     non-critical service.
 1.  **Enable public access**: Activate public access for all services to
@@ -54,7 +54,7 @@ up correctly.
 Before you begin, make sure you have created your VPC and that peering
 is active. Automating this process with the Aiven Terraform Provider is an option. For
 guidance, refer to
-[setting up VPC peering](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering) on the Aiven Platform.
+[setting up VPC peering](/docs/platform/howto/manage-project-vpc#create-a-project-vpc) on the Aiven Platform.
 
 To illustrate the process, we will use the `google-us-east1` VPC as a
 reference. Ensure both your VPC and its peering connection are in an

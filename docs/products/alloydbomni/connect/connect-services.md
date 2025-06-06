@@ -1,17 +1,11 @@
 ---
 title: Connect to Aiven for AlloyDB Omni
-early: true
 ---
 
 import DocCardList from '@theme/DocCardList';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect to the Aiven for AlloyDB Omni service using various programming languages or tools.
-
-:::note
-Aiven for AlloyDB Omni is in the
-[early availability](/docs/platform/concepts/beta_services#early-availability-) stage.
-:::
 
 :::tip
 Preview connection instructions in the [Aiven Console](https://console.aiven.io/):

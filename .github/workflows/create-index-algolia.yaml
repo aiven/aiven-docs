@@ -13,12 +13,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Enable Corepack
         run: corepack enable
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 23
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable

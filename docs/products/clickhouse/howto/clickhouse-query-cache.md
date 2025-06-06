@@ -3,7 +3,7 @@ title: Use query cache in Aiven for ClickHouse®
 sidebar_label: Use query cache
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for ClickHouse® provides a query cache mechanism that helps improve query performance
 by caching query results.

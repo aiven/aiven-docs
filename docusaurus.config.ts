@@ -13,7 +13,7 @@ const config: Config = {
     experimental_faster: true,
   },
   title: 'Aiven docs',
-  tagline: 'Your trusted data & AI platform',
+  tagline: 'Your AI-ready Open Source Data Platform',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
   baseUrl: process.env.BASEURL || '/docs/',
@@ -86,6 +86,27 @@ const config: Config = {
       'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
+    {
+      src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+      'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
+      'data-project-name': 'Aiven Kapa AI',
+      'data-project-color': '#3545BE',
+      'data-project-logo': 'https://aiven.io/docs/images/logo-crabby.svg',
+      'data-modal-title': 'Ask Aiven docs AI',
+      'data-modal-image-width': '38px',
+      'data-button-hide': 'true',
+      'data-modal-header-bg-color': '#F3F6FF',
+      'data-modal-header-border-bottom': '1px solid #CED4DA',
+      'data-font-family': 'Inter',
+      'data-modal-disclaimer-font-size': '12px',
+      'data-modal-disclaimer-text-color': '#4A4B57',
+      'data-modal-disclaimer-bg-color': 'transparent',
+      'data-modal-ask-ai-input-placeholder': 'Ask me a question about Aiven',
+      'data-modal-disclaimer':
+        "This helpful AI assistant is powered by kapa.ai and draws its answers from Aiven's documentation. Just so we're clear, Aiven owns all rights to their docs and anything based on them. Please note that responses might contain errors, and shouldn't be taken as formal advice, and aren't legally binding. By using this assistant, ensure you own necessary rights to your inputs as you let us and our licensees use your input, and you agree to indemnify us for any claims arising from your inputs. Please keep personal info out - kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy) applies. We offer this as-is, without warranties, and aren't liable for any damages.",
+      // 'data-modal-example-questions': 'example question 1, example question 2'
+    },
+    {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
   plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
   themeConfig: {
@@ -99,10 +120,9 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'main',
+          label: 'Console',
           position: 'left',
-          label: 'Docs',
+          href: 'https://console.aiven.io/login',
         },
         {
           label: 'API reference',
@@ -110,32 +130,22 @@ const config: Config = {
           href: 'https://api.aiven.io/doc/',
         },
         {
-          type: 'doc',
-          position: 'left',
-          docId: 'platform/howto/support',
-          label: 'Support',
-        },
-        {
           label: 'Changelog',
           href: 'https://aiven.io/changelog',
-          position: 'right',
+          position: 'left',
         },
         {
           href: 'https://github.com/aiven/aiven-docs',
           label: 'GitHub',
+          position: 'left',
+        },
+        {
+          type: 'search',
           position: 'right',
         },
         {
-          href: 'https://console.aiven.io/login',
-          label: 'Log in',
+          type: 'custom-kapaAIButton',
           position: 'right',
-          className: 'navbar-button navbar-button-secondary',
-        },
-        {
-          href: 'https://console.aiven.io/signup',
-          label: 'Start for free',
-          position: 'right',
-          className: 'navbar-button navbar-button-primary',
         },
       ],
     },
@@ -182,11 +192,6 @@ const config: Config = {
               label: 'Support',
               href: '/docs/platform/howto/support',
             },
-            {
-              label: 'Community forum',
-              href: 'https://aiven.io/community/forum/',
-            },
-
             {
               label: 'Company website',
               href: 'https://aiven.io/',
@@ -248,7 +253,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. https://clickhouse.com. M3, M3 Aggregator, OpenSearch, AlloyDB Omni, PostgreSQL, MySQL, InfluxDB, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. *Redis is a registered trademark of Redis Ltd. and the Redis box logo is a mark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by Aiven is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Aiven. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
+      copyright: `Copyright © Aiven 2016–${new Date().getFullYear()}. Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. https://clickhouse.com. M3, M3 Aggregator, OpenSearch, AlloyDB Omni, PostgreSQL, MySQL, InfluxDB, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. *Redis is a registered trademark of Redis Ltd. and the Redis box logo is a mark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by Aiven is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Aiven. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
     },
     prism: {
       theme: prismThemes.nightOwl,

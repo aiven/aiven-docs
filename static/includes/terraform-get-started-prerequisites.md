@@ -1,0 +1,2 @@
+- [Terraform installed](https://www.terraform.io/downloads)
+- A [personal token](/docs/platform/howto/create_authentication_token)

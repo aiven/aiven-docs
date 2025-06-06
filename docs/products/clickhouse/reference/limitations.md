@@ -4,7 +4,7 @@ sidebar_label: Limits and limitations
 ---
 
 import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 By respecting the Aiven for ClickHouse® restrictions and quotas, you can improve the security and productivity of your service workloads.
 
@@ -29,11 +29,12 @@ a
       <td>
         Since Aiven for ClickHouse service takes a single snapshot a day only:
         <ul>
-          <li>When powering off the service, all data after the last backup is lost.</li>
-          <li>Point-in-time recovery is not supported. A database can be restored to
-            one of the daily backups states only.</li>
+          <li>Point-in-time recovery is not supported. A database can be
+            [restored to one of the daily backup states](/docs/products/clickhouse/howto/restore-backup)
+            only.</li>
           <li>When creating a database fork,
-            you can only create a fork that matches the state of one of the backups.</li>
+            you can only [create a fork](/docs/products/clickhouse/howto/restore-backup)
+            that matches the state of one of the backups.</li>
           <li>Any data inserted before the next snapshot is lost if all nodes in a
             given shard malfunction and need to be replaced. This limitation doesn't
             apply to patches, migrations, or scaling, which are handled safely and
@@ -44,10 +45,12 @@ a
     </tr>
     <tr>
       <td>Service integrations</td>
-      <td>
-          You can integrate your Aiven for ClickHouse service with PostgreSQL®
-          and Kafka® only.
-      </td>
+        <ul>
+          <li>You can integrate your Aiven for ClickHouse service with PostgreSQL®
+          and Apache Kafka® only.</li>
+          <li>[Integrations of Aiven for ClickHouse and Apache Kafka](/docs/products/clickhouse/howto/integrate-kafka)
+          support the maximum of 400 virtual connector tables.</li>
+        </ul>
       <td>N/A</td>
     </tr>
     <tr>
@@ -143,9 +146,17 @@ a
       </td>
     </tr>
     <tr>
-      <td>Scaling down the number of nodes</td>
-      <td>You only can scale up the number of nodes in a cluster.</td>
-      <td>N/A</td>
+      <td>Maximum number of databases per service</td>
+      <td>
+          Your Aiven for ClickHouse service can support up to 400 databases simultaneously.
+      </td>
+      <td>
+        Instead of creating multiple databases of the same structure for isolation purposes,
+        it's recommended to create one database where you add an extra column to filter by
+        it. Consider including this column into the primary key or partitioning by it. You
+        can also limit scope of data on which SQL queries can be run by using the
+        `additional_table_filters` query setting.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -157,8 +168,8 @@ Service limits are determined by a plan that this service uses.
 | Aiven for ClickHouse           | Hobbyist                   | Startup                      | Business                     | Premium                      |
 | ------------------------------ | -------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
 | VMs                            | 1                          | 1                            | 3                            | 6 - 30                       |
-| CPU per VM                     | 1 (2 for AWS only)         | 2                            | 2 - 8                        | 2 - 8                        |
-| RAM per VM                     | 4 GB                       | 16 GB                        | 16 - 64 GB                   | 16 - 64 GB                   |
+| CPU per VM                     | 1 (2 for AWS only)         | 2 - 8                        | 2 - 8                        | 2 - 8                        |
+| RAM per VM                     | 4 GB                       | 16 - 64 GB                   | 16 - 64 GB                   | 16 - 64 GB                   |
 | Total storage                  | 180 GB                     | 1150 GB                      | 1150 - 4600 GB               | 2300 - 46000 GB              |
 | Maximum concurrent queries     | 25 queries per 4 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM | 100 queries per 16 GB of RAM |
 | Maximum concurrent connections | 1000 connections per node  | 4000 connections per node    | 4000 connections per node    | 4000 connections per node    |

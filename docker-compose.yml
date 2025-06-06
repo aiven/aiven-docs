@@ -1,0 +1,23 @@
+services:
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    container_name: aiven-docs-app
+    command: yarn run build
+
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: aiven-docs-app-dev
+    volumes:
+      - ./docs:/app/docs
+      - ./static:/app/static
+      - ./src:/app/src
+      - ./scripts:/app/scripts
+      - ./sidebar.ts:/app/sidebar.ts
+    ports:
+      - '3000:3000'

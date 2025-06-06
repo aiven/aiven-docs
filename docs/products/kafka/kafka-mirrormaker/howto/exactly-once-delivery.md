@@ -5,8 +5,8 @@ sidebar_label: Exactly-once delivery
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Exactly-once delivery in Aiven for Apache Kafka MirrorMaker 2 replicates each message exactly once between clusters, preventing duplicates or data loss.
 
@@ -43,7 +43,7 @@ review and adjust these ACLs as needed to enable exactly-once delivery.
    service with the Aiven for Apache Kafka MirrorMaker 2 integration.
 1. Click <ConsoleLabel name="integrations"/>.
 1. Click the Aiven for Apache Kafka MirrorMaker 2 integration.
-1. Click <ConsoleLabel name="Replication flow" /> in the sidebar.
+1. Click <ConsoleLabel name="replicationflow" /> in the sidebar.
    - To create a new flow, click **Create replication flow** .
    - To modify an existing flow, select <ConsoleLabel name="edit"/>.
 1. Set **Exactly-once message delivery enabled** to **Enabled** to turn it on or
@@ -145,48 +145,9 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Find information about the `aiven_mirrormaker_replication_flow` resource in the
-[Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow).
-
-To enable exactly-once delivery:
-
-1. Update or create the `aiven_mirrormaker_replication_flow` resource in your
-   Terraform configuration file:
-
-   - Add `exactly_once_delivery_enabled = true` to the resource block.
-   - Specify the `topics` to replicate using patterns, such as `.*` for all topics.
-
-   ```hcl
-   resource "aiven_mirrormaker_replication_flow" "example_flow" {
-     project                       = "PROJECT_NAME"
-     service_name                  = "SERVICE_NAME"
-     source_cluster                = "SOURCE_CLUSTER"
-     target_cluster                = "TARGET_CLUSTER"
-     enable                        = true
-     exactly_once_delivery_enabled = true
-     topics                        = [".*"]
-   }
-
-   ```
-
-1. Run the Terraform commands to apply the configuration:
-
-   ```bash
-   terraform init
-   terraform plan
-   terraform apply
-   ```
-
-Parameters
-
-- `PROJECT_NAME`: Name of your Aiven project.
-- `SERVICE_NAME`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
-- `SOURCE_CLUSTER`: Alias of the source Aiven for Apache Kafka service.
-- `TARGET_CLUSTER`: Alias of the target Aiven for Apache Kafka service.
-- `EXACTLY_ONCE_DELIVERY_ENABLED`: Set to `true` to enable or `false` to disable
-  exactly-once delivery.
-- `TOPICS`: Pattern to define which topics to replicate. The default value, `.*`,
-  replicates all topics.
+In your `aiven_mirrormaker_replication_flow` resource, set
+[the `exactly_once_delivery_enabled` attribute](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mirrormaker_replication_flow#exactly_once_delivery_enabled-1)
+to true.
 
 </TabItem>
 </Tabs>

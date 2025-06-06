@@ -1,9 +1,8 @@
 ---
 title: Connect with Skyvia
-early: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using the [Skyvia](https://skyvia.com/) cloud data platform.
 

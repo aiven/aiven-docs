@@ -4,7 +4,7 @@ title: Enable and configure tiered storage for topics
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Aiven for Apache Kafka® allows you to configure tiered storage and set retention policies for individual topics.
 
@@ -70,11 +70,10 @@ To create a topic with tiered storage enabled:
 ```bash
 avn service topic-create \
     --project demo-kafka-project \
-    --service-name demo-kafka-service \
-    --topic exampleTopic \
     --partitions 2 \
     --replication 2 \
-    --remote-storage-enable
+    --remote-storage-enable \
+    demo-kafka-service exampleTopic
 ```
 
 In this example:
@@ -91,10 +90,10 @@ After enabling tiered storage, you can configure the retention policies for loca
 ```bash
 avn service topic-update \
   --project demo-kafka-project \
-  --service-name demo-kafka-service \
-  --topic exampleTopic \
+  --partitions 2 \
   --local-retention-ms 100 \
-  --local-retention-bytes 10
+  --local-retention-bytes 10 \
+  demo-kafka-service exampleTopic
 ```
 
 This command sets the local retention time to 100 milliseconds and the local retention

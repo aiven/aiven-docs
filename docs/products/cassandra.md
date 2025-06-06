@@ -3,7 +3,7 @@ title: Aiven for Apache Cassandra®
 ---
 
 import DocCardList from '@theme/DocCardList';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 [Apache Cassandra®](https://cassandra.apache.org/_/index.html) is an open source, NoSQL database. It is specifically designed to be highly available, performant, and scalable. It supports a distributed architecture with asynchronous replication and is highly fault tolerant.
 

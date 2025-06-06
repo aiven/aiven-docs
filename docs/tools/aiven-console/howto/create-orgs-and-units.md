@@ -3,41 +3,50 @@ title: Create organizations and organizational units
 sidebar_label: Create organizations and units
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
-When you sign up for Aiven, an organization is
-automatically created for you. You can add organizational units in your organization
-to group related projects and create custom
+When you sign up for Aiven, an organization is automatically created for you.
+You can add organizational units in your organization to group related projects
+and create custom
 [hierarchical organizations](/docs/platform/concepts/orgs-units-projects).
 
 ## Create an organizational unit
 
 You can create an organizational unit within an organization to group
-your projects by, for example, your departments or environments. To
-create an organizational unit in the [Aiven
-Console](https://console.aiven.io):
+your projects by, for example, your departments or environments. Only one level of
+nesting is supported. This means that you can't create organizational units
+within other units.
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  In the organization, click **Admin**.
-2.  In the **Organizational units** section, click **Create
-    organizational unit**.
-3.  Enter a name for the unit.
-4.  Optional: Select any projects to assign to this
-    organizational unit. You can search for projects by name.
-5.  Click **Create organizational unit**.
+1.  In the **Organizational units** section, click **Create organizational unit**.
+1.  Enter a name for the unit.
+1.  Click **Create organizational unit**.
 
-Your organizational unit is shown in the list. Click the unit name to
-view and manage its projects.
+</TabItem>
 
-:::note
-Only one level of nesting is supported. This means that organizational
-units cannot be created within other units.
-:::
+<TabItem value="terraform" label="Terraform">
+
+<TerraformSample filename='resources/aiven_organizational_unit/resource.tf' />
+
+More information on this resource and its configuration options
+are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organizational_unit).
+
+</TabItem>
+</Tabs>
 
 ## Create an organization
 
 :::important
 You can only verify a domain in one organization, meaning you can't set up SAML
-authentication, user provisiong with SCIM, or managed users for the same domain
+authentication, user provisioning with SCIM, or managed users for the same domain
 in another organization. Additionally, support and commitment contracts cannot
 be shared across organizations.
 
@@ -49,8 +58,14 @@ for the new organization such as:
 - roles and permissions
 :::
 
-To create an organization in the [Aiven
-Console](https://console.aiven.io):
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
+:::note
+You cannot create an organization while logged in with
+an [identity provider](/docs/platform/howto/list-identity-providers). To create an
+organization, log in to the Aiven Console using another authentication method.
+:::
 
 1.  Click the user information icon in the top right and select
     **Organizations**.
@@ -59,3 +74,20 @@ Console](https://console.aiven.io):
 1.  Optional: Select any projects to assign to this
     organization. You can search for projects by name.
 1.  Click **Create organization**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+:::note
+You cannot create an organization with a token that you created when you were logged in
+using an [identity provider](/docs/platform/howto/list-identity-providers).
+:::
+
+<TerraformSample filename='resources/aiven_organization/resource.tf' />
+
+More information on this resource and its configuration options are
+available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization).
+
+</TabItem>
+</Tabs>

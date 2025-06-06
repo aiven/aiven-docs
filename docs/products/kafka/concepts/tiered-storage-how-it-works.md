@@ -2,7 +2,7 @@
 title: How tiered storage works in Aiven for Apache Kafka®
 sidebar_label: How it works
 ---
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 import DataRetention from "@site/static/images/content/figma/data-retention.png";
 
 Aiven for Apache Kafka® tiered storage optimizes data management across two distinct storage tiers:

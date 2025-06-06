@@ -2,6 +2,8 @@
 title: Datadog and Aiven
 ---
 
+import Note from "@site/static/includes/startup-plan-datadog.md"
+
 [Datadog](https://www.datadoghq.com/) is a monitoring platform, allowing
 you to keep an eye on all aspects of your cloud estate. Aiven has
 integrations that make it easy to include an Aiven service in your
@@ -20,6 +22,8 @@ Find out
 If you're using Aiven for Apache Kafka® you can also
 [customise the metrics sent to Datadog](/docs/products/kafka/howto/datadog-customised-metrics).
 :::
+
+<Note/>
 
 ## Datadog for logs
 

@@ -2,7 +2,7 @@
 title: Manage domains
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Adding a verified domain in Aiven adds an extra layer of security to managing your organization's users. When you verify a domain, your organization users automatically become
 [managed users](/docs/platform/concepts/managed-users).
@@ -12,6 +12,9 @@ There are two ways you can verify a domain:
 
 -   by adding a DNS TXT record to the domain (recommended)
 -   by uploading an HTML file to your website
+
+To ensure your domain remains in the verified status, don't remove the verification file
+from your domain provider.
 
 ## Add a domain using a DNS TXT record
 

@@ -6,7 +6,7 @@ description: "Use Aiven's artificial intelligence capabilities to identify slow 
 ---
 
 import AIInsights from "@site/static/includes/ai-insights.md"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 <AIInsights service="Aiven for MySQL®"/>
 

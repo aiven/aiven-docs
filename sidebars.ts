@@ -25,8 +25,9 @@ const sidebars: SidebarsConfig = {
         'platform/concepts/free-trial',
         'marketplace-setup',
         'tools/aiven-console',
-        'platform/concepts/beta_services',
+        'platform/concepts/service-and-feature-releases',
         'platform/howto/feature-preview',
+        'platform/howto/support',
       ],
     },
     {
@@ -86,9 +87,13 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Billing groups',
-              items: ['platform/howto/use-billing-groups'],
+              items: [
+                'platform/howto/use-billing-groups',
+                'platform/howto/manage-billing-addresses',
+              ],
             },
             'platform/howto/download-invoices',
+            'platform/howto/trial-credits',
           ],
         },
         {
@@ -107,6 +112,7 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/application-users',
                 'platform/howto/manage-application-users',
                 'platform/concepts/managed-users',
+                'platform/concepts/discovered-organizations',
                 'platform/howto/manage-groups',
                 'tools/aiven-console/howto/create-manage-teams',
               ],
@@ -128,6 +134,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/delete-user',
               ],
             },
+            'platform/howto/unsafe-passwords',
           ],
         },
         {
@@ -140,6 +147,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/howto/add-authentication-method',
             'platform/reference/password-policy',
+            'platform/reference/change-password',
             'platform/howto/user-2fa',
             'platform/howto/set-authentication-policies',
             'platform/concepts/authentication-tokens',
@@ -205,8 +213,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Backup to another region',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/backup-to-another-region',
+              },
               items: [
-                'platform/concepts/backup-to-another-region',
                 'platform/howto/btar/enable-backup-to-another-region',
                 'platform/howto/btar/manage-backup-to-another-region',
                 'platform/howto/btar/disable-backup-to-another-region',
@@ -232,14 +243,63 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'VPCs',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/vpcs',
+              },
               items: [
-                'platform/howto/manage-vpc-peering',
-                'platform/howto/public-access-in-vpc',
-                'platform/howto/vpc-peering-gcp',
-                'platform/howto/vpc-peering-aws',
-                'platform/howto/vnet-peering-azure',
-                'platform/howto/vpc-peering-upcloud',
+                {
+                  type: 'category',
+                  label: 'Manage VPCs',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/list-manage-vpc',
+                  },
+                  items: [
+                    'platform/howto/manage-project-vpc',
+                    'platform/howto/manage-organization-vpc',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Peer VPCs',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/list-vpc-peering',
+                  },
+                  items: [
+                    {
+                      type: 'category',
+                      label: 'Project VPC peering',
+                      link: {
+                        type: 'doc',
+                        id: 'platform/howto/list-project-vpc-peering',
+                      },
+                      items: [
+                        'platform/howto/vpc-peering-aws',
+                        'platform/howto/vnet-peering-azure',
+                        'platform/howto/vpc-peering-gcp',
+                        'platform/howto/vpc-peering-upcloud',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Organization VPC peering',
+                      link: {
+                        type: 'doc',
+                        id: 'platform/howto/list-organization-vpc-peering',
+                      },
+                      items: [
+                        'platform/howto/manage-org-vpc-peering-aws',
+                        'platform/howto/manage-org-vpc-peering-azure',
+                        'platform/howto/manage-org-vpc-peering-google',
+                      ],
+                    },
+                  ],
+                },
+                'platform/howto/vpc-service-management',
                 'platform/howto/google-cloud-functions',
+                'platform/howto/public-access-in-vpc',
                 'platform/howto/attach-vpc-aws-tgw',
                 {
                   type: 'category',
@@ -402,26 +462,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/terraform/get-started',
-            {
-              type: 'category',
-              label: 'Upgrade Aiven Provider',
-              items: [
-                'tools/terraform/howto/upgrade-provider-v1-v2',
-                'tools/terraform/howto/upgrade-provider-v2-v3',
-                'tools/terraform/howto/upgrade-provider-v3-v4',
-              ],
-            },
             'tools/terraform/howto/migrate-from-teams-to-groups',
-            'tools/terraform/howto/upgrade-to-opensearch',
-            {
-              type: 'category',
-              label: 'PostgreSQL',
-              items: [
-                'tools/terraform/howto/config-postgresql-provider',
-                'tools/terraform/howto/promote-to-master-pg-rr',
-              ],
-            },
             'tools/terraform/howto/use-opentofu',
           ],
         },
@@ -524,7 +565,14 @@ const sidebars: SidebarsConfig = {
             'products/alloydbomni/use-columnar-engine',
             'products/alloydbomni/manage-credentials',
             'products/alloydbomni/access-ai-models',
-            'products/alloydbomni/advanced-params',
+            {
+              type: 'category',
+              label: 'Reference',
+              items: [
+                'products/alloydbomni/reference/advanced-params',
+                'products/alloydbomni/reference/list-of-extensions',
+              ],
+            },
           ],
         },
         {
@@ -710,6 +758,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/concepts/upgrade-procedure',
                 'products/kafka/concepts/horizontal-vertical-scaling',
+                'products/kafka/concepts/kraft-mode',
                 'products/kafka/concepts/acl',
                 'products/kafka/concepts/schema-registry-authorization',
                 'products/kafka/concepts/kafka-rest-api',
@@ -763,6 +812,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Tools',
                   items: [
                     'products/kafka/howto/kafka-tools-config-file',
+                    'products/kafka/howto/kafbat-ui',
                     'products/kafka/howto/kcat',
                     'products/kafka/howto/kafka-conduktor',
                     'products/kafka/howto/kafdrop',
@@ -847,6 +897,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/howto/enable-governance',
                     'products/kafka/howto/claim-topic',
+                    'products/kafka/howto/terraform-governance-approvals',
                     {
                       type: 'category',
                       label: 'Manage topic requests',
@@ -855,8 +906,11 @@ const sidebars: SidebarsConfig = {
                         id: 'products/kafka/howto/manage-resource-requests',
                       },
                       items: [
+                        'products/kafka/howto/request-access-topic',
                         'products/kafka/howto/approvals',
                         'products/kafka/howto/group-requests',
+
+                        'products/kafka/howto/rotate-credentials',
                       ],
                     },
                   ],
@@ -957,6 +1011,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcp-pubsub-source',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-source',
                         'products/kafka/kafka-connect/howto/couchbase-source',
+                        'products/kafka/kafka-connect/howto/s3-source-connector',
                       ],
                     },
                     {
@@ -976,7 +1031,20 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/gcs-sink',
                         'products/kafka/kafka-connect/howto/http-sink',
                         'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
-                        'products/kafka/kafka-connect/howto/iceberg-sink-connector',
+                        {
+                          type: 'category',
+                          label: 'Iceberg sink connector',
+                          link: {
+                            type: 'doc',
+                            id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
+                          },
+                          items: [
+                            'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
+                            'products/kafka/kafka-connect/howto/aws-glue-catalog',
+                            'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
+                            'products/kafka/howto/snowflake-open-catalog',
+                          ],
+                        },
                         'products/kafka/kafka-connect/howto/influx-sink',
                         'products/kafka/kafka-connect/howto/jdbc-sink',
                         'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
@@ -1112,7 +1180,35 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-
+        {
+          type: 'category',
+          label: 'Diskless Topics BYOC',
+          link: {
+            type: 'doc',
+            id: 'products/diskless',
+          },
+          items: [
+            'products/diskless/get-started',
+            {
+              type: 'category',
+              label: 'Architecture',
+              link: {
+                type: 'doc',
+                id: 'products/diskless/concepts/architecture',
+              },
+              items: [
+                'products/diskless/concepts/topics-vs-classic',
+                'products/diskless/concepts/batching-and-delivery',
+                'products/diskless/concepts/partitions-and-objects',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to',
+              items: ['products/diskless/howto/create-diskless-topic'],
+            },
+          ],
+        },
         {
           type: 'category',
           label: 'Aiven for Caching',
@@ -1202,7 +1298,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/reference/limitations',
                 'products/clickhouse/concepts/olap',
                 'products/clickhouse/concepts/columnar-databases',
                 'products/clickhouse/concepts/indexing',
@@ -1239,6 +1334,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/clickhouse/howto/secure-service',
                     'products/clickhouse/howto/restore-backup',
+                    'products/clickhouse/howto/configure-backup',
                     'products/clickhouse/howto/manage-users-roles',
                     'products/clickhouse/howto/manage-databases-tables',
                     'products/clickhouse/howto/query-databases',
@@ -1301,6 +1397,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/clickhouse-system-tables',
+                'products/clickhouse/reference/limitations',
               ],
             },
           ],
@@ -1654,6 +1751,7 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
                     },
+                    'products/opensearch/howto/custom-repositories',
                   ],
                 },
                 {
@@ -1766,6 +1864,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/concepts/timescaledb',
                 'products/postgresql/concepts/upgrade-failover',
                 'products/postgresql/concepts/pgvector',
+                'products/postgresql/concepts/pg-audit-logging',
               ],
             },
             {
@@ -1821,6 +1920,18 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pgvector',
                     'products/postgresql/howto/pg-object-size',
                     'products/postgresql/howto/readonly-user',
+                    {
+                      type: 'category',
+                      label: 'PGAudit',
+                      link: {
+                        type: 'doc',
+                        id: 'products/postgresql/howto/list-pgaudit',
+                      },
+                      items: [
+                        'products/postgresql/concepts/pg-audit-logging',
+                        'products/postgresql/howto/use-pg-audit-logging',
+                      ],
+                    },
                   ],
                 },
                 {
@@ -1867,6 +1978,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
+                'products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem',
               ],
             },
             {
@@ -1877,6 +1989,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/reference/pg-connection-limits',
                 'products/postgresql/reference/use-of-deprecated-tls-versions',
                 'products/postgresql/reference/list-of-extensions',
+                'products/postgresql/reference/list-of-extensions-for-each-version',
                 'products/postgresql/reference/idle-connections',
                 'products/postgresql/reference/pg-metrics',
                 'products/postgresql/reference/resource-capability',

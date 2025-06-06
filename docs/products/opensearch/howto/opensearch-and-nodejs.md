@@ -2,7 +2,7 @@
 title: Write search queries with OpenSearch® and NodeJS
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how the OpenSearch® JavaScript client gives a clear and useful interface to communicate with an OpenSearch cluster and run search queries.
 To make it more delicious we'll be using a recipe dataset from

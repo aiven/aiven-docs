@@ -3,10 +3,10 @@ title: Delete a custom cloud
 sidebar_label: Delete custom clouds
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
@@ -77,14 +77,7 @@ avn byoc delete                               \
 :::important
 Remember to remove the resources created in your remote cloud account when
 applying the Terraform template to create the custom cloud. They are not
-removed automatically after deleting the cloud. Unless you've removed
-them earlier, use the `terraform destroy` command to delete them. See
-the guidelines on how to use the `destroy` command in [Command:
-destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy).
-:::
-
-:::note
-When running `terraform destroy`, add `-var-file=FILE_NAME.tfvars` as an option.
+removed automatically after deleting the cloud.
 :::
 
 <RelatedPages/>

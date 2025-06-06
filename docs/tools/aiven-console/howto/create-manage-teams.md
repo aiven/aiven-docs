@@ -2,7 +2,7 @@
 title: Manage teams
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Teams are groups of users that you can assign to projects.
 

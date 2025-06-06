@@ -2,8 +2,8 @@
 title: Use Prometheus with Aiven
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Discover Prometheus as a tool for monitoring your Aiven services. Check why use it and how it works. Learn how to enable and configure Prometheus on your project.
 
@@ -191,7 +191,7 @@ your service.
    sure to include the replica DNS names in the list. If you have
    `<PROMETHEUS_SERVICE_URI>` as `public-example.aivencloud.com`, then you
    will need to add `public-replica-example.aivencloud.com`. This applies
-   to PostgreSQL®, MySQL®, Apache Kafka®, and Caching services.
+   to PostgreSQL®, MySQL®, and Caching services.
    :::
 
 ### View full list of metrics

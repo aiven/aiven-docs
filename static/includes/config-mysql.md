@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0,::/0</code></li></ul></div>
         <p className="title">IP filter</p>
         <div className="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
         <table className="service-param-children">
@@ -377,7 +377,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="mysql_innodb_ft_min_token_size"/><Link to="#mysql_innodb_ft_min_token_size"><strong>mysql.innodb_ft_min_token_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>16</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="mysql_innodb_ft_min_token_size"/><Link to="#mysql_innodb_ft_min_token_size"><strong>mysql.innodb_ft_min_token_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>16</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">innodb_ft_min_token_size</p>
               <div className="description"><p>Minimum length of words that are stored in an InnoDB FULLTEXT index. Changing this parameter will lead to a restart of the MySQL service.</p></div>
             </td>
@@ -419,14 +419,14 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="mysql_innodb_read_io_threads"/><Link to="#mysql_innodb_read_io_threads"><strong>mysql.innodb_read_io_threads</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>64</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="mysql_innodb_read_io_threads"/><Link to="#mysql_innodb_read_io_threads"><strong>mysql.innodb_read_io_threads</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>64</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">innodb_read_io_threads</p>
               <div className="description"><p>The number of I/O threads for read operations in InnoDB. Default is 4. Changing this parameter will lead to a restart of the MySQL service.</p></div>
             </td>
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="mysql_innodb_rollback_on_timeout"/><Link to="#mysql_innodb_rollback_on_timeout"><strong>mysql.innodb_rollback_on_timeout</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <div className="param"><p className="name"><Link id="mysql_innodb_rollback_on_timeout"/><Link to="#mysql_innodb_rollback_on_timeout"><strong>mysql.innodb_rollback_on_timeout</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">innodb_rollback_on_timeout</p>
               <div className="description"><p>When enabled a transaction timeout causes InnoDB to abort and roll back the entire transaction. Changing this parameter will lead to a restart of the MySQL service.</p></div>
             </td>
@@ -440,7 +440,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="mysql_innodb_write_io_threads"/><Link to="#mysql_innodb_write_io_threads"><strong>mysql.innodb_write_io_threads</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>64</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="mysql_innodb_write_io_threads"/><Link to="#mysql_innodb_write_io_threads"><strong>mysql.innodb_write_io_threads</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>64</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">innodb_write_io_threads</p>
               <div className="description"><p>The number of I/O threads for write operations in InnoDB. Default is 4. Changing this parameter will lead to a restart of the MySQL service.</p></div>
             </td>
@@ -461,7 +461,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="mysql_net_buffer_length"/><Link to="#mysql_net_buffer_length"><strong>mysql.net_buffer_length</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1024</code></li><li>max: <code>1048576</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="mysql_net_buffer_length"/><Link to="#mysql_net_buffer_length"><strong>mysql.net_buffer_length</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1024</code></li><li>max: <code>1048576</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">net_buffer_length</p>
               <div className="description"><p>Start sizes of connection buffer and result buffer. Default is 16384 (16K). Changing this parameter will lead to a restart of the MySQL service.</p></div>
             </td>

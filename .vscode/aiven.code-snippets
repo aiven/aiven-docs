@@ -10,7 +10,7 @@
     "scope": "markdown",
     "prefix": ["related", "pages", "rp"],
     "body": [
-      "import RelatedPages from \"@site/src/components/non-swizzled/RelatedPages\";",
+      "import RelatedPages from \"@site/src/components/RelatedPages\";",
       "",
       "<RelatedPages/>",
       "$2"
@@ -60,7 +60,7 @@
     "prefix": ["image", "console", "svg", "icon"],
     "description": "Insert an image as component. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
-      "import {ConsoleIcon} from \"@site/src/components/non-swizzled/ConsoleIcons\"",
+      "import {ConsoleIcon} from \"@site/src/components/ConsoleIcons\"",
       "",
       "<ConsoleIcon name=\"$1\"/> $2"
     ]
@@ -69,7 +69,7 @@
     "prefix": ["label", "console", "ui"],
     "description": "Insert a label with its icon. See https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs",
     "body": [
-      "import ConsoleLabel from \"@site/src/components/non-swizzled/ConsoleIcons\"",
+      "import ConsoleLabel from \"@site/src/components/ConsoleIcons\"",
       "",
       "<ConsoleLabel name=\"$1\"/> $2"
     ]
@@ -77,7 +77,7 @@
   "Early availability badge": {
     "prefix": ["early availability", "badge", "ea"],
     "body": [
-      "import EarlyBadge from \"@site/src/components/non-swizzled/Badges/EarlyBadge\";",
+      "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
       "",
       "<EarlyBadge/>",
       ""
@@ -86,7 +86,7 @@
   "Limited availability badge": {
     "prefix": ["limited availability", "badge", "la"],
     "body": [
-      "import LimitedBadge from \"@site/src/components/non-swizzled/Badges/LimitedBadge\";",
+      "import LimitedBadge from \"@site/src/components/Badges/LimitedBadge\";",
       "",
       "<LimitedBadge/>",
       ""
@@ -141,13 +141,13 @@
     "scope": "markdown",
     "prefix": ["enable", "feature", "contact", "sales"],
     "body": [
-      "To enable this feature, contact the [sales team](mailto:sales@aiven.io)."
+      "To enable this feature, contact the [sales team](http://aiven.io/contact)."
     ]
   },
   "Contact sales": {
     "scope": "markdown",
     "prefix": ["contact", "sales"],
-    "body": ["contact the [sales team](mailto:sales@aiven.io)"]
+    "body": ["contact the [sales team](http://aiven.io/contact)"]
   },
   "Contact support": {
     "scope": "markdown",
@@ -168,7 +168,7 @@
     "scope": "markdown",
     "prefix": ["button", "cta"],
     "body": [
-      "import Button from \"@site/src/components/non-swizzled/Buttons\";",
+      "import Button from \"@site/src/components/Buttons\";",
       "",
       "<Button to=\"$1\">$2</Button>",
       ""
@@ -178,9 +178,20 @@
     "scope": "markdown",
     "prefix": ["button", "secondary", "cta"],
     "body": [
-      "import {ButtonSecondary} from \"@site/src/components/non-swizzled/Buttons\";",
+      "import {ButtonSecondary} from \"@site/src/components/Buttons\";",
       "",
       "<ButtonSecondary to=\"$1\">$2</Button>",
+      ""
+    ]
+  },
+  "Insert Terraform sample": {
+    "prefix": ["terraform"],
+    "body": [
+      "import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';",
+      "",
+      "<TerraformSample filename='${1:EXAMPLE_PATH/FILENAME}.tf' />",
+      "",
+      "More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).",
       ""
     ]
   }

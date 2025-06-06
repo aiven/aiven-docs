@@ -4,9 +4,9 @@ title: Enable OAuth2/OIDC support for Apache Kafka® REST proxy
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Secure your Apache Kafka® resources by integrating OAuth 2.0/OpenID Connect (OIDC) with the Karapace REST proxy and enabling REST proxy authorization.
 This setup ensures that only authorized individuals can manage Apache Kafka resources

@@ -2,13 +2,13 @@
 title: Use AWS PrivateLink with Aiven services
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AivenConsolePrivateLinkConfiguration from "@site/static/images/content/platform/howto/use-aws-privatelink_image2.png";
 
 AWS [PrivateLink](https://aws.amazon.com/privatelink/) brings Aiven services to the selected virtual private cloud (VPC) in your AWS account.
 
 In a traditional setup that uses [VPC
-peering](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering),
+peering](/docs/platform/howto/manage-project-vpc#create-a-project-vpc),
 traffic is routed through an AWS VPC peering connection to your Aiven services.
 With PrivateLink, you can create a VPC endpoint in your own VPC and access an
 Aiven service from that. The VPC endpoint creates network interfaces (NIC) to
@@ -18,7 +18,7 @@ your Aiven service located in one of Aiven's AWS accounts.
 
 You can enable PrivateLink for Aiven services located in project VPC.
 Before you can set up AWS PrivateLink,
-[create a VPC](/docs/platform/howto/manage-vpc-peering#platform_howto_setup_vpc_peering) and launch the services to connect to that
+[create a VPC](/docs/platform/howto/manage-project-vpc#create-a-project-vpc) and launch the services to connect to that
 VPC. As there is no network routing between the VPC, you can use any
 private IP range for the VPC, unless you also want to connect to the
 project VPC using VPC peering connections. This means that overlaps in
@@ -29,8 +29,9 @@ To set up AWS PrivateLink, use the
 need the AWS console or CLI to create a VPC endpoint.
 
 :::note
-AWS PrivateLink is not supported in:
+AWS PrivateLink is not supported for:
 
+- [BYOC](/docs/platform/concepts/byoc)-hosted services
 - Aiven for AlloyDB Omni
 - Aiven for Apache Cassandra®
 - Aiven for Apache Flink®
@@ -75,7 +76,7 @@ AWS PrivateLink is not supported in:
 1.  In the AWS CLI, run the following command to create a VPC endpoint:
 
     ```bash
-    aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
+    aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_aws_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
     ```
 
     Replace the `--service-name` value with the value shown either in
@@ -84,7 +85,7 @@ AWS PrivateLink is not supported in:
     or as an output of:
 
     ```bash
-    avn service privatelink aws get aws_service_name
+    avn service privatelink aws get aiven_service_name
     ```
 
     Note that for fault tolerance, you should specify a subnet ID for
@@ -129,7 +130,7 @@ AWS PrivateLink is not supported in:
         ```bash
         # For PostgreSQL
 
-        avn service update -c privatelink_access.postgresql=true --project $project_name $Aiven_service_name
+        avn service update -c privatelink_access.pg=true --project $project_name $Aiven_service_name
         ```
 
         ```bash
@@ -197,7 +198,8 @@ PrivateLink connection.
 
 Each endpoint (connection) has a `PRIVATELINK_CONNECTION_ID`, which you can
 check using the
-[avn service privatelink AWS connection list SERVICE_NAME](/docs/tools/cli/service/privatelink) command.
+[`avn service privatelink aws connection list`](/docs/tools/cli/service/privatelink#avn_service_privatelink_aws_connection_list)
+command.
 
 To acquire connection information for your service component using AWS
 PrivateLink, run the
@@ -256,7 +258,7 @@ allowed to connect a VPC endpoint:
 
 -   In [Aiven Console](https://console.aiven.io):
 
-    1.  click your service from the **Services** page.
+    1.  Click your service from the **Services** page.
     1.  On the **Overview** page, click **Service settings** from the
         sidebar.
     1.  On the **Service settings** page, go to the **Cloud and

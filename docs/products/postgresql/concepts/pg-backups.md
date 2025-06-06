@@ -3,7 +3,7 @@ title: Aiven for PostgreSQL® backups
 sidebar_label: Backups
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for PostgreSQL® databases are automatically backed up, with **full backups** made daily, and **write-ahead logs (WAL)** copied at 5 minute intervals, or for every new file generated.
 All backups are encrypted using

@@ -16,6 +16,7 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var minimum = options.hash.minimum;
   var maximum = options.hash.maximum;
   var def = options.hash.def;
+  var restart_warning = options.hash.restart_warning;
   var fullname = parent + '.' + name;
   var fullnameid = fullname.replace('.', '_');
 
@@ -39,11 +40,14 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
 
   html += '<p><code className="type">' + type + '</code></p>';
   html += '</div>';
-  if (minimum || maximum || def) {
+  if (minimum || maximum || def || restart_warning) {
     const constraints = [];
     if (minimum) constraints.push('<li>min: <code>' + minimum + '</code></li>');
     if (maximum) constraints.push('<li>max: <code>' + maximum + '</code></li>');
     if (def) constraints.push('<li>default: <code>' + def + '</code></li>');
+    if (restart_warning) {
+      constraints.push('<li><span class="badge badge--warning">Service restart</span></li>');
+    }
 
     html +=
       '<div className="constraints"><ul>' +
@@ -117,7 +121,7 @@ import Link from '@docusaurus/Link'
   {{~#each user_config_schema.properties}}
     <tr>
       <td>
-        {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default}}
+        {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
         {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
         {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
         <table className="service-param-children">
@@ -125,7 +129,7 @@ import Link from '@docusaurus/Link'
           {{#each properties}}
           <tr>
             <td>
-              {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default}}
+              {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
               {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
               {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
             </td>

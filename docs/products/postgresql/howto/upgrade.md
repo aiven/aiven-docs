@@ -3,8 +3,8 @@ title: Perform a PostgreSQL® major version upgrade
 sidebar_label: Upgrade to a major version
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 PostgreSQL® in-place upgrades allows to upgrade an instances to a new major version without needing to fork and redirect the traffic.
 The whole procedure usually takes 60 seconds or less for small databases.

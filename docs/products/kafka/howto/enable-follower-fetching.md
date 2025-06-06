@@ -5,9 +5,9 @@ sidebar_label: Enable follower fetching
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/non-swizzled/ConsoleIcons"
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to fetch data from the nearest replica instead of the leader, optimizing data fetching and enhancing performance.
 
@@ -97,56 +97,8 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Add the Aiven Terraform Provider to the `required_providers` block in your Terraform
-   configuration:
-
-   ```hcl
-   terraform {
-    required_providers {
-      aiven = {
-        source  = "aiven/aiven"
-        version = ">=4.0.0, < 5.0.0"
-      }
-    }
-   }
-   ```
-
-1. Set the service connection attributes in the provider block:
-
-   ```hcl
-   provider "aiven" {
-    api_token = "YOUR_TOKEN"
-    }
-   ```
-
-   The `api_token` is your Aiven [token](/docs/platform/howto/create_authentication_token).
-
-1. Enable follower fetching in your Aiven for Apache Kafka service using the
-   following configuration:
-
-   ```hcl
-   resource "aiven_kafka" "example_kafka" {
-    project      = "YOUR_PROJECT_NAME"
-    cloud_name   = "cloud_region"
-    plan         = "business-4"
-    service_name = "example-service-name"
-
-    kafka_user_config {
-      # Other Kafka configurations...
-      follower_fetching = {
-        enabled = true
-      }
-     }
-    }
-   ```
-
-   Parameters:
-
-   - `project`: Name of your project.
-   - `cloud_name`: Cloud region where the service is hosted.
-   - `plan`: Service plan.
-   - `service_name`: Name of your service.
-   - `follower_fetching.enabled`: Set to `true` to enable the follower fetching feature.
+Use [the `follower_fetching` attribute](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka#nested-schema-for-kafka_user_configfollower_fetching)
+in your `aiven_kafka` resource.
 
 </TabItem>
 </Tabs>

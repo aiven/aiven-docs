@@ -2,8 +2,10 @@
 title: Manage permissions
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons"
-import {ConsoleIcon} from "@site/src/components/non-swizzled/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 You can grant [organization users](/docs/platform/howto/manage-org-users), [application users](/docs/platform/concepts/application-users), and [groups](/docs/platform/howto/manage-groups) access at the organization and project level through [roles and permissions](/docs/platform/concepts/permissions).
 
@@ -17,6 +19,9 @@ this type of access, reset all service passwords.
 
 ### Grant organization permissions to a user or group
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 1. In the organization, click **Admin**.
 
 1. Click <ConsoleLabel name="orgpermissions"/>.
@@ -27,6 +32,15 @@ this type of access, reset all service passwords.
    [roles and permissions](/docs/platform/concepts/permissions) to grant.
 
 1. Click **Grant permissions**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use [the `aiven_organization_permission` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_permission)
+and set the `resource_type` to `organization`.
+
+</TabItem>
+</Tabs>
 
 ### Change organization permissions for a user or group
 
@@ -70,8 +84,6 @@ Aiven also highly recommends enabling
 [two-factor authentication](/docs/platform/howto/user-2fa) for super admin.
 :::
 
-To make a user a super admin:
-
 1.  In the organization, click **Admin**.
 1.  Click <ConsoleLabel name="users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="make super admin"/>.
@@ -86,6 +98,9 @@ at the project level.
 
 ### Grant project permissions to a user or group
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 1. In the project, click <ConsoleLabel name="projectpermissions"/>.
 
 1. Click **Grant permissions** and select **Grant to users** or **Grant to groups**.
@@ -95,6 +110,15 @@ at the project level.
 1. Select the [roles and permissions](/docs/platform/concepts/permissions) to grant.
 
 1. Click **Grant permissions**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use [the `aiven_organization_permission` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_permission)
+and set the `resource_type` to `project`.
+
+</TabItem>
+</Tabs>
 
 ### Change permissions for a user or group
 

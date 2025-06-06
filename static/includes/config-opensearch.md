@@ -52,7 +52,18 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="custom_repos"/><Link to="#custom_repos"><strong>custom_repos</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">OpenSearch custom repositories</p>
+        <div className="description"><p>Allow to register object storage repositories in OpenSearch</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0,::/0</code></li></ul></div>
         <p className="title">IP filter</p>
         <div className="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
         <table className="service-param-children">
@@ -254,27 +265,6 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="azure_migration_base_path"/><Link to="#azure_migration_base_path"><strong>azure_migration.base_path</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">The path to the repository data within its container</p>
-              <div className="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="azure_migration_compress"/><Link to="#azure_migration_compress"><strong>azure_migration.compress</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Metadata files are stored in compressed format</p>
-              <div className="description"><p>when set to true metadata files are stored in compressed format</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="azure_migration_chunk_size"/><Link to="#azure_migration_chunk_size"><strong>azure_migration.chunk_size</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Chunk size</p>
-              <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <div className="param"><p className="name"><Link id="azure_migration_restore_global_state"/><Link to="#azure_migration_restore_global_state"><strong>azure_migration.restore_global_state</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">Restore the cluster state or not</p>
               <div className="description"><p>If true, restore the cluster state. Defaults to false</p></div>
@@ -296,9 +286,23 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="azure_migration_container"/><Link to="#azure_migration_container"><strong>azure_migration.container</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Azure container name</p>
-              <div className="description"><p>Azure container name</p></div>
+              <div className="param"><p className="name"><Link id="azure_migration_base_path"/><Link to="#azure_migration_base_path"><strong>azure_migration.base_path</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">The path to the repository data within its container</p>
+              <div className="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="azure_migration_compress"/><Link to="#azure_migration_compress"><strong>azure_migration.compress</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Metadata files are stored in compressed format</p>
+              <div className="description"><p>when set to true metadata files are stored in compressed format</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="azure_migration_chunk_size"/><Link to="#azure_migration_chunk_size"><strong>azure_migration.chunk_size</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">Chunk size</p>
+              <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
             </td>
           </tr>
           <tr>
@@ -306,6 +310,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="azure_migration_account"/><Link to="#azure_migration_account"><strong>azure_migration.account</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">Account name</p>
               
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="azure_migration_container"/><Link to="#azure_migration_container"><strong>azure_migration.container</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">Azure container name</p>
+              <div className="description"><p>Azure container name</p></div>
             </td>
           </tr>
           <tr>
@@ -329,6 +340,13 @@ import Link from '@docusaurus/Link'
               <div className="description"><p>Defines the DNS suffix for Azure Storage endpoints.</p></div>
             </td>
           </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="azure_migration_readonly"/><Link to="#azure_migration_readonly"><strong>azure_migration.readonly</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p className="title">Whether the repository is read-only.</p>
+              
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>
@@ -345,27 +363,6 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="gcs_migration_snapshot_name"/><Link to="#gcs_migration_snapshot_name"><strong>gcs_migration.snapshot_name</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">The snapshot name to restore from</p>
               
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="gcs_migration_base_path"/><Link to="#gcs_migration_base_path"><strong>gcs_migration.base_path</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">The path to the repository data within its container</p>
-              <div className="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="gcs_migration_compress"/><Link to="#gcs_migration_compress"><strong>gcs_migration.compress</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Metadata files are stored in compressed format</p>
-              <div className="description"><p>when set to true metadata files are stored in compressed format</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="gcs_migration_chunk_size"/><Link to="#gcs_migration_chunk_size"><strong>gcs_migration.chunk_size</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Chunk size</p>
-              <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
             </td>
           </tr>
           <tr>
@@ -391,6 +388,27 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="gcs_migration_base_path"/><Link to="#gcs_migration_base_path"><strong>gcs_migration.base_path</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">The path to the repository data within its container</p>
+              <div className="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="gcs_migration_compress"/><Link to="#gcs_migration_compress"><strong>gcs_migration.compress</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Metadata files are stored in compressed format</p>
+              <div className="description"><p>when set to true metadata files are stored in compressed format</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="gcs_migration_chunk_size"/><Link to="#gcs_migration_chunk_size"><strong>gcs_migration.chunk_size</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">Chunk size</p>
+              <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="gcs_migration_bucket"/><Link to="#gcs_migration_bucket"><strong>gcs_migration.bucket</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">Google Cloud Storage bucket name</p>
               <div className="description"><p>The path to the repository data within its container</p></div>
@@ -401,6 +419,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="gcs_migration_credentials"/><Link to="#gcs_migration_credentials"><strong>gcs_migration.credentials</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">Credentials</p>
               <div className="description"><p>Google Cloud Storage credentials file content</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="gcs_migration_readonly"/><Link to="#gcs_migration_readonly"><strong>gcs_migration.readonly</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p className="title">Whether the repository is read-only.</p>
+              
             </td>
           </tr>
           </tbody>
@@ -423,27 +448,6 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="s3_migration_base_path"/><Link to="#s3_migration_base_path"><strong>s3_migration.base_path</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">The path to the repository data within its container</p>
-              <div className="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="s3_migration_compress"/><Link to="#s3_migration_compress"><strong>s3_migration.compress</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Metadata files are stored in compressed format</p>
-              <div className="description"><p>when set to true metadata files are stored in compressed format</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="s3_migration_chunk_size"/><Link to="#s3_migration_chunk_size"><strong>s3_migration.chunk_size</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Chunk size</p>
-              <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <div className="param"><p className="name"><Link id="s3_migration_restore_global_state"/><Link to="#s3_migration_restore_global_state"><strong>s3_migration.restore_global_state</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">Restore the cluster state or not</p>
               <div className="description"><p>If true, restore the cluster state. Defaults to false</p></div>
@@ -461,6 +465,27 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="s3_migration_indices"/><Link to="#s3_migration_indices"><strong>s3_migration.indices</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">Indices to restore</p>
               <div className="description"><p>A comma-delimited list of indices to restore from the snapshot. Multi-index syntax is supported.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="s3_migration_base_path"/><Link to="#s3_migration_base_path"><strong>s3_migration.base_path</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">The path to the repository data within its container</p>
+              <div className="description"><p>The path to the repository data within its container. The value of this setting should not start or end with a /</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="s3_migration_compress"/><Link to="#s3_migration_compress"><strong>s3_migration.compress</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Metadata files are stored in compressed format</p>
+              <div className="description"><p>when set to true metadata files are stored in compressed format</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="s3_migration_chunk_size"/><Link to="#s3_migration_chunk_size"><strong>s3_migration.chunk_size</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">Chunk size</p>
+              <div className="description"><p>Big files can be broken down into chunks during snapshotting if needed. Should be the same as for the 3rd party repository</p></div>
             </td>
           </tr>
           <tr>
@@ -503,6 +528,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="s3_migration_secret_key"/><Link to="#s3_migration_secret_key"><strong>s3_migration.secret_key</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">AWS secret key</p>
               <div className="description"><p>AWS secret key</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="s3_migration_readonly"/><Link to="#s3_migration_readonly"><strong>s3_migration.readonly</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
+              <p className="title">Whether the repository is read-only.</p>
+              
             </td>
           </tr>
           </tbody>
@@ -769,6 +801,13 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="opensearch_enable_snapshot_api"/><Link to="#opensearch_enable_snapshot_api"><strong>opensearch.enable_snapshot_api</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable/Disable snapshot API</p>
+              <div className="description"><p>Enable/Disable snapshot API for custom repositories, this requires security management to be enabled</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="opensearch_thread_pool_search_size"/><Link to="#opensearch_thread_pool_search_size"><strong>opensearch.thread_pool_search_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>128</code></li></ul></div>
               <p className="title">search thread pool size</p>
               <div className="description"><p>Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</p></div>
@@ -972,9 +1011,44 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="opensearch_disk_watermarks"/><Link to="#opensearch_disk_watermarks"><strong>opensearch.disk_watermarks</strong></Link></p><p><code className="type">object</code></p></div>
+              <p className="title">Watermark settings</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="opensearch_segrep"/><Link to="#opensearch_segrep"><strong>opensearch.segrep</strong></Link></p><p><code className="type">object</code></p></div>
               <p className="title">Segment Replication Backpressure Settings</p>
               
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.remote_store"/><Link to="#opensearch_cluster.remote_store"><strong>opensearch.cluster.remote_store</strong></Link></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_remote_store"/><Link to="#opensearch_remote_store"><strong>opensearch.remote_store</strong></Link></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.filecache.remote_data_ratio"/><Link to="#opensearch_cluster.filecache.remote_data_ratio"><strong>opensearch.cluster.filecache.remote_data_ratio</strong></Link></p><p><code className="type">number,null</code></p></div><div className="constraints"><ul><li>max: <code>100</code></li></ul></div>
+              <p className="title">The limit of how much total remote data can be referenced</p>
+              <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 0.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_node.search.cache.size"/><Link to="#opensearch_node.search.cache.size"><strong>opensearch.node.search.cache.size</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">The limit of how much total remote data can be referenced</p>
+              <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 5gb. Requires restarting all OpenSearch nodes.</p></div>
             </td>
           </tr>
           <tr>
@@ -988,6 +1062,13 @@ import Link from '@docusaurus/Link'
             <td>
               <div className="param"><p className="name"><Link id="opensearch_enable_remote_backed_storage"/><Link to="#opensearch_enable_remote_backed_storage"><strong>opensearch.enable_remote_backed_storage</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">Enable remote-backed storage</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_enable_searchable_snapshots"/><Link to="#opensearch_enable_searchable_snapshots"><strong>opensearch.enable_searchable_snapshots</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable searchable snapshots</p>
               
             </td>
           </tr>

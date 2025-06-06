@@ -1,0 +1,41 @@
+name: Check for missing redirections
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check_deleted_or_renamed_files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        submodules: recursive
+
+    - name: Fetch all branches
+      run: git fetch --all
+
+    - name: Check for deleted or renamed Markdown files in docs folder
+      id: check_files
+      run: |
+        DELETED_MD_FILES=$(git diff --name-status origin/main...HEAD | grep ^D | grep 'docs/.*\.md$' | wc -l)
+        RENAMED_MD_FILES=$(git diff --name-status origin/main...HEAD | grep ^R | grep 'docs/.*\.md$' | wc -l)
+        REDIRECTS_MODIFIED=$(git diff --name-only origin/main...HEAD | grep '^_redirects' | wc -l)
+        echo "deleted_md_files=$DELETED_MD_FILES" >> $GITHUB_ENV
+        echo "renamed_md_files=$RENAMED_MD_FILES" >> $GITHUB_ENV
+        echo "redirects_modified=$REDIRECTS_MODIFIED" >> $GITHUB_ENV
+
+    - name: Post reminder
+      if: (env.deleted_md_files != '0' || env.renamed_md_files != '0') && env.redirects_modified == '0'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "I see you have deleted or renamed a Markdown file, don't forget to add a redirection 😊"
+          })

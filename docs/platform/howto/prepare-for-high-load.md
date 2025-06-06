@@ -2,7 +2,7 @@
 title: Prepare services for high load
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Prepare your services for higher than usual traffic to avoid service outages.
 

@@ -3,14 +3,15 @@ title: Create a JAR application
 limited: true
 ---
 
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Apache Flink® enables you to upload and deploy [custom code as a JAR file](/docs/products/flink/concepts/custom-jars), enhancing your Apache Flink applications with advanced data processing capabilities.
 
 ## Prerequisite
 
 - Custom JARs for Aiven for Apache Flink is a **limited availability** feature.
-  To try this feature, request access by contacting the [sales team](mailto:sales@aiven.io).
+  To try this feature, request access by contacting the
+  [sales team](http://aiven.io/contact).
 - Create an Aiven for Apache Flink service and click **Upload and deploy custom JARs**
   to enable custom JARs during service creation.
 

@@ -1,11 +1,10 @@
 ---
 title: Connect with Python
-early: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/postgresql/connect.py';
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect to an Aiven for AlloyDB Omni database using Python 3 and the [psycopg2](https://pypi.org/project/psycopg2/) library.
 
