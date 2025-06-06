@@ -13,14 +13,13 @@ Use the Azure Blob source connector to stream data from Blob Storage into Apache
 
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with Apache Kafka Connect enabled, or a
-  [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
-- An Azure Storage container with data to stream into an Apache Kafka topic.
-- Authentication credentials provided as a storage account connection
-  string (`azure.storage.connection.string`).
+  [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
+- An Azure Storage container with data to stream into an Apache Kafka topic
+- A storage account connection string (`azure.storage.connection.string`) for authentication
 - Azure Blob Storage details:
-  - `azure.storage.container.name`: Name of the container to read from.
-  - Optional: `azure.blob.prefix` or `file.name.prefix` to filter files.
-- A target Apache Kafka topic that exists before you create the connector.
+  - `azure.storage.container.name`: Name of the container to read from
+  - Optional: `azure.blob.prefix` or `file.name.prefix` to filter files
+- An existing Apache Kafka topic where the connector sends the data
 
 ## Input formats
 
@@ -187,29 +186,31 @@ This example creates an Azure Blob Storage source connector with the following s
 
 To use the Azure Blob Storage source connector for disaster recovery:
 
-1. Configure an [Azure Blob sink connector](/docs/products/kafka/kafka-connect/howto/azure-blob-sink)
-   on your primary Aiven for Apache Kafka service or a dedicated Aiven for Apache Kafka
-   Connect service to write Kafka messages to Azure Blob Storage.
-1. Configure an Azure Blob source connector using your DR Aiven for Apache Kafka service
-   (with Apache Kafka Connect enabled) or a dedicated Aiven for Apache Kafka Connect
-   service to restore those messages from the same storage container.
+1. On your primary Aiven for Apache Kafka service (or a dedicated Aiven for Apache Kafka
+   Connect service), configure an
+   [Azure Blob sink connector](/docs/products/kafka/kafka-connect/howto/azure-blob-sink)
+   to write data to Azure Blob Storage.
+1. On your secondary Apache Kafka service, configure an Azure Blob source
+   connector to restore data from the same Azure container.
 
 ### Configuration requirements
 
-Both connectors must use identical settings:
+The source and sink connectors should use the same settings to ensure successful recovery:
 
-- File naming: Use the same `file.name.template`.
-  For source connectors, a recommended format is
-  `{{topic}}-{{timestamp:padding=true}}.gz`.
-  For sink connectors, formats like
-  `{{topic}}-{{partition:padding=true}}-{{start_offset:padding=true}}.gz`
-  are more common, but may not be practical for use in source connectors.
-- Format: Same `input.format`, and schema/envelope settings if used.
-- Compression: Same file compression method.
+- **File naming**: Use the same `file.name.template` in both sink and source connectors
+  for compatibility.
+  - For source connectors, a recommended format
+    is `{{topic}}-{{timestamp:padding=true}}.gz`.
+  - For sink connectors, formats like
+    `{{topic}}-{{partition:padding=true}}-{{start_offset:padding=true}}.gz` are more
+    common. This format may not suit source connectors, as it can make file matching
+    harder.
+- **Format**: Use the same `input.format`. If using Avro or Parquet, make sure
+  schema-related settings match.
+- **Compression**: Use the same compression method.
 
-Mismatched settings can cause the source connector to skip files, fail to
-deserialize the data, or restore records with incorrect topic, partition, or
-offset values.
+Using different settings can cause the source connector to skip files, fail to decode
+content, or ingest records with incorrect topic, partition, or offset information.
 
 :::note
 The source connector uses Apache Kafka Connect offset tracking. If it restarts before
