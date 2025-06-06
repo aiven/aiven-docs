@@ -704,8 +704,8 @@ import LimitedBadge from "@site/src/components/non-swizzled/Badges/LimitedBadge"
 
 :::important
 Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform as a
-[limited availability feature](/docs/platform/concepts/beta_services). For more
-information or access, contact your account team.
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+For more information or access, contact your account team.
 :::
 
 <table>
@@ -784,8 +784,8 @@ information or access, contact your account team.
 
 :::important
 Exoscale is supported on the Aiven Platform as a
-[limited availability feature](/docs/platform/concepts/beta_services) for Aiven for
-PostgreSQL® only. For more information or access, contact your account team.
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+for Aiven for PostgreSQL® only. For more information or access, contact your account team.
 :::
 
 <table>
