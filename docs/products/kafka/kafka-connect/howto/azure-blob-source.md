@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-The Azure Blob Storage source connector allows you to ingest data from Azure Blob Storage containers into Apache Kafka® topics for real-time processing, analytics, or disaster recovery.
+Use the Azure Blob source connector to stream data from Blob Storage into Apache Kafka® for real-time processing, analytics, or recovery.
 
 ## Prerequisites
 
