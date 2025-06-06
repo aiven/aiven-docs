@@ -829,6 +829,26 @@ for Aiven for PostgreSQL® only. For more information or access, contact your ac
     <td>AT-VIE-1</td>
     <td>Austria, Vienna</td>
   </tr>
+    <tr>
+    <td>Europe</td>
+    <td>AT-VIE-2</td>
+    <td>Austria, Vienna</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>BG-SOF-1</td>
+    <td>Bulgaria, Sofia</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>CH-DK-2</td>
+    <td>Switzerland, Zurich</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>CH-GVA-2</td>
+    <td>Switzerland, Geneva</td>
+  </tr>
   <tr>
     <td>Europe</td>
     <td>DE-FRA-1</td>
@@ -839,5 +859,5 @@ for Aiven for PostgreSQL® only. For more information or access, contact your ac
     <td>DE-MUC-1</td>
     <td>Germany, Munich</td>
   </tr>
-</tbody>
+  </tbody>
 </table>
