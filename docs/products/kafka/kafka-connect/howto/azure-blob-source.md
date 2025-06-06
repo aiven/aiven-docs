@@ -57,9 +57,15 @@ Parameters:
 - `connector.class`: Class name of the Azure Blob Storage source connector
 - `azure.storage.connection.string`: Connection string for the Azure Storage account
 - `azure.storage.container.name`: Name of the Azure blob container to read from
-- `file.name.template`: Pattern used to match blob filenames. For example,
-  `{{topic}}-{{timestamp}}.gz`. For supported placeholders, see the
-   [object key name format documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-source-connector/README.md#s3-object-key-name-format)
+- `file.name.template`: Pattern used to match blob filenames, such as `{{topic}}-{{timestamp}}.gz`.
+
+   Supported placeholders:
+   - `{{topic}}`: Kafka topic name
+   - `{{partition}}`: Partition number
+   - `{{start_offset}}`: Starting Kafka offset
+   - `{{timestamp}}`: Timestamp when the file is written
+   Example: `{{topic}}-{{partition:padding=true}}-{{start_offset:padding=true}}.gz`
+
 - `tasks.max`: Maximum number of parallel ingestion tasks
 - `azure.blob.prefix`: Optional. Prefix path in the container to filter files
 - `file.compression.type`: Optional. Compression type used in the files. Valid values
@@ -99,6 +105,10 @@ overrides, you can customize the following settings:
 
 For a complete list of configuration options, see the
 [Azure Blob source connector configuration reference](https://aiven-open.github.io/cloud-storage-connectors-for-apache-kafka/azure-source-connector/AzureBlobSourceConfig.html).
+
+:::caution
+This file is auto-generated and may change when the connector is updated.
+:::
 
 ## Create the connector
 
