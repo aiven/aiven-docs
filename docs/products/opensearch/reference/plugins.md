@@ -5,50 +5,42 @@ sidebar_label: Supported plugins
 
 Aiven for OpenSearch® includes a standard set of plugins. In addition to the plugins that were previously available in Aiven for Elasticsearch, Aiven for OpenSearch also includes plugins that are designed and developed specifically for OpenSearch.
 
-## Included plugins
+## List of plugins
 
-These plugins are enabled on all Aiven for OpenSearch services by
-default:
+:::note
+Each version of Aiven for OpenSearch comes with its own set of supported extension
+versions. You can only use the plugin versions supported for the Aiven for OpenSearch
+version that your service uses.
+:::
 
--   [ICU
-    Analysis](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html)
--   [Phonetic
-    Analysis](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-phonetic.html)
--   [kuromoji (Japanese
-    Analysis)](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-kuromoji.html)
--   [Mapper
-    Size](https://www.elastic.co/guide/en/elasticsearch/plugins/current/mapper-size.html)
--   [OpenSearch
-    SQL](https://opensearch.org/docs/latest/search-plugins/sql/index/)
--   [OpenSearch Dashboards
-    Alerting](https://opensearch.org/docs/latest/monitoring-plugins/alerting/index/)
--   [Anomaly
-    detection](https://opensearch.org/docs/monitoring-plugins/ad/index/)
--   [Asynchronous
-    search](https://opensearch.org/docs/search-plugins/async/index/)
--   [Index Management](https://opensearch.org/docs/im-plugin/index/)
--   [k-NN](https://opensearch.org/docs/search-plugins/knn/index/)
--   [Notebooks](https://opensearch.org/docs/dashboards/notebooks/)
--   [OpenSearch Dashboards
-    Reports](https://github.com/opensearch-project/dashboards-reports)
--   [Scheduler for Dashboards
-    Reports](https://github.com/opensearch-project/dashboards-reports)
--   [OpenSearch Dashboards Gantt
-    Charts](https://opensearch.org/docs/latest/dashboards/gantt/)
--   [OpenSearch Dashboards Trace
-    Analytics](https://opensearch.org/docs/latest/monitoring-plugins/trace/index/)
--   [ML Commons
-    plugin](https://opensearch.org/docs/latest/ml-commons-plugin/index/)
--   [OpenSearch
-    observability](https://opensearch.org/docs/latest/observing-your-data/index/)
--   [OpenSearch
-    security](https://opensearch.org/docs/latest/security/index/)
--   [OpenSearch security
-    analytics](https://opensearch.org/docs/latest/security-analytics/index/)
--   [OpenSearch neural
-    search](https://opensearch.org/docs/latest/search-plugins/neural-search/)
--   [OpenSearch
-    notifications](https://opensearch.org/docs/latest/observing-your-data/notifications/index/)
+For details on particular plugins, see the
+[OpenSearch documentation](https://docs.opensearch.org/docs/latest/about/) or
+[Elasticsearch documentation](https://www.elastic.co/docs/reference/elasticsearch/plugins/),
+and make sure you preview the documentation version corresponding to the Aiven for
+OpenSearch version that your service uses.
+
+Depending on the Aiven for OpenSearch version your service runs on, the following plugins
+are available:
+
+-   ICU Analysis
+-   Phonetic Analysis
+-   kuromoji (Japanese Analysis)
+-   Mapper Size
+-   OpenSearch SQL
+-   OpenSearch Dashboards Alerting
+-   Anomaly detection
+-   Asynchronous search
+-   Index Management
+-   k-NN
+-   Notebooks
+-   OpenSearch Dashboards Reports
+-   Scheduler for Dashboards Reports
+-   OpenSearch Dashboards Gantt Charts
+-   OpenSearch Dashboards Trace Analytics
+-   OpenSearch observability
+-   OpenSearch security
+-   OpenSearch security analytics
+-   OpenSearch notifications
 
 :::note
 The **Notebooks** and **OpenSearch notification** plugins are part of
