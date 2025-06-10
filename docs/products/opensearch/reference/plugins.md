@@ -37,21 +37,9 @@ are available:
 -   Scheduler for Dashboards Reports
 -   OpenSearch Dashboards Gantt Charts
 -   OpenSearch Dashboards Trace Analytics
--   ML Commons plugin
-
-    :::note
-    Use only in non-production environments due to restrictions on the functionality.
-    :::
-
 -   OpenSearch observability
 -   OpenSearch security
 -   OpenSearch security analytics
--   OpenSearch neural search
-
-    :::note
-    Use only in non-production environments due to restrictions on the functionality.
-    :::
-
 -   OpenSearch notifications
 
 :::note
