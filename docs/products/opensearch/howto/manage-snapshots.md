@@ -149,60 +149,9 @@ Example response:
 
 ## Restore from snapshots
 
-<Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console">
-
-1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
-   open your service's page.
-1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
-1. On the **Snapshots** page, find your custom repository and click
-   <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
-1. Find the snapshot to be used, and click <ConsoleLabel name="actions"/> >
-   <ConsoleLabel name="restorefromsnapshot"/>.
-1. In the **Restore snapshot** window, select indices to be restored by
-   entering patterns into the **Indices** field. Click **Start restore**.
-
-   :::important
-   Refrain from actions such as updating firewalls, changing index settings, or modifying
-   security configurations during the restore process as it can cause restore failures.
-   :::
-
-   :::tip
-   If your click **Close** in the **Restore snapshot** window during the restore process,
-   later you can check the restore process status on the **Snapshots** page.
-   :::
-
-1. When the **Restore snapshot** window shows that the restore process is completed,
-   click **Close**.
-
-</TabItem>
-<TabItem value="os-api" label="OpenSearch API">
-
 To restore data from a snapshot, use the
 [Restore Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/)
 native OpenSearch API endpoint.
-
-</TabItem>
-<TabItem value="api" label="Aiven API" default>
-
-```sh
-curl -s -X POST \
---url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
---header "Authorization: Bearer $TOKEN" \
---header "Content-Type: application/json" \
--d '{"indices": "test*", "include_global_state": false}'
-```
-
-Example response:
-
-```json
-{
-  "accepted": true
-}
-```
-
-</TabItem>
-</Tabs>
 
 ## List snapshots in progress
 
