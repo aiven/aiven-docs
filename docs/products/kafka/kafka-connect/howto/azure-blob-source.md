@@ -6,6 +6,7 @@ sidebar_label: Azure Blob source connector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Use the Azure Blob source connector to stream data from Blob Storage into Apache Kafka® for real-time processing, analytics, or recovery.
 
@@ -39,8 +40,8 @@ Create a file named `azure_blob_source_config.json` with the following configura
 {
   "name": "azure-blob-source",
   "connector.class": "io.aiven.kafka.connect.azure.source.AzureBlobSourceConnector",
-  "azure.storage.connection.string": "your-connection-string",
-  "azure.storage.container.name": "your-container",
+  "azure.storage.connection.string": "CONNECTION_STRING",
+  "azure.storage.container.name": "CONTAINER_NAME",
   "file.name.template": "{{topic}}-{{timestamp}}.gz",
   "tasks.max": 1,
   "azure.blob.prefix": "data/logs/",
@@ -48,6 +49,7 @@ Create a file named `azure_blob_source_config.json` with the following configura
   "input.format": "jsonl",
   "poll.interval.ms": 10000
 }
+
 ```
 
 Parameters:
@@ -150,6 +152,15 @@ Replace:
 - `@azure_blob_source_config.json`: Path to your JSON configuration file.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+You can configure this connector using
+the [`aiven_kafka_connector`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_connector#example-usage)
+resource in the Aiven Terraform Provider.
+
+Use the `config` block to define the connector settings as key-value pairs.
+
+</TabItem>
 </Tabs>
 
 ## Example: Define and create an Azure Blob Storage source connector
@@ -158,8 +169,8 @@ This example creates an Azure Blob Storage source connector with the following s
 
 - Connector name: `azure_blob_source`
 - Apache Kafka topic: `blob-ingest-topic`
-- Azure Storage connection string: `your-connection-string`
-- Azure container: `my-container`
+- Azure Storage connection string: `CONNECTION_STRING`
+- Azure container: `CONTAINER_NAME`
 - File prefix: `data/logs/`
 - File name template: `{{topic}}-{{timestamp}}.gz`
 - Input format: `json`
@@ -172,14 +183,15 @@ This example creates an Azure Blob Storage source connector with the following s
   "connector.class": "io.aiven.kafka.connect.azure.source.AzureBlobSourceConnector",
   "tasks.max": 1,
   "kafka.topic": "blob-ingest-topic",
-  "azure.storage.connection.string": "your-connection-string",
-  "azure.storage.container.name": "my-container",
+  "azure.storage.connection.string": "CONNECTION_STRING",
+  "azure.storage.container.name": "CONTAINER_NAME",
   "azure.blob.prefix": "data/logs/",
   "file.name.template": "{{topic}}-{{timestamp}}.gz",
   "file.compression.type": "gzip",
   "input.format": "json",
   "poll.interval.ms": 10000
 }
+
 ```
 
 ## Disaster recovery
