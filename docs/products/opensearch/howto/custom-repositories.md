@@ -1,6 +1,7 @@
 ---
 title: Create and manage custom repositories in Aiven for OpenSearch®
 sidebar_label: Manage custom repositories
+limited: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -14,6 +15,8 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - Access to the [Aiven Console](https://console.aiven.io/)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
@@ -22,11 +25,12 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
   applied for your service
 - [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
   for your service
-  with the native OpenSearch security APIs directly)
 - [Snapshot permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-permissions)
   and
   [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
@@ -35,6 +39,8 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
