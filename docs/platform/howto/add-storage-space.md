@@ -16,13 +16,14 @@ service plan.
 :::note[Availability]
 DDS is available for the following services:
 
+- Aiven for Apache Cassandra®
 - Aiven for Apache Kafka®
-- Aiven for PostgreSQL®
+- Aiven for Grafana®
+- Aiven for M3DB®
+- Aiven for Metrics®
 - Aiven for MySQL®
 - Aiven for OpenSearch®
-- Aiven for Apache Cassandra®
-- Aiven for Metrics®
-- Aiven for M3DB®
+- Aiven for PostgreSQL®
 
 DDS is not supported on custom plans.
 :::
