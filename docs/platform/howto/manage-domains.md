@@ -13,8 +13,8 @@ There are two ways you can verify a domain:
 -   by adding a DNS TXT record to the domain (recommended)
 -   by uploading an HTML file to your website
 
-To ensure your domain remains in the verified status, don't remove the verification file
-from your domain provider.
+You can verify a domain in only one Aiven organization. To ensure your domain remains
+in the verified status, don't remove the verification file from your domain provider.
 
 ## Add a domain using a DNS TXT record
 
