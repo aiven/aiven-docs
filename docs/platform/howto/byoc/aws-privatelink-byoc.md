@@ -26,15 +26,12 @@ Enable and manage AWS PrivateLink for your Aiven services deployed in your own c
 
 ## Set up permissions
 
+Use your Terraform template to grant Aiven the permissions to set up and manage secure
+PrivateLink connections within your AWS environment for your BYOC service. To add the
+required permissions to your own AWS account:
+
 1. [Download the latest version of your Terraform template](/docs/platform/howto/byoc/download-infrastructure-template).
-
-   This template contains the necessary configuration to grant
-   Aiven permission to manage PrivateLink connections within your AWS environment for your
-   BYOC service.
 1. [Apply the updated template in your own AWS account using Terraform](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#deploy-the-template).
-
-   This will automatically add the required permissions to your own AWS account, allowing
-   Aiven to set up and manage the secure PrivateLink connection for your BYOC service.
 
 ## Enable AWS PrivateLink
 
