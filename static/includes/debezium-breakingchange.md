@@ -14,4 +14,6 @@ do not upgrade to version 2.0 or later until you migrate to a supported format s
 To upgrade from version 1.9.7, use multi-version support to test your configuration
 before applying changes in production.
 
+For further assistance, contact [Aiven support](mailto:support@aiven.io).
+
 :::
