@@ -66,7 +66,9 @@ members of the target organization.
 
 Services in the project continue running during the move.
 
-To move a project:
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  In the organization with the project, click **Admin**.
 1.  Click <ConsoleLabel name="Projects"/> and find the project to move.
@@ -74,6 +76,15 @@ To move a project:
 1.  Select the organization or organizational unit to move the project to.
 1.  Select a **Billing group**.
 1.  Click **Next** and **Finish**.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+You can move a project to another organization or organizational unit by
+[updating your `aiven_project` or `aiven_organization_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/move-projects).
+
+</TabItem>
+</Tabs>
 
 ## Delete a project
 
