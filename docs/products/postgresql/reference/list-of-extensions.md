@@ -194,6 +194,9 @@ installed with a few exceptions.
     Show row-level locking information.
 -   [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html).
     Show tuple-level statistics.
+-   [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/latest/).
+    Mask or replace personally identifiable information (PII) or commercially sensitive
+    data from a PostgreSQL database.
 -   [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html).
     Information about SSL certificates.
 -   [tablefunc](https://www.postgresql.org/docs/current/tablefunc.html).
