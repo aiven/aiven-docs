@@ -182,7 +182,7 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="oauth_allow_insecure_email_lookup"/><Link to="#oauth_allow_insecure_email_lookup"><strong>oauth_allow_insecure_email_lookup</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Allow insecure email lookup</p>
-        <div className="description"><p>Enforce user lookup based on email instead of the unique ID provided by the IdP</p></div>
+        <div className="description"><p>Enforce user lookup based on email instead of the unique ID provided by the IdP. This setup introduces significant security risks, such as potential phishing, spoofing, and other data breaches.</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
