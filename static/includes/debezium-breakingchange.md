@@ -1,14 +1,19 @@
 :::note
-**Breaking changes in Debezium 2.5**
+Aiven supports multiple Debezium versions through multi-version support, including
+versions 1.9.7, 2.5.0, 2.7.4, and 3.1.0.
 
-Debezium version 2.5 introduces changes to the connector's configuration and behavior.
-New setups [default to version 2.5](https://debezium.io/releases/2.5/release-notes),
-while existing setups using version 1.9 remain on that version for stability.
+Debezium 2.5 introduced changes to connector configuration and behavior. To prevent
+unintentional upgrades during maintenance updates, pin the connector version using the
+`plugin_versions` configuration property.
+For details, see [Manage connector versions](/docs/products/kafka/kafka-connect/howto/manage-connector-versions).
 
-If you are using version 1.9.7, you can upgrade to version 2.5.0 using the
-[multi-version support](/docs/products/kafka/kafka-connect/howto/manage-connector-versions)
-without raising a support ticket. Ensure compatibility by testing version 2.5
-configurations before upgrading.
+If you use Debezium for PostgreSQL version 1.9.7 with the `wal2json` replication format,
+do not upgrade to version 2.0 or later until you migrate to a supported format such as
+`pgoutput`.
+
+To upgrade from version 1.9.7, use multi-version support to test your configuration
+before applying changes in production.
 
 For further assistance, contact [Aiven support](mailto:support@aiven.io).
+
 :::

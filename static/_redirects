@@ -188,6 +188,7 @@
 /products/opensearch/howto/list-access-control             https://aiven.io/docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-data-management            https://aiven.io/docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
 /products/opensearch/howto/list-integrations               https://aiven.io/docs/products/opensearch/get-started
+/products/opensearch/howto/migrate-snapshot-data-opensearch https://aiven.io/docs/products/opensearch/howto/manage-snapshots
 /products/opensearch/howto/upgrade-to-opensearch           https://aiven.io/docs/products/opensearch/howto/upgrade-clients-to-opensearch
 /products/opensearch/list-overview                         https://aiven.io/docs/products/opensearch
 /products/opensearch/reference                             https://aiven.io/docs/products/opensearch/reference/advanced-params
@@ -243,6 +244,15 @@
 /tools/terraform/reference/troubleshooting/private-access-error       https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                          https://aiven.io/developer
 /valkey                                                               https://aiven.io/docs/products/valkey
+
+#
+# Redirects for legacy urls
+#
+/index.html                                                https://aiven.io/docs
+/docs/*                                                    https://aiven.io/docs/:splat
+/*/index.html                                              https://aiven.io/docs/:splat
+/*.html                                                    https://aiven.io/docs/:splat
+/*/                                                        https://aiven.io/docs/:splat
 
 #
 # Keep splats at the end

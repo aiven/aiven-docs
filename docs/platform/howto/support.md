@@ -137,5 +137,5 @@ in a HAR (HTTP Archive) file.
     -   Tokens or passwords
     -   Sensitive URLs
     -   Sensitive cookies or headers
-1.  Send the sanitized file to the support team in your reply to their
-    email or in the ticket's comments.
+1.  Zip the sanitized file and add password protection to it.
+1.  Follow the support team's instructions to share the file and password with them.

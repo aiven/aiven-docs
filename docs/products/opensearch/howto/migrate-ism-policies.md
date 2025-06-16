@@ -47,8 +47,8 @@ Before reapplying ISM policies, ensure the indices are synchronized between the
 source and target services. Check document counts to confirm they match.
 
 For more details, see the
-[verify the migration](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration)
-section in [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch#verify-the-migration).
+[verify the migration](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
+section in [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots).
 
 ## Reapply ISM policies
 
@@ -117,5 +117,5 @@ curl -X GET --insecure "$SERVICE_URL/_plugins/_ism/explain/<index_name>?pretty"
 
 <RelatedPages/>
 
-- [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)
+- [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
 - [Migrate Opendistro security configuration to Aiven for OpenSearch](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven)
