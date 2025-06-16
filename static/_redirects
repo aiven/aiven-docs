@@ -1,8 +1,10 @@
-#
-# Redirect file for Cloudflare.
-# See https://developers.cloudflare.com/pages/configuration/redirects/
-#
 
+
+
+
+/*.html                                                    https://aiven.io/docs/:splat
+/*/                                                        https://aiven.io/docs/:splat
+/*/index.html                                              https://aiven.io/docs/:splat
 /caching                                         https://aiven.io/docs/products/caching
 /category/administrative-tasks                   https://aiven.io/docs/get-started
 /category/concepts                               https://aiven.io/docs/get-started
@@ -17,9 +19,11 @@
 /category/troubleshooting                        https://aiven.io/docs/products/services
 /category/user-access                            https://aiven.io/docs/platform/howto/manage-org-users
 /community/documentation/tips-tricks/renaming-files    https://aiven.io/docs
+/docs/*                                                    https://aiven.io/docs/:splat
 /docs/platform/concepts/projects_accounts_access.html  https://aiven.io/docs/platform/howto/manage-org-users
 /docs/products/opensearch/howto/list-integrations      https://aiven.io/docs/products/opensearch
 /docs/products/opensearch/howto/list-manage-service    https://aiven.io/docs/products/opensearch
+/index.html                                                https://aiven.io/docs
 /integrations                                          https://aiven.io/docs/platform/concepts/service-integration
 /integrations/cloudwatch/list-cloudwatch-logs          https://aiven.io/docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          https://aiven.io/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
@@ -48,6 +52,7 @@
 /platform/howto/billing-azure-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/billing-google-cloud-platform-marketplace-subscription https://aiven.io/docs/marketplace-setup
 /platform/howto/byoc/create-custom-cloud               https://aiven.io/docs/platform/howto/byoc/create-cloud/create-custom-cloud
+/platform/howto/byoc/create-custom-cloud/*                 https://aiven.io/docs/platform/howto/byoc/create-cloud/:splat
 /platform/howto/change-billing-contact                 https://aiven.io/docs/platform/howto/use-billing-groups
 /platform/howto/change-support-tier                    https://aiven.io/docs/platform/howto/support
 /platform/howto/cleanup-powered-off-services           https://aiven.io/docs/platform/concepts/service-power-cycle
@@ -143,9 +148,11 @@
 /products/grafana/reference                                https://aiven.io/docs/products/grafana/reference/advanced-params
 /products/grafana/user-access                              https://aiven.io/docs/products/grafana/howto/log-in
 /products/influxdb                                         https://aiven.io/docs/products/services
+/products/influxdb/*                                        https://aiven.io/docs/products/services
 /products/kafka/getting-started                            https://aiven.io/docs/products/kafka/get-started
 /products/kafka/howto                                      https://aiven.io/docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/enable-karapace                      https://aiven.io/docs/products/kafka/howto/enable-schema-registry
+/products/kafka/howto/fake-sample-data                 https://aiven.io/docs/products/kafka/howto/generate-sample-data-manually
 /products/kafka/howto/list-admin                           https://aiven.io/docs/products/kafka/howto/enable-karapace
 /products/kafka/howto/list-integration                     https://aiven.io/docs/products/kafka/howto/integrate-service-logs-into-kafka-topic
 /products/kafka/howto/list-integration.html                https://aiven.io/docs/products/kafka
@@ -207,6 +214,7 @@
 /products/postgresql/reference/list-of-advanced-params     https://aiven.io/docs/products/postgresql/reference/advanced-params
 /products/postgresql/troubleshooting                       https://aiven.io/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
 /products/redis                                            https://aiven.io/docs/products/caching
+/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
 /products/redis/concepts/lua-scripts-redis                 https://aiven.io/docs/products/caching/concepts/lua-scripts-caching
 /products/redis/howto/list-dba-tasks                       https://aiven.io/docs/products/caching/howto/configure-acl-permissions
 /products/redis/howto/migrate-aiven-redis                  https://aiven.io/docs/products/caching/howto/migrate-redis-aiven-cli
@@ -243,19 +251,13 @@
 /tools/terraform/reference/troubleshooting/private-access-error       https://aiven.io/docs/tools/terraform
 /tutorials/anomaly-detection                                          https://aiven.io/developer
 /valkey                                                               https://aiven.io/docs/products/valkey
-
 #
-# Redirects for legacy urls
 #
-/index.html                                                https://aiven.io/docs
-/docs/*                                                    https://aiven.io/docs/:splat
-/*/index.html                                              https://aiven.io/docs/:splat
-/*.html                                                    https://aiven.io/docs/:splat
-/*/                                                        https://aiven.io/docs/:splat
-
+#
+#
+#
 #
 # Keep splats at the end
-#
-/platform/howto/byoc/create-custom-cloud/*                 https://aiven.io/docs/platform/howto/byoc/create-cloud/:splat
-/products/influxdb/*                                        https://aiven.io/docs/products/services
-/products/redis/*                                          https://aiven.io/docs/products/caching/:splat
+# Redirect file for Cloudflare.
+# Redirects for legacy urls
+# See https://developers.cloudflare.com/pages/configuration/redirects/
