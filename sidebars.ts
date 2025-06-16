@@ -748,7 +748,14 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/kafka/get-started',
-            'products/kafka/howto/fake-sample-data',
+            {
+              type: 'category',
+              label: 'Sample data',
+              items: [
+                'products/kafka/howto/generate-sample-data',
+                'products/kafka/howto/generate-sample-data-manually',
+              ],
+            },
             {
               type: 'category',
               label: 'Concepts',
