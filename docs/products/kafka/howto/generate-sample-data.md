@@ -40,14 +40,14 @@ The generator automatically:
 ### Stream behavior and limitations
 
 - Only one sample data generator session can be active at a time per Apache Kafka
-  service
-- Each user can run only one stream session at a time
-- Only the **Avro** schema format is supported
-- Data is written to a predefined or auto-created topic
-- Messages are sent at a steady rate to ensure reliable performance
-- Generated data is retained for up to one week
+  service.
+- Each user can run only one data generator scenario at a time.
+- Only the **Avro** schema format is supported.
+- Data is written to a system-generated topic based on the selected scenario.
+- Messages are sent at a steady rate for testing and demonstration.
+- Generated data is retained for up to one week.
 - The stream stops automatically after the selected duration or when the browser
-  session ends
+  session ends.
 
 ## Prerequisites
 
@@ -64,7 +64,6 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
 1. On the <ConsoleLabel name="overview" /> page, under
    the **Start data stream** section, click **Generate sample data**.
 1. In the setup wizard:
-
    - Choose a data scenario and click **Continue**.
    - The schema registry and REST proxy are required for data generation. Click
      **Enable & Continue** to enable them if they are not already active.
@@ -80,7 +79,6 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
      click **Fetch messages** to view the data.
    - To stop the stream, go to the **Overview** page and click **Stop streaming**.
    - To review topic settings and schema details, open the topic from the **Topics** tab.
-
 
 <RelatedPages/>
 
