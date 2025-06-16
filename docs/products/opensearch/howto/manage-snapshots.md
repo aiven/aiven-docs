@@ -1,7 +1,6 @@
 ---
 title: Create and manage snapshots in Aiven for OpenSearch®
 sidebar_label: Manage snapshots
-limited: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -15,8 +14,6 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
-- Custom repositories
-  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - Access to the [Aiven Console](https://console.aiven.io/)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
@@ -26,8 +23,6 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
-- Custom repositories
-  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
   applied for your service
 - [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
@@ -40,8 +35,6 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-- Custom repositories
-  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
@@ -156,9 +149,54 @@ Example response:
 
 ## Restore from snapshots
 
+<Tabs groupId="group1">
+<TabItem value="gui" label="Aiven Console">
+
+1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
+   open your service's page.
+1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
+1. On the **Snapshots** page, find your custom repository and click
+   <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
+1. Find the snapshot to be used, and click <ConsoleLabel name="actions"/> >
+   <ConsoleLabel name="restorefromsnapshot"/>.
+1. In the **Restore snapshot** window, select indices to be restored by
+   entering patterns into the **Indices** field. Click **Start restore**.
+
+   :::important
+   Refrain from actions such as updating firewalls, changing index settings, or modifying
+   security configurations during the restore process as it can cause restore failures.
+   :::
+
+   :::tip
+   If your click **Close** in the **Restore snapshot** window during the restore process,
+   later you can check the restore process status on the **Snapshots** page.
+   :::
+
+1. When the **Restore snapshot** window shows that the restore process is completed,
+   click **Close**.
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
 To restore data from a snapshot, use the
 [Restore Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/)
 native OpenSearch API endpoint.
+
+</TabItem>
+<TabItem value="api" label="Aiven API" default>
+
+```sh
+
+```
+
+Example response:
+
+```json
+
+```
+
+</TabItem>
+</Tabs>
 
 ## List snapshots in progress
 
