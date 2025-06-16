@@ -81,13 +81,6 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
    - To stop the stream, go to the **Overview** page and click **Stop streaming**.
    - To review topic settings and schema details, open the topic from the **Topics** tab.
 
-## Next steps
-
-After verifying your Apache Kafka service:
-
-- [Connect producers and consumers](/docs/products/kafka/howto/connect-to-service)
-- [Use Kafka Connect to move real data](/docs/products/kafka/apache-kafka-connect)
-- [Manage topics and schemas](/docs/products/kafka/howto/topic-and-schema-management)
 
 <RelatedPages/>
 
