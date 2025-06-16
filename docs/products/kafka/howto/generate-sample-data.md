@@ -1,5 +1,5 @@
 ---
-title: Stream sample data using the Console
+title: Stream sample data from the Aiven Console
 sidebar_label: Stream sample data
 keywords: [sample data, test messages, kafka, data stream, onboarding]
 ---
@@ -84,6 +84,6 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
 
 <RelatedPages/>
 
-- [View messages in a topic](/docs/products/kafka/howto/view-messages)
-- [Schema Registry overview](/docs/products/kafka/concepts/schema-registry)
-- [Create a service](/docs/platform/howto/create_new_service)
+- [View topic details and partitions](/docs/products/kafka/howto/get-topic-partition-details)
+- [Enable Schema Registry and Kafka REST Proxy](/docs/products/kafka/karapace/howto/enable-karapace)
+- [Create an Aiven for Apache Kafka service](/docs/platform/howto/create_new_service)
