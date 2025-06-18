@@ -7,7 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
+Aiven for Apache Kafka Connect® lets you control which connector version is used in your service.
+
+## Benefits
+
 It prevents compatibility issues from automatic updates, avoids breaking changes
 when multiple dependencies rely on a specific connector version, and allows testing,
 upgrading, or reverting versions to maintain production pipeline stability. You can
@@ -26,6 +29,9 @@ service configuration.
 - Setting a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
+- Selecting an older version than the currently used one is possible if such version is
+  available. As a result, downgrading a connector or rolling back a previous connector
+  version upgrade is supported.
 - Multi-version support is available for all connectors where Aiven has published and
   supports more than one version. Support will continue to expand as new versions are
   released.
@@ -69,6 +75,15 @@ as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.ai
 [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 to set the connector version.
 
+:::note
+The version selector in the Aiven Console appears on individual connector configuration pages, 
+but changing the version affects all instances of that connector within the service, 
+not just the selected instance.
+Apache Kafka Connect does not support loading multiple versions of the same plugin within a service. 
+This limitation is expected to be addressed in Apache Kafka 4.1.0 through [KIP-891](https://cwiki.apache.org/confluence/display/KAFKA/KIP-891%3A+Running+multiple+versions+of+Connector+plugins). 
+Until then, if you run multiple instances of a connector in a service, they 
+must all use the same plugin version.
+:::
 
 ## Prerequisites
 
