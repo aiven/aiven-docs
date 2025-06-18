@@ -163,9 +163,8 @@ a
 
 ## Limits
 
-Service limits are determined by a plan that this service uses.
-
-For the number of VMs, CPU per VM, RAM per VM, storage details per plan, see
+Service limits are determined by a plan that this service uses. For the number of VMs,
+CPU per VM, RAM per VM, storage details per plan, see
 [Plans & pricing](https://aiven.io/pricing?product=clickhouse).
 
 | Aiven for ClickHouse           | Hobbyist                   | Startup                      | Business                     | Premium                      |
