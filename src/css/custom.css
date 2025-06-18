@@ -334,7 +334,7 @@ body .react-tooltip {
   background-color: var(--ifm-color-primary-darkest);
   color: var(--ifm-color-white);
   border-radius: var(--ifm-border-radius);
-  padding: 10px 15px;
+  padding: 8px 14px;
   font-size: 0.75rem;
   line-height: 1.4;
   text-align: left;
@@ -342,7 +342,7 @@ body .react-tooltip {
   word-wrap: break-word;
   white-space: normal;
   opacity: 1 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* More pronounced shadow for clear separation */
-  pointer-events: none; /* Ensures tooltip doesn't block interactions with elements behind it */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
   z-index: 10000;
 }
