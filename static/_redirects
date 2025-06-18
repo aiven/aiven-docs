@@ -188,7 +188,6 @@
 /products/opensearch/howto/list-access-control             https://aiven.io/docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-data-management            https://aiven.io/docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
 /products/opensearch/howto/list-integrations               https://aiven.io/docs/products/opensearch/get-started
-/products/opensearch/howto/migrate-snapshot-data-opensearch https://aiven.io/docs/products/opensearch/howto/manage-snapshots
 /products/opensearch/howto/upgrade-to-opensearch           https://aiven.io/docs/products/opensearch/howto/upgrade-clients-to-opensearch
 /products/opensearch/list-overview                         https://aiven.io/docs/products/opensearch
 /products/opensearch/reference                             https://aiven.io/docs/products/opensearch/reference/advanced-params
