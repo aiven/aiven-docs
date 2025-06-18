@@ -1,6 +1,7 @@
 ---
 title: Create and manage custom repositories in Aiven for OpenSearch®
 sidebar_label: Manage custom repositories
+limited: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -14,6 +15,8 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - Access to the [Aiven Console](https://console.aiven.io/)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
@@ -22,6 +25,8 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
   applied for your service
 - [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
@@ -30,10 +35,15 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
   and
   [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
   configured
+- Storage credentials for using the native OpenSearch
+  [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
+  endpoint
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
+- Custom repositories
+  [enabled as a limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 - Running Aiven for OpenSearch service
 - [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
 - Access to a supported object storage service (AWS S3, GCS, or Azure)
@@ -68,10 +78,12 @@ You can configure custom repositories for the following object storage services:
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
 - The following operations are not supported via native OpenSearch API:
-  - [Create a repository](/docs/products/opensearch/howto/custom-repositories#create-custom-repositories)
   - [Remove a repository](/docs/products/opensearch/howto/custom-repositories#remove-a-repository)
   - [Edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
   - [List custom repositories](/docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
+- To use the native OpenSearch
+  [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
+  endpoint, you need to provide storage credentials.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -107,6 +119,13 @@ the appropriate settings for the selected storage provider.
    1. Select a storage provider.
    1. Give provider-specific details required for accessing the storage.
    1. Click **Add**.
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+To create a repository, use the
+[Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
+native OpenSearch API endpoint.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
