@@ -7,7 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
+Aiven for Apache Kafka Connect® lets you control which connector version is used in your service.
+
+## Benefits
+
 It prevents compatibility issues from automatic updates, avoids breaking changes
 when multiple dependencies rely on a specific connector version, and allows testing,
 upgrading, or reverting versions to maintain production pipeline stability. You can
@@ -69,6 +72,16 @@ as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.ai
 [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 to set the connector version.
 
+:::warning
+Although the version selector appears under the configuration page of connector instances in
+Aiven Console for convenience, the actual choice affects all instances of the connector under
+the same service. It is not limited to the scope of a single connector instance.
+
+Prior to [KIP-891](https://cwiki.apache.org/confluence/display/KAFKA/KIP-891%3A+Running+multiple+versions+of+Connector+plugins)
+which will presumably get introduced with Apache Kafka 4.1.0, it is not possible for a Connect
+worker to load multiple versions of the same plugin at the same time. It means that if you run
+multiple instances of a connector in a given service, they must rely on the same library version.
+:::
 
 ## Prerequisites
 
