@@ -59,6 +59,13 @@ Users with the organization admin or project admin
 [role](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 can move projects within an organization.
 
+:::note
+You cannot move a project to an Aiven organization on AWS Marketplace, Azure Marketplace,
+or Google Cloud Marketplace using the Aiven Console. To move to a marketplace,
+set up your organization and projects in the marketplace and
+[contact Aiven for help moving your services](/docs/platform/howto/list-marketplace-payments).
+:::
+
 To move a project to a different organization, you must be an
 organization admin of both organizations. All users with permission to access the project
 lose the permissions when you move it to a different organization unless they are

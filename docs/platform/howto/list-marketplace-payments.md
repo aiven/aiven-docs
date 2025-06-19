@@ -7,61 +7,49 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven makes its services available through various Marketplaces. If you already have services running in a project, which is billed directly through Aiven, you can move to a Marketplace subscription without disrupting your services.
+Aiven makes its services available through the AWS, Azure, and Google Cloud marketplaces. If you already have services running in a project that is billed directly through Aiven, you can change the project billing to a marketplace subscription without disrupting your services.
 
 <Tabs groupId="group1">
 <TabItem value="aws" label="AWS Marketplace" default>
 
-1. [Set up AWS Marketplace for Aiven services](/docs/marketplace-setup).
-   The new Aiven organization will contain your projects.
+1. [Set up your AWS Marketplace for Aiven subscription](/docs/marketplace-setup).
 
-1. Collect the required information:
+1. Collect information about your accounts:
 
-   1. From your **existing Aiven account**, retrieve The name of the Aiven projects
-      that contain the services you wish to move.
+   * In the [Aiven Console](https://console.aiven.io/),
+     get the names of the projects you are moving to the marketplace subscription.
 
-   1. From your **new Aiven organization** with the AWS Marketplace
-      subscription, retrieve the Aiven organization name.
+   * In the AWS Marketplace, get the name of the Aiven organization.
 
-1. Send the information by email to the [sales team](http://aiven.io/contact)
+1. Send the information to the [sales team](http://aiven.io/contact).
 
 </TabItem>
 <TabItem value="azure" label="Azure Marketplace">
 
-1. [Set up Azure Marketplace for Aiven services](/docs/marketplace-setup).
-   The new Aiven organization will contain your projects.
+1. [Set up your Azure Marketplace for Aiven subscription](/docs/marketplace-setup).
 
-1. Collect the required information:
+1. Collect information about your accounts:
 
-   1. From your **existing Aiven account**, retrieve The name of the Aiven projects
-      that contain the services you wish to move.
+   * In the [Aiven Console](https://console.aiven.io/),
+     get the names of the projects you are moving to the marketplace subscription.
 
-   1. From your **new Aiven organization** with the Azure Marketplace
-      subscription, retrieve the Aiven organization name.
+   * In the Azure Marketplace, get the name of the Aiven organization.
 
-1. Send the information by email to the [sales team](http://aiven.io/contact).
+1. Send the information to the [sales team](http://aiven.io/contact).
 
 </TabItem>
 <TabItem value="google" label="Google Cloud Marketplace">
 
-1. [Set up Google Cloud Marketplace for Aiven Services](/docs/marketplace-setup).
-   The new Aiven organization will contain your projects.
+1. [Set up your Google Cloud Marketplace for Aiven subscription](/docs/marketplace-setup).
 
-1. Collect the required information:
+1. Collect information about your accounts:
 
-   1. From your **existing Aiven account**, retrieve The name of the Aiven projects
-      that contain the services you wish to move.
+   * In the [Aiven Console](https://console.aiven.io/),
+     get the names of the projects you are moving to the marketplace subscription.
 
-   1. From your **new Aiven organization** with the GCP marketplace
-      subscription, retrieve the Aiven organization name, as shown in the
-      [Aiven GCP console](https://console.gcp.aiven.io/).
+   * In the Google Cloud Marketplace, get the name of the Aiven organization.
 
-1. Send the information by email to the [sales team](http://aiven.io/contact).
+1. Send the information to the [sales team](http://aiven.io/contact).
 
 </TabItem>
 </Tabs>
-<!-- vale off -->
-
-<RelatedPages/>
-
-- [Set up Marketplace subscription](/docs/marketplace-setup)
