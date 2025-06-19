@@ -137,10 +137,10 @@ native OpenSearch API endpoint.
 
 ```sh
 curl -s -X POST \
---url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/first-snapshot" \
+--url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/{repository_name}/{snapshot_name}/_restore" \
 --header "Authorization: Bearer $TOKEN" \
 --header "Content-Type: application/json" \
--d '{"indices": "test*", "include_global_state": false}'
+-d '{"indices": "test*", "include_global_state": true}'
 ```
 
 Example response:
@@ -193,13 +193,25 @@ native OpenSearch API endpoint.
 <TabItem value="api" label="Aiven API" default>
 
 ```sh
-
+curl -s -X POST \
+"https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/{repository_name}/{snapshot_name}/_restore" \
+-H "Authorization: Bearer $TOKEN" \
+-H "Content-Type: application/json" \
+-d '{
+  "indices": "test-index-*",
+  "include_global_state": true,
+  "ignore_unavailable": false,
+  "rename_pattern": "index_(.+)",
+  "rename_replacement": "restored_index_$1"
+}'
 ```
 
 Example response:
 
 ```json
-
+{
+  "accepted": true
+}
 ```
 
 </TabItem>
