@@ -140,7 +140,7 @@ curl -s -X POST \
 --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/{repository_name}/{snapshot_name}/_restore" \
 --header "Authorization: Bearer $TOKEN" \
 --header "Content-Type: application/json" \
--d '{"indices": "test*", "include_global_state": true}'
+-d '{"indices": "test*"}'
 ```
 
 Example response:
