@@ -263,13 +263,17 @@ Start deploying services in your project to stream, store, or analyze your data.
 
 #### Create a service using the dev tools
 
-See examples of services and integrations using code samples for the
-[Aiven Provider for Terraform](/docs/tools/terraform) or
+The get started guide for each [service](https://aiven.io/docs/products/services)
+includes examples for creating a service using the
+[Aiven Provider for Terraform](/docs/tools/terraform).
+
+You can try out more service and integration examples using code samples for the
+Aiven Terraform Provider or
 [Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
 
 <GridContainer columns={2}>
      <Card
-      to="https://github.com/Aiven-Open/terraform-example-projects"
+      to="https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples"
       iconName="terraform"
       title="Aiven Provider for Terraform examples"
     />
@@ -304,12 +308,12 @@ Create a service using the Aiven CLI or API.
       title="Explore Aiven Console"
     />
     <Card
-      to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
+      to="/docs/platform/concepts/cloud-security"
       iconName="book"
       title="Read about cloud security"
     />
         <Card
-      to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
+      to="/docs/platform/concepts/service-integration"
       iconName="book"
       title="Integrate your services"
     />
