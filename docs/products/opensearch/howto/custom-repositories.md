@@ -83,7 +83,7 @@ You can configure custom repositories for the following object storage services:
   - [List custom repositories](/docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
 - To use the native OpenSearch
   [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
-  endpoint, you need to provide storage credentials.
+  endpoint, provide storage credentials.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
