@@ -35,9 +35,11 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
   and
   [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
   configured
-- Storage credentials for using the native OpenSearch
+- For calling the native OpenSearch
   [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
-  endpoint
+  endpoint:
+  - Storage credentials
+  - Name of the custom keystore
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -81,9 +83,9 @@ You can configure custom repositories for the following object storage services:
   - [Remove a repository](/docs/products/opensearch/howto/custom-repositories#remove-a-repository)
   - [Edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
   - [List custom repositories](/docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
-- To use the native OpenSearch
+- Calling the native OpenSearch
   [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
-  endpoint, provide storage credentials.
+  endpoint requires providing storage credentials and the name of the custom keystore.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
