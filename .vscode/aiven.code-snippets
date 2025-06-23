@@ -141,13 +141,13 @@
     "scope": "markdown",
     "prefix": ["enable", "feature", "contact", "sales"],
     "body": [
-      "To enable this feature, contact the [sales team](http://aiven.io/contact)."
+      "To enable this feature, contact the [sales team](https://aiven.io/contact)."
     ]
   },
   "Contact sales": {
     "scope": "markdown",
     "prefix": ["contact", "sales"],
-    "body": ["contact the [sales team](http://aiven.io/contact)"]
+    "body": ["contact the [sales team](https://aiven.io/contact)"]
   },
   "Contact support": {
     "scope": "markdown",

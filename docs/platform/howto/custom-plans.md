@@ -32,7 +32,7 @@ For example, available memory and CPU configurations may depend on
 restrictions imposed by the cloud provider and the instance types
 available in the region.
 
-Contact the [sales team](http://aiven.io/contact) for a quote and the
+Contact the [sales team](https://aiven.io/contact) for a quote and the
 availability of a custom plan.
 
 ## Custom plan request

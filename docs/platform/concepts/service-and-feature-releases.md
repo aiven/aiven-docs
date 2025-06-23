@@ -25,7 +25,7 @@ The limited availability stage is an initial release of a
 new feature or service that you can try out by invitation only.
 
 To try a service or feature in this stage, contact the
-[sales team](http://aiven.io/contact).
+[sales team](https://aiven.io/contact).
 
 ### Early availability <EarlyBadge/>
 

@@ -23,7 +23,7 @@ Aiven makes its services available through various Marketplaces. If you already 
    1. From your **new Aiven organization** with the AWS Marketplace
       subscription, retrieve the Aiven organization name.
 
-1. Send the information by email to the [sales team](http://aiven.io/contact)
+1. Send the information by email to the [sales team](https://aiven.io/contact)
 
 </TabItem>
 <TabItem value="azure" label="Azure Marketplace">
@@ -39,7 +39,7 @@ Aiven makes its services available through various Marketplaces. If you already 
    1. From your **new Aiven organization** with the Azure Marketplace
       subscription, retrieve the Aiven organization name.
 
-1. Send the information by email to the [sales team](http://aiven.io/contact).
+1. Send the information by email to the [sales team](https://aiven.io/contact).
 
 </TabItem>
 <TabItem value="google" label="Google Cloud Marketplace">
@@ -56,7 +56,7 @@ Aiven makes its services available through various Marketplaces. If you already 
       subscription, retrieve the Aiven organization name, as shown in the
       [Aiven GCP console](https://console.gcp.aiven.io/).
 
-1. Send the information by email to the [sales team](http://aiven.io/contact).
+1. Send the information by email to the [sales team](https://aiven.io/contact).
 
 </TabItem>
 </Tabs>
