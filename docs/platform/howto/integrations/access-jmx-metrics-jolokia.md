@@ -46,7 +46,7 @@ avn service integration-endpoint create \
 </TabItem>
  </Tabs>
 
-## Enable Jolokia integration for a service
+## Enable Jolokia integration
 
 To enable Jolokia integration for an Aiven for Apache Kafka® service:
 
