@@ -14,7 +14,7 @@ for custom job execution.
 :::important
 Custom JARs for Aiven for Apache Flink is a
 [limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-). If you're interested in trying out this feature, contact
-the [sales team](http://aiven.io/contact).
+the [sales team](https://aiven.io/contact).
 :::
 
 import DocCardList from '@theme/DocCardList';
