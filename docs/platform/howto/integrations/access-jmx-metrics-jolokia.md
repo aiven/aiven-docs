@@ -85,7 +85,7 @@ traffic. For example:
 
 Kafka stops exposing these metrics after several minutes (typically 10 to 15) without
 message production or consumption on the topic. When traffic resumes, the metrics
-typically reappear after a short delay.y.
+typically reappear after a short delay.
 
 If you request one of these metrics while the topic is inactive, Jolokia returns a `404`
 response. This behavior is expected and does not indicate an issue with Kafka or Jolokia.
