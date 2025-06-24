@@ -22,8 +22,8 @@ native OpenSearch API.
 
 - Up to 10 custom keystores are allowed per service.
 - Each keystore name must be unique and must not conflict with names reserved by Aiven.
-- Credentials are not validated when added. If invalid, OpenSearch returns an error at
-  use time. For example, when registering a snapshot repository.
+- Credentials are not validated when added. If the credentials are invalid, OpenSearch
+  returns an error when you use them, such as when registering a snapshot repository.
 - Only supported via the native OpenSearch API.
 - Not available in the Aiven Console.
 
