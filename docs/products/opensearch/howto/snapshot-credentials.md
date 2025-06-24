@@ -5,10 +5,9 @@ limited: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Configure `custom_keystores` in Aiven for OpenSearch® to securely store object storage credentials (AWS S3, GCS, or Azure).
-These credentials can be used when registering snapshot repositories using the native
-OpenSearch API.
-
+Use `custom_keystores` in Aiven for OpenSearch® to store object storage credentials (AWS S3, GCS, or Azure).
+You can then use these credentials when registering snapshot repositories through the
+native OpenSearch API.
 
 ## Prerequisites
 
@@ -126,8 +125,8 @@ Use the following examples to configure credentials for each supported storage p
 "name": "my-azure-keys",
 "type": "azure",
 "settings": {
-"account": "<AZURE_ACCOUNT>",
-"sas_token": "<AZURE_SAS_TOKEN>"
+  "account": "<AZURE_ACCOUNT>",
+  "sas_token": "<AZURE_SAS_TOKEN>"
 }
 }
 ```
@@ -139,19 +138,19 @@ Use the following examples to configure credentials for each supported storage p
 "name": "my-gcs-keys",
 "type": "gcs",
 "settings": {
-"credentials": {
-"type": "service_account",
-"project_id": "<PROJECT_ID>",
-"private_key_id": "<KEY_ID>",
-"private_key": "<PRIVATE_KEY>",
-"client_email": "<SERVICE_ACCOUNT_EMAIL>",
-"client_id": "<CLIENT_ID>",
-"auth_uri": "https://accounts.google.com/o/oauth2/auth",
-"token_uri": "https://oauth2.googleapis.com/token",
-"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-"client_x509_cert_url": "<CERT_URL>"
-}
-}
+  "credentials": {
+  "type": "service_account",
+  "project_id": "<PROJECT_ID>",
+  "private_key_id": "<KEY_ID>",
+  "private_key": "<PRIVATE_KEY>",
+  "client_email": "<SERVICE_ACCOUNT_EMAIL>",
+  "client_id": "<CLIENT_ID>",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "<CERT_URL>"
+  }
+ }
 }
 ```
 
@@ -162,9 +161,9 @@ Use the following examples to configure credentials for each supported storage p
 "name": "my-s3-keys",
 "type": "s3",
 "settings": {
-"access_key": "<AWS_ACCESS_KEY>",
-"secret_key": "<AWS_SECRET_KEY>"
-}
+  "access_key": "<AWS_ACCESS_KEY>",
+  "secret_key": "<AWS_SECRET_KEY>"
+ }
 }
 ```
 
