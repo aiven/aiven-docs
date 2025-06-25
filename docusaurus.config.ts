@@ -110,7 +110,7 @@ const config: Config = {
         'You can also provide comments after selecting a rating.',
       'data-modal-ask-ai-input-placeholder': 'Ask any question about Aiven',
       'data-modal-disclaimer':
-        "This helpful AI assistant is powered by kapa.ai and draws its answers from Aiven's documentation. Just so we're clear, Aiven owns all rights to their docs and anything based on them. Please note that responses might contain errors, and shouldn't be taken as formal advice, and aren't legally binding. By using this assistant, ensure you own necessary rights to your inputs as you let us and our licensees use your input, and you agree to indemnify us for any claims arising from your inputs. Please keep personal info out - [kapa.ai's privacy policy](https://www.kapa.ai/content/privacy-policy) applies. We offer this as-is, without warranties, and aren't liable for any damages.",
+        "This AI chatbot generates answers based on Aiven's documentation, changelog, and some webpages. The responses may contain errors. Don't include personal or sensitive information in your questions. For more information, review Aiven's [website terms of use](https://aiven.io/website-terms) and kapa.ai's [privacy policy](https://www.kapa.ai/content/privacy-policy).",
     },
     {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
