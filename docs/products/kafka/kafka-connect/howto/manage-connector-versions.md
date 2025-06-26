@@ -17,7 +17,7 @@ upgrading, or reverting versions to maintain production pipeline stability. You 
 specify the version of a connector by setting the `plugin_versions` property in the
 service configuration.
 
-## Key considerations for multi-version connectors
+## Key considerations
 
 - Deprecated connector versions may be removed during maintenance updates. If you
   [set](#set-version) a deprecated version, the system alerts you and recommends an
@@ -29,9 +29,8 @@ service configuration.
 - Setting a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
-- Selecting an older version than the currently used one is possible if such version is
-  available. As a result, downgrading a connector or rolling back a previous connector
-  version upgrade is supported.
+- Downgrading a connector to an older version is supported if that version is available.
+  On older service nodes, the selected version takes effect only after a maintenance update.
 - Multi-version support is available for all connectors where Aiven has published and
   supports more than one version. Support will continue to expand as new versions are
   released.
@@ -39,6 +38,13 @@ service configuration.
   version is used.
 - See [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
+- Setting `plugin_version` in the connector configuration (for example, in
+  the `config` block in Terraform) is not supported and has no effect. To control
+  connector versions, use the [`plugin_versions`](#set-a-connector-version) property
+  in the **Kafka Connect service** configuration.
+- You can set connector versions even if the service is running on older nodes. However,
+  the selected version only takes effect **after** a maintenance update. Until then,
+  the connector runs the latest available version, and no warning is shown.
 
 :::warning
 Breaking changes may exist between different connector versions. These changes often
@@ -76,12 +82,12 @@ as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.ai
 to set the connector version.
 
 :::note
-The version selector in the Aiven Console appears on individual connector configuration pages, 
-but changing the version affects all instances of that connector within the service, 
+The version selector in the Aiven Console appears on individual connector configuration pages,
+but changing the version affects all instances of that connector within the service,
 not just the selected instance.
-Apache Kafka Connect does not support loading multiple versions of the same plugin within a service. 
-This limitation is expected to be addressed in Apache Kafka 4.1.0 through [KIP-891](https://cwiki.apache.org/confluence/display/KAFKA/KIP-891%3A+Running+multiple+versions+of+Connector+plugins). 
-Until then, if you run multiple instances of a connector in a service, they 
+Apache Kafka Connect does not support loading multiple versions of the same plugin within a service.
+This limitation is expected to be addressed in Apache Kafka 4.1.0 through [KIP-891](https://cwiki.apache.org/confluence/display/KAFKA/KIP-891%3A+Running+multiple+versions+of+Connector+plugins).
+Until then, if you run multiple instances of a connector in a service, they
 must all use the same plugin version.
 :::
 
