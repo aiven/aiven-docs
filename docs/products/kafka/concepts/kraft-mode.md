@@ -1,7 +1,6 @@
 ---
 title: KRaft in Aiven for Apache Kafka®
 sidebar_label: KRaft
-early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
