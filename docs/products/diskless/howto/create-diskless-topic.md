@@ -65,6 +65,12 @@ kafka-topics.sh --create \
 ```
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use [the `aiven_kafka_topic` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic)
+and set `inkless_enable` to `true`.
+
+</TabItem>
 </Tabs>
 
 
