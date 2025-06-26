@@ -40,6 +40,22 @@ To create a user account for your service,
 1.  Copy the password on screen to a safe place. It can't be accessed
     again in future, however it can be reset if needed.
 
+A user can also be created via SQL, for example with one of the following queries
+
+```sql
+-- create user via hash and salt (recommended)
+CREATE USER username IDENTIFIED WITH sha256_hash BY 'hash' SALT 'salt';
+-- create user via password directly
+CREATE USER username IDENTIFIED BY 'password';
+```
+
+Users' password digests are stored securely in zookeeper.  They are not accessible by
+anyone except the Aiven superuser.  Users created through the console are additionally
+salted by a random salt.
+
+Note that password digests / salts are also stored in backup files so that the users are
+also restored from the backup.
+
 ## Manage roles and privileges
 
 Aiven for ClickHouse has no predefined roles. All roles you create are custom roles you
