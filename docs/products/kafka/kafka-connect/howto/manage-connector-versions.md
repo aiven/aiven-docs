@@ -40,7 +40,7 @@ service configuration.
   confirm which versions are supported before setting a version.
 - Setting `plugin_version` in the connector configuration (for example, in
   the `config` block in Terraform) is not supported and has no effect. To control
-  connector versions, use the [`plugin_versions`](#set-a-connector-version) property
+  connector versions, use the [`plugin_versions`](#set-version) property
   in the **Kafka Connect service** configuration.
 - You can set connector versions even if the service is running on older nodes. However,
   the selected version only takes effect **after** a maintenance update. Until then,
