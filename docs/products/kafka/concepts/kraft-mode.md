@@ -68,4 +68,4 @@ removed metrics, see [KRaft and metrics changes](/docs/products/kafka/reference/
 
 <RelatedPages/>
 
-[Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft-)
+[Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft)

@@ -102,7 +102,7 @@ to manage metadata and controllers, replacing ZooKeeper. Migration to Apache Kaf
 from earlier versions is not yet supported. For details and current limitations, see:
 
 - [KRaft in Apache Kafka®](/docs/products/kafka/concepts/kraft-mode)
-- [Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft-)
+- [Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft)
 
 To support this transition, Aiven has extended support for Apache Kafka 3.8 by one year.
 :::
