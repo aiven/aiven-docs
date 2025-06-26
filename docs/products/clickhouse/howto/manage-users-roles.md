@@ -3,11 +3,18 @@ title: Manage Aiven for ClickHouse® users and roles
 sidebar_label: Manage users and roles
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Create Aiven for ClickHouse® users and roles and grant them specific privileges to efficiently control or restrict access to your service.
 
 ## Add a user
 
-To create a user account for your service,
+To create a user account for your service:
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and
     select your Aiven for ClickHouse® service.
@@ -40,21 +47,28 @@ To create a user account for your service,
 1.  Copy the password on screen to a safe place. It can't be accessed
     again in future, however it can be reset if needed.
 
-A user can also be created via SQL, for example with one of the following queries
+</TabItem>
+<TabItem value="cli" label="SQL">
+
+To create user using a hash and salt, run:
 
 ```sql
--- create user via hash and salt (recommended)
 CREATE USER username IDENTIFIED WITH sha256_hash BY 'hash' SALT 'salt';
--- create user via password directly
+```
+
+To create a user using a password directly, run:
+
+```sql
 CREATE USER username IDENTIFIED BY 'password';
 ```
 
-Users' password digests are stored securely in zookeeper.  They are not accessible by
-anyone except the Aiven superuser.  Users created through the console are additionally
-salted by a random salt.
+</TabItem>
+</Tabs>
 
-Note that password digests / salts are also stored in backup files so that the users are
-also restored from the backup.
+Users' password digests are stored securely in ZooKeeper. Only super admin can access
+them. For users created in the console, their passwords are also salted with a random
+value. The password digests and salts are stored in backup files so they can be
+recovered.
 
 ## Manage roles and privileges
 
