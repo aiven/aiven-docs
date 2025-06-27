@@ -64,19 +64,19 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
 1. On the <ConsoleLabel name="overview" /> page, under
    the **Start data stream** section, click **Generate sample data**.
 1. In the setup wizard:
-   - Choose a data scenario and click **Continue**.
-   - The schema registry and REST proxy are required for data generation. Click
-     **Enable & Continue** to enable them if they are not already active.
-   - Review the auto-generated topic name and Avro schema. Click **Confirm** to continue.
-   - Choose a stream duration between 30 minutes and 12 hours. Click **Start data stream**
-     to begin generating messages.
-   - After you start the stream, the sample data producer runs in the background. You
-     can monitor progress from the <ConsoleLabel name="overview" /> page, where you’ll
-     see message rate, duration, and a link to review messages.
+   1. Choose a data scenario and click **Continue**.
+   1. The schema registry and REST proxy are required for data generation. Click
+      **Enable & Continue** to enable them if they are not already active.
+   1. Review the auto-generated topic name and Avro schema. Click **Confirm** to continue.
+   1. Select a stream duration between 30 minutes and 12 hours. Click **Start data stream**
+      to begin generating messages.
+   1. OOnce the stream starts, the sample data generator runs in the background. You
+      can monitor progress from the <ConsoleLabel name="overview" /> page, where you’ll
+      see message rate, duration, and a link to review messages.
 1. To view the generated messages:
    - On the <ConsoleLabel name="overview" /> page, click **Review messages**.
-   - The **Messages** tab opens in the **Topics** view. Set **FORMAT** to `avro`, then
-     click **Fetch messages** to view the data.
+   - The **Messages** tab opens in the **Topics** view. The format is automatically set
+     to `avro`. Click **Fetch messages** to view the data.
    - To stop the stream, go to the **Overview** page and click **Stop streaming**.
    - To review topic settings and schema details, open the topic from the **Topics** tab.
 
