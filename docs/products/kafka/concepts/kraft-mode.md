@@ -65,9 +65,9 @@ ZooKeeper is not supported.
   [maintenance window](/docs/platform/concepts/maintenance-window), like other major
   version upgrades.
 - During the upgrade, the service status changes to **Rebuilding**.
-- AAiven transfers your service’s metadata from ZooKeeper to KRaft and updates the
+- Aiven transfers your service’s metadata from ZooKeeper to KRaft and updates the
   cluster to use KRaft mode.
-- When the migration finishes, the service status returns to **Running**, and the
+- When the migration completes, the service status returns to **Running**, and the
   service operates in KRaft mode.
 
 ### Before you migrate
