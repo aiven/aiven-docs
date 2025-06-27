@@ -2,23 +2,21 @@
 title: Integrate Aiven for Apache Kafka® Connect with PostgreSQL using Debezium with mutual TLS
 ---
 
-Integrate Aiven for Apache Kafka Connect with PostgreSQL using Debezium with mutual TLS (mTLS) to enhance security with mutual authentication.
+Integrate Aiven for Apache Kafka® Connect with PostgreSQL using Debezium with mutual TLS (mTLS) to enhance security with mutual authentication.
 
 This configuration establishes a secure and efficient data synchronization channel
-between Aiven for Apache Kafka Connect and a PostgreSQL database.
+between Aiven for Apache Kafka® Connect and a PostgreSQL database.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-- Access to an Aiven for Apache Kafka service with
-  [Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/enable-connect)
-  enabled.
+- Access to an Aiven for Apache Kafka® and Aiven for Apache Kafka® Connect service.
 - Administrative access to a PostgreSQL database with SSL enabled.
 - The following SSL certificates and keys obtained from your PostgreSQL database:
   - SSL client certificate: The public certificate for client authentication.
   - SSL root certificate: The certificate of the Certificate Authority (CA) that signed
-    the servers' and clients' certificates.
+    the server's and the client's certificates.
   - SSL client key: The client's private key is used to encrypt the data sent to the
     server.
   For additional details, see
@@ -83,8 +81,8 @@ your actual environment values in the provided code snippets:
 
 ## Configure the integration
 
-1. Verify your existing Aiven for Apache Kafka service is active and accessible.
-   If you don't have one, create an Apache Kafka cluster using this command:
+1. Verify that your existing Aiven for Apache Kafka® service is active and accessible.
+   If you don't have one, create it using the following command:
 
     ```bash
     avn service create <kafka_cluster_name> \
@@ -100,8 +98,9 @@ your actual environment values in the provided code snippets:
     manually create topics before starting the connector.
     :::
 
-1. Create an Apache Kafka Connect service and configure it to communicate with your
-   Aiven for Apache Kafka service:
+1. Verify your existing Aiven for Apache Kafka® Connect service is active and accessible.
+   If you don't have one, create it using the following command, 
+   and integrate it with your Aiven for Apache Kafka® service:
 
     ```bash
     avn service create <kafka_connect_name> \
@@ -136,7 +135,7 @@ your actual environment values in the provided code snippets:
 
    ```
 
-1. Retrieve endpoint ID of the integration endpoint you just created using this command:
+1. Retrieve the endpoint ID of the previously created integration endpoint:
 
    ```bash
    INTEGRATION_ENDPOINT_ID=$(
@@ -146,7 +145,7 @@ your actual environment values in the provided code snippets:
 	  )
    ```
 
-1. Connect PostgreSQL endpoint to Apache Kafka Connect:
+1. Integrate the Apache Kafka® Connect service with the PostgreSQL endpoint:
 
    ```bash
    avn service integration-create \
@@ -157,7 +156,7 @@ your actual environment values in the provided code snippets:
    ```
 
 1. Create the Debezium connector configuration to monitor your PostgreSQL database.
-   Replace the placeholders with your PostgreSQL and Apache Kafka Connect information:
+   Replace the placeholders with your PostgreSQL and Apache Kafka® Connect information:
 
    ```bash
    CONNECTOR_CONFIG=$(cat <<-END
@@ -219,6 +218,9 @@ Confirm the following after completing the setup:
 
 ## Limitations
 
+- The integration cannot yet be created using Aiven Console. It must be done via Aiven API.
+- Apache Kafka® Connect must run on a dedicated instance, not on one co-located with Kafka.
+- The integration type `kafka_connect_postgresql` is not yet visible in Aiven Console.
 - The process of delivering SSL keys to Apache Kafka Connect is asynchronous.
   Therefore, a delay of approximately five minutes may occur from the creation of
   the integration to the operational use of the keys.
@@ -227,5 +229,3 @@ Confirm the following after completing the setup:
   specific to the instance.
 - For CloudSQL PostgreSQL databases, ensure logical decoding and the `pgoutput` extension
   are enabled for replication compatibility.
-- As of Debezium 2.5, `wal2json` is deprecated. It is recommended to use `pgoutput`
-  or `decoderbufs` for WAL output plugins.
