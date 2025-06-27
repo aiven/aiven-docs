@@ -147,7 +147,11 @@ metadata management, see [KRaft in Aiven for Apache Kafka®](/docs/products/kafk
 
 - Migration for existing services, which involves upgrading from Apache Kafka 3.x to 3.9,
   is not yet available.
-- Aiven will provide a migration path once it is ready.
+- The migration will be included in a future upgrade to Apache Kafka 3.9 and
+  performed automatically by Aiven.
+- Aiven will notify you when your service becomes eligible for migration. For details,
+  see [Migration from ZooKeeper to KRaft](/docs/products/kafka/concepts/kraft-mode#migration-from-zookeeper-to-kraft).
+
 - To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
   year, allowing sufficient time for planning and migration.
 
