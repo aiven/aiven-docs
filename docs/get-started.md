@@ -29,10 +29,16 @@ All services run reliably and securely in the clouds of your choice, are observa
 
 <img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
 
-## Discover the Aiven platform
+## Try the Aiven Platform for free
 
-**Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
-[30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
+The Aiven Platform streamlines your operations by centralizing your cloud infrastructure,
+security, and observability in one unified control plane. You can access the platform
+through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
+Aiven Operator for Kubernetes®.
+
+Aiven offers [free plans](/docs/platform/concepts/free-plan) and
+[30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform
+and services.
 
 Aiven services are also available on the AWS, Azure, and Google Cloud marketplaces.
 
@@ -216,7 +222,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       iconName="book"
       title="Application users"
       description="Learn how application users provide more secure
-      programmatic access to the Aiven platform."
+      programmatic access to the Aiven Platform."
     />
     <Card
       to="/docs/platform/howto/manage-application-users"
