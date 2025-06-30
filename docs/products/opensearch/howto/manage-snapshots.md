@@ -77,7 +77,7 @@ manually.
   - Microsoft Azure Blob Storage
 - The following operations are not supported via native OpenSearch API:
   - [List snapshots in progress](/docs/products/opensearch/howto/manage-snapshots#list-snapshots-in-progress)
-  - [List snapshots in a repository](http://localhost:3000/docs/products/opensearch/howto/manage-snapshots#list-snapshots-in-a-repository)
+  - [List snapshots in a repository](/docs/products/opensearch/howto/manage-snapshots#list-snapshots-in-a-repository)
 - [Restore from snapshot](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
   has a couple of
   [security-related restrictions](https://docs.opensearch.org/docs/2.19/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).
