@@ -74,9 +74,10 @@ the user can create a token.
 
 ### Access from allowed IP addresses
 
-You can restrict access to your organization's resources by allowing only specific IP
-address ranges, ensuring connections are coming from trusted networks. This helps you
-minimize exposure, reduce the risk of breaches, and comply with policies and regulations.
+You can restrict access to your organization's resources on the Aiven Platform
+to specific IP address ranges, ensuring connections are coming from trusted networks.
+This helps you minimize exposure, reduce the risk of breaches,
+and comply with policies and regulations.
 
 This authentication policy setting also applies to access through
 personal and application tokens.
