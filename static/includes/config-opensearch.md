@@ -314,13 +314,6 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="azure_migration_container"/><Link to="#azure_migration_container"><strong>azure_migration.container</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Azure container name</p>
-              <div className="description"><p>Azure container name</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <div className="param"><p className="name"><Link id="azure_migration_key"/><Link to="#azure_migration_key"><strong>azure_migration.key</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">Account secret key</p>
               <div className="description"><p>Azure account secret key. One of key or sas_token should be specified</p></div>
@@ -331,6 +324,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="azure_migration_sas_token"/><Link to="#azure_migration_sas_token"><strong>azure_migration.sas_token</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">SAS token</p>
               <div className="description"><p>A shared access signatures (SAS) token. One of key or sas_token should be specified</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="azure_migration_container"/><Link to="#azure_migration_container"><strong>azure_migration.container</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">Azure container name</p>
+              <div className="description"><p>Azure container name</p></div>
             </td>
           </tr>
           <tr>
@@ -490,6 +490,20 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="s3_migration_access_key"/><Link to="#s3_migration_access_key"><strong>s3_migration.access_key</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">AWS Access key</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="s3_migration_secret_key"/><Link to="#s3_migration_secret_key"><strong>s3_migration.secret_key</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">AWS secret key</p>
+              <div className="description"><p>AWS secret key</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="s3_migration_bucket"/><Link to="#s3_migration_bucket"><strong>s3_migration.bucket</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">S3 bucket name</p>
               
@@ -514,20 +528,6 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="s3_migration_server_side_encryption"/><Link to="#s3_migration_server_side_encryption"><strong>s3_migration.server_side_encryption</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">Server side encryption</p>
               <div className="description"><p>When set to true files are encrypted on server side</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="s3_migration_access_key"/><Link to="#s3_migration_access_key"><strong>s3_migration.access_key</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">AWS Access key</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="s3_migration_secret_key"/><Link to="#s3_migration_secret_key"><strong>s3_migration.secret_key</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">AWS secret key</p>
-              <div className="description"><p>AWS secret key</p></div>
             </td>
           </tr>
           <tr>
