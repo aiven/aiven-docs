@@ -2,146 +2,158 @@
 title: Create a source connector from MQTT to Apache Kafka®
 ---
 
-The [MQTT source
-connector](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/mqttsourceconnector/)
-copies messages from the MQTT topic into Apache Kafka® where they can be
-transformed and read by multiple consumers. Then, the Stream Reactor
-MQTT source connector creates a queue and binds it to the `amq.topic`
-defined in the KCQL statement, then messages are copied to the Apache
-Kafka® service.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Note from "@site/static/includes/streamreactor-compatibility-note.md"
 
-:::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/mqttsourceconnector/).
-:::
+The [Stream Reactor MQTT source connector](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/mqttsourceconnector/) transfers messages from an MQTT topic to an Aiven for Apache Kafka® topic, where they can be processed and consumed by multiple applications.
+It creates a queue and binds it to the `amq.topic` exchange specified in the KCQL
+statement, then forwards the messages to Kafka.
 
 :::tip
-The connector can be used to source messages from RabbitMQ® where
+You can use this connector to source messages from RabbitMQ® if the
 [RabbitMQ MQTT plugin](https://www.rabbitmq.com/mqtt.html) is enabled.
 :::
 
+<Note/>
+
 ## Prerequisites {#connect_mqtt_rbmq_source_prereq}
 
-To set up a MQTT source connector, you need an Aiven for Apache Kafka
-service [with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache Kafka service
+  [with Apache Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+
+- Collect the following details for your MQTT source:
+
+  - `HOST`: The MQTT hostname.
+  - `PORT`: The MQTT port (usually `1883`).
+  - `USERNAME`: The MQTT username.
+  - `PASSWORD`: The MQTT password.
+  - `KCQL_STATEMENT`: A KCQL mapping from MQTT to Kafka in the format:
+    `INSERT INTO <your-kafka-topic> SELECT * FROM <your-mqtt-topic>`
+
+  - `APACHE_KAFKA_HOST`: The Kafka host (required only when using Avro).
+  - `SCHEMA_REGISTRY_PORT`: The schema registry port (required only when using Avro).
+  - `SCHEMA_REGISTRY_USER`: The schema registry username (required only when using Avro).
+  - `SCHEMA_REGISTRY_PASSWORD`: The schema registry password (required only when using Avro).
 
 :::tip
-The connector will write to a topic defined in the `"connect.mqtt.kcql"`
-configuration, so either create the topic in your Kafka service, or
-enable the `auto_create_topic` parameter so that the topic will be
-created automatically.
+The connector writes to a Kafka topic defined in the `connect.mqtt.kcql` parameter.
+Make sure the topic exists, or enable [automatic topic creation](/docs/products/kafka/howto/create-topics-automatically).
 :::
 
-Also collect the following information about the source MQTT server upfront:
+## Create a connector configuration file
 
--   `USERNAME`: The MQTT username to connect
--   `PASSWORD`: The password for the username selected
--   `HOST`: The MQTT hostname
--   `PORT`: MQTT port (usually 1883)
--   `KCQL_STATEMENT`: The KCQL statement to be used in the following
-    format:
-    `INSERT INTO <your-kafka-topic> SELECT * FROM <your-mqtt-topic>`
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+Create a file named `mqtt_source.json` and add the following configuration:
 
-## Setup a MQTT source connector with Aiven Console
-
-The following example demonstrates how to setup an Apache Kafka MQTT
-source connector using the [Aiven Console](https://console.aiven.io/).
-
-### Define a Kafka Connect configuration file
-
-Define the connector configurations in a file (we'll refer to it with
-the name `mqtt_source.json`) with the following content, creating a file
-is not strictly necessary but allows to have all the information in one
-place before copy/pasting them in the [Aiven
-Console](https://console.aiven.io/):
-
-```
+```json
 {
-    "name": "CONNECTOR_NAME",
-    "connect.mqtt.hosts": "tcp://<HOST>:<PORT>",
-    "connect.mqtt.kcql": "KCQL_STATEMENT",
-    "connector.class": "com.datamountaineer.streamreactor.connect.mqtt.source.MqttSourceConnector",
-    "connect.mqtt.username": "USERNAME",
-    "connect.mqtt.password": "PASSWORD",
-    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "connect.mqtt.service.quality": "1",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+  "name": "CONNECTOR_NAME",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mqtt.source.MqttSourceConnector",
+  "connect.mqtt.hosts": "tcp://HOST:PORT",
+  "connect.mqtt.kcql": "KCQL_STATEMENT",
+  "connect.mqtt.username": "USERNAME",
+  "connect.mqtt.password": "PASSWORD",
+  "connect.mqtt.service.quality": "1",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter"
 }
 ```
 
-The configuration file contains the following entries:
+Parameters:
 
--   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    to give to the connector.
--   `connect.mqtt.hosts`, `connect.mqtt.kcql`, `connect.mqtt.username`
-    and `connect.mqtt.password`: source MQTT parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/mqtt-source-connector#connect_mqtt_rbmq_source_prereq) phase.
--   `key.converter` and `value.converter`: The data converter used for
-    this example JSON converter is used.
--   `connect.mqtt.service.quality`: Specifies the `Mqtt` quality of
-    service.
+- `name`: The connector name. Replace `CONNECTOR_NAME` with your desired name.
+- `connect.mqtt.*`: MQTT connection details collected in the
+  [prerequisite step](#connect_mqtt_rbmq_source_prereq).
+- `connect.mqtt.kcql`: A KCQL statement that maps MQTT topics to Kafka topics.
+- `connect.mqtt.service.quality`: Sets the MQTT Quality of Service (QoS). Common
+  values are `0`, `1`, or `2`.
+- `key.converter` and `value.converter`: Set the message format. This example uses raw
+  JSON.
 
-See the [dedicated
-documentation](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/mqttsourceconnector/#options)
-for the full list of parameters.
 
-### Create a Kafka Connect connector with the Aiven Console
 
-To create an Apache Kafka Connect connector:
+## Create the connector
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+<Tabs groupId="setup-method">
+<TabItem value="console" label="Console" default>
 
-2.  Select **Connectors** from the left sidebar.
+1. Access the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector**.
+   If Kafka Connect is not yet enabled, click **Enable connector on this service**.
 
-3.  Select **Create New Connector**,
+   Alternatively:
 
-    :::note
-    It is enabled only for services [with Kafka Connect enabled](enable-connect).
-    :::
+   - Go to <ConsoleLabel name="Service settings"/>.
+   - In the **Service management** section, click <ConsoleLabel name="Actions"/> > **Enable Kafka connect**.
 
-4.  Select **Stream Reactor MQTT Source Connector**.
+1. From the source connectors list, select **Stream Reactor MQTT Source**,
+   then click **Get started**.
+1. On the **Common** tab, locate the **Connector configuration** text box and
+   click <ConsoleLabel name="edit"/>.
+1. Paste the contents of your `mqtt_source.json` file.
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
 
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-6.  Paste the connector configuration (stored in the `mqtt_source.json`
-    file) in the form.
+To create the connector using the
+[Aiven CLI](/docs/tools/cli/service/connector#avn_service_connector_create), run:
 
-7.  Select **Apply**.
+```bash
+avn service connector create SERVICE_NAME @mqtt_source.json
+```
 
-    To create the connector, access the [Aiven
-    Console](https://console.aiven.io/) and select the Aiven for Apache
-    Kafka® or Aiven for Apache Kafka® Connect service where the
-    connector needs to be defined, then:
+Replace:
 
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tabs and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
+- `SERVICE_NAME`: Your Kafka or Kafka Connect service name.
+- `@mqtt_source.json`: Path to your configuration file.
 
-8.  After all the settings are correctly configured, select **Create
-    connector**.
+</TabItem>
+</Tabs>
 
-9.  Verify the connector status under the **Connectors** screen.
+## Source MQTT data to a Kafka topic
 
-10. Verify the presence of the data in the target Apache Kafka topic,
-    the topic name is the one defined in the `KCQL_STATEMENT`.
+The following example shows how to forward messages from an MQTT topic to a Kafka topic.
 
-:::tip
-You can also create connectors using the
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-:::
+Suppose your MQTT broker publishes JSON messages to a topic named `devices/status` like this:
+
+```json
+{"device": "alpha", "status": "online"}
+{"device": "beta", "status": "offline"}
+```
+
+To send this data to a Kafka topic named `device_status`, use the following connector
+configuration:
+
+```json
+{
+  "name": "mqtt-source-example",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mqtt.source.MqttSourceConnector",
+  "connect.mqtt.hosts": "tcp://mqtt-broker.example.com:1883",
+  "connect.mqtt.kcql": "INSERT INTO device_status SELECT * FROM devices/status",
+  "connect.mqtt.username": "mqtt_user",
+  "connect.mqtt.password": "mqtt_password",
+  "connect.mqtt.service.quality": "1",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+}
+```
+
+Replace all placeholder values (such as `mqtt-broker.example.com`, `mqtt_user`,
+and `mqtt_password`) with your actual connection details.
+
+This configuration does the following:
+
+- `connect.mqtt.kcql`: Routes messages from the MQTT topic `devices/status` to the
+  Kafka topic `device_status`.
+- `connect.mqtt.service.quality`: Uses QoS level `1` for at-least-once delivery.
+- `key.converter` and `value.converter`**: Set the message format to JSON.
+- `connect.mqtt.*`: Supplies the MQTT connection details.
+
+After the connector is running, check the `device_status` Kafka topic to confirm that
+messages are being delivered.

@@ -2,143 +2,166 @@
 title: Create an MQTT sink connector
 ---
 
-The [MQTT sink
-connector](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt)
-copies messages from an Apache Kafka® topic to an MQTT queue.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Note from "@site/static/includes/streamreactor-compatibility-note.md"
+
+The [MQTT sink connector](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt) copies messages from an Apache Kafka® topic to an MQTT queue.
 
 :::tip
-The connector can be used to sink messages to RabbitMQ® where
+You can use this connector to send messages to RabbitMQ® when the
 [RabbitMQ MQTT plugin](https://www.rabbitmq.com/mqtt.html) is enabled.
 :::
 
+<Note/>
+
 ## Prerequisites {#connect_mqtt_rbmq_sink_prereq}
 
-To set up an MQTT sink connector, you need an Aiven for Apache Kafka
-service [with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache Kafka service
+  [with Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-:::tip
-The connector will write to a topic defined in the `"connect.mqtt.kcql"`
-configuration, so either create the topic in your Kafka service, or
-enable the `auto_create_topic` parameter so that the topic will be
-created automatically.
+- Gather the following information for the target MQTT server:
+
+  - `USERNAME`: The MQTT username.
+  - `PASSWORD`: The MQTT password.
+  - `HOST`: The MQTT hostname.
+  - `PORT`: The MQTT port (typically `1883`).
+  - `KCQL_STATEMENT`: A KCQL statement that maps topic data to the MQTT topic. Use the
+    following format:
+
+    ```sql
+    INSERT INTO MQTT_TOPIC
+    SELECT LIST_OF_FIELDS
+    FROM APACHE_KAFKA_TOPIC
+    ```
+
+  - `APACHE_KAFKA_HOST`: The Apache Kafka host. Required only when using Avro.
+  - `SCHEMA_REGISTRY_PORT`: The schema registry port. Required only when using Avro.
+  - `SCHEMA_REGISTRY_USER`: The schema registry username. Required only when using Avro.
+  - `SCHEMA_REGISTRY_PASSWORD`: The schema registry password. Required only when using
+    Avro.
+
+:::note
+The connector writes to the Kafka topic defined in the `connect.mqtt.kcql` parameter.
+Either create the topic manually or enable the `auto_create_topic` parameter to allow
+automatic topic creation.
 :::
 
-Also collect the following information about the sink
-MQTT server upfront:
+For a complete list of parameters and configuration options, see
+the [connector documentation](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt).
 
--   `USERNAME`: The MQTT username to connect
+## Create the connector configuration file
 
--   `PASSWORD`: The password for the username selected
+Create a file named `mqtt_sink.json` and add the following configuration:
 
--   `HOST`: The MQTT hostname
-
--   `PORT`: MQTT port (usually 1883)
-
--   `KCQL_STATEMENT`: The KCQL statement to be used in the following
-    format:
-
-    ```
-    INSERT INTO <mqtt-topic> SELECT FIELD, ... FROM <kafka-topic>
-    ```
-
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
-
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
-
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
-
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
-
-## Setup an MQTT sink connector with Aiven Console
-
-The following example demonstrates how to setup an Apache Kafka MQTT
-sink connector using the [Aiven Console](https://console.aiven.io/).
-
-### Define a Kafka Connect configuration file
-
-Define the connector configurations in a file (we'll refer to it with
-the name `mqtt_sink.json`) with the following content. Creating a file
-is not strictly necessary but allows to have all the information in one
-place before copy/pasting them in the [Aiven
-Console](https://console.aiven.io/):
-
-```
+```json
 {
-    "name": "CONNECTOR_NAME",
-    "connect.mqtt.hosts": "tcp://<HOST>:<PORT>",
-    "connect.mqtt.kcql": "KCQL_STATEMENT",
-    "connector.class": "com.datamountaineer.streamreactor.connect.mqtt.sink.MqttSinkConnector",
-    "connect.mqtt.username": "USERNAME",
-    "connect.mqtt.password": "PASSWORD",
-    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+  "name": "CONNECTOR_NAME",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mqtt.sink.MqttSinkConnector",
+  "connect.mqtt.hosts": "tcp://HOST:PORT",
+  "connect.mqtt.kcql": "KCQL_STATEMENT",
+  "connect.mqtt.username": "USERNAME",
+  "connect.mqtt.password": "PASSWORD",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter"
 }
 ```
 
-The configuration file contains the following entries:
+Parameters:
 
--   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    to give to the connector.
--   `connect.mqtt.hosts`, `connect.mqtt.kcql`, `connect.mqtt.username`
-    and `connect.mqtt.password`: sink MQTT parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/mqtt-sink-connector#connect_mqtt_rbmq_sink_prereq) phase.
--   `key.converter` and `value.converter`: The data converter used for
-    this example JSON converter is used.
+- `name`: The connector name. Replace `CONNECTOR_NAME` with your desired name.
+- `connect.mqtt.*`: MQTT server connection parameters collected in the
+  [prerequisite step](/docs/products/kafka/kafka-connect/howto/mqtt-sink-connector#connect_mqtt_rbmq_sink_prereq).
+- `key.converter` and `value.converter`: Define the message data format in the Kafka
+  topic. This example uses `JsonConverter` for both key and value.
 
-See the [dedicated
-documentation](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt#storage-to-output-matrix)
-for the full list of parameters.
+For a full list of supported parameters, see the
+[Stream Reactor MQTT sink documentation](https://docs.lenses.io/connectors/kafka-connectors/sources/mqtt#storage-to-output-matrix).
 
-### Create a Kafka Connect connector with the Aiven Console
+## Create the connector
 
-To create an Apache Kafka Connect connector:
+<Tabs groupId="setup-method">
+<TabItem value="console" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+1. Access the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector** if Apache Kafka Connect is enabled on the service.
+   If not, click **Enable connector on this service**.
 
-2.  Select **Connectors** from the left sidebar.
+   Alternatively, to enable connectors:
 
-3.  Select **Create New Connector**, it is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+   1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
+   1. In the **Service management** section, click
+      <ConsoleLabel name="Actions"/> > **Enable Kafka connect**.
 
-4.  Select **Stream Reactor MQTT Sink Connector**.
+1. In the sink connectors list, select **Stream Reactor MQTT Sink Connector**, and click **Get started**.
+1. On the **Stream Reactor MQTT Sink** page, go to the **Common** tab.
+1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
+1. Paste the configuration from your `mqtt_sink.json` file into the text box.
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Confirm that data is delivered to the MQTT topic defined in the `KCQL_STATEMENT`.
 
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-6.  Paste the connector configuration (stored in the `mqtt_sink.json`
-    file) in the form.
+To create the connector using the
+[Aiven CLI](/docs/tools/cli/service/connector#avn_service_connector_create), run:
 
-7.  Select **Apply**.
+```bash
+avn service connector create SERVICE_NAME @mqtt_sink.json
+```
 
-    To create the connector, access the [Aiven
-    Console](https://console.aiven.io/) and select the Aiven for Apache
-    Kafka® or Aiven for Apache Kafka® Connect service where the
-    connector needs to be defined, then:
+Replace:
 
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tabs and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
+- `SERVICE_NAME`: Your Kafka or Kafka Connect service name.
+- `@mqtt_sink.json`: Path to your connector configuration file.
 
-8.  After all the settings are correctly configured, select **Create
-    connector**.
+</TabItem>
+</Tabs>
 
-9.  Verify the connector status under the **Connectors** screen.
+## Sink topic data to an MQTT topic
 
-10. Verify the presence of the data in the target Apache Kafka topic,
-    the topic name is the one defined in the `KCQL_STATEMENT`.
+The following example shows how to sink data from a Kafka topic to an MQTT topic. If your Kafka topic `sensor_data` contains the following messages:
 
-:::tip
-You can also create connectors using the
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-:::
+```json
+{"device":"sensor-1", "temperature": 22.5}
+{"device":"sensor-2", "temperature": 19.0}
+{"device":"sensor-1", "temperature": 23.1}
+```
+
+To write this data to an MQTT topic named `iot/devices/temperature`, use the following
+connector configuration:
+
+```json
+{
+  "name": "my-mqtt-sink",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mqtt.sink.MqttSinkConnector",
+  "topics": "sensor_data",
+  "connect.mqtt.hosts": "tcp://MQTT_HOST:MQTT_PORT",
+  "connect.mqtt.username": "MQTT_USERNAME",
+  "connect.mqtt.password": "MQTT_PASSWORD",
+  "connect.mqtt.kcql": "INSERT INTO iot/devices/temperature SELECT * FROM sensor_data",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false"
+}
+```
+
+Replace all placeholder values (such as `MQTT_HOST`, `MQTT_PORT`, and `MQTT_USERNAME`)
+with your actual MQTT broker connection details.
+
+This configuration does the following:
+
+- `"topics": "sensor_data"`: Specifies the Kafka topic to sink.
+- `connect.mqtt.*`: Sets the MQTT broker hostname, port, credentials, and KCQL rules.
+- `"value.converter"` and `"value.converter.schemas.enable"`: Set the message format.
+  This example uses raw JSON without a schema.
+- `"connect.mqtt.kcql"`: Defines the KCQL transformation. Each Kafka message is
+  published to the MQTT topic `iot/devices/temperature`.
+
+After creating the connector, check your MQTT broker to verify that messages are
+published to the `iot/devices/temperature` topic.
