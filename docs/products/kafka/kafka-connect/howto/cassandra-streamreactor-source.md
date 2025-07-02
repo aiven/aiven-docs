@@ -178,6 +178,8 @@ The following example shows how to source data from a Cassandra table to a Kafka
 If your Cassandra table `students` in the `students_keyspace` keyspace contains the
 following data:
 
+<!-- vale off -->
+
 | id | name  | age | timestamp_added |
 |----|-------|-----|-----------------|
 | 1  | carlo | 77  | 1719838880      |
@@ -211,10 +213,8 @@ This configuration does the following:
 
 - `connect.cassandra.kcql`: Defines how Cassandra data is mapped to the Kafka topic.
   This example uses the `timestamp_added` column for incremental polling.
-
 - `value.converter` and `value.converter.schemas.enable`: Set the message format.
   This example uses raw JSON without a schema.
-
 - Connection settings (`connect.cassandra.*`): Provide the Cassandra host, port,
   credentials, SSL settings, and truststore paths.
 
