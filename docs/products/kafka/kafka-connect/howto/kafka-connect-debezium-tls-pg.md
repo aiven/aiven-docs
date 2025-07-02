@@ -9,40 +9,38 @@ between Aiven for Apache Kafka® Connect and a PostgreSQL database.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
-
 - Access to an Aiven for Apache Kafka® and Aiven for Apache Kafka® Connect service.
 - Administrative access to a PostgreSQL database with SSL enabled.
-- The following SSL certificates and keys obtained from your PostgreSQL database:
-  - SSL client certificate: The public certificate for client authentication.
-  - SSL root certificate: The certificate of the Certificate Authority (CA) that signed
-    the server's and the client's certificates.
-  - SSL client key: The client's private key is used to encrypt the data sent to the
-    server.
-  For additional details, see
-  [Certificate requirements](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
+- The following SSL certificates and keys from your PostgreSQL database:
+  - Client certificate: Public certificate for client authentication.
+  - Root certificate: Certificate authority (CA) certificate used to sign the server
+    and client certificates.
+  - Client key: Private key for encrypting data sent to the server.
+
+For additional details, see [Certificate requirements](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
 
 ### For CloudSQL PostgreSQL databases
 
-If you're integrating with a CloudSQL database, perform these additional steps only if
-they are not already configured:
+If you are using CloudSQL, complete these additional steps if they are not already
+configured:
 
-- **IP whitelisting**: Whitelist Aiven's IP addresses to allow connections
-  from Apache Kafka Connect to reach your CloudSQL database.
-- **Configure WAL and logical decoding**:
-  - To capture database change events, `set cloudsql.logical_decoding` to `on`.
-  - To configure the Write-Ahead Log (WAL) for logical replication, set
-    `cloudsql.enable_pglogical` to` on`.
-  - Restart the CloudSQL instance to apply changes.
-- **Activate the `pgoutput` extension**: In your
-  CloudSQL instance, enable the extension Debezium uses for logical decoding:
+- **Allow Aiven IP addresses**: Whitelist Aiven IP addresses to enable connections
+  from Apache Kafka Connect to your CloudSQL instance.
+
+- **Enable WAL and logical decoding**:
+  - Set `cloudsql.logical_decoding` to `on` to capture database change events.
+  - Set `cloudsql.enable_pglogical` to `on` to configure the Write-Ahead Log (WAL)
+    for logical replication.
+  - Restart the CloudSQL instance to apply the changes.
+- **Enable the `pgoutput` extension**
+  In your CloudSQL instance, enable the extension that Debezium uses for logical decoding:
 
   ```SQL
   CREATE EXTENSION pgoutput;
   ```
 
-- **Verify SSL certificates**: After whitelisting IPs, ensure your SSL configuration is
-  correct by testing the database connection:
+- **Verify SSL configuration**: After whitelisting IP addresses, test the SSL
+  connection to ensure your certificates are configured correctly:
 
   ```bash
   psql "sslmode=verify-ca \
@@ -55,18 +53,34 @@ they are not already configured:
     dbname=<YOUR_DB_NAME>"
   ```
 
-- **Set Debezium output plugin**: Use `pgoutput` or `decoderbufs` as the `plugin.name` in
-  your Debezium connector for logical decoding.
+- **Set the Debezium output plugin**: Set the `plugin.name` field in the connector
+  configuration to either `pgoutput` or `decoderbufs`.
 
-    :::note
-      Starting with Debezium 2.5, the `wal2json` plugin is deprecated. You can use
-      either `pgoutput` or `decoderbufs` as the recommended replacement plugin.
-    :::
+  :::note
+  Starting with Debezium 2.5, the `wal2json` plugin is deprecated. Use `pgoutput` or
+  `decoderbufs` as the recommended replacement.
+  :::
+
+## Limitations
+
+- The integration is not yet available in the Aiven Console. Use the Aiven CLI or Aiven
+  API instead.
+- A dedicated Aiven for Apache Kafka® Connect service is required. Enabling Kafka Connect
+  within the same Aiven for Apache Kafka® service is not supported for this integration.
+- The `kafka_connect_postgresql` integration type is not yet available in the Aiven
+  Console.
+- Delivering SSL keys to Aiven for Apache Kafka Connect is asynchronous. There may be a
+  delay of up to five minutes between creating the integration and using the keys.
+- Mutual authentication in `verify-full` SSL mode is not supported in the Apache Kafka
+  setup. The `verify-ca` mode remains secure because the Certificate Authority (CA) is
+  unique to the instance.
+- For CloudSQL PostgreSQL databases, enable logical decoding and the `pgoutput`
+  extension to ensure replication compatibility.
 
 ## Variables
 
-The following table lists the variables for the configuration steps. Replace them with
-your actual environment values in the provided code snippets:
+Replace the placeholders in the following table with values from your environment. Use
+these values in the configuration steps and code snippets.
 
 |           Variable            |                    Description                     |
 |-------------------------------|----------------------------------------------------|
@@ -81,8 +95,8 @@ your actual environment values in the provided code snippets:
 
 ## Configure the integration
 
-1. Verify that your existing Aiven for Apache Kafka® service is active and accessible.
-   If you don't have one, create it using the following command:
+1. Verify that your Aiven for Apache Kafka® service is active and accessible. If you do
+   not have a Kafka service, create one:
 
     ```bash
     avn service create <kafka_cluster_name> \
@@ -98,9 +112,9 @@ your actual environment values in the provided code snippets:
     manually create topics before starting the connector.
     :::
 
-1. Verify your existing Aiven for Apache Kafka® Connect service is active and accessible.
-   If you don't have one, create it using the following command, 
-   and integrate it with your Aiven for Apache Kafka® service:
+1. Verify that your Aiven for Apache Kafka® Connect service is active and accessible. If
+   you do not have one, use the following command to create it and connect it to your
+   Kafka service:
 
     ```bash
     avn service create <kafka_connect_name> \
@@ -110,10 +124,10 @@ your actual environment values in the provided code snippets:
       --project $PROJECT
     ```
 
-1. Create an external PostgreSQL integration endpoint to represent your PostgreSQL
-   database. Use the following JSON configuration and replace the placeholders:
+1. Create an external PostgreSQL integration endpoint. This endpoint represents your
+   PostgreSQL database. Replace the placeholders in the following JSON configuration:
 
-    ```bash
+   ```bash
     INTEGRATION_CONFIG=$(cat <<-END
     {
       "ssl_mode": "verify-ca",
@@ -135,7 +149,7 @@ your actual environment values in the provided code snippets:
 
    ```
 
-1. Retrieve the endpoint ID of the previously created integration endpoint:
+1. Retrieve the ID of the external PostgreSQL integration endpoint:
 
    ```bash
    INTEGRATION_ENDPOINT_ID=$(
@@ -145,7 +159,7 @@ your actual environment values in the provided code snippets:
 	  )
    ```
 
-1. Integrate the Apache Kafka® Connect service with the PostgreSQL endpoint:
+1. Integrate the Apache Kafka® Connect service with the external PostgreSQL endpoint:
 
    ```bash
    avn service integration-create \
@@ -188,7 +202,7 @@ your actual environment values in the provided code snippets:
      --config "$CONNECTOR_CONFIG"
    ```
 
-   where,
+   Parameters:
 
     - `name`: The connector instance name. For example, `debezium-postgres-connector`.
     - `connector.class`: The class of the PostgreSQL connector.
@@ -203,29 +217,14 @@ your actual environment values in the provided code snippets:
     - `topic.prefix`: The prefix for Kafka topics receiving database change events.
     - `database.tcpKeepAlive`: If set to `true`, it prevents database connection timeouts
       during inactivity.
-    - `transforms` and `transforms.unwrap.type`: he data transformations.
+    - `transforms` and `transforms.unwrap.type`: The data transformations.
       `ExtractNewRecordState` extracts the latest data state. These transformations are
       optional and should be used based on your specific requirements.
 
 ## Verification
 
-Confirm the following after completing the setup:
+After completing the setup, confirm the following:
 
 1. Apache Kafka Connect establishes a secure SSL connection with the PostgreSQL database.
 1. Apache Kafka topics exist as expected, whether created automatically or manually.
-1. Data is correctly streaming into topics using the naming pattern
-   `{connector_name}.{database_name}.{table_name}`.
-
-## Limitations
-
-- The integration cannot yet be created using Aiven Console. It must be done via Aiven API.
-- Apache Kafka® Connect must run on a dedicated instance, not on one co-located with Kafka.
-- The integration type `kafka_connect_postgresql` is not yet visible in Aiven Console.
-- The process of delivering SSL keys to Apache Kafka Connect is asynchronous.
-  Therefore, a delay of approximately five minutes may occur from the creation of
-  the integration to the operational use of the keys.
-- The Apache Kafka setup does not support mutual authentication in `verify-full` SSL mode.
-  However, the `verify-ca` mode is secure since the Certificate Authority (CA) is
-  specific to the instance.
-- For CloudSQL PostgreSQL databases, ensure logical decoding and the `pgoutput` extension
-  are enabled for replication compatibility.
+1. Data is streaming into topics using the naming pattern `{connector_name}.{database_name}.{table_name}`.

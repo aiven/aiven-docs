@@ -1,0 +1,13 @@
+fix: broken link
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed Jul 2 16:21:57 2025 +0200
+#
+# On branch DOC-1450-update-stream-reactor-connector-docs-for-version-9-0-2-compatibility
+# Changes to be committed:
+#	modified:   docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-sink.md
+#	modified:   docs/products/kafka/kafka-connect/howto/influx-sink.md
+#	modified:   docs/products/kafka/kafka-connect/howto/redis-streamreactor-sink.md
+#
