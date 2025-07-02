@@ -98,14 +98,14 @@ Include these fields in the connector configuration.
 If you use Avro as the message format, set the following parameters:
 
 - `value.converter.schema.registry.url`: The Aiven for Apache Kafka schema registry
-  URL, in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`. Get these values from the
-  [prerequisite step](/docs/products/kafka/kafka-connect/howto/influx-sink#connect_influx_lenses_sink_prereq).
+  URL, in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
 - `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to enable
   authentication with a username and password.
 - `value.converter.schema.registry.basic.auth.user.info`: The schema registry
   credentials, in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
-  Get these values from the
-  [prerequisite step](/docs/products/kafka/kafka-connect/howto/influx-sink#connect_influx_lenses_sink_prereq).
+
+You can get these values from the
+[prerequisite step](/docs/products/kafka/kafka-connect/howto/influx-sink#connect_influx_lenses_sink_prereq).
 :::
 
 ## Create the connector

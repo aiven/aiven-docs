@@ -123,20 +123,20 @@ Parameters:
   `schema.registry.url` and related credentials.
 
 :::note
-The `key.converter` and `value.converter` fields define how Kafka messages are parsed
-and must be included in the configuration.
+The `key.converter` and `value.converter` fields define how Kafka messages
+are parsed and must be included in the configuration.
 
 When using Avro as the source format, set the following:
 
-- `value.converter.schema.registry.url`: Use the Aiven for Apache Kafka schema registry
-  URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`. Retrieve these
-  values from the [prerequisite step](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-sink#connect_cassandra_lenses_sink_prereq).
+- `value.converter.schema.registry.url`: Use the Aiven for Apache Kafka schema
+  registry URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
 - `value.converter.basic.auth.credentials.source`: Set to `USER_INFO`, which means
   authentication is done using a username and password.
 - `value.converter.schema.registry.basic.auth.user.info`: Provide the schema registry
-  credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`. These
-  values should also be retrieved in the [prerequisite step](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-sink#connect_cassandra_lenses_sink_prereq).
+  credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
 
+You can retrieve these values from the
+[prerequisite step](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-sink#connect_cassandra_lenses_sink_prereq).
 :::
 
 ## Create the connector

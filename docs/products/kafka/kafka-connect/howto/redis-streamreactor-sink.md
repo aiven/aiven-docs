@@ -1,5 +1,5 @@
 ---
-title: Create a stream reactor sink connector from Apache Kafka® to Redis®*
+title: Create a Stream Reactor sink connector from Apache Kafka® to Redis®*
 ---
 
 import Tabs from '@theme/Tabs';
@@ -86,7 +86,7 @@ Parameters:
 
 - `name`: The connector name. Replace `CONNECTOR_NAME` with your desired name.
 - `connect.redis.*`: Redis connection parameters collected in the
-  [prerequisite step](/docs/products/kafka/kafka-connect/howto/redis-streamreactor-sink#connect_redis_lenses_sink_prereq).
+  [prerequisite step](#connect_redis_lenses_sink_prereq).
 - `key.converter` and `value.converter`: Define the message data format in the
   Kafka topic. This example uses `io.confluent.connect.avro.AvroConverter` to translate
   messages in Avro format. The schema is retrieved from Aiven's
@@ -100,15 +100,14 @@ and must be included in the configuration.
 When using Avro as the source format, set the following:
 
 - `value.converter.schema.registry.url`: Use the Aiven for Apache Kafka schema registry
-  URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`. Retrieve these
-  values from the [prerequisite step](/docs/products/kafka/kafka-connect/howto/redis-streamreactor-sink#connect_redis_lenses_sink_prereq).
+  URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
 - `value.converter.basic.auth.credentials.source`: Set to `USER_INFO`, which means
   authentication is done using a username and password.
 - `value.converter.schema.registry.basic.auth.user.info`: Provide the schema registry
-  credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`. These
-  values should also be retrieved in the
-  [prerequisite step](/docs/products/kafka/kafka-connect/howto/edis-streamreactor-sink#connect_redis_lenses_sink_prereq).
+  credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
 
+You can retrieve these values from the
+[prerequisite step](#connect_redis_lenses_sink_prereq).
 :::
 
 ## Create the connector
