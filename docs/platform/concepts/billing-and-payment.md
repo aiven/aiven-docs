@@ -6,26 +6,26 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 You can make payments by credit card, bank transfer, or using your AWS, Google Cloud, or Azure [marketplace subscriptions](/docs/platform/howto/list-marketplace-payments).
 
-The [costs of services](#service-charges) in a project are charged to the
-[payment methods](/docs/platform/howto/manage-payment-card) of the
-[billing group](#billing-groups) assigned to that project.
+To pay for services, you have to assign every project with services to a
+[billing group](#billing-groups). The [costs for all services](#service-charges)
+in a project are charged to the [payment method](/docs/platform/howto/manage-payment-card)
+of the billing group assigned to that project.
 
-Billing information, invoices, and a breakdown of charges by category and billing group
-are available in the **Billing** section of the Aiven Console.
-To access this section, you must be an
+You can manage billing only at the organization level. Billing information, invoices,
+and a breakdown of charges by category and billing group are available in the **Billing**
+section of the Aiven Console. To access this section, you must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).
 Other users have read-only access to some billing information like billing group details
 and invoices using the API.
-
 
 ## Billing groups
 
 [Billing groups](/docs/platform/howto/use-billing-groups)
 store your billing details in one place,
-including payment methods,
+including a payment method,
 [billing and shipping addresses](/docs/platform/howto/manage-billing-addresses),
 and billing contacts. This lets you use the same payment details across
-all projects within your organization, including those in organizational units.
+different projects within your organization, including those in other organizational units.
 
 You can use billing groups to combine costs based on categories like your organization's
 departments or IT environments. You receive a
