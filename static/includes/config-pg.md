@@ -920,7 +920,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_max_wal_senders"/><Link to="#pg_max_wal_senders"><strong>pg.max_wal_senders</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>20</code></li><li>max: <code>64</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_max_wal_senders"/><Link to="#pg_max_wal_senders"><strong>pg.max_wal_senders</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>20</code></li><li>max: <code>256</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">max_wal_senders</p>
               <div className="description"><p>PostgreSQL maximum WAL senders. The default is `20`. Changing this parameter causes a service restart.</p></div>
             </td>
