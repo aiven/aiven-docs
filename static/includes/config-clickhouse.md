@@ -211,6 +211,17 @@ import Link from '@docusaurus/Link'
         </table>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="enable_ipv6"/><Link to="#enable_ipv6"><strong>enable_ipv6</strong></Link></p><p><code className="type">boolean</code></p></div>
+        <p className="title">Enable IPv6</p>
+        <div className="description"><p>Register AAAA DNS records for the service, and allow IPv6 packets to service ports</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   </tbody>
 </table>
     
