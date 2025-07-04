@@ -242,7 +242,7 @@ If the Kafka topic `students` contains the following records:
 {"name": "carlo", "age": 77}
 {"name": "lucy", "age": 55}
 {"name": "carlo", "age": 33}
-````
+```
 
 Use the following connector configuration to insert each record into a MongoDB
 collection named `studentscol`:

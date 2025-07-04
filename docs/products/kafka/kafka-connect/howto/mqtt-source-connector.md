@@ -152,7 +152,7 @@ This configuration does the following:
 - `connect.mqtt.kcql`: Routes messages from the MQTT topic `devices/status` to the
   Kafka topic `device_status`.
 - `connect.mqtt.service.quality`: Uses QoS level `1` for at-least-once delivery.
-- `key.converter` and `value.converter`**: Set the message format to JSON.
+- `key.converter` and `value.converter`: Set the message format to JSON.
 - `connect.mqtt.*`: Supplies the MQTT connection details.
 
 After the connector is running, check the `device_status` Kafka topic to confirm that
