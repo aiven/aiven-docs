@@ -1,110 +1,80 @@
 ---
-title: Create a stream reactor source connector from Apache Cassandra® to Apache Kafka®
+title: Create a Stream Reactor source connector from Apache Cassandra® to Apache Kafka®
 ---
 
-**The Apache Cassandra® stream reactor source connector** enables you to move data from **a Apache Cassandra® database** to **an Aiven for Apache Kafka® cluster**.
-The Lenses.io implementation enables you to write
-[KCQL
-transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/cassandrasourceconnector/)
-on the topic data before sending it to the Apache Kafka cluster.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Note from "@site/static/includes/streamreactor-compatibility-note.md"
 
-:::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.lenses.io/connectors/source/cassandra).
-:::
+The Apache Cassandra® Stream Reactor source connector enables you to move data from an Apache Cassandra® database to an Aiven for Apache Kafka® cluster.
+It supports
+[KCQL transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/cassandrasourceconnector/)
+to parse and filter Cassandra table data before sending it to Kafka.
+
+<Note/>
 
 ## Prerequisites {#connect_cassandra_lenses_source_prereq}
 
-To setup a Apache Cassandra source connector, you need an Aiven for
-Apache Kafka service
-[with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache Kafka service
+  [with Apache Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Also collect the following information about the
-target Cassandra database upfront:
+- Gather the following information for the source Cassandra database:
 
--   `CASSANDRA_HOSTNAME`: The Cassandra hostname
--   `CASSANDRA_PORT`: The Cassandra port
--   `CASSANDRA_USERNAME`: The Cassandra username
--   `CASSANDRA_PASSWORD`: The Cassandra password
--   `CASSANDRA_SSL`: The Cassandra SSL setting, can be `true`, `false`
-    or `default`
--   `CASSANDRA_KEYSTORE`: The path to the Keystore containing the CA
-    certificate, used when connection is secured via SSL
--   `CASSANDRA_KEYSTORE_PASSWORD`: The Keystore password, used when
-    connection is secured via SSL
+  - `CASSANDRA_HOSTNAME`: The Cassandra hostname.
+  - `CASSANDRA_PORT`: The Cassandra port.
+  - `CASSANDRA_USERNAME`: The Cassandra username.
+  - `CASSANDRA_PASSWORD`: The Cassandra password.
+  - `CASSANDRA_SSL`: Set to `true`, `false`, or `default`, depending on your SSL setup.
+  - `CASSANDRA_KEYSTORE`: The path to the keystore containing the CA certificate,
+    used for SSL connections.
+  - `CASSANDRA_KEYSTORE_PASSWORD`: The password for the keystore.
 
-:::note
-If you're using Aiven for Apache Cassandra, you can use the following
-keystore values
+    :::note
 
--   `CASSANDRA_TRUSTSTORE`: `/run/aiven/keys/public.truststore.jks`
--   `CASSANDRA_TRUSTSTORE_PASSWORD`: `password`
-:::
+    If you are using Aiven for Apache Cassandra, use the following values:
+    - `CASSANDRA_TRUSTSTORE`: `/run/aiven/keys/public.truststore.jks`
+    - `CASSANDRA_TRUSTSTORE_PASSWORD`: `password`
+    :::
+  - `CASSANDRA_KEYSPACE`: The Cassandra keyspace to source the data from.
+  - `KCQL_TRANSFORMATION`: A KCQL statement to map table fields to Kafka topics. Use the following format:
 
--   `CASSANDRA_KEYSPACE`: The Cassandra keyspace to use to source the
-    data from
-
--   `KCQL_TRANSFORMATION`: The KCQL syntax to parse the topic data,
-    should be in the format:
-
-    ```
+    ```sql
     INSERT INTO APACHE_KAFKA_TOPIC
     SELECT LIST_OF_FIELDS
     FROM CASSANDRA_TABLE
     [PK CASSANDRA_TABLE_COLUMN]
-    [INCREMENTAL_MODE=MODE]
+    [INCREMENTALMODE=MODE]
     ```
 
     :::warning
-    By default the connector acts in **bulk mode**, extracting all the
-    rows from the Cassandra table on a polling interval and pushing them
-    to the Apache Kafka topic. You can however define **incremental
-    options** by defining the [incremental mode and primary
-    key](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/cassandrasourceconnector/).
+    By default, the connector runs in **bulk mode** and polls all rows in the table periodically.
+    To source data incrementally, use the `PK` and `INCREMENTALMODE` parameters.
+    See [KCQL syntax for Cassandra Source](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sources/cassandrasourceconnector/)
+    for details.
     :::
 
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
+  - `APACHE_KAFKA_HOST`: The Apache Kafka host. Required only when using Avro as the data format.
+  - `SCHEMA_REGISTRY_PORT`: The schema registry port. Required only when using Avro.
+  - `SCHEMA_REGISTRY_USER`: The schema registry username. Required only when using Avro.
+  - `SCHEMA_REGISTRY_PASSWORD`: The schema registry password. Required only when using Avro.
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
+    :::note
+    If you are using Aiven for Cassandra and Aiven for Apache Kafka, get all required
+    connection details, including schema registry information, from the
+    **Connection information** section on the <ConsoleLabel name="overview"/> page.
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
+    As of version 3.0, Aiven for Apache Kafka uses Karapace as the schema registry and
+    no longer supports the Confluent Schema Registry.
+    :::
 
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+For a complete list of supported parameters and configuration options, see the
+[connector's documentation](https://docs.lenses.io/connectors/source/cassandra).
 
-:::note
-If you're using Aiven for Cassandra and Aiven for Apache Kafka, the
-above details are available in the [Aiven
-console](https://console.aiven.io/) service *Overview tab* or via the
-dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
+## Create a connector configuration file
 
-The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
-Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
-
-As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
-Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://help.aiven.io/en/articles/5651983)
-:::
-
-## Setup an Apache Cassandra source connector with Aiven Console
-
-The following example demonstrates how to setup an Apache Cassandra
-source connector for Apache Kafka using the [Aiven
-Console](https://console.aiven.io/).
-
-### Define a Kafka Connect configuration file
-
-Define the connector configurations in a file (we'll refer to it with
-the name `cassandra_source.json`) with the following content, creating a
-file is not strictly necessary but allows to have all the information in
-one place before copy/pasting them in the [Aiven
-Console](https://console.aiven.io/):
+Create a file named `cassandra_source.json` and add the following configuration:
 
 ```json
 {
@@ -130,134 +100,128 @@ Console](https://console.aiven.io/):
 }
 ```
 
-The configuration file contains the following entries:
+Parameters:
 
--   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    to give to the connector.
--   `connect.cassandra.*`: source parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-source#connect_cassandra_lenses_source_prereq) phase.
--   `key.converter` and `value.converter`: defines the messages data
-    format in the Apache Kafka topic. The
-    `io.confluent.connect.avro.AvroConverter` converter translates
-    messages from the Avro format. To retrieve the messages schema we
-    use Aiven's [Karapace schema
-    registry](https://github.com/aiven/karapace) as specified by the
-    `schema.registry.url` parameter and related credentials.
+- `name`: The connector name. Replace `CONNECTOR_NAME` with your desired name.
+- `connect.cassandra.*`: Cassandra connection parameters collected in the
+  [prerequisite step](#connect_cassandra_lenses_source_prereq).
+- `key.converter` and `value.converter`: Define the message data format. This example uses
+  `AvroConverter`. The schema is retrieved from Aiven’s
+  [Karapace schema registry](https://github.com/aiven/karapace).
 
 :::note
-The `key.converter` and `value.converter` sections define how the topic
-messages will be parsed and needs to be included in the connector
-configuration.
+The `key.converter` and `value.converter` fields define how Kafka messages are parsed
+and must be included in the configuration.
 
-When using Avro as source data format, set following
-parameters:
+When using Avro as the output format, set the following fields:
 
--   `value.converter.schema.registry.url`: pointing to the Aiven for
-    Apache Kafka schema registry URL in the form of
-    `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` with the
-    `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-source#connect_cassandra_lenses_source_prereq).
--   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you're going to login to the schema registry
-    using username and password.
--   `value.converter.schema.registry.basic.auth.user.info`: passing the
-    required schema registry credentials in the form of
-    `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` with the
-    `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/cassandra-streamreactor-source#connect_cassandra_lenses_source_prereq).
+- `value.converter.schema.registry.url`: Use the Aiven for Apache Kafka schema registry URL
+  in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`. Retrieve these values
+  from the
+  [prerequisite step](#connect_cassandra_lenses_source_prereq).
+- `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to use username
+  and password authentication.
+- `value.converter.schema.registry.basic.auth.user.info`: Provide the credentials in the format
+  `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`. Retrieve these values from the
+  [prerequisite step](#connect_cassandra_lenses_source_prereq).
+
 :::
 
-### Create a Kafka Connect connector with the Aiven Console
+## Create the connector
 
-To create a Kafka Connect connector:
+<Tabs groupId="setup-method">
+<TabItem value="console" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+1. Access the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector** if Apache Kafka Connect is enabled on the service.
+   If not, click **Enable connector on this service**.
 
-2.  Select **Connectors** from the left sidebar.
+   Alternatively, to enable connectors:
 
-3.  Select **Create New Connector**.
+   1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
+   1. In the **Service management** section, click
+      <ConsoleLabel name="Actions"/> > **Enable Kafka connect**.
 
-    :::note
-    It enabled only for services [with Kafka Connect enabled](enable-connect).
-    :::
+1. In the source connectors list, select **Stream Reactor Cassandra Source**, and click
+   **Get started**.
+1. On the **Stream Reactor Cassandra Source** page, go to the **Common** tab.
+1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
+1. Paste the configuration from your `cassandra_source.json` file into the text box.
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Confirm that data appears in the target Kafka topic.
 
-4.  Select **Stream Reactor Cassandra Source**.
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
+To create the connector using the
+[Aiven CLI](/docs/tools/cli/service/connector#avn_service_connector_create), run:
 
-6.  Paste the connector configuration (stored in the
-    `cassandra_source.json` file) in the form.
+```bash
+avn service connector create SERVICE_NAME @cassandra_source.json
+```
 
-7.  Select **Apply**.
+Replace:
 
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tab and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
+- `SERVICE_NAME`: Your Kafka or Kafka Connect service name.
+- `@cassandra_source.json`: Path to your configuration file.
 
-8.  After all the settings are correctly configured, select **Create new
-    connector**.
+</TabItem>
+</Tabs>
 
-9.  Verify the connector status under the **Connectors** screen.
+## Source Cassandra data to a Kafka topic
 
-10. Verify the presence of the data in the target Cassandra service.
+The following example shows how to source data from a Cassandra table to a Kafka topic.
 
-You can also create connectors using the
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-
-## Example: Create a Cassandra source connector
+If your Cassandra table `students` in the `students_keyspace` keyspace contains the
+following data:
 
 <!-- vale off -->
-If you have a Cassandra table named `students` in the
-`students_keyspace` keyspace, with four columns (`id`, `name`, `age` and
-`timestamp_added`) and you want to load incrementally an Apache Kafka
-topic called `students_topic`, you can use the following connector
-configuration, after replacing the placeholders for `CASSANDRA_HOST`,
-`CASSANDRA_PORT`, `CASSANDRA_USERNAME`, `CASSANDRA_PASSWORD`,
-`CASSANDRA_KEYSTORE`, `CASSANDRA_KEYSTORE_PASSWORD`,
-`CASSANDRA_TRUSTSTORE`, `CASSANDRA_TRUSTSTORE_PASSWORD`,
-`CASSANDRA_KEYSPACE`:
+
+| id | name  | age | timestamp_added |
+|----|-------|-----|-----------------|
+| 1  | carlo | 77  | 1719838880      |
+| 2  | lucy  | 55  | 1719839999      |
+
+To write this data incrementally to a Kafka topic named `students_topic`, use the
+following connector configuration:
 
 ```json
 {
-    "name": "my-cassandra-source",
-    "connector.class": "com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSinkConnector",
-    "topics": "TOPIC_LIST",
-    "connect.cassandra.host": "CASSANDRA_HOSTNAME",
-    "connect.cassandra.port": "CASSANDRA_PORT",
-    "connect.cassandra.username": "CASSANDRA_USERNAME",
-    "connect.cassandra.password": "CASSANDRA_PASSWORD",
-    "connect.cassandra.ssl.enabled": "CASSANDRA_SSL",
-    "connect.cassandra.trust.store.path": "CASSANDRA_TRUSTSTORE",
-    "connect.cassandra.trust.store.password": "CASSANDRA_TRUSTSTORE_PASSWORD",
-    "connect.cassandra.key.space": "students_keyspace",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "connect.cassandra.kcql": "INSERT INTO students_topic SELECT id, name, age, timestamp_added FROM students PK timestamp_added INCREMENTALMODE=TIMESTAMP"
+  "name": "my-cassandra-source",
+  "connector.class": "com.datamountaineer.streamreactor.connect.cassandra.source.CassandraSourceConnector",
+  "connect.cassandra.host": "CASSANDRA_HOSTNAME",
+  "connect.cassandra.port": "CASSANDRA_PORT",
+  "connect.cassandra.username": "CASSANDRA_USERNAME",
+  "connect.cassandra.password": "CASSANDRA_PASSWORD",
+  "connect.cassandra.ssl.enabled": "CASSANDRA_SSL",
+  "connect.cassandra.trust.store.path": "CASSANDRA_TRUSTSTORE",
+  "connect.cassandra.trust.store.password": "CASSANDRA_TRUSTSTORE_PASSWORD",
+  "connect.cassandra.key.space": "students_keyspace",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false",
+  "connect.cassandra.kcql": "INSERT INTO students_topic SELECT id, name, age, timestamp_added FROM students PK timestamp_added INCREMENTALMODE=TIMESTAMP"
 }
 ```
 
-The configuration file contains the following peculiarities:
+Replace all placeholder values (such as `CASSANDRA_HOSTNAME`, `CASSANDRA_PORT`,
+and `CASSANDRA_USERNAME`) with your actual Cassandra connection details.
 
--   `"topics": "students"`: setting the topic to source
--   `"connect.cassandra"`: the connection parameters placeholders
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
-    the topic will be populated in JSON format
--   `"connect.cassandra.kcql": "INSERT INTO students_topic SELECT id, name, age, timestamp_added FROM students PK timestamp_added INCREMENTALMODE=TIMESTAMP"`:
-    the connector logic is to insert every row in a new topic message
-    and use the column `timestamp_added` to check for new rows compared
-    to the previous poll.
+This configuration does the following:
 
-Once the connector is created successfully, you should see one message
-per row in the Cassandra table appearing in the target Apache Kafka
-`students_topic` topic.
+- `connect.cassandra.kcql`: Defines how Cassandra data is mapped to the Kafka topic.
+  This example uses the `timestamp_added` column for incremental polling.
+- `value.converter` and `value.converter.schemas.enable`: Set the message format.
+  This example uses raw JSON without a schema.
+- Connection settings (`connect.cassandra.*`): Provide the Cassandra host, port,
+  credentials, SSL settings, and truststore paths.
+
+After creating the connector, check the Kafka topic to verify that the data has been written.
 
 :::tip
-If your Aiven for Apache Kafka instance doesn't have the
-[automatic creation of topic enabled](/docs/products/kafka/howto/create-topics-automatically), you might need to create the `students_topic` topic upfront
-before starting the connector
+If your Aiven for Apache Kafka instance does not have
+[automatic topic creation enabled](/docs/products/kafka/howto/create-topics-automatically),
+create the `students_topic` manually before starting the connector.
 :::
