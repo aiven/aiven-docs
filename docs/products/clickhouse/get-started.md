@@ -69,25 +69,25 @@ The following example files are also available in the
 
 1. Create a file named `provider.tf` and add the following:
 
-    <TerraformSample filename='clickhouse/provider.tf' />
+    <TerraformSample filename='clickhouse/clickhouse_service/provider.tf' />
 
 1. Create a file named `service.tf` and add the following:
 
-    <TerraformSample filename='clickhouse/service.tf' />
+    <TerraformSample filename='clickhouse/clickhouse_service/service.tf' />
 
 1. Create a file named `service_users.tf` and add the following:
 
-    <TerraformSample filename='clickhouse/service_users.tf' />
+    <TerraformSample filename='clickhouse/clickhouse_service/service_users.tf' />
 
 1. Create a file named `variables.tf` and add the following:
 
-    <TerraformSample filename='clickhouse/variables.tf' />
+    <TerraformSample filename='clickhouse/clickhouse_service/variables.tf' />
 
 1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
 1. To output connection details, create a file named `output.tf` and add the following:
 
-    <TerraformSample filename='clickhouse/output.tf' />
+    <TerraformSample filename='clickhouse/clickhouse_service/output.tf' />
 
 <TerraformApply />
 
@@ -249,7 +249,7 @@ See the available configuration options in
 with the [ClickHouse client](https://clickhouse.com/docs/en/integrations/sql-clients/cli)
 using the Terraform outputs.
 
-1. to store the outputs in environment variables, run:
+1. To store the outputs in environment variables, run:
 
    ```bash
    CLICKHOUSE_HOST="$(terraform output -raw clickhouse_service_host)"

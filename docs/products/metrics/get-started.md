@@ -57,15 +57,15 @@ The following example files are also available in the
 
 1. Create a file named `provider.tf` and add the following:
 
-    <TerraformSample filename='thanos/provider.tf' />
+    <TerraformSample filename='thanos/thanos_service/provider.tf' />
 
 1. Create a file named `service.tf` and add the following:
 
-    <TerraformSample filename='thanos/service.tf' />
+    <TerraformSample filename='thanos/thanos_service/service.tf' />
 
 1. Create a file named `variables.tf` and add the following:
 
-    <TerraformSample filename='thanos/variables.tf' />
+    <TerraformSample filename='thanos/thanos_service/variables.tf' />
 
 1. Create a file named `terraform.tfvars` and add values for your token and Aiven project.
 
