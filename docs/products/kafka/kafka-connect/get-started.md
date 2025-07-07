@@ -75,15 +75,15 @@ The following example files are also available in the
 
 1. Create a file named `provider.tf` and add the following:
 
-    <TerraformSample filename='kafka_connect/provider.tf' />
+    <TerraformSample filename='kafka/kafka_connect/provider.tf' />
 
 1. Create a file named `service.tf` and add the following:
 
-    <TerraformSample filename='kafka_connect/kafka_connect_service.tf' />
+    <TerraformSample filename='kafka/kafka_connect/kafka_connect_service.tf' />
 
 1. Create a file named `variables.tf` and add the following:
 
-    <TerraformSample filename='kafka_connect/variables.tf' />
+    <TerraformSample filename='kafka/kafka_connect/variables.tf' />
 
 1. Create the `terraform.tfvars` file and add the values for your token and project name.
 

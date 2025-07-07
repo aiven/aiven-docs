@@ -67,20 +67,20 @@ The following example shows you how to create and integrate these services:
 
 1. Create a file named `provider.tf` and add the following:
 
-    <TerraformSample filename='kafka_pg_grafana/provider.tf' />
+    <TerraformSample filename='integrations/kafka_pg_grafana/provider.tf' />
 
 1. For the services, create a file named `services.tf` and add the following:
 
-    <TerraformSample filename='kafka_pg_grafana/services.tf' />
+    <TerraformSample filename='integrations/kafka_pg_grafana/services.tf' />
 
 1. To integrate the services, create a file named `integrations.tf` and add
    the following:
 
-    <TerraformSample filename='kafka_pg_grafana/integrations.tf' />
+    <TerraformSample filename='integrations/kafka_pg_grafana/integrations.tf' />
 
 1. Create a file named `variables.tf` and add the following:
 
-    <TerraformSample filename='kafka_pg_grafana/variables.tf' />
+    <TerraformSample filename='integrations/kafka_pg_grafana/variables.tf' />
 
 1. Create a file named `terraform.tfvars` and add values for your token and Aiven project.
 
