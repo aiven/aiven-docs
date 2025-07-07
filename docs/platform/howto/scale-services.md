@@ -8,11 +8,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Adjust the plan of your services at any time to scale your services as needed and optimize costs.
-You can also [adjust disk storage][storage] without changing your plan.
+
+You can also [adjust disk storage](/docs/platform/howto/add-storage-space) without
+changing your plan.
 
 :::important
 
-- Downgrading to a plan with fewer VMs is not supported.
+- Downgrading to a plan with fewer VMs is supported for Aiven for ClickHouse® only.
 - Changing a service plan triggers a node recycle, service rebuilding, and any pending
   maintenance updates.
 
