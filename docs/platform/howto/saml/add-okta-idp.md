@@ -79,7 +79,17 @@ To configure user provisioning for Okta:
    :::important
    Don't enable **Import Groups**. Aiven groups that aren't managed by SCIM cannot
    be imported to Okta.
+1. Click **Save**.
+1. Optional: On the **Provisioning** tab, click **Edit** to enable provisioning settings.
+   :::tip[Recommended settings]
+   Set the following for centralized and secure user management:
+   * Enable **Create users**
+   * Disable **Set password when creating new users**
+   * Enable **Update user attributes**
+   * Enable **Deactivate users**
+   * Disable **Sync password**
    :::
+1. Click **Save**.
 1. Click **Sign On**.
 1. In the **Credentials Details** section, for the **Application username format**
    select **Email**.
