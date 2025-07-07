@@ -82,9 +82,12 @@ To configure user provisioning for Okta:
 1. Click **Save**.
 1. Optional: On the **Provisioning** tab, click **Edit** to enable provisioning settings.
    :::tip[Recommended settings]
-   Enable the following for centralized and secure user management:
-   * 1
-   * 2
+   Set the following for centralized and secure user management:
+   * Enable **Create users**
+   * Disable **Set password when creating new users**
+   * Enable **Update user attributes**
+   * Enable **Deactivate users**
+   * Disable **Sync password**
    :::
 1. Click **Save**.
 1. Click **Sign On**.
