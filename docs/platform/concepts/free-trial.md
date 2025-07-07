@@ -27,6 +27,7 @@ There are some limitations:
     [billing group](/docs/platform/howto/use-billing-groups). You cannot transfer them to
     another billing group.
 -   You can't create new services if your remaining credits would be spent too quickly.
+-   You can't end a free trial yourself before the end of the trial period.
 <!-- vale on -->
 
 Services are automatically powered down after the trial ends or your credits run out. To
