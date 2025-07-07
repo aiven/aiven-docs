@@ -54,7 +54,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.19.3 |
+| timescaledb | 2.20.1 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
@@ -117,7 +117,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.19.3 |
+| timescaledb | 2.20.1 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
@@ -181,7 +181,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.19.3 |
+| timescaledb | 2.20.1 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
