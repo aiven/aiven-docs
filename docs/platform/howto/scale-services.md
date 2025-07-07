@@ -26,6 +26,12 @@ You can also [adjust disk storage][storage] without changing your plan.
 1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
    **Change plan**.
 1. In the **Change service plan** dialog, choose the new service plan and tier.
+
+   :::note
+   Select a plan that provides at least 125% of the current disk size unless you're
+   downgrading your plan.
+   :::
+
 1. Click **Change**.
 
 </TabItem>
