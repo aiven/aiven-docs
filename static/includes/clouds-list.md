@@ -859,5 +859,10 @@ for Aiven for PostgreSQL® only. For more information or access, contact your ac
     <td>DE-MUC-1</td>
     <td>Germany, Munich</td>
   </tr>
+  <tr>
+    <td>Europe</td>
+    <td>HR-ZAG-1</td>
+    <td>Croatia, Zagreb</td>
+  </tr>
   </tbody>
 </table>
