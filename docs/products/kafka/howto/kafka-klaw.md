@@ -16,70 +16,60 @@ without administrator intervention.
 
 ## Connect Aiven for Apache Kafka to Klaw
 
-To connect your Aiven for Apache Kafka® cluster to Klaw:
+To connect your Aiven for Apache Kafka cluster to Klaw:
 
 1. Log in to the **Klaw web interface**.
 1. Click **Environments**, then click **Clusters**.
 1. On the **Clusters** page, click **Add Cluster**.
 1. Enter the following details:
-    - **Cluster Type:** Select Kafka from the drop-down list
-    - **Cluster Name:** Provide a name for the cluster
-    - **Protocol:** Select the protocol for your cluster
+    - **Cluster type**: Select **Kafka**.
+    - **Cluster name**: Enter a name for the cluster.
+    - **Protocol**: Select the protocol used by your Kafka service.
 
- :::note
- Based on the protocol selected,
- [configure Klaw application.properties file](/docs/products/kafka/howto/kafka-klaw#klaw-application-properties-configs)
- to enable connection between Aiven for Apache Kafka and
- Klaw clusters.
- :::
+      :::note
+      Depending on the protocol selected,
+      [configure Klaw application.properties file](/docs/products/kafka/howto/kafka-klaw#klaw-application-properties-configs)
+      to enable connection between Aiven for Apache Kafka and Klaw clusters.
 
-    - **Kafka Flavor:** Select Aiven for Apache Kafka® as the flavor
-    - **Project Name:** Select the project name defined in the Aiven
- Console
-    - **Bootstrap server:** Enter the Service URI for your Apache
- Kafka service. Find the service URI in the **Connection
- information** page of your service in Aiven Console
-    - **Service Name:** Enter the name of the service as defined in
- the [Aiven Console](https://console.aiven.io/) for your Apache
- Kafka service
+      :::
+
+    - **Kafka flavor**: Select **Aiven for Apache Kafka®**.
+    - **Project name**: Select your Aiven project.
+    - **Bootstrap server**: Enter the **Service URI** for your Kafka service
+      (available on the **Connection information** page in the Aiven Console).
+    - **Service name**: Enter the Kafka service name as defined in the [Aiven Console](https://console.aiven.io/).
 
 1. Click **Save**.
-
 1. Add the cluster to an environment:
-
    - Click **Environments**, then select **Environments** from the drop-down menu.
    - Click **Add Environment** and and provide the following:
-     - **Environment Name:** Select environment from the drop-down list
+     - **Environment Name:** Select environment from the drop-down list.
 
- :::note
- To learn more, see [Clusters and
- environments](https://www.klaw-project.io/docs/Concepts/clusters-environments)
- in Klaw documentation.
- :::
+       :::note
+       To learn more, see [Clusters and
+       environments](https://www.klaw-project.io/docs/Concepts/clusters-environments)
+       in Klaw documentation.
+       :::
 
-     - **Select Cluster:** Choose the cluster you added (Bootstrap servers and
- protocol populate automatically)
-     - **Default Partitions:** Enter the number of partitions based on
- your requirements. The default value is set to 2
-     - **Maximum Partitions:** Enter the maximum number of partitions.
- The default value is set to 2
-     - **Default Replication factor:** Enter the required replication
- factor. The default value is set to 1
-     - **Max Replication factor:** Enter the required max replication
- factor. The default value is set to 1
-     - **Topic prefix (optional):** Enter a topic prefix
-     - **Tenant:** The value is set to default Tenant
+     - **Select Cluster:** Choose the cluster you added. The bootstrap server and
+       protocol fields are populated automatically.
+     - **Default Partitions:** Enter the number of partitions required (default is 2).
+     - **Maximum Partitions:** Enter the maximum number of partitions (default is 2).
+     - **Default Replication factor:** Enter the required replication factor (default is
+       1).
+     - **Max Replication factor:** Enter the maximum replication factor (default is 1).
+     - **Topic prefix (optional)**: Enter a topic prefix if needed.
+     - **Tenant:** The value is set to default Tenant.
 
- :::note
- Klaw is multi-tenant by default. Each tenant manages topics with
- their own teams in isolation. Every tenant has its own set of
- Apache Kafka® environments, and users of one tenant cannot
- view/access topics, or ACLS from other tenants. It provides
- isolation avoiding any security breach. For this topic, I have
- used the default tenant configuration. For more information, see
- [Klaw
- documentation](https://www.klaw-project.io/docs/getstarted#configure-the-cluster-to-sync).
- :::
+       :::note
+       Klaw is multi-tenant by default. Each tenant manages topics with
+       their own teams in isolation. Every tenant has its own set of
+       Apache Kafka® environments, and users of one tenant cannot
+       view/access topics, or ACLS from other tenants. It provides
+       isolation avoiding any security breach. For this topic, I have
+       used the default tenant configuration. For more information, see
+       [Klaw documentation](https://www.klaw-project.io/docs/getstarted#configure-the-cluster-to-sync).
+       :::
 
 1. Click **Save**.
 
@@ -89,24 +79,22 @@ authentication protocol settings.
 See [Configure Klaw application.properties file](#klaw-application-properties-configs)
 for troubleshooting.
 
-## Configure the Klaw application.properties file {#klaw-application-properties-configs}
+## Configure the Klaw `application.properties` file {#klaw-application-properties-configs}
 
-[Klaw](https://www.klaw-project.io/) uses the `application.properties`
-file to configure any application-related properties, such as secret key
-and authentication protocol configurations. Connecting Aiven for Apache
-Kafka® with Klaw requires you to perform the following additional
-configurations in the `application.properties` file.
+[Klaw](https://www.klaw-project.io/) is a Spring Boot application that uses
+the `application.properties` file to configure application-level settings such as
+secret keys, authentication protocols, and Kafka cluster connection details.
 
-Klaw is a Spring Boot application and uses the `application.properties` file to
-configure application-level settings such as secret keys and authentication protocols.
+To connect Aiven for Apache Kafka® to Klaw, you must configure additional properties
+in the `application.properties` file, including the Kafka protocol and bootstrap server.
 
-By default, the file is located in:
+By default, the file is located in the following directories:
 
 - `klaw/cluster-api/src/main/resources`
 - `klaw/core/src/main/resources`
 
-If Klaw is running in a Kubernetes environment, the file path inside the pod may vary
-depending on your deployment method. You can override the file location
+If Klaw is running in a Kubernetes environment, the file path inside the pod may
+vary depending on your deployment method. You can override the file location
 using the `spring.config.location` property:
 
 ```bash
@@ -115,7 +103,6 @@ using the `spring.config.location` property:
 
 Review your deployment manifest or use `kubectl exec` to inspect the pod and
 determine the `application.properties` file location.
-
 
 ### Secret key configuration
 
