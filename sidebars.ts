@@ -364,6 +364,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/byoc/create-cloud/create-google-custom-cloud',
               ],
             },
+            'platform/howto/byoc/aws-privatelink-byoc',
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
