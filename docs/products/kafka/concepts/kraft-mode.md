@@ -1,7 +1,6 @@
 ---
 title: KRaft in Aiven for Apache Kafka®
 sidebar_label: KRaft
-early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -49,6 +48,35 @@ KRaft introduces two key roles within an Aiven for Apache Kafka service:
 Separating these roles improves metadata management efficiency without affecting broker
 performance.
 
+## Migration from ZooKeeper to KRaft
+
+Migration from ZooKeeper to KRaft is not yet available for existing
+Aiven for Apache Kafka services. Aiven will notify you when your service becomes eligible.
+
+The migration is included in the upgrade to Apache Kafka 3.9. It is fully automated and
+does not require any manual steps. After the migration is complete, reverting to
+ZooKeeper is not supported.
+
+### How the migration works
+
+- The migration is triggered when you upgrade your service to Apache Kafka 3.9 using the
+  Aiven Console.
+- The migration runs during your configured
+  [maintenance window](/docs/platform/concepts/maintenance-window), like other major
+  version upgrades.
+- During the upgrade, the service status changes to **Rebuilding**.
+- Aiven transfers your service’s metadata from ZooKeeper to KRaft and updates the
+  cluster to use KRaft mode.
+- When the migration completes, the service status returns to **Running**, and the
+  service operates in KRaft mode.
+
+### Before you migrate
+
+- **Service version**: To upgrade to Apache Kafka 4.0 or later, your service must first
+  migrate to KRaft by upgrading to Kafka 3.9.
+- **Service plan**: If your service is on the **Startup-2** plan, you must upgrade
+  to **Startup-4** or higher during the same maintenance window as the version upgrade.
+
 ## Impact of KRaft
 
 ### Compatibility and impact
@@ -69,4 +97,4 @@ removed metrics, see [KRaft and metrics changes](/docs/products/kafka/reference/
 
 <RelatedPages/>
 
-[Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft-)
+[Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft)

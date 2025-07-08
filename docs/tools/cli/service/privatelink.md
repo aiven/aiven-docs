@@ -172,6 +172,23 @@ AWS_SERVICE_ID              AWS_SERVICE_NAME                                    
 vpce-svc-1234567890abc1234  com.amazonaws.vpce.us-east-1.vpce-svc-1234567890abc1234  arn:aws:iam::123456789012:user/cloud_user  active
 ```
 
+### `avn service privatelink aws refresh` {#avn_service_privatelink_aws_refresh}
+
+Refreshes incoming AWS PrivateLink endpoint connections.
+
+| Parameter      | Information                      |
+| -------------- | -------------------------------- |
+| `service_name` | The name of the service          |
+| `--project`    | The project to fetch details for |
+| `--format`     | Format of the output string      |
+
+**Example:** Refresh incoming AWS PrivateLink endpoint connections
+for the `kafka-12a3b4c5` service.
+
+```bash
+avn service privatelink aws refresh kafka-12a3b4c5
+```
+
 ### `avn service privatelink azure connection approve` {#avn_service_privatelink_azure_connection_approve}
 
 Approves a pending Azure Private Link connection endpoint.

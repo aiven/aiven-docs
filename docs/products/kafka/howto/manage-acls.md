@@ -36,7 +36,7 @@ For more information, see
 - Installed and authenticated [Aiven CLI](/docs/tools/cli).
 - An [API token](https://aiven.io/docs/platform/howto/create_authentication_token) for
   authenticating API requests.
-- [Aiven Provider for Terraform](/docs/tools/terraform/get-started).
+- [Aiven Provider for Terraform](/docs/tools/terraform).
 
 ## Add a Kafka-native ACL entry
 

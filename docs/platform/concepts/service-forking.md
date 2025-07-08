@@ -25,18 +25,22 @@ Forks are independent and do not increase the load on the original service. The 
 restored from the latest backup stored separately from the service.
 
 :::important
-The service integrations are not copied over to the forked version, and
-need to be re-established for each new copy.
+
+- Service integrations are not copied over to the forked version, and need to be
+  re-established for each new copy.
+- You cannot [fork Aiven for ClickHouse®](/docs/products/clickhouse/howto/restore-backup)
+  or Aiven for Apache Cassandra® services to a lower amount of nodes.
+
 :::
 
 You can fork the following Aiven services:
 
--   PostgreSQL®
--   MySQL
+-   Apache Cassandra®
 -   Caching
--   Apache Cassandra® (Limitation: you cannot fork to a lower amount of
-    nodes)
--   Elasticsearch
+-   ClickHouse®
+-   Grafana®
+-   M3DB
+-   MySQL
 -   OpenSearch®
 
     :::important
@@ -49,8 +53,7 @@ You can fork the following Aiven services:
     access.
     :::
 
--   M3DB
--   Grafana®
+-   PostgreSQL®
 
 ## Fork a service
 
@@ -139,7 +142,3 @@ A service cannot be renamed after creation. Instead, use a fork:
 <RelatedPages/>
 
 - [Create a service](/docs/platform/howto/create_new_service)
-
-import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
-
-<ElasticSearch/>

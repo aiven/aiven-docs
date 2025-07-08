@@ -104,7 +104,7 @@ Run the following command to load your saved data into your Aiven for
 MySQL database:
 
 ```shell
-mysqldump \
+mysql \
 -p DEFAULTDB -P TARGET_DB_PORT \
 -h TARGET_DB_HOST \
 -u TARGET_DB_USER \

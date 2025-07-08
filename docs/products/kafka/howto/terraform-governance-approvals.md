@@ -41,6 +41,13 @@ usernames to Aiven users, ensuring that requesters and approvers are correctly i
 - **Approval validation**: A GitHub Action automatically checks that pull request
 creators and approvers meet governance requirements before changes are applied.
 
+:::note
+When Terraform governance is enabled, operational requests such as access rotation must
+be performed in the [Aiven Console](https://console.aiven.io/). These actions are not
+available through Terraform. To learn how to rotate access credentials,
+see [Rotate credentials](/docs/products/kafka/howto/rotate-credentials).
+:::
+
 ### Workflow steps:
 
 1. Define governance policies using Aiven Terraform Provider:

@@ -23,22 +23,22 @@ Free plans include:
 -   A single node
 -   1 CPU per virtual machine
 -   1 GB RAM
--   For PostgreSQL and MySQL: 5 GB disk storage
+-   For PostgreSQL and MySQL: 1 GB disk storage
 -   For Valkey: `maxmemory` set to 50%
 -   Management through the Aiven Console, CLI, API, Terraform Provider, or
     Kubernetes Operator
 -   Monitoring for metrics and logs
 -   Backups
--   Integrations between different Aiven services including free, paid,
-    and trial services
 
 There are some limitations of the free plan services:
 
 -   No VPC peering
 -   No static IPs
--   No external service integrations
+-   No integrations
 -   No forking
--   For PostgreSQL: no connection pooling
+-   For PostgreSQL:
+    -   No connection pooling
+    -   `max_connections` limit set to `20`
 -   No support services
 -   Only one service per service type per user and
     [organization](/docs/platform/concepts/orgs-units-projects)
@@ -47,7 +47,7 @@ There are some limitations of the free plan services:
 Free plans do not have any time limitations. However, Aiven reserves the right:
 
 - To shut down services if Aiven believes they violate the [acceptable use policy](https://aiven.io/terms) or are unused for some time.
-- To change the cloud provider at any point in time.
+- To change the cloud provider, region, or plan details at any point in time.
 
 ## Upgrading and downgrading
 

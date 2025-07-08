@@ -24,15 +24,21 @@ import TabItem from '@theme/TabItem';
 
 <!-- vale off -->
 
-Aiven provides managed open source services for streaming, storing and analyzing data on all major clouds.
-All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external 3rd party tools.
+Aiven provides managed open source services for streaming, databases, and applications across major cloud platforms.
+All services run reliably and securely in the clouds of your choice, are observable, and can easily be integrated with each other and with external  third-party tools.
 
 <img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
 
-## Discover the Aiven platform
+## Try the Aiven Platform for free
 
-**Try it for free.** Aiven offers [free plans](/docs/platform/concepts/free-plan) and
-[30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform and services.
+The Aiven Platform streamlines your operations by centralizing your cloud infrastructure,
+security, and observability in one unified control plane. You can access the platform
+through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
+Aiven Operator for Kubernetes®.
+
+Aiven offers [free plans](/docs/platform/concepts/free-plan) and
+[30-day trials](/docs/platform/concepts/free-trial) for you to explore the platform
+and services.
 
 Aiven services are also available on the AWS, Azure, and Google Cloud marketplaces.
 
@@ -216,7 +222,7 @@ Add users to groups to streamline access management to your Aiven projects and s
       iconName="book"
       title="Application users"
       description="Learn how application users provide more secure
-      programmatic access to the Aiven platform."
+      programmatic access to the Aiven Platform."
     />
     <Card
       to="/docs/platform/howto/manage-application-users"
@@ -263,13 +269,17 @@ Start deploying services in your project to stream, store, or analyze your data.
 
 #### Create a service using the dev tools
 
-See examples of services and integrations using code samples for the
-[Aiven Provider for Terraform](/docs/tools/terraform) or
+The get started guide for each [service](https://aiven.io/docs/products/services)
+includes examples for creating a service using the
+[Aiven Provider for Terraform](/docs/tools/terraform).
+
+You can try out more service and integration examples using code samples for the
+Aiven Terraform Provider or
 [Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
 
 <GridContainer columns={2}>
      <Card
-      to="https://github.com/Aiven-Open/terraform-example-projects"
+      to="https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples"
       iconName="terraform"
       title="Aiven Provider for Terraform examples"
     />
@@ -304,12 +314,12 @@ Create a service using the Aiven CLI or API.
       title="Explore Aiven Console"
     />
     <Card
-      to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
+      to="/docs/platform/concepts/cloud-security"
       iconName="book"
       title="Read about cloud security"
     />
         <Card
-      to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
+      to="/docs/platform/concepts/service-integration"
       iconName="book"
       title="Integrate your services"
     />

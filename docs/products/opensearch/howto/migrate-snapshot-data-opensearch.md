@@ -10,7 +10,15 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for OpenSearch lets you restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
+Aiven for OpenSearch® lets you restore data from external OpenSearch or Elasticsearch snapshots, enabling migration from third-party repositories.
+
+:::important
+You can achieve the same via the
+[snapshot restore process](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots),
+using the native OpenSearch API. Aiven recommends this as the default migration strategy,
+maintaining consistency with the
+[upstream OpenSearch project](https://docs.opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/).
+:::
 
 ## Supported cloud providers
 

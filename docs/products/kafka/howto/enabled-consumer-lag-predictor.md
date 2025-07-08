@@ -22,7 +22,7 @@ Before you start, ensure you have the following:
 -   Necessary permissions to modify service configurations.
 -   The consumer lag predictor for Aiven for Apache Kafka® is a
     **limited availability** feature and requires activation on your Aiven account.
-    Contact the [sales team](http://aiven.io/contact) to request activation.
+    Contact the [sales team](https://aiven.io/contact) to request activation.
 
 ## Enable and configure the consumer lag predictor
 
@@ -77,7 +77,7 @@ To enable the consumer lag predictor for your Aiven for Apache Kafka service usi
 [Aiven CLI](/docs/tools/cli):
 
 1. Ensure the consumer lag predictor feature is activated for your account by contacting
-   the [sales team](http://aiven.io/contact). The consumer lag predictor is a limited availability
+   the [sales team](https://aiven.io/contact). The consumer lag predictor is a limited availability
    feature and needs to be activated for your account.
 
 1. Get the project information:

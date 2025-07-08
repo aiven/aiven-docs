@@ -14,7 +14,7 @@ The Apache Kafka Connect® S3 sink connector by Aiven enables you to move data f
 
 - See the full set of available parameters and configuration
   options in the [connector's
-  documentation](https://github.com/aiven/s3-connector-for-apache-kafka).
+  documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-sink-connector/README.md).
 
 :::
 
@@ -70,7 +70,7 @@ The configuration file contains the following entries:
 -   `topics`: The list of Apache Kafka® topics to sink to the S3 bucket
 -   `key.converter` and `value.converter`: Data converters, depending on
     the topic data format. Check the [GitHub repository
-    documentation](https://github.com/aiven/s3-connector-for-apache-kafka)
+    documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-sink-connector/README.md)
     for more information
 -   `aws.access.key.id`: The AWS user access key ID
 -   `aws.secret.access.key`: The AWS user secret access key
@@ -83,7 +83,7 @@ You can define S3 sink connector naming and data formats by setting the
 :::
 
 See the [GitHub repository parameters
-documentation](https://github.com/aiven/s3-connector-for-apache-kafka)
+documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-sink-connector/README.md)
 for the full list of configuration options.
 
 ### Create an S3 sink connector with Aiven CLI

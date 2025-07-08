@@ -21,11 +21,15 @@ FROM pg_available_extensions;
 - Some extensions have dependencies and need to be created in a predetermined order.
 - Some extensions require resetting the client connection before they are fully available.
 
-## List of extensions
+## Supported extensions
 
 Aiven for AlloyDB Omni supports
-[AlloyDB for PostgreSQL extensions](https://cloud.google.com/alloydb/docs/reference/extensions),
-except for the following:
+[AlloyDB for PostgreSQL extensions](https://cloud.google.com/alloydb/docs/reference/extensions)
+with [a few exceptions](/docs/products/alloydbomni/reference/list-of-extensions#exceptions-unsupported-extensions).
+
+## Exceptions: unsupported extensions
+
+Aiven for AlloyDB Omni **does NOT support** the following extensions:
 
 - `address_standardizer_data_us`
 - `address_standardizer`

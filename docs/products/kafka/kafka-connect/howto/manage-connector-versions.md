@@ -7,56 +7,88 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Multi-version connector support lets you control which connector version is used in your Aiven for Apache Kafka Connect® service.
+Aiven for Apache Kafka Connect® lets you control which connector version is used in your service.
+
+## Benefits
+
 It prevents compatibility issues from automatic updates, avoids breaking changes
 when multiple dependencies rely on a specific connector version, and allows testing,
 upgrading, or reverting versions to maintain production pipeline stability. You can
 specify the version of a connector by setting the `plugin_versions` property in the
 service configuration.
 
-## Key considerations for multi-version connectors
+## Key considerations
 
 - Deprecated connector versions may be removed during maintenance updates. If you
   [set](#set-version) a deprecated version, the system alerts you and recommends an
   upgrade. The connector will continue to run, but upgrading to a supported version is
   recommended to avoid compatibility issues.
 - Support is limited to the latest connector version and the most recent previous
-  version. Breaking changes, if any, are detailed in
+  version. Breaking changes, if known, are mentioned in
   [maintenance update notifications](/docs/platform/concepts/maintenance-window#maintenance-updates).
 - Setting a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.
+- Downgrading a connector to an older version is supported if that version is available.
+  On older service nodes, the selected version takes effect only after a maintenance update.
 - Multi-version support is available for all connectors where Aiven has published and
   supports more than one version. Support will continue to expand as new versions are
   released.
-- If no version is set, the latest available version is used.
-- Refer to [Check available connector versions](#check-available-connector-versions) to
+- Set a specific version to prevent automatic upgrades. If not set, the latest published
+  version is used.
+- See [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
+- Setting `plugin_version` in the connector configuration (for example, in
+  the `config` block in Terraform) is not supported and has no effect. To control
+  connector versions, use the [`plugin_versions`](#set-version) property
+  in the **Kafka Connect service** configuration.
+- You can set connector versions even if the service is running on older nodes. However,
+  the selected version only takes effect **after** a maintenance update. Until then,
+  the connector runs the latest available version, and no warning is shown.
 
-## Supported connectors and versions
-
-:::note
-All versions listed in the table are supported unless explicitly noted otherwise.
-:::
-
-
-| Connector          | Versions              |
-|---------------------|-----------------------|
-| Debezium            | `2.5.0` (recommended) <br /> `1.9.7` (deprecated) |
-| JDBC                | `6.10.0` (recommended) <br /> `6.9.0` (deprecated) |
-| Snowflake           | `2.3.0` (recommended) <br /> `2.2.0`               |
-
-
-:::tip
-This is a partial list of connectors, and it may change as new versions are released. To
-view the most up-to-date versions, see
-[Check available connector versions](#check-available-connector-versions).
+:::warning
+Breaking changes may exist between different connector versions. These changes often
+involve updates to configuration parameters, such as the removal of deprecated parameters
+or the introduction of new ones.
+Before upgrading:
+- Review the connector release notes for details on changes.
+- Always test a connector version change in a non-production environment before applying it
+in production.
 :::
 
 :::note
-If you are using version `1.9.7` of the Debezium connector, you can upgrade to
-version `2.5.0` without raising a support ticket. To upgrade, set version `2.5.0` in
-your configuration. For details, see [Set a connector version](#set-version).
+Aiven supports multiple Debezium versions through multi-version support, including
+versions 1.9.7, 2.5.0, 2.7.4, and 3.1.0.
+
+To prevent automatic upgrades during maintenance, pin the connector version using
+the `plugin_versions` property.
+
+If you use Debezium for PostgreSQL with version 1.9.7 and the `wal2json` format, do not
+upgrade to version 2.0 or later until you migrate to `pgoutput`.
+
+For upgrade steps, see [Set a connector version](#set-version).
+:::
+
+
+## Limitations
+
+Connector version selection is available in the Aiven Console only
+for [dedicated Apache Kafka Connect services](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+
+If you enabled [Apache Kafka Connect](/docs/products/kafka/kafka-connect/howto/enable-connect)
+as part of an Aiven for Apache Kafka service, use the [Aiven API](https://api.aiven.io/doc/),
+[Aiven CLI](/docs/tools/cli), or
+[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+to set the connector version.
+
+:::note
+The version selector in the Aiven Console appears on individual connector configuration pages,
+but changing the version affects all instances of that connector within the service,
+not just the selected instance.
+Apache Kafka Connect does not support loading multiple versions of the same plugin within a service.
+This limitation is expected to be addressed in Apache Kafka 4.1.0 through [KIP-891](https://cwiki.apache.org/confluence/display/KAFKA/KIP-891%3A+Running+multiple+versions+of+Connector+plugins).
+Until then, if you run multiple instances of a connector in a service, they
+must all use the same plugin version.
 :::
 
 ## Prerequisites
@@ -64,10 +96,6 @@ your configuration. For details, see [Set a connector version](#set-version).
 - [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with a [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
   enabled
-
-  :::note
-  Multi-version support is only available for dedicated Apache Kafka Connect services.
-  :::
 - [Aiven CLI](/docs/tools/cli)
 - [Aiven API](/docs/tools/api)
 - [Aiven Provider for Terraform](/docs/tools/terraform)
@@ -174,9 +202,13 @@ Changing the connector version restarts the Apache Kafka Connect service and rel
 all plugins. This process can take several minutes.
 :::
 
-
 <Tabs groupId="check-method">
 <TabItem value="console" label="Aiven Console" default>
+
+:::note
+Connector version selection in the Aiven Console is available only for
+[dedicated Apache Kafka Connect services](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+:::
 
 1. In your Aiven for Apache Kafka Connect service, click <ConsoleLabel name="Connectors"/>.
 1. In the **Enabled connectors** section, locate the connector to update.
@@ -279,7 +311,6 @@ After setting a version, confirm that the correct version is in use.
    ```bash
    curl -X GET "https://api.aiven.io/v1/project/<project_name>/service/<service_name>" \
    -H "Authorization: Bearer <api_token>"
-
    ```
 
 1. Review the `plugin_versions` property in the response to verify the set version.

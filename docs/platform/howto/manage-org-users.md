@@ -6,6 +6,12 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Adding users to your organization lets you give them access to specific projects and services within that organization.
 
+:::important
+If you're using an identity provider (IdP), always add or remove users directly
+through the IdP. This ensures the IdP is the authoritative source for user management,
+preventing conflicts and simplifying administration.
+:::
+
 ## Invite users to an organization
 
 To add users to your organization, send them an invite:

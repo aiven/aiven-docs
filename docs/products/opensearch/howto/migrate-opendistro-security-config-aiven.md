@@ -104,5 +104,5 @@ You can run the migration script multiple times, but keep the following in mind:
 
 <RelatedPages/>
 
-- [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/migrate-snapshot-data-opensearch)
+- [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
 - [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)

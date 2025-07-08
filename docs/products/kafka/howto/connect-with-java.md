@@ -1,152 +1,224 @@
 ---
 title: Connect to Aiven for Apache Kafka® with Java
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 You can connect to an Aiven for Apache Kafka® service using the Java client library for Apache Kafka.
 
-The provided examples show different options for authentication: SSL and
-SASL-SSL. For more information,
+The examples below show different authentication options: SSL, SASL-SSL, schema
+registry-based authentication. For more details,
 see [Authentication types](/docs/products/kafka/concepts/auth-types).
 
 ## Prerequisites
 
-Add a dependency for `kafka-clients` from your preferred artifact
-repository, for example [Maven
-repository](https://maven.apache.org/index.html) into your Java project.
+Before you begin:
 
-Go to the **Overview** page of your Aiven for Apache Kafka service.
+1. Add the following dependencies to your Java project using your preferred
+   artifact repository, such as [Maven Central](https://maven.apache.org/index.html):
 
--   If you are going to connect with SSL authentication:
-    -   In the *Connection information* section:
-        1.  If **Authentication Method** is shown, choose **Client
-            Certificate**
-        1.  Next to *Access Key*, click **Download** and save the
-            `service.key` file.
-        1.  Next to *Access Certificate*, click **Download** and save
-            the `service.cert` file.
-        1.  Next to *CA Certificate*, click **Download** and save the
-            `ca.pem` file.
--   If you are connecting using SASL authentication:
-    1.  See [Use SASL Authentication with Apache
-        Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
-        to enable SASL.
-    1.  In the **Connection Information** section
-        1.  Select **SASL** as the **Authentication Method**
-        1.  Next to *CA Certificate*, click **Download** and save the
-            `ca.pem` file
-        1.  Note the *Password* required for the SASL, we'll need it
-            for authentication
--   Created the keystore `client.keystore.p12` and truststore
-    `client.truststore.jks` by following
-    [our article on configuring Java SSL to access Kafka](/docs/products/kafka/howto/keystore-truststore)
+   - `kafka-clients`: Provides the core Kafka client library.
+   - `kafka-avro-serializer`: Enables Avro serialization and integration with
+     Schema Registry.
+
+1. In the Aiven Console, go to the <ConsoleLabel name="overview"/> page of your
+   Aiven for Apache Kafka service and choose your authentication method:
+
+   **SSL authentication**
+   - In the **Connection information** section:
+     - Set **Authentication method** to **Client certificate** (if available).
+     - Download:
+       - `service.key` (Access key)
+       - `service.cert` (Access certificate)
+       - `ca.pem` (CA certificate)
+   - [Create the keystore and truststore](/docs/products/kafka/howto/keystore-truststore):
+     - `client.keystore.p12`
+     - `client.truststore.jks`
+
+   **SASL authentication**
+   - [Enable SASL](/docs/products/kafka/howto/kafka-sasl-auth) for your Kafka service.
+   - In the **Connection information** section:
+     - Set **Authentication method** to **SASL**.
+     - Download `ca.pem` (CA certificate).
+     - Note the **Password** for SASL authentication.
 
 :::warning
-In the below examples, we just pass the name of the keystore and
-truststore files, but in actual use, the full path should be used.
+The examples below show only the filenames for the keystore and truststore files.
+In production environments, use the full file paths.
 :::
 
 ## Variables
 
- |       Variable        |                                            Description                                            |
- |-----------------------|---------------------------------------------------------------------------------------------------|
- | `HOST`                | Host name for the connection                                                                      |
- | `USER_NAME`           | Name of the user for the connection                                                               |
- | `SSL_PORT`            | Port number to use for SSL                                                                        |
- | `SASL_PORT`           | Port number to use for SASL                                                                       |
- | `SASL_PASSWORD`       | Password required to connect using SASL                                                           |
- | `TRUSTSTORE_LOCATION` | Location of your truststore (named by default as client.truststore.jks)                           |
- | `TRUSTSTORE_PASSWORD` | Password you used when creating a truststore                                                      |
- | `KEYSTORE_LOCATION`   | Location of you keystore (named by default as client.keystore.p12)                                |
- | `KEYSTORE_PASSWORD`   | Password you used when creating a keystore                                                        |
- | `KEY_PASSWORD`        | Password for the key in the keystore, if you chose a different password than the one for keystore |
+| Variable   | Description |
+|------------|-------------|
+| `HOST` | Hostname of your Kafka service |
+| `USER_NAME` | Username for SASL or Schema Registry authentication |
+| `SSL_PORT` | SSL port for your Kafka service |
+| `SASL_PORT` | SASL port for your Kafka service |
+| `SASL_PASSWORD` | Password for SASL authentication |
+| `KEYSTORE_LOCATION` | Path to your `client.keystore.p12` file |
+| `TRUSTSTORE_LOCATION` | Path to your `client.truststore.jks` file |
+| `KEYSTORE_PASSWORD` | Password for the keystore |
+| `KEY_PASSWORD` | Password for the private key (if different from the keystore password) |
+| `TRUSTSTORE_PASSWORD` | Password for the truststore |
+| `SCHEMA_REGISTRY_URL` | URL of the Schema Registry |
+| `SCHEMA_REGISTRY_USER` | Username for Schema Registry authentication |
+| `SCHEMA_REGISTRY_PASS` | Password for Schema Registry authentication |
 
 ## Connect a producer
 
-Set up properties to connect to the cluster and create a producer:
+Set up properties to connect to the Kafka cluster and create a producer.
 
 ### With SSL authentication
 
-```
+```java
 Properties properties = new Properties();
-properties.put("bootstrap.servers", "{HOST}:{SSL_PORT}");
+properties.put("bootstrap.servers", "HOST:SSL_PORT");
 properties.put("security.protocol", "SSL");
 properties.put("ssl.keystore.type", "PKCS12");
-properties.put("ssl.keystore.location", "{KEYSTORE_LOCATION}");
-properties.put("ssl.keystore.password", "{KEYSTORE_PASSWORD}");
-properties.put("ssl.key.password", "{KEY_PASSWORD}");
+properties.put("ssl.keystore.location", "KEYSTORE_LOCATION");
+properties.put("ssl.keystore.password", "KEYSTORE_PASSWORD");
+properties.put("ssl.key.password", "KEY_PASSWORD");
 properties.put("ssl.truststore.type", "JKS");
-properties.put("ssl.truststore.location", "{TRUSTSTORE_LOCATION}");
-properties.put("ssl.truststore.password", "{TRUSTSTORE_PASSWORD}");
+properties.put("ssl.truststore.location", "TRUSTSTORE_LOCATION");
+properties.put("ssl.truststore.password", "TRUSTSTORE_PASSWORD");
 
-// create a producer with String Serializer for key and value
+// Create a producer with StringSerializer for key and value
 KafkaProducer<String, String> producer = new KafkaProducer<>(properties, new StringSerializer(), new StringSerializer());
 ```
 
 ### With SASL authentication
 
-```
-String sasl_username = "{USER_NAME}";
-String sasl_password = "{SASL_PASSWORD}";
+```java
+String sasl_username = "USER_NAME";
+String sasl_password = "SASL_PASSWORD";
 String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
 String jaasConfig = String.format(jaasTemplate, sasl_username, sasl_password);
 
 Properties properties = new Properties();
-properties.put("bootstrap.servers", "{HOST}:{SASL_PORT}");
+properties.put("bootstrap.servers", "HOST:SASL_PORT");
 properties.put("security.protocol", "SASL_SSL");
 properties.put("sasl.mechanism", "SCRAM-SHA-256");
 properties.put("sasl.jaas.config", jaasConfig);
 properties.put("ssl.truststore.type", "JKS");
-properties.put("ssl.truststore.location", "{TRUSTSTORE_LOCATION}");
-properties.put("ssl.truststore.password", "{TRUSTSTORE_PASSWORD}");
+properties.put("ssl.truststore.location", "TRUSTSTORE_LOCATION");
+properties.put("ssl.truststore.password", "TRUSTSTORE_PASSWORD");
 
-// create a producer with String Serializer for key and value
+// Create a producer with StringSerializer for key and value
 KafkaProducer<String, String> producer = new KafkaProducer<>(properties, new StringSerializer(), new StringSerializer());
+```
+
+### With Schema Registry (Karapace)
+
+```java
+Properties properties = new Properties();
+properties.put("bootstrap.servers", "HOST:SSL_PORT");
+properties.put("security.protocol", "SSL");
+properties.put("ssl.keystore.type", "PKCS12");
+properties.put("ssl.keystore.location", "KEYSTORE_LOCATION");
+properties.put("ssl.keystore.password", "KEYSTORE_PASSWORD");
+properties.put("ssl.key.password", "KEY_PASSWORD");
+properties.put("ssl.truststore.type", "JKS");
+properties.put("ssl.truststore.location", "TRUSTSTORE_LOCATION");
+properties.put("ssl.truststore.password", "TRUSTSTORE_PASSWORD");
+
+// Configure Schema Registry-specific properties
+properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
+properties.setProperty("basic.auth.credentials.source", "USER_INFO");
+properties.setProperty("schema.registry.basic.auth.user.info", "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASS");
+properties.setProperty("auto.register.schemas", "false");
+properties.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "SCHEMA_REGISTRY_URL");
+
+// Create a producer with StringSerializer for key and AvroSerializer for value
+KafkaProducer<String, GenericRecord> producer = new KafkaProducer<>(properties);
+
+// Define schema
+String valueSchemaString = "\"type\": \"record\", \"name\": \"simple\"," +
+    "\"namespace\": \"example.avro\", " +
+    "\"fields\": [\"name\": \"name\", \"type\": \"string\"]";
+Schema avroValueSchema = new Schema.Parser().parse(valueSchemaString);
+
+// Produce a record
+GenericRecord thisValueRecord = new GenericData.Record(avroValueSchema);
+thisValueRecord.put("name", "Alice");
+producer.send(new ProducerRecord<>("your-topic", "key", thisValueRecord));
 ```
 
 ## Connect a consumer
 
-Set up properties to connect to the cluster and create a consumer.
+Set up properties to connect to the Kafka cluster and create a consumer.
 
 ### With SSL authentication
 
-```
+```java
 String group_id = "groupid";
 
 Properties properties = new Properties();
-properties.put("bootstrap.servers", "{HOST}:{SSL_PORT}");
+properties.put("bootstrap.servers", "HOST:SSL_PORT");
 properties.put("security.protocol", "SSL");
 properties.put("ssl.keystore.type", "PKCS12");
-properties.put("ssl.keystore.location", "{KEYSTORE_LOCATION}");
-properties.put("ssl.keystore.password", "{KEYSTORE_PASSWORD}");
-properties.put("ssl.key.password", "{KEY_PASSWORD}");
+properties.put("ssl.keystore.location", "KEYSTORE_LOCATION");
+properties.put("ssl.keystore.password", "KEYSTORE_PASSWORD");
+properties.put("ssl.key.password", "KEY_PASSWORD");
 properties.put("ssl.truststore.type", "JKS");
-properties.put("ssl.truststore.location", "{TRUSTSTORE_LOCATION}");
-properties.put("ssl.truststore.password", "{TRUSTSTORE_PASSWORD}");
+properties.put("ssl.truststore.location", "TRUSTSTORE_LOCATION");
+properties.put("ssl.truststore.password", "TRUSTSTORE_PASSWORD");
 properties.put("group.id", group_id);
 
-// create a consumer with String Serializer for key and value
+// Create a consumer with StringDeserializer
 KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties, new StringDeserializer(), new StringDeserializer());
 ```
 
 ### With SASL authentication
 
-```
+```java
 String group_id = "groupid";
-String sasl_username = "{USER_NAME}";
-String sasl_password = "{SASL_PASSWORD}";
+String sasl_username = "USER_NAME";
+String sasl_password = "SASL_PASSWORD";
 String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
 String jaasConfig = String.format(jaasTemplate, sasl_username, sasl_password);
 
 Properties properties = new Properties();
-properties.put("bootstrap.servers", "{HOST}:{SASL_PORT}");
+properties.put("bootstrap.servers", "HOST:SASL_PORT");
 properties.put("security.protocol", "SASL_SSL");
 properties.put("sasl.mechanism", "SCRAM-SHA-256");
 properties.put("sasl.jaas.config", jaasConfig);
 properties.put("ssl.truststore.type", "JKS");
-properties.put("ssl.truststore.location", "{TRUSTSTORE_LOCATION}");
-properties.put("ssl.truststore.password", "{TRUSTSTORE_PASSWORD}");
+properties.put("ssl.truststore.location", "TRUSTSTORE_LOCATION");
+properties.put("ssl.truststore.password", "TRUSTSTORE_PASSWORD");
 properties.put("group.id", group_id);
 
-// create a consumer with String Serializer for key and value
+// Create a consumer with StringDeserializer
 KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties, new StringDeserializer(), new StringDeserializer());
+```
+
+### With Schema Registry (Karapace)
+
+```java
+String group_id = "groupid";
+
+Properties properties = new Properties();
+properties.put("bootstrap.servers", "HOST:SSL_PORT");
+properties.put("security.protocol", "SSL");
+properties.put("ssl.keystore.type", "PKCS12");
+properties.put("ssl.keystore.location", "KEYSTORE_LOCATION");
+properties.put("ssl.keystore.password", "KEYSTORE_PASSWORD");
+properties.put("ssl.key.password", "KEY_PASSWORD");
+properties.put("ssl.truststore.type", "JKS");
+properties.put("ssl.truststore.location", "TRUSTSTORE_LOCATION");
+properties.put("ssl.truststore.password", "TRUSTSTORE_PASSWORD");
+properties.put("group.id", group_id);
+
+// Configure Schema Registry-specific properties
+properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class.getName());
+properties.setProperty("basic.auth.credentials.source", "USER_INFO");
+properties.setProperty("schema.registry.basic.auth.user.info", "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASS");
+properties.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "SCHEMA_REGISTRY_URL");
+
+// Create a consumer with StringDeserializer for key and AvroDeserializer for value
+KafkaConsumer<String, GenericRecord> consumer = new KafkaConsumer<>(properties);
+
+// Process records
+ConsumerRecords<String, GenericRecord> records = consumer.poll(Duration.ofMillis(100));
 ```

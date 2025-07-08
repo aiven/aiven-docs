@@ -61,9 +61,9 @@ create a project VPC peering connection using a tool of your choice:
 
       This adds a connection with the **Pending peer** status in the
       [Aiven Console](https://console.aiven.io/).
-1. While still on the **VPC details** page, make a note of the **ID** of your Aiven VPC.
-1. Click <ConsoleLabel name="service settings"/> in the sidebar, and make a note of your
-   **Project name** in the **Project settings** section.
+1. On the **VPC details** page, go to the **VPC peering connections** section and click
+   **Status details** for the new connection. Make a note of your Aiven VPC network name
+   and project ID.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">

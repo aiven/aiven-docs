@@ -117,7 +117,7 @@ In critical situations, Aiven's operations team can temporarily add extra storag
 the old nodes.
 :::
 
-## Transitioning to KRaft <EarlyBadge/>
+## Transitioning to KRaft
 
 With the release of Apache Kafka® 3.9, Aiven introduces support for Apache Kafka Raft
 (KRaft), the new consensus protocol for Kafka metadata management. This enhancement
@@ -129,6 +129,9 @@ Apache Kafka 3.9 includes all features from Apache Kafka 3.8, but some controlle
 are no longer available due to the transition to KRaft mode. For details,
 see [Apache Kafka controller metrics](/docs/products/kafka/reference/kafka-metrics-prometheus#kraft-mode-and-metrics-changes).
 ACL permissions and governance behaviors remain unchanged.
+
+For a detailed overview of how KRaft mode works and how it differs from ZooKeeper-based
+metadata management, see [KRaft in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kraft-mode).
 
 ### Availability and migration
 
@@ -144,7 +147,11 @@ ACL permissions and governance behaviors remain unchanged.
 
 - Migration for existing services, which involves upgrading from Apache Kafka 3.x to 3.9,
   is not yet available.
-- Aiven will provide a migration path once it is ready.
+- The migration will be included in a future upgrade to Apache Kafka 3.9 and
+  performed automatically by Aiven.
+- Aiven will notify you when your service becomes eligible for migration. For details,
+  see [Migration from ZooKeeper to KRaft](/docs/products/kafka/concepts/kraft-mode#migration-from-zookeeper-to-kraft).
+
 - To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
   year, allowing sufficient time for planning and migration.
 

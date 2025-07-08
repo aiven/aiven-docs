@@ -314,13 +314,6 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="azure_migration_container"/><Link to="#azure_migration_container"><strong>azure_migration.container</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Azure container name</p>
-              <div className="description"><p>Azure container name</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <div className="param"><p className="name"><Link id="azure_migration_key"/><Link to="#azure_migration_key"><strong>azure_migration.key</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">Account secret key</p>
               <div className="description"><p>Azure account secret key. One of key or sas_token should be specified</p></div>
@@ -331,6 +324,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="azure_migration_sas_token"/><Link to="#azure_migration_sas_token"><strong>azure_migration.sas_token</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">SAS token</p>
               <div className="description"><p>A shared access signatures (SAS) token. One of key or sas_token should be specified</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="azure_migration_container"/><Link to="#azure_migration_container"><strong>azure_migration.container</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">Azure container name</p>
+              <div className="description"><p>Azure container name</p></div>
             </td>
           </tr>
           <tr>
@@ -490,6 +490,20 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="s3_migration_access_key"/><Link to="#s3_migration_access_key"><strong>s3_migration.access_key</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">AWS Access key</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="s3_migration_secret_key"/><Link to="#s3_migration_secret_key"><strong>s3_migration.secret_key</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">AWS secret key</p>
+              <div className="description"><p>AWS secret key</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="s3_migration_bucket"/><Link to="#s3_migration_bucket"><strong>s3_migration.bucket</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">S3 bucket name</p>
               
@@ -514,20 +528,6 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="s3_migration_server_side_encryption"/><Link to="#s3_migration_server_side_encryption"><strong>s3_migration.server_side_encryption</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">Server side encryption</p>
               <div className="description"><p>When set to true files are encrypted on server side</p></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="s3_migration_access_key"/><Link to="#s3_migration_access_key"><strong>s3_migration.access_key</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">AWS Access key</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="s3_migration_secret_key"/><Link to="#s3_migration_secret_key"><strong>s3_migration.secret_key</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">AWS secret key</p>
-              <div className="description"><p>AWS secret key</p></div>
             </td>
           </tr>
           <tr>
@@ -801,6 +801,13 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="opensearch_enable_snapshot_api"/><Link to="#opensearch_enable_snapshot_api"><strong>opensearch.enable_snapshot_api</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable/Disable snapshot API</p>
+              <div className="description"><p>Enable/Disable snapshot API for custom repositories, this requires security management to be enabled</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="opensearch_thread_pool_search_size"/><Link to="#opensearch_thread_pool_search_size"><strong>opensearch.thread_pool_search_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>128</code></li></ul></div>
               <p className="title">search thread pool size</p>
               <div className="description"><p>Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.</p></div>
@@ -1014,6 +1021,34 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="opensearch_segrep"/><Link to="#opensearch_segrep"><strong>opensearch.segrep</strong></Link></p><p><code className="type">object</code></p></div>
               <p className="title">Segment Replication Backpressure Settings</p>
               
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.remote_store"/><Link to="#opensearch_cluster.remote_store"><strong>opensearch.cluster.remote_store</strong></Link></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_remote_store"/><Link to="#opensearch_remote_store"><strong>opensearch.remote_store</strong></Link></p><p><code className="type">object</code></p></div>
+              
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.filecache.remote_data_ratio"/><Link to="#opensearch_cluster.filecache.remote_data_ratio"><strong>opensearch.cluster.filecache.remote_data_ratio</strong></Link></p><p><code className="type">number,null</code></p></div><div className="constraints"><ul><li>max: <code>100</code></li></ul></div>
+              <p className="title">The limit of how much total remote data can be referenced</p>
+              <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 0.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="opensearch_node.search.cache.size"/><Link to="#opensearch_node.search.cache.size"><strong>opensearch.node.search.cache.size</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">The limit of how much total remote data can be referenced</p>
+              <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 5gb. Requires restarting all OpenSearch nodes.</p></div>
             </td>
           </tr>
           <tr>

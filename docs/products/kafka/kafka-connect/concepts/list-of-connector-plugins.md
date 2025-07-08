@@ -11,6 +11,7 @@ Source connectors enable the integration of data from an existing technology int
 Apache Kafka topic. The available source connectors include:
 
 - [Amazon S3 source connector](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka)
+- [Azure Blob Storage source connector](/docs/products/kafka/kafka-connect/howto/azure-blob-source)
 - [Couchbase](https://github.com/couchbase/kafka-connect-couchbase)
 - [Debezium for MongoDB®](https://debezium.io/docs/connectors/mongodb/)
 - [Debezium for MySQL](https://debezium.io/docs/connectors/mysql/)
@@ -44,6 +45,7 @@ target technology. The available sink connectors include:
 - [Google Cloud Storage](/docs/products/kafka/kafka-connect/howto/gcs-sink)
 - [HTTP](https://github.com/aiven/http-connector-for-apache-kafka)
 - [IBM MQ sink connector](/docs/products/kafka/kafka-connect/howto/ibm-mq-sink-connector)
+- [Iceberg sink connector](/docs/products/kafka/kafka-connect/howto/iceberg-sink-connector)
 - [InfluxDB sink connector](/docs/products/kafka/kafka-connect/howto/influx-sink)
 - [JDBC sink](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
 - [MongoDB sink (Lenses)](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses)
@@ -57,37 +59,25 @@ target technology. The available sink connectors include:
 - [Stream Reactor Redis®\*](https://docs.lenses.io/5.1/connectors/sinks/redissinkconnector/)
 - [S3 IAM Assume Role](/docs/products/kafka/kafka-connect/howto/s3-iam-assume-role)
 
-## Preview connectors
+## Request new connectors
 
-![Preview icon next to an OpenSearch® Apache Kafka® Connect connector](/images/content/products/kafka/kafka-connect/preview-kafka-connect-connectors.png)
+To request a new connector,
+[submit an idea through the Aiven Ideas portal](https://ideas.aiven.io/). Aiven regularly
+reviews new ideas to help prioritize future updates.
 
-Some connectors have a preview tag. **Preview connectors are not covered by our SLA**,
-so consider this before using them in production environments. Report bugs directly to
-the code owner.
-
-## Requesting new connectors
-
-If there are connectors you'd like us to support, submit a support request. Your
-feedback helps shape our roadmap. To request a new connector,
-[create a support ticket](/docs/platform/howto/support#create-a-support-ticket).
-
-Aiven evaluates new Apache Kafka Connect connectors based on:
+Aiven evaluates new Apache Kafka Connect connectors based on the following criteria:
 
 - License compatibility
 - Technical implementation
 - Active repository maintenance
 
 :::tip
-When requesting connectors not on the pre-approved list, specify the target Aiven for
-Apache Kafka service.
+If the connector is not on the pre-approved list, include the name of the
+Aiven for Apache Kafka service you plan to use it with. This helps us better
+understand your use case.
 :::
 
-
 ------------------------------------------------------------------------
-
-import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
-
-<ElasticSearch/>
 
 import CouchBase from "@site/static/includes/trademark-couchbase.md"
 

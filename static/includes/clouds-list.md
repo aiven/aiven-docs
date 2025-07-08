@@ -425,7 +425,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   </thead>
   <tbody>
-    <tr>
+  <tr>
     <td>africa</td>
     <td>google-africa-south1</td>
     <td>Africa, South Africa: Johannesburg</td>
@@ -578,7 +578,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   <tr>
     <td>north america</td>
     <td>google-northamerica-south1</td>
-    <td>North America, Mexico: Queretaro</td>
+    <td>North America, Mexico: Querétaro</td>
   </tr>
   <tr>
     <td>north america</td>
@@ -700,6 +700,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>Europe, Sweden: Stockholm</td>
   </tr>
   <tr>
+    <td>europe</td>
+    <td>upcloud-uk-lon</td>
+    <td>Europe, England: London</td>
+  </tr>
+  <tr>
     <td>north america</td>
     <td>upcloud-us-chi</td>
     <td>United States, Illinois: Chicago</td>
@@ -721,8 +726,8 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 :::important
 Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform as a
-[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-). For more
-information or access, contact your account team.
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+For more information or access, contact your account team.
 :::
 
 <table>
@@ -800,4 +805,64 @@ information or access, contact your account team.
     <td>Brazil, Brazil East: São Paulo</td>
   </tr>
 </tbody>
+</table>
+
+## Exoscale <LimitedBadge/>
+
+:::important
+Exoscale is supported on the Aiven Platform as a
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+for Aiven for PostgreSQL® only. For more information or access, contact your account team.
+:::
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Zone</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Europe</td>
+    <td>AT-VIE-1</td>
+    <td>Austria, Vienna</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>AT-VIE-2</td>
+    <td>Austria, Vienna</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>BG-SOF-1</td>
+    <td>Bulgaria, Sofia</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>CH-DK-2</td>
+    <td>Switzerland, Zurich</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>CH-GVA-2</td>
+    <td>Switzerland, Geneva</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>DE-FRA-1</td>
+    <td>Germany, Frankfurt</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>DE-MUC-1</td>
+    <td>Germany, Munich</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>HR-ZAG-1</td>
+    <td>Croatia, Zagreb</td>
+  </tr>
+  </tbody>
 </table>

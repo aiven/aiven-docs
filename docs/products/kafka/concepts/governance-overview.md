@@ -52,9 +52,6 @@ functionalities are incrementally added as development continues.
 - **Improved catalog:** Enhance the topic catalog to make it easier for teams to find
   and manage topics across the organization.
 
-- **Schema management:** Compare schema versions in the topic catalog to help
-  maintain data quality and compatibility.
-
 - **Access control:** Implement role-based access control (RBAC) for fine-grained
   permissions to ensure only authorized users can access sensitive data. Enable
   organization-wide visibility for Apache Kafka topics, allowing teams to discover

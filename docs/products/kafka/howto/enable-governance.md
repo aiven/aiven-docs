@@ -32,7 +32,7 @@ can manually select which services to govern through the Apache Kafka governance
 ## Prerequisites
 
 - This is a [limited availability feature](/docs/platform/concepts/service-and-feature-releases). To try
-  it out, contact the [sales team](http://aiven.io/contact).
+  it out, contact the [sales team](https://aiven.io/contact).
 - Ensure you have either
   [super admin role](/docs/platform/howto/manage-permissions#make-users-super-admin)
   or [organization admin role](/docs/platform/concepts/permissions#organization-roles)

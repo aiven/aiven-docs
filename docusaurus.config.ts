@@ -86,6 +86,33 @@ const config: Config = {
       'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
+    {
+      src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+      'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
+      'data-project-name': 'Aiven Kapa AI',
+      'data-project-color': '#3545BE',
+      'data-project-logo': 'https://aiven.io/docs/images/logo-crabby.svg',
+      'data-modal-title': 'Ask Aiven docs AI',
+      'data-modal-image-width': '38px',
+      'data-button-hide': 'true',
+      'data-modal-header-bg-color': '#F3F6FF',
+      'data-modal-header-border-bottom': '1px solid #CED4DA',
+      'data-font-family': 'Inter',
+      'data-modal-disclaimer-font-size': '12px',
+      'data-modal-disclaimer-text-color': '#4A4B57',
+      'data-modal-disclaimer-bg-color': 'transparent',
+      'data-modal-example-questions-title':
+        'For best results, ask full questions like the following:',
+      'data-modal-example-questions':
+        'How do I set up billing for a project in my organization?, How do I configure single sign-on for users in my organization?, Can I use Terraform to manage my organization and services?',
+      'data-example-question-button-hover-bg-color': '#E3E9FF',
+      'data-answer-feedback-info-text':
+        'You can also provide comments after selecting a rating.',
+      'data-modal-ask-ai-input-placeholder': 'Ask any question about Aiven',
+      'data-modal-disclaimer':
+        "This AI chatbot generates answers based on Aiven's documentation, changelog, and some webpages. The responses may contain errors. Don't include personal or sensitive information in your questions. For more information, review Aiven's [website terms of use](https://aiven.io/website-terms) and kapa.ai's [privacy policy](https://www.kapa.ai/content/privacy-policy).",
+    },
+    {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
   plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
   themeConfig: {
@@ -99,10 +126,9 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'main',
+          label: 'Console',
           position: 'left',
-          label: 'Docs',
+          href: 'https://console.aiven.io/login',
         },
         {
           label: 'API reference',
@@ -112,24 +138,20 @@ const config: Config = {
         {
           label: 'Changelog',
           href: 'https://aiven.io/changelog',
-          position: 'right',
+          position: 'left',
         },
         {
           href: 'https://github.com/aiven/aiven-docs',
           label: 'GitHub',
+          position: 'left',
+        },
+        {
+          type: 'search',
           position: 'right',
         },
         {
-          href: 'https://console.aiven.io/login',
-          label: 'Log in',
+          type: 'custom-kapaAIButton',
           position: 'right',
-          className: 'navbar-button navbar-button-secondary',
-        },
-        {
-          href: 'https://console.aiven.io/signup',
-          label: 'Start for free',
-          position: 'right',
-          className: 'navbar-button navbar-button-primary',
         },
       ],
     },
@@ -237,7 +259,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. https://clickhouse.com. M3, M3 Aggregator, OpenSearch, AlloyDB Omni, PostgreSQL, MySQL, InfluxDB, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. *Redis is a registered trademark of Redis Ltd. and the Redis box logo is a mark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by Aiven is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Aiven. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
+      copyright: `Copyright © Aiven 2016–${new Date().getFullYear()}. Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, and Cassandra are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. https://clickhouse.com. M3, M3 Aggregator, OpenSearch, AlloyDB Omni, PostgreSQL, MySQL, InfluxDB, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. *Redis is a registered trademark of Redis Ltd. and the Redis box logo is a mark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by Aiven is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Aiven. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
     },
     prism: {
       theme: prismThemes.nightOwl,

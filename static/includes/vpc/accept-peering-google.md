@@ -6,10 +6,12 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 1. Enter a name for the peering connection.
 1. Select your Google Cloud VPC network.
 1. In the **Peered VPC network** field, select **In another project**.
-1. In the **Project ID** field, enter the Aiven project name collected in the the
-   [Aiven Console](https://console.aiven.io).
-1. In the **VPC network name** field, enter the ID of your Aiven VPC collected in the the
-   [Aiven Console](https://console.aiven.io).
+1. In the **Project ID** field, enter the Aiven project ID collected in the the
+   [Aiven Console](https://console.aiven.io), on the **VPC details** page, in the **VPC
+   peering connections** section, from **Status details** of the new connection.
+1. In the **VPC network name** field, enter the name of your Aiven VPC collected in the the
+   [Aiven Console](https://console.aiven.io), on the **VPC details** page, in the **VPC
+   peering connections** section, from **Status details** of the new connection.
 1. Click **Create**.
 
 As soon as the peering is created, the connection status changes to **Active** both

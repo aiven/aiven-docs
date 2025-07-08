@@ -34,7 +34,7 @@ To enable CCR, you can use the following tools:
 ## Prerequisites
 
 -   This is a [limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-). To try
-    it out, contact the [sales team](http://aiven.io/contact).
+    it out, contact the [sales team](https://aiven.io/contact).
 -   Aiven account
 -   Depending on the method you choose to use for enabling CCR
     -   Access to [Aiven Console](https://console.aiven.io/)

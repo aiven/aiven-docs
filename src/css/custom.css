@@ -3,7 +3,7 @@
   --aiven-adm-bg-note: rgb(224, 245, 254);
   --aiven-adm-bg-tip: rgb(236, 247, 237);
   --aiven-adm-bg-warning: rgb(254, 232, 230);
-  --aiven-adm-link-color: var(--aiven-primary-80);
+  --aiven-adm-link-color: var(--aiven-primary-90);
   --aiven-adm-text-color: var(--aiven-grey-60);
   --aiven-adm-title-color: var(--aiven-grey-80);
   --aiven-announcement-banner-bg: var(--aiven-grey-05);
@@ -22,8 +22,8 @@
   --ifm-button-color: white;
   --ifm-code-font-size: 90%;
   --ifm-color-primary-dark: var(--aiven-primary-90);
-  --ifm-color-primary-darker: var(--aiven-primary-90);
-  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-darker: var(--aiven-primary-100);
+  --ifm-color-primary-darkest: var(--aiven-primary-100);
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
@@ -71,7 +71,7 @@
   --aiven-adm-bg-note: var(--ifm-menu-color-background-active);
   --aiven-adm-bg-tip: rgb(8, 59, 12);
   --aiven-adm-bg-warning: rgb(61, 17, 13);
-  --aiven-adm-link-color: var(--ifm-color-primary);
+  --aiven-adm-link-color: var(--aiven-primary-40);
   --aiven-adm-text-color: var(--aiven-grey-05);
   --aiven-adm-title-color: var(--aiven-grey-05);
   --aiven-announcement-banner-bg: var(--aiven-grey-90);
@@ -84,9 +84,9 @@
   --ifm-background-color: var(--aiven-grey-100);
   --ifm-background-surface-color: var(--aiven-grey-100);
   --ifm-color-content: var(--aiven-grey-20);
-  --ifm-color-primary-dark: var(--aiven-primary-90);
-  --ifm-color-primary-darker: var(--aiven-primary-100);
-  --ifm-color-primary-darkest: var(--aiven-primary-100);
+  --ifm-color-primary-dark: var(--aiven-primary-70);
+  --ifm-color-primary-darker: var(--aiven-grey-90);
+  --ifm-color-primary-darkest: var(--aiven-grey-100);
   --ifm-color-primary-light: var(--aiven-primary-70);
   --ifm-color-primary-lighter: var(--aiven-primary-60);
   --ifm-color-primary-lightest: var(--aiven-primary-50);
@@ -126,15 +126,15 @@
   --ifm-h1-font-size: 2.1em;
 }
 
-.markdown>h2 {
+.markdown > h2 {
   --ifm-h2-font-size: var(--aiven-h2-override);
 }
 
-.markdown>h3 {
+.markdown > h3 {
   --ifm-h3-font-size: 1.4rem;
 }
 
-.markdown>h4 {
+.markdown > h4 {
   --ifm-h4-font-size: 1.2rem;
 }
 
@@ -187,7 +187,8 @@ div[class^='announcementBar_'] a {
 }
 
 [data-theme='dark'] div[class^='announcementBar_'] svg {
-  filter: invert(100%) sepia(94%) saturate(17%) hue-rotate(223deg) brightness(104%) contrast(98%);
+  filter: invert(100%) sepia(94%) saturate(17%) hue-rotate(223deg)
+    brightness(104%) contrast(98%);
 }
 
 .DocSearch-Button {
@@ -211,7 +212,7 @@ li {
   padding-bottom: var(--ifm-list-margin-bottom);
 }
 
-ul+div {
+ul + div {
   margin-top: 1em;
 }
 
@@ -266,17 +267,17 @@ ul+div {
 }
 
 /* Sidebar section titles */
-.expandedSection>div>a {
+.expandedSection > div > a {
   font-weight: bold;
   padding-top: 1em;
   padding-bottom: 0.5em;
 }
 
-.expandedSection>div>a.menu__link.menu__link--active {
+.expandedSection > div > a.menu__link.menu__link--active {
   color: var(--ifm-menu-color);
 }
 
-.expandedSection>div.menu__list-item-collapsible:hover {
+.expandedSection > div.menu__list-item-collapsible:hover {
   background-color: transparent;
 }
 
@@ -314,4 +315,34 @@ ul+div {
   text-decoration: none;
   background-color: var(--aiven-card-bg-hover);
   border-color: var(--aiven-card-border-hover);
+}
+
+@media screen and (max-width: 996px) {
+  .navbar__items--right {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .navbar__items--right div {
+    position: relative;
+    right: 0;
+  }
+}
+
+/* Tooltips */
+body .react-tooltip {
+  background-color: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-white);
+  border-radius: var(--ifm-border-radius);
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: left;
+  max-width: 320px;
+  word-wrap: break-word;
+  white-space: normal;
+  opacity: 1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 10000;
 }

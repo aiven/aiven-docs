@@ -2,82 +2,120 @@
 title: Create a sink connector by Lenses.io from Apache Kafka® to MongoDB
 ---
 
-The MongoDB sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a MongoDB database.
-The Lenses.io implementation enables you to write [KCQL
-transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mongosinkconnector/)
-on the topic data before sending it to the MongoDB database.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Note from "@site/static/includes/streamreactor-compatibility-note.md"
+
+The MongoDB Stream Reactor sink connector enables you to move data from an Aiven for Apache Kafka cluster to a MongoDB database.
+It uses [KCQL transformations](https://docs.lenses.io/5.0/integrations/connectors/stream-reactor/sinks/mongosinkconnector/)
+to filter and map topic data before sending it to MongoDB.
 
 :::note
-Aiven offers two distinct MongoDB sink connectors, each one having
-different implementation and parameters:
+Aiven supports two different MongoDB sink connectors. Each has a separate
+implementation and configuration options:
 
--   The standard [MongoDB sink connector by
-    MongoDB](https://docs.mongodb.com/kafka-connector/current/)
--   The [MongoDB sink connector by
-    Lenses.io](https://docs.lenses.io/connectors/sink/mongo)
+- [MongoDB sink connector by MongoDB](https://docs.mongodb.com/kafka-connector/current/)
+- [MongoDB sink connector by Lenses.io](https://docs.lenses.io/connectors/sink/mongo)
 
-This document refers to the MongoDB sink connector by Lenses.io, you can
-browse the MongoDB implementation in the
-[related document](mongodb-sink-mongo)
-
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.lenses.io/connectors/sink/mongo).
+This document covers the connector by Lenses.io. For the MongoDB connector by
+MongoDB, see the [related document](mongodb-sink-mongo).
 :::
+
+<Note/>
 
 ## Prerequisites {#connect_mongodb_lenses_sink_prereq}
 
-To setup a MongoDB sink connector, you need an Aiven for Apache Kafka
-service [with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache Kafka service
+  [with Apache Kafka Connect enabled](enable-connect) or a
+  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Also collect the following information about the
-target MongoDB database upfront:
+- Gather the following information for the target MongoDB database:
 
--   `MONGODB_USERNAME`: The database username to connect
+  - `MONGODB_USERNAME`: The MongoDB username.
+  - `MONGODB_PASSWORD`: The MongoDB password.
+  - `MONGODB_HOST`: The MongoDB hostname.
+  - `MONGODB_PORT`: The MongoDB port.
+  - `MONGODB_DATABASE_NAME`: The target MongoDB database name.
+  - `TOPIC_LIST`: A comma-separated list of Kafka topics to sink.
+  - `KCQL_TRANSFORMATION`: A KCQL statement to map topic data to MongoDB collections.
+    Use the following format:
 
--   `MONGODB_PASSWORD`: The password for the username selected
+    ```sql
+    INSERT | UPSERT INTO MONGODB_COLLECTION
+    SELECT LIST_OF_FIELDS
+    FROM APACHE_KAFKA_TOPIC
+    ```
 
--   `MONGODB_HOST`: the MongoDB hostname
+  - `APACHE_KAFKA_HOST`: The Apache Kafka host. Required only when using Avro.
+  - `SCHEMA_REGISTRY_PORT`: The schema registry port. Required only when using Avro.
+  - `SCHEMA_REGISTRY_USER`: The schema registry username. Required only when using Avro.
+  - `SCHEMA_REGISTRY_PASSWORD`: The schema registry password. Required only when using
+    Avro.
 
--   `MONGODB_PORT`: the MongoDB port
+    :::note
+    If you are using Aiven for MongoDB and Aiven for Apache Kafka, get all required
+    connection details, including schema registry information, from the
+    **Connection information** section on the <ConsoleLabel name="overview"/> page.
 
--   `MONGODB_DATABASE_NAME`: The name of the MongoDB database
+    As of version 3.0, Aiven for Apache Kafka uses Karapace as the schema registry and
+    no longer supports the Confluent Schema Registry.
+    :::
 
--   `TOPIC_LIST`: The list of topics to sink divided by comma
+For a complete list of supported parameters and configuration options, see the
+[connector's documentation](https://docs.lenses.io/connectors/sink/mongo).
 
--   `KCQL_TRANSFORMATION`: The KCQL syntax to parse the topic data,
-    should be in the format:
+## Create a connector configuration file
 
-        INSERT | UPSERT
-        INTO MONGODB_COLLECTION_NAME
-        SELECT LIST_OF_FIELDS
-        FROM APACHE_KAFKA_TOPIC
+Create a file named `mongodb_sink.json` and add the following configuration:
 
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
+```json
+{
+  "name": "CONNECTOR_NAME",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
+  "topics": "TOPIC_LIST",
+  "connect.mongo.connection": "mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@MONGODB_HOST:MONGODB_PORT",
+  "connect.mongo.db": "MONGODB_DATABASE_NAME",
+  "connect.mongo.kcql": "KCQL_TRANSFORMATION",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
+}
+```
 
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
+Parameters:
 
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
-
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+- `name`: The connector name. Replace `CONNECTOR_NAME` with your desired name.
+- `connect.mongo.*`: MongoDB connection parameters collected in the
+   [prerequisite step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses#connect_mongodb_lenses_sink_prereq).
+- `key.converter` and `value.converter`: Define the message data format in the Kafka topic.
+  This example uses `io.confluent.connect.avro.AvroConverter` to translate messages
+  in Avro format.
+  The schema is retrieved from Aiven's [Karapace schema registry](https://github.com/aiven/karapace)
+  using the `schema.registry.url` and related credentials.
 
 :::note
-The Apache Kafka related details are available in the [Aiven
-console](https://console.aiven.io/) service *Overview tab* or via the
-dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
+The `key.converter` and `value.converter` fields define how Kafka messages are parsed
+and must be included in the configuration.
 
-The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
-Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
+When using Avro as the source format, set the following:
 
-As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
-Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://help.aiven.io/en/articles/5651983)
+- `value.converter.schema.registry.url`: Use the Aiven for Apache Kafka schema registry
+  URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
+  Retrieve these values from the
+  [prerequisite step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses#connect_mongodb_lenses_sink_prereq).
+- `value.converter.basic.auth.credentials.source`: Set to `USER_INFO`, which means
+  authentication is done using a username and password.
+- `value.converter.schema.registry.basic.auth.user.info`: Provide the schema registry
+  credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
+  These values should also be retrieved from the
+  [prerequisite step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses#connect_mongodb_lenses_sink_prereq).
+
 :::
 
 ## Setup a MongoDB sink connector with Aiven Console
@@ -149,146 +187,131 @@ parameters:
     [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses#connect_mongodb_lenses_sink_prereq).
 :::
 
-### Create a Kafka Connect connector with the Aiven Console
+## Create the connector
 
-To create an Apache Kafka Connect connector:
+<Tabs groupId="setup-method">
+<TabItem value="console" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+1. Go to the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector** if Kafka Connect is enabled on the service.
+   If not, click **Enable connector on this service**.
 
-2.  Select **Connectors** from the left sidebar.
+   To enable connectors:
 
-3.  Select **Create New Connector**.
+   1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
+   1. In the **Service management** section, click
+      <ConsoleLabel name="Actions"/> > **Enable Kafka Connect**.
 
-    :::note
-    It is enabled only for services [with Kafka Connect enabled](enable-connect).
-    :::
+1. From the list of sink connectors, select **Stream Reactor MongoDB Sink** and click **Get started**.
+1. On the **Common** tab, go to the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
+1. Paste the contents of your `mongodb_sink.json` configuration file into the text box.
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Confirm that data appears in the target MongoDB collection.
+   The collection name corresponds to the Kafka topic name defined in the KCQL statement.
 
-4.  Select **Stream Reactor MongoDB Sink**.
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
+To create the connector using the
+[Aiven CLI](/docs/tools/cli/service/connector#avn_service_connector_create), run:
 
-6.  Paste the connector configuration (stored in the `mongodb_sink.json`
-    file) in the form.
-
-7.  Select **Apply**.
-
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tab and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
-
-8.  After all the settings are correctly configured, select **Create
-    connector**.
-
-9.  Verify the connector status under the **Connectors** screen.
-
-10. Verify the presence of the data in the target MongoDB service, the
-    index name is equal to the Apache Kafka topic name.
-
-:::note
-You can also create connectors using the
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-:::
-
-## Example: Create a MongoDB sink connector in insert mode
-
-If you have a topic named `students` containing the following data that
-to be moved to MongoDB:
-
-```json
-{"name":"carlo", "age": 77}
-{"name":"lucy", "age": 55}
-{"name":"carlo", "age": 33}
+```bash
+avn service connector create SERVICE_NAME @mongodb_sink.json
 ```
 
-You can sink the `students` topic to MongoDB with the following
-connector configuration, after replacing the placeholders for
-`MONGODB_HOST`, `MONGODB_PORT`, `MONGODB_DB_NAME`, `MONGODB_USERNAME`
-and `MONGODB_PASSWORD`:
+Replace:
+
+- `SERVICE_NAME`: Your Kafka or Kafka Connect service name.
+- `@mongodb_sink.json`: Path to your configuration file.
+
+</TabItem>
+</Tabs>
+
+## Sink topic data to MongoDB
+
+The following examples show how to sink data from a Kafka topic to a MongoDB collection.
+
+### Insert mode
+
+If the Kafka topic `students` contains the following records:
+
+```json
+{"name": "carlo", "age": 77}
+{"name": "lucy", "age": 55}
+{"name": "carlo", "age": 33}
+```
+
+Use the following connector configuration to insert each record into a MongoDB
+collection named `studentscol`:
 
 ```json
 {
-    "name": "my-mongodb-sink",
-    "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
-    "connect.mongo.connection": "mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@MONGODB_HOST:MONGODB_PORT",
-    "connect.mongo.db": "MONGODB_DB_NAME",
-    "topics": "students",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "value.converter.schemas.enable": "false",
-    "connect.mongo.kcql": "INSERT into studentscol SELECT * FROM students"
+  "name": "my-mongodb-sink",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
+  "connect.mongo.connection": "mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@MONGODB_HOST:MONGODB_PORT",
+  "connect.mongo.db": "MONGODB_DB_NAME",
+  "topics": "students",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false",
+  "connect.mongo.kcql": "INSERT INTO studentscol SELECT * FROM students"
 }
 ```
 
-The configuration file contains the following peculiarities:
+Replace all placeholders (such as `MONGODB_HOST`, `MONGODB_DB_NAME`, and
+`MONGODB_USERNAME`) with your actual MongoDB connection details.
 
--   `"topics": "students"`: setting the topic to sink
--   `"database": "MONGODB_DB_NAME"`: the database used is the one
-    referenced by the placeholder `MONGODB_DB_NAME`
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`
-    and `"value.converter.schemas.enable": "false"`: the topic value is
-    in JSON format without a schema
--   `"connect.mongo.kcql": "INSERT into studentscol SELECT * FROM students"`:
-    the connector logic is to insert every topic message as new document
-    into a collection called `studentscol`.
+This configuration does the following:
 
-Once the connector is created successfully, you should see a collection
-named `studentscol` in the MongoDB database referenced by the
-`MONGODB_DB_NAME` placeholder with three documents in it.
+- `"topics": "students"`: Specifies the Kafka topic to sink.
+- Connection settings (`connect.mongo.*`): Provide the MongoDB host, port, credentials,
+  and database name.
+- `"value.converter"` and `"value.converter.schemas.enable"`: Set the message format.
+  The topic uses raw JSON without a schema.
+- `"connect.mongo.kcql"`: Defines the insert logic. Each Kafka message is written as a
+  new document in the `studentscol` MongoDB collection.
 
-## Example: Create a MongoDB sink connector in upsert mode
+After creating the connector, check the MongoDB collection to verify that the data
+has been inserted. You should see three documents in the `studentscol` collection.
 
-If you have a topic named `students` containing the following data
-to be moved to MongoDB, but having one document per person `name`
-in the following messages:
+### Upsert mode
+
+To ensure only one document per unique name is stored, use upsert mode. If
+the `students` topic contains:
 
 ```json
-{"name":"carlo", "age": 77}
-{"name":"lucy", "age": 55}
-{"name":"carlo", "age": 33}
+{"name": "carlo", "age": 77}
+{"name": "lucy", "age": 55}
+{"name": "carlo", "age": 33}
 ```
 
-You can sink the `students` topic to MongoDB with the following
-connector configuration, after replacing the placeholders for
-`MONGODB_HOST`, `MONGODB_PORT`, `MONGODB_DB_NAME`, `MONGODB_USERNAME`
-and `MONGODB_PASSWORD`:
+Use the following connector configuration:
 
 ```json
 {
-    "name": "my-mongodb-sink",
-    "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
-    "connect.mongo.connection": "mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@MONGODB_HOST:MONGODB_PORT",
-    "connect.mongo.db": "MONGODB_DB_NAME",
-    "topics": "students",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "value.converter.schemas.enable": "false",
-    "connect.mongo.kcql": "UPSERT into studentscol SELECT * FROM students PK name"
+  "name": "my-mongodb-sink",
+  "connector.class": "com.datamountaineer.streamreactor.connect.mongodb.sink.MongoSinkConnector",
+  "connect.mongo.connection": "mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@MONGODB_HOST:MONGODB_PORT",
+  "connect.mongo.db": "MONGODB_DB_NAME",
+  "topics": "students",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false",
+  "connect.mongo.kcql": "UPSERT INTO studentscol SELECT * FROM students PK name"
 }
 ```
 
-The configuration file contains the following peculiarities:
+This configuration performs the following:
 
--   `"topics": "students"`: setting the topic to sink
--   `"database": "MONGODB_DB_NAME"`: the database used is the one
-    referenced by the placeholder `MONGODB_DB_NAME`
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`
-    and `"value.converter.schemas.enable": "false"`: the topic value is
-    in JSON format without a schema
--   `"connect.mongo.kcql": "UPSERT into studentscol SELECT * FROM students PK name"`:
-    the connector logic is to upsert every topic message as new document
-    into a collection called `studentscol`, the primary key is set to
-    the `name` field (`PK name`).
+- Uses the same connection and converter settings as the insert mode example.
+- `"connect.mongo.kcql"`: Uses `UPSERT` logic with `PK name` to update the document
+  based on the `name` field.
 
-Once the connector is created successfully, you should see a collection
-named `studentscol` in the MongoDB database referenced by the
-`MONGODB_DB_NAME` placeholder. The collection should contain two
-documents since the name `carlo` was present two times:
+After the connector runs, the `studentscol` collection contains two documents,
+because the record with `"name": "carlo"` is upserted:
 
-```
-{"name":"lucy", age: 55}
-{"name":"carlo", age: 33}
+```json
+{"name": "lucy", "age": 55}
+{"name": "carlo", "age": 33}
 ```
