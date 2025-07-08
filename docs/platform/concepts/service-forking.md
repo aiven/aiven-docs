@@ -25,18 +25,17 @@ Forks are independent and do not increase the load on the original service. The 
 restored from the latest backup stored separately from the service.
 
 :::important
-The service integrations are not copied over to the forked version, and
-need to be re-established for each new copy.
+
+- Service integrations are not copied over to the forked version, and need to be
+  re-established for each new copy.
+- You cannot [fork Aiven for ClickHouse®](/docs/products/clickhouse/howto/restore-backup)
+  or Aiven for Apache Cassandra® services to a lower amount of nodes.
+
 :::
 
 You can fork the following Aiven services:
 
 -   Apache Cassandra®
-
-    :::important
-    You cannot fork to a lower amount of nodes.
-    :::
-
 -   Caching
 -   ClickHouse®
 -   Grafana®
