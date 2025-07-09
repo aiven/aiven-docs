@@ -332,4 +332,4 @@ curl --request POST                                                   \
 -   [OpenSearch® cross-cluster replication](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
 -   [Set up cross-cluster replication for OpenSearch](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch)
 -   [Cross-cluster replication for Apache Kafka® with
-    Terraform](https://aiven.io/developer/kafka-mirrormaker-crosscluster)
+    Terraform](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka/kafka_mirrormaker)

@@ -23,8 +23,7 @@ To use Karapace, enable **Karapace Schema registry** and **REST APIs** on your A
 -   For information on how to manage Kafka schema registry ACL resources
     on Terraform, see
     [Manage resources via Terraform](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
--   For more information on how to setup Karapace with Aiven for Apache
+-   For more information on how to set up Karapace with Aiven for Apache
     Kafka® using [Aiven Terraform
-    Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs),
-    see [Apache Kafka® with Karapace Schema
-    Registry](https://aiven.io/developer/apache-kafka-karapace).
+    Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs), see
+    [the `aiven_kafka` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka).
