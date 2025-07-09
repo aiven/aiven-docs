@@ -4,13 +4,48 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
-import CreateService from "@site/static/includes/create-service-console.md"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CreateService from "@site/static/includes/create-service-console.md";
+import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 To start using Aiven for Grafana®, the first step is to create a service. You can do this in the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).
 
 ## Create an Aiven for Grafana service
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
 <CreateService serviceType="Grafana®"/>
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+The following example files create a Grafana service in your Aiven project.
+They are part of the Grafana example in the
+[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/grafana)
+on GitHub.
+
+1. Create a file named `provider.tf` and add the following:
+
+    <TerraformSample filename='grafana/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+    <TerraformSample filename='grafana/service.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+    <TerraformSample filename='grafana/variables.tf' />
+
+1. Create the `terraform.tfvars` file and add the values for your token and project name.
+
+<TerraformApply />
+
+</TabItem>
+</Tabs>
 
 ## Log in to Grafana
 
