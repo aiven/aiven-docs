@@ -21,6 +21,12 @@ Aiven for Apache Kafka supports two types of ACLs:
   and `DENY` rules for operations on multiple resource types, including topics, groups,
   and clusters.
 
+:::important
+If both Aiven ACLs and Kafka-native ACLs apply to the same principal and resource, and
+one allows access while the other denies it, the `DENY` rule takes precedence.
+This applies even if the `DENY` is defined in only one of the ACL types.
+:::
+
 :::note
 ACL restrictions for Kafka REST are controlled by a user configuration parameter
 in the service's advanced configuration settings. By default, ACLs do not apply to
