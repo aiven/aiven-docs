@@ -5,7 +5,7 @@ sidebar_label: Access control lists
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Access Control Lists (ACLs) in Aiven for Apache Kafka® manage access to topics, consumer groups, clusters, and Schema Registry with permissions.
+Access Control Lists (ACLs) in Aiven for Apache Kafka® manage access to topics, consumer groups, clusters, and the Schema Registry.
 
 Aiven supports two ACL models:
 
@@ -172,17 +172,17 @@ A Kafka-native ACL entry consists of the following elements:
 
   Denies `User:Alice` write access to the specific topic `logs-sensitive-topic`.
 
-## Precedence of rules
+## Rule precedence
 
-When multiple ACLs match for the same Apache Kafka resource, such as a topic or
-consumer group, `DENY` rules take precedence over `ALLOW` rules.
+When multiple ACLs apply to the same principal and Kafka resource, `DENY` rules
+override `ALLOW` rules.
 
-This applies to the following cases:
+Examples where the `DENY` rule takes precedence include:
 
-- Multiple Kafka-native ACLs that apply to the same principal and resource.
-- Conflicting rules between Aiven ACLs and Kafka-native ACLs. If an Aiven ACL allows
-  access and a Kafka-native ACL denies it (or the other way around),
-  the **DENY rule applies**.
+- **Conflicting Kafka-native ACLs**: When multiple Kafka-native ACLs both grant and
+  deny access to the same principal and resource.
+- **Mixed ACL types**: When both Aiven ACLs and Kafka-native ACLs apply to the same
+  principal and resource with conflicting permissions.
 
 **Examples**:
 
