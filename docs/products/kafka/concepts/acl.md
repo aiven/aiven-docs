@@ -29,11 +29,11 @@ for simpler access control scenarios.
 
 :::note
 By default, a user named `avnadmin` is created with `admin` permissions for all
-topics. If you are using the Aiven Terraform Provider and want to prevent this behavior,
-set `default_acl: false` in your resource configuration.
+topics. If you use the Aiven Terraform Provider, set `default_acl: false` to disable
+this behavior.
 :::
 
-### ACL Structure
+### Aiven ACL structure
 
 An Aiven ACL entry consists of the following elements:
 
@@ -95,7 +95,7 @@ management. Use them for complex scenarios requiring rules like `ALLOW` and `DEN
 - **Pattern-based matching**: Use `LITERAL` for exact matches or `PREFIXED` for prefixes
   to specify how resource names are matched.
 
-### ACL structure
+### Kafka-native ACL structure
 
 A Kafka-native ACL entry consists of the following elements:
 
@@ -172,19 +172,26 @@ A Kafka-native ACL entry consists of the following elements:
 
   Denies `User:Alice` write access to the specific topic `logs-sensitive-topic`.
 
-### Precedence of rules
+## Precedence of rules
 
 When multiple ACLs match for the same Apache Kafka resource, such as a topic or
 consumer group, `DENY` rules take precedence over `ALLOW` rules.
 
+This applies to the following cases:
+
+- Multiple Kafka-native ACLs that apply to the same principal and resource.
+- Conflicting rules between Aiven ACLs and Kafka-native ACLs. If an Aiven ACL allows
+  access and a Kafka-native ACL denies it (or the other way around),
+  the **DENY rule applies**.
+
 **Examples**:
 
 - An `ALLOW` rule grants access to resources matching a general pattern, such as:
-  - Topics starting with `test-*`.
-  - All consumer groups.
+  - Topics starting with `test-*`
+  - All consumer groups
 - A `DENY` rule restricts access to resources matching a specific pattern, such as:
-  - Topics starting with `test-sensitive-*`.
-  - Consumer groups with `sensitive` in their names.
+  - Topics starting with `test-sensitive-*`
+  - Consumer groups with `sensitive` in their names
 
 ## ACL permission mapping
 
