@@ -97,7 +97,7 @@ If Klaw is running in a Kubernetes environment, the file path inside the pod may
 vary depending on your deployment method. You can override the file location
 using the `spring.config.location` property:
 
-```bash
+```text
 -Dspring.config.location=/mnt/config/application.properties
 ```
 
@@ -110,17 +110,17 @@ Set the value of `klaw.clusterapi.access.base64.secret` with a secret
 key in the form of a Base64 encoded string in the
 `application.properties` file located in the following paths:
 
--   `klaw/cluter-api/src/main/resources`
--   `klaw/core/src/main/resources`
+- `klaw/cluter-api/src/main/resources`
+- `klaw/core/src/main/resources`
 
 ### Configure authentication protocol
 
 You can connect Aiven for Apache Kafka® using either of the following
 authentication protocols:
 
--   `PLAINTEXT`
--   `SSL`, `SASL PLAIN`, `SASL SSL`
--   `SASL SSL (GSSAPI / Kerberos)`, `SASL_SSL (SCRAM SHA 256/512)`
+- `PLAINTEXT`
+- `SSL`, `SASL PLAIN`, `SASL SSL`
+- `SASL SSL (GSSAPI / Kerberos)`, `SASL_SSL (SCRAM SHA 256/512)`
 
 :::note
 If you are using `PLAINTEXT`, you do not need to perform any additional
@@ -157,9 +157,9 @@ for your Kafka cluster.
 1. Open the `application.properties` file located in the
    `klaw/cluster-api/src/main/resources` directory.
 1. Configure the SSL properties to connect to Apache Kafka clusters by
- editing the following lines:
+   editing the following lines:
 
- ```bash
+   ```text
     klawssl.kafkassl.keystore.location=client.keystore.p12
     klawssl.kafkassl.keystore.pwd=klaw1234
     klawssl.kafkassl.key.pwd=klaw1234
@@ -167,21 +167,21 @@ for your Kafka cluster.
     klawssl.kafkassl.truststore.pwd=klaw1234
     klawssl.kafkassl.keystore.type=pkcs12
     klawssl.kafkassl.truststore.type=JKS
- ```
+   ```
 
-    - Replace every instance of `klawssl` with the **Cluster ID** you used when adding
- the Kafka cluster in the Klaw web interface.
-    - Replace `client.keystore.p12` with the full path to your keystore file.
-    - Replace `client.truststore.jks` with the full path to your truststore file.
-    - Replace the sample password values (`klaw1234`) with the actual passwords
- configured for your keystore and truststore.
-    - Save the `application.properties` file.
+   - Replace every instance of `klawssl` with the **Cluster ID** you used when adding
+     the Kafka cluster in the Klaw web interface.
+   - Replace `client.keystore.p12` with the full path to your keystore file.
+   - Replace `client.truststore.jks` with the full path to your truststore file.
+   - Replace the sample password values (`klaw1234`) with the actual passwords
+     configured for your keystore and truststore.
+   - Save the `application.properties` file.
 
  The following is an example of an `application.properties` file
  configured with Klaw Cluster ID, keystore, and truststore paths and
  passwords.
 
- ```
+ ```text
  demo_cluster.kafkassl.keystore.location=/Users/demo.user/Documents/Klaw/demo-certs/client.keystore.p12
  demo_cluster.kafkassl.keystore.pwd=Aiventest123!
  demo_cluster.kafkassl.key.pwd=Aiventest123!
@@ -198,8 +198,8 @@ for your Kafka cluster.
 
 #### Connect using SASL protocols
 
-To use SASL-based authentication methods such as `SASL_PLAIN`, `SASL_SSL/PLAIN`, or
-`SASL_SSL/GSSAPI`, update the `application.properties` file:
+To use SASL-based authentication methods such as `SASL_PLAIN`, `SASL_SSL/PLAIN`,
+`SASL_SSL/GSSAPI` or `SASL_SSL/OAUTHBEARER`, update the `application.properties` file:
 
 - Locate the lines starting with `acc1.kafkasasl.jaasconfig.`
 - Uncomment the relevant lines
