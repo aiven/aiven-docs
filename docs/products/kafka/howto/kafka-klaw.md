@@ -36,13 +36,14 @@ To connect your Aiven for Apache Kafka cluster to Klaw:
     - **Kafka flavor**: Select **Aiven for Apache Kafka®**.
     - **Project name**: Select your Aiven project.
     - **Bootstrap server**: Enter the **Service URI** for your Kafka service
-      (available on the **Connection information** page in the Aiven Console).
+      (available on the **Overview page** in the **Connection information** section
+      in the Aiven Console).
     - **Service name**: Enter the Kafka service name as defined in the [Aiven Console](https://console.aiven.io/).
 
 1. Click **Save**.
 1. Add the cluster to an environment:
    - Click **Environments**, then select **Environments** from the drop-down menu.
-   - Click **Add Environment** and and provide the following:
+   - Click **Add Environment** and provide the following:
      - **Environment Name:** Select environment from the drop-down list.
 
        :::note
