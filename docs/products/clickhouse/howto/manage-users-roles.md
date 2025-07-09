@@ -234,5 +234,5 @@ Console](https://console.aiven.io/).
 
 You can also manage user roles and access using the
 [Aiven Provider for Terraform](/docs/tools/terraform).
-Try Aiven Terraform Provider Cookbook recipe
-[Manage user privileges for Aiven for ClickHouse® services using Terraform](https://aiven.io/developer/manage-user-privileges-clickhouse-terraform).
+Learn how to manage multiple grants while avoiding conflicts with the
+[ClickHouse grants example](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/clickhouse/grants).

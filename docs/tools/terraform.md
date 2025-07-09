@@ -36,7 +36,7 @@ The following example file is also available in the
 
 - Follow an [example to set up your own organization](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/get-started)
   with a user group and permissions.
-- Try one of the other [examples](https://aiven.io/developer/terraform)
+- Try one of the other [examples](https://github.com/aiven/terraform-provider-aiven/tree/main/examples)
   to learn how to create a service or integration using the Aiven Terraform Provider.
 - Get details about all the available resources and data sources in the
   [Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).

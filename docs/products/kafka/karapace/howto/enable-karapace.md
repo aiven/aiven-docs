@@ -31,4 +31,4 @@ APIs on your service.
 
 To set up Karapace with Aiven for Apache Kafka®
 using [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs),
-see [Apache Kafka® with Karapace Schema Registry](https://aiven.io/developer/apache-kafka-karapace).
+see [the `aiven_kafka` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka).
