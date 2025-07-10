@@ -26,7 +26,7 @@ You can choose from the following data scenarios:
 
 Use the sample data generator to:
 
-- See data streaming within minutes after service creation.
+- Start streaming data in as little as 30 seconds after service creation.
 - Validate how your Kafka service handles schema-based messages.
 - Explore how topics, schemas, and consumers interact.
 
@@ -83,7 +83,8 @@ time, and a link to review messages.
   The **Messages** page opens for the topic. Messages appear in `avro` format within a
   few seconds.
 - To stop the stream, click **Stop streaming** in the **Data generator** section on
-  the <ConsoleLabel name="overview" /> page.
+  the <ConsoleLabel name="overview" /> page. This option is only visible in the browser
+  tab where the generator was started.
 - To view topic settings, message details, or the applied schema, click
   <ConsoleLabel name="topics" /> in the sidebar, then select the topic created by the
   generator.
