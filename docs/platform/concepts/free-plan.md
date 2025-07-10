@@ -46,7 +46,9 @@ There are some limitations of the free plan services:
 
 Free plans do not have any time limitations. However, Aiven reserves the right:
 
-- To shut down services if Aiven believes they violate the [acceptable use policy](https://aiven.io/terms) or are unused for some time.
+- To shut down services if Aiven believes they violate the
+  [acceptable use policy](https://aiven.io/terms) or are unused for some time.
+  A notification is sent before services are powered off.
 - To change the cloud provider, region, or plan details at any point in time.
 
 ## Upgrading and downgrading
