@@ -7,47 +7,47 @@ keywords: [sample data, test messages, kafka, data stream, onboarding]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use the sample data producer to stream predefined messages to your Apache Kafka® service and observe how they move through topics and schemas.
+Use the sample data generator to simulate streaming events and observe how data flows through topics and schemas in your Aiven for Apache Kafka® service.
 
 ## About the sample data generator
 
-The sample data generator streams realistic, predefined messages to your
-Aiven for Apache Kafka service. It shows how streaming works without requiring any
-client setup.
+The sample data generator helps you explore Aiven for Apache Kafka by producing
+realistic test messages to a Kafka topic in your service. It's designed for quick
+onboarding with no client configuration required.
 
 You can choose from the following data scenarios:
 
-- **Logistics**: Simulates package tracking events with details such as timestamp,
-  tracking ID, carrier, current location, and delivery state. Example states
-  include received, shipped, or in transit.
-- **User activity**: Represents user interactions on a website or app, including
-  action ID and type, page and section visited, user ID, and country code.
-- **Metrics**: Produces application metrics such as percentage values, averages, and
-  totals over different time windows like instant, one hour, or twelve hours.
+- **Logistics**: Tracks package events including timestamp, tracking ID, carrier,
+  location, and delivery state such as *received*, *shipped*, or *in transit*.
+- **User activity**: Captures app or website interactions such as action type, page,
+  user ID, and country code.
+- **Metrics**: Streams application metrics like percentages, averages, and totals
+  across time windows (instant, hourly, 12-hour).
 
-The sample data generator is useful if you are:
+Use the sample data generator to:
 
-- New to Aiven or exploring Aiven for Apache Kafka for the first time
-- Testing your service after creation
-- Evaluating how data flows through topics and schemas
+- See data streaming within minutes after service creation.
+- Validate how your Kafka service handles schema-based messages.
+- Explore how topics, schemas, and consumers interact.
 
-The generator automatically:
+## How it works
 
-- Enables the Schema Registry and REST Proxy if needed
-- Creates a topic and applies an Avro schema
-- Streams data for the selected duration (up to 12 hours)
+When you start a sample data session, the generator:
 
-### Stream behavior and limitations
+- Enables the Schema Registry and REST Proxy if they are not already active.
+- Creates a system-generated topic for the selected scenario.
+- Applies a predefined Avro schema to the topic.
+- Produces messages at a steady, test-friendly rate.
+- Streams data for the selected duration, up to 4 hours.
 
-- Only one sample data generator session can be active at a time per Apache Kafka
-  service.
+## Limitations
+
+- Only one sample data session can run per Aiven for Apache Kafka service at a time.
 - Each user can run only one data generator scenario at a time.
 - Only the **Avro** schema format is supported.
-- Data is written to a system-generated topic based on the selected scenario.
-- Messages are sent at a steady rate for testing and demonstration.
-- Generated data is retained for up to one week.
-- The stream stops automatically after the selected duration or when the browser
-  session ends.
+- Sample data is retained for up to one week.
+- The stream stops automatically when the selected time ends or the browser session
+  is closed.
 
 ## Prerequisites
 
@@ -61,24 +61,32 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
 1. In the [Aiven Console](https://console.aiven.io), select an existing
    **Aiven for Apache Kafka** service or
    [create a service](/docs/platform/howto/create_new_service).
-1. On the <ConsoleLabel name="overview" /> page, under
-   the **Start data stream** section, click **Generate sample data**.
+1. On the <ConsoleLabel name="overview" /> page, in the **Start data stream** section,
+   click **Generate sample data**.
 1. In the setup wizard:
    1. Choose a data scenario and click **Continue**.
-   1. The schema registry and REST proxy are required for data generation. Click
-      **Enable & Continue** to enable them if they are not already active.
-   1. Review the auto-generated topic name and Avro schema. Click **Confirm** to continue.
-   1. Select a stream duration between 30 minutes and 12 hours. Click **Start data stream**
-      to begin generating messages.
-   1. OOnce the stream starts, the sample data generator runs in the background. You
-      can monitor progress from the <ConsoleLabel name="overview" /> page, where you’ll
-      see message rate, duration, and a link to review messages.
-1. To view the generated messages:
-   - On the <ConsoleLabel name="overview" /> page, click **Review messages**.
-   - The **Messages** tab opens in the **Topics** view. The format is automatically set
-     to `avro`. Click **Fetch messages** to view the data.
-   - To stop the stream, go to the **Overview** page and click **Stop streaming**.
-   - To review topic settings and schema details, open the topic from the **Topics** tab.
+   1. Click **Enable & continue** to proceed. Aiven ensures the Karapace Schema
+      Registry and REST Proxy are enabled for sample data generation. If they are not
+      already active, Aiven enables them for you.
+   1. Review the auto-generated topic name and Avro schema. Click **Confirm**.
+   1. Select a stream duration between 15 minutes and 4 hours. Click
+      **Start data stream**.
+
+After the stream starts, click **Open service overview** to monitor progress from
+the <ConsoleLabel name="overview" /> page. You can view the message rate, remaining
+time, and a link to review messages.
+
+### Monitor and manage the stream
+
+- To view the streamed data, click **Review messages** on the
+  <ConsoleLabel name="overview" /> page.
+  The **Messages** page opens for the topic. Messages appear in `avro` format within a
+  few seconds.
+- To stop the stream, click **Stop streaming** in the **Data generator** section on
+  the <ConsoleLabel name="overview" /> page.
+- To view topic settings, message details, or the applied schema, click
+  <ConsoleLabel name="topics" /> in the sidebar, then select the topic created by the
+  generator.
 
 <RelatedPages/>
 
