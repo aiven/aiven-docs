@@ -1,5 +1,6 @@
 ---
 title: Use Google Private Service Connect with Aiven services
+displayed_sidebar: platformSidebar
 early: true
 ---
 

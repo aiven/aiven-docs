@@ -1,5 +1,6 @@
 ---
 title: Enable bring your own cloud (BYOC)
+displayed_sidebar: platformSidebar
 sidebar_label: Enable BYOC
 ---
 

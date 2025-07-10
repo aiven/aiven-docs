@@ -1,5 +1,6 @@
 ---
 title: Use Kafbat UI with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 [Kafbat UI](https://github.com/kafbat/kafka-ui) is a popular Open-Source web GUI for Apache Kafka® management that allows you to monitor and manage Apache Kafka® clusters.

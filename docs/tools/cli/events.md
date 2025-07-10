@@ -1,5 +1,6 @@
 ---
 title: avn events
+displayed_sidebar: toolSidebar
 ---
 
 The `avn events` command is an audit log of things that have happened in

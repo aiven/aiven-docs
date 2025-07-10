@@ -1,5 +1,6 @@
 ---
 title: View and reset consumer group offsets
+displayed_sidebar: serviceSidebar
 ---
 
 The [open source Apache Kafka® code](https://kafka.apache.org/downloads) includes a `kafka-consumer-groups.sh` utility enabling you to view and manipulate the state of consumer groups.

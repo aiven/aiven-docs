@@ -1,5 +1,6 @@
 ---
 title: Partition segments
+displayed_sidebar: serviceSidebar
 ---
 
 Apache Kafka® divides topics partition data into **segment** files (with `.log` suffix) stored on the file system. Each segment file is named using the offset of the first message (a.k.a. **base offset**) contained.

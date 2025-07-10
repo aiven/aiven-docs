@@ -1,5 +1,6 @@
 ---
 title: Manage a project VPC peering with UpCloud
+displayed_sidebar: platformSidebar
 sidebar_label: UpCloud peering
 ---
 

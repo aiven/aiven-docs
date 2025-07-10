@@ -1,5 +1,6 @@
 ---
 title: Manage a project VPC peering with AWS
+displayed_sidebar: platformSidebar
 sidebar_label: AWS peering
 ---
 

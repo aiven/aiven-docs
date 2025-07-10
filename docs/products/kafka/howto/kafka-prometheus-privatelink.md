@@ -1,5 +1,6 @@
 ---
 title: Configure Prometheus for Aiven for Apache Kafka® using Privatelink
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,5 +1,6 @@
 ---
 title: Install or update an extension
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for PostgreSQL® allows a series of pre-approved extensions to be installed.

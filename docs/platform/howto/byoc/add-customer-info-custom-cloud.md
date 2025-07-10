@@ -1,5 +1,6 @@
 ---
 title: Manage customer contacts for a custom cloud
+displayed_sidebar: platformSidebar
 sidebar_label: Update customer contacts
 ---
 

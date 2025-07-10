@@ -1,5 +1,6 @@
 ---
 title: avn byoc
+displayed_sidebar: toolSidebar
 ---
 
 Set up and manage your [custom clouds](/docs/platform/concepts/byoc) using the Aiven client and `avn byoc` commands.

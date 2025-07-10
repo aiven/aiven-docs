@@ -1,5 +1,6 @@
 ---
 title: Access JMX metrics via Jolokia
+displayed_sidebar: platformSidebar
 ---
 
 import Tabs from '@theme/Tabs';

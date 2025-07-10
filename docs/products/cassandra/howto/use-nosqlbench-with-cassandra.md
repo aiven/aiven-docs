@@ -1,5 +1,6 @@
 ---
 title: Perform a stress test using nosqlbench
+displayed_sidebar: serviceSidebar
 ---
 
 [Nosqlbench](https://docs.nosqlbench.io/) is an open source project that

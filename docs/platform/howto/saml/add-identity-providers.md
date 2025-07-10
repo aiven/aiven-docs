@@ -1,5 +1,6 @@
 ---
 title: Add SAML identity providers
+displayed_sidebar: platformSidebar
 sidebar_label: Add identity providers
 keywords: [SAML, SSO]
 ---

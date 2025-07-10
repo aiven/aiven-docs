@@ -1,5 +1,6 @@
 ---
 title: Request a new connector
+displayed_sidebar: serviceSidebar
 ---
 
 If you know about new and interesting Apache Kafka® connectors you'd

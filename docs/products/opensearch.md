@@ -1,5 +1,6 @@
 ---
 title: Aiven for OpenSearch®
+displayed_sidebar: serviceSidebar
 ---
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"

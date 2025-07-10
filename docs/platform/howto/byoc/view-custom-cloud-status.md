@@ -1,5 +1,6 @@
 ---
 title: View the status of a custom cloud
+displayed_sidebar: platformSidebar
 sidebar_label: View custom cloud status
 ---
 

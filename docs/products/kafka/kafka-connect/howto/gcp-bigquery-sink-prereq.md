@@ -1,5 +1,6 @@
 ---
 title: Configure GCP for a Google BigQuery sink connector
+displayed_sidebar: serviceSidebar
 ---
 
 To be able to sink data from Apache Kafka® to Google BigQuery via the dedicated Aiven connector, open the [GCP console](https://console.cloud.google.com/) and:

@@ -1,5 +1,6 @@
 ---
 title: Settings for Apache Kafka® connectors
+displayed_sidebar: serviceSidebar
 ---
 
 Explore the necessary settings for standard and upsert Kafka connectors in Aiven for Apache Flink®.

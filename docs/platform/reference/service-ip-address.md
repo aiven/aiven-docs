@@ -1,5 +1,6 @@
 ---
 title: Default service IP address and hostname
+displayed_sidebar: platformSidebar
 ---
 
 When a new Aiven service is created, it automatically gets a hostname and one or more public IP addresses.

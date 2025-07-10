@@ -1,5 +1,6 @@
 ---
 title: Aiven for M3
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

@@ -1,5 +1,6 @@
 ---
 title: Aiven CLI
+displayed_sidebar: toolSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

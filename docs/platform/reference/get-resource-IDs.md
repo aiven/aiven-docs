@@ -1,5 +1,6 @@
 ---
 title: Get resource IDs
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

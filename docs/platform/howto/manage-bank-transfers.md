@@ -1,5 +1,6 @@
 ---
 title: Pay with bank transfers
+displayed_sidebar: platformSidebar
 ---
 
 Aiven offers invoice billing and bank transfer payments for customers who have at least 1,000 USD in monthly recurring revenue.

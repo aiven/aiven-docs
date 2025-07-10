@@ -1,5 +1,6 @@
 ---
 title: Configure Java SSL keystore and truststore to access Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Kafka® utilises TLS (SSL) to secure the traffic between its services and client applications.

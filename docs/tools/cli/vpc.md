@@ -1,5 +1,6 @@
 ---
 title: avn vpc
+displayed_sidebar: toolSidebar
 ---
 
 import Tabs from '@theme/Tabs';

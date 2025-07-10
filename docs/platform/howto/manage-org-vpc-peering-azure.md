@@ -1,5 +1,6 @@
 ---
 title: Manage an organization VPC peering with Microsoft Azure
+displayed_sidebar: platformSidebar
 sidebar_label: Azure peering
 ---
 

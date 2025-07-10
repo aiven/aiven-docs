@@ -1,5 +1,6 @@
 ---
 title: Plugins for Aiven for Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Grafana® includes several pre-installed plugins, updated regularly to ensure optimal performance.

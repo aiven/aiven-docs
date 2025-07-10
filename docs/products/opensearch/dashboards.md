@@ -1,5 +1,6 @@
 ---
 title: OpenSearch® Dashboards
+displayed_sidebar: serviceSidebar
 ---
 
 import Kibana from "@site/static/includes/trademark-kibana.md"

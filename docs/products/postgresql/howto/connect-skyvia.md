@@ -1,5 +1,6 @@
 ---
 title: Connect with Skyvia
+displayed_sidebar: serviceSidebar
 ---
 
 [Skyvia](https://skyvia.com/) is an universal cloud data platform. This

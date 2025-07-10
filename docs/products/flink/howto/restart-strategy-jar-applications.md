@@ -1,5 +1,6 @@
 ---
 title: Restart strategy in SQL and JAR applications
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

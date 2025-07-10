@@ -1,5 +1,6 @@
 ---
 title: Create a service
+displayed_sidebar: platformSidebar
 ---
 
 import CreateService from "@site/static/includes/create-service-console.md"

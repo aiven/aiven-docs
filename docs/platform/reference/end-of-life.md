@@ -1,5 +1,6 @@
 ---
 title: End of life for Aiven services
+displayed_sidebar: platformSidebar
 ---
 
 Learn about the upcoming end of life (EOL) for select Aiven services, including timelines, actions after end of life, recommended migration options, and next steps.

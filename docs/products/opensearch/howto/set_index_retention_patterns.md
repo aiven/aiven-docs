@@ -1,5 +1,6 @@
 ---
 title: Index retention patterns
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

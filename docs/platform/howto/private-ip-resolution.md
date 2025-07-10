@@ -1,5 +1,6 @@
 ---
 title: Handle resolution errors of private IP addresses
+displayed_sidebar: platformSidebar
 ---
 
 When an Aiven service is placed in a VPC (Virtual Private Cloud), the

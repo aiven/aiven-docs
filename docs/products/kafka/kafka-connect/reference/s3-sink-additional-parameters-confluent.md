@@ -1,5 +1,6 @@
 ---
 title: S3 sink connector by Confluent naming and data formats
+displayed_sidebar: serviceSidebar
 ---
 
 The **Apache Kafka Connect® S3 sink connector** enables you to move data from an **Aiven for Apache Kafka®** cluster to **Amazon S3** for long term storage.

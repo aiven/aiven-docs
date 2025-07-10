@@ -1,5 +1,6 @@
 ---
 title: Create new tables without primary keys
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

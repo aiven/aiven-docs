@@ -1,5 +1,6 @@
 ---
 title: Aiven Provider for Terraform
+displayed_sidebar: toolSidebar
 ---
 
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";

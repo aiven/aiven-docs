@@ -1,5 +1,6 @@
 ---
 title: Roles and permissions
+displayed_sidebar: platformSidebar
 ---
 
 To give users access to projects and services in your organizations, you grant them permissions and roles:

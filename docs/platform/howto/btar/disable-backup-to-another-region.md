@@ -1,5 +1,6 @@
 ---
 title: Delete a cross-region backup
+displayed_sidebar: platformSidebar
 sidebar_label: Delete cross-region backup
 limited: true
 ---

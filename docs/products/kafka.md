@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

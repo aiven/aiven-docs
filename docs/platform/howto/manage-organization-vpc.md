@@ -1,5 +1,6 @@
 ---
 title: Manage organization virtual private clouds (VPCs) in Aiven
+displayed_sidebar: platformSidebar
 sidebar_label: Manage organization VPCs
 limited: true
 ---

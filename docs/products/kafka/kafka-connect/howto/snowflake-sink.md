@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to Snowflake
+displayed_sidebar: serviceSidebar
 ---
 
 The Apache Kafka Connect® Snowflake sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a Snowflake database. The full connector documentation is available in the dedicated [GitHub repository](https://docs.snowflake.com/en/user-guide/kafka-connector).

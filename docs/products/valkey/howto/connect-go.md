@@ -1,5 +1,6 @@
 ---
 title: Connect with Go
+displayed_sidebar: serviceSidebar
 ---
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.go';

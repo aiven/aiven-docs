@@ -1,5 +1,6 @@
 ---
 title: When to create an index
+displayed_sidebar: serviceSidebar
 ---
 
 Determine wether to create an index per customer/project/entity or to look for alternatives.

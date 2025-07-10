@@ -1,5 +1,6 @@
 ---
 title: Feature previews
+displayed_sidebar: platformSidebar
 ---
 
 Before an official release, some features are available to our customers for testing. These feature previews let you try out upcoming enhancements and give our product teams feedback to help improve them.

@@ -1,5 +1,6 @@
 ---
 title: Lua scripts with Aiven for Caching
+displayed_sidebar: serviceSidebar
 ---
 
 Learn how to leverage the built-in support for Lua scripting in Aiven for Caching.

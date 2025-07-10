@@ -1,5 +1,6 @@
 ---
 title: Claim public schema ownership
+displayed_sidebar: serviceSidebar
 ---
 
 When an Aiven for PostgreSQL® instance is created, the `public` schema
@@ -10,14 +11,14 @@ can claim the ownership using the `aiven_extras` extension as the
 
 1.  Enable the `aiven_extras` extension:
 
-    ``` 
+    ```
     CREATE EXTENSION aiven_extras CASCADE;
     ```
 
 2.  Claim the public schema ownership with the dedicated
     `claim_public_schema_ownership` function:
 
-    ``` 
+    ```
     SELECT * FROM aiven_extras.claim_public_schema_ownership();
     ```
 

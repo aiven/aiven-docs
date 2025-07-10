@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to Google Pub/Sub Lite
+displayed_sidebar: serviceSidebar
 ---
 
 The [Google Pub/Sub Lite sink

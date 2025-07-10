@@ -1,5 +1,6 @@
 ---
 title: Use Apache Flink® with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 [Apache Flink®](https://flink.apache.org/) is an open-source platform for handling distributed streaming and batch data. It enhances Apache Kafka's® event streaming abilities by offering advanced features for consuming, transforming, aggregating, and enriching data.

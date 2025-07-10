@@ -1,5 +1,6 @@
 ---
 title: Online analytical processing
+displayed_sidebar: serviceSidebar
 ---
 
 Online analytical processing (OLAP) is an approach to producing

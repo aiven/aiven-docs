@@ -1,5 +1,6 @@
 ---
 title: Edit your user profile
+displayed_sidebar: platformSidebar
 ---
 
 To edit your name, job title, location, or other personal details in the

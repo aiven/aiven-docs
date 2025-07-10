@@ -1,5 +1,6 @@
 ---
 title: Enable logical replication on Amazon Aurora PostgreSQL®
+displayed_sidebar: serviceSidebar
 ---
 
 If you have not enabled logical replication on Aurora already, the

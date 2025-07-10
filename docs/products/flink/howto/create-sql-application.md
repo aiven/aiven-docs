@@ -1,5 +1,6 @@
 ---
 title: Create an SQL application
+displayed_sidebar: serviceSidebar
 ---
 
 Build data processing pipelines in Aiven for Apache Flink® by creating SQL applications using Apache Flink SQL. Set up source and sink tables, define processing logic, and manage your deployments.

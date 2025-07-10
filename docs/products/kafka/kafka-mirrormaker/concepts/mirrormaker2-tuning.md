@@ -1,5 +1,6 @@
 ---
 title: Configuration parameters for Aiven for Apache Kafka® MirrorMaker 2
+displayed_sidebar: serviceSidebar
 ---
 
 Learn about the configuration layers in Aiven for Apache Kafka® MirrorMaker 2, including service, replication flow, and integration settings.

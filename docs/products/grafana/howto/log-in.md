@@ -1,5 +1,6 @@
 ---
 title: Log in to Aiven for Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 Log in to Aiven for Grafana® to start monitoring your data sources.

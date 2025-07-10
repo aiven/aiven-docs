@@ -1,5 +1,6 @@
 ---
 title: Visualize PostgreSQL® data with Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 PostgreSQL® can hold a wide variety of types of data, and creating visualisations helps gather insights on top of raw figures. Aiven can set up the Grafana® and the integration between the two services for you.

@@ -1,5 +1,6 @@
 ---
 title: Integrate Aiven for Apache Kafka® Connect with PostgreSQL using Debezium with mutual TLS
+displayed_sidebar: serviceSidebar
 ---
 
 Integrate Aiven for Apache Kafka Connect with PostgreSQL using Debezium with mutual TLS (mTLS) to enhance security with mutual authentication.

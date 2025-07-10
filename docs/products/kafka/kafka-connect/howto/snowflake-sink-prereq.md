@@ -1,5 +1,6 @@
 ---
 title: Configure Snowflake for a sink connector
+displayed_sidebar: serviceSidebar
 ---
 
 To sink data from Apache Kafka® to Snowflake via the dedicated connector:

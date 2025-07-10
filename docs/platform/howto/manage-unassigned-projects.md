@@ -1,5 +1,6 @@
 ---
 title: Manage unassigned projects
+displayed_sidebar: platformSidebar
 ---
 
 An unassigned project is a project that isn't assigned to an organization or organizational unit. Projects that are part of an organization or unit are easier to maintain as common settings, like authentication, are centrally managed at the organization level. These projects also get the latest feature updates.

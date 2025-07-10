@@ -1,5 +1,6 @@
 ---
 title: Quotas in Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Quotas ensure fair resource allocation, stability, and efficiency in your Kafka cluster.

@@ -1,5 +1,6 @@
 ---
 title: Enable Apache Kafka® Connect connectors auto restart on failures
+displayed_sidebar: serviceSidebar
 ---
 
 If you experience an Apache Kafka® Connect connector failure, restarting automatically the task is generally not recommended.

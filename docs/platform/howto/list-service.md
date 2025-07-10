@@ -1,5 +1,6 @@
 ---
 title: Service management
+displayed_sidebar: platformSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

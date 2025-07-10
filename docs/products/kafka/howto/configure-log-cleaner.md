@@ -1,5 +1,6 @@
 ---
 title: Configure the log cleaner for topic compaction
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

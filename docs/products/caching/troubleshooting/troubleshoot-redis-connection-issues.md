@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot Caching connection issues
+displayed_sidebar: serviceSidebar
 ---
 
 Learn troubleshooting techniques for your Aiven for Caching service and resolve common connection issues.

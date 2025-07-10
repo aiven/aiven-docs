@@ -1,5 +1,6 @@
 ---
 title: SAML identity providers and verified domains
+displayed_sidebar: platformSidebar
 sidebar_label: Identity providers
 ---
 

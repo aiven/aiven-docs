@@ -1,5 +1,6 @@
 ---
 title: Migrate to Aiven for Apache Cassandra® with no downtime
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,5 +1,6 @@
 ---
 title: Increase metrics limit setting for Datadog
+displayed_sidebar: platformSidebar
 ---
 
 Monitoring services and applications are essential to know whether programs work as expected. To get started with monitoring, see [Aiven and Datadog integration](/docs/integrations/datadog/).

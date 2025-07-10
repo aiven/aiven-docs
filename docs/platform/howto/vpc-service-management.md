@@ -1,5 +1,6 @@
 ---
 title: Manage a service in a VPC
+displayed_sidebar: platformSidebar
 sidebar_label: Manage services in VPCs
 ---
 

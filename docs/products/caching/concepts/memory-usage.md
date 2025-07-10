@@ -1,5 +1,6 @@
 ---
 title: Memory Management and persistence in Aiven for Caching
+displayed_sidebar: serviceSidebar
 ---
 
 Learn how Aiven for Caching, compatible with legacy Redis® OSS up to version 7.2.4, addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.

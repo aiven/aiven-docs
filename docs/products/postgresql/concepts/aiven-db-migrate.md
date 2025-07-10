@@ -1,5 +1,6 @@
 ---
 title: About aiven-db-migrate
+displayed_sidebar: serviceSidebar
 ---
 
 The `aiven-db-migrate` tool is the recommended approach for migrating your PostgreSQL® to Aiven.

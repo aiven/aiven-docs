@@ -1,5 +1,6 @@
 ---
 title: Manage two-factor authentication
+displayed_sidebar: platformSidebar
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"

@@ -1,5 +1,6 @@
 ---
 title: Service and feature releases
+displayed_sidebar: platformSidebar
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";

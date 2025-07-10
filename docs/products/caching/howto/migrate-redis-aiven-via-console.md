@@ -1,5 +1,6 @@
 ---
 title: Migrate from Redis®* to Aiven for Caching using Aiven Console
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

@@ -1,5 +1,6 @@
 ---
 title: Reclaim disk space
+displayed_sidebar: serviceSidebar
 ---
 
 You can configure InnoDB to release disk space back to the operating system by running the `OPTIMIZE TABLE` command.

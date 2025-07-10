@@ -1,5 +1,6 @@
 ---
 title: Google Cloud Storage sink connector naming and data formats
+displayed_sidebar: serviceSidebar
 ---
 
 The Apache Kafka Connect® GCS sink connector by Aiven enables you to

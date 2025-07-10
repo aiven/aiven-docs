@@ -1,5 +1,6 @@
 ---
 title: Enable and configure tiered storage for topics
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
 ---
 title: Manage project virtual private clouds (VPCs) in Aiven
+displayed_sidebar: platformSidebar
 sidebar_label: Manage project VPCs
 ---
 

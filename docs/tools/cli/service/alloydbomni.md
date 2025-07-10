@@ -1,5 +1,6 @@
 ---
 title: avn service alloydbomni
+displayed_sidebar: toolSidebar
 ---
 
 List of commands for `avn service alloydbomni`

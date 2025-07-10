@@ -1,5 +1,6 @@
 ---
 title: Backup to another region for Aiven services
+displayed_sidebar: platformSidebar
 limited: true
 sidebar_label: Backup to another region
 ---

@@ -1,5 +1,6 @@
 ---
 title: Event and processing times
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

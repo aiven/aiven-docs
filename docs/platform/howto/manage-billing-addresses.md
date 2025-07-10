@@ -1,5 +1,6 @@
 ---
 title: Manage billing and shipping addresses
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

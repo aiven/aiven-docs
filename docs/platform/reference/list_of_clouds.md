@@ -1,5 +1,6 @@
 ---
 title: Available cloud regions
+displayed_sidebar: platformSidebar
 sidebar_label: Cloud regions
 ---
 <!-- vale off -->

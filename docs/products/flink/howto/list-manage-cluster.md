@@ -1,5 +1,6 @@
 ---
 title: Manage your Aiven for Apache Flink® cluster
+displayed_sidebar: serviceSidebar
 ---
 
 This section provides the resources needed to manage your Aiven for

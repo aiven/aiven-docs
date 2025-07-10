@@ -1,5 +1,6 @@
 ---
 title: Encrypt client-side with a custom serializer and deserializer
+displayed_sidebar: serviceSidebar
 ---
 
 With the Aiven platform, there are several deployment models available to meet your security and compliance needs:

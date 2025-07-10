@@ -1,5 +1,6 @@
 ---
 title: Aiven for Valkey™
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

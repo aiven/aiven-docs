@@ -1,5 +1,6 @@
 ---
 title: Static IP addresses
+displayed_sidebar: platformSidebar
 sidebar_label: Static IP
 ---
 

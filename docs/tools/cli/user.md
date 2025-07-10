@@ -1,5 +1,6 @@
 ---
 title: avn user
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for `avn user`.

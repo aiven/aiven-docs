@@ -1,5 +1,6 @@
 ---
 title: Change data retention period
+displayed_sidebar: serviceSidebar
 ---
 
 To avoid running out of disk space, by default, Apache Kafka® drops the oldest messages from the beginning of each log after their retention period expires.

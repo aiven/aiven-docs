@@ -1,5 +1,6 @@
 ---
 title: Migrate to a different cloud provider or region
+displayed_sidebar: serviceSidebar
 ---
 
 Any Aiven service can be relocated to a different cloud vendor or region. This is also valid for PostgreSQL® where the migration happens without downtime.

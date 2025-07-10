@@ -1,5 +1,6 @@
 ---
 title: File formats for the S3 table function in Aiven for ClickHouse®
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

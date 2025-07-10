@@ -1,5 +1,6 @@
 ---
 title: Manage SSL connectivity
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
 ---
 title: Manage organization VPC peering with Google Cloud
+displayed_sidebar: platformSidebar
 sidebar_label: Google Cloud peering
 limited: true
 ---

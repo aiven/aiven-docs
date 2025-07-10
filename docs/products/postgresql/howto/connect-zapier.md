@@ -1,5 +1,6 @@
 ---
 title: Connect with Zapier
+displayed_sidebar: serviceSidebar
 ---
 
 [Zapier](https://zapier.com/) is an automation platform that connects

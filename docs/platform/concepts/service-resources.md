@@ -1,5 +1,6 @@
 ---
 title: Service resources
+displayed_sidebar: platformSidebar
 ---
 
 You may have noticed that services in Aiven have different resources

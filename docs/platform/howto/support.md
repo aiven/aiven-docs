@@ -1,5 +1,6 @@
 ---
 title: Support
+displayed_sidebar: platformSidebar
 ---
 
 All customers using paid service plans have access to the Basic support tier. Aiven also offers [paid support tiers](https://aiven.io/support-services) with faster response times, phone support, and other services. Custom [service level agreements](https://aiven.io/sla) are available for the Premium support tier.

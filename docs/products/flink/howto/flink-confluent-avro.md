@@ -1,5 +1,6 @@
 ---
 title: Create Confluent Avro-based Apache Flink® table
+displayed_sidebar: serviceSidebar
 ---
 
 [Confluent Avro](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/formats/avro-confluent/) is a serialization format that requires integrating with a schema registry.

@@ -1,5 +1,6 @@
 ---
 title: Enable and manage OpenSearch® Audit logs
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

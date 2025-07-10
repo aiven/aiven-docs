@@ -1,5 +1,6 @@
 ---
 title: Carbon footprint
+displayed_sidebar: platformSidebar
 early: true
 ---
 

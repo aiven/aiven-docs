@@ -1,5 +1,6 @@
 ---
 title: avn service privatelink
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for

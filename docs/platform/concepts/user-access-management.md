@@ -1,5 +1,6 @@
 ---
 title: User and access management
+displayed_sidebar: platformSidebar
 ---
 
 There are several types of users in the Aiven Platform:

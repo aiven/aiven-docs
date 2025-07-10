@@ -1,5 +1,6 @@
 ---
 title: Trade-offs and limitations
+displayed_sidebar: serviceSidebar
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 

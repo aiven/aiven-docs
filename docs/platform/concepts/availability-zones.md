@@ -1,5 +1,6 @@
 ---
 title: Availability zones
+displayed_sidebar: platformSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

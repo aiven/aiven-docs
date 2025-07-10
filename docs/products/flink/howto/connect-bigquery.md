@@ -1,5 +1,6 @@
 ---
 title: Integrate Aiven for Apache Flink® with Google BigQuery
+displayed_sidebar: serviceSidebar
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"

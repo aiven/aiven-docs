@@ -1,5 +1,6 @@
 ---
 title: Aiven for M3 components
+displayed_sidebar: serviceSidebar
 ---
 
 M3 consists of three components, which at Aiven are provided as two

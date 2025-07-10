@@ -1,5 +1,6 @@
 ---
 title: Manage quotas
+displayed_sidebar: serviceSidebar
 ---
 
 You can add and manage quotas for your Aiven for Apache Kafka® service using the [Aiven Console](https://console.aiven.io/).

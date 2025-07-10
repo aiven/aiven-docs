@@ -1,5 +1,6 @@
 ---
 title: Integration of logs into Apache Kafka® topic
+displayed_sidebar: serviceSidebar
 ---
 
 You can send logs from your Aiven services into a specified Apache Kafka® topic.

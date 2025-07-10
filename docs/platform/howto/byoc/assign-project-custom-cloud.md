@@ -1,5 +1,6 @@
 ---
 title: Enable a custom cloud in Aiven organizations, units, or projects
+displayed_sidebar: platformSidebar
 sidebar_label: Attach projects
 ---
 

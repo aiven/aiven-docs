@@ -1,5 +1,6 @@
 ---
 title: Create an MQTT sink connector
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

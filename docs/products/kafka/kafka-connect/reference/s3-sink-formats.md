@@ -1,5 +1,6 @@
 ---
 title: AWS S3 sink connector naming and data formats
+displayed_sidebar: serviceSidebar
 ---
 
 The **Apache Kafka Connect® S3 sink connector** enables you to move data

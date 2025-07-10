@@ -1,5 +1,6 @@
 ---
 title: Add Google as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: Google
 ---
 <!-- vale off -->

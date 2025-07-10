@@ -1,5 +1,6 @@
 ---
 title: Low disk space watermarks
+displayed_sidebar: serviceSidebar
 ---
 
 OpenSearch® relies on three indicators to identify and respond to low disk space.

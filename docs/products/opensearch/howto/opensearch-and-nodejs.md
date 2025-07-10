@@ -1,5 +1,6 @@
 ---
 title: Write search queries with OpenSearch® and NodeJS
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

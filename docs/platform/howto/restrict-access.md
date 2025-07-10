@@ -1,5 +1,6 @@
 ---
 title: Restrict network access to services
+displayed_sidebar: platformSidebar
 sidebar_label: Restrict access
 ---
 

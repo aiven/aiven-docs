@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for MySQL® with Java
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

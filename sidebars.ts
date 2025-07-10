@@ -12,7 +12,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
-  main: [
+  platformSidebar: [
     {
       type: 'category',
       label: 'Overview',
@@ -446,6 +446,8 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+  ],
+  toolSidebar: [
     {
       type: 'category',
       label: 'Aiven dev tools',
@@ -524,6 +526,8 @@ const sidebars: SidebarsConfig = {
         'tools/query-optimizer',
       ],
     },
+  ],
+  serviceSidebar: [
     {
       type: 'category',
       label: 'Services',

@@ -1,5 +1,6 @@
 ---
 title: Aiven API
+displayed_sidebar: toolSidebar
 ---
 
 import RIP from "@site/static/includes/run-in-postman.md";

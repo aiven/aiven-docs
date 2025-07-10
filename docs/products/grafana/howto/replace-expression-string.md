@@ -1,5 +1,6 @@
 ---
 title: Replace strings in Grafana® dashboards
+displayed_sidebar: serviceSidebar
 ---
 
 Sometimes, it is useful to replace all occurrences of a string in Grafana® metric expressions.

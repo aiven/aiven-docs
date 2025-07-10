@@ -1,5 +1,6 @@
 ---
 title: Tag custom cloud resources
+displayed_sidebar: platformSidebar
 sidebar_label: Tag resources
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Optimal number of shards
+displayed_sidebar: serviceSidebar
 ---
 
 A key component of using OpenSearch® is determining the optimal number of shards for your index.

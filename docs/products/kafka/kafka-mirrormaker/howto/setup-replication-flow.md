@@ -1,5 +1,6 @@
 ---
 title: Set up an Apache Kafka® MirrorMaker 2 replication flow
+displayed_sidebar: serviceSidebar
 ---
 
 Apache Kafka® MirrorMaker 2 **replication flows** enable the topics sync from a source Apache Kafka® cluster to a target Apache Kafka cluster deployed anywhere in the world.

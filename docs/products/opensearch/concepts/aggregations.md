@@ -1,5 +1,6 @@
 ---
 title: Aggregations
+displayed_sidebar: serviceSidebar
 ---
 
 Alongside the search functionality, OpenSearch® offers a powerful

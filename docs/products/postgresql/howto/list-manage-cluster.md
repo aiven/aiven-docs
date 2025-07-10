@@ -1,5 +1,6 @@
 ---
 title: Cluster management
+displayed_sidebar: serviceSidebar
 ---
 
 - [Monitor a managed service](/docs/platform/howto/list-monitoring)

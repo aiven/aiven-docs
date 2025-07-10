@@ -1,5 +1,6 @@
 ---
 title: Create a PostgreSQL®-based Apache Flink® table
+displayed_sidebar: serviceSidebar
 ---
 
 To build data pipelines, Apache Flink® requires source and target data

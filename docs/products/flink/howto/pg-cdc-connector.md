@@ -1,5 +1,6 @@
 ---
 title: Create a PostgreSQL® CDC connector-based Apache Flink®
+displayed_sidebar: serviceSidebar
 ---
 
 Change Data Capture (CDC) is a technique that enables the tracking and capturing of changes made to data within a PostgreSQL® database.

@@ -1,5 +1,6 @@
 ---
 title: Password policy
+displayed_sidebar: platformSidebar
 ---
 
 Aiven is committed to keeping your data secure. Creating a strong

@@ -1,5 +1,6 @@
 ---
 title: Integrate an external Apache Kafka® cluster in Aiven
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Kafka® MirrorMaker 2 enables the cross-cluster topic replication between any two Apache Kafka® clusters, which can be deployed as Aiven or external services.

@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for AlloyDB Omni
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

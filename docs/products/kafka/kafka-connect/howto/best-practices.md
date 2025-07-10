@@ -1,5 +1,6 @@
 ---
 title: Get the best from Apache Kafka® Connect
+displayed_sidebar: serviceSidebar
 ---
 
 We recommend to follow these best practices to ensure that your Apache

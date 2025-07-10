@@ -1,5 +1,6 @@
 ---
 title: String data type in Aiven for ClickHouse®
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for ClickHouse® uses ClickHouse® databases, which can store diverse types of data, such as strings, decimals, booleans, or arrays.

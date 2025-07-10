@@ -1,5 +1,6 @@
 ---
 title: Connect with Python
+displayed_sidebar: serviceSidebar
 ---
 
 This example demonstrates how to connect to Dragonfly® using Python,

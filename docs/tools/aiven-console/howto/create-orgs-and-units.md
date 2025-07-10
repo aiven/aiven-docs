@@ -1,5 +1,6 @@
 ---
 title: Create organizations and organizational units
+displayed_sidebar: toolSidebar
 sidebar_label: Create organizations and units
 ---
 

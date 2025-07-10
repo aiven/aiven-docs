@@ -1,5 +1,6 @@
 ---
 title: Configure Apache Kafka® metrics sent to Datadog
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,5 +1,6 @@
 ---
 title: Write data to M3DB with PHP
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

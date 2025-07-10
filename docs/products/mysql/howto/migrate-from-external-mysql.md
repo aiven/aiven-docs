@@ -1,5 +1,6 @@
 ---
 title: Migrate to Aiven for MySQL from an external MySQL
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

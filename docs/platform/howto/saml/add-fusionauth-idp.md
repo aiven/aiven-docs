@@ -1,5 +1,6 @@
 ---
 title: Add FusionAuth as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: FusionAuth
 ---
 <!-- vale off -->

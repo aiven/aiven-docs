@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to MongoDB
+displayed_sidebar: serviceSidebar
 ---
 
 The MongoDB sink connector enables you to move data from an Aiven for

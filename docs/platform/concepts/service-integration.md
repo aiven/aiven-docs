@@ -1,5 +1,6 @@
 ---
 title: Service integrations
+displayed_sidebar: platformSidebar
 ---
 
 Service integrations provide additional functionality and features by connecting different Aiven services together.

@@ -1,5 +1,6 @@
 ---
 title: Enable Apache Kafka® REST proxy authorization
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

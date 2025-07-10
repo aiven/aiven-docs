@@ -1,5 +1,6 @@
 ---
 title: Manage teams
+displayed_sidebar: toolSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

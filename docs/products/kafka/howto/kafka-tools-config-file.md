@@ -1,5 +1,6 @@
 ---
 title: Configure properties for Apache Kafka® toolbox
+displayed_sidebar: serviceSidebar
 ---
 
 The [open source Apache Kafka® code](https://kafka.apache.org/downloads) includes a series of tools under the `bin` directory that can be useful to manage and interact with an Aiven for Apache Kafka® service.

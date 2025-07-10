@@ -1,5 +1,6 @@
 ---
 title: Migrate to Aiven for PostgreSQL® with aiven-db-migrate
+displayed_sidebar: serviceSidebar
 ---
 
 The `aiven-db-migrate` tool is an open source project available on [GitHub](https://github.com/aiven/aiven-db-migrate), and it is the preferred way to perform PostgreSQL® database migration.

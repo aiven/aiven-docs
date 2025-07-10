@@ -1,5 +1,6 @@
 ---
 title: Create Apache Flink® data service integrations
+displayed_sidebar: serviceSidebar
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"

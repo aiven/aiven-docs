@@ -1,5 +1,6 @@
 ---
 title: Enable OAuth2/OIDC support for Apache Kafka® REST proxy
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

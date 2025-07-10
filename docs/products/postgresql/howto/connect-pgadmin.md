@@ -1,5 +1,6 @@
 ---
 title: Connect with pgAdmin
+displayed_sidebar: serviceSidebar
 ---
 
 [pgAdmin](https://www.pgadmin.org/) is one of the most popular PostgreSQL® clients. Use it to manage and query your database.

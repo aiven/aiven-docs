@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for MySQL® with Python
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

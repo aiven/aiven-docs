@@ -1,5 +1,6 @@
 ---
 title: Add client-side Apache Kafka® producer and consumer Datadog metrics
+displayed_sidebar: serviceSidebar
 ---
 
 When you enable the

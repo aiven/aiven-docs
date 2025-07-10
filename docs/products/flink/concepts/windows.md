@@ -1,5 +1,6 @@
 ---
 title: Windows
+displayed_sidebar: serviceSidebar
 ---
 
 Apache Flink® uses the concept of *windows* to manage the continuous flow of data in streams by segmenting it into manageable chunks. This approach is essential due to the continuous and unbounded nature of data streams, where waiting for all data to arrive is impractical.

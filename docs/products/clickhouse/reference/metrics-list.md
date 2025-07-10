@@ -1,5 +1,6 @@
 ---
 title: Aiven for ClickHouse® metrics exposed in Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 Browse through metrics that are available via Grafana® for Aiven for

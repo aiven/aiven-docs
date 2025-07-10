@@ -1,5 +1,6 @@
 ---
 title: Get partition details of an Apache Kafka® topic
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

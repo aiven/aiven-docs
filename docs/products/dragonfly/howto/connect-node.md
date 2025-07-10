@@ -1,5 +1,6 @@
 ---
 title: Connect with NodeJS
+displayed_sidebar: serviceSidebar
 ---
 
 This example demonstrates how to connect to Dragonfly® from NodeJS using

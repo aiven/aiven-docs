@@ -1,5 +1,6 @@
 ---
 title: Create a custom cloud
+displayed_sidebar: platformSidebar
 sidebar_label: Create custom clouds
 keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud]
 ---

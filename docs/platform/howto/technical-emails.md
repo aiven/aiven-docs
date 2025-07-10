@@ -1,5 +1,6 @@
 ---
 title: Manage project and service notifications
+displayed_sidebar: platformSidebar
 ---
 
 import Tabs from '@theme/Tabs';

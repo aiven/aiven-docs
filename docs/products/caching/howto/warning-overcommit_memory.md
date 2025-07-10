@@ -1,5 +1,6 @@
 ---
 title: Handle warning overcommit_memory
+displayed_sidebar: serviceSidebar
 ---
 
 When starting a Aiven for Caching service on [Aiven

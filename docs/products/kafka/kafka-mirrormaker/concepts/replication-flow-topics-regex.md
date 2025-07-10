@@ -1,5 +1,6 @@
 ---
 title: Topics included in a replication flow
+displayed_sidebar: serviceSidebar
 ---
 
 When [defining a replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow), define which topics in the source Apache Kafka® cluster to include or exclude from the cross-cluster replica.

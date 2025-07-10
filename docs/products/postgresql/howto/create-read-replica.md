@@ -1,5 +1,6 @@
 ---
 title: Create and use read-only replicas
+displayed_sidebar: serviceSidebar
 ---
 
 PostgreSQL® read-only replicas provide a great way to reduce the load on the primary server by enabling read-only queries to be performed against the replica.

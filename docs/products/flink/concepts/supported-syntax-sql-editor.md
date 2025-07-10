@@ -1,5 +1,6 @@
 ---
 title: Built-in SQL editor
+displayed_sidebar: serviceSidebar
 ---
 
 The built-in Table SQL editor in the [Aiven
