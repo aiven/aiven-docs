@@ -39,8 +39,8 @@ Download a Terraform template and a variables file that define the infrastructur
 <TabItem value="1" label="Aiven Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
-1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
-    in the sidebar.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**, and click
+    <ConsoleLabel name="bringyourowncloud"/> in the sidebar.
 1.  Select a cloud, and find the **Infrastructure template** on the **Overview**.
 1.  Click <ConsoleLabel name="download"/>.
 
@@ -64,8 +64,8 @@ avn byoc template terraform get-template                       \
 <TabItem value="1" label="Aiven Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your organization.
-1.  Click **Admin** in the top navigation, and click <ConsoleLabel name="bringyourowncloud"/>
-    in the sidebar.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**, and click
+    <ConsoleLabel name="bringyourowncloud"/> in the sidebar.
 1.  Select a cloud, and find the **Variables file** on the **Overview**.
 1.  Click <ConsoleLabel name="download"/>.
 

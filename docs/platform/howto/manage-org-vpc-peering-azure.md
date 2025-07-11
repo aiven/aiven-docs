@@ -269,7 +269,7 @@ The Aiven application object authenticates with your Azure tenant to grant it ac
    <Tabs groupId="group1">
    <TabItem value="gui" label="Aiven Console" default>
    1. Log in to the [Aiven Console](https://console.aiven.io/).
-   1. Go to your organization, and click **Admin** in the top navigation bar.
+   1. In your organization, click <ConsoleLabel name="userinformation"/> > **Admin**.
    1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
    1. On the **Virtual private clouds** page, select your organization VPC.
    1. On the **VPC details** page, go to the **Overview** section, and copy **ID**.
@@ -327,8 +327,8 @@ The Aiven application object authenticates with your Azure tenant to grant it ac
 </TabItem>
 <TabItem value="gui" label="Aiven Console">
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
-   top navigation bar.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to
+   <ConsoleLabel name="userinformation"/> > **Admin**.
 1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
 1. On the **Virtual private clouds** page, select an organization VPC to peer.
 1. On the **VPC details** page, go to the **VPC peering connections** section and

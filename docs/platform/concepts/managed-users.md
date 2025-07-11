@@ -26,12 +26,13 @@ Users in an organization with a verified domain automatically become managed use
 
 ## View all managed users in an organization
 
-1. Click **Admin** > **Users**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="users"/>.
 
 ## Deactivate a managed user
 
-1. Click **Admin**.
-1. Select **Users**.
-1. Find the user and click <ConsoleLabel name="actions"/> > **Deactivate**.
+1.  Click <ConsoleLabel name="userinformation"/> > **Admin**.
+1.  Click <ConsoleLabel name="users"/>.
+1.  Find the user and click <ConsoleLabel name="actions"/> > **Deactivate**.
 
 You can follow the same process to reactivate the user.

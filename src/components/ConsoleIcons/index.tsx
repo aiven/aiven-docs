@@ -246,6 +246,19 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>User profile</b>
         </>
       );
+    case 'featurepreview':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} />{' '}
+          <b>Feature preview</b>
+        </>
+      );
+    case 'support':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.lifeBuoy} /> <b>Support</b>
+        </>
+      );
     case 'authenticationmethod':
       return (
         <>
@@ -261,7 +274,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'billing':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.bankAccount} /> <b>Billing</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.currencyDollar} />{' '}
+          <b>Billing</b>
         </>
       );
     case 'invoices':
@@ -284,6 +298,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Payment methods</b>
         </>
       );
+    case 'invoices':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.inbox} /> <b>Invoices</b>
     case 'billingaddress':
       return (
         <>
