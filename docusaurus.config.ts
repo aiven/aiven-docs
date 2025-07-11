@@ -101,16 +101,17 @@ const config: Config = {
       'data-modal-disclaimer-font-size': '12px',
       'data-modal-disclaimer-text-color': '#4A4B57',
       'data-modal-disclaimer-bg-color': 'transparent',
-      'data-modal-example-questions-title':
-        'For best results, ask full questions like the following:',
+      'data-modal-example-questions-title': 'Example questions:',
       'data-modal-example-questions':
-        'How do I set up billing for a project in my organization?, How do I configure single sign-on for users in my organization?, Can I use Terraform to manage my organization and services?',
+        'How do I set up billing for a project in my organization?, How do I migrate data to Aiven for PostgreSQL?, I want to use Terraform to create a Kafka service.',
       'data-example-question-button-hover-bg-color': '#E3E9FF',
       'data-answer-feedback-info-text':
         'You can also provide comments after selecting a rating.',
       'data-modal-ask-ai-input-placeholder': 'Ask any question about Aiven',
       'data-modal-disclaimer':
-        "This AI chatbot generates answers based on Aiven's documentation, changelog, and some webpages. The responses may contain errors. Don't include personal or sensitive information in your questions. For more information, review Aiven's [website terms of use](https://aiven.io/website-terms) and kapa.ai's [privacy policy](https://www.kapa.ai/content/privacy-policy).",
+        "This AI chatbot generates answers based only on Aiven's documentation, changelog, and some webpages. The responses may contain errors.\n\n" +
+        'For best results, include information like which tool you are using (Console, API, CLI, Terraform), the service type, and other details.\n\n' +
+        "**Don't include personal or sensitive information in your questions.** For more information, review Aiven's [website terms of use](https://aiven.io/website-terms) and kapa.ai's [privacy policy](https://www.kapa.ai/content/privacy-policy).",
     },
     {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
