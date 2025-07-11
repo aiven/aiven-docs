@@ -10,12 +10,6 @@ import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 A topic in Aiven for Apache Kafka® is a named stream of messages used by producers to send data and by consumers to read it.
 
 You can configure Aiven for Apache Kafka to
-[automatically create topics](create-topics-automatically) when a message is sent to a
-topic that does not exist. However, manual topic creation is recommended, especially in
-production environments, because it provides more control over key settings and helps
-prevent errors.
-
-You can configure Aiven for Apache Kafka to
 [automatically create topics](create-topics-automatically) when a message is
 produced to a non-existent topic, but it is recommended to create topics beforehand,
 especially in production environments.
@@ -80,7 +74,7 @@ its settings.
 <TabItem value="terraform" label="Terraform">
 
 Use the `aiven_kafka_topic` resource to define a topic in your Aiven for Apache Kafka
-service. Set required fields such as `project`, `service_name`, and `topic_name`.
+service.
 
 <TerraformSample filename='resources/aiven_kafka_topic/resource.tf' />
 
