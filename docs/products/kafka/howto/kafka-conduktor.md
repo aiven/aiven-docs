@@ -1,5 +1,6 @@
 ---
 title: Connect to Apache Kafka® with Conduktor
+displayed_sidebar: serviceSidebar
 ---
 
 [Conduktor](https://www.conduktor.io/) is a friendly user interface for Apache Kafka and it works with Aiven and offers built-in support for setting up the connection.

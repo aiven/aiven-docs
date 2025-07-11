@@ -1,5 +1,6 @@
 ---
 title: Add Okta as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: Okta
 ---
 <!-- vale off -->

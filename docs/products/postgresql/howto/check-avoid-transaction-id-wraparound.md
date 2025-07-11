@@ -1,5 +1,6 @@
 ---
 title: Check and avoid transaction ID wraparound
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,5 +1,6 @@
 ---
 title: Use M3DB as remote storage for Prometheus
+displayed_sidebar: serviceSidebar
 ---
 
 M3DB is an excellent candidate for a highly scalable remote storage solution for your [Prometheus](https://prometheus.io/) monitoring system.

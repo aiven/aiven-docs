@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector by Lenses.io from Apache Kafka® to MongoDB
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

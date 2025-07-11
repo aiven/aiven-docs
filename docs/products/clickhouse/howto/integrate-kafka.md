@@ -1,5 +1,6 @@
 ---
 title: Connect Apache Kafka® to Aiven for ClickHouse®
+displayed_sidebar: serviceSidebar
 ---
 
 You can integrate Aiven for ClickHouse® with either Aiven for Apache Kafka® service located in the same project, or an external Apache Kafka endpoint.

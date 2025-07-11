@@ -1,5 +1,6 @@
 ---
 title: Integrate Aiven for Apache Flink® with Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Integrating external/self-hosted Apache Kafka® with Aiven for Apache Flink® allows users to leverage the power of both technologies to build scalable and robust real-time streaming applications.

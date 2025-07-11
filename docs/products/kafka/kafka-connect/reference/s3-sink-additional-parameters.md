@@ -1,5 +1,6 @@
 ---
 title: S3 sink connector by Aiven naming and data formats
+displayed_sidebar: serviceSidebar
 ---
 
 The **Apache Kafka Connect® S3 sink connector** by Aiven enables you to

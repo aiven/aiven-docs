@@ -1,5 +1,6 @@
 ---
 title: avn service kafka-acl
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for `avn service kafka-acl`.

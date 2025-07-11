@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Kafka® Connect secret providers
+displayed_sidebar: serviceSidebar
 ---
 
 Configure and use secret providers in Apache Kafka Connect services on Aiven for Apache Kafka.

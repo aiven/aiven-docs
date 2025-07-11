@@ -1,5 +1,6 @@
 ---
 title: Monitor Aiven for ClickHouse® metrics with Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 As well as offering ClickHouse®-as-a-service, the Aiven platform gives

@@ -1,5 +1,6 @@
 ---
 title: Rename a custom cloud
+displayed_sidebar: platformSidebar
 sidebar_label: Rename custom clouds
 ---
 

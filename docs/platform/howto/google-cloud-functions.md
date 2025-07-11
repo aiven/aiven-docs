@@ -1,5 +1,6 @@
 ---
 title: Access Aiven services from Google Cloud Functions via VPC peering
+displayed_sidebar: platformSidebar
 sidebar_label: Access services from GCF via VPC peering
 ---
 

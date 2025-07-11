@@ -1,5 +1,6 @@
 ---
 title: Set up a project VPC peering
+displayed_sidebar: platformSidebar
 sidebar_label: Project VPC peering
 ---
 

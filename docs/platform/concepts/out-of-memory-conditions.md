@@ -1,5 +1,6 @@
 ---
 title: Out of memory conditions
+displayed_sidebar: platformSidebar
 ---
 
 Many processes request more memory from the kernel then they will ever use or need, because of this the kernel over allocates memory (heuristic overcommit).

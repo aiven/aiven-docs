@@ -1,5 +1,6 @@
 ---
 title: Use Kafdrop Web UI with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 

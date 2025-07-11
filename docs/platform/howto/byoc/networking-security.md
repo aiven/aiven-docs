@@ -1,5 +1,6 @@
 ---
 title: Bring your own cloud networking and security
+displayed_sidebar: platformSidebar
 sidebar_label: Networking & security
 ---
 

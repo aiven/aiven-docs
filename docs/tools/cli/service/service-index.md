@@ -1,5 +1,6 @@
 ---
 title: avn service index
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for `avn service index`.

@@ -1,5 +1,6 @@
 ---
 title: About scaling M3
+displayed_sidebar: serviceSidebar
 ---
 
 [M3](https://m3db.io/) scales horizontally up to a large number of nodes, at least in the low hundreds in a single cluster, and thousands, overall. Understand how to make good use of the resources and manage the load.

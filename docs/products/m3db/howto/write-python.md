@@ -1,5 +1,6 @@
 ---
 title: Write data to M3DB with Python
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

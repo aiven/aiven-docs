@@ -1,5 +1,6 @@
 ---
 title: Service forking
+displayed_sidebar: platformSidebar
 ---
 
 import Tabs from '@theme/Tabs';

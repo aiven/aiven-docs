@@ -1,5 +1,6 @@
 ---
 title: Update Grafana® service credentials
+displayed_sidebar: serviceSidebar
 ---
 
 For improved security, it is recommended to periodically update your

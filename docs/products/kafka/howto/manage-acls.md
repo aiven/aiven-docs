@@ -1,5 +1,6 @@
 ---
 title: Manage access control lists in Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

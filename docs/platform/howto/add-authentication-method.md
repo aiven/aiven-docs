@@ -1,5 +1,6 @@
 ---
 title: Add authentication methods
+displayed_sidebar: platformSidebar
 ---
 
 You can authenticate directly with your email and password, or use single sign-on through providers like GitHub, Google, and Microsoft.

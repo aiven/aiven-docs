@@ -1,5 +1,6 @@
 ---
 title: Request service custom plans
+displayed_sidebar: platformSidebar
 ---
 
 Aiven stock plans are designed to cover most common use cases. The plans are tested and configurations optimized to work well across the different clouds.

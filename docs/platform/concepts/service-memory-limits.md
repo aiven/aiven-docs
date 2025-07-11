@@ -1,5 +1,6 @@
 ---
 title: Service memory limits
+displayed_sidebar: platformSidebar
 ---
 
 The practical memory limit will always be less than the service physical

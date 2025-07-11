@@ -1,5 +1,6 @@
 ---
 title: Bring your own Apache Kafka® Connect cluster
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

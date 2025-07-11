@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Cassandra® metrics available via Prometheus
+displayed_sidebar: serviceSidebar
 ---
 
 This is the list of all metrics available via Prometheus for Aiven for Apache Cassandra® services.

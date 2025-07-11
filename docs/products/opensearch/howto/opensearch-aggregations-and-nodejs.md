@@ -1,5 +1,6 @@
 ---
 title: Use Aggregations with OpenSearch® and NodeJS
+displayed_sidebar: serviceSidebar
 ---
 
 Learn how to aggregate data using OpenSearch and its NodeJS client.

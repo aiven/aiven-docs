@@ -1,5 +1,6 @@
 ---
 title: Upgrade Elasticsearch clients to OpenSearch®
+displayed_sidebar: serviceSidebar
 ---
 
 Elasticsearch has introduced breaking changes into their client libraries as early as **7.13.\***, meaning newer Elasticsearch clients won't work with OpenSearch®.

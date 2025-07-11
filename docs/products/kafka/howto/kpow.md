@@ -1,5 +1,6 @@
 ---
 title: Use Kpow with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 [Kpow by Factor House](https://factorhouse.io/kpow) is a popular Web UI for Apache Kafka® that allows you to monitor a cluster, view topics and consumer groups, produce and consume data with integration into the Schema Registry.

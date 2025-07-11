@@ -1,5 +1,6 @@
 ---
 title: Configure GCP for a Google Cloud Storage sink connector
+displayed_sidebar: serviceSidebar
 ---
 
 You can sink data from Apache Kafka® to Google Cloud Storage via the dedicated Aiven connector.

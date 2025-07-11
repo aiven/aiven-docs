@@ -1,5 +1,6 @@
 ---
 title: Send emails from Aiven for Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 Use the Aiven API or the Aiven client to configure the Simple Mail Transfer Protocol (SMTP) server settings and send the following emails from Aiven for Grafana®: invite emails, reset password emails, and alert messages.

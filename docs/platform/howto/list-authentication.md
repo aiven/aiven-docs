@@ -1,5 +1,6 @@
 ---
 title: Authentication methods
+displayed_sidebar: platformSidebar
 ---
 
 Users can authenticate to the Aiven platform using a password, single sign-on (SSO), or [tokens](/docs/platform/concepts/authentication-tokens). The available authentication methods depend on the organization's [authentication policy](/docs/platform/howto/set-authentication-policies).

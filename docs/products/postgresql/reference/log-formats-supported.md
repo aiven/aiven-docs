@@ -1,5 +1,6 @@
 ---
 title: Supported log formats
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for PostgreSQL® supports setting different log formats which are compatible with popular log analysis tools like `pgbadger` or `pganalyze`.

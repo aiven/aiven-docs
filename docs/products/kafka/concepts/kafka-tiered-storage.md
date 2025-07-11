@@ -1,5 +1,6 @@
 ---
 title: Tiered storage in Aiven for Apache Kafka® overview
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

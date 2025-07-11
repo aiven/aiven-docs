@@ -1,5 +1,6 @@
 ---
 title: Dashboard preview for Aiven for Grafana®
+displayed_sidebar: serviceSidebar
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"

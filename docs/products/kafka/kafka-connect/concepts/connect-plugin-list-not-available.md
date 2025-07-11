@@ -1,5 +1,6 @@
 ---
 title: Causes of "connector list not currently available"
+displayed_sidebar: serviceSidebar
 ---
 
 Sometimes, when accessing the [Aiven Console](https://console.aiven.io/) and trying to view the list of connectors in your Aiven for Apache Kafka® Connect cluster you can encounter the message `connector list not currently available`.

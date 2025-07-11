@@ -1,5 +1,6 @@
 ---
 title: Create a Slack-based Apache Flink® table
+displayed_sidebar: serviceSidebar
 ---
 
 With Aiven's Slack Connector for Apache Flink®, you can create sink

@@ -1,5 +1,6 @@
 ---
 title: End of life for major versions of Aiven services and tools
+displayed_sidebar: platformSidebar
 sidebar_label: End of life for service versions and tools
 ---
 

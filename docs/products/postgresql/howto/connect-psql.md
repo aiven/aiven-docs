@@ -1,5 +1,6 @@
 ---
 title: Connect with psql
+displayed_sidebar: serviceSidebar
 ---
 
 `psql` is a command line tool for PostgreSQL®, useful to manage and

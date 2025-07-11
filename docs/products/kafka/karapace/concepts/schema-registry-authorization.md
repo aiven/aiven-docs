@@ -1,5 +1,6 @@
 ---
 title: Karapace schema registry authorization
+displayed_sidebar: serviceSidebar
 ---
 
 The schema registry authorization feature when enabled in

@@ -1,5 +1,6 @@
 ---
 title: Migrate Aiven for Caching or Valkey to Aiven for Valkey™
+displayed_sidebar: serviceSidebar
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"

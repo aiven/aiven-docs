@@ -1,5 +1,6 @@
 ---
 title: Change your password
+displayed_sidebar: platformSidebar
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"

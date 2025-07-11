@@ -1,5 +1,6 @@
 ---
 title: Connect Aiven for ClickHouse® to external databases via JDBC
+displayed_sidebar: serviceSidebar
 ---
 
 You can use [ClickHouse JDBC

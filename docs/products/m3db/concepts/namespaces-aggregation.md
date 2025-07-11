@@ -1,5 +1,6 @@
 ---
 title: About M3DB namespaces and aggregation
+displayed_sidebar: serviceSidebar
 ---
 
 M3DB has a concept of namespaces, which can be compared to tables in a

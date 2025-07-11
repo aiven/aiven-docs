@@ -1,5 +1,6 @@
 ---
 title: Integrate your Aiven for ClickHouse® service
+displayed_sidebar: serviceSidebar
 ---
 
 This section provides instructions on how to integrate your Aiven for

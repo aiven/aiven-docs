@@ -1,5 +1,6 @@
 ---
 title: Scale disk storage automatically
+displayed_sidebar: platformSidebar
 ---
 
 import Tabs from '@theme/Tabs';

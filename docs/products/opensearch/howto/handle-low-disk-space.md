@@ -1,5 +1,6 @@
 ---
 title: Handle low disk space
+displayed_sidebar: serviceSidebar
 ---
 
 OpenSearch® relies on [watermarks](/docs/products/opensearch/reference/low-space-watermarks) to respond to low disk space.

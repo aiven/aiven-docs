@@ -1,5 +1,6 @@
 ---
 title: Create an Apache Kafka®-based Apache Flink® table
+displayed_sidebar: serviceSidebar
 ---
 
 To build data pipelines, Apache Flink® requires you to map source and target data structures as [Flink tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table) within an application.

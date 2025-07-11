@@ -1,5 +1,6 @@
 ---
 title: Aiven for AlloyDB Omni
+displayed_sidebar: serviceSidebar
 ---
 
 Harness the speed and scalability of Google AlloyDB Omni on any cloud, managed by Aiven.

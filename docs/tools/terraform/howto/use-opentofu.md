@@ -1,5 +1,6 @@
 ---
 title: Use OpenTofu with Aiven Provider for Terraform
+displayed_sidebar: toolSidebar
 sidebar_label: Use OpenTofu
 ---
 

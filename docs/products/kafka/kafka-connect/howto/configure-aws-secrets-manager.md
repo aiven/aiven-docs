@@ -1,5 +1,6 @@
 ---
 title: Configure AWS Secrets Manager
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
 ---
 title: Manage an organization VPC peering with AWS
+displayed_sidebar: platformSidebar
 sidebar_label: AWS peering
 limited: true
 ---

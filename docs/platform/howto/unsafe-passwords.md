@@ -1,5 +1,6 @@
 ---
 title: Change unsafe passwords
+displayed_sidebar: platformSidebar
 ---
 
 The Aiven Platform checks your email and password combination against a database of exposed credentials every time you log in and change your password.

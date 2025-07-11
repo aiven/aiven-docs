@@ -1,5 +1,6 @@
 ---
 title: Backup and restore Aiven for MySQL® data using mysqldump
+displayed_sidebar: serviceSidebar
 ---
 
 Backing up your Aiven for MySQ® data to another storage service is a good way to ensure access to your data in case a failure occurs.

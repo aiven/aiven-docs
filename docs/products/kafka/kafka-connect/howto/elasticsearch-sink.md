@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to Elasticsearch
+displayed_sidebar: serviceSidebar
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 

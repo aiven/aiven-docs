@@ -1,5 +1,6 @@
 ---
 title: Connect to OpenSearch® cluster with Python
+displayed_sidebar: serviceSidebar
 ---
 
 You can interact with your cluster with the help of the [Python OpenSearch® client](https://github.com/opensearch-project/opensearch-py).

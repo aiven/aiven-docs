@@ -1,5 +1,6 @@
 ---
 title: Monitor a database with Datadog
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

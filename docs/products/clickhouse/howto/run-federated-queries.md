@@ -1,5 +1,6 @@
 ---
 title: Read and pull data from S3 object storages and web resources over HTTP
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

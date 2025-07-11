@@ -1,5 +1,6 @@
 ---
 title: High availability in Aiven for Caching
+displayed_sidebar: serviceSidebar
 ---
 
 Explore high availability with Aiven for Caching across multiple plans. Gain insights into service continuity and understand the approach to handling failures.

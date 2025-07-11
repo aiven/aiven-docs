@@ -1,5 +1,6 @@
 ---
 title: Manage organization VPC peering with UpCloud
+displayed_sidebar: platformSidebar
 sidebar_label: UpCloud peering
 limited: true
 ---

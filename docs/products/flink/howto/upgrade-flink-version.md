@@ -1,5 +1,6 @@
 ---
 title: Upgrade Aiven for Apache Flink
+displayed_sidebar: serviceSidebar
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

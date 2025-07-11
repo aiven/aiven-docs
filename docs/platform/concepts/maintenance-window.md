@@ -1,5 +1,6 @@
 ---
 title: Service maintenance, updates and upgrades
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

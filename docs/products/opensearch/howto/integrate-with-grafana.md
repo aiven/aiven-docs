@@ -1,5 +1,6 @@
 ---
 title: Integrate with Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 You can monitor and set up alerts for the data in your Aiven for OpenSearch® service with Grafana®.

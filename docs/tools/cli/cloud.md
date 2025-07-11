@@ -1,5 +1,6 @@
 ---
 title: avn cloud
+displayed_sidebar: toolSidebar
 ---
 
 The `avn cloud` command allows you to list the clouds available in a given project.

@@ -1,5 +1,6 @@
 ---
 title: Manage Aiven for Apache Flink® applications
+displayed_sidebar: serviceSidebar
 ---
 
 This section provides information on managing your Aiven for Apache Flink® applications.

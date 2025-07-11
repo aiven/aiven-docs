@@ -1,5 +1,6 @@
 ---
 title: Connect with Java
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

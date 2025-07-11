@@ -1,5 +1,6 @@
 ---
 title: Prepare services for high load
+displayed_sidebar: platformSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

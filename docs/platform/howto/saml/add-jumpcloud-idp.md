@@ -1,5 +1,6 @@
 ---
 title: Add JumpCloud as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: JumpCloud
 ---
 <!-- vale off -->

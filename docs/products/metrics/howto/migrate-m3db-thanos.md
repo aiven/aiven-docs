@@ -1,5 +1,6 @@
 ---
 title: Migrate Aiven for M3DB to Aiven for Metrics
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

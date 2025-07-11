@@ -1,5 +1,6 @@
 ---
 title: avn billing-group
+displayed_sidebar: toolSidebar
 ---
 
 The following is the full list of commands for managing billing groups assigned to organizations using `avn billing-group`. An account is the same as an [organization](/docs/platform/concepts/orgs-units-projects).

@@ -1,5 +1,6 @@
 ---
 title: Disable foreign key checks
+displayed_sidebar: serviceSidebar
 ---
 
 All Aiven for MySQL® services have foreign key checks enabled by default helping in keeping referential integrity across tables. However, you might want to disable it for a particular session.

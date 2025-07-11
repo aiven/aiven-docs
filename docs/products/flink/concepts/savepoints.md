@@ -1,5 +1,6 @@
 ---
 title: Savepoints
+displayed_sidebar: serviceSidebar
 ---
 
 Savepoints in Aiven for Apache Flink® are snapshots of the current state of your [Flink application](/docs/products/flink/howto/create-flink-applications).

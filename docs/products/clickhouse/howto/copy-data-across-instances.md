@@ -1,5 +1,6 @@
 ---
 title: Copy data from one ClickHouse® server to another
+displayed_sidebar: serviceSidebar
 ---
 
 You can copy data from one ClickHouse® server to another using the `remoteSecure()` function.

@@ -1,5 +1,6 @@
 ---
 title: Virtual private cloud (VPC) peering in Aiven
+displayed_sidebar: platformSidebar
 sidebar_label: VPC peering
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Migrate a public service to a Virtual Private Cloud (VPC)
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

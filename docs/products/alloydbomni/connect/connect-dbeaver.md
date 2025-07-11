@@ -1,5 +1,6 @@
 ---
 title: Connect with DBeaver
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

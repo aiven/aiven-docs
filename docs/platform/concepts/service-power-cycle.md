@@ -1,5 +1,6 @@
 ---
 title: Power on/off a service
+displayed_sidebar: platformSidebar
 ---
 
 import Tabs from '@theme/Tabs';

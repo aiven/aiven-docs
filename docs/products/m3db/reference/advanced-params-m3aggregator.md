@@ -1,5 +1,6 @@
 ---
 title: Advanced parameters for Aiven for M3Aggregator
+displayed_sidebar: serviceSidebar
 ---
 
 See the configuration options available for

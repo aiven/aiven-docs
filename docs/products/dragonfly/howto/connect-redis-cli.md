@@ -1,5 +1,6 @@
 ---
 title: Connect with redis-cli
+displayed_sidebar: serviceSidebar
 ---
 
 This example demonstrates how to connect to Dragonfly® using

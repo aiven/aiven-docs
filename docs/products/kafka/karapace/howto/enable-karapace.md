@@ -1,5 +1,6 @@
 ---
 title: Enable Karapace schema registry and REST APIs
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

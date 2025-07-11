@@ -1,5 +1,6 @@
 ---
 title: Optimizing resource usage for Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Kafka® service plans with CPUs of 2 or less are optimized for lightweight operations, making them suitable for applications that handle fewer messages per second and do not require high throughput.

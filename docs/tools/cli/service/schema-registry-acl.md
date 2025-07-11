@@ -1,5 +1,6 @@
 ---
 title: avn service schema-registry-acl
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for `avn service schema-registry-acl`.

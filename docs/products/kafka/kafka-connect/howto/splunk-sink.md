@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to Splunk
+displayed_sidebar: serviceSidebar
 ---
 
 The [Splunk](https://www.splunk.com/) sink connector enables you to move

@@ -1,5 +1,6 @@
 ---
 title: Enable logical replication on Google Cloud SQL
+displayed_sidebar: serviceSidebar
 ---
 
 If you have not enabled logical replication on Google Cloud SQL PostgreSQL® already, set the `cloudsql.logical_decoding` parameter to `On`:

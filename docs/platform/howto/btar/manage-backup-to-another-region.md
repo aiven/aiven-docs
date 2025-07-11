@@ -1,5 +1,6 @@
 ---
 title: Manage a cross-region backup
+displayed_sidebar: platformSidebar
 sidebar_label: Manage cross-region backup
 limited: true
 ---

@@ -1,5 +1,6 @@
 ---
 title: Connect to a ClickHouse® cluster with CLI
+displayed_sidebar: serviceSidebar
 ---
 
 It's recommended to connect to a ClickHouse® cluster with the ClickHouse® client.

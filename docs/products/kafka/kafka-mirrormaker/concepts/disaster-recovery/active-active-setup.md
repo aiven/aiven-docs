@@ -1,5 +1,6 @@
 ---
 title: MirrorMaker 2 active-active setup
+displayed_sidebar: serviceSidebar
 ---
 
 import Activeactive from "@site/static/images/content/figma/mirrormaker-active-active.png";

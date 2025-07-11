@@ -1,5 +1,6 @@
 ---
 title: Keep-alive connections parameters
+displayed_sidebar: serviceSidebar
 ---
 
 PostgreSQL® keep-alive connection parameters are useful to manage Idle

@@ -1,5 +1,6 @@
 ---
 title: Create a DataGen-based Apache Flink® table
+displayed_sidebar: serviceSidebar
 ---
 
 The DataGen source table is a built-in connector of the Apache Flink system that generates random data periodically, matching the specified data type of the source table.

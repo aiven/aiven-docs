@@ -1,5 +1,6 @@
 ---
 title: avn service integration
+displayed_sidebar: toolSidebar
 ---
 
 A full list of commands for `avn service integration`.

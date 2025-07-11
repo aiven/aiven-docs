@@ -1,5 +1,6 @@
 ---
 title: Delete a custom cloud
+displayed_sidebar: platformSidebar
 sidebar_label: Delete custom clouds
 ---
 

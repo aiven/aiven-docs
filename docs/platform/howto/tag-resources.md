@@ -1,5 +1,6 @@
 ---
 title: Use resource tags
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

@@ -1,5 +1,6 @@
 ---
 title: REST API endpoint access
+displayed_sidebar: serviceSidebar
 ---
 
 For operational reasons, Aiven for OpenSearch® limits access to REST API endpoints.

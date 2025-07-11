@@ -1,5 +1,6 @@
 ---
 title: Why topics or partitions not replicated
+displayed_sidebar: serviceSidebar
 ---
 
 Apache Kafka® MirrorMaker 2 provides reliable message replication across Kafka clusters using configurations, states, and offsets.

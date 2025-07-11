@@ -1,5 +1,6 @@
 ---
 title: Access PgBouncer statistics
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons"

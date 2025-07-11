@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to Couchbase
+displayed_sidebar: serviceSidebar
 ---
 
 The [Couchbase](https://www.couchbase.com/) sink connector pushes Apache Kafka® data to the NoSQL database.

@@ -1,5 +1,6 @@
 ---
 title: Monitor replication execution
+displayed_sidebar: serviceSidebar
 ---
 Apache Kafka® MirrorMaker 2 uses Kafka® Connect for monitoring and state management, helping you track replication flows and address issues.
 

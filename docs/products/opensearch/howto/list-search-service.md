@@ -1,5 +1,6 @@
 ---
 title: Search and aggregations with Aiven for OpenSearch®
+displayed_sidebar: serviceSidebar
 ---
 
 Learn how to write and execute search queries and aggregate data using OpenSearch clients in two widely used programming languages: Python and NodeJS.

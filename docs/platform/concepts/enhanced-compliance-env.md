@@ -1,5 +1,6 @@
 ---
 title: Enhanced compliance environments (ECE)
+displayed_sidebar: platformSidebar
 ---
 
 Aiven collects, manages, and operates on sensitive data that is protected by privacy and compliance rules and regulations. Aiven meets the needs of its customers by providing specialized enhanced compliance environments (ECE) that comply with many of the most common compliance requirements.

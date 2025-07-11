@@ -1,5 +1,6 @@
 ---
 title: Connect to OpenSearch® cluster with NodeJS
+displayed_sidebar: serviceSidebar
 ---
 
 The most convenient way to work with the cluster when using NodeJS is to rely on [OpenSearch® JavaScript client](https://github.com/opensearch-project/opensearch-js).

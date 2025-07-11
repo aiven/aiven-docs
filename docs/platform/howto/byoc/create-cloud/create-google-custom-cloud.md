@@ -1,5 +1,6 @@
 ---
 title: Create a Google-integrated custom cloud
+displayed_sidebar: platformSidebar
 sidebar_label: Google Cloud
 keywords: [Google Cloud, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud]
 ---

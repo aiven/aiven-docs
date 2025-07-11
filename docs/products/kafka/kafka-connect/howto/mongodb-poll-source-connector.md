@@ -1,5 +1,6 @@
 ---
 title: Create a source connector from MongoDB to Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 The MongoDB source connector periodically queries MongoDB collections

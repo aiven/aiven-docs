@@ -1,5 +1,6 @@
 ---
 title: Create service integrations
+displayed_sidebar: platformSidebar
 ---
 
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";

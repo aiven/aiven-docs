@@ -1,5 +1,6 @@
 ---
 title: Cloud security
+displayed_sidebar: platformSidebar
 ---
 
 Learn about Aiven's access control, encryption, network security, data privacy and operator access.
@@ -148,7 +149,7 @@ report download link for a project, run:
 avn project generate-sbom --project PROJECT_NAME --output csv
 ```
 
-SBOM reports are only available when all services within the project have 
+SBOM reports are only available when all services within the project have
 the latest maintenance patches applied.
 
 ## Time synchronization

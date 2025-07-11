@@ -1,5 +1,6 @@
 ---
 title: Manage connection pooling
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

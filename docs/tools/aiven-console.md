@@ -1,5 +1,6 @@
 ---
 title: Aiven Console overview
+displayed_sidebar: toolSidebar
 sidebar_label: Aiven Console
 ---
 

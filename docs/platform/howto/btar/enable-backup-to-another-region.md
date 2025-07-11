@@ -1,5 +1,6 @@
 ---
 title: Add a backup to another region
+displayed_sidebar: platformSidebar
 sidebar_label: Add cross-region backup
 limited: true
 ---

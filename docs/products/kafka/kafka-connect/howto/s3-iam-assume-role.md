@@ -1,5 +1,6 @@
 ---
 title: Use AWS IAM assume role credentials provider
+displayed_sidebar: serviceSidebar
 ---
 
 The [Apache Kafka® S3 sink connector by Aiven](s3-sink-connector-aiven) allows you to move data from an Aiven for Apache Kafka® cluster to Amazon S3 for long term storage.

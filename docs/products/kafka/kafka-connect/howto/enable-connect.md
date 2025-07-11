@@ -1,5 +1,6 @@
 ---
 title: Enable Apache Kafka® Connect on Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

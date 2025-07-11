@@ -1,5 +1,6 @@
 ---
 title: Add Microsoft Azure Active Directory as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: Microsoft Azure Active Directory
 ---
 <!-- vale off -->

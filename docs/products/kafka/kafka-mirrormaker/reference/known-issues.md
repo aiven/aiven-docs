@@ -1,5 +1,6 @@
 ---
 title: Known issues
+displayed_sidebar: serviceSidebar
 ---
 
 ## MirrorMaker 2 may translate offsets incorrectly if LAG shows negative on the target cluster

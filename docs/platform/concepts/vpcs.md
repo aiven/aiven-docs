@@ -1,5 +1,6 @@
 ---
 title: Virtual private clouds (VPCs) in Aiven
+displayed_sidebar: platformSidebar
 sidebar_label: VPCs overview
 ---
 

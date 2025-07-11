@@ -1,5 +1,6 @@
 ---
 title: Discovered organizations
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

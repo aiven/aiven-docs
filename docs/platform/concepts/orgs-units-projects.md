@@ -1,5 +1,6 @@
 ---
 title: Organizations, units, and projects
+displayed_sidebar: platformSidebar
 ---
 
 import Overview from "@site/static/images/content/figma/organizations-overview.png";

@@ -1,5 +1,6 @@
 ---
 title: Connect with PHP
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

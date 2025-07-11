@@ -1,5 +1,6 @@
 ---
 title: Aiven Operator for Kubernetes®
+displayed_sidebar: toolSidebar
 ---
 
 Manage Aiven infrastructure with [Aiven Operator for Kubernetes®](https://github.com/aiven/aiven-operator/) by using [Custom Resource Definitions (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).

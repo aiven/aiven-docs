@@ -1,5 +1,6 @@
 ---
 title: Apache Kafka® concepts
+displayed_sidebar: serviceSidebar
 ---
 
 A comprehensive glossary of essential Apache Kafka® terms and their meaning.

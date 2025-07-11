@@ -1,5 +1,6 @@
 ---
 title: ACLs definition
+displayed_sidebar: serviceSidebar
 ---
 
 An ACL for Karapace schema registry authorization consists of zero or more entries that specify a **username**, an **operation**, and a **resource**.

@@ -1,5 +1,6 @@
 ---
 title: Use Provectus® UI for Apache Kafka® with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 [Provectus® UI for Apache Kafka®](https://github.com/provectus/kafka-ui) is a popular Open-Source web GUI for Apache Kafka® management that allows you to monitor and manage Apache Kafka® clusters.

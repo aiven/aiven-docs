@@ -1,5 +1,6 @@
 ---
 title: Download an infrastructure template and a variables file
+displayed_sidebar: platformSidebar
 sidebar_label: Download TF template & tfvars file
 keywords: [Terraform, deployment, deploy, byoc, bring your own cloud, custom cloud]
 ---

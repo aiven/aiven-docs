@@ -1,5 +1,6 @@
 ---
 title: Detect and terminate long-running queries
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven does not terminate any customer queries even if they run

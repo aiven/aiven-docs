@@ -1,5 +1,6 @@
 ---
 title: Firewall configuration for service nodes
+displayed_sidebar: platformSidebar
 sidebar_label: Firewall configuration
 ---
 

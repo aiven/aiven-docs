@@ -1,5 +1,6 @@
 ---
 title: Manage tables in Aiven for Apache Flink® applications
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Flink® allows you to map source and target data structures as [Flink tables](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/create/#create-table) and use transformation statements to reshape, filter or aggregate data.

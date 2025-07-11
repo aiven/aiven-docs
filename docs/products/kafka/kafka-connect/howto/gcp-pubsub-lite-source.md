@@ -1,5 +1,6 @@
 ---
 title: Create a Google Pub/Sub Lite source connector to Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 The [Google Pub/Sub Lite source

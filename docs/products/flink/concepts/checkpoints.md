@@ -1,5 +1,6 @@
 ---
 title: Checkpoints
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

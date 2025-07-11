@@ -1,5 +1,6 @@
 ---
 title: Connect to your Aiven for PostgreSQL® service
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

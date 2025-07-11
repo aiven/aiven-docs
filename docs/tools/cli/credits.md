@@ -1,5 +1,6 @@
 ---
 title: avn credits
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for `avn credits`.

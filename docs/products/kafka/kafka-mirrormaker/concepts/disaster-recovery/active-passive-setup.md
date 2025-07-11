@@ -1,5 +1,6 @@
 ---
 title: Active-passive setup
+displayed_sidebar: serviceSidebar
 ---
 
 import Activepassive from "@site/static/images/content/figma/mirrormaker-active-passive.png";

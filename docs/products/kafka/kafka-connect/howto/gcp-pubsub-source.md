@@ -1,5 +1,6 @@
 ---
 title: Create a Google Pub/Sub source connector to Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,5 +1,6 @@
 ---
 title: Enable slow query logging
+displayed_sidebar: serviceSidebar
 ---
 
 You can identify inefficient or time-consuming queries by enabling [slow query log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) in your Aiven for MySQL® service.

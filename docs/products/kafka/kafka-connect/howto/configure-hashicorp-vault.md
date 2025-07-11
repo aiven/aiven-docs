@@ -1,5 +1,6 @@
 ---
 title: Configure HashiCorp Vault
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

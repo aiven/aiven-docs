@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for Apache Kafka® with command line tools
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

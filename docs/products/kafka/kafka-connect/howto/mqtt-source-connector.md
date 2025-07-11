@@ -1,5 +1,6 @@
 ---
 title: Create a source connector from MQTT to Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

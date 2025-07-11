@@ -1,5 +1,6 @@
 ---
 title: Use AWS PrivateLink with BYOC services
+displayed_sidebar: platformSidebar
 sidebar_label: Use AWS PrivateLink
 limited: true
 ---

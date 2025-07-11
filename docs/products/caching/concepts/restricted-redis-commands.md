@@ -1,5 +1,6 @@
 ---
 title: Restricted Aiven for Caching commands
+displayed_sidebar: serviceSidebar
 ---
 
 To ensure the stability and security of the caching environment, the Aiven for Caching service restricts certain commands.

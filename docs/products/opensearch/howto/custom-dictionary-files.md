@@ -1,5 +1,6 @@
 ---
 title: Custom dictionary files
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

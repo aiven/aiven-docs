@@ -1,5 +1,6 @@
 ---
 title: Remove topic prefix when replicating with Apache Kafka® MirrorMaker 2
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
 ---
 title: Use Azure Private Link with Aiven services
+displayed_sidebar: platformSidebar
 early: true
 ---
 

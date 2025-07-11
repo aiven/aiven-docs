@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for MySQL® with MySQL Workbench
+displayed_sidebar: serviceSidebar
 ---
 
 You can use a graphical client like [MySQL Workbench](https://www.mysql.com/products/workbench/) to connect to Aiven for MySQL® services.

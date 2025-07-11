@@ -1,5 +1,6 @@
 ---
 title: avn service database
+displayed_sidebar: toolSidebar
 ---
 
 Full list of commands for `avn service database`.

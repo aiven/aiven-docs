@@ -1,5 +1,6 @@
 ---
 title: Use schema registry in Java with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Kafka® provides the **schema registry** functionality via [Karapace](https://github.com/aiven/karapace), including the possibility to store, retrieve a schema, and also evolve it without needing to rebuild existing Consumers and Producers code.

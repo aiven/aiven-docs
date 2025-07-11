@@ -1,5 +1,6 @@
 ---
 title: Get the best from Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Follow these best practices to ensure that your Aiven for Apache Kafka® service is fast and reliable.

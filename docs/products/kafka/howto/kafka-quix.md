@@ -1,5 +1,6 @@
 ---
 title: Connect Aiven for Apache Kafka® with Quix
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

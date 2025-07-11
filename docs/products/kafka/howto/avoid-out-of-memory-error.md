@@ -1,5 +1,6 @@
 ---
 title: Avoid OutOfMemoryError errors in Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 When a node in an Aiven for Apache Kafka® or Aiven for Apache Kafka® Connect cluster runs low on memory, the Java virtual machine (JVM) running the service may not be able to allocate the memory, and will raise a `java.lang.OutOfMemoryError` exception.

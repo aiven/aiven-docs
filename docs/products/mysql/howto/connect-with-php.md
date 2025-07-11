@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for MySQL® with PHP
+displayed_sidebar: serviceSidebar
 ---
 
 import CodeBlock from '@theme/CodeBlock';

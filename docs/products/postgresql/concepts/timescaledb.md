@@ -1,5 +1,6 @@
 ---
 title: About TimescaleDB
+displayed_sidebar: serviceSidebar
 ---
 
 [TimescaleDB](https://github.com/timescale/timescaledb) is an open-source database designed to make your existing relational database scalable for time series data.

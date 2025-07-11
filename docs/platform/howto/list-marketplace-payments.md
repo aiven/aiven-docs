@@ -1,5 +1,6 @@
 ---
 title: Use marketplace subscriptions to pay for Aiven services
+displayed_sidebar: platformSidebar
 sidebar_label: Use marketplace subscriptions
 ---
 

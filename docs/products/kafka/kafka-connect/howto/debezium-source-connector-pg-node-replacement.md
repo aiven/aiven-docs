@@ -1,5 +1,6 @@
 ---
 title: Handle PostgreSQL® node replacements when using Debezium for change data capture
+displayed_sidebar: serviceSidebar
 ---
 
 When running a [Debezium source connector for PostgreSQL®](debezium-source-connector-pg) to capture changes from an Aiven for PostgreSQL® service, there are some activities on the database side that can impact the correct functionality of the connector.

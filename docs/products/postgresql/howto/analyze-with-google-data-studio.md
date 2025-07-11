@@ -1,5 +1,6 @@
 ---
 title: Report and analyze with Google Looker Studio
+displayed_sidebar: serviceSidebar
 ---
 
 Google Looker Studio (previously Data Studio) allows you to create reports and visualisations of the data in your Aiven for PostgreSQL® database, and combine these with data from many other data sources.

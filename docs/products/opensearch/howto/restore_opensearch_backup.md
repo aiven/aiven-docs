@@ -1,5 +1,6 @@
 ---
 title: Restore an OpenSearch® backup
+displayed_sidebar: serviceSidebar
 ---
 
 Depending on your service plan, you can restore OpenSearch® backups from

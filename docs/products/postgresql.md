@@ -1,5 +1,6 @@
 ---
 title: Aiven for PostgreSQL®
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

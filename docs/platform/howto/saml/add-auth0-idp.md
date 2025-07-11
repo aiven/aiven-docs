@@ -1,5 +1,6 @@
 ---
 title: Add Auth0 as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: Auth0
 ---
 <!-- vale off -->

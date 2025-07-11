@@ -1,5 +1,6 @@
 ---
 title: Grafana® OAuth configuration and security considerations
+displayed_sidebar: serviceSidebar
 ---
 
 Grafana® version 9.5.5 introduced significant changes to the OAuth email lookup behavior to enhance security. However, some users may need to revert to the previous behavior as seen in Grafana 9.5.3.

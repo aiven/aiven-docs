@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® via HTTP
+displayed_sidebar: serviceSidebar
 ---
 
 The HTTP sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a remote server via HTTP.

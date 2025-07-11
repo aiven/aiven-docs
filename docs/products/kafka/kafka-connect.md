@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Kafka® Connect
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Kafka® Connect is a fully managed **distributed Apache Kafka® integration component**, deployable in the cloud of your choice.

@@ -1,5 +1,6 @@
 ---
 title: Use ksqlDB with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven provides a managed Apache Kafka® solution together with a number of auxiliary services like Apache Kafka Connect, Kafka REST and Schema Registry via [Karapace](https://github.com/aiven/karapace).

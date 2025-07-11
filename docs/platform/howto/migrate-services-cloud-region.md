@@ -1,5 +1,6 @@
 ---
 title: Migrate service to another cloud or region
+displayed_sidebar: platformSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

@@ -1,5 +1,6 @@
 ---
 title: Tokens
+displayed_sidebar: platformSidebar
 ---
 
 There are 3 types of tokens used to access the Aiven platform: session tokens, personal tokens, and application tokens.

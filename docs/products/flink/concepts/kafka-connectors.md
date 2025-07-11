@@ -1,5 +1,6 @@
 ---
 title: Standard and upsert connectors for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 In addition to integration with Apache Kafka® through a standard connector, Aiven for Apache Flink® also supports the use of *upsert* connectors, which allows you to create changelog-type data streams.

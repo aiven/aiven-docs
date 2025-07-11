@@ -1,5 +1,6 @@
 ---
 title: Aiven for Grafana®
+displayed_sidebar: serviceSidebar
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

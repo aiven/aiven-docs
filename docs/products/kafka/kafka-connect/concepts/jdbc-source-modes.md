@@ -1,5 +1,6 @@
 ---
 title: JDBC source connector modes
+displayed_sidebar: serviceSidebar
 ---
 
 JDBC source connector extracts data from a relational database, such as PostgreSQL® or MySQL, and pushes it to Apache Kafka® where can be transformed and read by multiple consumers.

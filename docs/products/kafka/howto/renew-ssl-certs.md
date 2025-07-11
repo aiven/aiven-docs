@@ -1,5 +1,6 @@
 ---
 title: Renew and acknowledge service user SSL certificates
+displayed_sidebar: serviceSidebar
 ---
 Aiven for Apache Kafka® automatically generates a new SSL certificate for service users about three months before the existing certificate's expiration date. This new certificate includes a renewed private key.
 

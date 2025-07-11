@@ -1,5 +1,6 @@
 ---
 title: Tombstones in Apache Cassandra®
+displayed_sidebar: serviceSidebar
 ---
 
 Apache Cassandra manages deletion of data via a mechanism called *tombstones*.

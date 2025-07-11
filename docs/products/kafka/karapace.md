@@ -1,5 +1,6 @@
 ---
 title: Karapace
+displayed_sidebar: serviceSidebar
 ---
 
 [Karapace](https://karapace.io/) is an Aiven built open-source Schema Registry for Apache Kafka®, and provides a central repository to store and retrieve schemas.

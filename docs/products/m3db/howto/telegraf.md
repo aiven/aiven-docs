@@ -1,5 +1,6 @@
 ---
 title: Write to M3 from Telegraf
+displayed_sidebar: serviceSidebar
 ---
 
 M3 supports multiple methods of writing metrics to the M3 database.

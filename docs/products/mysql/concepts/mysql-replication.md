@@ -1,5 +1,6 @@
 ---
 title: MySQL replication
+displayed_sidebar: serviceSidebar
 ---
 
 MySQL replication is always based on replicating logical changes. This means that the replication protocol may contain an actual statement that the target server should apply or it may have an entry saying **update row with these old attributes to have these new attributes**.

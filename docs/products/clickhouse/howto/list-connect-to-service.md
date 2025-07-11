@@ -1,5 +1,6 @@
 ---
 title: Connect to your Aiven for ClickHouse® service
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';

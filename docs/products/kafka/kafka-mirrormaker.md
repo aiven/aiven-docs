@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Kafka® MirrorMaker 2
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven for Apache Kafka® MirrorMaker 2 is a fully managed **distributed Apache Kafka® data replication utility**, deployable in the cloud of your choice. Apache Kafka® MirrorMaker 2 lets you sync your topic data across Apache Kafka® cluster deployed anywhere in the world.

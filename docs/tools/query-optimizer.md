@@ -1,5 +1,6 @@
 ---
 title: Standalone SQL query optimizer
+displayed_sidebar: toolSidebar
 early: true
 ---
 

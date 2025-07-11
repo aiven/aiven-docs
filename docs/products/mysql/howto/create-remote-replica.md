@@ -1,5 +1,6 @@
 ---
 title: Create Aiven for MySQL® remote replicas
+displayed_sidebar: serviceSidebar
 ---
 
 Learn how to create an Aiven for MySQL® remote replica to provide a read-only instance of your managed MySQL service in another geographically autonomous region.

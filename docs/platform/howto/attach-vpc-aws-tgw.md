@@ -1,5 +1,6 @@
 ---
 title: Attach VPCs to AWS Transit Gateway
+displayed_sidebar: platformSidebar
 sidebar_label: Attach VPCs to AWS TGW
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Use kcat with Aiven for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 The `kcat` [tool](https://github.com/edenhill/kcat) (formerly known as

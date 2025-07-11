@@ -1,5 +1,6 @@
 ---
 title: Telegraf to M3 to Grafana® Example
+displayed_sidebar: serviceSidebar
 ---
 
 To set up Telegraf to push metrics to Aiven for M3:

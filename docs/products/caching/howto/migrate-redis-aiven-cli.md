@@ -1,5 +1,6 @@
 ---
 title: Migrate from Redis®* to Aiven for Caching using the CLI
+displayed_sidebar: serviceSidebar
 ---
 
 Move your data from a source, standalone Redis®* data store to an Aiven-managed Caching service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.

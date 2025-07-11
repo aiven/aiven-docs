@@ -1,5 +1,6 @@
 ---
 title: Estimate maximum number of connection
+displayed_sidebar: serviceSidebar
 ---
 
 The number of simultaneous connections for Aiven for Caching depends on the total available memory on the server.

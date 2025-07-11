@@ -1,5 +1,6 @@
 ---
 title: Manage services hosted in custom clouds
+displayed_sidebar: platformSidebar
 sidebar_label: Manage BYOC services
 ---
 

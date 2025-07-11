@@ -1,5 +1,6 @@
 ---
 title: Bring your own cloud (BYOC)
+displayed_sidebar: platformSidebar
 sidebar_label: Bring your own cloud
 keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud, backup]
 ---

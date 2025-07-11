@@ -1,5 +1,6 @@
 ---
 title: Add OneLogin as an identity provider
+displayed_sidebar: platformSidebar
 sidebar_label: OneLogin
 ---
 <!-- vale off -->

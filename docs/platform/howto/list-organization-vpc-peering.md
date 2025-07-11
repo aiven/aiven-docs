@@ -1,5 +1,6 @@
 ---
 title: Set up an organization VPC peering
+displayed_sidebar: platformSidebar
 sidebar_label: Organization VPC peering
 limited: true
 ---

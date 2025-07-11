@@ -1,5 +1,6 @@
 ---
 title: Create alerts with OpenSearch® API
+displayed_sidebar: serviceSidebar
 ---
 
 OpenSearch® alerting feature sends notifications when data from one or more indices meets certain conditions that can be customized.

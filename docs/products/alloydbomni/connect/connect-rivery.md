@@ -1,5 +1,6 @@
 ---
 title: Connect with Rivery
+displayed_sidebar: serviceSidebar
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

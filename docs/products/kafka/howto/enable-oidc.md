@@ -1,5 +1,6 @@
 ---
 title: Enable OAUTH2/OIDC authentication for Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

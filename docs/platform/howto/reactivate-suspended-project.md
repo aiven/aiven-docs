@@ -1,5 +1,6 @@
 ---
 title: Reactivate suspended projects
+displayed_sidebar: platformSidebar
 ---
 
 If you have bills past due and didn't set up a payment method, you may

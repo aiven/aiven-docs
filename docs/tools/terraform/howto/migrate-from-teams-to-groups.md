@@ -1,5 +1,6 @@
 ---
 title: Migrate from teams to groups with Terraform
+displayed_sidebar: toolSidebar
 sidebar_label: Migrate from teams to groups
 ---
 

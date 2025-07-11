@@ -1,5 +1,6 @@
 ---
 title: Create a Debezium source connector from MySQL to Apache Kafka®
+displayed_sidebar: serviceSidebar
 ---
 
 import Tabs from '@theme/Tabs';

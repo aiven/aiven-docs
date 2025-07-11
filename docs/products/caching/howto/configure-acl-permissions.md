@@ -1,5 +1,6 @@
 ---
 title: Configure ACL permissions in Aiven for Caching
+displayed_sidebar: serviceSidebar
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

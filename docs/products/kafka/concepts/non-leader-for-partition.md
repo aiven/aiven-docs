@@ -1,5 +1,6 @@
 ---
 title: NOT_LEADER_FOR_PARTITION errors
+displayed_sidebar: serviceSidebar
 ---
 
 Aiven continuously monitors services to ensure they are healthy. If problems arise, nodes can be recycled: new nodes are created to substitute old, malfunctioning ones.

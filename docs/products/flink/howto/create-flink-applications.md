@@ -1,5 +1,6 @@
 ---
 title: Use Aiven for Apache Flink® applications
+displayed_sidebar: serviceSidebar
 ---
 
 [Aiven for Flink applications](/docs/products/flink/concepts/flink-applications) in Aiven for Apache Flink® servers as a container that includes everything connected to a Flink job, including source and sink connections and data processing logic.
