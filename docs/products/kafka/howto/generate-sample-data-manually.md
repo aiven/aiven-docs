@@ -1,21 +1,22 @@
 ---
 title: Generate sample data with Docker
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Use a Docker-based sample data producer to simulate streaming data in Aiven for Apache Kafka®.
-This method provides a customizable stream of messages for testing and development.
+Use a Docker-based producer to generate sample data in Aiven for Apache Kafka®. It creates a customizable stream of messages for testing and development.
 
-:::note
-This example uses [Docker](https://www.docker.com/) images. You must
-have [Docker](https://www.docker.com/) or [Podman](https://podman.io/) installed to
-run the generator.
-:::
+This example uses [Docker](https://www.docker.com/) images.
 
 ## Prerequisites
 
-- An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started)
+- [Docker](https://www.docker.com/) or [Podman](https://podman.io/) installed
+- Active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started)
 - Access to the [Aiven Console](https://console.aiven.io)
-- A [personal access token](/docs/platform/howto/create_authentication_token)
+- [Kafka REST API](https://aiven.io/docs/products/kafka/karapace/howto/enable-karapace)
+  enabled
+- [Personal access token](/docs/platform/howto/create_authentication_token)
+
 
 ## Set up the fake data producer
 
@@ -27,36 +28,35 @@ Use the [Dockerized fake data producer for Aiven for Apache Kafka®](https://git
    git clone https://github.com/aiven/fake-data-producer-for-apache-kafka-docker
    ```
 
-1. Copy the file `conf/env.conf.sample` to `conf/env.conf`
+1. Copy the sample config file to create your own version:
 
-1. Edit the `conf/env.conf` file and update the following values:
+   ```bash
+   cp conf/env.conf.sample conf/env.conf
+   ```
 
-   - `my_project_name`: your Aiven project name
-   - `my_kafka_service_name`: your Kafka service name
-   - `my_topic_name`: name of the topic to receive messages
-   - `my_aiven_email`: your Aiven login email
-   - `my_aiven_token`: the personal access token generated in the next step
+1. Open the `conf/env.conf` file and update the following values:
 
-1. Create a [token](/docs/platform/howto/create_authentication_token) in the Aiven
-   Console or using the following command in the
-   [Aiven CLI](/docs/tools/cli),
-   changing the `max-age-seconds` appropriately for the duration of
-   your test:
-1. Generate a [token](/docs/platform/howto/create_authentication_token) in the
-   [Aiven Console](https://console.aiven.io) or use the[Aiven CLI](/docs/tools/cli):
+   - `my_project_name`: Aiven project name
+   - `my_kafka_service_name`: Apache Kafka service name
+   - `my_topic_name`: Topic name to receive messages
+   - `my_aiven_email`: Aiven login email
+   - `my_aiven_token`: Personal access token
 
-    ```bash
-    avn user access-token create                            \
-    --description "Token used by Fake data generator"       \
-    --max-age-seconds 3600                                  \
-    --json | jq -r '.[].full_token'
-    ```
+1. Generate a [personal access token](/docs/platform/howto/create_authentication_token)
+   in the [Aiven Console](https://console.aiven.io) or use the [Aiven CLI](/docs/tools/cli):
 
-    :::tip
-    The command uses [`jq`](https://stedolan.github.io/jq/) to extract the token from the
-    Aiven CLI output. If `jq` is not installed, remove the `| jq -r '.[].full_token'`
-    part and copy the token manually from the JSON output.
-    :::
+   ```bash
+   avn user access-token create                            \
+     --description "Token used by fake data generator"     \
+     --max-age-seconds 3600                                \
+     --json | jq -r '.[].full_token'
+   ```
+
+   :::tip
+   The command uses [`jq`](https://stedolan.github.io/jq/) to extract the token from the
+   Aiven CLI output. If `jq` is not installed, remove the `| jq -r '.[].full_token'`
+   part and copy the token manually from the JSON output.
+   :::
 
 1. Build the Docker image:
 
@@ -65,17 +65,22 @@ Use the [Dockerized fake data producer for Aiven for Apache Kafka®](https://git
    ```
 
    :::tip
-   Rebuild the Docker image after making any changes to the `conf/env.conf` file.
+   Rebuild the Docker image after editing the `conf/env.conf` file.
    :::
 
-1. Start the data stream:
+1. Start the producer:
 
    ```bash
    docker run fake-data-producer-for-apache-kafka-docker
    ```
 
-1. Once the Docker image is running, verify that the topic is receiving messages.
+1. Once the Docker image is running, verify that the topic is receiving messages:
 
-   - Use the [Aiven Console](https://console.aiven.io): Go to the **Topics** tab in
-     your Aiven for Apache Kafka service (Kafka REST must be enabled).
-   - Or use a command-line tool such as [kcat](/docs/products/kafka/howto/kcat).
+   - In the [Aiven Console](https://console.aiven.io), go to your Apache Kafka service
+     and click <ConsoleLabel name="topics" />.
+   - Or use a command-line tool such as [kcat](/docs/products/kafka/howto/kcat) to
+     consume messages from the topic.
+
+<RelatedPages />
+
+[Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data)
