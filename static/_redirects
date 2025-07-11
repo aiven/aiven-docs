@@ -93,6 +93,7 @@
 /platform/howto/update-tax-status                      https://aiven.io/docs/platform/concepts/tax-information
 /platform/ip-addresses                                 https://aiven.io/docs/platform/reference/service-ip-address
 /platform/privatelink                                  https://aiven.io/docs/platform/howto/use-aws-privatelinks
+/platform/reference/password-policy                    https://aiven.io/docs/platform/reference/security-best-practices
 /platform/reference/project-member-privileges          https://aiven.io/docs/platform/concepts/permissions
 /platform/vpc                                          https://aiven.io/docs/platform/howto/manage-vpc-peering
 /products/alloydbomni/advanced-params                  https://aiven.io/docs/products/alloydbomni/reference/advanced-params

@@ -16,7 +16,7 @@ to access this feature.
 
 :::important
  Application users can be a security risk if not carefully managed and monitored. Follow
- [best practices](/docs/platform/concepts/application-users#security-best-practices) for
+ [best practices](/docs/platform/reference/security-best-practices) for
  mitigating these risks.
 :::
 
@@ -71,6 +71,15 @@ More information on this resource and its configuration options are available in
 
 </TabItem>
 </Tabs>
+
+## View application users and tokens
+
+To view your organization's application users and the last time they
+were used:
+
+1. In your organization, click **Admin**.
+1. Click <ConsoleLabel name="Application users"/>.
+1. Click the name of an application user to view its profile, tokens, and groups.
 
 ## Revoke a token for an application user
 

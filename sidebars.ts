@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'get-started',
+        'platform/reference/security-best-practices',
         'platform/concepts/free-plan',
         'platform/concepts/free-trial',
         'marketplace-setup',
@@ -146,7 +147,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'platform/howto/add-authentication-method',
-            'platform/reference/password-policy',
             'platform/reference/change-password',
             'platform/howto/user-2fa',
             'platform/howto/set-authentication-policies',
