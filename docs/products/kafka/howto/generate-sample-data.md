@@ -80,7 +80,7 @@ time, and a link to review messages.
 
 - To view the streamed data, click **Review messages** on the
   <ConsoleLabel name="overview" /> page.
-  The **Messages** page opens for the topic. Messages appear in `avro` format within a
+  The **Messages** page opens for the topic. Messages appear in Avro format within a
   few seconds.
 - To stop the stream, click **Stop streaming** in the **Data generator** section on
   the <ConsoleLabel name="overview" /> page. This option is only visible in the browser

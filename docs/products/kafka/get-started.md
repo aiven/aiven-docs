@@ -107,6 +107,23 @@ Parameters:
 </TabItem>
 </Tabs>
 
+## Stream sample messages to explore your service
+
+Use the built-in sample data generator in the Aiven Console to test your Kafka service
+in seconds and observe how messages move through topics and schemas.
+
+The generator automatically creates a topic, applies an Avro schema, and streams
+sample data for a selected duration.
+
+1. In the [Aiven Console](https://console.aiven.io), go to your
+   Aiven for Apache Kafka service.
+1. On the <ConsoleLabel name="overview" /> page, scroll to the **Start data stream**
+   section.
+1. Click **Generate sample data** and follow the setup wizard.
+
+To learn more,
+see [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data).
+
 ## Create an Apache Kafka® topic
 
 Once your service is created, you can add topics for organizing and managing your
