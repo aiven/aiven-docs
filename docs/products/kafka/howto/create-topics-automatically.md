@@ -23,13 +23,13 @@ KafkaTimeoutError: Failed to update metadata after 60.0 secs.
 
 In such cases, you have two options:
 
-1. **Create topics in advance**: [Create the topics](/docs/products/kafka/howto/create-topic)
-   manually. This is recommended for production environments because it gives you
+1. **Create topics in advance**: Manually [create the topics](/docs/products/kafka/howto/create-topic)
+   before use. This is recommended for production environments because it gives you
    control over topic settings such as partition count, replication factor, and
    retention time.
-1. **Enable automatic topic creation**: This is simpler but may lead to unintentional
-   topic creation due to typos. Topics are created
-   using [default configuration values](set-kafka-parameters) defined at the service level.
+1. **Enable automatic topic creation**: This option is simpler but has drawbacks. It can
+   create unintended topics due to typos and applies
+   [default configuration values](set-kafka-parameters) set at the service level.
 
 :::note
 If [tiered storage is enabled](/docs/products/kafka/howto/enable-kafka-tiered-storage)
