@@ -1,6 +1,6 @@
 ---
-title: Service management
-displayed_sidebar: platformSidebar
+title: Overview
+displayed_sidebar: serviceSidebar
 ---
 
 import DocCardList from '@theme/DocCardList';
@@ -42,7 +42,3 @@ See our time series on
 [our website](https://aiven.io/time-series-databases/what-are-time-series-databases).
 
 :::
-
-<RelatedPages/>
-
-<DocCardList />

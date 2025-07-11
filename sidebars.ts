@@ -175,65 +175,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Service management',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-service',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Concepts',
-              items: [
-                'platform/concepts/service_backups',
-                'platform/concepts/service-resources',
-                'platform/concepts/service-memory-limits',
-                'platform/concepts/out-of-memory-conditions',
-                'platform/concepts/maintenance-window',
-                'platform/howto/custom-plans',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Migrations',
-              items: [
-                'platform/howto/migrate-services-cloud-region',
-                'platform/howto/migrate-services-vpc',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Service scaling',
-              items: [
-                'platform/howto/scale-services',
-                'platform/howto/add-storage-space',
-                'platform/howto/disk-autoscaler',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Backup to another region',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/backup-to-another-region',
-              },
-              items: [
-                'platform/howto/btar/enable-backup-to-another-region',
-                'platform/howto/btar/manage-backup-to-another-region',
-                'platform/howto/btar/disable-backup-to-another-region',
-              ],
-            },
-            'platform/howto/create_new_service',
-            'platform/concepts/service-power-cycle',
-            'platform/howto/tag-resources',
-            'platform/howto/search-services',
-            'platform/howto/create_new_service_user',
-            'platform/concepts/service-forking',
-            'platform/howto/prepare-for-high-load',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Networking and security',
           items: [
             'platform/concepts/cloud-security',
@@ -329,7 +270,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'platform/reference/eol-for-major-versions',
-        'platform/reference/end-of-life',
         'platform/reference/get-resource-IDs',
       ],
     },
@@ -2064,6 +2004,66 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Service management',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        'platform/howto/list-service',
+        {
+          type: 'category',
+          label: 'Concepts',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/concepts/service-resources',
+            'platform/concepts/service-memory-limits',
+            'platform/concepts/out-of-memory-conditions',
+            'platform/concepts/maintenance-window',
+            'platform/howto/custom-plans',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Migrations',
+          items: [
+            'platform/howto/migrate-services-cloud-region',
+            'platform/howto/migrate-services-vpc',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Service scaling',
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Backup to another region',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/backup-to-another-region',
+          },
+          items: [
+            'platform/howto/btar/enable-backup-to-another-region',
+            'platform/howto/btar/manage-backup-to-another-region',
+            'platform/howto/btar/disable-backup-to-another-region',
+          ],
+        },
+        'platform/howto/create_new_service',
+        'platform/concepts/service-power-cycle',
+        'platform/howto/tag-resources',
+        'platform/howto/search-services',
+        'platform/howto/create_new_service_user',
+        'platform/concepts/service-forking',
+        'platform/howto/prepare-for-high-load',
+        'platform/reference/end-of-life',
       ],
     },
   ],
