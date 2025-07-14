@@ -12,10 +12,13 @@ Streamline your Aiven for MySQL® backups using incremental backups.
 
 The Aiven for MySQL® incremental backups feature is an extension of the
 [base backups](/docs/products/mysql/concepts/mysql-backups) feature. It allows you to back
-up only the changes (increments) made since your last full backup. This feature calculates
-the difference between the last full backup and the current state of your Aiven for MySQL
-database and stores it. During a restore, the full backup is applied first, followed by
-each incremental backup in order.
+up only the changes (increments) made since your last full backup. While full backups
+provide a complete snapshot of your database at a specific point in time, incremental
+backups capture the differences that have occurred between these full snapshots. This
+feature calculates the difference between the last full backup and the current state of
+your Aiven for MySQL database and stores it. During a restore, the full backup is applied
+first, followed by each incremental backup in order, reconstructing your database to the
+desired point in time.
 
 Use Aiven for MySQL® backups for:
 
