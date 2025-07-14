@@ -15,6 +15,13 @@ The sample data generator helps you explore Aiven for Apache Kafka by producing
 realistic test messages to a Kafka topic in your service. It's designed for quick
 onboarding with no client configuration required.
 
+:::note
+You can use the sample data generator at no additional cost. It does not use service
+credits.
+:::
+
+
+
 You can choose from the following data scenarios:
 
 - **Logistics**: Tracks package events including timestamp, tracking ID, carrier,
