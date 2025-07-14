@@ -4,7 +4,8 @@ sidebar_label: Microsoft Azure Active Directory
 ---
 <!-- vale off -->
 import IdPStep1 from "@site/static/includes/idp-step1.md";
-import IdPStep3 from "@site/static/includes/idp-step3.md"
+import IdPStep3 from "@site/static/includes/idp-step3.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- vale on -->
 
@@ -82,3 +83,7 @@ If it is blank, there are two possible solutions:
 -   In **Contact Info**, if none of the **Alternate email** fields are
     blank, try changing the **User Attributes & Claims** to
     `email = user.othermail`.
+
+<RelatedPages/>
+
+- [Troubleshooting for SAML IdPs](/docs/platform/howto/saml/add-identity-providers#troubleshooting)

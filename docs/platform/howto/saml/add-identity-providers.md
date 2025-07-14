@@ -7,6 +7,7 @@ keywords: [SAML, SSO]
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md"
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 <!-- vale on -->
 
@@ -92,6 +93,25 @@ a verified domain linked to one of your identity providers.
 
 ## Troubleshooting
 
-If you have issues, you can use the [SAML Tracer browser
-extension](https://addons.mozilla.org/firefox/addon/saml-tracer/) to
-check the process step by step.
+If you have issues, you can use the
+[SAML Tracer browser extension](https://addons.mozilla.org/firefox/addon/saml-tracer/)
+to check the process step by step.
+
+### Authentication failed
+
+If you get an authentication failed error when launching the Aiven SAML application,
+ask your organization admin to confirm that **IdP-initiated login** is enabled.
+
+### Invalid relay state
+
+An invalid relay state error usually means you attempted to log in from the
+identity provider (IdP), for example, from the IdP dashboard. To avoid this, you can set
+the default landing page, often called the default relay state or start URL, to the
+Aiven Console that your organization uses. A more secure and often simpler approach
+is to log in directly from the Aiven Console's login page.
+
+### The IdP password does not work
+
+Make sure to use the **Account Link URL** to add the IdP to your
+Aiven user account. You can view all authentication methods for your user account in
+<ConsoleLabel name="userinformation"/> > <ConsoleLabel name="authenticationmethod"/>.
