@@ -100,7 +100,7 @@ to check the process step by step.
 ### Authentication failed
 
 If you get an authentication failed error when launching the Aiven SAML application,
-ask your organization admin to ensure they enabled **IdP initiated login**.
+ask your organization admin to confirm that **IdP-initiated login** is enabled.
 
 ### Invalid relay state
 
