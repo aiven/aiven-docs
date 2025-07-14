@@ -4,7 +4,8 @@ sidebar_label: OneLogin
 ---
 <!-- vale off -->
 import IdPStep1 from "@site/static/includes/idp-step1.md";
-import IdPStep3 from "@site/static/includes/idp-step3.md"
+import IdPStep3 from "@site/static/includes/idp-step3.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- vale on -->
 
@@ -62,3 +63,7 @@ If you get errors, you can try reapplying entitlement mappings:
 
 1.  Go to the app in OneLogin and click **Settings**.
 1.  Click **More Actions** > **Reapply entitlement Mappings**.
+
+<RelatedPages/>
+
+- [Troubleshooting for SAML IdPs](/docs/platform/howto/saml/add-identity-providers#troubleshooting)

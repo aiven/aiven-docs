@@ -4,7 +4,8 @@ sidebar_label: JumpCloud
 ---
 <!-- vale off -->
 import IdPStep1 from "@site/static/includes/idp-step1.md";
-import IdPStep3 from "@site/static/includes/idp-step3.md"
+import IdPStep3 from "@site/static/includes/idp-step3.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- vale on -->
 
@@ -37,3 +38,7 @@ draft, you can open the settings by clicking the name of the IdP.
 1. In the **IDP URL** field, enter **IDP URL** from JumpCloud.
 1. In the **Entity ID** field, enter the **IdP Entity ID** from JumpCloud.
 <IdPStep3/>
+
+<RelatedPages/>
+
+- [Troubleshooting for SAML IdPs](/docs/platform/howto/saml/add-identity-providers#troubleshooting)

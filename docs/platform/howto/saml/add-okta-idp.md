@@ -4,7 +4,8 @@ sidebar_label: Okta
 ---
 <!-- vale off -->
 import IdPStep1 from "@site/static/includes/idp-step1.md";
-import IdPStep3 from "@site/static/includes/idp-step3.md"
+import IdPStep3 from "@site/static/includes/idp-step3.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- vale on -->
 
@@ -95,28 +96,6 @@ To configure user provisioning for Okta:
    select **Email**.
 1. Click **Save**.
 
-## Troubleshooting
+<RelatedPages/>
 
-### Authentication failed
-
-When launching the Aiven SAML application, you get the following error:
-
-```text
-Authentication Failed
-Login failed. Please contact your account administrator for more details.
-```
-
-Ensure **IdP initiated login** is enabled.
-
-### Invalid relay state
-
-If you get the invalid relay state error, then you are attempting an
-IdP-initiated auth flow. This happens, for example, when you click the
-Aiven SAML app in Okta. Set the **Default Relay State** in Okta to the
-Aiven console that your organization uses.
-
-### The Okta password does not work
-
-Make sure to use the **Account Link URL** to add the Okta IdP to your
-Aiven user account. You can view all authentication methods in
-**User information** > **Authentication**.
+- [Troubleshooting for SAML IdPs](/docs/platform/howto/saml/add-identity-providers#troubleshooting)
