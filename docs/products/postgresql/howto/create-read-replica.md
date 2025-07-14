@@ -1,11 +1,16 @@
 ---
-title: Create and use read-only replicas
+title: Create and use Aiven for PostgreSQL® read-only replicas
+sidebar_label: Use read replicas
 ---
 
-PostgreSQL® read-only replicas provide a great way to reduce the load on the primary server by enabling read-only queries to be performed against the replica.
-It's also a good way to optimise query response times
-across different geographical locations since, with Aiven, the replica
-can be placed in different regions or even different cloud providers.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
+Use Aiven for PostgreSQL® read-only replicas to reduce the load on the primary server and optimize query response times across different geographical locations.
+
+You can run read-only queries against Aiven for PostgreSQL read-only replicas. Such
+replicas can be hosted in different regions or with different cloud providers.
 
 :::note
 If your service is running a `business-*` or `premium-*` plan, you have
@@ -14,51 +19,83 @@ read-only queries to reduce the effect of slow queries on the primary
 node.
 :::
 
+## Prerequisites
+
+- Running Aiven for PostgreSQL service
+- Access the [Aiven Console](https://console.aiven.io/)
+- Optionally, for creating a read-only replica programmatically:
+  - [Aiven Operator for Kubernetes®](https://aiven.io/docs/tools/kubernetes)
+  - [Aiven API](https://api.aiven.io/doc/)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+
+:::important
+Creating a read-only replica programmatically, you can only use the Startup plan for the
+replica.
+:::
+
 ## Create a replica
 
-To set up a remote replica:
-<!-- vale off -->
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  Select the PostgreSQL instance for which you want to create a remote
-    replica.
-1.  In the **Overview** page of your service, select **Create replica**.
-1.  Enter a name for the remote replica and select the cloud provider,
-    region, and Aiven for PostgreSQL service plan that you want to use,
-    then select **Create**.
-
-<!-- vale on -->
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your Aiven for
+    PostgreSQL service.
+1.  On the <ConsoleLabel name="overview"/> page of your service, click **Create replica**.
+1.  Enter a name for the remote replica, select the cloud provider, region, and service
+    plan to use.
+1.  Click **Create**.
 
 The read-only replica is created and added to the list of services in
-your project. The **Overview** page of the replica indicates the name of
-the primary service for the replica.
+your project. The <ConsoleLabel name="overview"/> page of the replica indicates the name
+of the primary service for the replica.
 
-Read-only replicas can be manually promoted to become the master
-database if the need arises. For more complex high availability and
-failover scenarios check the
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+endpoint and configure the `service_integrations` object so that:
+
+- `integration_type` is set to `read_replica`.
+- `source_service_name` is set as needed.
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+Use the
+[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource. Set `integration_type` to `read_replica` and `source_service_name` as needed.
+
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+[Create an Aiven for PostgreSQL read-only replica with K8s](https://aiven.github.io/aiven-operator/examples/postgresql.html#create-a-postgresql-read-only-replica).
+
+</TabItem>
+</Tabs>
+
+Read-only replicas can be manually promoted to become the master database. For more high
+availability and failover scenarios, check the
 [related documentation](/docs/products/postgresql/concepts/high-availability).
 
 :::tip
 You can promote a read-replica to master using the API endpoint to
-[delete the service
-integration](https://api.aiven.io/doc/#operation/ServiceIntegrationDelete)
+[delete the service integration](https://api.aiven.io/doc/#operation/ServiceIntegrationDelete)
 and passing the `integration_id` of the replica service.
 
-Deleting the integration that comes with `integration_type` of value
-`read_replica` will lead to the service to no longer be a read-replica,
-hence becoming the master.
+After deleting the integration that comes with `integration_type` of value
+`read_replica`, the service is no longer a read-replica and, hence, becomes the master.
 :::
 
 ## Use a replica
 
 To use a read only replica:
 
-1.  Log in to the Aiven Console and select your PostgreSQL service.
+1.  Log in to the Aiven Console and select your Aiven for PostgreSQL service.
 
-1.  In the **Overview** page, copy the **Replica URI** an use it to
+1.  In the <ConsoleLabel name="overview"/> page, copy the **Replica URI** an use it to
     connect via `psql`:
 
-    ```bash
+    ```sql
     psql POSTGRESQL_REPLICA_URI
     ```
 
