@@ -321,6 +321,31 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="mysql_incremental_backup"/><Link to="#mysql_incremental_backup"><strong>mysql_incremental_backup</strong></Link></p><p><code className="type">object</code></p></div>
+        <p className="title">MySQL incremental backup configuration</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="mysql_incremental_backup_enabled"/><Link to="#mysql_incremental_backup_enabled"><strong>mysql_incremental_backup.enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable incremental backups</p>
+              <div className="description"><p>Enable periodic incremental backups. When enabled, full_backup_week_schedule must be set. Incremental backups only store changes since the last backup, making them faster and more storage-efficient than full backups. This is particularly useful for large databases where daily full backups would be too time-consuming or expensive.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="mysql_incremental_backup_full_backup_week_schedule"/><Link to="#mysql_incremental_backup_full_backup_week_schedule"><strong>mysql_incremental_backup.full_backup_week_schedule</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">Full backup week schedule</p>
+              <div className="description"><p>Comma-separated list of days of the week when full backups should be created. Valid values: mon, tue, wed, thu, fri, sat, sun</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="mysql"/><Link to="#mysql"><strong>mysql</strong></Link></p><p><code className="type">object</code></p></div>
         <p className="title">mysql.conf configuration values</p>
         
