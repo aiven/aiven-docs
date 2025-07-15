@@ -89,6 +89,11 @@ the project. The following are some examples of how customers organize their ser
 
 ## Best practices for organizations
 
+The following are recommendations for organizing your resources in the Aiven Platform
+using organizations, organizational units, and projects. Read the
+[security checklist](/docs/platform/reference/security-best-practices) for more
+information on best practices for securing your organization using Aiven features.
+
 ### Small organizations
 
 For smaller organizations that have a limited number of projects and services,

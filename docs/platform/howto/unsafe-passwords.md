@@ -2,6 +2,8 @@
 title: Change unsafe passwords
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 The Aiven Platform checks your email and password combination against a database of exposed credentials every time you log in and change your password.
 
 If Aiven detects an unsafe password,  your login is blocked until you
@@ -12,3 +14,7 @@ You don't need to do anything else, but Aiven recommends every user
 [enable two-factor authentication](/docs/platform/howto/user-2fa).
 Two-factor authentication also needs to be re-enabled after you
 reset or change your password.
+
+<RelatedPages/>
+
+* Get tips for creating secure passwords in the [security checklist](/docs/platform/reference/security-best-practices)
