@@ -10,7 +10,9 @@ Choose a service [backup](/docs/products/clickhouse/concepts/disaster-recovery#s
 
 :::important
 You cannot fork Aiven for ClickHouse services to a fewer number of nodes.
-Reducing the number of nodes is only possible by [switching service plan](/docs/platform/howto/scale-services) from `business` to `startup` on a running service.
+Reducing the number of nodes is only possible by
+[switching the service plan](/docs/platform/howto/scale-services) from **Business** to **Startup**
+on a running service.
 :::
 
 1. Log in to the [Aiven Console](https://console.aiven.io) and go to your Aiven for
