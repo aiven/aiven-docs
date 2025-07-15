@@ -734,14 +734,14 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_max_replication_slots"/><Link to="#pg_max_replication_slots"><strong>pg.max_replication_slots</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>8</code></li><li>max: <code>64</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_max_replication_slots"/><Link to="#pg_max_replication_slots"><strong>pg.max_replication_slots</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>8</code></li><li>max: <code>256</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">max_replication_slots</p>
               <div className="description"><p>PostgreSQL maximum replication slots. The default is `20`. Changing this parameter causes a service restart.</p></div>
             </td>
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_max_logical_replication_workers"/><Link to="#pg_max_logical_replication_workers"><strong>pg.max_logical_replication_workers</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>4</code></li><li>max: <code>64</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_max_logical_replication_workers"/><Link to="#pg_max_logical_replication_workers"><strong>pg.max_logical_replication_workers</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>4</code></li><li>max: <code>256</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">max_logical_replication_workers</p>
               <div className="description"><p>PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers). The default is `4` (upstream default). Changing this parameter causes a service restart.</p></div>
             </td>
@@ -762,7 +762,14 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_max_worker_processes"/><Link to="#pg_max_worker_processes"><strong>pg.max_worker_processes</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>8</code></li><li>max: <code>96</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_max_sync_workers_per_subscription"/><Link to="#pg_max_sync_workers_per_subscription"><strong>pg.max_sync_workers_per_subscription</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>2</code></li><li>max: <code>8</code></li></ul></div>
+              <p className="title">max_sync_workers_per_subscription</p>
+              <div className="description"><p>Maximum number of synchronization workers per subscription. The default is `2`.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pg_max_worker_processes"/><Link to="#pg_max_worker_processes"><strong>pg.max_worker_processes</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>8</code></li><li>max: <code>288</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">max_worker_processes</p>
               <div className="description"><p>Sets the maximum number of background processes that the system can support. The default is `8`. Changing this parameter causes a service restart.</p></div>
             </td>
