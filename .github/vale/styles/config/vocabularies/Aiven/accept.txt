@@ -178,6 +178,7 @@ Kafka
 Kaggle
 Kaggle/M
 Karapace
+kcat
 keypair
 keyspaces?
 keystores?
