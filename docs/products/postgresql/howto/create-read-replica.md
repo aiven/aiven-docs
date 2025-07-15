@@ -9,8 +9,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Use Aiven for PostgreSQL® read-only replicas to reduce the load on the primary server and optimize query response times across different geographical locations.
 
-You can run read-only queries against Aiven for PostgreSQL read-only replicas. Such
-replicas can be hosted in different regions or with different cloud providers.
+You can run read-only queries against Aiven for PostgreSQL read-only replicas. These 
+replicas can be hosted in different regions or on different cloud providers.
 
 :::note
 If your service is running a `business-*` or `premium-*` plan, you have
