@@ -73,7 +73,7 @@ resource. Set `integration_type` to `read_replica` and `source_service_name` as 
 </TabItem>
 </Tabs>
 
-Read-only replicas can be manually promoted to become the master database. For more high
+Read-only replicas can be manually promoted to become the primary database. For more high
 availability and failover scenarios, check the
 [related documentation](/docs/products/postgresql/concepts/high-availability).
 
