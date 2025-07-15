@@ -1039,7 +1039,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="opensearch_cluster.filecache.remote_data_ratio"/><Link to="#opensearch_cluster.filecache.remote_data_ratio"><strong>opensearch.cluster.filecache.remote_data_ratio</strong></Link></p><p><code className="type">number,null</code></p></div><div className="constraints"><ul><li>max: <code>100</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="opensearch_cluster.filecache.remote_data_ratio"/><Link to="#opensearch_cluster.filecache.remote_data_ratio"><strong>opensearch.cluster.filecache.remote_data_ratio</strong></Link></p><p><code className="type">integer,number,null</code></p></div><div className="constraints"><ul><li>max: <code>100</code></li></ul></div>
               <p className="title">The limit of how much total remote data can be referenced</p>
               <div className="description"><p>Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 0.</p></div>
             </td>
