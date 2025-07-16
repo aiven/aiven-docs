@@ -251,7 +251,7 @@
 #
 # Redirects for legacy urls
 #
-/docs/index.html                                                /docs
+/docs/index.html                                                /
 
 #
 # Keep splats/ dynamic redirects at the end
