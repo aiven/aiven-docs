@@ -277,6 +277,102 @@ Preview all snapshots, including completed and failed ones.
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
 
 </TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+Call native OpenSearch API endpoint `GET /_snapshot/REPOSITORY_NAME/_all`. Replace the
+`REPOSITORY_NAME` with the actual name of your repository.
+
+Example response:
+
+```json
+{
+  "snapshots" : [
+    {
+      "snapshot" : "opensearch-123qaz456wsx789edc123q-infrequent",
+      "uuid" : "-abCabCabC-abCabCabCab",
+      "version_id" : 123456789,
+      "version" : "N.NN.N",
+      "remote_store_index_shallow_copy" : false,
+      "indices" : [
+        ".plugins-ml-config",
+        ".opensearch-sap-log-types-config",
+        ".kibana_N",
+        ".opensearch-observability"
+      ],
+      "data_streams" : [ ],
+      "include_global_state" : true,
+      "state" : "SUCCESS",
+      "start_time" : "YYY-MM-DDTHH:MM:SS.619Z",
+      "start_time_in_millis" : 1234567891234,
+      "end_time" : "YYY-MM-DDTHH:MM:SS.624Z",
+      "end_time_in_millis" : 1234567891234,
+      "duration_in_millis" : 1234,
+      "failures" : [ ],
+      "shards" : {
+        "total" : 4,
+        "failed" : 0,
+        "successful" : 4
+      }
+    },
+    {
+      "snapshot" : "opensearch-123qaz456wsx789edc123q-frequent",
+      "uuid" : "-abCabCabC-abCabCabCab",
+      "version_id" : 123456789,
+      "version" : "N.NN.N",
+      "remote_store_index_shallow_copy" : false,
+      "indices" : [
+        ".plugins-ml-config",
+        ".opensearch-sap-log-types-config",
+        ".kibana_N",
+        ".opensearch-observability"
+      ],
+      "data_streams" : [ ],
+      "include_global_state" : true,
+      "state" : "SUCCESS",
+      "start_time" : "YYY-MM-DDTHH:MM:SS.219Z",
+      "start_time_in_millis" : 12345678912345,
+      "end_time" : "YYY-MM-DDTHH:MM:SS.220Z",
+      "end_time_in_millis" : 1234567891234,
+      "duration_in_millis" : 1234,
+      "failures" : [ ],
+      "shards" : {
+        "total" : 4,
+        "failed" : 0,
+        "successful" : 4
+      }
+    },
+    {
+      "snapshot" : "opensearch-123qaz456wsx789edc123q-frequent",
+      "uuid" : "-abCabCabC-abCabCabCabQ",
+      "version_id" : 123456789,
+      "version" : "N.NN.N",
+      "remote_store_index_shallow_copy" : false,
+      "indices" : [
+        ".plugins-ml-config",
+        ".opensearch-sap-log-types-config",
+        ".kibana_N",
+        ".opensearch-observability"
+      ],
+      "data_streams" : [ ],
+      "include_global_state" : true,
+      "state" : "SUCCESS",
+      "start_time" : "YYY-MM-DDTHH:MM:SS.088Z",
+      "start_time_in_millis" : 12345678912345,
+      "end_time" : "YYY-MM-DDTHH:MM:SS.890Z",
+      "end_time_in_millis" : 1234567891234,
+      "duration_in_millis" : 1234,
+      "failures" : [ ],
+      "shards" : {
+        "total" : 4,
+        "failed" : 0,
+        "successful" : 4
+      }
+    }
+  ]
+}
+```
+
+</TabItem>
 <TabItem value="api" label="Aiven API">
 
 ```sh
