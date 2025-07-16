@@ -221,38 +221,42 @@
 /docs/tools/cli/ticket                                          /docs/platform/howto/support
 /docs/tools/terraform/concepts/data-sources                     /docs/tools/terraform
 /docs/tools/terraform/get-started                               /docs/tools/terraform
+/docs/tools/terraform/howto/terraform-logging                   /docs/tools/terraform
+/docs/tools/terraform/howto/upgrade-to-opensearch               /docs/products/opensearch/get-started
+/docs/tools/terraform/index.html                                /docs/tools/terraform
+/docs/tools/terraform/reference/cookbook                        /docs/tools/terraform/get-started
+/docs/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started
+/docs/tools/terraform/reference/troubleshooting                            /docs/tools/terraform
+/docs/tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform
+
+#
+# Redirect to external resources
+#
+/docs/tutorials/anomaly-detection                                          https://aiven.io/developer
+/docs/tools/terraform/reference/cookbook/kafka-flink-integration-recipe    https://aiven.io/developer/apache-kafka-to-opensearch-terraform
+/docs/tools/terraform/reference/cookbook/multicloud-postgresql-recipe      https://aiven.io/developer/multicloud-postgresql-terraform
 /docs/tools/terraform/howto/config-postgresql-provider          https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/use-pg-provider-for-config
 /docs/tools/terraform/howto/promote-to-master-pg-rr             https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/manage-read-replicas
-/docs/tools/terraform/howto/terraform-logging                   /docs/tools/terraform
 /docs/tools/terraform/howto/update-deprecated-resources         https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources
 /docs/tools/terraform/howto/upgrade-caching-valkey-terraform    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade
 /docs/tools/terraform/howto/upgrade-provider-v1-v2              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v1-to-v2
 /docs/tools/terraform/howto/upgrade-provider-v2-v3              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v2-to-v3
 /docs/tools/terraform/howto/upgrade-provider-v3-v4              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4
-/docs/tools/terraform/howto/upgrade-to-opensearch               /docs/products/opensearch/get-started
+/docs/tools/terraform/list-upgrade-terraform                    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4
+/docs/tools/terraform/list-vpc-terraform                        https://github.com/aiven/terraform-provider-aiven/tree/main/examples
 /docs/tools/terraform/howto/vnet-peering-azure                  https://github.com/aiven/terraform-provider-aiven/tree/main/examples/azure_vnet_peering
 /docs/tools/terraform/howto/vpc-peering-aws                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/aws_vpc_peering
 /docs/tools/terraform/howto/vpc-peering-gcp                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/gcp_vpc_peering
-/docs/tools/terraform/index.html                                /docs/tools/terraform
-/docs/tools/terraform/list-upgrade-terraform                    /docs/tools/terraform/howto/upgrade-provider-v3-v4
-/docs/tools/terraform/list-vpc-terraform                        https://github.com/aiven/terraform-provider-aiven/tree/main/examples
-/docs/tools/terraform/reference/cookbook                        /docs/tools/terraform/get-started
-/docs/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started
-/docs/tools/terraform/reference/cookbook/kafka-flink-integration-recipe    /developer/apache-kafka-to-opensearch-terraform
-/docs/tools/terraform/reference/cookbook/multicloud-postgresql-recipe      /developer/multicloud-postgresql-terraform
-/docs/tools/terraform/reference/troubleshooting                            /docs/tools/terraform
-/docs/tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform
-/docs/tutorials/anomaly-detection                                          /developer
 
 #
 # Redirects for legacy urls
 #
 /docs/index.html                                                /docs
-/docs/*/index.html                                              /docs/:splat
 
 #
-# Keep splats at the end
+# Keep splats/ dynamic redirects at the end
 #
+/docs/*/index.html                                              /docs/:splat
 /docs/platform/howto/byoc/create-custom-cloud/*                 /docs/platform/howto/byoc/create-cloud/:splat
 /docs/products/influxdb/*                                       /docs/products/services
 /docs/products/redis/*                                          /docs/products/caching/:splat
