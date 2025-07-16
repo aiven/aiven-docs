@@ -143,7 +143,6 @@
 /docs/products/grafana/reference                                /docs/products/grafana/reference/advanced-params
 /docs/products/grafana/user-access                              /docs/products/grafana/howto/log-in
 /docs/products/influxdb                                         /docs/products/services
-/docs/products/influxdb/*                                       /docs/products/services
 /docs/products/kafka/getting-started                            /docs/products/kafka/get-started
 /docs/products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples
 /docs/products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry
@@ -250,7 +249,6 @@
 #
 /docs/index.html                                                /docs
 /docs/*/index.html                                              /docs/:splat
-/docs/*.html                                                    /docs/:splat
 
 #
 # Keep splats at the end
