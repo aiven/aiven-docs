@@ -19,6 +19,7 @@ Enable and configure the [Aiven for PostgreSQL® audit logging feature](/docs/pr
   - [Aiven CLI client](/docs/tools/cli)
   - [psql](https://www.postgresql.org/docs/current/app-psql.html) for advanced
     configuration
+- Aiven for OpenSearch® service for accessing and visualizing your logs
 
 ## Enable audit logging
 
@@ -218,18 +219,8 @@ For more details on how to set up, configure, and use session audit logging, che
 
 ## Access your logs
 
-You can access your Aiven for PostgreSQL audit logs either
-[directly in the log output of your service](#access-pg-log) or by
-[integrating with another service](#access-in-integration) that allows monitoring and
-analyzing logs, such as Aiven for OpenSearch®.
-
-### Access in Aiven for PostgreSQL {#access-pg-log}
-
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
-   organization > project > Aiven for PostgreSQL service.
-1. On the **Overview** page of your service, select **Logs** from the sidebar.
-
-### Access in integrated service {#access-in-integration}
+Access your Aiven for PostgreSQL audit logs by integrating with an Aiven for OpenSearch®
+service, which allows monitoring and analyzing logs.
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
