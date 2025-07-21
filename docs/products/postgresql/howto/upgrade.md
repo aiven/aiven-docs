@@ -71,7 +71,7 @@ To upgrade a PostgreSQL service:
     Upon clicking **Upgrade**:
     - The system applies the upgrade **immediately**.
     - The PostgreSQL instance can't be restored to the previous version.
-    - Backups created with an earlier version are no longer visible in the Aiven Console
+    - Backups created with an earlier major version are no longer visible in the Aiven Console
       and cannot be used for operations such as Point In Time Recovery (PiTR). You can
       only use backups created after the major version upgrade for such purposes.
     :::
