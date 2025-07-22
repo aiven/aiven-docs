@@ -197,6 +197,21 @@ installed with a few exceptions.
 -   [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/latest/).
     Mask or replace personally identifiable information (PII) or commercially sensitive
     data from a PostgreSQL database.
+
+    :::note
+
+    The user who
+    [installs the extension](/docs/products/postgresql/howto/manage-extensions#install-an-extension)
+    (preferably `avnadmin`) becomes its **owner**.
+
+    - Updating extension settings (for example, `anon.salt`) is allowed for the
+      **avnadmin** user only, regardless of whether this avnadmin is the extension owner.
+    - Reading internal tables and settings is allowed for the extension **owner**,
+      regardless of whether this owner is the avnadmin user. Use the
+      `anon.current_setting(SETTING_NAME)` function for that purpose.
+
+    :::
+
 -   [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html).
     Information about SSL certificates.
 -   [tablefunc](https://www.postgresql.org/docs/current/tablefunc.html).
