@@ -206,9 +206,9 @@ installed with a few exceptions.
 
       - Only the **avnadmin** user can update extension settings, such as `anon.salt`, 
         even if they are not the extension owner.  
-    - Reading internal tables and settings is allowed for the extension **owner**,
-      regardless of whether this owner is the avnadmin user. Use the
-      `anon.current_setting(SETTING_NAME)` function for that purpose.
+    - Only the extension **owner** can read internal tables and settings, 
+       even if they are not the `avnadmin` user. Use the 
+       `anon.current_setting(SETTING_NAME)` function to view these settings.
 
     :::
 
