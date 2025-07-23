@@ -204,8 +204,8 @@ installed with a few exceptions.
     [installs the extension](/docs/products/postgresql/howto/manage-extensions#install-an-extension)
     (preferably `avnadmin`) becomes its **owner**.
 
-    - Updating extension settings (for example, `anon.salt`) is allowed for the
-      **avnadmin** user only, regardless of whether this avnadmin is the extension owner.
+      - Only the **avnadmin** user can update extension settings, such as `anon.salt`, 
+        even if they are not the extension owner.  
     - Reading internal tables and settings is allowed for the extension **owner**,
       regardless of whether this owner is the avnadmin user. Use the
       `anon.current_setting(SETTING_NAME)` function for that purpose.
