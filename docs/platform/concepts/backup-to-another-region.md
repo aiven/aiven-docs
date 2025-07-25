@@ -58,6 +58,9 @@ after the BTAR activation.
   the secondary region are generated at the same time, there might be some negligible data
   discrepancies between them.
 
+</TabItem>
+</Tabs>
+
 ## How BTAR works
 
 When you enable the backup to another region (BTAR) feature, additional service backups
@@ -86,7 +89,6 @@ flowchart LR
             direction LR
             PB1
             PB2
-            PB3
             PBn
             end
         end
@@ -98,11 +100,10 @@ flowchart LR
             direction LR
             SB1
             SB2
-            SB3
             SBn
             end
         end
-    Service_X -- Default backups --> Primary_backups
+    Service_X -- Base backups<br/>by default --> Primary_backups
     Primary_backups -- Cross-region backups<br/>if BTAR  enabled --> Secondary_backups
     Secondary_backups -- Secondary backups<br/>to restore service X --> Forked_service_X
     Service_X -- Forking service X<br/>if primary region down --> Forked_service_X
@@ -113,46 +114,45 @@ flowchart LR
 
 An additional snapshot repository is created in the secondary region. In this repository,
 BTAR snapshots are generated directly from the service. They are created and managed in
-sync with base snapshots in the primary region. For example, when a base snapshot is
-created in the primary region, its BTAR counterpart is created simultaneously in the
-secondary region with an identical name.
+synchronization with
+[base snapshots](/docs/products/opensearch/howto/manage-snapshots)
+in the primary region using the
+[native OpenSearch API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+For example, when a
+[base snapshot is created](/docs/products/opensearch/howto/manage-snapshots#create-a-snapshot)
+in the primary region, its BTAR counterpart is created simultaneously with an identical
+name in the secondary region.
 
 ```mermaid
 flowchart LR
     subgraph Primary_region
-        direction TB
-        subgraph Service_X
-            end
+        direction LR
         subgraph Primary_backups
-            direction LR
+            direction TB
             PB1
             PB2
-            PB3
             PBn
+            end
+        subgraph Service_X
             end
         end
     subgraph Secondary_region
-        direction TB
+        direction LR
         subgraph Forked_service_X
             end
         subgraph Secondary_backups
-            direction LR
+            direction TB
             SB1
             SB2
-            SB3
             SBn
             end
         end
-    Service_X -- Default backups --> Primary_backups
-    Primary_backups -- Cross-region backups<br/>if BTAR  enabled --> Secondary_backups
+    Service_X -- Base backups<br/>by default --> Primary_backups
+    Service_X -- Cross-region backups<br/>if BTAR enabled --> Secondary_backups
     Secondary_backups -- Secondary backups<br/>to restore service X --> Forked_service_X
     Service_X -- Forking service X<br/>if primary region down --> Forked_service_X
+
 ```
-
-</TabItem>
-</Tabs>
-
-
 
 </TabItem>
 </Tabs>
