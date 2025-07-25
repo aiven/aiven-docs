@@ -101,12 +101,38 @@ const config: Config = {
       'data-modal-disclaimer-font-size': '12px',
       'data-modal-disclaimer-text-color': '#4A4B57',
       'data-modal-disclaimer-bg-color': 'transparent',
+
+      // Clear button
+      'data-thread-clear-button-height': '2.25rem',
+      'data-thread-clear-button-padding-x': '1rem',
+      'data-thread-clear-button-padding-y': '0',
+      'data-thread-clear-button-font-size': '0.875rem',
+      'data-thread-clear-button-border-radius': '0.375rem',
+      'data-thread-clear-button-bg-color': '#E3E9FF',
+      'data-thread-clear-button-hover-bg-color': '#d4ddff',
+      'data-thread-clear-button-text-color': '#2c2f36',
+      'data-thread-clear-button-icon-size': '1rem',
+
+      // Copy button
+      'data-answer-copy-button-height': '2.25rem',
+      'data-answer-copy-button-padding-x': '1rem',
+      'data-answer-copy-button-padding-y': '0',
+      'data-answer-copy-button-font-size': '0.875rem',
+      'data-answer-copy-button-border-radius': '0.375rem',
+      'data-answer-copy-button-bg-color': '#E3E9FF',
+      'data-answer-copy-button-hover-bg-color': '#d4ddff',
+      'data-answer-copy-button-text-color': '#2c2f36',
+      'data-answer-copy-button-icon-size': '1rem',
+
+      // Feedback buttons
+      'data-answer-feedback-info-text':
+        'You can also provide comments after selecting a rating.',
+
+      // Example questions and disclaimer
       'data-modal-example-questions-title': 'Example questions:',
       'data-modal-example-questions':
         'How do I set up billing for a project in my organization?, How do I migrate data to Aiven for PostgreSQL?, I want to use Terraform to create a Kafka service.',
       'data-example-question-button-hover-bg-color': '#E3E9FF',
-      'data-answer-feedback-info-text':
-        'You can also provide comments after selecting a rating.',
       'data-modal-ask-ai-input-placeholder': 'Ask any question about Aiven',
       'data-modal-disclaimer':
         "This AI chatbot generates answers based only on Aiven's documentation, changelog, and some webpages. The responses may contain errors.\n\n" +
