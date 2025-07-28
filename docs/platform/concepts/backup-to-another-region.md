@@ -24,7 +24,7 @@ forking the service from an additional copy of the backup residing in a secondar
 ## Limitations
 
 - The cloud provider for your additional backup region must match the cloud provider for
-your service and the primary backup.
+  your service and the primary backup.
 - Secondary backup can only be restored in the region where it was stored.
 
 ### Supported services
@@ -51,7 +51,7 @@ BTAR is only supported for the following service types:
 <TabItem value="non-sql-search-analytics" label="OpenSearch">
 
 - The synchronization of snapshots between the regions works only for base snapshots created
-after the BTAR activation.
+  after the BTAR activation.
 - Point-in-time recovery (PITR) is not supported for
   [restoring your service from an additional backup](/docs/platform/howto/btar/manage-backup-to-another-region).
 - Although a base snapshot in the primary region and its corresponding BTAR snapshot in
