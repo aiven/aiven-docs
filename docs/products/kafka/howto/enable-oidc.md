@@ -101,6 +101,17 @@ Set the following OIDC parameters:
     `sasl.oauthbearer.jwks.endpoint.url`.
   - **Value**: Enter the JWKS endpoint URL provided by your OIDC
     provider.
+
+    :::note
+    Starting with Apache Kafka 4.0, the broker checks that the JWKS endpoint used for
+    OAuth authentication is explicitly listed in the system
+    property `org.apache.kafka.sasl.oauthbearer.allowed.urls`. If it is not, the broker
+    fails to start.
+    Aiven automatically sets this property based on the value
+    of `kafka.sasl_oauthbearer_jwks_endpoint_url`. No additional configuration is needed.
+    :::
+
+
 - Optional: `kafka.sasl_oauthbearer_sub_claim_name`
   - **Description**: Name of the JWT's subject claim for broker
     verification. It is typically set to `sub`.
