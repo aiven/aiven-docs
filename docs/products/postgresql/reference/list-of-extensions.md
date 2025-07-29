@@ -198,19 +198,20 @@ installed with a few exceptions.
     Mask or replace personally identifiable information (PII) or commercially sensitive
     data from a PostgreSQL database.
 
-    :::note
+    :::important
+    This is an experimental release of `postgresql_anonymizer`. The extension may change
+    in future releases.
+    :::
 
     The user who
-    [installs the extension](/docs/products/postgresql/howto/manage-extensions#install-an-extension)
+    [installs this extension](/docs/products/postgresql/howto/manage-extensions#install-an-extension)
     (preferably `avnadmin`) becomes its **owner**.
 
-    - Only the **avnadmin** user can update extension settings, such as `anon.salt`, 
-      even if they are not the extension owner.  
-    - Only the extension **owner** can read internal tables and settings, 
-      even if they are not the `avnadmin` user. Use the 
-      `anon.current_setting(SETTING_NAME)` function to acces extension settings.
-
-    :::
+    - Only the **avnadmin** user can update extension settings, such as `anon.salt`,
+      even if they are not the extension owner.
+    - Only the extension **owner** can read internal tables and settings,
+      even if they are not the `avnadmin` user. Use the
+      `anon.current_setting(SETTING_NAME)` function to access extension settings.
 
 -   [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html).
     Information about SSL certificates.
