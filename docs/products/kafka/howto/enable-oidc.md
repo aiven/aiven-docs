@@ -108,6 +108,12 @@ Set the following OIDC parameters:
     `sasl.oauthbearer.sub.claim.name`.
   - **Value**: Enter `sub` or the specific claim name provided
     by your OIDC provider if different.
+
+    :::note
+    The claim must be a string. Claims that contain arrays, such as `groups`, are not
+    supported.
+    :::
+
 - Optional: `kafka.sasl_oauthbearer_expected_issuer`
   - **Description**: Specifies the JWT's issuer for the broker to
     verify. Corresponds to the Apache Kafka parameter
