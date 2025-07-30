@@ -199,8 +199,8 @@ installed with a few exceptions.
     data from a PostgreSQL database.
 
     :::important
-    This is an experimental release of `postgresql_anonymizer`. The extension may change
-    in future releases.
+    This is an experimental release of `postgresql_anonymizer`. The extension’s behavior
+    may change in future releases.
     :::
 
     The user who
