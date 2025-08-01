@@ -109,7 +109,7 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="pgaudit"/><Link to="#pgaudit"><strong>pgaudit</strong></Link></p><p><code className="type">object</code></p></div>
         <p className="title">PGAudit settings</p>
-        <div className="description"><p>System-wide settings for the pgaudit extension</p></div>
+        <div className="description"><p>System-wide settings for the pgaudit extension.</p></div>
         <table className="service-param-children">
           <tbody>
           <tr>
@@ -122,92 +122,98 @@ import Link from '@docusaurus/Link'
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log"/><Link to="#pgaudit_log"><strong>pgaudit.log</strong></Link></p><p><code className="type">array</code></p></div>
-              <p className="title">Specifies which classes of statements will be logged by session audit logging.</p>
-              
+              <p className="title">Log</p>
+              <div className="description"><p>Specifies which classes of statements will be logged by session audit logging.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_catalog"/><Link to="#pgaudit_log_catalog"><strong>pgaudit.log_catalog</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
-              <p className="title">Specifies that session logging should be enabled in the casewhere all relations in a statement are in pg_catalog.</p>
-              
+              <p className="title">Log Catalog</p>
+              <div className="description"><p>Specifies that session logging should be enabled in the case where all relations
+in a statement are in pg_catalog.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_client"/><Link to="#pgaudit_log_client"><strong>pgaudit.log_client</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Specifies whether log messages will be visible to a client process such as psql.</p>
-              
+              <p className="title">Log Client</p>
+              <div className="description"><p>Specifies whether log messages will be visible to a client process such as psql.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_level"/><Link to="#pgaudit_log_level"><strong>pgaudit.log_level</strong></Link></p><p><code className="type">string</code></p></div><div className="constraints"><ul><li>default: <code>log</code></li></ul></div>
-              <p className="title">Specifies the log level that will be used for log entries.</p>
-              
+              <p className="title">Log level</p>
+              <div className="description"><p>Specifies the log level that will be used for log entries.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_max_string_length"/><Link to="#pgaudit_log_max_string_length"><strong>pgaudit.log_max_string_length</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>-1</code></li><li>max: <code>102400</code></li><li>default: <code>-1</code></li></ul></div>
-              <p className="title">Crop parameters representation and whole statements if they exceed this threshold. A (default) value of -1 disable the truncation.</p>
-              
+              <p className="title">Log Max String Length</p>
+              <div className="description"><p>Crop parameters representation and whole statements if they exceed this threshold.
+A (default) value of -1 disable the truncation.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_nested_statements"/><Link to="#pgaudit_log_nested_statements"><strong>pgaudit.log_nested_statements</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
-              <p className="title">This GUC allows to turn off logging nested statements, that is, statements that are executed as part of another ExecutorRun.</p>
-              
+              <p className="title">Log Nested Statements</p>
+              <div className="description"><p>This GUC allows to turn off logging nested statements, that is, statements that are
+executed as part of another ExecutorRun.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_parameter"/><Link to="#pgaudit_log_parameter"><strong>pgaudit.log_parameter</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Specifies that audit logging should include the parameters that were passed with the statement.</p>
-              
+              <p className="title">Log Parameter</p>
+              <div className="description"><p>Specifies that audit logging should include the parameters that were passed with the statement.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_parameter_max_size"/><Link to="#pgaudit_log_parameter_max_size"><strong>pgaudit.log_parameter_max_size</strong></Link></p><p><code className="type">integer</code></p></div>
-              <p className="title">Specifies that parameter values longer than this setting (in bytes) should not be logged, but replaced with &lt;long param suppressed&gt;.</p>
-              
+              <p className="title">Log Parameter Max Size</p>
+              <div className="description"><p>Specifies that parameter values longer than this setting (in bytes) should not be logged,
+but replaced with &lt;long param suppressed&gt;.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_relation"/><Link to="#pgaudit_log_relation"><strong>pgaudit.log_relation</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Specifies whether session audit logging should create a separate log entry for each relation (TABLE, VIEW, etc.) referenced in a SELECT or DML statement.</p>
-              
+              <p className="title">Log Relation</p>
+              <div className="description"><p>Specifies whether session audit logging should create a separate log entry
+for each relation (TABLE, VIEW, etc.) referenced in a SELECT or DML statement.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_rows"/><Link to="#pgaudit_log_rows"><strong>pgaudit.log_rows</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Specifies that audit logging should include the rows retrieved or affected by a statement. When enabled the rows field will be included after the parameter field.</p>
+              <p className="title">Log Rows</p>
               
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_statement"/><Link to="#pgaudit_log_statement"><strong>pgaudit.log_statement</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li>default: <code>true</code></li></ul></div>
-              <p className="title">Specifies whether logging will include the statement text and parameters (if enabled).</p>
-              
+              <p className="title">Log Statement</p>
+              <div className="description"><p>Specifies whether logging will include the statement text and parameters (if enabled).</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_log_statement_once"/><Link to="#pgaudit_log_statement_once"><strong>pgaudit.log_statement_once</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Specifies whether logging will include the statement text and parameters with the first log entry for a statement/substatement combination or with every entry.</p>
-              
+              <p className="title">Log Statement Once</p>
+              <div className="description"><p>Specifies whether logging will include the statement text and parameters with
+the first log entry for a statement/substatement combination or with every entry.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pgaudit_role"/><Link to="#pgaudit_role"><strong>pgaudit.role</strong></Link></p><p><code className="type">string</code></p></div>
-              <p className="title">Specifies the master role to use for object audit logging.</p>
-              
+              <p className="title">Role</p>
+              <div className="description"><p>Specifies the master role to use for object audit logging.</p></div>
             </td>
           </tr>
           </tbody>
@@ -224,7 +230,7 @@ import Link from '@docusaurus/Link'
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="pglookout_max_failover_replication_time_lag"/><Link to="#pglookout_max_failover_replication_time_lag"><strong>pglookout.max_failover_replication_time_lag</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>10</code></li><li>max: <code>9223372036854776000</code></li><li>default: <code>60</code></li></ul></div>
-              <p className="title">max_failover_replication_time_lag</p>
+              <p className="title">Max Failover Replication Time Lag</p>
               <div className="description"><p>Number of seconds of master unavailability before triggering database failover to standby</p></div>
             </td>
           </tr>
@@ -318,50 +324,8 @@ import Link from '@docusaurus/Link'
           <tbody>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_server_reset_query_always"/><Link to="#pgbouncer_server_reset_query_always"><strong>pgbouncer.server_reset_query_always</strong></Link></p><p><code className="type">boolean</code></p></div>
-              <p className="title">Run server_reset_query (DISCARD ALL) in all pooling modes</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_ignore_startup_parameters"/><Link to="#pgbouncer_ignore_startup_parameters"><strong>pgbouncer.ignore_startup_parameters</strong></Link></p><p><code className="type">array</code></p></div>
-              <p className="title">List of parameters to ignore when given in startup packet</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_min_pool_size"/><Link to="#pgbouncer_min_pool_size"><strong>pgbouncer.min_pool_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>10000</code></li></ul></div>
-              <p className="title">Add more server connections to pool if below this number. Improves behavior when usual load comes suddenly back after period of total inactivity. The value is effectively capped at the pool size.</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_server_lifetime"/><Link to="#pgbouncer_server_lifetime"><strong>pgbouncer.server_lifetime</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>60</code></li><li>max: <code>86400</code></li><li>default: <code>3600</code></li></ul></div>
-              <p className="title">The pooler will close an unused server connection that has been connected longer than this. [seconds]</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_server_idle_timeout"/><Link to="#pgbouncer_server_idle_timeout"><strong>pgbouncer.server_idle_timeout</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>86400</code></li><li>default: <code>600</code></li></ul></div>
-              <p className="title">If a server connection has been idle more than this many seconds it will be dropped. If 0 then timeout is disabled. [seconds]</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_autodb_pool_size"/><Link to="#pgbouncer_autodb_pool_size"><strong>pgbouncer.autodb_pool_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>10000</code></li></ul></div>
-              <p className="title">If non-zero then create automatically a pool of that size per user when a pool doesn't exist.</p>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_autodb_pool_mode"/><Link to="#pgbouncer_autodb_pool_mode"><strong>pgbouncer.autodb_pool_mode</strong></Link></p><p><code className="type">string</code></p></div><div className="constraints"><ul><li>default: <code>transaction</code></li></ul></div>
-              <p className="title">PGBouncer pool mode</p>
+              <div className="param"><p className="name"><Link id="pgbouncer_autodb_idle_timeout"/><Link to="#pgbouncer_autodb_idle_timeout"><strong>pgbouncer.autodb_idle_timeout</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>86400</code></li><li>default: <code>3600</code></li></ul></div>
+              <p className="title">If the automatically created database pools have been unused this many seconds, they are freed. If 0 then timeout is disabled. [seconds]</p>
               
             </td>
           </tr>
@@ -374,8 +338,22 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pgbouncer_autodb_idle_timeout"/><Link to="#pgbouncer_autodb_idle_timeout"><strong>pgbouncer.autodb_idle_timeout</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>86400</code></li><li>default: <code>3600</code></li></ul></div>
-              <p className="title">If the automatically created database pools have been unused this many seconds, they are freed. If 0 then timeout is disabled. [seconds]</p>
+              <div className="param"><p className="name"><Link id="pgbouncer_autodb_pool_mode"/><Link to="#pgbouncer_autodb_pool_mode"><strong>pgbouncer.autodb_pool_mode</strong></Link></p><p><code className="type">string</code></p></div><div className="constraints"><ul><li>default: <code>transaction</code></li></ul></div>
+              <p className="title">PGBouncer pool mode</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pgbouncer_autodb_pool_size"/><Link to="#pgbouncer_autodb_pool_size"><strong>pgbouncer.autodb_pool_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>10000</code></li></ul></div>
+              <p className="title">If non-zero then create automatically a pool of that size per user when a pool doesn't exist.</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pgbouncer_ignore_startup_parameters"/><Link to="#pgbouncer_ignore_startup_parameters"><strong>pgbouncer.ignore_startup_parameters</strong></Link></p><p><code className="type">array</code></p></div>
+              <p className="title">List of parameters to ignore when given in startup packet</p>
               
             </td>
           </tr>
@@ -383,6 +361,34 @@ import Link from '@docusaurus/Link'
             <td>
               <div className="param"><p className="name"><Link id="pgbouncer_max_prepared_statements"/><Link to="#pgbouncer_max_prepared_statements"><strong>pgbouncer.max_prepared_statements</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>3000</code></li><li>default: <code>100</code></li></ul></div>
               <p className="title">PgBouncer tracks protocol-level named prepared statements related commands sent by the client in transaction and statement pooling modes when max_prepared_statements is set to a non-zero value. Setting it to 0 disables prepared statements. max_prepared_statements defaults to 100, and its maximum is 3000.</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pgbouncer_min_pool_size"/><Link to="#pgbouncer_min_pool_size"><strong>pgbouncer.min_pool_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>10000</code></li></ul></div>
+              <p className="title">Add more server connections to pool if below this number. Improves behavior when usual load comes suddenly back after period of total inactivity. The value is effectively capped at the pool size.</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pgbouncer_server_idle_timeout"/><Link to="#pgbouncer_server_idle_timeout"><strong>pgbouncer.server_idle_timeout</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>86400</code></li><li>default: <code>600</code></li></ul></div>
+              <p className="title">If a server connection has been idle more than this many seconds it will be dropped. If 0 then timeout is disabled. [seconds]</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pgbouncer_server_lifetime"/><Link to="#pgbouncer_server_lifetime"><strong>pgbouncer.server_lifetime</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>60</code></li><li>max: <code>86400</code></li><li>default: <code>3600</code></li></ul></div>
+              <p className="title">The pooler will close an unused server connection that has been connected longer than this. [seconds]</p>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pgbouncer_server_reset_query_always"/><Link to="#pgbouncer_server_reset_query_always"><strong>pgbouncer.server_reset_query_always</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Run server_reset_query (DISCARD ALL) in all pooling modes</p>
               
             </td>
           </tr>
@@ -615,7 +621,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_password_encryption"/><Link to="#pg_password_encryption"><strong>pg.password_encryption</strong></Link></p><p><code className="type">string,null</code></p></div><div className="constraints"><ul><li>default: <code>md5</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_password_encryption"/><Link to="#pg_password_encryption"><strong>pg.password_encryption</strong></Link></p><p><code className="type">string,null</code></p></div>
               <p className="title">password_encryption</p>
               <div className="description"><p>Chooses the algorithm for encrypting passwords.</p></div>
             </td>
