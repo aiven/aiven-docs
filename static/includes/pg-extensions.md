@@ -1,5 +1,45 @@
 <!-- vale off -->
 
+## PostgreSQL 18 extensions
+
+| Extension name | Default version |
+|----------------|-----------------|
+| bloom | 1.0 |
+| bool_plperl | 1.0 |
+| btree_gin | 1.3 |
+| btree_gist | 1.8 |
+| citext | 1.8 |
+| cube | 1.5 |
+| dblink | 1.2 |
+| dict_int | 1.0 |
+| earthdistance | 1.2 |
+| fuzzystrmatch | 1.2 |
+| hstore | 1.8 |
+| intagg | 1.1 |
+| intarray | 1.5 |
+| isn | 1.3 |
+| jsonb_plperl | 1.0 |
+| lo | 1.2 |
+| ltree | 1.3 |
+| pg_buffercache | 1.6 |
+| pg_prewarm | 1.2 |
+| pg_stat_statements | 1.12 |
+| pg_trgm | 1.6 |
+| pgcrypto | 1.4 |
+| pgrowlocks | 1.2 |
+| pgstattuple | 1.5 |
+| plperl | 1.0 |
+| plpgsql | 1.0 |
+| postgres_fdw | 1.2 |
+| seg | 1.4 |
+| sslinfo | 1.2 |
+| tablefunc | 1.0 |
+| tcn | 1.0 |
+| tsm_system_rows | 1.0 |
+| tsm_system_time | 1.0 |
+| unaccent | 1.1 |
+| uuid-ossp | 1.1 |
+
 ## PostgreSQL 17 extensions
 
 | Extension name | Default version |
@@ -54,7 +94,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.20.1 |
+| timescaledb | 2.21.0 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
@@ -117,7 +157,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.20.1 |
+| timescaledb | 2.21.0 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
@@ -181,7 +221,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.20.1 |
+| timescaledb | 2.21.0 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
