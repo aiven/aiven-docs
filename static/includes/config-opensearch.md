@@ -780,7 +780,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="opensearch_knn_memory_circuit_breaker_enabled"/><Link to="#opensearch_knn_memory_circuit_breaker_enabled"><strong>opensearch.knn_memory_circuit_breaker_enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <div className="param"><p className="name"><Link id="opensearch_knn_memory_circuit_breaker_enabled"/><Link to="#opensearch_knn_memory_circuit_breaker_enabled"><strong>opensearch.knn_memory_circuit_breaker_enabled</strong></Link></p><p><code className="type">boolean</code></p></div><div className="constraints"><ul><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">knn.memory.circuit_breaker.enabled</p>
               <div className="description"><p>Enable or disable KNN memory circuit breaker. Defaults to true.</p></div>
             </td>
