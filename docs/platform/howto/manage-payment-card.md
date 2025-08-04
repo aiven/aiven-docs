@@ -22,6 +22,8 @@ to access this feature.
 1. On the **Payment cards** tab in the **Add payment card** section,
    enter the credit card details.
 1. Click **Add card**.
+1. Optional: Select billing groups to assign the card to and click **Assign payment card**.
+   The card won't be charged for monthly payments if you don't add it to a billing group.
 
 ## Delete a payment card
 
