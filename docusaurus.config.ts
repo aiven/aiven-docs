@@ -172,74 +172,11 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Company',
           items: [
             {
-              label: 'Services',
-              href: '/docs/products/services',
-            },
-            {
-              label: 'Dev tools',
-              href: '/docs/tools',
-            },
-            {
-              label: 'Docs repository',
-              href: 'https://github.com/aiven/aiven-docs',
-            },
-            {
-              label: 'Changelog',
-              href: 'https://aiven.io/changelog',
-            },
-          ],
-        },
-        {
-          title: 'Resources',
-          items: [
-            {
-              label: 'Support',
-              href: '/docs/platform/howto/support',
-            },
-            {
-              label: 'Company website',
-              href: 'https://aiven.io/',
-            },
-            {
-              label: 'Blog',
-              href: 'https://aiven.io/blog',
-            },
-            {
-              label: 'Developer center',
-              href: 'https://aiven.io/developer',
-            },
-            {
-              label: 'Email the docs team',
-              href: 'mailto:docs@aiven.io',
-            },
-          ],
-        },
-        {
-          title: 'Terms & Policies',
-          items: [
-            {
-              label: 'Terms of Service',
-              href: 'https://aiven.io/terms',
-            },
-            {
-              label: 'SLA',
-              href: 'https://aiven.io/sla',
-            },
-            {
-              label: 'Privacy Policy',
-              href: 'https://aiven.io/privacy',
-            },
-          ],
-        },
-        {
-          title: "Let's connect",
-          items: [
-            {
-              label: 'Book a demo',
-              href: 'https://aiven.io/book-demo',
+              label: 'About',
+              href: 'https://aiven.io/about',
             },
             {
               label: 'Contact us',
@@ -250,12 +187,58 @@ const config: Config = {
               href: 'https://aiven.io/careers',
             },
             {
-              label: 'Subscribe to newsletter',
-              href: 'https://aiven.io/newsletter',
+              label: 'Blog',
+              href: 'https://aiven.io/blog',
             },
             {
               label: 'Events calendar',
               href: 'https://aiven.io/events',
+            },
+            {
+              label: 'Newsletter',
+              href: 'https://aiven.io/newsletter',
+            },
+          ],
+        },
+        {
+          title: 'Product',
+          items: [
+            {
+              label: 'Schedule a demo',
+              href: 'https://aiven.io/book-demo',
+            },
+            {
+              label: 'Pricing',
+              href: 'https://aiven.io/pricing',
+            },
+            {
+              label: 'Support tiers',
+              href: 'https://aiven.io/support-services',
+            },
+            {
+              label: 'Status',
+              href: 'https://status.aiven.io',
+            },
+          ],
+        },
+        {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Terms',
+              href: 'https://aiven.io/terms',
+            },
+            {
+              label: 'SLA',
+              href: 'https://aiven.io/sla',
+            },
+            {
+              label: 'Privacy policy',
+              href: 'https://aiven.io/privacy',
+            },
+            {
+              label: 'Security',
+              href: 'https://aiven.io/security-compliance',
             },
           ],
         },
