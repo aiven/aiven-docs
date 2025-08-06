@@ -21,7 +21,8 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 
    * In the AWS Marketplace, get the name of the Aiven organization.
 
-1. Send the information to the [sales team](http://aiven.io/contact).
+1. Send the information to the
+   [support team](/docs/platform/howto/support#create-a-support-ticket).
 
 </TabItem>
 <TabItem value="azure" label="Azure Marketplace">
@@ -35,7 +36,8 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 
    * In the Azure Marketplace, get the name of the Aiven organization.
 
-1. Send the information to the [sales team](http://aiven.io/contact).
+1. Send the information to the
+   [support team](/docs/platform/howto/support#create-a-support-ticket).
 
 </TabItem>
 <TabItem value="google" label="Google Cloud Marketplace">
@@ -49,7 +51,8 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 
    * In the Google Cloud Marketplace, get the name of the Aiven organization.
 
-1. Send the information to the [sales team](http://aiven.io/contact).
+1. Send the information to the
+   [support team](/docs/platform/howto/support#create-a-support-ticket).
 
 </TabItem>
 </Tabs>
