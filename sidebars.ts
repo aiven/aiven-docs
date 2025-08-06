@@ -1635,6 +1635,7 @@ const sidebars: SidebarsConfig = {
                     'products/mysql/howto/create-database',
                     'products/mysql/howto/ai-insights',
                     'products/mysql/howto/create-remote-replica',
+                    'products/mysql/howto/use-incremental-backups',
                     'products/mysql/howto/migrate-database-mysqldump',
                     'products/mysql/howto/disable-foreign-key-checks',
                     'products/mysql/howto/enable-slow-queries',
