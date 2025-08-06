@@ -61,12 +61,10 @@ manually.
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
-- Supported storage services are:
-  - Amazon S3
-  - Google Cloud Storage (GCS)
-  - Microsoft Azure Blob Storage
-- [Restoring from snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
-  is not supported in the Aiven Console.
+Supported storage services are:
+- Amazon S3
+- Google Cloud Storage (GCS)
+- Microsoft Azure Blob Storage
 
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
@@ -89,12 +87,10 @@ manually.
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-- Supported storage services are:
-  - Amazon S3
-  - Google Cloud Storage (GCS)
-  - Microsoft Azure Blob Storage
-- [Restoring from snapshots](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
-  is not supported in the Aiven API.
+Supported storage services are:
+- Amazon S3
+- Google Cloud Storage (GCS)
+- Microsoft Azure Blob Storage
 
 </TabItem>
 </Tabs>
