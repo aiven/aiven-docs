@@ -152,6 +152,11 @@ Example response:
 
 ## Restore from snapshots
 
+:::important
+Refrain from actions such as updating firewalls, changing index settings, or modifying
+security configurations during the restore process as it can cause restore failures.
+:::
+
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console">
 
@@ -162,21 +167,35 @@ Example response:
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
 1. Find the snapshot to be used, and click <ConsoleLabel name="actions"/> >
    <ConsoleLabel name="restorefromsnapshot"/>.
-1. In the **Restore snapshot** window, select indices to be restored by
-   entering patterns into the **Indices** field. Click **Start restore**.
+1. In the **Restore snapshot** window:
 
-   :::important
-   Refrain from actions such as updating firewalls, changing index settings, or modifying
-   security configurations during the restore process as it can cause restore failures.
-   :::
+   1. Check the **I understand the effects of this action** box.
+   1. In the **Indices** field, enter patterns to include or exclude indices to close
+      during snapshot restore.
+   1. Toggle **Use advanced configurations** to set the following:
 
-   :::tip
-   If your click **Close** in the **Restore snapshot** window during the restore process,
-   later you can check the restore process status on the **Snapshots** page.
-   :::
+      - Rename pattern: a regular expression that matches the original index name from the
+        snapshot
+      - Rename replacement: a string that replaces the matched part of the index name
+      - Ignore unavailable
+      - Include global state
 
-1. When the **Restore snapshot** window shows that the restore process is completed,
-   click **Close**.
+   1. Click **Continue**.
+
+      This triggers the closing of the selected indices. Wait for **Indices closed** to be
+      displayed.
+
+   1. Click **Start restore**.
+
+      This triggers the restoration process. Its length depends on the snapshot size.
+
+   1. Shut down the **Restore snapshot** window by clicking **Close** either during the
+      restore process or when it completes.
+
+      :::tip
+      If you close the **Restore snapshot** window before the restore process is complete,
+      you can check its status on the **Snapshots** page.
+      :::
 
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
