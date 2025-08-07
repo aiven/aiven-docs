@@ -196,7 +196,7 @@ installed with a few exceptions.
     Show tuple-level statistics.
 -   [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/latest/).
     Mask or replace personally identifiable information (PII) or commercially sensitive
-    data from a PostgreSQL database.
+    data from a PostgreSQL database. `PG15 and newer`
 
     :::important
     This is an experimental release of `postgresql_anonymizer`. The extension’s behavior
