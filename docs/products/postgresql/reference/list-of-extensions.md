@@ -194,6 +194,25 @@ installed with a few exceptions.
     Show row-level locking information.
 -   [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html).
     Show tuple-level statistics.
+-   [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/latest/).
+    Mask or replace personally identifiable information (PII) or commercially sensitive
+    data from a PostgreSQL database.
+
+    :::important
+    This is an experimental release of `postgresql_anonymizer`. The extension’s behavior
+    may change in future releases.
+    :::
+
+    The user who
+    [installs this extension](/docs/products/postgresql/howto/manage-extensions#install-an-extension)
+    (preferably `avnadmin`) becomes its **owner**.
+
+    - Only the **avnadmin** user can update extension settings, such as `anon.salt`,
+      even if they are not the extension owner.
+    - Only the extension **owner** can read internal tables and settings,
+      even if they are not the `avnadmin` user. Use the
+      `anon.current_setting(SETTING_NAME)` function to access extension settings.
+
 -   [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html).
     Information about SSL certificates.
 -   [tablefunc](https://www.postgresql.org/docs/current/tablefunc.html).
