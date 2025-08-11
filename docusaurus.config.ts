@@ -90,6 +90,7 @@ const config: Config = {
       src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
       'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
       'data-project-name': 'Aiven Kapa AI',
+      'data-user-analytics-cookie-enabled': 'false',
       'data-project-color': '#3545BE',
       'data-project-logo': 'https://aiven.io/docs/images/logo-crabby.svg',
       'data-modal-title': 'Ask Aiven docs AI',
