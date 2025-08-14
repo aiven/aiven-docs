@@ -165,12 +165,12 @@ security configurations during the restore process as it can cause restore failu
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
-1. Find the snapshot to be used, and click <ConsoleLabel name="actions"/> >
+1. Find the snapshot to restore and click <ConsoleLabel name="actions"/> >
    <ConsoleLabel name="restorefromsnapshot"/>.
 1. In the **Restore snapshot** window:
 
    1. Check the **I understand the effects of this action** box.
-   1. In the **Indices** field, enter patterns to include or exclude indices to close
+   1. In the **Indices** field, enter patterns to include or exclude indices to be closed
       during snapshot restore.
    1. Toggle **Use advanced configurations** to set the following:
 
@@ -294,7 +294,7 @@ Preview all snapshots, including completed and failed ones.
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
-Call native OpenSearch API endpoint `GET /_snapshot/REPOSITORY_NAME/_all`. Replace the
+Use native OpenSearch API endpoint `GET /_snapshot/REPOSITORY_NAME/_all`, replacing the
 `REPOSITORY_NAME` with the actual name of your repository.
 
 Example response:
