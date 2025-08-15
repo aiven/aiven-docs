@@ -511,6 +511,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Add Advanced Configuration</b>
         </>
       );
+    case 'advancedconfiguration':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.settings} />{' '}
+          <b>Advanced configuration</b>
+        </>
+      );
     case 'add':
       return (
         <>

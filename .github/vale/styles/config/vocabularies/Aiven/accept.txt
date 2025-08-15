@@ -45,6 +45,7 @@ CLI's
 ClickHouse
 Cloudera
 CloudWatch
+codec
 codecs
 compliances
 Conduktor

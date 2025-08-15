@@ -2,47 +2,51 @@
 title: Connect Apache Kafka® to Aiven for ClickHouse®
 ---
 
-You can integrate Aiven for ClickHouse® with either Aiven for Apache Kafka® service located in the same project, or an external Apache Kafka endpoint.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-:::tip
-To deliver data from Apache Kafka® topics to a ClickHouse database for efficient querying
-and analysis,
-[create a ClickHouse sink connector](/docs/products/kafka/kafka-connect/howto/clickhouse-sink-connector).
+Integrate Aiven for ClickHouse® with either Aiven for Apache Kafka® service located in the same project, or an external Apache Kafka endpoint.
+
+:::tip[For a different use case]
+Need to deliver data from Apache Kafka® topics to a ClickHouse database for efficient querying
+and analysis?
+[Use a ClickHouse sink connector](/docs/products/kafka/kafka-connect/howto/clickhouse-sink-connector).
 :::
 
-A single Aiven for ClickHouse instance can connect to
-multiple Kafka clusters with different authentication mechanism and
-credentials.
-
-Behind the scenes the integration between Aiven for ClickHouse and
-Apache Kafka services relies on [ClickHouse Kafka
-Engine](https://clickhouse.com/docs/en/engines/table-engines/integrations/kafka/).
+A single Aiven for ClickHouse instance can connect to multiple Kafka clusters with
+different authentication mechanism and credentials. Behind the scenes, the integration
+between Aiven for ClickHouse and Apache Kafka services relies on
+[ClickHouse Kafka Engine](https://clickhouse.com/docs/en/engines/table-engines/integrations/kafka/).
 
 :::note
-Aiven for ClickHouse service integrations are available for Startup
-plans and higher.
+Aiven for ClickHouse service integrations are available for
+[Startup plans and higher](https://aiven.io/pricing?product=clickhouse).
 :::
 
 ## Prerequisites
 
--   Services to integrate:
+-   Services to integrate using Startup plans and higher:
     -   Aiven for ClickHouse service
     -   Aiven for Apache Kafka service or a self-hosted Apache Kafka service
 
         :::tip
-        If you use the self-hosted Apache Kafka service, an external Apache
-        Kafka endpoint should be configured in **Integration endpoints**.
+        If you use the self-hosted Apache Kafka service,
+        [configure an external Apache Kafka endpoint](/docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster#define-an-external-apache-kafka-service-integration-endpoint-via-aiven-console).
         :::
 
 -   At least one topic in the Apache Kafka service
--   Tools
-    -   [Aiven Console](https://console.aiven.io/)
-    -   [Aiven CLI](/docs/tools/cli)
-    -   SQL client
 
-## Variables
+### Tools
 
-The following variables will be used later in the code snippets:
+-   [Aiven Console](https://console.aiven.io/)
+-   [Aiven CLI](/docs/tools/cli)
+-   SQL client
+
+### Variables
+
+Variables used to set up and configure the integration:
 
 | Variable                  | Description                                                                                                |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -68,45 +72,40 @@ You can have up to 400 such tables for receiving and sending messages from multi
 
 ## Update integration settings
 
-Upon creating the integration and configuring your tables, you can edit them at any time.
+Upon creating the integration and configuring your tables, you can edit both
+[mandatory integration settings](/docs/products/clickhouse/howto/integrate-kafka#mandatory-integration-settings)
+and
+[optional integration settings](/docs/products/clickhouse/howto/integrate-kafka#optional-integration-settings)
+on a table level either in the [Aiven Console](https://console.aiven.io/) or the
+[Aiven CLI](/docs/tools/cli).
 
-### Update mandatory settings
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
 
-<details><summary>
-See the mandatory settings
-</summary>
--   `name` - name of the connector table
--   `columns` - array of columns with names and types
--   `topics` - array of topics to pull data from
--   `data_format` - format for input data
-    ([see supported formats](/docs/products/clickhouse/reference/supported-input-output-formats))
--   `group_name` - consumer group name to be created on your behalf
-</details>
+1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
+1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
+    that includes a table to be edited.
+1.  On your service's page, click <ConsoleLabel name="databasesandtables"/> in the
+    sidebar.
+1.  Find a database including the table to be edited, and expand the database using
+    <ConsoleLabel name="downarrow"/> to display tables inside it.
+1.  Find the table and click:
 
-Choose the tool for editing mandatory settings:
+    - For
+      [mandatory settings](/docs/products/clickhouse/howto/integrate-kafka#mandatory-integration-settings):
+      <ConsoleLabel name="actions"/> >
+      <ConsoleLabel name="edittable"/>.
 
-- [Update in the Aiven Console](/docs/products/clickhouse/howto/integration-databases#update-table-details)
-- [Update in the Aiven CLI](/docs/products/clickhouse/howto/integrate-kafka#update-optional-settings)
-  (using the same steps as for optional settings)
+    - For
+      [optional settings](/docs/products/clickhouse/howto/integrate-kafka#optional-integration-settings):
+      <ConsoleLabel name="actions"/> >
+      <ConsoleLabel name="advancedconfiguration"/>.
 
-### Update optional settings
+1.  In the displayed window, update existing settings and / or add new ones. Save your
+    changes.
 
-<details><summary>
-See the optional settings
-</summary>
-| Name                     | Description                                                                                              | Default    | Allowed values                                                  | Minimum | Maximum value   |
-| ------------------------ | -------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------- | ------- | --------------- |
-| `auto_offset_reset`      | Action to take when there is no initial offset in the offset store or the desired offset is out of range | `earliest` | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` | \--     | \--             |
-| `date_time_input_format` | Method to read `DateTime` from text input formats                                                        | `basic`    | `basic`, `best_effort`, `best_effort_us`                        | \--     | \--             |
-| `handle_error_mode`      | Method to handle errors for the Kafka engine                                                             | `default`  | `default`, `stream`                                             | \--     | \--             |
-| `max_block_size`         | Number of rows collected by a poll for flushing data from Kafka                                         | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
-| `max_rows_per_message`   | Maximum number of rows produced in one Kafka message for row-based formats                               | `1`        | `1` - `1_000_000_000`                                           | `1`     | `1_000_000_000` |
-| `num_consumers`          | Number of consumers per table per replica                                                                | `1`        | `1` - `10`                                                      | `1`     | `10`            |
-| `poll_max_batch_size`    | Maximum amount of messages to be polled in a single Kafka poll                                           | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
-| `skip_broken_messages`   | Minimum number of broken messages from Kafka topic per block to be skipped                               | `0`        | `0` - `1_000_000_000`                                           | `0`     | `1_000_000_000` |
-</details>
-
-Use the [Aiven CLI](/docs/tools/cli):
+</TabItem>
+<TabItem value="cli" label="CLI">
 
 1.  Get your service integration ID by requesting the full list of integrations. Replace
     `PROJECT`, `CLICKHOUSE_SERVICE_NAME` and `KAFKA_SERVICE_NAME` with the names of your
@@ -124,7 +123,7 @@ Use the [Aiven CLI](/docs/tools/cli):
     `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`, `DATA_FORMAT` and `CONSUMER_NAME`
     with your values:
 
-    ```bash {14}
+    ```bash {6-14}
     avn service integration-update SERVICE_INTEGRATION_ID \
     --project PROJECT_NAME                                \
     --user-config-json '{
@@ -143,6 +142,9 @@ Use the [Aiven CLI](/docs/tools/cli):
         ]
     }'
     ```
+
+</TabItem>
+</Tabs>
 
 ## Read and store data
 
@@ -202,6 +204,50 @@ Writing to more than one topic is not supported.
 :::
 
 ## Reference
+
+### Mandatory integration settings
+
+<details><summary>
+Click to see the list
+</summary>
+-   `name` - name of the connector table
+-   `columns` - array of columns with names and types
+-   `topics` - array of topics to pull data from
+-   `data_format` - format for input data
+    ([see supported formats](/docs/products/clickhouse/reference/supported-input-output-formats))
+-   `group_name` - consumer group name to be created on your behalf
+</details>
+
+### Optional integration settings
+
+<details><summary>
+Click to see the list
+</summary>
+### Optional integration settings
+
+| Name                                    | Type      | Description                                                                                                                     | Default    | Example      | Allowed values / Range                                          |
+|---------------------------------------- |-----------|---------------------------------------------------------------------------------------------------------------------------------|------------|--------------|-----------------------------------------------------------------|
+| `auto_offset_reset`                     | string    | Action to take when there is no initial offset in offset store or the desired offset is out of range                            | `earliest` | `latest`     | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` |
+| `date_time_input_format`                | string    | Method to read `DateTime` from text input formats                                                                               | `basic`    | `best_effort`| `basic`, `best_effort`, `best_effort_us`                        |
+| `handle_error_mode`                     | string    | How to handle errors for Kafka engine                                                                                           | `default`  | `stream`     | `default`, `stream`                                             |
+| `max_block_size`                        | integer   | Number of rows collected by polls for flushing data from Kafka                                                                  | `0`        | `100000`     | `0` - `1_000_000_000`                                           |
+| `max_rows_per_message`                  | integer   | Maximum number of rows produced in one Kafka message for row-based formats                                                      | `1`        | `100000`     | `1` - `1_000_000_000`                                           |
+| `num_consumers`                         | integer   | Number of consumers per table per replica                                                                                       | `1`        | `4`          | `1` - `10`                                                      |
+| `poll_max_batch_size`                   | integer   | Maximum amount of messages to be polled in a single Kafka poll                                                                  | `0`        | `10000`      | `0` - `1_000_000_000`                                           |
+| `poll_max_timeout_ms`                   | integer   | Timeout in milliseconds for a single poll from Kafka. Defaults to `stream_flush_interval_ms` (500 ms).                          | `0`        | `1000`       | `0` - `30_000`                                                  |
+| `skip_broken_messages`                  | integer   | Skip at least this number of broken messages from Kafka topic per block                                                         | `0`        | `10000`      | `0` - `1_000_000_000`                                           |
+| `thread_per_consumer`                   | boolean   | Provide an independent thread for each consumer. All consumers run in the same thread by default.                               | `false`    | `true`       | `true`, `false`                                                 |
+| `producer_batch_size`                   | integer   | Max size in bytes of a batch of messages sent to Kafka. If exceeded, the batch is sent.                                         | `1000000`  | `1000000`    | `0` - `2_147_483_647`                                           |
+| `producer_batch_num_messages`           | integer   | Max number of messages in a batch sent to Kafka. If exceeded, the batch is sent.                                                | `10000`    | `10000`      | `1` - `1_000_000`                                               |
+| `producer_compression_codec`            | string    | Compression codec to use for Kafka producer                                                                                     | `none`     | `zstd`       | `none`, `gzip`, `lz4`, `snappy`, `zstd`                         |
+| `producer_compression_level`            | integer   | Compression level for Kafka producer. Range depends on algorithm: [0-9] for `gzip`, [0-12] for `lz4`, only 0 for `snappy`, -1=default | `-1`       | `5`          | `-1` - `12`                                                     |
+| `producer_linger_ms`                    | integer   | Time in ms to wait for additional messages before sending a batch. If exceeded, the batch is sent.                              | `5`        | `5`          | `0` - `900_000`                                                 |
+| `producer_queue_buffering_max_messages` | integer   | Max number of messages to buffer before sending. Max messages in producer queue.                                                | `100000`   | `100000`     | `0` - `2_147_483_647`                                           |
+| `producer_queue_buffering_max_kbytes`   | integer   | Max size of buffer in kilobytes before sending. Max size of producer queue in kB.                                               | `1048576`  | `1048576`    | `0` - `2_147_483_647`                                           |
+| `producer_request_required_acks`        | integer   | Number of acknowledgments required from Kafka brokers for a message to be considered successful                                 | `-1`       | `1`          | `-1` - `1000`                                                   |
+</details>
+
+### Formats supporting the integration
 
 When connecting ClickHouse® to Kafka® using Aiven integrations, data
 exchange requires using specific formats. Check the supported formats
