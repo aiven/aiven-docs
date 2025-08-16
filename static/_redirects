@@ -173,12 +173,13 @@
 /products/kafka/karapace/howto                                         /docs/products/kafka/karapace/howto/enable-karapace
 /products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
 /products/kafka/reference                                              /docs/products/kafka/reference/advanced-params
-/products/m3db/concepts                                    /docs/products/m3db/concepts/m3-components
+/products/m3db                                             /docs/products/metrics
 /products/metrics/concepts                                 /docs/products/metrics
 /products/metrics/concepts/metrics-overview                /docs/products/metrics
 /products/metrics/howto                                    /docs/products/metrics
-/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life#aiven-for-influxdb
+/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life
 /products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb
+/products/metrics/howto/migrate-m3db-thanos                /docs/platform/reference/end-of-life#aiven-for-m3db
 /products/metrics/howto/download-influxdb-data             /docs/platform/reference/end-of-life#aiven-for-influxdb
 /products/mysql/concepts                                   /docs/products/mysql/concepts/max-number-of-connections
 /products/mysql/howto                                      /docs/products/mysql
@@ -222,6 +223,8 @@
 /tools/cli/account/account-team                            /docs/tools/aiven-console/howto/create-manage-teams
 /tools/cli/project                                         /docs/tools/cli
 /tools/cli/service                                         /docs/tools/cli/service-cli
+/tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics
+/tools/cli/service-cli#avn-service-m3                      /docs/tools/cli/service-cli#avn-service-metrics
 /tools/cli/ticket                                          /docs/platform/howto/support
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform
 /tools/terraform/get-started                               /docs/tools/terraform
@@ -263,4 +266,5 @@
 /*/index.html                                              /docs/:splat
 /platform/howto/byoc/create-custom-cloud/*                 /docs/platform/howto/byoc/create-cloud/:splat
 /products/influxdb/*                                       /docs/products/services
+/products/m3db/*                                          /docs/products/metrics/:splat
 /products/redis/*                                          /docs/products/caching/:splat
