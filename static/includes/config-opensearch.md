@@ -1086,22 +1086,22 @@ import Link from '@docusaurus/Link'
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="index_template_mapping_nested_objects_limit"/><Link to="#index_template_mapping_nested_objects_limit"><strong>index_template.mapping_nested_objects_limit</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>max: <code>100000</code></li></ul></div>
-              <p className="title">index.mapping.nested_objects.limit</p>
-              <div className="description"><p>The maximum number of nested JSON objects that a single document can contain across all nested types. This limit helps to prevent out of memory errors when a document contains too many nested objects. Default is 10000.</p></div>
+              <p className="title">(DEPRECATED) index.mapping.nested_objects.limit</p>
+              <div className="description"><p>The maximum number of nested JSON objects that a single document can contain across all nested types. This limit helps to prevent out of memory errors when a document contains too many nested objects. Default is 10000. Deprecated, use an index template instead.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="index_template_number_of_shards"/><Link to="#index_template_number_of_shards"><strong>index_template.number_of_shards</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>1024</code></li></ul></div>
-              <p className="title">index.number_of_shards</p>
-              <div className="description"><p>The number of primary shards that an index should have.</p></div>
+              <p className="title">(DEPRECATED) index.number_of_shards</p>
+              <div className="description"><p>The number of primary shards that an index should have. Deprecated, use an index template instead.</p></div>
             </td>
           </tr>
           <tr>
             <td>
               <div className="param"><p className="name"><Link id="index_template_number_of_replicas"/><Link to="#index_template_number_of_replicas"><strong>index_template.number_of_replicas</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>max: <code>29</code></li></ul></div>
-              <p className="title">index.number_of_replicas</p>
-              <div className="description"><p>The number of replicas each primary shard has.</p></div>
+              <p className="title">(DEPRECATED) index.number_of_replicas</p>
+              <div className="description"><p>The number of replicas each primary shard has. Deprecated, use an index template instead.</p></div>
             </td>
           </tr>
           </tbody>
