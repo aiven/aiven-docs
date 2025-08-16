@@ -39,7 +39,7 @@ You can fork the following Aiven services:
 -   Caching
 -   ClickHouse®
 -   Grafana®
--   M3DB
+-   Metrics
 -   MySQL
 -   OpenSearch®
 
