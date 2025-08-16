@@ -500,7 +500,6 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/flink',
                 'tools/cli/service/integration',
                 'tools/cli/service/kafka-acl',
-                'tools/cli/service/m3',
                 'tools/cli/service/privatelink',
                 'tools/cli/service/schema-registry-acl',
                 'tools/cli/service/service-index',
@@ -1500,57 +1499,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/grafana/reference/advanced-params',
                 'products/grafana/reference/plugins',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Aiven for M3DB',
-          link: {
-            type: 'doc',
-            id: 'products/m3db',
-          },
-          items: [
-            'products/m3db/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              items: [
-                'products/m3db/concepts/m3-components',
-                'products/m3db/concepts/namespaces-aggregation',
-                'products/m3db/concepts/scaling-m3',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/m3db/howto',
-              },
-              items: [
-                'products/m3db/howto/grafana',
-                'products/m3db/howto/monitoring',
-                'products/m3db/howto/prometheus-storage',
-                'products/m3db/howto/telegraf',
-                'products/m3db/howto/telegraf_local_example',
-                'products/m3db/howto/write-go',
-                'products/m3db/howto/write-php',
-                'products/m3db/howto/write-python',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/m3db/reference',
-              },
-              items: [
-                'products/m3db/reference/terminology',
-                'products/m3db/reference/advanced-params',
-                'products/m3db/reference/advanced-params-m3aggregator',
               ],
             },
           ],
