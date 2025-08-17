@@ -12,6 +12,7 @@ import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.p
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
 import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 import RelatedPages from "@site/src/components/RelatedPages";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
 Bring your own cloud (BYOC) allows you to use your own cloud infrastructure instead of relying on the Aiven-managed infrastructure.
 
@@ -142,9 +143,9 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
-Object storage in your AWS cloud account is where your service's
+<EarlyBadge/> Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+[cold data](/docs/platform/howto/byoc/store-data) are stored using
 two S3 buckets.
 
 </TabItem>
@@ -161,9 +162,9 @@ using the public address, and the Aiven management plane can access the service 
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
 
-Object storage in your AWS cloud account is where your service's
+<EarlyBadge/> Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
+[cold data](/docs/platform/howto/byoc/store-data) are stored using
 two S3 buckets.
 
 </TabItem>
@@ -195,11 +196,6 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
-Object storage in your Google Cloud organization is
-where your service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
-Google **Cloud Storage** buckets.
-
 </TabItem>
 <TabItem value="4" label="Google Cloud public">
 
@@ -214,11 +210,6 @@ using the public address, and the Aiven management plane can access the service 
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
 
-Object storage in your Google Cloud organization is
-where your service's [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-[cold data](/docs/platform/howto/byoc/store-data#byoc-tiered-storage) are stored using
-Google **Cloud Storage** buckets.
-
 </TabItem>
 </Tabs>
 
@@ -232,11 +223,23 @@ Depending on the BYOC service, Aiven takes
 [regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
 in time recovery (PITR), and disaster recovery.
 
-BYOC-hosted services have user-owned backups stored in object storage in your AWS
-account or your Google Cloud organization. Backups reside in:
+<Tabs groupId="group1">
+<TabItem value="aws" label="AWS BYOC" default>
 
-- S3 buckets for AWS BYOC environments
-- Cloud Storage buckets for Google Cloud BYOC environments
+<EarlyBadge/> AWS BYOC services allow for user-owned backups stored in Amazon S3 buckets
+within your AWS account using tiered storage.
+
+</TabItem>
+<TabItem value="google" label="Google Cloud BYOC">
+
+Google Cloud BYOC service backups are not stored in your Google Cloud account by default.
+
+To have your backups stored in your own account, contact your account team for assistance.
+Aiven would then require read-write permissions to access the object storage in your cloud
+account.
+
+</TabItem>
+</Tabs>
 
 :::important
 
@@ -257,4 +260,3 @@ Aiven deployment model.
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
--   [Store BYOC data in your own cloud account](/docs/platform/howto/byoc/store-data)

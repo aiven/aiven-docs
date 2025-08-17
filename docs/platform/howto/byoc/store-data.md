@@ -1,51 +1,49 @@
 ---
-title: Store BYOC data in your own cloud account
-sidebar_label: BYOC tiered storage
-keywords: [bring your own cloud, byoc, custom cloud, BYOC cloud, object storage, tiered storage, bucket]
+title: Use tiered storage for AWS BYOC services
+sidebar_label: AWS BYOC tiered storage
+early: true
 ---
 
-import ConsoleLabel from "@site/src/components/non-swizzled/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-BYOC environments use the tiered storage capability for data allocation. Cold data in your
-custom cloud is stored in your AWS cloud account or your Google Cloud organization.
+AWS BYOC environments use the tiered storage capability for data allocation. Cold data in your AWS custom cloud is stored in your AWS cloud account.
 
-## BYOC tiered storage
-
-:::important
-[BYOC](/docs/platform/concepts/byoc) tiered storage is only supported for
-[Aiven for Apache Kafka](/docs/products/kafka/howto/kafka-tiered-storage-get-started) and
-[Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage).
+:::note
+This is an [early availability feature](/docs/platform/concepts/beta_services#early-availability-).
 :::
 
-To store data, [BYOC](/docs/platform/concepts/byoc) environments use tiered storage, a
+To store data, AWS [BYOC](/docs/platform/concepts/byoc) environments use tiered storage, a
 data allocation mechanism for improved efficiency and cost optimization of data management.
 When enabled, tiered storage allows moving data automatically between hot storage (for
 frequently accessed, critical, and often updated data) and cold storage (for rarely
 accessed, static, or archived data).
 
-Cold data of BYOC-hosted services is stored in object storage in your AWS cloud
-account or your Google Cloud organization. One bucket is created per custom cloud.
+Cold data of AWS BYOC-hosted services is stored in object storage in your AWS cloud
+account. One bucket is created per custom cloud.
 
-:::note
+:::important
 
+- AWS [BYOC](/docs/platform/concepts/byoc) tiered storage is only supported for
+  [Aiven for Apache Kafka](/docs/products/kafka/howto/kafka-tiered-storage-get-started) and
+  [Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage).
 - Tiered storage enabled on non-BYOC services is owned by Aiven and as such doesn't allow
   to store cold data in your own cloud account.
 - Non-BYOC services with Aiven-owned tiered storage cannot be migrated to BYOC.
 
 :::
 
-To use tiered storage in a BYOC-hosted service, tiered storage needs to be enabled both
-[in your custom cloud](/docs/platform/howto/byoc/store-data#enable-tiered-storage-in-a-custom-cloud)
+To use tiered storage in an AWS BYOC-hosted service, tiered storage needs to be enabled both
+[in your custom cloud](/docs/platform/howto/byoc/store-data#enable-tiered-storage-in-an-aws-custom-cloud)
 and
 [in the BYOC-hosted service](/docs/platform/howto/byoc/store-data#enable-tiered-storage-on-a-service).
 
-## Enable tiered storage in a custom cloud
+## Enable tiered storage in an AWS custom cloud
 
-- **New custom clouds**: Tiered storage is enabled by default in all new custom
+- **New AWS custom clouds**: Tiered storage is enabled by default in all new custom
   clouds so you can proceed to
   [enabling tiered storage on a service](/docs/platform/howto/byoc/store-data#enable-tiered-storage-on-a-service).
-- **Existing custom clouds with no tiered storage support**:
+- **Existing AWS custom clouds with no tiered storage support**:
   [Contact the Aiven support team](mailto:support@aiven.io) to request enabling tiered
   storage in your custom cloud.
 
@@ -53,12 +51,12 @@ and
 
 ### Prerequisites
 
-- At least one [custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
+- At least one AWS [custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
 - At least one [Aiven-manged service](/docs/platform/howto/create_new_service), either
   Aiven for Apache Kafka® or Aiven for ClickHouse®, hosted in a custom cloud
 
   :::note
-  If your Aiven-managed service is not hosted in a custom cloud, you can
+  If your Aiven-managed service is not hosted in an AWS custom cloud, you can
   [migrate it](/docs/platform/howto/byoc/manage-byoc-service#migrate-an-existing-service-to-a-custom-cloud).
   :::
 
