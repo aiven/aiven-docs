@@ -10,7 +10,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 AWS BYOC environments use the tiered storage capability for data allocation. Cold data in your AWS custom cloud is stored in your AWS cloud account.
 
 :::note
-This is an [early availability feature](/docs/platform/concepts/beta_services#early-availability-).
+This is an
+[early availability feature](/docs/platform/concepts/service-and-feature-releases#early-availability-).
 :::
 
 To store data, AWS [BYOC](/docs/platform/concepts/byoc) environments use tiered storage, a
