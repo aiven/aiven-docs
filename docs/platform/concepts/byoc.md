@@ -223,23 +223,8 @@ Depending on the BYOC service, Aiven takes
 [regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
 in time recovery (PITR), and disaster recovery.
 
-<Tabs groupId="group1">
-<TabItem value="aws" label="AWS BYOC" default>
-
 <EarlyBadge/> AWS BYOC services allow for user-owned backups stored in Amazon S3 buckets
 within your AWS account using tiered storage.
-
-</TabItem>
-<TabItem value="google" label="Google Cloud BYOC">
-
-Google Cloud BYOC service backups are not stored in your Google Cloud account by default.
-
-To have your backups stored in your own account, contact your account team for assistance.
-Aiven would then require read-write permissions to access the object storage in your cloud
-account.
-
-</TabItem>
-</Tabs>
 
 :::important
 
