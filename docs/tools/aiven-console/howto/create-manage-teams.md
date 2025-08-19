@@ -9,7 +9,7 @@ Teams are groups of users that you can assign to projects.
 :::important
 **Teams have been deprecated and are being migrated to groups.**
 
-Aiven plans to migrate teams to groups and delete all teams. 
+Aiven plans to migrate teams to groups and delete all teams. You can't create new teams
 or update existing ones. On **September 30, 2024 the Account Owners teams were removed.**
 The Account Owners and super admin are synced, so the removal of the Account Owners team
 has no impact on existing permissions. Super admin have full access to organizations.
