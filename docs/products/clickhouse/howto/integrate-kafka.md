@@ -223,8 +223,6 @@ Click to see the list
 <details><summary>
 Click to see the list
 </summary>
-### Optional integration settings
-
 | Name                                    | Type      | Description                                                                                                                     | Default    | Example      | Allowed values / Range                                          |
 |---------------------------------------- |-----------|---------------------------------------------------------------------------------------------------------------------------------|------------|--------------|-----------------------------------------------------------------|
 | `auto_offset_reset`                     | string    | Action to take when there is no initial offset in offset store or the desired offset is out of range                            | `earliest` | `latest`     | `smallest`, `earliest`, `beginning`, `largest`, `latest`, `end` |
