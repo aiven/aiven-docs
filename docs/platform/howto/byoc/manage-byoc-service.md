@@ -54,7 +54,9 @@ to point to your custom cloud.
 
 Migrating a service to a custom cloud in the private deployment model requires network
 reconfiguration. Services are never exposed to the internet, and correct private
-communication must be established. Contact your account team for private migration guidance.
+communication must be established.
+[Create a support ticket](/docs/platform/howto/support#create-a-support-ticket)
+if you need assistance migrating to a private-deployment–model custom cloud.
 
 <RelatedPages/>
 

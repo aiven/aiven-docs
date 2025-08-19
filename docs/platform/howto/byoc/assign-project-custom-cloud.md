@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Select your organizations, units, or project that can access and use your [custom cloud](/docs/platform/concepts/byoc).
+Select your organizations, units, or projects that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 
 With the [BYOC feature enabled](/docs/platform/howto/byoc/enable-byoc), you can
 [create custom clouds](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
@@ -97,7 +97,7 @@ avn byoc cloud permissions add                  \
 </TabItem>
 </Tabs>
 
-In the organizations projects, or organizational units for which you enable your
+In the organizations, projects, or organizational units for which you enable your
 custom cloud, you can:
 
 - Create services in the custom cloud
