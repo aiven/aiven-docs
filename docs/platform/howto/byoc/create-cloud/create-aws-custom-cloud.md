@@ -538,11 +538,11 @@ Continue working in the **Create custom cloud** wizard:
 
 #### Set up your custom cloud's availability
 
-Select in what projects you'll be able to use your new custom cloud as a hosting cloud for
-services. In the projects where you enable your custom cloud, you can create new
-services in the custom cloud or migrate your existing services to the custom cloud if your
-service and networking configuration allows it. For more information on migrating your
-existing services to the custom cloud, contact your account team.
+Select projects where the new custom cloud will be available for hosting your services.
+These projects will support creating new services in the custom cloud or migrating your
+existing services to the custom cloud if your service and networking configuration allows
+it. For more information on migrating your existing services to the custom cloud, contact
+your account team.
 
 Your cloud can be available in:
 
