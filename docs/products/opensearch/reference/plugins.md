@@ -38,7 +38,8 @@ are available:
 -   OpenSearch Dashboards Gantt Charts
 -   OpenSearch Dashboards Trace Analytics
 -   OpenSearch observability
--   OpenSearch security
+-   [OpenSearch security](/docs/products/opensearch/concepts/os-security) for RBAC, SAML,
+    and OIDC
 -   OpenSearch security analytics
 -   OpenSearch notifications
 

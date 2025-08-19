@@ -8,6 +8,16 @@ By enabling this, you
 can manage user permissions, roles, and other security aspects
 through the OpenSearch Dashboard.
 
+:::info
+Aiven for OpenSearch Security supports the following authentication methods:
+
+- Role-Based Access Control (RBAC)
+- Security Assertion Markup Language (SAML)
+- OpenID Connect (OIDC)
+
+Choose the authentication method that best fits your organization’s requirements.
+:::
+
 ## Considerations before enabling OpenSearch Security management
 
 Before enabling OpenSearch Security management on your Aiven for

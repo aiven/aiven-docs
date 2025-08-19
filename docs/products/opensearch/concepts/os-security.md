@@ -8,6 +8,12 @@ your OpenSearch service. By
 authentication, and audit logging to track and analyze activities within
 your OpenSearch environment.
 
+Aiven for OpenSearch Security supports multiple authentication methods:
+
+- Role-Based Access Control (RBAC)
+- Security Assertion Markup Language (SAML)
+- OpenID Connect (OIDC)
+
 With OpenSearch Security enabled, you can manage user access and
 permissions directly from the
 [OpenSearch Dashboard](/docs/products/opensearch/dashboards), giving you full control over your service's security.
