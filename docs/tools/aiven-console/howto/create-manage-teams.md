@@ -9,61 +9,14 @@ Teams are groups of users that you can assign to projects.
 :::important
 **Teams have been deprecated and are being migrated to groups.**
 
-- **On September 30, 2024 the Account Owners team will be removed.**
+Aiven plans to migrate teams to groups and delete all groups. You can't create new teams
+or update existing ones. On **September 30, 2024 the Account Owners teams were removed.**
+The Account Owners and super admin are synced, so the removal of the Account Owners team
+has no impact on existing permissions. Super admin have full access to organizations.
 
-  The Account Owners and super admin are synced, so the removal of the
-  Account Owners team will have no impact on existing permissions.
-  Super admin have full access to organizations.
-
-- **From November 4, 2024 you won't be able to create new teams or update existing ones.**
-
-  To simplify the move, Aiven will also begin migrating your existing teams to groups.
-
-- **On December 2, 2024 all teams will be migrated to groups and deleted.**
-
-  To make the transition to groups smoother, you can
-  [migrate your teams](#migrate-teams-to-groups) yourself.
+To make the transition to groups smoother, you can
+[migrate your teams](#migrate-teams-to-groups) yourself.
 :::
-
-## Create a team
-
-1.  In the organization, click **Admin**.
-1.  Click **Teams**.
-1.  Click **Create new team**.
-1.  Enter a **Team Name**.
-1.  Click **Create team**.
-
-## Add users to a team
-
-Users must be part of an organization before being added to a team.
-
-1.  In the organization, click **Admin**.
-1.  Click **Teams**.
-1.  Click the name of the team to add users to.
-1.  On the **Team Members** tab, click **Invite users**.
-1.  Enter the email address of the user and click **Invite users**.
-
-The user will get an email with an invitation link.
-
-## Add projects and roles to a team
-
-For each team you can specify which projects they can access and the
-level of permissions:
-
--   **Admin:** Full access to the project, including inviting other
-    users and modifying billing information.
--   **Developer:** Make changes to services that do not affect billing.
--   **Operator:** Full access to services, except billing information
-    and project members.
--   **Read only:** View services only.
-
-To add projects and roles to a team:
-
-1.  Click the name of the team and select the **Projects and Roles**
-    tab.
-1.  Click **Add projects**.
-1.  Select a **Project Name** and **Permission Level**.
-1.  Click **Add project to team**.
 
 ## Migrate teams to groups
 
@@ -106,3 +59,43 @@ Account Owners team.
     :::note
     You cannot delete the Account Owners team.
     :::
+
+## Create a team
+
+1.  In the organization, click **Admin**.
+1.  Click **Teams**.
+1.  Click **Create new team**.
+1.  Enter a **Team Name**.
+1.  Click **Create team**.
+
+## Add users to a team
+
+Users must be part of an organization before being added to a team.
+
+1.  In the organization, click **Admin**.
+1.  Click **Teams**.
+1.  Click the name of the team to add users to.
+1.  On the **Team Members** tab, click **Invite users**.
+1.  Enter the email address of the user and click **Invite users**.
+
+The user will get an email with an invitation link.
+
+## Add projects and roles to a team
+
+For each team you can specify which projects they can access and the
+level of permissions:
+
+-   **Admin:** Full access to the project, including inviting other
+    users and modifying billing information.
+-   **Developer:** Make changes to services that do not affect billing.
+-   **Operator:** Full access to services, except billing information
+    and project members.
+-   **Read only:** View services only.
+
+To add projects and roles to a team:
+
+1.  Click the name of the team and select the **Projects and Roles**
+    tab.
+1.  Click **Add projects**.
+1.  Select a **Project Name** and **Permission Level**.
+1.  Click **Add project to team**.
