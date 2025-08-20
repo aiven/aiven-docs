@@ -1,323 +1,350 @@
 ---
-title: Create a sink connector from Apache Kafka® to Snowflake
+title: Create and configure a Snowflake sink connector for Apache Kafka®
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-The Apache Kafka Connect® Snowflake sink connector enables you to move data from an Aiven for Apache Kafka® cluster to a Snowflake database. The full connector documentation is available in the dedicated [GitHub repository](https://docs.snowflake.com/en/user-guide/kafka-connector).
+The Apache Kafka Connect® Snowflake sink connector moves data from Aiven for Apache Kafka® topics to a Snowflake database. It requires configuration in both Snowflake and Aiven for Apache Kafka.
 
-:::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.snowflake.com/en/user-guide/kafka-connector-overview).
-:::
+## Prerequisites
 
-## Prerequisites {#connect_sink_snowflake_prereq}
+- An Aiven for Apache Kafka service with
+  [Apache Kafka Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect),
+  or a [dedicated Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
+- Access to the target Snowflake account with privileges to create users, roles, and
+  schemas
+- OpenSSL installed locally to generate key pairs
+- Collect the following connection details:
 
-- An Aiven for Apache Kafka® service
-  [with Apache Kafka Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect) or a
-  [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
-
-- [Prepare the Snowflake account](snowflake-sink-prereq) and collect the following
-  information about the target
-  Snowflake database:
-
-  - `SNOWFLAKE_URL`: The URL used to access the Snowflake account in the format of
-    `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com` where:
-
-    -   `ACCOUNT_LOCATOR` is the name of the account, more
-        information are available in the dedicated [Snowflake
-        documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier)
-    -   `REGION_ID` is the Id of the region where the Snowflake
-        service is available, you can review the region Ids in the
-        [dedicated
-        documentation](https://docs.snowflake.com/en/user-guide/intro-regions)
+  - `SNOWFLAKE_URL`: In the format `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com`
 
     :::tip
-    The Snowflake account Id and region name can be obtained in the
-    Snowflake UI by issuing the following query in a worksheet:
+    To retrieve your account locator and region ID, run the following in the Snowflake
+    worksheet:
 
-    ```
-    select current_account(), current_region()
+    ```sql
+    SELECT CURRENT_ACCOUNT(), CURRENT_REGION();
     ```
 
     :::
 
-  -   `SNOWFLAKE_USERNAME`: A valid Snowflake username with enough
-      privileges to write data in the target database as mentioned in the
-      [prerequisite document](snowflake-sink-prereq).
+  - `SNOWFLAKE_USERNAME`: The user created for the connector
+  - `SNOWFLAKE_PRIVATE_KEY`: The private key for the user
+  - `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`: The key passphrase
+  - `SNOWFLAKE_DATABASE`: The target database
+  - `SNOWFLAKE_SCHEMA`: The target schema
+  - `TOPIC_LIST`: Comma-separated list of Kafka topics to sink
 
-  -   `SNOWFLAKE_PRIVATE_KEY`: The private key associated to the
-      `SNOWFLAKE_USERNAME` as mentioned in the
-      [prerequisite document](snowflake-sink-prereq).
+  If using Avro format:
 
-  -   `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`: The private key passphrase
-
-  -   `SNOWFLAKE_DATABASE`: The target Snowflake database name
-
-  -   `SNOWFLAKE_SCHEMA`: The target Snowflake database schema name
-
-  -   `TOPIC_LIST`: The list of topics to sink divided by comma
-
-  -   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-      needed when using Avro as data format
-
-  -   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-      only needed when using Avro as data format
-
-  -   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-      username, only needed when using Avro as data format
-
-  -   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-      password, only needed when using Avro as data format
-
-## Setup a Snowflake sink connector with Aiven Console
-
-The following example demonstrates how to setup an Apache Kafka Connect®
-Snowflake sink connector using the [Aiven
-Console](https://console.aiven.io/).
-
-### Define an Apache Kafka Connect® configuration file
-
-Define the connector configurations in a file (we'll refer to it with
-the name `snowflake_sink.json`) with the following content:
-
-```json
-{
-    "name": "my-test-snowflake",
-    "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
-    "topics": "TOPIC_LIST",
-    "key.converter": "io.confluent.connect.avro.AvroConverter",
-    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "key.converter.basic.auth.credentials.source": "USER_INFO",
-    "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
-    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "value.converter.basic.auth.credentials.source": "USER_INFO",
-    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "snowflake.url.name": "SNOWFLAKE_URL",
-    "snowflake.user.name": "SNOWFLAKE_USERNAME",
-    "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
-    "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
-    "snowflake.database.name": "SNOWFLAKE_DATABASE",
-    "snowflake.schema.name": "SNOWFLAKE_SCHEMA"
-}
-```
-
-The configuration file contains the following entries:
-
--   `name`: The connector name
--   `topics`: The list of Apache Kafka® topics to sink to the Snowflake
-    database
--   `key.converter` and `value.converter`: defines the messages data
-    format in the Apache Kafka topic. The
-    `io.confluent.connect.avro.AvroConverter` converter translates
-    messages from the Avro format. To retrieve the messages schema we
-    use Aiven's [Karapace schema
-    registry](https://github.com/aiven/karapace) as specified by the
-    `schema.registry.url` parameter and related credentials.
+  - `APACHE_KAFKA_HOST`
+  - `SCHEMA_REGISTRY_PORT`
+  - `SCHEMA_REGISTRY_USER`
+  - `SCHEMA_REGISTRY_PASSWORD`
 
 :::note
-The `key.converter` and `value.converter` sections define how the topic
-messages will be parsed and needs to be included in the connector
-configuration.
-
-When using Avro as source data format, set following
-parameters:
-
--   `value.converter.schema.registry.url`: pointing to the Aiven for
-    Apache Kafka schema registry URL in the form of
-    `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` with the
-    `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/snowflake-sink#connect_sink_snowflake_prereq).
--   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you're going to login to the schema registry
-    using username and password.
--   `value.converter.schema.registry.basic.auth.user.info`: passing the
-    required schema registry credentials in the form of
-    `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` with the
-    `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/snowflake-sink#connect_sink_snowflake_prereq).
+For a full list of configuration options, see
+the [Snowflake Kafka Connector documentation](https://docs.snowflake.com/en/user-guide/kafka-connector).
 :::
 
--   `snowflake.url.name`: The URL to access the Snowflake service
--   `snowflake.user.name`: The connection user
--   `snowflake.private.key`: The user's private key
--   `snowflake.private.key.passphrase`: The private key passphrase
--   `snowflake.database.name`: The Snowflake database name
--   `snowflake.schema.name`: The Snowflake schema name
+## Configure Snowflake
 
-### Create a Kafka Connect connector with the Aiven Console
+Set up Snowflake to authenticate the connector using key pair authentication.
 
-To create a Kafka Connect connector:
+### Generate a key pair
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+Use OpenSSL to generate a 2048-bit RSA key pair:
 
-2.  Select **Connectors** from the left sidebar.
+```bash
+openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out rsa_key.p8
+openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
+```
 
-3.  Select **Create New Connector**, it is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+- `rsa_key.p8` contains the private key, secured with a passphrase.
+- `rsa_key.pub` contains the public key.
 
-4.  Select **Snowflake Sink**.
+### Create a user
 
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
+1. Open the Snowflake UI and go to the **Worksheets** tab.
 
-6.  Paste the connector configuration (stored in the
-    `snowflake_sink.json` file) in the form.
+1. Use a role with `SECURITYADMIN` or `ACCOUNTADMIN` privileges.
 
-7.  Select **Apply**.
+1. Create a Snowflake user for the Aiven connector. Run the following SQL command:
 
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tab and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
+   ```sql
+   CREATE USER aiven;
+   ```
 
-8.  After all the settings are correctly configured, select **Create
-    connector**.
+1. Copy the contents of `rsa_key.pub`, excluding the `-----BEGIN` and `-----END` lines.
+   Remove any line breaks.
 
-9.  Verify the connector status under the **Connectors** screen.
+   :::note
+   When copying the public key, exclude the `-----BEGIN PUBLIC KEY-----` and
+   `-----END PUBLIC KEY-----` lines. Remove all line breaks so the key is on a single
+   line.
+   :::
 
-10. Verify the presence of the data in the target Snowflake database.
+1. Set the public key for the user:
 
-    :::note
-    You can also create connectors using the
-    [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-    :::
+   ```sql
+   ALTER USER aiven SET RSA_PUBLIC_KEY='PASTE_PUBLIC_KEY_HERE';
+   ```
 
-## Example: Create a Snowflake sink connector on a topic in Avro format
+### Create a role and assign it to the user
 
-The example creates an Snowflake sink connector with the following
-properties:
+1. Create a role for the connector:
 
--   connector name: `my_snowflake_sink`
+   ```sql
+   CREATE ROLE aiven_snowflake_sink_connector_role;
+   ```
 
--   source topics: `test`
+1. Grant the role to the `aiven` user:
 
--   Snowflake database: `testdb`
+   ```sql
+   GRANT ROLE aiven_snowflake_sink_connector_role TO USER aiven;
+   ```
 
--   Snowflake schema: `testschema`
+1. Set the role as the user's default:
 
--   Snowflake URL: `XX0000.eu-central-1.snowflakecomputing.com`
+   ```sql
+   ALTER USER aiven SET DEFAULT_ROLE = aiven_snowflake_sink_connector_role;
+   ```
 
--   Snowflake user: `testuser`
+### Grant privileges on the target database and schema
 
--   User private key:
+The connector writes data to tables in a specific schema within a Snowflake database.
+Grant the necessary privileges to the role you created.
 
-    ```
-    XXXXXXXYYY
-    ZZZZZZZZZZ
-    KKKKKKKKKK
-    YY
-    ```
+1. In the Snowflake UI, open the **Worksheets** tab.
 
--   User private key passphrase: `password123`
+1. Use a role with `SECURITYADMIN` or `ACCOUNTADMIN` privileges.
 
-The connector configuration is the following:
+1. Replace `TESTDATABASE` and `TESTSCHEMA` with your database and schema names, then run
+   the following SQL commands:
+
+   ```sql
+   GRANT USAGE ON DATABASE TESTDATABASE TO ROLE aiven_snowflake_sink_connector_role;
+   GRANT USAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+   GRANT CREATE TABLE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+   GRANT CREATE STAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+   GRANT CREATE PIPE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+   ```
+
+These privileges allow the connector to access the database, write to the schema, and
+manage tables, stages, and pipes.
+
+## Create a Snowflake sink connector configuration
+
+To configure the Snowflake sink connector, define a JSON file (for example,
+`snowflake_sink.json`) with the required connection and converter settings. This helps
+organize your configuration and makes it easier to use in the Aiven Console or CLI.
 
 ```json
 {
-    "name": "my_snowflake_sink",
-    "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
-    "key.converter": "io.confluent.connect.avro.AvroConverter",
-    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "key.converter.basic.auth.credentials.source": "USER_INFO",
-    "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
-    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "value.converter.basic.auth.credentials.source": "USER_INFO",
-    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "topics": "test",
-    "snowflake.url.name": "XX0000.eu-central-1.snowflakecomputing.com",
-    "snowflake.user.name": "testkafka",
-    "snowflake.private.key": "XXXXXXXYYYZZZZZZZZZZKKKKKKKKKKYY",
-    "snowflake.private.key.passphrase": "password123",
-    "snowflake.database.name": "testdb",
-    "snowflake.schema.name": "testschema"
+  "name": "my-test-snowflake",
+  "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+  "topics": "TOPIC_LIST",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "snowflake.url.name": "SNOWFLAKE_URL",
+  "snowflake.user.name": "SNOWFLAKE_USERNAME",
+  "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
+  "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
+  "snowflake.database.name": "SNOWFLAKE_DATABASE",
+  "snowflake.schema.name": "SNOWFLAKE_SCHEMA"
 }
 ```
 
-## Example: Create a Snowflake sink connector on a topic with a JSON schema
+The configuration file includes the following parameters:
 
-If you have a topic named `iot_measurements` containing the following
-data in JSON format, with a defined JSON schema:
+- `name`: Specifies the connector name.
+- `topics`: Lists the Apache Kafka topics to write to the Snowflake database.
+- `key.converter` and `value.converter`: Specify the format of messages in the Kafka
+   topic. To use Avro, set these to `io.confluent.connect.avro.AvroConverter`.
+
+To retrieve the message schema, use Aiven's
+[Karapace schema registry](https://github.com/aiven/karapace). Set the following
+parameters when using Avro as the message format:
+
+- `key.converter.schema.registry.url` and `value.converter.schema.registry.url`: Specify
+  the schema registry URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
+  Replace `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` with the values retrieved
+  in the [prerequisites section](#prerequisites).
+- `key.converter.basic.auth.credentials.source` and
+  `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to enable basic
+  authentication using a username and password.
+- `key.converter.schema.registry.basic.auth.user.info` and
+ `value.converter.schema.registry.basic.auth.user.info`: Specify the schema registry
+ credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`. Replace
+ these values with the credentials retrieved in the [prerequisites section](#prerequisites).
+
+These converter parameters are required for parsing Avro messages from the Kafka topics.
+
+Snowflake connection parameters:
+
+- `snowflake.url.name`: Specifies the URL of the Snowflake service.
+- `snowflake.user.name`: Specifies the Snowflake username.
+- `snowflake.private.key`: Specifies the private key used to authenticate the Snowflake user.
+- `snowflake.private.key.passphrase`: Specifies the passphrase for the private key.
+- `snowflake.database.name`: Specifies the target Snowflake database.
+- `snowflake.schema.name`: Specifies the target schema within the database.
+
+## Create a Snowflake sink connector
+
+<Tabs groupId="setup-method">
+  <TabItem value="console" label="Aiven Console" default>
+
+1. Access the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
+   If not, click **Enable connector on this service**.
+
+   To enable connectors:
+
+   1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
+   1. In the Service management section, click <ConsoleLabel name="Actions"/> >
+      **Enable Kafka Connect**.
+1. In the list of sink connectors, click **Get started** under **Snowflake Sink**.
+1. On the **Snowflake Sink** connector page, go to the **Common** tab.
+1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
+1. Paste the configuration from your `snowflake_sink.json` file into the text box.
+   Replace all placeholders with actual values.
+1. Click **Apply**.
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Confirm that data from the Apache Kafka topics appears in the target Snowflake database.
+
+</TabItem>
+
+<TabItem value="cli" label="Aiven CLI">
+
+To create a Snowflake sink connector using the [Aiven CLI](/docs/tools/cli/service-cli),
+run:
+
+```bash
+avn service connector create SERVICE_NAME @snowflake_sink.json
+```
+
+Parameters:
+
+- `SERVICE_NAME`: The name of your Aiven for Apache Kafka service.
+- `@snowflake_sink.json`: The path to your connector configuration file.
+
+</TabItem>
+</Tabs>
+
+## Examples
+
+### Create a Snowflake sink connector for an Avro topic
+
+This example creates a Snowflake sink connector with the following settings:
+
+- Connector name: `my_snowflake_sink`
+- Source topic: `test`
+- Snowflake database: `testdb`
+- Snowflake schema: `testschema`
+- Snowflake URL: `XX0000.eu-central-1.snowflakecomputing.com`
+- Snowflake user: `testuser`
+- Private key:
+
+  ```text
+  XXXXXXXYYY
+  ZZZZZZZZZZ
+  KKKKKKKKKK
+  YY
+  ```
+
+- Private key passphrase: `password123`
 
 ```json
 {
-    "schema": {
-        "type":"struct",
-        "fields":[{
-            "type":"int64",
-            "optional": false,
-            "field": "iot_id"
-            },{
-            "type":"string",
-            "optional": false,
-            "field": "metric"
-            },{
-            "type":"int32",
-            "optional": false,
-            "field": "measurement"
-            }]
-    },
-    "payload":{ "iot_id":1, "metric":"Temperature", "measurement":14}
+"name": "my_snowflake_sink",
+"connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+"key.converter": "io.confluent.connect.avro.AvroConverter",
+"key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+"key.converter.basic.auth.credentials.source": "USER_INFO",
+"key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+"value.converter": "io.confluent.connect.avro.AvroConverter",
+"value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+"value.converter.basic.auth.credentials.source": "USER_INFO",
+"value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+"topics": "test",
+"snowflake.url.name": "XX0000.eu-central-1.snowflakecomputing.com",
+"snowflake.user.name": "testkafka",
+"snowflake.private.key": "XXXXXXXYYYZZZZZZZZZZKKKKKKKKKKYY",
+"snowflake.private.key.passphrase": "password123",
+"snowflake.database.name": "testdb",
+"snowflake.schema.name": "testschema"
+}
+```
+
+### Create a Snowflake sink connector for a topic with a JSON schema
+
+This example sinks data from a Kafka topic named `iot_measurements` to Snowflake. The
+topic contains messages in JSON format, each with an inline schema.
+
+Sample messages:
+
+```json
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      { "type": "int64", "optional": false, "field": "iot_id" },
+      { "type": "string", "optional": false, "field": "metric" },
+      { "type": "int32", "optional": false, "field": "measurement" }
+    ]
+  },
+  "payload": { "iot_id": 1, "metric": "Temperature", "measurement": 14 }
 }
 {
-    "schema": {
-        "type":"struct",
-        "fields":[{
-            "type":"int64",
-            "optional": false,
-            "field": "iot_id"
-            },{
-            "type":"string",
-            "optional": false,
-            "field": "metric"
-            },{
-            "type":"int32",
-            "optional": false,
-            "field": "measurement"
-            }]
-    },
-    "payload":{"iot_id":2, "metric":"Humidity", "measurement":60}
+  "schema": {
+    "type": "struct",
+    "fields": [
+      { "type": "int64", "optional": false, "field": "iot_id" },
+      { "type": "string", "optional": false, "field": "metric" },
+      { "type": "int32", "optional": false, "field": "measurement" }
+    ]
+  },
+  "payload": { "iot_id": 2, "metric": "Humidity", "measurement": 60 }
 }
 ```
 
 :::note
-Since the JSON schema needs to be defined in every message, there is a
-big overhead to transmit the information. To achieve a better
-performance in term of information-message ratio you should use the Avro
-format together with the [Karapace schema
-registry](https://karapace.io/) provided by Aiven
+JSON messages must include the full schema in each record. This results in additional
+overhead. For better performance, use the Avro format with
+the [Karapace schema registry](https://karapace.io/) provided by Aiven.
 :::
 
-You can sink the `iot_measurements` topic to Snowflake with the
-following connector configuration, after replacing the placeholders for
-`SNOWFLAKE_URL`, `SNOWFLAKE_USERNAME`, `SNOWFLAKE_PRIVATE_KEY`,
-`SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`, `SNOWFLAKE_DATABASE` and
-`SNOWFLAKE_SCHEMA`:
+You can configure the Snowflake sink connector using the following JSON configuration.
+Replace the placeholders with your actual values.
 
 ```json
 {
-    "name": "my-test-snowflake-1",
-    "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "topics": "iot_measurements",
-    "snowflake.url.name": "SNOWFLAKE_URL",
-    "snowflake.user.name": "SNOWFLAKE_USERNAME",
-    "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
-    "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
-    "snowflake.database.name": "SNOWFLAKE_DATABASE",
-    "snowflake.schema.name": "SNOWFLAKE_SCHEMA"
+  "name": "my-test-snowflake-1",
+  "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "topics": "iot_measurements",
+  "snowflake.url.name": "SNOWFLAKE_URL",
+  "snowflake.user.name": "SNOWFLAKE_USERNAME",
+  "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
+  "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
+  "snowflake.database.name": "SNOWFLAKE_DATABASE",
+  "snowflake.schema.name": "SNOWFLAKE_SCHEMA"
 }
 ```
 
-The configuration file contains the following peculiarities:
+Details about the configuration:
 
--   `"topics": "iot_measurements"`: setting the topic to sink
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
-    the message value is in JSON format with a schema, there is not key
-    converter defined for the key since it's empty
+- `"topics": "iot_measurements"`: Specifies the Kafka topic to sink.
+- `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`: Parses message
+  values from JSON with schema.
+- No key converter is defined because the message key is empty.

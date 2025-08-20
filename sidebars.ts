@@ -1066,7 +1066,6 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/s3-sink-connector-aiven',
                         'products/kafka/kafka-connect/howto/s3-sink-connector-confluent',
                         'products/kafka/kafka-connect/howto/s3-sink-prereq',
-                        'products/kafka/kafka-connect/howto/snowflake-sink-prereq',
                         'products/kafka/kafka-connect/howto/snowflake-sink',
                         'products/kafka/kafka-connect/howto/splunk-sink',
                       ],

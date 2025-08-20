@@ -6,7 +6,6 @@
 # This is because aiven.io/docs proxy to this site.
 #
 /caching                                         /docs/products/caching
-/valkey                                          /docs/products/valkey
 /category/administrative-tasks                   /docs/get-started
 /category/concepts                               /docs/get-started
 /category/concepts-1                             /docs/get-started
@@ -20,9 +19,6 @@
 /category/troubleshooting                        /docs/products/services
 /category/user-access                            /docs/platform/howto/manage-org-users
 /community/documentation/tips-tricks/renaming-files /docs
-/platform/concepts/projects_accounts_access.html  /docs/platform/howto/manage-org-users
-/products/opensearch/howto/list-integrations      /docs/products/opensearch
-/products/opensearch/howto/list-manage-service    /docs/products/opensearch
 /integrations                                          /docs/platform/concepts/service-integration
 /integrations/cloudwatch/list-cloudwatch-logs          /docs/integrations/cloudwatch/cloudwatch-logs-console
 /integrations/google-bigquery                          /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
@@ -41,6 +37,7 @@
 /platform/concepts/orgs-and-units                      /docs/platform/concepts/orgs-units-projects
 /platform/concepts/projects                            /docs/platform/concepts/orgs-units-projects
 /platform/concepts/projects_accounts_access            /docs/platform/howto/manage-project
+/platform/concepts/projects_accounts_access.html  /docs/platform/howto/manage-org-users
 /platform/concepts/service-scaling                     /docs/platform/howto/scale-services
 /platform/howto/access-service-log                     /docs/platform/howto/list-monitoring
 /platform/howto/access-service-logs                    /docs/platform/howto/list-monitoring
@@ -164,6 +161,7 @@
 /products/kafka/kafka-connect/howto/list-admin             /docs/products/kafka/kafka-connect/howto/best-practices
 /products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect
+/products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink
 /products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params
 /products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration
 /products/kafka/kafka-mirrormaker/howto                    /docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster
@@ -193,7 +191,12 @@
 /products/opensearch/howto                                 /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-access-control             /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-data-management            /docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
+
 /products/opensearch/howto/migrate-snapshot-data-opensearch /docs/products/opensearch/howto/manage-snapshots
+
+/products/opensearch/howto/list-integrations      /docs/products/opensearch
+/products/opensearch/howto/list-manage-service    /docs/products/opensearch
+
 /products/opensearch/howto/upgrade-to-opensearch           /docs/products/opensearch/howto/upgrade-clients-to-opensearch
 /products/opensearch/list-overview                         /docs/products/opensearch
 /products/opensearch/reference                             /docs/products/opensearch/reference/advanced-params
@@ -233,7 +236,11 @@
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started
 /tools/terraform/reference/troubleshooting                            /docs/tools/terraform
 /tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform
+<<<<<<< HEAD
 /tutorials/anomaly-detection                                          /docs
+=======
+/valkey                                          /docs/products/valkey
+>>>>>>> 0eac90a1 (update: unify Snowflake sink connector content)
 
 #
 # Redirect to external resources
