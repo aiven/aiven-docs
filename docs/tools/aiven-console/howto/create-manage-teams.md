@@ -7,15 +7,15 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 Teams are groups of users that you can assign to projects.
 
 :::important
-**Teams have been deprecated and are being migrated to groups.**
+**Teams have been replaced by groups.**
 
-Aiven plans to migrate teams to groups and delete all teams. You can't create new teams
-or update existing ones. On **September 30, 2024 the Account Owners teams were removed.**
-The Account Owners and super admin are synced, so the removal of the Account Owners team
-has no impact on existing permissions. Super admin have full access to organizations.
+To make the transition to groups smoother,
+[migrate your teams](#migrate-teams-to-groups) to groups.
 
-To make the transition to groups smoother, you can
-[migrate your teams](#migrate-teams-to-groups) yourself.
+Members of the Account Owners team are automatically made super admin.
+You can change their access level by
+[revoking super admin privileges](/docs/platform/howto/manage-permissions#make-users-super-admin),
+or by granting other [roles and permissions](/docs/platform/concepts/permissions).
 :::
 
 ## Migrate teams to groups
@@ -37,11 +37,8 @@ Account Owners team.
     :::note
     Users on the Account Owners team are automatically made super admin
     with full access to manage the organization. You don't need to create a
-    group for these users.
-
-    If you create a group named Account Owners, users you add to that group won't
-    automatically become super admin. Instead, you can
-    [make them super admin](/docs/platform/howto/manage-permissions).
+    group for these users. If you create a group named Account Owners, users
+    you add to that group won't automatically become super admin.
     :::
 
 1.  Click **Groups**.
