@@ -21,8 +21,11 @@ for simpler access control scenarios.
 
 - **Permissions**: Assign `read`, `write`, `readwrite`, or `admin` permissions to
   specific users or multiple users using wildcards at the topic level.
-- **Wildcard support**: Enable patterns for usernames and resource names, such as
-  `logs-*` for topics or `user?` for usernames.
+- **Wildcard support**: Use wildcards in usernames and resource names.
+  - `*` matches zero or more characters. For example, `logs-*`
+    matches `logs-2023` and `logs-error`.
+  - `?` matches exactly one character. For example, `user?` matches `user1`
+    and `userA`, but not `user10`.
 - **User-specific**: Apply permissions directly to individual users or to multiple users
   by matching patterns. For example, `username: analyst*` applies to all usernames
   starting with `analyst`.
@@ -41,9 +44,8 @@ An Aiven ACL entry consists of the following elements:
 - **Permission**: One of `read`, `write`, `readwrite`, or `admin`.
 - **Associated topics**: Specific Kafka topics or wildcard patterns.
 
-Aiven checks ACL entries and grants access if there's a match. If no entry matches,
-access is denied. The order of ACL entries does not
-influence access evaluation.
+Aiven grants access only when an ACL entry matches. If no match is found, access is
+denied. The order of ACL entries does not affect evaluation.
 
 :::note
 Aiven ACLs automatically provide access to all consumer groups. You do not need to
@@ -82,6 +84,18 @@ configure separate ACL entries for consumer group access.
 
   Grants all users with usernames starting with `developer` read access to topics
   starting with `test`.
+
+- Wildcard with a single character:
+
+  ```plaintext
+  username: tester
+  permission: read
+  topic: topic-?
+  ```
+
+  Grants `tester` read access to topics such as `topic-1` and `topic-A`. The `?` matches
+  exactly one character, so it does not match `topic-10`. To match `topic-10`,
+  use `topic-*` (zero or more characters) or `topic-??` (exactly two characters).
 
 ## Kafka-native ACL capabilities
 
@@ -198,7 +212,7 @@ Examples where the `DENY` rule takes precedence include:
 The following table summarizes the permissions supported by Aiven ACLs, along with
 corresponding Apache Kafka actions and Java APIs.
 
-| Action           | Java API Link                                                                                                                                                       | Admin | Consume and Produce | Produce | Consume |
+| Action           | Java API                                                                                                                                                        | Admin | Read + Write | Write only | Read only |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------------|-------------|-------------|
 | **Cluster**          |                                                                                                                                                                        |           |                          |             |             |
 | → `CreateTopics`     | [docs](https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/admin/Admin.html#createTopics(java.util.Collection))                                               | ✓         |                          |             |             |
