@@ -174,10 +174,12 @@
 /products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
 /products/kafka/reference                                              /docs/products/kafka/reference/advanced-params
 /products/m3db/concepts                                    /docs/products/m3db/concepts/m3-components
-/products/metrics/concepts                                 /docs/products/metrics/concepts/storage-resource-scaling
+/products/metrics/concepts                                 /docs/products/metrics
 /products/metrics/concepts/metrics-overview                /docs/products/metrics
-/products/metrics/howto                                    /docs/products/metrics/howto/storage-usage
-/products/metrics/howto/list-data-migration                /docs/products/metrics/howto/migrate-influxdb-thanos
+/products/metrics/howto                                    /docs/products/metrics
+/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life#aiven-for-influxdb
+/products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb
+/products/metrics/howto/download-influxdb-data             /docs/platform/reference/end-of-life#aiven-for-influxdb
 /products/mysql/concepts                                   /docs/products/mysql/concepts/max-number-of-connections
 /products/mysql/howto                                      /docs/products/mysql
 /products/mysql/howto/list-get-started                     /docs/products/mysql/get-started
