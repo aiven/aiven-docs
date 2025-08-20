@@ -195,7 +195,7 @@ security configurations during the restore process as it can cause restore failu
 
       This triggers the restoration process. Its length depends on the snapshot size.
       Refrain from changes during the restore process: Updating firewalls, index settings,
-      or security configs during restore may cause failures.
+      or security configuration during restore may cause failures.
 
    1. Shut down the **Restore snapshot** window by clicking **Close** either during the
       restore process or when it completes.
