@@ -169,8 +169,8 @@ security configurations during the restore process as it can cause restore failu
    <ConsoleLabel name="restorefromsnapshot"/>.
 1. In the **Restore snapshot** window:
 
-   1. In the **Indices** field, enter patterns to include or exclude indices to be closed
-      during snapshot restore.
+   1. In the **Indices** field, enter comma-separated list of indices to include in
+      the snapshot. They will be closed right before you trigger the restore process.
    1. Toggle **Enable advanced configuration** to set the following:
 
       - Rename pattern: a regular expression that matches the original index name from the
