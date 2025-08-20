@@ -171,6 +171,10 @@ security configurations during the restore process as it can cause restore failu
 
    1. In the **Indices** field, enter the indices to include in the snapshot, separated by
       commas. These indices will be closed automatically before the restore begins.
+
+      Existing data may be overwritten. To prevent this, use **advanced configuration**
+      to add suffixes.
+
    1. Toggle **Enable advanced configuration** to set the following:
 
       - Rename pattern: a regular expression that matches the original index name from the
@@ -182,19 +186,23 @@ security configurations during the restore process as it can cause restore failu
    1. Click **Continue** > **Close indices**.
 
       This triggers the closing of the selected indices. Wait for **Indices closed** to be
-      displayed.
+      displayed, and click **Continue**.
 
-   1. Check the **I understand the effects of this action** box, and click
-      **Start restore**.
+   1. Check the **I understand the effects of this action** box: Snapshot restore may take
+      time and cannot be interrupted. Avoid configuration changes during the process.
+
+   1. Click **Start restore**.
 
       This triggers the restoration process. Its length depends on the snapshot size.
+      Refrain from changes during the restore process: Updating firewalls, index settings,
+      or security configs during restore may cause failures.
 
    1. Shut down the **Restore snapshot** window by clicking **Close** either during the
       restore process or when it completes.
 
       :::tip
       If you close the **Restore snapshot** window before the restore process is complete,
-      you can check its status on the **Snapshots** page.
+      you can preview its status on the **Snapshots** page.
       :::
 
 </TabItem>
