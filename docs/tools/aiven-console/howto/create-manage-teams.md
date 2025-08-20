@@ -7,23 +7,55 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 Teams are groups of users that you can assign to projects.
 
 :::important
-**Teams have been deprecated and are being migrated to groups.**
+**Teams have been replaced by groups.**
 
-- **On September 30, 2024 the Account Owners team will be removed.**
+To make the transition to groups smoother,
+[migrate your teams](#migrate-teams-to-groups) to groups.
 
-  The Account Owners and super admin are synced, so the removal of the
-  Account Owners team will have no impact on existing permissions.
-  Super admin have full access to organizations.
-
-- **From November 4, 2024 you won't be able to create new teams or update existing ones.**
-
-  To simplify the move, Aiven will also begin migrating your existing teams to groups.
-
-- **On December 2, 2024 all teams will be migrated to groups and deleted.**
-
-  To make the transition to groups smoother, you can
-  [migrate your teams](#migrate-teams-to-groups) yourself.
+Members of the Account Owners team are automatically made super admin.
+You can change their access level by
+[revoking super admin privileges](/docs/platform/howto/manage-permissions#make-users-super-admin),
+or by granting other [roles and permissions](/docs/platform/concepts/permissions).
 :::
+
+## Migrate teams to groups
+
+:::important
+You can't delete the Account Owners team. **Deleting all other teams in your organization
+will disable the teams feature.** You won't be able to create new teams or access your
+Account Owners team.
+:::
+
+1.  In the organization, click **Admin**.
+
+1.  On the **Teams** tab, click each team name to view it and make a note of:
+
+    -   which users are members of the team
+    -   which projects the team is assigned to
+    -   the permission level that is assigned for each project
+
+    :::note
+    Users on the Account Owners team are automatically made super admin
+    with full access to manage the organization. You don't need to create a
+    group for these users. If you create a group named Account Owners, users
+    you add to that group won't automatically become super admin.
+    :::
+
+1.  Click **Groups**.
+
+1.  Click **Create group**.
+
+1.  Enter the name of one of the teams and assign the same users to this group. Do this
+    for each team.
+
+1.  [Add each new group to the projects](/docs/platform/howto/manage-permissions)
+    that the teams are assigned to with the same role.
+
+1.  After confirming all users have the correct level of access to the projects,
+    delete the teams.
+    :::note
+    You cannot delete the Account Owners team.
+    :::
 
 ## Create a team
 
@@ -64,45 +96,3 @@ To add projects and roles to a team:
 1.  Click **Add projects**.
 1.  Select a **Project Name** and **Permission Level**.
 1.  Click **Add project to team**.
-
-## Migrate teams to groups
-
-:::important
-You can't delete the Account Owners team. **Deleting all other teams in your organization
-will disable the teams feature.** You won't be able to create new teams or access your
-Account Owners team.
-:::
-
-1.  In the organization, click **Admin**.
-
-1.  On the **Teams** tab, click each team name to view it and make a note of:
-
-    -   which users are members of the team
-    -   which projects the team is assigned to
-    -   the permission level that is assigned for each project
-
-    :::note
-    Users on the Account Owners team are automatically made super admin
-    with full access to manage the organization. You don't need to create a
-    group for these users.
-
-    If you create a group named Account Owners, users you add to that group won't
-    automatically become super admin. Instead, you can
-    [make them super admin](/docs/platform/howto/manage-permissions).
-    :::
-
-1.  Click **Groups**.
-
-1.  Click **Create group**.
-
-1.  Enter the name of one of the teams and assign the same users to this group. Do this
-    for each team.
-
-1.  [Add each new group to the projects](/docs/platform/howto/manage-permissions)
-    that the teams are assigned to with the same role.
-
-1.  After confirming all users have the correct level of access to the projects,
-    delete the teams.
-    :::note
-    You cannot delete the Account Owners team.
-    :::
