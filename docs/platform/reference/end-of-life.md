@@ -38,31 +38,11 @@ April 30, 2025. For further assistance, contact
 
 **EOL date**: April 30, 2025
 
-### Service impact
-
 After April 30, 2025, all active Aiven for InfluxDB services are powered off and
 deleted, making data from these services inaccessible.
 
-### Migration options
-
-- **Aiven for Metrics**: A recommended option for time-series data storage and querying.
-  See the
-  [migration guide for Aiven for InfluxDB to Aiven for Metrics](/docs/products/metrics/howto/migrate-influxdb-thanos)
-  for instructions.
-- **Aiven for PostgreSQL**: Supports both relational and time-series data, though a
-  direct migration path is not available. Refer to the
-  [Aiven for PostgreSQL documentation](/docs/products/postgresql) for
-  more information.
-
-To ensure uninterrupted service, complete your migration to Aiven for Metrics before
-April 30, 2025. For further assistance, contact
-[Aiven support team](mailto:support@aiven.io) or your account team.
-
-### Download data
-
-To keep your InfluxDB data, download a backup before April 30, 2025. You can use the
-Aiven Console, Aiven API, or Aiven CLI to download the data. For detailed instructions,
-see [Download InfluxDB data](/docs/products/metrics/howto/download-influxdb-data).
+The recommended alternative for your metrics management and analysis is
+[Aiven for Metrics](/docs/products/metrics).
 
 ## Aiven for Caching
 
