@@ -344,7 +344,7 @@ Replace the placeholders with your actual values.
 
 Details about the configuration:
 
-- `"topics": "iot_measurements"`: Specifies the Kafka topic to sink.
+- `"topics": "iot_measurements"`: Specifies the Kafka topic to write to Snowflake.
 - `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`: Parses message
-  values from JSON with schema.
+  values from JSON with an inline schema.
 - No key converter is defined because the message key is empty.
