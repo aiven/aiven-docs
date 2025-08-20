@@ -193,6 +193,7 @@
 /products/opensearch/howto                                 /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-access-control             /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-data-management            /docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
+/products/opensearch/howto/migrate-snapshot-data-opensearch /docs/products/opensearch/howto/manage-snapshots
 /products/opensearch/howto/upgrade-to-opensearch           /docs/products/opensearch/howto/upgrade-clients-to-opensearch
 /products/opensearch/list-overview                         /docs/products/opensearch
 /products/opensearch/reference                             /docs/products/opensearch/reference/advanced-params
