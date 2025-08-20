@@ -177,10 +177,10 @@
 /products/metrics/concepts                                 /docs/products/metrics
 /products/metrics/concepts/metrics-overview                /docs/products/metrics
 /products/metrics/howto                                    /docs/products/metrics
-/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life
 /products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb
-/products/metrics/howto/migrate-m3db-thanos                /docs/platform/reference/end-of-life#aiven-for-m3db
 /products/metrics/howto/download-influxdb-data             /docs/platform/reference/end-of-life#aiven-for-influxdb
+/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life
+/products/metrics/howto/migrate-m3db-thanos                /docs/platform/reference/end-of-life#aiven-for-m3db
 /products/mysql/concepts                                   /docs/products/mysql/concepts/max-number-of-connections
 /products/mysql/howto                                      /docs/products/mysql
 /products/mysql/howto/list-get-started                     /docs/products/mysql/get-started
