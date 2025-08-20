@@ -94,8 +94,9 @@ configure separate ACL entries for consumer group access.
   ```
 
   Grants `tester` read access to topics such as `topic-1` and `topic-A`. The `?` matches
-  exactly one character, so it does not match `topic-10`. To match `topic-10`,
-  use `topic-*` (zero or more characters) or `topic-??` (exactly two characters).
+  exactly one character. For example, it does not match `topic-10`. To match `topic-10`,
+  use `topic-*` (zero or more characters), `topic-??` (two characters),
+  or `topic-?0`.
 
 ## Kafka-native ACL capabilities
 
