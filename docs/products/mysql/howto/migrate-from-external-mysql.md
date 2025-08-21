@@ -8,8 +8,7 @@ Aiven for MySQL offers a managed process for migrating from an external MySQL in
 
 :::note
 To use the Aiven Console to migrate your database, see
-[Migrate MySQL® databases to Aiven using the Console
-](/docs/products/mysql/howto/migrate-db-to-aiven-via-console).
+[Migrate MySQL® databases to Aiven using the Console](/docs/products/mysql/howto/migrate-db-to-aiven-via-console).
 :::
 
 The process will first do a `mysqldump` to seed the schema and bulk-copy the
@@ -63,18 +62,19 @@ You can use the following variables in the code samples provided:
     (you can substitute `%` in the below command with the IP address of
     the Aiven for MySQL database, if already existing):
 
-    ```
+    ```sql
     create user 'SRC_USERNAME'@'%' identified by 'SRC_PASSWORD';
     grant replication slave on *.* TO 'SRC_USERNAME'@'%';
     grant select, process, event on *.* to 'SRC_USERNAME'@'%'
     ```
 
-2.  If you don't have an Aiven for MySQL database yet, create it via
+1.  If you don't have an Aiven for MySQL database yet, create it via
     [Aiven Console](/docs/products/mysql/get-started) or the dedicated
     [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-create)
 
-3.  Set the migration details via the `avn service update`
-    [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update) substituting the parameters accordingly:
+1.  Set the migration details via the `avn service update`
+    [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update) substituting
+    the parameters accordingly:
 
     ```bash
     avn service update --project PROJECT_NAME \
@@ -87,11 +87,11 @@ You can use the following variables in the code samples provided:
         DEST_NAME
     ```
 
-4.  Check the migration status via the dedicated
+1.  Check the migration status via the dedicated
     `avn service migration-status`
     [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-migration-status):
 
-    ```
+    ```bash
     avn --show-http service migration-status --project PROJECT_NAME DEST_NAME
     ```
 
@@ -128,14 +128,19 @@ destination database.
 
 ## Stop the replication
 
-If you reach a point where you no longer need the ongoing replication to
-happen, you can remove the configuration from the destination service
-via the `avn service update`
+When you’re done migrating, stop the ongoing replication by removing the configuration
+from the destination service via the `avn service update`
 [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```shell
 avn service update --project PROJECT_NAME --remove-option migration DEST_NAME
 ```
+
+:::warning
+Not stopping the ongoing replication might result in issues such as data loss. For example,
+if you remove the data on the migration source, the data is also removed on the migration
+target as a result of the active replication.
+:::
 
 <RelatedPages/>
 
