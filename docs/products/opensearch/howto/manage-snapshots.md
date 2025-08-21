@@ -181,7 +181,7 @@ security configurations during the restore process as it can cause restore failu
         snapshot
       - Rename replacement: a string that replaces the matched part of the index name
       - Ignore unavailable indices
-      - Include global state
+      - Include aliases
 
    1. Click **Continue** > **Close indices**.
 
@@ -222,7 +222,7 @@ curl -s -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "indices": "test-index-*",
-  "include_global_state": true,
+  "include_aliases": true,
   "ignore_unavailable": false,
   "rename_pattern": "index_(.+)",
   "rename_replacement": "restored_index_$1"
