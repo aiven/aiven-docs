@@ -225,6 +225,7 @@ const sidebars: SidebarsConfig = {
             },
             'platform/howto/create_new_service',
             'platform/concepts/service-power-cycle',
+            'platform/concepts/rename-services',
             'platform/howto/tag-resources',
             'platform/howto/search-services',
             'platform/howto/create_new_service_user',
