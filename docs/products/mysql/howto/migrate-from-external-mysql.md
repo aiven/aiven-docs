@@ -128,8 +128,8 @@ destination database.
 
 ## Stop the replication
 
-When you’re done migrating, stop the ongoing replication by removing the configuration
-from the destination service via the `avn service update`
+After confirming that the migration is complete, stop the ongoing replication by removing
+the configuration from the destination service via the `avn service update`
 [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```shell
@@ -137,9 +137,9 @@ avn service update --project PROJECT_NAME --remove-option migration DEST_NAME
 ```
 
 :::warning
-Not stopping the ongoing replication might result in issues such as data loss. For example,
-if you remove the data on the migration source, the data is also removed on the migration
-target as a result of the active replication.
+If you don't stop the ongoing replication, you might lose data. For example, if you remove
+the data on the migration source, the data is also removed on the migration target as a
+result of the active replication.
 :::
 
 <RelatedPages/>
