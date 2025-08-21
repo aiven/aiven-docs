@@ -47,6 +47,7 @@
 | address_standardizer | 3.5.0 |
 | address_standardizer_data_us | 3.5.0 |
 | aiven_extras | 1.1.17 |
+| anon | 2.2.1 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -94,7 +95,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.21.0 |
+| timescaledb | 2.21.3 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
@@ -110,6 +111,7 @@
 | address_standardizer | 3.5.0 |
 | address_standardizer_data_us | 3.5.0 |
 | aiven_extras | 1.1.17 |
+| anon | 2.2.1 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -157,7 +159,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.21.0 |
+| timescaledb | 2.21.3 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
@@ -173,6 +175,7 @@
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
 | aiven_extras | 1.1.17 |
+| anon | 2.2.1 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -221,7 +224,7 @@
 | sslinfo | 1.2 |
 | tablefunc | 1.0 |
 | tcn | 1.0 |
-| timescaledb | 2.21.0 |
+| timescaledb | 2.21.3 |
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
