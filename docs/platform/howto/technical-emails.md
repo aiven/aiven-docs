@@ -8,16 +8,17 @@ import TabItem from '@theme/TabItem';
 To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
 Notifications include information about plan sizes, performance, outages, and scheduled maintenance.
 
-The contacts for a project can be set to the admin and operators of that
-project (this is the default), or to specific email addresses. Project
-contacts receive notifications about the project. They also receive the
-notifications for all services, unless you set a separate service
-contact for a service.
+The default contacts for a project are the project admin and operators. You can also
+set the contacts to specific email addresses. Project contacts receive notifications
+about the project. They also receive the notifications for all services in the project,
+unless you set a separate service contact for a service.
 
 Service contacts by default are the project contacts. However, if you
-set other email addresses as service contacts for a service, email
-notifications will only be sent to those contacts for that specific
-service.
+set other email addresses as service contacts for a service,
+notifications are sent only to the contacts for that specific service.
+
+Project and service contacts cannot unsubscribe from specific
+project or service notifications.
 
 ## Set project contacts
 
