@@ -141,6 +141,7 @@ curl --location 'https://console.aiven.io/v1/project/example-project/service' \
 <TabItem value="terraform" label="Terraform">
 
 Use the `service_to_fork_from` attribute in the user config of your service resource.
+
 The following example creates a fork of a PostgreSQL service. The source service is
 in the Google Cloud `europe-west1` region and the fork is in the AWS `eu-central-1` region.
 
