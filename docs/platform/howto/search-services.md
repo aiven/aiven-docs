@@ -59,13 +59,11 @@ To filter the services by service type, use these filter values:
 | ClickHouse®                 | `clickhouse`    |
 | Grafana®                    | `grafana`       |
 | InfluxDB®                   | `influxdb`      |
-| M3 Aggregator®              | `m3aggregator`  |
-| M3 Coordinator®             | `m3coordinator` |
-| M3DB®                       | `m3db`          |
+| Metrics                     | `thanos`        |
 | MySQL®                      | `mysql`         |
 | OpenSearch®                 | `opensearch`    |
 | PostgreSQL®                 | `pg`            |
-| Caching                    | `redis`         |
+| Caching                     | `redis`         |
 
 ### Filter by status
 

@@ -65,8 +65,8 @@ appropriate for the plan you have selected.
 
 -   **Service health monitoring:** Aiven for ClickHouse provides metrics
     and logs for your cluster at no additional charge. You can enable
-    pre-integrated Aiven observability services, such as Grafana®, M3®,
-    or OpenSearch® or push available metrics and logs to external
+    pre-integrated Aiven observability services, such as Aiven for Grafana®, Aiven for
+    Metrics, or Aiven for OpenSearch® or push available metrics and logs to external
     observability tools, such as Prometheus, AWS CloudWatch, or Google
     Cloud Logging. For more details, see
     [Monitor Aiven for ClickHouse metrics](/docs/products/clickhouse/howto/monitor-performance).
