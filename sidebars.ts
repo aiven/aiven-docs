@@ -1743,7 +1743,6 @@ const sidebars: SidebarsConfig = {
                         id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
                       },
                       items: [
-                        'products/opensearch/howto/migrate-snapshot-data-opensearch',
                         'products/opensearch/howto/migrate-ism-policies',
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
