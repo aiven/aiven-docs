@@ -30,5 +30,8 @@ There are some limitations:
 -   You can't end a free trial yourself before the end of the trial period.
 <!-- vale on -->
 
-Services are automatically powered down after the trial ends or your credits run out. To
-keep your services running, [add a payment card](/docs/platform/howto/manage-payment-card).
+If you didn't add a payment card to the billing group for your project, services
+in that project are automatically powered off when the trial ends or your credits run out.
+To keep your services running
+[add a payment card](/docs/platform/howto/manage-payment-card)
+and assign it to the billing group for the project with your services.
