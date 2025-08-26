@@ -43,8 +43,8 @@ To deploy the application in this example, you first create a ???? service to...
 
 ## Next steps
 
-- Try one of the other [sample apps](/docs/applications/deploy-git-repo).
 - [Deploy your own source code](/docs/applications/deploy-git-repo)
   from a public or private Git repository.
-- Collaborate by [adding users and groups](/docs/platform/howto/manage-permissions)
+- Collaborate by
+  [granting users and groups permissions](/docs/platform/howto/manage-permissions)
   to your project.

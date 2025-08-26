@@ -6,7 +6,7 @@ limited: true
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Connect your deployed application to [Aiven for PostgreSQL®](/docs/products/postgresql) and [Aiven for Valkey™](/docs/products/valkey) services.
+Connect your deployed Aiven Application to [Aiven for PostgreSQL®](/docs/products/postgresql) and [Aiven for Valkey™](/docs/products/valkey) services.
 
 A [free plan](/docs/platform/concepts/free-plan) is available for both of these services.
 
@@ -17,15 +17,14 @@ Aiven Applications is in the
 
 ## Connect an Aiven service
 
-You can connect Aiven services to an existing Aiven Applications application.
+You can connect Aiven services to an existing application.
 If you don't have an Aiven for PostgreSQL or Aiven for Valkey service,
 [create one](/docs/platform/howto/create_new_service) first.
 
-1. In your project, click **Applications**.
-1. Select your application.
-1. Click **Connect service**.
-1. Select the  service to connect.
-1. Click **Save**.
+1. In your project, click **Applications** and select your application.
+1. In the **Connected services** section, click **Connect service**.
+1. Select the service to connect.
+1. Click **Connect**.
 
 ## Disconnect an Aiven service
 

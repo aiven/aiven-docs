@@ -30,7 +30,7 @@ To expose ports for an existing application:
 
 1. In your project, click **Applications**.
 1. Select your application.
-1. In the **Connection information** section, click **Edit**.
+1. In the **Connection information** section, click **Edit ports**.
 1. Click <ConsoleIcon name="add"/> **Add port**.
 1. Enter a name and port number, and select a protocol.
 1. Click **Save**.
@@ -39,6 +39,6 @@ To expose ports for an existing application:
 
 1. In your project, click **Applications**.
 1. Select your application.
-1. In the **Connection information** section, click **Edit**.
+1. In the **Connection information** section, click **Edit ports**.
 1. Edit the ports. To delete a port, click <ConsoleIcon name="delete"/>.
 1. Click **Save**.

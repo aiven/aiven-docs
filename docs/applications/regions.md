@@ -4,14 +4,17 @@ limited: true
 ---
 
 
-You can choose which region your application is deployed in to reduce latency for your users. You cannot change the region after the application is deployed.
+You can choose which region your application is deployed in to reduce latency for your users.
+
+You cannot change the region after you deploy the application. Aiven reserves the right
+to change the cloud provider or region at any point in time.
 
 :::note
 Aiven Applications is in the
 [limited availability](/docs/platform/concepts/beta_services#limited-availability-) stage.
 :::
 
-Applications can be deployed in the following regions:
+You can deploy applications in the following regions:
 
 - `us-west`
 - `us-east`
