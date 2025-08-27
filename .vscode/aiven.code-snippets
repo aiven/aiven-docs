@@ -6,53 +6,174 @@
   // Choice: ${1|one,two,three|}
   // Variables: $name or ${name:default}, see variables https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
 
-  "Related pages": {
+  "Aiven for AlloyDB Omni": {
     "scope": "markdown",
-    "prefix": ["related", "pages", "rp"],
+    "prefix": ["aiven for alloydb", "alloydb"],
+    "body": ["Aiven for AlloyDB Omni"],
+    "description": "Inserts the Aiven for AlloyDB Omni brand name"
+  },
+  "Aiven for Apache Kafka": {
+    "scope": "markdown",
+    "prefix": ["aiven for kafka", "kafka"],
+    "body": ["Aiven for Apache Kafka®"],
+    "description": "Inserts the Aiven for Apache Kafka® brand name"
+  },
+  "Aiven for Apache Kafka Connect": {
+    "scope": "markdown",
+    "prefix": ["aiven for kafka connect", "kafka connect"],
+    "body": ["Aiven for Apache Kafka® Connect"],
+    "description": "Inserts the Aiven for Apache Kafka® Connect brand name"
+  },
+  "Aiven for Apache Kafka MirrorMaker 2": {
+    "scope": "markdown",
+    "prefix": ["kafka mirrormaker", "mirrormaker"],
+    "body": ["Aiven for Apache Kafka® MirrorMaker 2"],
+    "description": "Inserts the Aiven for Apache Kafka® MirrorMaker 2 brand name"
+  },
+  "Aiven for ClickHouse": {
+    "scope": "markdown",
+    "prefix": ["aiven for clickhouse", "clickhouse"],
+    "body": ["Aiven for ClickHouse®"],
+    "description": "Inserts the Aiven for ClickHouse® brand name"
+  },
+  "Aiven for Dragonfly": {
+    "scope": "markdown",
+    "prefix": ["aiven for dragonfly", "dragonfly"],
+    "body": ["Aiven for Dragonfly"],
+    "description": "Inserts the Aiven for Dragonfly brand name"
+  },
+  "Aiven for Grafana": {
+    "scope": "markdown",
+    "prefix": ["aiven for grafana", "grafana"],
+    "body": ["Aiven for Grafana®"],
+    "description": "Inserts the Aiven for Grafana® brand name"
+  },
+  "Aiven for Metrics": {
+    "scope": "markdown",
+    "prefix": ["aiven for metrics", "metrics", "thanos"],
+    "body": ["Aiven for Metrics"],
+    "description": "Inserts the Aiven for Metrics brand name"
+  },
+  "Aiven for MySQL": {
+    "scope": "markdown",
+    "prefix": ["aiven for mysql", "mysql"],
+    "body": ["Aiven for MySQL"],
+    "description": "Inserts the Aiven for MySQL brand name"
+  },
+  "Aiven for OpenSearch": {
+    "scope": "markdown",
+    "prefix": ["aiven for opensearch", "opensearch"],
+    "body": ["Aiven for OpenSearch®"],
+    "description": "Inserts the Aiven for OpenSearch® brand name"
+  },
+  "Aiven for PostgreSQL": {
+    "scope": "markdown",
+    "prefix": ["aiven for postgres", "pg"],
+    "body": ["Aiven for PostgreSQL®"],
+    "description": "Inserts the Aiven for PostgreSQL® brand name"
+  },
+  "Aiven for Thanos": {
+    "scope": "markdown",
+    "prefix": ["aiven for thanos", "thanos"],
+    "body": ["Aiven for Thanos™"],
+    "description": "Inserts the Aiven for Thanos™ brand name"
+  },
+  "Aiven for Valkey": {
+    "scope": "markdown",
+    "prefix": ["aiven for valkey", "valkey"],
+    "body": ["Aiven for Valkey™"],
+    "description": "Inserts the Aiven for Valkey™ brand name"
+  },
+  "Aiven Kubernetes Operator": {
+    "scope": "markdown",
+    "prefix": ["kubernetes", "k8s"],
+    "body": ["Aiven Kubernetes Operator"],
+    "description": "Inserts the short form of the Aiven Kubernetes Operator brand name"
+  },
+  "Aiven Operator for Kubernetes": {
+    "scope": "markdown",
+    "prefix": ["aiven operator", "kubernetes", "k8s"],
+    "body": ["Aiven Operator for Kubernetes®"],
+    "description": "Inserts the Aiven Operator for Kubernetes® brand name"
+  },
+  "Aiven Provider for Terraform": {
+    "scope": "markdown",
+    "prefix": ["aiven provider", "terraform provider"],
+    "body": ["Aiven Provider for Terraform"],
+    "description": "Inserts the Aiven Provider for Terraform brand name"
+  },
+  "Aiven Terraform Provider": {
+    "scope": "markdown",
+    "prefix": ["aiven terraform"],
+    "body": ["Aiven Terraform Provider"],
+    "description": "Inserts the short form of the Aiven Terraform Provider brand name"
+  },
+  "Contact sales": {
+    "scope": "markdown",
+    "prefix": ["contact", "sales"],
+    "body": ["contact the [sales team](https://aiven.io/contact)"]
+  },
+  "Contact support": {
+    "scope": "markdown",
+    "prefix": ["contact", "support"],
+    "body": ["contact the [support team](mailto:support@aiven.io)"]
+  },
+  "DocCardList": {
+    "prefix": ["doccard", "tiles"],
     "body": [
-      "import RelatedPages from \"@site/src/components/RelatedPages\";",
+      "import DocCardList from '@theme/DocCardList';",
       "",
-      "<RelatedPages/>",
-      "$2"
-    ],
-    "description": "Inserts a related pages title"
+      "<DocCardList />",
+      ""
+    ]
   },
-  "Title": {
-    "scope": "markdown",
-    "prefix": ["ttl", "title"],
-    "body": ["---", "title: $1", "---", "", "$2"],
-    "description": "Inserts a title"
-  },
-  "Turn off Vale": {
-    "scope": "markdown",
-    "prefix": ["vof", "vale"],
-    "body": ["<!-- vale off -->"],
-    "description": "Turn off Vale"
-  },
-  "Turn on Vale": {
-    "scope": "markdown",
-    "prefix": ["von", "vale"],
-    "body": ["<!-- vale on -->"],
-    "description": "Turn on Vale"
-  },
-  "Insert note": {
-    "scope": "markdown",
-    "prefix": "note",
-    "body": [":::note", "$1", ":::", "", "$2"],
-    "description": "Insert a note"
-  },
-  "Wrap in note": {
-    "scope": "markdown",
-    "body": [":::note", "$TM_SELECTED_TEXT", ":::"],
-    "description": "Wrap in note admonition"
-  },
-  "Insert png": {
-    "prefix": ["image", "img", "png"],
-    "description": "Insert an image as component",
+  "Early availability badge": {
+    "prefix": ["early availability", "badge", "ea"],
     "body": [
-      "import ${1:MyImg} from \"@site/static/images/$2.png\";",
+      "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
       "",
-      "<img src={$1} className=\"image\"/>",
+      "<EarlyBadge/>",
+      ""
+    ]
+  },
+  "Enable feature": {
+    "scope": "markdown",
+    "prefix": ["enable", "feature", "contact", "sales"],
+    "body": [
+      "To enable this feature, contact the [sales team](https://aiven.io/contact)."
+    ]
+  },
+  "EverSQL by Aiven": {
+    "scope": "markdown",
+    "prefix": "eversql",
+    "body": ["EverSQL by Aiven"],
+    "description": "Inserts the EverSQL by Aiven brand name"
+  },
+  "Import snippet": {
+    "prefix": ["reuse", "import", "include", "snippet"],
+    "body": [
+      "import ${1:MySnippet} from \"@site/static/includes/$2\"",
+      "",
+      "<$1/>"
+    ]
+  },
+  "Insert button": {
+    "scope": "markdown",
+    "prefix": ["button", "cta"],
+    "body": [
+      "import Button from \"@site/src/components/Buttons\";",
+      "",
+      "<Button to=\"$1\">$2</Button>",
+      ""
+    ]
+  },
+  "Insert figma illustration": {
+    "scope": "markdown",
+    "prefix": ["figma", "image", "png"],
+    "body": [
+      "import ${1:MyImg} from \"@site/static/images/content/figma/$2.png\";",
+      "",
+      "<img src={$1} className=\"centered\" alt=\"$3\" width=\"${4:60%}\" />",
       ""
     ]
   },
@@ -74,14 +195,54 @@
       "<ConsoleLabel name=\"$1\"/> $2"
     ]
   },
-  "Early availability badge": {
-    "prefix": ["early availability", "badge", "ea"],
+  "Insert note": {
+    "scope": "markdown",
+    "prefix": "note",
+    "body": [":::note", "$1", ":::", "", "$2"],
+    "description": "Insert a note"
+  },
+  "Insert png": {
+    "prefix": ["image", "img", "png"],
+    "description": "Insert an image as component",
     "body": [
-      "import EarlyBadge from \"@site/src/components/Badges/EarlyBadge\";",
+      "import ${1:MyImg} from \"@site/static/images/$2.png\";",
       "",
-      "<EarlyBadge/>",
+      "<img src={$1} className=\"image\"/>",
       ""
     ]
+  },
+  "Insert secondary button": {
+    "scope": "markdown",
+    "prefix": ["button", "secondary", "cta"],
+    "body": [
+      "import {ButtonSecondary} from \"@site/src/components/Buttons\";",
+      "",
+      "<ButtonSecondary to=\"$1\">$2</Button>",
+      ""
+    ]
+  },
+  "Insert Terraform sample": {
+    "prefix": ["terraform code"],
+    "body": [
+      "import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';",
+      "",
+      "<TerraformSample filename='${1:EXAMPLE_PATH/FILENAME}.tf' />",
+      "",
+      "More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).",
+      ""
+    ]
+  },
+  "Karapace": {
+    "scope": "markdown",
+    "prefix": "karapace",
+    "body": ["Karapace"],
+    "description": "Inserts the Karapace brand name"
+  },
+  "Klaw": {
+    "scope": "markdown",
+    "prefix": "klaw",
+    "body": ["Klaw"],
+    "description": "Inserts the Klaw brand name"
   },
   "Limited availability badge": {
     "prefix": ["limited availability", "badge", "la"],
@@ -92,13 +253,27 @@
       ""
     ]
   },
-  "Import snippet": {
-    "prefix": ["reuse", "import", "include", "snippet"],
+  "Prerequisites": {
+    "scope": "markdown",
+    "prefix": ["prereq"],
     "body": [
-      "import ${1:MySnippet} from \"@site/static/includes/$2\"",
+      "## Prerequisites",
       "",
-      "<$1/>"
-    ]
+      "- Access to the [Aiven Console](https://console.aiven.io/)",
+      "- $1"
+    ],
+    "description": "Inserts a prerequisites section"
+  },
+  "Related pages": {
+    "scope": "markdown",
+    "prefix": ["related", "pages", "rp"],
+    "body": [
+      "import RelatedPages from \"@site/src/components/RelatedPages\";",
+      "",
+      "<RelatedPages/>",
+      "$2"
+    ],
+    "description": "Inserts a related pages title"
   },
   "Tabs": {
     "prefix": "tabs",
@@ -117,82 +292,27 @@
       "$5"
     ]
   },
-  "DocCardList": {
-    "prefix": ["doccard", "tiles"],
-    "body": [
-      "import DocCardList from '@theme/DocCardList';",
-      "",
-      "<DocCardList />",
-      ""
-    ]
-  },
-  "Prerequisites": {
+  "Title": {
     "scope": "markdown",
-    "prefix": ["prereq"],
-    "body": [
-      "## Prerequisites",
-      "",
-      "- Access to the [Aiven Console](https://console.aiven.io/)",
-      "- $1"
-    ],
-    "description": "Inserts a prerequisites section"
+    "prefix": ["ttl", "title"],
+    "body": ["---", "title: $1", "---", "", "$2"],
+    "description": "Inserts a title"
   },
-  "Enable feature": {
+  "Turn off Vale": {
     "scope": "markdown",
-    "prefix": ["enable", "feature", "contact", "sales"],
-    "body": [
-      "To enable this feature, contact the [sales team](https://aiven.io/contact)."
-    ]
+    "prefix": ["vof", "vale"],
+    "body": [""],
+    "description": "Turn off Vale"
   },
-  "Contact sales": {
+  "Turn on Vale": {
     "scope": "markdown",
-    "prefix": ["contact", "sales"],
-    "body": ["contact the [sales team](https://aiven.io/contact)"]
+    "prefix": ["von", "vale"],
+    "body": [""],
+    "description": "Turn on Vale"
   },
-  "Contact support": {
+  "Wrap in note": {
     "scope": "markdown",
-    "prefix": ["contact", "support"],
-    "body": ["contact the [support team](mailto:support@aiven.io)"]
-  },
-  "Insert figma illustration": {
-    "scope": "markdown",
-    "prefix": ["figma", "image", "png"],
-    "body": [
-      "import ${1:MyImg} from \"@site/static/images/content/figma/$2.png\";",
-      "",
-      "<img src={$1} className=\"centered\" alt=\"$3\" width=\"${4:60%}\" />",
-      ""
-    ]
-  },
-  "Insert button": {
-    "scope": "markdown",
-    "prefix": ["button", "cta"],
-    "body": [
-      "import Button from \"@site/src/components/Buttons\";",
-      "",
-      "<Button to=\"$1\">$2</Button>",
-      ""
-    ]
-  },
-  "Insert secondary button": {
-    "scope": "markdown",
-    "prefix": ["button", "secondary", "cta"],
-    "body": [
-      "import {ButtonSecondary} from \"@site/src/components/Buttons\";",
-      "",
-      "<ButtonSecondary to=\"$1\">$2</Button>",
-      ""
-    ]
-  },
-  "Insert Terraform sample": {
-    "prefix": ["terraform"],
-    "body": [
-      "import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';",
-      "",
-      "<TerraformSample filename='${1:EXAMPLE_PATH/FILENAME}.tf' />",
-      "",
-      "More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).",
-      ""
-    ]
+    "body": [":::note", "$TM_SELECTED_TEXT", ":::"],
+    "description": "Wrap in note admonition"
   }
 }
