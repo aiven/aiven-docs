@@ -8,28 +8,24 @@ import MyImg2 from "@site/static/images/content/figma/kafka-cluster-overview-upg
 import MyImg3 from "@site/static/images/content/figma/kafka-cluster-overview-final.png";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
-Aiven for Apache Kafka® offers an automated upgrade procedure, ensuring a smooth transition during various operations.
-
-The upgrade process is performed during:
+Aiven for Apache Kafka® provides an automated upgrade process that runs during the following operations:
 
 - Maintenance updates
 - Plan changes
 - Cloud region migrations
-- Manual node replacements performed by an Aiven operator
+- Manual node replacements by an Aiven operator
 
-These operations involve creating new broker nodes to replace existing ones.
+Aiven creates new broker nodes to replace the existing ones.
 
-## Upgrade procedure steps
+## How upgrades work
 
 <!-- vale off -->
-The following steps outline the upgrade procedure for a 3-node Apache Kafka service:
+The following steps show the upgrade process for a 3-node Apache Kafka service:
 <!-- vale on -->
 
 <img src={MyImg} className="centered" alt="3-node Kafka service" width="50%" />
 
-During an upgrade procedure:
-
-1. **Start new nodes:** New Apache Kafka® nodes are started alongside the existing nodes.
+1. **Start new nodes:** New Apache Kafka® nodes start alongside existing ones.
 
 1. **Join the cluster:** The new nodes join the Apache Kafka cluster once they are running.
 
@@ -43,44 +39,50 @@ During an upgrade procedure:
     <img src={MyImg2} className="centered" alt="Kafka cluster illustration" width="50%" />
 
     :::warning
-    This step is CPU intensive due to the additional data movement
-    overhead.
+    This step is CPU intensive because of the additional data movement.
     :::
 
-1. **Retire old nodes:** Old nodes are retired after their data is fully transferred.
+1. **Retire old nodes:** Old nodes are removed after their data is transferred.
 
    :::note
    The number of new nodes added depends on the cluster size. By default, up to 6 nodes
    are replaced at a time during the upgrade.
    :::
 
-1. **Complete process**: The upgrade is complete when all old nodes are removed.
+1. **Finish upgrade**: The process finishes when all old nodes are removed.
 
     <img src={MyImg3} className="centered" alt="Kafka cluster new node illustration" width="50%" />
 
-## Zero downtime during upgrade
+## Service availability during upgrades
 
-The upgrade process ensures no downtime. Active nodes remain operational, and the
-service URI continues to resolve to all active nodes. However, partition transfers
-create additional load, which can slow cluster performance if the cluster is already
-under heavy load.
+Your Aiven for Apache Kafka service remains available during upgrades. All active
+nodes stay operational, and clients can continue to connect.
 
-During partition transfers, clients attempting to produce or consume messages might
-encounter `leader not found` warnings. Most client libraries handle these warnings
-automatically, but they can still appear in logs. For more information,
+What to expect during upgrades:
+
+- Possible slower performance: Data transfers between nodes can reduce cluster
+  performance, especially if the cluster is already near capacity.
+- Temporary client warnings: You may see `leader not found` warnings in application
+  logs during partition leadership changes.
+- Automatic handling: Most Kafka client libraries retry automatically and handle these
+warnings without manual action.
+
+These effects are temporary and resolve as the upgrade completes.
+
+For more information,
 see [NOT\_LEADER\_FOR\_PARTITION errors](/docs/products/kafka/concepts/non-leader-for-partition).
 
 ## Upgrade duration
 
-The upgrade duration depends on several factors:
+The time required to complete an upgrade depends on several factors:
 
-- **Data volume:** Larger data volumes increase the time required.
+- **Data volume:** Larger datasets take longer to process.
 - **Number of partitions:** Each partition adds processing overhead.
 - **Cluster load:** Heavily loaded clusters have fewer resources available for upgrades.
 
 To reduce upgrade times, Aiven recommends performing upgrades during periods of low
 traffic to minimize the impact on producers and consumers. If your service is
-constrained by resources, consider disabling non-essential workloads during the upgrade.
+resource-constrained, consider pausing non-essential workloads during the upgrade.
 This frees up resources for coordinating and transferring data between nodes, improving
 efficiency.
 
@@ -89,8 +91,8 @@ efficiency.
 Rollback is not available because old nodes are removed once the upgrade progresses.
 
 :::note
-Nodes holding data are not removed from the cluster to prevent data loss.
-If the upgrade does not progress, old nodes remain in the cluster.
+Nodes holding data are not removed until data transfer is complete, preventing data
+loss. If the upgrade does not progress, old nodes remain in the cluster.
 :::
 
 If sufficient disk capacity is available, you can downgrade to a smaller plan. Use the
@@ -104,9 +106,10 @@ new nodes, and data is transferred accordingly.
 
 ## Upgrade impact and risks
 
-Upgrading your cluster can increase CPU usage due to partition leadership coordination
-and data streaming to new nodes. To reduce the risk of disruptions, schedule the
-upgrade during low-traffic periods and minimize the cluster's normal workload by pausing non-essential producers and consumers.
+Upgrades can increase CPU usage because of partition leadership changes and data
+transfers to new nodes. To reduce the risk of disruptions, schedule the
+upgrade during low-traffic periods and minimize the cluster's normal workload
+by pausing non-essential producers and consumers.
 
 If you are upgrading to a smaller plan, the disk may reach the
 [maximum allowed limit](https://aiven.io/docs/products/kafka/howto/prevent-full-disks),
@@ -117,15 +120,27 @@ In critical situations, Aiven's operations team can temporarily add extra storag
 the old nodes.
 :::
 
+## Upgrading to Apache Kafka® 4.0
+
+To upgrade to Apache Kafka® 4.0 or later, your service must first upgrade to
+Apache Kafka 3.9 and migrate to [KRaft mode](/docs/products/kafka/concepts/kraft-mode).
+
+- Services running Apache Kafka 3.8 or earlier (ZooKeeper-based) cannot be
+  upgraded directly to 4.0. They must first upgrade to 3.9, which performs
+  the ZooKeeper to KRaft migration.
+- After migrating to KRaft in 3.9, the service can be upgraded to 4.0 or any
+  later version.
+- Once a service is migrated to KRaft, rollback to ZooKeeper is not possible.
+
 ## Transitioning to KRaft
 
 With the release of Apache Kafka® 3.9, Aiven introduces support for Apache Kafka Raft
-(KRaft), the new consensus protocol for Kafka metadata management. This enhancement
-simplifies architecture while maintaining compatibility with existing features and
-integrations, including Aiven for Apache Kafka Connect, Aiven for Apache Kafka
-MirrorMaker 2, and Aiven for Karapace.
+(KRaft), the new consensus protocol for Kafka metadata management. KRaft simplifies the
+architecture while keeping compatibility with existing features and integrations,
+including Aiven for Apache Kafka Connect, Aiven for Apache Kafka MirrorMaker 2, and
+Aiven for Karapace.
 
-Apache Kafka 3.9 includes all features from Apache Kafka 3.8, but some controller metrics
+Apache Kafka 3.9 includes all features from Apache Kafka 3.8. Some controller metrics
 are no longer available due to the transition to KRaft mode. For details,
 see [Apache Kafka controller metrics](/docs/products/kafka/reference/kafka-metrics-prometheus#kraft-mode-and-metrics-changes).
 ACL permissions and governance behaviors remain unchanged.
@@ -145,13 +160,11 @@ metadata management, see [KRaft in Aiven for Apache Kafka®](/docs/products/kafk
 
 #### Existing services
 
-- Migration for existing services, which involves upgrading from Apache Kafka 3.x to 3.9,
-  is not yet available.
-- The migration will be included in a future upgrade to Apache Kafka 3.9 and
-  performed automatically by Aiven.
+- Migration from ZooKeeper to KRaft is part of the upgrade from Apache Kafka 3.x to 3.9.
+  This migration will be available soon.
 - Aiven will notify you when your service becomes eligible for migration. For details,
   see [Migration from ZooKeeper to KRaft](/docs/products/kafka/concepts/kraft-mode#migration-from-zookeeper-to-kraft).
-
+- After migrating to Kafka 3.9 in KRaft mode, you can upgrade to Kafka 4.0 or later.
 - To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
   year, allowing sufficient time for planning and migration.
 
