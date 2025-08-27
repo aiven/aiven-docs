@@ -225,6 +225,7 @@ const sidebars: SidebarsConfig = {
             },
             'platform/howto/create_new_service',
             'platform/concepts/service-power-cycle',
+            'platform/concepts/rename-services',
             'platform/howto/tag-resources',
             'platform/howto/search-services',
             'platform/howto/create_new_service_user',
@@ -1742,7 +1743,6 @@ const sidebars: SidebarsConfig = {
                         id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
                       },
                       items: [
-                        'products/opensearch/howto/migrate-snapshot-data-opensearch',
                         'products/opensearch/howto/migrate-ism-policies',
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],

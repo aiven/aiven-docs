@@ -35,6 +35,11 @@ Configure custom repositories in Aiven for OpenSearch to store [snapshots](/docs
   and
   [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
   configured
+- To use the native OpenSearch
+  [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
+  endpoint:
+  - [Storage credentials](/docs/products/opensearch/howto/snapshot-credentials)
+  - Name of the [custom keystore](/docs/products/opensearch/howto/snapshot-credentials)
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -75,10 +80,13 @@ You can configure custom repositories for the following object storage services:
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
 - The following operations are not supported via native OpenSearch API:
-  - [Create a repository](/docs/products/opensearch/howto/custom-repositories#create-custom-repositories)
   - [Remove a repository](/docs/products/opensearch/howto/custom-repositories#remove-a-repository)
   - [Edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
   - [List custom repositories](/docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
+- Using the native OpenSearch
+  [Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
+  endpoint requires providing
+  [storage credentials and the name of the custom keystore](/docs/products/opensearch/howto/snapshot-credentials).
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -114,6 +122,13 @@ the appropriate settings for the selected storage provider.
    1. Select a storage provider.
    1. Give provider-specific details required for accessing the storage.
    1. Click **Add**.
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+To create a repository, use the
+[Register Snapshot Repository](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-repository/)
+native OpenSearch API endpoint.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
