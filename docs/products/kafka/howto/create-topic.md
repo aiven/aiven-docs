@@ -17,7 +17,7 @@ especially in production environments.
 Manual creation lets you:
 
 - Configure the number of partitions, replication factor, and retention period.
-- Avoid accidental topic creation caused by typos or misconfigured clients.
+- Avoid accidental topic creation caused by typos or incorrectly configured clients.
 
 :::note
 If tiered storage is enabled for your Aiven for Apache Kafka® service, all new topics
