@@ -39,6 +39,13 @@ have tiered storage enabled by default.
 1. In the **Topic advanced configuration** section, configure properties such as the
    replication factor, number of partitions, and retention settings. You can change
    these later if needed.
+
+   :::note
+   The `message.format.version` configuration is deprecated in Kafka 3.x and removed
+   in Kafka 4.0. Remove this configuration from your topics before upgrading to Kafka 4.0.
+   :::
+
+
 1. Click **Create topic**.
 
 You can see the new topic immediately. It may take a few minutes before you can update
