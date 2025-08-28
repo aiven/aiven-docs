@@ -10,7 +10,8 @@ To make your application available on public networks, configure which ports to 
 
 :::note
 Aiven Applications is in the
-[limited availability](/docs/platform/concepts/beta_services#limited-availability-) stage.
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+stage.
 :::
 
 You can configure your application to listen on any port for HTTP/S traffic. The default

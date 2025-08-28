@@ -10,7 +10,8 @@ Environment variables and secrets let you configure your application at runtime 
 
 :::note
 Aiven Applications is in the
-[limited availability](/docs/platform/concepts/beta_services#limited-availability-) stage.
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+stage.
 :::
 
 Usually variables set in the application in Aiven are used in the deployment

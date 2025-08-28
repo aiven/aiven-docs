@@ -9,7 +9,8 @@ Build and deploy applications using Aiven Applications from source code in a Git
 
 :::note
 Aiven Applications is in the
-[limited availability](/docs/platform/concepts/beta_services#limited-availability-) stage.
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+stage.
 :::
 
 When you connect your Git repository account, commits to the selected branch of your

@@ -12,7 +12,8 @@ A [free plan](/docs/platform/concepts/free-plan) is available for both of these 
 
 :::note
 Aiven Applications is in the
-[limited availability](/docs/platform/concepts/beta_services#limited-availability-) stage.
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+stage.
 :::
 
 ## Connect an Aiven service
