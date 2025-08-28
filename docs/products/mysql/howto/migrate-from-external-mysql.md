@@ -92,7 +92,7 @@ You can use the following variables in the code samples provided:
     [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-migration-status):
 
     ```bash
-    avn --show-http service migration-status --project PROJECT_NAME DEST_NAME
+    avn service migration-status --project PROJECT_NAME DEST_SERVICE_NAME
     ```
 
 While the migration process is ongoing, the `migration_detail.status`

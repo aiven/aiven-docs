@@ -55,7 +55,7 @@ following:
     [Aiven CLI](/docs/tools/cli) substituting the
     parameters accordingly:
 
-    ```
+    ```bash
     avn service create --project PROJECT_NAME -t pg -p DEST_PG_PLAN DEST_PG_NAME
     ```
 
@@ -135,8 +135,7 @@ You can see the migration status using the
 following call:
 
 ```bash
-avn --project PROJECT_NAME --show-http service migration-status \
-    DEST_PG_NAME
+avn service migration-status --project PROJECT_NAME SERVICE_NAME
 ```
 
 :::note
@@ -214,8 +213,7 @@ Don't stop the migration process while it is `running` state since both
 the logical replication and `pg-dump`/`pg-restore` methods are copying
 data from the source to the destination cluster.
 
-Once migration is completed successfully, unused replication slots
-should be removed.
+Once the migration is completed successfully, remove unused replication slots.
 :::
 
 The migration using `aiven-db-migrate` can also be
