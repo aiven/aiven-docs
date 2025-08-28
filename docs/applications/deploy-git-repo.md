@@ -28,7 +28,7 @@ can manually [redeploy them](#redeploy-an-application).
 1. In your project, click **Applications**.
 1. Click **Deploy app**.
 1. To add your repository as the source, enter the URL in HTTPS or SSH format.
-   - To use SSH, you have to add a deployment key.
+   - To use SSH, you have to add a deploy key.
 1. Enter the name of the branch to deploy.
 1. Optional: Change the pre-filled name for your application.
 1. Add [ports](/docs/applications/ports) to expose.
