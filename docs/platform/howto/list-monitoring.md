@@ -65,7 +65,7 @@ To retrieve service logs with the CLI, use [service logs](/docs/tools/cli/servic
 You can export logs and metrics **to an Aiven service**:
 
 - Send logs to [Aiven for Opensearch](/docs/products/opensearch/dashboards).
-- Send logs to [Aiven for M3](/docs/products/m3db).
+- Send logs to [Aiven for Metrics](/docs/products/metrics).
 - Visualize logs with [Aiven for Grafana](/docs/products/grafana).
 
 ## Set up alerts and notifications

@@ -27,6 +27,7 @@ autoscaler
 autoscaling
 autovacuum
 Avro
+aws
 AZ
 AZs
 Azure

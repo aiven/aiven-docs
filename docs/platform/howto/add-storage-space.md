@@ -20,8 +20,7 @@ DDS is available for the following services:
 - Aiven for Apache Kafka®
 - Aiven for ClickHouse®
 - Aiven for Grafana®
-- Aiven for M3DB®
-- Aiven for Metrics®
+- Aiven for Metrics
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®
