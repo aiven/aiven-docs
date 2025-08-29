@@ -123,6 +123,12 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
 | 1.19    | N/A        | N/A                              | 2024-05-21                      |
 
+### Aiven for AlloyDB Omni
+
+| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
+|---------|------------|----------------------------------| ------------------------------- |
+| 15.x    | 2025-12-01 | 2025-09-01                       | 2024-10-02                      |
+
 ### EOL policy for major versions
 
 The Aiven EOL policy is applicable only for services whose major
