@@ -11,9 +11,8 @@ To pay for services, you have to assign every project with services to a
 in a project are charged to the [payment method](/docs/platform/howto/manage-payment-card)
 of the billing group assigned to that project.
 
-You can manage billing only at the organization level. Billing information, invoices,
-and a breakdown of charges by category and billing group are available in the **Billing**
-section of the Aiven Console. To access this section, you must be an
+Billing information, invoices, and a breakdown of charges by category, and billing groups
+are available in the **Billing** section of the Aiven Console. To access this section, you must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).
 Other users have read-only access to some billing information like billing group details
 and invoices using the API.
@@ -21,7 +20,7 @@ and invoices using the API.
 ## Billing groups
 
 [Billing groups](/docs/platform/howto/use-billing-groups)
-store your billing details in one place,
+store payment details in one place,
 including a payment method,
 [billing and shipping addresses](/docs/platform/howto/manage-billing-addresses),
 and billing contacts. This lets you use the same payment details across
@@ -33,6 +32,10 @@ departments or IT environments. You receive a
 assigned to a billing group. Aiven [credits](/docs/platform/howto/trial-credits)
 are also assigned to a billing group and are automatically used to cover charges
 of any project assigned to that billing group.
+
+Billing groups are created and managed at the organization level.
+You [assign billing groups to projects](/docs/platform/howto/use-billing-groups)
+in the project settings.
 
 You can only use a billing group for payments in one organization. You
 cannot use a billing group for projects that are in other organizations.
@@ -47,7 +50,7 @@ stops the accumulation of new charges immediately.
 
 Costs are calculated for the powered-on services in each project. Projects
 are charged separately, but you can consolidate the charges for multiple projects
-by assigning them to a billing group.
+by assigning them to the same billing group.
 
 The prices shown in the Aiven Console are inclusive of:
 
@@ -57,9 +60,9 @@ The prices shown in the Aiven Console are inclusive of:
 -   Setup costs
 
 There are additional costs for some features such as PrivateLink and
-additional storage. Network traffic is not charged separately, but your
-application cloud service provider might charge you for the network
-traffic going to or from their services.
+additional storage. Network traffic is not charged separately, but
+third-party cloud providers outside of Aiven that you use to host applications
+might charge you for the network traffic going to or from their services.
 
 Migrating a service to another cloud provider or region does not incur
 any additional costs.
