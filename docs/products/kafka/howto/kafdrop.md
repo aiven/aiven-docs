@@ -99,6 +99,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <video
   controls
+  preload="none"
   src={useBaseUrl('/images/content/products/kafka/kafdrop.mp4')}
   style={{ width: '100%', height: 'auto' }}
 />
