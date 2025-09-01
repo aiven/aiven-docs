@@ -20,7 +20,7 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="opensearch_version"/><Link to="#opensearch_version"><strong>opensearch_version</strong></Link></p><p><code className="type">string,null</code></p></div>
-        <p className="title">OpenSearch major version</p>
+        <p className="title">OpenSearch version</p>
         
         <table className="service-param-children">
           <tbody>
@@ -1240,7 +1240,7 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="elasticsearch_version"/><Link to="#elasticsearch_version"><strong>elasticsearch_version</strong></Link></p><p><code className="type">string,null</code></p></div>
-        <p className="title">Elasticsearch major version</p>
+        <p className="title">Elasticsearch version</p>
         
         <table className="service-param-children">
           <tbody>
