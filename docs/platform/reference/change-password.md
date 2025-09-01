@@ -20,5 +20,6 @@ change your password. Enable it again to keep your account secure.
 If you forgot your password and can't log in:
 
 1. On the login page, enter your email address.
+1. Click **Log in**.
 1. Click **Forgot password?**.
-1. Enter your login email and click **Reset your password**.
+1. Enter your email and click **Reset your password**.
