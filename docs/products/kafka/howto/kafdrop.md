@@ -2,7 +2,7 @@
 title: Use Kafdrop Web UI with Aiven for Apache Kafka®
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ReactPlayer from 'react-player'
+
 import kafdropVideo from '@site/static/images/content/products/kafka/kafdrop.mp4'
 
 [Kafdrop](https://github.com/obsidiandynamics/kafdrop) is a web UI for Apache Kafka® to monitor clusters, view topics and consumer groups, and integrate with the Schema Registry.
