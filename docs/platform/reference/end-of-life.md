@@ -100,7 +100,7 @@ before December 31, 2025. For further assistance, contact your account team.
 
 ### Service impact
 
-- **End of availability (EOA)**: September 1, 2025
+- **End of availability (EOA)**: September 5, 2025
 
   After this date, you can no longer create new Aiven for AlloyDB Omni services. Existing
   services continue to operate until the end of life (EOL) date but you cannot change

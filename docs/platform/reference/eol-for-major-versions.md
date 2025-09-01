@@ -127,7 +127,7 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 |---------|------------|----------------------------------| ------------------------------- |
-| 15.x    | 2025-12-01 | 2025-09-01                       | 2024-10-02                      |
+| 15.x    | 2025-12-01 | 2025-09-05                       | 2024-10-02                      |
 
 ### EOL policy for major versions
 
