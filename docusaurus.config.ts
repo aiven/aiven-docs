@@ -10,6 +10,7 @@ const isJune = currentMonth === 5;
 const config: Config = {
   // Testing faster build
   future: {
+    v4: true,
     experimental_faster: true,
   },
   title: 'Aiven docs',
