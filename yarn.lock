@@ -2608,7 +2608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-classic@npm:3.8.1":
+"@docusaurus/theme-classic@npm:3.8.1, @docusaurus/theme-classic@npm:^3.7.0":
   version: 3.8.1
   resolution: "@docusaurus/theme-classic@npm:3.8.1"
   dependencies:
@@ -6787,6 +6787,7 @@ __metadata:
     "@docusaurus/plugin-client-redirects": "npm:^3.7.0"
     "@docusaurus/plugin-google-gtag": "npm:^3.7.0"
     "@docusaurus/preset-classic": "npm:^3.7.0"
+    "@docusaurus/theme-classic": "npm:^3.7.0"
     "@docusaurus/theme-mermaid": "npm:^3.7.0"
     "@docusaurus/tsconfig": "npm:^3.7.0"
     "@docusaurus/types": "npm:^3.7.0"
@@ -6804,6 +6805,7 @@ __metadata:
     glob: "npm:^10.3.10"
     handlebars: "npm:^4.7.8"
     lodash: "npm:^4.17.21"
+    lodash-es: "npm:^4.17.21"
     prism-react-renderer: "npm:^2.4.1"
     raw-loader: "npm:^4.0.2"
     react: "npm:^18.0.0"
