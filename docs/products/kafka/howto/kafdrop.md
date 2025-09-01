@@ -97,12 +97,17 @@ After Kafdrop starts, you can access it at `localhost:9000`:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<!-- vale off -->
 <video
-  controls
-  preload="none"
-  src={useBaseUrl('/images/content/products/kafka/kafdrop.mp4')}
-  style={{ width: '100%', height: 'auto' }}
-/>
+					controls
+					preload="none"
+					onMouseEnter={(event) =>
+						event.target.setAttribute("preload", "metadata")
+					}
+          src={useBaseUrl("/images/content/products/kafka/kafdrop.mp4")}
+          style={{ width: '100%', height: 'auto' }}
+				>
+</video>
 
 With Kafdrop, you can perform the following tasks over an Aiven for Apache Kafka®
 service:
