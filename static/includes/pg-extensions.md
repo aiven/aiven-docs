@@ -38,6 +38,7 @@
 | tsm_system_rows | 1.0 |
 | tsm_system_time | 1.0 |
 | unaccent | 1.1 |
+| unit | 7 |
 | uuid-ossp | 1.1 |
 
 ## PostgreSQL 17 extensions
