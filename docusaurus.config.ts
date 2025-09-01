@@ -9,10 +9,7 @@ const isJune = currentMonth === 5;
 
 const config: Config = {
   // Testing faster build
-  future: {
-    v4: true,
-    experimental_faster: true,
-  },
+  future: {},
   title: 'Aiven docs',
   tagline: 'Your AI-ready Open Source Data Platform',
   favicon: 'images/favicon.ico',
