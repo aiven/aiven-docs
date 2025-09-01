@@ -2,6 +2,8 @@
 title: Use Kafdrop Web UI with Aiven for Apache Kafka®
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ReactPlayer from 'react-player'
+import kafdropVideo from '@site/static/images/content/products/kafka/kafdrop.mp4'
 
 [Kafdrop](https://github.com/obsidiandynamics/kafdrop) is a web UI for Apache Kafka® to monitor clusters, view topics and consumer groups, and integrate with the Schema Registry.
 It supports Avro, JSON, and Protobuf.
@@ -93,7 +95,13 @@ Replace `SCHEMA_REGISTRY_PWD` with the schema registry password and
 
 After Kafdrop starts, you can access it at `localhost:9000`:
 
-![Kafdrop in action](/images/content/products/kafka/kafdrop.gif)
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<video
+  controls
+  src={useBaseUrl('/images/content/products/kafka/kafdrop.mp4')}
+  style={{ width: '100%', height: 'auto' }}
+/>
 
 With Kafdrop, you can perform the following tasks over an Aiven for Apache Kafka®
 service:
