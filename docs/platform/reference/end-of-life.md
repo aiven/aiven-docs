@@ -96,7 +96,7 @@ before December 31, 2025. For further assistance, contact your account team.
 
 ## Aiven for AlloyDB Omni
 
-**EOL date**: December 1, 2025
+**EOL date**: December 5, 2025
 
 ### Service impact
 
@@ -106,7 +106,7 @@ before December 31, 2025. For further assistance, contact your account team.
   services continue to operate until the end of life (EOL) date but you cannot change
   plans for these services.
 
-- **End of life (EOL)**: December 1, 2025
+- **End of life (EOL)**: December 5, 2025
 
   On this date, all active Aiven for AlloyDB Omni services are powered off and deleted,
   making data from these services inaccessible.
@@ -123,6 +123,6 @@ The recommended alternatives to Aiven for AlloyDB Omni are:
 - [Aiven for PostgreSQL®](/docs/products/postgresql)
 - [Aiven for ClickHouse®](/docs/products/clickhouse)
 
-To ensure uninterrupted service, complete your migration before December 1, 2025.
+To ensure uninterrupted service, complete your migration before December 5, 2025.
 For further assistance, contact the [Aiven support team](mailto:support@aiven.io) or your
 account team.
