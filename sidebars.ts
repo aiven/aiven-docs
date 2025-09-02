@@ -543,7 +543,7 @@ const sidebars: SidebarsConfig = {
           label: 'Build and deploy',
           items: [
             'applications/deploy-git-repo',
-            'applications/build-from-dockerfile',
+            'applications/create-dockerfile',
             'applications/environment-variables',
             'applications/ports',
           ],

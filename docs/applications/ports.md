@@ -23,7 +23,7 @@ Aiven binds each port to its own DNS name and exposes your HTTP ports publicly o
 application is in the **Connection information** section for the application.
 
 You have to add ports to your application for it be accessible, even if you use the
-the `EXPOSE` command in your Dockerfile.
+the `EXPOSE` command in your Dockerfile or Containerfile.
 
 ## Add ports to an application
 
