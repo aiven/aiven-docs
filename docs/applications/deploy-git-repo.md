@@ -20,7 +20,7 @@ can manually [redeploy them](#redeploy-an-application).
 
 ## Prerequisites
 
-- A [Dockerfile](/docs/applications/build-from-dockerfile) or Containerfile
+- A [Dockerfile](/docs/applications/create-dockerfile) or Containerfile
   in the root directory of the branch.
 
 ## Deploy an application
