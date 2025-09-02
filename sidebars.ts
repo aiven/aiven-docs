@@ -544,7 +544,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'applications/deploy-git-repo',
             'applications/build-from-dockerfile',
-            'applications/regions',
             'applications/environment-variables',
             'applications/ports',
           ],
