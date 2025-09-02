@@ -81,6 +81,7 @@ depends_on
 deserialization
 deserialize
 deserializer
+deserializers
 Dev
 Digitransit
 diskio_io_time

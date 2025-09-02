@@ -28,7 +28,7 @@ jsonschema2pojo --source src/main/resources/schema.json --target src/main/java/
 - Replace `schema.json` with your schema file.
 - Replace `src/main/java/` with your preferred output directory.
 
-The generated Java class is placed in a subfolder based on the `javaType` field in the
+The generated Java class is placed in a subdirectory based on the `javaType` field in the
 schema. If `javaType` is not defined, the output directory is based on the schema title
 or the folder structure.
 
