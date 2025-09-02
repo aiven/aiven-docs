@@ -1,7 +1,6 @@
 ---
 title: Migrate external OpenSearch or Elasticsearch snapshots
 sidebar_label: Migrate external snapshots
-limited: true
 ---
 
 Migrate an existing OpenSearch or Elasticsearch® snapshot to Aiven for OpenSearch® with minimal downtime and data integrity.

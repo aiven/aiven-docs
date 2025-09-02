@@ -1,7 +1,6 @@
 ---
 title: Migrate OpenDistro security configuration to Aiven for OpenSearch
 sidebar_label: Migrate OpenDistro security configuration
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
