@@ -2,11 +2,9 @@
 title: Generate Java classes from schemas
 ---
 
-Generate Java data classes (also known as Plain Old Java Objects, or POJOs) from Avro, Protobuf, or JSON Schema files and use them in Apache Kafka® producers and consumers.
+Generate Java classes from Avro, Protobuf, or JSON Schema files to use with Apache Kafka® and [Karapace Schema Registry](/docs/products/kafka/karapace/concepts/schema-registry-authorization).
 These classes match your schema structure and help serialize and deserialize messages
-with the correct data types when integrating
-with [Karapace, Aiven’s Schema Registry](/docs/products/kafka/karapace/concepts/schema-registry-authorization).
-
+with the correct data types.
 
 ## When to generate data classes
 

@@ -258,6 +258,7 @@ PostgreSQL
 Postman
 preformatted
 privatelink
+protoc
 Prometheus
 Protobuf
 Provectus
