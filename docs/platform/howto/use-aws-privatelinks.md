@@ -36,7 +36,6 @@ AWS PrivateLink is not supported for:
 - Aiven for Apache Cassandra®
 - Aiven for Apache Flink®
 - Aiven for Apache Kafka® MirrorMaker 2
-- Aiven for M3
 - Aiven for Metrics
 
 :::
