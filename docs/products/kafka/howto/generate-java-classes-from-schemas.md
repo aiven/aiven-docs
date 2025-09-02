@@ -35,4 +35,5 @@ See schema-specific instructions:
 - [Generate JSON Schema Java classes with jsonschema2pojo](/docs/products/kafka/howto/generate-json-java-classes)
 
 After generating your classes,
-[use them with Kafka and the schema registry](/docs/products/kafka/howto/schema-registry-java) to produce and consume messages.
+[use them with Kafka and the schema registry](/docs/products/kafka/howto/schema-registry)
+to produce and consume messages.

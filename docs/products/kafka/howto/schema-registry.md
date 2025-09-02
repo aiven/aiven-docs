@@ -27,8 +27,8 @@ registry:
 <TabItem value="console" label="Aiven Console" default>
 
 - Running **Aiven for Apache Kafka** service
-- [Karapace Schema Registry enabled](/docs/products/kafka/howto/enable-karapace/)
-- [Keystore and truststore files](/docs/tools/keystore-truststore) for SSL authentication
+- [Karapace Schema Registry enabled](/docs/products/kafka/karapace/howto/enable-karapace)
+- [Keystore and truststore files](/docs/products/kafka/howto/keystore-truststore) for SSL authentication
 
 </TabItem> <TabItem value="cli" label="Aiven CLI">
 
@@ -88,7 +88,7 @@ related data types.
 Once the schema is defined, compile it either **manually** or **automatically**.
 
 To generate Java classes from Avro, Protobuf, or JSON Schema files, see
-[Generate Java classes from schemas](/docs/products/kafka/howto/Generate-java-pojo-schemas).
+[Generate Java classes from schemas](/docs/products/kafka/howto/generate-java-classes-from-schemas).
 
 ### Manual schema compilation
 
