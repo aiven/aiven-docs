@@ -3,9 +3,12 @@ title: Connection limits per plan for Aiven for PostgreSQL®
 sidebar_label: Connection limits per plan
 ---
 
-Aiven for PostgreSQL® instances limit the number of allowed connections to make sure that the database is able to serve them all.
+By default, Aiven for PostgreSQL® instances limit the number of allowed connections to
+make sure that the database is able to serve them all.
 
-The `max_connections` setting varies according to the service plan as follows:
+## `max_connections` defaults
+
+Default values of the `max_connections` setting vary according to the service plan:
 
 |                 Plan                  | Max connections |
 | ------------------------------------- | --------------- |
@@ -20,6 +23,23 @@ The `max_connections` setting varies according to the service plan as follows:
 :::note
 Aiven can utilize any number of the connections for managing the service.
 :::
+
+## Increase `max_connections`
+
+:::note
+This is a limited-release parameter. Contact your account team to confirm your eligibility.
+:::
+
+To increase the number of allowed connection for your service, set the value of
+the
+[`max_connections`](/docs/products/postgresql/reference/advanced-params#pg_max_connections)
+parameter.
+
+:::warning
+You cannot decrease this parameter value when set.
+:::
+
+## Use connection pooling
 
 When several clients or client threads are connecting to the database,
 Aiven recommends using
