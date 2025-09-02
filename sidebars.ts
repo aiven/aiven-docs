@@ -884,6 +884,19 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/create-topics-automatically',
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
+                    {
+                      type: 'category',
+                      label: 'Generate Java classes from schemas',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/generate-java-classes-from-schemas',
+                      },
+                      items: [
+                        'products/kafka/howto/generate-avro-java-classes',
+                        'products/kafka/howto/generate-protobuf-java-classes',
+                        'products/kafka/howto/generate-json-java-classes',
+                      ],
+                    },
                     'products/kafka/howto/change-retention-period',
                     {
                       type: 'category',

@@ -1,55 +1,70 @@
 ---
 title: Use schema registry in Java with Aiven for Apache Kafka®
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® provides the **schema registry** functionality via [Karapace](https://github.com/aiven/karapace), including the possibility to store, retrieve a schema, and also evolve it without needing to rebuild existing Consumers and Producers code.
+Aiven for Apache Kafka® provides schema registry functionality through [Karapace](https://github.com/aiven/karapace). Karapace lets you store, retrieve, and evolve schemas without rebuilding producer or consumer code.
 
-:::note
-To use the schema registry functionality exposed by Karapace, you need
-to enable the **Schema Registry (Karapace)** functionality for the Aiven
-for Apache Kafka instance selected from the [Aiven
-console](https://console.aiven.io/), service Overview tab.
-:::
+## Workflow overview
 
-To use schema registry:
+To produce and consume Avro messages in Java using the schema registry:
 
-1.  Create version 1 of a schema
-1.  Use Apache Avro to compile the schema
-1.  Create consumer and producer that utilize Aiven for Apache Kafka and
-    Schema Registry
+1. Define your schema.
+1. Generate Java classes from the schema.
+1. Add the required dependencies.
+1. Create a keystore and truststore.
+1. Configure your Kafka producer and consumer properties.
 
 ## Prerequisites
 
-To be able to produce and consume data in Java from an Aiven for Apache
-Kafka service, create a **Keystore** and **Truststore**
-containing the SSL certificates.
+To connect a Java application to an Aiven for Apache Kafka service using the schema
+registry:
 
-You can do it manually by downloading the certificates and
-[composing the files locally on your machine](keystore-truststore) or using the
-[dedicated Aiven CLI command](/docs/tools/cli/service/user#avn_service_user_kafka_java_creds).
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
+
+- Running **Aiven for Apache Kafka** service
+- [Karapace Schema Registry enabled](/docs/products/kafka/howto/enable-karapace/)
+- [Keystore and truststore files](/docs/tools/keystore-truststore) for SSL authentication
+
+</TabItem> <TabItem value="cli" label="Aiven CLI">
+
+Generate the keystore and truststore using the Aiven CLI:
+
+```bash
+avn service user-kafka-java-creds \
+  --project <project-name> \
+  --service <service-name> \
+  --username <user>
+```
+
+</TabItem>
+</Tabs>
 
 ## Variables {#kafka_schema_registry_variables}
 
-These are the placeholders you will need to replace in the code sample:
+Replace the following placeholders in the example configuration:
 
- | Variable                 | Description                                                                                                                 |
- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
- | `BOOTSTRAPSERVERS`       | Service URI for Kafka connection, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab |
- | `KEYSTORE`               | Path to the keystore                                                                                                        |
- | `KEYSTOREPASSWORD`       | Password for the keystore                                                                                                   |
- | `TRUSTSTORE`             | Path to the truststore                                                                                                      |
- | `TRUSTSTOREPASSWORD`     | Password for the truststore                                                                                                 |
- | `SSLKEYPASSWORD`         | The password of the private key in the key store file                                                                       |
- | `SCHEMAREGISTRYURL`      | Service Registry URI for Apache Kafka connection                                                                            |
- | `SCHEMAREGISTRYUSER`     | Service Registry username, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab        |
- | `SCHEMAREGISTRYPASSWORD` | Service Registry password, can be obtained from the [Aiven console](https://console.aiven.io/), service Overview tab        |
- | `TOPIC_NAME`             | Apache Kafka topic name to use                                                                                              |
+| Variable                 | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| `BOOTSTRAPSERVERS`       | Kafka service URI. Available in Connection information on the service overview page in the Aiven Console. |
+| `KEYSTORE`               | Path to the keystore file                                                   |
+| `KEYSTOREPASSWORD`       | Password for the keystore                                                   |
+| `TRUSTSTORE`             | Path to the truststore file                                                 |
+| `TRUSTSTOREPASSWORD`     | Password for the truststore                                                 |
+| `SSLKEYPASSWORD`         | Password for the private key in the keystore                                |
+| `SCHEMAREGISTRYURL`      | Schema Registry URI. Available in Connection information on the service overview page in the Aiven Console. |
+| `SCHEMAREGISTRYUSER`     | Schema Registry username. Available in Connection information on the service overview page in the Aiven Console. |
+| `SCHEMAREGISTRYPASSWORD` | Schema Registry password. Available in Connection information on the service overview page in the Aiven Console. |
+| `TOPIC_NAME`             | Kafka topic name                                                            |
 
-### Create version 1 of the Avro schema
+### Define the schema
 
-To create an Avro schema, you need a definition file. As example you can
-use a **click record** schema defined in JSON and stored in a file named
-`ClickRecord.avsc` containing the following:
+Create an Avro schema file. For example, save the following schema in a file
+named `ClickRecord.avsc`
 
 ```json
 {"type": "record",
@@ -66,77 +81,83 @@ use a **click record** schema defined in JSON and stored in a file named
 }
 ```
 
-The JSON configuration above defines a schema named `ClickRecord` in the
-namespace `io.aiven.avro.example` with fields `session_id`, `browser`,
-`campaign`, `channel`, `referrer` and `ip` and related data types.
+This schema defines a record named `ClickRecord` in the namespace `io.aiven.avro.example`
+with fields `session_id`, `browser`, `campaign`, `channel`, `referrer` and `ip` and
+related data types.
 
 Once the schema is defined, compile it either **manually** or **automatically**.
 
+To generate Java classes from Avro, Protobuf, or JSON Schema files, see
+[Generate Java classes from schemas](/docs/products/kafka/howto/Generate-java-pojo-schemas).
+
 ### Manual schema compilation
 
-In case of manual schema compilation, download `avro-tools-1.11.0.jar`
-from [https://avro.apache.org/releases.html](https://avro.apache.org/releases.html) or via maven using the
-following:
+To compile manually, download`avro-tools-1.11.0.jar` from
+[https://avro.apache.org/releases.html](https://avro.apache.org/releases.html) or
+fetch it using Maven:
 
 ```
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=org.apache.avro:avro-tools:1.11.0:jar -Ddest=avro-tools-1.11.0.jar
 ```
 
-The schema defined in the previous step, can be now compiled to produce
-a Java class `ClickRecord.java` in the `io.aiven.avro.example` package
-(taken from the `namespace` parameter):
+To compile the schema and generate a Java class, run:
 
 ```
 java -jar avro-tools-1.11.0.jar compile schema ClickRecord.avsc .
 ```
 
-:::note
-The package structure will also be generated if missing.
-:::
+This generates a Java file named `ClickRecord.java` in a subdirectory that matches
+the `namespace` defined in your schema (for example, `io.aiven.avro.example`).
+The required package structure is created automatically if it does not already exist.
 
-### Auto schema compilation
+### Automatic schema compilation
 
 With auto, the schema is compiled during the project build with, for
 example, `maven-avro-plugin` or `gradle-avro-plugin`. The following is a
 configuration example for `maven-avro-plugin` when `ClickRecord.avsc` is
 stored in the path `src/main/avro/ClickRecord.avsc`:
 
+To compile the schema during the build process, use
+the `avro-maven-plugin` or `gradle-avro-plugin`. The following is an example
+Maven configuration:
+
+```xml
+<plugin>
+  <groupId>org.apache.avro</groupId>
+  <artifactId>avro-maven-plugin</artifactId>
+  <version>1.11.0</version>
+  <executions>
+    <execution>
+      <id>schemas</id>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>schema</goal>
+        <goal>protocol</goal>
+        <goal>idl-protocol</goal>
+      </goals>
+      <configuration>
+        <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
+        <outputDirectory>${project.basedir}/src/main/generated-sources/</outputDirectory>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
 ```
-[](plugin)
-    <groupId>org.apache.avro</groupId>
-    <artifactId>avro-maven-plugin</artifactId>
-    <version>${avro-maven-plugin.version}</version>
-    <executions>
-        <execution>
-            <id>schemas</id>
-            <phase>generate-sources</phase>
-            <goals>
-                <goal>schema</goal>
-                <goal>protocol</goal>
-                <goal>idl-protocol</goal>
-            </goals>
-            <configuration>
-                <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
-                <outputDirectory>${project.basedir}/src/main/generated-sources/</outputDirectory>
-            </configuration>
-        </execution>
-    </executions>
-[](/plugin)
-```
 
-The automatically generated Avro-schema code will be stored under the
-folder `${project.basedir}/src/main/generated-sources/`.
+The generated files will be placed in the `generated-sources` folder.
 
-### Set consumer and producer properties for schema registry
+### Configure producer and consumer properties
 
-The full code to create consumer and producers using the Schema Registry
-in Aiven for Apache Kafka can be found in the [Aiven examples GitHub
-repository](https://github.com/aiven/aiven-examples/tree/master/solutions/kafka-schema-registry).
-The following contains a list of the properties required.
+For complete example code that shows how to create producers and consumers using the
+Schema Registry with Aiven for Apache Kafka, see
+the [Aiven examples GitHub repository](https://github.com/aiven/aiven-examples/tree/master/solutions/kafka-schema-registry).
 
-For producers, specify:
+The following sections list the required configuration properties.
 
-```text
+#### Producer configuration
+
+```java
 props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, [BOOTSTRAPSERVERS]);
 props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
 props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, [TRUSTSTORE]);
@@ -152,9 +173,9 @@ props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.get
 props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
 ```
 
-For consumers, specify:
+#### Consumer configuration
 
-```text
+```java
 props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, [BOOTSTRAPSERVERS]);
 props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
 props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, [TRUSTSTORE]);
@@ -172,8 +193,5 @@ props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
 props.put(ConsumerConfig.GROUP_ID_CONFIG, "clickrecord-example-group");
 ```
 
-:::note
-In the above properties replace all the required input parameters
-(within square brackets) with the appropriate information defined in the
-[Variables section](/docs/products/kafka/howto/schema-registry#kafka_schema_registry_variables).
-:::
+Replace the placeholders with the values from the
+[variables section](/docs/products/kafka/howto/schema-registry#kafka_schema_registry_variables).
