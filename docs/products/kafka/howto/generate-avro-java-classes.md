@@ -27,6 +27,11 @@ Generate Java data classes from Avro schema files (`.avsc`) to use with Apache K
 
 Run the following command to generate Java classes from your Avro schema:
 
+:::note
+Use the latest version of `avro-tools` if available.
+You can check for newer releases at [https://avro.apache.org/releases.html](https://avro.apache.org/releases.html).
+:::
+
 ```bash
 java -jar avro-tools-1.12.0.jar compile schema src/main/resources/user-value.avsc src/main/java/
 ```
@@ -38,8 +43,15 @@ The generated class is named based on the `name` field in your schema, and it is
 in a subdirectory matching the `namespace`.
 
 :::note
-Do not rename the generated class or change its package declaration. Kafka serialization
-depends on the original name and namespace in the schema.
+Use the `--package` option to specify the Java package during code generation.
+Kafka serialization depends on the fully
+qualified class name.
+
+For example:
+
+```bash
+jsonschema2pojo --source src/main/resources/users.json --target src/main/java/io/aiven/example --package io.aiven.example
+```
 :::
 
 ## Example schema

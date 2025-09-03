@@ -33,9 +33,10 @@ in your `.proto` file. Ensure the `package` in your `.proto` file matches your i
 Java package structure.
 
 :::note
-If your `.proto` file does not define a `package`, you may need to update the package
-declaration in the generated Java file so it matches your project's structure.
-Kafka serialization depends on the fully qualified class name.
+To control the Java package of the generated classes, add the option `java_package`
+inside your `.proto` file. This cannot be set through the `protoc` compiler command-line
+options. Kafka serialization depends on the fully qualified class name, so
+ensure the `java_package` matches your project structure.
 :::
 
 ## Example schema
@@ -43,7 +44,8 @@ Kafka serialization depends on the fully qualified class name.
 ```protobuf
 syntax = "proto3";
 
-package io.aiven.example;
+package io.aiven.example.protobuf;
+option java_package = "io.aiven.example.protobuf";
 
 message User {
   int32 id = 1;
