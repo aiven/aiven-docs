@@ -16,7 +16,12 @@ Generate Java data classes from Avro schema files (`.avsc`) to use with Apache K
 - [Apache Maven](https://maven.apache.org/) installed to manage dependencies
 - [`avro-tools`](https://avro.apache.org/releases.html) JAR file downloaded (such
   as `avro-tools-1.12.0.jar`)
-- An Avro schema file (`.avsc`)
+- An Avro schema file with a `.avsc` extension
+
+  :::note
+  You can also use `.json` files if they contain a valid Avro schema. Do not
+  use `.avro` files. They include both schema and data and are not compatible with `avro-tools`.
+  :::
 
 ## Generate the Java class
 

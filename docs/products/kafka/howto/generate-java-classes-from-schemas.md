@@ -10,10 +10,12 @@ with the correct data types.
 
 Generate data classes if you:
 
-- Work with schema-based formats such as Avro, Protobuf, or JSON Schema
-- Want strongly typed Kafka producers and consumers
-- Use Karapace as your Schema Registry
-- Prefer Java classes over generic records or raw values
+- Work with schema-based formats such as Avro, Protobuf, or JSON Schema.
+- Want strongly typed Kafka producers and consumers.
+- Use Karapace as your Schema Registry.
+- Prefer Java classes over using generic records or untyped data (such as raw strings
+  or byte arrays).
+- Need to enforce data governance in your Kafka topics.
 
 ## Prerequisites
 

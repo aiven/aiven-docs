@@ -15,7 +15,7 @@ To produce and consume Avro messages in Java using the schema registry:
 1. Define your schema.
 1. Generate Java classes from the schema.
 1. Add the required dependencies.
-1. Create a keystore and truststore.
+1. Create a keystore and truststore (if required for your security setup).
 1. Configure your Kafka producer and consumer properties.
 
 ## Prerequisites
@@ -92,18 +92,26 @@ To generate Java classes from Avro, Protobuf, or JSON Schema files, see
 
 ### Manual schema compilation
 
-To compile manually, download`avro-tools-1.11.0.jar` from
+To compile manually, download `avro-tools-1.12.0.jar` from
 [https://avro.apache.org/releases.html](https://avro.apache.org/releases.html) or
 fetch it using Maven:
 
-```
-mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=org.apache.avro:avro-tools:1.11.0:jar -Ddest=avro-tools-1.11.0.jar
+:::note
+If a newer version of `avro-tools` is available, use that instead of `1.12.0`. To find
+the most recent release, see
+[https://avro.apache.org/releases.html](https://avro.apache.org/releases.html).
+:::
+
+```bash
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get \
+  -Dartifact=org.apache.avro:avro-tools:1.12.0:jar \
+  -Ddest=avro-tools-1.12.0.jar
 ```
 
 To compile the schema and generate a Java class, run:
 
 ```
-java -jar avro-tools-1.11.0.jar compile schema ClickRecord.avsc .
+java -jar avro-tools-1.12.0.jar compile schema ClickRecord.avsc .
 ```
 
 This generates a Java file named `ClickRecord.java` in a subdirectory that matches

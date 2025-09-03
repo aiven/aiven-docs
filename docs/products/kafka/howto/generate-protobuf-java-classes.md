@@ -33,8 +33,9 @@ in your `.proto` file. Ensure the `package` in your `.proto` file matches your i
 Java package structure.
 
 :::note
-Do not rename the generated class or change its package declaration. Kafka serialization
-depends on the original name and namespace in the schema.
+If your `.proto` file does not define a `package`, you may need to update the package
+declaration in the generated Java file so it matches your project's structure.
+Kafka serialization depends on the fully qualified class name.
 :::
 
 ## Example schema

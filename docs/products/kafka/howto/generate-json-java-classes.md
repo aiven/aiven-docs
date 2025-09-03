@@ -33,9 +33,11 @@ schema. If `javaType` is not defined, the output directory is based on the schem
 or the folder structure.
 
 :::note
-Do not rename the generated class or change its package declaration. Kafka serialization
-depends on the original name and namespace in the schema.
+If your schema does not define a `javaType` with a package, you may need to update the
+package declaration in the generated Java file so it matches your project's structure.
+Kafka serialization depends on the fully qualified class name.
 :::
+
 
 ## Example schema
 
@@ -55,12 +57,13 @@ depends on the original name and namespace in the schema.
 This schema generates the following Java file:
 
 ```plaintext
-src/main/java/io/aiven/example/User.java
+src/main/java/User.java
 ```
 
 ## Optional: Add Confluent schema annotation
 
-To support additional features in Confluent-compatible deserializers (such as Karapace, Aiven’s Schema Registry), you can add this annotation to your JSON Schema:
+To enable additional features in Confluent’s deserializers (which are compatible
+with schema registries like Karapace), you can add this annotation to your JSON Schema:
 
 ```json
 "@io.confluent.kafka.schemaregistry.annotations.Schema": {
