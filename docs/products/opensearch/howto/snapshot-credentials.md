@@ -69,7 +69,6 @@ Sensitive values (such as `secret_key`, `sas_token`, and `credentials`) are excl
 from API responses for security reasons.
 :::
 
-
 ## Enable the snapshot API
 
 By default, the snapshot API is disabled. You can enable it using the Aiven Console or
@@ -97,7 +96,6 @@ Replace `SERVICE_NAME` and `PROJECT_NAME` with your own values.
 
 </TabItem>
 </Tabs>
-
 
 ## Configure keystores
 
@@ -149,7 +147,6 @@ curl -X PUT "https://SERVICE_URI/_snapshot/MY_S3_REPO" \
   }'
 
 ```
-
 
 ## Update or delete credentials
 

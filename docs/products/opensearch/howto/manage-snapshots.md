@@ -21,6 +21,15 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 - Configured [custom repository](/docs/products/opensearch/howto/custom-repositories)
 
 </TabItem>
+<TabItem value="api" label="Aiven API">
+
+- Running Aiven for OpenSearch service
+- [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
+- Access to a supported object storage service (AWS S3, GCS, or Azure)
+- Credentials for the selected storage provider
+- Configured [custom repository](/docs/products/opensearch/howto/custom-repositories)
+
+</TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
 - [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
@@ -31,15 +40,6 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
   and
   [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
   configured
-
-</TabItem>
-<TabItem value="api" label="Aiven API">
-
-- Running Aiven for OpenSearch service
-- [Aiven API](/docs/tools/api) and authentication [token](/docs/platform/howto/create_authentication_token)
-- Access to a supported object storage service (AWS S3, GCS, or Azure)
-- Credentials for the selected storage provider
-- Configured [custom repository](/docs/products/opensearch/howto/custom-repositories)
 
 </TabItem>
 </Tabs>
@@ -53,6 +53,14 @@ manually.
 
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
+
+Supported storage services are:
+- Amazon S3
+- Google Cloud Storage (GCS)
+- Microsoft Azure Blob Storage
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
 
 Supported storage services are:
 - Amazon S3
@@ -76,14 +84,6 @@ Supported storage services are:
   and
   [delete a snapshot](/docs/products/opensearch/howto/manage-snapshots#delete-a-snapshot)
   are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).
-
-</TabItem>
-<TabItem value="api" label="Aiven API">
-
-Supported storage services are:
-- Amazon S3
-- Google Cloud Storage (GCS)
-- Microsoft Azure Blob Storage
 
 </TabItem>
 </Tabs>
@@ -115,13 +115,6 @@ Create a snapshot in a custom repository.
 Your snapshot is being created. Monitor its status until it shows **Success**.
 
 </TabItem>
-<TabItem value="os-api" label="OpenSearch API">
-
-Use the
-[Create Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/)
-native OpenSearch API endpoint.
-
-</TabItem>
 <TabItem value="api" label="Aiven API">
 
 ```sh
@@ -139,6 +132,13 @@ Example response:
   "accepted": true
 }
 ```
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+Use the
+[Create Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/)
+native OpenSearch API endpoint.
 
 </TabItem>
 </Tabs>
@@ -203,13 +203,6 @@ security configurations during the restore process as it can cause restore failu
       :::
 
 </TabItem>
-<TabItem value="os-api" label="OpenSearch API">
-
-To restore data from a snapshot, use the
-[Restore Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/)
-native OpenSearch API endpoint.
-
-</TabItem>
 <TabItem value="api" label="Aiven API" default>
 
 ```sh
@@ -233,6 +226,13 @@ Example response:
   "accepted": true
 }
 ```
+
+</TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+To restore data from a snapshot, use the
+[Restore Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/)
+native OpenSearch API endpoint.
 
 </TabItem>
 </Tabs>
@@ -295,6 +295,36 @@ Preview all snapshots, including completed and failed ones.
 1. Click <ConsoleLabel name="snapshots"/> in the sidebar.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+```sh
+curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/_all" \
+--header "Authorization: Bearer $TOKEN"
+--header "Content-Type: application/json"
+```
+
+Example response:
+
+```json
+{
+  "snapshots": [
+    {
+      "snapshot": "first-snapshot",
+      "state": "SUCCESS",
+      "indices": ["test"],
+      "uuid": "7cdWedW7RC6FMSktlZTCDw"
+    },
+    {
+      "snapshot": "second-snapshot",
+      "state": "SUCCESS",
+      "indices": ["test"],
+      "uuid": "osmCbdF-RMyyUKpWD-4bJA"
+    }
+  ]
+}
+```
 
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
@@ -393,36 +423,6 @@ Example response:
 ```
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
-
-```sh
-curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_name}/opensearch/_snapshot/aws-repo/_all" \
---header "Authorization: Bearer $TOKEN"
---header "Content-Type: application/json"
-```
-
-Example response:
-
-```json
-{
-  "snapshots": [
-    {
-      "snapshot": "first-snapshot",
-      "state": "SUCCESS",
-      "indices": ["test"],
-      "uuid": "7cdWedW7RC6FMSktlZTCDw"
-    },
-    {
-      "snapshot": "second-snapshot",
-      "state": "SUCCESS",
-      "indices": ["test"],
-      "uuid": "osmCbdF-RMyyUKpWD-4bJA"
-    }
-  ]
-}
-```
-
-</TabItem>
 </Tabs>
 
 ## View snapshot details
@@ -438,14 +438,6 @@ Get details of a specific snapshot.
 1. On the **Snapshots** page, find your custom repository, click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside, find a snapshot
    to be previewed, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewsnapshot"/>.
-
-</TabItem>
-<TabItem value="os-api" label="OpenSearch API">
-
-Use the native OpenSearch API endpoints:
-[Get Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/get-snapshot/)
-or
-[Get Snapshot Status](https://docs.opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/).
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -472,6 +464,14 @@ Example response:
 ```
 
 </TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+Use the native OpenSearch API endpoints:
+[Get Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/get-snapshot/)
+or
+[Get Snapshot Status](https://docs.opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/).
+
+</TabItem>
 </Tabs>
 
 ## Delete a snapshot
@@ -488,13 +488,6 @@ Delete a snapshot from a repository.
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside, find a snapshot
    to be deleted, click <ConsoleLabel name="actions"/> >
    <ConsoleLabel name="deletesnapshot"/> > **Delete**.
-
-</TabItem>
-<TabItem value="os-api" label="OpenSearch API">
-
-Use the
-[Delete Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/)
-native OpenSearch API endpoint.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -515,6 +508,13 @@ Example response:
 ```
 
 </TabItem>
+<TabItem value="os-api" label="OpenSearch API">
+
+Use the
+[Delete Snapshot](https://docs.opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/)
+native OpenSearch API endpoint.
+
+</TabItem>
 </Tabs>
 
 ## Error handling
@@ -528,4 +528,4 @@ The Aiven API returns OpenSearch errors as they are.
 
 <RelatedPages/>
 
-[OpenSearch snapshot API reference](https://opensearch.org/docs/latest/api-reference/snapshots/index/).
+[OpenSearch snapshot API reference](https://opensearch.org/docs/latest/api-reference/snapshots/index/)
