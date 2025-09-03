@@ -30,9 +30,12 @@ java -jar avro-tools-1.12.0.jar compile schema src/main/resources/user-value.avs
 - Replace `src/main/java/` with your preferred output directory.
 
 The generated class is named based on the `name` field in your schema, and it is placed
-in a subdirectory matching the `namespace`. Do not rename the generated class or change
-its package declaration. Kafka serialization
+in a subdirectory matching the `namespace`.
+
+:::note
+Do not rename the generated class or change its package declaration. Kafka serialization
 depends on the original name and namespace in the schema.
+:::
 
 ## Example schema
 
@@ -56,8 +59,8 @@ src/main/java/io/aiven/example/User.java
 
 ## Add Maven dependencies
 
-Add these dependencies to your `pom.xml` to compile and use the generated classes with
-Avro and Kafka:
+Add these dependencies to your `pom.xml` to compile and use the generated classes for
+Avro serialization and deserialization in Kafka producers and consumers.
 
 ```xml
 <dependencies>
@@ -115,7 +118,8 @@ You can use additional libraries depending on your schema or Avro usage:
 ```
 
 These dependencies are optional. Include them only if your generated classes use
-features like `Optional<T>` fields (Jackson) or `ImmutableList` and `ImmutableSet` types (Guava).
+features like `Optional<T>` fields (Jackson) or `ImmutableList` and `ImmutableSet`
+types (Guava).
 
 <RelatedPages />
 

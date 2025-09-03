@@ -30,8 +30,12 @@ protoc -I=. --java_out=src/main/java/ src/main/resources/example.proto
 
 The generated class is placed inside a directory that matches the `package` declaration
 in your `.proto` file. Ensure the `package` in your `.proto` file matches your intended
-Java package structure. Do not rename the generated class or change its package. Kafka
-serialization relies on the original name and package.
+Java package structure.
+
+:::note
+Do not rename the generated class or change its package declaration. Kafka serialization
+depends on the original name and namespace in the schema.
+:::
 
 ## Example schema
 
@@ -54,8 +58,8 @@ src/main/java/io/aiven/example/User.java
 
 ## Add Maven dependencies
 
-Add these dependencies to your `pom.xml` to compile and use the generated classes with
-Protobuf and Kafka:
+Add these dependencies to your `pom.xml` to compile and use the generated classes for
+Protobuf serialization and deserialization in Kafka producers and consumers.
 
 ```xml
 <dependencies>

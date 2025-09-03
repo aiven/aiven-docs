@@ -32,8 +32,10 @@ The generated Java class is placed in a subdirectory based on the `javaType` fie
 schema. If `javaType` is not defined, the output directory is based on the schema title
 or the folder structure.
 
-Make sure the `package` declaration in the generated Java file matches your
-project’s structure. Kafka serialization depends on consistent class names and packages.
+:::note
+Do not rename the generated class or change its package declaration. Kafka serialization
+depends on the original name and namespace in the schema.
+:::
 
 ## Example schema
 
@@ -75,8 +77,8 @@ Use this only for advanced use cases that require schema introspection at runtim
 
 ## Add Maven dependencies
 
-Add these dependencies to your `pom.xml` to compile and use the generated classes with
-JSON Schema and Kafka:
+Add these dependencies to your `pom.xml` to compile and use the generated classes for
+JSON Schema serialization and deserialization in Kafka producers and consumers.
 
 ```xml
 <dependencies>
