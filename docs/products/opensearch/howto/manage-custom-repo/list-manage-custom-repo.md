@@ -1,6 +1,6 @@
 ---
 title: Manage Aiven for OpenSearch® custom repositories
-sidebar_label: Manage custom repos
+sidebar_label: Manage custom repositories
 ---
 
 Set up custom repositories in Aiven for OpenSearch® in the Aiven Console, the Aiven API,
