@@ -17,7 +17,7 @@ Generate Java data classes from Protocol Buffers (`.proto`) schema files for use
 - [`protoc`](https://grpc.io/docs/protoc-installation/) compiler installed
 - A Protobuf schema file (`.proto`)
 
-## Generate the Java class
+## Generate the Java classes
 
 Generate Java classes from your Protobuf schema file using the `protoc` CLI:
 

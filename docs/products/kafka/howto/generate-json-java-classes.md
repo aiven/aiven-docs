@@ -17,7 +17,7 @@ Generate Java data classes from JSON Schema (`.json`) files for use in Apache Ka
 - [`jsonschema2pojo`](https://github.com/joelittlejohn/jsonschema2pojo) installed
 - A JSON Schema file (`.json`)
 
-## Generate the Java class
+## Generate the Java classes
 
 Generate Java classes from your JSON schema file using the `jsonschema2pojo` CLI:
 

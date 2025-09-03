@@ -23,7 +23,7 @@ Generate Java data classes from Avro schema files (`.avsc`) to use with Apache K
   use `.avro` files. They include both schema and data and are not compatible with `avro-tools`.
   :::
 
-## Generate the Java class
+## Generate the Java classes
 
 Run the following command to generate Java classes from your Avro schema:
 
