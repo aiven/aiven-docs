@@ -28,16 +28,21 @@ jsonschema2pojo --source src/main/resources/schema.json --target src/main/java/
 - Replace `schema.json` with your schema file.
 - Replace `src/main/java/` with your preferred output directory.
 
-The generated Java class is placed in a subdirectory based on the `javaType` field in the
-schema. If `javaType` is not defined, the output directory is based on the schema title
-or the folder structure.
-
 :::note
-If your schema does not define a `javaType` with a package, you may need to update the
-package declaration in the generated Java file so it matches your project's structure.
-Kafka serialization depends on the fully qualified class name.
-:::
+Use the `--package` option to specify the Java package during code generation.
+Kafka serialization depends on the fully
+qualified class name.
 
+For example:
+
+```bash
+jsonschema2pojo \
+  --source src/main/resources/users.json \
+  --target src/main/java/io/aiven/example \
+  --package io.aiven.example
+```
+
+:::
 
 ## Example schema
 
@@ -57,7 +62,7 @@ Kafka serialization depends on the fully qualified class name.
 This schema generates the following Java file:
 
 ```plaintext
-src/main/java/User.java
+src/main/java/io/aiven/example/User.java
 ```
 
 ## Optional: Add Confluent schema annotation

@@ -42,18 +42,6 @@ java -jar avro-tools-1.12.0.jar compile schema src/main/resources/user-value.avs
 The generated class is named based on the `name` field in your schema, and it is placed
 in a subdirectory matching the `namespace`.
 
-:::note
-Use the `--package` option to specify the Java package during code generation.
-Kafka serialization depends on the fully
-qualified class name.
-
-For example:
-
-```bash
-jsonschema2pojo --source src/main/resources/users.json --target src/main/java/io/aiven/example --package io.aiven.example
-```
-:::
-
 ## Example schema
 
 ```json

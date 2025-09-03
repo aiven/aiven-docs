@@ -56,7 +56,7 @@ message User {
 This schema produces the following file:
 
 ```plaintext
-src/main/java/io/aiven/example/User.java
+src/main/java/io/aiven/example/protobuf/User.java
 ```
 
 ## Add Maven dependencies
