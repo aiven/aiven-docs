@@ -15,7 +15,8 @@ To produce and consume Avro messages in Java using the schema registry:
 1. Define your schema.
 1. Generate Java classes from the schema.
 1. Add the required dependencies.
-1. Create a keystore and truststore (if required for your security setup).
+1. Optional: Create a keystore, and create a truststore only if you use SASL
+   authentication.
 1. Configure your Kafka producer and consumer properties.
 
 ## Prerequisites

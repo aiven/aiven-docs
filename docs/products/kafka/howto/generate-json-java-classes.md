@@ -63,7 +63,9 @@ src/main/java/User.java
 ## Optional: Add Confluent schema annotation
 
 To enable additional features in Confluent’s deserializers (which are compatible
-with schema registries like Karapace), you can add this annotation to your JSON Schema:
+with schema registries like
+[Karapace](/docs/products/kafka/karapace/concepts/schema-registry-authorization)), you
+can add this annotation to your JSON Schema:
 
 ```json
 "@io.confluent.kafka.schemaregistry.annotations.Schema": {
@@ -72,9 +74,8 @@ with schema registries like Karapace), you can add this annotation to your JSON 
 }
 ```
 
-This annotation allows Confluent-compatible deserializers, such
-as [Karapace](/docs/products/kafka/karapace/concepts/schema-registry-authorization),
-to expose runtime methods like `schema()` and `refs()` in the generated Java class.
+This annotation makes runtime methods such as `schema()` and `refs()` available in
+the generated Java classes.
 
 Use this only for advanced use cases that require schema introspection at runtime.
 
