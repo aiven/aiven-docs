@@ -32,6 +32,7 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
+- Configured [custom repository](/docs/products/opensearch/howto/manage-custom-repo/list-manage-custom-repo)
 - [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
   applied for your service
 - [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
@@ -55,6 +56,7 @@ manually.
 <TabItem value="gui" label="Aiven Console" default>
 
 Supported storage services are:
+
 - Amazon S3
 - Google Cloud Storage (GCS)
 - Microsoft Azure Blob Storage
@@ -63,6 +65,7 @@ Supported storage services are:
 <TabItem value="api" label="Aiven API">
 
 Supported storage services are:
+
 - Amazon S3
 - Google Cloud Storage (GCS)
 - Microsoft Azure Blob Storage

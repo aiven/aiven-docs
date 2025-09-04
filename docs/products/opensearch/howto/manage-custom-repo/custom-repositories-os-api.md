@@ -21,7 +21,6 @@ Use the OpenSearch® API for configuring custom repositories in Aiven for OpenSe
   [snapshot repository permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-repository-permissions)
   configured
 - [Storage credentials](/docs/products/opensearch/howto/snapshot-credentials)
-- Name of the [custom keystore](/docs/products/opensearch/howto/snapshot-credentials)
 
 ## Limitations
 
@@ -34,7 +33,7 @@ Use the OpenSearch® API for configuring custom repositories in Aiven for OpenSe
   - [Edit repository details](/docs/products/opensearch/howto/custom-repositories#view-or-edit-repository-details)
   - [List custom repositories](/docs/products/opensearch/howto/custom-repositories#list-custom-repositories)
 - Using the native OpenSearch API requires providing
-  [storage credentials and the name of the custom keystore](/docs/products/opensearch/howto/snapshot-credentials).
+  [storage credentials](/docs/products/opensearch/howto/snapshot-credentials).
 
 ## Register custom repositories
 
