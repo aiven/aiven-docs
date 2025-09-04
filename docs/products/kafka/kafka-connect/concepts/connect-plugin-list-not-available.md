@@ -1,31 +1,38 @@
 ---
-title: Causes of "connector list not currently available"
+title: Troubleshoot connector list unavailable in Apache Kafka® Connect
 ---
 
-Sometimes, when accessing the [Aiven Console](https://console.aiven.io/) and trying to view the list of connectors in your Aiven for Apache Kafka® Connect cluster you can encounter the message `connector list not currently available`.
+When you try to view connectors in Aiven for Apache Kafka® Connect, you might see the message `connector list not currently available`.
+This means the Kafka Connect service failed to return the list of installed connectors.
 
 :::note
-The same error message is shown in Terraform (for example, when using
-`terraform plan`) because it uses the same backend API.
+[Aiven Terraform Provider](/docs/tools/terraform) also displays the `connector list not currently available` message, for example when running `terraform plan`, because it uses the same backend API as the Aiven Console.
 :::
 
-There can be a number of reasons why you are seeing the above message:
+## Common causes and solutions
 
--   The dedicated Apache Kafka Connect cluster was just created. The
-    list will load after the cluster is fully online with all the nodes
-    in running state
--   The Apache Kafka Connect API on a Kafka cluster was just enabled. It
-    should take a few seconds for the Apache Kafka Connect services to
-    be operational
--   The Apache Kafka Connect cluster is in the process of setting
-    up/reconfiguring a connector. This message should clear after a few
-    seconds
--   The Apache Kafka Connect cluster is running out of memory. You will
-    likely keep seeing this message unless you upgrade to a larger plan
--   One or more nodes on the Apache Kafka Connect cluster crashed. The
-    API that fetches the connector list calls the Apache Kafka Connect
-    cluster by it's hostname and that maps to one of the 3 workers
-    randomly. If you see this message appear intermittently, this is
-    likely the reason. The crashed node should recover automatically,
-    but if it doesn't, [contact our
-    support](https://aiven.io/support-services) for further help
+### Kafka Connect service is starting
+
+If you recently created the service, wait 2—5 minutes for all nodes to become fully
+operational. The connector list loads automatically after initialization.
+
+### Kafka Connect was recently enabled
+
+After you enable Kafka Connect on an existing Kafka service, the service takes
+30—60 seconds to initialize. Refresh the page after that.
+
+### Connector creation or update in progress
+
+During connector creation or updates, the list might be unavailable for 10—30 seconds.
+It refreshes automatically after the operation completes.
+
+### Kafka Connect service is low on memory
+
+If the service is running out of memory, the connector list might continue to be
+unavailable. Upgrade to a larger service plan to resolve the issue.
+
+### One of the Kafka Connect nodes is unavailable
+
+The connector list is retrieved from a randomly selected node. If a node is unavailable,
+the request might fail intermittently. The node usually recovers automatically. If the
+issue persists, contact [Aiven support](/docs/platform/howto/support).
