@@ -526,6 +526,33 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Aiven Applications',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      link: {
+        id: 'applications/aiven-applications',
+        type: 'doc',
+      },
+      items: [
+        'applications/aiven-applications',
+        'applications/get-started',
+        {
+          type: 'category',
+          label: 'Build and deploy',
+          items: [
+            'applications/deploy-git-repo',
+            'applications/create-dockerfile',
+            'applications/environment-variables',
+            'applications/ports',
+          ],
+        },
+        'applications/connect-app-aiven-services',
+        'applications/application-logs',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Services',
       collapsed: false,
       collapsible: false,
