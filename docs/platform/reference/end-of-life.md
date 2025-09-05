@@ -111,17 +111,13 @@ before December 31, 2025. For further assistance, contact your account team.
   On this date, all active Aiven for AlloyDB Omni services are powered off and deleted,
   making data from these services inaccessible.
 
-  :::note
-  You can request postponing the EOL date to **March 31, 2026** if needed. This would give
-  you additional 90 days to prepare and migrate your data.
-  :::
-
 ### Migration options
 
 The recommended alternatives to Aiven for AlloyDB Omni are:
 
 - [Aiven for PostgreSQL®](/docs/products/postgresql)
 - [Aiven for ClickHouse®](/docs/products/clickhouse)
+- [Aiven for MySQL®](/docs/products/mysql)
 
 To ensure uninterrupted service, complete your migration before December 5, 2025.
 For further assistance, contact the [Aiven support team](mailto:support@aiven.io) or your
