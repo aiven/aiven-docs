@@ -46,7 +46,7 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 </Tabs>
 
 :::important
-Automatic snapshot scheduling is not supported. You must create, list, and delete snapshots
+Automatic snapshot scheduling is not supported. Create, list, and delete snapshots
 manually.
 :::
 
@@ -283,10 +283,12 @@ Example response:
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
-Use one of the following native OpenSearch API to endpoints:
+Use one of the following variants of the native OpenSearch
+[Get Snapshot Status](https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/)
+API:
 
-- Snapshot statuses for a specified repository: `GET /_snapshot/REPOSITORY_NAME/_status`
-- Snapshot statuses for all repositories: `GET /_snapshot/_status`
+- For snapshot statuses in a specified repository: `GET /_snapshot/REPOSITORY_NAME/_status`
+- For snapshot statuses in all repositories: `GET /_snapshot/_status`
 
 </TabItem>
 </Tabs>
