@@ -87,6 +87,11 @@ Avro serialization and deserialization in Kafka producers and consumers.
     <artifactId>kafka-schema-registry-client</artifactId>
     <version>8.0.0</version>
   </dependency>
+  <dependency>
+    <groupId>io.confluent</groupId>
+    <artifactId>kafka-schema-serializer</artifactId>
+    <version>8.0.0</version>
+  </dependency>
 
   <!-- Apache Avro dependency -->
   <dependency>
