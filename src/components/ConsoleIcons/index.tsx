@@ -246,6 +246,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>User profile</b>
         </>
       );
+    case 'referrals':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.gift} /> <b>Referrals</b>
+        </>
+      );
     case 'authenticationmethod':
       return (
         <>

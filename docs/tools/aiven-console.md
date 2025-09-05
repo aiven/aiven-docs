@@ -10,9 +10,10 @@ In the [Aiven Console](https://console.aiven.io) you can create and manage Aiven
 
 To view your personal information, authentication settings, and
 organizations you belong to, click the label **User information** profile icon
-in the top right. The user profile is also the place where you can
-enable
-[feature previews](/docs/platform/howto/feature-preview) to test upcoming features and get referral links.
+in the top right. The user profile is also the place where you can get
+[referral links](docs/platform/reference/referrals.md), enable
+[feature previews](/docs/platform/howto/feature-preview) to test upcoming features,
+create tokens, and configure other personal settings.
 
 ### Name and email
 
