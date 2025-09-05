@@ -2,7 +2,7 @@
 title: Create a sink connector from Apache Kafka® to Google BigQuery
 ---
 
-The [Google BigQuery sink connector](https://github.com/confluentinc/kafka-connect-bigquery) enables you to move data from an Aiven for Apache Kafka® cluster to a set of Google BigQuery tables for further processing and analysis.
+The [Google BigQuery sink connector](https://github.com/Aiven-Open/bigquery-connector-for-apache-kafka) enables you to move data from an Aiven for Apache Kafka® cluster to a set of Google BigQuery tables for further processing and analysis.
 
 :::note
 See the full set of available parameters and configuration
@@ -70,8 +70,29 @@ The following example demonstrates how to setup a Google BigQuery sink
 connector for Apache Kafka using the [Aiven
 Console](https://console.aiven.io/).
 
+
+There are two distinctly different ways to write to BigQuery: using GCS or using the Storage Write API.  To enable the Storage Write API set the `useStorageWriteApi` to `true`.
+:::important
+The Storage Write API may not be used with `deleteEnabled` or `upsertEnabled`
+:::
+
+:::important  
+The following items are only valid when usine the Storage Write API.
+- bigQueryPartitionDecorator
+- commitInterval
+- enableBatchMode
+  :::
+
+::: important
+The following items are only valid when `deleteEnabled` or `upsertEnabled` is true
+- intermediateTableSuffix
+- kafkaKeyFieldName -- this item is required for `deleteEnabled` or `upsertEnabled`
+- mergeIntervalMs
+  :::
+
 ### Define a Kafka Connect configuration file
 
+This example creates a BigQuery connector that uses GCS to write to BigQuery
 Define the connector configurations in a file (we'll refer to it with
 the name `bigquery_sink.json`) with the following content:
 
@@ -178,33 +199,6 @@ The configuration file contains the following entries:
     as defined in the
     [prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#connect_bigquery_sink_prereq)
 
-    :::warning
-    The configuration of the BigQuery connector in Aiven has a
-    non-backward-compatible change between versions `1.2.0` and `1.6.5`:
-
-    -   version `1.2.0` uses the `credentials` field to specify the
-        Google Cloud credentials in JSON format:
-
-        ```
-        ...
-        "credentials": "{...}",
-        ...
-        ```
-
-    -   from version `1.6.5` on, use the `keyfield` field and set the
-        `keySource` parameter to `JSON`:
-
-        ```
-        ...
-        "keyfile": "{...}",
-        "keySource": "JSON",
-        ...
-        ```
-
-    You can review the connector version available in an Aiven for
-    Apache Kafka service with the
-    [dedicated Aiven CLI command](/docs/tools/cli/service/connector#avn_cli_service_connector_available) `avn service connector available`.
-    :::
 
 The full list of parameters is available in the [dedicated GitHub
 page](https://github.com/wepay/kafka-connect-bigquery/wiki/Connector-Configuration).
