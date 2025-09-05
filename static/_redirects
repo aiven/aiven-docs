@@ -239,11 +239,9 @@
 /tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started
 /tools/terraform/reference/troubleshooting                            /docs/tools/terraform
 /tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform
-<<<<<<< HEAD
 /tutorials/anomaly-detection                                          /docs
-=======
 /valkey                                          /docs/products/valkey
->>>>>>> 0eac90a1 (update: unify Snowflake sink connector content)
+
 
 #
 # Redirect to external resources
