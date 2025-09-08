@@ -112,7 +112,7 @@ In the **Create custom cloud** wizard:
     -   Custom cloud name
     -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 
-    Click **Next**.
+1.  Click **Next**.
 
 1.  Specify deployment and storage details:
 
@@ -124,7 +124,7 @@ In the **Create custom cloud** wizard:
         - Public model, which allows the Aiven control plane to connect to the service
           nodes via the public internet.
 
-    -   CIDR
+    -   CIDR for BYOC resources
 
         The **CIDR** block defines the IP address range of the VPC that
         Aiven creates in your own cloud account. Any Aiven service created in
@@ -159,7 +159,7 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    Click **Generate template**.
+1.  Click **Generate template**.
 
 Your infrastructure Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to acquire a privilege-bearing
