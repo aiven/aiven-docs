@@ -68,6 +68,6 @@ not entered a payment method.
 
 You can also downgrade a trial or paid plan to the free plan as long as:
 
-- the data you have in that trial or paid service fits into the smaller
-instance size
-- a free plan is available in the same cloud as the paid plan
+- The data you have in that trial or paid service fits into the smaller
+instance size.
+- A free plan is available in the same cloud as the paid plan.
