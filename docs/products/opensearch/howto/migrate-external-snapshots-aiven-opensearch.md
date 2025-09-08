@@ -14,14 +14,14 @@ and consists of the following phases:
 1. [Migrate the data](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
    by restoring it from external snapshots stored on supported platforms like Amazon S3,
    Google Cloud Storage (GCS), Microsoft Azure, or other S3-compatible services.
-1. **Optionally**,
-   [reapply Index State Management (ISM) policies](/docs/products/opensearch/howto/migrate-ism-policies):
+1. Optional:
+   [Reapply Index State Management (ISM) policies](/docs/products/opensearch/howto/migrate-ism-policies):
    Use a
    [script](https://github.com/aiven/aiven-examples/blob/main/solutions/reapply-ism-policies/avn-re-apply-ism-policies.py)
    to migrate ISM policies to maintain consistent index lifecycle management, including
    tasks like index rollover, retention, and deletion.
-1. **Optionally**,
-   [recreate security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven):
+1. Optional:
+   [Recreate security configuration](/docs/products/opensearch/howto/migrate-opendistro-security-config-aiven):
    Use a
    [script](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py)
    to migrate user roles, permissions, and access controls to preserve security settings
