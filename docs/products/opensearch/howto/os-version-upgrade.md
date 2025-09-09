@@ -3,46 +3,84 @@ title: Upgrade Aiven for OpenSearch®
 sidebar_label: Upgrade
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Aiven for OpenSearch® supports multiple versions, allowing you to choose the version that best fits your needs and upgrade when ready.
 
 ## Default version
 
-When creating a new Aiven for OpenSearch service, you can select the starting version. See
+When
+[creating a Aiven for OpenSearch service](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service),
+you can select the starting version. See
 available options in
 [Versions of Aiven services and tools](/docs/platform/reference/eol-for-major-versions#aiven-for-opensearch).
 
-## Multi-Version Support
+## Multi-version support
 
-Aiven now supports minor OpenSearch 2 versions in the same way as major versions.
-- No automatic upgrades between minor versions (e.g., 2.17 to 2.19).
-- You can voluntarily upgrade to a newer minor or major version.
-- Downgrades are not supported; once upgraded, you cannot revert to a previous version.
+Aiven for OpenSearch supports multiple minor and major versions. Upgrades are voluntary
+and requires
+[your action](/docs/products/opensearch/howto/os-version-upgrade#upgrade-your-service-version)
+except the following mandatory updates, which are run automatically:
 
-## How to Upgrade
+- Version patches applied during your maintenance window: `majorX.minorY.patch1` to
+  `majorX.minorY.patch2`
+- Cluster upgrade as a result of a node replacement in a disaster recovery scenario (to
+  have all the cluster nodes running the same version)
+- Upgrades as a result of versions reaching end-of-life and being deprecated on the Aiven
+  Platform
 
-### Using the Console
+Tracking the upgrade status is possible thanks to:
 
-- Go to your service overview screen.
-- In the **Maintenance** section, click the **Upgrade version** button.
-- If you are on 2.17, you can upgrade directly to 2.19.
-- If you are on 1.3, you can skip 2.17 and upgrade directly to 2.19.
-- For future major versions (e.g., 3), you may need to upgrade to the latest major version before upgrading further.
+- Service <ConsoleLabel name="overview"/> page > the **Maintenance** section > List of
+  available updates (mandatory or optional)
+- Email notifications for automated updates
 
-### Using Terraform
+## Before you start
 
-- If you want to use OpenSearch 2.19, set `opensearch_version` to `"2.19"` in your Terraform configuration.
-- If you want to stay on 2.17, no changes are needed.
+:::warning
+Downgrades are not supported: You cannot revert to a previous version or change to a lower
+one.
+:::
 
-## Mandatory Upgrades
+- Upgrading between minor versions of the **same major version**: upgrade directly to the
+  target version.
+- Upgrading between minor versions of two **different major versions**:
+  1. Upgrade to the latest major version.
+  1. Upgrade to a minor version of the latest major version.
 
-- **Patch version updates** (e.g., 2.17.1 to 2.17.2) are mandatory and applied automatically during your maintenance window.
-- If a node is lost and replaced, the cluster may be upgraded to ensure all nodes run the same version.
-- OpenSearch 1 and 2 are End-of-Life (EOL); only OpenSearch 3 is officially supported. Outdated versions will eventually be deprecated.
+## Upgrade your service version
 
-## Notifications
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
 
-- The **Maintenance widget** on your service overview page will indicate available updates (mandatory or optional).
-- You will receive email notifications before any automated update is applied.
+1. In the [Aiven Console](https://console.aiven.io), go to your service.
+1. On the <ConsoleLabel name="overview"/> page, go to the **Maintenance** section.
+1. Click <ConsoleLabel name="actions"/> > **Upgrade version**.
+1. Select a version to upgrade to, and click **Upgrade**.
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+Use the
+[aiven_opensearch](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch)
+resource to set
+[opensearch_version](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch#opensearch_version-1).
+
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+Use the
+[OpenSearch](https://aiven.github.io/aiven-operator/resources/opensearch.html)
+resource to set
+[opensearch_version](https://aiven.github.io/aiven-operator/resources/opensearch.html#spec.userConfig.opensearch_version-property).
+
+</TabItem>
+</Tabs>
+
+
 
 ## FAQ
 
@@ -72,3 +110,15 @@ A: It may differ in details, such as not allowing downgrades. Once your service 
 
 **Q: Are there any forced upgrades?**
 A: Yes, patch version updates are mandatory and applied automatically. If a node is lost and replaced, the cluster may be upgraded to ensure all nodes run the same version.
+
+
+## Upgrade best practices
+
+- If you are on 2.17, you can upgrade directly to 2.19.
+- If you are on 1.3, you can skip 2.17 and upgrade directly to 2.19.
+- For future major versions (e.g., 3), you may need to upgrade to the latest major version
+  before upgrading further.
+
+<RelatedPages/>
+
+- [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
