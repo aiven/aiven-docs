@@ -5,9 +5,9 @@ title: Create a sink connector from Apache Kafka® to Google BigQuery
 The [Google BigQuery sink connector](https://github.com/Aiven-Open/bigquery-connector-for-apache-kafka) enables you to move data from an Aiven for Apache Kafka® cluster to a set of Google BigQuery tables for further processing and analysis.
 
 :::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://github.com/confluentinc/kafka-connect-bigquery).
+See the full set of available parameters and [configuration
+options](https://aiven-open.github.io/bigquery-connector-for-apache-kafka/configuration.html) in the [connector's
+documentation](https://aiven-open.github.io/bigquery-connector-for-apache-kafka).
 :::
 
 ## Prerequisites {#connect_bigquery_sink_prereq}
@@ -200,8 +200,8 @@ The configuration file contains the following entries:
     [prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#connect_bigquery_sink_prereq)
 
 
-The full list of parameters is available in the [dedicated GitHub
-page](https://github.com/wepay/kafka-connect-bigquery/wiki/Connector-Configuration).
+The [full list of parameters](https://aiven-open.github.io/bigquery-connector-for-apache-kafka/configuration.html) is 
+available on the [GitHub documentation site](https://aiven-open.github.io/bigquery-connector-for-apache-kafka).
 
 ### Create a Kafka Connect connector with the Aiven Console
 
