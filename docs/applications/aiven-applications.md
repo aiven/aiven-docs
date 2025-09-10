@@ -15,8 +15,8 @@ Aiven Applications is in the
 stage.
 :::
 
-Aiven Applications supports any language. You can build and deploy code in Git
-repositories like Bitbucket, GitHub, and GitLab.
+Aiven Applications supports any language. You can build and deploy code from Git
+repositories like Bitbucket, GitHub, and GitLab, or any SSH key based Git provider.
 [Connect your application to services](/docs/applications/connect-app-aiven-services)
 like Aiven for PostgreSQL® and Aiven for Valkey™ to create a full-stack application.
 

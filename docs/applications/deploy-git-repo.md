@@ -5,7 +5,7 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Build and deploy applications using Aiven Applications from source code in a Git repository such as GitHub, Bitbucket, or GitLab.
+Build and deploy your applications using Aiven Applications from source code in a Git repository or any SSH key based Git provider.
 
 :::note
 Aiven Applications is in the
@@ -13,14 +13,9 @@ Aiven Applications is in the
 stage.
 :::
 
-When you connect your Git repository account, commits to the selected branch of your
-repository are automatically deployed. You can view the latest deployments on the
-application's overview. Public repositories are not automatically deployed, but you
-can manually [redeploy them](#redeploy-an-application).
-
 ## Prerequisites
 
-- A [Dockerfile](/docs/applications/create-dockerfile) or Containerfile
+- A [Containerfile or Dockerfile](/docs/applications/create-dockerfile)
   in the root directory of the branch.
 
 ## Deploy an application
