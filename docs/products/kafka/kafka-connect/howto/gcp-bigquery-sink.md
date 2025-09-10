@@ -37,6 +37,7 @@ Collect the following details:
   `{\"type\": \"service_account\",\"project_id\": \"XXXXXX\", ...}`
   :::
 
+<<<<<<< HEAD
 - `BIGQUERY_DATASET_NAME`: BigQuery dataset name
 - `TOPIC_LIST`: Comma-separated list of Kafka topics to sink
 - Only if using Avro: Schema Registry connection details:
@@ -44,6 +45,219 @@ Collect the following details:
   - `SCHEMA_REGISTRY_PORT`
   - `SCHEMA_REGISTRY_USER`
   - `SCHEMA_REGISTRY_PASSWORD`
+=======
+::: important
+The following items are only valid when `deleteEnabled` or `upsertEnabled` is true
+- intermediateTableSuffix
+- kafkaKeyFieldName -- this item is required for `deleteEnabled` or `upsertEnabled`
+- mergeIntervalMs
+  :::
+
+### Define a Kafka Connect configuration file
+
+This example creates a BigQuery connector that uses GCS to write to BigQuery
+Define the connector configurations in a file (we'll refer to it with
+the name `bigquery_sink.json`) with the following content:
+
+```json
+{
+    "name":"CONNECTOR_NAME",
+    "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
+    "topics": "TOPIC_LIST",
+    "project": "GCP_PROJECT_NAME",
+    "defaultDataset": ".*=BIGQUERY_DATASET_NAME",
+    "schemaRetriever": "com.wepay.kafka.connect.bigquery.retrieve.IdentitySchemaRetriever",
+    "schemaRegistryClient.basic.auth.credentials.source": "URL",
+    "schemaRegistryLocation":"https://SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD@APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "key.converter.basic.auth.credentials.source": "USER_INFO",
+    "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "value.converter.basic.auth.credentials.source": "USER_INFO",
+    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+    "autoCreateTables": "true",
+    "keySource": "JSON",
+    "keyfile": "GCP_SERVICE_KEY"
+}
+```
+
+The configuration file contains the following entries:
+
+-   `name`: the connector name
+
+-   `project`: the GCP project name where the target Google BigQuery is
+    located.
+
+-   `defaultDataset`: the target BigQuery dataset name, prefixed with
+    `.*=`.
+
+-   `schemaRegistryLocation`: details of the connection to Karapace
+    offering the schema registry functionality, only needed when the
+    source data is in Avro format.
+
+-   `key.converter` and `value.converter`: define the message data
+    format in the Apache Kafka topic. The
+    `io.confluent.connect.avro.AvroConverter` converter translates
+    messages from the Avro format. To retrieve the message schema we use
+    Aiven's [Karapace schema
+    registry](https://github.com/aiven/karapace), as specified by the
+    `schema.registry.url` parameter and related credentials.
+
+    :::note
+    The `key.converter` and `value.converter` sections are only needed
+    when the source data is in Avro format. If omitted the messages will
+    be read as binary format.
+
+    When using Avro as source data format, set following
+    parameters:
+
+    -   `value.converter.schema.registry.url`: pointing to the Aiven for
+        Apache Kafka schema registry URL in the form of
+        `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` with the
+        `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
+        [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#connect_bigquery_sink_prereq).
+    -   `value.converter.basic.auth.credentials.source`: to the value
+        `USER_INFO`, since you're going to login to the schema registry
+        using username and password.
+    -   `value.converter.schema.registry.basic.auth.user.info`: passing
+        the required schema registry credentials in the form of
+        `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` with the
+        `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
+        [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/elasticsearch-sink#connect_elasticsearch_sink_prereq).
+    :::
+
+-   `autoCreateTables`: enables the auto creation of the target BigQuery
+    tables if they do not yet exist.
+
+-   `allBQFieldsNullable`: sets any created column of produced BigQuery
+    schema as NULLABLE instead of REQUIRED (even from Avro fields
+    defined as non-nullable).
+
+    :::note
+    Additional configuration parameters enable the BigQuery sink
+    connector to automatically evolve tables in response to new incoming
+    messages from the source topic. Specifically, these parameters
+    provide the following functionalities: :
+
+    -   `allowNewBigQueryFields`: new fields can be added to BigQuery
+        tables during subsequent schema updates.
+    -   `allowBigQueryRequiredFieldRelaxation`: fields in BigQuery
+        schema can be changed back from REQUIRED to NULLABLE.
+    :::
+
+    :::warning
+    When the connector automatically performs subsequent schema changes
+    on tables, columns, and data type definitions, it reduces the
+    control database users have over these changes. This can lead to
+    unexpected errors, particularly if message evolution exceeds the
+    compatibility limits of BigQuery and its associated applications.
+    :::
+
+-   `keySource`: defines the format of the GCP key, the value should be
+    `JSON` if the key is generated in JSON format
+
+-   `keyfile`: contains the GCP service account key, correctly escaped
+    as defined in the
+    [prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#connect_bigquery_sink_prereq)
+
+
+The [full list of parameters](https://aiven-open.github.io/bigquery-connector-for-apache-kafka/configuration.html) is
+available on the [GitHub documentation site](https://aiven-open.github.io/bigquery-connector-for-apache-kafka).
+
+### Create a Kafka Connect connector with the Aiven Console
+
+To create a Kafka Connect connector:
+
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
+    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
+    service where the connector needs to be defined.
+
+2.  Select **Connectors** from the left sidebar.
+
+3.  Select **Create New Connector**, it is enabled only for
+    services
+    [with Kafka Connect enabled](enable-connect).
+
+4.  Select **Google BigQuery Sink**.
+
+5.  In the **Common** tab, locate the **Connector configuration** text
+    box and select on **Edit**.
+
+6.  Paste the connector configuration (stored in the
+    `bigquery_sink.json` file) in the form.
+
+7.  Select **Apply**.
+
+    :::note
+    The Aiven Console parses the configuration file and fills the
+    relevant UI fields. You can review the UI fields across the various
+    tabs and change them if necessary. The changes will be reflected in
+    JSON format in the **Connector configuration** text box.
+    :::
+
+8.  After all the settings are correctly configured, select **Create
+    connector**.
+
+9.  Verify the connector status under the **Connectors** screen.
+
+10. Verify the presence of the data in the target BigQuery dataset, the
+    table name is equal to the Apache Kafka topic name. To
+    change the target table name, you can do so using the Kafka Connect
+    `RegexRouter` transformation.
+
+    :::note
+    You can also create connectors using the
+    [Aiven CLI command](/docs/tools/cli/service/connector).
+    :::
+
+## Example: Create a Google BigQuery sink connector on a topic with a JSON schema
+
+You have a topic named `iot_measurements` containing data in JSON
+format, with a defined JSON schema:
+
+```json
+{
+    "schema": {
+        "type":"struct",
+        "fields":[{
+            "type":"int64",
+            "optional": false,
+            "field": "iot_id"
+            },{
+            "type":"string",
+            "optional": false,
+            "field": "metric"
+            },{
+            "type":"int32",
+            "optional": false,
+            "field": "measurement"
+            }]
+    },
+    "payload":{ "iot_id":1, "metric":"Temperature", "measurement":14}
+}
+{
+    "schema": {
+        "type":"struct",
+        "fields":[{
+            "type":"int64",
+            "optional": false,
+            "field": "iot_id"
+            },{
+            "type":"string",
+            "optional": false,
+            "field": "metric"
+            },{
+            "type":"int32",
+            "optional": false,
+            "field": "measurement"
+            }]
+    },
+    "payload":{"iot_id":2, "metric":"Humidity", "measurement":60}
+}
+```
+>>>>>>> 50c24ab3 (adjusted url for new documentation site)
 
 :::note
 Schema Registry connection details are available in the <ConsoleLabel name="overview"/>
