@@ -1,6 +1,6 @@
 ---
 title: Upgrade Aiven for OpenSearch®
-sidebar_label: Upgrade
+sidebar_label: Upgrade version
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -76,7 +76,7 @@ To upgrade your service version, check that:
 - Your Aiven for OpenSearch service is running.
 - Target version to upgrade to is available for
   [manual upgrade](/docs/products/opensearch/howto/os-version-upgrade#available-or-upcoming-upgrades).
-- You can use of the following tools to upgrade:
+- You can use one of the following tools to upgrade:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
