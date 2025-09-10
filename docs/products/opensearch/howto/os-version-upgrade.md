@@ -17,9 +17,7 @@ Aiven for OpenSearch supports multiple minor and major versions.
 
 When
 [creating a Aiven for OpenSearch service](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service),
-you can select the starting version. Otherwise, the service gets the latest version
-supported on the Aiven Platform. See
-all available versions in
+you can select the starting version. See all available versions in
 [Versions of Aiven-managed services and tools](/docs/platform/reference/eol-for-major-versions#aiven-for-opensearch).
 
 ### Voluntary manual upgrades
@@ -46,14 +44,17 @@ yourself as soon as they become
 Otherwise, they are applied automatically during the
 [maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window).
 
-- **Version patches** applied during your
-  [maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window):
-  `majorX.minorY.patch1` to `majorX.minorY.patch2`, for example. from `2.17.1` to `2.17.2`
-- Cluster upgrade as a result of a **node replacement** in a disaster recovery scenario
-  (to have all the cluster nodes running the same version)
-- Upgrades as a result of
+- **Version patches**: `major.minor.patch1` > `major.minor.patch2`, for example,
+  `2.17.1` > `2.17.2`
+  - Scheduled and applied during your
+    [maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window)
+  - Possible after any voluntary manual minor version upgrade to ensure the patch version
+    consistency between the cluster nodes
+- Cluster node version upgrades after **node replacements** in disaster recovery scenarios
+  to ensure the version consistency between the cluster nodes
+- Upgrades due to
   **[versions reaching end-of-life](/docs/platform/reference/eol-for-major-versions#aiven-for-opensearch)**
-  and being deprecated on the Aiven Platform
+  on the Aiven Platform
 
 ## Before you start
 
