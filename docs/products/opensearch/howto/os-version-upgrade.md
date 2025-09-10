@@ -134,9 +134,9 @@ curl --request PUT \
 <TabItem value="tf" label="Terraform">
 
 Use the
-[aiven_opensearch](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch)
+[`aiven_opensearch`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch)
 resource to set
-[opensearch_version](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch#opensearch_version-1).
+[`opensearch_version`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch#opensearch_version-1).
 
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
@@ -144,7 +144,7 @@ resource to set
 Use the
 [OpenSearch](https://aiven.github.io/aiven-operator/resources/opensearch.html)
 resource to set
-[opensearch_version](https://aiven.github.io/aiven-operator/resources/opensearch.html#spec.userConfig.opensearch_version-property).
+[`opensearch_version`](https://aiven.github.io/aiven-operator/resources/opensearch.html#spec.userConfig.opensearch_version-property).
 
 </TabItem>
 </Tabs>
