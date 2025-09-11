@@ -1,16 +1,16 @@
 ---
-title: Migrate to Aiven for MySQL® using via Aiven Console
+title: Migrate to Aiven for MySQL® via console
 sidebar_label: Migrate to Aiven via console
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import MysqlMigrationFreeze from "@site/static/includes/mysql-migration-freeze.md";
 
-Use the Console to migrate MySQL® databases to managed MySQL clusters in your Aiven organization.
+Use the Aiven Console to migrate MySQL® databases to managed MySQL clusters in your Aiven organization.
 
 :::note
 To use the [Aiven CLI](/docs/tools/cli) to migrate your database, see
-[Migrate to Aiven for MySQL from an external MySQL](/docs/products/mysql/howto/migrate-from-external-mysql).
+[Migrate to Aiven via CLI](/docs/products/mysql/howto/migrate-from-external-mysql).
 :::
 
 You can migrate the following:
@@ -19,25 +19,22 @@ You can migrate the following:
 -   Cloud-hosted MySQL databases
 -   Managed MySQL database clusters on Aiven
 
-The Console migration tool provides 2 migration methods:
+The console migration tool provides 2 migration methods:
 
--   **(Recommended) Continuous migration:** Used by default in the tool
-    and taken as the reference method. This method uses
-    logical replication so that data transfer is possible not only for
-    existing data in the source database when triggering the migration
-    but also for any data written to the source database during the
-    migration.
+-   **(Recommended) Continuous migration:** Used by default in the tool and taken as the
+    reference method. This method uses logical replication so that data transfer is
+    possible not only for existing data in the source database when triggering the
+    migration but also for any data written to the source database during the migration.
 
--   **mysqldump**: Exports the current contents of the source database
-    into a text file and imports it to the target database. Any changes
-    written to the source database during the migration are **not
+-   **mysqldump/restore or mydumper/myloader:** Exports the current contents of the source
+    database into a text file or backup directory and imports it to the target database.
+    Any changes written to the source database during the migration are **not
     transferred**.
 
-When you trigger the migration setup in the Console and initial
-checks detect that your source database does not support the logical
-replication, you are notified about it via the migration wizard. To
-continue with the migration, you can select the alternative
-`mysqldump` migration method in the wizard.
+When you trigger the migration setup in the console and initial checks detect that your
+source database does not support logical replication, you are notified about it via the
+migration wizard. To continue with the migration, the wizard allow you to select an
+alternative migration method: `mysqldump/restore` or `mydumper/myloader`.
 
 ## Prerequisites
 

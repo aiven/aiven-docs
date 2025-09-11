@@ -1,5 +1,5 @@
 ---
-title: Migrate to Aiven for MySQL® via Aiven CLI
+title: Migrate to Aiven for MySQL® via CLI
 sidebar_label: Migrate to Aiven via CLI
 ---
 
