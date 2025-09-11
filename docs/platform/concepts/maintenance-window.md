@@ -1,5 +1,6 @@
 ---
-title: Service maintenance, updates and upgrades
+title: Service maintenance, updates, and upgrades
+sidebar_label: Service maintenance
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -35,10 +36,9 @@ See [Upgrade PostgreSQL to a major version][pg].
 
 ### MySQL, PostgreSQL and Caching updates
 
-For **MySQL®**, **PostgreSQL®** and **Caching**, the maintenance
-process usually lasts around several seconds. The downtime comes from old
-master stopping itself in a controlled manner and new master executing
-promotion sequence after this.
+For **MySQL®**, **PostgreSQL®** and **Caching**, the maintenance process should take no
+more than 15 seconds. The downtime comes from old master stopping itself in a controlled
+manner and new master executing promotion sequence after this.
 
 Once the promotion is complete the old
 master node starts forwarding requests to the new master node so the
