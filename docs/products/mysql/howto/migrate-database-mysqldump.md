@@ -5,6 +5,7 @@ sidebar_label: Backup and restore
 
 import MysqlMigrationFreeze from "@site/static/includes/mysql-migration-freeze.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
