@@ -13,6 +13,10 @@ import TerraformPrereqs from "@site/static/includes/terraform-get-started-prereq
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
+import EoaNotice from "@site/static/includes/service-end-of-availability-notice.md"
+
+<EoaNotice/>
+
 Start using Aiven for AlloyDB Omni by setting up a service and connecting to your new default database with a programming language of your choice.
 
 ## Prerequisites
