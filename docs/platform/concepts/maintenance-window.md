@@ -1,5 +1,6 @@
 ---
-title: Service maintenance, updates and upgrades
+title: Service maintenance, updates, and upgrades
+sidebar_label: Service maintenance
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
