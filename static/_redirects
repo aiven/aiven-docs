@@ -228,7 +228,6 @@
 /tools/cli/project                                         /docs/tools/cli
 /tools/cli/service                                         /docs/tools/cli/service-cli
 /tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics
-/tools/cli/service-cli#avn-service-m3                      /docs/tools/cli/service-cli#avn-service-metrics
 /tools/cli/ticket                                          /docs/platform/howto/support
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform
 /tools/terraform/get-started                               /docs/tools/terraform
