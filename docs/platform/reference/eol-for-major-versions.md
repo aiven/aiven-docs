@@ -1,6 +1,6 @@
 ---
 title: End of life for major versions of Aiven services and tools
-sidebar_label: End of life for service versions and tools
+sidebar_label: Service & tool lifecycle
 ---
 
 End of life (EOL) is the date after which Aiven services and tools are no longer supported or maintained.
@@ -66,6 +66,7 @@ the upstream open source project's EOL.
 | 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
 | 16      | 2028-11-09 | 2028-05-09                       | 2024-01-09                      |
 | 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
+| 18      | 2030-11-DD | 2030-05-DD                       | 2025-09-DD                      |
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
@@ -94,7 +95,7 @@ after they are made available on the Aiven platform.
 | 3.6     | 2024-10-18 | 2024-09-01                       | 2023-10-18                      |
 | 3.7     | 2025-04-17 | 2025-01-17                       | 2024-04-17                      |
 | 3.8     | 2026-09-03 | 2026-06-03                       | 2024-09-06                      |
-| 3.9  | 2027-09-30 | 2027-06-30                      | 2025-03-20                      |
+| 3.9     | 2027-09-30 | 2027-06-30                       | 2025-03-20                      |
 
 :::note
 Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
