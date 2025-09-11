@@ -5,7 +5,8 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Environment variables let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database connection details to the application.
+Environment variables let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database connection details to the application. Use secrets to securely store sensitive data like access tokens and API keys. Secrets
+are encrypted and by default are hidden in the Console.
 
 :::note
 Aiven Applications is in the
@@ -13,13 +14,8 @@ Aiven Applications is in the
 stage.
 :::
 
-Usually variables set in the application in Aiven are used in the deployment
-instead of any variables stored in .env files in your repository.
 When you connect Aiven services to your application, environment variables for
 each service are automatically added to the application.
-
-Use secrets to securely store sensitive data like access tokens and API keys. Secrets
-are encrypted and by default are hidden in the Console.
 
 ## Add environment variables
 

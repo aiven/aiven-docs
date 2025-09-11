@@ -63,8 +63,8 @@ You can build the latest commit to the selected branch by redeploying your appli
 1. In your application, click <ConsoleLabel name="actions"/> > **Redeploy app**.
 1. To confirm, click **Redeploy app**.
 
-## Remove an application
+## Delete an application
 
 1. In your project, click **Applications**.
 1. Select your application.
-1. Click <ConsoleLabel name="actions"/> > **Remove app**.          ???? Delete app?
+1. Click <ConsoleLabel name="actions"/> > **Delete app**.

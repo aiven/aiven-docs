@@ -3,7 +3,6 @@ title: Ports
 limited: true
 ---
 
-
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
 To make your application available on public networks, configure which ports to expose it on. Public ports allow traffic between your application and clients on the internet such as browsers.
