@@ -1,5 +1,6 @@
 ---
-title: Migrate to Aiven for MySQL from an external MySQL
+title: Migrate to Aiven for MySQL® from an external MySQL
+sidebar_label: Migrate to Aiven via CLI
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
