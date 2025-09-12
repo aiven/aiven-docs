@@ -1744,6 +1744,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Manage service',
                   items: [
+                    'products/opensearch/howto/os-version-upgrade',
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
                     'products/opensearch/howto/custom-dictionary-files',
