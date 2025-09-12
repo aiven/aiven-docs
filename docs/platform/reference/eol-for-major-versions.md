@@ -47,8 +47,8 @@ dependent on the upstream project.
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- | --------------- | -------------------------------- | ------------------------------- |
 | 1.3.x   | To be announced | To be announced                  | 2022-05-19                      |
-| 2.17.x  | To be announced | To be announced                  | 2024-10-15                      |
-| 2.19.x  | To be announced | To be announced                  | 2025-09-15                      |
+| 2.17.1  | To be announced | To be announced                  | 2024-10-15                      |
+| 2.19.3  | To be announced | To be announced                  | 2025-09-15                      |
 
 ### Aiven for PostgreSQL®
 
