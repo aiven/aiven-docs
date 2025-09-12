@@ -1,9 +1,9 @@
 ---
-title: Connect with Java using the service wizard
-sidebar_label: Connect using the wizard
+title: Connect to Aiven for Apache Kafka® with Java using Quick connect
+sidebar_label: Quick connect
 ---
 
-Use Quick connect to set up a Java client for Aiven for Apache Kafka®.
+Use quick connect to set up a Java client for Aiven for Apache Kafka®.
 The step-by-step process helps you create a topic, configure authentication, define a
 schema, and download ready-to-use client code.
 
@@ -12,7 +12,7 @@ schema, and download ready-to-use client code.
 - An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started)
 - Java development environment with [Maven](https://maven.apache.org/install.html) or [Gradle](https://docs.gradle.org/current/userguide/installation.html)
 
-Step 1: Open Quick connect and select Java
+## Step 1: Open quick connect and select Java
 
 1. In the [Aiven Console](https://console.aiven.io/), select your Aiven for Apache Kafka
    service.
@@ -30,7 +30,7 @@ Topics organize and store the events you stream to Apache Kafka.
    auto-selected for the next steps.
 1. Click **Next**.
 
-## Step 3: Choose an authentication method
+## Step 3: Select an authentication method
 
 1. Choose one of the following:
 
@@ -42,28 +42,39 @@ Topics organize and store the events you stream to Apache Kafka.
 
 The next steps depend on the authentication method you selected.
 
-- **Client certificate (mTLS):**
+- If you selected **Client certificate (mTLS):**
 
   1. Select a schema format: **Avro**, **JSON Schema**, or **Protobuf**.
-  1. Upload a schema, use the sample, or modify the sample to activate **Create schema**.
-  1. If using **Protobuf**:
-     1. Select a reference schema.
-     1. Choose a version and assign a reference name.
-     1. Update if needed, then click **Add reference**.
+  1. Upload a schema or modify the sample schema.
+  1. If using **Protobuf**, you can also add schema references:
+     1. Select an existing schema.
+     1. In the **Add a schema reference** screen, enter a reference name and select a
+        version.
+     1. In the schema editor, modify the schema if needed.
+     1. Click **Add reference**.
   1. Click **Create schema**.
 
-- **SASL/SCRAM:**
+- If you selected **SASL/SCRAM:**
 
   1. Select an existing service user, or click **Create new service user**.
   1. Click **Grant access**.
 
      :::note
-     You cannot modify or remove permissions after they are granted. To revoke access,
-     delete the user’s ACL permissions.
+     - If you use the `avnadmin` user, permissions are granted by default and cannot be
+       changed.
+     - For new service users, you can grant additional permissions later (for example,
+       add consume access if only produce was given).
+     - Once a permission is granted, it cannot be removed. To take away access, delete
+       the user’s ACL permissions.
      :::
+
   1. Select a schema format: **Avro**, **JSON Schema**, or **Protobuf**.
-  1. Upload a schema, use the sample schema, or modify the sample to activate **Create schema**.
-  1. If using **Protobuf**, you can also reference an existing schema, choose a version, and provide a reference name.
+  1. Upload a schema or modify the sample schema.
+  1. If using **Protobuf**, you can also add schema references:
+     1. Select an existing schema.
+     1. In the **Add a schema reference** screen, enter a reference name and select a version.
+     1. In the schema editor, modify the schema if needed.
+     1. Click **Add reference**.
   1. Click **Create schema**.
 
 ## Step 5: Connect your client
@@ -74,5 +85,5 @@ The next steps depend on the authentication method you selected.
      access key**.
    - For **SASL/SCRAM**, download the **CA certificate**.
 1. Review the generated Java **producer** and **consumer** code snippets.
-1. Copy the code snippet or download the client template files.
+1. Copy the code snippets or download the client template files.
 1. Click **Done** to complete the setup.
