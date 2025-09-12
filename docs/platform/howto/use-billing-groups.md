@@ -10,11 +10,11 @@ Billing groups let you set up billing profiles and use them across different pro
 in your organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups)
 is created for each billing group.
 
+## Create a billing group
+
 You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature in the Aiven Console.
-
-## Create a billing group
 
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billinggroups"/>.
@@ -31,11 +31,19 @@ to access this feature in the Aiven Console.
 
 ## Rename a billing group
 
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console.
+
 1.  In the organization, click **Billing**.
 1.  Find the billing group to rename, click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Rename**.
 
 ## Update a billing group
+
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console.
 
 To change the payment method, billing and shipping address, VAT ID,
 billing contact emails, invoice emails, or other billing details:
@@ -45,26 +53,29 @@ billing contact emails, invoice emails, or other billing details:
 1.  On the **Billing information** tab click **Edit** to update the
     details for that section.
 
-## Assign projects to a billing group
+## Assign a billing group to a project
 
-You can assign a project to any billing group in your organization. To assign a project
-to a billing group in another organization, you have to
+You can assign any billing group in your organization to a project. To assign
+a billing group from another organization, you have to
 [move the project to that organization](/docs/platform/howto/manage-project#move-a-project).
 
-1.  In the organization, click **Billing**.
-1.  Select the name of the billing group to assign projects to.
-1.  On the **Projects** tab, click **Assign projects**.
-1.  Select the projects to assign to the billing group and click **Assign**.
+You must have one of the following
+[permissions](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console:
 
-## Move a project to another billing group
+- Organization admin role
+- Project admin role
+- Manage projects permission
 
-1.  In the organization, click **Billing**.
-1.  Click the name of the billing group.
-1.  On the **Projects** tab, find the project to move.
-1.  Click <ConsoleLabel name="actions"/> and select the billing group
-    to move it to.
+1.  In the project, click **Settings**.
+1.  In the **Project settings** section, select a billing group to assign the project to.
+1.  Click **Save changes**.
 
 ## Delete a billing group
+
+You must be an
+[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console.
 
 1.  In the organization, click **Billing**.
 1.  Click the name of the billing group to delete.
