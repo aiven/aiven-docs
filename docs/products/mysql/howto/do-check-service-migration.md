@@ -1,5 +1,6 @@
 ---
-title: Perform pre-migration check
+title: Perform pre-migration checks
+sidebar_label: Pre-migration check
 ---
 
 Learn how to find potential errors before starting your database migration process. This can be done by using either the [Aiven CLI](https://github.com/aiven/aiven-client) or the [Aiven REST API](https://api.aiven.io/doc/#section/Introduction).
