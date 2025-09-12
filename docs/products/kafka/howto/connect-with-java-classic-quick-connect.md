@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for Apache Kafka® with Java
+sidebar_label: Classic quick connect
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
