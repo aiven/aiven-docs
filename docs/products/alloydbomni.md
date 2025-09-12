@@ -2,6 +2,10 @@
 title: Aiven for AlloyDB Omni
 ---
 
+import EoaNotice from "@site/static/includes/service-end-of-availability-notice.md"
+
+<EoaNotice/>
+
 Harness the speed and scalability of Google AlloyDB Omni on any cloud, managed by Aiven.
 
 Aiven for AlloyDB Omni is a managed version of Google AlloyDB Omni purpose-built for
