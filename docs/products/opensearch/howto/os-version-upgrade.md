@@ -16,14 +16,14 @@ Aiven for OpenSearch supports multiple minor and major versions.
 ### Default version
 
 When
-[creating a Aiven for OpenSearch service](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service),
+[creating an Aiven for OpenSearch service](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service),
 you can select the starting version. See all available versions in
 [Versions of Aiven-managed services and tools](/docs/platform/reference/eol-for-major-versions#aiven-for-opensearch).
 
 ### Voluntary manual upgrades
 
-Except few [specific cases](/docs/products/opensearch/howto/os-version-upgrade#mandatory-automatic-upgrades),
-upgrades are voluntary and requires
+Except for a few [specific cases](/docs/products/opensearch/howto/os-version-upgrade#mandatory-automatic-upgrades),
+upgrades are voluntary and require
 [your action](/docs/products/opensearch/howto/os-version-upgrade#upgrade-your-service).
 
 - Upgrading between minor versions of the **same major version**:
