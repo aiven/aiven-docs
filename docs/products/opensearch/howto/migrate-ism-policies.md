@@ -1,7 +1,6 @@
 ---
 title: Reapply ISM policies after snapshot restore
 sidebar_label: Reapply ISM policies
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
