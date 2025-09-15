@@ -63,6 +63,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="custom_keystores"/><Link to="#custom_keystores"><strong>custom_keystores</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">OpenSearch custom keystores</p>
+        <div className="description"><p>Allow to register custom keystores in OpenSearch</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="ip_filter"/><Link to="#ip_filter"><strong>ip_filter</strong></Link></p><p><code className="type">array</code></p></div><div className="constraints"><ul><li>default: <code>0.0.0.0/0,::/0</code></li></ul></div>
         <p className="title">IP filter</p>
         <div className="description"><p>Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'</p></div>
