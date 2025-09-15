@@ -134,6 +134,22 @@ The `message.format.version` configuration is deprecated in Kafka 3.x and remove
 in Kafka 4.0. Remove this configuration from your topics before upgrading to Kafka 4.0.
 :::
 
+### Configuration changes in Kafka 4.0
+
+Kafka 4.0 removes and replaces some configuration settings. Update these before starting
+the upgrade:
+
+- `message.format.version` (topic-level): Remove this setting from all topic and service-level
+  configurations. It is deprecated in Kafka 3.x and removed in Kafka 4.0.
+
+- `log.message.timestamp.difference.max.ms` (service-level): Use
+  `log.message.timestamp.before_max_ms`
+  and `log.message.timestamp.after_max_ms` instead. These settings define the acceptable
+  timestamp range for messages.
+
+Update your configurations before upgrading to avoid validation errors.
+
+
 ## Transitioning to KRaft
 
 With the release of Apache Kafka® 3.9, Aiven introduces support for Apache Kafka Raft
