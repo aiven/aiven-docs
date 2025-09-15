@@ -11,7 +11,7 @@ schema, and download ready-to-use client code.
 
 ## Prerequisites
 
-- An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started)
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started)
 - Java development environment with [Maven](https://maven.apache.org/install.html)
 
 ## Step 1: Open quick connect and select Java
