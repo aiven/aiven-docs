@@ -51,14 +51,14 @@ The following example shows you how to create and integrate these services:
 
 1.  Under **Aiven services**, click **Grafana Metrics Dashboard**.
 
-1.  Select **Existing service** and choose the Grafana service you created.
+1.  Select the Grafana service you created.
 
 1.  Click **Enable**.
 
 1.  To send metrics from the Apache Kafka service, under **Aiven services**
     select **Receive Metrics**.
 
-1.  Select **Existing service** and choose the Apache Kafka service you created.
+1.  Select the Apache Kafka service you created.
 
 1.  Click **Enable**.
 
