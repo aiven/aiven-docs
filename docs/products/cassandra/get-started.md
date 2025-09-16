@@ -9,6 +9,9 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 import RelatedPages from "@site/src/components/RelatedPages";
+import EoaNotice from "@site/static/includes/eol-cassandra-banner.md"
+
+<EoaNotice/>
 
 Start using Aiven for Apache Cassandra® by creating and configuring a service, connecting to it, and playing with sample data.
 
