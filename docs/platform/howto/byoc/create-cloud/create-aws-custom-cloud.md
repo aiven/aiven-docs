@@ -633,7 +633,7 @@ Your new custom cloud is ready to use only after its status changes to
      1. Pick a region from the **Cloud** column in the supported
         [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services)
         table.
-     1. Drop the `aws-` prefix from the selected region name, for example
+     1. Drop the `aws-` prefix from the selected region name, for example,
         `aws-eu-north-1` > `eu-north-1`.
    - `CIDR_BLOCK` with a CIDR block defining the IP address range of the VPC that Aiven
      creates in your own cloud account, for example: `10.0.0.0/16`, `172.31.0.0/16`, or
