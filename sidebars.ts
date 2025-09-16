@@ -1704,6 +1704,19 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                     {
                       type: 'category',
+                      label: 'Manage custom repositories',
+                      link: {
+                        id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/opensearch/howto/custom-repositories',
+                        'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
+                        'products/opensearch/howto/snapshot-credentials',
+                      ],
+                    },
+                    {
+                      type: 'category',
                       label: 'Migrate external snapshots',
                       link: {
                         type: 'doc',
@@ -1714,8 +1727,6 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
                     },
-                    'products/opensearch/howto/custom-repositories',
-                    'products/opensearch/howto/snapshot-credentials',
                     'products/opensearch/howto/manage-snapshots',
                   ],
                 },
