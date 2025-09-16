@@ -628,9 +628,13 @@ Your new custom cloud is ready to use only after its status changes to
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
        Aiven services.
-   - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom cloud,
-     for example `europe-north1`. See all available options in
-     [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services).
+   - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom
+     cloud:
+     1. Pick a region from the **Cloud** column in the supported
+        [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services)
+        table.
+     1. Drop the `aws-` prefix from the selected region name, for example,
+        `aws-eu-north-1` > `eu-north-1`.
    - `CIDR_BLOCK` with a CIDR block defining the IP address range of the VPC that Aiven
      creates in your own cloud account, for example: `10.0.0.0/16`, `172.31.0.0/16`, or
      `192.168.0.0/20`.
