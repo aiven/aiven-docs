@@ -26,16 +26,16 @@ infrastructure is [Aiven for Metrics](/docs/products/metrics).
 
 ## Aiven for Caching
 
-**EOL date**: March 31, 2025
+**EOL date**: October 15, 2025
 
 ### Service impact
 
-- **End of availability (EOA)**: February 15, 2025
+- **End of availability (EOA)**: October 1, 2025
 
   After this date, you can no longer create new Aiven for Caching services. Existing
   services continue to operate until the end of life (EOL) date.
 
-- **End of life (EOL)**: March 31, 2025
+- **End of life (EOL)**: October 15, 2025
 
   On this date, all active Aiven for Caching services are automatically upgraded
   to **Aiven for Valkey** to maintain Redis compatibility. Any powered-off Aiven for
@@ -54,7 +54,7 @@ For upgrade instructions, see
 [Upgrade from Aiven for Caching to Aiven for Valkey](/docs/products/caching/howto/upgrade-aiven-for-caching-to-valkey).
 
 To ensure uninterrupted service, complete your migration to Aiven for Valkey before
-March 31, 2025. For further assistance, contact the
+October 15, 2025. For further assistance, contact the
 [Aiven support team](mailto:support@aiven.io) or your account team.
 
 ## Aiven for Apache Cassandra®
