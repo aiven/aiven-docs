@@ -11,6 +11,12 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
 
 ## ️🚀 Building the docs
 
+1. Update the examples submodule:
+
+   ```bash
+   git submodule update --init --recursive
+   ```
+
 ### With Docker
 
 1. Run:
