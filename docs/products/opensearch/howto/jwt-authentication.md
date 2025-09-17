@@ -1,60 +1,29 @@
 ---
-title: Enable OpenID Connect authentication on Aiven for OpenSearch®
-sidebar_label: OIDC authentication
+title: Enable JSON Web Token authentication on Aiven for OpenSearch®
+sidebar_label: JWT authentication
 ---
 
-OpenID Connect (OIDC) is an authentication protocol that builds on top of the OAuth 2.0 protocol.
-It provides a simple and secure way to verify the identity of a user and obtain basic profile information about them.
+import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
--   Aiven for OpenSearch® version 2 or later is required. If you are
-    using an earlier version, upgrade to the latest version.
--   OpenSearch Security management must be
-    [enabled](/docs/products/opensearch/howto/enable-opensearch-security) on the Aiven for OpenSearch® service.
--   An OpenID provider (IdP) that supports the OpenID Connect protocol.
+-   Aiven for OpenSearch® version 2.4 or later. Upgrade if needed.
+-   OpenSearch Security management
+    [enabled](/docs/products/opensearch/howto/enable-opensearch-security)
+    on your service
 
-## Requirements to enable OpenID Connect
+## Enable JWT authentication
 
-To enable OpenID Connect authentication for Aiven for OpenSearch, you
-must configure OpenID Connect with an Identity Provider (IdP). Aiven for
-OpenSearch integrates with various OpenID Connect IdPs, and the exact
-steps to achieve this differ depending on your chosen IdP. Refer to your
-Identity Provider's official documentation for specific configuration
-steps. To successfully set up OpenID Connect authentication, the
-following parameters from your IdP:
-
--   **IdP URL**: The URL of your Identity Provider (IdP), which will be
-    used to authenticate users.
--   **Client ID**: Credentials your IdP provides when registering Aiven
-    for OpenSearch as a client application. This credential is used to
-    authenticate your Aiven for OpenSearch client application against
-    the IdP and facilitate secure communication.
--   **Client Secret**: Credentials your IdP provides when you register
-    Aiven for OpenSearch as a client application.
--   **Scope**: The scope of the authentication request specifies the
-    permissions to request from the Identity Provider
-    (IdP). The available and required scopes may vary depending on the
-    IdP you are using. Some common scopes include `openid`, `profile`,
-    `email`.
--   **Roles key and subject key**: Keys that help Aiven for OpenSearch
-    Dashboards understand which part of the returned token contains role
-    information and which part contains the user's identity or name.
-
-:::note
-The **Redirect URL** is automatically generated and available in the
-Aiven Console. This is the URL to which the Identity Provider (IdP) will
-redirect users after successful authentication. For more information on
-how to obtain this URL, see the next section.
-:::
-
-## Enable OpenID Connect authentication via Aiven Console
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
 
 1.  In the [Aiven Console](https://console.aiven.io/), access your Aiven
     for OpenSearch service where to enable OpenID Connect.
-1.  Select **Users** from the left sidebar.
+1.  Click **Users** on the sidebar.
 1.  In the **SSO authentication** section, use the **Add method**
-    drop-down and select **OpenID**.
+    drop-down and click **OpenID**.
 1.  On **Configure OpenID Connect authentication** screen,
     -   **Redirect URL**: This URL is auto-populated. It is the URL that
         users will be redirected to after they have successfully
@@ -101,10 +70,16 @@ how to obtain this URL, see the next section.
         milliseconds, during which the system will verify unrecognized
         JWT key IDs. Enter the value for the Refresh Limit Window
         parameter. The default value is 10,000 (10 seconds).
-1.  Select **Enable** to complete the setup and activate the
+1.  Click **Enable** to complete the setup and activate the
     configuration.
 
-## Additional resources
+</TabItem>
+<TabItem value="cli" label="CLI">
 
--   [OpenSearch OpenID Connect
-    documentation](https://opensearch.org/docs/latest/security/authentication-backends/openid-connect/)
+</TabItem>
+<TabItem value="api" label="API">
+
+</TabItem>
+</Tabs>
+
+<RelatedPages/>

@@ -1753,6 +1753,7 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/enable-opensearch-security',
                     'products/opensearch/howto/saml-sso-authentication',
                     'products/opensearch/howto/oidc-authentication',
+                    'products/opensearch/howto/jwt-authentication',
                     'products/opensearch/howto/audit-logs',
                     'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
                   ],
