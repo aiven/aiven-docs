@@ -35,7 +35,7 @@ Collect the following details:
 
 - `BIGQUERY_DATASET_NAME`: BigQuery dataset name
 - `TOPIC_LIST`: Comma-separated list of Kafka topics to sink
-- (Only if using Avro) Schema Registry connection details:
+- Only if using Avro: Schema Registry connection details:
   - `APACHE_KAFKA_HOST`
   - `SCHEMA_REGISTRY_PORT`
   - `SCHEMA_REGISTRY_USER`
