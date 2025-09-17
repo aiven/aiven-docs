@@ -48,7 +48,7 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    yarn dlx husky
    ```
 
-   Husky prevents git pushes when Vale erros are in the files you've modified.
+   Husky prevents git pushes when Vale errors are in the files you've modified.
 
 1. Build the docs:
 

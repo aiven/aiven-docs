@@ -45,7 +45,7 @@ Think about your international readers and keep your English simple and rather f
 1. Do not use adjectives to describe tasks (great, easy/easily, hard...). Technical writing does not judge complexity.
 1. Use phrasal verbs with care (take off, take on, put up, put down...), they are often confusing to international readers.
 1. Avoid using `need`. It's ambiguous.
-1. Avoid useing `must`. Just use the imperative and save 2 words (_You must create..._ -> _Create_).
+1. Avoid using `must`. Just use the imperative and save 2 words (_You must create..._ -> _Create_).
 1. Avoid generic sentences that can be used for everything such as: `This section describes how to...` If a sentence can be used for everything, it's useless.
 1. Do not use parenthesis. If something is so unimportant to be in parenthesis, it can probably be deleted.
 1. Do not use Latin abbreviations such as `i.e` or `e.g`. `i.e`, let's use English instead: `for example`.
@@ -140,7 +140,7 @@ Anything else is generally inefficient and more difficult to read.
 
 ## Tasks and steps
 
-- Prefix opttional steps with `Optional:`.
+- Prefix optional steps with `Optional:`.
 - Use step results only when necessary.
 - Click chains start with the first click in the UI, not the last click.
 
