@@ -1053,7 +1053,6 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
                         'products/kafka/kafka-connect/howto/couchbase-sink',
                         'products/kafka/kafka-connect/howto/elasticsearch-sink',
-                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq',
                         'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
