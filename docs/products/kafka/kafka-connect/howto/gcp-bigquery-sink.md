@@ -7,6 +7,10 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Set up the [BigQuery sink connector](https://github.com/Aiven-Open/bigquery-connector-for-apache-kafka) to move data from Aiven for Apache Kafka® into BigQuery tables for analysis and storage.
 
+See the
+[full list of parameters](https://aiven-open.github.io/bigquery-connector-for-apache-kafka/configuration.html)
+in the GitHub documentation.
+
 ## Prerequisites
 
 - An Aiven for Apache Kafka service with
