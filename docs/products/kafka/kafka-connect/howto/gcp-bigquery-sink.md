@@ -68,7 +68,7 @@ Aiven uses [Karapace](https://github.com/aiven/karapace) as the Schema Registry.
    Select a region close to your Kafka service to reduce latency.
 
 1. **Grant dataset access to the service account:**
-   In the BigQuery console, grant your service account the **BigQuery Data Editor**
+   In the BigQuery Console, grant your service account the **BigQuery Data Editor**
    role on the dataset. See
    [Google’s access control guide](https://cloud.google.com/bigquery/docs/dataset-access-controls).
 
