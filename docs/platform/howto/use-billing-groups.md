@@ -59,13 +59,9 @@ You can assign any billing group in your organization to a project. To assign
 a billing group from another organization, you have to
 [move the project to that organization](/docs/platform/howto/manage-project#move-a-project).
 
-You must have one of the following
-[permissions](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console:
-
-- Organization admin role
-- Project admin role
-- Manage projects permission
+You must be an organization admin or have the manage projects
+[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to access this feature in the Aiven Console.
 
 1.  In the project, click **Settings**.
 1.  In the **Project settings** section, select a billing group to assign the project to.
