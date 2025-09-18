@@ -96,7 +96,7 @@ after they are made available on the Aiven platform.
 | 3.7     | 2025-04-17 | 2025-01-17                       | 2024-04-17                      |
 | 3.8     | 2026-09-03 | 2026-06-03                       | 2024-09-06                      |
 | 3.9  | 2027-09-30 | 2027-06-30                      | 2025-03-20                      |
-| 4.0  | 2026-09-15 |2026-06-15 | 2025-09-15 |
+| 4.0  | 2026-09-18 |2026-06-18 | 2025-09-18 |
 
 :::note
 Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
