@@ -7,6 +7,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Configure JSON Web Token (JWT) authentication to enable secure, stateless authentication for Aiven for OpenSearch®. Access your service with tokens issued by your existing identity provider without storing session state on the server.
+
 ## Prerequisites
 
 -   Aiven for OpenSearch® version 2.4 or later. Upgrade if needed.
