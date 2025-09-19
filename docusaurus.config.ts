@@ -143,6 +143,14 @@ const config: Config = {
   plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
   themeConfig: {
     image: 'images/site-preview.png',
+    // Banner with link to survey
+    announcementBar: {
+      content:
+        'Tell us about your experience and help us improve the docs by taking a <a target="_blank" rel="noopener noreferrer" href="https://t.maze.co/443153085">3-minute survey</a>.',
+      backgroundColor: '#818EEC',
+      textColor: '#FFFFFF',
+      isCloseable: false,
+    },
     navbar: {
       title: 'aiven',
       logo: {
