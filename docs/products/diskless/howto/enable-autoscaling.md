@@ -1,5 +1,6 @@
 ---
 title: Enable autoscaling for Aiven for Apache Kafka® Diskless Topics
+sidebar_label: Enable autoscaling
 limited: true
 ---
 
@@ -67,7 +68,7 @@ use Diskless Topics in BYOC.
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven API](https://api.aiven.io/doc/)
   - [Aiven CLI client](/docs/tools/cli)
-  - [Terraform](https://registry.terraform.io/providers/aiven/aiven/latest)
+  - [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest)
 
 ## Enable autoscaling
 
@@ -101,43 +102,43 @@ Enable autoscaling with the [Aiven API](https://api.aiven.io/doc/):
 
 1. Create an autoscaler integration endpoint with `endpoint_type` set to `autoscaler_service`:
 
-```bash
-curl --request POST \
-  --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint \
-  --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
-  --header 'content-type: application/json' \
-  --data '{
-    "endpoint_name": "kafka-autoscaler",
-    "endpoint_type": "autoscaler_service"
-  }'
-  ```
+   ```bash
+   curl --request POST \
+     --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint \
+     --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '{
+       "endpoint_name": "kafka-autoscaler",
+       "endpoint_type": "autoscaler_service"
+     }'
+     ```
 
 1. Link your Kafka service to the new endpoint by calling `ServiceIntegrationCreate`:
 
-```bash
-curl --request POST \
-  --url https://api.aiven.io/v1/project/{project_name}/integration \
-  --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
-  --header 'content-type: application/json' \
-  --data '{
-    "source_service": "SERVICE_NAME",
-    "integration_type": "autoscaler_service",
-    "dest_endpoint_id": "NEW_AUTOSCALER_ENDPOINT_ID",
-    "user_config": {
-      "autoscaling": {
-        "min_plan": "autoscaling-smallvm-3x",
-        "max_plan": "autoscaling-smallvm-6x"
-      }
-    }
-  }'
-```
+   ```bash
+   curl --request POST \
+     --url https://api.aiven.io/v1/project/{project_name}/integration \
+     --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '{
+       "source_service": "SERVICE_NAME",
+       "integration_type": "autoscaler_service",
+       "dest_endpoint_id": "NEW_AUTOSCALER_ENDPOINT_ID",
+       "user_config": {
+         "autoscaling": {
+           "min_plan": "autoscaling-smallvm-3x",
+           "max_plan": "autoscaling-smallvm-6x"
+         }
+       }
+     }'
+   ```
 
-Parameters:
+   Parameters:
 
-- `source_service`: The Kafka service to autoscale.
-- `dest_endpoint_id`: The ID of the autoscaler endpoint you created.
-- `user_config.autoscaling.min_plan`: The smallest plan the service can scale down to.
-- `user_config.autoscaling.max_plan`: The largest plan the service can scale up to.
+   - `source_service`: The Kafka service to autoscale.
+   - `dest_endpoint_id`: The ID of the autoscaler endpoint you created.
+   - `user_config.autoscaling.min_plan`: The smallest plan the service can scale down to.
+   - `user_config.autoscaling.max_plan`: The largest plan the service can scale up to.
 
 
 </TabItem>
@@ -147,34 +148,34 @@ Enable autoscaling with the [Aiven CLI](/docs/tools/cli):
 
 1. Create an autoscaler integration endpoint:
 
-```bash
-avn service integration-endpoint-create \
-  --project YOUR_PROJECT_NAME \
-  --endpoint-name kafka-autoscaler \
-  --endpoint-type autoscaler_service
-```
+   ```bash
+   avn service integration-endpoint-create \
+     --project YOUR_PROJECT_NAME \
+     --endpoint-name kafka-autoscaler \
+     --endpoint-type autoscaler_service
+   ```
 
 1. Get the endpoint ID:
 
-```bash
-avn service integration-endpoint-list --project YOUR_PROJECT_NAME
-```
+   ```bash
+   avn service integration-endpoint-list --project YOUR_PROJECT_NAME
+   ```
 
 1. Link your Kafka service to the autoscaler endpoint:
 
-```bash
-avn service integration-create \
-  --project YOUR_PROJECT_NAME \
-  --integration-type autoscaler_service \
-  --dest-endpoint-id ENDPOINT_ID \
-  --source-service YOUR_SERVICE_NAME \
-  --user-config-json '{"autoscaling":{"min_plan":"autoscaling-smallvm-3x","max_plan":"autoscaling-smallvm-6x"}}'
-```
+   ```bash
+   avn service integration-create \
+     --project YOUR_PROJECT_NAME \
+     --integration-type autoscaler_service \
+     --dest-endpoint-id ENDPOINT_ID \
+     --source-service YOUR_SERVICE_NAME \
+     --user-config-json '{"autoscaling":{"min_plan":"autoscaling-smallvm-3x","max_plan":"autoscaling-smallvm-6x"}}'
+   ```
 
-Parameters:
+   Parameters:
 
-- `autoscaling.min_plan`: The smallest plan the service can scale down to.
-- `autoscaling.max_plan`: The largest plan the service can scale up to.
+   - `autoscaling.min_plan`: The smallest plan the service can scale down to.
+   - `autoscaling.max_plan`: The largest plan the service can scale up to.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -222,3 +223,4 @@ may be supported in future versions of the Terraform provider.
 :::
 
 </TabItem>
+</Tabs>

@@ -1233,7 +1233,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'How to',
-              items: ['products/diskless/howto/create-diskless-topic'],
+              items: [
+                'products/diskless/howto/create-diskless-topic',
+                'products/diskless/howto/enable-autoscaling',
+              ],
             },
           ],
         },
