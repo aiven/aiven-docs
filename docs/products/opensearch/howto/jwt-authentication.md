@@ -7,79 +7,128 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Configure JSON Web Token (JWT) authentication to enable secure, stateless authentication for Aiven for OpenSearch®.
+
+## How it works
+
+JWT authentication allows you to access Aiven for OpenSearch using tokens issued by
+your existing identity provider, eliminating the need to manage separate OpenSearch
+credentials or store session state on the server.
+
+When you make a request to your Aiven for OpenSearch service:
+
+1. **Token is validated**: Aiven for OpenSearch validates the JWT token using the signing
+   key you configure.
+1. **User is identified**: Aiven for OpenSearch extracts the username from the token's
+   subject claim.
+1. **Role is assignment**: If configured, user roles are extracted from the token or
+   managed separately in Aiven for OpenSearch.
+1. **Access is granted**: Valid tokens provide seamless access to your Aiven for OpenSearch
+   service.
+
+JWT authentication in Aiven for OpenSearch uses the "Known Signing Keys" validation method,
+where Aiven for OpenSearch uses a trusted public key to verify a digital signature from
+your identity provider, ensuring that data is coming from a known and authentic source.
+JWT authentication in Aiven for OpenSearch is configured through Aiven's user configuration
+API rather than directly through the OpenSearch Security API.
+
+Supported `user_config` options are as follows:
+
+| Option                                | Data type | More information                                                                                                                          |
+|---------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `jwt.enabled`                         | Boolean   | Enables or disables JWT authentication. Set to `true` to activate JWT authentication.                                                     |
+| `jwt.signing_key`                     | String    | Base64-encoded signing key used to verify JWT tokens. Can be PEM-formatted RSA/EC public key or HMAC secret key.                          |
+| `jwt.jwt_header`                      | String    | HTTP header name containing the JWT token. Default is `Authorization`.                                                                    |
+| `jwt.jwt_url_parameter`               | String    | URL parameter name for passing JWT token as a query parameter. Optional alternative to header-based authentication.                       |
+| `jwt.subject_key`                     | String    | JWT claim key that contains the username/subject. Default is `sub`.                                                                       |
+| `jwt.roles_key`                       | String    | JWT claim key that contains user roles. If not specified, roles must be managed separately in OpenSearch.                                 |
+| `jwt.required_audience`               | String    | Required audience (`aud`) claim value that must be present in JWT tokens. Optional but recommended for security.                          |
+| `jwt.required_issuer`                 | String    | Required issuer (`iss`) claim value that must be present in JWT tokens. Optional but recommended for security.                            |
+| `jwt.jwt_clock_skew_tolerance_seconds`| Integer   | Clock skew tolerance in seconds for JWT token validation. Accounts for time differences between systems. Default is typically 30 seconds. |
+
 ## Prerequisites
 
--   Aiven for OpenSearch® version 2.4 or later. Upgrade if needed.
+-   Aiven for OpenSearch® version 2.4 or later
+-   OpenSearch Dashboards version 2.19 or later
 -   OpenSearch Security management
     [enabled](/docs/products/opensearch/howto/enable-opensearch-security)
     on your service
+- Base64-encoded signing key (PEM-formatted RSA/EC public key or HMAC secret key)
+- Tool for enabling and configuring the JWT authentication:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Enable JWT authentication
 
 <Tabs groupId="group1">
 <TabItem value="gui" label="Console" default>
 
-1.  In the [Aiven Console](https://console.aiven.io/), access your Aiven
-    for OpenSearch service where to enable OpenID Connect.
-1.  Click **Users** on the sidebar.
-1.  In the **SSO authentication** section, use the **Add method**
-    drop-down and click **OpenID**.
-1.  On **Configure OpenID Connect authentication** screen,
-    -   **Redirect URL**: This URL is auto-populated. It is the URL that
-        users will be redirected to after they have successfully
-        authenticated through the IdP.
-    -   **IdP URL**: Enter the URL of your OpenID Connect Identity
-        Provider. This is the URL that Aiven will use to redirect users
-        to your IdP for authentication.
-    -   **Client ID**: Enter the ID you obtained during your IdP
-        registration. This ID is used to authenticate your Aiven
-        application with your IdP.
-    -   **Client Secret**: Enter the secret associated with the Client
-        ID. This secret is used to encrypt communications between your
-        Aiven application and your IdP.
-    -   **Scope**: The scope of the claims. This is the set of
-        permissions that you are requesting from your IdP. For example,
-        you can request the `openid`, `profile`, and `email` scopes to
-        get the user's identity, profile information, and email
-        address.
-    -   **Roles key**: The key in the returned JSON that stores the
-        user's roles. This key is used by Aiven to determine the
-        user's permissions.
-    -   **Subject key**: This refers to the specific key within the
-        returned JSON that holds the user's name or identifying
-        subject. Aiven uses this key to recognize and authenticate the
-        user. By default, this key is labeled as `Subject`.
-1.  Optional: **Enable advanced configuration** to fine-tune
-    the authentication process. Aiven for OpenSearch provides the
-    following advanced configuration options:
-    -   **Token handling**: Choose your preferred method for handling
-        the authentication token.
-        -   **HTTP Header**: The authentication token is passed in an
-            HTTP header.
-            -   **Header name**: Enter the specific name of the HTTP
-                header that will contain the authentication token. The
-                default header name is Authorization.
-        -   **URL parameter**: The authentication token is passed as a
-            URL parameter. You can specify the parameter name.
-            -   **Parameter name**: Enter the specific URL parameter
-                that will carry the authentication token.
-    -   **Refresh limit count**: Maximum number of unrecognized JWT key
-        IDs allowed within 10 seconds. Enter the value for the Refresh
-        Limit Count parameter. The default value is 10.
-    -   **Refresh limit window (ms)**: This is the interval, measured in
-        milliseconds, during which the system will verify unrecognized
-        JWT key IDs. Enter the value for the Refresh Limit Window
-        parameter. The default value is 10,000 (10 seconds).
-1.  Click **Enable** to complete the setup and activate the
-    configuration.
+1. In the [Aiven Console](https://console.aiven.io/), access your Aiven
+    for OpenSearch service where to enable the JWT authentication.
+1. Click <ConsoleLabel name="service settings"/> in the sidebar.
+1. Scroll to the **Advanced configuration** section and click **Configure**.
+1. In the **Advanced configuration** window:
+   1. Click **Add configuration options**.
+   1. Enter `jwt` in the search field to preview all JWT-related configuration options.
+      1. Select the `jwt.signing_key` option and set it to your password.
+      1. Select the `jwt.enabled` option and set it to `enabled`.
+   1. Click **Save configuration**.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
+Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
+
+```bash {2-4}
+avn service update SERVICE_NAME \
+  -c jwt.enabled=true \
+  -c jwt.signing_key='SIGNING_KEY' \
+  -c jwt.jwt_url_parameter=JWT_URL_PARAMETER
+```
+
+Replace the following placeholders with meaningful data:
+
+- `SERVICE_NAME` with the name of your Aiven for OpenSearch service, for example, `os2-jwt`
+- `SIGNING_KEY` with your base64-encoded signing key (PEM-formatted RSA/EC public key or
+  HMAC secret key)
+- `JWT_URL_PARAMETER` with the URL parameter name for JWT token, for example, `token`
+
 </TabItem>
 <TabItem value="api" label="API">
+
+Call the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint:
+
+```bash {7-11}
+curl 'https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME' \
+  -X 'PUT' \
+  -H 'authorization: aivenv1 BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "user_config": {
+      "jwt": {
+        "enabled": true,
+        "signing_key": "SIGNING_KEY",
+        "jwt_clock_skew_tolerance_seconds": 45,
+        "jwt_url_parameter": "JWT_URL_PARAMETER"
+      }
+    }
+  }'
+```
+
+Replace the following placeholders with meaningful data:
+
+- `PROJECT_NAME` with your project name, for example, `my-project`
+- `SERVICE_NAME` with your Aiven for OpenSearch service name, for example, `os2-jwt`
+- `BEARER_TOKEN` with your Aiven API authentication token
+- `SIGNING_KE`Y with your base64-encoded signing key (PEM-formatted RSA/EC public key or
+  HMAC secret key)
+- `JWT_URL_PARAMETER` with the URL parameter name for JWT token, for example, `token`
 
 </TabItem>
 </Tabs>
 
 <RelatedPages/>
+
+[Upstream OpenSearch JWT authentication documentation](https://docs.opensearch.org/latest/security/authentication-backends/jwt/)
