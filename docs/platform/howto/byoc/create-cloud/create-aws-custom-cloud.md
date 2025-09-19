@@ -5,7 +5,7 @@ keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -480,7 +480,7 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    -   Object storage <EarlyBadge/>
+    -   Object storage <LimitedBadge/>
 
         By default, the following data is stored in the BYOC object storage in your own
         cloud account:
