@@ -21,8 +21,6 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'get-started',
-        'platform/concepts/free-plan',
-        'platform/concepts/free-trial',
         'tools/aiven-console',
         'platform/howto/support',
         'platform/reference/referrals',
@@ -72,6 +70,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/concepts/billing-and-payment',
           },
           items: [
+            'platform/concepts/service-pricing',
             'platform/concepts/tax-information',
             {
               type: 'category',
@@ -185,7 +184,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'platform/concepts/service_backups',
-                'platform/concepts/service-resources',
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
@@ -657,7 +655,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/flink/get-started',
-            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1321,7 +1318,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/clickhouse/get-started',
-            'products/clickhouse/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1487,7 +1483,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/grafana/get-started',
-            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
@@ -1638,7 +1633,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
-            'products/opensearch/reference/plans-pricing',
             'products/opensearch/howto/sample-dataset',
             {
               type: 'category',
