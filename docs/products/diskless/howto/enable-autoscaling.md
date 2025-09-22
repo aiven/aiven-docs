@@ -10,7 +10,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Autoscaling automatically adjusts the service capacity for your Aiven for Apache Kafka® deployment based on CPU usage.
+Autoscaling automatically adjusts the capacity of your Aiven for Apache Kafka® service based on CPU usage.
 It helps maintain performance during traffic spikes and reduces resource use when
 demand is low. Autoscaling is available only for services using Diskless Topics in
 Bring Your Own Cloud (BYOC) and must be enabled when the service is created.
@@ -31,7 +31,8 @@ Autoscaling for Diskless Topics is in **Limited Availability (LA)**. Contact
 - **Control costs**: Services scale down when demand decreases.
 - **Stay flexible**: Customers set minimum and maximum plans; scaling happens within
   those limits.
-- **Get notified**: You receive an email whenever a scaling event occurs.
+- **Get notified**: You receive an email notification whenever autoscaling scales the
+  service up or down.
 
 ## How autoscaling works
 
@@ -39,8 +40,8 @@ Autoscaling monitors CPU usage across your Kafka service and adjusts the service
 based on predefined thresholds. It supports plan-based scaling only for services that
 use Diskless Topics in BYOC.
 
-- **Scale up**: When CPU usage stays above 85% for several minutes.
-- **Scale down**: When CPU usage stays below 40% for several minutes.
+- **Scale up**: When CPU usage is consistently high.
+- **Scale down**: When CPU usage is consistently low.
 - **Plan switching**: The service scales by switching to the next larger or smaller
   autoscaling plan.
 - **Scaling in groups**: Nodes are added or removed in fixed groups (for example,
@@ -54,7 +55,8 @@ use Diskless Topics in BYOC.
 
 - You must enable autoscaling during service creation. You cannot enable it later.
 - Autoscaling is available only for services that use Diskless Topics in BYOC.
-- Manual plan changes are disabled when autoscaling is enabled.
+- When autoscaling is enabled, you cannot change the service plan manually. To change
+  the plan, first disable autoscaling.
 - Billing is based on autoscaling plans (`autoscaling-*`). Each scaling event appears
   as a separate line item in your invoice.
 
@@ -65,10 +67,14 @@ use Diskless Topics in BYOC.
 - Autoscaling must be enabled for your project by Aiven support.
   You cannot convert an existing non-autoscaling service into autoscaling.
 - Access to one of the following:
-  - [Aiven Console](https://console.aiven.io/)
   - [Aiven API](https://api.aiven.io/doc/)
   - [Aiven CLI client](/docs/tools/cli)
   - [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest)
+
+:::note
+Autoscaling is not yet available in the Aiven Console. Use the CLI, Terraform, or API to
+enable or disable autoscaling.
+:::
 
 ## Enable autoscaling
 
@@ -76,72 +82,6 @@ To enable autoscaling for Kafka with Diskless Topics in BYOC, create an
 autoscaler integration endpoint and link it to your service.
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
-1. Log in to [Aiven Console](https://console.aiven.io/) and go to your project.
-1. In the left sidebar, click <ConsoleLabel name="integration endpoints"/>.
-1. Click **Aiven Service Autoscaler** > **Add new endpoint**.
-1. Enter an endpoint name, for example `kafka-autoscaler`, and click **Add endpoint**.
-
-Integrate the autoscaler with a Kafka service:
-
-1. In the sidebar, click <ConsoleLabel name="services"/> and open your Kafka
-   service.
-1. Click <ConsoleLabel name="integrations"/>.
-1. Under **Endpoint integrations**, click **Aiven Service Autoscaler**.
-1. Select the autoscaler endpoint you created.
-1. Set the scaling limits:
-   - **Minimum plan:** The lowest plan your service is allowed to scale down to.
-   - **Maximum plan:** The highest plan your service is allowed to scale up to.
-1. Click **Enable**.
-
-</TabItem>
-<TabItem value="api" label="API">
-
-Enable autoscaling with the [Aiven API](https://api.aiven.io/doc/):
-
-1. Create an autoscaler integration endpoint with `endpoint_type` set to `autoscaler_service`:
-
-   ```bash
-   curl --request POST \
-     --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint \
-     --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
-     --header 'content-type: application/json' \
-     --data '{
-       "endpoint_name": "kafka-autoscaler",
-       "endpoint_type": "autoscaler_service"
-     }'
-     ```
-
-1. Link your Kafka service to the new endpoint by calling `ServiceIntegrationCreate`:
-
-   ```bash
-   curl --request POST \
-     --url https://api.aiven.io/v1/project/{project_name}/integration \
-     --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
-     --header 'content-type: application/json' \
-     --data '{
-       "source_service": "SERVICE_NAME",
-       "integration_type": "autoscaler_service",
-       "dest_endpoint_id": "NEW_AUTOSCALER_ENDPOINT_ID",
-       "user_config": {
-         "autoscaling": {
-           "min_plan": "autoscaling-smallvm-3x",
-           "max_plan": "autoscaling-smallvm-6x"
-         }
-       }
-     }'
-   ```
-
-   Parameters:
-
-   - `source_service`: The Kafka service to autoscale.
-   - `dest_endpoint_id`: The ID of the autoscaler endpoint you created.
-   - `user_config.autoscaling.min_plan`: The smallest plan the service can scale down to.
-   - `user_config.autoscaling.max_plan`: The largest plan the service can scale up to.
-
-
-</TabItem>
 <TabItem value="cli" label="CLI">
 
 Enable autoscaling with the [Aiven CLI](/docs/tools/cli):
@@ -221,6 +161,94 @@ separate `terraform apply` step.
 Defining the autoscaler directly in the `aiven_kafka` resource is under discussion and
 may be supported in future versions of the Terraform provider.
 :::
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Enable autoscaling with the [Aiven API](https://api.aiven.io/doc/):
+
+1. Create an autoscaler integration endpoint with `endpoint_type` set to `autoscaler_service`:
+
+   ```bash
+   curl --request POST \
+     --url https://api.aiven.io/v1/project/{project_name}/integration_endpoint \
+     --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '{
+       "endpoint_name": "kafka-autoscaler",
+       "endpoint_type": "autoscaler_service"
+     }'
+     ```
+
+1. Link your Kafka service to the new endpoint by calling `ServiceIntegrationCreate`:
+
+   ```bash
+   curl --request POST \
+     --url https://api.aiven.io/v1/project/{project_name}/integration \
+     --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '{
+       "source_service": "SERVICE_NAME",
+       "integration_type": "autoscaler_service",
+       "dest_endpoint_id": "NEW_AUTOSCALER_ENDPOINT_ID",
+       "user_config": {
+         "autoscaling": {
+           "min_plan": "autoscaling-smallvm-3x",
+           "max_plan": "autoscaling-smallvm-6x"
+         }
+       }
+     }'
+   ```
+
+   Parameters:
+
+   - `source_service`: The Kafka service to autoscale.
+   - `dest_endpoint_id`: The ID of the autoscaler endpoint you created.
+   - `user_config.autoscaling.min_plan`: The smallest plan the service can scale down to.
+   - `user_config.autoscaling.max_plan`: The largest plan the service can scale up to.
+
+</TabItem>
+</Tabs>
+
+## Disable autoscaling
+
+To disable autoscaling for Kafka with Diskless Topics in BYOC, remove the autoscaler
+integration from your service.
+
+<Tabs groupId="group2">
+<TabItem value="cli" label="CLI">
+
+List integrations to find the autoscaler integration ID:
+
+```bash
+avn service integration-list --project PROJECT_NAME SERVICE_NAME
+```
+
+Then delete it:
+
+```bash
+avn service integration-delete --project PROJECT_NAME INTEGRATION_ID
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Remove the autoscaler integration resource from your Terraform configuration and run:
+
+```bash
+terraform apply
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Delete the service integration that links your Kafka service to the autoscaler endpoint:
+
+```bash
+curl --request DELETE \
+  --url https://api.aiven.io/v1/project/{project_name}/integration/{integration_id} \
+  --header 'Authorization: Bearer REPLACE_WITH_TOKEN'
+```
 
 </TabItem>
 </Tabs>
