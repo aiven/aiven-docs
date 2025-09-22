@@ -811,6 +811,24 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="kafka_diskless"/><Link to="#kafka_diskless"><strong>kafka_diskless</strong></Link></p><p><code className="type">object</code></p></div>
+        <p className="title">Kafka Diskless configuration values</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="kafka_diskless_enabled"/><Link to="#kafka_diskless_enabled"><strong>kafka_diskless.enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enabled</p>
+              <div className="description"><p>Whether to enable the Diskless functionality</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="kafka_rest"/><Link to="#kafka_rest"><strong>kafka_rest</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Enable Kafka-REST service</p>
         
