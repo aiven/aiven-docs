@@ -423,7 +423,7 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="mysql_innodb_log_buffer_size"/><Link to="#mysql_innodb_log_buffer_size"><strong>mysql.innodb_log_buffer_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1048576</code></li><li>max: <code>4294967295</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="mysql_innodb_log_buffer_size"/><Link to="#mysql_innodb_log_buffer_size"><strong>mysql.innodb_log_buffer_size</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1048576</code></li><li>max: <code>4294967296</code></li></ul></div>
               <p className="title">innodb_log_buffer_size</p>
               <div className="description"><p>The size in bytes of the buffer that InnoDB uses to write to the log files on disk.</p></div>
             </td>
