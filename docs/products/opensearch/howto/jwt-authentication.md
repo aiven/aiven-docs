@@ -4,6 +4,7 @@ sidebar_label: JWT authentication
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -26,7 +27,7 @@ When you make a request to your Aiven for OpenSearch service:
 1. **Access is granted**: Valid tokens provide seamless access to your Aiven for OpenSearch
    service.
 
-JWT authentication in Aiven for OpenSearch uses the "Known Signing Keys" validation method,
+JWT authentication in Aiven for OpenSearch uses the known-signing-keys validation method,
 where Aiven for OpenSearch uses a trusted public key to verify a digital signature from
 your identity provider, ensuring that data is coming from a known and authentic source.
 JWT authentication in Aiven for OpenSearch is configured through Aiven's user configuration
