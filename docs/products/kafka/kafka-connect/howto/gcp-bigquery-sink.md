@@ -96,8 +96,8 @@ Aiven uses [Karapace](https://github.com/aiven/karapace) as the Schema Registry.
   Do not use the Storage Write API with `deleteEnabled` or `upsertEnabled`.
   :::
 
-If no `useStorageWriteApi` parameter is set, the connector defaults to the Google Cloud
-Storage method.
+If `useStorageWriteApi` is not set, the connector uses the standard Google Cloud Storage
+API by default.
 
 ## Create a BigQuery sink connector configuration
 
