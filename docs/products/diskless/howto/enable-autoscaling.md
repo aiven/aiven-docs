@@ -13,11 +13,12 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Autoscaling automatically adjusts the capacity of your Aiven for Apache Kafka® service based on CPU usage.
 It helps maintain performance during traffic spikes and reduces resource use when
 demand is low. Autoscaling is available only for services using Diskless Topics in
-Bring Your Own Cloud (BYOC) and must be enabled when the service is created.
+Bring Your Own Cloud (BYOC).
 
 :::important
-To use autoscaling, you must create a Diskless Topics service in BYOC with autoscaling
-enabled. You cannot enable autoscaling on an existing service.
+Autoscaling must be enabled when you
+[create a Diskless Topics service in BYOC](/docs/products/diskless/howto/create-diskless-topic).
+You cannot enable it later on an existing service.
 :::
 
 :::note[Availability]
