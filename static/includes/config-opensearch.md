@@ -784,9 +784,9 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="opensearch_knn_memory_circuit_breaker_limit"/><Link to="#opensearch_knn_memory_circuit_breaker_limit"><strong>opensearch.knn_memory_circuit_breaker_limit</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>3</code></li><li>max: <code>100</code></li></ul></div>
+              <div className="param"><p className="name"><Link id="opensearch_knn_memory_circuit_breaker_limit"/><Link to="#opensearch_knn_memory_circuit_breaker_limit"><strong>opensearch.knn_memory_circuit_breaker_limit</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>100</code></li></ul></div>
               <p className="title">knn.memory.circuit_breaker.limit</p>
-              <div className="description"><p>Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size.</p></div>
+              <div className="description"><p>Maximum amount of memory in percentage that can be used for the KNN index. Defaults to 50% of the JVM heap size. 0 is used to set it to null which can be used to invalidate caches.</p></div>
             </td>
           </tr>
           <tr>
