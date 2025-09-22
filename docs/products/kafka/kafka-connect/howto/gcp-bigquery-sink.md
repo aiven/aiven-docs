@@ -76,6 +76,29 @@ Aiven uses [Karapace](https://github.com/aiven/karapace) as the Schema Registry.
    role on the dataset. See
    [Google’s access control guide](https://cloud.google.com/bigquery/docs/dataset-access-controls).
 
+## Write methods
+
+- **Google Cloud Storage (default):** Uses GCS as an intermediate step. Supports all
+  features, including delete and upsert. Parameters used only with delete or upsert:
+  - `intermediateTableSuffix`
+  - `kafkaKeyFieldName` (required)
+  - `mergeIntervalMs`
+
+- **Storage Write API:** Streams data directly into BigQuery. Enable by
+  setting `useStorageWriteApi` to `true`. This method provides lower latency for
+  streaming workloads.
+  Parameters used only with Storage Write API:
+  - `bigQueryPartitionDecorator`
+  - `commitInterval`
+  - `enableBatchMode`
+
+  :::warning
+  Do not use the Storage Write API with `deleteEnabled` or `upsertEnabled`.
+  :::
+
+If `useStorageWriteApi` is not set, the connector uses the standard Google Cloud Storage
+API by default.
+
 ## Create a BigQuery sink connector configuration
 
 Define the connector configuration in a JSON file, for example `bigquery_sink.json`.
@@ -105,6 +128,11 @@ Define the connector configuration in a JSON file, for example `bigquery_sink.js
 }
 ```
 
+:::note
+To use the Storage Write API instead of the default GCS method, add
+`"useStorageWriteApi": "true"` to the configuration.
+:::
+
 The configuration file includes:
 
 - `name`: Connector name
@@ -112,6 +140,11 @@ The configuration file includes:
 - `topics`: Comma-separated list of Kafka topics to write to BigQuery
 - `project`: Target Google Cloud project name
 - `defaultDataset`: BigQuery dataset name, prefixed with `.*=`
+
+  :::note
+  By default, table names in BigQuery match the Kafka topic names.
+  Use the Kafka Connect `RegexRouter` transformation to rename tables if needed.
+  :::
 
 If your messages are in Avro format, also set these parameters:
 
@@ -218,6 +251,8 @@ Connector configuration:
 }
 ```
 
+Parameters:
+
 - `topics`: Source topic
 - `value.converter`: JSON converter without schema
 
@@ -255,5 +290,43 @@ Connector configuration:
 }
 ```
 
+Parameters:
+
 - `topics`: Source topic
 - `key.converter` and `value.converter`: Enable Avro parsing with Karapace schema registry
+
+### Sink an Avro topic using Storage Write API
+
+To stream Avro messages directly into BigQuery with lower latency.
+
+Connector configuration:
+
+```json
+{
+  "name": "students_sink_write_api",
+  "connector.class": "com.wepay.kafka.connect.bigquery.BigQuerySinkConnector",
+  "topics": "students",
+  "project": "GOOGLE_CLOUD_PROJECT_NAME",
+  "defaultDataset": ".*=BIGQUERY_DATASET_NAME",
+  "schemaRetriever": "com.wepay.kafka.connect.bigquery.retrieve.IdentitySchemaRetriever",
+  "schemaRegistryLocation": "https://SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD@APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "autoCreateTables": "true",
+  "keySource": "JSON",
+  "keyfile": "GOOGLE_CLOUD_SERVICE_KEY",
+  "useStorageWriteApi": "true",
+  "commitInterval": "1000"
+}
+```
+
+Parameters:
+
+- `useStorageWriteApi`: Enables direct streaming into BigQuery
+- `commitInterval`: Flush interval for Storage Write API batches (in ms)
