@@ -110,8 +110,8 @@ AWS PrivateLink is not supported for:
     For Aiven for Apache Kafka® services, the security group for the VPC
     endpoint must allow ingress in the port range `10000-31000` to
     accommodate the pool of Kafka broker ports used in our PrivateLink
-    implementation. These are custom TCP ports which are not included
-    by default rule type 'All traffic'.
+    implementation. These are custom TCP ports not included
+    by default rule type `All traffic`.
 
     It takes a while before the endpoint is ready to use as AWS
     provisions network interfaces to each of the subnets and connects
