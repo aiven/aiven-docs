@@ -27,7 +27,8 @@ the IP range are not an issue.
 
 To set up AWS PrivateLink, use the
 [Aiven CLI](/docs/tools/cli). You also
-need the AWS console or CLI to create a VPC endpoint.
+need [AWS Management Console](https://aws.amazon.com/console) or
+[CLI](https://aws.amazon.com/cli) to create a VPC endpoint.
 
 :::note
 AWS PrivateLink is not supported for:
@@ -47,9 +48,9 @@ AWS PrivateLink is not supported for:
     The Amazon Resource Name (ARN) for the principals that are allowed
     to connect to the VPC endpoint service and the AWS network load
     balancer requires your Amazon account ID. In addition, you can set
-    the access scope for an entire AWS account, a given user account, or
-    a given role. Only give permissions to roles that you trust, as an
-    allowed role can connect from any VPC.
+    the access scope for an entire AWS account (`root`), a specific AWS
+    user (for example, `user\john`), or a specific role. Only give permissions to
+    roles that you trust, as an allowed role can connect from any VPC.
 
     Use the Aiven CLI to run the following command including your AWS
     account ID, the access scope, and the name of your Aiven service:
@@ -61,7 +62,7 @@ AWS PrivateLink is not supported for:
     For example:
 
     ```bash
-    avn service privatelink aws create --principal arn:aws:iam::012345678901:user/mwf my-kafka
+    avn service privatelink aws create --principal arn:aws:iam::012345678901:user/john my-kafka
     ```
 
     This creates an AWS network load balancer dedicated to your Aiven
@@ -80,31 +81,39 @@ AWS PrivateLink is not supported for:
     aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_aws_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
     ```
 
-    Replace the `--service-name` value with the value shown either in
-    the [Aiven Console](https://console.aiven.io) > **Service
-    settings** page > **Cloud and network** section > <ConsoleLabel name="actions"/> > **Edit AWS PrivateLink** > **AWS service name**
-    or as an output of:
+    Replace the following placeholders:
 
-    ```bash
-    avn service privatelink aws get aiven_service_name
-    ```
+    - `--service-name` with the value shown either in
+      the [Aiven Console](https://console.aiven.io) > **Service
+      settings** page > **Cloud and network** section > <ConsoleLabel name="actions"/> > **Edit AWS PrivateLink** > **AWS service name**
+      or as an output of:
 
-    Note that for fault tolerance, you should specify a subnet ID for
+      ```bash
+      avn service privatelink aws get aiven_service_name
+      ```
+
+    - `--security-group-ids` with the IDs of the
+      security groups to associate with the endpoint network interfaces.
+      If this parameter is not specified, the default security group for
+      the VPC is used.
+
+    For fault tolerance, specify a subnet ID for
     each availability zone in the region. The security groups determine
     the instances that are allowed to connect to the endpoint network
     interfaces created by AWS into the specified subnets.
 
-    Alternatively, you can create the VPC endpoint in [AWS
+    Alternatively, create the VPC endpoint in [AWS
     Console](https://console.aws.amazon.com) under **VPC** >
     **Endpoints** > **Create endpoint**. See the [AWS
-    documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface#create-interface-endpoint)
+    documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html)
     for details.
 
     :::note
     For Aiven for Apache Kafka® services, the security group for the VPC
     endpoint must allow ingress in the port range `10000-31000` to
     accommodate the pool of Kafka broker ports used in our PrivateLink
-    implementation.
+    implementation. These are custom TCP ports not included
+    by default rule type `All traffic`.
 
     It takes a while before the endpoint is ready to use as AWS
     provisions network interfaces to each of the subnets and connects
