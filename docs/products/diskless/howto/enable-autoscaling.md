@@ -10,27 +10,17 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Autoscaling automatically adjusts the capacity of your Aiven for Apache Kafka® service based on CPU usage.
+Autoscaling adjusts the capacity of your Aiven for Apache Kafka® service based on CPU usage.
 It helps maintain performance during traffic spikes and reduces resource use when
-demand is low. Autoscaling is available only for services using Diskless Topics in
-Bring Your Own Cloud (BYOC).
-
-:::important
-Autoscaling must be enabled when you
-[create a Diskless Topics service in BYOC](/docs/products/diskless/howto/create-diskless-topic).
-You cannot enable it later on an existing service.
-:::
-
-:::note[Availability]
-Autoscaling for Diskless Topics is in **Limited Availability (LA)**. Contact
-[Aiven support team](mailto:support@aiven.io) to request access.
-:::
+demand is low. Autoscaling is available only for Diskless Topics services deployed in
+Bring Your Own Cloud (BYOC) using a plan that is part of the supported autoscaling
+plan set.
 
 ## Why use autoscaling
 
 - **Maintain performance**: Services scale up during sustained high CPU load.
 - **Control costs**: Services scale down when demand decreases.
-- **Stay flexible**: You can set minimum and maximum plans; scaling happens within
+- **Stay flexible**: You can set minimum and maximum plans. Scaling happens within
   those limits.
 - **Get notified**: You receive an email notification whenever autoscaling scales the
   service up or down.
@@ -47,38 +37,42 @@ use Diskless Topics in BYOC.
   autoscaling plan.
 - **Scaling in groups**: Nodes are added or removed in fixed groups (for example,
   three nodes at a time), not individually.
-- **Cooldown period**: After each scaling action, the autoscaler waits at least 10
-  minutes before evaluating again.
+- **Cooldown period**: The autoscaler waits at least 10 minutes after each scaling action
+  before evaluating the service again.
 - **Health check**: Scaling occurs only when all brokers are healthy and in the
   **RUNNING** state.
 
 ## Key considerations and limitations
 
-- When autoscaling is enabled, you cannot change the service plan manually. To change
-  the plan, first disable autoscaling.
-- Billing is based on autoscaling plans (`autoscaling-*`). Each scaling event appears
-  as a separate line item in your invoice.
+- **Service compatibility**: Autoscaling is supported only for Diskless Topics services
+  in BYOC that are created with a supported autoscaling plan. If the service is not
+  using a plan from the autoscaling plan set, autoscaling is not available.
+- **Limited availability**: Contact the [Aiven support team](mailto:support@aiven.io) to
+  request access and enable autoscaling for your project.
+- **Enable only at service creation**: You must enable autoscaling when you
+  [create a Diskless Topics service in BYOC](/docs/products/diskless/howto/create-diskless-topic).
+  You cannot enable autoscaling for existing services.
+- **Aiven Console limitation**: Autoscaling is not available in the Aiven Console. Use
+  the CLI, Terraform, or API.
+- **Plan changes not allowed with autoscaling**: You cannot manually change the service
+  plan while autoscaling is enabled. To change the plan, first disable autoscaling.
+- **Billing**: Autoscaling uses special autoscaling plans. Each scaling event is billed
+  separately and appears as a line item in your invoice.
 
 ## Prerequisites
 
-- An Aiven for Apache Kafka® service running with **Diskless Topics (BYOC)**.
-- The service must be created with autoscaling enabled.
-- Autoscaling must be enabled for your project by Aiven support.
-  You cannot convert an existing non-autoscaling service into autoscaling.
+- An Aiven for Apache Kafka® service using Diskless Topics (BYOC)
+- Autoscaling enabled when the service was created
+- Autoscaling access granted for your project by Aiven support
 - Access to one of the following:
   - [Aiven API](https://api.aiven.io/doc/)
   - [Aiven CLI client](/docs/tools/cli)
   - [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest)
 
-:::note
-Autoscaling is not yet available in the Aiven Console. Use the CLI, Terraform, or API to
-enable or disable autoscaling.
-:::
-
 ## Enable autoscaling
 
-To enable autoscaling for Kafka with Diskless Topics in BYOC, create an
-autoscaler integration endpoint and link it to your service.
+To enable autoscaling, create an autoscaler integration endpoint and link it to your
+Kafka service with Diskless Topics in BYOC.
 
 <Tabs groupId="group1">
 <TabItem value="cli" label="CLI">
@@ -108,7 +102,7 @@ Enable autoscaling with the [Aiven CLI](/docs/tools/cli):
      --integration-type autoscaler_service \
      --dest-endpoint-id ENDPOINT_ID \
      --source-service YOUR_SERVICE_NAME \
-     --user-config-json '{"autoscaling":{"min_plan":"autoscaling-smallvm-3x","max_plan":"autoscaling-smallvm-6x"}}'
+     --user-config-json '{"autoscaling":{"min_plan":"<AUTOSCALING_PLAN_MIN>","max_plan":"<AUTOSCALING_PLAN_MAX>"}}'
    ```
 
    Parameters:
@@ -140,8 +134,8 @@ resource "aiven_service_integration" "autoscaling" {
 
   user_config = {
     autoscaling = {
-      min_plan = "autoscaling-smallvm-3x"
-      max_plan = "autoscaling-smallvm-6x"
+      min_plan = "<AUTOSCALING_PLAN_MIN>"
+      max_plan = "<AUTOSCALING_PLAN_MAX>"
     }
   }
 }
@@ -184,16 +178,16 @@ Enable autoscaling with the [Aiven API](https://api.aiven.io/doc/):
      --header 'Authorization: Bearer REPLACE_WITH_TOKEN' \
      --header 'content-type: application/json' \
      --data '{
-       "source_service": "SERVICE_NAME",
-       "integration_type": "autoscaler_service",
-       "dest_endpoint_id": "NEW_AUTOSCALER_ENDPOINT_ID",
-       "user_config": {
-         "autoscaling": {
-           "min_plan": "autoscaling-smallvm-3x",
-           "max_plan": "autoscaling-smallvm-6x"
+        "source_service": "SERVICE_NAME",
+        "integration_type": "autoscaler_service",
+        "dest_endpoint_id": "NEW_AUTOSCALER_ENDPOINT_ID",
+        "user_config": {
+           "autoscaling": {
+           "min_plan": "<AUTOSCALING_PLAN_MIN>",
+           "max_plan": "<AUTOSCALING_PLAN_MAX>"
          }
        }
-     }'
+    }'
    ```
 
    Parameters:
@@ -208,8 +202,8 @@ Enable autoscaling with the [Aiven API](https://api.aiven.io/doc/):
 
 ## Disable autoscaling
 
-To disable autoscaling for Kafka with Diskless Topics in BYOC, remove the autoscaler
-integration from your service.
+To disable autoscaling, remove the autoscaler integration from your Kafka service
+with Diskless Topics in BYOC.
 
 <Tabs groupId="group2">
 <TabItem value="cli" label="CLI">
