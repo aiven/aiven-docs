@@ -27,7 +27,7 @@ the IP range are not an issue.
 
 To set up AWS PrivateLink, use the
 [Aiven CLI](/docs/tools/cli). You also
-need the [AWS console](https://aws.amazon.com/console) or
+need [AWS Management Console](https://aws.amazon.com/console) or
 [CLI](https://aws.amazon.com/cli) to create a VPC endpoint.
 
 :::note
