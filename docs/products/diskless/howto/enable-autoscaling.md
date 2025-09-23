@@ -30,7 +30,7 @@ Autoscaling for Diskless Topics is in **Limited Availability (LA)**. Contact
 
 - **Maintain performance**: Services scale up during sustained high CPU load.
 - **Control costs**: Services scale down when demand decreases.
-- **Stay flexible**: Customers set minimum and maximum plans; scaling happens within
+- **Stay flexible**: You can set minimum and maximum plans; scaling happens within
   those limits.
 - **Get notified**: You receive an email notification whenever autoscaling scales the
   service up or down.
@@ -54,8 +54,6 @@ use Diskless Topics in BYOC.
 
 ## Key considerations and limitations
 
-- You must enable autoscaling during service creation. You cannot enable it later.
-- Autoscaling is available only for services that use Diskless Topics in BYOC.
 - When autoscaling is enabled, you cannot change the service plan manually. To change
   the plan, first disable autoscaling.
 - Billing is based on autoscaling plans (`autoscaling-*`). Each scaling event appears
@@ -158,9 +156,6 @@ Parameters:
 With the current Terraform design, you must first create your Kafka service with a plan.
 After the service exists, create the autoscaler endpoint and integration in a
 separate `terraform apply` step.
-
-Defining the autoscaler directly in the `aiven_kafka` resource is under discussion and
-may be supported in future versions of the Terraform provider.
 :::
 
 </TabItem>
@@ -253,3 +248,7 @@ curl --request DELETE \
 
 </TabItem>
 </Tabs>
+
+<RelatedPages/>
+
+- [Get started with Diskless Topics](/docs/products/diskless/get-started)
