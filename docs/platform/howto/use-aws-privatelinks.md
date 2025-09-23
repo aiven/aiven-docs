@@ -48,8 +48,8 @@ AWS PrivateLink is not supported for:
     The Amazon Resource Name (ARN) for the principals that are allowed
     to connect to the VPC endpoint service and the AWS network load
     balancer requires your Amazon account ID. In addition, you can set
-    the access scope for an entire AWS account (`root`), a given AWS
-    user (ex. `user\john`), or a given role. Only give permissions to
+    the access scope for an entire AWS account (`root`), a specific AWS
+    user (for example, `user\john`), or a specific role. Only give permissions to
     roles that you trust, as an allowed role can connect from any VPC.
 
     Use the Aiven CLI to run the following command including your AWS
