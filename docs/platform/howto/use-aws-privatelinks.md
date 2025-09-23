@@ -81,26 +81,28 @@ AWS PrivateLink is not supported for:
     aws ec2 --region eu-west-1 create-vpc-endpoint --vpc-endpoint-type Interface --vpc-id $your_aws_vpc_id --subnet-ids $space_separated_list_of_subnet_ids --security-group-ids $security_group_ids --service-name com.amazonaws.vpce.eu-west-1.vpce-svc-0b16e88f3b706aaf1
     ```
 
-    Replace the `--service-name` value with the value shown either in
-    the [Aiven Console](https://console.aiven.io) > **Service
-    settings** page > **Cloud and network** section > <ConsoleLabel name="actions"/> > **Edit AWS PrivateLink** > **AWS service name**
-    or as an output of:
+    Replace the following placeholders:
 
-    ```bash
-    avn service privatelink aws get aiven_service_name
-    ```
+    - `--service-name` with the value shown either in
+      the [Aiven Console](https://console.aiven.io) > **Service
+      settings** page > **Cloud and network** section > <ConsoleLabel name="actions"/> > **Edit AWS PrivateLink** > **AWS service name**
+      or as an output of:
 
-    Replace the `--security-group-ids` value with the IDs of the
-    security groups to associate with the endpoint network interfaces.
-    If this parameter is not specified, the default security group for
-    the VPC is used.
+      ```bash
+      avn service privatelink aws get aiven_service_name
+      ```
 
-    Note that for fault tolerance, you should specify a subnet ID for
+    - `--security-group-ids` with the IDs of the
+      security groups to associate with the endpoint network interfaces.
+      If this parameter is not specified, the default security group for
+      the VPC is used.
+
+    For fault tolerance, specify a subnet ID for
     each availability zone in the region. The security groups determine
     the instances that are allowed to connect to the endpoint network
     interfaces created by AWS into the specified subnets.
 
-    Alternatively, you can create the VPC endpoint in [AWS
+    Alternatively, create the VPC endpoint in [AWS
     Console](https://console.aws.amazon.com) under **VPC** >
     **Endpoints** > **Create endpoint**. See the [AWS
     documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html)
