@@ -3,6 +3,8 @@ title: Migrate to Aiven for MySQL® from an external MySQL
 sidebar_label: Migrate to Aiven via CLI
 ---
 
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+
 Migrate your external MySQL database to an Aiven-hosted one using either a one-time dump-and-restore or continuous data synchronization through MySQL's built-in replication.
 
 :::note
@@ -17,8 +19,10 @@ followed by **continuous data synchronization** if your setup supports it.
 
 ### Initial data transfer
 
-A bulk copy of your data is first created. This is done using either `mysqldump` or, for
-larger databases, the faster, multi-threaded `mydumper/myloader` tool.
+A bulk copy of your data is first created. This is done using one of the following tools:
+
+- `mysqldump`
+- `mydumper/myloader`: a faster, multi-threaded tool for larger databases (<EarlyBadge/>)
 
 ### Continuous data synchronization
 
@@ -67,8 +71,9 @@ GTID to be set to `on`.
 ## Migrate your database
 
 1. Create a user in the source database with sufficient privileges for the pre-flight
-   checks, the bulk copy (using `mysqldump` or `mydumper`), and the ongoing replication.
-   Replace `%` with the IP address of the Aiven for MySQL database, if already existing.
+   checks, the bulk copy (using `mysqldump` or `mydumper` in <EarlyBadge/>), and the ongoing
+   replication. Replace `%` with the IP address of the Aiven for MySQL database, if already
+   existing.
 
     ```sql
     create user 'SRC_USERNAME'@'%' identified by 'SRC_PASSWORD';
