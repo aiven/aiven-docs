@@ -26,15 +26,15 @@ The console migration tool provides 2 migration methods:
     possible not only for existing data in the source database when triggering the
     migration but also for any data written to the source database during the migration.
 
--   **mysqldump/restore or mydumper/myloader:** Exports the current contents of the source
+-   **mysqldump/restore:** Exports the current contents of the source
     database into a text file or backup directory and imports it to the target database.
     Any changes written to the source database during the migration are **not
     transferred**.
 
 When you trigger the migration setup in the console and initial checks detect that your
 source database does not support logical replication, you are notified about it via the
-migration wizard. To continue with the migration, the wizard allow you to select an
-alternative migration method: `mysqldump/restore` or `mydumper/myloader`.
+migration wizard. To continue with the migration, the wizard allow you to select
+`mysqldump/restore` as an alternative migration method.
 
 ## Prerequisites
 

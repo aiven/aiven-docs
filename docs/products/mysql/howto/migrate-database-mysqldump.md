@@ -6,13 +6,16 @@ sidebar_label: Backup and restore
 import MysqlMigrationFreeze from "@site/static/includes/mysql-migration-freeze.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQL database, and restore it using [`mysqldump/restore`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [`mydumper/myloader`](https://github.com/mydumper/mydumper).
 
-:::tip
-For large databases, use `mydumper/myloader` for faster migration and reduced downtime.
+:::note
+`mydumper/myloader` is an
+[early availability feature](/docs/platform/concepts/service-and-feature-releases) to be
+used with large databases for faster migration and reduced downtime.
 :::
 
 ## Prerequisites
@@ -28,6 +31,11 @@ For large databases, use `mydumper/myloader` for faster migration and reduced do
 
 </TabItem>
 <TabItem value="2" label="mydumper/myloader">
+
+<EarlyBadge/>
+
+<br />
+<br />
 
 -   [`mydumper` tool](https://github.com/mydumper/mydumper):
     [install](https://mydumper.github.io/mydumper/docs/html/installing.html) if missing
@@ -108,6 +116,11 @@ The reason is that GTID's are not available with MyISAM.
 </TabItem>
 <TabItem value="2" label="mydumper">
 
+<EarlyBadge/>
+
+<br />
+<br />
+
 ### Collect connection details
 
 To backup the `source-db` data to the `mydb_backup_dir` directory, collect
@@ -182,6 +195,11 @@ mysql \
 
 </TabItem>
 <TabItem value="2" label="myloader">
+
+<EarlyBadge/>
+
+<br />
+<br />
 
 ### Collect connection details
 
