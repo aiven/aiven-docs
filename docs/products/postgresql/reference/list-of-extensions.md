@@ -69,6 +69,8 @@ installed with a few exceptions.
     `hyperloglog` data. `PG11 and newer`
 -   [hstore](https://www.postgresql.org/docs/current/hstore.html). Data
     type for storing sets of (key, value) pairs.
+-   [ip4r](https://github.com/RhodiumToad/ip4r). IPv4 and IPv6 address
+    range data types with indexing support.
 -   [isn](https://www.postgresql.org/docs/current/isn.html). Data types
     for international product numbering standards.
 -   [ltree](https://www.postgresql.org/docs/current/ltree.html). Data
