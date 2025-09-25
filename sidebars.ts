@@ -477,7 +477,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/cli/billing-group',
             'tools/cli/byoc',
             'tools/cli/cloud',
             'tools/cli/credits',
