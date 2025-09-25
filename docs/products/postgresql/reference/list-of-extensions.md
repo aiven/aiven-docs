@@ -198,11 +198,6 @@ installed with a few exceptions.
     Mask or replace personally identifiable information (PII) or commercially sensitive
     data from a PostgreSQL database. `PG15 and newer`
 
-    :::important
-    This is an experimental release of `postgresql_anonymizer`. The extension’s behavior
-    may change in future releases.
-    :::
-
     The user who
     [installs this extension](/docs/products/postgresql/howto/manage-extensions#install-an-extension)
     (preferably `avnadmin`) becomes its **owner**.

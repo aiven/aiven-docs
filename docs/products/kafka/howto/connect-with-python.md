@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for Apache Kafka® with Python
+sidebar_label: Connect with Python
 ---
 
 These examples show how to connect to an Aiven for Apache Kafka® service using the `kafka-python` library, as either a producer or consumer.

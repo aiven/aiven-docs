@@ -5,6 +5,7 @@ keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -432,7 +433,7 @@ In the **Create custom cloud** wizard:
     -   Custom cloud name
     -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 
-    Click **Next**.
+1.  Click **Next**.
 
 1.  Specify deployment and storage details:
 
@@ -444,7 +445,7 @@ In the **Create custom cloud** wizard:
         - Public model, which allows the Aiven control plane to connect to the service
           nodes via the public internet.
 
-    -   CIDR
+    -   CIDR for BYOC resources
 
         The **CIDR** block defines the IP address range of the VPC that
         Aiven creates in your own cloud account. Any Aiven service created in
@@ -479,7 +480,21 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    Click **Generate template**.
+    -   Object storage <LimitedBadge/>
+
+        By default, the following data is stored in the BYOC object storage in your own
+        cloud account:
+
+        -   [Cold data managed by the service](/docs/platform/howto/byoc/store-data)
+        -   [Backups of the service](/docs/platform/concepts/byoc#byoc-service-backups)
+
+        :::note
+        - Data is stored in your BYOC object storage using one S3 bucket per custom cloud.
+        - Permissions for S3 bucket management will be included in the Terraform
+          infrastructure template to be generated upon completing this step.
+        :::
+
+1.  Click **Generate template**.
 
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
@@ -628,9 +643,13 @@ Your new custom cloud is ready to use only after its status changes to
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
        Aiven services.
-   - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom cloud,
-     for example `europe-north1`. See all available options in
-     [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services).
+   - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom
+     cloud:
+     1. Pick a region from the **Cloud** column in the supported
+        [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services)
+        table.
+     1. Drop the `aws-` prefix from the selected region name, for example,
+        `aws-eu-north-1` > `eu-north-1`.
    - `CIDR_BLOCK` with a CIDR block defining the IP address range of the VPC that Aiven
      creates in your own cloud account, for example: `10.0.0.0/16`, `172.31.0.0/16`, or
      `192.168.0.0/20`.

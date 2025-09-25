@@ -8,31 +8,11 @@ Learn about the upcoming end of life (EOL) for select Aiven services, including 
 
 **EOL date**: April 30, 2025
 
-### Service impact
-
 After April 30, 2025, all running Aiven for M3DB
 services are powered off and deleted, making data from these services inaccessible.
 
-:::note
-If your project includes an Aiven for M3DB service, you can continue creating new
-Aiven for M3DB services in the same project. If your project did not previously include
-an Aiven for M3DB service, you cannot create new Aiven for M3DB services. This applies
-until the end of life (EOL) date on April 30, 2025.
-:::
-
-### Migration options
-
-- **Aiven for Metrics**: Provides a seamless transition for time-series workloads,
-  supporting PromQL for query compatibility. See the
-  [migration guide for Aiven for M3DB to Aiven for Metrics](https://aiven.io/docs/products/metrics/howto/migrate-m3db-thanos)
-  for instructions.
-- **Dashboard migration:** If you use Aiven’s pre-configured Metrics and Grafana dashboard
-  integration, your dashboards migrate automatically. Custom dashboards need to be
-  manually reconfigured.
-
-To ensure uninterrupted service, complete your migration to Aiven for Metrics before
-April 30, 2025. For further assistance, contact
-[Aiven support team](mailto:support@aiven.io) or your account team.
+The recommended alternative for your metrics management and analysis is
+[Aiven for Metrics](/docs/products/metrics).
 
 ## Aiven for InfluxDB
 
@@ -41,8 +21,8 @@ April 30, 2025. For further assistance, contact
 After April 30, 2025, all active Aiven for InfluxDB services are powered off and
 deleted, making data from these services inaccessible.
 
-The recommended alternative for your metrics management and analysis is
-[Aiven for Metrics](/docs/products/metrics).
+The recommended alternative for monitoring and observability of your applications and
+infrastructure is [Aiven for Metrics](/docs/products/metrics).
 
 ## Aiven for Caching
 
@@ -93,3 +73,32 @@ March 31, 2025. For further assistance, contact the
 
 To ensure uninterrupted service, complete your migration out of Aiven for Apache Cassandra
 before December 31, 2025. For further assistance, contact your account team.
+
+## Aiven for AlloyDB Omni
+
+**EOL date**: December 5, 2025
+
+### Service impact
+
+- **End of availability (EOA)**: September 5, 2025
+
+  After this date, you can no longer create new Aiven for AlloyDB Omni services. Existing
+  services continue to operate until the end of life (EOL) date but you cannot change
+  plans for these services.
+
+- **End of life (EOL)**: December 5, 2025
+
+  On this date, all active Aiven for AlloyDB Omni services are powered off and deleted,
+  making data from these services inaccessible.
+
+### Migration options
+
+The recommended alternatives to Aiven for AlloyDB Omni are:
+
+- [Aiven for PostgreSQL®](/docs/products/postgresql)
+- [Aiven for ClickHouse®](/docs/products/clickhouse)
+- [Aiven for MySQL®](/docs/products/mysql)
+
+To ensure uninterrupted service, complete your migration before December 5, 2025.
+For further assistance, contact the [Aiven support team](mailto:support@aiven.io) or your
+account team.

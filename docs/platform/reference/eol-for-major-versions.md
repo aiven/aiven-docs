@@ -44,10 +44,11 @@ Aiven for OpenSearch® is the open source continuation of the original
 Elasticsearch service. The EOL for Aiven for OpenSearch® is generally
 dependent on the upstream project.
 
-| Version | Aiven EOL       | Service creation supported until | Upstream EOL    |
-| ------- | --------------- | -------------------------------- | --------------- |
-| 1.x     | To be announced | To be announced                  | To be announced |
-| 2.x     | To be announced | To be announced                  | To be announced |
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- | --------------- | -------------------------------- | ------------------------------- |
+| 1.3.x   | To be announced | To be announced                  | 2022-05-19                      |
+| 2.17.1  | To be announced | To be announced                  | 2024-10-15                      |
+| 2.19.3  | To be announced | To be announced                  | 2025-09-15                      |
 
 ### Aiven for PostgreSQL®
 
@@ -95,6 +96,7 @@ after they are made available on the Aiven platform.
 | 3.7     | 2025-04-17 | 2025-01-17                       | 2024-04-17                      |
 | 3.8     | 2026-09-03 | 2026-06-03                       | 2024-09-06                      |
 | 3.9  | 2027-09-30 | 2027-06-30                      | 2025-03-20                      |
+| 4.0  | 2026-09-18 |2026-06-18 | 2025-09-18 |
 
 :::note
 Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
@@ -115,13 +117,18 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | 4.0     | 2025-01-31 | 2024-10-31                       | 2021-12-09                      |
 | 4.1     | 2025-12-31 | 2025-11-30                       | 2024-01-18                      |
 
-
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 |---------|------------|----------------------------------| ------------------------------- |
 | 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
 | 1.19    | N/A        | N/A                              | 2024-05-21                      |
+
+### Aiven for AlloyDB Omni
+
+| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
+|---------|------------|----------------------------------| ------------------------------- |
+| 15.x    | 2025-12-05 | 2025-09-05                       | 2024-10-02                      |
 
 ### EOL policy for major versions
 

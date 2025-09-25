@@ -246,6 +246,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>User profile</b>
         </>
       );
+    case 'referrals':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.gift} /> <b>Referrals</b>
+        </>
+      );
     case 'authenticationmethod':
       return (
         <>
@@ -509,6 +515,13 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
           <b>Add Advanced Configuration</b>
+        </>
+      );
+    case 'advancedconfiguration':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.settings} />{' '}
+          <b>Advanced configuration</b>
         </>
       );
     case 'add':

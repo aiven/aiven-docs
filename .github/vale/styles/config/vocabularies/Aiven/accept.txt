@@ -27,6 +27,7 @@ autoscaler
 autoscaling
 autovacuum
 Avro
+aws
 AZ
 AZs
 Azure
@@ -45,6 +46,7 @@ CLI's
 ClickHouse
 Cloudera
 CloudWatch
+codec
 codecs
 compliances
 Conduktor
@@ -81,6 +83,7 @@ depends_on
 deserialization
 deserialize
 deserializer
+deserializers
 Dev
 Digitransit
 diskio_io_time
@@ -258,6 +261,7 @@ PostgreSQL
 Postman
 preformatted
 privatelink
+protoc
 Prometheus
 Protobuf
 Provectus

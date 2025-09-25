@@ -3,6 +3,9 @@ title: Aiven for Caching
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import EoaNotice from "@site/static/includes/eol-caching-banner.md"
+
+<EoaNotice/>
 
 Aiven for Caching, formerly known as Aiven for Redis®, is a fully managed in-memory NoSQL database. Deployable in the cloud of your choice, it helps you store and access data efficiently.
 This service is compatible with legacy Redis® OSS up to version 7.2.4, facilitating seamless transitions and compatibility.
