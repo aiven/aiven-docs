@@ -5,6 +5,7 @@
 # Make sure to keep the /docs/ prefix in the destination url but leave the source url without it.
 # This is because aiven.io/docs proxy to this site.
 #
+
 /caching                                         /docs/products/caching
 /category/administrative-tasks                   /docs/get-started
 /category/concepts                               /docs/get-started
@@ -30,6 +31,8 @@
 /platform/concepts/corporate-billing                   /docs/platform/concepts/billing-and-payment
 /platform/concepts/corporate-billing.html              /docs/platform/concepts/billing-and-payment
 /platform/concepts/dynamic-disk-sizing                 /docs/platform/howto/add-storage-space
+/platform/concepts/free-plan                           /docs/platform/concepts/service-pricing
+/platform/concepts/free-trial                          /docs/platform/concepts/service-pricing
 /platform/concepts/hourly-billing-model                /docs/platform/concepts/billing-and-payment
 /platform/concepts/hourly-billing-model.html           /docs/platform/concepts/billing-and-payment
 /platform/concepts/list-billing                        /docs/platform/concepts/billing-and-payment
@@ -38,6 +41,7 @@
 /platform/concepts/projects                            /docs/platform/concepts/orgs-units-projects
 /platform/concepts/projects_accounts_access            /docs/platform/howto/manage-project
 /platform/concepts/projects_accounts_access.html  /docs/platform/howto/manage-org-users
+/platform/concepts/service-resources                   /docs/platform/concepts/service-pricing
 /platform/concepts/service-scaling                     /docs/platform/howto/scale-services
 /platform/howto/access-service-log                     /docs/platform/howto/list-monitoring
 /platform/howto/access-service-logs                    /docs/platform/howto/list-monitoring
@@ -117,6 +121,7 @@
 /products/clickhouse/howto/load-dataset                  /docs/products/clickhouse/get-started#load-a-dataset
 /products/clickhouse/list-overview                       /docs/products/clickhouse
 /products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params
+/products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing
 /products/dragonfly/concept                              /docs/products/dragonfly
 /products/dragonfly/concepts/overview                    /docs/products/dragonfly
 /products/dragonfly/howto                                /docs/products/dragonfly/howto/list-code-samples
@@ -136,15 +141,18 @@
 /products/flink/howto/real-time-alerting-solution          /docs/products/flink/howto/list-get-started
 /products/flink/list-overview                              /docs/products/flink
 /products/flink/reference                                  /docs/products/flink/reference/advanced-params
+/products/flink/reference/plans-pricing                     /docs/platform/concepts/service-pricing
 /products/grafana/concepts/grafana-features                /docs/products/grafana
 /products/grafana/howto                                    /docs/products/grafana/howto/log-in
 /products/grafana/howto/list-manage-dashboards             /docs/products/grafana/howto/dashboard-previews
 /products/grafana/list-overview                            /docs/products/grafana
 /products/grafana/reference                                /docs/products/grafana/reference/advanced-params
+/products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing
 /products/grafana/user-access                              /docs/products/grafana/howto/log-in
 /products/influxdb                                         /docs/products/metrics
 /products/kafka/getting-started                            /docs/products/kafka/get-started
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples
+/products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect
 /products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry
 /products/kafka/howto/fake-sample-data                     /docs/products/kafka/howto/generate-sample-data-manually
 /products/kafka/howto/list-admin                           /docs/products/kafka/howto/enable-karapace
@@ -162,6 +170,7 @@
 /products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink
+/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink
 /products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params
 /products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration
 /products/kafka/kafka-mirrormaker/howto                    /docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster
@@ -175,9 +184,9 @@
 /products/metrics/concepts                                 /docs/products/metrics
 /products/metrics/concepts/metrics-overview                /docs/products/metrics
 /products/metrics/howto                                    /docs/products/metrics
-/products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb
 /products/metrics/howto/download-influxdb-data             /docs/platform/reference/end-of-life#aiven-for-influxdb
 /products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life
+/products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb
 /products/metrics/howto/migrate-m3db-thanos                /docs/platform/reference/end-of-life#aiven-for-m3db
 /products/mysql/concepts                                   /docs/products/mysql/concepts/max-number-of-connections
 /products/mysql/howto                                      /docs/products/mysql
@@ -192,16 +201,14 @@
 /products/opensearch/howto                                 /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-access-control             /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/howto/list-data-management            /docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
-
-/products/opensearch/howto/migrate-snapshot-data-opensearch /docs/products/opensearch/howto/manage-snapshots
-
 /products/opensearch/howto/list-integrations      /docs/products/opensearch
 /products/opensearch/howto/list-manage-service    /docs/products/opensearch
-
+/products/opensearch/howto/migrate-snapshot-data-opensearch /docs/products/opensearch/howto/manage-snapshots
 /products/opensearch/howto/upgrade-to-opensearch           /docs/products/opensearch/howto/upgrade-clients-to-opensearch
 /products/opensearch/list-overview                         /docs/products/opensearch
 /products/opensearch/reference                             /docs/products/opensearch/reference/advanced-params
 /products/opensearch/reference/index-replication           /docs/products/opensearch/concepts/index-replication
+/products/opensearch/reference/plans-pricing              /docs/platform/concepts/service-pricing
 /products/opensearch/troubleshooting                       /docs/products/opensearch
 /products/postgresql/concepts                              /docs/products/postgresql/concepts/aiven-db-migrate
 /products/postgresql/getting-started                       /docs/products/postgresql/get-started
@@ -228,7 +235,6 @@
 /tools/cli/project                                         /docs/tools/cli
 /tools/cli/service                                         /docs/tools/cli/service-cli
 /tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics
-/tools/cli/service-cli#avn-service-m3                      /docs/tools/cli/service-cli#avn-service-metrics
 /tools/cli/ticket                                          /docs/platform/howto/support
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform
 /tools/terraform/get-started                               /docs/tools/terraform

@@ -12,6 +12,7 @@ import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.p
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
 import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Bring your own cloud (BYOC) allows you to use your own cloud infrastructure instead of relying on the Aiven-managed infrastructure.
 
@@ -142,6 +143,11 @@ to work properly (supporting HA signaling to the Aiven management node and RPM d
 from Aiven repositories).
 :::
 
+<LimitedBadge/> Object storage in your AWS cloud account is where your service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data) are stored using
+two S3 buckets.
+
 </TabItem>
 <TabItem value="2" label="AWS public">
 
@@ -155,6 +161,12 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
+
+<LimitedBadge/> Object storage in your AWS cloud account is where your service's
+[backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+[cold data](/docs/platform/howto/byoc/store-data) are stored using
+two S3 buckets.
+
 </TabItem>
 <TabItem value="3" label="Google Cloud private">
 
@@ -197,6 +209,7 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
+
 </TabItem>
 </Tabs>
 
@@ -209,10 +222,11 @@ All Aiven communication is encrypted.
 Depending on the BYOC service, Aiven takes
 [regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
 in time recovery (PITR), and disaster recovery.
-These backups by default do not reside in your cloud. If there is a
-requirement to have all backups in your own cloud account, it's still possible.
-To accomplish this, Aiven needs read-write permissions to access the object storage on
-your cloud account.
+
+<LimitedBadge/>
+If you
+[enable tiered storage](/docs/platform/howto/byoc/store-data#enable-tiered-storage-in-an-aws-custom-cloud),
+AWS BYOC service backups are stored in Amazon S3 buckets within your AWS account.
 
 :::important
 
@@ -233,4 +247,3 @@ Aiven deployment model.
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 -   [Enable bring your own cloud (BYOC)](/docs/platform/howto/byoc/enable-byoc)
 -   [Create a custom cloud in Aiven](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
--   [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)

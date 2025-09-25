@@ -21,8 +21,6 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'get-started',
-        'platform/concepts/free-plan',
-        'platform/concepts/free-trial',
         'tools/aiven-console',
         'platform/howto/support',
         'platform/reference/referrals',
@@ -72,6 +70,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/concepts/billing-and-payment',
           },
           items: [
+            'platform/concepts/service-pricing',
             'platform/concepts/tax-information',
             {
               type: 'category',
@@ -185,7 +184,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'platform/concepts/service_backups',
-                'platform/concepts/service-resources',
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
@@ -370,6 +368,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/store-data',
             'platform/howto/byoc/rename-custom-cloud',
             'platform/howto/byoc/download-infrastructure-template',
             'platform/howto/byoc/delete-custom-cloud',
@@ -656,7 +655,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/flink/get-started',
-            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -810,7 +808,14 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/howto/connect-with-python',
-                    'products/kafka/howto/connect-with-java',
+                    {
+                      type: 'category',
+                      label: 'Connect with Java',
+                      items: [
+                        'products/kafka/howto/connect-with-java-quick-connect',
+                        'products/kafka/howto/connect-with-java-classic-quick-connect',
+                      ],
+                    },
                     'products/kafka/howto/connect-with-go',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-nodejs',
@@ -1046,7 +1051,6 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
                         'products/kafka/kafka-connect/howto/couchbase-sink',
                         'products/kafka/kafka-connect/howto/elasticsearch-sink',
-                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq',
                         'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
@@ -1314,7 +1318,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/clickhouse/get-started',
-            'products/clickhouse/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1480,7 +1483,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/grafana/get-started',
-            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
@@ -1631,7 +1633,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
-            'products/opensearch/reference/plans-pricing',
             'products/opensearch/howto/sample-dataset',
             {
               type: 'category',
@@ -1697,6 +1698,19 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                     {
                       type: 'category',
+                      label: 'Manage custom repositories',
+                      link: {
+                        id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/opensearch/howto/custom-repositories',
+                        'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
+                        'products/opensearch/howto/snapshot-credentials',
+                      ],
+                    },
+                    {
+                      type: 'category',
                       label: 'Migrate external snapshots',
                       link: {
                         type: 'doc',
@@ -1707,8 +1721,6 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
                     },
-                    'products/opensearch/howto/custom-repositories',
-                    'products/opensearch/howto/snapshot-credentials',
                     'products/opensearch/howto/manage-snapshots',
                   ],
                 },
@@ -1744,6 +1756,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Manage service',
                   items: [
+                    'products/opensearch/howto/os-version-upgrade',
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
                     'products/opensearch/howto/custom-dictionary-files',
