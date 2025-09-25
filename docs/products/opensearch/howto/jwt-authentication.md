@@ -38,7 +38,7 @@ Supported `user_config` options are as follows:
 | Option                                | Data type | More information                                                                                                                          |
 |---------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | `jwt.enabled`                         | Boolean   | Enables or disables JWT authentication. Set to `true` to activate JWT authentication.                                                     |
-| `jwt.signing_key`                     | String    | Base64-encoded signing key used to verify JWT tokens. Can be PEM-formatted RSA/EC public key or HMAC secret key.                          |
+| `jwt.signing_key`                     | String    | Base64-encoded signing key used to verify JWT tokens. Can be PEM-formatted RSA/ECDSA public key or HMAC secret key.                       |
 | `jwt.jwt_header`                      | String    | HTTP header name containing the JWT token. Default is `Authorization`.                                                                    |
 | `jwt.jwt_url_parameter`               | String    | URL parameter name for passing JWT token as a query parameter. Optional alternative to header-based authentication.                       |
 | `jwt.subject_key`                     | String    | JWT claim key that contains the username/subject. Default is `sub`.                                                                       |
@@ -54,7 +54,7 @@ Supported `user_config` options are as follows:
 -   OpenSearch Security management
     [enabled](/docs/products/opensearch/howto/enable-opensearch-security)
     on your service
-- Base64-encoded signing key (PEM-formatted RSA/EC public key or HMAC secret key)
+- Base64-encoded signing key (PEM-formatted RSA/ECDSA public key or HMAC secret key)
 - Tool for enabling and configuring the JWT authentication:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
@@ -91,7 +91,7 @@ avn service update SERVICE_NAME \
 Replace the following placeholders with meaningful data:
 
 - `SERVICE_NAME` with the name of your Aiven for OpenSearch service, for example, `os2-jwt`
-- `SIGNING_KEY` with your base64-encoded signing key (PEM-formatted RSA/EC public key or
+- `SIGNING_KEY` with your base64-encoded signing key (PEM-formatted RSA/ECDSA public key or
   HMAC secret key)
 - `JWT_URL_PARAMETER` with the URL parameter name for JWT token, for example, `token`
 
@@ -123,7 +123,7 @@ Replace the following placeholders with meaningful data:
 - `PROJECT_NAME` with your project name, for example, `my-project`
 - `SERVICE_NAME` with your Aiven for OpenSearch service name, for example, `os2-jwt`
 - `BEARER_TOKEN` with your Aiven API authentication token
-- `SIGNING_KE`Y with your base64-encoded signing key (PEM-formatted RSA/EC public key or
+- `SIGNING_KE`Y with your base64-encoded signing key (PEM-formatted RSA/ECDSA public key or
   HMAC secret key)
 - `JWT_URL_PARAMETER` with the URL parameter name for JWT token, for example, `token`
 
