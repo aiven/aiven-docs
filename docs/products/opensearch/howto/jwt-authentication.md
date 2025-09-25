@@ -67,14 +67,26 @@ Supported `user_config` options are as follows:
 
 1. In the [Aiven Console](https://console.aiven.io/), access your Aiven
     for OpenSearch service where to enable the JWT authentication.
-1. Click <ConsoleLabel name="service settings"/> in the sidebar.
-1. Scroll to the **Advanced configuration** section and click **Configure**.
-1. In the **Advanced configuration** window:
-   1. Click **Add configuration options**.
-   1. Enter `jwt` in the search field to preview all JWT-related configuration options.
-      1. Select the `jwt.signing_key` option and set it to your password.
-      1. Select the `jwt.enabled` option and set it to `enabled`.
-   1. Click **Save configuration**.
+1. Click <ConsoleLabel name="serviceusers"/> in the sidebar.
+1. In the **SSO authentication** section, click **Add method** > **JWT**.
+1. In the **Configure JWT authentication** window, set up the following:
+   - **Signing algorithm**: Choose `RSA/ECDSA` or `HMAC`.
+   - **Signing key**: Enter your public key to verify your JWT signature when using
+     RSA/ECDSA.
+   - **HTTP header name**: Provide it if your JWT is transmitted as an HTTP header.
+   - **URL parameter name**: Provide it if your JWT is transmitted as a URL parameter.
+   - **JWT claim key for subject**: Enter the JWT payload key that contains the user's
+     subject identifier to override the `sub` default.
+   - **JWT claim key for roles**: Enter the JWT payload key that contains the user's
+     roles to have them extracted from the JWT for authorization.
+   - **Required JWT audience**: Provide a value for the `aud` claim in the JWT to restrict
+     its audience.
+   - **Required JWT issuer**: Provide a value for the `iss` claim in the JWT to restrict
+     its issuer.
+   - **JWT Clock Skew Tolerance (seconds)**: Specify the maximum time difference between
+     the JWT's issuer's clock and the OpenSearch server's clock.
+1.  Click **Enable** to complete the setup and activate the
+    configuration.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
