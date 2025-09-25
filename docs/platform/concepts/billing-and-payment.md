@@ -7,7 +7,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 You can make payments by credit card, bank transfer, or using your AWS, Google Cloud, or Azure [marketplace subscriptions](/docs/platform/howto/list-marketplace-payments).
 
 To pay for services, you have to assign every project with services to a
-[billing group](#billing-groups). The [costs for all services](#service-charges)
+[billing group](#billing-groups).
+The [costs for all services](/docs/platform/concepts/billing-and-payment#service-charges)
 in a project are charged to the [payment method](/docs/platform/howto/manage-payment-card)
 of the billing group assigned to that project.
 
@@ -39,7 +40,6 @@ in the project settings.
 
 You can only use a billing group for payments in one organization. You
 cannot use a billing group for projects that are in other organizations.
-
 
 <RelatedPages/>
 
