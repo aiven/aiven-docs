@@ -17,7 +17,7 @@ Before you download and run the tool, ensure you have the following:
   target cluster connectivity fields
 - Java 17 runtime environment (OpenJDK 17)
 - [Aiven CLI](/docs/tools/cli) access
-- [Aiven user token](/docs/tools/cli/user/user-access-token#avn-user-access-token-create)
+- [Aiven personal token](/docs/platform/howto/create_authentication_token)
 - [Aiven for Apache Kafka SSL](/docs/products/kafka/howto/keystore-truststore)
   integration certificates, including:
   - Client truststore (JKS)

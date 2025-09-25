@@ -171,12 +171,9 @@ Expires all the tokens associated with the user expired.
 avn user tokens-expire
 ```
 
-See more [access-token related commands](user/user-access-token)
-
 ### `avn user access-token`
 
 Set of commands for managing a user's tokens.
-[See detailed command information](user/user-access-token) for more information.
 
 ### `avn user create`
 
