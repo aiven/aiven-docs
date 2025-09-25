@@ -19,28 +19,23 @@ Create an Aiven for Apache Kafka MirrorMaker 2 dedicated service:
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
     the **Aiven for Apache Kafka®** service for which to create
     a dedicated Aiven for Apache Kafka® MirrorMaker 2 service.
-2.  Click **Integrations** on the sidebar.
-3.  On the **Integrations** screen, choose **Apache Kafka MirrorMaker**.
-4.  Select the **New service** option.
-5.  Provide a name for your service. By default, a random name is
-    generated, but you can enter a more identifiable name to distinguish
-    it from other services.
-6.  Select the cloud provider and region where to deploy the
-    service.
-
-    :::note
-    Pricing may vary across providers and regions.
-    :::
-
-7.  Select a service plan. This defines how many servers and what kind
-    of memory, CPU, and disk resources are allocated to your service.
-8.  Specify a **Cluster alias**. This alias is a name assigned to an
+1.  Click **Integrations** on the sidebar.
+1.  On the **Integrations** screen, choose **Apache Kafka MirrorMaker**.
+1.  Select the **New service** option.
+1.  Choose **New Apache Kafka MirrorMaker service**.
+1.  Click **Create service**.
+1.  In the new browser tab, enter a name for the MirrorMaker 2 service and select a cloud, region,
+    and service plan.
+1.  Click **Create service**.
+1.  Go back to the browser tab for the service integration and
+    select **Existing service**.
+1.  Choose the service you created and click **Continue**.
+1.  Specify a **Cluster alias**. This alias is a name assigned to an
     Apache Kafka cluster within MirrorMaker 2. It helps identify and
     differentiate the source and target clusters used for replication.
     Ensure careful selection, as the cluster alias cannot be modified
     once the integration is created.
-9.  Select **Create and enable** under the summary on the right side of
-    the console.
+1. Click **Enable**.
 
 Accessing the integration link at the top of the screen will take you to
 the Service Overview page for the newly created Apache Kafka

@@ -313,15 +313,6 @@ Retrieves the selected service logs.
 avn service logs pg-demo
 ```
 
-### `avn service m3`
-
-Manages
-[Aiven for M3 namespaces](/docs/products/m3db/concepts/namespaces-aggregation).
-
-More information on `namespace create`, `namespace delete`,
-`namespace list`, `namespace update` can be found in
-[the dedicated page](service/m3).
-
 ### `avn service maintenance-start`
 
 Starts the service maintenance updates.
@@ -611,8 +602,6 @@ grafana            Grafana - Metrics Dashboard
 kafka              Kafka - High-Throughput Distributed Messaging System
 kafka_connect      Kafka Connect - Kafka Connect service
 kafka_mirrormaker  Kafka MirrorMaker - Kafka MirrorMaker service
-m3aggregator       M3 Aggregator - Aggregates metrics and provides downsampling
-m3db               M3DB - Distributed time series database
 mysql              MySQL - Relational Database Management System
 opensearch         OpenSearch - Search & Analyze Data in Real Time, derived from Elasticsearch v7.10.2
 pg                 PostgreSQL - Object-Relational Database Management System

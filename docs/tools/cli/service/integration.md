@@ -156,15 +156,15 @@ An example of `avn service integration-endpoint-types-list` output:
 TITLE                                        ENDPOINT_TYPE                    SERVICE_TYPES
 ===========================================  ===============================  =====================================================================================================================================================================================================================
 Send service metrics to Datadog              datadog                          cassandra, elasticsearch, kafka, kafka_connect, kafka_mirrormaker, mysql, pg, redis
-Send service logs to AWS CloudWatch          external_aws_cloudwatch_logs     alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, m3aggregator, m3coordinator, m3db, mysql, opensearch, pg, redis, sw
+Send service logs to AWS CloudWatch          external_aws_cloudwatch_logs     alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, mysql, opensearch, pg, redis, sw
 Send service metrics to AWS CloudWatch       external_aws_cloudwatch_metrics  cassandra, elasticsearch, kafka, kafka_connect, kafka_mirrormaker, mysql, pg, redis
-Send service logs to external Elasticsearch  external_elasticsearch_logs      alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, m3aggregator, m3coordinator, m3db, mysql, opensearch, pg, redis, sw
-Send service logs to Google Cloud Logging    external_google_cloud_logging    alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, m3aggregator, m3coordinator, m3db, mysql, opensearch, pg, redis, sw
-Integrate external Kafka cluster             external_kafka                   alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, kafka_mirrormaker, m3aggregator, m3coordinator, m3db, mysql, opensearch, pg, redis, sw
+Send service logs to external Elasticsearch  external_elasticsearch_logs      alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, mysql, opensearch, pg, redis, sw
+Send service logs to Google Cloud Logging    external_google_cloud_logging    alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, mysql, opensearch, pg, redis, sw
+Integrate external Kafka cluster             external_kafka                   alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, kafka_mirrormaker, mysql, opensearch, pg, redis, sw
 Integrate external Schema Registry           external_schema_registry         kafka
 Access JMX metrics via Jolokia               jolokia                          kafka, kafka_connect, kafka_mirrormaker
 Send service metrics to Prometheus           prometheus                       cassandra, elasticsearch, kafka, kafka_connect, kafka_mirrormaker, mysql, pg, redis
-Send service logs to remote syslog           rsyslog                          alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, m3aggregator, m3coordinator, m3db, mysql, opensearch, pg, redis, sw
+Send service logs to remote syslog           rsyslog                          alerta, alertmanager, cassandra, clickhouse, elasticsearch, flink, grafana, kafka, kafka_connect, kafka_mirrormaker, mysql, opensearch, pg, redis, sw
 Send service metrics to SignalFX             signalfx                         kafka
 ```
 
@@ -209,7 +209,7 @@ SERVICE_INTEGRATION_ID                SOURCE        DEST        INTEGRATION_TYPE
 (integration not enabled)             demo-grafana  demo-pg     datasource        false    false   Provide a datasource for Grafana service (without dashboard)
 (integration not enabled)             demo-kafka    demo-pg     metrics           false    false   Receive service metrics from service
 8e752fa9-a0c1-4332-892b-f1757390d53f  demo-pg       demo-kafka  kafka_logs        true     true    Send logs to Kafka
-(integration not enabled)             demo-pg       demo-pg     metrics           false    false   Send service metrics to M3 or PostgreSQL service
+(integration not enabled)             demo-pg       demo-pg     metrics           false    false   Send service metrics to Aiven for Metrics or PostgreSQL service
 ```
 
 ### `avn service integration-types-list` {#avn_service_integration_types}
@@ -228,7 +228,6 @@ An example of `account service integration-types-list` output:
 ```text
 INTEGRATION_TYPE                 DEST_DESCRIPTION                                                      DEST_SERVICE_TYPE                SOURCE_DESCRIPTION                                          SOURCE_SERVICE_TYPES
 ===============================  ====================================================================  ===============================  ==========================================================  ==================================================================================================================================================================================================
-alertmanager                     Runs alert rules against time series databases and sends to Opsgenie  alertmanager                     Provide a datasource for Alertmanager service               m3coordinator
 datadog                          Receive service metrics from service                                  datadog                          Send service metrics to Datadog endpoint                    cassandra, elasticsearch, kafka, kafka_connect, kafka_mirrormaker, mysql, pg, redis
 datasource                       Provide a datasource for Grafana service (without dashboard)          elasticsearch                    Grafana datasource                                          grafana
 datasource                       Provide a datasource for Kafka Connect service                        alerta                           Kafka Connect datasource                                    kafka, kafka_connect

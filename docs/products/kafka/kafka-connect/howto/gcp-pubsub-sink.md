@@ -30,7 +30,7 @@ target Google Pub/Sub upfront:
 
 -   `GCP_SERVICE_KEY`: A valid GCP service account key for the
     `GCP_PROJECT_NAME`. To create the project key review the
-    [dedicated document](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-google-account)
+    [dedicated document](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#configure-google-cloud)
 
     :::warning
     The GCP Pub/Sub sink connector accepts the `GCP_SERVICE_KEY` JSON

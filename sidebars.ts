@@ -21,13 +21,9 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'get-started',
-        'platform/concepts/free-plan',
-        'platform/concepts/free-trial',
-        'marketplace-setup',
         'tools/aiven-console',
-        'platform/concepts/service-and-feature-releases',
-        'platform/howto/feature-preview',
         'platform/howto/support',
+        'platform/reference/referrals',
       ],
     },
     {
@@ -74,6 +70,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/concepts/billing-and-payment',
           },
           items: [
+            'platform/concepts/service-pricing',
             'platform/concepts/tax-information',
             {
               type: 'category',
@@ -81,6 +78,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'platform/howto/manage-payment-card',
                 'platform/howto/manage-bank-transfers',
+                'marketplace-setup',
                 'platform/howto/list-marketplace-payments',
               ],
             },
@@ -186,7 +184,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'platform/concepts/service_backups',
-                'platform/concepts/service-resources',
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
@@ -329,6 +326,8 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/disaster-recovery-test-scenarios',
           ],
         },
+        'platform/concepts/service-and-feature-releases',
+        'platform/howto/feature-preview',
         'platform/reference/eol-for-major-versions',
         'platform/reference/end-of-life',
         'platform/reference/get-resource-IDs',
@@ -369,6 +368,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/store-data',
             'platform/howto/byoc/rename-custom-cloud',
             'platform/howto/byoc/download-infrastructure-template',
             'platform/howto/byoc/delete-custom-cloud',
@@ -501,7 +501,6 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/flink',
                 'tools/cli/service/integration',
                 'tools/cli/service/kafka-acl',
-                'tools/cli/service/m3',
                 'tools/cli/service/privatelink',
                 'tools/cli/service/schema-registry-acl',
                 'tools/cli/service/service-index',
@@ -656,7 +655,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/flink/get-started',
-            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -810,7 +808,14 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/howto/connect-with-python',
-                    'products/kafka/howto/connect-with-java',
+                    {
+                      type: 'category',
+                      label: 'Connect with Java',
+                      items: [
+                        'products/kafka/howto/connect-with-java-quick-connect',
+                        'products/kafka/howto/connect-with-java-classic-quick-connect',
+                      ],
+                    },
                     'products/kafka/howto/connect-with-go',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-nodejs',
@@ -884,6 +889,19 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/create-topics-automatically',
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
+                    {
+                      type: 'category',
+                      label: 'Generate Java classes from schemas',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/generate-java-classes-from-schemas',
+                      },
+                      items: [
+                        'products/kafka/howto/generate-avro-java-classes',
+                        'products/kafka/howto/generate-protobuf-java-classes',
+                        'products/kafka/howto/generate-json-java-classes',
+                      ],
+                    },
                     'products/kafka/howto/change-retention-period',
                     {
                       type: 'category',
@@ -1033,7 +1051,6 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
                         'products/kafka/kafka-connect/howto/couchbase-sink',
                         'products/kafka/kafka-connect/howto/elasticsearch-sink',
-                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq',
                         'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
@@ -1301,7 +1318,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/clickhouse/get-started',
-            'products/clickhouse/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1467,7 +1483,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/grafana/get-started',
-            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
@@ -1506,57 +1521,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Aiven for M3DB',
-          link: {
-            type: 'doc',
-            id: 'products/m3db',
-          },
-          items: [
-            'products/m3db/get-started',
-            {
-              type: 'category',
-              label: 'Concepts',
-              items: [
-                'products/m3db/concepts/m3-components',
-                'products/m3db/concepts/namespaces-aggregation',
-                'products/m3db/concepts/scaling-m3',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              link: {
-                type: 'doc',
-                id: 'products/m3db/howto',
-              },
-              items: [
-                'products/m3db/howto/grafana',
-                'products/m3db/howto/monitoring',
-                'products/m3db/howto/prometheus-storage',
-                'products/m3db/howto/telegraf',
-                'products/m3db/howto/telegraf_local_example',
-                'products/m3db/howto/write-go',
-                'products/m3db/howto/write-php',
-                'products/m3db/howto/write-python',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              link: {
-                type: 'doc',
-                id: 'products/m3db/reference',
-              },
-              items: [
-                'products/m3db/reference/terminology',
-                'products/m3db/reference/advanced-params',
-                'products/m3db/reference/advanced-params-m3aggregator',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
           label: 'Aiven for Metrics',
           link: {
             type: 'doc',
@@ -1567,7 +1531,6 @@ const sidebars: SidebarsConfig = {
             'products/metrics/concepts/retention-rules',
             'products/metrics/concepts/storage-resource-scaling',
             'products/metrics/howto/storage-usage',
-            'products/metrics/howto/migrate-m3db-thanos',
           ],
         },
         {
@@ -1670,7 +1633,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
-            'products/opensearch/reference/plans-pricing',
             'products/opensearch/howto/sample-dataset',
             {
               type: 'category',
@@ -1736,6 +1698,19 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                     {
                       type: 'category',
+                      label: 'Manage custom repositories',
+                      link: {
+                        id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/opensearch/howto/custom-repositories',
+                        'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
+                        'products/opensearch/howto/snapshot-credentials',
+                      ],
+                    },
+                    {
+                      type: 'category',
                       label: 'Migrate external snapshots',
                       link: {
                         type: 'doc',
@@ -1746,8 +1721,6 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
                     },
-                    'products/opensearch/howto/custom-repositories',
-                    'products/opensearch/howto/snapshot-credentials',
                     'products/opensearch/howto/manage-snapshots',
                   ],
                 },
@@ -1783,6 +1756,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Manage service',
                   items: [
+                    'products/opensearch/howto/os-version-upgrade',
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
                     'products/opensearch/howto/custom-dictionary-files',

@@ -394,6 +394,20 @@ import Link from '@docusaurus/Link'
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="kafka_log_message_timestamp_before_max_ms"/><Link to="#kafka_log_message_timestamp_before_max_ms"><strong>kafka.log_message_timestamp_before_max_ms</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>9223372036854776000</code></li></ul></div>
+              <p className="title">log.message.timestamp.before.max.ms</p>
+              <div className="description"><p>The maximum difference allowed between the timestamp when a broker receives a message and the timestamp specified in the message. If message.timestamp.type&#x3D;CreateTime, a message will be rejected if the difference in timestamp exceeds this threshold. Applies only for messages with timestamps earlier than the broker's timestamp. (Default: 9223372036854775807 (Long.MAX_VALUE))</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="kafka_log_message_timestamp_after_max_ms"/><Link to="#kafka_log_message_timestamp_after_max_ms"><strong>kafka.log_message_timestamp_after_max_ms</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>9223372036854776000</code></li></ul></div>
+              <p className="title">log.message.timestamp.after.max.ms</p>
+              <div className="description"><p>The maximum difference allowed between the timestamp when a broker receives a message and the timestamp specified in the message. If message.timestamp.type&#x3D;CreateTime, a message will be rejected if the difference in timestamp exceeds this threshold. Applies only for messages with timestamps later than the broker's timestamp. (Default: 9223372036854775807 (Long.MAX_VALUE))</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="kafka_log_preallocate"/><Link to="#kafka_log_preallocate"><strong>kafka.log_preallocate</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">log.preallocate</p>
               <div className="description"><p>Should pre allocate file when create new segment? (Default: false)</p></div>
@@ -791,6 +805,24 @@ import Link from '@docusaurus/Link'
         <div className="description"><p>Configure external secret providers in order to reference external secrets in connector configuration. Currently Hashicorp Vault (provider: vault, auth_method: token) and AWS Secrets Manager (provider: aws, auth_method: credentials) are supported. Secrets can be referenced in connector config with $\{&lt;provider_name&gt;:&lt;secret_path&gt;:&lt;key_name&gt;\}</p></div>
         <table className="service-param-children">
           <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="kafka_diskless"/><Link to="#kafka_diskless"><strong>kafka_diskless</strong></Link></p><p><code className="type">object</code></p></div>
+        <p className="title">Kafka Diskless configuration values</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="kafka_diskless_enabled"/><Link to="#kafka_diskless_enabled"><strong>kafka_diskless.enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enabled</p>
+              <div className="description"><p>Whether to enable the Diskless functionality</p></div>
+            </td>
+          </tr>
           </tbody>
         </table>
       </td>
