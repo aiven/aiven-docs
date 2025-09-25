@@ -4,6 +4,7 @@
 
 | Extension name | Default version |
 |----------------|-----------------|
+| aiven_extras | 1.1.18 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -22,7 +23,10 @@
 | lo | 1.2 |
 | ltree | 1.3 |
 | pg_buffercache | 1.6 |
+| pg_cron | 1.6 |
+| pg_partman | 5.2.4 |
 | pg_prewarm | 1.2 |
+| pg_repack | 1.5.2 |
 | pg_stat_statements | 1.12 |
 | pg_trgm | 1.6 |
 | pgcrypto | 1.4 |
@@ -40,6 +44,7 @@
 | unaccent | 1.1 |
 | unit | 7 |
 | uuid-ossp | 1.1 |
+| vector | 0.8.1 |
 
 ## PostgreSQL 17 extensions
 
@@ -47,7 +52,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.5.0 |
 | address_standardizer_data_us | 3.5.0 |
-| aiven_extras | 1.1.17 |
+| aiven_extras | 1.1.18 |
 | anon | 2.2.1 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
@@ -102,7 +107,7 @@
 | unaccent | 1.1 |
 | unit | 7 |
 | uuid-ossp | 1.1 |
-| vector | 0.7.4 |
+| vector | 0.8.1 |
 | vectorscale | 0.6.0 |
 
 ## PostgreSQL 16 extensions
@@ -111,7 +116,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.5.0 |
 | address_standardizer_data_us | 3.5.0 |
-| aiven_extras | 1.1.17 |
+| aiven_extras | 1.1.18 |
 | anon | 2.2.1 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
@@ -166,7 +171,7 @@
 | unaccent | 1.1 |
 | unit | 7 |
 | uuid-ossp | 1.1 |
-| vector | 0.7.4 |
+| vector | 0.8.1 |
 | vectorscale | 0.6.0 |
 
 ## PostgreSQL 15 extensions
@@ -175,7 +180,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.17 |
+| aiven_extras | 1.1.18 |
 | anon | 2.2.1 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
@@ -231,7 +236,7 @@
 | unaccent | 1.1 |
 | unit | 7 |
 | uuid-ossp | 1.1 |
-| vector | 0.7.4 |
+| vector | 0.8.1 |
 
 ## PostgreSQL 14 extensions
 
@@ -239,7 +244,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.17 |
+| aiven_extras | 1.1.18 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -294,7 +299,7 @@
 | unaccent | 1.1 |
 | unit | 7 |
 | uuid-ossp | 1.1 |
-| vector | 0.7.4 |
+| vector | 0.8.1 |
 
 ## PostgreSQL 13 extensions
 
@@ -302,7 +307,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.17 |
+| aiven_extras | 1.1.18 |
 | bloom | 1.0 |
 | bool_plperl | 1.0 |
 | btree_gin | 1.3 |
@@ -355,7 +360,7 @@
 | unaccent | 1.1 |
 | unit | 7 |
 | uuid-ossp | 1.1 |
-| vector | 0.7.4 |
+| vector | 0.8.1 |
 
 ## PostgreSQL 12 extensions
 
@@ -363,7 +368,7 @@
 |----------------|-----------------|
 | address_standardizer | 3.3.5 |
 | address_standardizer_data_us | 3.3.5 |
-| aiven_extras | 1.1.17 |
+| aiven_extras | 1.1.18 |
 | bloom | 1.0 |
 | btree_gin | 1.3 |
 | btree_gist | 1.5 |
