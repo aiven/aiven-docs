@@ -202,8 +202,9 @@ Mezmo
 MirrorMaker
 MongoDB
 multicast
+mydumper
 myhoard
-myhoard
+myloader
 MySQL
 mysqldump
 mysqlsh
