@@ -74,5 +74,5 @@ fully available when a node or a whole AZ is lost.
 -   [Create and use read-only replicas](/docs/products/postgresql/howto/create-read-replica)
 -   [Migrate service to another cloud or region](/docs/platform/howto/migrate-services-cloud-region)
 -   [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
--   [OpenSearch backups](/docs/products/opensearch/concepts/backups)
+-   [OpenSearch backups](/docs/platform/concepts/service_backups#aiven-for-opensearch)
 -   [MySQL backups](/docs/products/mysql/concepts/mysql-backups)

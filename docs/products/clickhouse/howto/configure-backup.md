@@ -5,6 +5,7 @@ sidebar_label: Configure backups
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -35,16 +36,9 @@ A backup process can only start when the previous backup process completes.
 
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
-1. Log in to the [Aiven Console](https://console.aiven.io) and go to your project.
-1. Click <ConsoleLabel name="services"/> in the sidebar, and go to your Aiven for
-   ClickHouse service.
-1. On the service page, click <ConsoleLabel name="backups"/> in the sidebar.
-1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
-   **Configure backup settings**.
-1. In the **Configure backup settings** window:
-   1. Click **Add configuration options**.
-   1. Add options `backup_hour` and `backup_minute`, and set theirs values.
-   1. Click **Save configuration**.
+
+<EditBackUpSchedule/>
+
 </TabItem>
 <TabItem value="api" label="Aiven API">
 Call the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)

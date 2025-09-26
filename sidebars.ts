@@ -1650,7 +1650,6 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/concepts/opensearch-security-considerations',
                   ],
                 },
-                'products/opensearch/concepts/backups',
                 {
                   type: 'category',
                   label: 'Indices',

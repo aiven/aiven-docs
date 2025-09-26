@@ -58,4 +58,4 @@ elasticdump \
 
 Aiven for OpenSearch databases are automatically backed up, so you can
 check more information about how the
-[Backup process works](/docs/products/opensearch/concepts/backups).
+[Backup process works](/docs/platform/concepts/service_backups#aiven-for-opensearch).
