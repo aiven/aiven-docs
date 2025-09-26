@@ -22,7 +22,7 @@ When you make a request to your Aiven for OpenSearch service:
    key you configure.
 1. **User is identified**: Aiven for OpenSearch extracts the username from the token's
    subject claim.
-1. **Role is assignment**: If configured, user roles are extracted from the token or
+1. **Role is assigned**: If configured, user roles are extracted from the token or
    managed separately in Aiven for OpenSearch.
 1. **Access is granted**: Valid tokens provide seamless access to your Aiven for OpenSearch
    service.
@@ -100,7 +100,7 @@ avn service update SERVICE_NAME \
   -c jwt.jwt_url_parameter=JWT_URL_PARAMETER
 ```
 
-Replace the following placeholders with meaningful data:
+Replace the following placeholders with your data:
 
 - `SERVICE_NAME` with the name of your Aiven for OpenSearch service, for example, `os2-jwt`
 - `SIGNING_KEY` with your base64-encoded signing key (PEM-formatted RSA/ECDSA public key or
