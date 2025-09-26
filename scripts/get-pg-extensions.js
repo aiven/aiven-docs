@@ -71,12 +71,17 @@ async function generateMarkdown() {
       return;
     }
 
-    // Sort PostgreSQL versions in decreasing order
-    json.pg.sort((a, b) => parseFloat(b.version) - parseFloat(a.version));
+    // Filter out PostgreSQL 12 and sort remaining versions in decreasing order
+    const filteredVersions = json.pg.filter(
+      (pgVersion) => pgVersion.version !== '12',
+    );
+    filteredVersions.sort(
+      (a, b) => parseFloat(b.version) - parseFloat(a.version),
+    );
 
     let markdownContent = '<!-- vale off -->\n\n';
 
-    json.pg.forEach((pgVersion) => {
+    filteredVersions.forEach((pgVersion) => {
       markdownContent += generateMarkdownTableForVersion(pgVersion);
       markdownContent += '\n'; // Add spacing between tables
     });
