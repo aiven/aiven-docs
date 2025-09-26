@@ -232,10 +232,12 @@
 /tools/cli/account                                         /docs/tools/cli
 /tools/cli/account.html                                    /docs/tools/cli
 /tools/cli/account/account-team                            /docs/tools/aiven-console/howto/create-manage-teams
+/tools/cli/billing-group                                   /docs/platform/concepts/billing-and-payment
 /tools/cli/project                                         /docs/tools/cli
 /tools/cli/service                                         /docs/tools/cli/service-cli
 /tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics
 /tools/cli/ticket                                          /docs/platform/howto/support
+/tools/cli/user/user-access-token                          /docs/tools/cli/user
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform
 /tools/terraform/get-started                               /docs/tools/terraform
 /tools/terraform/howto/terraform-logging                   /docs/tools/terraform

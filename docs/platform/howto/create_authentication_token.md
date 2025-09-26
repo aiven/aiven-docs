@@ -27,6 +27,6 @@ Create personal token in the Aiven Console to use with the Aiven CLI or API.
 
 <RelatedPages/>
 
-- [Create a token using the Aiven CLI](/docs/tools/cli/user/user-access-token)
 - Use [authentication policies](/docs/platform/howto/set-authentication-policies)
   to control how organization users use personal tokens
+- [Create a token using the Aiven CLI](/docs/tools/cli/user)

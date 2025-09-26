@@ -43,7 +43,7 @@ API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Op
     avn user login <you@example.com> --token
     ```
 
-    See also [avn user access-token](/docs/tools/cli/user/user-access-token).
+    See also [avn user](/docs/tools/cli/user).
 
 1.  Collect the following information for the creation of the endpoint
     between your Aiven account and AWS CloudWatch. These are the

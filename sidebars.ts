@@ -477,7 +477,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/cli/billing-group',
             'tools/cli/byoc',
             'tools/cli/cloud',
             'tools/cli/credits',
@@ -509,15 +508,7 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/user',
               ],
             },
-            {
-              type: 'category',
-              label: 'avn user',
-              link: {
-                id: 'tools/cli/user',
-                type: 'doc',
-              },
-              items: ['tools/cli/user/user-access-token'],
-            },
+            'tools/cli/user',
             'tools/cli/vpc',
           ],
         },
