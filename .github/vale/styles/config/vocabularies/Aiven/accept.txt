@@ -23,6 +23,7 @@ Astacus
 australia
 Auth0
 autojoin
+autoscale
 autoscaler
 autoscaling
 autovacuum
@@ -54,6 +55,7 @@ config
 Config
 Confluent
 connect
+Cooldown
 Coralogix
 Couchbase
 CPU/MS
