@@ -117,7 +117,7 @@ Configure user settings, for example, to restrict resource use per user. This ca
     SHOW SETTINGS LIKE 'max_threads';
     ```
 
-    This should display the `max_threads` setting with a value of `1` for the `limited_user`.
+    This displays the `max_threads` setting with a value of `1` for the `limited_user`.
 
 #### Set per-query resource limits
 
