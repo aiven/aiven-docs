@@ -223,11 +223,9 @@ avn service integration-delete --project PROJECT_NAME INTEGRATION_ID
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Remove the autoscaler integration resource from your Terraform configuration and run:
-
-```bash
-terraform apply
-```
+1. Open your Terraform configuration.
+1. Remove the `aiven_service_integration` resource for the autoscaler.
+1. Apply the changes.
 
 </TabItem>
 <TabItem value="api" label="API">
