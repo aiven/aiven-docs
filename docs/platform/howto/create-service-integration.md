@@ -12,7 +12,7 @@ Create [service integrations](/docs/platform/concepts/service-integration) betwe
 
 :::tip
 For help with setting up a service integration or to request an integration type or
-endpoint not yet available, contact the [support team](mailto:support@aiven.io)
+endpoint not yet available, contact the [support team](mailto:support@aiven.io).
 :::
 
 The following example shows you how to create and integrate these services:
@@ -44,6 +44,10 @@ The following example shows you how to create and integrate these services:
 1.  In the Aiven Console,
     [create the 3 services](create_new_service): Aiven for Apache Kafka®, Aiven for
     PostgreSQL®, and Aiven for Grafana®.
+
+    :::note
+    Integrations are not available on Hobbyist plans.
+    :::
 
 1.  On the **Services** page, open the PostgreSQL service.
 
