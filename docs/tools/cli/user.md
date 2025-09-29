@@ -77,7 +77,7 @@ Creates a token for the logged in user.
 | Parameter            | Information                                                                                 |
 | -------------------- | ------------------------------------------------------------------------------------------- |
 | `--description`      | Description of how the token will be used                                                   |
-| `--max-age-seconds`  | Maximum age of the token in seconds, if any, after which it will expire(30 days by default) |
+| `--max-age-seconds`  | Maximum age of the token in seconds, if any, after which it will expire (30 days by default) |
 | `--extend-when-used` | Extend token's expiry time when used (only applicable if token is set to expire)            |
 
 **Example:** Create a token.
