@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 
 Create Aiven for ClickHouse® users and roles and grant them specific privileges to efficiently control or restrict access to your service.
 
-## Add a user
+## Manage users
+
+### Add a user
 
 To create a user account for your service:
 
@@ -69,6 +71,48 @@ Users' password digests are stored securely in ZooKeeper. Only super admin can a
 them. For users created in the console, their passwords are also salted with a random
 value. The password digests and salts are stored in backup files so they can be
 recovered.
+
+### Set user resource limits
+
+User resource limits help you:
+
+- Prevent single users from monopolizing CPU threads and starving other users.
+- Ensures fair distribution of system resources among all active users.
+- Maintains system stability by preventing service overload.
+
+1. Create a user named `limited_user`.
+
+    ```sql
+    CREATE USER limited_user IDENTIFIED WITH SHA256_PASSWORD BY 'PASSWORD';
+    ```
+
+1. Set resource limit `max_threads = 1` for this user.
+
+    ```sql
+    ALTER USER limited_user SETTINGS max_threads = 1;
+    ```
+
+1. Grant read-only access to all databases and tables to `limited_user`.
+
+    ```sql
+    GRANT SELECT ON *.* TO limited_user;
+    ```
+
+1. Log in as `limited_user` to test the configuration.
+
+    ```bash
+    clickhouse-client --host YOUR_HOST --port YOUR_PORT --user limited_user --password PASSWORD --secure
+    ```
+
+    Replace `YOUR_HOST`, `YOUR_PORT`, and `PASSWORD` with your actual service connection details.
+
+1. Verify the resource limit setting.
+
+    ```sql
+    SHOW SETTINGS LIKE 'max_threads';
+    ```
+
+    This should display the `max_threads` setting with a value of `1` for the `limited_user`.
 
 ## Manage roles and privileges
 
