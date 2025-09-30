@@ -27,6 +27,7 @@ start with a low number that supports efficient processing and increase as neede
 
 A maximum of 4,000 partitions per broker and 200,000 per cluster is recommended. For more
 details, see this [Apache Kafka blog post](https://blogsarchive.apache.org/kafka/entry/apache-kafka-supports-more-partitions).
+In addition, the total number of topics per cluster should remain under 7,000.
 
 :::note
 Ordering is only guaranteed within a partition. To maintain the order of related records,
