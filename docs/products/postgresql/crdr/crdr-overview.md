@@ -6,7 +6,7 @@ keywords: [recovery, primary, outage, failure, failover]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import RelatedPages from "@site/src/components/non-swizzled/RelatedPages";
+import RelatedPages from "@site/src/components/RelatedPages";
 import readyForCrdr from "@site/static/images/content/figma/ready-for-crdr.png";
 import crdrSetup from "@site/static/images/content/figma/crdr-setup.png";
 import crdrFailover from "@site/static/images/content/figma/crdr-failover.png";
