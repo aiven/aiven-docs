@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot connection pooling problems
-sidebar_label: Connection pooling issues
+title: Troubleshoot connection pooling issues in Aiven for PostgreSQL®
+sidebar_label: Pooling issues
 ---
 
 Discover the PgBouncer connection pooler and learn how to cope with some specific connection pooling issues.
