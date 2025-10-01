@@ -195,6 +195,7 @@
 /products/mysql/reference                                  /docs/products/mysql/reference/advanced-params
 /products/mysql/reference/list-of-advanced-params          /docs/products/mysql/reference/advanced-params
 /products/opensearch/concepts                              /docs/products/opensearch/concepts/access_control
+/products/opensearch/concepts/backups                      /docs/platform/concepts/service_backups
 /products/opensearch/concepts/service-overview             /docs/products/opensearch
 /products/opensearch/concepts/users-access-controls        /docs/products/opensearch/howto/control_access_to_content
 /products/opensearch/dashboards/howto                      /docs/products/opensearch/dashboards/howto/dev-tools-usage-example
