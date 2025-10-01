@@ -3,6 +3,8 @@ title: Aiven for PostgreSQL® connection pooling with PgBouncer
 sidebar_label: Connection pooling
 ---
 
+import PasswordEncryptionIssues from "@site/static/includes/pg-password-encryption-issues.md";
+
 Connection pooling in Aiven for PostgreSQL® services allows you to maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 
 ## About connection pooling
@@ -207,3 +209,5 @@ expected.
     statements, etc.). Transactions containing multiple SQL statements
     are not allowed in this mode. This mode is sometimes used, for
     example when running specialised sharding frontend proxies.
+
+<PasswordEncryptionIssues/>
