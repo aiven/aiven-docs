@@ -1,5 +1,6 @@
 ---
 title: Apache Kafka® REST API
+sidebar_label: Kafka REST API
 ---
 
 [Karapace](https://github.com/aiven/karapace) provides a RESTful interface to your Apache Kafka® cluster, allowing you to produce and consume messages and perform administrative cluster work.

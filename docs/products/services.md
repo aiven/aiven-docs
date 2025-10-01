@@ -29,12 +29,6 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
     description="Build your streaming data pipelines."
   />
   <Card
-    to="/docs/products/diskless"
-    iconComponent={Kafka}
-    title="Diskless Topics BYOC"
-    description="Kafka-compatible service using cloud object storage."
-  />
-  <Card
     to="/docs/products/flink"
     iconComponent={Flink}
     title="Aiven for Apache Flink®"

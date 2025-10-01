@@ -1,6 +1,7 @@
 ---
 title: Create a diskless topic
 limited: true
+sidebar_label: Create a diskless topic
 ---
 
 import Tabs from '@theme/Tabs';
