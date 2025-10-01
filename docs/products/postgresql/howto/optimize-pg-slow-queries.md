@@ -24,7 +24,7 @@ due to the overhead of maintaining them.
 When your application code scales horizontally to accommodate high
 loads, you might find that you inadvertently reach the
 [connection limits](/docs/products/postgresql/reference/pg-connection-limits) for your
-plan. Each connection in PostgreSQL runs in a
+service. Each connection in PostgreSQL runs in a
 separate process, and this makes them more expensive (compared to
 threads, for example) in terms of inter-process communication and memory
 usage, since each connection consumes a certain amount of RAM.
@@ -38,12 +38,10 @@ Console](https://console.aiven.io/).
 
 ## Move read-only queries to standby nodes
 
-If your Aiven for PostgreSQL® service is running a Business or
-Premium plan, you have one or more standby nodes available in a high
-availability setup in the same cloud region.
-
-To reduce the effect of slow queries on the primary node, you can
-redirect read-only queries to the additional
+If your Aiven for PostgreSQL® service has
+[standby nodes](docs/products/postgresql/concepts/high-availability.md), you can
+reduce the effect of slow queries on the primary node by
+redirecting read-only queries to the additional
 [read-only](/docs/products/postgresql/howto/create-read-replica) nodes by
 directly connecting via the **read-only replica URL**.
 

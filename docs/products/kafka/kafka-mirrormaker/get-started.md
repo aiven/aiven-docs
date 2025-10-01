@@ -24,8 +24,8 @@ Create an Aiven for Apache Kafka MirrorMaker 2 dedicated service:
 1.  Select the **New service** option.
 1.  Choose **New Apache Kafka MirrorMaker service**.
 1.  Click **Create service**.
-1.  In the new browser tab, enter a name for the MirrorMaker 2 service and select a cloud, region,
-    and service plan.
+1.  In the new browser tab, enter a name for the MirrorMaker 2 service and
+    configure the service.
 1.  Click **Create service**.
 1.  Go back to the browser tab for the service integration and
     select **Existing service**.

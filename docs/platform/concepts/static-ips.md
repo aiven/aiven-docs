@@ -68,12 +68,12 @@ Each static IP address will incur a small charge.
 Work out how many IP addresses your service will need to guarantee that
 the service has enough static IP addresses available to handle upgrades
 and failures. The table below shows how to calculate the number of IP
-addresses needed, depending on the size of your service plan.
+addresses needed, depending on the number of nodes your service has.
 
-| Plan size     | IP addresses needed        | Example                                                    |
-| ------------- | -------------------------- | ---------------------------------------------------------- |
-| up to 6 nodes | double the number of nodes | 3 node plan needs 6 static IP addresses (2 * 3 nodes)      |
-| 6+ nodes      | number of nodes + 6        | 9 node plan needs 15 static IP addresses (9 nodes, plus 6) |
+| Number of nodes |    IP addresses needed     |                               Example                               |
+| --------------- | -------------------------- | ------------------------------------------------------------------- |
+| up to 6 nodes   | double the number of nodes | Service with 3 nodes needs 6 static IP addresses (2 * 3)      |
+| 6+ nodes        | number of nodes + 6        | Service with 9 nodes needs 15 static IP addresses (9 + 6) |
 
 ## Reserve static IP addresses
 

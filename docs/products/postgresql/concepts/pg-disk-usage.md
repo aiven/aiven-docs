@@ -11,8 +11,8 @@ This is completely normal within the first 24 hours of operation for
 Aiven for PostgreSQL services because of our WAL (Write-Ahead Logging)
 archiving settings.
 
-To prevent loss of data due to node failure on Hobbyist and Startup
-plans, we set the `archive_timeout` configuration to write WAL segments
+To prevent loss of data due to node failure on services with only one node,
+we set the `archive_timeout` configuration to write WAL segments
 to disk at regular intervals. The WAL segments are then backed up to
 cloud storage. Even if your service is idle, each WAL segment occupies
 the same amount of space on disk, which is why the disk usage grows

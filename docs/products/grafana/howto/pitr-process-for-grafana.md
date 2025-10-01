@@ -26,8 +26,7 @@ will be created to host the restored data. To perform PITR for Aiven for Grafana
         select the correct PITR backup from the dropdown list.
         :::
 
-    -   Choose your cloud provider, preferred cloud region, and the
-        service plan accordingly.
+    -   Choose a cloud provider, region, and configuration for the service.
 
     ![popup for setting specifics of the service restore.](/images/content/products/grafana/grafana-pitr-new-db-fork-popup.png)
 

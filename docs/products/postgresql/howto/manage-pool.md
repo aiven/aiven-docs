@@ -59,7 +59,7 @@ To manage the connection pools:
     Each pool can handle from a minimum of 5000 client connections to a
     maximum defined by the lower threshold between:
 
-    -   500 for each GB of RAM in the service plan
+    -   500 for each GB of RAM in the service
     -   A total of 50000 client connections
     :::
 
@@ -68,7 +68,7 @@ To manage the connection pools:
 
 ## Connection pools for replicas
 
-For all Business and Premium plans, whenever you define a connection
+For services with multiple nodes, whenever you define a connection
 pool, the same connection pool is created both for primary and standby
 servers. For standby servers, the connection pool URI is exactly the
 same as for the primary server, except that the host name has a
