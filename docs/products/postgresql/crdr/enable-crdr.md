@@ -2,7 +2,6 @@
 title: Set up cross-region disaster recovery in Aiven for PostgreSQL®
 sidebar_label: CRDR setup
 limited: true
-keywords: [recovery, primary, outage, failure, failover]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -20,7 +19,7 @@ Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crd
 
   :::tip
   If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
-  [upgrade your free plan](/docs/platform/concepts/free-plan#upgrading-and-downgrading) or
+  [upgrade your free plan](/docs/platform/concepts/service-pricing#free-plans) or
   [change your Hobbyist plan](/docs/platform/howto/scale-services) to at least a Startup
   plan.
   :::
