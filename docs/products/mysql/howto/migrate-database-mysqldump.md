@@ -1,6 +1,9 @@
 ---
 title: Backup and restore Aiven for MySQL® data using mysqldump
+sidebar_label: Backup and restore
 ---
+
+import MysqlMigrationFreeze from "@site/static/includes/mysql-migration-freeze.md";
 
 Backing up your Aiven for MySQ® data to another storage service is a good way to ensure access to your data in case a failure occurs.
 Learn how to copy your Aiven for MySQL data to a file, back it up to another Aiven
@@ -13,21 +16,17 @@ for MySQL database, and restore it using [`mysqldump`](https://dev.mysql.com/doc
     installed. See the [official
     MySQL](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html)
     documentation on how to install it.
--   A source MySQL database to copy your data from. We will refer to it
-    as `source-db`.
--   A target MySQL database to dump your `source-db` data to. We will
-    refer to it as `target-db`.
+-   A source MySQL® database to copy your data from, referred to as `source-db`.
 
-:::tip
-For the restore process, we recommend you pick a plan size that is large
-enough to store your data, so you can limit the downtime if you're
-performing a migration.
-:::
+    You can use Aiven for MySQL databases for both the `source-db` and `target-db`.
+    [Create additional Aiven for MySQL® databases](/docs/products/mysql/howto/create-database)
+    as/if needed.
 
-The below example uses Aiven for MySQL databases for both the
-`source-db` and `target-db`. You can create the databases by following
-the instruction in
-[Create additional Aiven for MySQL® databases](/docs/products/mysql/howto/create-database).
+-   A target MySQL database to dump your `source-db` data to, referred to as `target-db`.
+-   Recommended: Pick a plan size that is large enough to store your data, so you can
+    limit the downtime if you're performing a migration.
+
+<MysqlMigrationFreeze/>
 
 ## Back up the data
 

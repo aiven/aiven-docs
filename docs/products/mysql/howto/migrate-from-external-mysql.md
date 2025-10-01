@@ -1,10 +1,12 @@
 ---
-title: Migrate to Aiven for MySQL from an external MySQL
+title: Migrate to Aiven for MySQL® via Aiven CLI
+sidebar_label: Migrate to Aiven via CLI
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import MysqlMigrationFreeze from "@site/static/includes/mysql-migration-freeze.md";
 
-Aiven for MySQL offers a managed process for migrating from an external MySQL into the Aiven-hosted database. It supports both a one-off dump-and-restore process and using the ongoing replication functionality built-in to MySQL.
+Aiven for MySQL® offers a managed process for migrating from an external MySQL into the Aiven-hosted database. It supports both a one-off dump-and-restore process and using the ongoing replication functionality built-in to MySQL.
 
 :::note
 To use the Aiven Console to migrate your database, see
@@ -56,6 +58,8 @@ You can use the following variables in the code samples provided:
  | `DEST_PLAN`      | Aiven plan for the destination Aiven for MySQL service  (for example, `startup-4`, `business-32`, etc) |
 
 ## Perform the migration
+
+<MysqlMigrationFreeze/>
 
 1.  Create a user in the source database with sufficient privileges for
     the pre-flight checks, the `mysqldump`, and the ongoing replication
