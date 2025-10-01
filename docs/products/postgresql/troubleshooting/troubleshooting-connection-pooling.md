@@ -3,7 +3,7 @@ title: Troubleshoot connection pooling issues in Aiven for PostgreSQL®
 sidebar_label: Pooling issues
 ---
 
-import PasswordEncryptionIssues from "@site/static/includes/run-in-postman.md";
+import PasswordEncryptionIssues from "@site/static/includes/pg-password-encryption-issues.md";
 
 Discover the PgBouncer connection pooler and learn how to cope with some specific connection pooling issues.
 
