@@ -181,6 +181,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="node_count"/><Link to="#node_count"><strong>node_count</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>100</code></li></ul></div>
+        <p className="title">Number of nodes for the service</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="pgaudit"/><Link to="#pgaudit"><strong>pgaudit</strong></Link></p><p><code className="type">object</code></p></div>
         <p className="title">PGAudit settings</p>
         <div className="description"><p>System-wide settings for the pgaudit extension.</p></div>
