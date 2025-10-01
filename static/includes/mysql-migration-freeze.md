@@ -1,6 +1,7 @@
 :::warning
 
-To avoid conflicts and replication issues, follow these guidelines during migration:
+To avoid conflicts and replication issues, follow these guidelines while
+your data is being migrated:
 
 -   Do not write to any tables in the target database that are being
     processed by the migration tool.
