@@ -1,5 +1,6 @@
 ---
-title: Access PgBouncer statistics
+title: Access PgBouncer statistics for Aiven for PostgreSQL®
+sidebar_label: PgBouncer statistics
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
