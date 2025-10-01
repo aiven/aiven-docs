@@ -44,9 +44,10 @@ use Diskless Topics in BYOC.
 
 ## Key considerations and limitations
 
-- **Service compatibility**: Autoscaling is supported only for Diskless Topics services
-  in BYOC that are created with a supported autoscaling plan. If the service is not
-  using a plan from the autoscaling plan set, autoscaling is not available.
+- **Service compatibility**: Autoscaling is only available for Kafka services using
+  Diskless Topics in BYOC that are created with a supported autoscaling plan. Only
+  specific plans are eligible for autoscaling. You must select one of these supported
+  plans when creating the service.
 - **Limited availability**: Contact the [Aiven support team](mailto:support@aiven.io) to
   request access and enable autoscaling for your project.
 - **Enable only at service creation**: You must enable autoscaling when you
@@ -54,20 +55,40 @@ use Diskless Topics in BYOC.
   You cannot enable autoscaling for existing services.
 - **Aiven Console limitation**: Autoscaling is not available in the Aiven Console. Use
   the CLI, Terraform, or API.
-- **Plan changes not allowed with autoscaling**: You cannot manually change the service
-  plan while autoscaling is enabled. To change the plan, first disable autoscaling.
-- **Billing**: Autoscaling uses special autoscaling plans. Each scaling event is billed
-  separately and appears as a line item in your invoice.
+- **Plan changes**: While autoscaling is enabled, you cannot change the service plan
+   manually. To move the service to another plan (for example, `business-*`), first
+   disable autoscaling. To re-enable autoscaling, the service must be on an autoscaling
+   plan.
+- **Thresholds**: Autoscaling is based on predefined CPU thresholds. You cannot configure
+  these values. The only configurable limits are `min_plan` and `max_plan`.
+- **Billing**: Autoscaling uses special autoscaling plans. When a service scales, you
+  are billed according to the new plan. Each plan change appears as a separate line item
+  on your invoice.
 
 ## Prerequisites
 
-- An Aiven for Apache Kafka® service using Diskless Topics (BYOC)
-- Autoscaling enabled when the service was created
 - Autoscaling access granted for your project by Aiven support
 - Access to one of the following:
   - [Aiven API](https://api.aiven.io/doc/)
   - [Aiven CLI client](/docs/tools/cli)
   - [Aiven Terraform Provider](https://registry.terraform.io/providers/aiven/aiven/latest)
+- An Aiven for Apache Kafka® Diskless Topics (BYOC) service created with an autoscaling
+  plan. For example:
+
+  - `<AUTOSCALING_PLAN_MIN>`
+  - `<AUTOSCALING_PLAN_MAX>`
+
+  Example using the CLI:
+
+  ```bash
+  avn service create kafka-autoscale-demo \
+    --service-type kafka \
+    --cloud google-europe-west3 \
+    --plan <AUTOSCALING_PLAN_MIN>
+  ```
+
+  This creates a Kafka service named `kafka-autoscale-demo` in the `google-europe-west3`
+  region using the `<AUTOSCALING_PLAN_MIN>` plan.
 
 ## Enable autoscaling
 
