@@ -18,6 +18,7 @@
 | hstore | 1.8 |
 | intagg | 1.1 |
 | intarray | 1.5 |
+| ip4r | 2.4 |
 | isn | 1.3 |
 | jsonb_plperl | 1.0 |
 | lo | 1.2 |
@@ -70,6 +71,7 @@
 | hstore | 1.8 |
 | intagg | 1.1 |
 | intarray | 1.5 |
+| ip4r | 2.4 |
 | isn | 1.2 |
 | jsonb_plperl | 1.0 |
 | lo | 1.1 |
@@ -134,6 +136,7 @@
 | hstore | 1.8 |
 | intagg | 1.1 |
 | intarray | 1.5 |
+| ip4r | 2.4 |
 | isn | 1.2 |
 | jsonb_plperl | 1.0 |
 | lo | 1.1 |
@@ -198,6 +201,7 @@
 | hstore | 1.8 |
 | intagg | 1.1 |
 | intarray | 1.5 |
+| ip4r | 2.4 |
 | isn | 1.2 |
 | jsonb_plperl | 1.0 |
 | lo | 1.1 |
@@ -261,6 +265,7 @@
 | hstore | 1.8 |
 | intagg | 1.1 |
 | intarray | 1.5 |
+| ip4r | 2.4 |
 | isn | 1.2 |
 | jsonb_plperl | 1.0 |
 | lo | 1.1 |
@@ -322,6 +327,7 @@
 | hstore | 1.7 |
 | intagg | 1.1 |
 | intarray | 1.3 |
+| ip4r | 2.4 |
 | isn | 1.2 |
 | jsonb_plperl | 1.0 |
 | lo | 1.1 |
@@ -361,3 +367,4 @@
 | unit | 7 |
 | uuid-ossp | 1.1 |
 | vector | 0.8.1 |
+
