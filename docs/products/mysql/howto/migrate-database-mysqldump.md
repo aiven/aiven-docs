@@ -16,14 +16,14 @@ for MySQL database, and restore it using [`mysqldump`](https://dev.mysql.com/doc
     installed. See the [official
     MySQL](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html)
     documentation on how to install it.
--   A source MySQL database to copy your data from. We will refer to it as `source-db`.
+-   A source MySQL® database to copy your data from, referred to as source-db.
 
     You can use Aiven for MySQL databases for both the `source-db` and `target-db`.
     [Create additional Aiven for MySQL® databases](/docs/products/mysql/howto/create-database)
     as/if needed.
 
--   A target MySQL database to dump your `source-db` data to. We will
-    refer to it as `target-db`.
+-   A target MySQL database to dump your `source-db` data to. Call it 
+   `target-db`.
 -   Recommended: Pick a plan size that is large enough to store your data, so you can
     limit the downtime if you're performing a migration.
 
