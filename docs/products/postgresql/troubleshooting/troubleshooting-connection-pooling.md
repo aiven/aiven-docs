@@ -1,7 +1,9 @@
 ---
-title: Troubleshoot connection pooling problems
-sidebar_label: Connection pooling issues
+title: Troubleshoot connection pooling issues in Aiven for PostgreSQL®
+sidebar_label: Pooling issues
 ---
+
+import PasswordEncryptionIssues from "@site/static/includes/pg-password-encryption-issues.md";
 
 Discover the PgBouncer connection pooler and learn how to cope with some specific connection pooling issues.
 
@@ -54,3 +56,5 @@ avoid the overhead of new connection requests.
 
 For the setup and configurations of PgBouncer, refer to
 [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling).
+
+<PasswordEncryptionIssues/>
