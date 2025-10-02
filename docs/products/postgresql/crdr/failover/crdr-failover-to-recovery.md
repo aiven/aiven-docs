@@ -127,23 +127,21 @@ The
 resource with the `disaster_recovery` type manages the active-passive relationship between
 services. CRDR operations are performed by manipulating this integration.
 
-Removing the existing integration automatically promotes the recovery service to active:
+To trigger failover and promote the recovery service to active:
 
-1. Remove the disaster recovery integration from Terraform state.
+1. Remove the existing disaster recovery integration from the Terraform state.
 
    ```bash
    terraform state rm aiven_service_integration.disaster_recovery
    ```
 
-   This triggers failover.
-
-1. If primary service is completely unreachable, remove it from state.
+1. If primary service is completely unreachable, remove it from the Terraform state.
 
    ```bash
    terraform state rm aiven_postgresql.primary
    ```
 
-The recovery service is now automatically promoted to active and can handle traffic.
+The recovery service is now promoted to active and can handle traffic.
 
 </TabItem>
 </Tabs>
