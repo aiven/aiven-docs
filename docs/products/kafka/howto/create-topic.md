@@ -1,5 +1,6 @@
 ---
 title: Create an Apache Kafka® topic
+sidebar_label: Create a classic Kafka topic
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

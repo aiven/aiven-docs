@@ -122,6 +122,13 @@
 /products/clickhouse/list-overview                       /docs/products/clickhouse
 /products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params
 /products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing
+/products/diskless                             /docs/products/kafka/diskless/concepts/diskless-overview
+/products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/architecture
+/products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery
+/products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects
+/products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic
+/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-overview
+/products/diskless/howto/create-diskless-topic /docs/products/kafka/diskless/howto/create-diskless-topic
 /products/dragonfly/concept                              /docs/products/dragonfly
 /products/dragonfly/concepts/overview                    /docs/products/dragonfly
 /products/dragonfly/howto                                /docs/products/dragonfly/howto/list-code-samples
@@ -150,6 +157,7 @@
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing
 /products/grafana/user-access                              /docs/products/grafana/howto/log-in
 /products/influxdb                                         /docs/products/metrics
+/products/kafka/concepts/non-leader-for-partition /docs/products/kafka/troubleshooting/non-leader-for-partition
 /products/kafka/getting-started                            /docs/products/kafka/get-started
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect
@@ -166,11 +174,11 @@
 /products/kafka/index.html                                 /docs/products/kafka
 /products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins
 /products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices
+/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink
 /products/kafka/kafka-connect/howto/list-admin             /docs/products/kafka/kafka-connect/howto/best-practices
 /products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink
-/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink
 /products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params
 /products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration
 /products/kafka/kafka-mirrormaker/howto                    /docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster

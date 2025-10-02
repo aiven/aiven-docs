@@ -1,5 +1,6 @@
 ---
 title: Monitoring consumer groups in Aiven for Apache Kafka®
+sidebar_label: Monitoring consumer groups
 ---
 
 With Aiven for Apache Kafka® dashboards and telemetry, you can monitor the performance and system resources of your Aiven for Apache Kafka service.

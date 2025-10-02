@@ -56,7 +56,7 @@ Once the service is ready, you can:
 - Monitor the service using the Aiven Console
 
 For detailed instructions, see
-[Create a diskless topic](/docs/products/diskless/howto/create-diskless-topic).
+[Create a diskless topic](/docs/products/kafka/diskless/howto/create-diskless-topic).
 
 ### Topic creation methods
 
@@ -93,14 +93,14 @@ message data in object storage.
 - Batch Coordinator tracks message batches and offsets to preserve partition ordering.
 - KRaft mode manages cluster metadata.
 
-To learn more, see [Diskless Topics architecture](/docs/products/diskless/concepts/architecture).
+To learn more, see [Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture).
 
 ## Performance
 
 Diskless Topics are optimized for high-throughput workloads and cost efficiency:
 
 - Improves throughput and reduces cost by batching.
-  See [Batching and delivery](/docs/products/diskless/concepts/batching-and-delivery)
+  See [Batching and delivery](/docs/products/kafka/diskless/concepts/batching-and-delivery)
 - Has a different latency profile due to batch writes to object storage.
 - Reduces costs by minimizing cross-AZ traffic and using object storage.
 
@@ -123,6 +123,6 @@ Use classic topics for workloads that depend on these features.
 
 <RelatedPages/>
 
-- [Diskless Topics overview](/docs/products/diskless)
-- [Diskless Topics architecture](/docs/products/diskless/concepts/architecture)
+- [Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture)
 - [KRaft mode](/docs/products/kafka/concepts/kraft-mode)

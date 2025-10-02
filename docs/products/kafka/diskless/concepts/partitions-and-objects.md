@@ -44,4 +44,4 @@ ephemeral disk, typically within the same availability zone.
 
 <RelatedPages/>
 
-[Batching and delivery in Diskless Topics](/docs/products/diskless/concepts/batching-and-delivery)
+[Batching and delivery in Diskless Topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)

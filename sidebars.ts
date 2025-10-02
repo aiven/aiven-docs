@@ -754,23 +754,54 @@ const sidebars: SidebarsConfig = {
                 id: 'products/kafka/concepts',
               },
               items: [
-                'products/kafka/concepts/upgrade-procedure',
-                'products/kafka/concepts/horizontal-vertical-scaling',
-                'products/kafka/concepts/kraft-mode',
-                'products/kafka/concepts/acl',
-                'products/kafka/concepts/schema-registry-authorization',
-                'products/kafka/concepts/kafka-rest-api',
-                'products/kafka/concepts/log-compaction',
-                'products/kafka/concepts/partition-segments',
-                'products/kafka/concepts/auth-types',
-                'products/kafka/concepts/non-leader-for-partition',
-                'products/kafka/concepts/configuration-backup',
-                'products/kafka/concepts/monitor-consumer-group',
-                'products/kafka/concepts/consumer-lag-predictor',
-                'products/kafka/concepts/kafka-quotas',
-                'products/kafka/concepts/follower-fetching',
-                'products/kafka/concepts/topic-catalog-overview',
-                'products/kafka/concepts/governance-overview',
+                {
+                  type: 'category',
+                  label: 'Core concepts',
+                  items: [
+                    'products/kafka/concepts/partition-segments',
+                    'products/kafka/concepts/log-compaction',
+                    'products/kafka/concepts/auth-types',
+                    'products/kafka/concepts/acl',
+                    'products/kafka/concepts/schema-registry-authorization',
+                    'products/kafka/concepts/kafka-rest-api',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Operating Kafka with Aiven',
+                  items: [
+                    'products/kafka/concepts/upgrade-procedure',
+                    'products/kafka/concepts/horizontal-vertical-scaling',
+                    'products/kafka/concepts/configuration-backup',
+                    'products/kafka/concepts/monitor-consumer-group',
+                    'products/kafka/concepts/consumer-lag-predictor',
+                    'products/kafka/concepts/follower-fetching',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Diskless topics',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/diskless/concepts/diskless-overview',
+                  },
+                  items: [
+                    'products/kafka/diskless/get-started',
+                    {
+                      type: 'category',
+                      label: 'Architecture',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/diskless/concepts/architecture',
+                      },
+                      items: [
+                        'products/kafka/diskless/concepts/topics-vs-classic',
+                        'products/kafka/diskless/concepts/batching-and-delivery',
+                        'products/kafka/diskless/concepts/partitions-and-objects',
+                      ],
+                    },
+                  ],
+                },
                 {
                   type: 'category',
                   label: 'Tiered storage',
@@ -784,8 +815,12 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/tiered-storage-limitations',
                   ],
                 },
+                'products/kafka/concepts/governance-overview',
+                'products/kafka/concepts/kafka-quotas',
+                'products/kafka/concepts/kraft-mode',
               ],
             },
+
             {
               type: 'category',
               label: 'How to',
@@ -877,6 +912,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Topic and schema management',
                   items: [
                     'products/kafka/howto/create-topic',
+                    'products/kafka/diskless/howto/create-diskless-topic',
                     'products/kafka/howto/create-topics-automatically',
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
@@ -961,6 +997,7 @@ const sidebars: SidebarsConfig = {
               label: 'Troubleshooting',
               items: [
                 'products/kafka/troubleshooting/troubleshoot-consumer-disconnections',
+                'products/kafka/troubleshooting/non-leader-for-partition',
               ],
             },
             {
@@ -1197,35 +1234,7 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-        {
-          type: 'category',
-          label: 'Diskless Topics BYOC',
-          link: {
-            type: 'doc',
-            id: 'products/diskless',
-          },
-          items: [
-            'products/diskless/get-started',
-            {
-              type: 'category',
-              label: 'Architecture',
-              link: {
-                type: 'doc',
-                id: 'products/diskless/concepts/architecture',
-              },
-              items: [
-                'products/diskless/concepts/topics-vs-classic',
-                'products/diskless/concepts/batching-and-delivery',
-                'products/diskless/concepts/partitions-and-objects',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              items: ['products/diskless/howto/create-diskless-topic'],
-            },
-          ],
-        },
+
         {
           type: 'category',
           label: 'Aiven for Caching',
