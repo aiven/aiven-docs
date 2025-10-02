@@ -11,8 +11,6 @@ import TabItem from '@theme/TabItem';
 
 Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) feature in in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of region outage.
 
-Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) feature in in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of region outage.
-
 ## Prerequisites
 
 - Powered-on Aiven for PostgreSQL service with a Startup plan at minimum
@@ -150,10 +148,55 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
 
 </TabItem>
 <TabItem value="tf" label="Terraform">
-Use the
-[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-resource to create the disaster recovery integration between your primary service and
-the recovery service. Set `integration_type` to `disaster_recovery`.
+
+1. Use the
+   [aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+   resource to create the disaster recovery integration between your primary service and
+   the recovery service. Set `integration_type` to `disaster_recovery`.
+
+   ```hcl
+   # Primary PostgreSQL service
+   resource "aiven_postgresql" "primary" {
+     project      = var.project_name
+     service_name = var.primary_service_name
+     plan         = var.service_plan
+     cloud_name   = var.primary_cloud_region
+   }
+
+   # Recovery PostgreSQL service
+   resource "aiven_postgresql" "recovery" {
+     project      = var.project_name
+     service_name = var.recovery_service_name
+     plan         = var.service_plan
+     cloud_name   = var.recovery_cloud_region
+   }
+
+   # Disaster recovery integration
+   resource "aiven_service_integration" "disaster_recovery" {
+     project                  = var.project_name
+     integration_type         = "disaster_recovery"
+     source_service_name      = aiven_postgresql.primary.service_name
+     destination_service_name = aiven_postgresql.recovery.service_name
+
+     depends_on = [
+       aiven_postgresql.primary,
+       aiven_postgresql.recovery
+     ]
+   }
+   ```
+
+1. Apply the configuration:
+
+   ```bash
+   terraform apply
+   ```
+
+1. Monitor the setup status:
+
+   ```bash
+   terraform show aiven_service_integration.disaster_recovery
+   ```
+
 </TabItem>
 </Tabs>
 

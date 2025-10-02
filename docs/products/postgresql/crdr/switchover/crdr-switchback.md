@@ -18,6 +18,7 @@ Shift your workloads back to the primary region, where your service was hosted o
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 
 ## Switch back
 
@@ -93,6 +94,62 @@ curl -X GET \
   "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/disaster-recovery" \
   -H "Authorization: aivenv1 API_TOKEN"
 ```
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+The
+[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource with the `disaster_recovery` type manages the active-passive relationship between
+services. CRDR operations are performed by manipulating this integration.
+
+To return to the original primary-recovery configuration after a planned switchover:
+
+1. Comment out or remove the current switched disaster recovery integration.
+
+   ```hcl
+   # resource "aiven_service_integration" "disaster_recovery_switched" {
+   #   project                  = var.project_name
+   #   integration_type         = "disaster_recovery"
+   #   source_service_name      = aiven_postgresql.recovery.service_name
+   #   destination_service_name = aiven_postgresql.primary.service_name
+   # }
+   ```
+
+   or
+
+   ```bash
+   terraform destroy -target=aiven_service_integration.disaster_recovery_switched
+   ```
+
+1. Restore the original CRDR configuration.
+
+   ```hcl
+   resource "aiven_service_integration" "disaster_recovery" {
+     project                  = var.project_name
+     integration_type         = "disaster_recovery"
+     source_service_name      = aiven_postgresql.primary.service_name    # Back to original active
+     destination_service_name = aiven_postgresql.recovery.service_name   # Back to original passive
+
+     depends_on = [
+       aiven_postgresql.primary,
+       aiven_postgresql.recovery
+     ]
+   }
+   ```
+
+1. Wait for the switchback to complete before restoring the original setup.
+
+   ```bash
+   terraform apply
+   ```
+
+1. Verify the switchback has been completed successfully.
+
+   ```bash
+   terraform refresh
+   terraform show aiven_service_integration.disaster_recovery
+   ```
 
 </TabItem>
 </Tabs>
