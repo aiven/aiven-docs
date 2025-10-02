@@ -119,7 +119,7 @@ curl -X GET \
 
 The
 [aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-resource with disaster_recovery type manages the active-passive relationship between
+resource with the `disaster_recovery` type manages the active-passive relationship between
 services. CRDR operations are performed by manipulating this integration.
 
 1. Comment out or remove the existing disaster recovery integration.
