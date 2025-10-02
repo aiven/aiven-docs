@@ -26,7 +26,7 @@ Initiate a
 using a tool of your choice:
 
 <Tabs groupId="group1">
-<TabItem value="console" label=Console" default>
+<TabItem value="console" label="Console" default>
 
 1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
@@ -51,7 +51,7 @@ using a tool of your choice:
    1. Click **Done**.
 
 </TabItem>
-<TabItem value="cli" label=CLI">
+<TabItem value="cli" label="CLI">
 
 1. Restore the primary service by running
    [avn byoc update](/docs/tools/cli/service-cli#avn-cli-service-update):
@@ -74,7 +74,7 @@ using a tool of your choice:
    Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`.
 
 </TabItem>
-<TabItem value="api" label=API">
+<TabItem value="api" label="API">
 
 1. Trigger the recreation of the primary service by calling the
    [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)

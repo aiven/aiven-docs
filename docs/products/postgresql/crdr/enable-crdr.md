@@ -36,7 +36,7 @@ Create a [CRDR setup](/docs/products/postgresql/crdr/crdr-overview#crdr-setup) u
 a tool of your choice:
 
 <Tabs groupId="group1">
-<TabItem value="console" label=Console" default>
+<TabItem value="console" label="Console" default>
 1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
@@ -50,7 +50,7 @@ Througout the process of creating the recovery service, the recovery service is 
 **Passive**, which means your CRDR setup is up and running.
 
 </TabItem>
-<TabItem value="cli" label=CLI">
+<TabItem value="cli" label="CLI">
 
 Run [avn byoc create](/docs/tools/cli/service-cli#avn-cli-service-create):
 
@@ -72,7 +72,7 @@ Replace the following:
 - `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`
 
 </TabItem>
-<TabItem value="api" label=API">
+<TabItem value="api" label="API">
 
 Call the
 [ServiceCreate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate) to
@@ -149,7 +149,7 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
   ```
 
 </TabItem>
-<TabItem value="tf" label=Provider for Terraform">
+<TabItem value="tf" label="Terraform">
 Use the
 [aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
 resource to create the disaster recovery integration between your primary service and
