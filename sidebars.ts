@@ -786,6 +786,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/diskless/concepts/diskless-overview',
                   },
                   items: [
+                    'products/kafka/diskless/get-started',
                     {
                       type: 'category',
                       label: 'Architecture',

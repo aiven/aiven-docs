@@ -15,7 +15,7 @@ You can create diskless topics after Aiven provisions your Aiven for Apache Kafk
 When you create a Kafka topic, you must choose a topic type: **diskless** or **classic**.
 You cannot change the type after the topic is created. Diskless topics have some feature
 limitations. For details, see
-[Diskless Topics limitations](/docs/products/diskless#limitations).
+[Diskless Topics limitations](/docs/products/kafka/diskless/concepts/diskless-overview#limitations).
 
 :::note
 Diskless Topics is in limited availability. Aiven provisions the service and
@@ -77,6 +77,6 @@ and set `inkless_enable` to `true`.
 
 <RelatedPages/>
 
-- [Get started with Diskless Topics](/docs/products/diskless/get-started)
-- [Diskless Topics architecture](/docs/products/diskless/concepts/architecture)
-- [Batching and delivery in Diskless Topics](/docs/products/diskless/concepts/batching-and-delivery)
+- [Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture)
+- [Batching and delivery in Diskless Topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)

@@ -67,7 +67,7 @@ During upgrades, expect:
 These effects are temporary and resolve as the upgrade completes.
 
 For troubleshooting,
-see [NOT\_LEADER\_FOR\_PARTITION errors](/docs/products/kafka/concepts/non-leader-for-partition).
+see [NOT\_LEADER\_FOR\_PARTITION errors](/docs/products/kafka/troubleshooting/non-leader-for-partition).
 
 ## Upgrade duration
 
