@@ -9,6 +9,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Perform an emergency promotion of your recovery service when the primary region becomes unavailable.
+
 At the event of a region outage,
 [failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
 happens automatically. To simulate a disaster and test the resilience of your
@@ -21,6 +23,7 @@ infrastructure, you can also perform a manual failover.
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 
 ## Automatic failover
 
@@ -115,6 +118,32 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
    "disaster_recovery_role": "active"
    }
    ```
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+The
+[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource with disaster_recovery type manages the active-passive relationship between
+services. CRDR operations are performed by manipulating this integration.
+
+Removing the existing integration automatically promotes the recovery service to active:
+
+1. Remove the disaster recovery integration from Terraform state.
+
+   ```bash
+   terraform state rm aiven_service_integration.disaster_recovery
+   ```
+
+   This triggers failover.
+
+1. If primary service is completely unreachable, remove it from state.
+
+   ```bash
+   terraform state rm aiven_postgresql.primary
+   ```
+
+The recovery service is now automatically promoted to active and can handle traffic.
 
 </TabItem>
 </Tabs>

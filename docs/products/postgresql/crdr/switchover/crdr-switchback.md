@@ -14,7 +14,10 @@ Shift your workloads back to the primary region, where your service was hosted o
 ## Prerequisites
 
 - [CRDR switchover](/docs/products/postgresql/crdr/switchover/crdr-switchover) completed
-- Access to the [Aiven Console](https://console.aiven.io/)
+- One of the following tools for operating CRDR:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
 
 ## Switch back
 

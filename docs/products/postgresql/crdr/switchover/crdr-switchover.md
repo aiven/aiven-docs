@@ -9,12 +9,20 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[Switch over](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region) to your Aiven for PostgreSQL® recovery service to simulate a disaster or test the resilience of your infrastructure.
+Perform a planned promotion of your recovery service while the primary service is healthy.
+
+[Switch over](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region)
+to your Aiven for PostgreSQL® recovery service for planned maintenance, simulating a
+disaster, or testing the resilience of your infrastructure.
 
 ## Prerequisites
 
 - [CRDR setup](/docs/products/postgresql/crdr/enable-crdr) up and running
-- Access to the [Aiven Console](https://console.aiven.io/)
+- One of the following tools for operating CRDR:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 
 ## Switch over
 
@@ -105,6 +113,48 @@ curl -X GET \
   "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
   -H "Authorization: aivenv1 API_TOKEN"
 ```
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+The
+[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource with disaster_recovery type manages the active-passive relationship between
+services. CRDR operations are performed by manipulating this integration.
+
+1. Comment out or remove the existing disaster recovery integration.
+
+   ```hcl
+   # resource "aiven_service_integration" "disaster_recovery" {
+   #   project                  = var.project_name
+   #   integration_type         = "disaster_recovery"
+   #   source_service_name      = aiven_postgresql.primary.service_name
+   #   destination_service_name = aiven_postgresql.recovery.service_name
+   # }
+   ```
+
+   or
+
+   ```bash
+   terraform destroy -target=aiven_service_integration.disaster_recovery
+   ```
+
+1. Create an integration with roles reversed.
+
+   ```hcl
+   resource "aiven_service_integration" "disaster_recovery_switched" {
+     project                  = var.project_name
+     integration_type         = "disaster_recovery"
+     source_service_name      = aiven_postgresql.recovery.service_name   # Now active
+     destination_service_name = aiven_postgresql.primary.service_name    # Now passive
+   }
+   ```
+
+1. Wait for the switchover to complete before applying the new configuration.
+
+   ```bash
+   terraform apply
+   ```
 
 </TabItem>
 </Tabs>
