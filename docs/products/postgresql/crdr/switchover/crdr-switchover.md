@@ -122,6 +122,8 @@ The
 resource with the `disaster_recovery` type manages the active-passive relationship between
 services. CRDR operations are performed by manipulating this integration.
 
+To trigger switchover and promote the recovery service to active:
+
 1. Comment out or remove the existing disaster recovery integration.
 
    ```hcl
@@ -139,7 +141,7 @@ services. CRDR operations are performed by manipulating this integration.
    terraform destroy -target=aiven_service_integration.disaster_recovery
    ```
 
-1. Create an integration with roles reversed.
+1. Create an integration with the roles reversed.
 
    ```hcl
    resource "aiven_service_integration" "disaster_recovery_switched" {
