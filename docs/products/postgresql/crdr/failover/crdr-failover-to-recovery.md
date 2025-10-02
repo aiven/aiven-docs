@@ -34,7 +34,7 @@ Initiate a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual
 using a tool of your choice:
 
 <Tabs groupId="group1">
-<TabItem value="console" label="Aiven Console" default>
+<TabItem value="console" label=Console" default>
 
 1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
@@ -49,7 +49,7 @@ recovery service is **Active**, which means the recovery service is in control o
 workloads now.
 
 </TabItem>
-<TabItem value="cli" label="Aiven CLI">
+<TabItem value="cli" label=CLI">
 
 Run [avn byoc update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
@@ -61,7 +61,7 @@ avn service update PRIMARY_SERVICE_NAME \
 Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`.
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label=API">
 
 Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
 to change `disaster_recovery_role` of the primary service to `failed`:
