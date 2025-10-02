@@ -18,6 +18,7 @@ Shift your workloads back to the primary region, where your service was hosted o
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 
 ## Revert to the primary region
 
@@ -183,6 +184,70 @@ using a tool of your choice:
         "disaster_recovery_role": "passive"
       }
       ```
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+The
+[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource with the `disaster_recovery` type manages the active-passive relationship between
+services. CRDR operations are performed by manipulating this integration.
+
+To get back to the original primary-recovery setup:
+
+1. Ensure both services exist and are healthy.
+
+   ```hcl
+   resource "aiven_postgresql" "primary" {
+     project      = var.project_name
+     service_name = var.primary_service_name
+     plan         = var.service_plan
+     cloud_name   = var.primary_cloud_region
+   }
+
+   resource "aiven_postgresql" "recovery" {
+     project      = var.project_name
+     service_name = var.recovery_service_name
+     plan         = var.service_plan
+     cloud_name   = var.recovery_cloud_region
+   }
+   ```
+
+   If the services were removed from the Terraform state during the disaster, re-import
+   them:
+
+   ```bash
+   terraform import aiven_postgresql.primary PROJECT_NAME/PRIMARY_SERVICE_NAME
+   terraform import aiven_postgresql.recovery PROJECT_NAME/RECOVERY_SERVICE_NAME
+   ```
+
+1. Re-establish CRDR with the original primary as active:
+
+   ```hcl
+   resource "aiven_service_integration" "disaster_recovery_restored" {
+     project                  = var.project_name
+     integration_type         = "disaster_recovery"
+     source_service_name      = aiven_postgresql.primary.service_name    # Original primary back to active
+     destination_service_name = aiven_postgresql.recovery.service_name   # Back to passive role
+
+     depends_on = [
+       aiven_postgresql.primary,
+       aiven_postgresql.recovery
+     ]
+   }
+   ```
+
+1. Apply to restore the original CRDR setup:
+
+   ```bash
+   terraform apply
+   ```
+
+1. Verify the failback:
+
+   ```bash
+   terraform output disaster_recovery_status
+   ```
 
 </TabItem>
 </Tabs>
