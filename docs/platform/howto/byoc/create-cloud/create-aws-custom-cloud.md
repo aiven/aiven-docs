@@ -394,6 +394,15 @@ Show permissions required for creating resources for bastion and workload networ
                 "*"
             ],
             "Sid": "Delete"
+        },
+        {
+            "Action": [
+                "s3:*"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::cce-*"
+            ]
         }
     ],
     "Version": "2012-10-17"
