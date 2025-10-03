@@ -69,7 +69,8 @@ deployed without any special configuration:
 ## Service ports
 
 Aiven service ports are assigned randomly as offsets of a base port
-number. The base port number is set per project. That means that a
+number. The base port number
+[is set per project](/docs/platform/howto/configure-project-base-port). That means that a
 PostgreSQL® service and a MySQL® service in the same project will have
 closely resembling or even overlapping port numbers. These ports are in
 the 10000 to 30000 range. If a base port number is not defined, the
