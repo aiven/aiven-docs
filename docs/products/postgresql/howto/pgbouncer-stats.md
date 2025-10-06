@@ -5,7 +5,7 @@ sidebar_label: PgBouncer statistics
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import PasswordEncryptionIssues from "@site/static/includes/pg-password-encryption-issues.md";
+import PasswordEncryptionIssues from "@site/static/includes/pg-password-encryption-upgrade.md";
 
 PgBouncer is used at Aiven as a [connection pooler](/docs/products/postgresql/concepts/pg-connection-pooling) to lower the performance impact of opening new connections to Aiven for PostgreSQL®.
 
