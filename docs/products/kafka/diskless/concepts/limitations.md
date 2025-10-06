@@ -6,7 +6,6 @@ sidebar_label: Limitations
 Diskless topics are compatible with Kafka APIs and clients, with some limitations:
 
 - Transactions are not supported for produce or consume operations.
-- Retention policies based on time or size are not fully implemented.
 - Diskless topics must be created manually or via API. Automatic topic creation is not
   supported.
 - Compacted topics are not supported.
