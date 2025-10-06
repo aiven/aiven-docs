@@ -1,18 +1,18 @@
 ---
-title: Diskless Topics architecture
+title: Diskless topics architecture
 sidebar_label: Architecture
 limited: true
 ---
 import schemaProducerConsumer from "@site/static/images/content/figma/schema-producer-consumer.png";
 
-Diskless Topics extends the Apache Kafka® storage model by replacing local disk storage with cloud object storage.
+Diskless topics extend the Apache Kafka® storage model by replacing local disk storage with cloud object storage.
 This approach reduces broker responsibilities and avoids inter-broker replication for
-Diskless topics. The architecture introduces a metadata service (the Batch Coordinator)
+diskless topics. The architecture introduces a metadata service (the Batch Coordinator)
 and relies on object storage for durability and scalability.
 
-## How Diskless Topics works
+## How diskless topics work
 
-In Diskless Topics , brokers write messages in batches to object storage. Each
+In diskless topics, brokers write messages in batches to object storage. Each
 batch is registered with the Batch Coordinator, which tracks its offset range and
 location. Consumers use this metadata to fetch message data directly from storage.
 Frequently accessed data may be cached on brokers to reduce latency.
@@ -21,17 +21,17 @@ Apache Kafka’s partition and topic model remains unchanged. Diskless topics co
 to support parallelism and ordering guarantees, using object storage for the data path
 and the coordinator for metadata.
 
-<img src={schemaProducerConsumer} className="centered" alt="Producer and consumer flow in Diskless Topics BYOC" width="100%" />
+<img src={schemaProducerConsumer} className="centered" alt="Producer and consumer flow in diskless topics BYOC" width="100%" />
 
 ## Leaderless data layer
 
-In Diskless Topics, partitions do not have leaders. Any broker in the cluster can
+In diskless topics, partitions do not have leaders. Any broker in the cluster can
 read data from any diskless topic partition because all brokers access the same
 underlying object storage. This design eliminates the need for inter-broker replication
 and reduces operational complexity.
 
 Although the data path is leaderless, metadata still requires coordination. Diskless
-Topics uses the Batch Coordinator to manage this metadata. It tracks which data
+topics use the Batch Coordinator to manage this metadata. It tracks which data
 batches map to which offsets and where they are stored. To ensure consistency, the
 Batch Coordinator has a single leader that handles updates and preserves message order
 across the cluster.

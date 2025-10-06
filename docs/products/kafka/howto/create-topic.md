@@ -1,7 +1,9 @@
 ---
-title: Create an Apache Kafka® topic
+title: Create a classic Apache Kafka® topic
 sidebar_label: Create a classic Kafka topic
 ---
+
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -95,3 +97,4 @@ For more details, see the [Terraform documentation](https://registry.terraform.i
 
 - [Manage Aiven for Apache Kafka® topics via CLI](/docs/tools/cli/service/topic#avn_cli_service_topic_create)
 - [Create Apache Kafka® topics automatically](/docs/products/kafka/howto/create-topics-automatically)
+- [Create a Diskless topic](/docs/products/kafka/diskless/howto/create-diskless-topic)

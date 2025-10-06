@@ -737,7 +737,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/kafka/get-started',
+            'products/kafka/create-kafka-service',
             {
               type: 'category',
               label: 'Sample data',
@@ -786,20 +786,10 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/diskless/concepts/diskless-overview',
                   },
                   items: [
-                    'products/kafka/diskless/get-started',
-                    {
-                      type: 'category',
-                      label: 'Architecture',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/diskless/concepts/architecture',
-                      },
-                      items: [
-                        'products/kafka/diskless/concepts/topics-vs-classic',
-                        'products/kafka/diskless/concepts/batching-and-delivery',
-                        'products/kafka/diskless/concepts/partitions-and-objects',
-                      ],
-                    },
+                    'products/kafka/diskless/concepts/architecture',
+                    'products/kafka/diskless/concepts/topics-vs-classic',
+                    'products/kafka/diskless/concepts/batching-and-delivery',
+                    'products/kafka/diskless/concepts/partitions-and-objects',
                     'products/kafka/diskless/concepts/limitations',
                   ],
                 },

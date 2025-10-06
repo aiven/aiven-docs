@@ -1,6 +1,5 @@
 ---
 title: Create a diskless topic
-limited: true
 sidebar_label: Create a diskless topic
 ---
 
@@ -10,18 +9,31 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
 
-You can create diskless topics after Aiven provisions your Aiven for Apache Kafka® service configured with Diskless Topics.
+You can create diskless topics after Aiven provisions your Aiven for Apache Kafka® service configured with diskless topics.
 
 When you create a Kafka topic, you must choose a topic type: **diskless** or **classic**.
 You cannot change the type after the topic is created. Diskless topics have some feature
 limitations. For details, see
 [Diskless Topics limitations](/docs/products/kafka/diskless/concepts/limitations).
+limitations. Review them before you create the topic.
 
 :::note
-Diskless Topics is in limited availability. Aiven provisions the service and
-manages the setup in your cloud account. Self-service support is coming soon.
-To request access, [contact Aiven](https://aiven.io/contact).
+Diskless topics are available for Aiven for Apache Kafka® services deployed in
+Bring Your Own Cloud (BYOC) environments on AWS and Google Cloud.
 :::
+
+## Limitations
+
+The following limitations apply to diskless topics:
+
+- Transactions aren’t supported.
+- Compacted topics aren’t supported.
+- Kafka Streams state stores aren’t supported.
+- Share groups and queue-type topics aren’t supported.
+- Auto-creation of topics isn’t supported.
+- Topic type can’t be changed after creation.
+
+Use classic topics for workloads that depend on these features.
 
 ## Steps to create a diskless topic
 
@@ -75,8 +87,10 @@ and set `inkless_enable` to `true`.
 </Tabs>
 
 
+
 <RelatedPages/>
 
-- [Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
-- [Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
 - [Batching and delivery in Diskless Topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)
+- [Create a classic kafka topic](/docs/products/kafka/howto/create-topic)

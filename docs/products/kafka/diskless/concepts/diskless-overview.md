@@ -1,24 +1,17 @@
 ---
 title: Diskless for Apache Kafka® (BYOC)
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Diskless Topics is a feature of Aiven for Apache Kafka®, available in Bring Your Own Cloud (BYOC) deployments.
-It stores Kafka topic data in cloud object storage instead of on broker disks. Aiven
+Diskless topics are a feature of Aiven for Apache Kafka®, available in Bring Your Own Cloud (BYOC) deployments.
+They stores Kafka topic data in cloud object storage instead of on broker disks. Aiven
 manages the service in your cloud account, and you retain full control over your
 infrastructure and data.
 
+## About diskless topics
 
-:::note
-Diskless Topics is in limited availability. To request access,
-[contact Aiven](https://aiven.io/contact).
-:::
-
-## About Diskless Topics
-
-Diskless Topics is a Kafka feature that stores topic data in cloud object storage,
+Diskless topics are a Kafka feature that stores topic data in cloud object storage,
 such as Amazon S3, Google Cloud Storage, or Azure Blob Storage, instead of on broker
 disks. This design simplifies operations, reduces cross-availability zone (AZ) traffic,
 and supports cost-effective scaling.
@@ -31,15 +24,15 @@ details, see
 Diskless topics work with standard Kafka APIs and clients, and most applications do not
 require any changes to use them.
 
-Diskless Topics is available as a managed feature in Aiven for Apache Kafka® BYOC. The
+Diskless topics is available as a managed feature in Aiven for Apache Kafka® BYOC. The
 service runs inside your Virtual Private Cloud (VPC), and all data stays within your
 cloud account. For architectural details, see
-[Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture).
+[Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture).
 
 ## Benefits of using diskless topics
 
 Diskless topics are well suited for workloads that require performance, scalability,
- and simplified operations. It provides:
+ and simplified operations. They provides:
 
 - **Elastic scaling**: Supports gigabytes per second of throughput and scales in seconds.
 - **No disk overruns**: Object storage removes broker disk capacity limits.
@@ -73,3 +66,5 @@ For a detailed comparison, see [Compare diskless and classic topics](/docs/produ
 - [Get started with Diskless Topics](/docs/products/kafka/diskless/get-started)
 - [Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture)
 - [Limitations](/docs/products/kafka/diskless/concepts/limitations)
+- [Get started with diskless topics](/docs/products/kafka/diskless/get-started)
+- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)

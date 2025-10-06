@@ -1,12 +1,12 @@
 ---
-title: Batching and delivery in Diskless Topics
+title: Batching and delivery in diskless topics
 sidebar_label: Batching and delivery
 ---
 
-Diskless Topics uses a batching-based delivery model designed for cloud-native environments.
+Diskless topics use a batching-based delivery model designed for cloud-native environments.
 Instead of writing messages to local disks, brokers batch messages in memory and upload
 them to object storage. This approach improves scalability, reduces cost, and simplifies
-Kafka architecture while preserving ordering and delivery guarantees.
+the Kafka architecture while preserving ordering and delivery guarantees.
 
 ## Batching behavior
 
@@ -72,7 +72,7 @@ cache usage across brokers.
 
 ## Delivery guarantees
 
-Diskless Topics provides the same delivery guarantees as classic Kafka topics
+Diskless topics provide the same delivery guarantees as classic Kafka topics configured
 with `acks=all`:
 
 - **Ordering**: Messages are delivered in the order they are produced within a partition.
@@ -82,8 +82,8 @@ with `acks=all`:
 - **Consistency**: The Batch Coordinator manages total ordering and ensures metadata
   consistency.
 
-Regardless of the producer `acks` setting, Diskless Topics always
-acknowledges writes only after the data is successfully stored in object storage.
+Regardless of the producer `acks` setting, diskless topics always
+acknowledge writes only after the data is successfully stored in object storage.
 
 ## Performance and tuning
 
@@ -98,13 +98,13 @@ Tuning for very low latency (for example, under 10 milliseconds) or small object
 
 ## Components involved in batching and delivery
 
-Diskless Topics uses several internal components to manage batching and delivery
+Diskless topics use several internal components to manage batching and delivery
 efficiently:
 
 - **Batch Coordinator**: Manages partition-level metadata and total ordering.
     It tracks which messages are in which objects and monitors their offset ranges.
     Currently backed by PostgreSQL, the Batch Coordinator may evolve into a
-    topic-based coordinator..
+    topic-based coordinator.
 - **Object cache**: Caches recently accessed objects in memory or ephemeral disk to
   improve consumer fetch performance.
 - **Compaction jobs**: Merges smaller or older objects into larger ones. This improves

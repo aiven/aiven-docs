@@ -123,6 +123,7 @@
 /products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params
 /products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing
 /products/diskless                             /docs/products/kafka/diskless/concepts/diskless-overview
+/products/diskless/get-started  /docs/products/kafka/diskless/concepts/diskless-overview
 /products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/architecture
 /products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery
 /products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects
@@ -158,7 +159,7 @@
 /products/grafana/user-access                              /docs/products/grafana/howto/log-in
 /products/influxdb                                         /docs/products/metrics
 /products/kafka/concepts/non-leader-for-partition /docs/products/kafka/troubleshooting/non-leader-for-partition
-/products/kafka/getting-started                            /docs/products/kafka/get-started
+/products/kafka/get-started                               /docs/products/kafka/create-kafka-service
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect
 /products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry
