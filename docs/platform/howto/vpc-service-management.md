@@ -8,8 +8,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CreateService from "@site/static/includes/create-service-console.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import CustomDomainNote from "@site/static/includes/vpc/custom-domain-note.md";
 
 Manage your Aiven services in a VPC, including setup, migration, and accessing resources securely within your project VPC.
+
+<CustomDomainNote/>
 
 ## Prerequisites
 
@@ -365,7 +368,7 @@ provider to another. The migration is possible manually by following these gener
 instructions, which may need to be adapted to meet specific security or compliance
 requirements:
 
-1. [Create a new service in the destination cloud/VPC](/docs/platform/howto/vpc-service-management#create-a-service-in-a-vpc).
+1. [Create a service in the destination cloud/VPC](/docs/platform/howto/vpc-service-management#create-a-service-in-a-vpc).
 1. Set up replication or export/import, depending on the service:
    1. Aiven for PostgreSQL®, Aiven for MySQL® or similar: Use `pg_dump`, `pg_restore`,
       logical replication, or Aiven’s replication features.

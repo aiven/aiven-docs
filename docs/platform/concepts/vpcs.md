@@ -5,6 +5,7 @@ sidebar_label: VPCs overview
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import RelatedPages from "@site/src/components/RelatedPages";
+import CustomDomainNote from "@site/static/includes/vpc/custom-domain-note.md";
 
 Virtual private clouds (VPCs) supported on the Aiven Platform provide enhanced security, flexibility, and network control, allowing efficient traffic, resource, and access management.
 
@@ -24,6 +25,8 @@ you define and control to deploy and manage resources.
   based on availability zones or functional groups.
 - Flexibility: Custom network architecture tailored to your application's needs.
 - Scalability: Expand or modify the network as demand grows.
+
+<CustomDomainNote/>
 
 ### VPC components
 
