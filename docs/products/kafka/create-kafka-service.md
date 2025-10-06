@@ -303,4 +303,4 @@ To learn more about how diskless topics work, see
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
 - [Batching and delivery in diskless topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)
 - [Create a classic kafka topic](/docs/products/kafka/howto/create-topic)
-- [Create a Diskless topic](/docs/products/kafka/diskless/howto/create-diskless-topic)
+- [Create a diskless topic](/docs/products/kafka/diskless/howto/create-diskless-topic)
