@@ -38,7 +38,7 @@ Ensure you have the following:
 <TabItem value="cli" label="CLI">
 
 - [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
-- [A personal token](/docs/platform/howto/create_authentication_token.html)
+- [A personal token](/docs/platform/howto/create_authentication_token)
 
 </TabItem>
 </Tabs>

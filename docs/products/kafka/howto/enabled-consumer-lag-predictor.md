@@ -15,7 +15,7 @@ The [consumer lag predictor](/docs/products/kafka/concepts/consumer-lag-predicto
 Before you start, ensure you have the following:
 
 -   Aiven account.
--   [Aiven for Apache Kafka®](/docs/products/kafka/get-started) service running.
+-   [Aiven for Apache Kafka®](/docs/products/kafka/create-kafka-service) service running.
 -   [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) set up
     for your Aiven for Apache Kafka for extracting
     metrics.

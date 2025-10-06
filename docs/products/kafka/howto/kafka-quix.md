@@ -24,7 +24,7 @@ import Pipeline from "@site/static/images/content/products/kafka/5_helloquix-pip
 To connect Aiven for Apache Kafka® and Quix:
 
 - A running Aiven for Apache Kafka® service. See [Getting started with Aiven for Apache
-  Kafka](/docs/products/kafka/get-started) for more information.
+  Kafka](/docs/products/kafka/create-kafka-service) for more information.
 - A CA certificate file for your Kafka instance. See [Use SASL authentication with Aiven
   for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth).
 - An account with Quix. If you don't yet have an account, you can [sign up for a free

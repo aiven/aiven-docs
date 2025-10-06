@@ -63,8 +63,5 @@ For a detailed comparison, see [Compare diskless and classic topics](/docs/produ
 
 <RelatedPages/>
 
-- [Get started with Diskless Topics](/docs/products/kafka/diskless/get-started)
-- [Diskless Topics architecture](/docs/products/kafka/diskless/concepts/architecture)
-- [Limitations](/docs/products/kafka/diskless/concepts/limitations)
-- [Get started with diskless topics](/docs/products/kafka/diskless/get-started)
+- [Create a Kafka service](/docs/products/kafka/create-kafka-service)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)

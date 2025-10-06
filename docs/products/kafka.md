@@ -3,6 +3,8 @@ title: Aiven for Apache Kafka®
 ---
 
 import DocCardList from '@theme/DocCardList';
+import RelatedPages from "@site/src/components/RelatedPages";
+
 
 Aiven for Apache Kafka® is a fully managed **distributed data streaming platform**, deployable in the cloud of your choice. Apache Kafka is an open source data streaming platform, ideal for event-driven applications, near-real-time data transfer and pipelines, stream analytics, and many more applications where a lot of data needs to move between applications in a speedy manner.
 
@@ -25,18 +27,18 @@ to interface between Apache Kafka and the rest of your data
 architecture. Connectors are available for many databases, storage
 platforms and other common integrations.
 
-### Related page
+
+<RelatedPages/>
 
 If you are new to Apache Kafka, try these resources to learn more:
 
--   [Get started](/docs/products/kafka/get-started)
--   The main Apache Kafka project page: [https://kafka.apache.org/](https://kafka.apache.org/)
--   The Karapace schema registry that Aiven maintains and makes
-    available for every Aiven for Apache Kafka service:
-    [https://www.karapace.io/](https://www.karapace.io/)
--   Our code samples repository, to get you started:
-    [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
--   A lighthearted sample data generator to give you some fun (pizza
-    order) data to try out:
-    [https://github.com/aiven/python-fake-data-producer-for-apache-kafka](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
--   [Aiven.io](https://aiven.io/kafka)
+- [Create a Kafka service](/docs/products/kafka/create-kafka-service)
+- The Karapace schema registry that Aiven maintains and makes
+  available for every Aiven for Apache Kafka service:
+  [https://www.karapace.io/](https://www.karapace.io/)
+- Our code samples repository, to get you started:
+  [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
+- A lighthearted sample data generator to give you some fun (pizza
+  order) data to try out:
+  [https://github.com/aiven/python-fake-data-producer-for-apache-kafka](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
+- [Aiven.io](https://aiven.io/kafka)

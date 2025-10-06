@@ -1,7 +1,6 @@
 ---
 title: Diskless topics architecture
 sidebar_label: Architecture
-limited: true
 ---
 import schemaProducerConsumer from "@site/static/images/content/figma/schema-producer-consumer.png";
 

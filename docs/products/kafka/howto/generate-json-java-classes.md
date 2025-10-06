@@ -9,7 +9,7 @@ Generate Java data classes from JSON Schema (`.json`) files for use in Apache Ka
 
 ## Prerequisites
 
-- An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started#create-an-aiven-for-apache-kafka-service)
+- An active [Aiven for Apache Kafka® service](/docs/products/kafka/create-kafka-service)
 - [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
   enabled
 - Java (JDK 8 or later)
