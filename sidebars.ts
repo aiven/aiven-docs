@@ -800,6 +800,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/diskless/concepts/partitions-and-objects',
                       ],
                     },
+                    'products/kafka/diskless/concepts/limitations',
                   ],
                 },
                 {
