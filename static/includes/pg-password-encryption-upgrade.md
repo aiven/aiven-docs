@@ -1,24 +1,39 @@
-## Password encryption migration to SCRAM and compatibility with PGBouncer
+## Migrate password encryption from MD5 to SCRAM-SHA-256
 
-Aiven for PostgreSQL now defaults to `scram-sha-256` password encryption for enhanced
-security. MD5 password encryption will be deprecated in future PostgreSQL versions.
+Aiven for PostgreSQL® defaults to `scram-sha-256` password encryption for enhanced
+security, moving away from the MD5 method.
 
-Database users managed by Aiven can be upgraded from MD5 with a single button.
+:::important
+PostgreSQL 19 will no longer support the MD5 password encryption, making the
+`scram-sha-256` password encryption mandatory.
+:::
 
-Organizations with existing PGBouncer pools may need to take action to ensure compatibility.
-If you have PGBouncer connection pools configured and are experiencing authentication issues,
-this may be related to password encryption methods.
+### Check if your action is needed
 
-Organization with database users that aren't managed by Aiven can follow the guidance below to re-hash their passwords.
+- **No action needed** if:
 
-### Who is affected
+  - In your organizations, there's **no** PGBouncer connection pools tied to specific
+    database users.
+  - In your organizations, database users are managed by Aiven.
+  - In your organizations, there are **no** services with additional database users
+    created.
+  - You're **not** experiencing authentication issues.
 
-- Organizations with PGBouncer connection pools that are tied to specific database users
-- Services that have created additional database users 
+- **Your action required** if:
 
-### Recommended actions
+  - In your organizations, there are PGBouncer connection pools tied to specific database
+    users.
+  - In your organizations, there are database users **not** managed by Aiven.
+  - In your organizations, there are services with additional database users created.
+  - You're experiencing authentication issues.
 
-#### Update your user config to enforce scram-sha-256 for your service
+If your action is required, review the
+[`scram-sha-256` compatibility guidelines](/static/includes/pg-password-encryption-upgrade#scram-sha-256-compatibility-guidelines),
+and take relevant steps depending on your configuration requirements.
+
+### scram-sha-256 compatibility guidelines
+
+#### Update service's `user_config`
 
 Update the password encryption value in your service's `user_config`:
 
@@ -30,40 +45,39 @@ Update the password encryption value in your service's `user_config`:
 }
 ```
 
-This maintains MD5 compatibility: you may re-hash the password (shown below) at a later point.
-New managed users' password will be hashed and authenticated using scram-sha-256.
+This maintains the MD5 compatibility. You can still
+[re-hash the password](/static/includes/pg-password-encryption-upgrade#re-hash-database-user-password-to-upgrade-to-scram-sha-256)
+later. New managed users' password will be hashed and authenticated using `scram-sha-256`.
 
-#### Re-hash database user password to upgrade to scram-sha-256
+#### Re-hash database user password
 
-**Re-hash user passwords**: Existing passwords supported by MD5 need to be re-hashed to use the new encryption.
-
-This can be done using the following SQL statement:
+Re-hash the existing passwords supported by MD5 to use the new encryption using the
+following SQL statement:
 
 ```sql
-ALTER ROLE <rolename> PASSWORD 'new_password';
+ALTER ROLE ROLE_NAME PASSWORD 'new_password';
 ```
 
-Here is example Python code to list all database users and upgrade them to SCRAM:
+**Example Python code to list all database users and upgrade them to `scram-sha-256`**
 
-
-```python
+```txt
 # Use avn-client to fetch the avnadmin service user connection details
-# Then provide a script that can be run using uv to pack all dependencies
+# Provide a script that can be run using uv to pack all dependencies
 ```
 
-### Update your pgBouncer connection pool configuration
+#### Update PGBouncer configuration
 
-When connection pools are configured with specific user names, attempting to connect using another role will fail with a permission denied error.
+When connection pools are configured with specific user names, an attempt to connect using
+another role fails with a `permission denied` error. This is due to the challenge-response
+flow initiated by the PostgreSQL client.
 
-This is due to the challenge-response flow initiated by the PG client, that ensures 
-
-### Troubleshooting connection issues
+### Troubleshoot connection issues
 
 If you experience authentication failures:
 
-1. **Check client library support**: Ensure your PostgreSQL client supports `scram-sha-256`
-1. **Verify PGBouncer pool configuration**: Check 
-1. **Review connection logs**: Look for authentication method mismatches
+1. **Check client library support**: Ensure your PostgreSQL client supports `scram-sha-256`.
+1. **Verify PGBouncer configuration**: Check `auth_type` and `auth_file` settings.
+1. **Review connection logs**: Look for authentication method mismatches.
 
 ### Need help?
 
