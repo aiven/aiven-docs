@@ -5,7 +5,7 @@ title: Diskless for Apache Kafka® (BYOC)
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Diskless topics are a feature of Aiven for Apache Kafka®, available in Bring Your Own Cloud (BYOC) deployments.
-They stores Kafka topic data in cloud object storage instead of on broker disks. Aiven
+They store Kafka topic data in cloud object storage instead of on broker disks. Aiven
 manages the service in your cloud account, and you retain full control over your
 infrastructure and data.
 

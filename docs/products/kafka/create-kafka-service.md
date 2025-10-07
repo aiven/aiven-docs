@@ -165,8 +165,8 @@ Use Terraform to create a Kafka service in your Aiven project.
 
 Use [diskless topics](/docs/products/kafka/diskless/concepts/diskless-overview) to
 store Kafka data directly in your cloud object storage instead of local disks.
-Diskless and classic topics coexist in the same Kafka cluster. As of time of writing
-diskless topics are available only in Bring Your Own Cloud (BYOC) deployments on AWS and
+Diskless and classic topics coexist in the same Kafka cluster. Diskless topics are
+currently available only for Bring Your Own Cloud (BYOC) deployments on AWS and
 Google Cloud.
 To create and configure a BYOC environment, see
 [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -287,8 +287,9 @@ connected cloud account. The service runs entirely within your AWS or Google Clo
 Aiven automatically provisions:
 
 - Cloud object storage access for storing Kafka topic data
-- A PostgreSQL-based Diskless Coordinator, managed as a service integration with Kafka.
-This is a requirement for the current implementation of Diskless topics
+- A [PostgreSQL-based diskless coordinator](/docs/products/kafka/diskless/concepts/architecture#batch-coordinator-and-metadata),
+  managed as a service integration with Kafka. This integration is required for the
+  current implementation of diskless topics.
 
 After creation, the **Kafka Diskless PostgreSQL** integration appears on the
 **Service integrations** tab in the Aiven Console. This integration is managed
@@ -302,5 +303,4 @@ To learn more about how diskless topics work, see
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
 - [Batching and delivery in diskless topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)
-- [Create a classic kafka topic](/docs/products/kafka/howto/create-topic)
-- [Create a diskless topic](/docs/products/kafka/diskless/howto/create-diskless-topic)
+- [Create a Kafka topic](/docs/products/kafka/howto/create-topic)

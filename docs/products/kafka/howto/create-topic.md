@@ -61,8 +61,6 @@ Diskless topics currently have the following limitations:
 - Retention policies based on bytes or time are limited compared to classic topics.
 
 Use **classic topics** for workloads that depend on these features.
-For more details, see
-[Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations).
 
 ## Before you begin
 
