@@ -15,7 +15,7 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
 
 ## Check if your action is needed
 
-- **No action needed** if:
+- **No action is needed** if:
 
   - In your organizations, there's **no** PGBouncer connection pools tied to specific
     database users.
@@ -24,7 +24,7 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
     created.
   - You're **not** experiencing authentication issues.
 
-- **Your action required** if:
+- **Your action is required** if:
 
   - In your organizations, there are PGBouncer connection pools tied to specific database
     users.
@@ -32,8 +32,9 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
   - In your organizations, there are services with additional database users created.
   - You're experiencing authentication issues.
 
-If your action is required, review the `scram-sha-256` compatibility guidelines,
-and take relevant steps depending on your configuration requirements.
+If your action is required, review the
+[`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#scram-sha-256-compatibility-guidelines),
+and follow up, depending on your configuration requirements.
 
 ## scram-sha-256 compatibility guidelines
 
@@ -49,7 +50,9 @@ Update the password encryption value in your service's `user_config`:
 }
 ```
 
-This maintains the MD5 compatibility. You can still re-hash the password later.
+This maintains the MD5 compatibility. You can still
+[re-hash the password](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#re-hash-database-user-password)
+later.
 New managed users' password will be hashed and authenticated using `scram-sha-256`.
 
 ### Re-hash database user password
