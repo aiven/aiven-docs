@@ -129,7 +129,7 @@
 /products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects
 /products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic
 /products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-overview
-/products/diskless/howto/create-diskless-topic /docs/products/kafka/diskless/howto/create-diskless-topic
+/products/diskless/howto/create-diskless-topic /docs/products/kafka/howto/create-topics
 /products/dragonfly/concept                              /docs/products/dragonfly
 /products/dragonfly/concepts/overview                    /docs/products/dragonfly
 /products/dragonfly/howto                                /docs/products/dragonfly/howto/list-code-samples
