@@ -163,7 +163,7 @@ Use Terraform to create a Kafka service in your Aiven project.
 
 ## Create a Kafka service with diskless topics enabled (BYOC)
 
-Enable [diskless topics](/docs/products/kafka/diskless/concepts/diskless-overview) to
+Use [diskless topics](/docs/products/kafka/diskless/concepts/diskless-overview) to
 store Kafka data directly in your cloud object storage instead of local disks.
 Diskless and classic topics coexist in the same Kafka cluster. As of time of writing
 diskless topics are available only in Bring Your Own Cloud (BYOC) deployments on AWS and
