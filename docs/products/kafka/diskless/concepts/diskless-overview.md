@@ -35,7 +35,7 @@ Diskless topics are well suited for workloads that require performance, scalabil
  and simplified operations. They provides:
 
 - **Elastic scaling**: Supports gigabytes per second of throughput and scales in seconds.
-- **No disk overruns**: Object storage removes broker disk capacity limits.
+- **No disk overruns**: Shifting to object storage removes broker disk capacity limits.
 - **Lower storage and network costs**: Reduces cross-availability zone traffic by
   offloading data to cloud object storage.
 - **Lower latency for hot data**: Frequently accessed data is cached on brokers to
