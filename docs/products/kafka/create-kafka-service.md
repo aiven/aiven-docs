@@ -165,11 +165,11 @@ Use Terraform to create a Kafka service in your Aiven project.
 
 Enable [diskless topics](/docs/products/kafka/diskless/concepts/diskless-overview) to
 store Kafka data directly in your cloud object storage instead of local disks.
-Diskless and classic topics can coexist in the same Kafka cluster, but diskless topics
-are available only in Bring Your Own Cloud (BYOC) deployments on AWS and Google Cloud.
+Diskless and classic topics coexist in the same Kafka cluster. As of time of writing
+diskless topics are available only in Bring Your Own Cloud (BYOC) deployments on AWS and
+Google Cloud.
 To create and configure a BYOC environment, see
 [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
-
 
 <Tabs groupId="diskless-kafka">
 <TabItem value="console" label="Console" default>
@@ -287,7 +287,8 @@ connected cloud account. The service runs entirely within your AWS or Google Clo
 Aiven automatically provisions:
 
 - Cloud object storage access for storing Kafka topic data
-- A PostgreSQL-based Diskless Coordinator, managed as a service integration with Kafka
+- A PostgreSQL-based Diskless Coordinator, managed as a service integration with Kafka.
+This is a requirement for the current implementation of Diskless topics
 
 After creation, the **Kafka Diskless PostgreSQL** integration appears on the
 **Service integrations** tab in the Aiven Console. This integration is managed
@@ -295,7 +296,6 @@ automatically and cannot be modified or deleted.
 
 To learn more about how diskless topics work, see
 [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
-
 
 <RelatedPages/>
 
