@@ -5,9 +5,14 @@ sidebar_label: PgBouncer statistics
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import PasswordEncryptionIssues from "@site/static/includes/pg-password-encryption-upgrade.md";
 
 PgBouncer is used at Aiven as a [connection pooler](/docs/products/postgresql/concepts/pg-connection-pooling) to lower the performance impact of opening new connections to Aiven for PostgreSQL®.
+
+:::note
+If you use PBBouncer connection pooling, you might need to
+[update the password encryption method](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade)
+to ensure successful connections.
+:::
 
 After connecting to PgBouncer, you can display statistics available from PgBouncer, such as:
 
@@ -65,13 +70,6 @@ To connect to PgBouncer, use the [extracted URI](#extract-pgbouncer-uri):
 ```sql
 psql 'EXTRACTED_PGBOUNCER_URI'
 ```
-
-<details>
-<summary>Troubleshoot connection issues</summary>
-
-<PasswordEncryptionIssues/>
-
-</details>
 
 ## Access statistics
 

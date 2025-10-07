@@ -1,6 +1,11 @@
-## Migrate password encryption from MD5 to SCRAM-SHA-256
+---
+title: Set up Aiven for PostgreSQL® password encryption
+sidebar_label: Migrate to SCRAM-SHA-256
+---
 
-Aiven for PostgreSQL® defaults to `scram-sha-256` password encryption for enhanced
+Enable the `scram-sha-256` password encryption for your Aiven for PostgreSQL® connections.
+
+Aiven for PostgreSQL defaults to `scram-sha-256` password encryption for enhanced
 security, moving away from the MD5 method.
 
 :::important
@@ -8,7 +13,7 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
 `scram-sha-256` password encryption mandatory.
 :::
 
-### Check if your action is needed
+## Check if your action is needed
 
 - **No action needed** if:
 
@@ -30,9 +35,9 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
 If your action is required, review the `scram-sha-256` compatibility guidelines,
 and take relevant steps depending on your configuration requirements.
 
-### scram-sha-256 compatibility guidelines
+## scram-sha-256 compatibility guidelines
 
-#### Update service's `user_config`
+### Update service's `user_config`
 
 Update the password encryption value in your service's `user_config`:
 
@@ -47,7 +52,7 @@ Update the password encryption value in your service's `user_config`:
 This maintains the MD5 compatibility. You can still re-hash the password later.
 New managed users' password will be hashed and authenticated using `scram-sha-256`.
 
-#### Re-hash database user password
+### Re-hash database user password
 
 Re-hash the existing passwords supported by MD5 to use the new encryption using the
 following SQL statement:
@@ -63,24 +68,16 @@ ALTER ROLE ROLE_NAME PASSWORD 'new_password';
 # Provide a script that can be run using uv to pack all dependencies
 ```
 
-#### Update PGBouncer configuration
+### Update PGBouncer configuration
 
 When connection pools are configured with specific user names, an attempt to connect using
 another role fails with a `permission denied` error. This is due to the challenge-response
 flow initiated by the PostgreSQL client.
 
-### Troubleshoot connection issues
+## Troubleshoot connection issues
 
 If you experience authentication failures:
 
 1. **Check client library support**: Ensure your PostgreSQL client supports `scram-sha-256`.
 1. **Verify PGBouncer configuration**: Check `auth_type` and `auth_file` settings.
 1. **Review connection logs**: Look for authentication method mismatches.
-
-### Need help?
-
-Contact Aiven support if you need assistance with:
-
-- PGBouncer configuration updates
-- Client library compatibility
-- Migration planning for large deployments
