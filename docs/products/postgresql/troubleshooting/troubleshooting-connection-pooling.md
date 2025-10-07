@@ -6,7 +6,7 @@ sidebar_label: Pooling issues
 Discover the PgBouncer connection pooler and learn how to cope with some specific connection pooling issues.
 
 :::note
-If you use PBBouncer connection pooling, you might need to
+If you use PGBouncer connection pooling, you might need to
 [update the password encryption method](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade)
 to ensure successful service connections.
 :::

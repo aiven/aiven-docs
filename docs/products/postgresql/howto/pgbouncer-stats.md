@@ -9,7 +9,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 PgBouncer is used at Aiven as a [connection pooler](/docs/products/postgresql/concepts/pg-connection-pooling) to lower the performance impact of opening new connections to Aiven for PostgreSQL®.
 
 :::note
-If you use PBBouncer connection pooling, you might need to
+If you use PGBouncer connection pooling, you might need to
 [update the password encryption method](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade)
 to ensure successful connections.
 :::
