@@ -14,11 +14,6 @@ Service integrations include:
 - Log integration, which allows sending logs from any Aiven service to
   [Aiven for OpenSearch®](https://aiven.io/opensearch).
 
-:::tip
-For help with setting up a service integration or to request an integration type or
-endpoint not yet available, contact the [support team](mailto:support@aiven.io)
-:::
-
 ## Benefits of integrated telemetry
 
 Aiven automatically provides basic host-level resource metrics (CPU,

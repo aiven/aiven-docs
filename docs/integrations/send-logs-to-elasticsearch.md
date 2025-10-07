@@ -58,8 +58,3 @@ commands:
 - [avn service integration-create](/docs/tools/cli/service/integration#avn_service_integration_create)
 
 :::
-
-:::warning
-Integration are not available on Hobbyist plans. To enable
-integrations, select at least a startup plan.
-:::
