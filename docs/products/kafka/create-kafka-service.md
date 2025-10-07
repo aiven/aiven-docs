@@ -15,7 +15,7 @@ import TerraformPrereqs from "@site/static/includes/terraform-get-started-prereq
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Create an Aiven for Apache Kafka® service by using the Aiven Console, CLI, or Terraform.
+You can create an Aiven for Apache Kafka® service using the Aiven Console, CLI, or Terraform.
 During creation, choose between a **classic Kafka service** or a **Kafka service with
 diskless topics** enabled for Bring Your Own Cloud (BYOC) deployments.
 
@@ -202,11 +202,11 @@ To create and configure a BYOC environment, see
 You can create a Kafka service with diskless topics enabled using the Aiven CLI.
 
 ```bash
-avn service create kafka-demo \
-  --project my-byoc-project \
+avn service create SERVICE_NAME \
+  --project PROJECT_NAME \
   --service-type kafka \
-  --cloud custom-aws-eu-central-1 \
-  --plan business-8-inkless \
+  --cloud CLOUD_NAME \
+  --plan PLAN_NAME \
   -c kafka_version=4.0 \
   -c kafka_diskless.enabled=true
 ```
