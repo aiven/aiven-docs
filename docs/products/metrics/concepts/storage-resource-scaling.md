@@ -3,6 +3,7 @@ title: Optimize storage and resources
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import NoThanosAccess from '@site/static/includes/no-thanos-access.md';
 
 Aiven for Metrics optimizes storage and compute resources using tiered storage, disk storage, memory, and compute power to balance cost and performance.
 
@@ -11,6 +12,8 @@ Aiven for Metrics optimizes storage and compute resources using tiered storage, 
 Aiven for Metrics optimizes storage by using tiered storage for long-term retention and
 disk storage to temporarily store or process historical data. This combination ensures
 scalability, reliability, and cost-efficient metric storage.
+
+<NoThanosAccess/>
 
 ### Tiered storage
 
