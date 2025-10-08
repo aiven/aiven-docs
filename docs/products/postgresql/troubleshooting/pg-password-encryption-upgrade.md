@@ -18,22 +18,15 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
 
 ## Check if your action is needed
 
-- **No action is needed** if:
+- **No action is needed** if in your Aiven for PostgreSQL services:
 
-  - In your organizations, there's **no** PGBouncer connection pools tied to specific
-    database users.
-  - In your organizations, database users are managed by Aiven.
-  - In your organizations, there are **no** services with additional database users
-    created.
-  - You're **not** experiencing authentication issues.
+  - There are **no** PGBouncer connection pools tied to specific database users.
+  - All database users are managed by Aiven.
 
-- **Your action is required** if:
+- **Your action is required** if in your Aiven for PostgreSQL services:
 
-  - In your organizations, there are PGBouncer connection pools tied to specific database
-    users.
-  - In your organizations, there are database users **not** managed by Aiven.
-  - In your organizations, there are services with additional database users created.
-  - You're experiencing authentication issues.
+  - PGBouncer connection pools are tied to specific database users.
+  - There are database users **not** managed by Aiven.
 
 If your action is required, review the
 [`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#scram-sha-256-compatibility-guidelines),
