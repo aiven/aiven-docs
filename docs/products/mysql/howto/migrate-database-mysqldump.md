@@ -12,16 +12,11 @@ import TabItem from '@theme/TabItem';
 
 Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQL database, and restore it using [`mysqldump/restore`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [`mydumper/myloader`](https://github.com/mydumper/mydumper).
 
-:::important[mydumper/myloader requirements]
-
-- `mydumper/myloader` is an
-  [early availability feature](/docs/platform/concepts/service-and-feature-releases) that
-  provides faster migration and reduced downtime for large databases, preventing
-  performance bottlenecks that `mysqldump` can cause on large datasets.
-- To avoid the resource exhaustion while migrating large database with `mydumper/myloader`,
-  use a service configuration with significant computational power (multiple vCPUs) and
-  high memory capacity.
-
+:::note[mydumper/myloader]
+`mydumper/myloader` is an
+[early availability feature](/docs/platform/concepts/service-and-feature-releases) that
+provides faster migration and reduced downtime for large databases, preventing
+performance bottlenecks that `mysqldump` can cause on the same.
 :::
 
 ## Prerequisites
@@ -29,11 +24,11 @@ Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQ
 <Tabs groupId="group1">
 <TabItem value="1" label="mysqldump/restore" default>
 
--   [`mysqldump` tool](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html):
-    [install](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html) if
-    missing
--   Source database to copy your data from: `source-db`
--   Target database to dump your `source-db` data to: `target-db`
+- [`mysqldump` tool](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html):
+  [install](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html) if
+  missing
+- Source database to copy your data from: `source-db`
+- Target database to dump your `source-db` data to: `target-db`
 
 </TabItem>
 <TabItem value="2" label="mydumper/myloader">
@@ -43,10 +38,12 @@ Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQ
 <br />
 <br />
 
--   [`mydumper` tool](https://github.com/mydumper/mydumper):
-    [install](https://mydumper.github.io/mydumper/docs/html/installing.html) if missing
--   Source database to copy your data from: `source-db`
--   Target database to dump your `source-db` data to: `target-db`
+- Service configuration with significant computational power (multiple vCPUs) and
+  high memory capacity to avoid the resource exhaustion during migration
+- [`mydumper` tool](https://github.com/mydumper/mydumper):
+  [install](https://mydumper.github.io/mydumper/docs/html/installing.html) if missing
+- Source database to copy your data from: `source-db`
+- Target database to dump your `source-db` data to: `target-db`
 
 </TabItem>
 </Tabs>

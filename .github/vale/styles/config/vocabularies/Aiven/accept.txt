@@ -377,6 +377,8 @@ upsert
 URIs?
 UUIDs?
 Valkey
+vCPU
+vCPUs
 vectorizing
 virtualized
 VMs?
