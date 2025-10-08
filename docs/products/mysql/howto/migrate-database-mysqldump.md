@@ -12,11 +12,16 @@ import TabItem from '@theme/TabItem';
 
 Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQL database, and restore it using [`mysqldump/restore`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [`mydumper/myloader`](https://github.com/mydumper/mydumper).
 
-:::important[Use mydumper/myloader for large databases]
-`mydumper/myloader` is an
-[early availability feature](/docs/platform/concepts/service-and-feature-releases) that
-provides faster migration and reduced downtime for large databases, avoiding the resource
-exhaustion that `mysqldump` can cause on large datasets.
+:::important[mydumper/myloader requirements]
+
+- `mydumper/myloader` is an
+  [early availability feature](/docs/platform/concepts/service-and-feature-releases) that
+  provides faster migration and reduced downtime for large databases, preventing
+  performance bottlenecks that `mysqldump` can cause on large datasets.
+- To avoid the resource exhaustion while migrating large database with `mydumper/myloader`,
+  use a service configuration with significant computational power (multiple vCPUs) and
+  high memory capacity.
+
 :::
 
 ## Prerequisites

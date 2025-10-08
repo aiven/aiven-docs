@@ -23,14 +23,19 @@ followed by **continuous data synchronization** if your setup supports it.
 
 A bulk copy of your data is first created. This is done using one of the following tools:
 
-- `mysqldump`
-- `mydumper/myloader` <EarlyBadge/>
+- `mysqldump` for small and medium-sized databases
+- `mydumper/myloader` <EarlyBadge/> for large databases
 
-:::important[Use mydumper/myloader for large databases]
-`mydumper/myloader` is an
-[early availability feature](/docs/platform/concepts/service-and-feature-releases) that
-provides faster migration and reduced downtime for large databases, avoiding the resource
-exhaustion that `mysqldump` can cause on large datasets.
+:::important[mydumper/myloader requirements]
+
+- `mydumper/myloader` is an
+  [early availability feature](/docs/platform/concepts/service-and-feature-releases) that
+  provides faster migration and reduced downtime for large databases, preventing
+  performance bottlenecks that `mysqldump` can cause on large datasets.
+- To avoid the resource exhaustion while migrating large database with `mydumper/myloader`,
+  use a service configuration with significant computational power (multiple vCPUs) and
+  high memory capacity.
+
 :::
 
 ### Continuous data synchronization
