@@ -89,7 +89,7 @@ Create a Kafka service that stores topic data on local disks by default.
 
    :::tip
    To create a Kafka service with diskless topics instead, see
-   [Create a Kafka service with diskless topics enabled (BYOC)](#create-a-kafka-service-with-diskless-topics-enabled-byoc).
+   [Create a Kafka service with diskless topics (BYOC)](#create-a-kafka-service-with-diskless-topics-byoc).
    :::
 
 1. Under **Add service metadata**, set the following:
