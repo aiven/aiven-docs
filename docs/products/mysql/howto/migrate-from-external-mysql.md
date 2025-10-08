@@ -26,16 +26,11 @@ A bulk copy of your data is first created. This is done using one of the followi
 - `mysqldump` for small and medium-sized databases
 - `mydumper/myloader` <EarlyBadge/> for large databases
 
-:::important[mydumper/myloader requirements]
-
-- `mydumper/myloader` is an
-  [early availability feature](/docs/platform/concepts/service-and-feature-releases) that
-  provides faster migration and reduced downtime for large databases, preventing
-  performance bottlenecks that `mysqldump` can cause on large datasets.
-- To avoid the resource exhaustion while migrating large database with `mydumper/myloader`,
-  use a service configuration with significant computational power (multiple vCPUs) and
-  high memory capacity.
-
+:::note[mydumper/myloader]
+`mydumper/myloader` is an
+[early availability feature](/docs/platform/concepts/service-and-feature-releases) that
+provides faster migration and reduced downtime for large databases, preventing
+performance bottlenecks that `mysqldump` can cause on the same.
 :::
 
 ### Continuous data synchronization
@@ -62,6 +57,11 @@ replication feature.
 - You have a running Aiven for MySQL service with a destination database. If missing,
   create it in the [Aiven Console](/docs/products/mysql/get-started) or the
   [Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create).
+
+- If you use `mydumper/myloader` for the
+  [initial data transfer](/docs/products/mysql/howto/migrate-from-external-mysql#initial-data-transfer),
+  make sure your service has significant computational power (multiple vCPUs) and high
+  memory capacity to avoid the resource exhaustion during migration.
 
 :::note
 If you are migrating from MySQL in Google Cloud, enable backups with
