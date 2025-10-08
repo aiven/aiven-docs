@@ -33,8 +33,8 @@ backups with the appropriate tooling:
     `pgdump`
 -   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
 
-    - `mysqldump` for small databases
-    - [`mydumper`](https://github.com/mydumper/mydumper) for large databases (<EarlyBadge/>)
+    - `mysqldump` for small or medium-sized databases
+    - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
 -   [Caching](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
     `redis-cli`
@@ -252,9 +252,9 @@ internally for taking full (or incremental) snapshots for MySQL.
 
 For manual backups and migrations, you can use:
 
-- [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) for smaller databases
-- [`mydumper`](https://github.com/mydumper/mydumper) for large databases
-  (<EarlyBadge/>)
+- [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) for small or
+  medium-sized databases
+- [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
 #### Edit the backup schedule
 
