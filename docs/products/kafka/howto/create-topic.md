@@ -1,12 +1,13 @@
 ---
 title: Create Apache Kafka® topics
-sidebar_label: Create topics
+sidebar_label: Create Kafka topics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+
 
 Create topics in your Aiven for Apache Kafka® service to organize message streams between producers and consumers.
 
@@ -21,69 +22,32 @@ Aiven for Apache Kafka® supports two topic types:
   object storage through [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 - **Diskless topics:** Store data directly in object storage, such as AWS S3 or Google Cloud Storage.
 
-Both topic types can coexist in the same service. The topic type cannot be changed after
-creation.
+Both topic types can coexist in the same service. Diskless topics are available only
+for Bring Your Own Cloud (BYOC) services on AWS and Google Cloud. The topic type cannot
+be changed after creation. For guidance on choosing between them, see
+[Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
-## Topic types and when to use them
-
-Choose the topic type that best fits your workload.
-
-Use **classic topics** for:
-
-- Low-latency workloads
-- Workloads that use transactions
-- Topics that require log compaction
-- Workloads that use Kafka Streams
-
-Classic topics store data on local disks and replicate for durability.
-
-Use **diskless topics** for:
-
-- Cost-optimized workloads
-- High-throughput scenarios
-- Latency-tolerant applications
-
-Diskless topics are available only for Bring Your Own Cloud (BYOC) services on AWS and
-Google Cloud, and use object storage with a PostgreSQL-based batch coordinator for
-message ordering and metadata consistency. This architecture provides scalability and
-durability but has limitations. For details, see
-[Batch coordinator and metadata](/docs/products/kafka/diskless/concepts/architecture#batch-coordinator-and-metadata).
-
-## Limitations of diskless topics
-
-Diskless topics currently have the following limitations:
-
-- Transactions are not supported.
-- Compacted topics are not supported.
-- Kafka Streams state stores are not supported.
-- Share groups and queue-type topics are not supported.
-- Auto-creation of topics is not supported.
-- Retention policies based on bytes or time are limited compared to classic topics.
-
-Use **classic topics** for workloads that depend on these features.
+For limitations and restrictions of diskless topics, see
+[Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations).
 
 ## Before you begin
 
-Before creating topics in your Aiven for Apache Kafka® service, review the following.
+Before creating topics in your Aiven for Apache Kafka® service, review the following:
 
-- **Manual topic creation** applies only to classic topics. It gives you control over
-  partitions, replication, and retention, and helps prevent accidental topic creation.
-  It is preferred in production.
-
+- **Tiered storage** applies only to classic topics. When enabled, all new topics use
+  tiered storage by default. See [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
+- **Manual topic creation** gives you control over partitions, replication, and
+  retention, helping prevent accidental topic creation. It’s preferred in production.
 - **Automatic topic creation** applies only to classic topics. You can enable it to
   create topics automatically when a message is produced to a non-existent topic. See
   [Automatically create topics](create-topics-automatically).
 
-- **Tiered storage** applies only to classic topics. When enabled, all new topics use
-  tiered storage by default. See
-  [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
-
-## Steps to create an Apache Kafka® topic
+## Create an Apache Kafka topic
 
 <Tabs groupId="setup">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io/), select your Aiven for Apache
+1. In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache
    Kafka service.
 1. In the sidebar, click <ConsoleLabel name="topics" />.
 1. Click **Create topic**.
@@ -92,9 +56,8 @@ Before creating topics in your Aiven for Apache Kafka® service, review the foll
    - **Classic topic:** Data is stored on local disks and can optionally use tiered storage.
    - **Diskless topic:** Data is stored in object storage.
 1. Enter a name in the **Topic** field.
-1. Optional: Under **Edit advanced configuration**, turn on the toggle to enable
-   **Custom settings** and adjust topic parameters such as partitions, replication
-   factor, and retention.
+1. Optional: Under **Edit advanced configuration**, turn on **Custom settings** and
+   adjust topic parameters such as partitions, replication factor, and retention.
 
    :::note
    Compaction is unavailable for diskless topics.
@@ -107,8 +70,8 @@ Before creating topics in your Aiven for Apache Kafka® service, review the foll
    - Configure local retention options if needed.
 1. Click **Create topic**.
 
-After creation, the topic appears on the Topics page.
-The Topic type column indicates whether the topic is **Classic**, **Tiered**, or
+After creation, the topic appears on the <ConsoleLabel name="topics" /> page.
+The **Topic type** column indicates whether the topic is **Classic**, **Tiered**, or
 **Diskless**.
 
 </TabItem>
@@ -129,7 +92,7 @@ avn service topic-create \
   --topic <TOPIC_NAME> \
   --partitions <PARTITION_COUNT> \
   --replication <REPLICATION_FACTOR>
-````
+```
 
 </TabItem>
 
@@ -183,3 +146,11 @@ with [`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/l
 </Tabs>
 </TabItem>
 </Tabs>
+
+
+
+<RelatedPages/>
+
+- [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic)
+- [Automatically create topics](/docs/products/kafka/howto/create-topics-automatically)
+- [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage)

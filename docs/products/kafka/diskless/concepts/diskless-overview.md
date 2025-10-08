@@ -1,5 +1,5 @@
 ---
-title: Diskless for Apache Kafka® (BYOC)
+title: Diskless topics for Apache Kafka® (BYOC)
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -65,3 +65,4 @@ For a detailed comparison, see [Compare diskless and classic topics](/docs/produ
 
 - [Create a Kafka service](/docs/products/kafka/create-kafka-service)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
+- [Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations)
