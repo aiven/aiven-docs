@@ -49,18 +49,18 @@ Make sure you have the following:
 <TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- An Aiven project to create the service
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-<TerraformPrereqs />
+- An Aiven project to create the service in
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
 - [Aiven CLI](https://github.com/aiven/aiven-client#installation) installed
 - [A personal token](/docs/platform/howto/create_authentication_token)
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+<TerraformPrereqs />
 
 </TabItem>
 </Tabs>
@@ -78,7 +78,7 @@ To create a Kafka service with diskless topics, make sure that:
 
 Create a Kafka service that stores topic data on local disks by default.
 
-<Tabs groupId="classic-kafka">
+<Tabs groupId="create-kafka-service">
 <TabItem value="console" label="Console" default>
 
 1. In your project, click <ConsoleLabel name="services" />.
@@ -176,7 +176,7 @@ You can use both diskless and classic topics in the same Kafka cluster.
 For instructions on setting up a BYOC environment, see
 [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
 
-<Tabs groupId="diskless-kafka">
+<Tabs groupId="create-kafka-service">
 <TabItem value="console" label="Console" default>
 
 1. In your project, click <ConsoleLabel name="services" />.

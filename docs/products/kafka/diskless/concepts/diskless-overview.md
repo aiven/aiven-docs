@@ -32,7 +32,7 @@ cloud account. For architectural details, see
 ## Benefits of using diskless topics
 
 Diskless topics are well suited for workloads that require performance, scalability,
- and simplified operations. They provides:
+ and simplified operations. They provide:
 
 - **Elastic scaling**: Supports gigabytes per second of throughput and scales in seconds.
 - **No disk overruns**: Shifting to object storage removes broker disk capacity limits.

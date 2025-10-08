@@ -22,8 +22,7 @@ Aiven for Apache Kafka® supports two topic types:
   object storage through [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 - **Diskless topics:** Store data directly in object storage, such as AWS S3 or Google Cloud Storage.
 
-Both topic types can coexist in the same service. Diskless topics are available only
-for Bring Your Own Cloud (BYOC) services on AWS and Google Cloud. The topic type cannot
+Both topic types can coexist in the same service. The topic type cannot
 be changed after creation. For guidance on choosing between them, see
 [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
@@ -60,7 +59,7 @@ Before creating topics in your Aiven for Apache Kafka® service, review the foll
    adjust topic parameters such as partitions, replication factor, and retention.
 
    :::note
-   Compaction is unavailable for diskless topics.
+   Compaction is not available for diskless topics.
    :::
 
 1. Optional: Click **Add configuration** to define additional Kafka parameters if needed.
