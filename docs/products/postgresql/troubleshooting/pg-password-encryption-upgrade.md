@@ -1,12 +1,15 @@
 ---
-title: Set up Aiven for PostgreSQL® password encryption
-sidebar_label: Migrate to SCRAM-SHA-256
+title: Verify the Aiven for PostgreSQL® password encryption method
+sidebar_label: Verify password encryption
 ---
 
-Enable the `scram-sha-256` password encryption for your Aiven for PostgreSQL® connections.
+Verify that your Aiven for PostgreSQL® connections use `scram-sha-256` password encryption.
 
-Aiven for PostgreSQL defaults to `scram-sha-256` password encryption for enhanced
-security, moving away from the MD5 method.
+Aiven for PostgreSQL defaults to `scram-sha-256` password encryption for enhanced security,
+moving away from the MD5 method. This new default might need enforcing in specific
+configurations or setups.
+[Check if your action is needed](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#check-if-your-action-is-needed)
+and, if so, update your configuration to enable `scram-sha-256`.
 
 :::important
 PostgreSQL 19 will no longer support the MD5 password encryption, making the
