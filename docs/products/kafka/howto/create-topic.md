@@ -1,97 +1,155 @@
 ---
-title: Create an Apache Kafka® topic
-sidebar_label: Create a classic Kafka topic
+title: Create Apache Kafka® topics
+sidebar_label: Create Kafka topics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-A topic in Aiven for Apache Kafka® is a named stream of messages used by producers to send data and by consumers to read it.
 
-You can configure Aiven for Apache Kafka to
-[automatically create topics](create-topics-automatically) when a message is
-produced to a non-existent topic, but it is recommended to create topics beforehand,
-especially in production environments.
+Create topics in your Aiven for Apache Kafka® service to organize message streams between producers and consumers.
 
-Manual creation lets you:
+## Understand Kafka topics
 
-- Configure the number of partitions, replication factor, and retention period.
-- Avoid accidental topic creation caused by typos or incorrectly configured clients.
+A topic in Aiven for Apache Kafka® is a named stream of messages.
+Producers send data to topics, and consumers read from them.
 
-:::note
-If tiered storage is enabled for your Aiven for Apache Kafka® service, all new topics
-have tiered storage enabled by default.
-[Learn more about tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
-:::
+Aiven for Apache Kafka® supports two topic types:
 
-## Steps to create an Apache Kafka® topic
+- **Classic topics:** Store data on local disks and optionally offload older data to
+  object storage through [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
+- **Diskless topics:** Store data directly in object storage, such as AWS S3 or Google Cloud Storage.
+
+Both topic types can coexist in the same service. The topic type cannot
+be changed after creation. For guidance on choosing between them, see
+[Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
+
+For limitations and restrictions of diskless topics, see
+[Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations).
+
+## Before you begin
+
+Before creating topics in your Aiven for Apache Kafka® service, review the following:
+
+- **Tiered storage** applies only to classic topics. When enabled, all new topics use
+  tiered storage by default. See [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
+- **Manual topic creation** gives you control over partitions, replication, and
+  retention, helping prevent accidental topic creation. It’s preferred in production.
+- **Automatic topic creation** applies only to classic topics. You can enable it to
+  create topics automatically when a message is produced to a non-existent topic. See
+  [Automatically create topics](create-topics-automatically).
+
+## Create an Apache Kafka topic
 
 <Tabs groupId="setup">
-<TabItem value="Console" label="Console" default>
+<TabItem value="console" label="Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/) and select the Aiven for
-   Apache Kafka® service to create the topic.
-1. Click <ConsoleLabel name="topics" />.
+1. In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache
+   Kafka service.
+1. In the sidebar, click <ConsoleLabel name="topics" />.
 1. Click **Create topic**.
-1. Enter a name for the topic.
-1. To configure additional settings, turn on **Enable advanced configuration**.
-1. In the **Topic advanced configuration** section, configure properties such as the
-   replication factor, number of partitions, and retention settings. You can change
-   these later if needed.
+1. In **Topic type**, select one of the following:
+
+   - **Classic topic:** Data is stored on local disks and can optionally use tiered storage.
+   - **Diskless topic:** Data is stored in object storage.
+1. Enter a name in the **Topic** field.
+1. Optional: Under **Edit advanced configuration**, turn on **Custom settings** and
+   adjust topic parameters such as partitions, replication factor, and retention.
 
    :::note
-   The `message.format.version` configuration is deprecated in Kafka 3.x and removed
-   in Kafka 4.0. Remove this configuration from your topics before upgrading to Kafka 4.0.
+   Compaction is not available for diskless topics.
    :::
 
-
+1. Optional: Click **Add configuration** to define additional Kafka parameters if needed.
+1. **Classic topics only:**  Under **Tiered storage**, you can enable or disable the
+   feature.
+   - Tiered storage cannot be disabled once enabled.
+   - Configure local retention options if needed.
 1. Click **Create topic**.
 
-You can see the new topic immediately. It may take a few minutes before you can update
-its settings.
+After creation, the topic appears on the <ConsoleLabel name="topics" /> page.
+The **Topic type** column indicates whether the topic is **Classic**, **Tiered**, or
+**Diskless**.
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
 
-1. Decide on the topic settings, such as the number of partitions, replication factor,
-   and retention period.
+<TabItem value="cli" label="CLI">
 
-1. Run the following command to create a topic named `exampleTopic`:
+You can create topics using the Aiven CLI.
 
-   ```bash
-   avn service topic-create             \
-       --project demo-kafka-project    \
-       --service-name demo-kafka-service \
-       --topic exampleTopic            \
-       --partitions 2                  \
-       --replication 2
-   ```
+<Tabs groupId="cli-topic-type">
+<TabItem value="classic" label="Classic topic">
 
-   Parameters:
+To create a classic topic using the Aiven CLI:
 
-   - `avn service topic-create`: Creates a topic
-   - `--project demo-kafka-project`: Aiven project name
-   - `--service-name demo-kafka-service`: Aiven for Apache Kafka® service name
-   - `--topic exampleTopic`: Name of the topic
-   - `--partitions 2`: Number of partitions
-   - `--replication 2`: Replication factor
+```bash
+avn service topic-create \
+  --project <PROJECT_NAME> \
+  --service-name <SERVICE_NAME> \
+  --topic <TOPIC_NAME> \
+  --partitions <PARTITION_COUNT> \
+  --replication <REPLICATION_FACTOR>
+```
 
 </TabItem>
-<TabItem value="terraform" label="Terraform">
 
-Use the `aiven_kafka_topic` resource to define a topic in your Aiven for Apache Kafka
-service.
+<TabItem value="diskless" label="Diskless topic">
 
-<TerraformSample filename='resources/aiven_kafka_topic/resource.tf' />
+To create a diskless topic using the Aiven CLI:
 
-For more details, see the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic).
+```bash
+avn service topic-create \
+  --project <PROJECT_NAME> \
+  --service-name <SERVICE_NAME> \
+  --topic <TOPIC_NAME> \
+  --partitions <PARTITION_COUNT> \
+  --replication <REPLICATION_FACTOR> \
+  --diskless-enable
+```
 
 </TabItem>
 </Tabs>
 
+Parameters:
+
+- `<PROJECT_NAME>`: Aiven project that contains the Kafka service.
+- `<SERVICE_NAME>`: Aiven for Apache Kafka® service name.
+- `<TOPIC_NAME>`: Name of the topic.
+- `<PARTITION_COUNT>`: Number of partitions to distribute messages.
+- `--replication <REPLICATION_FACTOR>`: Number of replicas for each partition.
+- `--diskless-enable`: Creates a diskless topic by storing data in object storage.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+<Tabs groupId="tf-topic-type">
+
+  <TabItem value="classic" label="Classic topic">
+
+Manage topics using the
+[`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic)
+resource.
+
+  </TabItem>
+
+  <TabItem value="diskless" label="Diskless topic">
+
+To use diskless topics, enable them in the Kafka service through
+the [`aiven_kafka`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka)
+resource before defining topics
+with [`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic).
+
+  </TabItem>
+
+</Tabs>
+</TabItem>
+</Tabs>
+
+
+
 <RelatedPages/>
 
-- [Manage Aiven for Apache Kafka® topics via CLI](/docs/tools/cli/service/topic#avn_cli_service_topic_create)
-- [Create Apache Kafka® topics automatically](/docs/products/kafka/howto/create-topics-automatically)
+- [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic)
+- [Automatically create topics](/docs/products/kafka/howto/create-topics-automatically)
+- [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage)

@@ -1,5 +1,5 @@
 ---
-title: Limitations of Diskless Topics
+title: Limitations of diskless topics
 sidebar_label: Limitations
 ---
 
