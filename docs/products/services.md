@@ -5,7 +5,6 @@ sidebar_label: Overview
 
 import Card from "@site/src/components/Card";
 import GridContainer from "@site/src/components/GridContainer";
-import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
 import Opensearch from "@site/static/images/logos/opensearch.svg";
@@ -15,11 +14,11 @@ import Kafka from "@site/static/images/logos/kafka.svg";
 import MySQL from "@site/static/images/logos/mysql.svg";
 import PG from "@site/static/images/logos/pg.svg";
 import Valkey from "@site/static/images/logos/valkey.svg";
-import AlloyDBOmni from "@site/static/images/logos/alloydbomni.svg";
+import Metrics from "@site/static/images/logos/metrics.svg";
 
-Use our fully managed services to stream, store, or serve your data. Deploy individual services and advanced data pipelines in minutes.
+Deploy fully managed and scalable open source data technologies as individual services and advanced data pipelines in minutes.
 
-## Stream
+## Streaming
 
 <GridContainer>
   <Card
@@ -36,7 +35,7 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
   />
 </GridContainer>
 
-## Store
+## Databases
 
 <GridContainer>
   <Card
@@ -45,41 +44,6 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
     title="Aiven for PostgreSQL®"
     description="The object-relational database with exentions and Aiven's AI capabilities."
   />
-  <Card
-    to="/docs/products/alloydbomni"
-    iconComponent={AlloyDBOmni}
-    title="Aiven for AlloyDB Omni"
-    description="The high-performance PostgreSQL-compatible database with columnar engine and built-in AI capabilities"
-  />
-  <Card
-    to="/docs/products/mysql"
-    iconComponent={MySQL}
-    title="Aiven for MySQL"
-    description="The relational database with all the integrations you need."
-  />
-  <Card
-    to="/docs/products/valkey"
-    iconComponent={Valkey}
-    title="Aiven for Valkey"
-    description="An in-memory NoSQL database with a small footprint and high performance."
-  />
-  <Card
-    to="/docs/products/dragonfly"
-    iconComponent={Dragonfly}
-    title="Aiven for Dragonfly"
-    description="A scalable in-memory data store for high-performance."
-  />
-  <Card
-    to="/docs/products/cassandra"
-    iconComponent={Cassandra}
-    title="Aiven for Apache Cassandra®"
-    description="The distributed NoSQL database providing scalability, high availability, and excellent fault tolerance"
-  />
-</GridContainer>
-
-## Serve
-
-<GridContainer>
   <Card
     to="/docs/products/opensearch"
     iconComponent={Opensearch}
@@ -91,6 +55,30 @@ Use our fully managed services to stream, store, or serve your data. Deploy indi
     iconComponent={ClickHouse}
     title="Aiven for ClickHouse®"
     description="The cloud data warehouse to generate real-time analytical data."
+  />
+  <Card
+    to="/docs/products/valkey"
+    iconComponent={Valkey}
+    title="Aiven for Valkey"
+    description="An in-memory NoSQL database with a small footprint and high performance."
+  />
+  <Card
+    to="/docs/products/mysql"
+    iconComponent={MySQL}
+    title="Aiven for MySQL"
+    description="The relational database with all the integrations you need."
+  />
+  <Card
+    to="/docs/products/dragonfly"
+    iconComponent={Dragonfly}
+    title="Aiven for Dragonfly"
+    description="A scalable in-memory data store for high-performance."
+  />
+  <Card
+    to="/docs/products/metrics"
+    iconComponent={Metrics}
+    title="Aiven for Metrics"
+    description="Fully managed Thanos metrics – a cost-effective, open source Prometheus solution."
   />
   <Card
     to="/docs/products/grafana"
