@@ -30,15 +30,15 @@ platforms and other common integrations.
 
 <RelatedPages/>
 
-If you are new to Apache Kafka, try these resources to learn more:
+If you are new to Aiven for Apache Kafka®, explore these topics to get started:
 
-- [Create a Kafka service](/docs/products/kafka/create-kafka-service)
-- The Karapace schema registry that Aiven maintains and makes
-  available for every Aiven for Apache Kafka service:
-  [https://www.karapace.io/](https://www.karapace.io/)
-- Our code samples repository, to get you started:
-  [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
-- A lighthearted sample data generator to give you some fun (pizza
-  order) data to try out:
-  [https://github.com/aiven/python-fake-data-producer-for-apache-kafka](https://github.com/aiven/python-fake-data-producer-for-apache-kafka)
-- [Aiven.io](https://aiven.io/kafka)
+- [Create a Kafka service](/docs/products/kafka/create-kafka-service): Set up and
+  configure your first Kafka service in Aiven.
+- [Create Kafka topics](/docs/products/kafka/howto/create-topic): Learn how to create
+  both classic and diskless topics.
+- [Generate sample data](/docs/products/kafka/howto/generate-sample-data): Produce
+  example data to test your Kafka setup.
+- [Enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage):
+  Optimize data storage by offloading older messages to object storage.
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview):
+  Understand how diskless topics store data in object storage for cost-efficient scaling.
