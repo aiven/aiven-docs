@@ -56,7 +56,7 @@ replication feature.
 
 - If you use `mydumper/myloader` for the
   [initial data transfer](/docs/products/mysql/howto/migrate-from-external-mysql#initial-data-transfer),
-  make sure your service has significant computational power (multiple vCPUs) and high
+  make sure your service has sufficient computational power (multiple vCPUs) and high
   memory capacity to avoid the resource exhaustion during migration.
 
 :::note

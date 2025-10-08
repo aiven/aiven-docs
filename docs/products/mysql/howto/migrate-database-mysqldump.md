@@ -17,7 +17,7 @@ Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQ
 
 ## Prerequisites
 
-Make sure your service has required computational power (vCPUs) and
+Make sure your service has the required computational power (vCPUs) and
 memory capacity to process data migration without resource exhaustion or downtime.
 
 <Tabs groupId="group1">
@@ -58,7 +58,7 @@ as needed.
 
 ### Collect connection details
 
-To backup the `source-db` data to the `mydb_backup.sql` file, collect
+To back up the `source-db` data to the `mydb_backup.sql` file, collect
 connection details on your Aiven for MySQL `source-db` service:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and go to your `source-db`
