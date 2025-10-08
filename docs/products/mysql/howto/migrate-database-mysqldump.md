@@ -17,6 +17,9 @@ Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQ
 
 ## Prerequisites
 
+Make sure your service has required computational power (vCPUs) and
+memory capacity to process data migration without resource exhaustion or downtime.
+
 <Tabs groupId="group1">
 <TabItem value="1" label="mysqldump/restore" default>
 
@@ -34,8 +37,6 @@ Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQ
 <br />
 <br />
 
-- Service configuration with significant computational power (multiple vCPUs) and
-  high memory capacity to avoid the resource exhaustion during migration
 - [`mydumper` tool](https://github.com/mydumper/mydumper):
   [install](https://mydumper.github.io/mydumper/docs/html/installing.html) if missing
 - Source database to copy your data from: `source-db`
@@ -43,12 +44,6 @@ Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQ
 
 </TabItem>
 </Tabs>
-
-:::tip
-For the restore or load process, pick a plan size that is large
-enough to store your data, so you can limit the downtime if you're
-performing a migration.
-:::
 
 You can use Aiven for MySQL databases both as `source-db` and as `target-db`.
 [Create additional Aiven for MySQL® databases](/docs/products/mysql/howto/create-database)
