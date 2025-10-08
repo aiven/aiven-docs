@@ -19,7 +19,7 @@ You can migrate the following:
 -   Cloud-hosted MySQL databases
 -   Managed MySQL database clusters on Aiven
 
-The console migration tool provides 2 migration methods:
+The console migration tool provides two migration methods:
 
 -   **(Recommended) Continuous migration:** Used by default in the tool and taken as the
     reference method. This method uses logical replication so that data transfer is
@@ -33,7 +33,7 @@ The console migration tool provides 2 migration methods:
 
 When you trigger the migration setup in the console and initial checks detect that your
 source database does not support logical replication, you are notified about it via the
-migration wizard. To continue with the migration, the wizard allow you to select
+migration wizard. To continue with the migration, the wizard allows you to select
 `mysqldump/restore` as an alternative migration method.
 
 ## Prerequisites
