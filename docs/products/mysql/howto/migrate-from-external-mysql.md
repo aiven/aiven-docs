@@ -6,6 +6,7 @@ sidebar_label: Migrate to Aiven via CLI
 import RelatedPages from "@site/src/components/RelatedPages";
 import MysqlMigrationFreeze from "@site/static/includes/mysql-migration-freeze.md";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import MydumperNote from "@site/static/includes/mydumper-ea.md";
 
 Migrate your external MySQL database to an Aiven-hosted one using either a one-time dump-and-restore or continuous data synchronization through MySQL's built-in replication.
 
@@ -26,12 +27,7 @@ A bulk copy of your data is first created. This is done using one of the followi
 - `mysqldump` for small and medium-sized databases
 - `mydumper/myloader` <EarlyBadge/> for large databases
 
-:::note[mydumper/myloader]
-`mydumper/myloader` is an
-[early availability feature](/docs/platform/concepts/service-and-feature-releases) that
-provides faster migration and reduced downtime for large databases, preventing
-performance bottlenecks that `mysqldump` can cause on the same.
-:::
+<MydumperNote/>
 
 ### Continuous data synchronization
 
