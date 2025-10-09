@@ -34,6 +34,12 @@ and follow up, depending on your configuration requirements.
 
 ## scram-sha-256 compatibility guidelines
 
+### Update PGBouncer configuration
+
+When connection pools are configured with specific user names, an attempt to connect using
+another role fails with a `permission denied` error. This is due to the challenge-response
+flow initiated by the PostgreSQL client.
+
 ### Update service's `user_config`
 
 Update the password encryption value in your service's `user_config`:
@@ -46,18 +52,20 @@ Update the password encryption value in your service's `user_config`:
 }
 ```
 
-This maintains the MD5 compatibility. You can still
-[re-hash the password](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#re-hash-database-user-password)
-later.
-New managed users' password will be hashed and authenticated using `scram-sha-256`.
+This enables hashing and authenticating new managed users' passwords using `scram-sha-256`.
 
-### Re-hash database user password
+:::important
+While this maintains the MD5 compatibility,
+[re-hash the passwords](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#re-hash-database-user-passwords)
+at your earlier convenience.
+:::
 
-Re-hash the existing passwords supported by MD5 to use the new encryption using the
-following SQL statement:
+### Re-hash database user passwords
+
+Re-hash existing passwords supported by MD5 to use the `scram-sha-256` encryption:
 
 ```sql
-ALTER ROLE ROLE_NAME PASSWORD 'new_password';
+ALTER ROLE ROLE_NAME PASSWORD 'ROLE_PASSWORD';
 ```
 
 **Example Python code to list all database users and upgrade them to `scram-sha-256`**
@@ -67,16 +75,9 @@ ALTER ROLE ROLE_NAME PASSWORD 'new_password';
 # Provide a script that can be run using uv to pack all dependencies
 ```
 
-### Update PGBouncer configuration
-
-When connection pools are configured with specific user names, an attempt to connect using
-another role fails with a `permission denied` error. This is due to the challenge-response
-flow initiated by the PostgreSQL client.
-
 ## Troubleshoot connection issues
 
 If you experience authentication failures:
 
-1. **Check client library support**: Ensure your PostgreSQL client supports `scram-sha-256`.
-1. **Verify PGBouncer configuration**: Check `auth_type` and `auth_file` settings.
-1. **Review connection logs**: Look for authentication method mismatches.
+- **Check client library support**: Ensure your PostgreSQL client supports `scram-sha-256`.
+- **Review connection logs**: Look for authentication method mismatches.
