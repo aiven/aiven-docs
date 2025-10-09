@@ -41,9 +41,7 @@ another role fails with a `permission denied` error. This is due to the challeng
 flow initiated by the PostgreSQL client.
 
 **Update an scram-sha-256-incompatible connection pool configuration by removing
-the `username` field**. This allows PGBouncer to accept connections from any
-authenticated user, making it compatible with the `scram-sha-256`'s challenge-response
-authentication flow.
+the `username` field**:
 
 Connection pool **with a specific username**:
 
@@ -79,6 +77,10 @@ Connection pool **without a specific username**:
   }
 }
 ```
+
+This allows PGBouncer to accept connections from any
+authenticated user, making it compatible with the `scram-sha-256`'s challenge-response
+authentication flow.
 
 If you need user-specific connection pools, consider migrating to `scram-sha-256` and
 updating all relevant user passwords accordingly.
