@@ -20,12 +20,12 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
 
 - **No action is needed** if in your Aiven for PostgreSQL services:
 
-  - There are **no** PGBouncer connection pools tied to specific database users.
+  - There are **no** PgBouncer connection pools tied to specific database users.
   - All database users are managed by Aiven.
 
 - **Your action is required** if in your Aiven for PostgreSQL services:
 
-  - PGBouncer connection pools are tied to specific database users.
+  - PgBouncer connection pools are tied to specific database users.
   - There are database users **not** managed by Aiven.
 
 If your action is required, review the
@@ -34,20 +34,60 @@ and follow up, depending on your configuration requirements.
 
 ## scram-sha-256 compatibility guidelines
 
-### Check applications using PGBouncer connection pools
+### Ensure app connections to PgBouncer connection pools
 
-When connection pools are configured with specific user names, attempting to connect using
-another role after `scram-sha-256` is enforced will fail with a `permission denied` error.
-This is due to the challenge-response authentication flow initiated by the PostgreSQL client and proxied by PGBouncer to PostgreSQL.
+When connection pools are configured with specific user names, attempts to connect using
+another role after `scram-sha-256` is enforced fails with a `permission denied` error.
+This is due to the challenge-response authentication flow initiated by the PostgreSQL
+client and proxied by PgBouncer to PostgreSQL.
 
-For example, for the following connection pool (output of `avn service connection-pool-list`),
-you must ensure applications are connecting to the `my_pool` pool with the `pool_usr` role.
+1. Check which connection pools have specific usernames by running the
+   [`avn service connection-pool-list`](/docs/tools/cli/service/connection-pool) command:
 
-```text
-POOL_NAME        DATABASE      USERNAME  POOL_MODE    POOL_SIZE
-===============  ============  ========  ===========  =========
-my_pool          defaultdb     pool_usr  session      20
-```
+   ```bash
+   avn service connection-pool-list --project PROJECT_NAME SERVICE_NAME
+   ```
+
+   Example output:
+
+   ```text
+   POOL_NAME        DATABASE      USERNAME  POOL_MODE    POOL_SIZE
+   ===============  ============  ========  ===========  =========
+   my_pool          defaultdb     pool_usr  session      20
+   general_pool     defaultdb               transaction  15
+   ```
+
+1. Review the `USERNAME` column to identify potential issues:
+
+   - **Pools with usernames** (`my_pool` with `pool_usr`) may experience authentication
+     issues with `scram-sha-256`.
+   - **Pools without usernames** (`general_pool`) are compatible with `scram-sha-256`.
+
+1. For pools with specific usernames, check your application's connection string
+   `postgresql://pool_usr:password@service-host:port/my_pool` to verify the username
+   matches exactly:
+
+   - Connection string username: `pool_usr`
+   - Pool configuration username: `pool_usr`
+
+1. If the usernames don't match, choose your migration strategy:
+
+   - Remove the username from the pool:
+
+     ```bash
+     avn service connection-pool-update \
+       --project PROJECT_NAME SERVICE_NAME my_pool \
+       --username=""
+     ```
+
+   - [Re-hash the pool user's password](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#re-hash-database-user-passwords).
+
+   - Update your application to use a different compatible pool without specific username
+     requirements:
+
+     ```txt
+     postgresql://any_user:password@service-host:port/general_pool
+     ```
 
 ### Update service's `user_config`
 
