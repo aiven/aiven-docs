@@ -40,10 +40,8 @@ When connection pools are configured with specific user names, an attempt to con
 another role fails with a `permission denied` error. This is due to the challenge-response
 flow initiated by the PostgreSQL client.
 
-**Update an scram-sha-256-incompatible connection pool configuration by removing
-the `username` field**:
-
-Connection pool **with a specific username**:
+**Remove the `username` field** from your scram-sha-256-incompatible connection pool
+configuration:
 
 ```json {9}
 {
@@ -61,7 +59,7 @@ Connection pool **with a specific username**:
 }
 ```
 
-Connection pool **without a specific username**:
+Expected result:
 
 ```json {9}
 {
