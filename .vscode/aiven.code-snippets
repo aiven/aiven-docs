@@ -118,6 +118,17 @@
     "prefix": ["contact", "support"],
     "body": ["contact the [support team](mailto:support@aiven.io)"]
   },
+  "Details": {
+    "prefix": "details",
+    "body": [
+      "<details close>",
+      "<summary>Title</summary>",
+      "",
+      "Content",
+      "",
+      "</details>"
+    ]
+  },
   "DocCardList": {
     "prefix": ["doccard", "tiles"],
     "body": [
