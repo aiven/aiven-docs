@@ -4,6 +4,7 @@ sidebar_label: Retention rules
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import NoThanosAccess from '@site/static/includes/no-thanos-access.md';
 
 Retention rules in Aiven for Metrics define how long your metrics data is stored.
 
@@ -11,6 +12,8 @@ By default, all data is retained indefinitely, ensuring uninterrupted access to
 historical insights. Optimize storage and access to historical data by tailoring
 retention periods to align with specific data strategies, compliance needs, and
 cost management goals.
+
+<NoThanosAccess/>
 
 ## Define retention rules
 
