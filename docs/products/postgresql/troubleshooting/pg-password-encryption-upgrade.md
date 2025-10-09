@@ -38,31 +38,16 @@ and follow up, depending on your configuration requirements.
 
 When connection pools are configured with specific user names, attempting to connect using
 another role after `scram-sha-256` is enforced will fail with a `permission denied` error.
-This is due to the challenge-response flow initiated by the PostgreSQL client.
+This is due to the challenge-response authentication flow initiated by the PostgreSQL client and proxied by PGBouncer to PostgreSQL.
 
-For example, for a connection pool with the following configuration:
+For example, for the following connection pool (output of `avn service connection-pool-list`),
+you must ensure applications are connecting to the `my_pool` pool with the `pool_usr` role.
 
-```json {9}
-{
-  "pgbouncer": {
-    "databases": {
-      "mypool": {
-        "host": "service-project.j.aivencloud.com",
-        "port": 11752,
-        "dbname": "defaultdb",
-        "pool_size": 10,
-        "username": "pool_user"
-      }
-    }
-  }
-}
+```text
+POOL_NAME        DATABASE      USERNAME  POOL_MODE    POOL_SIZE
+===============  ============  ========  ===========  =========
+my_pool          defaultdb     pool_usr  session      20
 ```
-
-You must ensure applications are connecting to the `mypool` pool with the `pool_user` role.
-This is required to complete `scram-sha-256`'s challenge-response authentication flow from the client, through PGBouncer, to PostgreSQL.
-
-If you need user-specific connection pools, consider migrating to `scram-sha-256` and
-updating all relevant user passwords accordingly.
 
 ### Update service's `user_config`
 
