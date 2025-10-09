@@ -32,7 +32,7 @@ If your action is required, review the
 [`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#scram-sha-256-compatibility-guidelines),
 and follow up, depending on your configuration requirements.
 
-## scram-sha-256 compatibility guidelines
+## Ensure scram-sha-256 compatibility
 
 ### Ensure app connections to PgBouncer connection pools
 
