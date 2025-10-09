@@ -34,51 +34,32 @@ and follow up, depending on your configuration requirements.
 
 ## scram-sha-256 compatibility guidelines
 
-### Update PGBouncer configuration
+### Check applications using PGBouncer connection pools
 
-When connection pools are configured with specific user names, an attempt to connect using
-another role fails with a `permission denied` error. This is due to the challenge-response
-flow initiated by the PostgreSQL client.
+When connection pools are configured with specific user names, attempting to connect using
+another role after `scram-sha-256` is enforced will fail with a `permission denied` error.
+This is due to the challenge-response flow initiated by the PostgreSQL client.
 
-**Remove the `username` field** from your scram-sha-256-incompatible connection pool
-configuration:
+For example, for a connection pool with the following configuration:
 
 ```json {9}
 {
   "pgbouncer": {
     "databases": {
-      "mydatabase": {
-        "host": "pg-service.example.com",
-        "port": 1234,
+      "mypool": {
+        "host": "service-project.j.aivencloud.com",
+        "port": 11752,
         "dbname": "defaultdb",
         "pool_size": 10,
-        "username": "specific_user"
+        "username": "pool_user"
       }
     }
   }
 }
 ```
 
-Expected result:
-
-```json {9}
-{
-  "pgbouncer": {
-    "databases": {
-      "mydatabase": {
-        "host": "pg-service.example.com",
-        "port": 1234,
-        "dbname": "defaultdb",
-        "pool_size": 10
-      }
-    }
-  }
-}
-```
-
-This allows PGBouncer to accept connections from any
-authenticated user, making it compatible with the `scram-sha-256`'s challenge-response
-authentication flow.
+You must ensure applications are connecting to the `mypool` pool with the `pool_user` role.
+This is required to complete `scram-sha-256`'s challenge-response authentication flow from the client, through PGBouncer, to PostgreSQL.
 
 If you need user-specific connection pools, consider migrating to `scram-sha-256` and
 updating all relevant user passwords accordingly.
@@ -109,13 +90,6 @@ Re-hash existing passwords supported by MD5 to use the `scram-sha-256` encryptio
 
 ```sql
 ALTER ROLE ROLE_NAME PASSWORD 'ROLE_PASSWORD';
-```
-
-**Example Python code to list all database users and upgrade them to `scram-sha-256`**
-
-```txt
-# Use avn-client to fetch the avnadmin service user connection details
-# Provide a script that can be run using uv to pack all dependencies
 ```
 
 ## Troubleshoot connection issues
