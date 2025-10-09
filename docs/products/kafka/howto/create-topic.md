@@ -20,7 +20,7 @@ Aiven for Apache Kafka® supports two topic types:
 
 - **Classic topics:** Store data on local disks and optionally offload older data to
   object storage through [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
-- **Diskless topics:** Store data directly in object storage, such as AWS S3 or Google Cloud Storage.
+- **Diskless topics:** Store data directly in object storage, such as AWS S3.
 
 Both topic types can coexist in the same service. The topic type cannot
 be changed after creation. For guidance on choosing between them, see

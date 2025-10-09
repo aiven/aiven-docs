@@ -29,7 +29,7 @@ Choose the configuration that fits your workload:
 - **Kafka service with diskless topics:** Stores data in cloud object storage for
   cost-optimized scaling in Bring Your Own Cloud (BYOC) environments.
 
-Diskless topics are currently supported only for BYOC deployments on AWS and Google Cloud.
+Diskless topics are currently supported only for BYOC deployments on AWS.
 
 :::note
 You cannot enable diskless topics on an existing Kafka service that was created with
@@ -70,9 +70,9 @@ Make sure you have the following:
 To create a Kafka service with diskless topics, make sure that:
 
 - You have a [BYOC environment](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
-  set up in your cloud account on AWS or Google Cloud
+  set up in your cloud account on AWS.
 - Diskless topics are enabled for your organization by Aiven. If the option does not
-  appear in the Aiven Console, [contact Aiven support](https://aiven.io/contact)
+  appear in the Aiven Console, [contact Aiven support](https://aiven.io/contact).
 
 ## Create a Kafka service
 
@@ -125,17 +125,17 @@ When it changes to **Running**, your Kafka service is ready.
 Create a Kafka service using the Aiven CLI.
 
 ```bash
-avn service create kafka-demo \
+avn service create SERVICE_NAME \
   --service-type kafka \
-  --cloud google-europe-west3 \
-  --plan business-4
+  --cloud CLOUD_REGION \
+  --plan PLAN_NAME
 ```
 
 Parameters:
 
-- `kafka-demo`: The name of your Kafka service.
-- `google-europe-west3`: The cloud and region.
-- `business-4`: The plan name.
+- `SERVICE_NAME`: The name of the Kafka service
+- `CLOUD_REGION`: The cloud and region
+- `PLAN_NAME`: The plan name
 
 Wait until the service status changes to **RUNNING**.
 
@@ -289,7 +289,7 @@ You can create a Kafka service with diskless topics enabled using Terraform.
 
 When you create a Kafka service with diskless topics, Aiven deploys it directly in your
 BYOC environment using your connected cloud account. The service runs entirely within
-your AWS or Google Cloud account.
+your cloud account.
 
 Aiven configures the following:
 

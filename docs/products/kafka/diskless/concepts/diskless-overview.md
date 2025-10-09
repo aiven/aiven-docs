@@ -11,10 +11,9 @@ infrastructure and data.
 
 ## About diskless topics
 
-Diskless topics are a Kafka feature that stores topic data in cloud object storage,
-such as Amazon S3, Google Cloud Storage, or Azure Blob Storage, instead of on broker
-disks. This design simplifies operations, reduces cross-availability zone (AZ) traffic,
-and supports cost-effective scaling.
+Diskless topics are a Kafka feature that stores topic data in cloud object storage, such
+as Amazon S3, instead of on broker disks. This design simplifies operations, reduces
+cross-availability zone (AZ) traffic, and supports cost-effective scaling.
 
 Data is batched and written to object storage. Partition metadata and message ordering
 are managed by a coordination layer designed for high throughput and durability. For
