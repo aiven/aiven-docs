@@ -43,9 +43,8 @@ network costs between zones can be high.
 ## Role of object storage
 
 Object storage replaces the local disk storage used in classic Kafka. Instead of writing
-log segments to disk, brokers batch messages into larger units called objects and
-upload them to cloud storage services such as Amazon S3, Google Cloud Storage, or Azure
-Blob Storage.
+log segments to disk, brokers batch messages into larger units called objects and upload
+them to the object storage service configured for the BYOC environment.
 
 This design shifts durability and replication responsibilities from Kafka to the
 cloud provider, reducing broker-to-broker data transfer and operational complexity.
