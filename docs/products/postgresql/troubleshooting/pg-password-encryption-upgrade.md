@@ -40,6 +40,52 @@ When connection pools are configured with specific user names, an attempt to con
 another role fails with a `permission denied` error. This is due to the challenge-response
 flow initiated by the PostgreSQL client.
 
+**Connection pool with specific username**
+
+Problematic with scram-sha-256
+
+```json {9}
+{
+  "pgbouncer": {
+    "databases": {
+      "mydatabase": {
+        "host": "pg-service.example.com",
+        "port": 1234,
+        "dbname": "defaultdb",
+        "pool_size": 10,
+        "username": "specific_user"
+      }
+    }
+  }
+}
+```
+
+**Connection pool without specific username**
+
+Compatible with scram-sha-256
+
+```json {9}
+{
+  "pgbouncer": {
+    "databases": {
+      "mydatabase": {
+        "host": "pg-service.example.com",
+        "port": 1234,
+        "dbname": "defaultdb",
+        "pool_size": 10
+      }
+    }
+  }
+}
+```
+
+Remove the `username` field so that PGBouncer can accept connections from any
+authenticated user, making it compatible with `scram-sha-256`'s challenge-response
+authentication flow.
+
+If you need user-specific connection pools, consider migrating to `scram-sha-256` and
+updating all relevant user passwords accordingly.
+
 ### Update service's `user_config`
 
 Update the password encryption value in your service's `user_config`:
