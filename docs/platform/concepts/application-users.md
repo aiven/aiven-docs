@@ -15,7 +15,7 @@ at the organization level and you
 [give them access to projects and services](/docs/platform/howto/manage-permissions)
 in the same way as organization users.
 
-YOu cannot make application users super admin, but you can grant them the
+You cannot make application users super admin, but you can grant them the
 organization admin role, giving them full access to your organization,
 its organizational units, projects, services, billing, and other settings.
 
