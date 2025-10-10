@@ -35,8 +35,8 @@ function fetchData(url) {
 // Function to generate a Markdown table for a specific PostgreSQL version
 function generateMarkdownTableForVersion(pgVersion) {
   let markdown = `## PostgreSQL ${pgVersion.version} extensions\n\n`;
-  markdown += '| Extension name | Default version |\n';
-  markdown += '|----------------|-----------------|\n';
+  markdown += '| Extension name | Default version | Supported versions |\n';
+  markdown += '|----------------|-----------------|--------------------|\n';
 
   if (!pgVersion.extensions || !Array.isArray(pgVersion.extensions)) {
     console.error(
@@ -47,7 +47,10 @@ function generateMarkdownTableForVersion(pgVersion) {
 
   pgVersion.extensions.forEach((extension) => {
     const defaultVersion = extension.default_version || 'N/A';
-    markdown += `| ${extension.name} | ${defaultVersion} |\n`;
+    const versions = extension.versions && Array.isArray(extension.versions)
+      ? extension.versions.join(', ')
+      : 'N/A';
+    markdown += `| ${extension.name} | ${defaultVersion} | ${versions} |\n`;
   });
 
   return markdown;
