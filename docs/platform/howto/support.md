@@ -139,3 +139,6 @@ in a HAR (HTTP Archive) file.
     -   Sensitive cookies or headers
 1.  Zip the sanitized file and add password protection to it.
 1.  Follow the support team's instructions to share the file and password with them.
+
+
+#PoC By Jainil
