@@ -29,7 +29,7 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
   - There are database users **not** managed by Aiven.
 
 If your action is required, review the
-[`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#scram-sha-256-compatibility-guidelines),
+[`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#ensure-scram-sha-256-compatibility),
 and follow up, depending on your configuration requirements.
 
 ## Ensure scram-sha-256 compatibility
