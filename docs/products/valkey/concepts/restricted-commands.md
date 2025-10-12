@@ -1,13 +1,11 @@
 ---
-title: Restricted Aiven for Valkey commands
+title: Restricted commands in Aiven for Valkey™
+sidebar_label: Disabled commands
 ---
 
-To ensure the stability and security of the Valkey environment, the Aiven for Valkey service restricts certain commands.
-This section aims to provide you with a list of disabled/restricted commands.
+For optimal performance, stability, and security, Aiven for Valkey™ disables specific commands.
 
-## Disabled commands
-
-For optimal performance and security, Aiven for Valkey disables the following commands:
+Commands you cannot use in Aiven for Valkey™ are the following:
 
 -   `bgrewriteaof`: Initiates a background append-only file rewrite.
 -   `cluster`: Manages Valkey cluster commands.
@@ -29,18 +27,3 @@ For optimal performance and security, Aiven for Valkey disables the following co
 -   `replicaof`: Makes the server a replica of another instance.
 -   `save`: Synchronously saves the dataset to disk.
 -   `shutdown`: Synchronously saves the dataset to disk and shuts down the server.
-
-## Disabled eval commands
-
-The following script evaluation commands in the Aiven for Valkey service are disabled.
-If you require these commands to be enabled, contact Aiven support.
-
--   `eval`: Executes a Lua script server-side.
--   `eval_ro`: Read-only variant of the `eval` command.
--   `evalsha`: Executes a script cached on the server side by its SHA1
-    digest.
--   `evalsha_ro`: Read-only variant of the `evalsha` command.
--   `fcall`: Calls a Valkey function.
--   `fcall_ro`: Read-only variant of the `fcall` command.
--   `function`: Manages Valkey functions.
--   `script`: Manages the script cache.
