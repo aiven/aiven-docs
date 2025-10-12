@@ -1,5 +1,5 @@
 ---
-title: Handle warning overcommit_memory
+title: Handle warning `overcommit_memory`
 ---
 
 When starting a Aiven for Valkey service on [Aiven
