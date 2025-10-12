@@ -1,5 +1,5 @@
 ---
-title: Create read replica in Aiven for Valkey
+title: Create read replica in Aiven for Valkey™
 sidebar_label: Create read replica
 early: true
 ---
@@ -9,12 +9,13 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-[Aiven for Valkey read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
+[Aiven for Valkey™ read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
 
 ## Prerequisites
 
-- An Aiven account and API token.
-- [Aiven CLI tool](https://github.com/aiven/aiven-client).
+- Aiven for Valkey service
+- Aiven API token
+- [Aiven CLI tool](https://github.com/aiven/aiven-client)
 
 ## Limitations
 

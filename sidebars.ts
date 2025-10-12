@@ -1897,40 +1897,55 @@ const sidebars: SidebarsConfig = {
             'products/valkey/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
-              link: {
-                type: 'doc',
-                id: 'products/valkey/howto/connect-services',
-              },
+              label: 'Concepts',
               items: [
-                'products/valkey/howto/connect-valkey-cli',
-                'products/valkey/howto/connect-go',
-                'products/valkey/howto/connect-node',
-                'products/valkey/howto/connect-php',
-                'products/valkey/howto/connect-python',
-                'products/valkey/howto/connect-java',
+                'products/valkey/concepts/high-availability',
+                'products/valkey/concepts/lua-scripts',
+                'products/valkey/concepts/memory-usage',
+                'products/valkey/concepts/read-replica',
               ],
             },
             {
               type: 'category',
-              label: 'Data migration',
-              items: [
-                'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Read replica',
-              link: {
-                type: 'doc',
-                id: 'products/valkey/concepts/read-replica',
-              },
+              label: 'How to',
               items: [
                 {
-                  type: 'doc',
-                  id: 'products/valkey/howto/create-valkey-read-replica',
-                  label: 'Create read replica',
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/valkey/howto/connect-services',
+                  },
+                  items: [
+                    'products/valkey/howto/connect-valkey-cli',
+                    'products/valkey/howto/connect-go',
+                    'products/valkey/howto/connect-node',
+                    'products/valkey/howto/connect-php',
+                    'products/valkey/howto/connect-python',
+                    'products/valkey/howto/connect-java',
+                  ],
                 },
+                {
+                  type: 'category',
+                  label: 'Manage service',
+                  items: [
+                    'products/valkey/howto/benchmark-performance',
+                    'products/valkey/howto/configure-acl-permissions',
+                    'products/valkey/howto/estimate-max-number-of-connections',
+                    'products/valkey/howto/manage-ssl-connectivity',
+                    'products/valkey/howto/warning-overcommit_memory',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Data migration',
+                  items: [
+                    'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
+                    'products/valkey/howto/migrate-redis-aiven-cli',
+                    'products/valkey/howto/migrate-redis-aiven-via-console',
+                  ],
+                },
+                'products/valkey/howto/create-valkey-read-replica',
               ],
             },
             {
@@ -1938,7 +1953,15 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/valkey/reference/advanced-params',
+                'products/valkey/reference/restricted-commands',
                 'products/valkey/reference/valkey-metrics-in-prometheus',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              items: [
+                'products/valkey/troubleshooting/troubleshoot-connection-issues',
               ],
             },
           ],

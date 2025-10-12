@@ -1,8 +1,9 @@
 ---
 title: Troubleshoot Aiven for Valkey™ connection issues
+sidebar_label: Connection issues
 ---
 
-Learn troubleshooting techniques for your Aiven for Valkey service and resolve common connection issues.
+Learn troubleshooting techniques for your Aiven for Valkey™ service and resolve common connection issues.
 
 :::important
 By default,

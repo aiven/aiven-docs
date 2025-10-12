@@ -4,6 +4,7 @@ sidebar_label: Read replica
 early: true
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
 import Button from "@site/src/components/Buttons";
 import GridContainer from "@site/src/components/GridContainer";
 
@@ -42,3 +43,7 @@ data consistency under normal conditions.
   replication is not available.
 - You can create a maximum of 5 read replicas per primary service.
 - Read replicas are only supported on the **Startup** plan.
+
+<RelatedPages/>
+
+[Create an Aiven for Valkey™ read replica and promote it to primary](/docs/products/valkey/howto/create-valkey-read-replica)
