@@ -91,7 +91,7 @@ As an alternative to SSL, you can enable plain-text connections.
 1. In the service's <ConsoleLabel name="overview"/> page, click
    <ConsoleLabel name="service settings"/>.
 1. Go to the **Advanced configuration** section.
-1. Set **valkey_ssl** to `false`.
+1. Set `valkey_ssl` to `false`.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
