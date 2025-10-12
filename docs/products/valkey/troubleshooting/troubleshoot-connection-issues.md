@@ -21,7 +21,7 @@ things to check:
   documentation for the Redis®* client being used to ensure SSL connections
   are supported.
 - If you notice older connections terminating, check the value configured for the
-  [valkey_timeout advanced parameter](/docs/products/valkey/reference/advanced-params).
+  [`valkey_timeout` advanced parameter](/docs/products/valkey/reference/advanced-params).
   This parameter controls the timeout value for idle connections. Once the timeout is
   reached, the connection is terminated.
 
