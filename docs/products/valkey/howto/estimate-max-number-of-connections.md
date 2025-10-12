@@ -2,7 +2,7 @@
 title: Estimate maximum number of connection
 ---
 
-The number of simultaneous connections for Aiven for Caching depends on the total available memory on the server.
+The number of simultaneous connections for Aiven for Valkey depends on the total available memory on the server.
 
 
 You can use the following to estimate:
@@ -25,9 +25,9 @@ Make sure to convert the memory figure `m` to megabytes.
 
 This number is an estimate based on the available memory, so it varies between plans
 and cloud providers. To see the exact maximum connections allowed for your
-specific service, use the [redis-cli](/docs/products/caching/howto/connect-redis-cli)
+specific service, use the [valkey-cli](/docs/products/valkey/howto/connect-valkey-cli)
 with the `info` command as follows:
 
 ```shell
-echo "info" | redis-cli -u REDIS_URI | grep maxclients
+echo "info" | valkey-cli -u VALKEY_URI | grep maxclients
 ```

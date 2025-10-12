@@ -2,7 +2,7 @@
 title: Handle warning overcommit_memory
 ---
 
-When starting a Aiven for Caching service on [Aiven
+When starting a Aiven for Valkey service on [Aiven
 console](https://console.aiven.io/), you may notice on **Logs** the
 following **warning** `overcommit_memory`:
 
@@ -13,6 +13,6 @@ low memory condition. To fix this issue add
 for this to take effect.
 ```
 
-This warning can be safely ignored as Aiven for Caching ensures that
+This warning can be safely ignored as Aiven for Valkey ensures that
 the available memory never drops low enough to hit this particular
 failure case.

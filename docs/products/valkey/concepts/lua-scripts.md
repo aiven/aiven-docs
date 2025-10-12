@@ -1,14 +1,14 @@
 ---
-title: Lua scripts with Aiven for Caching
+title: Lua scripts with Aiven for Valkey
 ---
 
-Learn how to leverage the built-in support for Lua scripting in Aiven for Caching.
+Learn how to leverage the built-in support for Lua scripting in Aiven for Valkey.
 
-Aiven for Caching has inbuilt support for running Lua scripts to perform various
-actions directly on the Redis server. Scripting is typically controlled
+Aiven for Valkey has inbuilt support for running Lua scripts to perform various
+actions directly on the Valkey server. Scripting is typically controlled
 using the `EVAL`, `EVALSHA` and `SCRIPT LOAD` commands.
 
-For all newly created Aiven for Caching instances, `EVAL`, `EVALSHA` and
+For all newly created Aiven for Valkey instances, `EVAL`, `EVALSHA` and
 `SCRIPT LOAD` commands are enabled by default.
 
 :::note

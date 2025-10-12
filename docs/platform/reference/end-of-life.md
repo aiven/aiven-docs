@@ -51,7 +51,7 @@ ACLs, and user configurations, remain unchanged, ensuring minimal impact on your
 infrastructure and workflows.
 
 For upgrade instructions, see
-[Upgrade from Aiven for Caching to Aiven for Valkey](/docs/products/caching/howto/upgrade-aiven-for-caching-to-valkey).
+[Upgrade from Aiven for Caching to Aiven for Valkey](/docs/products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey).
 
 To ensure uninterrupted service, complete your migration to Aiven for Valkey before
 March 31, 2025. For further assistance, contact the
