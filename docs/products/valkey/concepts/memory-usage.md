@@ -1,15 +1,15 @@
 ---
-title: Memory Management and persistence in Aiven for Valkey
+title: Memory management and persistence in Aiven for Valkey™
+sidebar_label: Memory management and persistence
 ---
 
-Learn how Aiven for Valkey addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
+Learn how Aiven for Valkey™ addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
 
-Aiven for Valkey functions primarily as a database cache. Data fetched from a database
+Aiven for Valkey™ functions primarily as a database cache. Data fetched from a database
 is stored in the caching system. Subsequent queries with the same parameters first check
 this cache, bypassing the need for a repeat database query. This efficiency can lead to
 challenges such as increased memory usage and frequent data changes, which
 Aiven for Valkey is specifically designed to manage.
-
 
 ## Data eviction policy in Aiven for Valkey
 

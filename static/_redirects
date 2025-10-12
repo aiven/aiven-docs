@@ -107,7 +107,7 @@
 /products/caching/concepts/high-availability-redis                 /docs/products/valkey/concepts/high-availability
 /products/caching/concepts/lua-scripts-caching                     /docs/products/valkey/concepts/lua-scripts
 /products/caching/concepts/memory-usage                            /docs/products/valkey/concepts/memory-usage
-/products/caching/concepts/restricted-redis-commands               /docs/products/valkey/concepts/restricted-commands
+/products/caching/concepts/restricted-redis-commands               /docs/products/valkey/reference/restricted-commands
 /products/caching/get-started                                      /docs/products/valkey/get-started
 /products/caching/howto                                            /docs/products/valkey/get-started
 /products/caching/howto/benchmark-performance                      /docs/products/valkey/howto/benchmark-performance

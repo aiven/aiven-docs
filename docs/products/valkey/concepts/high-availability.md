@@ -1,10 +1,11 @@
 ---
-title: High availability in Aiven for Valkey
+title: High availability in Aiven for Valkey™
+sidebar_label: High availability
 ---
 
-Explore high availability with Aiven for Valkey across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
+Explore high availability with Aiven for Valkey™ across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
 
-Compare Aiven for Valkey plans in the table below. Each plan offers unique
+Compare Aiven for Valkey™ plans in the table below. Each plan offers unique
 configurations and features. Choose what best fits your needs.
 
 | Plan         | Node configuration                       | High availability & Backup features                                                                   | Backup history                                     |

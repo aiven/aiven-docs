@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Valkey connection issues
+title: Troubleshoot Aiven for Valkey™ connection issues
 ---
 
 Learn troubleshooting techniques for your Aiven for Valkey service and resolve common connection issues.

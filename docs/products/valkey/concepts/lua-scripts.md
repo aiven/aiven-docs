@@ -1,8 +1,9 @@
 ---
-title: Lua scripts with Aiven for Valkey
+title: Lua scripts with Aiven for Valkey™
+sidebar_label: Lua scripts
 ---
 
-Learn how to leverage the built-in support for Lua scripting in Aiven for Valkey.
+Learn how to leverage the built-in support for Lua scripting in Aiven for Valkey™.
 
 Aiven for Valkey has inbuilt support for running Lua scripts to perform various
 actions directly on the Valkey server. Scripting is typically controlled
@@ -13,7 +14,7 @@ For all newly created Aiven for Valkey instances, `EVAL`, `EVALSHA` and
 
 :::note
 Any outage caused by customer usage, including custom scripts, is not
-covered by the service SLA (Service Level Agreement).
+covered by the service level agreement (SLA).
 :::
 
 For more information about Redis scripting, check [Redis
