@@ -1,12 +1,13 @@
 ---
-title: Manage SSL connectivity
+title: Manage SSL connectivity in Aiven for Valkey™
+sidebar_label: Manage SSL connectivity
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Manage SSL connectivity for your Aiven for Valkey service by enabling secure connections and configuring stunnel for clients without SSL support.
+Manage SSL connectivity for your Aiven for Valkey™ service by enabling secure connections and configuring stunnel for clients without SSL support.
 
 ## Client support for SSL-encrypted connections
 

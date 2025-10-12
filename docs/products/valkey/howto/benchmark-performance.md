@@ -1,8 +1,9 @@
 ---
-title: Benchmarking Aiven for Valkey performance
+title: Benchmark Aiven for Valkey™ performance
+sidebar_label: Evaluate performance
 ---
 
-Aiven for Valkey uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
+Aiven for Valkey™ uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
 
 :::warning
 `redis-benchmark` is not supported to work with Aiven services, since
@@ -22,7 +23,7 @@ The `Testing` section within the
 [README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md) is optional.
 :::
 
-## Running benchmark
+## Run benchmark
 
 Before using `memtier_benchmark`, explore its capabilities with `mentier_benchmark -h` or
 this [Redis article](https://redis.com/blog/memtier_benchmark-a-high-throughput-benchmarking-tool-for-redis-memcached/).

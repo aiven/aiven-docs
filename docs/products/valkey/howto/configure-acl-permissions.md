@@ -1,11 +1,12 @@
 ---
-title: Configure ACL permissions in Aiven for Valkey
+title: Configure ACL permissions in Aiven for Valkey™
+sidebar_label: Configure ACLs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Aiven for Valkey uses [Access Control Lists (ACLs)](https://redis.io/docs/management/security/acl/) to manage the usage of commands and keys based on specific username and password combinations.
+Aiven for Valkey™ uses [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) to manage the usage of commands and keys based on specific username and password combinations.
 Direct use of [ACL commands](https://redis.io/commands/acl-list/) is restricted to
 ensure the reliability of replication, configuration management, and disaster recovery
 backups for the default user. However, you can create custom ACLs using either the

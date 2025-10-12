@@ -1,11 +1,12 @@
 ---
-title: Migrate from Redis®* to Aiven for Valkey using Aiven Console
+title: Migrate from Redis®* to Aiven for Valkey™ using Aiven Console
+sidebar_label: From Redis®* to Aiven via console
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Valkey, using Aiven Console's guided wizard.
+Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Valkey™, using Aiven Console's guided wizard.
 
 :::important
 Migrating from Google Cloud Memorystore for Redis is not currently

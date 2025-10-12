@@ -1,10 +1,10 @@
 ---
-title: Handle warning `overcommit_memory`
+title: Handle the overcommit memory warning
+sidebar_label: Overcommit memory
 ---
 
-When starting a Aiven for Valkey service on [Aiven
-console](https://console.aiven.io/), you may notice on **Logs** the
-following **warning** `overcommit_memory`:
+When starting an Aiven for Valkey™ service in the [Aiven Console](https://console.aiven.io/),
+you may notice on **Logs** the following **warning** `overcommit_memory`:
 
 ```plaintext
 # WARNING overcommit_memory is set to 0! Background save may fail under

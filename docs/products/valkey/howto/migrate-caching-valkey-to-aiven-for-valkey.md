@@ -1,10 +1,11 @@
 ---
-title: Migrate Aiven for Caching or Valkey to Aiven for Valkey™
+title: Migrate Aiven for Caching or Valkey™ to Aiven for Valkey™
+sidebar_label: From Valkey™ to Aiven via console
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-Migrate your Aiven for Caching or Valkey databases to Aiven for Valkey™ using the Aiven Console migration tool.
+Migrate your Aiven for Caching or Valkey™ databases to Aiven for Valkey™ using the Aiven Console migration tool.
 
 ## Prerequisites
 

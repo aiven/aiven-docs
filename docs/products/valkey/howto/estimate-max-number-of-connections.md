@@ -1,9 +1,9 @@
 ---
-title: Estimate maximum number of connection
+title: Estimate the maximum number of connections for Aiven for Valkey™
+sidebar_label: Estimate max connections
 ---
 
-The number of simultaneous connections for Aiven for Valkey depends on the total available memory on the server.
-
+The number of simultaneous connections for Aiven for Valkey™ depends on the total available memory on the server.
 
 You can use the following to estimate:
 

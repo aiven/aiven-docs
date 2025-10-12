@@ -1933,19 +1933,18 @@ const sidebars: SidebarsConfig = {
                     'products/valkey/howto/configure-acl-permissions',
                     'products/valkey/howto/estimate-max-number-of-connections',
                     'products/valkey/howto/manage-ssl-connectivity',
-                    'products/valkey/howto/warning-overcommit_memory',
+                    'products/valkey/howto/create-valkey-read-replica',
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Data migration',
+                  label: 'Migrate data',
                   items: [
                     'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
                     'products/valkey/howto/migrate-redis-aiven-cli',
                     'products/valkey/howto/migrate-redis-aiven-via-console',
                   ],
                 },
-                'products/valkey/howto/create-valkey-read-replica',
               ],
             },
             {
@@ -1962,6 +1961,7 @@ const sidebars: SidebarsConfig = {
               label: 'Troubleshooting',
               items: [
                 'products/valkey/troubleshooting/troubleshoot-connection-issues',
+                'products/valkey/troubleshooting/warning-overcommit_memory',
               ],
             },
           ],
