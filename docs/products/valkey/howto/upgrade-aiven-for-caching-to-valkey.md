@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Upgrade your Aiven for Caching service to Aiven for Valkey using the Aiven Console or Aiven API.
+Upgrade your Aiven for Caching service to Aiven for Valkey™ using the Aiven Console or Aiven API.
 The process retains configurations, users, and data without disrupting your service.
 
 ## Prerequisites
