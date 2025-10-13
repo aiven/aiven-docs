@@ -2,7 +2,7 @@
 title: Manage configurations with Apache Kafka® CLI tools
 ---
 
-Aiven for Apache Kafka® services are fully manageable and customizable via the the [Aiven CLI](/docs/tools/cli).
+Aiven for Apache Kafka® services are fully manageable and customizable via the [Aiven CLI](/docs/tools/cli).
 
 To guarantee the service stability, direct Apache
 ZooKeeper™ access isn't available, but our tooling provides you all the

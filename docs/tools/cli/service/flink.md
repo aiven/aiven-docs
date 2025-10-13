@@ -543,7 +543,7 @@ common properties in JSON format
 | -------------------- | ----------------------------------------------------------- |
 | `parallelism`        | The number of parallel instance for the task                |
 | `restart_enabled`    | Specifies whether a Flink Job is restarted in case it fails |
-| `starting_savepoint` | (Optional)The the savepoint from where you want to deploy.  |
+| `starting_savepoint` | (Optional)The savepoint from where you want to deploy.  |
 | `version_id`         | The ID of the application version.                          |
 
 <!-- vale on -->

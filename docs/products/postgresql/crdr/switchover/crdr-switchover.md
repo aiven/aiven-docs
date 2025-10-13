@@ -32,7 +32,7 @@ disaster, or testing the resilience of your infrastructure.
 Initiate a [switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region)
 using the [Aiven Console](https://console.aiven.io/):
 
-1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
 1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
