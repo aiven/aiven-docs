@@ -1943,6 +1943,7 @@ const sidebars: SidebarsConfig = {
                     'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
                     'products/valkey/howto/migrate-redis-aiven-cli',
                     'products/valkey/howto/migrate-redis-aiven-via-console',
+                    'products/valkey/howto/upgrade-aiven-for-caching-to-valkey',
                   ],
                 },
               ],

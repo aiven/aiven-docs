@@ -11,7 +11,7 @@ Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven fo
 :::important[Limitations]
 
 - Migrating from **Google Cloud Memorystore** for Redis is not supported.
-- Source Redis version must be qual to or lower than:
+- Source Redis version must be equal to or lower than:
   - Redis version 7.2
   - Target Aiven for Valkey version
 
