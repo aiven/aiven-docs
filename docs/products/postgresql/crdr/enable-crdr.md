@@ -13,7 +13,7 @@ Enable [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/cr
 
 ## Prerequisites
 
-- An Aiven for PostgreSQL service on at least a Startup plan
+- Aiven for PostgreSQL service on at least a Startup plan
 
   :::tip
   If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
