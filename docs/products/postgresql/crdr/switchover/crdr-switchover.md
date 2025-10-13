@@ -118,7 +118,7 @@ curl -X GET \
 <TabItem value="tf" label="Terraform">
 
 The
-[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+[`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
 resource with the `disaster_recovery` type manages the active-passive relationship between
 services. CRDR operations are performed by manipulating this integration.
 
