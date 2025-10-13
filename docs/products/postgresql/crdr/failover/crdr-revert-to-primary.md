@@ -33,7 +33,7 @@ using a tool of your choice:
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
 1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
-   **Failback to recovery region**.
+   **Failback to primary region**.
 1. In **Service recovery cycle** wizard:
 
    1. Click **Restore primary service**.
