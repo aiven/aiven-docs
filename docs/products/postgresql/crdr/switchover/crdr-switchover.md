@@ -111,7 +111,7 @@ Verify the service state after switchover:
 ```bash
 curl -X GET \
   "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
-  -H "Authorization: aivenv1 API_TOKEN"
+  -H "Authorization: Bearer API_TOKEN"
 ```
 
 </TabItem>
