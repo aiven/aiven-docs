@@ -17,8 +17,8 @@ Aiven for Valkey uses SSL encrypted connections by default. This is indicated by
 `valkeys://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
-Since **Valkey 7.2**, Valkey-compatible CLI tools support SSL connections. You can connect directly
-to your service using:
+Valkey-compatible CLI tools support SSL connections. You can connect directly to your
+service using:
 
 ```bash
 valkey-cli -u valkeys://username:password@host:port

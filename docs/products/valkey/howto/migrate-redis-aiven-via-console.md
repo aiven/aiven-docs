@@ -8,12 +8,13 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Valkey™, using Aiven Console's guided wizard.
 
-:::important
-Migrating from Google Cloud Memorystore for Redis is not currently
-supported.
+:::important[Limitations]
 
-The version of the source Redis service cannot be higher than the version
-of the target Aiven for Valkey service.
+- Migrating from **Google Cloud Memorystore** for Redis is not supported.
+- Source Redis version must be qual to or lower than:
+  - Redis version 7.2
+  - Target Aiven for Valkey version
+
 :::
 
 ## Prerequisites

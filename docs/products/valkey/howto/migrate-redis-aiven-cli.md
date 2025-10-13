@@ -8,12 +8,13 @@ Move your data from a source, standalone Redis®* data store to an Aiven-managed
 Create an Aiven for Valkey service and migrate data from AWS ElastiCache Redis. The Aiven project
 name is `test`, and the service name for the target Aiven for Valkey is `valkey`.
 
-:::important
-Migrating from Google Cloud Memorystore for Redis is not currently
-supported.
+:::important[Limitations]
 
-The version of the source Redis service cannot be higher than the version
-of the target Aiven for Valkey service.
+- Migrating from **Google Cloud Memorystore** for Redis is not supported.
+- Source Redis version must be qual to or lower than:
+  - Redis version 7.2
+  - Target Aiven for Valkey version
+
 :::
 
 ## Prerequisites
