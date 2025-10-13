@@ -1,38 +1,37 @@
 ---
-title: Migrate Aiven for Caching or Valkey™ to Aiven for Valkey™
+title: Migrate Valkey™ databases to Aiven for Valkey™
 sidebar_label: From Valkey™ to Aiven via console
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-Migrate your Aiven for Caching or Valkey™ databases to Aiven for Valkey™ using the Aiven Console migration tool.
+Migrate your Valkey™ databases to Aiven for Valkey™ using the Aiven Console migration tool.
 
 ## Prerequisites
 
 Before starting the migration process, ensure the following:
 
-- A target [Aiven for Valkey service](/docs/products/valkey/get-started).
+- Target [Aiven for Valkey service](/docs/products/valkey/get-started)
 - Source database details:
   - **Hostname or connection string**: The public hostname, connection string, or
-    IP address used to connect to the database.
-  - **Port**: The port used to connect to the database.
-  - **Username**: The username with sufficient permissions to access the data.
-  - **Password**: The password used to connect to the database.
+    IP address used to connect to the database
+  - **Port**: The port used to connect to the database
+  - **Username**: The username with sufficient permissions to access the data
+  - **Password**: The password used to connect to the database
 - Firewall rules updated or temporarily disabled to allow traffic between source and
-  target databases.
-- A source Aiven for Caching or Valkey service secured with SSL.
-- A publicly accessible source Aiven for Caching or Valkey service or one with a VPC peering
+  target databases
+- Source Valkey service secured with SSL
+- Publicly accessible source Valkey service or one with a VPC peering
   connection between private networks. You'll need the VPC ID and cloud name.
 
 :::note
 The migration does not include service user accounts or commands in progress.
 :::
 
-
 ## Database migration steps
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select the
-   Aiven for Valkey service for your migration.
+   Aiven for Valkey service as your migration target.
 1. Go to <ConsoleLabel name="service settings"/> from the sidebar.
 1. Scroll to <ConsoleLabel name="actions"/> > **Migrate database** to start the
    migration.
@@ -44,7 +43,7 @@ In the migration wizard, review the prerequisites and click **Get started** to b
 
 ### Step 2: Validate
 
-In the migration screen, enter the connection details:
+In the migration screen, enter the connection details for the migration source:
 
 - Hostname
 - Port
