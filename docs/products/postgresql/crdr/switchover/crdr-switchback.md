@@ -29,7 +29,7 @@ Initiate a
 [switchback](/docs/products/postgresql/crdr/crdr-overview#switchback-to-the-primary-region)
 using the [Aiven Console](https://console.aiven.io/):
 
-1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
 1. On the **Cross region disaster recovery** page, click <ConsoleLabel name="actions"/> >
@@ -74,7 +74,7 @@ endpoint to perform a switchback:
 ```bash
 curl -X PUT \
   "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
-  -H "Authorization: aivenv1 API_TOKEN" \
+  -H "Authorization: Bearer API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "disaster_recovery_promote_to_master": true
@@ -92,7 +92,7 @@ Check the disaster recovery status:
 ```bash
 curl -X GET \
   "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/disaster-recovery" \
-  -H "Authorization: aivenv1 API_TOKEN"
+  -H "Authorization: Bearer API_TOKEN"
 ```
 
 </TabItem>

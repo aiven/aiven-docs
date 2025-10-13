@@ -25,7 +25,7 @@ automatically, you still might want to look into the region status yourself for 
 of reasons. To do that, you can:
 
 - Check your monitoring and alerts, and watch the following metrics:
-  - Instances, notes, services failures
+  - Instances, nodes, services failures
   - Connectivity loss, latency spikes, packet drops
   - High error rates, timeouts, 5xx server errors
 - Check your cloud provider's status page:
@@ -36,7 +36,7 @@ of reasons. To do that, you can:
 
 ## CRDR overview
 
-The CRDR setup is a pair of integrated multi-node services sharing credentials and a
+The CRDR setup is a pair of integrated multi-node services, sharing credentials and a
 DNS address but located in different regions. CRDR peer services may be hosted on 1-3 nodes.
 
 - Primary region service (**PRS**) is the original service you use unless there's a region
@@ -121,7 +121,7 @@ the PRS, it needs to be recreated first.
 
 ##### Automatic failover
 
-In the even of a region-wide failure, a CRDR process is triggered automatically. The RRS
+In the event of a region-wide failure, a CRDR process is triggered automatically. The RRS
 takes over from the PRS so that your workloads remain available at all times during
 the region outage.
 
@@ -135,7 +135,7 @@ disaster scenario and verify the disaster resilience of your infrastructure.
 [Switchover to the RRS](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) is
 performed manually for testing, simulating a disaster scenario, or verifying the
 disaster resilience of your infrastructure. You trigger a switchover yourself at your
-convenience time. When completed, the PRS is **Passive** and the RRS is up and running as
+convenient time. When completed, the PRS is **Passive** and the RRS is up and running as
 an **Active** service. To switch back to the primary service, no service recreation is
 needed.
 
@@ -145,7 +145,7 @@ needed.
 
 The recovery reversion is a manual operation you trigger to shift your workload back to
 the primary region and restore the CRDR setup to its original configuration. There are two
-types of the recovery reversion:
+types of recovery reversion:
 
 - [Failback](/docs/products/postgresql/crdr/crdr-overview#failback-to-the-primary-region)
   - Reverts an

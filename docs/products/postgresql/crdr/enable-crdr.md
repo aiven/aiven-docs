@@ -9,11 +9,11 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Enable the [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) feature in in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of region outage.
+Enable [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of a region outage.
 
 ## Prerequisites
 
-- Powered-on Aiven for PostgreSQL service with a Startup plan at minimum
+- An Aiven for PostgreSQL service on at least a Startup plan
 
   :::tip
   If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
@@ -35,7 +35,7 @@ a tool of your choice:
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
-1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
 1. On the **Cross region disaster recovery** page, click **Create recovery service**.
@@ -43,14 +43,14 @@ a tool of your choice:
    1. Select a cloud provider and a cloud region.
    1. Click **Create recovery service**.
 
-Througout the process of creating the recovery service, the recovery service is in the
+Throughout the process of creating the recovery service, the recovery service is in the
 **Rebuilding** state. As soon as the recovery service is ready, its status changes to
 **Passive**, which means your CRDR setup is up and running.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Run [avn byoc create](/docs/tools/cli/service-cli#avn-cli-service-create):
+Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 
 ```bash
 avn service create RECOVERY_SERVICE_NAME             \
@@ -84,7 +84,7 @@ curl --request POST \
   -H 'Authorization: Bearer BEARER_TOKEN' \
   -H 'content-type: application/json' \
   --data-raw '{
-    "service_name": "RECOVERY_SERCICE_NAME",
+    "service_name": "RECOVERY_SERVICE_NAME",
     "cloud": "CLOUD_PROVIDER_REGION",
     "plan": "SERVICE_PLAN",
     "service_type": "SERVICE_TYPE",
@@ -99,11 +99,11 @@ curl --request POST \
   }'
 ```
 
-Replace the following placeholders with meaningful data:
+Replace the following placeholders with your values:
 
 - `PROJECT_NAME`, for example `crdr-test`
 - `BEARER_TOKEN`
-- `RECOVERY_SERCICE_NAME`, for example `pg-dr-test`
+- `RECOVERY_SERVICE_NAME`, for example `pg-dr-test`
 - `CLOUD_PROVIDER_REGION`, for example `google-europe-west10`
 - `SERVICE_PLAN`, for example `startup-4`
 - `SERVICE_TYPE`, for example `pg`

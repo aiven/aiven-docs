@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Perform an emergency promotion of your recovery service when the primary region becomes unavailable.
 
-At the event of a region outage,
+In the event of a region outage,
 [failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
 happens automatically. To simulate a disaster and test the resilience of your
 infrastructure, you can also perform a manual failover.
@@ -28,7 +28,7 @@ infrastructure, you can also perform a manual failover.
 ## Automatic failover
 
 [Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover) is
-enabled by default with your CRDR setup. It's triggered automatically at the event of a
+enabled by default with your CRDR setup. It's triggered automatically in the event of a
 region outage.
 
 ## Fail over manually
@@ -39,12 +39,12 @@ using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross region disaster recovery** page, click <ConsoleLabel name="actions"/> >
+1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
    **Failover to recovery region**.
-1. In **Service recovery cycle** wizard, click **Initiate failover** > **Confirm** >
+1. In the **Service recovery cycle** wizard, click **Initiate failover** > **Confirm** >
    **Close**.
 
 When the failover process is completed, your primary service is **Failed**, and the
@@ -54,7 +54,7 @@ workloads now.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Run [avn byoc update](/docs/tools/cli/service-cli#avn-cli-service-update):
+Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
 ```bash
 avn service update PRIMARY_SERVICE_NAME \
@@ -67,7 +67,7 @@ Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example
 <TabItem value="api" label="API">
 
 Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-to change `disaster_recovery_role` of the primary service to `failed`:
+to change the `disaster_recovery_role` of the primary service to `failed`:
 
 ```bash {5}
 curl --request PUT \

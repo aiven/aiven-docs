@@ -29,10 +29,10 @@ using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. Log in to the the [Aiven Console](https://console.aiven.io/), and go to your primary
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross region disaster recovery** page, click <ConsoleLabel name="actions"/> >
+1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
    **Failback to recovery region**.
 1. In **Service recovery cycle** wizard:
 
@@ -55,7 +55,7 @@ using a tool of your choice:
 <TabItem value="cli" label="CLI">
 
 1. Restore the primary service by running
-   [avn byoc update](/docs/tools/cli/service-cli#avn-cli-service-update):
+   [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
    ```bash
    avn service update PRIMARY_SERVICE_NAME \
@@ -64,7 +64,7 @@ using a tool of your choice:
 
    Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`.
 
-1. Promote the primary service as active by running
+1. Promote the primary service to active by running
    [avn byoc update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
    ```bash
@@ -78,8 +78,8 @@ using a tool of your choice:
 <TabItem value="api" label="API">
 
 1. Trigger the recreation of the primary service by calling the
-   [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-   to change `disaster_recovery_role` of the primary service to `passive`:
+   [ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+   to change the `disaster_recovery_role` of the primary service to `passive`:
 
    ```bash {5}
    curl --request PUT \
