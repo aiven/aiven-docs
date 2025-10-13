@@ -26,12 +26,10 @@ infrastructure is [Aiven for Metrics](/docs/products/metrics).
 
 ## Aiven for Caching
 
-**EOL date**: October 15, 2025
+**EOL date**: March 31, 2025
 
-After October 15, 2025, all active Aiven for Caching services are automatically
-upgraded to **Aiven for Valkey™** to maintain Redis compatibility. Any powered-off Aiven
-for Caching services are permanently deleted, making data from these services
-inaccessible.
+After March 31, 2025, Aiven for Caching services are automatically upgraded to
+**Aiven for Valkey™** to maintain Redis compatibility.
 
 The recommended alternative that offers high performance, scalability, and security is
 the managed, in-memory NoSQL database service: [Aiven for Valkey™](/docs/products/valkey).
