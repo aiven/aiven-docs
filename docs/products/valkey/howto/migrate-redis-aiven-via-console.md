@@ -1,26 +1,28 @@
 ---
-title: Migrate from Redis®* to Aiven for Caching using Aiven Console
+title: Migrate from Redis®* to Aiven for Valkey™ using Aiven Console
+sidebar_label: From Redis®* to Aiven via console
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Caching, using Aiven Console's guided wizard.
+Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven for Valkey™, using Aiven Console's guided wizard.
 
-:::important
-Migrating from Google Cloud Memorystore for Redis is not currently
-supported.
+:::important[Limitations]
 
-The version of the source Redis service cannot be higher than the version
-of the target Aiven for Caching service.
+- Migrating from **Google Cloud Memorystore** for Redis is not supported.
+- Source Redis version must be equal to or lower than:
+  - Redis version 7.2
+  - Target Aiven for Valkey version
+
 :::
 
 ## Prerequisites
 
 Before starting the migration process, ensure you have the following:
 
--   A target Aiven for Caching service. To create one, see
-    [Get started with Aiven for Caching](/docs/products/caching/get-started).
+-   A target Aiven for Valkey service. To create one, see
+    [Get started with Aiven for Valkey](/docs/products/valkey/get-started).
 -   Source database information:
     -   **Hostname or connection string:** This is the public hostname,
         connection string, or IP address used to connect to the
@@ -47,10 +49,10 @@ and require project VPC and peering connection.
 
 ## Migrate a Redis database
 
-To migrate a Redis database to Aiven for Caching service:
+To migrate a Redis database to Aiven for Valkey service:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select the target
-    Aiven for Caching service for migrating the Redis® database.
+    Aiven for Valkey service for migrating the Redis® database.
 1.  Click **Service settings** on the sidebar.
 1.  Scroll to the **Service management** section, and
     click <ConsoleLabel name="actions"/> > **Import database**.
@@ -137,4 +139,4 @@ are being continuously synchronized.
 
 <RelatedPages/>
 
--   [Get started with Aiven for Caching](/docs/products/caching/get-started)
+-   [Get started with Aiven for Valkey](/docs/products/valkey/get-started)

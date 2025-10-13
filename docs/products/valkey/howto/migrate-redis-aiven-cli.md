@@ -1,23 +1,25 @@
 ---
-title: Migrate from Redis®* to Aiven for Caching using the CLI
+title: Migrate from Redis®* to Aiven for Valkey™ using the CLI
+sidebar_label: From Redis®* to Aiven via CLI
 ---
 
-Move your data from a source, standalone Redis®* data store to an Aiven-managed Caching service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.
+Move your data from a source, standalone Redis®* data store to an Aiven-managed Valkey™ service. The migration process first attempts to use the `replication` method, and if it fails, it switches to `scan`.
 
-Create an Aiven for Caching service and migrate data from AWS ElastiCache Redis. The Aiven project
-name is `test`, and the service name for the target Aiven for Caching is `redis`.
+Create an Aiven for Valkey service and migrate data from AWS ElastiCache Redis. The Aiven project
+name is `test`, and the service name for the target Aiven for Valkey is `valkey`.
 
-:::important
-Migrating from Google Cloud Memorystore for Redis is not currently
-supported.
+:::important[Limitations]
 
-The version of the source Redis service cannot be higher than the version
-of the target Aiven for Caching service.
+- Migrating from **Google Cloud Memorystore** for Redis is not supported.
+- Source Redis version must be equal to or lower than:
+  - Redis version 7.2
+  - Target Aiven for Valkey version
+
 :::
 
 ## Prerequisites
 
-- A target [Aiven for Caching](/docs/products/caching/get-started) service.
+- A target [Aiven for Valkey](/docs/products/valkey/get-started) service.
 - The hostname, port, and password of the source Redis service.
 - The source Redis service secured with SSL, which is the default for migration.
 - Publicly accessible source Redis service or a service with a VPC peering between the
@@ -38,7 +40,7 @@ require project VPC and peering connection.
       avn service types -v
 
       ...
-      Service type 'redis' options:
+      Service type 'valkey' options:
       ...
       Remove migration
         => --remove-option migration
@@ -69,11 +71,11 @@ require project VPC and peering connection.
         the VPC ID and cloud name. You need these details to complete the migration.
         :::
 
-1.  Create the Aiven for Caching service and start the migration. If you do not have
+1.  Create the Aiven for Valkey service and start the migration. If you do not have
     a service already, create one with:
 
     ```bash
-    avn service create --project test -t redis -p hobbyist --cloud aws-eu-west-1 --project-vpc-id 40ddf681-0e89-4bce-bd89-25e246047731 -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> redis
+    avn service create --project test -t valkey -p hobbyist --cloud aws-eu-west-1 --project-vpc-id 40ddf681-0e89-4bce-bd89-25e246047731 -c migration.host="master.jappja-redis.kdrxxz.euw1.cache.amazonaws.com" -c migration.port=6379 -c migration.password=<password> valkey
     ```
 
     :::tip
@@ -84,7 +86,7 @@ require project VPC and peering connection.
 1.  Check the migration status:
 
     ```bash
-    avn service migration-status --project test redis
+    avn service migration-status --project test valkey
 
     STATUS  METHOD  ERROR
     ======  ======  =====
@@ -96,7 +98,7 @@ require project VPC and peering connection.
     failure, the error contains the error message:
 
     ```bash
-    avn service migration-status --project test redis
+    avn service migration-status --project test valkey
 
     STATUS  METHOD  ERROR
     ======  ======  ================
@@ -104,7 +106,7 @@ require project VPC and peering connection.
     ```
     :::
 
-## Migrate to an existing Aiven for Caching service
+## Migrate to an existing Aiven for Valkey service
 
 To update an existing service, run:
 
@@ -119,5 +121,5 @@ restart the same migration. To perform the migration again, first remove the exi
 configuration and reconfigure the settings to initiate a new migration:
 
 ```bash
-avn service update --project test --remove-option migration redis
+avn service update --project test --remove-option migration valkey
 ```

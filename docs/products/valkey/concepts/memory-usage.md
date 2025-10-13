@@ -1,24 +1,24 @@
 ---
-title: Memory Management and persistence in Aiven for Caching
+title: Memory management and persistence in Aiven for Valkey™
+sidebar_label: Memory management and persistence
 ---
 
-Learn how Aiven for Caching, compatible with legacy Redis® OSS up to version 7.2.4, addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
+Learn how Aiven for Valkey™ addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
 
-Aiven for Caching functions primarily as a database cache. Data fetched from a database
+Aiven for Valkey™ functions primarily as a database cache. Data fetched from a database
 is stored in the caching system. Subsequent queries with the same parameters first check
 this cache, bypassing the need for a repeat database query. This efficiency can lead to
 challenges such as increased memory usage and frequent data changes, which
-Aiven for Caching is specifically designed to manage.
+Aiven for Valkey is specifically designed to manage.
 
-
-## Data eviction policy in Aiven for Caching
+## Data eviction policy in Aiven for Valkey
 
 Data eviction policy is one of the most important caching settings and it
 is available in the Aiven Console.
 
-Aiven for Caching offers a `maxmemory` setting that determines the maximum amount
+Aiven for Valkey offers a `maxmemory` setting that determines the maximum amount
 of data that can be stored. The data eviction policy specifies what happens when this
-limit is reached. By default, all Aiven for Caching services have the eviction policy
+limit is reached. By default, all Aiven for Valkey services have the eviction policy
 set to *No eviction*. If you continue storing data without removing anything, write
 operations fail once the maximum memory is reached.
 
@@ -38,15 +38,15 @@ of the eviction policy you use.
 
 ## High memory and high change rate behavior
 
-For all new Aiven for Caching services, the `maxmemory` setting is configured to **70% of
+For all new Aiven for Valkey services, the `maxmemory` setting is configured to **70% of
 available RAM** (minus management overhead) plus 10% for replication log.
 This configuration limits the memory usage to below 100%, accommodating operations
 that require additional memory:
 
-- When a new caching node connects to the master, the master node forks a copy of itself,
+- When a new Valkey node connects to the master, the master node forks a copy of itself,
   transmitting the current memory contents to the new node.
-- A similar forking process occurs when the state of the caching service is persisted to
-  disk, which for Aiven for Caching, happens **every 10 minutes**.
+- A similar forking process occurs when the state of the Valkey service is persisted to
+  disk, which for Aiven for Valkey, happens **every 10 minutes**.
 
 :::note
 When a fork occurs, all memory pages of the new process are identical to
@@ -90,12 +90,12 @@ initialization of a new node.
 ## Initial synchronization
 
 During system upgrades or in a high-availability setup in case of node failure,
-a new Caching node needs to be synchronized with the current master. The new node starts
+a new Valkey node needs to be synchronized with the current master. The new node starts
 with an empty state, connects to the master, and requests a full copy of its current
 state. After receiving this copy, the new node begins following the replication stream
 from the master to achieve complete synchronization.
 
-Initial synchronization is CPU intensive, and because the underlying technology (Redis®)
+Initial synchronization is CPU intensive, and because Valkey
 does not distribute the workload across multiple CPU cores, the maximum transfer speed is
 typically around 50 megabytes per second. Additionally, the new node initially persists
 data on disk, entering a separate loading phase with speeds in the low hundreds of
@@ -119,7 +119,7 @@ cause the synchronization to fail unless the replication log size is increased.
 
 ## Mitigation
 
-Aiven does not impose a rate limit on traffic for Caching services because limiting only
+Aiven does not impose a rate limit on traffic for Valkey services because limiting only
 relevant write operations would require a specialized proxy, and restricting all traffic
 can negatively impact non-write operations.
 

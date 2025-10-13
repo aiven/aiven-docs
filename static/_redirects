@@ -6,7 +6,7 @@
 # This is because aiven.io/docs proxy to this site.
 #
 
-/caching                                         /docs/products/caching
+/caching                                         /docs/products/valkey
 /category/administrative-tasks                   /docs/get-started
 /category/concepts                               /docs/get-started
 /category/concepts-1                             /docs/get-started
@@ -100,14 +100,42 @@
 /platform/reference/project-member-privileges          /docs/platform/concepts/permissions
 /platform/vpc                                          /docs/platform/howto/manage-vpc-peering
 /products/alloydbomni/advanced-params                  /docs/products/alloydbomni/reference/advanced-params
-/products/caching/concepts                             /docs/products/caching
-/products/caching/concepts/overview                    /docs/products/caching
-/products/caching/howto                                /docs/products/caching/howto/list-code-samples
-/products/caching/howto/list-dba-tasks                 /docs/products/caching
-/products/caching/howto/migrate-aiven-redis.html       /docs/products/caching/howto/migrate-redis-aiven-via-console
-/products/caching/howto/migrate-redis-db               /docs/products/caching/howto/configure-acl-permissions
-/products/caching/reference                            /docs/products/caching/reference/advanced-params
-/products/caching/troubleshooting                      /docs/products/caching/troubleshooting/troubleshoot-redis-connection-issues
+# Aiven for Caching → Aiven for Valkey redirects
+/products/caching                                                  /docs/products/valkey
+/products/caching/concepts                                         /docs/products/valkey
+/products/caching/concepts/overview                                /docs/products/valkey
+/products/caching/concepts/high-availability-redis                 /docs/products/valkey/concepts/high-availability
+/products/caching/concepts/lua-scripts-caching                     /docs/products/valkey/concepts/lua-scripts
+/products/caching/concepts/memory-usage                            /docs/products/valkey/concepts/memory-usage
+/products/caching/concepts/read-replica                            /docs/products/valkey/concepts/read-replica
+/products/caching/concepts/restricted-redis-commands               /docs/products/valkey/reference/restricted-commands
+/products/caching/get-started                                      /docs/products/valkey/get-started
+/products/caching/howto                                            /docs/products/valkey/get-started
+/products/caching/howto/benchmark-performance                      /docs/products/valkey/howto/benchmark-performance
+/products/caching/howto/configure-acl-permissions                  /docs/products/valkey/howto/configure-acl-permissions
+/products/caching/howto/connect-go                                 /docs/products/valkey/howto/connect-go
+/products/caching/howto/connect-java                               /docs/products/valkey/howto/connect-java
+/products/caching/howto/connect-node                               /docs/products/valkey/howto/connect-node
+/products/caching/howto/connect-php                                /docs/products/valkey/howto/connect-php
+/products/caching/howto/connect-python                             /docs/products/valkey/howto/connect-python
+/products/caching/howto/connect-redis-cli                          /docs/products/valkey/howto/connect-valkey-cli
+/products/caching/howto/connect-services                           /docs/products/valkey/howto/connect-services
+/products/caching/howto/create-redis-read-replica                  /docs/products/valkey/howto/create-valkey-read-replica
+/products/caching/howto/create-valkey-read-replica                 /docs/products/valkey/howto/create-valkey-read-replica
+/products/caching/howto/estimate-max-number-of-connections         /docs/products/valkey/howto/estimate-max-number-of-connections
+/products/caching/howto/list-code-samples                          /docs/products/valkey/get-started
+/products/caching/howto/list-dba-tasks                             /docs/products/valkey
+/products/caching/howto/manage-ssl-connectivity                    /docs/products/valkey/howto/manage-ssl-connectivity
+/products/caching/howto/migrate-aiven-redis.html                   /docs/products/valkey/howto/migrate-redis-aiven-via-console
+/products/caching/howto/migrate-redis-aiven-cli                    /docs/products/valkey/howto/migrate-redis-aiven-cli
+/products/caching/howto/migrate-redis-aiven-via-console            /docs/products/valkey/howto/migrate-redis-aiven-via-console
+/products/caching/howto/migrate-redis-db                           /docs/products/valkey/howto/configure-acl-permissions
+/products/caching/howto/upgrade-aiven-for-caching-to-valkey        /docs/products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey
+/products/caching/howto/warning-overcommit_memory                  /docs/products/valkey/troubleshooting/warning-overcommit_memory
+/products/caching/reference                                        /docs/products/valkey/reference/advanced-params
+/products/caching/reference/advanced-params                        /docs/products/valkey/reference/advanced-params
+/products/caching/troubleshooting                                  /docs/products/valkey/troubleshooting/troubleshoot-connection-issues
+/products/caching/troubleshooting/troubleshoot-redis-connection-issues /docs/products/valkey/troubleshooting/troubleshoot-connection-issues
 /products/cassandra/concepts                           /docs/products/cassandra/concepts/tombstones
 /products/cassandra/howto                              /docs/products/cassandra/howto/list-code-samples
 /products/cassandra/howto/list-get-started             /docs/products/cassandra/get-started
@@ -233,10 +261,13 @@
 /products/postgresql/reference/high-cpu-load-of-pgbouncer  /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
 /products/postgresql/reference/list-of-advanced-params     /docs/products/postgresql/reference/advanced-params
 /products/postgresql/troubleshooting                       /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
-/products/redis                                            /docs/products/caching
-/products/redis/concepts/lua-scripts-redis                 /docs/products/caching/concepts/lua-scripts-caching
-/products/redis/howto/list-dba-tasks                       /docs/products/caching/howto/configure-acl-permissions
-/products/redis/howto/migrate-aiven-redis                  /docs/products/caching/howto/migrate-redis-aiven-cli
+/products/redis                                            /docs/products/valkey
+/products/redis/concepts/lua-scripts-redis                 /docs/products/valkey/concepts/lua-scripts
+/products/redis/concepts/read-replica                      /docs/products/valkey/concepts/read-replica
+/products/redis/howto/connect-services                     /docs/products/valkey/howto/connect-services
+/products/redis/howto/create-redis-read-replica            /docs/products/valkey/howto/create-valkey-read-replica
+/products/redis/howto/list-dba-tasks                       /docs/products/valkey/howto/configure-acl-permissions
+/products/redis/howto/migrate-aiven-redis                  /docs/products/valkey/howto/migrate-redis-aiven-cli
 /products/valkey/reference                                 /docs/products/valkey/reference/advanced-params
 /tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users
 /tools/cli/account                                         /docs/tools/cli
@@ -291,4 +322,5 @@
 /platform/howto/byoc/create-custom-cloud/*                 /docs/platform/howto/byoc/create-cloud/:splat
 /products/influxdb/*                                       /docs/products/metrics/:splat
 /products/m3db/*                                           /docs/products/metrics/:splat
-/products/redis/*                                          /docs/products/caching/:splat
+/products/redis/*                                          /docs/products/valkey/:splat
+/products/caching/*                                        /docs/products/valkey/:splat

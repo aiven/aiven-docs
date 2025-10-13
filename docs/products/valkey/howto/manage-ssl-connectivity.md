@@ -1,32 +1,33 @@
 ---
-title: Manage SSL connectivity
+title: Manage SSL connectivity in Aiven for Valkey™
+sidebar_label: Manage SSL connectivity
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Manage SSL connectivity for your Aiven for Caching service by enabling secure connections and configuring stunnel for clients without SSL support.
+Manage SSL connectivity for your Aiven for Valkey™ service by enabling secure connections and configuring stunnel for clients without SSL support.
 
 ## Client support for SSL-encrypted connections
 
 ### Default support
 
-Aiven for Caching uses SSL encrypted connections by default. This is indicated by the
-`rediss://` (with double `s`) prefix in the
+Aiven for Valkey uses SSL encrypted connections by default. This is indicated by the
+`valkeys://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
-Since **Redis 6**, the `redis-cli` tool supports SSL connections. You can connect directly
-to your service using:
+Valkey-compatible CLI tools support SSL connections. You can connect directly to your
+service using:
 
 ```bash
-redis-cli -u rediss://username:password@host:port
+valkey-cli -u valkeys://username:password@host:port
 ```
 
 Alternatively, you can use the third-party [Redli tool](https://github.com/IBM-Cloud/redli):
 
 ```bash
-redli -u rediss://username:password@host:port
+redli -u valkeys://username:password@host:port
 ```
 
 Not every Redis client supports SSL-encrypted connections. In such cases, disabling or
@@ -75,10 +76,10 @@ the **Connection information** section lists your Host and Port to configure the
 connection.
 :::
 
-HAProxy terminates SSL connections before forwarding them to Aiven for Caching. The
+HAProxy terminates SSL connections before forwarding them to Aiven for Valkey. The
 HAProxy connection timeout is set to 300 seconds (5 minutes) by default, matching
-the `redis_timeout` value. This prevents idle connections from staying open too long. You
-can adjust the `redis_timeout` value in the service's **Advanced configuration** section
+the `valkey_timeout` value. This prevents idle connections from staying open too long. You
+can adjust the `valkey_timeout` value in the service's **Advanced configuration** section
 in the [Aiven Console](https://console.aiven.io).
 
 ## Allow plain-text connections
@@ -91,26 +92,26 @@ As an alternative to SSL, you can enable plain-text connections.
 1. In the service's <ConsoleLabel name="overview"/> page, click
    <ConsoleLabel name="service settings"/>.
 1. Go to the **Advanced configuration** section.
-1. Set **redis_ssl** to `false`.
+1. Set `valkey_ssl` to `false`.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-To disable SSL on an existing Aiven for Caching service, use the following command,
+To disable SSL on an existing Aiven for Valkey service, use the following command,
 replacing `SERVICE_NAME `with your service name:
 
 ```bash
-avn service update SERVICE_NAME -c "redis_ssl=false"
+avn service update SERVICE_NAME -c "valkey_ssl=false"
 ```
 
 </TabItem>
 </Tabs>
 
 :::warning
-Enabling plain-text connections compromises the security of your Aiven for Caching
+Enabling plain-text connections compromises the security of your Aiven for Valkey
 service. Disabling SSL allows potential eavesdroppers to access sensitive credentials and data.
 :::
 
 After these changes, the `Service URI` will change to a new URL, starting with
-the `redis://` prefix (removing the extra 's'). This indicates a direct, non-SSL
-connection to the Aiven for Caching service.
+the `valkey://` prefix (removing the extra 's'). This indicates a direct, non-SSL
+connection to the Aiven for Valkey service.

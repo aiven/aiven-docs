@@ -1,10 +1,11 @@
 ---
-title: High availability in Aiven for Caching
+title: High availability in Aiven for Valkey™
+sidebar_label: High availability
 ---
 
-Explore high availability with Aiven for Caching across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
+Explore high availability with Aiven for Valkey™ across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
 
-Compare Aiven for Caching plans in the table below. Each plan offers unique
+Compare Aiven for Valkey™ plans in the table below. Each plan offers unique
 configurations and features. Choose what best fits your needs.
 
 | Plan         | Node configuration                       | High availability & Backup features                                                                   | Backup history                                     |
@@ -41,12 +42,12 @@ is updated to point to the new primary node.
 
 ## Highly available business, premium, and custom service plans
 
-If a standby Caching node fails, the primary node continues running
+If a standby Valkey node fails, the primary node continues running
 normally, serving client applications without interruption. Once the
 replacement standby node is ready and synchronized with the primary, it
 begins real-time replication until the system stabilizes.
 
-When the failed node is a Caching primary, the combined information from
+When the failed node is a Valkey primary, the combined information from
 the Aiven monitoring infrastructure and the standby node is used to make
 a failover decision. The standby node is promoted as the new primary and
 immediately serves clients. A new replacement node is automatically

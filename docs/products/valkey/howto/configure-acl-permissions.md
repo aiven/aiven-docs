@@ -1,11 +1,12 @@
 ---
-title: Configure ACL permissions in Aiven for Caching
+title: Configure ACL permissions in Aiven for Valkey™
+sidebar_label: Configure ACLs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Aiven for Caching  uses [Access Control Lists (ACLs)](https://redis.io/docs/management/security/acl/) o manage the usage of commands and keys based on specific username and password combinations.
+Aiven for Valkey™ uses [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) to manage the usage of commands and keys based on specific username and password combinations.
 Direct use of [ACL commands](https://redis.io/commands/acl-list/) is restricted to
 ensure the reliability of replication, configuration management, and disaster recovery
 backups for the default user. However, you can create custom ACLs using either the
@@ -19,7 +20,7 @@ backups for the default user. However, you can create custom ACLs using either t
 To create a user and configure ACLs using the Aiven Console:
 
 1. Log in to [Aiven Console](https://console.aiven.io/), select your project, and
-   select your Aiven for Caching service.
+   select your Aiven for Valkey service.
 1. Click **Users** from the left sidebar.
 1. Click **Create user**, and provide the following details:
    - **Username:** Enter a username for the user.
@@ -33,7 +34,7 @@ To create a user and configure ACLs using the Aiven Console:
      with a space.
    - **Keys:** Define the keys the user can interact with. For example, specify keys
      like `user:123` or `product:456`, or `order:789` to grant the user access to
-     interact with these specific keys in Aiven for Caching.
+     interact with these specific keys in Aiven for Valkey.
 1. Once you have defined the ACL permissions for the user, click **Save**.
 
 </TabItem>
@@ -57,11 +58,11 @@ To create a user and configure ACLs using the Aiven CLI:
 1. Test the ACL settings by connecting to the service using the new username:
 
    ```bash
-   redis-cli \
+   valkey-cli \
      --user mynewuser \
      --pass ... \
      --tls \
-     - h myservice-myproject.aivencloud.com \
+     -h myservice-myproject.aivencloud.com \
      -p 12719
 
    myservice-myproject.aivencloud.com:12719> get mykeys.hello
@@ -75,7 +76,7 @@ To create a user and configure ACLs using the Aiven CLI:
 
 ## User management
 
-Manage users of your Aiven for Caching service directly from the Aiven Console.
+Manage users of your Aiven for Valkey service directly from the Aiven Console.
 
 ### Reset password
 

@@ -1,8 +1,9 @@
 ---
-title: Benchmarking Aiven for Caching performance
+title: Benchmark Aiven for Valkey™ performance
+sidebar_label: Evaluate performance
 ---
 
-Aiven for Caching uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
+Aiven for Valkey™ uses `memtier_benchmark`, a command-line tool by Redis, for load generation and performance evaluation of NoSQL key-value databases.
 
 :::warning
 `redis-benchmark` is not supported to work with Aiven services, since
@@ -11,7 +12,7 @@ Aiven for Caching uses `memtier_benchmark`, a command-line tool by Redis, for lo
 
 ## Prerequisites
 
--   An Aiven for Caching service running.
+-   An Aiven for Valkey service running.
 -   `memtier_benchmark` installed. To install the tool, download the source code from
     [GitHub](https://github.com/RedisLabs/memtier_benchmark) and see the
     [README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md)
@@ -22,20 +23,20 @@ The `Testing` section within the
 [README](https://github.com/RedisLabs/memtier_benchmark/blob/master/README.md) is optional.
 :::
 
-## Running benchmark
+## Run benchmark
 
 Before using `memtier_benchmark`, explore its capabilities with `mentier_benchmark -h` or
 this [Redis article](https://redis.com/blog/memtier_benchmark-a-high-throughput-benchmarking-tool-for-redis-memcached/).
 
 Substitute the following variables in the commands. The **Overview** page of
-your Aiven for Caching service contains this information.
+your Aiven for Valkey service contains this information.
 
 |  Variable  |                Description                |
 |------------|-------------------------------------------|
-| `USERNAME` | User name of Aiven for Caching connection |
-| `PASSWORD` | Password of Aiven for Caching connection  |
-| `HOST`     | Hostname for Caching connection           |
-| `PORT`     | Port for Caching connection               |
+| `USERNAME` | User name of Aiven for Valkey connection |
+| `PASSWORD` | Password of Aiven for Valkey connection  |
+| `HOST`     | Hostname for Valkey connection           |
+| `PORT`     | Port for Valkey connection               |
 
 The following is a sample command from the
 [Redis blog](https://redis.com/blog/benchmark-shared-vs-dedicated-redis-instances/). This
@@ -128,16 +129,16 @@ sections present data from the  `10` runs. The following sections present the `B
 `WORST RUN` and `AGGREGATED AVERAGE` results as well as the
 `Request Latency Distribution` of the operations.
 
-Running this command on various Aiven for Caching services or the same service under
+Running this command on various Aiven for Valkey services or the same service under
 different conditions allows for effective performance comparisons
 
 :::note
 Aiven has `rate limit` on services. By default it's `200` new
 connections per 0.5 second per CPU core. Also be aware of the connection
 limit depending on memory size as explained in
-[Estimate maximum number of connection](/docs/products/caching/howto/benchmark-performance).
+[Estimate maximum number of connection](/docs/products/valkey/howto/estimate-max-number-of-connections).
 
 Aiven enforces a `rate limit` on services. By default, it's set to `200` new connections
 per 0.5 seconds per CPU core. Additionally, consider the connection limit based on memory
-size as explained in [Estimate maximum number of connection](/docs/products/caching/howto/benchmark-performance).
+size as explained in [Estimate maximum number of connection](/docs/products/valkey/howto/estimate-max-number-of-connections).
 :::

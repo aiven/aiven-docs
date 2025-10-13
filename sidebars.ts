@@ -1227,80 +1227,6 @@ const sidebars: SidebarsConfig = {
 
         {
           type: 'category',
-          label: 'Aiven for Caching',
-          link: {
-            id: 'products/caching',
-            type: 'doc',
-          },
-          items: [
-            'products/caching/get-started',
-
-            {
-              type: 'category',
-              label: 'Concepts',
-              items: [
-                'products/caching/concepts/high-availability-redis',
-                'products/caching/concepts/lua-scripts-caching',
-                'products/caching/concepts/memory-usage',
-                'products/caching/concepts/restricted-redis-commands',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              items: [
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/list-code-samples',
-                  },
-                  items: [
-                    'products/caching/howto/connect-redis-cli',
-                    'products/caching/howto/connect-go',
-                    'products/caching/howto/connect-node',
-                    'products/caching/howto/connect-php',
-                    'products/caching/howto/connect-python',
-                    'products/caching/howto/connect-java',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Administer database',
-                  items: ['products/caching/howto/configure-acl-permissions'],
-                },
-                {
-                  type: 'category',
-                  label: 'Data migration',
-                  items: [
-                    'products/caching/howto/migrate-redis-aiven-cli',
-                    'products/caching/howto/migrate-redis-aiven-via-console',
-                  ],
-                },
-                'products/caching/howto/estimate-max-number-of-connections',
-                'products/caching/howto/manage-ssl-connectivity',
-                'products/caching/howto/warning-overcommit_memory',
-                'products/caching/howto/benchmark-performance',
-                'products/caching/howto/upgrade-aiven-for-caching-to-valkey',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              items: ['products/caching/reference/advanced-params'],
-            },
-            {
-              type: 'category',
-              label: 'Troubleshooting',
-              items: [
-                'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
           label: 'Aiven for ClickHouse®',
           link: {
             type: 'doc',
@@ -1971,39 +1897,54 @@ const sidebars: SidebarsConfig = {
             'products/valkey/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
-              link: {
-                type: 'doc',
-                id: 'products/valkey/howto/connect-services',
-              },
+              label: 'Concepts',
               items: [
-                'products/valkey/howto/connect-valkey-cli',
-                'products/valkey/howto/connect-go',
-                'products/valkey/howto/connect-node',
-                'products/valkey/howto/connect-php',
-                'products/valkey/howto/connect-python',
-                'products/valkey/howto/connect-java',
+                'products/valkey/concepts/high-availability',
+                'products/valkey/concepts/lua-scripts',
+                'products/valkey/concepts/memory-usage',
+                'products/valkey/concepts/read-replica',
               ],
             },
             {
               type: 'category',
-              label: 'Data migration',
-              items: [
-                'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Read replica',
-              link: {
-                type: 'doc',
-                id: 'products/valkey/concepts/read-replica',
-              },
+              label: 'How to',
               items: [
                 {
-                  type: 'doc',
-                  id: 'products/valkey/howto/create-valkey-read-replica',
-                  label: 'Create read replica',
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/valkey/howto/connect-services',
+                  },
+                  items: [
+                    'products/valkey/howto/connect-valkey-cli',
+                    'products/valkey/howto/connect-go',
+                    'products/valkey/howto/connect-node',
+                    'products/valkey/howto/connect-php',
+                    'products/valkey/howto/connect-python',
+                    'products/valkey/howto/connect-java',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Manage service',
+                  items: [
+                    'products/valkey/howto/benchmark-performance',
+                    'products/valkey/howto/configure-acl-permissions',
+                    'products/valkey/howto/estimate-max-number-of-connections',
+                    'products/valkey/howto/manage-ssl-connectivity',
+                    'products/valkey/howto/create-valkey-read-replica',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Migrate data',
+                  items: [
+                    'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
+                    'products/valkey/howto/migrate-redis-aiven-cli',
+                    'products/valkey/howto/migrate-redis-aiven-via-console',
+                    'products/valkey/howto/upgrade-aiven-for-caching-to-valkey',
+                  ],
                 },
               ],
             },
@@ -2012,7 +1953,16 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/valkey/reference/advanced-params',
+                'products/valkey/reference/restricted-commands',
                 'products/valkey/reference/valkey-metrics-in-prometheus',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              items: [
+                'products/valkey/troubleshooting/troubleshoot-connection-issues',
+                'products/valkey/troubleshooting/warning-overcommit_memory',
               ],
             },
           ],

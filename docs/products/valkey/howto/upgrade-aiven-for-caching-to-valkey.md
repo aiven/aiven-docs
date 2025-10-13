@@ -1,6 +1,6 @@
 ---
 title: Upgrade from Aiven for Caching to Aiven for Valkey™
-sidebar_label: Upgrade to Aiven for Valkey™
+sidebar_label: From Caching to Valkey™
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Upgrade your Aiven for Caching service to Aiven for Valkey using the Aiven Console or Aiven API.
+Upgrade your Aiven for Caching service to Aiven for Valkey™ using the Aiven Console or Aiven API.
 The process retains configurations, users, and data without disrupting your service.
 
 ## Prerequisites
