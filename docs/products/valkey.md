@@ -78,4 +78,4 @@ Aiven for Valkey has many features that make it easy and stress-free to use:
 - [Valkey GitHub repository](https://github.com/valkey-io/valkey)
 - [Valkey documentation](https://valkey.io/docs/)
 - [Aiven.io](https://aiven.io/valkey)
-- [Redis to Valkey migration guide](https://valkey.io/docs/migration/)
+- [Redis to Valkey migration guide](https://valkey.io/topics/migration/)
