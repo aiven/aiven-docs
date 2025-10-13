@@ -150,7 +150,7 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
 <TabItem value="tf" label="Terraform">
 
 1. Use the
-   [aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+   [`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
    resource to create the disaster recovery integration between your primary service and
    the recovery service. Set `integration_type` to `disaster_recovery`.
 
