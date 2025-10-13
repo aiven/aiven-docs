@@ -1,6 +1,6 @@
 ---
 title: Upgrade from Aiven for Caching to Aiven for Valkey™
-sidebar_label: Upgrade to Aiven for Valkey™
+sidebar_label: From Caching to Valkey™
 ---
 
 import Tabs from '@theme/Tabs';
