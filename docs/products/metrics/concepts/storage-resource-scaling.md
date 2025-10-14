@@ -3,7 +3,7 @@ title: Optimize storage and resources
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import NoThanosAccess from '@site/static/includes/no-thanos-access.md';
+import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 
 Aiven for Metrics optimizes storage and compute resources using tiered storage, disk storage, memory, and compute power to balance cost and performance.
 

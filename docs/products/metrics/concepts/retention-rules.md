@@ -4,7 +4,7 @@ sidebar_label: Retention rules
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import NoThanosAccess from '@site/static/includes/no-thanos-access.md';
+import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 
 Retention rules in Aiven for Metrics define how long your metrics data is stored.
 

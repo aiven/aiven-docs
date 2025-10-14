@@ -3,7 +3,7 @@ title: Aiven for Metrics
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import NoThanosAccess from '@site/static/includes/no-thanos-access.md';
+import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 
 Aiven for Metrics, powered by Thanos, simplifies the management and analysis of large volumes of metrics data. The service is scalable, reliable, and efficient, suitable for organizations of all sizes.
 This service simplifies the management of large-scale metrics systems, allowing
