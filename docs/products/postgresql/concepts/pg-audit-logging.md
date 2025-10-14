@@ -173,8 +173,7 @@ For information on all the configuration parameters, preview
 using one of the supported methods:
 
 | Methodology | Accessing `pgaudit` logs | Visualizing `pgaudit` logs |
-| :--- | :--- | :---
-| Aiven for PostgreSQL | Log output from Aiven for PostgreSQL®| [OpenSearch Dashboards](/docs/products/opensearch/dashboards) |
+| :--- | :--- | :--- |
 | Aiven-native integration | [Aiven for OpenSearch®](/docs/products/opensearch/)| [OpenSearch Dashboards](/docs/products/opensearch/dashboards) |
 | External integration | `rsyslog` | Third-party platforms: Datadog, Google Cloud Logging, Amazon CloudWatch Logs, and other syslog-compatible tools |
 | Aiven for Apache Kafka | Kafka topic in Aiven for Apache Kafka | Requires a separate downstream tool to consume the log data from Aiven for Kafka and provide visualization |
