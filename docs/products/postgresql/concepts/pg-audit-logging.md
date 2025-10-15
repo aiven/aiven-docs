@@ -174,9 +174,9 @@ using one of the supported methods:
 
 | Integration method | Accessing `pgaudit` logs | Visualizing `pgaudit` logs |
 | :--- | :--- | :--- |
-| Aiven-native integration | [Aiven for OpenSearch®](/docs/products/opensearch/)| [OpenSearch Dashboards](/docs/products/opensearch/dashboards) |
-| External integration | `rsyslog` | Third-party platforms: Datadog, Google Cloud Logging, Amazon CloudWatch Logs, and other syslog-compatible tools |
-| Aiven for Apache Kafka | Kafka topic in Aiven for Apache Kafka | Requires a separate downstream tool to consume the log data from Aiven for Kafka and provide visualization |
+| Aiven for OpenSearch integration | [Aiven for OpenSearch®](/docs/products/opensearch/)| [OpenSearch Dashboards](/docs/products/opensearch/dashboards) |
+| Aiven for Apache Kafka integration | Kafka topic in Aiven for Apache Kafka | Requires a separate downstream tool to consume the log data from Aiven for Kafka and provide visualization |
+| External syslog integration | `rsyslog` | Third-party platforms: Datadog, Google Cloud Logging, Amazon CloudWatch Logs, and other syslog-compatible tools |
 
 ### Disabling audit logging
 
