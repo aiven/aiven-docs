@@ -291,7 +291,7 @@ Example: **[OpenSearch Dashboards](/docs/products/opensearch/dashboards/get-star
 1. Filter the audit logs.
    1. Go to **Discover**.
    1. Select your audit logs index pattern.
-   1. Use the filter tool: Set the value of `AIVEN_AUDIT_FROM` to `pg`.
+   1. In the filter tool, set the value of `AIVEN_AUDIT_FROM` to `pg`.
    1. Apply the filter.
 1. Preview and analyze the logs.
 
