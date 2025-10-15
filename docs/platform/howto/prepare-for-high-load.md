@@ -56,7 +56,7 @@ your usage, the better you can weather spikes in traffic:
 - Aiven for PostgreSQL®
   - [Optimize Aiven for PostgreSQL® slow queries](/docs/products/postgresql/howto/optimize-pg-slow-queries)
   - [AI database optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
-- Aiven for MySQL
+- Aiven for MySQL®
   - [AI database optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
 - Aiven for Metrics
   - [Optimize storage and resources](/docs/products/metrics/concepts/storage-resource-scaling#resource-management)
