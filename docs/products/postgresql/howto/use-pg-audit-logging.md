@@ -288,7 +288,7 @@ Example: **[OpenSearch Dashboards](/docs/products/opensearch/dashboards/get-star
    For guidance, see
    [Create index patterns in OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index-patterns/).  
    The index name for audit logs typically starts with `avnlog-pg-`.
-1. Filter the audit logs.
+1. To filter the audit logs:
    1. Go to **Discover**.
    1. Select your audit logs index pattern.
    1. In the filter tool, set the value of `AIVEN_AUDIT_FROM` to `pg`.
