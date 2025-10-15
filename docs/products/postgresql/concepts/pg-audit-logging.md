@@ -172,7 +172,7 @@ For information on all the configuration parameters, preview
 [Access and visualize collected audit logs](/docs/products/postgresql/howto/use-pg-audit-logging)
 using one of the supported methods:
 
-| Methodology | Accessing `pgaudit` logs | Visualizing `pgaudit` logs |
+| Integration method | Accessing `pgaudit` logs | Visualizing `pgaudit` logs |
 | :--- | :--- | :--- |
 | Aiven-native integration | [Aiven for OpenSearch®](/docs/products/opensearch/)| [OpenSearch Dashboards](/docs/products/opensearch/dashboards) |
 | External integration | `rsyslog` | Third-party platforms: Datadog, Google Cloud Logging, Amazon CloudWatch Logs, and other syslog-compatible tools |
