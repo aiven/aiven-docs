@@ -278,9 +278,12 @@ Choose one of the
 
 Example: **[OpenSearch Dashboards](/docs/products/opensearch/dashboards/get-started)**
 
-1. Integrate your Aiven for PostgreSQL with Aiven for OpenSearch.
+1. Integrate your Aiven for PostgreSQL with Aiven for OpenSearch.  
+   See [Integrating PostgreSQL with OpenSearch](/docs/products/postgresql/howto/integrate-with-opensearch) or follow the steps above to create the integration.
 1. Go to OpenSearch Dashboards.
-1. Set up **Index Pattern** to match your audit logs index.
+1. Set up an **Index Pattern** in OpenSearch Dashboards to match your audit logs index.  
+   For guidance, see [Create index patterns in OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index-patterns/).  
+   The index name for audit logs typically starts with `avnlog-pg-`.
 1. Filter the audit logs.
    1. Go to **Discover**.
    1. Select your audit logs index pattern.
