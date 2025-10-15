@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="custom_domain"/><Link to="#custom_domain"><strong>custom_domain</strong></Link></p><p><code className="type">string,null</code></p></div>
         <p className="title">Custom domain</p>
-        <div className="description"><p>Serve the web frontend using a custom CNAME pointing to the Aiven DNS name</p></div>
+        <div className="description"><p>Serve the web frontend using a custom CNAME pointing to the Aiven DNS name. When you set a custom domain for a service deployed in a VPC, the service certificate is only created for the public-* hostname and the custom domain.</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
