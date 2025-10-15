@@ -11,7 +11,7 @@ Prepare your services for higher than usual traffic to avoid service outages.
 To receive notifications about service health and warnings when resources are low, you can
 [set service and project contacts](https://aiven.io/docs/platform/howto/technical-emails).
 
-You can also view the status of the the Aiven Platform get updates
+You can also view the status of the Aiven Platform and get updates
 on incidents on the [status page](https://status.aiven.io/).
 You can follow the RSS feed, subscribe to email or SMS notifications,
 or use the Slack integration to get notified.
