@@ -36,8 +36,10 @@ Kafka service:
 While configuration backups offer significant benefits, there are some limitations:
 
 - **No data backups**: Configuration backups do not include the actual data stored in
-  topics, consumer groups, and their offsets. Only the cluster configurations are
-  backed up.
+  classic topics, consumer groups, and their offsets. Only the cluster configurations are
+  backed up. [Diskless topics](/docs/products/kafka/diskless/concepts/diskless-overview)
+  support full restoration of data and configuration because topic data is stored in
+  object storage.
 - **Latest backup restoration**: Restoration is always from the latest backup available.
   You cannot choose a specific backup for restoration.
 
