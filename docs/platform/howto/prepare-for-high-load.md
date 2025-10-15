@@ -6,104 +6,57 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Prepare your services for higher than usual traffic to avoid service outages.
 
-## Monitor service health
+## Subscribe to service notifications
 
-### Subscribe for service notifications
+To receive notifications about service health and warnings when resources are low, you can
+[set service and project contacts](https://aiven.io/docs/platform/howto/technical-emails).
 
-To receive notifications about the service health, you can set the
-appropriate emails in [Aiven Console](https://console.aiven.io/):
+You can also view the status of the the Aiven Platform get updates
+on incidents on the [status page](https://status.aiven.io/).
+You can follow the RSS feed, subscribe to email or SMS notifications,
+or use the Slack integration to get notified.
 
-1. Go to your project, and select **Settings** from the sidebar.
-1. In the **Settings** page, include relevant email addresses in the
-   **Technical Emails** section.
+## Monitor your services
 
-The specified email addresses will receive notifications related to
-plan size change, performance, outages and upcoming maintenance.
+You can [monitor the health of your services](/docs/platform/howto/list-monitoring)
+using metrics, logs, alerts, and dashboards.
 
-:::warning
-If no technical emails are specified, Aiven sends some high priority
-messages to the project admins.
+## Scale your services
 
-Therefore, if some technical support members are not admins, they might
-be missing important notifications for your services.
-:::
+If you forecast a load that can't be handled by the service, you can
+[scale up your service](/docs/platform/howto/scale-services).
 
-### Subscribe to platform status updates
+## Set the backup schedule
 
-The Aiven services are managed by the Aiven platform, therefore is a
-good idea to check its status and receive notifications in case of
-platform wide incidents. You can follow the RSS feed, subscribe for
-email or SMS notifications, or use the Slack integration to get notified
-where your team is already.
+To minimize the impact of the higher load during the backup process,
+[schedule backups](/docs/platform/concepts/service_backups#backup-frequency-and-retention-per-service)
+outside of peak traffic hours.
 
-<!-- vale off -->
-You can check the status of the the Aiven platform and subscribe to
-updates on incidents directly from
-[status.Aiven.io](https://status.aiven.io/).
-<!-- vale on -->
+## Set the maintenance window
 
-## Monitor the services
+Schedule [maintenance updates](/docs/platform/concepts/maintenance-window)
+outside of your peak traffic hours.
 
-Monitoring helps you prepare for high load, see
-[Monitoring services](/docs/platform/howto/list-monitoring).
-
-## Modify the service plan
-
-If you forecast a load that can't be handled by the current service
-plan, you can decide either to
-[scale up your service plan](/docs/platform/howto/scale-services), or [request a custom plan](/docs/platform/howto/custom-plans)
-if none of the available plans satisfies your requirements.
-
-## Define the backups schedule
-
-To minimize the impact of the higher load during the backup process, it is
-recommended to schedule backups outside of peak traffic hours.
-
-To configure the daily backup time in  **Aiven for PostgreSQL®** and **Aiven for MySQL®** services:
-
-1. Access the `Aiven Console <https://console.aiven.io/>`, select your project and
-   choose your service.
-1. In the service page, select **Service settings** from the sidebar, and scroll down
-   to the **Advanced configuration** section.
-1. Click **Configure**.
-1. In the **Advanced configuration** dialog, configure the values for these variables:
-
-   - `backup_hour`: The hour of the day when the backup starts.
-   - `backup_minute`: The minute of the hour to begin the backup.
-
-:::tip
-If you intend to make a plan upgrade, we recommend you do it immediately
-after a full backup. This reduces the amount of incremental
-changes that need to be applied on top of the base backup and therefore
-speeds up the upgrade itself.
-:::
-
-## Define the maintenance schedule
-
-Similar to backups, it is important to make sure your
-[maintenance windows](/docs/platform/concepts/maintenance-window) are configured correctly.
-
-:::tip
-Plan maintenance updates outside of your peak traffic hours and days.
-Optional updates will not be automatically installed unless you apply
-them yourself or a mandatory update is created.
-:::
-
-## Run load test on service forks
+## Run load tests on service forks
 
 To test the impact of high traffic on a production service,
-[fork the service to test](/docs/platform/concepts/service-forking) and run your load
+[fork the service](/docs/platform/concepts/service-forking) and run your load
 test on the fork.
 
-## Perform service specific optimizations
+## Optimize your services
 
 Optimizing a service allows it to perform better under stress therefore
 avoiding the need of an upgrade. The more optimized a service is for
-your usage, the better you can weather spikes in traffic.
+your usage, the better you can weather spikes in traffic:
 
-<RelatedPages/>
-
-<!-- vale off -->
-- [Apache Kafka® and Apache Kafka® Connect best practices](/docs/products/kafka/howto/best-practices)
-- [PostgreSQL® best practices](/docs/products/postgresql/howto/optimize-pg-slow-queries)
-<!-- vale on -->
+- Aiven for Apache Kafka®
+  - [Get the best from Apache Kafka®](/docs/products/kafka/howto/best-practices)
+  - [Optimizing resource usage for Aiven for Apache Kafka®](/docs/products/kafka/howto/optimizing-resource-usage)
+  - [Apache Kafka® and Apache Kafka® Connect best practices](/docs/products/kafka/howto/best-practices)
+- Aiven for PostgreSQL®
+  - [Optimize Aiven for PostgreSQL® slow queries](/docs/products/postgresql/howto/optimize-pg-slow-queries)
+  - [AI database optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
+- Aiven for MySQL
+  - [AI database optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
+- Aiven for Metrics
+  - [Optimize storage and resources](/docs/products/metrics/concepts/storage-resource-scaling#resource-management)
