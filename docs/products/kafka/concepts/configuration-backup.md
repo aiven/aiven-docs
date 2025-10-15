@@ -37,9 +37,9 @@ While configuration backups offer significant benefits, there are some limitatio
 
 - **No data backups**: Configuration backups do not include the actual data stored in
   classic topics, consumer groups, and their offsets. Only the cluster configurations are
-  backed up.
-  - [Diskless topics](https://aiven.io/inkless) support full restoration of data and
-    configuration, as the topic data lives in the object storage.
+  backed up. [Diskless topics](/docs/products/kafka/diskless/concepts/diskless-overview)
+  support full restoration of data and configuration because topic data is stored in
+  object storage.
 - **Latest backup restoration**: Restoration is always from the latest backup available.
   You cannot choose a specific backup for restoration.
 
