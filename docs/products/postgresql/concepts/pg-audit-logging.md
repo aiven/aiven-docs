@@ -169,13 +169,14 @@ For information on all the configuration parameters, preview
 
 ### Collecting and visualizing logs
 
-You can
-[access your collected audit logs](/docs/products/postgresql/howto/use-pg-audit-logging)
-either directly in the log output of your Aiven for PostgreSQL service or by integrating
-with another service that allows monitoring and analyzing logs, such as Aiven for
-OpenSearch®. To
-[visualize your audit logs](/docs/products/postgresql/howto/use-pg-audit-logging), you can
-use [OpenSearch Dashboards](/docs/products/opensearch/dashboards).
+[Access and visualize collected audit logs](/docs/products/postgresql/howto/use-pg-audit-logging)
+using one of the supported methods:
+
+| Integration method | Accessing `pgaudit` logs | Visualizing `pgaudit` logs |
+| :--- | :--- | :--- |
+| Aiven for OpenSearch integration | [Aiven for OpenSearch®](/docs/products/opensearch/)| [OpenSearch Dashboards](/docs/products/opensearch/dashboards) |
+| Aiven for Apache Kafka integration | Kafka topic in Aiven for Apache Kafka | Requires a separate downstream tool to consume the log data from Aiven for Kafka and provide visualization |
+| External syslog integration | `rsyslog` | Third-party platforms: Datadog, Google Cloud Logging, Amazon CloudWatch Logs, and other syslog-compatible tools |
 
 ### Disabling audit logging
 

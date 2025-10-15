@@ -219,8 +219,10 @@ For more details on how to set up, configure, and use session audit logging, che
 
 ## Access your logs
 
-Access your Aiven for PostgreSQL audit logs by integrating with an Aiven for OpenSearch®
-service, which allows monitoring and analyzing logs.
+Choose one of the
+[tools or methods for accessing, monitoring, or analyzing your audit logs](/docs/products/postgresql/concepts/pg-audit-logging#collecting-and-visualizing-logs).
+
+Example: **Aiven for OpenSearch®**
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
@@ -271,12 +273,24 @@ curl --request POST \
 
 ## Visualize your logs
 
-If your logs are available in Aiven for OpenSearch, use
-[OpenSearch Dashboards](/docs/products/opensearch/dashboards/get-started) to visualize the
-logs.
+Choose one of the
+[tools or methods for visualizing your collected audit logs](/docs/products/postgresql/concepts/pg-audit-logging#collecting-and-visualizing-logs).
 
-To preview your audit logs in OpenSearch Dashboards, use the filtering tool: select
-`AIVEN_AUDIT_FROM`, set its value to `pg`, and apply the filter.
+Example: **[OpenSearch Dashboards](/docs/products/opensearch/dashboards/get-started)**
+
+1. Integrate your Aiven for PostgreSQL with Aiven for OpenSearch by following the steps in
+   [Access-your-logs](/docs/products/postgresql/howto/use-pg-audit-logging#access-your-logs).
+1. Go to OpenSearch Dashboards.
+1. Set up an **Index Pattern** in OpenSearch Dashboards to match your audit logs index.
+   For guidance, see
+   [Create index patterns in OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index-patterns/).
+   The index name for audit logs typically starts with `avnlog-pg-`.
+1. To filter the audit logs:
+   1. Go to **Discover**.
+   1. Select your audit logs index pattern.
+   1. In the filter tool, set the value of `AIVEN_AUDIT_FROM` to `pg`.
+   1. Apply the filter.
+1. Preview and analyze the logs.
 
 <img src={AuditLogsOpenSearchDashboards} class="image"/>
 
