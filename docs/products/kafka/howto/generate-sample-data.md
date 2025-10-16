@@ -20,8 +20,6 @@ You can use the sample data generator at no additional cost. It does not use ser
 credits.
 :::
 
-
-
 You can choose from the following data scenarios:
 
 - **Logistics**: Tracks package events including timestamp, tracking ID, carrier,
@@ -59,7 +57,7 @@ When you start a sample data session, the generator:
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io).
-- Permission to create and manage Aiven for Apache Kafka services in your project
+- Permission to create and manage Aiven for Apache Kafka services in your project.
 
 To create an Aiven for Apache Kafka service, see [Create new service](/docs/platform/howto/create_new_service).
 
@@ -75,7 +73,17 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
    1. Click **Enable & continue** to proceed. Aiven ensures the Karapace Schema
       Registry and REST Proxy are enabled for sample data generation. If they are not
       already active, Aiven enables them for you.
-   1. Review the auto-generated topic name and Avro schema. Click **Confirm**.
+   1. Review the schema your messages will follow. Click **Confirm** to continue.
+   1. Review the topic and configure stream settings.
+
+      :::note
+      If your Aiven for Apache Kafka® service has **Diskless topics** enabled, choose
+      either a **Diskless** or **Classic** topic for sample data generation.
+      By default, **Diskless** is selected. To learn more, see
+      [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
+      :::
+
+   1. Click **Confirm**.
    1. Select a stream duration between 15 minutes and 4 hours. Click
       **Start data stream**.
 
