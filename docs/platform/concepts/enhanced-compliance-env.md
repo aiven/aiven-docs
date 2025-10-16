@@ -72,13 +72,14 @@ differs between clouds:
 | GCP        | <ul><li>GCP Project ID</li><li>VPC Network Name</li></ul>                        |
 | Azure      | <ul> <li>Azure Tenant ID</li> <li>Azure App ID</li> <li>Azure VNet ID</li> </ul> |
 
-## Compliances
+## Compliance
 
-Although not exhaustive, Aiven is capable of supporting both the Health
-Insurance Portability and Accountability Act (HIPAA) and the Payment
-Card Industry Data Security Standard (PCI DSS) compliances.
+Although not exhaustive, Aiven's ECE is designed to support compliance standards like
+the Health Insurance Portability and Accountability Act (HIPAA) and the
+Payment Card Industry Data Security Standard (PCI DSS). Support for these standards
+is not available in the standard environments.
 
-If you require compliance beyond these compliances, contact the
+If you have compliance requirements beyond these standards, contact the
 [sales team](https://aiven.io/contact) so we can better understand your specific needs.
 
 Additionally, we offer an alternative deployment option. See
