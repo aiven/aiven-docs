@@ -40,7 +40,8 @@ a tool of your choice:
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
 1. On the **Cross region disaster recovery** page, click **Create recovery service**.
 1. In **Create recovery service** wizard:
-   1. Select a cloud provider and a cloud region.
+   1. Provide a service name.
+   1. Select a cloud region.
    1. Click **Create recovery service**.
 
 Throughout the process of creating the recovery service, the recovery service is in the
