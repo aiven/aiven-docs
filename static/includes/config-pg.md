@@ -727,6 +727,41 @@ the first log entry for a statement/substatement combination or with every entry
           </tr>
           <tr>
             <td>
+              <div className="param"><p className="name"><Link id="pg_io_combine_limit"/><Link to="#pg_io_combine_limit"><strong>pg.io_combine_limit</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>32</code></li><li>default: <code>16</code></li></ul></div>
+              <p className="title">io_combine_limit</p>
+              <div className="description"><p>EXPERIMENTAL: Controls the largest I/O size in operations that combine I/O in 8kB units. Version 17 and up only.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pg_io_max_combine_limit"/><Link to="#pg_io_max_combine_limit"><strong>pg.io_max_combine_limit</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>128</code></li><li>default: <code>16</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <p className="title">io_max_combine_limit</p>
+              <div className="description"><p>EXPERIMENTAL: Controls the largest I/O size in operations that combine I/O in 8kB units, and silently limits the user-settable parameter io_combine_limit. Version 18 and up only. Changing this parameter causes a service restart.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pg_io_max_concurrency"/><Link to="#pg_io_max_concurrency"><strong>pg.io_max_concurrency</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>-1</code></li><li>max: <code>1024</code></li><li>default: <code>-1</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <p className="title">io_max_concurrency</p>
+              <div className="description"><p>EXPERIMENTAL: Controls the maximum number of I/O operations that one process can execute simultaneously. Version 18 and up only. Changing this parameter causes a service restart.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pg_io_method"/><Link to="#pg_io_method"><strong>pg.io_method</strong></Link></p><p><code className="type">string</code></p></div><div className="constraints"><ul><li>default: <code>worker</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <p className="title">io_method</p>
+              <div className="description"><p>EXPERIMENTAL: Controls the maximum number of I/O operations that one process can execute simultaneously. Version 18 and up only. Changing this parameter causes a service restart.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="pg_io_workers"/><Link to="#pg_io_workers"><strong>pg.io_workers</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>32</code></li><li>default: <code>3</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <p className="title">io_max_concurrency</p>
+              <div className="description"><p>EXPERIMENTAL: Number of IO worker processes, for io_method&#x3D;worker. Version 18 and up only. Changing this parameter causes a service restart.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <div className="param"><p className="name"><Link id="pg_jit"/><Link to="#pg_jit"><strong>pg.jit</strong></Link></p><p><code className="type">boolean</code></p></div>
               <p className="title">jit</p>
               <div className="description"><p>Controls system-wide use of Just-in-Time Compilation (JIT).</p></div>
@@ -965,7 +1000,7 @@ the first log entry for a statement/substatement combination or with every entry
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_max_connections"/><Link to="#pg_max_connections"><strong>pg.max_connections</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>25</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_max_connections"/><Link to="#pg_max_connections"><strong>pg.max_connections</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>25</code></li><li>max: <code>262143</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">max_connections</p>
               <div className="description"><p>Sets the PostgreSQL maximum number of concurrent connections to the database server. This is a limited-release parameter. Contact your account team to confirm your eligibility. You cannot decrease this parameter value when set. For services with a read replica, first increase the read replica's value. After the change is applied to the replica, you can increase the primary service's value. Changing this parameter causes a service restart.</p></div>
             </td>
