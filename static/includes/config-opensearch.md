@@ -43,7 +43,7 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="custom_domain"/><Link to="#custom_domain"><strong>custom_domain</strong></Link></p><p><code className="type">string,null</code></p></div>
         <p className="title">Custom domain</p>
-        <div className="description"><p>Serve the web frontend using a custom CNAME pointing to the Aiven DNS name</p></div>
+        <div className="description"><p>Serve the web frontend using a custom CNAME pointing to the Aiven DNS name. When you set a custom domain for a service deployed in a VPC, the service certificate is only created for the public-* hostname and the custom domain.</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
@@ -254,6 +254,80 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="openid_header"/><Link to="#openid_header"><strong>openid.header</strong></Link></p><p><code className="type">string</code></p></div><div className="constraints"><ul><li>default: <code>Authorization</code></li></ul></div>
               <p className="title">HTTP header name of the JWT token</p>
               <div className="description"><p>HTTP header name of the JWT token. Optional. Default is Authorization.</p></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="jwt"/><Link to="#jwt"><strong>jwt</strong></Link></p><p><code className="type">object</code></p></div>
+        <p className="title">OpenSearch JWT Configuration</p>
+        
+        <table className="service-param-children">
+          <tbody>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_enabled"/><Link to="#jwt_enabled"><strong>jwt.enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
+              <p className="title">Enable or disable OpenSearch JWT authentication</p>
+              <div className="description"><p>Enables or disables JWT-based authentication for OpenSearch. When enabled, users can authenticate using JWT tokens.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_signing_key"/><Link to="#jwt_signing_key"><strong>jwt.signing_key</strong></Link></p><p><code className="type">string</code></p></div>
+              <p className="title">JWT signing key</p>
+              <div className="description"><p>The secret key used to sign and verify JWT tokens. This should be a secure, randomly generated key HMAC key or public RSA/ECDSA key.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_jwt_header"/><Link to="#jwt_jwt_header"><strong>jwt.jwt_header</strong></Link></p><p><code className="type">string,null</code></p></div><div className="constraints"><ul><li>default: <code>Authorization</code></li></ul></div>
+              <p className="title">HTTP header name for JWT token</p>
+              <div className="description"><p>The HTTP header name where the JWT token is transmitted. Typically 'Authorization' for Bearer tokens.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_jwt_url_parameter"/><Link to="#jwt_jwt_url_parameter"><strong>jwt.jwt_url_parameter</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">URL parameter name for JWT token</p>
+              <div className="description"><p>If the JWT token is transmitted as a URL parameter instead of an HTTP header, specify the parameter name here.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_subject_key"/><Link to="#jwt_subject_key"><strong>jwt.subject_key</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">JWT claim key for subject</p>
+              <div className="description"><p>The key in the JWT payload that contains the user's subject identifier. If not specified, the 'sub' claim is used by default.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_roles_key"/><Link to="#jwt_roles_key"><strong>jwt.roles_key</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">JWT claim key for roles</p>
+              <div className="description"><p>The key in the JWT payload that contains the user's roles. If specified, roles will be extracted from the JWT for authorization.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_required_audience"/><Link to="#jwt_required_audience"><strong>jwt.required_audience</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">Required JWT audience</p>
+              <div className="description"><p>If specified, the JWT must contain an 'aud' claim that matches this value. This provides additional security by ensuring the JWT was issued for the expected audience.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_required_issuer"/><Link to="#jwt_required_issuer"><strong>jwt.required_issuer</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">Required JWT issuer</p>
+              <div className="description"><p>If specified, the JWT must contain an 'iss' claim that matches this value. This provides additional security by ensuring the JWT was issued by the expected issuer.</p></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="jwt_jwt_clock_skew_tolerance_seconds"/><Link to="#jwt_jwt_clock_skew_tolerance_seconds"><strong>jwt.jwt_clock_skew_tolerance_seconds</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>max: <code>300</code></li><li>default: <code>20</code></li></ul></div>
+              <p className="title">JWT clock skew tolerance in seconds</p>
+              <div className="description"><p>The maximum allowed time difference in seconds between the JWT issuer's clock and the OpenSearch server's clock. This helps prevent token validation failures due to minor time synchronization issues.</p></div>
             </td>
           </tr>
           </tbody>
