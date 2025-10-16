@@ -37,21 +37,20 @@ to another region. To identify a region outage, look into the region status:
 The CRDR setup is a pair of integrated multi-node services, sharing credentials and a
 DNS address but located in different regions. CRDR peer services can be hosted on 1-3 nodes.
 
-- **Primary-region service** is the original service you use on regular basis. It hands over to
-  the recovery-region service when you initiate
+- **Primary service** hosted in the primary region is your original service you use on
+  regular basis. It hands over to the recovery service when you initiate
   [a failover or a switchover](/docs/products/postgresql/crdr/crdr-overview#recovery-transition).
   When you initiate
   [a failback or a switchback](/docs/products/postgresql/crdr/crdr-overview#recovery-reversion),
-  the primary-region service takes back
-  control from the recovery-region service as soon as the infrastructure is up and running
-  again.
-- **Recovery-region service** is the service you create for disaster recovery purposes. It
-  takes over from the primary-region service when you initiate
+  the primary service takes back control from the recovery service as soon as the
+  infrastructure is up and running again.
+- **Recovery service** hosted in the recovery region is the service you create for
+  disaster recovery purposes. It takes over from the primary service when you initiate
   [a failover or a switchover](/docs/products/postgresql/crdr/crdr-overview#recovery-transition).
   When you initiate
   [a failback or a switchback](/docs/products/postgresql/crdr/crdr-overview#recovery-reversion),
-  the recovery-region service hands over to
-  the primary-region service as soon as the infrastructure is up and running again.
+  the recovery service hands over to the primary service as soon as the infrastructure is
+  up and running again.
 
 The CRDR cycle is a sequence of actions involving CRDR peer services aimed at enabling and
 executing CRDR as well as resuming the original service operation.
@@ -60,14 +59,14 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 
 - **Active**: A CRDR peer service is *active* when it runs on a node that is replicating data to
   CRDR standby nodes.
-  - Primary-region service is active during normal operations, when a region is up and running.
-  - Recovery-region service is active after taking over from primary-region service in the event of a region outage.
+  - Primary service is active during normal operations, when a region is up and running.
+  - Recovery service is active after taking over from primary service in the event of a region outage.
 
 - **Passive**: A CRDR peer service is *passive* when it runs on CRDR standby nodes only. Either CRDR
   peer service can be passive depending on a phase of the CRDR cycle.
 
 - **Failed**: A CRDR peer service is *failed* when it's defunct or unreachable after failing over
-  in the event of a region outage. Only a primary-region service can be failed.
+  in the event of a region outage. Only a primary service can be failed.
 
 - **Standby**: A CRDR service node is *standby* when it is replicating data from the CRDR service
   node that is running the active service.
@@ -76,7 +75,7 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 
 - To set up CRDR, your primary service needs at least a Startup plan. Hobbyist and Free
   plans are not supported.
-- Recovery-region service needs to use the same service plan and cloud provider as the primary-region service.
+- Recovery service needs to use the same service plan and cloud provider as the primary service.
 
 ## How it works
 
@@ -86,10 +85,10 @@ The CRDR feature is eligible for all startup, business, and premium service plan
 
 ### CRDR setup
 
-You [enable CRDR by creating an recovery-region service](/docs/products/postgresql/crdr/enable-crdr). The CRDR
-setup completes as soon as the recovery-region service is created and in sync with the primary-region service. At that point,
-the primary-region service is the **Active** service receiving incoming traffic and replicating to the recovery-region service,
-and the recovery-region service is the **Passive** service replicating from the primary-region service.
+You [enable CRDR by creating an recovery service](/docs/products/postgresql/crdr/enable-crdr). The CRDR
+setup completes as soon as the recovery service is created and in sync with the primary service. At that point,
+the primary service is the **Active** service receiving incoming traffic and replicating to the recovery service,
+and the recovery service is the **Passive** service replicating from the primary service.
 
 <img src={crdrSetup} className="centered" alt="CRDR setup" width="100%" />
 
@@ -107,9 +106,9 @@ CRDR supports two types of the recovery transition:
 #### Failover to the recovery region
 
 You trigger a
-[failover to the recovery-region service](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
-in the event of a region-wide outage or for testing purposes. When completed, the primary-region service is
-**Failed** and the recovery-region service is up and running as an **Active** service. To fail back to the primary-region service,
+[failover to the recovery service](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
+in the event of a region-wide outage or for testing purposes. When completed, the primary service is
+**Failed** and the recovery service is up and running as an **Active** service. To fail back to the primary service,
 it needs to be recreated first.
 
 <img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
@@ -117,9 +116,9 @@ it needs to be recreated first.
 #### Switchover to the recovery region
 
 You trigger a
-[switchover to the recovery-region service](/docs/products/postgresql/crdr/switchover/crdr-switchover) at your
+[switchover to the recovery service](/docs/products/postgresql/crdr/switchover/crdr-switchover) at your
 convenient time for testing, simulating a disaster scenario, or verifying the disaster
-resilience of your infrastructure. When completed, the primary-region service is **Passive** and the recovery-region service is
+resilience of your infrastructure. When completed, the primary service is **Passive** and the recovery service is
 up and running as an **Active** service. To switch back to the primary service, no service
 recreation is needed.
 
@@ -148,23 +147,23 @@ The failback process consists of two steps you initiate at your convenience:
 1. [Primary service recreation](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
 
    You initiate this step to restore primary service nodes from the local backups and to
-   synchronize (replicate) the most recent data from the active service (recovery-region service).
-   When completed, the primary-region service is restored and in near real-time sync with the recovery-region service.
+   synchronize (replicate) the most recent data from the active service (recovery service).
+   When completed, the primary service is restored and in near real-time sync with the recovery service.
 
 1. [Primary service takeover](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
 
-   You initiate a takeover as soon as the primary-region service is recreated. This switches the direction of
+   You initiate a takeover as soon as the primary service is recreated. This switches the direction of
    the replication to effectively route the traffic back to the primary region. When
-   completed, both the primary-region service and the recovery-region service are up and running again: the primary-region service as an active
-   service, and the recovery-region service as a passive service.
+   completed, both the primary service and the recovery service are up and running again: the primary service as an active
+   service, and the recovery service as a passive service.
 
 <img src={crdrRevert} className="centered" alt="CRDR revert" width="100%" />
 
 #### Switchback to the primary region
 
 You initiate a switchback at your convenience to switch the direction of the
-replication and route the traffic back to the primary region. When completed, both the primary-region service
-and the recovery-region service are up and running again: the primary-region service as an active service, and the recovery-region service as a
+replication and route the traffic back to the primary region. When completed, both the primary service
+and the recovery service are up and running again: the primary service as an active service, and the recovery service as a
 passive service.
 
 <img src={crdrSwitchback} className="centered" alt="CRDR switchback" width="100%" />
@@ -177,7 +176,7 @@ CRDR allows you to access your active service always using the same **Service UR
 which doesn't change in the event of a failover to the recovery region.
 
 :::note
-**Service URI** is a locator that is shared between the primary-region service and the recovery-region service. It always points
+**Service URI** is a locator that is shared between the primary service and the recovery service. It always points
 to the replicating node of the active service. This node is the only read-write node
 in both CRDR regions.
 :::
@@ -201,7 +200,7 @@ service (region) they belong to:
 - For the **recovery service standby URI**, the DNS record always points to the standby nodes
   in the recovery region.
 
-Both the primary-region service standby URI and the recovery-region service standby URI are dedicated, not shared, and read-only.
+Both the primary service standby URI and the recovery service standby URI are dedicated, not shared, and read-only.
 
 ## Backups in the recovery region
 
