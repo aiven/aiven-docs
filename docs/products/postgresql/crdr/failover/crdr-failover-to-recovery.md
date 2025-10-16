@@ -41,7 +41,7 @@ using a tool of your choice:
 
 When the failover process is completed, your primary service is **Failed**, and the
 recovery service is **Active**, which means the recovery service is in control over your
-workloads now.
+workloads.
 
 </TabItem>
 <TabItem value="cli" label="CLI">

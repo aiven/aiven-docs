@@ -15,7 +15,6 @@ Shift your workloads back to the primary region, where your service was hosted o
 
 - [CRDR switchover](/docs/products/postgresql/crdr/switchover/crdr-switchover) completed
 - One of the following tools for operating CRDR:
-  - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
@@ -23,25 +22,6 @@ Shift your workloads back to the primary region, where your service was hosted o
 ## Switch back
 
 <Tabs>
-<TabItem value="console" label="Console">
-
-Initiate a
-[switchback](/docs/products/postgresql/crdr/crdr-overview#switchback-to-the-primary-region)
-using the [Aiven Console](https://console.aiven.io/):
-
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
-   Aiven for PostgreSQL service.
-1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross region disaster recovery** page, click <ConsoleLabel name="actions"/> >
-   **Switchback to primary service**.
-1. In **Switchback to primary service** window, click **Promote to active** > **Confirm** >
-   **Close**.
-
-When the switchback process is completed, your primary service is **Active**, and the
-recovery service is **Passive**, which means the primary service is in control over your
-workloads now.
-
-</TabItem>
 <TabItem value="cli" label="CLI">
 
 Use the [Aiven CLI](/docs/tools/cli) to perform a switchback:
@@ -153,6 +133,10 @@ To return to the original primary-recovery configuration after a planned switcho
 
 </TabItem>
 </Tabs>
+
+When the switchback process is completed, your primary service is **Active**, and the
+recovery service is **Passive**, which means the primary service is in control over your
+workloads.
 
 <RelatedPages/>
 

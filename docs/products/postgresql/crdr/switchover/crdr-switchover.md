@@ -19,7 +19,6 @@ disaster, or testing the resilience of your infrastructure.
 
 - [CRDR setup](/docs/products/postgresql/crdr/enable-crdr) up and running
 - One of the following tools for operating CRDR:
-  - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
@@ -27,24 +26,6 @@ disaster, or testing the resilience of your infrastructure.
 ## Switch over
 
 <Tabs>
-<TabItem value="console" label="Console">
-
-Initiate a [switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region)
-using the [Aiven Console](https://console.aiven.io/):
-
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
-   Aiven for PostgreSQL service.
-1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
-   **Switchover to recovery service**.
-1. In the **Switchover to recovery service** window, click **Promote to active** > **Confirm** >
-   **Close**.
-
-When the switchover process is completed, your primary service is **Passive**, and the
-recovery service is **Active**, which means the recovery service is in control over your
-workloads now.
-
-</TabItem>
 <TabItem value="cli" label="CLI">
 
 Use the [Aiven CLI](/docs/tools/cli) to perform a switchover:
@@ -160,6 +141,10 @@ To trigger switchover and promote the recovery service to active:
 
 </TabItem>
 </Tabs>
+
+When the switchover process is completed, your primary service is **Passive**, and the
+recovery service is **Active**, which means the recovery service is in control over your
+workloads.
 
 <RelatedPages/>
 
