@@ -9,12 +9,11 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Perform an emergency promotion of your recovery service when the primary region becomes unavailable.
+Move your workload to another region for disaster recovery or testing purposes.
 
-In the event of a region outage,
-[failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
-happens automatically. To simulate a disaster and test the resilience of your
-infrastructure, you can also perform a manual failover.
+A [failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
+allows you to respond to a region outage or simulate a disaster and test the resilience of
+your infrastructure.
 
 ## Prerequisites
 
@@ -25,15 +24,10 @@ infrastructure, you can also perform a manual failover.
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 
-## Automatic failover
+## Perform a failover
 
-[Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover) is
-enabled by default with your CRDR setup. It's triggered automatically in the event of a
-region outage.
-
-## Fail over manually
-
-Initiate a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover)
+Initiate a
+[failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
 using a tool of your choice:
 
 <Tabs groupId="group1">

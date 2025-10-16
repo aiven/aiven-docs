@@ -14,15 +14,13 @@ import crdrSwitchover from "@site/static/images/content/figma/crdr-switchover.pn
 import crdrRevert from "@site/static/images/content/figma/crdr-revert.png";
 import crdrSwitchback from "@site/static/images/content/figma/crdr-switchback.png";
 
-The cross-region disaster recovery (CRDR) feature ensures your business continuity by
-automatically recovering your workloads to a remote region in the event of a region-wide
+The cross-region disaster recovery (CRDR) feature ensures your business continuity by recovering your workloads to a remote region in the event of a region-wide
 failure.
 
 ## Region-wide outage
 
-Although CRDR detects a region failure and recovers your workloads in another region
-automatically, you still might want to look into the region status yourself for a variety
-of reasons. To do that, you can:
+CRDR allows you to cope with the primary region failure by initiating a recovery transition
+to another region. To identify a region outage, look into the region status:
 
 - Check your monitoring and alerts, and watch the following metrics:
   - Instances, nodes, services failures
@@ -37,40 +35,41 @@ of reasons. To do that, you can:
 ## CRDR overview
 
 The CRDR setup is a pair of integrated multi-node services, sharing credentials and a
-DNS address but located in different regions. CRDR peer services may be hosted on 1-3 nodes.
+DNS address but located in different regions. CRDR peer services can be hosted on 1-3 nodes.
 
-- Primary region service (**PRS**) is the original service you use unless there's a region
-  outage, in which case it hands over to the RRS. As soon as the region is up again and
-  the PRS is ready, the PRS takes back control from the RRS.
-- Recovery region service (**RRS**) is the service you create for disaster recovery purposes.
-  This service takes over from the PRS when a region is down and hands over to the PRS when
-  the region and the PRS are up and running again.
+- **Primary-region service** is the original service you use on regular basis. It hands over to
+  the recovery-region service when you initiate
+  [a failover or a switchover](/docs/products/postgresql/crdr/crdr-overview#recovery-transition).
+  When you initiate
+  [a failback or a switchback](/docs/products/postgresql/crdr/crdr-overview#recovery-reversion),
+  the primary-region service takes back
+  control from the recovery-region service as soon as the infrastructure is up and running
+  again.
+- **Recovery-region service** is the service you create for disaster recovery purposes. It
+  takes over from the primary-region service when you initiate
+  [a failover or a switchover](/docs/products/postgresql/crdr/crdr-overview#recovery-transition).
+  When you initiate
+  [a failback or a switchback](/docs/products/postgresql/crdr/crdr-overview#recovery-reversion),
+  the recovery-region service hands over to
+  the primary-region service as soon as the infrastructure is up and running again.
 
 The CRDR cycle is a sequence of actions involving CRDR peer services aimed at enabling and
 executing CRDR as well as resuming the original service operation.
 
 Throughout the CRDR cycle, CRDR peer services or service nodes go into the following states:
 
-- Active
-
-  A CRDR peer service is **Active** when it runs on a node that is replicating data to
+- **Active**: A CRDR peer service is *active* when it runs on a node that is replicating data to
   CRDR standby nodes.
   - PRS is active during normal operations, when a region is up and running.
   - RRS is active after taking over from PRS in the event of a region outage.
 
-- Passive
-
-  A CRDR peer service is **Passive** when it runs on CRDR standby nodes only. Either CRDR
+- **Passive**: A CRDR peer service is *passive* when it runs on CRDR standby nodes only. Either CRDR
   peer service can be passive depending on a phase of the CRDR cycle.
 
-- Failed
+- **Failed**: A CRDR peer service is *failed* when it's defunct or unreachable after failing over
+  in the event of a region outage. Only a PRS can be failed.
 
-  A CRDR peer service is **Failed** when it's defunct or unreachable after failing over
-  automatically or manually in the event of a region outage. Only a PRS can be failed.
-
-- Standby
-
-  A CRDR service node is **Standby** when it is replicating data from the CRDR service
+- **Standby**: A CRDR service node is *standby* when it is replicating data from the CRDR service
   node that is running the active service.
 
 ## Limitations
@@ -96,12 +95,9 @@ and the RRS is the **Passive** service replicating from the PRS.
 
 ### Recovery transition
 
-CRDR supports three types of the recovery transition:
+CRDR supports two types of the recovery transition:
 
-- [Automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover)
-  - **Self-activating** response to a region-wide outage
-  - **Destroys the primary service** and requires the primary service recreation to fail back.
-- [Manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover)
+- [Failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
   - **Triggered by you** for any purposes other than a region-wide outage
   - **Destroys the primary service** and requires the primary service recreation to fail back.
 - [Switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region)
@@ -110,55 +106,44 @@ CRDR supports three types of the recovery transition:
 
 #### Failover to the recovery region
 
-[Failover to the RRS](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) is
-performed either
-[automatically](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) or
-[manually](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery). When completed, the
-PRS is **Failed** and the RRS is up and running as an **Active** service. To fail back to
-the PRS, it needs to be recreated first.
+You trigger a
+[failover to the RRS](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
+in the event of a region-wide outage or for testing purposes. When completed, the PRS is
+**Failed** and the RRS is up and running as an **Active** service. To fail back to the PRS,
+it needs to be recreated first.
 
 <img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
 
-##### Automatic failover
-
-In the event of a region-wide failure, a CRDR process is triggered automatically. The RRS
-takes over from the PRS so that your workloads remain available at all times during
-the region outage.
-
-##### Manual failover
-
-You trigger a failover to the RRS yourself for testing purposes: to simulate a
-disaster scenario and verify the disaster resilience of your infrastructure.
-
 #### Switchover to the recovery region
 
-[Switchover to the RRS](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery) is
-performed manually for testing, simulating a disaster scenario, or verifying the
-disaster resilience of your infrastructure. You trigger a switchover yourself at your
-convenient time. When completed, the PRS is **Passive** and the RRS is up and running as
-an **Active** service. To switch back to the primary service, no service recreation is
-needed.
+You trigger a
+[switchover to the RRS](/docs/products/postgresql/crdr/switchover/crdr-switchover) at your
+convenient time for testing, simulating a disaster scenario, or verifying the disaster
+resilience of your infrastructure. When completed, the PRS is **Passive** and the RRS is
+up and running as an **Active** service. To switch back to the primary service, no service
+recreation is needed.
 
 <img src={crdrSwitchover} className="centered" alt="CRDR switchover" width="100%" />
 
 ### Recovery reversion
 
-The recovery reversion is a manual operation you trigger to shift your workload back to
-the primary region and restore the CRDR setup to its original configuration. There are two
-types of recovery reversion:
+You trigger a recovery reversion to shift your workload back to the primary region and
+restore the CRDR setup to its original configuration.
+
+There are two types of the recovery reversion:
 
 - [Failback](/docs/products/postgresql/crdr/crdr-overview#failback-to-the-primary-region)
-  - Reverts an
-    [automatic failover](/docs/products/postgresql/crdr/crdr-overview#automatic-failover)
-    or a [manual failover](/docs/products/postgresql/crdr/crdr-overview#manual-failover).
+  - Reverts a
+    [failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region).
   - Recreates the primary service.
 - [Switchback](/docs/products/postgresql/crdr/crdr-overview#switchback-to-the-primary-region)
-  - Reverts a switchover.
+  - Reverts a
+    [switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region).
   - No need to recreate the primary service.
 
 #### Failback to the primary region
 
-The failback process consists of two steps you initiate manually at your convenience:
+The failback process consists of two steps you initiate at your convenience:
 
 1. [Primary service recreation](/docs/products/postgresql/crdr/failover/crdr-revert-to-primary)
 
@@ -177,7 +162,7 @@ The failback process consists of two steps you initiate manually at your conveni
 
 #### Switchback to the primary region
 
-You initiate a switchback manually at your convenience to switch the direction of the
+You initiate a switchback at your convenience to switch the direction of the
 replication and route the traffic back to the primary region. When completed, both the PRS
 and the RRS are up and running again: the PRS as an active service, and the RRS as a
 passive service.
