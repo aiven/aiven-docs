@@ -32,24 +32,22 @@ using a tool of your choice:
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
-   **Failback to primary region**.
+1. On the **Cross-region disaster recovery** page, click **Manage**.
 1. In **Service recovery cycle** wizard:
 
    1. Click **Restore primary service**.
 
-      This puts the primary service in the **Rebuilding** state. As soon as **Rebuilding**
-      changes to **Passive**, consider your primary service recreated and proceed to
-      the next step.
+      Wait until the status of your primary service changes from **Rebuilding** to
+      **Passive**. This recreates your primary service in the primary region.
 
-   1. Click **Promote primary to active**.
+   1. Click **Promote primary service**.
 
-      This takes effect when the primary service becomes **Active** and the recovery service
-      becomes **Passive**, which means traffic and replication direction are switched back
-      to the recreated primary service and your CRDR setup is restored to its original
-      configuration.
+      Wait until the status of the primary service changes from **Rebuilding** to
+      **Active** and the status of the recovery service changes from **Rebalancing** to
+      **Passive**. This switches traffic and replication direction back to the recreated
+      primary service, restoring your CRDR setup to its original configuration.
 
-   1. Click **Done**.
+   1. Click **Close**.
 
 </TabItem>
 <TabItem value="cli" label="CLI">

@@ -36,10 +36,8 @@ using a tool of your choice:
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
 1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
-1. On the **Cross-region disaster recovery** page, click <ConsoleLabel name="actions"/> >
-   **Failover to recovery region**.
-1. In the **Service recovery cycle** wizard, click **Initiate failover** > **Confirm** >
-   **Close**.
+1. On the **Cross-region disaster recovery** page, click **Manage**.
+1. In the **Service recovery cycle** wizard, click **Initiate failover** > **Close**.
 
 When the failover process is completed, your primary service is **Failed**, and the
 recovery service is **Active**, which means the recovery service is in control over your
