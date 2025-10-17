@@ -35,7 +35,7 @@ to another region. To identify a region outage, look into the region status:
 ## CRDR overview
 
 The CRDR setup is a pair of integrated multi-node services, sharing credentials and a
-DNS address but located in different regions. CRDR peer services can be hosted on 1-3 nodes.
+DNS name but located in different regions. CRDR peer services can be hosted on 1-3 nodes.
 
 - **Primary service** hosted in the primary region is your original service you use on
   regular basis. It hands over to the recovery service when you initiate
@@ -166,9 +166,9 @@ passive service.
 
 <img src={crdrSwitchback} className="centered" alt="CRDR switchback" width="100%" />
 
-## DNS address and service URI
+## DNS name and service URI
 
-### Active service DNS address
+### Active service DNS name
 
 CRDR allows you to access your active service always using the same **Service URI**,
 which doesn't change in the event of a failover to the recovery region.
@@ -184,7 +184,7 @@ because the DNS record of this **Service URI** is updated to point to the active
 This allows your applications to work uninterrupted and adapt to the change automatically
 without updating its code or data.
 
-### Standby nodes DNS addresses
+### Standby nodes DNS names
 
 Regardless of the CRDR cycle phase, you can always connect and access separately
 each standby node in the CRDR peer services. This can help you compensate for potential
