@@ -150,7 +150,7 @@ Create a service in an organization VPC using a tool of your choice:
 <TabItem value="console" label="Console" default>
 
 When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
-select your project VPC as the cloud region.
+select your organization VPC as the cloud region.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
