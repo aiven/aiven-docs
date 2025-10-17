@@ -5,6 +5,7 @@ title: Migrate service to another cloud or region
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ChangeCloud from "@site/static/includes/change-cloud-console.md";
 
 When creating an Aiven service, you are not tied to a cloud provider or region. You can migrate your services later to better match your needs.
 Services can be moved to another cloud provider, another region within the same provider,
@@ -22,14 +23,7 @@ delays caused by client side library implementation.
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  Log into the [Aiven Console](https://console.aiven.io/), select your
-    project and select the service you want migrate to another
-    cloud or region.
-1.  On the service page, click **Service settings** from the sidebar.
-1.  In the **Cloud and network** section, click
-    <ConsoleLabel name="actions"/> > **Change cloud or region**.
-1.  In the **Migrate service to another cloud** window, select new cloud
-    provider and region and click **Migrate**.
+<ChangeCloud/>
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
