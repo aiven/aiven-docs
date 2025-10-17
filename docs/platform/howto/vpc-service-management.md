@@ -6,9 +6,9 @@ sidebar_label: Manage services in VPCs
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CreateService from "@site/static/includes/create-service-console.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 import CustomDomainNote from "@site/static/includes/vpc/custom-domain-note.md";
+import ChangeCloud from "@site/static/includes/change-cloud-console.md";
 
 Manage your Aiven services in a VPC, including setup, migration, and accessing resources securely within your project VPC.
 
@@ -62,9 +62,8 @@ Create a service in a project VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-Set your project VPC as a cloud region for the new service:
-
-<CreateService />
+When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
+select your project VPC as the cloud region.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -150,9 +149,8 @@ Create a service in an organization VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-Set your organization VPC as a cloud region for the new service:
-
-<CreateService />
+When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
+select your project VPC as the cloud region.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -241,12 +239,7 @@ Migrate a service to a project VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io/), open your service page and click
-   <ConsoleLabel name="Service settings"/>.
-1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
-   **Change cloud or region**.
-1. In the **Region** section, go to the **VPCs** tab, select your project VPC and
-   click **Migrate**.
+<ChangeCloud isVPC={true} />
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -307,12 +300,7 @@ Migrate a service to an organization VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io/), open your service and click
-   <ConsoleLabel name="Service settings"/>.
-1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> >
-   **Change cloud or region**.
-1. In the **Region** section, go to the **VPCs** tab, select your organization VPC and
-   click **Migrate**.
+<ChangeCloud isVPC={true} />
 
 </TabItem>
 <TabItem value="cli" label="CLI">
