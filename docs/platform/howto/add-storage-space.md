@@ -79,13 +79,10 @@ If you are removing disk storage:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your project, click <ConsoleLabel name="services"/> and open a service.
-1. On the sidebar, Click <ConsoleLabel name="service settings"/>.
+1. In your service, click <ConsoleLabel name="service settings"/>.
 1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
-   **Change plan** > **Manage additional storage**.
-1. In the **Upgrade service storage** dialog, click **Change plan**
-   choose the new service plan and tier or use the slider to adjust disk
-   storage.
+   **Manage additional storage**.
+1. Change the disk storage.
 
    :::note
    - The price shown for the additional storage includes backup costs.
