@@ -160,11 +160,15 @@ so that you can test the compatibility for any breaking changes, plan
 for unforeseen issues, and migrate to the newer version on your own
 schedule. After the EOL date:
 
-1.  If the service is powered on, it's automatically upgraded to the
+-   If the service is powered on, it's automatically upgraded to the
     latest version.
-1.  If the service is powered off, it's deleted.
-1.  If it's not possible to upgrade a powered on service to the next
-    version, the service will be powered off, and ultimately deleted.
+
+    ::note
+    If it's not possible to upgrade a powered on service to the next
+    version, the service is powered off and ultimately deleted.
+    :::
+
+-   If the service is powered off, it's deleted.
 
 Aiven offers [database forking](/docs/platform/concepts/service-forking) as an efficient
 tool to test the version upgrade before upgrading their production services.
