@@ -321,6 +321,6 @@
 /*/index.html                                              /docs/:splat
 /platform/howto/byoc/create-custom-cloud/*                 /docs/platform/howto/byoc/create-cloud/:splat
 /products/influxdb/*                                       /docs/products/metrics/:splat
-/products/m3db/*                                           /docs/products/metrics/:splat
+/products/m3db/*                                           /docs/products/metrics
 /products/redis/*                                          /docs/products/valkey/:splat
 /products/caching/*                                        /docs/products/valkey/:splat
