@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import ForkService from "@site/static/includes/fork-service-console.md";
 
 Fork an Aiven service to create a complete and independent copy of it from its latest backup.
 
@@ -51,10 +52,8 @@ and connection pools are copied to the new service.
 
 <Tabs groupId="group1">
 <TabItem value="Console" label="Console" default>
-1. Log in to [Aiven Console](https://console.aiven.io/).
-1. In your project, click <ConsoleLabel name="services"/> and click the service to fork.
-1. Click <ConsoleLabel name="Backups"/> and click **Fork & restore**.
-1. Configure the new service and click **Create fork**.
+
+<ForkService/>
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
