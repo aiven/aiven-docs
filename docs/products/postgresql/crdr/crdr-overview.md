@@ -68,9 +68,6 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 - **Failed**: A CRDR peer service is *failed* when it's defunct or unreachable after failing over
   in the event of a region outage. Only a primary service can be failed.
 
-- **Standby**: A CRDR service node is *standby* when it is replicating data from the CRDR service
-  node that is running the active service.
-
 ## Limitations
 
 - To set up CRDR, your primary service needs at least a Startup plan. Hobbyist and Free
@@ -85,10 +82,11 @@ The CRDR feature is eligible for all startup, business, and premium service plan
 
 ### CRDR setup
 
-You [enable CRDR by creating an recovery service](/docs/products/postgresql/crdr/enable-crdr). The CRDR
-setup completes as soon as the recovery service is created and in sync with the primary service. At that point,
-the primary service is the **Active** service receiving incoming traffic and replicating to the recovery service,
-and the recovery service is the **Passive** service replicating from the primary service.
+You [enable CRDR by creating a recovery service](/docs/products/postgresql/crdr/enable-crdr).
+The CRDR setup completes as soon as the recovery service is created and in sync with the
+primary service. At that point, the primary service is the **Active** service receiving
+incoming traffic and replicating to the recovery service, and the recovery service is the
+**Passive** service replicating from the primary service.
 
 <img src={crdrSetup} className="centered" alt="CRDR setup" width="100%" />
 
@@ -97,7 +95,7 @@ and the recovery service is the **Passive** service replicating from the primary
 CRDR supports two types of the recovery transition:
 
 - [Failover](/docs/products/postgresql/crdr/crdr-overview#failover-to-the-recovery-region)
-  - **Triggered by you** for any purposes other than a region-wide outage
+  - **Triggered by you** typically in the event of a region-wide outage
   - **Destroys the primary service** and requires the primary service recreation to fail back.
 - [Switchover](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region)
   - **Triggered by you** for any purposes other than a region-wide outage
@@ -105,22 +103,22 @@ CRDR supports two types of the recovery transition:
 
 #### Failover to the recovery region
 
-You trigger a
-[failover to the recovery service](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
-in the event of a region-wide outage or for testing purposes. When completed, the primary service is
-**Failed** and the recovery service is up and running as an **Active** service. To fail back to the primary service,
-it needs to be recreated first.
+You typically trigger a
+[failover to the recovery region](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
+in the event of a region-wide outage. This destroys the primary service, which becomes
+**Failed**, and promotes the recovery service to **Active**. To fail back to
+the primary service, it needs to be recreated first.
 
 <img src={crdrFailover} className="centered" alt="CRDR failover" width="100%" />
 
 #### Switchover to the recovery region
 
 You trigger a
-[switchover to the recovery service](/docs/products/postgresql/crdr/switchover/crdr-switchover) at your
-convenient time for testing, simulating a disaster scenario, or verifying the disaster
-resilience of your infrastructure. When completed, the primary service is **Passive** and the recovery service is
-up and running as an **Active** service. To switch back to the primary service, no service
-recreation is needed.
+[switchover to the recovery service](/docs/products/postgresql/crdr/switchover/crdr-switchover)
+for testing, simulating a disaster scenario, or verifying the disaster resilience of your
+infrastructure. This demotes the primary service to **Passive** and promotes the recovery
+service to **Active**. To switch back to the primary service, no service recreation is
+needed.
 
 <img src={crdrSwitchover} className="centered" alt="CRDR switchover" width="100%" />
 
