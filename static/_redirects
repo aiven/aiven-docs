@@ -218,14 +218,6 @@
 /products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
 /products/kafka/reference                                              /docs/products/kafka/reference/advanced-params
 /products/m3db                                             /docs/products/metrics
-/products/m3db/concepts/m3-components                      /docs/products/metrics/concepts/m3-components
-/products/m3db/concepts/m3-components.html                 /docs/products/metrics/concepts/m3-components
-/products/m3db/howto/monitoring                            /docs/products/metrics/howto/monitoring
-/products/m3db/howto/monitoring.html                       /docs/products/metrics/howto/monitoring
-/products/m3db/reference/advanced-params                   /docs/products/metrics/reference/advanced-params
-/products/m3db/reference/advanced-params.html              /docs/products/metrics/reference/advanced-params
-/products/m3db/reference/advanced-params-m3aggregator      /docs/products/metrics/reference/advanced-params-m3aggregator
-/products/m3db/reference/advanced-params-m3aggregator.html /docs/products/metrics/reference/advanced-params-m3aggregator
 /products/metrics/concepts                                 /docs/products/metrics
 /products/metrics/concepts/metrics-overview                /docs/products/metrics
 /products/metrics/howto                                    /docs/products/metrics
