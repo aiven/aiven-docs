@@ -1,4 +1,4 @@
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 1. In your service, click <ConsoleLabel name="backups"/> in the sidebar.
 1. Click **Fork & restore**.
