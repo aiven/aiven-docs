@@ -7,7 +7,6 @@ keywords: [create, kafka, service, byoc, diskless]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -84,7 +83,7 @@ Create a Kafka service that stores topic data on local disks by default.
 1. In your project, click <ConsoleLabel name="services" />.
 1. Click **Create service**.
 1. Select **Aiven for Apache Kafka®**.
-1. Under **Optimize cost**, keep diskless topics turned off to create a standard
+1. In the **Optimize cost** section, keep diskless topics turned off to create a standard
    Kafka service.
 
    :::tip
@@ -92,24 +91,26 @@ Create a Kafka service that stores topic data on local disks by default.
    [Create a Kafka service with diskless topics (BYOC)](#create-a-kafka-service-with-diskless-topics-byoc).
    :::
 
-1. Under **Add service metadata**, set the following:
-   - **Version:** Select the Kafka version. The latest supported version appears by default.
-   - **Service name:** Enter a name for the service.
-     :::important
-     You cannot change the name after creation.
-     :::
-   - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
-     organize your services.
-
-1. Select the **cloud provider**, **region**, and **plan**.
+1. Select a **Cloud**.
 
    :::note
    Available plans and pricing vary between cloud providers and regions.
    :::
 
+1. Select a **Plan**.
+
 1. Optional: Add [disk storage](/docs/platform/howto/add-storage-space).
    You can also enable [Tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage)
    to offload older data automatically to object storage.
+
+1. In the **Service basics** section, set the following:
+   - **Service name:** Enter a name for the service.
+     :::important
+     You cannot change the name after creation.
+     :::
+   - **Version:** Select the Kafka version. The latest supported version appears by default.
+   - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
+     organize your services.
 
 1. Review the **Service summary**.
    Confirm the version, region, plan, and estimated price.

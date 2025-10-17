@@ -6,7 +6,6 @@ sidebar_label: Manage services in VPCs
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CreateService from "@site/static/includes/create-service-console.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 import CustomDomainNote from "@site/static/includes/vpc/custom-domain-note.md";
 
@@ -62,9 +61,8 @@ Create a service in a project VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-Set your project VPC as a cloud region for the new service:
-
-<CreateService />
+When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
+select your project VPC as the cloud region.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -150,9 +148,8 @@ Create a service in an organization VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-Set your organization VPC as a cloud region for the new service:
-
-<CreateService />
+When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
+select your project VPC as the cloud region.
 
 </TabItem>
 <TabItem value="cli" label="CLI">

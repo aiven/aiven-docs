@@ -7,7 +7,7 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
+import CreateServiceFreeDBLegacy from "@site/static/includes/create-service-console-free-db-legacy.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
@@ -40,7 +40,7 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-<CreateService serviceType="MySQL"/>
+<CreateServiceFreeDBLegacy serviceType="MySQL"/>
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
