@@ -30,4 +30,4 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 The status of the service is **Rebuilding** during its creation.
 When the status is **Running**, you can start using the service.
-This typically takes couple of minutes and can vary between cloud providers and regions.
+This typically takes a couple of minutes and can vary between cloud providers and regions.
