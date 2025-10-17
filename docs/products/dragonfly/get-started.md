@@ -4,7 +4,7 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
-import CreateService from "@site/static/includes/create-service-console.md"
+import CreateServiceDBLegacy from "@site/static/includes/create-service-console-db-legacy.md";
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';
 import Note from "@site/static/includes/dragonflysla-note.md"
 import Tabs from '@theme/Tabs';
@@ -44,7 +44,7 @@ Get started with Aiven for Dragonfly by creating your service, integrating it wi
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-<CreateService serviceType="Dragonfly"/>
+<CreateServiceDBLegacy/>
 
 </TabItem>
 <TabItem value="cli" label="CLI">
