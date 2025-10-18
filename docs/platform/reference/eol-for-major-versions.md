@@ -49,6 +49,7 @@ dependent on the upstream project.
 | 1.3.x   | To be announced | To be announced                  | 2022-05-19                      |
 | 2.17.1  | To be announced | To be announced                  | 2024-10-15                      |
 | 2.19.3  | To be announced | To be announced                  | 2025-09-15                      |
+| 3.3.0   | To be announced | To be announced                  | 2025-11-xx                      |
 
 ### Aiven for PostgreSQL®
 
