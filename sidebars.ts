@@ -321,6 +321,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'platform/concepts/aiven-node-firewall-configuration',
+            'platform/howto/configure-project-base-port',
             'platform/concepts/tls-ssl-certificates',
 
             'platform/concepts/disaster-recovery-test-scenarios',
