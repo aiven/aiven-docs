@@ -13,17 +13,9 @@ Enable [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/cr
 
 ## Prerequisites
 
-- Aiven for PostgreSQL service on at least a Startup plan
-
-  :::tip
-  If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
-  [upgrade your free plan](/docs/platform/concepts/service-pricing#free-plans) or
-  [change your Hobbyist plan](/docs/platform/howto/scale-services) to at least a Startup
-  plan.
-  :::
-
+- Aiven for PostgreSQL service on at least a Startup plan - [see limitations](/docs/products/postgresql/crdr/crdr-overview#limitations)
 - One of the following tools for operating CRDR:
-  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven Console](https://console.aiven.io/) - [see limitations](/docs/products/postgresql/crdr/crdr-overview#limitations)
   - [Aiven CLI](/docs/tools/cli)
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
@@ -57,7 +49,7 @@ Run [avn service create](/docs/tools/cli/service-cli#avn-cli-service-create):
 avn service create RECOVERY_SERVICE_NAME             \
    --service-type pg                                 \
    --plan SERVICE_PLAN                               \
-   --cloud CLOUD_REGION                              \
+   --cloud CLOUD_PROVIDER_REGION                              \
    --disaster-recovery-copy-for PRIMARY_SERVICE_NAME
 ```
 
@@ -66,8 +58,8 @@ Replace the following:
 - `RECOVERY_SERVICE_NAME` with the name of the recovery service, for example,
   `pg-demo-recovery`
 - `SERVICE_PLAN` with the plan to use for the recovery service, for example, `startup-4`
-- `CLOUD_REGION` with the cloud region where to host the recovery service, for example,
-  `google-europe-west-4`
+- `CLOUD_PROVIDER_REGION` with the cloud region where to host the recovery service, for
+  example, `google-europe-west-4`
 - `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`
 
 </TabItem>

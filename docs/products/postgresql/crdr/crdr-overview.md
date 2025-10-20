@@ -70,9 +70,25 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 
 ## Limitations
 
-- To set up CRDR, your primary service needs at least a Startup plan. Hobbyist and Free
-  plans are not supported.
-- Recovery service needs to use the same service plan and cloud provider as the primary service.
+- **Service plan requirements**: To set up CRDR, your primary service must use at least a
+  Startup plan. Hobbyist and Free plans are not supported.
+
+  :::tip[Upgrading your plan]
+  If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
+  [upgrade your free plan](/docs/platform/concepts/service-pricing#free-plans) or
+  [change your Hobbyist plan](/docs/platform/howto/scale-services) to at least a Startup
+  plan.
+  :::
+
+- **Console restrictions**: When creating a recovery service through
+  the [Aiven Console](https://console.aiven.io/), you must use the same service plan and
+  cloud provider as your primary service.
+
+  :::tip[Alternative setup methods]
+  For different service plans or cloud providers, create your recovery service using the
+  [Aiven CLI](/docs/tools/cli), the [Aiven API](/docs/tools/api), or the
+  [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
+  :::
 
 ## How it works
 
