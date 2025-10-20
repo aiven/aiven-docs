@@ -163,7 +163,7 @@ schedule. After the EOL date:
 -   If the service is powered on, it's automatically upgraded to the
     latest version.
 
-    ::note
+    :::note
     If it's not possible to upgrade a powered on service to the next
     version, the service is powered off and ultimately deleted.
     :::
