@@ -130,7 +130,8 @@ backfilling of historical data):
 
 ### Configure efficient data deletion
 
-Use the `ttl_only_drop_parts` setting when using TTL for data **deletion**, not just moving between tiers:
+Use the `ttl_only_drop_parts` setting when using TTL for data **deletion**, not just for
+moving between tiers:
 
 ```sql
 CREATE TABLE example_table (
