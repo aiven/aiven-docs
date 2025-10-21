@@ -112,26 +112,25 @@ backfilling of historical data):
 - **Temporarily disable TTL moves**: Use the following commands to pause data movement
   while smaller parts merge together:
 
-```sql
--- Stop TTL-based data moves temporarily
-SYSTEM STOP MOVES;
+  ```sql
+  -- Stop TTL-based data moves temporarily
+  SYSTEM STOP MOVES;
 
--- Perform your data operations (inserts, merges)
--- ... your operations here ...
+  -- Perform your data operations (inserts, merges)
+  -- ... your operations here ...
 
--- Resume TTL-based data moves
-SYSTEM START MOVES;
-```
+  -- Resume TTL-based data moves
+  SYSTEM START MOVES;
+  ```
 
-:::warning
-Remember to run `SYSTEM START MOVES` after your operations to resume normal TTL behavior.
-Leaving moves disabled will prevent automatic data tiering.
-:::
+  :::warning
+  Remember to run `SYSTEM START MOVES` after your operations to resume normal TTL behavior.
+  Leaving moves disabled will prevent automatic data tiering.
+  :::
 
 ### Configure efficient data deletion
 
-When using TTL for data **deletion** (not just moving between tiers), use the
-`ttl_only_drop_parts` setting to improve performance:
+Use the `ttl_only_drop_parts` setting when using TTL for data **deletion**, not just moving between tiers:
 
 ```sql
 CREATE TABLE example_table (
