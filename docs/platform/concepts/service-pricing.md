@@ -120,7 +120,8 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 
 Aiven offers a free trial for 30 days with $300 USD of credits to explore
 the Aiven Platform. You don't need a credit card to sign up. You can use trial credits
-for any paid services and paid features like virtual private cloud peering.
+for any paid services and paid features like virtual private cloud peering. The trial
+starts when you create a paid service.
 
 Trials include:
 
