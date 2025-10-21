@@ -124,7 +124,7 @@ SYSTEM START MOVES;
 ```
 
 :::warning
-Remember to run SYSTEM START MOVES after your operations to resume normal TTL behavior.
+Remember to run `SYSTEM START MOVES` after your operations to resume normal TTL behavior.
 Leaving moves disabled will prevent automatic data tiering.
 :::
 
