@@ -1,5 +1,5 @@
 ---
-title: Monitor PgBouncer with Datadog
+title: Monitor PgBouncer with Datadog for Aiven for PostgreSQL®
 sidebar_label: Monitor PgBouncer in Datadog
 ---
 
@@ -58,7 +58,8 @@ avn service integration-create INTEGRATION_CREATE_PARAMETERS \
    --user-config-json '{"datadog_pgbouncer_enabled": true}'
 ```
 
-Replace INTEGRATION_CREATE_PARAMETERS with [the parameters required to create the Datadog Metrics integration](/docs/tools/cli/service/integration#avn_service_integration_create).
+Replace INTEGRATION_CREATE_PARAMETERS with
+[the parameters required to create the Datadog Metrics integration](/docs/tools/cli/service/integration#avn_service_integration_create).
 
 ## Verify the changes
 

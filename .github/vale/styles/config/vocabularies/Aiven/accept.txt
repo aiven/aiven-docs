@@ -266,6 +266,7 @@ protoc
 Prometheus
 Protobuf
 Provectus
+proxied
 psql
 Python
 Quix

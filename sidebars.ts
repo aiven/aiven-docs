@@ -1867,6 +1867,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
                 'products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem',
+                'products/postgresql/troubleshooting/pg-password-encryption-upgrade',
               ],
             },
             {
