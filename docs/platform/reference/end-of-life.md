@@ -34,9 +34,6 @@ After March 31, 2025, Aiven for Caching services are automatically upgraded to
 The recommended alternative that offers high performance, scalability, and security is
 the managed, in-memory NoSQL database service: [Aiven for Valkey™](/docs/products/valkey).
 
-For upgrade instructions, see
-[Upgrade from Aiven for Caching to Aiven for Valkey](/docs/products/valkey/howto/upgrade-aiven-for-caching-to-valkey).
-
 ## Aiven for Apache Cassandra®
 
 **EOL date**: December 31, 2025
