@@ -8,7 +8,7 @@ Verify that your Aiven for PostgreSQL® connections use `scram-sha-256` password
 Aiven for PostgreSQL defaults to `scram-sha-256` password encryption for enhanced security,
 replacing the MD5 method. This default might need enforcing in specific
 configurations or setups.
-[Check if your action is needed](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#check-if-your-action-is-needed)
+[Check when configuration changes are required](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#when-configuration-changes-are-required)
 and, if so, update your configuration to enable `scram-sha-256`.
 
 :::important
@@ -16,21 +16,21 @@ PostgreSQL 19 will no longer support the MD5 password encryption, making the
 `scram-sha-256` password encryption mandatory.
 :::
 
-## Check if your action is needed
+## Check when to update your configuration
 
-- **No action is needed** if in your Aiven for PostgreSQL services:
+- **No changes needed** if your Aiven for PostgreSQL services have:
 
-  - There are **no** PgBouncer connection pools tied to specific database users.
-  - All database users are managed by Aiven.
+  - **No** PgBouncer connection pools tied to specific database users.
+  - All database users managed by Aiven.
 
-- **Your action is required** if in your Aiven for PostgreSQL services:
+- **Configuration updates required** if your Aiven for PostgreSQL services have:
 
-  - PgBouncer connection pools are tied to specific database users.
-  - There are database users **not** managed by Aiven.
+  - PgBouncer connection pools tied to specific database users.
+  - Database users **not** managed by Aiven.
 
-If your action is required, review the
-[`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#ensure-scram-sha-256-compatibility),
-and follow up, depending on your configuration requirements.
+When configuration updates are required, review the
+[`scram-sha-256` compatibility guidelines](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#ensure-scram-sha-256-compatibility)
+and follow the appropriate setup steps based on your configuration.
 
 ## Ensure scram-sha-256 compatibility
 
