@@ -6,8 +6,8 @@ sidebar_label: Verify password encryption
 Verify that your Aiven for PostgreSQL® connections use `scram-sha-256` password encryption.
 
 Aiven for PostgreSQL defaults to `scram-sha-256` password encryption for enhanced security,
-replacing the MD5 method. This default might need enforcing in specific
-configurations or setups.
+replacing the MD5 method. In some configurations, you might need to 
+enforce this setting manually.
 [Check when configuration changes are required](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#check-when-to-update-your-configuration)
 and, if so, update your configuration to enable `scram-sha-256`.
 
@@ -36,8 +36,9 @@ and follow the appropriate setup steps based on your configuration.
 
 ### Ensure app connections to PgBouncer connection pools
 
-When connection pools are configured with specific user names, attempts to connect using
+When a connection pool is configured with a specific username, an attempt to connect using 
 another role after `scram-sha-256` is enforced fails with a `permission denied` error.
+
 This is due to the challenge-response authentication flow initiated by the PostgreSQL
 client and proxied by PgBouncer to PostgreSQL.
 
