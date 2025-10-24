@@ -4,7 +4,6 @@ sidebar_label: Manage project VPCs
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import CreateService from "@site/static/includes/create-service-console.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

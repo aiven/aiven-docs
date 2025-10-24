@@ -6,7 +6,7 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CreateService from "@site/static/includes/create-service-console.md";
+import CreateServiceFreeDBLegacy from "@site/static/includes/create-service-console-free-db-legacy.md";
 import Help from "@site/static/includes/cli-help.md";
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
@@ -40,7 +40,7 @@ Begin your journey with Aiven for Valkey™, the versatile in-memory data store 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-<CreateService serviceType="Valkey"/>
+<CreateServiceFreeDBLegacy serviceType="Valkey"/>
 
 </TabItem>
 <TabItem value="cli" label="CLI">
