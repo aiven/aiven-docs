@@ -52,7 +52,7 @@ You have:
 
 1.  Click **create function**
 
-    -   **Environment**: Your choice of environment. You can use the the default value (2nd
+    -   **Environment**: Your choice of environment. You can use the default value (2nd
         gen).
     -   **Function name**: the name of your choice.
     -   **Region**: The region of the **serverless VPC access connector**.

@@ -11,7 +11,7 @@ PostgreSQL® offers different commands and functions to get disk space usage for
 Retrieve the database size using either:
 
 - The `\l+ [ pattern ]` command
-- The the `pg_database_size` function.
+- The `pg_database_size` function.
 
 ```bash title="Using the \l+ [ pattern ] command"
 testdb2=> \l+

@@ -19,7 +19,7 @@ via [Aiven Console](https://console.aiven.io/) and
 To enable JIT in the [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-2.  From the **Services** page, select the the Aiven for PostgreSQL
+2.  From the **Services** page, select the Aiven for PostgreSQL
     service where to enable JIT.
 3.  From the sidebar on your service's page, select **Service
     settings**.
