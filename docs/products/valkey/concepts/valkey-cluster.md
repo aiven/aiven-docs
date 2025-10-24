@@ -1,13 +1,12 @@
 ---
 title: Aiven for Valkey™ clustering
 sidebar_label: Clustering
+limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Valkey™ clustering provides a managed, scalable solution for distributed in-memory data storage with built-in high availability and automatic failover capabilities.
-
-## What is Valkey clustering?
 
 Valkey clustering distributes your data across multiple nodes (shards) to handle larger
 datasets and higher traffic loads than a single-node deployment can support. Each shard
@@ -19,16 +18,14 @@ appropriate shard.
 ### High availability
 
 - **Automatic failover**: If a primary node fails, a replica is automatically promoted to
-  maintain service availability
-- **Read replicas**: Each shard includes at least one read replica for redundancy and
-  improved read performance
+  maintain service availability.
 - **Minimal downtime**: Designed to handle both expected maintenance and unexpected
   failures with minimal service interruption
+- **Read replicas**: Each shard includes at least one read replica for redundancy and
+  improved read performance.
 
 ### Scalability
 
-- **Horizontal scaling**: Add or remove nodes to handle changing workload requirements
-- **Online resharding**: Increase the number of shards without downtime as your data grows
 - **Flexible sizing**: Supports various instance sizes, including smaller 4 GB RAM
   instances for cost optimization
 
@@ -40,17 +37,23 @@ appropriate shard.
 
 ## Architecture overview
 
-### Single shard deployment
-
-- **Initial configuration**: Starts with one primary node and two read replicas
-- **Use case**: Ideal for smaller datasets or applications with moderate traffic
-- **High availability**: Automatic failover to replicas if the primary fails
-
 ### Multi-shard deployment
+
+The typical cluster deployment consists of three primary nodes, each with at least one
+replica, providing true high availability and scalability.
 
 - **Distributed data**: Data is automatically partitioned across multiple shards
 - **Independent replicas**: Each shard has its own set of replicas for redundancy
 - **Load distribution**: Requests are distributed across shards based on data location
+
+### Single-shard deployment
+
+While Aiven for Valkey supports single-node clusters, this configuration is functionally
+equivalent to a standalone Valkey instance and is not the primary use case for clustering.
+
+- **Initial configuration**: Starts with one primary node and two read replicas
+- **Use case**: Ideal for smaller datasets or applications with moderate traffic
+- **High availability**: Automatic failover to replicas if the primary fails
 
 ## Benefits
 
@@ -62,8 +65,9 @@ appropriate shard.
 
 ### Reliability
 
-- **Fault tolerance**: Service continues even if individual nodes fail
-- **Automatic recovery**: Failed nodes are automatically replaced and synchronized
+- **Fault tolerance**: With replicas configured, a service continues even if individual
+  nodes fail.
+- **Automatic recovery**: Failed nodes are automatically replaced and synchronized.
 - **Data protection**: Multiple copies of your data across different nodes
 
 ### Operational simplicity
@@ -84,7 +88,7 @@ appropriate shard.
 
 - Data that exceeds the memory capacity of a single node
 - Applications requiring data partitioning for performance optimization
-- Systems that need to scale storage capacity horizontally
+- Systems that need to scale storage capacity
 
 ### Mission-critical systems
 
@@ -113,8 +117,11 @@ appropriate shard.
 
 ### Current scope
 
-- Backup and restore capabilities are planned for future releases
-- Some advanced features may have initial limitations during the preview phase
+The following are planned for future releases:
+
+- Backup and restore
+- Online resharding
+- Horizontal scaling
 
 ### Performance factors
 
@@ -125,5 +132,5 @@ appropriate shard.
 <RelatedPages/>
 
 - [Get started with Aiven for Valkey](/docs/products/valkey/get-started)
-- [High availability concepts](/docs/products/valkey/concepts/high-availability)
-- [Performance monitoring](/docs/products/valkey/howto/monitor-performance)
+- [High availability](/docs/products/valkey/concepts/high-availability)
+- [Read replica](/docs/products/valkey/concepts/read-replica)
