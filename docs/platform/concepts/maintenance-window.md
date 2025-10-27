@@ -69,15 +69,17 @@ the **next available maintenance window** for each service.
 
 | Service | Maintenance window |
 |----------|--------------------|
-| Non-production  | Monday 12:00 UTC   |
-| Prod     | Wednesday 12:00 UTC |
+| Non-production | Monday 12:00 UTC |
+| Production | Wednesday 12:00 UTC |
 
-If an update becomes available on Tuesday, **Prod** updates on
-Wednesday and **Non-production** the following Monday.
+If an update becomes available on Tuesday, **Production** updates on Wednesday
+and **Non-production** the following Monday.
 
 :::important
-You cannot control the order in which services are updated (for example, Nonprod before Prod).
-Each service updates according to its own configured window. To control the sequence, apply updates manually or adjust the maintenance windows.
+You cannot control the order in which services are updated (for example, non-production
+before production).
+Each service updates according to its own configured window. To control the sequence,
+apply updates manually or adjust the maintenance windows.
 :::
 
 ### MySQL, PostgreSQL, and Caching updates
