@@ -79,7 +79,7 @@ and **Non-production** the following Monday.
 You cannot control the order in which services are updated (for example, non-production
 before production).
 Each service updates according to its own configured window. To control the sequence,
-apply updates manually or adjust the maintenance windows.
+apply updates manually.
 :::
 
 ### MySQL, PostgreSQL, and Caching updates
