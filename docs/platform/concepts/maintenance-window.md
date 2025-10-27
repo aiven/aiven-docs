@@ -69,11 +69,11 @@ the **next available maintenance window** for each service.
 
 | Service | Maintenance window |
 |----------|--------------------|
-| Nonprod  | Monday 12:00 UTC   |
+| Non-production  | Monday 12:00 UTC   |
 | Prod     | Wednesday 12:00 UTC |
 
 If an update becomes available on Tuesday, **Prod** updates on
-Wednesday and **Nonprod** the following Monday.
+Wednesday and **Non-production** the following Monday.
 
 :::important
 You cannot control the order in which services are updated (for example, Nonprod before Prod).
