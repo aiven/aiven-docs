@@ -1,0 +1,144 @@
+---
+title: Perform Aiven for PostgreSQL® switchback to the primary region
+sidebar_label: Switchback
+limited: true
+---
+
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Shift your workloads back to the primary region, where your service was hosted originally before [switching over to the recovery region](/docs/products/postgresql/crdr/crdr-overview#switchover-to-the-recovery-region).
+
+## Prerequisites
+
+- [CRDR switchover](/docs/products/postgresql/crdr/switchover/crdr-switchover) completed
+- One of the following tools for operating CRDR:
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven API](/docs/tools/api)
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+
+## Switch back
+
+<Tabs>
+<TabItem value="cli" label="CLI">
+
+Use the [Aiven CLI](/docs/tools/cli) to perform a switchback:
+
+```bash
+avn service disaster-recovery promote-to-master \
+  --project PROJECT_NAME \
+  SERVICE_NAME
+```
+
+Replace the placeholders with your actual values:
+
+- `PROJECT_NAME`: Your Aiven project name
+- `SERVICE_NAME`: Name of your primary PostgreSQL service
+
+Monitor the switchback status:
+
+```bash
+avn service disaster-recovery get \
+  --project PROJECT_NAME \
+  SERVICE_NAME
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) API
+endpoint to perform a switchback:
+
+```bash
+curl -X PUT \
+  "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
+  -H "Authorization: Bearer API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "disaster_recovery_promote_to_master": true
+  }'
+```
+
+Replace the placeholders:
+
+- `PROJECT_NAME`: Your Aiven project name
+- `SERVICE_NAME`: Name of your primary PostgreSQL service
+- `API_TOKEN`: Your Aiven API authentication token
+
+Check the disaster recovery status:
+
+```bash
+curl -X GET \
+  "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/disaster-recovery" \
+  -H "Authorization: Bearer API_TOKEN"
+```
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+The
+[`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resource with the `disaster_recovery` type manages the active-passive relationship between
+services. CRDR operations are performed by manipulating this integration.
+
+To return to the original primary-recovery configuration after a planned switchover:
+
+1. Comment out or remove the current switched disaster recovery integration.
+
+   ```hcl
+   # resource "aiven_service_integration" "disaster_recovery_switched" {
+   #   project                  = var.project_name
+   #   integration_type         = "disaster_recovery"
+   #   source_service_name      = aiven_postgresql.recovery.service_name
+   #   destination_service_name = aiven_postgresql.primary.service_name
+   # }
+   ```
+
+   or
+
+   ```bash
+   terraform destroy -target=aiven_service_integration.disaster_recovery_switched
+   ```
+
+1. Restore the original CRDR configuration.
+
+   ```hcl
+   resource "aiven_service_integration" "disaster_recovery" {
+     project                  = var.project_name
+     integration_type         = "disaster_recovery"
+     source_service_name      = aiven_postgresql.primary.service_name    # Back to original active
+     destination_service_name = aiven_postgresql.recovery.service_name   # Back to original passive
+
+     depends_on = [
+       aiven_postgresql.primary,
+       aiven_postgresql.recovery
+     ]
+   }
+   ```
+
+1. Wait for the switchback to complete before restoring the original setup.
+
+   ```bash
+   terraform apply
+   ```
+
+1. Verify the switchback has been completed successfully.
+
+   ```bash
+   terraform refresh
+   terraform show aiven_service_integration.disaster_recovery
+   ```
+
+</TabItem>
+</Tabs>
+
+When the switchback process is completed, your primary service is **Active**, and the
+recovery service is **Passive**, which means the primary service is in control over your
+workloads.
+
+<RelatedPages/>
+
+- [Perform Aiven for PostgreSQL® failover to the recovery region](/docs/products/postgresql/crdr/failover/crdr-failover-to-recovery)
+- [Perform Aiven for PostgreSQL® switchover to the recovery region](/docs/products/postgresql/crdr/switchover/crdr-switchover)

@@ -1862,6 +1862,42 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Cross-region disaster recovery',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/crdr',
+              },
+              items: [
+                'products/postgresql/crdr/crdr-overview',
+                'products/postgresql/crdr/enable-crdr',
+                {
+                  type: 'category',
+                  label: 'Failover & failback',
+                  link: {
+                    id: 'products/postgresql/crdr/failover/list-failover',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/postgresql/crdr/failover/crdr-failover-to-recovery',
+                    'products/postgresql/crdr/failover/crdr-revert-to-primary',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Switchover & switchback',
+                  link: {
+                    id: 'products/postgresql/crdr/switchover/list-switchover',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/postgresql/crdr/switchover/crdr-switchover',
+                    'products/postgresql/crdr/switchover/crdr-switchback',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Troubleshooting',
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
