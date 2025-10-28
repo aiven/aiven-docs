@@ -7,7 +7,7 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import CreateService from "@site/static/includes/create-service-console.md";
+import CreateServiceDBLegacy from "@site/static/includes/create-service-console-db-legacy.md";
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
@@ -51,7 +51,7 @@ Ensure you have the following before getting started:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-<CreateService serviceType="OpenSearch®"/>
+<CreateServiceDBLegacy serviceType="OpenSearch®"/>
 
 </TabItem>
 <TabItem value="api" label="API">

@@ -7,7 +7,7 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import CreateService from "@site/static/includes/create-service-console.md";
+import CreateServiceDBLegacy from "@site/static/includes/create-service-console-db-legacy.md";
 import Help from "@site/static/includes/cli-help.md";
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
@@ -58,7 +58,7 @@ Start using Aiven for AlloyDB Omni by setting up a service and connecting to you
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-<CreateService serviceType="AlloyDB Omni"/>
+<CreateServiceDBLegacy serviceType="AlloyDB Omni"/>
 
 </TabItem>
 <TabItem value="cli" label="CLI">

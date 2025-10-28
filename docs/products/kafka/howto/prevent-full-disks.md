@@ -37,10 +37,9 @@ To resolve disk space issues, you can upgrade to a larger service plan:
 1. In the [Aiven Console](https://console.aiven.io/), select your
    project and choose your Aiven for Apache Kafka® service.
 1. On the sidebar, Click <ConsoleLabel name="service settings"/>.
-1. In to **Service plan** section, click <ConsoleLabel name="actions"/> >
-   **Manage additional storage**.
-1. In the **Upgrade service storage** screen, click **Change plan**
-   choose the new service plan and tier or use the slider to adjust disk storage.
+1. In the **Service plan** section, click **Change plan**.
+1. Choose the new service plan or use the slider to adjust disk storage.
+1. Click **Change plan**.
 
 This deploys new nodes with increased disk space. After data migration from the old nodes
 to the new ones, disk usage returns to an acceptable level, and write operations are

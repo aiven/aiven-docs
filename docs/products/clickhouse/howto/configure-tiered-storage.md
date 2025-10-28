@@ -96,6 +96,83 @@ data is on your SSD longer than a specified time period, it's moved to
 object storage, regardless of how much of SSD capacity is still
 available.
 
+## Best practices for tiered storage TTL
+
+Follow these recommendations to optimize performance and efficiency when using TTL with
+tiered storage.
+
+### Optimize part sizes for remote storage
+
+Avoid creating many small parts on remote storage, as this can negatively impact performance.
+When writing data that will be immediately moved to remote storage (such as during
+backfilling of historical data):
+
+- **Use large inserts**: Ensure your data inserts are large enough to create substantial
+  parts on remote storage
+- **Temporarily disable TTL moves**: Use the following commands to pause data movement
+  while smaller parts merge together:
+
+  ```sql
+  -- Stop TTL-based data moves temporarily
+  SYSTEM STOP MOVES;
+
+  -- Perform your data operations (inserts, merges)
+  -- ... your operations here ...
+
+  -- Resume TTL-based data moves
+  SYSTEM START MOVES;
+  ```
+
+  :::warning
+  Remember to run `SYSTEM START MOVES` after your operations to resume normal TTL behavior.
+  Leaving moves disabled will prevent automatic data tiering.
+  :::
+
+### Configure efficient data deletion
+
+Use the `ttl_only_drop_parts` setting when using TTL for data **deletion**, not just for
+moving between tiers:
+
+```sql
+CREATE TABLE example_table (
+    SearchDate Date,
+    SearchID UInt64,
+    SearchPhrase String
+)
+ENGINE = MergeTree
+ORDER BY (SearchDate, SearchID)
+PARTITION BY toYYYYMM(SearchDate)
+TTL SearchDate + INTERVAL 1 MONTH DELETE
+SETTINGS storage_policy = 'tiered', ttl_only_drop_parts = 1;
+```
+
+#### How this helps
+
+- **Prevents inefficient partial drops**: Instead of repeatedly rewriting parts as
+  individual rows expire, entire parts are dropped at once
+- **Requires matching partition strategy**: Use a `PARTITION BY` expression that aligns
+  with your TTL period so all data in a partition expires simultaneously
+- **Improves performance**: Eliminates the overhead of multiple partial rewrites
+
+#### Example of aligned partitioning and TTL
+
+```sql
+CREATE TABLE example_with_deletion (
+    SearchDate Date,
+    SearchID UInt64,
+    SearchPhrase String
+)
+ENGINE = MergeTree
+ORDER BY (SearchDate, SearchID)
+-- Partition by month, TTL deletes data older than 1 month
+PARTITION BY toYYYYMM(SearchDate)
+TTL SearchDate + INTERVAL 1 MONTH DELETE
+SETTINGS storage_policy = 'tiered', ttl_only_drop_parts = 1;
+```
+
+This ensures that when data expires, entire monthly partitions are dropped rather than
+individual rows being removed from parts.
+
 ## What's next
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
