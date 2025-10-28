@@ -19,14 +19,16 @@ Aiven provides two types of updates:
   they become mandatory and are applied in the next week’s maintenance window at the earliest.
 
 Advance notice is provided for all updates. You have at least seven days’ notice before
-an update is applied, except for critical security updates, which may be applied in the current week’s window.
+an update is applied, except for critical security updates, which may be applied in the
+current week’s window.
 
 During service upgrades, maintenance updates are applied automatically and do not
 require any action from you.
 
 :::note
 When a mandatory service update for **Apache Kafka®** is released, the
-[Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure) runs automatically.
+[Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure) runs
+automatically.
 :::
 
 You can check pending updates using:
@@ -77,9 +79,9 @@ and **Non-production** the following Monday.
 
 :::important
 You cannot control the order in which services are updated (for example, non-production
-before production).
-Each service updates according to its own configured window. To control the sequence,
-apply updates manually.
+before production). Each service updates according to its own configured maintenance
+window, and there is no guaranteed way to control the update sequence. Manual updates
+and maintenance window adjustments only help for non-critical updates.
 :::
 
 ### MySQL, PostgreSQL, and Caching updates
