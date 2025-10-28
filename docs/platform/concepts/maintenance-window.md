@@ -34,9 +34,9 @@ Major service upgrades are triggered manually. A manually triggered upgrade star
 See [Upgrade PostgreSQL to a major version][pg].
 :::
 
-### MySQL, PostgreSQL and Caching updates
+### MySQL, PostgreSQL and Valkey updates
 
-For **MySQL®**, **PostgreSQL®** and **Caching**, the maintenance process should take no
+For **MySQL®**, **PostgreSQL®** and **Valkey**, the maintenance process should take no
 more than 15 seconds. The downtime comes from the old primary stopping itself in a
 controlled manner and the new primary executing a promotion sequence after this.
 
