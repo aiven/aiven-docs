@@ -102,13 +102,19 @@ While the migration is in progress, you can
 -   Stop the migration by clicking **Stop migration**. Data that has already been
     migrated is retained, and you can initiate a new migration at any time
 
-:::note
+::::note[Live replication during migration]
+While the migration is connected and running, changes in the source are
+continuously replicated to Aiven for Valkey. If a key is created, modified,
+or deleted in the source, the same change is reflected on the Aiven service.
+::::
+
+::::note
 If you choose to stop the migration, this action immediately halts
 the replication of your data. However, any data that has already been
 migrated to Aiven is retained. You can initiate a new migration
 later, and this process overwrites any previously migrated
 databases.
-:::
+::::
 
 :::note[Migration attempt failed?]
 If you receive such a notification, it is important to investigate the
@@ -131,11 +137,25 @@ can choose one of the following options:
 
     ![Close database connection](/images/content/products/caching/redis-migration-complete.png)
 
-:::note[Replication mode active?]
+::::note[Verify sync and plan cutover]
+
+-   **Know when the replica is caught up:** The Valkey replica exposes
+    `master_sync_in_progress`. When it is `0`, the initial sync (RDB load)
+    is complete and the migration is marked as DONE.
+
+-   **Source still changing?** Replication continues to stream new writes.
+    To ensure no lag before cutover, run `INFO REPLICATION` on both the
+    source and the Aiven replica and compare `master_repl_offset` values.
+    If the replica's `master_repl_offset` is greater than or equal to the
+    source's, you can safely stop writes on the source, wait briefly for any
+    final events to apply, and then close the connection to minimize downtime.
+::::
+
+::::note[Replication mode active?]
 Your data has been successfully migrated to the designated Aiven for
 Caching database, and any subsequent additions to the connected databases
 are being continuously synchronized.
-:::
+::::
 
 <RelatedPages/>
 
