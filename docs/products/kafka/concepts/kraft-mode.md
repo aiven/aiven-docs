@@ -59,16 +59,24 @@ ZooKeeper is not supported.
 
 ### How the migration works
 
-- The migration is triggered when you upgrade your service to Apache Kafka 3.9 using the
-  Aiven Console.
+- The migration is triggered automatically, when you upgrade your service to 
+  Apache Kafka 3.9 using the Aiven Console.
 - The migration runs during your configured
   [maintenance window](/docs/platform/concepts/maintenance-window), like other major
   version upgrades.
-- During the upgrade, the service status changes to **Rebuilding**.
-- Aiven transfers your service’s metadata from ZooKeeper to KRaft and updates the
-  cluster to use KRaft mode.
-- When the migration completes, the service status returns to **Running**, and the
-  service operates in KRaft mode.
+- During the upgrade, the service status changes to **Rebuilding** (details below).
+- At the end of the upgrade, the service status returns to **Running**,
+  and the service operates in KRaft mode.
+
+:::info
+The upgrade consists in the following background steps:
+1. The 3.8 nodes are replaced by 3.9 nodes which are temporary operating on ZooKeeper.
+1. Once the old nodes are fully decomissionend and the new cluster's health is stable,
+   KRaft controllers are started. The service now operates in Dual mode.
+1. Aiven transfers the cluster metadata from ZooKeeper to KRaft.
+1. The cluster switches to KRaft mode. Kafka no longer relies on ZooKeeper.
+:::
+
 
 ### Before you migrate
 
