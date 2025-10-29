@@ -128,31 +128,30 @@ When the wizard informs you about the completion of the migration, you can choos
 the following options:
 
 -   Click **Close connection** to disconnect the databases and stop the replication process
-    if still active.
+    if it is still active.
 
--   Click **Keep replicating** to maintain the connection open and allow the active
-    replication mode for the continuous synchronization of any subsequent additions to the
-    connected databases.
+-   Click **Keep replicating** to keep the connection open and the replication mode active
+    for continuous synchronization of any subsequent additions to the connected databases.
 
     ![Close database connection](/images/content/products/caching/redis-migration-complete.png)
 
-::::note[Verify sync and plan cutover]
+:::note[Verify sync and plan cutover]
 
 -   **When is the replica caught up?** The Valkey replica exposes `master_sync_in_progress`.
     When it is `0`, the initial sync (RDB load) is complete and the migration is considered
-    as done.
+    done.
 
 -   **Source still changing?** Replication continues to stream new writes. To ensure all
-    new data was replicated:
+    new data is replicated:
 
-    1. Stop the writes to the source.
+    1. Stop writes to the source.
     1. Run `INFO REPLICATION` on both the source and the Aiven replica.
     1. Compare the values of `master_repl_offset` on the source and the `slave_repl_offset`
        on the replica.
 
     If `slave_repl_offset` ≥ `master_repl_offset`, you can safely close the connection.
 
-::::
+:::
 
 <RelatedPages/>
 
