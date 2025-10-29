@@ -116,43 +116,41 @@ later, and this process overwrites any previously migrated
 databases.
 :::
 
-:::warning[Migration attempt failed?]
-If you receive such a notification, it is important to investigate the
-possible causes of the failure and address the issues. Once you have
-resolved the underlying problems, you can initiate the migration by
-choosing **Start over**.
+:::warning[Migration attempt failed]
+If so, investigate possible causes of the failure and address the identified issues.
+Once you have resolved the underlying problems, initiate the migration by clicking
+**Start over**.
 :::
 
 ### Step 4: Close
 
-When the wizard informs you about the completion of the migration, you
-can choose one of the following options:
+When the wizard informs you about the completion of the migration, you can choose one of
+the following options:
 
--   Click **Close connection** to disconnect the databases and stop the
-    replication process if it is still active.
+-   Click **Close connection** to disconnect the databases and stop the replication process
+    if still active.
 
--   Click **Keep replicating** if the replication is ongoing and you
-    wish to maintain the connection open for continuous data
-    synchronization.
+-   Click **Keep replicating** to maintain the connection open and allow the active
+    replication mode for the continuous synchronization of any subsequent additions to the
+    connected databases.
 
     ![Close database connection](/images/content/products/caching/redis-migration-complete.png)
 
 ::::note[Verify sync and plan cutover]
 
--   **When is the replica caught up?** The Valkey replica exposes
-    `master_sync_in_progress`. When it is `0`, the initial sync (RDB load)
-    is complete and the migration is considered as done.
+-   **When is the replica caught up?** The Valkey replica exposes `master_sync_in_progress`.
+    When it is `0`, the initial sync (RDB load) is complete and the migration is considered
+    as done.
 
--   **Source still changing?** Replication continues to stream new writes.
-    To ensure no lag before cutover, run `INFO REPLICATION` on both the
-    source and the Aiven replica and compare `master_repl_offset` values.
-    If the replica's `master_repl_offset` is greater than or equal to the
-    source's, you can safely stop writes on the source, wait briefly for any
-    final events to apply, and then close the connection to minimize downtime.
+-   **Source still changing?** Replication continues to stream new writes. To ensure all
+    new data was replicated:
 
--   **Replication mode `active`?** Your data has been successfully migrated
-    to the designated Aiven for Valkey database, and any subsequent additions
-    to the connected databases are being continuously synchronized.
+    1. Stop the writes to the source.
+    1. Run `INFO REPLICATION` on both the source and the Aiven replica.
+    1. Compare the values of `master_repl_offset` on the source and the `slave_repl_offset`
+       on the replica.
+
+    If `slave_repl_offset` ≥ `master_repl_offset`, you can safely close the connection.
 
 ::::
 
