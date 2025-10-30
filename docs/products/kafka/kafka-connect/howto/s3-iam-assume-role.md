@@ -1,132 +1,101 @@
 ---
 title: Use AWS IAM assume role credentials provider
+sidebar_label: Use AWS IAM assume role credentials
 ---
 
-The [Apache Kafka® S3 sink connector by Aiven](s3-sink-connector-aiven) allows you to move data from an Aiven for Apache Kafka® cluster to Amazon S3 for long term storage.
-The connection between the
-connector and the S3 bucket can be managed either via long-term AWS
-credentials (`ACCESS_KEY_ID` and `SECRET_ACCESS_KEY`), or using [AWS
-Assume role
-credentials](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials)
-which request a short-term credential every time the connector has a
-task to store data to an S3 bucket.
+The [Aiven for Apache Kafka® S3 sink connector](s3-sink-connector-aiven) moves data from an Aiven for Apache Kafka cluster to Amazon S3 for long-term storage.
 
-To use AWS Assume role credentials in the S3 sink connector, you need
-to:
+You can connect the S3 sink connector to Amazon S3 using either:
 
--   Request a unique IAM user from Aiven support
--   Create an AWS cross-account access role
--   Create an Kafka Connect S3 Sink connector
+- Long-term AWS credentials (`ACCESS_KEY_ID` and `SECRET_ACCESS_KEY`)
+- [AWS IAM assume role credentials](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials) (recommended)
+
+When you use IAM assume role credentials, the connector requests short-term credentials each time it writes data to the S3 bucket.
+
+To use IAM assume role credentials:
+
+- Request a unique IAM user from Aiven support.
+- Create an AWS cross-account access role.
+- Create a Kafka Connect S3 sink connector.
 
 ## Request a unique IAM user from Aiven support
 
-Every customer in Aiven has a dedicated IAM user. Therefore, there are
-no shared credentials and roles among customers, and a [cross-account
-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles)
-provides access to one Aiven project only. You can request an IAM user
-and the [External
-ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid)
-(the role unique identifier) by contacting the Aiven support at
-`support@aiven.io`.
+Each Aiven project has a dedicated IAM user. Aiven does not share IAM users or roles
+across customers. Contact Aiven support at `support@aiven.io` to request:
 
-The following is a sample IAM user and External ID:
+- An IAM user ARN
+- An [External ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid) (used to identify your role)
 
--   IAM user: `arn:aws:iam::012345678901:user/sample-project-user`
--   External ID: `2f401145-06a0-4938-8e05-2d67196a0695`
+Example:
+
+- IAM user: `arn:aws:iam::012345678901:user/sample-project-user`
+- External ID: `2f401145-06a0-4938-8e05-2d67196a0695`
+
+The [cross-account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles)
+you create provides access to one Aiven project only.
 
 ## Create an AWS cross-account access role
 
-To create a cross-account access role:
+1. Sign in to the AWS console.
+1. Go to **IAM** > **Roles** > **Create role**.
+1. Select **Another AWS account** as the trusted entity type.
+1. Enter the **Account ID**.
+   This is the numeric string in the IAM user ARN between `aws:iam::` and `:user/`.
+   Example: `012345678901`
+1. Select **Require external ID** and enter the External ID provided by Aiven support.
+1. Add permissions to allow writing to an S3 bucket. The following permissions are required:
+   - `s3:GetObject`
+   - `s3:PutObject`
+   - `s3:AbortMultipartUpload`
+   - `s3:ListMultipartUploadParts`
+   - `s3:ListBucketMultipartUploads`
+1. Optional: Add tags.
+1. Enter a name for the role. Example: `AivenKafkaConnectSink`
+1. To restrict access, edit the trust relationship for the new role:
+   - Go to **Trust relationships** > **Edit trust relationship**
+   - Set the IAM user as the `Principal`.
+1. Copy the new **IAM role ARN**. You will need it in the connector configuration.
 
-1.  Log in to the AWS Console and go to **IAM** > **Roles** >
-    **Create role**
+## Create a Kafka Connect S3 sink connector
 
-2.  Select **Another AWS account** as a type of trusted entity
+Create the connector as described in the [S3 sink connector documentation](s3-sink-connector-aiven).
 
-3.  Specify the **Account ID**
+To use IAM assume role credentials, remove these parameters from the connector configuration:
 
-    :::note
-    The **Account ID** is the numerical string contained in the IAM user
-    between `aws:iam::` and `:user/`.
+- `aws.access.key.id`
+- `aws.secret.access.key`
 
-    In the above example, it is `012345678901`.
-    :::
+Add these parameters:
 
-4.  Select an option **Require external ID** and paste the External ID
+- `aws.sts.role.arn`: ARN of the IAM role created in AWS.
+- `aws.sts.role.external.id`: External ID provided by Aiven support.
 
-5.  Select permissions that allow writing to an S3 bucket. The following
-    permissions are needed:
+Optional parameters:
 
-    -   `s3:GetObject`
-    -   `s3:PutObject`
-    -   `s3:AbortMultipartUpload`
-    -   `s3:ListMultipartUploadParts`
-    -   `s3:ListBucketMultipartUploads`
+- `aws.sts.role.session.name`: Session identifier for the task. Appears in AWS CloudTrail
+  logs and helps distinguish tasks within the same project.
+- `aws.sts.config.endpoint`: Security Token Service (STS) endpoint. Use the endpoint in
+  the same region as the S3 bucket for better performance.
+  Example: For region `eu-north-1`, set `https://sts.eu-north-1.amazonaws.com`.
+  For the list of STS endpoints, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions).
 
-6.  Optionally, add tags
-
-7.  Specify a name for the role. As an example, `AivenKafkaConnectSink`
-
-8.  To further secure the setting and limit access, you associate the
-    newly created role to a unique full **IAM user** name.
-
-    You can do so, by editing the newly created role
-    (`AivenKafkaConnectSink`) and go to **Trust relationships** > **Edit trust relationship**
-
-9.  In a policy document, the **IAM user** should be specified as
-    `Principal`.
-
-10. Copy the newly created **IAM role ARN**. It will be needed in the
-    Kafka Connector configuration.
-
-## Create a Kafka Connect S3 Sink connector
-
-You can view all the necessary steps to create an S3 sink connector in
-the
-[dedicated documentation](s3-sink-connector-aiven). To use the IAM assume role credentials provider, in the connector configuration, remove the references to:
-
--   `aws.access.key.id`
--   `aws.secret.access.key`
-
-And substitute them with
-
--   `aws.sts.role.arn`: the Amazon Resource Name (ARN) for IAM role
-    created in the previous step
--   `aws.sts.role.external.id`: the role IAM user External Id provided
-    by the Aiven support team
-
-You can also include the following parameters:
-
--   `aws.sts.role.session.name`: the id of the session used to identify
-    the task. Can be used to separate different tasks from the same
-    project, and it will be visible in AWS Cloud Trail log
--   `aws.sts.config.endpoint`: the Security Token Service (STS)
-    endpoint. Choosing an endpoint close to the s3 bucket location is
-    likely going to provide better performances. As example, if the S3
-    bucket is in the AWS region `eu-north-1`, the STS endpoint must be
-    set to `https://sts.eu-north-1.amazonaws.com`. You can review the
-    list of STS endpoints in the [dedicated AWS
-    documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions).
-
-The connector configurations in a file (we'll refer to it with the name
-`s3_sink.json`) must contain at least the following content:
+### Example configuration file (`s3_sink.json`)
 
 ```json
 {
-    "name": "<CONNECTOR_NAME>",
-    "connector.class": "io.aiven.kafka.connect.s3.AivenKafkaConnectS3SinkConnector",
-    "key.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
-    "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
-    "topics": "<TOPIC_NAME>",
-    "aws.sts.role.arn": "<AWS_ROLE_ARN>",
-    "aws.sts.role.external.id": "<AWS_IAM_USER_EXTERNAL_ID>",
-    "aws.sts.role.session.name":"<AWS_STS_SESSION_NAME>",
-    "aws.sts.config.endpoint":"<AWS_STS_ENDPOINT>",
-    "aws.s3.bucket.name": "<AWS_S3_NAME>",
-    "aws.s3.region": "<AWS_S3_REGION>"
+  "name": "<CONNECTOR_NAME>",
+  "connector.class": "io.aiven.kafka.connect.s3.AivenKafkaConnectS3SinkConnector",
+  "key.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+  "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+  "topics": "<TOPIC_NAME>",
+  "aws.sts.role.arn": "<AWS_ROLE_ARN>",
+  "aws.sts.role.external.id": "<AWS_IAM_USER_EXTERNAL_ID>",
+  "aws.sts.role.session.name": "<AWS_STS_SESSION_NAME>",
+  "aws.sts.config.endpoint": "<AWS_STS_ENDPOINT>",
+  "aws.s3.bucket.name": "<AWS_S3_BUCKET_NAME>",
+  "aws.s3.region": "<AWS_S3_REGION>"
 }
 ```
 
-To check all the Apache Kafka® Connect S3 sink connector by Aiven
-parameters and configuration options, browse the
-[dedicated document](s3-sink-connector-aiven).
+For the full list of S3 sink connector settings and examples, see the
+[S3 sink connector documentation](s3-sink-connector-aiven).
