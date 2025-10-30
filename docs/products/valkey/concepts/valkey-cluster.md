@@ -65,8 +65,8 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 
 ### Reliability
 
-- **Fault tolerance**: With replicas configured, a service continues even if individual
-  nodes fail.
+- **Fault tolerance**: Adding replicas for each shard at service creation ensures your
+  service remains available even if individual nodes fail.
 - **Automatic recovery**: Failed nodes are automatically replaced and synchronized.
 - **Data protection**: Multiple copies of your data across different nodes
 
