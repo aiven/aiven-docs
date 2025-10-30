@@ -32,15 +32,27 @@ For additional details on how the connector works, see the
 
 ## S3 object key name format
 
-The `file.name.template` parameter defines how the connector extracts metadata from S3
-object keys. If this parameter is missing, no objects are processed.
+The `file.name.template` setting defines how the connector extracts metadata from S3
+object keys. This setting is required. If it is not set, the connector does not process
+any objects.
 
-Use the following placeholders to define the template:
+The configuration depends on your distribution type:
 
-- `{{topic}}`: The Apache Kafka topic name.
-- `{{partition}}`: The Apache Kafka partition number.
-- `{{start_offset}}`: The offset of the first record in the file.
-- `{{timestamp}}`: Optional. The timestamp when the record was processed.
+**`object_hash` distribution type**
+
+From version 3.4.0, set `file.name.template` to one of the following:
+
+- `.*` to process all object keys
+- A regular expression to process only keys that match the pattern
+
+**`partition` distribution type**
+
+Set `file.name.template` using the following placeholders:
+
+- `{{topic}}`: The Kafka topic name
+- `{{partition}}`: The Kafka partition number
+- `{{start_offset}}`: The offset of the first record in the file
+- `{{timestamp}}`: Optional. The timestamp when the connector processed the file
 
 ### Example templates and extracted values
 
@@ -77,22 +89,25 @@ handling, see the [S3 source connector documentation](https://github.com/aiven-o
 Create a file named `s3_source_connector.json` and add the following configuration:
 
 ```json
-  {
-    "name": "aiven-s3-source-connector",
-    "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
-    "aws.access.key.id": "YOUR_AWS_ACCESS_KEY_ID",
-    "aws.secret.access.key": "YOUR_AWS_SECRET_ACCESS_KEY",
-    "aws.s3.bucket.name": "your-s3-bucket-name",
-    "aws.s3.region": "your-s3-region",
-    "aws.s3.prefix": "optional/prefix/",
-    "aws.credentials.provider": "software.amazon.awssdk.auth.credentials.AwsCredentialsProviderChain",
-    "topic": "your-target-kafka-topic",
-    "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
-    "tasks.max": 1,
-    "poll.interval.ms": 10000,
-    "error.tolerance": "all",
-    "input.format": "jsonl"
-  }
+{
+  "name": "aiven-s3-source-connector",
+  "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
+  "aws.access.key.id": "YOUR_AWS_ACCESS_KEY_ID",
+  "aws.secret.access.key": "YOUR_AWS_SECRET_ACCESS_KEY",
+  "aws.s3.bucket.name": "your-s3-bucket-name",
+  "aws.s3.region": "your-s3-region",
+  "aws.s3.prefix": "optional/prefix/",
+  "aws.credentials.provider": "software.amazon.awssdk.auth.credentials.AwsCredentialsProviderChain",
+  "topic": "your-target-kafka-topic",
+  "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
+  "tasks.max": 1,
+  "poll.interval.ms": 10000,
+  "error.tolerance": "all",
+  "input.format": "jsonl",
+  "file.compression.type": "none",
+  "timestamp.timezone": "UTC",
+  "timestamp.source": "wallclock"
+}
 ```
 
 Parameters:
@@ -108,10 +123,13 @@ Parameters:
 - `topic` optional: The connector publishes ingested data to the specified Apache
   Kafka topic. If not set, it derives the topic from the `file.name.template`
   configuration.
-- `file.name.template`: Defines how to parse S3 object keys to extract data such as the
-  topic, partition, and starting offset. Template variables were defined above.
-  For example, a template like `{{topic}}-{{partition}}-{{start_offset}}` matches filenames
-  such as `test-topic-1-1734445664111.txt`.
+- `file.name.template`: Defines how to parse S3 object keys to extract the topic,
+  partition, and starting offset. For example,
+  `{{topic}}-{{partition}}-{{start_offset}}` matches a file name like
+  `test-topic-1-1734445664111.txt`.
+  For the `object_hash` distribution type (version 3.4.0+), set
+  `file.name.template` to `.*` to match all keys or use a regular expression to
+  match specific keys.
 - `tasks.max`: The maximum number of tasks that run in parallel.
 - `poll.interval.ms`: The polling interval (in milliseconds) for checking the S3 bucket
   for new files.
@@ -123,7 +141,11 @@ Parameters:
   - `avro` (Avro)
   - `parquet` (Parquet)
   - `bytes` (default)
-
+- `timestamp.timezone` optional: Time zone for timestamps. Default is `UTC`.
+- `timestamp.source` optional: Source of timestamps. Supports `wallclock`. Default is
+  `wallclock`.
+- `file.compression.type` optional: Compression type for input files. Supported
+  values: `gzip`, `snappy`, `zstd`, `none`. Default is `none`.
 
 ## Create the connector
 
@@ -142,7 +164,7 @@ Parameters:
    1. In the **Service management** section, click
       <ConsoleLabel name="Actions"/> > **Enable Kafka connect**.
 
-1. In the sink connectors list, select **Amazon S3 source connector**, and click
+1. In the source connectors list, select **Amazon S3 source connector**, and click
    **Get started**.
 1. On the **Amazon S3 Source Connector** page, go to the **Common** tab.
 1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
@@ -189,17 +211,20 @@ This example shows how to create an Amazon S3 source connector with the followin
 
 ```json
 {
-"name": "aiven-s3-source-connector",
-"connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
-"tasks.max": "1",
-"topic": "test-topic",
-"aws.access.key.id": "your-access-key-id",
-"aws.secret.access.key": "your-secret-access-key",
-"aws.s3.bucket.name": "my-s3-bucket",
-"aws.s3.region": "us-west-1",
-"aws.s3.prefix": "data-uploads/",
-"file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
-"poll.interval.ms": 10000
+  "name": "aiven-s3-source-connector",
+  "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
+  "tasks.max": 1,
+  "topic": "test-topic",
+  "aws.access.key.id": "your-access-key-id",
+  "aws.secret.access.key": "your-secret-access-key",
+  "aws.s3.bucket.name": "my-s3-bucket",
+  "aws.s3.region": "us-west-1",
+  "aws.s3.prefix": "data-uploads/",
+  "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
+  "poll.interval.ms": 10000,
+  "file.compression.type": "none",
+  "timestamp.timezone": "UTC",
+  "timestamp.source": "wallclock"
 }
 ```
 
