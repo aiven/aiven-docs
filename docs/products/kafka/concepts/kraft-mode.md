@@ -53,30 +53,28 @@ performance.
 Migration from ZooKeeper to KRaft is not yet available for existing
 Aiven for Apache Kafka services. Aiven will notify you when your service becomes eligible.
 
-The migration is included in the upgrade to Apache Kafka 3.9. It is fully automated and
-does not require any manual steps. After the migration is complete, reverting to
-ZooKeeper is not supported.
+The migration is part of the upgrade to Apache Kafka 3.9. It is fully automated and
+does not require manual steps. After the migration completes, reverting to ZooKeeper is
+not supported.
 
 ### How the migration works
 
-- The migration is triggered automatically, when you upgrade your service to 
-  Apache Kafka 3.9 using the Aiven Console.
+- The migration starts automatically when you upgrade your service to Apache Kafka 3.9
+  in the Aiven Console.
 - The migration runs during your configured
-  [maintenance window](/docs/platform/concepts/maintenance-window), like other major
-  version upgrades.
-- During the upgrade, the service status changes to **Rebuilding** (details below).
-- At the end of the upgrade, the service status returns to **Running**,
-  and the service operates in KRaft mode.
+  [maintenance window](/docs/platform/concepts/maintenance-window).
+- During the upgrade, the service status changes to **Rebuilding**.
+- When the upgrade completes, the service status returns to **Running** and the service
+  runs in KRaft mode.
 
-:::info
-The upgrade consists in the following background steps:
-1. The 3.8 nodes are replaced by 3.9 nodes which are temporary operating on ZooKeeper.
-1. Once the old nodes are fully decomissionend and the new cluster's health is stable,
-   KRaft controllers are started. The service now operates in Dual mode.
+#### What happens in the background
+
+1. Aiven replaces the Kafka 3.8 nodes with Kafka 3.9 nodes. The new nodes temporarily
+   run on ZooKeeper.
+1. After the old nodes are decommissioned and the new cluster is healthy, Aiven starts
+   the KRaft controllers. The service now runs in dual mode (ZooKeeper + KRaft).
 1. Aiven transfers the cluster metadata from ZooKeeper to KRaft.
-1. The cluster switches to KRaft mode. Kafka no longer relies on ZooKeeper.
-:::
-
+1. The cluster switches to KRaft mode and no longer uses ZooKeeper.
 
 ### Before you migrate
 
