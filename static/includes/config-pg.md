@@ -1000,7 +1000,7 @@ the first log entry for a statement/substatement combination or with every entry
           </tr>
           <tr>
             <td>
-              <div className="param"><p className="name"><Link id="pg_max_connections"/><Link to="#pg_max_connections"><strong>pg.max_connections</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>25</code></li><li>max: <code>262143</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
+              <div className="param"><p className="name"><Link id="pg_max_connections"/><Link to="#pg_max_connections"><strong>pg.max_connections</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>25</code></li><li>max: <code>60000</code></li><li><span class="badge badge--warning">Service restart</span></li></ul></div>
               <p className="title">max_connections</p>
               <div className="description"><p>Sets the PostgreSQL maximum number of concurrent connections to the database server. This is a limited-release parameter. Contact your account team to confirm your eligibility. You cannot decrease this parameter value when set. For services with a read replica, first increase the read replica's value. After the change is applied to the replica, you can increase the primary service's value. Changing this parameter causes a service restart.</p></div>
             </td>
