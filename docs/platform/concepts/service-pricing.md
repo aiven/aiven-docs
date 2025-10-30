@@ -64,7 +64,7 @@ Free services include:
 
 There are some limitations of the free services:
 
--   No VPC peering
+-   Cannot create the service in a VPC
 -   No static IPs
 -   No integrations
 -   No forking
@@ -116,7 +116,7 @@ The Developer plan includes:
 Limitations of the Developer plan are:
 
 -   No choice of cloud provider or specific cloud region
--   No VPC peering
+-   Cannot create the service in a VPC
 -   No static IPs
 -   No integrations
 -   No forking
