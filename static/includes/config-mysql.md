@@ -310,7 +310,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="binlog_retention_period"/><Link to="#binlog_retention_period"><strong>binlog_retention_period</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>600</code></li><li>max: <code>604800</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="binlog_retention_period"/><Link to="#binlog_retention_period"><strong>binlog_retention_period</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>600</code></li><li>max: <code>9007199254740991</code></li></ul></div>
         <p className="title">The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector.</p>
         
         <table className="service-param-children">
