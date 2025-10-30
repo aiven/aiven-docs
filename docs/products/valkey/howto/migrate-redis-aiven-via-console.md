@@ -137,12 +137,12 @@ the following options:
 
 :::note[Verify sync and plan cutover]
 
--   **When is the replica caught up?** The Valkey replica exposes `master_sync_in_progress`.
+-   **Iinitial sync completion**: The Valkey replica exposes `master_sync_in_progress`.
     When it is `0`, the initial sync (RDB load) is complete and the migration is considered
     done.
 
--   **Source still changing?** Replication continues to stream new writes. To ensure all
-    new data is replicated:
+-   **Cutover when replication continues**: If the source is still receiving writes, perform
+    the final sync verification to ensure all data is replicated:
 
     1. Stop writes to the source.
     1. Run `INFO REPLICATION` on both the source and the Aiven replica.
