@@ -96,9 +96,9 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 - Services that cannot tolerate single points of failure
 - Systems with strict uptime requirements
 
-## Getting started
+## How it works
 
-### Planning your deployment
+### Plan your deployment
 
 1. **Assess your requirements**: Determine your data size, traffic patterns, and
    availability needs
@@ -107,13 +107,26 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 1. **Select instance sizes**: Choose appropriate memory and compute resources for your
    workload
 
-### Client configuration
+### Create a clustered service
+
+To enable clustering in Aiven for Valkey, choose a multi-node cluster plan when creating
+your service.
+
+:::tip
+For high availability and improved read scalability, add replicas to each service shard
+during service creation. This allows you to fully leverage the benefits of clustering from
+the start.
+:::
+
+### Configure a client
 
 - Ensure your application uses a cluster-aware Valkey/Redis client library
 - Configure your client to discover and connect to cluster nodes automatically
 - Test failover behavior to ensure your application handles node changes gracefully
 
 ## Limitations and considerations
+
+Clustering is supported for new services only.
 
 ### Current scope
 
