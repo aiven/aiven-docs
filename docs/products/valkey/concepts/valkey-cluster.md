@@ -31,9 +31,11 @@ appropriate shard.
 
 ### Compatibility
 
-- **Cluster-enabled mode**: Fully compatible with existing Valkey/Redis cluster-aware
-  client libraries
-- **Standard protocols**: Works with your current applications without code changes
+- **Cluster-enabled mode**: Fully compatible with existing Valkey and Redis cluster-aware
+  client libraries.
+- **Standard protocols**: If your application currently uses a client for Valkey standalone
+  mode, simply switch to a cluster-aware client to enable compatibility with Aiven for
+  Valkey clustering.
 
 ## Architecture overview
 
@@ -51,7 +53,7 @@ replica, providing true high availability and scalability.
 While Aiven for Valkey supports single-node clusters, this configuration is functionally
 equivalent to a standalone Valkey instance and is not the primary use case for clustering.
 
-- **Initial configuration**: Starts with one primary node and two read replicas
+- **Initial configuration**: Starts with one primary node and 0 - 2 read replicas
 - **Use case**: Ideal for smaller datasets or applications with moderate traffic
 - **High availability**: Automatic failover to replicas if the primary fails
 
@@ -60,7 +62,6 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 ### Performance
 
 - **Higher throughput**: Distribute read and write operations across multiple nodes
-- **Lower latency**: Data locality and load distribution reduce response times
 - **Read scaling**: Multiple replicas per shard increase read capacity
 
 ### Reliability
@@ -120,9 +121,9 @@ the start.
 
 ### Configure a client
 
-- Ensure your application uses a cluster-aware Valkey/Redis client library
-- Configure your client to discover and connect to cluster nodes automatically
-- Test failover behavior to ensure your application handles node changes gracefully
+- Ensure your application uses a cluster-aware Valkey/Redis client library.
+- Configure your client to discover and connect to cluster nodes automatically.
+- Test failover behavior to ensure your application handles node changes gracefully.
 
 ## Limitations and considerations
 
