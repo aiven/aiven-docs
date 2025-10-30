@@ -20,14 +20,14 @@ appropriate shard.
 - **Automatic failover**: If a primary node fails, a replica is automatically promoted to
   maintain service availability.
 - **Minimal downtime**: Designed to handle both expected maintenance and unexpected
-  failures with minimal service interruption
+  failures with minimal service interruption.
 - **Read replicas**: Each shard includes at least one read replica for redundancy and
   improved read performance.
 
 ### Scalability
 
 - **Flexible sizing**: Supports various instance sizes, including smaller 4 GB RAM
-  instances for cost optimization
+  instances for cost optimization.
 
 ### Compatibility
 
@@ -44,9 +44,9 @@ appropriate shard.
 The typical cluster deployment consists of three primary nodes, each with at least one
 replica, providing true high availability and scalability.
 
-- **Distributed data**: Data is automatically partitioned across multiple shards
-- **Independent replicas**: Each shard has its own set of replicas for redundancy
-- **Load distribution**: Requests are distributed across shards based on data location
+- **Distributed data**: Data is automatically partitioned across multiple shards.
+- **Independent replicas**: Each shard has its own set of replicas for redundancy.
+- **Load distribution**: Requests are distributed across shards based on data location.
 
 ### Single-shard deployment
 
