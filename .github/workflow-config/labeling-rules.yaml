@@ -35,11 +35,7 @@ service/kafka_connect:
 
 service/kafka_mirrormaker:
   - changed-files:
-      - any-glob-to-any-file:  'docs/products/kafka/kafka-mirrormaker/**'
-
-service/m3db:
-  - changed-files:
-      - any-glob-to-any-file: 'docs/products/m3db/**'
+      - any-glob-to-any-file: 'docs/products/kafka/kafka-mirrormaker/**'
 
 service/mysql:
   - changed-files:

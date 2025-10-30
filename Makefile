@@ -2,7 +2,7 @@ SCRIPTS         = ./scripts
 INCLUDESDIR      = ./static/includes
 
 # Generate config listing for a service type
-all-service-type-configs: service-type-config-cassandra service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-m3aggregator service-type-config-m3db service-type-config-mysql service-type-config-opensearch service-type-config-caching service-type-config-pg service-type-config-dragonfly service-type-config-valkey service-type-config-alloydbomni
+all-service-type-configs: service-type-config-cassandra service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-mysql service-type-config-opensearch service-type-config-caching service-type-config-pg service-type-config-dragonfly service-type-config-valkey service-type-config-alloydbomni
 
 service-type-config-cassandra:
 	node "$(SCRIPTS)/service_type_parser.js" "cassandra" "$(INCLUDESDIR)/config-cassandra.md"
@@ -27,12 +27,6 @@ service-type-config-kafka_mirrormaker:
 
 service-type-config-kafka:
 	node "$(SCRIPTS)/service_type_parser.js" "kafka" "$(INCLUDESDIR)/config-kafka.md"
-
-service-type-config-m3aggregator:
-	node "$(SCRIPTS)/service_type_parser.js" "m3aggregator" "$(INCLUDESDIR)/config-m3aggregator.md"
-
-service-type-config-m3db:
-	node "$(SCRIPTS)/service_type_parser.js" "m3db" "$(INCLUDESDIR)/config-m3db.md"
 
 service-type-config-mysql:
 	node "$(SCRIPTS)/service_type_parser.js" "mysql" "$(INCLUDESDIR)/config-mysql.md"
