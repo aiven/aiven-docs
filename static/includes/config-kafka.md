@@ -424,7 +424,7 @@ import Link from '@docusaurus/Link'
             <td>
               <div className="param"><p className="name"><Link id="kafka_log_retention_hours"/><Link to="#kafka_log_retention_hours"><strong>kafka.log_retention_hours</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>-1</code></li><li>max: <code>2147483647</code></li></ul></div>
               <p className="title">log.retention.hours</p>
-              <div className="description"><p>The number of hours to keep a log file before deleting it (Default: 168 hours (1 week))</p></div>
+              <div className="description"><p>The number of hours to keep a log file before deleting it. Use -1 for unlimited retention or 1 or higher. Setting 0 is invalid and prevents Kafka from starting. (Default: 168 hours, or 1 week)</p></div>
             </td>
           </tr>
           <tr>
