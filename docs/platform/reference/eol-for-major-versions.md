@@ -5,24 +5,71 @@ sidebar_label: Service & tool lifecycle
 
 End of life (EOL) is the date after which Aiven services and tools are no longer supported or maintained.
 
-## Aiven services
+## Aiven version support and upstream EOL
 
 Aiven aims to follow the EOL schedule set by the original authors and
 maintainers of the open source software (the upstream projects). Once
 the upstream project retires a specific version, they do not receive
 security updates and critical bug fixes anymore by the maintainers.
 
-Outdated services don't offer the level of protection our customers
+Outdated services don't offer the level of protection you
 need, so Aiven follows the upstream project's EOL schedule to ensure
 that Aiven services are always running on supported versions.
 
-### Version numbering
+## Service version numbering
 
 Aiven services inherit the upstream project's software versioning
 scheme. Depending on the service, a major version can be either a single
 digit (for example, PostgreSQL® 14) or in the format `major.minor` (for
 example, Kafka® 3.2). The exact version of the service is visible in the
 [Aiven Console](https://console.aiven.io/) when the service is running.
+
+## Multi-versioned vs single-versioned services
+
+There are two types of Aiven services with respect to versions:
+
+-   [Multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol):
+    You can choose the version for your service.
+-   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol):
+    Only one default version is available at a time.
+
+## EOL policy for major versions
+
+The Aiven EOL policy applies only to services where you control the major version. It
+covers both powered-on and powered-off services running the affected versions.
+
+## EOL notifications
+
+When Aiven sets the EOL date for a service major version:
+
+-   You receive an email notification along with instructions on
+    the next steps.
+-   The [Aiven Console](https://console.aiven.io/) shows an EOL alert
+    for affected services.
+-   You receive email reminders monthly.
+-   In the month of the EOL date, you receive weekly reminders.
+
+## EOL best practices
+
+It's highly recommended to perform the version upgrade well before EOL
+so that you can test the compatibility for any breaking changes, plan
+for unforeseen issues, and migrate to the newer version on your own
+schedule. After the EOL date:
+
+-   If the service is powered on, it's automatically upgraded to the
+    latest version.
+
+    :::note
+    If it's not possible to upgrade a powered on service to the next
+    version, the service is powered off and ultimately deleted.
+    :::
+
+-   If the service is powered off, it's deleted.
+
+Aiven offers [database forking](/docs/platform/concepts/service-forking) as an efficient
+tool to test the version upgrade before upgrading their production services.
+
+## Aiven multi-versioned services EOL
 
 ### Aiven for Elasticsearch®
 
@@ -125,55 +172,45 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
 | 1.19    | N/A        | N/A                              | 2024-05-21                      |
 
+## Aiven single-versioned services EOL
+
 ### Aiven for AlloyDB Omni
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 |---------|------------|----------------------------------| ------------------------------- |
 | 15.x    | 2025-12-05 | 2025-09-05                       | 2024-10-02                      |
 
-### EOL policy for major versions
+### Aiven for ClickHouse®
 
-The Aiven EOL policy is applicable only for services whose major
-versions are controlled until the customer.
+| Version | Aiven EOL       |
+| ------- | --------------- |
+| 24.8    | To be announced |
 
-It applies to both powered-on and powered-off services running the
-affected versions.
+### Aiven for Dragonfly®
 
-### EOL notifications
+| Version | Aiven EOL       |
+| ------- | --------------- |
+| 1.21.4  | To be announced |
 
-When Aiven sets the EOL date for a service major version:
+### Aiven for Grafana®
 
--   Customers receive an email notification along with instructions on
-    the next steps.
--   The [Aiven Console](https://console.aiven.io/) shows an EOL alert
-    for affected services.
--   Email reminders are sent to customers monthly.
--   In the month of the EOL date, the weekly reminders are sent to
-    customers.
+| Version | Aiven EOL       |
+| ------- | --------------- |
+| 11.6.5  | To be announced |
 
-<!-- vale off -->
-### EOL best practices
-<!-- vale on -->
+### Aiven for MySQL®
 
-It's highly recommended to perform the version upgrade well before EOL
-so that you can test the compatibility for any breaking changes, plan
-for unforeseen issues, and migrate to the newer version on your own
-schedule. After the EOL date:
+| Version | Aiven EOL       |
+| ------- | --------------- |
+| 8.0.35  | To be announced |
 
--   If the service is powered on, it's automatically upgraded to the
-    latest version.
+### Aiven for Valkey™
 
-    :::note
-    If it's not possible to upgrade a powered on service to the next
-    version, the service is powered off and ultimately deleted.
-    :::
+| Version | Aiven EOL       |
+| ------- | --------------- |
+| 8.0.6   | To be announced |
 
--   If the service is powered off, it's deleted.
-
-Aiven offers [database forking](/docs/platform/concepts/service-forking) as an efficient
-tool to test the version upgrade before upgrading their production services.
-
-## Aiven tools
+## Aiven tools EOL
 
 Aiven offers multiple tools for interacting with the Aiven Platform and
 services. These include the Aiven CLI, the Aiven Provider for Terraform,
