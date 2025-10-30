@@ -62,6 +62,8 @@ CPUs?
 cqlsh
 CRD
 cron
+cutover
+Cutover
 cURL
 cyber
 dashboards
