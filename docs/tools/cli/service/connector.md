@@ -238,6 +238,23 @@ An example of `avn service connector status` output:
 }
 ```
 
+### `avn service connector stop`
+
+Stops an Apache Kafka® Connect connector in a given Aiven for Apache
+Kafka® service.
+
+| Parameter      | Information                  |
+| -------------- | ---------------------------- |
+| `service_name` | The name of the Service      |
+| `connector`    | Kafka Connect connector name |
+
+**Example:** Stop the Kafka Connect connector named
+`pg-bulk-invoices-source` in the service `kafka-demo`.
+
+```
+avn service connector stop kafka-demo pg-bulk-invoices-source
+```
+
 ### `avn service connector update`
 
 Updates an Apache Kafka® Connect connector in a given Aiven for Apache
