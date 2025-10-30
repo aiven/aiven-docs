@@ -34,8 +34,8 @@ appropriate shard.
 - **Cluster-enabled mode**: Fully compatible with existing Valkey and Redis cluster-aware
   client libraries.
 - **Standard protocols**: If your application currently uses a client for Valkey standalone
-  mode, simply switch to a cluster-aware client to enable compatibility with Aiven for
-  Valkey clustering.
+  mode, switch to a cluster-aware client to enable compatibility with Aiven for Valkey
+  clustering.
 
 ## Architecture overview
 
