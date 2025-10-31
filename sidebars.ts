@@ -1941,6 +1941,7 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/concepts/lua-scripts',
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/concepts/read-replica',
+                'products/valkey/concepts/valkey-cluster',
               ],
             },
             {

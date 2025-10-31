@@ -295,6 +295,8 @@ reindex
 reindexing
 remoteSecure
 requesters
+resharding
+Resharding
 reStructuredText
 rivery
 rsyslog
