@@ -1,5 +1,5 @@
 ---
-title: Prepare AWS for S3 sink connector
+title: Prepare AWS for Amazon S3 sink
 sidebar_label: Prepare AWS for S3 sink
 ---
 

@@ -6,6 +6,7 @@ sidebar_label: Aiven S3 sink connector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Amazon S3 sink connector sends data from Aiven for Apache Kafka® to Amazon S3 for long-term storage.
 
@@ -15,10 +16,9 @@ To view the full configuration reference in the [S3 sink connector documentation
 
 - An Aiven for Apache Kafka® service [with Kafka Connect enabled](enable-connect), or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
-
-- AWS access to an S3 bucket. See [Prepare the AWS account and S3 sink](/docs/products/kafka/kafka-connect/howto/s3-sink-prepare)
-  to set this up.
-  After completing that setup, you have the required S3 bucket details and credentials.
+- AWS access to an S3 bucket. See [Prepare AWS for S3 sink](/docs/products/kafka/kafka-connect/howto/s3-sink-prepare)
+  to complete bucket and IAM setup. After setup, you will have the required S3 bucket
+  details and access credentials.
 
 To use AWS IAM assume role credentials, see
 [Use AWS IAM assume role credentials provider](/docs/products/kafka/kafka-connect/howto/s3-iam-assume-role).
@@ -51,6 +51,12 @@ Parameters:
 - `aws.s3.bucket.name`: S3 bucket name
 - `aws.s3.region`: AWS region
 - `key.converter`, `value.converter`: Converters for key and value formats
+- `file.compression.type` optional: Compression type for output files. Supported values:
+  `gzip`, `snappy`, `zstd`, `none`. Default is `gzip`.
+
+  If you use the [Amazon S3 source connector](/docs/products/kafka/kafka-connect/howto/s3-source-connector),
+  set the same `file.compression.type` in the source configuration to ensure the source
+  can read data written by the sink. The S3 source connector defaults to `none`.
 
 For additional parameters (for example, file naming or output format), see
 [S3 sink connector reference](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-sink-connector/README.md).
@@ -123,3 +129,11 @@ avn service connector create demo-kafka @s3_sink_connector.json
 
 After creation, confirm that data from the `students` topic appears in
 the `my-test-bucket` S3 bucket.
+
+The S3 sink connector compresses files using `gzip` by default. To read these files using
+the S3 source connector, set `file.compression.type` in the source
+configuration to `gzip` or another matching value.
+
+<RelatedPages/>
+
+[Amazon S3 sink connector by Confluent](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-confluent)

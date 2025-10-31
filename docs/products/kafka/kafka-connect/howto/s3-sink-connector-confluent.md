@@ -6,6 +6,7 @@ sidebar_label: Confluent S3 sink connector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Amazon S3 sink connector by Confluent moves data from Apache Kafka® topics to Amazon S3 buckets for long-term storage.
 
@@ -17,9 +18,10 @@ For the full list of configuration options, see the
 - An Aiven for Apache Kafka® service [with Kafka Connect enabled](enable-connect), or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-- AWS access to an S3 bucket. See
-  [Prepare the AWS account and S3 sink](/docs/products/kafka/kafka-connect/howto/s3-sink-prepare)
-  to set this up. After completing that setup, you have the required S3 bucket details and credentials.
+- AWS access to an S3 bucket. See [Prepare AWS for S3 sink](/docs/products/kafka/kafka-connect/howto/s3-sink-prepare)
+  to complete bucket and IAM setup. After setup, you will have the required S3 bucket
+  details and access credentials.
+
 
 ## Create the connector configuration file
 
@@ -123,4 +125,6 @@ After creation, confirm that data from the `students` topic appears in
 the `my-test-bucket` S3 bucket.
 
 
-import RelatedPages from "@site/src/components/RelatedPages";
+<RelatedPages/>
+
+[Amazon S3 sink connector by Aiven](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-aiven)
