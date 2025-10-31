@@ -79,7 +79,9 @@ Optional parameters:
   Example: For region `eu-north-1`, set `https://sts.eu-north-1.amazonaws.com`.
   For the list of STS endpoints, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions).
 
-### Example configuration file (`s3_sink.json`)
+### Example configuration file
+
+Save the following as `s3_sink.json`:
 
 ```json
 {
