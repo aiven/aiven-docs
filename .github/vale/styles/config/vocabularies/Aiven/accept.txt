@@ -142,6 +142,8 @@ Google Cloud Platform
 google_columnar_engine_enabled
 google_columnar_engine_enabled
 google_columnar_engine_memory_size_percentage
+Gzipped
+gzipped
 Gradle
 Grafana
 Grafana/M
