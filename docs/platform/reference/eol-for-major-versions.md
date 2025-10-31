@@ -35,8 +35,9 @@ There are two types of Aiven services with respect to versions:
 
 ## EOL policy for major versions
 
-The Aiven EOL policy applies only to services where you control the major version. It
-covers both powered-on and powered-off services running the affected versions.
+Aiven EOL policy applies only to services where you select the major version (for example,
+PostgreSQL® or Apache Kafka®). Services that run a single version managed by Aiven are not
+included. This policy covers both running and powered-off services on the affected version.
 
 ## EOL notifications
 
@@ -51,10 +52,11 @@ When Aiven sets the EOL date for a service major version:
 
 ## EOL best practices
 
-It's highly recommended to perform the version upgrade well before EOL
-so that you can test the compatibility for any breaking changes, plan
-for unforeseen issues, and migrate to the newer version on your own
-schedule. After the EOL date:
+Upgrade to the supported version before the EOL date. This gives you
+time to test compatibility, resolve any issues, and plan the upgrade on
+your schedule.
+
+After the EOL date:
 
 -   If the service is powered on, it's automatically upgraded to the
     latest version.
