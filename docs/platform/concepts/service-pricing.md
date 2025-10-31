@@ -46,9 +46,9 @@ These additional resources are not guaranteed. Aiven reserves the right to switc
 to a more appropriately sized VM if one becomes available from the cloud provider.
 :::
 
-### Free plans
+### Free plan
 
-The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL, and
+The Free plan is available for Aiven for PostgreSQL®, Aiven for MySQL, and
 Aiven for Valkey™ services. You don't need a credit card to sign up and you can use them
 indefinitely free of charge.
 
@@ -64,7 +64,7 @@ Free services include:
 
 There are some limitations of the free services:
 
--   No VPC peering
+-   Cannot create the service in a VPC
 -   No static IPs
 -   No integrations
 -   No forking
@@ -96,6 +96,35 @@ You can also downgrade a paid plan to the free plan as long as:
 - The data you have in that trial or paid service fits into the smaller
 instance size.
 - The free plan is available in the same cloud as the paid plan.
+
+### Developer plan
+
+The Developer plan is available for Aiven for PostgreSQL® services, letting you
+scale up your service in a cost-effective way. Services on the Developer plan
+are not automatically powered off if they're inactive.
+
+The Developer plan includes:
+
+-   A single node
+-   1 CPU per virtual machine
+-   1 GB RAM
+-   up to 8 GB disk storage
+-   Monitoring for metrics and logs
+-   Backups
+-   Basic tier support
+
+Limitations of the Developer plan are:
+
+-   No choice of cloud provider or specific cloud region
+-   Cannot create the service in a VPC
+-   No static IPs
+-   No integrations
+-   No forking
+-   No connection pooling
+-   `max_connections` limit set to `20`
+
+Aiven reserves the right to change the cloud provider, region, or configuration
+of Developer plan services at any point in time.
 
 ### Custom plans
 
