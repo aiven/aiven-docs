@@ -191,13 +191,12 @@ the following tools:
 
 - Kafka Connect to backup the cluster, for instance, sinking data from
   Apache Kafka® to S3 via a
-  [dedicated Aiven connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prereq).
+  [dedicated Aiven connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prepare).
 
 For more information, refer to:
 
 - [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
 - Cloudera's [A look inside Kafka MirrorMaker 2](https://blog.cloudera.com/a-look-inside-kafka-mirrormaker-2/)
-- [Configure AWS for an S3 sink connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prereq)
 - [Configuration Backups](/docs/products/kafka/concepts/configuration-backup)
 
 ### Aiven for PostgreSQL®
