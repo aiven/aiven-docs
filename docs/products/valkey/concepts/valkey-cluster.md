@@ -61,20 +61,20 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 
 ### Performance
 
-- **Higher throughput**: Distribute read and write operations across multiple nodes
-- **Read scaling**: Multiple replicas per shard increase read capacity
+- **Higher throughput**: Distribute read and write operations across multiple nodes.
+- **Read scaling**: Multiple replicas per shard increase read capacity.
 
 ### Reliability
 
 - **Fault tolerance**: Adding replicas for each shard at service creation ensures your
   service remains available even if individual nodes fail.
 - **Automatic recovery**: Failed nodes are automatically replaced and synchronized.
-- **Data protection**: Multiple copies of your data across different nodes
+- **Data protection**: Multiple copies of your data across different nodes.
 
 ### Operational simplicity
 
-- **Managed service**: Aiven handles cluster setup, maintenance, and scaling
-- **Automated operations**: Node discovery, failover, and resharding happen automatically
+- **Managed service**: Aiven handles cluster setup, maintenance, and scaling.
+- **Automated operations**: Node discovery, failover, and resharding happen automatically.
 - **Monitoring included**: Built-in metrics for performance and health monitoring
 
 ## Use cases
@@ -102,11 +102,11 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 ### Plan your deployment
 
 1. **Assess your requirements**: Determine your data size, traffic patterns, and
-   availability needs
+   availability needs.
 1. **Choose your configuration**: Start with a single shard for smaller workloads or
-   multiple shards for larger datasets
+   multiple shards for larger datasets.
 1. **Select instance sizes**: Choose appropriate memory and compute resources for your
-   workload
+   workload.
 
 ### Create a clustered service
 
@@ -114,9 +114,14 @@ To enable clustering in Aiven for Valkey, choose a multi-node cluster plan when 
 your service.
 
 :::tip
-For high availability and improved read scalability, add replicas to each service shard
-during service creation. This allows you to fully leverage the benefits of clustering from
-the start.
+
+- For high availability and improved read scalability, **add replicas** to each service
+  shard during service creation. This allows you to fully leverage the benefits of
+  clustering from the start.
+- If your application currently uses a client for Valkey standalone mode,
+  **switch to a cluster-aware client** to enable compatibility with Aiven for Valkey
+  clustering.
+
 :::
 
 ### Configure a client
@@ -139,9 +144,9 @@ The following are planned for future releases:
 
 ### Performance factors
 
-- Network latency between shards can affect cross-shard operations
-- Resharding operations may temporarily impact performance
-- Client library choice can affect cluster performance and behavior
+- Network latency between shards can affect cross-shard operations.
+- Resharding operations may temporarily impact performance.
+- Client library choice can affect cluster performance and behavior.
 
 <RelatedPages/>
 
