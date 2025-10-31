@@ -114,19 +114,16 @@ To enable clustering in Aiven for Valkey, choose a multi-node cluster plan when 
 your service.
 
 :::tip
-
-- For high availability and improved read scalability, **add replicas** to each service
-  shard during service creation. This allows you to fully leverage the benefits of
-  clustering from the start.
-- If your application currently uses a client for Valkey standalone mode,
-  **switch to a cluster-aware client** to enable compatibility with Aiven for Valkey
-  clustering.
-
+For high availability and improved read scalability, **add replicas** to each service
+shard during service creation. This allows you to fully leverage the benefits of
+clustering from the start.
 :::
 
 ### Configure a client
 
-- Ensure your application uses a cluster-aware Valkey/Redis client library.
+- Ensure your application uses a cluster-aware Valkey/Redis client library. If your
+  application currently uses a client for Valkey standalone mode, switch to a cluster-aware
+  client to enable compatibility with Aiven for Valkey clustering.
 - Configure your client to discover and connect to cluster nodes automatically.
 - Test failover behavior to ensure your application handles node changes gracefully.
 
