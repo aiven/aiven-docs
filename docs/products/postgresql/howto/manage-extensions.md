@@ -1,5 +1,6 @@
 ---
-title: Install or update an extension
+title: Manage Aiven for PostgreSQL® extensions
+sidebar_label: Manage extensions
 ---
 
 Aiven for PostgreSQL® allows a series of pre-approved extensions to be installed.
@@ -9,8 +10,8 @@ Aiven for PostgreSQL® allows a series of pre-approved extensions to be installe
 Any available extension can be installed by the `avnadmin` user with the
 following `CREATE EXTENSION` command:
 
-```
-CREATE EXTENSION <EXTENSION_NAME> CASCADE;
+```sql
+CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
 ## Update an extension
@@ -18,8 +19,8 @@ CREATE EXTENSION <EXTENSION_NAME> CASCADE;
 To upgrade an already-installed extension to the latest version
 available, run as the `avnadmin` user:
 
-```
-ALTER EXTENSION <EXTENSION_NAME> UPDATE;
+```sql
+ALTER EXTENSION EXTENSION_NAME UPDATE;
 ```
 
 To experiment with upgrading, remember that you can fork
@@ -33,6 +34,16 @@ is that user schemas and functions can (and do often) rely on specific
 versions of an extension being used, so we can't assume that all
 extensions are safe to upgrade.
 :::
+
+## Delete an extension
+
+To delete an extension, use the `avnadmin` user or any other
+[service user created](/docs/platform/howto/create_new_service_user) via
+the Aiven Console, API, CLI, or Aiven Provider for Terraform. Run the following command:
+
+```sql
+DROP EXTENSION EXTENSION_NAME;
+```
 
 ## Request a new extension
 
