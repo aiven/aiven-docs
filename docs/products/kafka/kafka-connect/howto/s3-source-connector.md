@@ -170,14 +170,6 @@ Parameters:
 - `file.compression.type` optional: Compression type for input files. Supported
   values: `gzip`, `snappy`, `zstd`, `none`. Default is `none`.
 
-**Gzipped JSON Lines**
-
-To read gzipped JSON Lines files, set:
-
-```text
-file.compression.type=gzip
-input.format=jsonl
-```
 
 ## Create the connector
 
