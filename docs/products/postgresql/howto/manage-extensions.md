@@ -37,9 +37,16 @@ extensions are safe to upgrade.
 
 ## Delete an extension
 
-To delete an extension, use the `avnadmin` user or any other
-[service user created](/docs/platform/howto/create_new_service_user) via
-the Aiven Console, API, CLI, or Aiven Provider for Terraform. Run the following command:
+:::note
+All Aiven service users can delete extensions: both the default `avnadmin`
+user and other
+[service users created](/docs/platform/howto/create_new_service_user)
+via the Aiven Console, API, CLI, or Aiven Provider for Terraform. This is
+the expected behavior because of the extension whitelist configuration in
+Aiven for PostgreSQL.
+:::
+
+To delete an extension, run the following command:
 
 ```sql
 DROP EXTENSION EXTENSION_NAME;
