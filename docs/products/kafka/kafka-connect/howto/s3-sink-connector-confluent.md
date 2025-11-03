@@ -42,7 +42,7 @@ Create a file named `s3_sink_confluent.json` with the following configuration:
   "s3.credentials.provider.class": "io.aiven.kafka.connect.util.AivenAWSCredentialsProvider",
   "storage.class": "io.confluent.connect.s3.storage.S3Storage",
   "s3.credentials.provider.access_key_id": "<AWS_USER_ACCESS_KEY_ID>",
-  "s3.credentials.provider.secret_access_key": "<AWS_USER_ACCESS_KEY_ID>"
+  "s3.credentials.provider.secret_access_key": "<AWS_USER_SECRET_ACCESS_KEY>"
 }
 ```
 
