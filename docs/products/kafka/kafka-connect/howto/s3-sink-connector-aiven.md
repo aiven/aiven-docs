@@ -10,7 +10,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 The Amazon S3 sink connector sends data from Aiven for Apache Kafka® to Amazon S3 for long-term storage.
 
-To view the full configuration reference in the [S3 sink connector documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-sink-connector/README.md).
+View the full configuration reference in the [S3 sink connector documentation](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka/blob/main/s3-sink-connector/README.md).
 
 ## Prerequisites
 
