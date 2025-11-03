@@ -208,6 +208,7 @@
 /products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect
 /products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink
+/products/kafka/kafka-connect/howto/s3-sink-prereq          /docs/products/kafka/kafka-connect/howto/s3-sink-prepare
 /products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params
 /products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration
 /products/kafka/kafka-mirrormaker/howto                    /docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster
