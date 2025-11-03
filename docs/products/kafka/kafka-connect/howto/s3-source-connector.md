@@ -91,12 +91,13 @@ The connector supports four S3 object formats. Choose the one that best fits you
 and processing needs:
 
 | Format | Description | Configuration | Example |
-|--------|------------|--------------|---------|
-| JSON Lines (`jsonl`) | Each line is a valid J
-SON object, commonly used for event streaming. | `input.format=jsonl` | ```json { "key": "k1", "value": "v0", "offset": 1232155, "timestamp": "2020-01-01T00:00:01Z" } ``` |
-| Avro (`avro`) | A compact, schema-based binary format for efficient serialization. | `input.format=avro` | ```json { "type": "record", "fields": [ { "name": "key", "type": "string" }, { "name": "value", "type": "string" }, { "name": "timestamp", "type": "long" } ] } ``` |
-| Parquet (`parquet`) | A columnar format optimized for fast queries. Stores data in a compressed, column-based structure.| `input.format=parquet` | Uses a schema similar to Avro but optimized for analytics.|
-| Bytes (`bytes`) (default) | A raw byte stream format for unstructured data. | `input.format=bytes` | No predefined structure |
+|--------|-------------|--------------|---------|
+| JSON Lines (`jsonl`) | Each line is a valid JSON object, commonly used for event streaming. | `input.format=jsonl` | `{ "key": "k1", "value": "v0", "offset": 1232155, "timestamp": "2020-01-01T00:00:01Z" }` |
+| Avro (`avro`) | A compact, schema-based binary format for efficient serialization. | `input.format=avro` | `{ "type": "record", "fields": [ { "name": "key", "type": "string" }, { "name": "value", "type": "string" }, { "name": "timestamp", "type": "long" } ] }` |
+| Parquet (`parquet`) | A columnar format optimized for analytics. | `input.format=parquet` | Uses a schema similar to Avro but optimized for analytics. |
+| Bytes (`bytes`) (default) | A raw byte stream for unstructured data. | `input.format=bytes` | No predefined structure |
+
+
 
 ## Acknowledged records and offset tracking
 
