@@ -56,7 +56,7 @@ Aiven Provider for Terraform.
 
 1.   In the [Aiven Console](https://console.aiven.io/), open your Aiven for PostgreSQL®
      service.
-1.   Go to service <ConsoleLabel name="service settings"/> > **Advance configuration**.
+1.   Go to service <ConsoleLabel name="service settings"/> > **Advanced configuration**.
 1.   Click **Configure** > **Add configuration option**.
 1.   Use the search bar to find `enable_ha_replica_dns`, and set it to **Enabled**.
 1.   Click **Save configuration**.
@@ -150,7 +150,7 @@ You can disable reads failover to the primary at any time.
 
 1.   In the [Aiven Console](https://console.aiven.io/), open your Aiven for PostgreSQL®
      service.
-1.   Go to service <ConsoleLabel name="service settings"/> > **Advance configuration**.
+1.   Go to service <ConsoleLabel name="service settings"/> > **Advanced configuration**.
 1.   Click **Configure** > **Add configuration option**.
 1.   Use the search bar to find `enable_ha_replica_dns`, and set it to **Disabled**.
 1.   Click **Save configuration**.
@@ -169,7 +169,7 @@ aiven service update SERVICE_NAME -c enable_ha_replica_dns=false
 
 Call the
 [ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-to set the `enable_ha_replica_dns` configuration to `true`:
+to set the `enable_ha_replica_dns` configuration to `false`:
 
 ```bash {8}
 curl --request PUT \
