@@ -141,7 +141,7 @@ spec:
 
 :::important
 Existing connections to replicas may fail during an outage. New connections using the HA
-replica DNS continue to succeed.To ensure application reliability, implement connection
+replica DNS continue to succeed. To ensure application reliability, implement connection
 retry logic so your clients can reconnect automatically if a replica connection is interrupted.
 :::
 
