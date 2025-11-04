@@ -6,7 +6,7 @@ limited: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ConsoleLabel from "@site/src/components/ConsoleLabel";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Enable automatic failover for your Aiven for PostgreSQL® read workloads to ensure uninterrupted access when standby nodes are unavailable.
 
