@@ -44,9 +44,10 @@ Aiven Provider for Terraform.
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform)
   - [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
-- During a failover to primary, read-only traffic is served by the primary. Ensure your
-  application can tolerate reads from the primary if it assumes read-after-write or
-  specific consistency behavior.
+- During a failover to primary, read-only traffic is served by the primary. This means:
+  - If your application expects eventual consistency from replicas, it will temporarily receive strong consistency from the primary.
+  - If your application relies on read-after-write consistency, failover to the primary will maintain this guarantee, but switching back to replicas may reintroduce replication lag.
+  - Ensure your application can tolerate these changes in consistency behavior during failover events.
 
 ### Use your preferred tool
 
