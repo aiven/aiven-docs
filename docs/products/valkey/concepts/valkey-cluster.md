@@ -5,6 +5,7 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import MyImg from "@site/static/images/content/figma/os-cluster.png";
 
 Aiven for Valkey™ clustering provides a managed, scalable solution for distributed in-memory data storage with built-in high availability and automatic failover capabilities.
 
@@ -38,6 +39,8 @@ appropriate shard.
   clustering.
 
 ## Architecture overview
+
+<img src={MyImg} className="image" width="50%" alt="Aiven for OpenSearch® service architecture" />
 
 ### Multi-shard deployment
 
