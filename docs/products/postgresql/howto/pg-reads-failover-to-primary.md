@@ -139,11 +139,12 @@ spec:
 1.  Point your read-only clients to this URI to benefit from automatic failover without
     changing application logic.
 
-:::warning
-**Important:** Existing connections to replicas may fail during an outage. New connections using the HA replica DNS continue to succeed.
-
-To ensure application reliability, implement connection retry logic so your clients can reconnect automatically if a replica connection is interrupted.
+:::important
+Existing connections to replicas may fail during an outage. New connections using the HA
+replica DNS continue to succeed.To ensure application reliability, implement connection
+retry logic so your clients can reconnect automatically if a replica connection is interrupted.
 :::
+
 ## Disable the feature
 
 You can disable reads failover to the primary at any time.
