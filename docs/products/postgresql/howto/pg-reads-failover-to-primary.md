@@ -175,7 +175,7 @@ to set the `enable_ha_replica_dns` configuration to `false`:
 curl --request PUT \
 --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
 --header 'Authorization: Bearer BEARER_TOKEN' \
---header 'content-type: application json' \
+--header 'content-type: application/json' \
 --data
   '{
     "user_config": {
