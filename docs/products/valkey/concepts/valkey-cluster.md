@@ -40,7 +40,7 @@ appropriate shard.
 
 ## Architecture overview
 
-<img src={MyImg} className="image" width="50%" alt="Aiven for Valkey™ service architecture" />
+<img src={MyImg} className="image" width="75%" alt="Aiven for Valkey™ service architecture" />
 
 ### Multi-shard deployment
 
