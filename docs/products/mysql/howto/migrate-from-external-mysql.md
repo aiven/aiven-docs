@@ -94,11 +94,18 @@ GTID to be set to `on`.
     ```
 
 1.  Set the migration details using the `avn service update`
-    [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update). Replace the
-    [placeholders](/docs/products/mysql/howto/migrate-from-external-mysql#collect-source-and-destination-details)
-    with meaningful values.
+    [Aiven CLI command](/docs/tools/cli/service-cli#avn-cli-service-update).
 
-    ```bash
+    - Use your preferred migration tool:
+
+      - For `mysqldump`, include option `-c migration.dump_tool=mysqldump` in the command.
+      - For `mydumper`, include option `-c migration.dump_tool=mydumper` in the command.
+
+    - Replace the
+      [placeholders](/docs/products/mysql/howto/migrate-from-external-mysql#collect-source-and-destination-details)
+      with meaningful values.
+
+    ```bash {8}
     avn service update --project PROJECT_NAME \
         -c migration.host=SRC_HOSTNAME \
         -c migration.port=SRC_PORT \
@@ -106,6 +113,7 @@ GTID to be set to `on`.
         -c migration.password=SRC_PASSWORD \
         -c migration.ignore_dbs=SRC_IGNORE_DBS \
         -c migration.ssl=SRC_SSL \
+        -c migration.dump_tool=mysqldump \
         DEST_NAME
     ```
 

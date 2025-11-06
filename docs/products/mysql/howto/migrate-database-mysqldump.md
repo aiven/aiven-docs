@@ -37,8 +37,8 @@ memory capacity to process data migration without resource exhaustion or downtim
 <br />
 <br />
 
-- [`mydumper` tool](https://github.com/mydumper/mydumper):
-  [install](https://mydumper.github.io/mydumper/docs/html/installing.html) if missing
+- [`mydumper`](https://github.com/mydumper/mydumper) tool
+  ([install](https://mydumper.github.io/mydumper/docs/html/installing.html) if missing)
 - Source database to copy your data from: `source-db`
 - Target database to dump your `source-db` data to: `target-db`
 
