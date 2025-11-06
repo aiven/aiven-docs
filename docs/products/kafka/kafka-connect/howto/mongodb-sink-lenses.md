@@ -103,13 +103,12 @@ When using Avro as the source format, configure the following parameters:
 
 - `value.converter.schema.registry.url`: Schema Registry URL in the
   format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
-  Retrieve these values from the [prerequisites](#prerequisites).
+  Retrieve these values from the [prerequisites](#connect_mongodb_lenses_sink_prereq).
 - `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to authenticate
   with a username and password.
 - `value.converter.schema.registry.basic.auth.user.info`: Schema Registry credentials in
   the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
-
-  Retrieve these values from the [prerequisites](#prerequisites).
+  Retrieve these values from the [prerequisites](#connect_mongodb_lenses_sink_prereq).
 :::
 
 For advanced configurations such as batch size, write strategy, or custom transformations,
