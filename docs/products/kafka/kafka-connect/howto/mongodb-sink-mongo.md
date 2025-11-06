@@ -1,213 +1,190 @@
 ---
-title: Create a sink connector from Apache Kafka® to MongoDB
+title: Create a MongoDB sink connector for Aiven for Apache Kafka®
+sidebar_label: MongoDB sink connector
 ---
 
-The MongoDB sink connector enables you to move data from an Aiven for
-Apache Kafka® cluster to a MongoDB database.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import RelatedPages from "@site/src/components/RelatedPages";
 
-:::note
-Aiven offers two distinct MongoDB sink connectors, each one having
-different implementation and parameters:
+Use the MongoDB sink connector to move data from an Aiven for Apache Kafka® service to a MongoDB database.
 
--   The standard [MongoDB sink connector by
-    MongoDB](https://docs.mongodb.com/kafka-connector/current/)
--   The [MongoDB sink connector by
-    Lenses.io](https://docs.lenses.io/connectors/sink/mongo)
-    enabling KCQL transformations on the topic data before sending it to
-    the MongoDB database.
+Aiven provides two MongoDB sink connectors with different capabilities:
 
-This document refers to the MongoDB sink connector by MongoDB, you can
-browse the Lenses.io implementation in the
-[related document](mongodb-sink-lenses)
+- **MongoDB Kafka Sink Connector (by MongoDB):** The standard connector maintained by
+  MongoDB.
+- **MongoDB Sink Connector (by Lenses.io):** Supports KCQL transformations for topic data
+  before writing to MongoDB.
 
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://docs.mongodb.com/kafka-connector/current/).
-:::
+For information about the Lenses.io connector,
+see [MongoDB sink connector (Lenses.io)](mongodb-sink-lenses).
+
+For detailed configuration parameters, refer to the
+[MongoDB Kafka connector documentation](https://www.mongodb.com/docs/kafka-connector/current/).
 
 ## Prerequisites {#connect_mongodb_sink_prereq}
 
-To setup a MongoDB sink connector, you need an Aiven for Apache Kafka
-service [with Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An
+  [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
+  with Kafka Connect enabled, or a
+  [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
+- A running MongoDB database with valid credentials and network access from the Kafka
+  Connect service
+- The following MongoDB connection details:
+  - `MONGODB_USERNAME`: Database username
+  - `MONGODB_PASSWORD`: Database password
+  - `MONGODB_HOST`: MongoDB host name
+  - `MONGODB_PORT`: MongoDB port
+  - `MONGODB_DATABASE_NAME`: Target database name
+- A source Kafka topic with data to write to MongoDB
+- Access to one of the following setup methods:
+  - [Aiven Console](https://console.aiven.io/)
+  - [Aiven CLI](/docs/tools/cli)
+  - [Aiven Provider for Terraform](/docs/tools/terraform#get-started)
+- Authentication configured for your project
+  (for example, set the `AIVEN_API_TOKEN` environment variable if using the CLI or Terraform)
 
-Also collect the following information about the
-target MongoDB database upfront:
+### Additional details for Avro data format
 
--   `MONGODB_USERNAME`: The database username to connect
--   `MONGODB_PASSWORD`: The password for the username selected
--   `MONGODB_HOST`: the MongoDB hostname
--   `MONGODB_PORT`: the MongoDB port
--   `MONGODB_DATABASE_NAME`: The name of the MongoDB database
--   `TOPIC_LIST`: The list of topics to sink divided by comma
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+If you use Avro serialization, also collect the following Schema Registry details:
 
-:::note
-The Apache Kafka related details are available in the [Aiven
-console](https://console.aiven.io/) service *Overview tab* or via the
-dedicated `avn service get` command with the
-[Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
+- `SCHEMA_REGISTRY_URL`: Schema Registry URL, for example `https://HOST:PORT`
+- `SCHEMA_REGISTRY_PORT`: Schema Registry port
+- `SCHEMA_REGISTRY_USER`: Schema Registry username
+- `SCHEMA_REGISTRY_PASSWORD`: Schema Registry password
 
-The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
-Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
+:::tip
+Aiven for Apache Kafka® includes [Karapace](https://github.com/aiven/karapace) as the
+built-in Schema Registry.
 
-As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
-Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://help.aiven.io/en/articles/5651983)
+Find connection details in the Aiven Console under
+**<ConsoleLabel name="overview"/> > Connection information > Schema Registry**, or
+using the [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get)
+command `avn service get`.
 :::
 
-## Setup a MongoDB sink connector with Aiven Console
+## Create a MongoDB sink connector configuration file
 
-The following example demonstrates how to setup a MongoDB sink connector
-for Apache Kafka using the [Aiven Console](https://console.aiven.io/).
-
-### Define a Kafka Connect configuration file
-
-Define the connector configurations in a file (we'll refer to it with
-the name `mongodb_sink.json`) with the following content, creating a
-file is not strictly necessary but allows to have all the information in
-one place before copy/pasting them in the [Aiven
-Console](https://console.aiven.io/):
+Create a file named `mongodb_sink_config.json` with the following configuration:
 
 ```json
 {
-    "name":"CONNECTOR_NAME",
-    "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
-    "topics": "TOPIC_LIST",
-    "connection.uri": "MONGODB_CONNECTION_URI",
-    "database": "MONGODB_DATABASE_NAME",
-    "tasks.max": "NR_TASKS",
-    "key.converter": "io.confluent.connect.avro.AvroConverter",
-    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "key.converter.basic.auth.credentials.source": "USER_INFO",
-    "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
-    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-    "value.converter.basic.auth.credentials.source": "USER_INFO",
-    "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
+  "name": "mongodb-sink",
+  "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+  "topics": "students",
+  "connection.uri": "mongodb://USERNAME:PASSWORD@HOST:PORT",
+  "database": "school",
+  "tasks.max": "1",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
 }
 ```
 
-The configuration file contains the following entries:
+Parameters:
 
--   `name`: the connector name, replace `CONNECTOR_NAME` with the name
-    to give to the connector.
--   `connection.uri`: sink parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/mongodb-sink-mongo#connect_mongodb_sink_prereq) phase.
--   `tasks.max`: maximum number of tasks to execute in parallel. The
-    maximum is 1 per topic and partition. Replace `NR_TASKS` with the
-    amount of parallel task needed.
--   `key.converter` and `value.converter`: defines the messages data
-    format in the Apache Kafka topic. The
-    `io.confluent.connect.avro.AvroConverter` converter translates
-    messages from the Avro format. To retrieve the messages schema we
-    use Aiven's [Karapace schema
-    registry](https://github.com/aiven/karapace) as specified by the
-    `schema.registry.url` parameter and related credentials.
+- `name`: Name of the connector
+- `connector.class`: Class name of the MongoDB sink connector
+- `topics`: Comma-separated list of Kafka topics to sink
+- `connection.uri`: MongoDB connection URI
+- `database`: Target MongoDB database name
+- `tasks.max`: Maximum number of parallel tasks for writing data
+- `key.converter` and `value.converter`: Define the serialization format for records
+  (Avro, JSON, or others supported by your Kafka service)
 
-:::note
-The `key.converter` and `value.converter` sections define how the topic
-messages will be parsed and needs to be included in the connector
-configuration.
+For advanced configuration options, including batch size, document mapping, and
+topic management, refer to the [MongoDB Kafka connector documentation](https://www.mongodb.com/docs/kafka-connector/current/).
 
-When using Avro as source data format, set following
-parameters:
+## Create the connector
 
--   `value.converter.schema.registry.url`: pointing to the Aiven for
-    Apache Kafka schema registry URL in the form of
-    `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` with the
-    `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-mongo#connect_mongodb_sink_prereq).
--   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you're going to login to the schema registry
-    using username and password.
--   `value.converter.schema.registry.basic.auth.user.info`: passing the
-    required schema registry credentials in the form of
-    `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` with the
-    `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/mongodb-sink-mongo#connect_mongodb_sink_prereq).
-:::
+<Tabs groupId="setup-method">
+<TabItem value="console" label="Console" default>
 
-### Create a Kafka Connect connector with the Aiven Console
+1. Access the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector** if Kafka Connect is enabled on the service.
+   If not, enable it under **Service settings** > **Actions** > **Enable Kafka Connect**.
+1. From the list of sink connectors, select **MongoDB sink connector**, and click **Get started**.
+1. In the **Common** tab, locate the **Connector configuration** text box and click
+   <ConsoleLabel name="edit"/>.
+1. Paste the configuration from your `mongodb_sink_config.json` file into the text box.
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify that data from the Kafka topic appears in MongoDB.
 
-To create an Apache Kafka Connect connector:
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
-2.  Select **Connectors** from the left sidebar.
-3.  Select **Create New Connector**.
+To create the MongoDB sink connector using the Aiven CLI, run:
 
-    :::note
-    It is enabled only for services [with Kafka Connect enabled](enable-connect).
-    :::
+```bash
+avn service connector create SERVICE_NAME @mongodb_sink_config.json
+```
 
-4.  Select **MongoDB Kafka Sink Connector**.
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
-6.  Paste the connector configuration (stored in the `mongodb_sink.json`
-    file) in the form.
-7.  Select **Apply**.
+Replace:
 
-:::note
-The Aiven Console parses the configuration file and fills the relevant
-UI fields. You can review the UI fields across the various tab and
-change them if necessary. The changes will be reflected in JSON format
-in the **Connector configuration** text box.
-:::
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka or Kafka Connect service
+- `@mongodb_sink_config.json`: Path to your JSON configuration file
 
-8.  After all the settings are correctly configured, select **Create
-    connector**.
-9.  Verify the connector status under the **Connectors** screen.
-10. Verify the presence of the data in the target MongoDB service, the
-    index name is equal to the Apache Kafka topic name.
+</TabItem>
+<TabItem value="terraform" label="Terraform">
 
-:::note
-You can also create connectors using the
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-:::
+You can configure this connector using the
+[`aiven_kafka_connector`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_connector)
+resource in the Aiven Provider for Terraform.
+
+For configuration examples, see the
+[MongoDB sink connector Terraform example](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka/kafka_connectors/mongo_sink).
+
+</TabItem>
+</Tabs>
 
 ## Example: Create a MongoDB sink connector
 
-If you have a topic named `students` containing the following data:
+The following example creates a MongoDB sink connector that writes data
+from the Kafka topic `students` to a MongoDB database named `school`.
+
+**Kafka topic (`students`):**
 
 ```
-key: 1       value: {"name":"carlo"}
-key: 2       value: {"name":"lucy"}
-key: 3       value: {"name":"mary"}
+key: 1       value: {"name": "carlo"}
+key: 2       value: {"name": "lucy"}
+key: 3       value: {"name": "mary"}
 ```
 
-You can sink the `students` topic to MongoDB with the following
-connector configuration, after replacing the placeholders for
-`MONGODB_HOST`, `MONGODB_PORT`, `MONGODB_DB_NAME`, `MONGODB_USERNAME`
-and `MONGODB_PASSWORD`:
+**Connector configuration:**
 
 ```json
 {
-    "name": "my-mongodb-sink",
-    "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
-    "connection.uri": "mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@MONGODB_HOST:MONGODB_PORT",
-    "topics": "students",
-    "tasks.max": "1",
-    "database": "MONGODB_DB_NAME"
+"name": "mongodb-sink",
+"connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+"topics": "students",
+"connection.uri": "mongodb://USERNAME:PASSWORD@HOST:PORT",
+"database": "school",
+"tasks.max": "1"
 }
 ```
 
-The configuration file contains the following peculiarities:
+This configuration writes records from the Kafka topic `students` to a collection
+named `students` in the MongoDB database `school`.
 
--   `"topics": "students"`: setting the topic to sink
--   `"database": "MONGODB_DB_NAME"`: the database used is the one
-    referenced by the placeholder `MONGODB_DB_NAME`
--   `"tasks.max": "1"`: the maximum amount of parallel tasks is 1, this
-    can vary depending on the amount of topics and partitions
+### Verify data flow
 
-Once the connector is created successfully, you should see a collection
-named `students` in the MongoDB database referenced by the
-`MONGODB_DB_NAME` placeholder.
+After creating the connector:
+
+1. Check the connector status on the **Connectors** page in the Aiven Console.
+1. Verify that a `students` collection exists in the MongoDB database.
+1. Confirm that records from the Kafka topic are written to the collection.
+
+<RelatedPages/>
+
+- [MongoDB sink connector (Lenses.io) for Aiven for Apache Kafka®](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses)
+- [MongoDB source connector for Aiven for Apache Kafka®](/docs/products/kafka/kafka-connect/howto/mongodb-poll-source-connector)

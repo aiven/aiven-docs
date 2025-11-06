@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Use the MongoDB source connector to stream data from MongoDB collections into Apache Kafka® topics for processing and analytics.
 
@@ -18,7 +19,6 @@ For a log-based change data capture (CDC) approach, use the
 :::
 
 ## Prerequisites {#connect_mongodb_pull_source_prereq}
-
 
 - An
   [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
@@ -194,3 +194,8 @@ After you create the connector:
 1. Confirm that the Kafka topic `districtA.students` exists in your service.
 1. Consume messages from the topic to verify that data from MongoDB is streaming
    correctly.
+
+<RelatedPages/>
+
+- [MongoDB sink connector for Aiven for Apache Kafka®](/docs/products/kafka/kafka-connect/howto/mongodb-sink-mongo)
+- [MongoDB sink connector (Lenses.io) for Aiven for Apache Kafka®](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses)
