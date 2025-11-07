@@ -17,9 +17,9 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 1. Collect information about your accounts:
 
    * In the [Aiven Console](https://console.aiven.io/),
-     get the names of the projects you are moving to the marketplace subscription.
+     copy your [organization ID](/docs/platform/reference/get-resource-IDs).
 
-   * In the AWS Marketplace, get the name of the Aiven organization.
+   * In the AWS Marketplace, copy your subscription ID.
 
 1. Send the information to the
    [support team](/docs/platform/howto/support#create-a-support-ticket).
@@ -32,9 +32,9 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 1. Collect information about your accounts:
 
    * In the [Aiven Console](https://console.aiven.io/),
-     get the names of the projects you are moving to the marketplace subscription.
+     copy your [organization ID](/docs/platform/reference/get-resource-IDs).
 
-   * In the Azure Marketplace, get the name of the Aiven organization.
+   * In the Azure Marketplace, copy your subscription ID.
 
 1. Send the information to the
    [support team](/docs/platform/howto/support#create-a-support-ticket).
@@ -47,9 +47,9 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 1. Collect information about your accounts:
 
    * In the [Aiven Console](https://console.aiven.io/),
-     get the names of the projects you are moving to the marketplace subscription.
+     copy your [organization ID](/docs/platform/reference/get-resource-IDs).
 
-   * In the Google Cloud Marketplace, get the name of the Aiven organization.
+   * In the Google Cloud Marketplace, copy your order ID.
 
 1. Send the information to the
    [support team](/docs/platform/howto/support#create-a-support-ticket).
