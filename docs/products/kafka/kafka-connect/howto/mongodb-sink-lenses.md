@@ -19,6 +19,8 @@ Aiven supports two MongoDB sink connectors with different capabilities:
 - [MongoDB sink connector by MongoDB](https://www.mongodb.com/docs/kafka-connector/current/)
 - [MongoDB sink connector by Lenses.io](https://docs.lenses.io/connectors/sink/mongo)
 
+<Note/>
+
 ## Prerequisites {#connect_mongodb_lenses_sink_prereq}
 
 - An

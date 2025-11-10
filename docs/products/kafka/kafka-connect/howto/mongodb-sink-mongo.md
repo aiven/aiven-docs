@@ -48,7 +48,7 @@ For detailed configuration parameters, refer to the
 
 ### Additional details for Avro data format
 
-If you use Avro serialization, also collect the following Schema Registry details:
+If you use Avro serialization, collect the following Schema Registry details:
 
 - `SCHEMA_REGISTRY_URL`: Schema Registry URL, for example `https://HOST:PORT`
 - `SCHEMA_REGISTRY_PORT`: Schema Registry port
@@ -76,15 +76,16 @@ Create a file named `mongodb_sink_config.json` with the following configuration:
   "topics": "students",
   "connection.uri": "mongodb://USERNAME:PASSWORD@HOST:PORT",
   "database": "school",
+  "collection": "students",
   "tasks.max": "1",
   "key.converter": "io.confluent.connect.avro.AvroConverter",
-  "key.converter.schema.registry.url": "https://HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.schema.registry.url": "https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT",
   "key.converter.basic.auth.credentials.source": "USER_INFO",
-  "key.converter.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
   "value.converter": "io.confluent.connect.avro.AvroConverter",
-  "value.converter.schema.registry.url": "https://HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.schema.registry.url": "https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT",
   "value.converter.basic.auth.credentials.source": "USER_INFO",
-  "value.converter.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
 }
 ```
 
@@ -95,9 +96,19 @@ Parameters:
 - `topics`: Comma-separated list of Kafka topics to sink
 - `connection.uri`: MongoDB connection URI
 - `database`: Target MongoDB database name
+- `collection`: Target MongoDB collection name. If not specified, the connector uses the
+  topic name by default
 - `tasks.max`: Maximum number of parallel tasks for writing data
 - `key.converter` and `value.converter`: Define the serialization format for records
   (Avro, JSON, or others supported by your Kafka service)
+- `key.converter.schema.registry.url` and `value.converter.schema.registry.url`: URL of
+  the Schema Registry
+- `key.converter.basic.auth.credentials.source` and
+  `value.converter.basic.auth.credentials.source`: Method used to supply Schema Registry
+  credentials
+- `key.converter.schema.registry.basic.auth.user.info` and
+  `value.converter.schema.registry.basic.auth.user.info`: Schema Registry credentials in
+  the format `username:password`
 
 For advanced configuration options, including batch size, document mapping, and
 topic management, refer to the [MongoDB Kafka connector documentation](https://www.mongodb.com/docs/kafka-connector/current/).
