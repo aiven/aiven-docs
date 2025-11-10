@@ -5,6 +5,7 @@ title: Service backups
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import Variables from "@site/static/variables.json";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,8 +31,11 @@ backups with the appropriate tooling:
 
 -   [PostgreSQL®](https://www.postgresql.org/docs/current/app-pgdump.html):
     `pgdump`
--   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html):
-    `mysqldump`
+-   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
+
+    - `mysqldump` for small or medium-sized databases
+    - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
+
 -   [Caching](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
     `redis-cli`
 -   [Cassandra®](https://docs.datastax.com/en/cql-oss/3.1/cql/cql_reference/copy_r.html)
@@ -245,6 +249,12 @@ backups and binary logs recorded continuously. All backups are encrypted
 with the open source [myhoard](https://github.com/aiven/myhoard)
 software. Myhoard uses [Percona XtraBackup](https://www.percona.com/)
 internally for taking full (or incremental) snapshots for MySQL.
+
+For manual backups and migrations, you can use:
+
+- [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) for small or
+  medium-sized databases
+- [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
 #### Edit the backup schedule
 
