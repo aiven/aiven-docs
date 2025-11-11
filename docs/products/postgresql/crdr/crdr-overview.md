@@ -75,7 +75,7 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 
   :::tip[Upgrading your plan]
   If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
-  [upgrade your free plan](/docs/platform/concepts/service-pricing#free-plans) or
+  [upgrade your free plan](/docs/platform/concepts/service-pricing#free-plan) or
   [change your Hobbyist plan](/docs/platform/howto/scale-services) to at least a Startup
   plan.
   :::
