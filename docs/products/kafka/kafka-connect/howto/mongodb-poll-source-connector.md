@@ -49,15 +49,15 @@ Create a file named `mongodb_source_config.json` with the following configuratio
 
 ```json
 {
-"name": "mongodb-source",
-"connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
-"connection.uri": "mongodb://USERNAME:PASSWORD@HOST:PORT",
-"database": "DATABASE_NAME",
-"collection": "COLLECTION_NAME",
-"poll.await.time.ms": "5000",
-"output.format.key": "json",
-"output.format.value": "json",
-"publish.full.document.only": "true"
+  "name": "mongodb-source",
+  "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
+  "connection.uri": "mongodb://USERNAME:PASSWORD@HOST:PORT",
+  "database": "DATABASE_NAME",
+  "collection": "COLLECTION_NAME",
+  "poll.await.time.ms": "5000",
+  "output.format.key": "json",
+  "output.format.value": "json",
+  "publish.full.document.only": "true"
 }
 ```
 
