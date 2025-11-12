@@ -186,8 +186,9 @@
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing
 /products/grafana/user-access                              /docs/products/grafana/howto/log-in
 /products/influxdb                                         /docs/products/metrics
-/products/kafka/concepts/non-leader-for-partition /docs/products/kafka/troubleshooting/non-leader-for-partition
-/products/kafka/get-started                               /docs/products/kafka/create-kafka-service
+/products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition
+/products/kafka/get-started                                /docs/products/kafka/create-kafka-service
+/products/kafka/getting-started.html                       /docs/products/kafka/create-kafka-service
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples
 /products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect
 /products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry
@@ -269,6 +270,8 @@
 /products/redis/howto/create-redis-read-replica            /docs/products/valkey/howto/create-valkey-read-replica
 /products/redis/howto/list-dba-tasks                       /docs/products/valkey/howto/configure-acl-permissions
 /products/redis/howto/migrate-aiven-redis                  /docs/products/valkey/howto/migrate-redis-aiven-cli
+/products/redis/howto/connect-redis-cli                    /docs/products/valkey/howto/connect-valkey-cli
+/products/redis/howto/migrate-redis-db                     /docs/products/valkey/howto/migrate-redis-aiven-cli
 /products/valkey/howto/upgrade-aiven-for-caching-to-valkey /docs/platform/reference/end-of-life#aiven-for-caching
 /products/valkey/reference                                 /docs/products/valkey/reference/advanced-params
 /tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users
