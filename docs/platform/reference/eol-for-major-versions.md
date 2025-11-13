@@ -186,7 +186,7 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
-| 24.8    | To be announced |
+| 25.3    | To be announced |
 
 ### Aiven for Dragonfly®
 
