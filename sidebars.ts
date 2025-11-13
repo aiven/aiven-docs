@@ -897,6 +897,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/kafka-prometheus-privatelink',
                     'products/kafka/howto/ksql-docker',
                     'products/kafka/howto/add-missing-producer-consumer-metrics',
+                    'products/kafka/howto/integrate-external-kafka-cluster',
                   ],
                 },
                 {
@@ -1168,13 +1169,13 @@ const sidebars: SidebarsConfig = {
                     },
                     'products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex',
                     'products/kafka/kafka-mirrormaker/concepts/mirrormaker2-tuning',
+                    'products/kafka/kafka-mirrormaker/concepts/permissions-internal-topics',
                   ],
                 },
                 {
                   type: 'category',
                   label: 'How to',
                   items: [
-                    'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                     'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
