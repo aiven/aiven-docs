@@ -14,7 +14,7 @@ const config: Config = {
   tagline: 'Your AI-ready Open Source Data Platform',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
-  baseUrl: process.env.BASEURL || '/docs/',
+  baseUrl: '/docs',
   organizationName: 'Aiven',
   projectName: 'docs',
   onBrokenLinks: 'throw',
