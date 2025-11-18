@@ -82,6 +82,6 @@ service for comprehensive monitoring. Set up integrations using the
 [Aiven CLI](docs/tools/cli/service/integration.md), or
 [Aiven Terraform Provider](/docs/platform/howto/create-service-integration).
 
-The [Aiven for Metrics integration example](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/thanos_pg) in GitHub
+The [Aiven for Metrics integration example](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/thanos/thanos_pg) in GitHub
 shows you how to use the Aiven Terraform Provider to create and integrate
 Thanos Metrics with PostgreSQL and Grafana.
