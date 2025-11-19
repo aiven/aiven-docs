@@ -34,7 +34,6 @@ them earlier, you're advised to do that after deleting your cloud.
 -   You have at least one
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
--   You have no running services that use a custom cloud to be deleted.
 -   You have access to the [Aiven Console](https://console.aiven.io/).
 -   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization.
@@ -43,7 +42,6 @@ them earlier, you're advised to do that after deleting your cloud.
 -   You have at least one
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
--   You have no running services that use a custom cloud to be deleted.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
 -   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization.
@@ -51,6 +49,14 @@ them earlier, you're advised to do that after deleting your cloud.
 </Tabs>
 
 ## Delete your cloud
+
+### Delete BYOC-deployed services
+
+Before deleting your custom cloud,
+[delete all services](/docs/platform/concepts/service-power-cycle#delete-service)
+hosted in this cloud.
+
+### Delete the cloud from Aiven
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
@@ -74,11 +80,17 @@ avn byoc delete                               \
 </TabItem>
 </Tabs>
 
-:::important
-Remember to remove the resources created in your remote cloud account when
-applying the Terraform template to create the custom cloud. They are not
-removed automatically after deleting the cloud.
-:::
+### Delete cloud resources from Terraform
+
+Remove the resources created in your remote cloud account when applying the Terraform
+template to create the custom cloud. They are not removed automatically after deleting
+the cloud.
+
+To delete the resources, run:
+
+ ```bash
+terraform destroy
+```
 
 <RelatedPages/>
 
