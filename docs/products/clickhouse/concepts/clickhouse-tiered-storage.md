@@ -16,7 +16,8 @@ data is stored in using custom data retention periods.
 The tiered storage in Aiven for ClickHouse® consists of the following two
 layers:
 
-- Amazon Elastic Block Store (EBS) - the first tier: Fast storage device with limited capacity, better suited for fresh
+- Amazon Elastic Block Store (EBS) - the first tier:
+  Fast storage device with limited capacity, better suited for fresh
   and frequently queried data, relatively costly to use
 - Object storage - the second tier: Affordable storage device with unlimited capability,
   better suited for historical and more rarely queried data, relatively slower
