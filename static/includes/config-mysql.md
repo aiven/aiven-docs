@@ -74,7 +74,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="backup_hour"/><Link to="#backup_hour"><strong>backup_hour</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>max: <code>23</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="backup_hour"/><Link to="#backup_hour"><strong>backup_hour</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>23</code></li></ul></div>
         <p className="title">The hour of day (in UTC) when backup for the service is started. New backup is only started if previous backup has already completed.</p>
         
         <table className="service-param-children">
@@ -85,7 +85,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="backup_minute"/><Link to="#backup_minute"><strong>backup_minute</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>max: <code>59</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="backup_minute"/><Link to="#backup_minute"><strong>backup_minute</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>59</code></li></ul></div>
         <p className="title">The minute of an hour when backup for the service is started. New backup is only started if previous backup has already completed.</p>
         
         <table className="service-param-children">
@@ -162,6 +162,13 @@ import Link from '@docusaurus/Link'
               <div className="param"><p className="name"><Link id="migration_method"/><Link to="#migration_method"><strong>migration.method</strong></Link></p><p><code className="type">string</code></p></div>
               <p className="title">The migration method to be used (currently supported only by Redis, Dragonfly, MySQL and PostgreSQL service types)</p>
               
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div className="param"><p className="name"><Link id="migration_dump_tool"/><Link to="#migration_dump_tool"><strong>migration.dump_tool</strong></Link></p><p><code className="type">string,null</code></p></div>
+              <p className="title">MySQL migration dump tool</p>
+              <div className="description"><p>Experimental! Tool to use for database dump and restore during migration. Default: mysqldump</p></div>
             </td>
           </tr>
           </tbody>
