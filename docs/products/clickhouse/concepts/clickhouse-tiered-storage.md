@@ -16,7 +16,7 @@ data is stored in using custom data retention periods.
 The tiered storage in Aiven for ClickHouse® consists of the following two
 layers:
 
-- SSD - the first tier: Fast storage device with limited capacity, better suited for fresh
+- Amazon Elastic Block Store (EBS) - the first tier: Fast storage device with limited capacity, better suited for fresh
   and frequently queried data, relatively costly to use
 - Object storage - the second tier: Affordable storage device with unlimited capability,
   better suited for historical and more rarely queried data, relatively slower
@@ -52,33 +52,33 @@ storage costs of your Aiven for ClickHouse instance.
 After you
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature,
 Aiven for ClickHouse by default
-stores data on SSD until it reaches 80% of its capacity. After exceeding
+stores data on EBS until it reaches 80% of its capacity. After exceeding
 this size-based threshold, data is stored in object storage.
 
 Optionally, you can
 [configure the time-based threshold](/docs/products/clickhouse/howto/configure-tiered-storage)
 for your storage. Based on the time-based threshold, the
-data is moved from your SSD to object storage after a specified time
+data is moved from your EBS to object storage after a specified time
 period.
 
 ```mermaid
 sequenceDiagram
-        Application->>+SSD: writing data
-        SSD->>Object storage: moving data based <br> on storage policies
-        par Application to SSD
-            Application-->>SSD: querying data
+        Application->>+EBS: writing data
+        EBS->>Object storage: moving data based <br> on storage policies
+        par Application to EBS
+            Application-->>EBS: querying data
         and Application to Object storage
             Application-->>Object storage: querying data
         end
         alt if stored in Object storage
             Object storage->>Application: reading data
-        else if stored in SSD
-            SSD->>Application: reading data
+        else if stored in EBS
+            EBS->>Application: reading data
         end
 ```
 
 :::note
-Backups are taken for data that resides both on SSD and in object
+Backups are taken for data that resides both on EBS and in object
 storage.
 :::
 
@@ -86,7 +86,7 @@ storage.
 
 In your Aiven for ClickHouse service, there is a significant amount of
 data that is there for a while and is rarely accessed. It's stored
-on SSD and high-priced. You decide to
+on EBS and high-priced. You decide to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage to make
 your data storage more efficient and reduce the costs. For that purpose, you
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature on tables to
@@ -146,4 +146,4 @@ threshold to control how your data is stored between the two layers.
 <RelatedPages/>
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
--   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+-   [Transfer data between EBS and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)

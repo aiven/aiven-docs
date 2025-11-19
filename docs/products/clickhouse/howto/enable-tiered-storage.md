@@ -72,7 +72,7 @@ you can use either CLI or the [Aiven Console](https://console.aiven.io).
 </Tabs>
 
 Tiered storage is activated on your table and data in this table is now
-distributed between two tiers: SSD and object storage.
+distributed between two tiers: Amazon Elastic Block Store (EBS) and object storage.
 
 You can check if tiered storage is now supported (**Active**/**Not active**) on
 your table in the [Aiven Console](https://console.aiven.io) > your service's page >
@@ -87,4 +87,4 @@ your table in the [Aiven Console](https://console.aiven.io) > your service's pag
 <RelatedPages/>
 
 - [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
-- [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+- [Transfer data between EBS and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)

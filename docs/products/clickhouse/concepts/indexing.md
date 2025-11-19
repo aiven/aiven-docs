@@ -44,7 +44,7 @@ disk to speed up reading and prevent jumping across the disk when
 processing data. Therefore, by selecting a primary key, you determine
 how items are sorted physically on the disk. Such an approach helps
 ClickHouse effectively work on regular hard drives and depend less on
-SSD in comparison to other DBMSs.
+Amazon Elastic Block Store (EBS) in comparison to other DBMSs.
 
 :::note
 Even though ClickHouse sorts data by primary key, it is possible [to
