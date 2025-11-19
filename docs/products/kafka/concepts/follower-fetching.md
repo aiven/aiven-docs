@@ -7,7 +7,12 @@ import Followerfetching from "@site/static/images/content/figma/follower-fetchin
 import RelatedPages from "@site/src/components/RelatedPages";
 
 [Follower fetching](/docs/products/kafka/howto/enable-follower-fetching) in Aiven for Apache Kafka allows consumers to fetch data from the nearest replica instead of the leader.
-This feature optimizes data fetching by leveraging Apache Kafka's rack awareness, which treats each availability zone (AZ) as a rack.
+This feature optimizes data fetching by leveraging Apache Kafka's rack awareness, which
+treats each availability zone (AZ) as a rack.
+
+Aiven for Apache Kafka® Connect and Aiven for Apache Kafka® MirrorMaker 2 also use
+follower fetching when the Kafka service has the feature enabled and the client rack is
+set automatically or through configuration.
 
 ## Benefits
 
