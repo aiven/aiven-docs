@@ -52,9 +52,20 @@ them earlier, you're advised to do that after deleting your cloud.
 
 ### Delete BYOC-deployed services
 
-Before deleting your custom cloud,
-[delete all services](/docs/platform/concepts/service-power-cycle#delete-service)
-hosted in this cloud.
+Before deleting your custom cloud, remove all services hosted in it:
+
+1. [Power off](/docs/platform/concepts/service-power-cycle#power-off-a-service) all
+   services in the custom cloud.
+1. [Delete](/docs/platform/concepts/service-power-cycle#delete-service) the powered-off
+   services.
+
+:::important
+
+- You cannot delete your custom cloud until all services deployed in it are deleted.
+- Deleting BYOC-deployed services permanently removes all hosted data, service backups, and
+  configurations.
+
+:::
 
 ### Delete the cloud from Aiven
 
@@ -89,8 +100,13 @@ the cloud.
 To delete the resources, run:
 
  ```bash
-terraform destroy
+terraform destroy -var-file=FILE_NAME.tfvars
 ```
+
+:::important
+Since running `terraform destroy` requires specifying the variables file, add
+`-var-file=FILE_NAME.tfvars` as an option.
+:::
 
 <RelatedPages/>
 
