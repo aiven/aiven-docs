@@ -7,22 +7,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
+Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to Amazon Elastic Block Store (EBS) or object storage as needed.
 
 If you have the tiered storage feature
 [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your Aiven for
 ClickHouse service, your data is
 distributed between two storage devices (tiers). The data is stored
-either on SSD or in object storage, depending on whether and how you
-configure this behavior. By default, data is moved from SSD to object
-storage when SSD reaches 80% of its capacity (default size-based data
+either on EBS or in object storage, depending on whether and how you
+configure this behavior. By default, data is moved from EBS to object
+storage when EBS reaches 80% of its capacity (default size-based data
 retention policy).
 
 You may want to change this default data distribution behavior by
 [configuring your table's schema by adding a TTL (time-to-live) clause](/docs/products/clickhouse/howto/configure-tiered-storage#time-based-retention-config).
-Such a configuration allows ignoring the SSD-capacity
-threshold and moving the data from SSD to object storage based on how
-long the data is there on your SSD.
+Such a configuration allows ignoring the EBS-capacity
+threshold and moving the data from EBS to object storage based on how
+long the data is there on your EBS.
 
 To enable this time-based data distribution mechanism, you can set up a
 retention policy (threshold) on a table level by using the TTL clause.
@@ -92,8 +92,8 @@ ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
 You have your time-based data retention policy set up. From now on, when
-data is on your SSD longer than a specified time period, it's moved to
-object storage, regardless of how much of SSD capacity is still
+data is on your EBS longer than a specified time period, it's moved to
+object storage, regardless of how much of EBS capacity is still
 available.
 
 ## Best practices for tiered storage TTL
@@ -181,7 +181,7 @@ individual rows being removed from parts.
 
 -   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 -   [Enable tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/howto/enable-tiered-storage)
--   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+-   [Transfer data between EBS and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
 -   [Manage Data with TTL
     (Time-to-live)](https://clickhouse.com/docs/en/guides/developer/ttl)
 -   [Create table statement, TTL

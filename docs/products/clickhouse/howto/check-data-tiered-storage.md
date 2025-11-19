@@ -6,7 +6,7 @@ sidebar_label: Check data distribution
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Monitor how your data is distributed between the two layers of your tiered storage: SSD and object storage.
+Monitor how your data is distributed between the two layers of your tiered storage: Amazon Elastic Block Store (EBS) and object storage.
 
 If you have the tiered storage feature
 [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), your
@@ -29,7 +29,7 @@ median part sizes, and maximum part sizes.
 
 You can use the [Aiven Console](https://console.aiven.io/) to check if
 tiered storage is enabled on a table and, if it is, how much
-storage is used on each tier (local SSD and remote object storage) for
+storage is used on each tier (local EBS and remote object storage) for
 this particular table.
 
 To access tiered storage's status information, go to
@@ -82,7 +82,7 @@ they use, their total sizes as well as parts counts and sizing.
 
 ## What's next
 
--   [Transfer data between SSD and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+-   [Transfer data between EBS and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
 
 <RelatedPages/>
