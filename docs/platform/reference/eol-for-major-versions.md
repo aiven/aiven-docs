@@ -210,7 +210,7 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
-| 8.0.6   | To be announced |
+| 8.1.4   | To be announced |
 
 ## Aiven tools EOL
 
