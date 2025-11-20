@@ -10,17 +10,21 @@ In the [Aiven Console](https://console.aiven.io) you can create and manage Aiven
 
 To view your personal information, authentication settings, and
 organizations you belong to, click the label **User information** profile icon
-in the top right. The user profile is also the place where you can get
+in the top right.
+
+:::note
+The user profile is also the place where you can get
 [referral links](docs/platform/reference/referrals.md), enable
 [feature previews](/docs/platform/howto/feature-preview) to test upcoming features,
 create tokens, and configure other personal settings.
+:::
 
 ### Name and email
 
 You can
 [update your name and other personal details](/docs/platform/howto/edit-user-profile) in your user profile.
 
-:::note
+:::caution
 You cannot edit your email address. Instead, you can
 [migrate your Aiven resources to another email address](/docs/platform/howto/change-your-email-address) within specific projects.
 :::
@@ -46,8 +50,10 @@ that you are currently working with is displayed at the top
 of the page. You can switch to another organization or organizational
 unit by clicking the name to open the drop-down menu.
 
+:::tip
 If you don't have an organization, click **Create organization** to
 [create your first organization](/docs/tools/aiven-console/howto/create-orgs-and-units).
+:::
 
 :::note
 We strongly recommend creating an organization. It makes managing your
