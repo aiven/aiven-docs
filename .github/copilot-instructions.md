@@ -120,11 +120,11 @@ Ensure compliance with the following key style guide requirements:
 
 - **Warning** (:::warning): Use STRICTLY for irreversible data loss, security breaches, or critical system outages. Never use for typos, generic errors, or reversible configuration issues.
 
-- **Caution** (:::caution): Use for blocking constraints, version incompatibility, or mandatory prerequisites. Ignoring this leads to task failure or rework.
+- **Caution** (:::caution): Use ONLY for blocking constraints, version incompatibility, or mandatory prerequisites. Ignoring this leads to task failure or rework.
 
 - **Note** (:::note): Use for peripheral context only. The user must be able to skip the note and still complete the task. NEVER use :::note for core content (tables, pricing lists, math formulas) or mandatory requirements.
 
-- **Tip** (:::tip): Use for optional shortcuts or optimizations. Do not use for general "See also" links.
+- **Tip** (:::tip): Use for optional shortcuts or optimizations. Do not use for context or for general "See also" links.
 
 - **Titles**: Use custom titles only for specific conditions (e.g., :::note[Windows only]). Flag generic titles like "Examples", "Pricing", or "Availability" — these must be standard headers, not admonitions.
 
