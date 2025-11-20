@@ -523,8 +523,6 @@ Use the
 [generated Terraform template](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#generate-an-infrastructure-template)
 to create your Role ARN by deploying the template in your AWS account.
 
-Continue working in the **Create custom cloud** wizard:
-
 1.  Copy or download the template and the variables file from the
     **Create custom cloud** wizard.
 
@@ -542,16 +540,45 @@ Continue working in the **Create custom cloud** wizard:
     Console](https://console.aiven.io/).
     :::
 
-1.  Use Terraform to deploy the infrastructure template in your AWS account with the
-    provided variables.
+1.  Set up Terraform to authenticate with AWS.
+
+    Configure your AWS credentials using one of the following methods:
+
+    - Set environment variables:
+
+      ```bash
+      export AWS_ACCESS_KEY_ID="your_access_key"
+      export AWS_SECRET_ACCESS_KEY="your_secret_key"
+      export AWS_DEFAULT_REGION="your_region"
+      ```
+
+    - Use AWS CLI to configure credentials:
+
+      ```bash
+      aws configure
+      ```
+
+    - Use IAM roles if running on an EC2 instance or in AWS CloudShell.
+
+    For more information, see the
+    [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
+
+1.  Deploy the infrastructure template using Terraform:
+
+    ```bash
+    terraform init
+    terraform plan -var-file=FILE_NAME.tfvars
+    terraform apply -var-file=FILE_NAME.tfvars
+    ```
+
+    Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
 
     :::important
-    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
-    as an option.
+    The `-var-file` option is required to pass the configuration variables to Terraform.
     :::
 
-1.  Find a role identifier (Role ARN) in the output script after
-    running the template.
+1.  Find the role identifier (Role ARN) in the Terraform output after
+    running `terraform apply`.
 
 1.  Enter Role ARN into the **IAM role ARN** field in the **Create custom
     cloud** wizard.
@@ -749,15 +776,44 @@ Your new custom cloud is ready to use only after its status changes to
         Console](https://console.aiven.io/).
         :::
 
-   1. Use Terraform to deploy the infrastructure template with the provided variables in
-      your AWS cloud account. This will generate a Role ARN.
+   1. Set up Terraform to authenticate with AWS.
 
-       :::important
-       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
-       as an option.
-       :::
+      Configure your AWS credentials using one of the following methods:
 
-   1. Find `aws-iam-role-arn` in the output script after running the template.
+      - Set environment variables:
+
+        ```bash
+        export AWS_ACCESS_KEY_ID="your_access_key"
+        export AWS_SECRET_ACCESS_KEY="your_secret_key"
+        export AWS_DEFAULT_REGION="your_region"
+        ```
+
+      - Use AWS CLI to configure credentials:
+
+        ```bash
+        aws configure
+        ```
+
+      - Use IAM roles if running on an EC2 instance or in AWS CloudShell.
+
+      For more information, see the
+      [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
+
+   1. Deploy the infrastructure template using Terraform with the provided variables file:
+
+      ```bash
+      terraform init
+      terraform plan -var-file=FILE_NAME.tfvars
+      terraform apply -var-file=FILE_NAME.tfvars
+      ```
+
+      Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+      :::important
+      The `-var-file` option is required to pass the configuration variables to Terraform.
+      :::
+
+   1. Find `aws-iam-role-arn` in the Terraform output after running `terraform apply`.
 
 1. Provision resources by running [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision)
    and passing the generated `aws-iam-role-arn` as an option.
