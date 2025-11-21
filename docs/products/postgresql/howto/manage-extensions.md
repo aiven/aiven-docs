@@ -6,10 +6,10 @@ sidebar_label: Manage extensions
 Aiven for PostgreSQL® allows a series of pre-approved extensions to be installed.
 
 :::note[Who can manage extensions]
-All Aiven service users can manage extensions: both the default `avnadmin` user and other
-[service users created](/docs/platform/howto/create_new_service_user) via the Aiven
-Console, API, CLI, or Aiven Provider for Terraform. This is the expected behavior because
-of the extension whitelist configuration in Aiven for PostgreSQL.
+All database users can manage extensions: both the default `avnadmin` user and other
+database users created via the Aiven Console, API, CLI, or Aiven Provider for Terraform.
+This is the expected behavior because of the extension whitelist configuration in
+Aiven for PostgreSQL.
 :::
 
 ## Install an extension
