@@ -131,42 +131,33 @@ indices.
 
 1.  Open the **Monitors** tab and click **Create monitor**.
 
-1.  Fill in the fields under **Monitor details**.
+1.  Fill in the fields under **Monitor details**:
 
-    Fill `High CPU Monitor` into **Monitor name**.
+    1. Fill in `High CPU Monitor` as the **Monitor name**.
+    1. Select `Per query monitor` as the **Monitor type** (selected by default).
+    1. Select `Visual editor` as the **Monitor defining method**.
+    1. Under **Frequency**, select `By interval`.
+    1. Under **Run every**, select `1` `Minutes`.
 
-    Select `Per query monitor` as the **Monitor type**.
+    :::note
+    Frequency can be `By interval`, `Daily`, `Weekly`, `Monthly`, or
+    `Custom CRON expression`.
+    :::
 
-    Select `Visual editor` as the **Monitor defining method**.
+1.  Fill in the fields under **Select data**. Data source is the OpenSearch indices to
+    query.
 
-    Select `By interval` under **Schedule** **Frequency**.
+    1. Fill in `sample-host-health` as the **Index**.
+    1. Fill in `timestamp` as the **Time field**.
 
-    Under **Run every**, select `1` `Minutes`.
+1.  Configure the **Query**. Query defines the fields to query from indices and how to
+    evaluate the results.
 
-:::note
-Schedule Frequency can be `By interval`, `Daily`, `Weekly`, `Monthly`, or
-`Custom CRON expression`.
-:::
-
-1.  Fill in the fields under **Data source**.
-
-    Data source is the OpenSearch indices to query.
-
-    Fill `sample-host-health` into **Index**.
-
-    Fill `timestamp` into **Time field**.
-
-1.  Configure the **Query**.
-
-    Query defines the fields to query from indices and how to evaluate
-    the results.
-
-    Under **Metrics**, click **Add metric**.
-
-    Select `average()` under **Aggregation** and `cpu_usage_percentage`
-    under **Field**, then click **Save**.
-
-    Fill `3` under **Time range for the last** and select `minutes`.
+    1. Under **Metrics**, click **Add metric**.
+    1. Select `average()` under **Aggregation** and `cpu_usage_percentage`
+    under **Field**.
+    1. Click **Save**.
+    1. Fill in `3` under **Time range for the last** and select `minutes`.
 
 ## Create a trigger
 
