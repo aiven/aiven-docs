@@ -136,8 +136,7 @@ indices.
     evaluate the results.
 
     1. Under **Metrics**, click **Add metric**.
-    1. Select `average()` under **Aggregation** and `cpu_usage_percentage`
-    under **Field**.
+    1. Select `average()` under **Aggregation** and `cpu_usage_percentage` under **Field**.
     1. Click **Save**.
     1. Fill in `3` under **Time range for the last** and select `minutes`.
 
@@ -150,8 +149,8 @@ If conditions are met, alerts are generated.
 
     1. Fill `high_cpu` as the **Trigger name**.
     1. Select `1 (Highest)` for **Severity level**.
-    1. Under **Trigger condition**, select `IS ABOVE` from the drop-down
-       menu and fill `75` into the number field.
+    1. Under **Trigger condition**, select `IS ABOVE` from the drop-down menu and fill
+       `75` into the number field.
 
     :::note
     You can see a visual graph below the trigger with the index data and the
