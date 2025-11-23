@@ -38,11 +38,17 @@ are exceptions:
   the database, but does not verify the server certificate. For more
   information, see the [PostgreSQL
   documentation](https://www.postgresql.org/docs/current/ssl-tcp.html)
-- **Aiven for Apache Kafka®** requires the Aiven project CA
-  certificate, and also the client key and certificate.
+- **Aiven for Apache Kafka®** supports different authentication methods:
+  - Client certificate: The client requires the Aiven project CA and
+  also the client key and certificate.
+  - SASL over SSL: The client authenticates using a service user name
+  and password. By default the communication is encrypted using the
+  project CA certificate. The user configuration `letsencrypt_sasl`
+  also allows to authenticate using a public CA instead of a project CA.
+  For more information, see [Enable and configure SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
 
 For these services you can
-[Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates)
+[Download the project CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates)
 from **Overview** page of your service.
 
 :::note
