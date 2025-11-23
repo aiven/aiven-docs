@@ -1819,6 +1819,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pgvector',
                     'products/postgresql/howto/pg-object-size',
                     'products/postgresql/howto/readonly-user',
+                    'products/postgresql/howto/pg-reads-failover-to-primary',
                     {
                       type: 'category',
                       label: 'PGAudit',
