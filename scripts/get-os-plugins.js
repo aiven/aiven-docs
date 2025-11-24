@@ -46,11 +46,8 @@ function generateMarkdownTableForVersion(osVersion) {
   }
 
   osVersion.plugins.forEach((plugin) => {
-    const defaultVersion = plugin.default_version || 'N/A';
-    const versions =
-      plugin.versions && Array.isArray(plugin.versions)
-        ? plugin.versions.join(', ')
-        : 'N/A';
+    const defaultVersion = plugin.version || 'N/A';
+    const versions = plugin.version || 'N/A';
     markdown += `| ${plugin.name} | ${defaultVersion} | ${versions} |\n`;
   });
 
@@ -64,23 +61,25 @@ async function generateMarkdown() {
     const json = JSON.parse(data);
 
     if (json.errors && json.errors.length > 0) {
-      console.error('API returned errors:', json.errors);
+      console.error('❌ API returned errors:', json.errors);
       return;
     }
 
-    if (!json.os || !Array.isArray(json.os)) {
+    if (!json.opensearch || !Array.isArray(json.opensearch)) {
       console.error(
-        '⚠️ Unexpected API response structure. "os" field is missing or not an array.',
+        '⚠️ Unexpected API response structure. "opensearch" field is missing or not an array.',
       );
       return;
     }
 
     // Sort versions in decreasing order
-    json.os.sort((a, b) => parseFloat(b.version) - parseFloat(a.version));
+    json.opensearch.sort(
+      (a, b) => parseFloat(b.version) - parseFloat(a.version),
+    );
 
     let markdownContent = '<!-- vale off -->\n\n';
 
-    json.os.forEach((osVersion) => {
+    json.opensearch.forEach((osVersion) => {
       markdownContent += generateMarkdownTableForVersion(osVersion);
       markdownContent += '\n'; // Add spacing between tables
     });
@@ -88,7 +87,7 @@ async function generateMarkdown() {
     await fs.writeFile(markdownFilePath, markdownContent, 'utf8');
     console.log(`👌 Markdown content written to ${markdownFilePath}`);
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error('❌ Error:', err.message);
   }
 }
 
