@@ -25,6 +25,9 @@ Follower fetching is supported on AWS (Amazon Web Services) and Google Cloud.
 
 ## Identify availability zone
 
+Before configuring client-side rack awareness, identify the AZs where your Kafka brokers
+run.
+
 - **AWS**: Availability zone (AZ) names can vary across different accounts.
   The same physical location might have different AZ names in different accounts. To
   ensure consistency when configuring `client.rack`, use the AZ ID, which remains the same
@@ -39,8 +42,8 @@ Follower fetching is supported on AWS (Amazon Web Services) and Google Cloud.
 
 ## Enable follower fetching
 
-Use either of the following methods to enable follower fetching on your
-Aiven for Apache Kafka service:
+Use one of the following methods to enable follower fetching on your Aiven for
+Apache Kafka service.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Console" default>
@@ -163,6 +166,30 @@ client.rack=europe-west1-d
 | Google Cloud   | `europe-west1-b`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
 | Google Cloud   | `europe-west1-c`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
 | Google Cloud   | `europe-west1-d`  | Fetch from the leader (no matching `broker.rack`)      | No follower fetching possible                  |
+
+## Use follower fetching with Kafka Connect and MirrorMaker 2
+
+Aiven for Apache Kafka® Connect and Aiven for Apache Kafka® MirrorMaker 2 use follower
+fetching when it is enabled on your Aiven for Kafka service.
+
+### Kafka Connect
+
+Kafka Connect sets `consumer.client.rack` based on each node’s availability zone.
+To disable rack awareness for a specific connector, set:
+
+```json
+{
+  "consumer.override.client.rack": "noop"
+}
+```
+
+### MirrorMaker 2
+
+MirrorMaker 2 uses a rack ID based on the node’s availability zone when
+`follower_fetching_enabled=true` (default).
+You can override this by setting a `rack_id` in the integration configuration.
+
+Rack awareness does not apply to external Kafka clusters.
 
 ## Verify follower fetching
 
