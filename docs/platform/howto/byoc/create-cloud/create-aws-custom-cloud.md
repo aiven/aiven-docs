@@ -544,7 +544,7 @@ to create your Role ARN by deploying the template in your AWS account.
 
     Configure your AWS credentials using one of the following methods:
 
-    - Set environment variables:
+    - **Environment variables** (quick setup for testing):
 
       ```bash
       export AWS_ACCESS_KEY_ID="your_access_key"
@@ -552,15 +552,33 @@ to create your Role ARN by deploying the template in your AWS account.
       export AWS_DEFAULT_REGION="your_region"
       ```
 
-    - Use AWS CLI to configure credentials:
+    - **AWS CLI profile** (recommended for local development):
 
-      ```bash
-      aws configure
-      ```
+      1. Configure credentials using the AWS CLI:
 
-    - Use IAM roles if running on an EC2 instance or in AWS CloudShell.
+         ```bash
+         aws configure --profile your-profile-name
+         ```
 
-    For more information, see the
+      1. Reference the profile when running Terraform:
+
+         ```bash
+         export AWS_PROFILE=your-profile-name
+         ```
+
+    - **IAM roles** (recommended for production and CI/CD environments):
+
+      If running on an EC2 instance, in AWS CloudShell, or in a CI/CD pipeline, use IAM
+      roles attached to the compute resource instead of static credentials.
+
+    :::tip
+    For enhanced security, consider using
+    [aws-vault](https://github.com/99designs/aws-vault) to store credentials encrypted or
+    [AWS Single Sign-On (SSO)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
+    for centralized identity management.
+    :::
+
+    For more authentication options and configuration details, see the
     [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
 
 1.  Deploy the infrastructure template using Terraform:
@@ -764,40 +782,58 @@ Your new custom cloud is ready to use only after its status changes to
 
    1. Optionally, modify the template as needed.
 
-        :::note
-        To connect to a custom-cloud service from different security groups
-        (other than the one dedicated for the custom cloud) or from IP
-        address ranges, add specific ingress rules before you apply a
-        Terraform infrastructure template in your AWS cloud account in the process
-        of creating a custom cloud resources.
+      :::note
+      To connect to a custom-cloud service from different security groups
+      (other than the one dedicated for the custom cloud) or from IP
+      address ranges, add specific ingress rules before you apply a
+      Terraform infrastructure template in your AWS cloud account in the process
+      of creating a custom cloud resources.
 
-        Before adding ingress rules, see the examples provided in the
-        Terraform template you generated and downloaded from the [Aiven
-        Console](https://console.aiven.io/).
-        :::
+      Before adding ingress rules, see the examples provided in the
+      Terraform template you generated and downloaded from the [Aiven
+      Console](https://console.aiven.io/).
+      :::
 
-   1. Set up Terraform to authenticate with AWS.
+   1.  Set up Terraform to authenticate with AWS.
 
-      Configure your AWS credentials using one of the following methods:
+       Configure your AWS credentials using one of the following methods:
 
-      - Set environment variables:
+       - **Environment variables** (quick setup for testing):
 
-        ```bash
-        export AWS_ACCESS_KEY_ID="your_access_key"
-        export AWS_SECRET_ACCESS_KEY="your_secret_key"
-        export AWS_DEFAULT_REGION="your_region"
-        ```
+         ```bash
+         export AWS_ACCESS_KEY_ID="your_access_key"
+         export AWS_SECRET_ACCESS_KEY="your_secret_key"
+         export AWS_DEFAULT_REGION="your_region"
+         ```
 
-      - Use AWS CLI to configure credentials:
+       - **AWS CLI profile** (recommended for local development):
 
-        ```bash
-        aws configure
-        ```
+         1. Configure credentials using the AWS CLI:
 
-      - Use IAM roles if running on an EC2 instance or in AWS CloudShell.
+            ```bash
+            aws configure --profile your-profile-name
+            ```
 
-      For more information, see the
-      [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
+         1. Reference the profile when running Terraform:
+
+            ```bash
+            export AWS_PROFILE=your-profile-name
+            ```
+
+       - **IAM roles** (recommended for production and CI/CD environments):
+
+         If running on an EC2 instance, in AWS CloudShell, or in a CI/CD pipeline, use IAM
+         roles attached to the compute resource instead of static credentials.
+
+       :::tip
+       For enhanced security, consider using
+       [aws-vault](https://github.com/99designs/aws-vault) to store credentials encrypted or
+       [AWS Single Sign-On (SSO)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
+       for centralized identity management.
+       :::
+
+       For more authentication options and configuration details, see the
+       [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
 
    1. Deploy the infrastructure template using Terraform with the provided variables file:
 
