@@ -573,7 +573,7 @@ to create your Role ARN by deploying the template in your AWS account.
 
     :::tip
     For enhanced security, consider using
-    [aws-vault](https://github.com/99designs/aws-vault) to store credentials encrypted or
+    [aws-vault](https://github.com/99designs/aws-vault) to store encrypted credentials or
     [AWS Single Sign-On (SSO)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
     for centralized identity management.
     :::
@@ -794,7 +794,7 @@ Your new custom cloud is ready to use only after its status changes to
       Console](https://console.aiven.io/).
       :::
 
-   1.  Set up Terraform to authenticate with AWS.
+   1. Set up Terraform to authenticate with AWS.
 
        Configure your AWS credentials using one of the following methods:
 
@@ -827,7 +827,7 @@ Your new custom cloud is ready to use only after its status changes to
 
        :::tip
        For enhanced security, consider using
-       [aws-vault](https://github.com/99designs/aws-vault) to store credentials encrypted or
+       [aws-vault](https://github.com/99designs/aws-vault) to store encrypted credentials or
        [AWS Single Sign-On (SSO)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
        for centralized identity management.
        :::
