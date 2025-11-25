@@ -32,11 +32,21 @@ function fetchData(url) {
   });
 }
 
+// Helper function to extract major.minor version
+function getMajorMinorVersion(version) {
+  if (!version) return 'N/A';
+  const parts = version.split('.');
+  if (parts.length >= 2) {
+    return `${parts[0]}.${parts[1]}`;
+  }
+  return version;
+}
+
 // Function to generate a Markdown table for a specific OpenSearch version
 function generateMarkdownTableForVersion(osVersion) {
   let markdown = `## OpenSearch ${osVersion.version} plugins\n\n`;
-  markdown += '| Plugin name | Default version | Supported versions |\n';
-  markdown += '|-------------|-----------------|--------------------|\n';
+  markdown += '| Plugin name | Supported version |\n';
+  markdown += '|-------------|-------------------|\n';
 
   if (!osVersion.plugins || !Array.isArray(osVersion.plugins)) {
     console.error(
@@ -46,9 +56,9 @@ function generateMarkdownTableForVersion(osVersion) {
   }
 
   osVersion.plugins.forEach((plugin) => {
-    const defaultVersion = plugin.version || 'N/A';
-    const versions = plugin.version || 'N/A';
-    markdown += `| ${plugin.name} | ${defaultVersion} | ${versions} |\n`;
+    const fullVersion = plugin.version || 'N/A';
+    const majorMinorVersion = getMajorMinorVersion(fullVersion);
+    markdown += `| ${plugin.name} | ${majorMinorVersion} |\n`;
   });
 
   return markdown;
@@ -92,3 +102,4 @@ async function generateMarkdown() {
 }
 
 generateMarkdown();
+
