@@ -186,10 +186,12 @@ To disable rack awareness for a specific connector, set:
 ### MirrorMaker 2
 
 MirrorMaker 2 uses a rack ID based on the node’s availability zone when
-`follower_fetching_enabled=true` (default).
-You can override this by setting a `rack_id` in the integration configuration.
+`follower_fetching_enabled=true` (default). You can override this by setting a `rack_id`
+in the integration configuration.
 
 Rack awareness does not apply to external Kafka clusters.
+
+See [Configure rack awareness in MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness).
 
 ## Verify follower fetching
 
