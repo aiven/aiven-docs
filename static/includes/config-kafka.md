@@ -222,9 +222,20 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="letsencrypt_sasl"/><Link to="#letsencrypt_sasl"><strong>letsencrypt_sasl</strong></Link></p><p><code className="type">boolean,null</code></p></div>
+        <p className="title">Use Let's Encrypt CA for Kafka SASL</p>
+        <div className="description"><p>Use a Let's Encrypt certificate authority (CA) for Kafka SASL authentication. (Default: False)</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="letsencrypt_sasl_privatelink"/><Link to="#letsencrypt_sasl_privatelink"><strong>letsencrypt_sasl_privatelink</strong></Link></p><p><code className="type">boolean,null</code></p></div>
-        <p className="title">Use Letsencrypt CA for Kafka SASL via Privatelink</p>
-        <div className="description"><p>Use Letsencrypt CA for Kafka SASL via Privatelink</p></div>
+        <p className="title">Use Let's Encrypt CA for Kafka SASL via Privatelink</p>
+        <div className="description"><p>Use a Let's Encrypt certificate authority (CA) for Kafka SASL authentication via Privatelink. (Default: False)</p></div>
         <table className="service-param-children">
           <tbody>
           </tbody>
@@ -823,6 +834,17 @@ import Link from '@docusaurus/Link'
               <div className="description"><p>Whether to enable the Diskless functionality</p></div>
             </td>
           </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="sasl_oauthbearer_allowed_urls"/><Link to="#sasl_oauthbearer_allowed_urls"><strong>sasl_oauthbearer_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Allowed URLs for SASL OAUTHBEARER</p>
+        <div className="description"><p>List of allowed URLs for SASL OAUTHBEARER authentication. Only HTTPS URLs are allowed for security reasons.</p></div>
+        <table className="service-param-children">
+          <tbody>
           </tbody>
         </table>
       </td>
