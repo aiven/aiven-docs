@@ -201,7 +201,7 @@ if Kafka clients cannot install or trust the default project CA.
    1. Set the value to **Enabled**.
    1. Click **Save configurations**.
 
-The Connection information section on the <ConsoleLabel name="overview" /> page now
+The **Connection information** on the <ConsoleLabel name="overview" /> page now
 supports SASL connections using either Project CA or Public CA.
 
 </TabItem>
@@ -268,7 +268,7 @@ resource "aiven_kafka" "example_kafka" {
 
    ```hcl
    data "aiven_service_component" "sc1" {
-   project                     = aiven_kafka.example_project.project
+   project                     = aiven_kafka.kafka.project
    service_name                = aiven_kafka.example_kafka.service_name
    component                   = "kafka"
    route                       = "dynamic"
@@ -283,7 +283,7 @@ resource "aiven_kafka" "example_kafka" {
 :::note
 
 - The public certificate is issued and validated by [Let's Encrypt](https://letsencrypt.org),
-  widely trusted certification authority. For details, see
+  a widely trusted certification authority. For details, see
   [How It Works](https://letsencrypt.org/how-it-works)
 
 - When enabling the public CA over a PrivateLink connection, network configuration may
