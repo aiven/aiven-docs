@@ -8,7 +8,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® provides [multiple authentication methods](/docs/products/kafka/concepts/auth-types) to secure your Apache Kafka® data, including the highly secure Simple Authentication and Security Layer ([SASL](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)) over SSL.
+Aiven for Apache Kafka® provides [multiple authentication methods](/docs/products/kafka/concepts/auth-types) to secure Kafka data, including Simple Authentication and Security Layer ([SASL](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)) over SSL.
 
 ## Enable SASL authentication
 
@@ -19,8 +19,8 @@ Aiven for Apache Kafka® provides [multiple authentication methods](/docs/produc
    Aiven for Apache Kafka service.
 1. Click <ConsoleLabel name="Service settings"/>.
 1. Scroll to **Advanced configuration** and click **Configure**.
-   In the **Advanced configuration** window, set `kafka_authentication_methods.sasl` to
-   **Enabled**.
+1. Click <ConsoleIcon name="Add config options"/>.
+1. Select `kafka_authentication_methods.sasl` from the list and set the value to **Enabled**.
 1. Click **Save configurations**.
 
 The **Connection information** in the <ConsoleLabel name="overview"/> page now
@@ -182,9 +182,8 @@ Parameters:
 
 ## Enable public CA for SASL authentication
 
-After [enabling SASL authentication](#enable-sasl-authentication), enable
-the Public CA for SASL authentication if clients connecting to Kafka can't
-install or trust the default Project CA.
+After [enabling SASL authentication](#enable-sasl-authentication), enable the public CA
+if Kafka clients cannot install or trust the default project CA.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
@@ -192,30 +191,31 @@ install or trust the default Project CA.
 1. Access the [Aiven Console](https://console.aiven.io) and select your
    Aiven for Apache Kafka service.
 1. Click <ConsoleLabel name="Service settings"/>.
-1. Scroll to **Cloud and network**, click **[...]** and select
-   **More network configurations**.
-1. In the **Network configuration** window, click **Add configuration options**
-   and select `letsencrypt_sasl` for enabling public CA for SASL authentication
-   via regular routes or `letsencrypt_sasl_privatelink` via PrivateLink connection.
-1. Set the configuration value to **Enabled**.
-1. Click **Save configurations**.
+1. Go to the **Cloud and network** section, click <ConsoleLabel name="actions" /> >
+  **More network configurations**.
+1. In the **Network configuration** dialog:
 
-The **Connection information** in the <ConsoleLabel name="overview"/> page now
-allows SASL connections using either **Project CA** or **Public CA**.
+   1. Click <ConsoleIcon name="Add config options"/>.
+   1. Find `letsencrypt_sasl` (or `letsencrypt_sasl_privatelink` for PrivateLink).
+   1. Select the configuration option.
+   1. Set the value to **Enabled**.
+   1. Click **Save configurations**.
+
+The Connection information section on the <ConsoleLabel name="overview" /> page now
+supports SASL connections using either Project CA or Public CA.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Enable public CA for SASL authentication for your Aiven for Apache Kafka service using
-[Aiven CLI](/docs/tools/cli):
+Enable the public CA for SASL authentication using the [Aiven CLI](/docs/tools/cli):
 
-1. Get the name of the Aiven for Apache Kafka service:
+1. List the services in your project to find the Kafka service name:
 
    ```bash
    avn service list
    ```
 
-   Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
+   Note the `SERVICE_NAME` for the Kafka service.
 
 1. Enable public CA for SASL authentication:
 
@@ -242,6 +242,7 @@ curl -X PUT "https://console.aiven.io/v1/project/{project_name}/service/{service
      -H "Content-Type: application/json" \
      -d '{"user_config": {"letsencrypt_sasl": true}}'   # or letsencrypt_sasl_privatelink for PrivateLink
 ```
+
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
@@ -259,35 +260,35 @@ resource "aiven_kafka" "example_kafka" {
 }
 ```
 
-2. In order to figure out the right `port` to use for a specific route,
-access the [read-only `components`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/kafka#components-4)
-and specify appropriate filters to the [`aiven_service_component` data source](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/service_component)
-for example:
+1. To find the correct `port` to use for a specific route, use the
+   [read-only `components`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/kafka#components-4)
+   list with appropriate filters in the [`aiven_service_component` data source](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/service_component)
 
-```hcl
-data "aiven_service_component" "sc1" {
-  project                     = aiven_kafka.example_project.project
-  service_name                = aiven_kafka.example_kafka.service_name
-  component                   = "kafka"
-  route                       = "dynamic"
-  kafka_authentication_method = "sasl"
-  kafka_ssl_ca                = "letsencrypt"
-}
-```
+   For example:
+
+   ```hcl
+   data "aiven_service_component" "sc1" {
+   project                     = aiven_kafka.example_project.project
+   service_name                = aiven_kafka.example_kafka.service_name
+   component                   = "kafka"
+   route                       = "dynamic"
+   kafka_authentication_method = "sasl"
+   kafka_ssl_ca                = "letsencrypt"
+   }
+   ```
 
 </TabItem>
 </Tabs>
 
 :::note
 
-- The public certificate is issued and validated by [Let's Encrypt](https://letsencrypt.org)
-(a widely trusted Certification Authority) for the service domain.
-For more information, see [How It Works](https://letsencrypt.org/how-it-works)
+- The public certificate is issued and validated by [Let's Encrypt](https://letsencrypt.org),
+  widely trusted certification authority. For details, see
+  [How It Works](https://letsencrypt.org/how-it-works)
 
-- When enabling public CA for SASL authentication via PrivateLink connection, the
-network can take several minutes to configure until clients are able to connect.
-This is due to the dynamical allocation of a new port, and corresponding update of
-the Load Balancer route table.
+- When enabling the public CA over a PrivateLink connection, network configuration may
+  take several minutes before clients can connect. A new port must be allocated and the
+  load balancer route table updated before clients can connect.
 
 :::
 
