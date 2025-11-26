@@ -186,6 +186,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="sasl_oauthbearer_allowed_urls"/><Link to="#sasl_oauthbearer_allowed_urls"><strong>sasl_oauthbearer_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Allowed URLs for SASL OAUTHBEARER</p>
+        <div className="description"><p>List of allowed URLs for SASL OAUTHBEARER authentication. Only HTTPS URLs are allowed for security reasons.</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="private_access"/><Link to="#private_access"><strong>private_access</strong></Link></p><p><code className="type">object</code></p></div>
         <p className="title">Allow access to selected service ports from private networks</p>
         
