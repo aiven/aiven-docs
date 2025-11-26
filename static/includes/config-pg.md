@@ -181,6 +181,17 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="enable_ha_replica_dns"/><Link to="#enable_ha_replica_dns"><strong>enable_ha_replica_dns</strong></Link></p><p><code className="type">boolean</code></p></div>
+        <p className="title">Enable HA replica DNS</p>
+        <div className="description"><p>Creates a dedicated read-only DNS that automatically falls back to the primary if standby nodes are unavailable. It switches back when a standby recovers.</p></div>
+        <table className="service-param-children">
+          <tbody>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="node_count"/><Link to="#node_count"><strong>node_count</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>100</code></li></ul></div>
         <p className="title">Number of nodes for the service</p>
         
