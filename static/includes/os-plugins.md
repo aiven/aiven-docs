@@ -1,47 +1,5 @@
 <!-- vale off -->
 
-## OpenSearch 3 plugins
-
-| Plugin name | Supported version |
-|-------------|-------------------|
-| analysis-icu | 3.0 |
-| analysis-kuromoji | 3.0 |
-| analysis-nori | 3.0 |
-| analysis-phonetic | 3.0 |
-| analysis-smartcn | 3.0 |
-| analysis-stempel | 3.0 |
-| analysis-ukrainian | 3.0 |
-| ingest-attachment | 3.0 |
-| mapper-murmur3 | 3.0 |
-| mapper-size | 3.0 |
-| opensearch-alerting | 3.0 |
-| opensearch-anomaly-detection | 3.0 |
-| opensearch-asynchronous-search | 3.0 |
-| opensearch-cross-cluster-replication | 3.0 |
-| opensearch-custom-codecs | 3.0 |
-| opensearch-flow-framework | 3.0 |
-| opensearch-geospatial | 3.0 |
-| opensearch-index-management | 3.0 |
-| opensearch-job-scheduler | 3.0 |
-| opensearch-knn | 3.0 |
-| opensearch-ltr | 3.0 |
-| opensearch-ml | 3.0 |
-| opensearch-neural-search | 3.0 |
-| opensearch-notifications | 3.0 |
-| opensearch-notifications-core | 3.0 |
-| opensearch-observability | 3.0 |
-| opensearch-performance-analyzer | 3.0 |
-| opensearch-reports-scheduler | 3.0 |
-| opensearch-search-relevance | 3.0 |
-| opensearch-security | 3.0 |
-| opensearch-security-analytics | 3.0 |
-| opensearch-skills | 3.0 |
-| opensearch-sql | 3.0 |
-| opensearch-system-templates | 3.0 |
-| opensearch-ubi | 3.0 |
-| query-insights | 3.0 |
-| repository-s3 | 3.0 |
-
 ## OpenSearch 2 plugins
 
 | Plugin name | Supported version |

@@ -82,14 +82,19 @@ async function generateMarkdown() {
       return;
     }
 
+    // Filter out OpenSearch version 3
+    const filteredVersions = json.opensearch.filter(
+      (osVersion) => osVersion.version !== '3',
+    );
+
     // Sort versions in decreasing order
-    json.opensearch.sort(
+    filteredVersions.sort(
       (a, b) => parseFloat(b.version) - parseFloat(a.version),
     );
 
     let markdownContent = '<!-- vale off -->\n\n';
 
-    json.opensearch.forEach((osVersion) => {
+    filteredVersions.forEach((osVersion) => {
       markdownContent += generateMarkdownTableForVersion(osVersion);
       markdownContent += '\n'; // Add spacing between tables
     });
@@ -102,4 +107,3 @@ async function generateMarkdown() {
 }
 
 generateMarkdown();
-
