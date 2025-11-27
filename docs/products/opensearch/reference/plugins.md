@@ -51,7 +51,23 @@ The **Notebooks** and **OpenSearch notification** plugins are part of
 **OpenSearch observability**.
 :::
 
-### Request a new plugin
+## Plugins per release
+
+Plugin availability and versions in Aiven for OpenSearch® vary by OpenSearch major version.
+Each plugin version corresponds to the OpenSearch core version.
+
+```math
+OpenSearch\_core\_version = OpenSearch\_plugin\_version
+```
+
+:::note[Example]
+OpenSearch 2.17 uses plugins version 2.17.
+:::
+
+See [plugins and plugin versions](/docs/products/opensearch/reference/list-of-plugins-for-each-version)
+available in each supported Aiven for OpenSearch release.
+
+## Request a new plugin
 
 To request a new plugin, submit an new idea through our [Aiven Ideas](https://ideas.aiven.io/)
 portal.
