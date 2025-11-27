@@ -80,7 +80,6 @@ const config: Config = {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       'data-document-language': 'true',
       type: 'text/javascript',
-      charset: 'UTF-8',
       'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
