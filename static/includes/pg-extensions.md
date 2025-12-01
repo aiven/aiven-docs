@@ -5,6 +5,7 @@
 | Extension name | Default version | Supported versions |
 |----------------|-----------------|--------------------|
 | aiven_extras | 1.1.18 | 1.1.18 |
+| anon | 2.4.1 | 2.4.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
 | btree_gin | 1.3 | 1.0, 1.1, 1.2, 1.3 |
@@ -30,6 +31,7 @@
 | pg_repack | 1.5.2 | 1.5.2 |
 | pg_stat_statements | 1.12 | 1.10, 1.11, 1.12, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 |
 | pg_trgm | 1.6 | 1.3, 1.4, 1.5, 1.6 |
+| pgaudit | 18.0 | 18.0 |
 | pgcrypto | 1.4 | 1.3, 1.4 |
 | pgrowlocks | 1.2 | 1.2 |
 | pgstattuple | 1.5 | 1.4, 1.5 |
@@ -54,7 +56,7 @@
 | address_standardizer | 3.5.0 | 3.3.5, 3.5.0 |
 | address_standardizer_data_us | 3.5.0 | 3.3.5, 3.5.0 |
 | aiven_extras | 1.1.18 | 1.1.18 |
-| anon | 2.2.1 | 2.2.1 |
+| anon | 2.4.1 | 2.4.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
 | btree_gin | 1.3 | 1.0, 1.1, 1.2, 1.3 |
@@ -103,7 +105,7 @@
 | sslinfo | 1.2 | 1.2 |
 | tablefunc | 1.0 | 1.0 |
 | tcn | 1.0 | 1.0 |
-| timescaledb | 2.21.3 | 2.17.2, 2.18.2, 2.19.3, 2.20.3, 2.21.3 |
+| timescaledb | 2.22.1 | 2.17.2, 2.18.2, 2.19.3, 2.20.3, 2.21.4, 2.22.1 |
 | tsm_system_rows | 1.0 | 1.0 |
 | tsm_system_time | 1.0 | 1.0 |
 | unaccent | 1.1 | 1.1 |
@@ -119,7 +121,7 @@
 | address_standardizer | 3.5.0 | 3.3.5, 3.5.0 |
 | address_standardizer_data_us | 3.5.0 | 3.3.5, 3.5.0 |
 | aiven_extras | 1.1.18 | 1.1.18 |
-| anon | 2.2.1 | 2.2.1 |
+| anon | 2.4.1 | 2.4.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
 | btree_gin | 1.3 | 1.0, 1.1, 1.2, 1.3 |
@@ -168,7 +170,7 @@
 | sslinfo | 1.2 | 1.2 |
 | tablefunc | 1.0 | 1.0 |
 | tcn | 1.0 | 1.0 |
-| timescaledb | 2.21.3 | 2.13.1, 2.14.2, 2.15.3, 2.16.1, 2.17.2, 2.18.2, 2.19.3, 2.20.3, 2.21.3 |
+| timescaledb | 2.22.1 | 2.13.1, 2.14.2, 2.15.3, 2.16.1, 2.17.2, 2.18.2, 2.19.3, 2.20.3, 2.21.4, 2.22.1 |
 | tsm_system_rows | 1.0 | 1.0 |
 | tsm_system_time | 1.0 | 1.0 |
 | unaccent | 1.1 | 1.1 |
@@ -184,7 +186,7 @@
 | address_standardizer | 3.3.5 | 3.2.6, 3.3.5 |
 | address_standardizer_data_us | 3.3.5 | 3.2.6, 3.3.5 |
 | aiven_extras | 1.1.18 | 1.1.18 |
-| anon | 2.2.1 | 2.2.1 |
+| anon | 2.4.1 | 2.4.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
 | btree_gin | 1.3 | 1.0, 1.1, 1.2, 1.3 |
@@ -234,7 +236,7 @@
 | sslinfo | 1.2 | 1.2 |
 | tablefunc | 1.0 | 1.0 |
 | tcn | 1.0 | 1.0 |
-| timescaledb | 2.21.3 | 2.10.3, 2.11.2, 2.12.2, 2.13.1, 2.14.2, 2.15.3, 2.16.1, 2.17.2, 2.18.2, 2.19.3, 2.20.3, 2.21.3, 2.9.3 |
+| timescaledb | 2.22.1 | 2.10.3, 2.11.2, 2.12.2, 2.13.1, 2.14.2, 2.15.3, 2.16.1, 2.17.2, 2.18.2, 2.19.3, 2.20.3, 2.21.4, 2.22.1, 2.9.3 |
 | tsm_system_rows | 1.0 | 1.0 |
 | tsm_system_time | 1.0 | 1.0 |
 | unaccent | 1.1 | 1.1 |
