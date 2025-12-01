@@ -738,6 +738,14 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
+            {
+              type: 'category',
+              label: 'Free tier',
+              items: [
+                'products/kafka/free-tier/kafka-free-tier',
+                'products/kafka/free-tier/create-free-tier-kafka-service',
+              ],
+            },
             'products/kafka/create-kafka-service',
             {
               type: 'category',
