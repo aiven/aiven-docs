@@ -77,6 +77,5 @@ Upgrades apply immediately. Paid services cannot be downgraded to the free tier.
 
 <RelatedPages />
 
-- [Free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
+- [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
-- [Upgrade a Kafka service](/docs/products/kafka/howto/upgrade-service)

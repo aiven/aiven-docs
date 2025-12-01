@@ -32,7 +32,7 @@ platforms and other common integrations.
 
 If you are new to Aiven for Apache Kafka®, explore these topics to get started:
 
-- [Free tier overview](/docs/products/kafka/free-tier/free-tier-overview): Learn about
+- [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier): Learn about
   the no-cost Kafka option for testing and early development.
 - [Create a Kafka service](/docs/products/kafka/create-kafka-service): Set up and
   configure your first Kafka service in Aiven.
