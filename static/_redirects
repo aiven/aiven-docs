@@ -99,7 +99,9 @@
 /platform/privatelink                                  /docs/platform/howto/use-aws-privatelinks
 /platform/reference/project-member-privileges          /docs/platform/concepts/permissions
 /platform/vpc                                          /docs/platform/howto/manage-vpc-peering
+# Aiven for AlloyDB Omni → Aiven for PostgreSQL redirects
 /products/alloydbomni/advanced-params                  /docs/products/alloydbomni/reference/advanced-params
+/products/alloydbomni                                  /docs/products/postgresql
 # Aiven for Caching → Aiven for Valkey redirects
 /products/caching                                                  /docs/products/valkey
 /products/caching/concepts                                         /docs/products/valkey
@@ -282,6 +284,7 @@
 /tools/cli/project                                         /docs/tools/cli
 /tools/cli/service                                         /docs/tools/cli/service-cli
 /tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics
+/tools/cli/service/alloydbomni                             /docs/tools/cli/service-cli
 /tools/cli/ticket                                          /docs/platform/howto/support
 /tools/cli/user/user-access-token                          /docs/tools/cli/user
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform
@@ -329,3 +332,4 @@
 /products/m3db/*                                           /docs/products/metrics
 /products/redis/*                                          /docs/products/valkey/:splat
 /products/caching/*                                        /docs/products/valkey/:splat
+/products/alloydbomni/*                                    /docs/products/postgresql

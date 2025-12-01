@@ -30,9 +30,6 @@ product portfolio.
 -   Aiven for PostgreSQL® with the TimescaleDB extension is your best
     choice if you already use PostgreSQL, require **SQL compatibility**
     and have a limited time series use case.
--   Aiven for AlloyDB Omni is a solid option for **PostgreSQL compatible**
-    workloads with a need for columnar analytical data and seamless AI
-    integration across any cloud.
 -   Aiven for Clickhouse® is your best choice when you need a high-prformance
     columnar time series database for OLAP workloads or a data analytics warehouse.
 
