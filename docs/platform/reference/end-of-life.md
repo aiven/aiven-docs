@@ -45,18 +45,8 @@ and data they hosted is inaccessible.
 
 **EOL date**: December 5, 2025
 
-### Service impact
-
-- **End of availability (EOA)**: September 5, 2025
-
-  After this date, you can no longer create new Aiven for AlloyDB Omni services. Existing
-  services continue to operate until the end of life (EOL) date but you cannot change
-  plans for these services.
-
-- **End of life (EOL)**: December 5, 2025
-
-  On this date, all active Aiven for AlloyDB Omni services are powered off and deleted,
-  making data from these services inaccessible.
+Since December 5, 2025, Aiven for AlloyDB Omni services are no longer available,
+and data they hosted is inaccessible.
 
 ### Migration options
 

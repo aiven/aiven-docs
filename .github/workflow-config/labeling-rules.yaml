@@ -5,10 +5,6 @@ platform:
   - changed-files:
       - any-glob-to-any-file: 'docs/platform/**'
 
-service/alloydbomni:
-  - changed-files:
-      - any-glob-to-any-file: 'docs/products/alloydbomni/**'
-
 service/clickhouse:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/clickhouse/**'

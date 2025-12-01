@@ -2,7 +2,7 @@ SCRIPTS         = ./scripts
 INCLUDESDIR      = ./static/includes
 
 # Generate config listing for a service type
-all-service-type-configs: service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-mysql service-type-config-opensearch service-type-config-pg service-type-config-dragonfly service-type-config-valkey service-type-config-alloydbomni
+all-service-type-configs: service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-mysql service-type-config-opensearch service-type-config-pg service-type-config-dragonfly service-type-config-valkey
 
 service-type-config-clickhouse:
 	node "$(SCRIPTS)/service_type_parser.js" "clickhouse" "$(INCLUDESDIR)/config-clickhouse.md"
@@ -36,9 +36,6 @@ service-type-config-pg:
 
 service-type-config-valkey:
 	node "$(SCRIPTS)/service_type_parser.js" "valkey" "$(INCLUDESDIR)/config-valkey.md"
-
-service-type-config-alloydbomni:
-	node "$(SCRIPTS)/service_type_parser.js" "alloydbomni" "$(INCLUDESDIR)/config-alloydbomni.md"
 
 cloud-list:
 	node "$(SCRIPTS)/clouds_parser.js" "$(INCLUDESDIR)/clouds-list.md"
