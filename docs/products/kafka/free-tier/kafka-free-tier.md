@@ -19,7 +19,7 @@ Use the free tier to:
 - Run small proof-of-concepts or demonstrations
 
 The free tier supports limited-scale workloads. For production use, longer retention, or
-features such as Apache Kafka Connect, choose a paid plan.id plan.
+features such as Apache Kafka Connect, choose a paid plan.
 
 ## What the free tier includes
 
