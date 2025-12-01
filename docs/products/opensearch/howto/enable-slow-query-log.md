@@ -7,14 +7,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Identify inefficient or time-consuming queries by enabling [slow query logging](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs) in your Aiven for OpenSearch® service. Slow query logging records queries that exceed a specified time threshold.
+Identify inefficient or time-consuming queries by enabling [slow query logging](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs) in your Aiven for OpenSearch® service.
+
+Slow query logging records queries that exceed a specified time threshold, helping you
+diagnose performance issues and optimize query patterns. This is an advanced feature for
+power users who need to deep dive into query performance analysis. You configure slow
+query logging using
+[advanced parameters](/docs/products/opensearch/reference/advanced-params) that control
+the logging behavior at the cluster level.
 
 :::important
-Both the log level and its corresponding threshold must be configured for slow query logging to work. Setting only the log level without a threshold will not generate any logs.
+Both the log level and its corresponding threshold must be configured for slow query
+logging to work. Setting only the log level without a threshold will not generate any logs.
 :::
 
 :::note
-Slow query logging can impact CPU performance. Start with a higher threshold value and monitor your service performance after enabling logging.
+Slow query logging can impact CPU performance. Start with a higher threshold value and
+monitor your service performance after enabling logging.
 :::
 
 ## Prerequisites
@@ -26,6 +35,16 @@ Slow query logging can impact CPU performance. Start with a higher threshold val
   - [Aiven API](/docs/tools/api) with a [personal token](/docs/platform/howto/create_authentication_token) or
   - [Aiven Provider for Terraform](/docs/tools/terraform) or
   - [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
+
+## About the configuration parameters
+
+Slow query logging uses two advanced configuration parameters:
+
+- **Log level** (`opensearch.cluster.search.request.slowlog.level`): Determines the
+  severity level for logged queries. Choose from `debug`, `info`, `trace`, or `warn`.
+- **Threshold** (`opensearch.cluster.search.request.slowlog.threshold.<level>`): Sets the
+  time limit for queries. Queries exceeding this time are logged. The threshold parameter
+  must match the log level you choose.
 
 ## Enable slow query logging
 
@@ -202,7 +221,8 @@ For more configuration options, see the
 
 ## View slow query logs
 
-After configuring slow query logging, view the logs in the [Aiven Console](https://console.aiven.io/):
+After configuring slow query logging, view the logs in the
+[Aiven Console](https://console.aiven.io/):
 
 1. Select your service.
 1. Click **Logs** in the sidebar.
@@ -220,10 +240,12 @@ Slow query log entries include:
 To capture more or fewer slow queries, adjust the threshold value:
 
 - **Lower the threshold** to capture more queries (for example, change from `10s` to `5s`)
-- **Raise the threshold** to capture only slower queries (for example, change from `10s` to `30s`)
+- **Raise the threshold** to capture only slower queries (for example, change from `10s` to
+  `30s`)
 
 :::tip
-Start with a higher threshold (such as `20s` to `30s`) and gradually lower it to avoid generating excessive logs.
+Start with a higher threshold (such as `20s` to `30s`) and gradually lower it to avoid
+generating excessive logs.
 :::
 
 ## Disable slow query logging
@@ -249,10 +271,23 @@ avn service update SERVICE_NAME \
 </TabItem>
 </Tabs>
 
-## Related pages
+## Alternative: Query Insights plugin
+
+For continuous query monitoring with less manual configuration, consider using the
+[Query Insights plugin](https://docs.opensearch.org/latest/observing-your-data/query-insights/index/).
+This plugin provides:
+
+- Automatic tracking of top N queries by CPU usage, latency, or memory
+- Query grouping and aggregation
+- Integration with OpenSearch Dashboards for visualization
+- Lower performance overhead compared to detailed slow query logging
+
+Configure Query Insights using the `search.insights.top_queries` advanced configuration
+parameters.
 
 <RelatedPages/>
 
 - [OpenSearch slow query logging documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs)
 - [Advanced parameters for Aiven for OpenSearch](/docs/products/opensearch/reference/advanced-params)
-- [OpenSearch top N queries](https://docs.opensearch.org/latest/observing-your-data/query-insights/top-n-queries/) - Alternative method for query monitoring
+- [OpenSearch Query Insights plugin](https://docs.opensearch.org/latest/observing-your-data/query-insights/index/)
+- [OpenSearch top N queries](https://docs.opensearch.org/latest/observing-your-data/query-insights/top-n-queries/)
