@@ -4,41 +4,41 @@
 
 | Plugin name | Supported version |
 |-------------|-------------------|
-| analysis-icu | 2.11 |
-| analysis-kuromoji | 2.11 |
-| analysis-nori | 2.11 |
-| analysis-phonetic | 2.11 |
-| analysis-smartcn | 2.11 |
-| analysis-stempel | 2.11 |
-| analysis-ukrainian | 2.11 |
-| ingest-attachment | 2.11 |
-| mapper-murmur3 | 2.11 |
-| mapper-size | 2.11 |
-| opensearch-alerting | 2.11 |
-| opensearch-anomaly-detection | 2.11 |
-| opensearch-asynchronous-search | 2.11 |
-| opensearch-cross-cluster-replication | 2.11 |
-| opensearch-custom-codecs | 2.11 |
-| opensearch-flow-framework | 2.11 |
-| opensearch-geospatial | 2.11 |
-| opensearch-index-management | 2.11 |
-| opensearch-job-scheduler | 2.11 |
-| opensearch-knn | 2.11 |
-| opensearch-ltr | 2.11 |
-| opensearch-ml | 2.11 |
-| opensearch-neural-search | 2.11 |
-| opensearch-notifications | 2.11 |
-| opensearch-notifications-core | 2.11 |
-| opensearch-observability | 2.11 |
-| opensearch-performance-analyzer | 2.11 |
-| opensearch-reports-scheduler | 2.11 |
-| opensearch-security | 2.11 |
-| opensearch-security-analytics | 2.11 |
-| opensearch-skills | 2.11 |
-| opensearch-sql | 2.11 |
-| opensearch-system-templates | 2.11 |
-| query-insights | 2.11 |
-| repository-s3 | 2.11 |
+| analysis-icu | 2.17, 2.19 |
+| analysis-kuromoji | 2.17, 2.19 |
+| analysis-nori | 2.17, 2.19 |
+| analysis-phonetic | 2.17, 2.19 |
+| analysis-smartcn | 2.17, 2.19 |
+| analysis-stempel | 2.17, 2.19 |
+| analysis-ukrainian | 2.17, 2.19 |
+| ingest-attachment | 2.17, 2.19 |
+| mapper-murmur3 | 2.17, 2.19 |
+| mapper-size | 2.17, 2.19 |
+| opensearch-alerting | 2.17, 2.19 |
+| opensearch-anomaly-detection | 2.17, 2.19 |
+| opensearch-asynchronous-search | 2.17, 2.19 |
+| opensearch-cross-cluster-replication | 2.17, 2.19 |
+| opensearch-custom-codecs | 2.17, 2.19 |
+| opensearch-flow-framework | 2.17, 2.19 |
+| opensearch-geospatial | 2.17, 2.19 |
+| opensearch-index-management | 2.17, 2.19 |
+| opensearch-job-scheduler | 2.17, 2.19 |
+| opensearch-knn | 2.17, 2.19 |
+| opensearch-ltr | 2.17, 2.19 |
+| opensearch-ml | 2.17, 2.19 |
+| opensearch-neural-search | 2.17, 2.19 |
+| opensearch-notifications | 2.17, 2.19 |
+| opensearch-notifications-core | 2.17, 2.19 |
+| opensearch-observability | 2.17, 2.19 |
+| opensearch-performance-analyzer | 2.17, 2.19 |
+| opensearch-reports-scheduler | 2.17, 2.19 |
+| opensearch-security | 2.17, 2.19 |
+| opensearch-security-analytics | 2.17, 2.19 |
+| opensearch-skills | 2.17, 2.19 |
+| opensearch-sql | 2.17, 2.19 |
+| opensearch-system-templates | 2.17, 2.19 |
+| query-insights | 2.17, 2.19 |
+| repository-s3 | 2.17, 2.19 |
 
 ## OpenSearch 1 plugins
 

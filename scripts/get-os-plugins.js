@@ -32,7 +32,7 @@ function fetchData(url) {
   });
 }
 
-// Helper function to extract major.minor version
+// Helper function to extract major.minor version from a single version string
 function getMajorMinorVersion(version) {
   if (!version) return 'N/A';
   const parts = version.split('.');
@@ -40,6 +40,29 @@ function getMajorMinorVersion(version) {
     return `${parts[0]}.${parts[1]}`;
   }
   return version;
+}
+
+// Helper function to process version(s) - handles single version, array, or comma-separated string
+function processVersions(versionData) {
+  if (!versionData) return 'N/A';
+
+  // If it's an array, process each version
+  if (Array.isArray(versionData)) {
+    return versionData.map((v) => getMajorMinorVersion(v)).join(', ');
+  }
+
+  // If it's a string that might contain commas, split and process each
+  if (typeof versionData === 'string') {
+    if (versionData.includes(',')) {
+      return versionData
+        .split(',')
+        .map((v) => getMajorMinorVersion(v.trim()))
+        .join(', ');
+    }
+    return getMajorMinorVersion(versionData);
+  }
+
+  return 'N/A';
 }
 
 // Function to generate a Markdown table for a specific OpenSearch version
@@ -56,9 +79,8 @@ function generateMarkdownTableForVersion(osVersion) {
   }
 
   osVersion.plugins.forEach((plugin) => {
-    const fullVersion = plugin.version || 'N/A';
-    const majorMinorVersion = getMajorMinorVersion(fullVersion);
-    markdown += `| ${plugin.name} | ${majorMinorVersion} |\n`;
+    const versions = processVersions(plugin.version || plugin.versions);
+    markdown += `| ${plugin.name} | ${versions} |\n`;
   });
 
   return markdown;
