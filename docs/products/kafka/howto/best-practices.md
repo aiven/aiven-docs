@@ -26,7 +26,8 @@ messages sequentially, which limits throughput. Too many partitions increase ove
 and reduce cluster efficiency. Because partition counts cannot be reduced, start with a
 number that supports parallel processing and increase it as needed.
 
-A maximum of 4,000 partitions per broker and 200,000 per cluster is recommended. For details, see this
+A maximum of 4,000 partitions per broker and 200,000 per cluster is recommended.
+For details, see this
 [Apache Kafka blog post](https://blogsarchive.apache.org/kafka/entry/apache-kafka-supports-more-partitions).
 Keep the total number of topics under 7,000.
 
