@@ -100,7 +100,6 @@
 /platform/reference/project-member-privileges          /docs/platform/concepts/permissions
 /platform/vpc                                          /docs/platform/howto/manage-vpc-peering
 # Aiven for AlloyDB Omni → Aiven for PostgreSQL redirects
-/products/alloydbomni/advanced-params                  /docs/products/alloydbomni/reference/advanced-params
 /products/alloydbomni                                  /docs/products/postgresql
 # Aiven for Caching → Aiven for Valkey redirects
 /products/caching                                                  /docs/products/valkey
