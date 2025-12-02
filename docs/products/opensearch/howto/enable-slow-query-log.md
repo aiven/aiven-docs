@@ -6,6 +6,7 @@ sidebar_label: Enable slow query logs
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Identify inefficient or time-consuming queries by enabling [slow query logging](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs) in your Aiven for OpenSearch® service.
 
@@ -52,9 +53,9 @@ Slow query logging uses two advanced configuration parameters:
 <TabItem value="gui" label="Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  On the **Services** page, select your Aiven for OpenSearch service.
-1.  On the **Service settings** page, scroll to the **Advanced configuration**
-    section and click **Configure**.
+1.  On the <ConsoleLabel name="Services"/> page, select your Aiven for OpenSearch service.
+1.  On the <ConsoleLabel name="service settings"/> page, scroll to the
+    **Advanced configuration** section and click **Configure**.
 1.  In the **Advanced configuration** window:
 
     1.  Click **Add configuration options**. From the list, select
@@ -224,8 +225,9 @@ For more configuration options, see the
 After configuring slow query logging, view the logs in the
 [Aiven Console](https://console.aiven.io/):
 
-1. Select your service.
-1. Click **Logs** in the sidebar.
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
+1.  On the <ConsoleLabel name="Services"/> page, select your Aiven for OpenSearch service.
+1. Click <ConsoleLabel name="logs"/> in the sidebar.
 1. Search for slow query entries using the search field or filter by log level.
 
 Slow query log entries include:
@@ -255,7 +257,9 @@ To disable slow query logging, set the threshold to `-1`:
 <Tabs groupId="config-methods">
 <TabItem value="gui" label="Console" default>
 
-1. Go to **Service settings** > **Advanced configuration**.
+1. Log in to the [Aiven Console](https://console.aiven.io/).
+1. On the <ConsoleLabel name="Services"/> page, select your Aiven for OpenSearch service.
+1. Go to <ConsoleLabel name="service settings"/> > **Advanced configuration**.
 1. Locate the threshold parameter you configured.
 1. Change its value to `-1`.
 1. Click **Save configuration**.
@@ -266,6 +270,84 @@ To disable slow query logging, set the threshold to `-1`:
 ```bash
 avn service update SERVICE_NAME \
   -c opensearch.cluster.search.request.slowlog.threshold.LEVEL=-1
+```
+
+Replace `SERVICE_NAME` with your service name and `LEVEL` with the log level you configured
+(for example, `warn`, `info`).
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Call the
+[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint:
+
+```bash {10}
+curl --request PUT \
+  --url "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
+  --header "Authorization: Bearer API_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "user_config": {
+      "opensearch": {
+        "cluster_search_request_slowlog": {
+          "threshold": {
+            "LEVEL": "-1"
+          }
+        }
+      }
+    }
+  }'
+```
+
+Replace `PROJECT_NAME`, `SERVICE_NAME`, `API_TOKEN`, and `LEVEL` with your values.
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+Update the threshold in your `aiven_opensearch` resource:
+
+```hcl {12}
+resource "aiven_opensearch" "example_opensearch" {
+  project      = var.aiven_project_name
+  cloud_name   = "google-europe-west1"
+  plan         = "startup-4"
+  service_name = "my-opensearch"
+
+  opensearch_user_config {
+    opensearch {
+      cluster_search_request_slowlog {
+        level = "warn"
+        threshold {
+          warn = "-1"
+        }
+      }
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+Update the threshold in your `OpenSearch` resource:
+
+```yaml {15}
+apiVersion: aiven.io/v1alpha1
+kind: OpenSearch
+metadata:
+  name: my-opensearch
+spec:
+  project: PROJECT_NAME
+  cloudName: google-europe-west1
+  plan: startup-4
+
+  userConfig:
+    opensearch:
+      cluster_search_request_slowlog:
+        level: warn
+        threshold:
+          warn: "-1"
 ```
 
 </TabItem>
