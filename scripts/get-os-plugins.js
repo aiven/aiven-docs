@@ -78,7 +78,12 @@ function generateMarkdownTableForVersion(osVersion) {
     return markdown;
   }
 
-  osVersion.plugins.forEach((plugin) => {
+  // Filter out plugins prefixed with "aiven-"
+  const filteredPlugins = osVersion.plugins.filter(
+    (plugin) => !plugin.name.startsWith('aiven-'),
+  );
+
+  filteredPlugins.forEach((plugin) => {
     const versions = processVersions(plugin.version || plugin.versions);
     markdown += `| ${plugin.name} | ${versions} |\n`;
   });
