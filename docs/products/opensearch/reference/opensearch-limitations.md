@@ -167,12 +167,14 @@ permissions.
 
 ## Reserved roles
 
-| Role name | Purpose | Can you modify it |
-|-----------|---------|-----------------|
-| `service_security_admin_access` | Grants access to security management API and dashboard | No |
-| `provider_service_user` | Base permissions for all service users | No |
-| `provider_index_all_access` | Full index access (when ACLs are disabled) | No |
-| `provider_managed_user_role_<username>` | Individual user permissions (when ACLs are enabled) | No |
+You cannot modify the reserved roles.
+
+| Role name | Purpose |
+|-----------|---------|
+| `service_security_admin_access` | Grants access to security management API and dashboard |
+| `provider_service_user` | Base permissions for all service users |
+| `provider_index_all_access` | Full index access (when ACLs are disabled) |
+| `provider_managed_user_role_<username>` | Individual user permissions (when ACLs are enabled) |
 
 ## Unsupported features
 
