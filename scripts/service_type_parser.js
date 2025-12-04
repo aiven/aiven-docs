@@ -7,6 +7,12 @@ const axios = require('axios');
 const fs = require('fs');
 const handlebars = require('handlebars');
 
+// Helper for escaping HTML entities
+handlebars.registerHelper('escapeHtml', function(text) {
+  if (!text) return '';
+  return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+});
+
 // Helper for formatting parameter details
 handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var name = options.hash.name;
@@ -87,7 +93,8 @@ handlebars.registerHelper('renderNestedProperties', function(properties, parentK
       html += `<p className="title">${value.title}</p>`;
     }
     if (value.description) {
-      html += `<div className="description"><p>${value.description}</p></div>`;
+      const escapedDescription = value.description.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      html += `<div className="description"><p>${escapedDescription}</p></div>`;
     }
     
     // Recursively render nested properties
@@ -167,8 +174,8 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
-        {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
-        {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
+        {{#if title~}}<p className="title">{{escapeHtml title}}</p>{{~/if}}
+        {{#if description~}}<div className="description"><p>{{escapeHtml description}}</p></div>{{~/if}}
         {{#if properties}}
         <table className="service-param-children">
           <tbody>
