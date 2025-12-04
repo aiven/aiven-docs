@@ -1,0 +1,253 @@
+---
+title: Aiven for OpenSearch® limits and limitations
+sidebar_label: Limits and limitations
+---
+
+import RelatedPages from "@site/src/components/RelatedPages";
+
+Aiven for OpenSearch® has configuration, API, and feature restrictions that differ from upstream OpenSearch to maintain service stability and security.
+
+## Service types
+
+Aiven for OpenSearch services use two authentication models:
+
+| Service type | Description | Current status |
+|--------------|-------------|----------------|
+| **Security plugin enabled** | Uses OpenSearch Security plugin for authentication and access control | Default for all new services |
+| **Legacy services** | Uses HAProxy for authentication and access control | Being phased out |
+
+:::note
+All services eventually migrate to use the Security plugin.
+:::
+
+## Configuration restrictions
+
+You cannot directly modify OpenSearch configuration files or settings in Aiven for
+OpenSearch. The following restrictions apply:
+
+| Restriction | Description |
+|-------------|-------------|
+| **No shell access** | You cannot access or modify YAML configuration files |
+| **JVM tuning** | You cannot modify JVM options directly |
+| **Advanced configuration** | Only supported options are available through **Advanced configuration** in the Aiven Console |
+| **Configuration files** | You cannot access or modify static configuration files |
+
+To request support for additional configuration options, contact Aiven support.
+
+## Connection requirements
+
+All connections to Aiven for OpenSearch must meet the following requirements:
+
+| Requirement | Details |
+|-------------|---------|
+| **Protocol** | HTTPS only |
+| **Authentication** | User authentication always required |
+| **Authorization** | Managed using Aiven ACLs or OpenSearch Security (when security management is enabled) |
+
+## API restrictions
+
+Aiven restricts access to certain OpenSearch APIs to maintain service stability and
+security. Attempting to access blocked endpoints returns a
+`403 Forbidden - Request forbidden by administrative rules` error.
+
+| API endpoint | Allowed methods | Restrictions |
+|--------------|-----------------|--------------|
+| `/_cluster/*` | `GET` only | Limited to specific read-only endpoints; all other `/_cluster/` endpoints are blocked |
+| `/_tasks` | `GET` only | View tasks only; you cannot cancel tasks using `/_tasks/_cancel` |
+| `/_nodes` | `GET` only | Read-only access to node information |
+| `/_snapshot` | None | Automated by Aiven; no direct access |
+| `/_cat/repositories` | None | No access allowed |
+
+### Allowed cluster endpoints
+
+You can access the following read-only cluster endpoints:
+
+- `/_cluster/allocation/explain/`
+- `/_cluster/health/`
+- `/_cluster/pending_tasks/`
+- `/_cluster/stats/`
+- `/_cluster/state/`
+- `/_cluster/settings/`
+
+## Snapshot management
+
+| Feature | Behavior |
+|---------|----------|
+| **Automated snapshots** | Daily or hourly snapshots managed automatically by Aiven |
+| **API access** | You cannot access the snapshot API directly |
+| **Custom repositories** | Available on request through Aiven support |
+| **Snapshot restoration** | Contact Aiven support for restoration |
+| **Dashboard limitations** | Dashboard suggestions for snapshot management that require configuration file changes cannot be completed |
+
+## Plugin restrictions
+
+You can only use pre-approved plugins with Aiven for OpenSearch.
+
+| Aspect | Details |
+|--------|---------|
+| **Supported plugins** | Only a defined set of plugins is available |
+| **Custom plugins** | You cannot install custom plugins |
+| **Plugin list** | See [available plugins](/docs/products/opensearch/reference/plugins) |
+
+To request support for additional plugins, contact Aiven support.
+
+## Access control models
+
+### Security management disabled (default)
+
+| Feature | Behavior |
+|---------|----------|
+| **User management** | You manage users through Aiven API, CLI, Console, or Terraform |
+| **Access control** | You configure access using Aiven ACLs |
+| **Permission scope** | Index-level access only |
+| **User equality** | All service users have equal privileges within their ACL permissions |
+| **Dashboard tenancy** | Private dashboards per user plus global dashboards |
+| **Password changes** | Password changes you make in the dashboard reset within 24 hours |
+
+### Security management enabled
+
+| Feature | Behavior |
+|---------|----------|
+| **User management** | You manage users directly in OpenSearch using Security API or dashboard |
+| **Access control** | You configure access using OpenSearch Security roles and permissions |
+| **Permission scope** | Document-level access control available |
+| **Dashboard tenancy** | Full multi-tenancy support |
+| **External authentication** | SAML and OpenID Connect supported |
+| **Aiven API support** | Limited; displays state at enablement time only |
+
+:::warning
+You cannot reverse security management after you enable it. Once enabled, you manage all
+users and permissions directly in OpenSearch.
+:::
+
+:::note
+The security plugin is always present in Aiven for OpenSearch. Security management is an
+additional feature you can enable to gain full control over security configurations.
+:::
+
+## ACL limitations
+
+### Legacy services (HAProxy-based)
+
+| Limitation | Impact |
+|------------|--------|
+| **URL-based only** | Controls only HTTP methods and URL paths |
+| **Index-level only** | Cannot control dashboard access |
+| **Top-level API rules ignored** | Rules like `_bulk/admin` are not enforced |
+
+### Security plugin services
+
+| ACL type | Behavior |
+|----------|----------|
+| **Index patterns** | Converted to OpenSearch Security roles with appropriate permissions |
+| **Top-level APIs** | Ignored; OpenSearch Security enforces index-level permissions |
+| **Access levels** | Mapped to predefined action groups (`admin`, `read`, `write`) |
+
+#### ACL access levels
+
+| ACL level | Permissions granted |
+|-----------|-------------------|
+| `admin` | Full access to matching indices |
+| `read` | Read-only access to matching indices |
+| `write` | Write access to matching indices |
+| `readwrite` | Read and write access to matching indices |
+
+## Reserved users
+
+Aiven creates and manages the following special users. You cannot delete or modify their
+permissions.
+
+| Username | Purpose |
+|----------|---------|
+| `avnadmin` | Default administrator user for your service |
+| `metrics_user_datadog` | Metrics collection by Datadog integration |
+| `osd_internal_user` | Internal OpenSearch Dashboards operations |
+| `replication_user` | Cross-cluster replication |
+| `os-sec-admin` | Security management access (created when you enable security management) |
+
+## Reserved roles
+
+| Role name | Purpose | Can you modify it |
+|-----------|---------|-----------------|
+| `service_security_admin_access` | Grants access to security management API and dashboard | No |
+| `provider_service_user` | Base permissions for all service users | No |
+| `provider_index_all_access` | Full index access (when ACLs are disabled) | No |
+| `provider_managed_user_role_<username>` | Individual user permissions (when ACLs are enabled) | No |
+
+## Unsupported features
+
+The following OpenSearch features are not supported in Aiven for OpenSearch:
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| **Machine Learning (ML)** | Not supported | Requires dedicated ML nodes; available on request |
+| **gRPC transport layer** | Not supported | High-speed data ingestion not available |
+| **Ingest pipelines management** | Not supported | You cannot manage ingest pipelines through Aiven |
+| **Data Prepper** | Not supported | Not available in managed service |
+| **Tiered storage** | Planned | Searchable snapshots planned for future release |
+
+To request support for ML features, contact Aiven support.
+
+## Known issues and limitations
+
+### Security dashboard
+
+| Issue | Description |
+|-------|-------------|
+| **Get started section** | Most content is not applicable to Aiven for OpenSearch; only multi-tenancy section applies |
+| **Configuration file instructions** | Dashboard help text references configuration file modifications that you cannot perform in managed services |
+| **Password changes** | When security management is disabled, password changes in the dashboard reset within 24 hours |
+
+### Security management
+
+| Issue | Description | Solution |
+|-------|-------------|----------|
+| **REST API permissions** | You cannot create roles with REST API permissions | Map your users to the `service_security_admin_access` role |
+| **Self-lockout** | You can unmap yourself from security admin role | Contact Aiven support to remap the `os-sec-admin` user |
+| **os-sec-admin deletion** | You cannot delete the `os-sec-admin` user | User remains but you can unmap it from admin role |
+
+### Permissions model
+
+| Behavior | Description |
+|----------|-------------|
+| **Multiple permissions per request** | Single API requests often require multiple permissions |
+| **Index creation** | Writing to non-existent index requires both write and create permissions |
+| **Error messages** | Permission errors specify the missing permission in `error.root_cause` |
+
+## Differences from upstream OpenSearch
+
+| Feature | Upstream OpenSearch | Aiven for OpenSearch |
+|---------|---------------------|----------------------|
+| **Configuration files** | Direct file access | You manage configuration using Advanced configuration options |
+| **Snapshot management** | Full API access | Automated; you cannot access the API directly |
+| **Security plugin** | Optional | Always enabled |
+| **User management** | Direct configuration | You manage users using Aiven tools or Security API (when security management is enabled) |
+| **Cluster settings** | Full API access | Limited to approved settings using Advanced configuration |
+| **Plugin installation** | Install any plugin | Only pre-approved plugins available |
+| **API access** | Full access to all APIs | Restricted access to certain management APIs |
+| **JVM tuning** | Direct access to JVM options | Not available |
+
+## Elasticsearch compatibility
+
+Aiven for OpenSearch diverged from Elasticsearch 7 and is not compatible with
+Elasticsearch-specific features.
+
+| Aspect | Details |
+|--------|---------|
+| **Client libraries** | You must use OpenSearch-compatible client libraries |
+| **APIs** | Elasticsearch-specific APIs are not supported |
+| **Query language** | Query syntax differs from Elasticsearch |
+| **Migration** | Verify compatibility when migrating from Elasticsearch |
+
+## Service tiers and quotas
+
+For information about service-specific limits based on your plan, see the following:
+
+- [Quotas for Business and Premium plans](https://aiven.io/pricing?tab=plan-pricing&product=opensearch)
+- [Plans comparison](https://aiven.io/pricing?tab=plan-comparison&product=opensearch)
+
+<RelatedPages/>
+
+- [Enable security management](/docs/products/opensearch/howto/enable-security-management)
+- [Manage access control lists](/docs/products/opensearch/howto/manage-acls)
+- [Available plugins](/docs/products/opensearch/reference/plugins)
