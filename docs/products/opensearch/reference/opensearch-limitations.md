@@ -248,6 +248,8 @@ For information about service-specific limits based on your plan, see the follow
 
 <RelatedPages/>
 
-- [Enable security management](/docs/products/opensearch/howto/enable-security-management)
-- [Manage access control lists](/docs/products/opensearch/howto/manage-acls)
+- [OpenSearch security](/docs/products/opensearch/concepts/os-security)
+- [Enable security management](/docs/products/opensearch/howto/enable-opensearch-security)
+- [Access control](/docs/products/opensearch/concepts/access_control)
+- [Manage access and access control lists](/docs/products/opensearch/howto/control_access_to_content)
 - [Available plugins](/docs/products/opensearch/reference/plugins)
