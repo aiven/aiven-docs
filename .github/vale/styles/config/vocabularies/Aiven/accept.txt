@@ -276,6 +276,8 @@ pooler
 PostgreSQL
 Postman
 preformatted
+prepper
+Prepper
 privatelink
 protoc
 Prometheus
@@ -370,6 +372,8 @@ uncompacted
 unencrypted
 unfollow
 United States
+unmap
+Unmap
 Unschedule
 untrusted
 UpCloud
