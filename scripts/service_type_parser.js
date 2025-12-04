@@ -18,7 +18,7 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var def = options.hash.def;
   var restart_warning = options.hash.restart_warning;
   var fullname = parent + '.' + name;
-  var fullnameid = fullname.replace('.', '_');
+  var fullnameid = fullname.replace(/\./g, '_');
 
   var html = '<div className="param">';
   var nestedParamName = '<strong>' + fullname + '</strong>';
@@ -55,6 +55,51 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
       '</ul></div>';
   }
 
+  return new handlebars.SafeString(html);
+});
+
+// Helper to recursively render nested properties
+handlebars.registerHelper('renderNestedProperties', function(properties, parentKey) {
+  if (!properties) return '';
+  
+  let html = '';
+  for (const [key, value] of Object.entries(properties)) {
+    const fullParent = parentKey ? `${parentKey}.${key}` : key;
+    
+    html += '<tr><td>';
+    
+    // Render parameter details
+    const detailsHelper = handlebars.helpers.parameterDetailsHelper;
+    html += detailsHelper({
+      hash: {
+        name: key,
+        parent: parentKey,
+        type: value.type,
+        minimum: value.minimum,
+        maximum: value.maximum,
+        def: value.default,
+        restart_warning: value['x-aiven-change-requires-restart']
+      }
+    });
+    
+    // Render title and description
+    if (value.title) {
+      html += `<p className="title">${value.title}</p>`;
+    }
+    if (value.description) {
+      html += `<div className="description"><p>${value.description}</p></div>`;
+    }
+    
+    // Recursively render nested properties
+    if (value.properties && Object.keys(value.properties).length > 0) {
+      html += '<table className="service-param-children"><tbody>';
+      html += handlebars.helpers.renderNestedProperties(value.properties, fullParent);
+      html += '</tbody></table>';
+    }
+    
+    html += '</td></tr>';
+  }
+  
   return new handlebars.SafeString(html);
 });
 
@@ -124,19 +169,13 @@ import Link from '@docusaurus/Link'
         {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
         {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
         {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
+        {{#if properties}}
         <table className="service-param-children">
           <tbody>
-          {{#each properties}}
-          <tr>
-            <td>
-              {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
-              {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
-              {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
-            </td>
-          </tr>
-          {{/each}}
+          {{{renderNestedProperties properties @key}}}
           </tbody>
         </table>
+        {{/if}}
       </td>
     </tr>
   {{/each}}
