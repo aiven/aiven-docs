@@ -11,19 +11,19 @@ Aiven for OpenSearch® has configuration, API, and feature restrictions that dif
 
 Aiven for OpenSearch services use two authentication models:
 
-| Service type | Description | Current status |
+| Service type | Description | Status |
 |--------------|-------------|----------------|
 | **Security plugin enabled** | Uses OpenSearch Security plugin for authentication and access control | Default for all new services |
 | **Legacy services** | Uses HAProxy for authentication and access control | Being phased out |
 
 :::note
-All services eventually migrate to use the Security plugin.
+All services migrate to use the Security plugin.
 :::
 
 ## Configuration restrictions
 
 You cannot directly modify OpenSearch configuration files or settings in Aiven for
-OpenSearch. The following restrictions apply:
+OpenSearch. These restrictions apply:
 
 | Restriction | Description |
 |-------------|-------------|
@@ -36,7 +36,7 @@ To request support for additional configuration options, contact Aiven support.
 
 ## Connection requirements
 
-All connections to Aiven for OpenSearch must meet the following requirements:
+All connections to Aiven for OpenSearch must meet these requirements:
 
 | Requirement | Details |
 |-------------|---------|
@@ -60,7 +60,7 @@ security. Attempting to access blocked endpoints returns a
 
 ### Allowed cluster endpoints
 
-You can access the following read-only cluster endpoints:
+You can access these read-only cluster endpoints:
 
 - `/_cluster/allocation/explain/`
 - `/_cluster/health/`
@@ -108,7 +108,7 @@ To request support for additional plugins, contact Aiven support.
 
 | Feature | Behavior |
 |---------|----------|
-| **User management** | You manage users directly in OpenSearch using Security API or dashboard |
+| **User management** | You manage users directly in OpenSearch using OpenSearch Security API or dashboard |
 | **Access control** | You configure access using OpenSearch Security roles and permissions |
 | **Permission scope** | Document-level access control available |
 | **Dashboard tenancy** | Full multi-tenancy support |
@@ -154,7 +154,7 @@ additional feature you can enable to gain full control over security configurati
 
 ## Reserved users
 
-Aiven creates and manages the following special users. You cannot delete or modify their
+Aiven creates and manages these special users. You cannot delete or modify their
 permissions.
 
 | Username | Purpose |
@@ -178,7 +178,7 @@ You cannot modify the reserved roles.
 
 ## Unsupported features
 
-The following OpenSearch features are not supported in Aiven for OpenSearch:
+These OpenSearch features are not supported in Aiven for OpenSearch:
 
 | Feature | Status | Notes |
 |---------|--------|-------|
@@ -186,7 +186,7 @@ The following OpenSearch features are not supported in Aiven for OpenSearch:
 | **gRPC transport layer** | Not supported | High-speed data ingestion not available |
 | **Ingest pipelines management** | Not supported | You cannot manage ingest pipelines through Aiven |
 | **Data Prepper** | Not supported | Not available in managed service |
-| **Tiered storage** | Planned | Searchable snapshots planned for future release |
+| **Tiered storage** | Not supported | Searchable snapshots planned for future release |
 
 To request support for ML features, contact Aiven support.
 
@@ -243,7 +243,7 @@ Elasticsearch-specific features.
 
 ## Service tiers and quotas
 
-For information about service-specific limits based on your plan, see the following:
+For information about service-specific limits based on your plan, see:
 
 - [Quotas for Business and Premium plans](https://aiven.io/pricing?tab=plan-pricing&product=opensearch)
 - [Plans comparison](https://aiven.io/pricing?tab=plan-comparison&product=opensearch)
