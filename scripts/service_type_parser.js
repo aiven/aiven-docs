@@ -157,14 +157,15 @@ handlebars.registerHelper('renderNestedProperties', function(properties, parentK
     // Render title and description intelligently
     html += handlebars.helpers.renderTitleDescription(value.title, value.description);
     
+    // Close the td/tr before nested table
+    html += '</td></tr>';
+    
     // Recursively render nested properties
     if (value.properties && Object.keys(value.properties).length > 0) {
-      html += '\n          <table className="service-param-children"><tbody>';
+      html += '\n          <tr><td><table className="service-param-children"><tbody>';
       html += handlebars.helpers.renderNestedProperties(value.properties, fullParent);
-      html += '\n          </tbody></table>';
+      html += '\n          </tbody></table></td></tr>';
     }
-    
-    html += '</td></tr>';
   }
   
   return new handlebars.SafeString(html);
