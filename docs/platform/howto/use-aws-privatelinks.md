@@ -33,7 +33,6 @@ need [AWS Management Console](https://aws.amazon.com/console) or
 :::note
 AWS PrivateLink is not supported for:
 
-- Aiven for AlloyDB Omni
 - Aiven for Apache Cassandra®
 - Aiven for Apache Flink®
 - Aiven for Apache Kafka® MirrorMaker 2
