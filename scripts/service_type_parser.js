@@ -72,7 +72,7 @@ handlebars.registerHelper('renderNestedProperties', function(properties, parentK
   for (const [key, value] of Object.entries(properties)) {
     const fullParent = parentKey ? `${parentKey}.${key}` : key;
     
-    html += '<tr><td>';
+    html += '\n          <tr><td>';
     
     // Render parameter details
     const detailsHelper = handlebars.helpers.parameterDetailsHelper;
@@ -99,9 +99,9 @@ handlebars.registerHelper('renderNestedProperties', function(properties, parentK
     
     // Recursively render nested properties
     if (value.properties && Object.keys(value.properties).length > 0) {
-      html += '<table className="service-param-children"><tbody>';
+      html += '\n          <table className="service-param-children"><tbody>';
       html += handlebars.helpers.renderNestedProperties(value.properties, fullParent);
-      html += '</tbody></table>';
+      html += '\n          </tbody></table>';
     }
     
     html += '</td></tr>';
