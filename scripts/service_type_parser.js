@@ -13,6 +13,72 @@ handlebars.registerHelper('escapeHtml', function(text) {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 });
 
+// Helper to render title and description intelligently
+handlebars.registerHelper('renderTitleDescription', function(title, description) {
+  if (!title && !description) return '';
+  
+  const titleStr = title ? String(title) : '';
+  const descStr = description ? String(description) : '';
+  
+  if (!titleStr && !descStr) return '';
+  if (!titleStr) {
+    const escaped = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<div className="description"><p>${escaped}</p></div>`);
+  }
+  if (!descStr) {
+    const escaped = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<p className="title">${escaped}</p>`);
+  }
+  
+  // Both exist - check for duplicates or overlap
+  const titleTrimmed = titleStr.trim();
+  const descTrimmed = descStr.trim();
+  
+  // If identical, show only title
+  if (titleTrimmed === descTrimmed) {
+    const escaped = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<p className="title">${escaped}</p>`);
+  }
+  
+  // Check if one contains the other
+  const titleLower = titleTrimmed.toLowerCase();
+  const descLower = descTrimmed.toLowerCase();
+  
+  // If title contains description, use only title
+  if (titleLower.includes(descLower)) {
+    const escaped = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<p className="title">${escaped}</p>`);
+  }
+  
+  // If description contains title, use only description
+  if (descLower.includes(titleLower)) {
+    const escaped = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<div className="description"><p>${escaped}</p></div>`);
+  }
+  
+  // Check for significant word overlap (more than 50% of title words in description)
+  const titleWords = titleLower.split(/\s+/).filter(w => w.length > 3); // Filter out short words
+  const descWords = descLower.split(/\s+/);
+  
+  if (titleWords.length > 0) {
+    const matchingWords = titleWords.filter(word => descWords.includes(word));
+    const overlapRatio = matchingWords.length / titleWords.length;
+    
+    // If more than 60% overlap, the description is likely an expansion of the title
+    if (overlapRatio > 0.6) {
+      const escaped = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return new handlebars.SafeString(`<div className="description"><p>${escaped}</p></div>`);
+    }
+  }
+  
+  // Both are different and needed
+  const escapedTitle = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const escapedDesc = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return new handlebars.SafeString(
+    `<p className="title">${escapedTitle}</p><div className="description"><p>${escapedDesc}</p></div>`
+  );
+});
+
 // Helper for formatting parameter details
 handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var name = options.hash.name;
@@ -88,14 +154,8 @@ handlebars.registerHelper('renderNestedProperties', function(properties, parentK
       }
     });
     
-    // Render title and description
-    if (value.title) {
-      html += `<p className="title">${value.title}</p>`;
-    }
-    if (value.description) {
-      const escapedDescription = value.description.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      html += `<div className="description"><p>${escapedDescription}</p></div>`;
-    }
+    // Render title and description intelligently
+    html += handlebars.helpers.renderTitleDescription(value.title, value.description);
     
     // Recursively render nested properties
     if (value.properties && Object.keys(value.properties).length > 0) {
@@ -174,8 +234,7 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
-        {{#if title~}}<p className="title">{{escapeHtml title}}</p>{{~/if}}
-        {{#if description~}}<div className="description"><p>{{escapeHtml description}}</p></div>{{~/if}}
+        {{{renderTitleDescription title description}}}
         {{#if properties}}
         <table className="service-param-children">
           <tbody>
