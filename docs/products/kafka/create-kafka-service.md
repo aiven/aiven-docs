@@ -1,6 +1,6 @@
 ---
 title: Create an Aiven for Apache Kafka® service
-sidebar_label: Create service
+sidebar_label: Create Kafka service
 keywords: [create, kafka, service, byoc, diskless]
 ---
 
