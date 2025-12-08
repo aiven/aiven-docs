@@ -69,7 +69,7 @@ To upgrade from the service overview:
 Or upgrade from service settings:
 
 1. In your service, click <ConsoleLabel name="servicesettings" />.
-1. In the **Service summart** section, click **Upgrade**.
+1. In the **Service summary** section, click **Upgrade**.
 1. Select a plan and click **Upgrade service**.
 
 Upgrades apply immediately. Paid services cannot be downgraded to the free tier.
