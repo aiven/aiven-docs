@@ -17,9 +17,9 @@ For details about throughput, topic limits, and feature restrictions, see
 
 - You need an Aiven project.
 - Only one free Kafka service is allowed per project or organization.
-- You can create a free tier service only from the
-  [Aiven Console](https://console.aiven.io). Programmatic creation using the Aiven CLI,
-  Aiven Provider for Terraform, or Aiven API is not supported.
+- You can create a free tier service from the [Aiven Console](https://console.aiven.io),
+  Aiven CLI, Aiven Provider for Terraform, or the Aiven API. When using API, CLI, or
+  Terraform, you must specify a supported cloud region.
 
 ## Create a free tier Kafka service
 
@@ -28,13 +28,13 @@ For details about throughput, topic limits, and feature restrictions, see
 1. Select **Aiven for Apache Kafka®**.
 1. In **Service tier**, select **Free**.
    The free tier includes:
-   - Throughput up to 250 KiB/s
-   - Storage up to 26 GB
-   - Up to 10 topics with one partition
+   - Throughput limits of up to 250 KiB/s for produce traffic and 250 KiB/s for consume
+     traffic
+   - Up to 5 topics with one partition
    - Kafka Connect not supported
 1. Review the **Cloud** section.
-   The cloud provider is fixed for the free tier. You can choose a region from the
-   limited list shown in the Console.
+   The cloud provider is fixed for the free tier. In the Console, you select from a
+   limited list of supported regions.
 1. In **Service basics**, enter a **Service name**.
 1. Review the **Service summary**.
 1. Click **Create service**.
@@ -69,11 +69,10 @@ To upgrade from the service overview:
 Or upgrade from service settings:
 
 1. In your service, click <ConsoleLabel name="servicesettings" />.
-1. In the **Service plan** section, click **Change plan**.
-1. Select a plan and click **Change plan**.
+1. In the **Service summart** section, click **Upgrade**.
+1. Select a plan and click **Upgrade service**.
 
 Upgrades apply immediately. Paid services cannot be downgraded to the free tier.
-
 
 <RelatedPages />
 

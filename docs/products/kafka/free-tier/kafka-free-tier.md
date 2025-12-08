@@ -18,8 +18,9 @@ Use the free tier to:
 - Test end-to-end message flow during early development
 - Run small proof-of-concepts or demonstrations
 
-The free tier supports limited-scale workloads. For production use, longer retention, or
-features such as Apache Kafka Connect, choose a paid plan.
+The free tier supports production-ready workloads at a small scale. If you need more
+topics, higher throughput, longer retention, or features such as Kafka Connect, upgrade
+to a paid plan.
 
 ## What the free tier includes
 
@@ -27,7 +28,7 @@ The free tier includes:
 
 - A managed Kafka cluster with a fixed configuration
 - Karapace Schema Registry
-- Approximately 26 GB of local storage per node
+- Streaming throughput up to 250 KiB/s for both inbound and outbound traffic
 - Sample data generation for testing message flow
 - Basic monitoring for metrics and logs
 
@@ -40,8 +41,9 @@ Free tier services have the following restrictions.
 
 ### Performance and capacity
 
-- Maximum throughput of 250 KiB/s total across all produce and consume operations
-- Up to 10 topics with 1 partition each
+- Throughput limits of up to 250 KiB/s for produce traffic and 250 KiB/s for consume
+  traffic
+- Up to 5 topics with one partition each
 - Fixed data retention settings
 - Limited number of users and ACLs
 
@@ -61,16 +63,18 @@ Free tier services have the following restrictions.
 - Free tier services are not covered by an SLA
 - The maintenance window is fixed
 - Additional disk storage cannot be added
-- Programmatic creation using the Aiven CLI, Aiven Provider for Terraform, or the Aiven
-  API is not supported
+- Free tier services can be created using the Aiven Console, Aiven CLI, Aiven Provider
+  for Terraform, or the Aiven API. When using API, CLI, or Terraform, you must specify a
+  supported cloud region.
 
 ## How free tier services operate
 
 Free tier Kafka services operate as follows:
 
 - **Idle shutdown:** If no data is produced or consumed for 24 hours, the service is
-  powered off automatically. You receive a notification before shutdown, and you can power on
-  the service from the Aiven Console.
+  powered off automatically. Free tier services may also be powered off after extended
+  periods of inactivity. You will receive a notification before shutdown, and you can
+  power on the service from the Aiven Console at any time.
 - **Leader election:** The service continues operating after a node failure by using a
   simplified leader election mode. This ensures availability for small, non-production
   workloads.
