@@ -29,7 +29,7 @@ logging to work. `level` controls which `threshold` is applied. Setting only the
         "trace": "1s",
         "debug": "10s",
         "info": "30s",
-         "warn": "60s"
+        "warn": "60s"
     }
 }
 ```
