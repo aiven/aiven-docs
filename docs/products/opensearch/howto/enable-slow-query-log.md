@@ -76,15 +76,15 @@ Slow query logging uses two advanced configuration parameters:
     1.  Click **Add configuration options**. From the list, select
         `opensearch.cluster.search.request.slowlog.level`.
     1.  Set the value to one of the following: `debug`, `info`, `trace`, or `warn`.
-    1.  Click **Add configuration options**. From the list, select a threshold
-        configuration option:
+    1.  Click **Add configuration options**. From the list, select threshold
+        configuration options:
 
-        - `opensearch.cluster.search.request.slowlog.threshold.debug` and/or
-        - `opensearch.cluster.search.request.slowlog.threshold.info` and/or
-        - `opensearch.cluster.search.request.slowlog.threshold.trace` and/or
+        - `opensearch.cluster.search.request.slowlog.threshold.debug`
+        - `opensearch.cluster.search.request.slowlog.threshold.info`
+        - `opensearch.cluster.search.request.slowlog.threshold.trace`
         - `opensearch.cluster.search.request.slowlog.threshold.warn`
 
-    1.  Set the threshold value as a number followed by a time unit with no space.
+    1.  Set each threshold value as a number followed by a time unit with no space.
         Queries exceeding this time will be logged. Start with a higher value like `10s`
         or `20s` and adjust based on your needs.
 
@@ -243,9 +243,6 @@ For more configuration options, see the
 
 ## View slow query logs
 
-To view slow query logs,
-[enable the logs integration](/docs/products/opensearch/howto/opensearch-log-integration#enable-log-integration).
-
 After configuring slow query logging, view the logs in the
 [Aiven Console](https://console.aiven.io/):
 
@@ -260,6 +257,9 @@ Slow query log entries include:
 - Query details
 - Index name
 - Number of shards queried
+
+To send logs to another Aiven for OpenSearch service, see
+[Enable logs integration](/docs/products/opensearch/howto/opensearch-log-integration#enable-log-integration).
 
 ## Adjust the threshold
 
