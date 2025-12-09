@@ -62,7 +62,7 @@ You can access these read-only cluster endpoints:
 |---------|----------|
 | **Automated snapshots** | Daily or hourly snapshots managed automatically by Aiven |
 | **API access** | You cannot access the snapshot API directly without configuring custom repositories |
-| **OpenSearch API** | <ul><li>Restore from snapshot has security-related restrictions.</li><li>Create and delete snapshot operations are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).</li></ul> |
+| **OpenSearch API** | <ul><li>[Restore from snapshot](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots) has [security-related restrictions](https://docs.opensearch.org/docs/2.19/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).</li><li>[Create a snapshot](/docs/products/opensearch/howto/manage-snapshots#create-a-snapshot) and [delete a snapshot](/docs/products/opensearch/howto/manage-snapshots#delete-a-snapshot) are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).</li></ul> |
 | **Dashboard limitations** | Dashboard suggestions for snapshot management that require configuration file changes cannot be completed |
 
 See
