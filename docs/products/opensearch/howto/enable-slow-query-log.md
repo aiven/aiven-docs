@@ -243,7 +243,8 @@ For more configuration options, see the
 
 ## View slow query logs
 
-To view slow query logs, enable the logs integration.
+To view slow query logs,
+[enable the logs integration](/docs/products/opensearch/howto/opensearch-log-integration#enable-log-integration).
 
 After configuring slow query logging, view the logs in the
 [Aiven Console](https://console.aiven.io/):
