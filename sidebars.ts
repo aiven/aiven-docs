@@ -1692,6 +1692,7 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/handle-low-disk-space',
                     'products/opensearch/howto/resolve-shards-too-large',
                     'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                    'products/opensearch/howto/enable-slow-query-log',
                   ],
                 },
                 {
