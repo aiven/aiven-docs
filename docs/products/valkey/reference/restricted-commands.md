@@ -14,8 +14,6 @@ Commands you cannot use in Aiven for Valkey™ are the following:
 -   `failover`: Manages manual failover of a master to a replica.
 -   `migrate`: Atomically transfers a key from a Valkey instance to
     another one.
--   `role`: Returns the role of the instance in the context of
-    replication.
 -   `slaveof`: Makes the server a replica of another instance, or
     promotes it as master.
 -   `acl`: Manages Valkey Access Control Lists.
