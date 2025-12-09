@@ -18,9 +18,8 @@ Use the free tier to:
 - Test end-to-end message flow during early development
 - Run small proof-of-concepts or demonstrations
 
-The free tier supports production-ready workloads at a small scale. If you need more
-topics, higher throughput, longer retention, or features such as Kafka Connect, upgrade
-to a paid plan.
+The free tier supports limited-scale workloads. For production use, longer retention, or
+features such as Apache Kafka Connect, choose a paid plan.
 
 ## What the free tier includes
 
@@ -28,7 +27,7 @@ The free tier includes:
 
 - A managed Kafka cluster with a fixed configuration
 - Karapace Schema Registry
-- Streaming throughput up to 250 KiB/s for both inbound and outbound traffic
+- Streaming throughput up to 250 KiB/s total (125 KiB/s ingress and 125 KiB/s egress)
 - Sample data generation for testing message flow
 - Basic monitoring for metrics and logs
 
@@ -41,7 +40,7 @@ Free tier services have the following restrictions.
 
 ### Performance and capacity
 
-- Throughput limits of up to 250 KiB/s for produce traffic and 250 KiB/s for consume
+- Throughput limits of up to 125 KiB/s for produce traffic and 125 KiB/s for consume
   traffic
 - Up to 5 topics with one partition each
 - Fixed data retention settings

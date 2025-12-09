@@ -15,11 +15,8 @@ For details about throughput, topic limits, and feature restrictions, see
 
 ## Prerequisites
 
-- You need an Aiven project.
-- Only one free Kafka service is allowed per project or organization.
-- You can create a free tier service from the [Aiven Console](https://console.aiven.io),
-  Aiven CLI, Aiven Provider for Terraform, or the Aiven API. When using API, CLI, or
-  Terraform, you must specify a supported cloud region.
+- An Aiven account (sign up or sign in at https://console.aiven.io)
+- An Aiven project
 
 ## Create a free tier Kafka service
 
@@ -28,21 +25,25 @@ For details about throughput, topic limits, and feature restrictions, see
 1. Select **Aiven for Apache Kafka®**.
 1. In **Service tier**, select **Free**.
    The free tier includes:
-   - Throughput limits of up to 250 KiB/s for produce traffic and 250 KiB/s for consume
+   - Throughput limits of up to 125 KiB/s for produce traffic and 125 KiB/s for consume
      traffic
    - Up to 5 topics with one partition
    - Kafka Connect not supported
 1. Review the **Cloud** section.
-   The cloud provider is fixed for the free tier. In the Console, you select from a
-   limited list of supported regions.
+   The cloud provider is fixed for the free tier. The Console shows a limited set of
+   supported regions.
 1. In **Service basics**, enter a **Service name**.
 1. Review the **Service summary**.
 1. Click **Create service**.
 
 When the status changes to **Running**, your free tier Kafka service is ready to use.
 
-To stream sample data, see
+To stream sample data, use the sample data generator in the Console. It produces test
+messages to your Kafka service. For details, see
 [Generate sample data for Aiven for Apache Kafka®](/docs/products/kafka/howto/generate-sample-data).
+
+To connect your application, use **Quick connect** to get setup steps and sample code for
+common programming languages.
 
 ## After service creation
 
