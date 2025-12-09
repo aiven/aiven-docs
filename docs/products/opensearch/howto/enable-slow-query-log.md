@@ -18,8 +18,23 @@ query logging using
 the logging behavior at the cluster level.
 
 :::important
-Both the log level and its corresponding threshold must be configured for slow query
-logging to work. Setting only the log level without a threshold will not generate any logs.
+Both the log `level` and its corresponding `threshold` must be configured for slow query
+logging to work. `level` controls which `threshold` is applied. Setting only the log
+`level` without a `threshold` will not generate any logs.
+
+```json {2,3}
+"slowlog": {
+    "level": "info",
+    "threshold": {
+        "trace": "1s",
+        "debug": "10s",
+        "info": "30s",
+         "warn": "60s"
+    }
+}
+```
+
+In this example, `info` and `warn` level messages can appear in logs.
 :::
 
 :::note
@@ -44,7 +59,7 @@ Slow query logging uses two advanced configuration parameters:
 - **Log level** (`opensearch.cluster.search.request.slowlog.level`): Determines the
   severity level for logged queries. Choose from `debug`, `info`, `trace`, or `warn`.
 - **Threshold** (`opensearch.cluster.search.request.slowlog.threshold.<level>`): Sets the
-  time limit for queries. Queries exceeding this time are logged. The threshold parameter
+  time limit for queries. Queries exceeding this time are logged. The threshold parameters
   must match the log level you choose.
 
 ## Enable slow query logging
@@ -61,12 +76,12 @@ Slow query logging uses two advanced configuration parameters:
     1.  Click **Add configuration options**. From the list, select
         `opensearch.cluster.search.request.slowlog.level`.
     1.  Set the value to one of the following: `debug`, `info`, `trace`, or `warn`.
-    1.  Click **Add configuration options**. From the list, select the threshold
-        that matches your chosen log level:
+    1.  Click **Add configuration options**. From the list, select a threshold
+        configuration option:
 
-        - `opensearch.cluster.search.request.slowlog.threshold.debug`
-        - `opensearch.cluster.search.request.slowlog.threshold.info`
-        - `opensearch.cluster.search.request.slowlog.threshold.trace`
+        - `opensearch.cluster.search.request.slowlog.threshold.debug` and/or
+        - `opensearch.cluster.search.request.slowlog.threshold.info` and/or
+        - `opensearch.cluster.search.request.slowlog.threshold.trace` and/or
         - `opensearch.cluster.search.request.slowlog.threshold.warn`
 
     1.  Set the threshold value as a number followed by a time unit with no space.
@@ -90,8 +105,9 @@ to configure slow query logging:
 
 ```bash
 avn service update SERVICE_NAME \
-  -c opensearch.cluster.search.request.slowlog.level=LEVEL \
-  -c opensearch.cluster.search.request.slowlog.threshold.LEVEL=THRESHOLD
+  -c opensearch.cluster.search.request.slowlog.level=LEVEL_A \
+  -c opensearch.cluster.search.request.slowlog.threshold.LEVEL_A=THRESHOLD_A \
+  -c opensearch.cluster.search.request.slowlog.threshold.LEVEL_B=THRESHOLD_B \
 ```
 
 Parameters:
@@ -104,8 +120,9 @@ Example:
 
 ```bash
 avn service update my-opensearch \
-  -c opensearch.cluster.search.request.slowlog.level=warn \
-  -c opensearch.cluster.search.request.slowlog.threshold.warn=10s
+  -c opensearch.cluster.search.request.slowlog.level=info \
+  -c opensearch.cluster.search.request.slowlog.threshold.info=10s \
+  -c opensearch.cluster.search.request.slowlog.threshold.warn=30s
 ```
 
 </TabItem>
@@ -126,7 +143,11 @@ curl --request PUT \
         "cluster_search_request_slowlog": {
           "level": "LEVEL",
           "threshold": {
-            "LEVEL": "THRESHOLD"
+              "warn": "TIME_LIMIT",
+              "info": "TIME_LIMIT",
+              "trace": "TIME_LIMIT",
+              "debug": "TIME_LIMIT",
+            }
           }
         }
       }
@@ -222,6 +243,8 @@ For more configuration options, see the
 
 ## View slow query logs
 
+To view slow query logs, enable the logs integration.
+
 After configuring slow query logging, view the logs in the
 [Aiven Console](https://console.aiven.io/):
 
@@ -260,7 +283,7 @@ To disable slow query logging, set the threshold to `-1`:
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. On the <ConsoleLabel name="Services"/> page, select your Aiven for OpenSearch service.
 1. Go to <ConsoleLabel name="service settings"/> > **Advanced configuration**.
-1. Locate the threshold parameter you configured.
+1. Locate the threshold parameters you configured.
 1. Change its value to `-1`.
 1. Click **Save configuration**.
 
