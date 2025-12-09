@@ -19,7 +19,7 @@ Use the free tier to:
 - Run small proof-of-concepts or demonstrations
 
 The free tier supports limited-scale workloads. For production use, longer retention, or
-features such as Apache Kafka Connect, choose a paid plan.
+features such as Aiven for Apache Kafka® Connect, choose a paid plan.
 
 ## What the free tier includes
 
@@ -48,8 +48,8 @@ Free tier services have the following restrictions.
 
 ### Features not available
 
-- Apache Kafka Connect
-- Apache MirrorMaker 2
+- Aiven for Apache Kafka® Connect
+- Aiven for Apache Kafka® MirrorMaker 2
 - Tiered storage
 - Service integrations such as logs, metrics, and authentication
 - Custom configuration for certain Kafka settings
@@ -57,14 +57,13 @@ Free tier services have the following restrictions.
 ### Service restrictions
 
 - One free Kafka service per project or organization
-- Paid services cannot be downgraded to the free tier
-- Cloud provider is fixed, with a limited set of regions
+- Paid services cannot be reverted to the free tier
+- Cloud provider is fixed with a limited set of regions
 - Free tier services are not covered by an SLA
-- The maintenance window is fixed
+- Maintenance window is fixed
 - Additional disk storage cannot be added
-- Free tier services can be created using the Aiven Console, Aiven CLI, Aiven Provider
-  for Terraform, or the Aiven API. When using API, CLI, or Terraform, you must specify a
-  supported cloud region.
+- Creation available only through the Aiven Console; CLI, Terraform, and API support
+  may be added later
 
 ## How free tier services operate
 
