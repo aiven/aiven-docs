@@ -7,19 +7,6 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for OpenSearch® has configuration, API, and feature restrictions that differ from upstream OpenSearch to maintain service stability and security.
 
-## Service types
-
-Aiven for OpenSearch services use two authentication models:
-
-| Service type | Description | Status |
-|--------------|-------------|----------------|
-| **Security plugin enabled** | Uses OpenSearch Security plugin for authentication and access control | Default for all new services |
-| **Legacy services** | Uses HAProxy for authentication and access control | Being phased out |
-
-:::note
-All services migrate to use the Security plugin.
-:::
-
 ## Configuration restrictions
 
 You cannot directly modify OpenSearch configuration files or settings in Aiven for
@@ -74,10 +61,13 @@ You can access these read-only cluster endpoints:
 | Feature | Behavior |
 |---------|----------|
 | **Automated snapshots** | Daily or hourly snapshots managed automatically by Aiven |
-| **API access** | You cannot access the snapshot API directly |
-| **Custom repositories** | Available on request through Aiven support |
-| **Snapshot restoration** | Contact Aiven support for restoration |
+| **API access** | You cannot access the snapshot API directly without configuring custom repositories |
+| **OpenSearch API** | <ul><li>Restore from snapshot has security-related restrictions.</li><li>Create and delete snapshot operations are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).</li></ul> |
 | **Dashboard limitations** | Dashboard suggestions for snapshot management that require configuration file changes cannot be completed |
+
+See
+[snapshot management limitations](/docs/products/opensearch/howto/manage-snapshots#limitations)
+for details.
 
 ## Plugin restrictions
 
@@ -126,14 +116,6 @@ additional feature you can enable to gain full control over security configurati
 :::
 
 ## ACL limitations
-
-### Legacy services (HAProxy-based)
-
-| Limitation | Impact |
-|------------|--------|
-| **URL-based only** | Controls only HTTP methods and URL paths |
-| **Index-level only** | Cannot control dashboard access |
-| **Top-level API rules ignored** | Rules like `_bulk/admin` are not enforced |
 
 ### Security plugin services
 
