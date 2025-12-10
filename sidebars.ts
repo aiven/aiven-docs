@@ -765,7 +765,19 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Core concepts',
+                  label: 'Inkless',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/concepts/inkless',
+                  },
+                  items: [
+                    'products/kafka/concepts/inkless-aku',
+                    'products/kafka/concepts/inkless-billing',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Kafka fundamentals',
                   items: [
                     'products/kafka/concepts/partition-segments',
                     'products/kafka/concepts/log-compaction',
@@ -775,18 +787,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/kafka-rest-api',
                   ],
                 },
-                {
-                  type: 'category',
-                  label: 'Operating Kafka with Aiven',
-                  items: [
-                    'products/kafka/concepts/upgrade-procedure',
-                    'products/kafka/concepts/horizontal-vertical-scaling',
-                    'products/kafka/concepts/configuration-backup',
-                    'products/kafka/concepts/monitor-consumer-group',
-                    'products/kafka/concepts/consumer-lag-predictor',
-                    'products/kafka/concepts/follower-fetching',
-                  ],
-                },
+
                 {
                   type: 'category',
                   label: 'Diskless topics',
@@ -820,7 +821,18 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/concepts/kraft-mode',
               ],
             },
-
+            {
+              type: 'category',
+              label: 'Operate Kafka on Aiven',
+              items: [
+                'products/kafka/concepts/upgrade-procedure',
+                'products/kafka/concepts/horizontal-vertical-scaling',
+                'products/kafka/concepts/configuration-backup',
+                'products/kafka/concepts/monitor-consumer-group',
+                'products/kafka/concepts/consumer-lag-predictor',
+                'products/kafka/concepts/follower-fetching',
+              ],
+            },
             {
               type: 'category',
               label: 'How to',
