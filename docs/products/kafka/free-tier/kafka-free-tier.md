@@ -42,7 +42,7 @@ Free tier services have the following restrictions.
 
 - Throughput limits of up to 125 KiB/s for produce traffic and 125 KiB/s for consume
   traffic
-- Up to 5 topics with one partition each
+- Up to 5 topics, each with two partitions
 - Fixed data retention settings
 - Limited number of users and ACLs
 

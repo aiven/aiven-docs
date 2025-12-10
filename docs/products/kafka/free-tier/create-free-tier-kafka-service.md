@@ -27,7 +27,7 @@ For details about throughput, topic limits, and feature restrictions, see
    The free tier includes:
    - Throughput limits of up to 125 KiB/s for produce traffic and 125 KiB/s for consume
      traffic
-   - Up to 5 topics with one partition
+   - Up to 5 topics, each with two partitions
    - Karapace Schema Registry and REST Proxy
 1. Review the **Cloud** section.
    The cloud provider is fixed for the free tier. The console shows a limited set of
