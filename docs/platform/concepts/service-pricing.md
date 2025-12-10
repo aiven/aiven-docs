@@ -48,9 +48,12 @@ to a more appropriately sized VM if one becomes available from the cloud provide
 
 ### Free plan
 
-The Free plan is available for Aiven for PostgreSQL®, Aiven for MySQL, and
-Aiven for Valkey™ services. You don't need a credit card to sign up and you can use them
-indefinitely free of charge.
+The Free plan is available for Aiven for PostgreSQL®, Aiven for Apache Kafka®,
+Aiven for MySQL, and Aiven for Valkey™ services. You don't need a credit card to sign up
+and you can use them indefinitely free of charge.
+
+For Aiven for Apache Kafka®, the free tier includes specific limits and features. For
+details, see [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier).
 
 Free services include:
 
