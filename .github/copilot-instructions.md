@@ -52,11 +52,10 @@ These rules must be followed in all documentation.
 - **[CRITICAL]** Don't use ampersands (&) or "and/or".
 - **[CRITICAL]** Don't use Latin abbreviations
   - **Avoid**: "i.e." and "e.g."
-  - **Use**: "that is" not "i.e."
+  - **Use**: "that is" and "for example"
 - **[CRITICAL]** Avoid language that is ableist, violent or militaristic, and divisive social/political terms.
   - **Examples to avoid**: "blind spot", "kill the process", "master/slave", "sanity check"
   - **Use instead**: "gap", "stop the process", "primary/secondary", "consistency check"
-- **[MEDIUM]** Avoid temporal words.
   - **Examples to avoid**: "now", "currently", "in the future", "yet", and "eventually"
 - **[MEDIUM]** Avoid directional language
   - **Examples to avoid**: "above", "below" and "to the right"
