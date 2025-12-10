@@ -738,14 +738,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            {
-              type: 'category',
-              label: 'Free tier',
-              items: [
-                'products/kafka/free-tier/kafka-free-tier',
-                'products/kafka/free-tier/create-free-tier-kafka-service',
-              ],
-            },
             'products/kafka/create-kafka-service',
             {
               type: 'category',
@@ -766,10 +758,7 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Inkless',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/concepts/inkless',
-                  },
+                  link: {type: 'doc', id: 'products/kafka/concepts/inkless'},
                   items: [
                     'products/kafka/concepts/inkless-aku',
                     'products/kafka/concepts/inkless-billing',
@@ -787,7 +776,6 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/kafka-rest-api',
                   ],
                 },
-
                 {
                   type: 'category',
                   label: 'Diskless topics',
@@ -816,21 +804,23 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/tiered-storage-limitations',
                   ],
                 },
+
                 'products/kafka/concepts/governance-overview',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/concepts/kraft-mode',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Operate Kafka on Aiven',
-              items: [
-                'products/kafka/concepts/upgrade-procedure',
-                'products/kafka/concepts/horizontal-vertical-scaling',
-                'products/kafka/concepts/configuration-backup',
-                'products/kafka/concepts/monitor-consumer-group',
-                'products/kafka/concepts/consumer-lag-predictor',
-                'products/kafka/concepts/follower-fetching',
+
+                {
+                  type: 'category',
+                  label: 'Operate Kafka on Aiven', // label is fine!
+                  items: [
+                    'products/kafka/concepts/upgrade-procedure',
+                    'products/kafka/concepts/horizontal-vertical-scaling',
+                    'products/kafka/concepts/configuration-backup',
+                    'products/kafka/concepts/monitor-consumer-group',
+                    'products/kafka/concepts/consumer-lag-predictor',
+                    'products/kafka/concepts/follower-fetching',
+                  ],
+                },
               ],
             },
             {
@@ -1712,7 +1702,6 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/handle-low-disk-space',
                     'products/opensearch/howto/resolve-shards-too-large',
                     'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
-                    'products/opensearch/howto/enable-slow-query-log',
                   ],
                 },
                 {
@@ -1732,8 +1721,8 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/opensearch/reference/plugins',
-                'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/advanced-params',
+
                 'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
                 'products/opensearch/howto/os-metrics',
@@ -1974,7 +1963,6 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/concepts/lua-scripts',
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/concepts/read-replica',
-                'products/valkey/concepts/valkey-cluster',
               ],
             },
             {
