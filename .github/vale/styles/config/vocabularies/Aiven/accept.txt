@@ -1,11 +1,15 @@
 188
 ACL
 ACLs
+ACU
+ACUs
 Addons
 africa
 AIInsights
 Aiven
 Aiven's
+AKU
+AKUs
 allowlist
 allowlists
 Altinity
@@ -140,7 +144,6 @@ GitHub
 go
 Google Cloud Platform
 google_columnar_engine_enabled
-google_columnar_engine_enabled
 google_columnar_engine_memory_size_percentage
 Gzipped
 gzipped
@@ -169,6 +172,7 @@ hypertables
 IdP
 IdPs
 InfluxDB
+Inkless
 InnoDB
 inodes
 Instana
@@ -259,7 +263,6 @@ pg_dump
 pgAdmin
 PGAudit
 PgBouncer
-pg_dump
 PGHoard
 pglookout
 pgoutput
