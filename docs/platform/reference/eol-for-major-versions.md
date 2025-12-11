@@ -120,23 +120,15 @@ the upstream open source project's EOL.
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
-Starting with v2.5, Aiven for Kafka® versions will reach EOL one year
-after they are made available on the Aiven platform.
+Aiven for Apache Kafka® versions reach end of life (EOL) one year after they become
+available on the Aiven platform.
 
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 3.0     | 2022-11-22 | 2022-07-04                       | 2021-11-22                      |
-| 3.1     | 2023-02-14 | 2022-10-26                       | 2022-02-14                      |
-| 3.2     | 2023-06-27 | 2023-03-28                       | 2022-06-21                      |
-| 3.3     | 2023-12-12 | 2023-09-12                       | 2022-12-23                      |
-| 3.4     | 2024-05-13 | 2024-02-13                       | 2023-05-09                      |
-| 3.5     | 2024-07-31 | 2024-03-30                       | 2023-07-31                      |
-| 3.6     | 2024-10-18 | 2024-09-01                       | 2023-10-18                      |
-| 3.7     | 2025-04-17 | 2025-01-17                       | 2024-04-17                      |
-| 3.8     | 2026-09-03 | 2026-06-03                       | 2024-09-06                      |
-| 3.9     | 2027-09-30 | 2027-06-30                       | 2025-03-20                      |
-| 4.0     | 2026-09-18 | 2026-06-18                       | 2025-09-18                      |
-| 4.1.    | 2026-12-10 | 2026-09-10                       | 2025-12-10                      |
+| Version   | Aiven EOL  | Service creation supported until | Service creation supported from |
+| --------- | ---------- | -------------------------------- | ------------------------------- |
+| 3.8.x     | 2026-09-03 | 2026-06-03                       | 2024-09-06                      |
+| 3.9.x     | 2027-09-30 | 2027-06-30                       | 2025-03-20                      |
+| 4.0.x     | 2026-09-18 | 2026-06-18                       | 2025-09-18                      |
+| 4.1.x     | 2026-12-10 | 2026-09-10                       | 2025-12-10                      |
 
 :::note
 Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
