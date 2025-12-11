@@ -2014,6 +2014,7 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/reference/advanced-params',
                 'products/valkey/reference/restricted-commands',
                 'products/valkey/reference/valkey-metrics-in-prometheus',
+                'products/valkey/reference/valkey-modules',
               ],
             },
             {
