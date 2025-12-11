@@ -68,13 +68,6 @@ The AI editor is designed for safe, controlled access.
 - **Encrypted connections:** All database connections use SSL/TLS encryption.
 - **Rate limiting:** One request every two seconds per user per service.
 
-## Limitations
-
-- Server-side pagination is not supported.
-- Exporting query results is not supported.
-- SQL autocomplete is not supported.
-- Sorting and searching within the results table are not supported.
-
 ## Use the AI editor
 
 To open the AI editor:
@@ -98,7 +91,6 @@ source and schema.
 
 1. In the AI Assistant panel, describe the query or result you need.
 1. Review the generated SQL in the SQL editor.
-1. Edit the SQL if needed.
 1. Click **Run** to execute the query.
 
 Example queries to try:
