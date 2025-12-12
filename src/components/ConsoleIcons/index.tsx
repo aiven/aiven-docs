@@ -110,6 +110,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>AI insights</b>
         </>
       );
+    case 'aieditor':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>AI editor</b>
+        </>
+      );
     case 'generativeai':
       return (
         <>
@@ -685,9 +691,11 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'disasterrecovery':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.disasterRecovery} /> <b>Disaster recovery</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.disasterRecovery} />{' '}
+          <b>Disaster recovery</b>
         </>
       );
+
     default:
       return (
         <span style={{padding: 2, backgroundColor: 'red', color: '#ffffff'}}>
