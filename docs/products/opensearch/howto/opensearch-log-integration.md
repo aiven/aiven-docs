@@ -247,7 +247,7 @@ curl --request GET \
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the [avn service integration-update](/docs/tools/cli/service/integration#avn_service_integration_update)
+Use the [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
 command to update the log integration configuration:
 
 ```bash
@@ -368,7 +368,7 @@ curl --request GET \
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the [avn service integration-delete](/docs/tools/cli/service/integration#avn_service_integration_delete)
+Use the [avn service integration-delete](/docs/tools/cli/service/integration#avn-service-integration-delete)
 command to delete the log integration:
 
 ```bash
