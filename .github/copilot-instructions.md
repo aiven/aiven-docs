@@ -66,6 +66,7 @@ These rules must be followed in all documentation.
 
 - **[CRITICAL]** Use full product name at first mention and in sidebar labels, then use shorter common name.
 - **[CRITICAL]** Apply trademarks on the first occurrence of the offering and underlying OSS project.
+- **[CRITICAL]** Do not repeat trademark symbols after the first mention in the same document.
 - **[CRITICAL]** Avoid implying Aiven owns 3rd-party projects: write "Aiven for Apache Kafka®" not "Aiven's Kafka"
 
 **Official product names:**
@@ -125,6 +126,7 @@ These rules must be followed in all documentation.
 - **[MEDIUM]** Use parallel syntax for list items.
 - **[MEDIUM]** Use periods at the end of list items unless:
   - The items are single words
+  - The items are sentence fragments, examples, or imperative phrases
   - The items are entirely in code format
   - The items are links
 - **[CRITICAL]** Use bold text for run-in headings.
