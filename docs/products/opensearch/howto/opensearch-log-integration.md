@@ -148,7 +148,7 @@ resource "aiven_service_integration" "logs_integration" {
 ```
 
 For more information, see the
-[aiven_service_integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
+[aiven-service-integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
 
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
