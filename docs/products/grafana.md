@@ -42,8 +42,8 @@ infrastructure to Aiven services and ensure the highest level of data security.
 ### Log management
 
 You can also integrate with popular logs management solutions such as
-OpenSearch® and Google Cloud Logging, which help monitor your system
-performance.
+[OpenSearch®](/docs/products/opensearch/howto/opensearch-log-integration) and Google Cloud
+Logging, which help monitor your system performance.
 
 ### Monitoring with dashboards, plugins, and alerting
 

@@ -3,7 +3,8 @@ title: Send logs to Elasticsearch®
 sidebar_label: Elasticsearch
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 You can store logs from one of your Aiven services in an external Elasticsearch service.
 
@@ -58,3 +59,8 @@ commands:
 - [avn service integration-create](/docs/tools/cli/service/integration#avn_service_integration_create)
 
 :::
+
+<RelatedPages/>
+
+[Set up a log integration with an Aiven for OpenSearch®
+service](/docs/products/opensearch/howto/opensearch-log-integration)
