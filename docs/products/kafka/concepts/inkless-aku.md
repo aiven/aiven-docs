@@ -2,9 +2,9 @@
 title: AKU plans and scaling
 ---
 
-Inkless uses Aiven Kafka Units (AKUs) to size Apache Kafka services by throughput instead of hardware resources.
-An AKU represents the amount of traffic a service can handle. You select an initial AKU
-level when creating the service and define how far the service can scale.
+Inkless uses Aiven Kafka Units (AKUs) to size Apache Kafka services by throughput instead of hardware resources. An AKU represents the amount of traffic a service can handle. You estimate the expected
+throughput when creating the service. This estimate determines the initial AKU level and
+the scaling range.
 
 ## How AKUs work
 
@@ -14,9 +14,9 @@ level when creating the service and define how far the service can scale.
 - The service monitors throughput over time, not momentary spikes.
 - When throughput reaches the threshold for the current AKU level, the service scales up
   within your configured limits.
-- When throughput stays low, the service scales down.
+- When throughput remains low for a sustained period, the service scales down.
 
-Scaling changes the number of ACUs in use, which affects ACU-hour billing. Scaling
+Scaling changes the number of AKUs in use, which affects AKU-hour billing. Scaling
 actions do not affect topic configuration or data retention.
 
 ## Throughput measurement
@@ -27,11 +27,11 @@ Inkless measures two types of traffic:
 - **Egress:** Data read from topics by consumers, connectors, and mirroring processes.
 
 Both ingress and egress contribute to AKU usage. You can track ingress and egress usage
-in the Service utilisation view, which also shows the ACU thresholds.
+in the Service utilisation view, which also shows the AKU thresholds.
 
 ## Autoscaling limits
 
-You can configure:
+Depending on your cloud provider and account, you can configure:
 
 - **Minimum AKUs:** The lowest capacity the service can scale down to.
 - **Maximum AKUs:** The highest capacity the service can scale up to.
@@ -56,7 +56,7 @@ Adjust your AKU limits when:
 
 - Workload throughput increases for sustained periods.
 - Short-term traffic spikes are expected.
-- Reducing costs during low-traffic periods requires a lower maximum ACU.
+- Reducing costs during low-traffic periods requires a lower maximum AKU.
 - The workload needs a guaranteed minimum level of throughput.
 
-For details on how ACU usage affects billing, see [Billing](/docs/products/kafka/concepts/inkless-billing).
+For details on how AKU usage affects billing, see [Billing](/docs/products/kafka/concepts/inkless-billing).

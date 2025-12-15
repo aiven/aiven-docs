@@ -21,9 +21,12 @@ modes and deploy to either Aiven cloud or your own cloud infrastructure.
 
 Aiven offers two ways to run Apache Kafka:
 
-- **Inkless**: Uses usage-based compute measured in Aiven Kafka Units (AKUs) on Aiven
-  cloud, or plan-based pricing on Bring Your Own Cloud (BYOC). Inkless runs Kafka 4.x
-  and enables diskless topics and tiered storage by default.
+- **Inkless**: Runs Apache Kafka 4.x with diskless topics and tiered storage enabled by
+  default.
+  - On **Aiven cloud**, compute is usage-based and measured in Aiven Kafka Units (AKUs).
+  - On **Bring Your Own Cloud (BYOC)**, pricing is plan-based.
+  Inkless availability depends on the selected cloud provider.
+
 - **Classic Kafka**: Uses fixed plans with local broker storage. Stores topic data on
   local disks by default, with optional tiered storage.
 
@@ -63,9 +66,18 @@ Kafka 4.x and enables diskless topics and tiered storage by default.
 1. Select **Apache Kafka®**.
 1. Select **Inkless** as the service type.
 1. Select **Aiven cloud** as the deployment mode.
+
+   :::note
+   Inkless on Aiven cloud is available only on selected cloud providers.
+   If Inkless is not supported in the selected cloud or region, Classic Kafka is used instead.
+   :::
+
 1. Select a **cloud provider** and **region**.
-1. In **Stream load**, set the expected ingress and egress throughput.
+1. In **Stream load**, estimate the expected ingress and egress throughput.
+   This estimate is used for initial AKU sizing and cost estimation and can be
+   changed later.
 1. In **Retention**, enter the data retention period.
+   Retention is used to estimate storage costs and can be adjusted after service creation.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service.
      :::important
@@ -78,15 +90,14 @@ Kafka 4.x and enables diskless topics and tiered storage by default.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Run the following command to create an Inkless Kafka service:
+Create an Inkless Kafka service using the Aiven CLI:
 
 ```bash
 avn service create SERVICE_NAME \
---project PROJECT_NAME \
---service-type kafka \
---cloud CLOUD_REGION \
---plan AKU_OFFERING \
--c inkless.enabled=true
+  --project PROJECT_NAME \
+  --service-type kafka \
+  --cloud CLOUD_REGION \
+  --plan INKLESS_PLAN
 ```
 
 Parameters:
@@ -94,7 +105,8 @@ Parameters:
 - `SERVICE_NAME`: Name of the Kafka service.
 - `PROJECT_NAME`: Project that contains the service.
 - `CLOUD_REGION`: Cloud region to deploy the service in.
-- `AKU_OFFERING`: Inkless AKU offering to use, for example `aku-1`.
+- `INKLES_PLAN`: An Inkless Kafka plan available for the selected cloud and account. Plan
+  availability depends on the selected cloud provider and account.
 
 </TabItem>
 </Tabs>
