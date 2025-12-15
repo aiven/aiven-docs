@@ -54,6 +54,6 @@ Data Kafka replicates between brokers for fault tolerance is not billed.
 
 <RelatedPages />
 
-- [Inkless overview](/docs/products/kafka/concepts/inkless-overview)
+- [Inkless overview](/docs/products/kafka/concepts/inkless)
 - [AKU plans and scaling](/docs/products/kafka/concepts/inkless-aku)
 - [Create a Kafka service](/docs/products/kafka/create-kafka-service)

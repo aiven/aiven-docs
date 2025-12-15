@@ -65,6 +65,6 @@ For details on how AKU usage affects billing, see [Billing](/docs/products/kafka
 
 <RelatedPages />
 
-- [Inkless overview](/docs/products/kafka/concepts/inkless-overview)
+- [Inkless overview](/docs/products/kafka/concepts/inkless)
 - [Billing for Inkless](/docs/products/kafka/concepts/inkless-billing)
 - [Create a Kafka service](/docs/products/kafka/create-kafka-service)
