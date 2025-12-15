@@ -48,7 +48,8 @@ only for customers who already run Classic services.
 Existing Classic Kafka services continue to run unchanged.
 
 You cannot upgrade or migrate an existing Classic Kafka service to Inkless.
-Service type is fixed at creation. To use Inkless, create a new Kafka service.
+Service type is fixed at creation. To use Inkless, create a Kafka service and select
+Inkless as the service type.
 
 <RelatedPages />
 
