@@ -1,6 +1,7 @@
 ---
 title: AKU plans and scaling
 ---
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Inkless uses Aiven Kafka Units (AKUs) to size Apache Kafka services by throughput instead of hardware resources. An AKU represents the amount of traffic a service can handle. You estimate the expected
 throughput when creating the service. This estimate determines the initial AKU level and
@@ -9,8 +10,8 @@ the scaling range.
 ## How AKUs work
 
 - Each AKU corresponds to a specific throughput capacity.
-- You set the initial AKU level by choosing the expected throughput during service
-  creation.
+- The initial AKU level is derived from the expected throughput estimate provided during
+  service creation.
 - The service monitors throughput over time, not momentary spikes.
 - When throughput reaches the threshold for the current AKU level, the service scales up
   within your configured limits.
@@ -55,8 +56,15 @@ AKU levels.
 Adjust your AKU limits when:
 
 - Workload throughput increases for sustained periods.
-- Short-term traffic spikes are expected.
+- Traffic spikes begin to persist for longer periods.
 - Reducing costs during low-traffic periods requires a lower maximum AKU.
 - The workload needs a guaranteed minimum level of throughput.
 
 For details on how AKU usage affects billing, see [Billing](/docs/products/kafka/concepts/inkless-billing).
+
+
+<RelatedPages />
+
+- [Inkless overview](/docs/products/kafka/concepts/inkless-overview)
+- [Billing for Inkless](/docs/products/kafka/concepts/inkless-billing)
+- [Create a Kafka service](/docs/products/kafka/create-kafka-service)

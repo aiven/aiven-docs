@@ -3,6 +3,8 @@ title: Inkless overview
 sidebar_label: Overview
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Inkless is Aiven’s cloud-native Apache Kafka® service that modernizes Kafka with diskless topics and object storage for data retention.
 It reduces operational overhead while preserving full compatibility with existing
 Kafka clients.
@@ -47,3 +49,10 @@ Existing Classic Kafka services continue to run unchanged.
 
 You cannot upgrade or migrate an existing Classic Kafka service to Inkless.
 Service type is fixed at creation. To use Inkless, create a new Kafka service.
+
+<RelatedPages />
+
+- [Create a Kafka service](/docs/products/kafka/create-kafka-service)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [AKU plans and scaling](/docs/products/kafka/concepts/inkless-aku)
+- [Billing for Inkless](/docs/products/kafka/concepts/inkless-billing)
