@@ -30,7 +30,6 @@ Inkless changes how Kafka services are sized, stored, and managed:
   expanding over time.
 - **Diskless topics:** Diskless topics are available only in Inkless services.
 
-
 ## When to use Inkless
 
 Use Inkless when:
@@ -43,14 +42,27 @@ Use Inkless when:
 Classic Kafka remains available for existing deployments and appears in the Aiven Console
 only for customers who already run Classic services.
 
+## Inkless capabilities
+
+Inkless supports:
+
+- High-throughput workloads by reducing cross-availability zone network traffic with diskless topics.
+- Workloads with fluctuating throughput through autoscaling.
+- Independent scaling of storage and compute.
+- Diskless topics for long-term retention and large datasets.
+- A simplified, throughput-based capacity model without hardware planning.
+
+
 ## Existing Classic Kafka services
 
 Existing Classic Kafka services continue to run unchanged.
 
-You cannot upgrade or migrate an existing Classic Kafka service to Inkless.
+Classic Kafka remains available only for existing deployments and appears in the
+Aiven Console only when a project already includes a Classic Kafka service.
+
+Upgrading or migrating an existing Classic Kafka service to Inkless is not supported at this time.
 Service type is fixed at creation. To use Inkless, create a Kafka service and select
 Inkless as the service type.
-
 <RelatedPages />
 
 - [Create a Kafka service](/docs/products/kafka/create-kafka-service)

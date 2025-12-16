@@ -3,18 +3,20 @@ title: AKU plans and scaling
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Inkless uses Aiven Kafka Units (AKUs) to size Apache Kafka services by throughput instead of hardware resources. An AKU represents the amount of traffic a service can handle. You estimate the expected
+Inkless uses Aiven Kafka Units (AKUs) to help you size Apache Kafka services based on throughput instead of hardware resources.
+An AKU represents the amount of traffic a service can handle. You estimate the expected
 throughput when creating the service. This estimate determines the initial AKU level and
 the scaling range.
 
 ## How AKUs work
 
-- Each AKU corresponds to a specific throughput capacity.
+- Each AKU corresponds to a specific throughput capacity. It represents the compute and
+  memory resources required to meet that throughput.
 - The initial AKU level is derived from the expected throughput estimate provided during
   service creation.
-- The service monitors throughput over time, not momentary spikes.
-- When throughput reaches the threshold for the current AKU level, the service scales up
-  within your configured limits.
+- The service monitors throughput over time.
+- When throughput remains above the threshold for the current AKU level for a period of
+  time, the service scales up within your configured limits.
 - When throughput remains low for a sustained period, the service scales down.
 
 Scaling changes the number of AKUs in use, which affects AKU-hour billing. Scaling
@@ -27,8 +29,8 @@ Inkless measures two types of traffic:
 - **Ingress:** Data written to topics by producers.
 - **Egress:** Data read from topics by consumers, connectors, and mirroring processes.
 
-Both ingress and egress contribute to AKU usage. You can track ingress and egress usage
-in the Service utilisation view, which also shows the AKU thresholds.
+Both ingress and egress affect the number of AKUs required. You can track ingress and
+egress usage in the Service utilisation view, which also shows the AKU thresholds.
 
 ## Autoscaling limits
 

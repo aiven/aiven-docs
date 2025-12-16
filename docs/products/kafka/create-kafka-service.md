@@ -74,8 +74,8 @@ Kafka 4.x and enables diskless topics and tiered storage by default.
 
 1. Select a **cloud provider** and **region**.
 1. In **Stream load**, estimate the expected ingress and egress throughput.
-   This estimate is used for initial AKU sizing and cost estimation and can be
-   changed later.
+   This estimate is used to determine the initial number of AKUs and estimate costs, and
+   it can be adjusted later.
 1. In **Retention**, enter the data retention period.
    Retention is used to estimate storage costs and can be adjusted after service creation.
 1. In **Service basics**, enter:

@@ -33,10 +33,8 @@ For details on how scaling works, see
 Storage charges are based on the amount of data retained in object storage.
 
 - Diskless topics store all retained data in object storage.
-- Classic topics keep a short amount of recent data on local disk before offloading older
-  data to object storage.
-
-Local disk used by brokers is not billed.
+- Classic topics keep some recent data on local disk before offloading it to
+  object storage.
 
 ## Network usage
 
