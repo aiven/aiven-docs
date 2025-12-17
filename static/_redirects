@@ -152,7 +152,7 @@
 /products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing
 /products/diskless                             /docs/products/kafka/diskless/concepts/diskless-overview
 /products/diskless/get-started  /docs/products/kafka/diskless/concepts/diskless-overview
-/products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/architecture
+/products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/diskless-topics-architecture
 /products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery
 /products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects
 /products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic
