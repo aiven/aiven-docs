@@ -638,6 +638,30 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 </tbody>
 </table>
 
+## OVHcloud US
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>North America</td>
+    <td>avn-ovhus-us-east-va-1</td>
+    <td>North America, United States: Virginia</td>
+  </tr>
+  <tr>
+    <td>North America</td>
+    <td>avn-ovhus-us-west-or-1</td>
+    <td>North America, United States: Oregon</td>
+  </tr>
+</tbody>
+</table>
+
 ## UpCloud
 
 <table>
