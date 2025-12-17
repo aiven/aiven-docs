@@ -180,17 +180,27 @@ Add a `aiven_service_integration` resource to enable log integration:
 
 ```hcl
 resource "aiven_service_integration" "logs_integration" {
-  project                  = var.aiven_project_name
+  project                  = "PROJECT_NAME"
   integration_type         = "logs"
-  source_service_name      = aiven_kafka.source.service_name
-  destination_service_name = aiven_opensearch.logs.service_name
+  source_service_name      = "SOURCE_SERVICE_NAME"
+  destination_service_name = "OPENSEARCH_SERVICE_NAME"
 
   logs_user_config {
-    elasticsearch_index_prefix   = "logs"
-    elasticsearch_index_days_max = 7
+    elasticsearch_index_prefix   = "INDEX_PREFIX"
+    elasticsearch_index_days_max = INDEX_RETENTION_DAYS
   }
 }
 ```
+
+Parameters:
+
+- `PROJECT_NAME`: Your Aiven project name
+- `SOURCE_SERVICE_NAME`: The service producing logs
+- `OPENSEARCH_SERVICE_NAME`: Your Aiven for OpenSearch service name
+- `INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
+- `INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
+
+Run `terraform init` > `terraform plan` > `terraform apply`.
 
 For more information, see the
 [aiven-service-integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
@@ -270,7 +280,7 @@ You can change the configuration of the `index prefix` and
    [ServiceIntegrationUpdate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationUpdate)
    endpoint to update the log integration configuration:
 
-   ```bash
+   ```bash {7-8}
    curl --request PUT \
      --url https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
      --header "Authorization: Bearer API_TOKEN" \
@@ -293,7 +303,7 @@ You can change the configuration of the `index prefix` and
 
    Example:
 
-   ```bash
+   ```bash {7-8}
    curl --request PUT \
      --url https://api.aiven.io/v1/project/dev-sandbox/integration/123abc456def789ghi-123abc456def789ghi \
      --header "Authorization: Bearer 123abc456def789ghi" \
@@ -329,7 +339,7 @@ You can change the configuration of the `index prefix` and
    [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
    command to update the log integration configuration:
 
-   ```bash
+   ```bash {3-4}
    avn service integration-update INTEGRATION_ID \
      --project PROJECT_NAME \
      -c elasticsearch_index_prefix=INDEX_PREFIX \
@@ -348,19 +358,27 @@ You can change the configuration of the `index prefix` and
 
 Update the `logs_user_config` block in your `aiven_service_integration` resource:
 
-```hcl
+```hcl {8-9}
 resource "aiven_service_integration" "logs_integration" {
-  project                  = var.aiven_project_name
+  project                  = "PROJECT_NAME"
   integration_type         = "logs"
-  source_service_name      = aiven_kafka.source.service_name
-  destination_service_name = aiven_opensearch.logs.service_name
+  source_service_name      = "SOURCE_SERVICE_NAME"
+  destination_service_name = "OPENSEARCH_SERVICE_NAME"
 
   logs_user_config {
-    elasticsearch_index_prefix   = "updated-logs"
-    elasticsearch_index_days_max = 14
+    elasticsearch_index_prefix   = "UPDATED_INDEX_PREFIX"
+    elasticsearch_index_days_max = UPDATED_INDEX_RETENTION_DAYS
   }
 }
 ```
+
+Parameters:
+
+- `PROJECT_NAME`: Your Aiven project name
+- `SOURCE_SERVICE_NAME`: The service producing logs
+- `OPENSEARCH_SERVICE_NAME`: Your Aiven for OpenSearch service name
+- `UPDATED_INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
+- `UPDATED_INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
 
 Run `terraform apply` to apply the changes.
 
@@ -489,14 +507,14 @@ Remove the `aiven_service_integration` resource from your Terraform configuratio
 ```hcl
 # Remove or comment out this resource
 # resource "aiven_service_integration" "logs_integration" {
-#   project                  = var.aiven_project_name
+#   project                  = "PROJECT_NAME"
 #   integration_type         = "logs"
-#   source_service_name      = aiven_kafka.source.service_name
-#   destination_service_name = aiven_opensearch.logs.service_name
+#   source_service_name      = "SOURCE_SERVICE_NAME"
+#   destination_service_name = "OPENSEARCH_SERVICE_NAME"
 #
 #   logs_user_config {
-#     elasticsearch_index_prefix   = "logs"
-#     elasticsearch_index_days_max = 7
+#     elasticsearch_index_prefix   = "INDEX_PREFIX"
+#     elasticsearch_index_days_max = INDEX_RETENTION_DAYS
 #   }
 # }
 ```
