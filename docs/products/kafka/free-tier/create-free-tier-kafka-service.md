@@ -11,12 +11,16 @@ import RelatedPages from "@site/src/components/RelatedPages";
 You can create a free tier Aiven for Apache Kafka® service to learn Kafka, test producers and consumers, or run small proof-of-concept workloads.
 
 For details about throughput, topic limits, and feature restrictions, see
-[Free tier limitations](/docs/products/kafka/free-tier/kafka-free-tier).
+[Free tier service restrictions](/docs/products/kafka/free-tier/kafka-free-tier).
 
 ## Prerequisites
 
 - An Aiven account (sign up or sign in at https://console.aiven.io)
 - An Aiven project
+
+:::note
+Each organization can have only one free tier Kafka service
+:::
 
 ## Create a free tier Kafka service
 
@@ -25,13 +29,12 @@ For details about throughput, topic limits, and feature restrictions, see
 1. Select **Aiven for Apache Kafka®**.
 1. In **Service tier**, select **Free**.
    The free tier includes:
-   - Throughput limits of up to 125 KiB/s for produce traffic and 125 KiB/s for consume
-     traffic
+   - Up to 250 KiB/s total throughput
    - Up to 5 topics, each with two partitions
    - Karapace Schema Registry and REST Proxy
 1. Review the **Cloud** section.
-   The cloud provider is fixed for the free tier. The console shows a limited set of
-   supported regions.
+   The cloud provider is managed automatically for the free tier. You can select only a
+   region group.
 1. In **Service basics**, enter a **Service name**.
 1. Review the **Service summary**.
 1. Click **Create service**.
