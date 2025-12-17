@@ -14,6 +14,51 @@ See this [video tutorial](https://www.youtube.com/watch?v=f4y9nPadO-M) for an en
 example of how to enable your Aiven for OpenSearch® log integration.
 :::
 
+## Prerequisites
+
+<Tabs groupId="setup">
+<TabItem value="console" label="Console" default>
+
+- User profile in the [Aiven Console](https://console.aiven.io/)
+- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Aiven for OpenSearch service where to send logs
+
+</TabItem>
+<TabItem value="api" label="API">
+
+- [Personal token](/docs/platform/howto/create_authentication_token) for use with the
+  Aiven API, CLI, Terraform, or other applications
+- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Aiven for OpenSearch service where to send logs
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+- [Personal token](/docs/platform/howto/create_authentication_token) for use with the
+  Aiven API, CLI, Terraform, or other applications
+- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Aiven for OpenSearch service where to send logs
+
+</TabItem>
+
+<TabItem value="terraform" label="Terraform">
+
+- [Personal token](/docs/platform/howto/create_authentication_token) for use with the
+  Aiven API, CLI, Terraform, or other applications
+- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Aiven for OpenSearch service where to send logs
+
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+- [Personal token](/docs/platform/howto/create_authentication_token) for use with the
+  Aiven API, CLI, Terraform, or other applications
+- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Aiven for OpenSearch service where to send logs
+
+</TabItem>
+</Tabs>
+
 ## Enable log integration
 
 Enable logs integration to send logs from your service to Aiven for OpenSearch®:
@@ -54,15 +99,15 @@ curl --request POST \
   --url https://api.aiven.io/v1/project/PROJECT_NAME/integration \
   --header "Authorization: Bearer API_TOKEN" \
   --header "Content-Type: application/json" \
-  --data '{
-    "integration_type": "logs",
-    "source_service": "SOURCE_SERVICE_NAME",
-    "dest_service": "OPENSEARCH_SERVICE_NAME",
-    "user_config": {
-      "elasticsearch_index_prefix": "INDEX_PREFIX",
-      "elasticsearch_index_days_max": INDEX_RETENTION_DAYS
-    }
-  }'
+  --data-raw '{
+  "integration_type": "logs",
+  "source_service": "SOURCE_SERVICE_NAME",
+  "dest_service": "OPENSEARCH_SERVICE_NAME",
+  "user_config": {
+    "elasticsearch_index_prefix": "INDEX_PREFIX",
+    "elasticsearch_index_days_max": INDEX_RETENTION_DAYS
+  }
+}'
 ```
 
 Parameters:
@@ -78,18 +123,18 @@ Example:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/project/my-project/integration \
-  --header "Authorization: Bearer your-api-token" \
+  --url https://api.aiven.io/v1/project/dev-sandbox/integration \
+  --header "Authorization: Bearer 123abc456def789ghi" \
   --header "Content-Type: application/json" \
-  --data '{
-    "integration_type": "logs",
-    "source_service": "my-kafka-service",
-    "dest_service": "my-opensearch",
-    "user_config": {
-      "elasticsearch_index_prefix": "logs",
-      "elasticsearch_index_days_max": 7
-    }
-  }'
+  --data-raw '{
+  "integration_type": "logs",
+  "source_service": "my-postgresql",
+  "dest_service": "my-opensearch",
+  "user_config": {
+    "elasticsearch_index_prefix": "logs",
+    "elasticsearch_index_days_max": 3
+  }
+}'
 ```
 
 </TabItem>
@@ -209,40 +254,57 @@ You can change the configuration of the `index prefix` and
 </TabItem>
 <TabItem value="api" label="API">
 
-Call the
-[ServiceIntegrationUpdate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationUpdate)
-endpoint to update the log integration configuration:
+1. Get `INTEGRATION_ID` by calling the
+   [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint:
 
-```bash
-curl --request PUT \
-  --url https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
-  --header "Authorization: Bearer API_TOKEN" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "user_config": {
-      "elasticsearch_index_prefix": "INDEX_PREFIX",
-      "elasticsearch_index_days_max": INDEX_RETENTION_DAYS
-    }
-  }'
-```
+   ```bash
+   curl --request GET \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+     --header "Authorization: Bearer API_TOKEN"
+   ```
 
-Parameters:
+   In the output, under `service_integrations`, find your integration and its
+   `service_integration_id`.
 
-- `PROJECT_NAME`: Your Aiven project name
-- `INTEGRATION_ID`: The integration ID
-- `API_TOKEN`: Your [personal token](/docs/platform/howto/create_authentication_token)
-- `INDEX_PREFIX`: Updated prefix for the index name
-- `INDEX_RETENTION_DAYS`: Updated number of days to keep logs
+1. Call the
+   [ServiceIntegrationUpdate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationUpdate)
+   endpoint to update the log integration configuration:
 
-To get the `INTEGRATION_ID`, call the
-[ServiceIntegrationList](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationList)
-endpoint:
+   ```bash
+   curl --request PUT \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
+     --header "Authorization: Bearer API_TOKEN" \
+     --header "Content-Type: application/json" \
+     --data-raw '{
+     "user_config": {
+       "elasticsearch_index_prefix": "INDEX_PREFIX",
+       "elasticsearch_index_days_max": INDEX_RETENTION_DAYS
+     }
+   }'
+   ```
 
-```bash
-curl --request GET \
-  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/OPENSEARCH_SERVICE_NAME/integrations \
-  --header "Authorization: Bearer API_TOKEN"
-```
+   Parameters:
+
+   - `PROJECT_NAME`: Your Aiven project name
+   - `INTEGRATION_ID`: The integration ID
+   - `API_TOKEN`: Your [personal token](/docs/platform/howto/create_authentication_token)
+   - `INDEX_PREFIX`: Updated prefix for the index name
+   - `INDEX_RETENTION_DAYS`: Updated number of days to keep logs
+
+   Example:
+
+   ```bash
+   curl --request PUT \
+     --url https://api.aiven.io/v1/project/dev-sandbox/integration/123abc456def789ghi-123abc456def789ghi \
+     --header "Authorization: Bearer 123abc456def789ghi" \
+     --header "Content-Type: application/json" \
+     --data-raw '{
+     "user_config": {
+       "elasticsearch_index_prefix": "new",
+       "elasticsearch_index_days_max": 100
+     }
+   }'
+   ```
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -339,31 +401,41 @@ To stop sending logs from your service to Aiven for OpenSearch, disable the inte
 </TabItem>
 <TabItem value="api" label="API">
 
-Call the
-[ServiceIntegrationDelete](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationDelete)
-endpoint to delete the log integration:
+1. Get `INTEGRATION_ID` by calling the
+   [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint:
 
-```bash
-curl --request DELETE \
-  --url https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
-  --header "Authorization: Bearer API_TOKEN"
-```
+   ```bash
+   curl --request GET \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+     --header "Authorization: Bearer API_TOKEN"
+   ```
 
-Parameters:
+   In the output, under `service_integrations`, find your integration and its
+   `service_integration_id`.
 
-- `PROJECT_NAME`: Your Aiven project name
-- `INTEGRATION_ID`: The integration ID
-- `API_TOKEN`: Your [personal token](/docs/platform/howto/create_authentication_token)
+1. Call the
+   [ServiceIntegrationDelete](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationDelete)
+   endpoint to delete the log integration:
 
-To get the `INTEGRATION_ID`, call the
-[ServiceIntegrationList](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationList)
-endpoint:
+   ```bash
+   curl --request DELETE \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
+     --header "Authorization: Bearer API_TOKEN"
+   ```
 
-```bash
-curl --request GET \
-  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/OPENSEARCH_SERVICE_NAME/integrations \
-  --header "Authorization: Bearer API_TOKEN"
-```
+   Parameters:
+
+   - `PROJECT_NAME`: Your Aiven project name
+   - `INTEGRATION_ID`: The integration ID
+   - `API_TOKEN`: Your [personal token](/docs/platform/howto/create_authentication_token)
+
+   Example:
+
+   ```bash
+   curl --request DELETE \
+     --url https://api.aiven.io/v1/project/dev-sandbox/integration/123abc456def789ghi-123abc456def789ghi \
+     --header "Authorization: Bearer 123abc456def789ghi"
+   ```
 
 </TabItem>
 <TabItem value="cli" label="CLI">
