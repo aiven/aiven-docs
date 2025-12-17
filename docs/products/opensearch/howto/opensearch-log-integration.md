@@ -309,28 +309,39 @@ You can change the configuration of the `index prefix` and
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
-command to update the log integration configuration:
+1. Get `INTEGRATION_ID` by running the
+   [`avn service integration-list`](/docs/tools/cli/service/integration#avn_service_integration_list)
+   command:
 
-```bash
-avn service integration-update INTEGRATION_ID \
-  --project PROJECT_NAME \
-  -c elasticsearch_index_prefix=INDEX_PREFIX \
-  -c elasticsearch_index_days_max=INDEX_RETENTION_DAYS
-```
+   ```bash
+   avn service integration-list SOURCE_SERVICE_NAME --project PROJECT_NAME
+   ```
 
-Parameters:
+   Parameters:
 
-- `INTEGRATION_ID`: The integration ID
-- `PROJECT_NAME`: Your Aiven project name
-- `INDEX_PREFIX`: Updated prefix for the index name
-- `INDEX_RETENTION_DAYS`: Updated number of days to keep logs
+   - `PROJECT_NAME`: Your Aiven project name
+   - `SOURCE_SERVICE_NAME`: The service producing logs
 
-To get the `INTEGRATION_ID`, run:
+   In the output table, find `SERVICE_INTEGRATION_ID` for the integrated services listed
+   in columns `SOURCE` and `DEST`.
 
-```bash
-avn service integration-list SOURCE_SERVICE_NAME --project PROJECT_NAME
-```
+1. Use the
+   [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
+   command to update the log integration configuration:
+
+   ```bash
+   avn service integration-update INTEGRATION_ID \
+     --project PROJECT_NAME \
+     -c elasticsearch_index_prefix=INDEX_PREFIX \
+     -c elasticsearch_index_days_max=INDEX_RETENTION_DAYS
+   ```
+
+   Parameters:
+
+   - `INTEGRATION_ID`: The integration ID
+   - `PROJECT_NAME`: Your Aiven project name
+   - `INDEX_PREFIX`: Updated prefix for the index name
+   - `INDEX_RETENTION_DAYS`: Updated number of days to keep logs
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -440,24 +451,35 @@ To stop sending logs from your service to Aiven for OpenSearch, disable the inte
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the [avn service integration-delete](/docs/tools/cli/service/integration#avn-service-integration-delete)
-command to delete the log integration:
+1. Get `INTEGRATION_ID` by running the
+   [`avn service integration-list`](/docs/tools/cli/service/integration#avn_service_integration_list)
+   command:
 
-```bash
-avn service integration-delete INTEGRATION_ID \
-  --project PROJECT_NAME
-```
+   ```bash
+   avn service integration-list SOURCE_SERVICE_NAME --project PROJECT_NAME
+   ```
 
-Parameters:
+   Parameters:
 
-- `INTEGRATION_ID`: The integration ID
-- `PROJECT_NAME`: Your Aiven project name
+   - `PROJECT_NAME`: Your Aiven project name
+   - `SOURCE_SERVICE_NAME`: The service producing logs
 
-To get the `INTEGRATION_ID`, run:
+   In the output table, find `SERVICE_INTEGRATION_ID` for the integrated services listed
+   in columns `SOURCE` and `DEST`.
 
-```bash
-avn service integration-list SOURCE_SERVICE_NAME --project PROJECT_NAME
-```
+1. Use the
+   [avn service integration-delete](/docs/tools/cli/service/integration#avn-service-integration-delete)
+   command to delete the log integration:
+
+   ```bash
+   avn service integration-delete INTEGRATION_ID \
+     --project PROJECT_NAME
+   ```
+
+   Parameters:
+
+   - `INTEGRATION_ID`: The integration ID
+   - `PROJECT_NAME`: Your Aiven project name
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
