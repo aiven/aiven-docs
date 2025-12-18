@@ -204,11 +204,7 @@ Parameters:
 - `INDEX_PREFIX`: Prefix for the index name, for example, `logs`
 - `INDEX_RETENTION_DAYS`: Number of days to keep logs, for example, `3`
 
-Run:
-
-1. `terraform init`
-1. `terraform plan`
-1. `terraform apply`
+Run `terraform init`, `terraform plan`, and `terraform apply`.
 
 For more information, see the
 [aiven-service-integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
