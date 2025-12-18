@@ -11,7 +11,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 You can create a free tier Aiven for Apache Kafka® service to learn Kafka, test producers and consumers, or run small proof-of-concept workloads.
 
 For details about throughput, topic limits, and feature restrictions, see
-[Free tier service restrictions](/docs/products/kafka/free-tier/kafka-free-tier).
+[Free tier service limitations](/docs/products/kafka/free-tier/kafka-free-tier).
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ For details about throughput, topic limits, and feature restrictions, see
 - An Aiven project
 
 :::note
-Each organization can have only one free tier Kafka service
+Each organization can have only one free tier Kafka service.
 :::
 
 ## Create a free tier Kafka service
