@@ -15,7 +15,8 @@ updates, and deletes from selected tables. Each change event is written to an Ap
 Kafka topic based on the configured topic prefix and table selection.
 
 Use this connector to capture near real-time changes from Oracle transactional tables
-into Apache Kafka. It is not intended for bulk ingestion or historical backfills.
+into Apache Kafka. The connector does not support bulk ingestion or loading existing
+data.
 
 :::important
 This connector does not perform large initial snapshots. It captures only changes that
@@ -32,7 +33,7 @@ support LogMiner-based change data capture (CDC).
 Ensure that the following settings are enabled on the Oracle database:
 
 - Supplemental logging
-- Archivelog mode
+- ARCHIVELOG mode
 - Redo log retention long enough for the connector to process changes
 
 :::note
@@ -89,29 +90,30 @@ configuration. This example streams only changes that occur after the connector 
 
 ```json
 {
-"name": "oracle-debezium-source",
-"connector.class": "io.debezium.connector.oracle.OracleConnector",
-"tasks.max": 1,
+  "name": "oracle-debezium-source",
+  "connector.class": "io.debezium.connector.oracle.OracleConnector",
+  "tasks.max": 1,
 
-"database.hostname": "${aws:oracle/secrets:database.hostname}",
-"database.port": "1521",
-"database.user": "admin",
-"database.password": "${aws:oracle/secrets:database.password}",
-"database.dbname": "ORCL",
+  "database.hostname": "${aws:oracle/secrets:database.hostname}",
+  "database.port": "1521",
+  "database.user": "admin",
+  "database.password": "${aws:oracle/secrets:database.password}",
+  "database.dbname": "ORCL",
 
-"topic.prefix": "oracle.cdc",
-"table.include.list": "ADMIN.PERSON",
+  "topic.prefix": "oracle.cdc",
+  "table.include.list": "ADMIN.PERSON",
 
-"snapshot.mode": "no_data",
-"include.schema.changes": "true",
+  "snapshot.mode": "no_data",
+  "include.schema.changes": "true",
 
-"key.converter": "io.confluent.connect.avro.AvroConverter",
-"value.converter": "io.confluent.connect.avro.AvroConverter",
-"key.converter.schema.registry.url": "<schema-registry-url>",
-"value.converter.schema.registry.url": "<schema-registry-url>",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "<schema-registry-url>",
+  "value.converter.schema.registry.url": "<schema-registry-url>",
 
-"schema.name.adjustment.mode": "avro"
+  "schema.name.adjustment.mode": "avro"
 }
+
 ```
 
 Parameters:
@@ -119,19 +121,29 @@ Parameters:
 - `name`: A unique name for the connector.
 - `connector.class`: The Java class for the connector. Set to
   `io.debezium.connector.oracle.OracleConnector`.
-- `tasks.max`: The maximum number of tasks that run in parallel. For Oracle CDC,
-  set this value to `1`.
+- `tasks.max`: The maximum number of tasks that run in parallel. For Oracle CDC, set
+  this value to `1`.
 - `database.hostname`: Hostname or IP address of the Oracle database.
 - `database.port`: Oracle database port. Default is `1521`.
 - `database.user`: Database user used by the connector.
 - `database.password`: Password for the database user.
 - `database.dbname`: Oracle database name, specified as a SID or service name.
-- `topic.prefix`: Prefix for Apache Kafka topic names. Topics are created using the pattern `<topic.prefix>.<schema>.<table>`.
-- `table.include.list`: Comma-separated list of tables to capture, formatted as `SCHEMA.TABLE`.
-- `snapshot.mode`: Controls initial snapshot behavior. Set to `no_data` to stream only changes that occur after the connector starts.
-- `include.schema.changes`: Specifies whether schema change events are published to Apache Kafka.
-- `snapshot.mode`: Controls initial snapshot behavior. Set to `no_data` to stream only changes that occur after the connector starts.
-- `include.schema.changes`: Specifies whether schema change events are published to Apache Kafka.
+- `topic.prefix`: Prefix for Apache Kafka topic names. Topics are created using the
+  pattern `<topic.prefix>.<schema>.<table>`.
+- `table.include.list`: Comma-separated list of tables to capture, formatted as
+  `SCHEMA.TABLE`.
+- `snapshot.mode`: Controls initial snapshot behavior. Set to `no_data` to stream only
+  changes that occur after the connector starts.
+- `include.schema.changes`: Specifies whether schema change events are published to
+  Apache Kafka.
+- `key.converter`: Converter used to serialize record keys.
+- `value.converter`: Converter used to serialize record values.
+- `key.converter.schema.registry.url`: Schema Registry endpoint used for key schemas
+  when using Avro.
+- `value.converter.schema.registry.url`: Schema Registry endpoint used for value schemas
+  when using Avro.
+- `schema.name.adjustment.mode`: Adjusts schema names for Avro compatibility. Set to
+  `avro` when using Avro serialization.
 
 ## Create the connector
 
@@ -197,6 +209,7 @@ For example, if `topic.prefix` is set to `oracle.cdc`, changes from the
 ```text
 oracle.cdc.ADMIN.PERSON
 ```
+
 Consume records from this topic to read change events for the `ADMIN.PERSON` table.
 
 ## Limitations
