@@ -57,8 +57,8 @@ example of how to enable your Aiven for OpenSearch® log integration.
 - [Personal token](/docs/platform/howto/create_authentication_token) for use with the
   Aiven API, CLI, Terraform, or other applications
 - [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
-- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Aiven for OpenSearch service where to send logs
+- Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Destination service: Aiven for OpenSearch service where to send logs
 
 </TabItem>
 </Tabs>
