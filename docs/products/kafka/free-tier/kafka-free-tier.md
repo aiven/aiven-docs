@@ -56,7 +56,7 @@ Free tier services have the following restrictions.
 
 ### Service restrictions
 
-- One free Kafka service per project or organization
+- One free Kafka service per organization
 - Paid services cannot be reverted to the free tier
 - Cloud provider is fixed with a limited set of regions
 - Free tier services are not covered by an SLA
