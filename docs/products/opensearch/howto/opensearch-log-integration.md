@@ -120,8 +120,8 @@ Parameters:
 - `API_TOKEN`: Your [personal token](/docs/platform/howto/create_authentication_token)
 - `SOURCE_SERVICE_NAME`: The service producing logs
 - `OPENSEARCH_SERVICE_NAME`: Your Aiven for OpenSearch service name
-- `INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
-- `INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
+- `INDEX_PREFIX`: Prefix for the index name
+- `INDEX_RETENTION_DAYS`: Number of days to keep logs
 
 Example:
 
@@ -162,8 +162,8 @@ Parameters:
 - `PROJECT_NAME`: Your Aiven project name
 - `SOURCE_SERVICE_NAME`: The service producing logs
 - `OPENSEARCH_SERVICE_NAME`: Your Aiven for OpenSearch service name
-- `INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
-- `INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
+- `INDEX_PREFIX`: Prefix for the index name
+- `INDEX_RETENTION_DAYS`: Number of days to keep logs
 
 Example:
 
@@ -201,8 +201,8 @@ Parameters:
 - `PROJECT_NAME`: Your Aiven project name
 - `SOURCE_SERVICE_NAME`: The service producing logs
 - `OPENSEARCH_SERVICE_NAME`: Your Aiven for OpenSearch service name
-- `INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
-- `INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
+- `INDEX_PREFIX`: Prefix for the index name, for example, `logs`
+- `INDEX_RETENTION_DAYS`: Number of days to keep logs, for example, `3`
 
 Run:
 
@@ -397,8 +397,8 @@ Parameters:
 - `PROJECT_NAME`: Your Aiven project name
 - `SOURCE_SERVICE_NAME`: The service producing logs
 - `OPENSEARCH_SERVICE_NAME`: Your Aiven for OpenSearch service name
-- `UPDATED_INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
-- `UPDATED_INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
+- `UPDATED_INDEX_PREFIX`: Prefix for the index name, for example, `logs`
+- `UPDATED_INDEX_RETENTION_DAYS`: Number of days to keep logs, for example, `3`
 
 Run `terraform apply` to apply the changes.
 
@@ -556,7 +556,7 @@ Delete the
 kubectl delete serviceintegration INTEGRATION_RESOURCE_NAME
 ```
 
-Or
+or
 
 ```bash
 kubectl delete -f FILE_NAME.yaml
