@@ -49,8 +49,10 @@ use [service metrics](/docs/tools/cli/service-cli#avn-service-metrics).
 :::note[Log retention]
 Service logs are retained for 4 days.
 
-To control retention time, set up a log integration with an Aiven for OpenSearch®
-service. The integration allows you to configure longer retention times for your
+To control retention time,
+[set up a log integration with an Aiven for OpenSearch®
+service](/docs/products/opensearch/howto/opensearch-log-integration).
+The integration allows you to configure longer retention times for your
 service logs, only limited by the disk space available on the Aiven for
 OpenSearch® plan you have selected.
 
