@@ -21,7 +21,7 @@ example of how to enable your Aiven for OpenSearch® log integration.
 
 - User profile in the [Aiven Console](https://console.aiven.io/)
 - Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Destination service: Aiven for OpenSearch service where to send logs
+- Destination service: Aiven for OpenSearch service that receives the logs
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -30,7 +30,7 @@ example of how to enable your Aiven for OpenSearch® log integration.
   Aiven API, CLI, Terraform, or other applications
 - [Aiven API](/docs/tools/api)
 - Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Destination service: Aiven for OpenSearch service where to send logs
+- Destination service: Aiven for OpenSearch service that receives the logs
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -39,7 +39,7 @@ example of how to enable your Aiven for OpenSearch® log integration.
   Aiven API, CLI, Terraform, or other applications
 - [Aiven CLI](/docs/tools/cli)
 - Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Destination service: Aiven for OpenSearch service where to send logs
+- Destination service: Aiven for OpenSearch service that receives the logs
 
 </TabItem>
 
@@ -49,7 +49,7 @@ example of how to enable your Aiven for OpenSearch® log integration.
   Aiven API, CLI, Terraform, or other applications
 - [Aiven Provider for Terraform](/docs/tools/terraform)
 - Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Destination service: Aiven for OpenSearch service where to send logs
+- Destination service: Aiven for OpenSearch service that receives the logs
 
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
@@ -58,7 +58,7 @@ example of how to enable your Aiven for OpenSearch® log integration.
   Aiven API, CLI, Terraform, or other applications
 - [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 - Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Destination service: Aiven for OpenSearch service where to send logs
+- Destination service: Aiven for OpenSearch service that receives the logs
 
 </TabItem>
 </Tabs>
@@ -204,7 +204,11 @@ Parameters:
 - `INDEX_PREFIX`: Prefix for the index name (for example, `logs`)
 - `INDEX_RETENTION_DAYS`: Number of days to keep logs (for example, `3`)
 
-Run `terraform init` > `terraform plan` > `terraform apply`.
+Run:
+
+1. `terraform init`
+1. `terraform plan`
+1. `terraform apply`
 
 For more information, see the
 [aiven-service-integration resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration).
