@@ -20,24 +20,26 @@ example of how to enable your Aiven for OpenSearch® log integration.
 <TabItem value="console" label="Console" default>
 
 - User profile in the [Aiven Console](https://console.aiven.io/)
-- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Aiven for OpenSearch service where to send logs
+- Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Destination service: Aiven for OpenSearch service where to send logs
 
 </TabItem>
 <TabItem value="api" label="API">
 
 - [Personal token](/docs/platform/howto/create_authentication_token) for use with the
   Aiven API, CLI, Terraform, or other applications
-- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Aiven for OpenSearch service where to send logs
+- [Aiven API](/docs/tools/api)
+- Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Destination service: Aiven for OpenSearch service where to send logs
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
 - [Personal token](/docs/platform/howto/create_authentication_token) for use with the
   Aiven API, CLI, Terraform, or other applications
-- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Aiven for OpenSearch service where to send logs
+- [Aiven CLI](/docs/tools/cli)
+- Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Destination service: Aiven for OpenSearch service where to send logs
 
 </TabItem>
 
@@ -45,14 +47,16 @@ example of how to enable your Aiven for OpenSearch® log integration.
 
 - [Personal token](/docs/platform/howto/create_authentication_token) for use with the
   Aiven API, CLI, Terraform, or other applications
-- Aiven-managed service producing logs to be sent to Aiven for OpenSearch
-- Aiven for OpenSearch service where to send logs
+- [Aiven Provider for Terraform](/docs/tools/terraform)
+- Source service: Aiven-managed service producing logs to be sent to Aiven for OpenSearch
+- Destination service: Aiven for OpenSearch service where to send logs
 
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
 
 - [Personal token](/docs/platform/howto/create_authentication_token) for use with the
   Aiven API, CLI, Terraform, or other applications
+- [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 - Aiven-managed service producing logs to be sent to Aiven for OpenSearch
 - Aiven for OpenSearch service where to send logs
 
@@ -290,8 +294,8 @@ You can change the configuration of the `index prefix` and
      --header "Content-Type: application/json" \
      --data-raw '{
      "user_config": {
-       "elasticsearch_index_prefix": "INDEX_PREFIX",
-       "elasticsearch_index_days_max": INDEX_RETENTION_DAYS
+       "elasticsearch_index_prefix": "UPDATED_INDEX_PREFIX",
+       "elasticsearch_index_days_max": UPDATED_INDEX_RETENTION_DAYS
      }
    }'
    ```
@@ -301,14 +305,14 @@ You can change the configuration of the `index prefix` and
    - `PROJECT_NAME`: Your Aiven project name
    - `INTEGRATION_ID`: The integration ID
    - `API_TOKEN`: Your [personal token](/docs/platform/howto/create_authentication_token)
-   - `INDEX_PREFIX`: Updated prefix for the index name
-   - `INDEX_RETENTION_DAYS`: Updated number of days to keep logs
+   - `UPDATED_INDEX_PREFIX`: Updated prefix for the index name
+   - `UPDATED_INDEX_RETENTION_DAYS`: Updated number of days to keep logs
 
    Example:
 
    ```bash {7-8}
    curl --request PUT \
-     --url https://api.aiven.io/v1/project/dev-sandbox/integration/123abc456def789ghi-123abc456def789ghi \
+     --url https://api.aiven.io/v1/project/my-project/integration/123abc456def789ghi-123abc456def789ghi \
      --header "Authorization: Bearer 123abc456def789ghi" \
      --header "Content-Type: application/json" \
      --data-raw '{
@@ -345,16 +349,25 @@ You can change the configuration of the `index prefix` and
    ```bash {3-4}
    avn service integration-update INTEGRATION_ID \
      --project PROJECT_NAME \
-     -c elasticsearch_index_prefix=INDEX_PREFIX \
-     -c elasticsearch_index_days_max=INDEX_RETENTION_DAYS
+     -c elasticsearch_index_prefix=UPDATED_INDEX_PREFIX \
+     -c elasticsearch_index_days_max=UPDATED_INDEX_RETENTION_DAYS
    ```
 
    Parameters:
 
    - `INTEGRATION_ID`: The integration ID
    - `PROJECT_NAME`: Your Aiven project name
-   - `INDEX_PREFIX`: Updated prefix for the index name
-   - `INDEX_RETENTION_DAYS`: Updated number of days to keep logs
+   - `UPDATED_INDEX_PREFIX`: Updated prefix for the index name
+   - `UPDATED_INDEX_RETENTION_DAYS`: Updated number of days to keep logs
+
+   Example:
+
+   ```bash {3-4}
+   avn service integration-update 123abc456def789ghi-123abc456def789ghi \
+     --project my-project \
+     -c elasticsearch_index_prefix=new \
+     -c elasticsearch_index_days_max=100
+   ```
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -499,6 +512,13 @@ To stop sending logs from your service to Aiven for OpenSearch, disable the inte
 
    - `INTEGRATION_ID`: The integration ID
    - `PROJECT_NAME`: Your Aiven project name
+
+   Example:
+
+   ```bash
+   avn service integration-delete 123abc456def789ghi-123abc456def789ghi \
+     --project my-project
+   ```
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
