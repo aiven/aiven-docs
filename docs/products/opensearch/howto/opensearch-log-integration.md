@@ -214,21 +214,24 @@ Add a `ServiceIntegration` resource to enable log integration:
 apiVersion: aiven.io/v1alpha1
 kind: ServiceIntegration
 metadata:
-  name: logs-integration
+  name: INTEGRATION_RESOURCE_NAME
 spec:
   authSecretRef:
     name: aiven-token
+    key: TOKEN_NAME
   project: PROJECT_NAME
   integrationType: logs
   sourceServiceName: SOURCE_SERVICE_NAME
   destinationServiceName: OPENSEARCH_SERVICE_NAME
-  logsUserConfig:
-    elasticsearchIndexPrefix: logs
-    elasticsearchIndexDaysMax: 7
+  logs:
+    elasticsearch_index_prefix: INDEX_PREFIX
+    elasticsearch_index_days_max: INDEX_RETENTION_DAYS
 ```
 
+Apply the resource with `kubectl apply -f FILE_NAME.yaml`.
+
 For more information, see the
-[ServiceIntegration resource documentation](https://aiven.github.io/aiven-operator/resources/serviceintegration.html).
+[ServiceIntegration resource documentation](https://aiven.github.io/aiven-operator/resources/serviceintegration.html#spec.logs).
 
 </TabItem>
 </Tabs>
@@ -385,30 +388,28 @@ Run `terraform apply` to apply the changes.
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
 
-Update the `logsUserConfig` section in your `ServiceIntegration` resource:
+Update the `logs` section in your
+[`ServiceIntegration` resource](https://aiven.github.io/aiven-operator/resources/serviceintegration.html#spec.logs):
 
-```yaml
+```yaml {14-15}
 apiVersion: aiven.io/v1alpha1
 kind: ServiceIntegration
 metadata:
-  name: logs-integration
+  name: INTEGRATION_RESOURCE_NAME
 spec:
   authSecretRef:
     name: aiven-token
+    key: TOKEN_NAME
   project: PROJECT_NAME
   integrationType: logs
   sourceServiceName: SOURCE_SERVICE_NAME
   destinationServiceName: OPENSEARCH_SERVICE_NAME
-  logsUserConfig:
-    elasticsearchIndexPrefix: updated-logs
-    elasticsearchIndexDaysMax: 14
+  logs:
+    elasticsearch_index_prefix: UPDATED_INDEX_PREFIX
+    elasticsearch_index_days_max: UPDATED_INDEX_RETENTION_DAYS
 ```
 
-Apply the updated resource:
-
-```bash
-kubectl apply -f service-integration.yaml
-```
+Apply the resource with `kubectl apply -f FILE_NAME.yaml`.
 
 </TabItem>
 </Tabs>
@@ -524,16 +525,17 @@ Run `terraform apply` to delete the integration.
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
 
-Delete the `ServiceIntegration` resource:
+Delete the
+[`ServiceIntegration` resource](https://aiven.github.io/aiven-operator/resources/serviceintegration.html#spec.logs):
 
 ```bash
-kubectl delete serviceintegration logs-integration
+kubectl delete serviceintegration INTEGRATION_RESOURCE_NAME
 ```
 
-Or remove the resource from your YAML file and apply:
+Or
 
 ```bash
-kubectl delete -f service-integration.yaml
+kubectl delete -f FILE_NAME.yaml
 ```
 
 </TabItem>
