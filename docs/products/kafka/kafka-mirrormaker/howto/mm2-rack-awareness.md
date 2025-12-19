@@ -9,62 +9,92 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2 to reduce cross-Availability Zone (AZ) network traffic by preferring follower replicas in the same AZ as the MirrorMaker node.
+Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2 to reduce cross-availability zone (AZ) network traffic by directing MirrorMaker to read from local follower replicas instead of remote partition leaders.
 
 ## About rack awareness in MirrorMaker 2
 
-Rack awareness works only when follower fetching is enabled on both the source Kafka
-service and the MirrorMaker 2 service. When follower fetching is enabled, MirrorMaker 2
-prefers reading from follower replicas in the same availability zone when those replicas
-are in sync, reducing data transfer across zones.
+Rack awareness in MirrorMaker 2 depends on follower fetching being enabled on both the
+source Aiven for Apache Kafka® service and the MirrorMaker 2 service.
 
-If follower fetching is disabled on either service, MirrorMaker 2 reads from leaders and
-rack awareness has no effect.
+When enabled, MirrorMaker prefers reading from in-sync follower replicas in the same
+availability zone as the MirrorMaker node. This reduces cross-availability zone (AZ)
+network traffic and associated costs.
 
-To learn how these features work together, see
+If follower fetching is disabled on either service, MirrorMaker reads only from partition
+leaders and rack awareness has no effect.
+
+Rack awareness is supported only for integrations with Aiven-hosted Kafka services.
+It is automatically disabled for external Kafka clusters because availability zones
+cannot be reliably mapped across cloud providers.
+
+For details on follower fetching, see
 [Follower fetching in Aiven for Apache Kafka®](/docs/products/kafka/concepts/follower-fetching).
+
+## When to use rack awareness
+
+Use rack awareness when:
+
+- MirrorMaker 2 and the source Kafka service run across multiple availability zones.
+- Cross-AZ network costs or latency are a concern.
+- The source Kafka service is hosted on Aiven.
+
+Rack awareness does not provide benefits when the Kafka cluster runs in a single
+availability zone.
 
 ## Configuration hierarchy
 
-MirrorMaker 2 applies rack awareness using the following rules:
+By default, MirrorMaker 2 assigns the node availability zone as the rack ID and uses
+follower replicas in the same availability zone.
 
-1. If `follower_fetching_enabled = false`: rack awareness is disabled for all integrations.
-1. If `follower_fetching_enabled = true`:
-   - External Kafka clusters: rack awareness is always disabled.
-   - Aiven-hosted Kafka services:
-     - If `rack_id` is set in the integration configuration, that value is used.
-     - If `rack_id` is not set, the node’s AZ is used as the rack ID.
+Rack awareness behavior follows this order:
+
+1. **Replication flow setting:** If `follower_fetching_enabled` is set to `false` for a
+   replication flow, rack awareness is disabled for that flow.
+1. **MirrorMaker 2 service setting:** If `kafka_mirrormaker.follower_fetching_enabled` is
+   set to `false`, rack awareness is disabled for all replication flows.
+1. **Integration type:** Rack awareness is disabled for integrations with external Kafka
+   clusters.
+1. **Rack ID selection for Aiven-hosted Kafka services:**
+   - If `rack_id` is set for the integration, that value is used.
+   - Otherwise, the node availability zone is used as the rack ID.
 
 ## Prerequisites
 
 - A running Aiven for Apache Kafka® MirrorMaker 2 service.
-- Follower fetching enabled on the **source Aiven for Apache Kafka® service**.
-  MirrorMaker 2 applies rack awareness only when both the source Kafka service
-  (`follower_fetching.enabled=true`) and the MirrorMaker 2 service
-  (`kafka_mirrormaker.follower_fetching_enabled=true`) have follower fetching enabled.
-- Identify the availability zones (AZs) for your Kafka brokers if you plan to use
-  custom `rack_id` values:
-
+- Follower fetching enabled on:
+  - The source Aiven for Apache Kafka® service
+  - The MirrorMaker 2 service
+- Availability zone (AZ) information for Kafka brokers if you plan to configure a custom
+  `rack_id` value:
   - [AWS: Map AZ IDs to names](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones)
   - [Google Cloud: Regions and zones](https://cloud.google.com/compute/docs/regions-zones)
 
-:::note
-Rack awareness is disabled for integrations with external Kafka clusters.
-:::
+## Enable or disable rack awareness for a replication flow
 
-## Enable rack awareness
+Rack awareness is controlled by the follower fetching setting and can be enabled or
+disabled per replication flow.
 
-Rack awareness is controlled using the `follower_fetching_enabled` flag in the
-MirrorMaker 2 service configuration.
+1. In the [Aiven Console](https://console.aiven.io), open the MirrorMaker 2 service.
+1. Click **Replication flows**.
+1. Create a replication flow or edit an existing one.
+1. Set **Follower fetching enabled** to on or off.
+1. Click **Create** or **Save**.
+
+## Enable or disable rack awareness for the MirrorMaker 2 service
+
+Disabling follower fetching at the service level disables rack awareness for all
+replication flows.
+
+Disable this setting only if MirrorMaker 2 must always read from partition leaders.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your MirrorMaker 2 service.
+1. In the [Aiven Console](https://console.aiven.io), open the MirrorMaker 2 service.
 1. Click <ConsoleLabel name="service settings"/>.
 1. In **Advanced configuration**, click **Configure**.
 1. Click <ConsoleIcon name="Add config options"/>.
-1. Set `kafka_mirrormaker.follower_fetching_enabled` to **Enabled** or **Disabled**.
+1. Set `kafka_mirrormaker.follower_fetching_enabled` to **Disabled**.
 1. Click **Save configurations**.
 
 </TabItem>
@@ -72,7 +102,7 @@ MirrorMaker 2 service configuration.
 
 ```bash
 avn service update SERVICE_NAME \
-  -c kafka_mirrormaker.follower_fetching_enabled=true
+  -c kafka_mirrormaker.follower_fetching_enabled=false
 ```
 
 </TabItem>
@@ -86,7 +116,7 @@ curl --request PUT \
   --data '{
     "user_config": {
       "kafka_mirrormaker": {
-        "follower_fetching_enabled": true
+        "follower_fetching_enabled": false
       }
     }
   }'
@@ -104,7 +134,7 @@ resource "aiven_kafka_mirrormaker" "mm2" {
 
   kafka_mirrormaker_user_config {
     kafka_mirrormaker {
-      follower_fetching_enabled = true
+      follower_fetching_enabled = false
     }
   }
 }
@@ -189,10 +219,10 @@ Below are examples specific to MirrorMaker 2 integrations.
 
 ### AZ-based rack ID (default)
 
-| Node AZ          | Rack ID used     | Behavior                              |
-| ---------------- | ---------------- | ------------------------------------- |
-| `use1-az1`       | `use1-az1`       | Reads/writes to brokers in `use1-az1` |
-| `europe-west1-b` | `europe-west1-b` | Reads/writes to brokers in same AZ    |
+| Node AZ          | Rack ID used     | Behavior                                      |
+| ---------------- | ---------------- | --------------------------------------------- |
+| `use1-az1`       | `use1-az1`       | Reads and writes to brokers in `use1-az1`     |
+| `europe-west1-b` | `europe-west1-b` | Reads and writes to brokers in the same AZ    |
 
 ### Custom rack ID per integration
 

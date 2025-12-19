@@ -33,6 +33,9 @@ run.
   ensure consistency when configuring `client.rack`, use the AZ ID, which remains the same
   across accounts.
 
+  To find the AZ ID used by your brokers, check the broker rack information in your
+  client logs or service connection details.
+
   To map AZ names to AZ IDs, see the
   [AWS Knowledge Center article](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones)
   and the [AWS documentation on AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids).

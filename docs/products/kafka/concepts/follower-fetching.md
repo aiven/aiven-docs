@@ -65,11 +65,10 @@ AZ, ensuring they fetch data from the closest replica when possible.
 
 ## Follower fetching in Kafka Connect and MirrorMaker 2
 
-Aiven for Apache Kafka® Connect and Aiven for Apache Kafka® MirrorMaker 2 apply rack
-awareness when follower fetching is [enabled](/docs/products/kafka/howto/enable-follower-fetching)
-on the Aiven for Apache Kafka service. Each service
-sets a rack value based on the node’s availability zone (AZ) so that traffic is routed
-to the closest replica.
+Follower fetching is not enabled by default on the Aiven for Apache Kafka service.
+When it is [enabled](/docs/products/kafka/howto/enable-follower-fetching) on the
+Aiven for Apache Kafka service, Aiven for Apache Kafka® Connect and Aiven for Apache
+Kafka® MirrorMaker 2 set a rack value based on the node’s availability zone (AZ).
 
 ### Kafka Connect
 
