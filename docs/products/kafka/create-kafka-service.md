@@ -28,7 +28,7 @@ Choose the configuration that fits your workload:
 - **Kafka service with diskless topics:** Stores data in cloud object storage for
   cost-optimized scaling in Bring Your Own Cloud (BYOC) environments.
 
-Diskless topics are currently supported only for BYOC deployments on AWS.
+Diskless topics are supported for BYOC deployments on AWS and Google Cloud Platform (GCP).
 
 :::note
 You cannot enable diskless topics on an existing Kafka service that was created with
@@ -69,7 +69,7 @@ Make sure you have the following:
 To create a Kafka service with diskless topics, make sure that:
 
 - You have a [BYOC environment](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
-  set up in your cloud account on AWS.
+  set up in your cloud account on AWS or Google Cloud Platform (GCP).
 - Diskless topics are enabled for your organization by Aiven. If the option does not
   appear in the Aiven Console, [contact Aiven support](https://aiven.io/contact).
 
@@ -221,7 +221,8 @@ Parameters:
 
 - `SERVICE_NAME`: Name of your Kafka service.
 - `PROJECT_NAME`: Your Aiven project name.
-- `CLOUD_NAME`: Custom BYOC cloud region, for example `custom-aws-eu-central-1`.
+- `CLOUD_NAME`: Custom BYOC cloud region, for example `custom-aws-eu-central-1` or
+  `custom-gcp-europe-west3`.
 - `PLAN_NAME`: Diskless-compatible plan, such as `business-8-inkless`. Plans that support
   diskless topics include `-inkless` in the plan name.
 - `kafka_diskless.enabled`: Enables diskless topics. Must be set to `true`.
@@ -313,6 +314,6 @@ To learn more about how diskless topics work, see
 <RelatedPages/>
 
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
-- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
+- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Batching and delivery in diskless topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)

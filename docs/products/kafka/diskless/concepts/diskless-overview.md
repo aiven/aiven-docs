@@ -4,7 +4,7 @@ title: Diskless topics for Apache Kafka® (BYOC)
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Diskless topics are a feature of Aiven for Apache Kafka®, available in Bring Your Own Cloud (BYOC) deployments.
+Diskless topics are a feature of Aiven for Apache Kafka®, available in Bring Your Own Cloud (BYOC) deployments on AWS and Google Cloud Platform (GCP).
 They store Kafka topic data in cloud object storage instead of on broker disks. Aiven
 manages the service in your cloud account, and you retain full control over your
 infrastructure and data.
@@ -12,8 +12,9 @@ infrastructure and data.
 ## About diskless topics
 
 Diskless topics are a Kafka feature that stores topic data in cloud object storage, such
-as Amazon S3, instead of on broker disks. This design simplifies operations, reduces
-cross-availability zone (AZ) traffic, and supports cost-effective scaling.
+as Amazon S3 or Google Cloud Storage (GCS), instead of on broker disks. This design
+simplifies operations, reduces cross-availability zone (AZ) traffic, and supports
+cost-effective scaling.
 
 Data is batched and written to object storage. Partition metadata and message ordering
 are managed by a coordination layer designed for high throughput and durability. For
@@ -26,7 +27,7 @@ require any changes to use them.
 Diskless topics is available as a managed feature in Aiven for Apache Kafka® BYOC. The
 service runs inside your Virtual Private Cloud (VPC), and all data stays within your
 cloud account. For architectural details, see
-[Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture).
+[Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture).
 
 ## Benefits of using diskless topics
 
@@ -63,5 +64,5 @@ For a detailed comparison, see [Compare diskless and classic topics](/docs/produ
 <RelatedPages/>
 
 - [Create a Kafka service](/docs/products/kafka/create-kafka-service)
-- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
+- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations)

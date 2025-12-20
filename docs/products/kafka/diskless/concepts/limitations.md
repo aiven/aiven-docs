@@ -26,4 +26,4 @@ stability.
 - No action is required.
 
 For details about the Batch Coordinator and metadata,
-see [Architecture](/docs/products/kafka/diskless/concepts/architecture#batch-coordinator-and-metadata).
+see [Architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture#batch-coordinator-and-metadata).

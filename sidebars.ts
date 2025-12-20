@@ -795,7 +795,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/diskless/concepts/diskless-overview',
                   },
                   items: [
-                    'products/kafka/diskless/concepts/architecture',
+                    'products/kafka/diskless/concepts/diskless-topics-architecture',
                     'products/kafka/diskless/concepts/topics-vs-classic',
                     'products/kafka/diskless/concepts/batching-and-delivery',
                     'products/kafka/diskless/concepts/partitions-and-objects',
