@@ -1,9 +1,9 @@
 ---
-title: Connect to your Aiven for MySQL® service
+title: Connect to Aiven for MySQL®
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-Discover the various ways to connect to your Aiven for MySQL® service.
+Connect to the Aiven for MySQL® service using various programming languages or tools.
 
 <DocCardList />

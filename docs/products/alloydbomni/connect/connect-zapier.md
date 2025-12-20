@@ -1,5 +1,6 @@
 ---
-title: Connect with Zapier
+title: Connect to Aiven for AlloyDB Omni with Zapier
+sidebar_label: Zapier
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

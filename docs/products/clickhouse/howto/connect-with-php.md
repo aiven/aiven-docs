@@ -1,5 +1,6 @@
 ---
-title: Connect to the Aiven for ClickHouse® service with PHP
+title: Connect to Aiven for ClickHouse® with PHP
+sidebar_label: PHP
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

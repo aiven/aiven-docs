@@ -535,7 +535,7 @@ const sidebars: SidebarsConfig = {
             'products/alloydbomni/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
+              label: 'Connect to Aiven for AlloyDB Omni',
               link: {
                 type: 'doc',
                 id: 'products/alloydbomni/connect/connect-services',
@@ -591,7 +591,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Apache Cassandra®',
                   link: {
                     type: 'generated-index',
                     slug: 'products/cassandra/howto/list-code-samples',
@@ -1275,7 +1275,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for ClickHouse®',
                   link: {
                     type: 'doc',
                     id: 'products/clickhouse/howto/list-connect-to-service',
@@ -1379,7 +1379,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Dragonfly®',
                   link: {
                     type: 'doc',
                     id: 'products/dragonfly/howto/list-code-samples',
@@ -1497,7 +1497,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for MySQL®',
                   link: {
                     type: 'doc',
                     id: 'products/mysql/howto/list-code-samples',
@@ -1613,7 +1613,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
-                  label: 'Connect with service',
+                  label: 'Connect to Aiven for OpenSearch®',
                   link: {
                     id: 'products/opensearch/howto/list-connect-to-service',
                     type: 'doc',
@@ -1782,7 +1782,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/pagila',
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for PostgreSQL®',
                   link: {
                     id: 'products/postgresql/howto/list-code-samples',
                     type: 'doc',
@@ -1972,7 +1972,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Valkey™',
                   link: {
                     type: 'doc',
                     id: 'products/valkey/howto/connect-services',

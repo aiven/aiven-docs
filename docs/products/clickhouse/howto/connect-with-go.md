@@ -1,5 +1,6 @@
 ---
-title: Connect to the Aiven for ClickHouse® service with Go
+title: Connect to Aiven for ClickHouse® with Go
+sidebar_label: Go
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

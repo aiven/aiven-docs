@@ -1,10 +1,10 @@
 ---
-title: Connect to your Aiven for PostgreSQL® service
+title: Connect to Aiven for PostgreSQL®
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-Connect to Aiven for PostgreSQL® with a tool or programming language of your choice. All connections to PostgreSQL are encrypted and protected with TLS.
+Connect to the Aiven for PostgreSQL® service using various programming languages or tools. All connections to PostgreSQL are encrypted and protected with TLS.
 
 For a connection to be established, `sslmode` can be set as follows:
 

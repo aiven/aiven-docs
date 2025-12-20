@@ -1,5 +1,6 @@
 ---
-title: Connect with Python
+title: Connect to Aiven for Dragonfly® with Python
+sidebar_label: Python
 ---
 
 This example demonstrates how to connect to Dragonfly® using Python,

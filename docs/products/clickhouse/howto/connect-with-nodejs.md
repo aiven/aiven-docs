@@ -1,5 +1,6 @@
 ---
-title: Connect to the Aiven for ClickHouse® service with Node.js
+title: Connect to Aiven for ClickHouse® with NodeJS
+sidebar_label: NodeJS
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

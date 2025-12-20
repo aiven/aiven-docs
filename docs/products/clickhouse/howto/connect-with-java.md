@@ -1,5 +1,6 @@
 ---
-title: Connect to the Aiven for ClickHouse® service with Java
+title: Connect to Aiven for ClickHouse® with Java
+sidebar_label: Java
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

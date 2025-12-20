@@ -1,11 +1,9 @@
 ---
-title: Connect to your Aiven for OpenSearch® service
+title: Connect to Aiven for OpenSearch®
 ---
 
-Learn how to securely connect to your Aiven for OpenSearch® service with
-various connection methods, and choose the one that best suits your
-needs.
-
 import DocCardList from '@theme/DocCardList';
+
+Connect to the Aiven for OpenSearch® service using various programming languages or tools.
 
 <DocCardList />
