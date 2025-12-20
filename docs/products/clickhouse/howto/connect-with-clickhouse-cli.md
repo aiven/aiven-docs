@@ -1,5 +1,6 @@
 ---
-title: Connect to a ClickHouse® cluster with CLI
+title: Connect to Aiven for ClickHouse® with clickhouse-client
+sidebar_label: clickhouse-client
 ---
 
 It's recommended to connect to a ClickHouse® cluster with the ClickHouse® client.
