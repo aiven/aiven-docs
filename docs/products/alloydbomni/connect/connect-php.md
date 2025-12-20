@@ -1,5 +1,6 @@
 ---
-title: Connect with PHP
+title: Connect to Aiven for AlloyDB Omni with PHP
+sidebar_label: PHP
 ---
 
 import CodeBlock from '@theme/CodeBlock';

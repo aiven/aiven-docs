@@ -535,7 +535,7 @@ const sidebars: SidebarsConfig = {
             'products/alloydbomni/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
+              label: 'Connect to Aiven for AlloyDB Omni',
               link: {
                 type: 'doc',
                 id: 'products/alloydbomni/connect/connect-services',
@@ -591,7 +591,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Apache Cassandra®',
                   link: {
                     type: 'generated-index',
                     slug: 'products/cassandra/howto/list-code-samples',

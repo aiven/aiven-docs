@@ -1,5 +1,6 @@
 ---
-title: Connect with Skyvia
+title: Connect to Aiven for AlloyDB Omni with Skyvia
+sidebar_label: Skyvia
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
