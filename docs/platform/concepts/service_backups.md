@@ -74,9 +74,10 @@ There are specific backup strategies for particular service types.
   <thead>
     <tr>
       <th rowspan="2">Service type</th>
-      <th colspan="4">Backup retention time based on service Plan</th>
+      <th colspan="5">Backup retention time based on service Plan</th>
     </tr>
     <tr>
+      <th>Developer</th>
       <th>Hobbyist</th>
       <th>Startup</th>
       <th>Business</th>
@@ -86,6 +87,7 @@ There are specific backup strategies for particular service types.
   <tbody>
     <tr>
       <td>Aiven for Apache Kafka®</td>
+      <td>Plan not available</td>
       <td>No backups</td>
       <td>No backups</td>
       <td>No backups</td>
@@ -94,12 +96,14 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for PostgreSQL® / MySQL</td>
       <td>Single backup only for disaster recovery</td>
+      <td>Single backup only for disaster recovery</td>
       <td>2 days with PITR</td>
       <td>14 days with PITR</td>
       <td>30 days with PITR</td>
     </tr>
     <tr>
       <td>Aiven for OpenSearch®</td>
+      <td>Plan not available</td>
       <td>Single backup only for disaster recovery</td>
       <td>Hourly backup for 24 hours and Daily backup for 3 days</td>
       <td>Hourly backup for 24 hours and Daily backup for 14 days</td>
@@ -108,12 +112,14 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for Apache Cassandra®</td>
       <td>Plan not available</td>
+      <td>Plan not available</td>
       <td>Single day backup</td>
       <td>Single day backup</td>
       <td>Single day backup</td>
     </tr>
     <tr>
       <td>Aiven for Caching</td>
+      <td>Plan not available</td>
       <td>Single backup only for disaster recovery</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
@@ -122,6 +128,7 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for Apache Flink®</td>
       <td>Plan not available</td>
+      <td>Plan not available</td>
       <td>Hourly backup up to 2 hours</td>
       <td>Hourly backup up to 2 hours</td>
       <td>Plan not available</td>
@@ -129,12 +136,14 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for Grafana®</td>
       <td>Plan not available</td>
+      <td>Plan not available</td>
       <td>Backup every 1 hour up to 1 day</td>
       <td>Plan not available</td>
       <td>Plan not available</td>
     </tr>
     <tr>
       <td>Aiven for ClickHouse®</td>
+      <td>Plan not available</td>
       <td>Daily backups up to 2 days</td>
       <td>Daily backups up to 2 days</td>
       <td>Daily backups up to 14 days</td>
@@ -142,6 +151,7 @@ There are specific backup strategies for particular service types.
     </tr>
     <tr>
       <td>Aiven for Dragonfly®</td>
+      <td>Plan not available</td>
       <td>Plan unavailable</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
@@ -149,6 +159,7 @@ There are specific backup strategies for particular service types.
     </tr>
     <tr>
       <td>Aiven for Valkey™</td>
+      <td>Plan not available</td>
       <td>Single backup only for disaster recovery</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
