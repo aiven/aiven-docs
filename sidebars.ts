@@ -1190,6 +1190,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                     'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
+                    'products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness',
                   ],
                 },
                 {
