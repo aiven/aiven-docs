@@ -72,12 +72,6 @@ jobs:
     with:
       service-name: pg
 
-  update-adv-params-caching:
-    name: Update parameters - Caching
-    uses: ./.github/workflows/update-adv-params.yaml
-    with:
-      service-name: caching
-
   update-adv-params-valkey:
     name: Update parameters - Valkey
     uses: ./.github/workflows/update-adv-params.yaml
