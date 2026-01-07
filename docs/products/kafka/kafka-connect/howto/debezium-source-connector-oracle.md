@@ -166,7 +166,7 @@ Parameters:
 - `schema.name.adjustment.mode`: Adjusts schema names for Avro compatibility. Set to
   `avro` when using Avro serialization.
 - `schema.history.internal.kafka.topic`: Kafka topic Debezium uses to store schema
-  istory, including DDL and table structure changes.
+  history, including DDL and table structure changes.
 - `schema.history.internal.kafka.bootstrap.servers`: Kafka bootstrap servers Debezium
   uses to connect to Kafka for schema history storage.
 - `schema.history.internal.producer.*`: SSL settings Debezium uses to write schema
