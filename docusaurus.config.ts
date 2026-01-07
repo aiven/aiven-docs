@@ -281,7 +281,7 @@ const config: Config = {
       theme: prismThemes.nightOwl,
       darkTheme: prismThemes.dracula,
       defaultLanguage: 'bash',
-      additionalLanguages: ['bash', 'json', 'php', 'hcl'],
+      additionalLanguages: ['bash', 'diff', 'hcl', 'json', 'php'],
     },
     mermaid: {
       options: {
