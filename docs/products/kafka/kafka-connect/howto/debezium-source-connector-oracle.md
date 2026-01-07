@@ -53,11 +53,13 @@ For detailed instructions, see:
   with Apache Kafka Connect enabled, or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 - The Kafka Connect service can connect to the Oracle database host and port.
-- A [secret provider configured for Kafka Connect](/docs/products/kafka/kafka-connect/howto/configure-secret-providers),
-  such as AWS Secrets Manager.
+- - A [secret provider configured for Kafka Connect](/docs/products/kafka/kafka-connect/howto/configure-secret-providers),
+  such as [AWS Secrets Manager](/docs/products/kafka/kafka-connect/howto/configure-aws-secrets-manager).
+  The configuration example below uses a secret provider as a best practice for managing
+  database credentials.
 - [Schema Registry enabled](/docs/products/kafka/karapace/howto/enable-karapace) when
   using Avro serialization.
-- An Oracle Database 19c instance with:
+- An Oracle Database instance with:
   - Oracle LogMiner enabled
   - Supplemental logging enabled
   - ARCHIVELOG mode enabled
@@ -111,7 +113,26 @@ configuration. This example streams only changes that occur after the connector 
   "key.converter.schema.registry.url": "<schema-registry-url>",
   "value.converter.schema.registry.url": "<schema-registry-url>",
 
-  "schema.name.adjustment.mode": "avro"
+  "schema.name.adjustment.mode": "avro",
+
+  "schema.history.internal.kafka.topic": "oracle.cdc.history",
+  "schema.history.internal.kafka.bootstrap.servers": "<kafka-service-host>:<kafka-service-port>",
+
+  "schema.history.internal.producer.security.protocol": "SSL",
+  "schema.history.internal.producer.ssl.keystore.type": "PKCS12",
+  "schema.history.internal.producer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "schema.history.internal.producer.ssl.keystore.password": "password",
+  "schema.history.internal.producer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "schema.history.internal.producer.ssl.truststore.password": "password",
+  "schema.history.internal.producer.ssl.key.password": "password",
+
+  "schema.history.internal.consumer.security.protocol": "SSL",
+  "schema.history.internal.consumer.ssl.keystore.type": "PKCS12",
+  "schema.history.internal.consumer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "schema.history.internal.consumer.ssl.keystore.password": "password",
+  "schema.history.internal.consumer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "schema.history.internal.consumer.ssl.truststore.password": "password",
+  "schema.history.internal.consumer.ssl.key.password": "password"
 }
 
 ```
@@ -144,6 +165,20 @@ Parameters:
   when using Avro.
 - `schema.name.adjustment.mode`: Adjusts schema names for Avro compatibility. Set to
   `avro` when using Avro serialization.
+- `schema.history.internal.kafka.topic`: Kafka topic Debezium uses to store schema
+  istory, including DDL and table structure changes.
+- `schema.history.internal.kafka.bootstrap.servers`: Kafka bootstrap servers Debezium
+  uses to connect to Kafka for schema history storage.
+- `schema.history.internal.producer.*`: SSL settings Debezium uses to write schema
+  history to Kafka.
+- `schema.history.internal.consumer.*`: SSL settings Debezium uses to read schema
+  history from Kafka.
+
+:::note
+On Aiven, Debezium requires SSL to access Kafka for schema history. Use the keystore and
+truststore provided by the Kafka Connect service at `/run/aiven/keys/`. Keep the keystore
+and truststore passwords set to `password`.
+:::
 
 ## Create the connector
 
