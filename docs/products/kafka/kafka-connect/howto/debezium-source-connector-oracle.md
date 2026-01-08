@@ -265,7 +265,7 @@ Consume records from this topic to read change events for the `ADMIN.PERSON` tab
 - Limit the number of tables per connector to reduce load on the source database.
 - Start with streaming ongoing changes only before expanding to additional tables.
 - Monitor the source database for increased load during initial deployment,
-  especially in Early access environments.
+  especially in early access environments.
 
 ## Example: Oracle Debezium source connector
 
