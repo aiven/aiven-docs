@@ -33,6 +33,8 @@ Before enabling BYOC, check
     activating BYOC.
 -   Only [organization admins](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     can request enabling BYOC.
+-   BYOC is not supported for Google Cloud accounts that require
+    [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm).
 
 ## Prerequisites {#byoc-enable-prerequisites}
 

@@ -41,6 +41,8 @@ To create custom clouds in Aiven using self-service, select your cloud provider 
 
 -   Only [organization admins](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     can create custom clouds.
+-   BYOC is not supported for Google Cloud accounts that require
+    [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm).
 
 <RelatedPages/>
 

@@ -54,6 +54,8 @@ account so that Aiven can access it:
 -   You have Terraform installed.
 -   You have required
     [IAM permissions](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#iam-permissions).
+-   Your Google Cloud account does not require
+    [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm).
 
 ### IAM permissions
 
