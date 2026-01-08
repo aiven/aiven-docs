@@ -79,7 +79,7 @@ Supported storage services are:
   - Microsoft Azure Blob Storage
 - [Restore from snapshot](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
   has a couple of
-  [security-related restrictions](https://docs.opensearch.org/docs/2.19/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).
+  [security-related restrictions](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).
 - [Create a snapshot](/docs/products/opensearch/howto/manage-snapshots#create-a-snapshot)
   and
   [delete a snapshot](/docs/products/opensearch/howto/manage-snapshots#delete-a-snapshot)

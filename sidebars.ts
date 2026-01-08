@@ -1725,6 +1725,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
                 'products/opensearch/howto/os-metrics',
+                'products/opensearch/reference/opensearch-limitations',
               ],
             },
             {
