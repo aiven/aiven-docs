@@ -15,6 +15,7 @@ Apache Kafka topic. The available source connectors include:
 - [Couchbase](https://github.com/couchbase/kafka-connect-couchbase)
 - [Debezium for MongoDB®](https://debezium.io/docs/connectors/mongodb/)
 - [Debezium for MySQL](https://debezium.io/docs/connectors/mysql/)
+- [Debezium for Oracle](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-oracle)
 - [Debezium for PostgreSQL®](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-pg)
 - [Debezium for SQL Server](https://debezium.io/docs/connectors/sqlserver/)
 - [Debezium for PostgreSQL with TLS support](/docs/products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg)
