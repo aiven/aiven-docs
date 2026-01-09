@@ -4,6 +4,7 @@ title: Enable and configure SASL authentication
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -81,6 +82,11 @@ API to enable SASL authentication on an existing service:
    - `service_name`: Name of your Aiven for Apache Kafka service.
    - `API_TOKEN`: Personal Aiven [token](/docs/platform/howto/create_authentication_token).
    - `kafka_authentication_methods.sasl`: Set to `true` to enable SASL authentication.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Set the `kafka_authentication_methods.sasl` attribute in [your `aiven_kafka` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka#kafka_authentication_methods) to `true`.
 
 </TabItem>
 </Tabs>
@@ -171,6 +177,16 @@ Parameters:
   the **SCRAM-SHA-512** mechanism.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `kafka_sasl_mechanisms` attribute in [your `aiven_kafka` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka#kafka_sasl_mechanisms)
+and set the value to either `Enabled` or `Disabled`::
+
+- **PLAIN**: `kafka_sasl_mechanisms.plain`
+- **SCRAM-SHA-256**: `kafka_sasl_mechanisms.scram_sha_256`
+- **SCRAM-SHA-512**: `kafka_sasl_mechanisms.scram_sha_512`
+
+</TabItem>
 </Tabs>
 
 :::note
@@ -246,36 +262,11 @@ curl -X PUT "https://console.aiven.io/v1/project/{project_name}/service/{service
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-1. Create or update your [Aiven for Apache Kafka service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka):
+This example creates a Kafka service with SASL authentication enabled and configures SCRAM-SHA-256 as the SASL mechanism. It also includes a data source to output the port number for SASL authentication using a public CA.
 
-```hcl
-resource "aiven_kafka" "example_kafka" {
-  plan                    = "business-4"
-  project                 = data.aiven_project.example_project.project
-  service_name            = "example-kafka"
+The complete example is available in the [Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka/kafka_sasl_authentication) on GitHub.
 
-  kafka_user_config {
-    letsencrypt_sasl = true   # or letsencrypt_sasl_privatelink for PrivateLink
-  }
-}
-```
-
-1. To find the correct `port` to use for a specific route, use the
-   [read-only `components`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/kafka#components-4)
-   list with appropriate filters in the [`aiven_service_component` data source](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/service_component)
-
-   For example:
-
-   ```hcl
-   data "aiven_service_component" "sc1" {
-   project                     = aiven_kafka.kafka.project
-   service_name                = aiven_kafka.example_kafka.service_name
-   component                   = "kafka"
-   route                       = "dynamic"
-   kafka_authentication_method = "sasl"
-   kafka_ssl_ca                = "letsencrypt"
-   }
-   ```
+<TerraformSample filename='kafka/kafka_sasl_authentication/service.tf' />
 
 </TabItem>
 </Tabs>
