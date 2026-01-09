@@ -79,8 +79,8 @@ not all cloud providers support it yet. You're eligible for BYOC if:
 -   You use Amazon Web Services (AWS) or Google Cloud.
 -   You have a commitment deal with Aiven.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
--   Your Google Cloud account does not require
-    [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm).
+-   Your Google Cloud environment does not have an IAM policy or organization policy that
+    requires [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm).
 
     :::note
     See [Aiven support tiers](https://aiven.io/support-services) and
