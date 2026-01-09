@@ -56,7 +56,7 @@ account so that Aiven can access it:
     [IAM permissions](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#iam-permissions).
 -   Your Google Cloud project is not under an organization policy that enforces the
     `constraints/compute.requireShieldedVm` constraint. For more information, see
-    [Shielded VMs](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm).
+    [Shielded VMs](https://cloud.google.com/compute/shielded-vm/docs/shielded-vm).
 
 ### IAM permissions
 
