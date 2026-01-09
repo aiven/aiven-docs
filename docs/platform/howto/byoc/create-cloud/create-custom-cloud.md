@@ -41,9 +41,6 @@ To create custom clouds in Aiven using self-service, select your cloud provider 
 
 -   Only [organization admins](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     can create custom clouds.
--   Your Google Cloud project is not under an organization policy that
-    enforces the `constraints/compute.requireShieldedVm` constraint. For more information, see
-    [Shielded VMs](https://cloud.google.com/compute/shielded-vm/docs/shielded-vm).
 
 <RelatedPages/>
 
