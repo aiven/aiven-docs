@@ -103,7 +103,7 @@ To turn on security management, see
 | **Permission scope** | Index-level access only |
 | **User equality** | All service users have equal privileges within their ACL permissions |
 | **Dashboard tenancy** | Private dashboards per user plus global dashboards |
-| **Password changes** | Password changes you make in the dashboard are overwritten during service configuration updates, which occur daily |
+| **Password changes** | You change passwords using the Aiven Console. Password changes you make in the OpenSearch dashboard are overwritten during service configuration updates, which occur daily |
 
 ### Security management enabled
 
@@ -114,6 +114,7 @@ To turn on security management, see
 | **Permission scope** | Document-level access control available |
 | **Dashboard tenancy** | Full multi-tenancy support |
 | **External authentication** | SAML and OpenID Connect supported |
+| **Password changes** | You manage passwords directly in OpenSearch. Password changes in the Aiven Console have no effect |
 | **Aiven API support** | Limited; displays state at enablement time only |
 
 :::warning
@@ -189,7 +190,7 @@ you can modify the `provider_*` roles but not the `service_security_admin_access
 |-------|-------------|
 | **Get started section** | Most content is not applicable to Aiven for OpenSearch; only the multi-tenancy section applies |
 | **Configuration file instructions** | Dashboard help text references configuration file modifications that you cannot perform in managed services |
-| **Password changes** | When security management is disabled, password changes made in the dashboard are overwritten during service configuration updates, which occur daily |
+| **Password changes** | When security management is disabled, you change passwords using the Aiven Console. Password changes you make in the OpenSearch dashboard are overwritten during service configuration updates, which occur daily. When security management is enabled, you change passwords directly in OpenSearch and Aiven Console password changes have no effect |
 
 ### Security management
 
