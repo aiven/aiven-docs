@@ -184,11 +184,11 @@ you can modify the `provider_*` roles but not the `service_security_admin_access
 
 ## Known issues and limitations
 
-### Security dashboard
+### Security in OpenSearch Dashboards
 
 | Issue | Description |
 |-------|-------------|
-| **Get started section** | Most content is not applicable to Aiven for OpenSearch; only the multi-tenancy section applies |
+| **Get started** page | Most content is not applicable to Aiven for OpenSearch; only the **multi-tenancy** section applies |
 | **Configuration file instructions** | Dashboard help text references configuration file modifications that you cannot perform in managed services |
 | **Password changes** | When security management is disabled, you change passwords using the Aiven Console. Password changes you make in the OpenSearch dashboard are overwritten during service configuration updates, which occur daily. When security management is enabled, you change passwords directly in OpenSearch and Aiven Console password changes have no effect |
 
