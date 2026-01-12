@@ -1056,6 +1056,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/couchbase-source',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
