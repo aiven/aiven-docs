@@ -184,7 +184,7 @@ you can modify the `provider_*` roles but not the `service_security_admin_access
 
 ## Known issues and limitations
 
-### Security in OpenSearch Dashboards
+### Security dashboard
 
 | Issue | Description |
 |-------|-------------|
