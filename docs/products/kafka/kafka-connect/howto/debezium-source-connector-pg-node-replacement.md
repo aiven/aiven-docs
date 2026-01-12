@@ -45,7 +45,7 @@ To find the Kafka Connect service URI, open the Aiven Console and go to the Aive
 Apache Kafka Connect service used by the connector. On the <ConsoleLabel name="overview"/>
 page, under **Connection information**, copy the value in **Service URI**.
 
-![The Aiven Console page showing the Debezium connector error](/images/content/products/postgresql/pg-debezium-cdc_image.png)
+![The Aiven Console page showing the Debezium connector error](/images/content/products/kafka/pg-debezium-cdc_image.png)
 
 :::tip
 To automatically restart failed tasks, set `"_aiven.restart.on.failure": true` in the
