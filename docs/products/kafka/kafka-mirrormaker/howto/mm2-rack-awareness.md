@@ -13,19 +13,21 @@ Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2 to reduce cro
 
 ## About rack awareness in MirrorMaker 2
 
-Rack awareness in MirrorMaker 2 depends on follower fetching being enabled on both the
-source Aiven for Apache Kafka® service and the MirrorMaker 2 service.
+Rack awareness in MirrorMaker 2 depends on follower fetching being enabled on the source
+Aiven for Apache Kafka® service and for the replication flow.
 
-When enabled, MirrorMaker prefers reading from in-sync follower replicas in the same
-availability zone as the MirrorMaker node. This reduces cross-availability zone (AZ)
-network traffic and associated costs.
+When follower fetching is enabled for a replication flow, MirrorMaker assigns a rack ID
+based on the MirrorMaker node availability zone (or the integration `rack_id`, if set).
+MirrorMaker then prefers reading from in-sync follower replicas in the same availability
+zone. This reduces cross-AZ network traffic and associated costs.
 
-If follower fetching is disabled on either service, MirrorMaker reads only from partition
-leaders and rack awareness has no effect.
+Follower fetching is enabled by default for new replication flows. If follower fetching
+is disabled for a replication flow, MirrorMaker reads only from partition leaders for
+that flow and rack awareness has no effect.
 
-Rack awareness is supported only for integrations with Aiven-hosted Kafka services.
-It is automatically disabled for external Kafka clusters because availability zones
-cannot be reliably mapped across cloud providers.
+Rack awareness is supported only when replicating between Aiven-hosted Kafka services.
+It is disabled for endpoint (external Kafka) integrations because availability zones and
+racks cannot be mapped reliably.
 
 For details on follower fetching, see
 [Follower fetching in Aiven for Apache Kafka®](/docs/products/kafka/concepts/follower-fetching).
@@ -43,17 +45,15 @@ availability zone.
 
 ## Configuration hierarchy
 
-By default, MirrorMaker 2 assigns the node availability zone as the rack ID and uses
+By default, MirrorMaker 2 assigns the node availability zone as the rack ID and prefers
 follower replicas in the same availability zone.
 
 Rack awareness behavior follows this order:
 
-1. **Replication flow setting:** If `follower_fetching_enabled` is set to `false` for a
-   replication flow, rack awareness is disabled for that flow.
-1. **MirrorMaker 2 service setting:** If `kafka_mirrormaker.follower_fetching_enabled` is
-   set to `false`, rack awareness is disabled for all replication flows.
-1. **Integration type:** Rack awareness is disabled for integrations with external Kafka
-   clusters.
+1. **MirrorMaker 2 service setting:** If follower fetching is disabled at the service
+   level, rack awareness is disabled for all replication flows.
+1. **Replication flow setting:** If follower fetching is disabled for a replication
+   flow, rack awareness is disabled for that flow.
 1. **Rack ID selection for Aiven-hosted Kafka services:**
    - If `rack_id` is set for the integration, that value is used.
    - Otherwise, the node availability zone is used as the rack ID.
@@ -61,9 +61,7 @@ Rack awareness behavior follows this order:
 ## Prerequisites
 
 - A running Aiven for Apache Kafka® MirrorMaker 2 service.
-- Follower fetching enabled on:
-  - The source Aiven for Apache Kafka® service
-  - The MirrorMaker 2 service
+- Follower fetching enabled on the source Aiven for Apache Kafka® service.
 - Availability zone (AZ) information for Kafka brokers if you plan to configure a custom
   `rack_id` value:
   - [AWS: Map AZ IDs to names](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones)
@@ -71,8 +69,14 @@ Rack awareness behavior follows this order:
 
 ## Enable or disable rack awareness for a replication flow
 
-Rack awareness is controlled by the follower fetching setting and can be enabled or
-disabled per replication flow.
+Rack awareness is controlled by
+[follower fetching](/docs/products/kafka/howto/enable-follower-fetching) and can be
+enabled or disabled per replication flow.
+
+When enabled, MirrorMaker assigns a rack ID based on the node availability zone (or the
+integration `rack_id`, if set) and prefers reading from in-sync follower replicas in the
+same availability zone. When disabled, MirrorMaker reads from partition leaders for that
+replication flow.
 
 1. In the [Aiven Console](https://console.aiven.io), open the MirrorMaker 2 service.
 1. Click **Replication flows**.
@@ -82,8 +86,10 @@ disabled per replication flow.
 
 ## Enable or disable rack awareness for the MirrorMaker 2 service
 
-Disabling follower fetching at the service level disables rack awareness for all
-replication flows.
+Disabling follower fetching at the service level acts as a global override.
+
+When disabled, follower fetching and rack awareness are disabled for all replication
+flows, regardless of the per-flow setting.
 
 Disable this setting only if MirrorMaker 2 must always read from partition leaders.
 
@@ -207,8 +213,6 @@ resource "aiven_service_integration" "mm2_integration" {
 
 </TabItem>
 </Tabs>
-
-
 
 ## Example configurations
 

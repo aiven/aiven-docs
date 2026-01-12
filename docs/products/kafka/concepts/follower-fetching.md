@@ -67,22 +67,31 @@ AZ, ensuring they fetch data from the closest replica when possible.
 
 Follower fetching is not enabled by default on the Aiven for Apache Kafka service.
 When it is [enabled](/docs/products/kafka/howto/enable-follower-fetching) on the
-Aiven for Apache Kafka service, Aiven for Apache Kafka® Connect and Aiven for Apache
-Kafka® MirrorMaker 2 set a rack value based on the node’s availability zone (AZ).
+Aiven for Apache Kafka service, Aiven for Apache Kafka® Connect and
+Aiven for Apache Kafka® MirrorMaker 2 apply rack-aware fetching based on the
+availability zone (AZ) where each node runs.
 
 ### Kafka Connect
 
-Kafka Connect assigns a rack value based on the AZ where each node runs. All source
-connectors on that node inherit this value unless a connector specifies its own
-consumer rack configuration.
+Kafka Connect assigns a rack value based on the availability zone where each
+Kafka Connect node runs. All source connectors running on that node inherit
+this value unless the connector overrides the Kafka consumer rack setting.
 
 ### MirrorMaker 2
 
-MirrorMaker 2 assigns a rack value based on the node’s AZ when
-`follower_fetching_enabled=true` in the service configuration. A custom `rack_id` in the
-integration configuration overrides the AZ-based value. Rack awareness is not applied to
-integrations that connect to external Kafka clusters.
+MirrorMaker 2 assigns a rack value based on the availability zone where the
+MirrorMaker 2 node runs for each replication flow where
+`follower_fetching_enabled=true`.
+
+To disable rack-aware fetching for a specific replication flow, set
+**Follower fetching enabled** to off when creating or editing the replication
+flow. For details, see
+[Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness).
+
+Rack awareness is not applied to integrations that connect to external Kafka
+clusters.
 
 <RelatedPages/>
 
 - [Enable follower fetching in Aiven for Apache Kafka](/docs/products/kafka/howto/enable-follower-fetching)
+- [Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness)
