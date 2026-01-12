@@ -30,7 +30,8 @@ All connections to Aiven for OpenSearch must meet these requirements:
 |-------------|---------|
 | **Protocol** | HTTPS only |
 | **Authentication** | User authentication always required |
-| **Authorization** | Managed using Aiven ACLs or OpenSearch Security (when security management is enabled) |
+| **Authorization** | Managed using Aiven ACLs or OpenSearch Security
+(when security management is enabled) |
 
 ## API restrictions
 
@@ -103,13 +104,15 @@ To turn on security management, see
 | **Permission scope** | Index-level access only |
 | **User equality** | All service users have equal privileges within their ACL permissions |
 | **Dashboard tenancy** | Private dashboards per user plus global dashboards |
-| **Password changes** | Password changes you make in the dashboard reset every 24 hours |
+| **Password changes** | Password changes you make in the dashboard are overwritten during
+service configuration updates, which occur daily |
 
 ### Security management enabled
 
 | Feature | Behavior |
 |---------|----------|
-| **User management** | You manage users directly in OpenSearch using OpenSearch Security API or dashboard |
+| **User management** | You manage users directly in OpenSearch using OpenSearch Security
+API or dashboard |
 | **Access control** | You configure access using OpenSearch Security roles and permissions |
 | **Permission scope** | Document-level access control available |
 | **Dashboard tenancy** | Full multi-tenancy support |
@@ -128,15 +131,26 @@ additional feature you can enable to gain full control over security configurati
 
 ## ACL limitations
 
-### Security plugin services
+When [security management](/docs/products/opensearch/concepts/os-security) is disabled,
+Aiven ACLs control access to your service.
 
-| ACL type | Behavior |
-|----------|----------|
-| **Index patterns** | Converted to OpenSearch Security roles with appropriate permissions |
-| **Top-level APIs** | Ignored; OpenSearch Security enforces index-level permissions |
-| **Access levels** | Mapped to predefined action groups (`admin`, `read`, `write`) |
+| Limitation | Description |
+|------------|-------------|
+| **Index patterns only** | You can only define ACL rules using index patterns; rules for
+top-level APIs like `_bulk` or `_search` are not enforced |
+| **Index-level access** | You can control access to indices but not to OpenSearch Dashboards |
+| **Predefined action groups** | ACL access levels are fixed; you cannot create custom
+permission sets |
 
-#### ACL access levels
+:::note
+When you
+[enable security management](/docs/products/opensearch/howto/enable-opensearch-security),
+Aiven ACLs no longer apply. You manage all permissions using OpenSearch Security roles.
+:::
+
+### ACL access levels
+
+Use these access levels when configuring ACLs:
 
 | ACL level | Permissions granted |
 |-----------|-------------------|
@@ -160,7 +174,10 @@ permissions.
 
 ## Reserved roles
 
-You cannot modify the reserved roles.
+When [security management](/docs/products/opensearch/concepts/os-security) is disabled,
+you cannot modify the reserved roles. When you
+[enable security management](/docs/products/opensearch/howto/enable-opensearch-security),
+you can modify the `provider_*` roles but not the `service_security_admin_access` role.
 
 | Role name | Purpose |
 |-----------|---------|
@@ -175,17 +192,22 @@ You cannot modify the reserved roles.
 
 | Issue | Description |
 |-------|-------------|
-| **Get started section** | Most content is not applicable to Aiven for OpenSearch; only multi-tenancy section applies |
-| **Configuration file instructions** | Dashboard help text references configuration file modifications that you cannot perform in managed services |
-| **Password changes** | When security management is disabled, password changes in the dashboard reset within 24 hours |
+| **Get started section** | Most content is not applicable to Aiven for OpenSearch; only
+multi-tenancy section applies |
+| **Configuration file instructions** | Dashboard help text references configuration file
+modifications that you cannot perform in managed services |
+| **Password changes** | When security management is disabled, password changes made in
+the dashboard reset during service configuration updates, which happen every 24 hours |
 
 ### Security management
 
 | Issue | Description | Solution |
 |-------|-------------|----------|
-| **REST API permissions** | You cannot create roles with REST API permissions | Map your users to the `service_security_admin_access` role |
+| **REST API permissions** | You cannot create roles with REST API permissions | Map your
+users to the `service_security_admin_access` role |
 | **Self-lockout** | You can unmap yourself from security admin role | [Contact Aiven support](http://support.aiven.io/) to remap the `os-sec-admin` user |
-| **os-sec-admin deletion** | You cannot delete the `os-sec-admin` user | User remains but you can unmap it from admin role |
+| **os-sec-admin deletion** | You cannot delete the `os-sec-admin` user | User remains but
+you can unmap it from admin role |
 
 ### Permissions model
 
@@ -201,8 +223,10 @@ You cannot modify the reserved roles.
 | **Configuration files** | Direct file access | You manage configuration using Advanced configuration options |
 | **Snapshot management** | Full API access | Automated; you cannot access the API directly |
 | **Security plugin** | Optional | Always enabled |
-| **User management** | Direct configuration | You manage users using Aiven tools or Security API (when security management is enabled) |
-| **Cluster settings** | Full API access | Limited to approved settings using [advanced configuration](/docs/products/opensearch/reference/advanced-params) |
+| **User management** | Direct configuration | You manage users using Aiven tools or
+Security API (when security management is enabled) |
+| **Cluster settings** | Full API access | Limited to approved settings using
+[advanced configuration](/docs/products/opensearch/reference/advanced-params) |
 | **Plugin installation** | Install any plugin | Only selected [plugins available](/docs/products/opensearch/reference/plugins) |
 | **API access** | Full access to all APIs | Restricted access to certain management APIs |
 | **JVM tuning** | Direct access to JVM options | Not available |
