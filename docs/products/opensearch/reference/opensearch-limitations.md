@@ -193,11 +193,11 @@ you can modify the `provider_*` roles but not the `service_security_admin_access
 | Issue | Description |
 |-------|-------------|
 | **Get started section** | Most content is not applicable to Aiven for OpenSearch; only
-multi-tenancy section applies |
+the multi-tenancy section applies |
 | **Configuration file instructions** | Dashboard help text references configuration file
 modifications that you cannot perform in managed services |
 | **Password changes** | When security management is disabled, password changes made in
-the dashboard reset during service configuration updates, which happen every 24 hours |
+the dashboard are overwritten during service configuration updates, which occur daily |
 
 ### Security management
 
