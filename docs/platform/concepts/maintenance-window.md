@@ -108,7 +108,7 @@ a three-node service always keeps at least three nodes available throughout the 
 :::note
 - The DNS name stays the same, but the underlying IP addresses change during
   maintenance. See [Static IP addresses](/docs/platform/concepts/static-ips).
-- Starting with Aiven for OpenSearch® versions 1.3.13 and 2.10, OpenSearch Dashboards
+- Starting with Aiven for OpenSearch® version 2.10, OpenSearch Dashboards
   remain available during maintenance that includes version updates.
 :::
 
