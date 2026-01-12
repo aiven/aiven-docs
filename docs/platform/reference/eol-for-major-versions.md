@@ -73,20 +73,6 @@ tool to test the version upgrade before upgrading their production services.
 
 ## Aiven multi-versioned services EOL
 
-### Aiven for Elasticsearch®
-
-Aiven for Elasticsearch major versions will reach EOL on the same date
-as the upstream open source project's EOL. [Aiven for
-OpenSearch®](/docs/products/opensearch) is
-Aiven's service offering for Elasticsearch.
-
-| Version | Aiven EOL  | Upstream EOL       |
-| ------- | ---------- | ------------------ |
-| 2.x     | 2020-10-30 | 2018-02-28         |
-| 5.x     | 2020-10-30 | 2019-03-11         |
-| 6.x     | 2020-11-20 | 2020-11-20         |
-| 7.x     | 2022-03-23 | 2022-05-11 (v7.10) |
-
 ### Aiven for OpenSearch®
 
 Aiven for OpenSearch® is the open source continuation of the original
@@ -95,7 +81,7 @@ dependent on the upstream project.
 
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- | --------------- | -------------------------------- | ------------------------------- |
-| 1.3.x   | To be announced | To be announced                  | 2022-05-19                      |
+| 1.3.x   | 2026-07-15      | 2026-07-15                       | 2022-05-19                      |
 | 2.17.1  | To be announced | To be announced                  | 2024-10-15                      |
 | 2.19.3  | To be announced | To be announced                  | 2025-09-15                      |
 
