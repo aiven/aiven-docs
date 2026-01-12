@@ -45,7 +45,7 @@ Otherwise, they are applied automatically during the
 [maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window).
 
 - **Version patches**: `major.minor.patch1` > `major.minor.patch2`, for example,
-  `2.17.1` > `2.17.2`
+  `2.19.1` > `2.19.2`
   - Scheduled and applied during your
     [maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window)
   - Possible after any voluntary manual minor version upgrade to ensure the patch version

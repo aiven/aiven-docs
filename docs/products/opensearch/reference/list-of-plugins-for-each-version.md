@@ -12,7 +12,7 @@ OpenSearch\_core\_version = OpenSearch\_plugin\_version
 ```
 
 :::note[Example]
-OpenSearch 2.17 uses plugins version 2.17.
+OpenSearch 2.19 uses plugins version 2.19.
 :::
 
 <!-- vale off -->
