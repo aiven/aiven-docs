@@ -23,8 +23,8 @@ applications and services. Some clients or tools may check the service version, 
 can lead to compatibility issues with OpenSearch. For more details, refer to the
 following OpenSearch resources:
 
-- [OpenSearch release notes](https://github.com/opensearch-project/OpenSearch/releases)
-- [OpenSearch Dashboards release notes](https://github.com/opensearch-project/OpenSearch-Dashboards/releases)
+- [OpenSearch release notes](https://github.com/opensearch-project/OpenSearch/blob/main/release-notes/opensearch.release-notes-1.0.0.md)
+- [OpenSearch Dashboards release notes](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/release-notes/opensearch-dashboards.release-notes-1.0.0.md)
 - [Frequently asked questions about OpenSearch](https://opensearch.org/faq/)
 :::
 

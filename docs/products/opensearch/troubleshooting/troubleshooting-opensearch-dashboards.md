@@ -10,8 +10,8 @@ cluster be the same. If OpenSearch Dashboards is unavailable, you will
 see the following error message in the OpenSearch Dashboards logs:
 
 ```none
-This version of OpenSearch Dashboards (v2.10.0) is incompatible with the following OpenSearch nodes
-in your cluster: v2.8.0 @ opensearch-searchdex-1.aiven.local/[${ipaddress}]:9200 (${ip_address})
+This version of OpenSearch Dashboards (v1.3.2) is incompatible with the following OpenSearch nodes
+in your cluster: v1.2.4 @ opensearch-searchdex-1.aiven.local/[${ipaddress}]:9200 (${ip_address})
 ```
 
 This situation typically occurs when a new version of OpenSearch is

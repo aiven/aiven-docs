@@ -11,7 +11,7 @@ It's included with your Aiven for OpenSearch service and accessible through the 
 - OpenSearch Dashboards was forked in 2021 from the formerly open source
   project Kibana.
 
-- Starting with Aiven for OpenSearch® version 2.10, OpenSearch
+- Starting with Aiven for OpenSearch® versions 1.3.13 and 2.10, OpenSearch
   Dashboards will remain available during a maintenance update that also
   consists of version updates to your Aiven for OpenSearch service.
 :::
