@@ -46,7 +46,7 @@ native OpenSearch API.
 
 When you add a `custom_keystores` entry to your service's `user_config`, Aiven stores
 the credentials on each Aiven for OpenSearch node using the
-[OpenSearch keystore mechanism](https://docs.opensearch.org/docs/2.19/security/configuration/opensearch-keystore/).
+[OpenSearch keystore mechanism](https://docs.opensearch.org/docs/2.17/security/configuration/opensearch-keystore/).
 
 Each credential is stored using the following format:
 
@@ -221,4 +221,4 @@ Use the following examples to configure credentials for each supported storage p
 
 - [Create and manage custom repositories](/docs/products/opensearch/howto/custom-repositories)
 - [OpenSearch snapshot API](https://opensearch.org/docs/latest/api-reference/snapshots/index/)
-- [OpenSearch keystore mechanism](https://docs.opensearch.org/docs/2.19/security/configuration/opensearch-keystore/)
+- [OpenSearch keystore mechanism](https://docs.opensearch.org/docs/2.17/security/configuration/opensearch-keystore/)
