@@ -31,16 +31,17 @@ availability. Each availability zone (AZ) is treated as a rack.
 
 ### Rack awareness
 
-Rack awareness distributes data across different physical racks, also known as
-availability zones, within a data center. This distribution ensures data replication for
-fault tolerance. Each Apache Kafka broker has a `broker.rack` setting corresponding to
-its specific AZ:
+Rack awareness provides the metadata that follower fetching relies on.
 
-- **AWS:** Uses AZ IDs such as `use1-az1`
-- **Google Cloud:** Uses AZ names such as `europe-west1-b`
+In Aiven for Apache Kafka, each availability zone (AZ) is treated as a rack. Each
+Apache Kafka broker has a `broker.rack` value that corresponds to the AZ where the
+broker runs:
 
-Aiven for Apache Kafka automatically manages the `broker.rack` setting, eliminating the
-need for manual configuration.
+- **AWS:** AZ IDs such as `use1-az1`
+- **Google Cloud:** AZ names such as `europe-west1-b`
+
+Aiven for Apache Kafka automatically manages the `broker.rack` setting. You do not
+need to configure it manually.
 
 ### Follower fetching mechanism
 
@@ -80,15 +81,20 @@ Sink connectors use this value when consuming data from Kafka. If rack-aware
 fetching is supported by the Kafka cluster, sink connectors prefer reading from
 replicas in the same availability zone.
 
+Source connectors do not use follower fetching.
+
 ### MirrorMaker 2
 
 MirrorMaker 2 assigns a rack value based on the availability zone where the
 MirrorMaker 2 node runs for each replication flow where
 `follower_fetching_enabled=true`.
 
-Rack-aware fetching is used only when the source Kafka cluster supports rack
-awareness and uses the same availability zone identifiers.
-If either condition is not met, MirrorMaker 2 reads from partition leaders.
+MirrorMaker always sets a rack value based on the node availability zone when
+follower fetching is enabled.
+
+If the source Kafka cluster does not support follower fetching or uses different
+rack identifiers, Kafka ignores the rack value and MirrorMaker reads from
+partition leaders.
 
 To disable rack-aware fetching for a specific replication flow, set
 **Follower fetching enabled** to off when creating or editing the replication

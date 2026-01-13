@@ -61,9 +61,11 @@ Apache Kafka service.
 
 Enabling follower fetching at the service level allows Kafka clients and Aiven-managed
 services to use rack-aware fetching.
-You still need to configure `client.rack` on Kafka consumers. Aiven for Apache Kafka
-Connect and Aiven for Apache Kafka MirrorMaker 2 configure this automatically based on
-the node availability zone.
+
+You must still configure `client.rack` on Kafka consumers. Aiven for Apache Kafka®
+Connect and Aiven for Apache Kafka® MirrorMaker 2 configure this automatically
+based on the availability zone where each node runs.
+
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -185,8 +187,8 @@ fetching when it is enabled on your Aiven for Kafka service.
 
 Kafka Connect sets `consumer.client.rack` based on each node’s availability zone.
 
-Sink connectors use this value when consuming data from Kafka. To disable rack
-awareness for a specific connector, set:
+Sink connectors use this value when consuming data from Kafka. Source connectors do not
+use follower fetching. To disable rack awareness for a specific sink connector, set:
 
 ```json
 {

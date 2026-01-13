@@ -13,18 +13,18 @@ Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2 to reduce cro
 
 ## About rack awareness in MirrorMaker 2
 
-Rack awareness in MirrorMaker 2 depends on follower fetching being enabled on the source
-Aiven for Apache Kafka® service and for the replication flow.
+Rack awareness in MirrorMaker 2 requires
+[follower fetching](/docs/products/kafka/howto/enable-follower-fetching) to be enabled
+on the source Aiven for Apache Kafka® service and on the replication flow.
 
 When follower fetching is enabled for a replication flow, MirrorMaker automatically
-assigns a rack value based on the availability zone where the MirrorMaker node runs.
-MirrorMaker then
+sets a rack value based on the availability zone where the MirrorMaker node runs and
 prefers reading from in-sync follower replicas in the same availability zone. This can
 reduce cross-availability zone network traffic and associated costs.
 
-Rack-aware fetching is used only when the source Kafka cluster supports rack awareness
-and uses the same availability zone identifiers. If either condition is not met,
-MirrorMaker reads from partition leaders.
+If the source Kafka cluster does not support follower fetching or uses different
+rack identifiers, Kafka ignores the rack value and MirrorMaker reads from
+partition leaders.
 
 Follower fetching is enabled by default for new replication flows. If follower fetching
 is disabled for a replication flow, MirrorMaker reads only from partition leaders for
@@ -55,9 +55,9 @@ Rack awareness is controlled by
 [follower fetching](/docs/products/kafka/howto/enable-follower-fetching) and can be
 enabled or disabled per replication flow.
 
-When enabled, MirrorMaker assigns a rack value based on the node availability zone and
-prefers reading from in-sync follower replicas in the same availability zone. When
-disabled, MirrorMaker reads from partition leaders for that replication flow.
+When enabled, MirrorMaker assigns a rack value based on the availability zone where the
+node runs and prefers reading from in-sync follower replicas in the same availability
+zone. When disabled, MirrorMaker reads from partition leaders for that replication flow.
 
 1. In the [Aiven Console](https://console.aiven.io), open the MirrorMaker 2 service.
 1. Click **Replication flows**.
