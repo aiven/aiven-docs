@@ -181,7 +181,7 @@ before the slot is recreated, downstream consumers can miss change events.
 
 For Debezium guidance on PostgreSQL upgrades, including upgrades performed using
 `pg_upgrade`, see
-[Upgrading PostgreSQL](https://debezium.io/documentation/reference/3.4/connectors/postgresql.html#upgrading-postgresql).
+[Upgrading PostgreSQL](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#upgrading-postgresql).
 
 ### Recommended actions
 
