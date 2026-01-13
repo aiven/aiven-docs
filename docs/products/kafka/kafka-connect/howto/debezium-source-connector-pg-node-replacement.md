@@ -94,8 +94,8 @@ In Aiven testing, this behavior occurred in the following scenarios:
 To clear replication lag, generate activity on monitored tables so Debezium can advance
 the replication slot:
 
-- Resume database traffic (if you paused writes), or
-- Make a change to any monitored table
+- Resume database traffic (if you paused writes).
+- Make a change to any monitored table.
 
 After Debezium processes the event, it updates the confirmed LSN and PostgreSQL can
 reclaim WAL space.
@@ -169,9 +169,6 @@ confirms changes to monitored tables were recorded.
 :::tip
 The [Aiven test repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/main/bin/python_scripts/debezium_pg_producer.py) includes an example implementation.
 :::
-
-To reduce manual intervention, set `_aiven.restart.on.failure: true` for all
-Debezium connectors.
 
 ## Handle PostgreSQL major version upgrades
 
