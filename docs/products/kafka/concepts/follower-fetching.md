@@ -74,8 +74,11 @@ availability zone (AZ) where each node runs.
 ### Kafka Connect
 
 Kafka Connect assigns a rack value based on the availability zone where each
-Kafka Connect node runs. All source connectors running on that node inherit
-this value unless the connector overrides the Kafka consumer rack setting.
+Kafka Connect node runs.
+
+Sink connectors use this value when consuming data from Kafka. If rack-aware
+fetching is supported by the Kafka cluster, sink connectors prefer reading from
+replicas in the same availability zone.
 
 ### MirrorMaker 2
 
@@ -83,13 +86,14 @@ MirrorMaker 2 assigns a rack value based on the availability zone where the
 MirrorMaker 2 node runs for each replication flow where
 `follower_fetching_enabled=true`.
 
+Rack-aware fetching is used only when the source Kafka cluster supports rack
+awareness and uses the same availability zone identifiers.
+If either condition is not met, MirrorMaker 2 reads from partition leaders.
+
 To disable rack-aware fetching for a specific replication flow, set
 **Follower fetching enabled** to off when creating or editing the replication
 flow. For details, see
 [Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness).
-
-Rack awareness is not applied to integrations that connect to external Kafka
-clusters.
 
 <RelatedPages/>
 

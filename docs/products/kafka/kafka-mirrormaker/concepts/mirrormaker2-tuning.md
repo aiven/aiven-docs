@@ -21,14 +21,16 @@ Service configurations control the behavior of nodes and workers in the MirrorMa
 **Example**
 
 - **Parameter:** [`kafka_mirrormaker.emit_checkpoints_enabled`](https://aiven.io/docs/products/kafka/kafka-mirrormaker/reference/advanced-params#kafka_mirrormaker_emit_checkpoints_enabled)
-- **Description:** Enables or disables periodic emission of consumer group offset checkpoints to the target cluster
+- **Description:** Enables or disables periodic emission of consumer group offset
+  checkpoints to the target cluster
 - **Impact:**
   - Restarts workers
   - Restarts all connectors and tasks
 
 ### Replication-flow configurations
 
-Replication-flow configurations control the behavior of connectors such as Source, Sink, Checkpoint, and Heartbeat connectors.
+Replication-flow configurations control the behavior of connectors such as Source, Sink,
+Checkpoint, and Heartbeat connectors.
 
 **Example**
 
@@ -90,7 +92,8 @@ Add these patterns to the topic blacklist to avoid replicating internal or syste
 
 ### Adjust integration parameters
 
-Tune these integration parameters based on your workload to optimize producer and consumer behavior:
+Tune these integration parameters based on your workload to optimize producer and
+consumer behavior:
 
 - `consumer_fetch_min_bytes`
 - `producer_batch_size`

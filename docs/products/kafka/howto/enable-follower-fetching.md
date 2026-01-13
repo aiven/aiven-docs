@@ -59,6 +59,12 @@ Apache Kafka service.
 1. Select `follower_fetching.enabled` from the list and set the value to **Enabled**.
 1. Click **Save configurations**.
 
+Enabling follower fetching at the service level allows Kafka clients and Aiven-managed
+services to use rack-aware fetching.
+You still need to configure `client.rack` on Kafka consumers. Aiven for Apache Kafka
+Connect and Aiven for Apache Kafka MirrorMaker 2 configure this automatically based on
+the node availability zone.
+
 </TabItem>
 <TabItem value="cli" label="CLI">
 
@@ -71,7 +77,7 @@ avn service update <service-name> -c follower_fetching.enabled=true
 Parameters:
 
 - `<service-name>`: Name of your Aiven for Apache Kafka service.
-- `follower_fetching={"enabled": true}`: Enables the follower fetching feature.
+- `follower_fetching.enabled=true`: Enables the follower fetching feature.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -178,7 +184,9 @@ fetching when it is enabled on your Aiven for Kafka service.
 ### Kafka Connect
 
 Kafka Connect sets `consumer.client.rack` based on each node’s availability zone.
-To disable rack awareness for a specific connector, set:
+
+Sink connectors use this value when consuming data from Kafka. To disable rack
+awareness for a specific connector, set:
 
 ```json
 {
@@ -188,13 +196,14 @@ To disable rack awareness for a specific connector, set:
 
 ### MirrorMaker 2
 
-MirrorMaker 2 uses a rack ID based on the node’s availability zone when
-`follower_fetching_enabled=true` (default). You can override this by setting a `rack_id`
-in the integration configuration.
+When follower fetching is enabled for a replication flow, MirrorMaker 2 reads from
+in-sync follower replicas in the same availability zone as the MirrorMaker 2 node.
 
-Rack awareness does not apply to external Kafka clusters.
+Follower fetching is enabled by default for new replication flows. You can disable it
+per replication flow if needed.
 
-See [Configure rack awareness in MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness).
+For details about how rack awareness works in MirrorMaker 2,
+see [Configure rack awareness in MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness).
 
 ## Verify follower fetching
 
