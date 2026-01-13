@@ -3,7 +3,9 @@ title: Handle PostgreSQL® node replacements when using Debezium for change data
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 import RelatedPages from "@site/src/components/RelatedPages";
+
 
 When you run a [Debezium source connector for PostgreSQL®](debezium-source-connector-pg) with an Aiven for PostgreSQL® service, some database operations can interrupt change data capture (CDC).
 
@@ -48,7 +50,7 @@ page, under **Connection information**, copy the value in **Service URI**.
 ![The Aiven Console page showing the Debezium connector error](/images/content/products/kafka/pg-debezium-cdc_image.png)
 
 :::tip
-To automatically restart failed tasks, set `"_aiven.restart.on.failure": true` in the
+To automatically restart failed tasks, set `_aiven.restart.on.failure=true` in the
 connector configuration.
 
 Aiven checks task status every 15 minutes by default. You can change the interval if
@@ -168,16 +170,13 @@ confirms changes to monitored tables were recorded.
 The [Aiven test repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/main/bin/python_scripts/debezium_pg_producer.py) includes an example implementation.
 :::
 
-To reduce manual intervention, set `"_aiven.restart.on.failure": true` for all
+To reduce manual intervention, set `_aiven.restart.on.failure: true` for all
 Debezium connectors.
 
 ## Handle PostgreSQL major version upgrades
 
 A PostgreSQL major version upgrade replaces database nodes. This can interrupt Debezium
 change data capture (CDC) in the same way as a PostgreSQL node replacement.
-
-For instructions on upgrading an Aiven for PostgreSQL® service, see
-[Upgrade to a major version](/docs/products/postgresql/howto/upgrade#upgrade-to-a-major-version).
 
 During the upgrade, Debezium tasks can fail and the replication slot might not be
 available immediately on the new primary. If applications write to monitored tables
@@ -197,8 +196,7 @@ To reduce the risk of missed change events during a major upgrade:
 1. Verify the replication slot exists (query `pg_replication_slots`) before resuming
    writes.
 
-:::tip
-To reduce manual intervention during upgrade windows, set
-`"_aiven.restart.on.failure": true` in the connector configuration.
-For details, see [Enable automatic restart](/docs/products/kafka/kafka-connect/howto/enable-automatic-restart).
-:::
+
+<RelatedPages/>
+
+[Upgrade Aiven for PostgreSQL® to a major version](/docs/products/postgresql/howto/upgrade#upgrade-to-a-major-version)
