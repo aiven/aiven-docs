@@ -173,10 +173,8 @@ Debezium connectors.
 
 ## Handle PostgreSQL major version upgrades
 
-When you upgrade an Aiven for PostgreSQL® service to a new major version (for example,
-an upgrade performed using `pg_upgrade`), the upgrade process replaces database nodes.
-This can interrupt Debezium change data capture (CDC) in the same way as a PostgreSQL
-node replacement.
+A PostgreSQL major version upgrade replaces database nodes. This can interrupt Debezium
+change data capture (CDC) in the same way as a PostgreSQL node replacement.
 
 For instructions on upgrading an Aiven for PostgreSQL® service, see
 [Upgrade to a major version](/docs/products/postgresql/howto/upgrade#upgrade-to-a-major-version).
@@ -185,15 +183,22 @@ During the upgrade, Debezium tasks can fail and the replication slot might not b
 available immediately on the new primary. If applications write to monitored tables
 before the slot is recreated, downstream consumers can miss change events.
 
-For detailed guidance on PostgreSQL upgrades with Debezium, see
+For Debezium guidance on PostgreSQL upgrades, including upgrades performed using
+`pg_upgrade`, see
 [Upgrading PostgreSQL](https://debezium.io/documentation/reference/3.4/connectors/postgresql.html#upgrading-postgresql).
 
 ### Recommended actions
 
 To reduce the risk of missed change events during a major upgrade:
 
-1. Plan a maintenance window where you can stop write operations to monitored tables.
+1. Stop write traffic to monitored tables during the upgrade.
 1. Stop or pause Debezium connector tasks before the upgrade starts.
 1. After the upgrade completes, restart connector tasks.
-1. Verify that the replication slot exists (`pg_replication_slots`) before resuming
-   write operations.
+1. Verify the replication slot exists (query `pg_replication_slots`) before resuming
+   writes.
+
+:::tip
+To reduce manual intervention during upgrade windows, set
+`"_aiven.restart.on.failure": true` in the connector configuration.
+For details, see [Enable automatic restart](/docs/products/kafka/kafka-connect/howto/enable-automatic-restart).
+:::
