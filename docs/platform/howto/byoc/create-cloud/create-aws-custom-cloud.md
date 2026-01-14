@@ -70,6 +70,7 @@ Show permissions required for creating resources for bastion and workload networ
                 "iam:ListInstanceProfilesForRole",
                 "iam:ListRolePolicies",
                 "iam:PutRolePolicy",
+                "iam:TagRole",
                 "iam:UpdateAssumeRolePolicy"
             ],
             "Effect": "Allow",
