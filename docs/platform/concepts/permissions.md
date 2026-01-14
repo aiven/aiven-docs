@@ -2,6 +2,8 @@
 title: Roles and permissions
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 To give users access to projects and services in your organizations, you grant them permissions and roles:
 
 * **Permissions**: Actions that a principal can perform on a resource or
@@ -96,3 +98,7 @@ These permissions apply to the
 | View service logs            | `service:logs:read`           | <ul> <li> View logs for all services in the project. </li> </ul> **Service logs may contain sensitive information.**                                                                                                                                                                                                                                        |
 | View configuration secrets   | `service:secrets:read`        | <ul> <li> Read service configuration secrets such as keys. </li> <li> View service users. </li> </ul>                                                                                                                                                                                                                                                                                      |
 | Manage service users         | `service:users:write`         | <ul> <li> Create and delete service users. </li> <li> View service users. </li> <li> View, update, and reset connection information for services. </li> <li> View service user credentials. </li> <li> Manage service user credentials. </li> <li> View all services in a project. </li> </ul>                                                                                                                                                                                           |
+
+<RelatedPages/>
+
+- [Manage permissions](/docs/platform/howto/manage-permissions)
