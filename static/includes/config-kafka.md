@@ -8,6 +8,18 @@ import Link from '@docusaurus/Link'
   </thead>
   <tbody>    <tr>
       <td>
+        <div className="param"><p className="name"><Link id="backup_interval_hours"/><Link to="#backup_interval_hours"><strong>backup_interval_hours</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>min: <code>3</code></li><li>max: <code>24</code></li></ul></div>
+        <div className="description"><p>Interval in hours between automatic backups. Minimum value is 3 hours. Must be a divisor of 24 (3, 4, 6, 8, 12, 24).  (Applicable to ACU plans only)</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="backup_retention_days"/><Link to="#backup_retention_days"><strong>backup_retention_days</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>30</code></li></ul></div>
+        <p className="title">Backup retention in days</p><div className="description"><p>Number of days to retain automatic backups. Backups older than this value will be automatically deleted. (Applicable to ACU plans only)</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="custom_domain"/><Link to="#custom_domain"><strong>custom_domain</strong></Link></p><p><code className="type">string,null</code></p></div>
         <div className="description"><p>Serve the web frontend using a custom CNAME pointing to the Aiven DNS name. When you set a custom domain for a service deployed in a VPC, the service certificate is only created for the public-* hostname and the custom domain.</p></div>
       </td>
