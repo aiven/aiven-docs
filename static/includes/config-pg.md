@@ -82,6 +82,18 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="backup_interval_hours"/><Link to="#backup_interval_hours"><strong>backup_interval_hours</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>min: <code>3</code></li><li>max: <code>24</code></li></ul></div>
+        <div className="description"><p>Interval in hours between automatic backups. Minimum value is 3 hours. Must be a divisor of 24 (3, 4, 6, 8, 12, 24).  (Applicable to ACU plans only)</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="backup_retention_days"/><Link to="#backup_retention_days"><strong>backup_retention_days</strong></Link></p><p><code className="type">integer,null</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>30</code></li></ul></div>
+        <p className="title">Backup retention in days</p><div className="description"><p>Number of days to retain automatic backups. Backups older than this value will be automatically deleted. (Applicable to ACU plans only)</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="enable_ha_replica_dns"/><Link to="#enable_ha_replica_dns"><strong>enable_ha_replica_dns</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Enable HA replica DNS</p><div className="description"><p>Creates a dedicated read-only DNS that automatically falls back to the primary if standby nodes are unavailable. It switches back when a standby recovers.</p></div>
       </td>
