@@ -4,6 +4,8 @@ sidebar_label: Set up single zone
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 The single-zone configuration feature allows you to deploy single-node Aiven for Valkey services within a specific availability zone (AZ) of your chosen cloud provider. This feature provides location hints for resource allocation, which can be beneficial for specific use cases such as reducing latency to applications in the same AZ or managing costs.
 
@@ -36,7 +38,10 @@ The single-zone configuration feature allows you to deploy single-node Aiven for
 
 ## Enable single-zone configuration
 
-### Use the Aiven Console
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
+
+Use the Aiven Console:
 
 1. Navigate to **Services** in your Aiven project
 1. Click **Create service**
@@ -48,7 +53,35 @@ The single-zone configuration feature allows you to deploy single-node Aiven for
    - If not specified, a random AZ will be selected
 1. Complete the service creation process
 
-### Use the Aiven CLI
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the Aiven API:
+
+Make a POST request to create a new Valkey service:
+
+```bash
+curl -X POST https://api.aiven.io/v1/project/<project>/service \
+  -H "Authorization: Bearer <your-token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "service_name": "my-valkey-service",
+    "service_type": "valkey",
+    "plan": "startup-4",
+    "cloud": "aws-eu-central-1",
+    "user_config": {
+      "single_zone": {
+        "enabled": true,
+        "availability_zone": "euc1-az1"
+      }
+    }
+  }'
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Use the Aiven CLI:
 
 Install the Aiven CLI if you haven't already:
 
@@ -77,29 +110,10 @@ avn service create my-valkey-service \
   -c single_zone.enabled=true
 ```
 
-### Use the Aiven API
+</TabItem>
+<TabItem value="tf" label="Terraform">
 
-Make a POST request to create a new Valkey service:
-
-```bash
-curl -X POST https://api.aiven.io/v1/project/<project>/service \
-  -H "Authorization: Bearer <your-token>" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "service_name": "my-valkey-service",
-    "service_type": "valkey",
-    "plan": "startup-4",
-    "cloud": "aws-eu-central-1",
-    "user_config": {
-      "single_zone": {
-        "enabled": true,
-        "availability_zone": "euc1-az1"
-      }
-    }
-  }'
-```
-
-### Use Terraform
+Use Terraform:
 
 Add the following configuration to your Terraform file:
 
@@ -136,7 +150,10 @@ resource "aiven_valkey" "my_valkey" {
 }
 ```
 
-### Use Kubernetes Operator
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+Use Kubernetes Operator:
 
 Create a Kubernetes manifest for your Valkey service:
 
@@ -162,7 +179,10 @@ Apply the manifest:
 kubectl apply -f valkey-service.yaml
 ```
 
-## Configuration Parameters
+</TabItem>
+</Tabs>
+
+## Configuration parameters
 
 ### `single_zone.enabled`
 
@@ -209,14 +229,19 @@ kubectl apply -f valkey-service.yaml
 - East US: `eastus/1`, `eastus/2`, `eastus/3`
 - West Europe: `westeurope/1`, `westeurope/2`, `westeurope/3`
 
-**Note**: Availability zone names may vary by region. Consult your cloud provider's
+:::note
+Availability zone names may vary by region. Consult your cloud provider's
 documentation for the exact zone identifiers in your chosen region.
+:::
 
 ## Verify your configuration
 
 After creating your service, you can verify the single-zone configuration:
 
-### Use the Aiven CLI
+<Tabs groupId="group2">
+<TabItem value="cli" label="CLI" default>
+
+Use the Aiven CLI:
 
 ```bash
 avn service get my-valkey-service --json | jq '.user_config.single_zone'
@@ -231,13 +256,19 @@ Expected output:
 }
 ```
 
-### Use the Aiven API
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the Aiven API:
 
 ```bash
 curl -X GET https://api.aiven.io/v1/project/<project>/service/my-valkey-service \
   -H "Authorization: Bearer <your-token>" \
   | jq '.service.user_config.single_zone'
 ```
+
+</TabItem>
+</Tabs>
 
 ## Limitations and restrictions
 
