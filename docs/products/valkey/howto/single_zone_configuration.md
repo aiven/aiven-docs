@@ -1,0 +1,316 @@
+---
+title: Set up single-zone configuration for Aiven for Valkey™
+sidebar_label: Set up single zone
+---
+
+import RelatedPages from "@site/src/components/RelatedPages";
+
+The single-zone configuration feature allows you to deploy single-node Aiven for Valkey services within a specific availability zone (AZ) of your chosen cloud provider. This feature provides location hints for resource allocation, which can be beneficial for specific use cases such as reducing latency to applications in the same AZ or managing costs.
+
+## Purpose and benefits
+
+### Use cases
+
+- **Latency Optimization**: Deploy your Valkey service in the same availability zone as
+  your application to minimize network latency
+- **Cost Management**: Reduce cross-AZ data transfer costs by keeping your service and
+  application in the same zone
+- **Regulatory Requirements**: Meet data locality requirements that specify particular
+  availability zones
+
+### Important considerations
+
+- **Best-Effort Allocation**: The single-zone configuration is a best-effort feature.
+  While Aiven attempts to honor your zone preference, the service may be temporarily
+  allocated to a different AZ in cases of capacity limitations or infrastructure
+  constraints
+- **Single-Node Plans Only**: This feature is available exclusively for single-node
+  Valkey plans. By choosing a single-node plan, you accept that high availability is not
+  part of the service offering
+- **No High Availability**: Single-node services do not provide automatic failover or
+  redundancy. For production workloads requiring high availability, use multi-node plans
+  with automatic zone spreading
+- **Configuration at Service Creation**: The single-zone setting can only be configured
+  when creating a new service. Updating this configuration for existing services is not
+  supported
+
+## Enable single-zone configuration
+
+### Use the Aiven Console
+
+1. Navigate to **Services** in your Aiven project
+1. Click **Create service**
+1. Select **Valkey** as the service type
+1. Choose a **single-node plan** from the available options
+1. In the **Advanced Configuration** section, locate **Single-zone configuration**
+1. Toggle **Enabled** to `true`
+1. (Optional) Specify an **Availability zone** from your cloud provider's available zones
+   - If not specified, a random AZ will be selected
+1. Complete the service creation process
+
+### Use the Aiven CLI
+
+Install the Aiven CLI if you haven't already:
+
+```bash
+pip install aiven-client
+```
+
+Create a Valkey service with single-zone configuration enabled:
+
+```bash
+avn service create my-valkey-service \
+  --service-type valkey \
+  --plan startup-4 \
+  --cloud aws-eu-central-1 \
+  -c single_zone.enabled=true \
+  -c single_zone.availability_zone=euc1-az1
+```
+
+Or enable single-zone without specifying a particular AZ (random selection):
+
+```bash
+avn service create my-valkey-service \
+  --service-type valkey \
+  --plan startup-4 \
+  --cloud aws-eu-central-1 \
+  -c single_zone.enabled=true
+```
+
+### Use the Aiven API
+
+Make a POST request to create a new Valkey service:
+
+```bash
+curl -X POST https://api.aiven.io/v1/project/<project>/service \
+  -H "Authorization: Bearer <your-token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "service_name": "my-valkey-service",
+    "service_type": "valkey",
+    "plan": "startup-4",
+    "cloud": "aws-eu-central-1",
+    "user_config": {
+      "single_zone": {
+        "enabled": true,
+        "availability_zone": "euc1-az1"
+      }
+    }
+  }'
+```
+
+### Use Terraform
+
+Add the following configuration to your Terraform file:
+
+```hcl
+resource "aiven_valkey" "my_valkey" {
+  project                 = var.project_name
+  cloud_name              = "aws-eu-central-1"
+  plan                    = "startup-4"
+  service_name            = "my-valkey-service"
+
+  valkey_user_config {
+    single_zone {
+      enabled           = true
+      availability_zone = "euc1-az1"
+    }
+  }
+}
+```
+
+For random AZ selection, omit the `availability_zone` parameter:
+
+```hcl
+resource "aiven_valkey" "my_valkey" {
+  project                 = var.project_name
+  cloud_name              = "aws-eu-central-1"
+  plan                    = "startup-4"
+  service_name            = "my-valkey-service"
+
+  valkey_user_config {
+    single_zone {
+      enabled = true
+    }
+  }
+}
+```
+
+### Use Kubernetes Operator
+
+Create a Kubernetes manifest for your Valkey service:
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: Valkey
+metadata:
+  name: my-valkey-service
+spec:
+  project: my-aiven-project
+  cloudName: aws-eu-central-1
+  plan: startup-4
+
+  userConfig:
+    single_zone:
+      enabled: true
+      availability_zone: euc1-az1
+```
+
+Apply the manifest:
+
+```bash
+kubectl apply -f valkey-service.yaml
+```
+
+## Configuration Parameters
+
+### `single_zone.enabled`
+
+- **Type**: Boolean
+- **Required**: Yes (to enable the feature)
+- **Description**: Determines whether to allocate service nodes in the same availability
+  zone. When `false` or not set, service nodes are spread across different AZs (default
+  behavior for multi-node plans)
+- **Example**: `true`
+
+### `single_zone.availability_zone`
+
+- **Type**: String
+- **Required**: No
+- **Max Length**: 40 characters
+- **Description**: The preferred availability zone for the service. Only used when
+  `enabled` is set to `true`. If not specified, a random AZ is selected
+- **Validation**: Zones are not validated. Invalid zones are ignored, and the system falls
+  back to random AZ selection
+- **Examples**:
+  - **AWS**: `euc1-az1`, `euc1-az2`, `euc1-az3`, `use1-az1`, `use1-az2`
+  - **GCP**: `europe-west1-a`, `europe-west1-b`, `europe-west1-c`, `us-central1-a`
+  - **Azure**: `germanywestcentral/1`, `germanywestcentral/2`, `germanywestcentral/3`,
+    `eastus/1`
+
+## Common availability zones by cloud provider
+
+### Amazon Web Services (AWS)
+
+- EU Central (Frankfurt): `euc1-az1`, `euc1-az2`, `euc1-az3`
+- US East (N. Virginia): `use1-az1`, `use1-az2`, `use1-az4`, `use1-az6`
+- US West (Oregon): `usw2-az1`, `usw2-az2`, `usw2-az3`
+
+### Google Cloud
+
+- Europe West 1 (Belgium): `europe-west1-a`, `europe-west1-b`, `europe-west1-c`
+- US Central 1 (Iowa): `us-central1-a`, `us-central1-b`, `us-central1-c`, `us-central1-f`
+- Asia East 1 (Taiwan): `asia-east1-a`, `asia-east1-b`, `asia-east1-c`
+
+### Microsoft Azure
+
+- Germany West Central: `germanywestcentral/1`, `germanywestcentral/2`,
+  `germanywestcentral/3`
+- East US: `eastus/1`, `eastus/2`, `eastus/3`
+- West Europe: `westeurope/1`, `westeurope/2`, `westeurope/3`
+
+**Note**: Availability zone names may vary by region. Consult your cloud provider's
+documentation for the exact zone identifiers in your chosen region.
+
+## Verify your configuration
+
+After creating your service, you can verify the single-zone configuration:
+
+### Use the Aiven CLI
+
+```bash
+avn service get my-valkey-service --json | jq '.user_config.single_zone'
+```
+
+Expected output:
+
+```json
+{
+  "enabled": true,
+  "availability_zone": "euc1-az1"
+}
+```
+
+### Use the Aiven API
+
+```bash
+curl -X GET https://api.aiven.io/v1/project/<project>/service/my-valkey-service \
+  -H "Authorization: Bearer <your-token>" \
+  | jq '.service.user_config.single_zone'
+```
+
+## Limitations and restrictions
+
+1. **Single-Node Plans Only**: The feature is exclusively available for single-node Valkey
+   service plans
+1. **Creation Time Only**: The configuration can only be set during service creation.
+   Existing services cannot be updated to enable or modify single-zone settings
+1. **No Guarantees**: The specified availability zone is treated as a preference, not a
+   guarantee. The service may be placed in a different zone due to:
+   - Capacity constraints in the requested zone
+   - Infrastructure maintenance or issues
+   - Cloud provider limitations
+1. **Zone Validation**: Invalid or unavailable zone identifiers are silently ignored,
+   falling back to random zone selection
+1. **No High Availability**: Single-node services do not provide automatic failover. For
+   production workloads, consider multi-node plans
+
+## Migration and updates
+
+- **Existing Services**: Services created before this feature was introduced cannot be
+  updated to use single-zone configuration
+- **Plan Changes**: Upgrading from a single-node to a multi-node plan will disable
+  single-zone configuration, and nodes will be spread across availability zones
+- **Service Updates**: Other service configuration changes (such as maintenance windows,
+  IP filters, or Valkey settings) can be updated normally without affecting the
+  single-zone setting
+
+## Best practices
+
+1. **Use for Development and Testing**: Single-zone, single-node configurations are ideal
+   for development, testing, and non-critical workloads
+1. **Multi-Zone for Production**: For production workloads requiring high availability,
+   use multi-node plans that spread nodes across availability zones
+1. **Co-locate with Applications**: When using single-zone configuration, deploy your
+   applications in the same availability zone to maximize latency benefits
+1. **Monitor Service Health**: Implement appropriate monitoring and alerting for
+   single-node services, as they lack automatic failover capabilities
+1. **Plan for Zone Selection**: Research your cloud provider's availability zones in
+   advance to choose the most appropriate zone for your use case
+
+## Troubleshooting
+
+### Service is not in the specified availability zone
+
+**Cause**: The specified zone may be at capacity, unavailable, or the zone identifier may
+be invalid.
+
+**Resolution**: The service will operate normally in an alternative zone. If zone
+placement is critical, contact Aiven support to discuss availability in your preferred
+zone.
+
+### Cannot update single-zone configuration on existing service
+
+**Cause**: Single-zone configuration is immutable after service creation.
+
+**Resolution**: To change the configuration, create a new service with the desired
+settings and migrate your data.
+
+### Feature not available for my plan
+
+**Cause**: Single-zone configuration is only available for single-node plans.
+
+**Resolution**: Select a single-node plan (such as `startup-4`, `business-4`, etc.) when
+creating your service.
+
+## Support
+
+If you have questions about single-zone configuration for Valkey or need assistance with
+implementation, contact Aiven support through the console or email support@aiven.io.
+
+<RelatedPages/>
+
+- [Aiven for Valkey Overview](https://aiven.io/docs/products/valkey)
+- [Valkey Service Plans](https://aiven.io/docs/products/valkey/concepts/service-plans)
+- [High Availability in Aiven](https://aiven.io/docs/platform/concepts/high-availability)
+- [Cloud Provider Regions](https://aiven.io/docs/platform/reference/list-of-clouds)
