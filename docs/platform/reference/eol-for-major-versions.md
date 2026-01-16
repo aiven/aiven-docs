@@ -81,7 +81,7 @@ dependent on the upstream project.
 
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- | --------------- | -------------------------------- | ------------------------------- |
-| 1.3.x   | 2026-07-15      | 2026-07-15                       | 2022-05-19                      |
+| 1.3.x   | 2026-07-26      | 2026-07-26                       | 2022-05-19                      |
 | 2.17.1  | To be announced | To be announced                  | 2024-10-15                      |
 | 2.19.3  | To be announced | To be announced                  | 2025-09-15                      |
 
