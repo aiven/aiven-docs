@@ -13,26 +13,26 @@ The single-zone configuration feature allows you to deploy single-node Aiven for
 
 ### Use cases
 
-- **Latency Optimization**: Deploy your Valkey service in the same availability zone as
+- **Latency optimization**: Deploy your Valkey service in the same availability zone as
   your application to minimize network latency
-- **Cost Management**: Reduce cross-AZ data transfer costs by keeping your service and
+- **Cost management**: Reduce cross-AZ data transfer costs by keeping your service and
   application in the same zone
-- **Regulatory Requirements**: Meet data locality requirements that specify particular
+- **Regulatory requirements**: Meet data locality requirements that specify particular
   availability zones
 
 ### Important considerations
 
-- **Best-Effort Allocation**: The single-zone configuration is a best-effort feature.
+- **Best-effort allocation**: The single-zone configuration is a best-effort feature.
   While Aiven attempts to honor your zone preference, the service may be temporarily
   allocated to a different AZ in cases of capacity limitations or infrastructure
   constraints
-- **Single-Node Plans Only**: This feature is available exclusively for single-node
+- **Single-node plans only**: This feature is available exclusively for single-node
   Valkey plans. By choosing a single-node plan, you accept that high availability is not
   part of the service offering
-- **No High Availability**: Single-node services do not provide automatic failover or
+- **No high availability**: Single-node services do not provide automatic failover or
   redundancy. For production workloads requiring high availability, use multi-node plans
   with automatic zone spreading
-- **Configuration at Service Creation**: The single-zone setting can only be configured
+- **Configuration at service creation**: The single-zone setting can only be configured
   when creating a new service. Updating this configuration for existing services is not
   supported
 
@@ -272,41 +272,41 @@ curl -X GET https://api.aiven.io/v1/project/<project>/service/my-valkey-service 
 
 ## Limitations and restrictions
 
-1. **Single-Node Plans Only**: The feature is exclusively available for single-node Valkey
+1. **Single-node plans only**: The feature is exclusively available for single-node Valkey
    service plans
-1. **Creation Time Only**: The configuration can only be set during service creation.
+1. **Creation time only**: The configuration can only be set during service creation.
    Existing services cannot be updated to enable or modify single-zone settings
-1. **No Guarantees**: The specified availability zone is treated as a preference, not a
+1. **No guarantees**: The specified availability zone is treated as a preference, not a
    guarantee. The service may be placed in a different zone due to:
    - Capacity constraints in the requested zone
    - Infrastructure maintenance or issues
    - Cloud provider limitations
-1. **Zone Validation**: Invalid or unavailable zone identifiers are silently ignored,
+1. **Zone validation**: Invalid or unavailable zone identifiers are silently ignored,
    falling back to random zone selection
-1. **No High Availability**: Single-node services do not provide automatic failover. For
+1. **No high availability**: Single-node services do not provide automatic failover. For
    production workloads, consider multi-node plans
 
 ## Migration and updates
 
-- **Existing Services**: Services created before this feature was introduced cannot be
+- **Existing services**: Services created before this feature was introduced cannot be
   updated to use single-zone configuration
-- **Plan Changes**: Upgrading from a single-node to a multi-node plan will disable
+- **Plan changes**: Upgrading from a single-node to a multi-node plan will disable
   single-zone configuration, and nodes will be spread across availability zones
-- **Service Updates**: Other service configuration changes (such as maintenance windows,
+- **Service updates**: Other service configuration changes (such as maintenance windows,
   IP filters, or Valkey settings) can be updated normally without affecting the
   single-zone setting
 
 ## Best practices
 
-1. **Use for Development and Testing**: Single-zone, single-node configurations are ideal
+1. **Use for development and testing**: Single-zone, single-node configurations are ideal
    for development, testing, and non-critical workloads
-1. **Multi-Zone for Production**: For production workloads requiring high availability,
+1. **Multi-zone for production**: For production workloads requiring high availability,
    use multi-node plans that spread nodes across availability zones
-1. **Co-locate with Applications**: When using single-zone configuration, deploy your
+1. **Co-locate with applications**: When using single-zone configuration, deploy your
    applications in the same availability zone to maximize latency benefits
-1. **Monitor Service Health**: Implement appropriate monitoring and alerting for
+1. **Monitor service health**: Implement appropriate monitoring and alerting for
    single-node services, as they lack automatic failover capabilities
-1. **Plan for Zone Selection**: Research your cloud provider's availability zones in
+1. **Plan for zone selection**: Research your cloud provider's availability zones in
    advance to choose the most appropriate zone for your use case
 
 ## Troubleshooting
