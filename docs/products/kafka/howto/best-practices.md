@@ -2,13 +2,20 @@
 title: Optimize Apache Kafka® performance
 ---
 
-Follow these best practices to optimize the performance and reliability of your Aiven for Apache Kafka® service.
+Follow these best practices to optimize the performance and reliability of your Aiven for
+Apache Kafka® service.
 
 ## Check your topic replication factors
 
-Apache Kafka uses replication between brokers to protect data in case of a node failure.
-Evaluate the importance of each topic and set a replication factor that supports your
-durability requirements.
+Apache Kafka uses replication between brokers to protect data in case of node failures.
+The replication factor (RF) determines how many copies of each partition are maintained
+across your cluster.
+
+Evaluate the importance of each topic and set a replication factor that balances your
+durability requirements with cost and performance. An RF of 3 has been Kafka's recommended
+default for production as it provides strong durability and availability. However, this
+can lead to high inter-AZ costs, the replication traffic moving across the network, diskless
+topics should be considered for high-throughput topics.
 
 Set the replication factor when creating or editing a
 [topic](/docs/products/kafka/howto/create-topic) in the
