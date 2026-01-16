@@ -276,7 +276,7 @@ creating your service.
 
 <RelatedPages/>
 
-- [Aiven for Valkey™ overview](https://aiven.io/docs/products/valkey)
-- [Aiven for Valkey™ service plans](https://aiven.io/docs/products/valkey/concepts/service-plans)
-- [High availability in Aiven](https://aiven.io/docs/platform/concepts/high-availability)
-- [Cloud provider regions](https://aiven.io/docs/platform/reference/list-of-clouds)
+- [Aiven for Valkey™ overview](/docs/products/valkey)
+- [Aiven for Valkey™ service plans](https://aiven.io/pricing?product=valkey)
+- [High availability in Aiven for Valkey™](/docs/products/valkey/concepts/high-availability)
+- [Cloud provider regions](/docs/platform/reference/list_of_clouds)
