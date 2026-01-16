@@ -6,6 +6,7 @@ sidebar_label: Set up single zone
 import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Deploy single-node Aiven for Valkey™ services within a specific availability zone (AZ) of your chosen cloud provider.
 
@@ -55,15 +56,15 @@ Access to one of the following tools:
 
 Use the Aiven Console:
 
-1. Navigate to **Services** in your Aiven project
-1. Click **Create service**
-1. Select **Valkey** as the service type
-1. Choose a **single-node plan** from the available options
-1. In the **Advanced Configuration** section, locate **Single-zone configuration**
-1. Toggle **Enabled** to `true`
-1. (Optional) Specify an **Availability zone** from your cloud provider's available zones
-   - If not specified, a random AZ will be selected
-1. Complete the service creation process
+1. Go to <ConsoleLabel name="Services"/> in your Aiven project.
+1. Click **Create service**.
+1. Select **Valkey** as the service type.
+1. Choose a **single-node plan** from the available options.
+1. In the **Advanced configuration** section, locate **Single-zone configuration**.
+1. Toggle **Enabled** to `true`.
+1. Optionally, specify an **Availability zone** from your cloud provider's available zones.
+   If not specified, a random AZ will be selected.
+1. Complete the service creation process.
 
 </TabItem>
 <TabItem value="api" label="API">
