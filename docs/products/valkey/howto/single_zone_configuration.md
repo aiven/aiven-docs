@@ -23,21 +23,32 @@ the same AZ or managing costs.
 - **Regulatory requirements**: Meet data locality requirements that specify particular
   availability zones.
 
-## Important considerations
+## Limitations
 
-- **Best-effort allocation**: The single-zone configuration is a best-effort feature.
-  While Aiven attempts to honor your zone preference, the service may be temporarily
-  allocated to a different AZ in cases of capacity limitations or infrastructure
-  constraints.
-- **Single-node plans only**: This feature is available exclusively for single-node plans.
-  By choosing a single-node plan, you accept that high availability is not part of the
-  service offering.
+- **Single-node plans only**: This feature is available exclusively for single-node
+  service plans. By choosing a single-node plan, you accept that high availability is not
+  part of the service offering.
+- **New services only**: The single-zone configuration can only be set for new services.
+  Existing services cannot be updated to enable or modify single-zone settings.
+- **Best-effort allocation**: The specified availability zone is treated as a preference,
+  not a guarantee. While Aiven attempts to honor your zone preference, the service may be
+  placed in a different zone due to:
+  - Capacity constraints in the requested zone
+  - Infrastructure maintenance or issues
+  - Cloud provider limitations
+- **Zone validation**: Invalid or unavailable zone identifiers are silently ignored,
+  falling back to random zone selection.
 - **No high availability**: Single-node services do not provide automatic failover or
   redundancy. For production workloads requiring high availability, use multi-node plans
   with automatic zone spreading.
-- **Configuration at service creation**: The single-zone setting can only be configured
-  when creating a new service. Updating this configuration for existing services is not
-  supported.
+- **Plan changes**: Upgrading from a single-node to a multi-node plan disables
+  single-zone configuration, and nodes are spread across availability zones.
+
+  :::note
+  Other service updates or configuration changes (such as maintenance windows, IP filters,
+  or Aiven for Valkey settings) can be updated normally without affecting the single-zone
+  setting.
+  :::
 
 ## Prerequisites
 
@@ -51,20 +62,26 @@ Access to one of the following tools:
 
 ## Enable single-zone configuration
 
+See the
+[configuration parameters](/docs/products/valkey/howto/single_zone_configuration#configuration-parameters)
+for details about the available settings.
+
 <Tabs groupId="group1">
 <TabItem value="gui" label="Console" default>
 
-Use the Aiven Console:
+Using the Aiven Console:
 
-1. Go to <ConsoleLabel name="Services"/> in your Aiven project.
-1. Click **Create service**.
-1. Select **Valkey** as the service type.
-1. Choose a **single-node plan** from the available options.
-1. In the **Advanced configuration** section, locate **Single-zone configuration**.
-1. Toggle **Enabled** to `true`.
-1. Optionally, specify an **Availability zone** from your cloud provider's available zones.
-   If not specified, a random AZ will be selected.
-1. Complete the service creation process.
+1. [Create an Aiven for Valkey service](/docs/products/valkey/get-started#create-a-service),
+   selecting a **single-node plan** from the available options.
+1. After creating the service, go to <ConsoleLabel name="service settings"/> >
+   **Advanced configuration**, and click **Configure**.
+1. In the **Advanced configuration** window:
+
+   1. Click **Add configuration options**, add the
+      **Single-zone configuration** option, and set **Enabled** to `true`.
+   1. Optional: Specify an **Availability zone** from your cloud provider's available
+      zones. If not specified, a random AZ is selected.
+   1. Click **Save configuration**.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -187,55 +204,29 @@ kubectl apply -f valkey-service.yaml
 
 ## Configuration parameters
 
-### `single_zone.enabled`
+- `single_zone.enabled`
 
-- **Type**: Boolean
-- **Required**: Yes (to enable the feature)
-- **Description**: Determines whether to allocate service nodes in the same availability
-  zone. When `false` or not set, service nodes are spread across different AZs (default
-  behavior for multi-node plans).
-- **Example**: `true`
+  - **Type**: Boolean
+  - **Required**: Yes (to enable the feature)
+  - **Description**: Determines whether to allocate service nodes in the same availability
+    zone. When `false` or not set, service nodes are spread across different AZs (default
+    behavior for multi-node plans).
+  - **Example**: `true`
 
-### `single_zone.availability_zone`
+- `single_zone.availability_zone`
 
-- **Type**: String
-- **Required**: No
-- **Max Length**: 40 characters
-- **Description**: The preferred availability zone for the service. Only used when
-  `enabled` is set to `true`. If not specified, a random AZ is selected.
-- **Validation**: Zones are not validated. Invalid zones are ignored, and the system falls
-  back to random AZ selection.
-- **Examples**:
-  - **AWS**: `euc1-az1`, `euc1-az2`, `euc1-az3`, `use1-az1`, `use1-az2`
-  - **GCP**: `europe-west1-a`, `europe-west1-b`, `europe-west1-c`, `us-central1-a`
-  - **Azure**: `germanywestcentral/1`, `germanywestcentral/2`, `germanywestcentral/3`,
-    `eastus/1`
-
-## Limitations and restrictions
-
-- **Single-node plans only**: The feature is exclusively available for single-node service
-  plans.
-- **Creation time only**: The configuration can only be set during service creation.
-  Existing services cannot be updated to enable or modify single-zone settings.
-- **No guarantees**: The specified availability zone is treated as a preference, not a
-  guarantee. The service may be placed in a different zone due to:
-  - Capacity constraints in the requested zone
-  - Infrastructure maintenance or issues
-  - Cloud provider limitations
-- **Zone validation**: Invalid or unavailable zone identifiers are silently ignored,
-  falling back to random zone selection.
-- **No high availability**: Single-node services do not provide automatic failover. For
-  production workloads, consider multi-node plans.
-
-## Migration and updates
-
-- **Existing services**: Services created before this feature was introduced cannot be
-  updated to use single-zone configuration
-- **Plan changes**: Upgrading from a single-node to a multi-node plan will disable
-  single-zone configuration, and nodes will be spread across availability zones
-- **Service updates**: Other service configuration changes (such as maintenance windows,
-  IP filters, or Valkey settings) can be updated normally without affecting the
-  single-zone setting
+  - **Type**: String
+  - **Required**: No
+  - **Max Length**: 40 characters
+  - **Description**: The preferred availability zone for the service. Only used when
+    `enabled` is set to `true`. If not specified, a random AZ is selected.
+  - **Validation**: Zones are not validated. Invalid zones are ignored, and the system falls
+    back to random AZ selection.
+  - **Examples**:
+    - **AWS**: `euc1-az1`, `euc1-az2`, `euc1-az3`, `use1-az1`, `use1-az2`
+    - **Google Cloud**: `europe-west1-a`, `europe-west1-b`, `europe-west1-c`, `us-central1-a`
+    - **Azure**: `germanywestcentral/1`, `germanywestcentral/2`, `germanywestcentral/3`,
+      `eastus/1`
 
 ## Best practices
 
@@ -252,28 +243,28 @@ kubectl apply -f valkey-service.yaml
 
 ## Troubleshooting
 
-### Service is not in the specified availability zone
+- Service is not in the specified availability zone
 
-**Cause**: The specified zone may be at capacity, unavailable, or the zone identifier may
-be invalid.
+  **Cause**: The specified zone may be at capacity, unavailable, or the zone identifier may
+  be invalid.
 
-**Resolution**: The service will operate normally in an alternative zone. If zone
-placement is critical, contact Aiven support to discuss availability in your preferred
-zone.
+  **Resolution**: The service will operate normally in an alternative zone. If zone
+  placement is critical, contact Aiven support to discuss availability in your preferred
+  zone.
 
-### Cannot update single-zone configuration on existing service
+- Cannot update single-zone configuration on existing service
 
-**Cause**: Single-zone configuration is immutable after service creation.
+  **Cause**: Single-zone configuration is immutable after service creation.
 
-**Resolution**: To change the configuration, create a new service with the desired
-settings and migrate your data.
+  **Resolution**: To change the configuration, create a new service with the desired
+  settings and migrate your data.
 
-### Feature not available for my plan
+- Feature not available for my plan
 
-**Cause**: Single-zone configuration is only available for single-node plans.
+  **Cause**: Single-zone configuration is only available for single-node plans.
 
-**Resolution**: Select a single-node plan (such as `startup-4` or `business-4`) when
-creating your service.
+  **Resolution**: Select a single-node plan (such as `startup-4` or `business-4`) when
+  creating your service.
 
 <RelatedPages/>
 
