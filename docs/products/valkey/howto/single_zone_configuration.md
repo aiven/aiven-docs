@@ -256,8 +256,8 @@ kubectl apply -f valkey-service.yaml
 
   **Cause**: Single-zone configuration is immutable after service creation.
 
-  **Resolution**: To change the configuration, create a new service with the desired
-  settings and migrate your data.
+  **Resolution**: To change the configuration, create a service with the desired settings
+  and migrate your data.
 
 - Feature not available for my plan
 
