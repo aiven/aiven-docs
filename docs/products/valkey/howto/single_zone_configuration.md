@@ -10,9 +10,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Deploy single-node Aiven for Valkey™ services within a specific availability zone (AZ) of your chosen cloud provider.
 
-The single-zone configuration feature provides location hints for resource allocation,
-which can be beneficial for specific use cases such as reducing latency to applications in
-the same AZ or managing costs.
+The single-zone configuration feature provides location hints for resource allocation.
+This benefits specific use cases such as reducing latency to applications in the same AZ
+or managing costs..
 
 ## Use cases
 
@@ -28,26 +28,26 @@ the same AZ or managing costs.
 - **Single-node plans only**: This feature is available exclusively for single-node
   service plans. By choosing a single-node plan, you accept that high availability is not
   part of the service offering.
-- **New services only**: The single-zone configuration can only be set for new services.
-  Existing services cannot be updated to enable or modify single-zone settings.
-- **Best-effort allocation**: The specified availability zone is treated as a preference,
-  not a guarantee. While Aiven attempts to honor your zone preference, the service may be
-  placed in a different zone due to:
+- **New services only**: You can only set the single-zone configuration for new services.
+  You cannot update existing services to enable or modify single-zone settings.
+- **Best-effort allocation**: Aiven treats the specified availability zone as a preference,
+  not a guarantee. While Aiven attempts to honor your zone preference, Aiven may place the
+  service in a different zone due to:
   - Capacity constraints in the requested zone
   - Infrastructure maintenance or issues
   - Cloud provider limitations
-- **Zone validation**: Invalid or unavailable zone identifiers are silently ignored,
+- **Zone validation**: The system silently ignores invalid or unavailable zone identifiers,
   falling back to random zone selection.
 - **No high availability**: Single-node services do not provide automatic failover or
   redundancy. For production workloads requiring high availability, use multi-node plans
   with automatic zone spreading.
 - **Plan changes**: Upgrading from a single-node to a multi-node plan disables
-  single-zone configuration, and nodes are spread across availability zones.
+  single-zone configuration, and the system spreads nodes across availability zones.
 
   :::note
-  Other service updates or configuration changes (such as maintenance windows, IP filters,
-  or Aiven for Valkey settings) can be updated normally without affecting the single-zone
-  setting.
+  You can update other service updates or configuration changes (such as maintenance
+  windows, IP filters, or Aiven for Valkey settings) normally without affecting the
+  single-zone setting.
   :::
 
 ## Prerequisites
@@ -209,8 +209,8 @@ kubectl apply -f valkey-service.yaml
   - **Type**: Boolean
   - **Required**: Yes (to enable the feature)
   - **Description**: Determines whether to allocate service nodes in the same availability
-    zone. When `false` or not set, service nodes are spread across different AZs (default
-    behavior for multi-node plans).
+    zone. When `false` or not set, the system spreads service nodes across different AZs
+    (default behavior for multi-node plans).
   - **Example**: `true`
 
 - `single_zone.availability_zone`
@@ -220,7 +220,7 @@ kubectl apply -f valkey-service.yaml
   - **Max Length**: 40 characters
   - **Description**: The preferred availability zone for the service. Only used when
     `enabled` is set to `true`. If not specified, a random AZ is selected.
-  - **Validation**: Zones are not validated. Invalid zones are ignored, and the system falls
+  - **Validation**: Zones are not validated. The system ignores invalid zones and falls
     back to random AZ selection.
   - **Examples**:
     - **AWS**: `euc1-az1`, `euc1-az2`, `euc1-az3`, `use1-az1`, `use1-az2`
@@ -248,9 +248,8 @@ kubectl apply -f valkey-service.yaml
   **Cause**: The specified zone may be at capacity, unavailable, or the zone identifier may
   be invalid.
 
-  **Resolution**: The service will operate normally in an alternative zone. If zone
-  placement is critical, contact Aiven support to discuss availability in your preferred
-  zone.
+  **Resolution**: The service operates normally in an alternative zone. If zone placement
+  is critical, contact Aiven support to discuss availability in your preferred zone.
 
 - Cannot update single-zone configuration on existing service
 
@@ -268,7 +267,7 @@ kubectl apply -f valkey-service.yaml
 
 <RelatedPages/>
 
-- [Aiven for Valkey™ overview](/docs/products/valkey)
-- [Aiven for Valkey™ service plans](https://aiven.io/pricing?product=valkey)
-- [High availability in Aiven for Valkey™](/docs/products/valkey/concepts/high-availability)
+- [Aiven for Valkey overview](/docs/products/valkey)
+- [Aiven for Valkey service plans](https://aiven.io/pricing?product=valkey)
+- [High availability in Aiven for Valkey](/docs/products/valkey/concepts/high-availability)
 - [Cloud provider regions](/docs/platform/reference/list_of_clouds)
