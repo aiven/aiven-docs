@@ -8,11 +8,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Deploy single-node Aiven for Valkey™ services within an availability zone (AZ) of your chosen cloud provider.
+Deploy a single-node Aiven for Valkey™ service within an availability zone (AZ) of your chosen cloud provider.
 
-The single-zone configuration feature provides location hints for resource allocation.
-This benefits specific use cases such as reducing latency to applications in the same AZ
-or managing costs.
+The single-zone configuration feature provides location hints for resource allocation,
+which helps reducing latency and managing costs.
 
 ## Use cases
 
@@ -31,7 +30,7 @@ or managing costs.
 - **New services only**: You can only set the single-zone configuration for new services.
   You cannot update existing services to enable or modify single-zone settings.
 - **Best-effort allocation**: Aiven treats the specified availability zone as a preference,
-  not a guarantee. While Aiven attempts to honor your zone preference, we may place the
+  not a guarantee. While we attempt to honor your zone preference, we may place the
   service in a different zone due to:
   - Capacity constraints in the requested zone
   - Infrastructure maintenance or issues
@@ -42,7 +41,7 @@ or managing costs.
   redundancy. For production workloads requiring high availability, use multi-node plans
   with automatic zone spreading.
 - **Plan changes**: Upgrading from a single-node to a multi-node plan disables
-  single-zone configuration, and the system spreads nodes across availability zones.
+  single-zone configuration and spreads nodes across availability zones.
 
   :::note
   You can make other service or configuration changes (such as maintenance windows, IP
@@ -86,9 +85,9 @@ Using the Aiven Console:
 </TabItem>
 <TabItem value="api" label="API">
 
-Using the Aiven API, make a POST request to create a service:
+Using the Aiven API, make a POST request to create a single-node service:
 
-```bash
+```bash {10-12}
 curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
   -H "Authorization: Bearer BEARER_TOKEN" \
   -H "Content-Type: application/json" \
@@ -111,9 +110,9 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
 
 Using the Aiven CLI:
 
-- Create a service with the single-zone configuration enabled:
+- Create a single-node service with the single-zone configuration enabled:
 
-  ```bash
+  ```bash {5-6}
   avn service create my-valkey-service \
     --service-type valkey \
     --plan startup-4 \
@@ -124,7 +123,7 @@ Using the Aiven CLI:
 
 - Or enable single-zone without specifying an AZ (random selection):
 
-  ```bash
+  ```bash {5}
   avn service create my-valkey-service \
     --service-type valkey \
     --plan startup-4 \
@@ -139,7 +138,7 @@ Using Terraform:
 
 - Add the following configuration to your Terraform file:
 
-  ```hcl
+  ```hcl {7-10}
   resource "aiven_valkey" "my_valkey" {
     project                 = var.project_name
     cloud_name              = "aws-eu-central-1"
@@ -157,7 +156,7 @@ Using Terraform:
 
 - Or omit the `availability_zone` parameter for random AZ selection:
 
-  ```hcl
+  ```hcl {7-9}
   resource "aiven_valkey" "my_valkey" {
     project                 = var.project_name
     cloud_name              = "aws-eu-central-1"
@@ -177,7 +176,7 @@ Using Terraform:
 
 Using Kubernetes Operator, create a Kubernetes manifest for your service:
 
-```yaml
+```yaml {10-13}
 apiVersion: aiven.io/v1alpha1
 kind: Valkey
 metadata:
@@ -243,7 +242,7 @@ kubectl apply -f valkey-service.yaml
 
 ## Troubleshooting
 
-- Service is not in the specified availability zone
+- Service not in the specified availability zone
 
   **Cause**: The specified zone may be at capacity, unavailable, or the zone identifier may
   be invalid.
@@ -251,7 +250,7 @@ kubectl apply -f valkey-service.yaml
   **Resolution**: The service operates normally in an alternative zone. If zone placement
   is critical, contact Aiven support to discuss availability in your preferred zone.
 
-- Cannot update single-zone configuration on existing service
+- Cannot update single-zone configuration on an existing service
 
   **Cause**: Single-zone configuration is immutable after service creation.
 
