@@ -63,7 +63,7 @@ Access to one of the following tools:
 ## Enable single-zone configuration
 
 See the
-[configuration parameters](/docs/products/valkey/howto/single_zone_configuration#configuration-parameters)
+[configuration parameters](/docs/products/valkey/howto/single-zone-configuration#configuration-parameters)
 for details about the available settings.
 
 <Tabs groupId="group1">
