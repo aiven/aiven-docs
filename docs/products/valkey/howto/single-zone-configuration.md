@@ -1,6 +1,6 @@
 ---
 title: Set up single-zone configuration for Aiven for Valkey™
-sidebar_label: Set up single zone
+sidebar_label: Set up single-zone
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Deploy single-node Aiven for Valkey™ services within a specific availability zone (AZ) of your chosen cloud provider.
+Deploy single-node Aiven for Valkey™ services within an availability zone (AZ) of your chosen cloud provider.
 
 The single-zone configuration feature provides location hints for resource allocation.
 This benefits specific use cases such as reducing latency to applications in the same AZ
@@ -45,9 +45,9 @@ or managing costs.
   single-zone configuration, and the system spreads nodes across availability zones.
 
   :::note
-  You can update other service updates or configuration changes (such as maintenance
-  windows, IP filters, or Aiven for Valkey settings) normally without affecting the
-  single-zone setting.
+  ou can make other service or configuration changes (such as maintenance windows, IP
+  filters, or Aiven for Valkey settings) normally without affecting the single-zone
+  setting.
   :::
 
 ## Prerequisites
@@ -73,14 +73,14 @@ Using the Aiven Console:
 
 1. [Create an Aiven for Valkey service](/docs/products/valkey/get-started#create-a-service),
    selecting a **single-node plan** from the available options.
-1. After creating the service, go to <ConsoleLabel name="service settings"/> >
+1. After you create the service, go to <ConsoleLabel name="service settings"/> >
    **Advanced configuration**, and click **Configure**.
 1. In the **Advanced configuration** window:
 
    1. Click **Add configuration options**, add the
       **Single-zone configuration** option, and set **Enabled** to `true`.
    1. Optional: Specify an **Availability zone** from your cloud provider's available
-      zones. If not specified, a random AZ is selected.
+      zones. If you do not specify a zone, a random AZ is selected.
    1. Click **Save configuration**.
 
 </TabItem>
@@ -122,7 +122,7 @@ Using the Aiven CLI:
     -c single_zone.availability_zone=euc1-az1
   ```
 
-- Or enable single-zone without specifying a particular AZ (random selection):
+- Or enable single-zone without specifying an AZ (random selection):
 
   ```bash
   avn service create my-valkey-service \
@@ -209,8 +209,8 @@ kubectl apply -f valkey-service.yaml
   - **Type**: Boolean
   - **Required**: Yes (to enable the feature)
   - **Description**: Determines whether to allocate service nodes in the same availability
-    zone. When `false` or not set, the system spreads service nodes across different AZs
-    (default behavior for multi-node plans).
+    zone. When you set it to `false` or do not set it, the system spreads service nodes
+    across different AZs (default behavior for multi-node plans).
   - **Example**: `true`
 
 - `single_zone.availability_zone`
@@ -218,9 +218,9 @@ kubectl apply -f valkey-service.yaml
   - **Type**: String
   - **Required**: No
   - **Max Length**: 40 characters
-  - **Description**: The preferred availability zone for the service. Only used when
-    `enabled` is set to `true`. If not specified, a random AZ is selected.
-  - **Validation**: Zones are not validated. The system ignores invalid zones and falls
+  - **Description**: The preferred availability zone for the service. Only applies when
+    you set `enabled` to `true`. If you do not specify a zone, a random AZ is selected.
+  - **Validation**: The system does not validate zones, ignores invalid ones, and falls
     back to random AZ selection.
   - **Examples**:
     - **AWS**: `euc1-az1`, `euc1-az2`, `euc1-az3`, `use1-az1`, `use1-az2`
