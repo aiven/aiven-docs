@@ -31,7 +31,7 @@ or managing costs.
 - **New services only**: You can only set the single-zone configuration for new services.
   You cannot update existing services to enable or modify single-zone settings.
 - **Best-effort allocation**: Aiven treats the specified availability zone as a preference,
-  not a guarantee. While Aiven attempts to honor your zone preference, Aiven may place the
+  not a guarantee. While Aiven attempts to honor your zone preference, we may place the
   service in a different zone due to:
   - Capacity constraints in the requested zone
   - Infrastructure maintenance or issues
