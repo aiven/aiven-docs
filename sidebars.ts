@@ -1997,7 +1997,7 @@ const sidebars: SidebarsConfig = {
                     'products/valkey/howto/estimate-max-number-of-connections',
                     'products/valkey/howto/manage-ssl-connectivity',
                     'products/valkey/howto/create-valkey-read-replica',
-                    'products/valkey/howto/single_zone_configuration',
+                    'products/valkey/howto/single-zone-configuration',
                   ],
                 },
                 {
