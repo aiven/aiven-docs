@@ -87,7 +87,7 @@ Using the Aiven Console:
 
 Using the Aiven API, make a POST request to create a single-node service:
 
-```bash {10-12}
+```bash {9-12}
 curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
   -H "Authorization: Bearer BEARER_TOKEN" \
   -H "Content-Type: application/json" \
