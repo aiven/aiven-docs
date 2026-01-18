@@ -12,7 +12,7 @@ Deploy single-node Aiven for Valkey™ services within a specific availability z
 
 The single-zone configuration feature provides location hints for resource allocation.
 This benefits specific use cases such as reducing latency to applications in the same AZ
-or managing costs..
+or managing costs.
 
 ## Use cases
 
