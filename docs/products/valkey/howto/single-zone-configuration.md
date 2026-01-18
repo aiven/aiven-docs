@@ -45,7 +45,7 @@ or managing costs.
   single-zone configuration, and the system spreads nodes across availability zones.
 
   :::note
-  ou can make other service or configuration changes (such as maintenance windows, IP
+  You can make other service or configuration changes (such as maintenance windows, IP
   filters, or Aiven for Valkey settings) normally without affecting the single-zone
   setting.
   :::
