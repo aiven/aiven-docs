@@ -64,15 +64,22 @@ Supported storage services are:
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Supported storage services are:
+- You cannot access the `/_snapshot` API directly without configuring
+  [custom repositories](/docs/products/opensearch/howto/custom-repositories).
+- Supported storage services are:
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
 
-- Amazon S3
-- Google Cloud Storage (GCS)
-- Microsoft Azure Blob Storage
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#api-restrictions)
+for more Aiven for OpenSearch API restrictions.
 
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
+- You cannot access the `/_snapshot` API directly without configuring
+  [custom repositories](/docs/products/opensearch/howto/custom-repositories).
 - Supported storage services are:
   - Amazon S3
   - Google Cloud Storage (GCS)
@@ -85,8 +92,16 @@ Supported storage services are:
   [delete a snapshot](/docs/products/opensearch/howto/manage-snapshots#delete-a-snapshot)
   are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).
 
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#api-restrictions)
+for more Aiven for OpenSearch API restrictions.
+
 </TabItem>
 </Tabs>
+
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#snapshot-management)
+for more snapshot management restrictions.
 
 ## Create a snapshot
 
