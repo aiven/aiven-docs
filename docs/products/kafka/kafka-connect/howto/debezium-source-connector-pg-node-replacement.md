@@ -177,21 +177,11 @@ change data capture (CDC) in the same way as a PostgreSQL node replacement.
 
 During the upgrade, Debezium tasks can fail and the replication slot might not be
 available immediately on the new primary. If applications write to monitored tables
-before the slot is recreated, downstream consumers can miss change events.
+before the slot is recreated, downstream consumers can miss change events, leading to
+potential data loss.
 
-For Debezium guidance on PostgreSQL upgrades, including upgrades performed using
-`pg_upgrade`, see
-[Upgrading PostgreSQL](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#upgrading-postgresql).
-
-### Recommended actions
-
-To reduce the risk of missed change events during a major upgrade:
-
-1. Stop write traffic to monitored tables during the upgrade.
-1. Stop or pause Debezium connector tasks before the upgrade starts.
-1. After the upgrade completes, restart connector tasks.
-1. Verify the replication slot exists (query `pg_replication_slots`) before resuming
-   writes.
+For guidance, see
+[Steps to protect against data loss when using Debezium and upgrading the PostgreSQL source](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#upgrading-postgresql).
 
 
 <RelatedPages/>
