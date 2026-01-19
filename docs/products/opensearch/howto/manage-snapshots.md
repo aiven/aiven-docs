@@ -52,6 +52,10 @@ manually.
 
 ## Limitations
 
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#snapshot-management)
+for the tool-agnostic list of snapshot management restrictions.
+
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
@@ -98,10 +102,6 @@ for more Aiven for OpenSearch API restrictions.
 
 </TabItem>
 </Tabs>
-
-See
-[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#snapshot-management)
-for more snapshot management restrictions.
 
 ## Create a snapshot
 
