@@ -185,6 +185,9 @@ fetching when it is enabled on your Aiven for Kafka service.
 
 ### Kafka Connect
 
+When follower fetching is enabled on the Aiven for Apache Kafka® service, rack-aware
+fetching is enabled by default for Kafka Connect sink connectors.
+
 Kafka Connect sets `consumer.client.rack` based on each node’s availability zone.
 
 Sink connectors use this value when consuming data from Kafka. Source connectors do not
