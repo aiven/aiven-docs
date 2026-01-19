@@ -1,7 +1,7 @@
 extends: existence
 message: "Do not judge complexity."
 ignorecase: true
-level: error
+level: warning
 tokens:
   - easily
   - quickly
