@@ -1,5 +1,6 @@
 ---
-title: Connect with NodeJS
+title: Connect to Aiven for Dragonfly® with NodeJS
+sidebar_label: NodeJS
 ---
 
 This example demonstrates how to connect to Dragonfly® from NodeJS using

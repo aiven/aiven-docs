@@ -1,6 +1,6 @@
 ---
 title: Connect to Aiven for MySQL® with DBeaver
-sidebar_label: Connect with DBeaver
+sidebar_label: DBeaver
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

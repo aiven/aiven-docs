@@ -1,5 +1,6 @@
 ---
-title: Connect to the Aiven for ClickHouse® service with Python
+title: Connect to Aiven for ClickHouse® with Python
+sidebar_label: Python
 ---
 
 To connect to your Aiven for ClickHouse® service with Python, you can

@@ -1,5 +1,6 @@
 ---
-title: Connect with Go
+title: Connect to Aiven for Dragonfly® with Go
+sidebar_label: Go
 ---
 
 This example demonstrates how to connect to Dragonfly® using Go, using

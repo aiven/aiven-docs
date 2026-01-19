@@ -105,8 +105,8 @@ instance size.
 
 ### Developer plan
 
-The Developer plan is available for Aiven for PostgreSQL® services, letting you
-scale up your service in a cost-effective way. Services on the Developer plan
+The Developer plan is available for Aiven for PostgreSQL® and Aiven for MySQL services,
+letting you scale up your service in a cost-effective way. Services on the Developer plan
 are not automatically powered off if they're inactive.
 
 The Developer plan includes:
@@ -117,7 +117,7 @@ The Developer plan includes:
 -   up to 8 GB disk storage
 -   Monitoring for metrics and logs
 -   Backups
--   Basic tier support
+-   [Basic tier support](/docs/platform/howto/support)
 
 Limitations of the Developer plan are:
 
@@ -126,8 +126,8 @@ Limitations of the Developer plan are:
 -   No static IPs
 -   No integrations
 -   No forking
--   No connection pooling
--   `max_connections` limit set to `20`
+-   For PostgreSQL: No connection pooling
+-   For PostgreSQL: `max_connections` limit set to `20`
 
 Aiven reserves the right to change the cloud provider, region, or configuration
 of Developer plan services at any point in time.

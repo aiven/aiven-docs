@@ -1,5 +1,6 @@
 ---
-title: Connect with DBeaver
+title: Connect to Aiven for AlloyDB Omni with DBeaver
+sidebar_label: DBeaver
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

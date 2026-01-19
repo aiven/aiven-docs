@@ -58,6 +58,12 @@ via the dedicated `avn service get` command with the
 For a complete list of all available parameters and configuration options, see
 Debezium [connector's documentation](https://debezium.io/documentation/reference/stable/connectors/postgresql.html).
 
+:::important
+PostgreSQL® node replacements and major version upgrades can interrupt Debezium change
+data capture (CDC). For recovery steps and recommended practices, see
+[Handle PostgreSQL node replacements with Debezium](debezium-source-connector-pg-node-replacement).
+:::
+
 :::warning
 Debezium updates the LSN positions of the PostgreSQL replication slot only when changes
 occur in the connected database. If any replication slots have not acknowledged receiving

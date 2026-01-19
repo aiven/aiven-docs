@@ -1,5 +1,6 @@
 ---
-title: Connect with cqlsh
+title: Connect to Aiven for Apache Cassandra® with cqlsh
+sidebar_label: cqlsh
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

@@ -1,5 +1,6 @@
 ---
-title: Connect with pgAdmin
+title: Connect to Aiven for PostgreSQL® with pgAdmin
+sidebar_label: pgAdmin
 ---
 
 [pgAdmin](https://www.pgadmin.org/) is one of the most popular PostgreSQL® clients. Use it to manage and query your database.

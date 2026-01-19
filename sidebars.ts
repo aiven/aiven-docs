@@ -535,7 +535,7 @@ const sidebars: SidebarsConfig = {
             'products/alloydbomni/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
+              label: 'Connect to Aiven for AlloyDB Omni',
               link: {
                 type: 'doc',
                 id: 'products/alloydbomni/connect/connect-services',
@@ -591,7 +591,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Apache Cassandra®',
                   link: {
                     type: 'generated-index',
                     slug: 'products/cassandra/howto/list-code-samples',
@@ -795,7 +795,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/diskless/concepts/diskless-overview',
                   },
                   items: [
-                    'products/kafka/diskless/concepts/architecture',
+                    'products/kafka/diskless/concepts/diskless-topics-architecture',
                     'products/kafka/diskless/concepts/topics-vs-classic',
                     'products/kafka/diskless/concepts/batching-and-delivery',
                     'products/kafka/diskless/concepts/partitions-and-objects',
@@ -1056,6 +1056,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/couchbase-source',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
@@ -1276,7 +1277,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for ClickHouse®',
                   link: {
                     type: 'doc',
                     id: 'products/clickhouse/howto/list-connect-to-service',
@@ -1380,7 +1381,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Dragonfly®',
                   link: {
                     type: 'doc',
                     id: 'products/dragonfly/howto/list-code-samples',
@@ -1498,7 +1499,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for MySQL®',
                   link: {
                     type: 'doc',
                     id: 'products/mysql/howto/list-code-samples',
@@ -1614,7 +1615,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
-                  label: 'Connect with service',
+                  label: 'Connect to Aiven for OpenSearch®',
                   link: {
                     id: 'products/opensearch/howto/list-connect-to-service',
                     type: 'doc',
@@ -1726,6 +1727,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
                 'products/opensearch/howto/os-metrics',
+                'products/opensearch/reference/opensearch-limitations',
               ],
             },
             {
@@ -1783,7 +1785,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/pagila',
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for PostgreSQL®',
                   link: {
                     id: 'products/postgresql/howto/list-code-samples',
                     type: 'doc',
@@ -1973,7 +1975,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Valkey™',
                   link: {
                     type: 'doc',
                     id: 'products/valkey/howto/connect-services',

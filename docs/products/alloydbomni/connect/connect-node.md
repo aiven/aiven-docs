@@ -1,5 +1,6 @@
 ---
-title: Connect with NodeJS
+title: Connect to Aiven for AlloyDB Omni with NodeJS
+sidebar_label: NodeJS
 ---
 
 import CodeBlock from '@theme/CodeBlock';

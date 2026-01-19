@@ -1,6 +1,6 @@
 ---
 title: Connect to Aiven for MySQL® from the command line
-sidebar_label: Connect with the CLI
+sidebar_label: CLI
 ---
 
 Connect to your Aiven for MySQL® service via the command line with the following tools:

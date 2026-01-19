@@ -4,178 +4,205 @@ sidebar_label: Create alerts
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
-OpenSearch® alerting feature sends notifications when data from one or more indices meets certain conditions that can be customized.
+Set up alerts in OpenSearch® Dashboards to send notifications when your data meets specific conditions.
 
-Use case examples include monitoring for HTTP status code 503, CPU load
-average above a certain percentage, or watching for counts of a specific
-keyword in logs for a specific interval. Notifications can be
-configured to be sent via email, Slack, or custom webhooks and other
-channels.
+The OpenSearch alerting feature monitors data from one or more indexes and sends
+notifications when conditions are met. You can use alerts to monitor HTTP status codes,
+CPU load averages, or keyword counts in logs over specific intervals. Configure
+notifications to be sent through email, Slack, custom webhooks, or other channels.
 
-In the following example, we use Slack as the notification channel and a
-`sample-host-health` index as data source to create a simple alert to
-check CPU load. An action will be triggered when the average of
-`cpu_usage_percentage` over `3` minutes is above `75%`.
+To configure an alert, you need the following:
 
-## Create using Dashboards UI
+-   [Notification channel](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#create-a-notification-channel):
+    a location for notifications to be delivered when an action is triggered
 
-To create an alert via OpenSearch Dashboards interface:
+    - Available channel types are: `Amazon Chime`, `Amazon SNS`, `Slack`, `Custom webhook`,
+      `Email`, or `Microsoft Teams`.
+    - To use `Email`:
+      - Ensure you have an SMTP server configured for a valid domain to deliver email
+        notifications.
+      - [Configure authentication for an email channel](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#configure-authentication-for-an-email-channel)
+        before configuring the email channel itself.
 
-1.  Log in to the [Aiven Console](https://console.aiven.io) and select
-    your OpenSearch service.
-1.  On the service's **Overview** screen, in the **Connection
-    information** section, select the **OpenSearch Dashboards** tab.
-    This opens OpenSearch Dashboards.
-1.  Within OpenSearch Dashboards, access the left side panel and
-    select **Alerting** under the OpenSearch Plugins section.
+-   [Monitor](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#create-a-monitor):
+    a job that runs on a defined schedule and queries OpenSearch indexes
 
-To configure each alert, the following needs to be created. We will
-walk through the configuration of each section:
+    Available frequency options are: `By interval`, `Daily`, `Weekly`, `Monthly`, or
+    `Custom CRON expression`.
 
--   `Notification channel`
--   `Monitor`
--   `Data source`
--   `Query`
--   `Trigger`
+-   [Data source](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#configure-a-data-source):
+    OpenSearch indexes to query
+-   [Query](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#configure-a-query):
+    the fields to query from indexes and the method for evaluating results
+-   [Trigger](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#create-a-trigger):
+    a defined condition from the query results from the monitor. If a condition is met,
+    the alert is generated.
+-   [Action](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#create-an-action):
+    a notification configured to be sent through a specified channel when trigger
+    conditions are met. You can define multiple actions.
+
+This guide shows how to create an alert that:
+
+- Checks `CPU load`
+- Uses the `sample-host-health` index as the data source
+- Uses `Slack` as the notification channel
+- Triggers when the average `cpu_usage_percentage` over `3 minutes` exceeds `75%`
 
 ## Create a notification channel
 
-A notification channel is a location for notifications to be delivered when an
-action is triggered.
+Configure your selected type of the notification channel, for example,
+[Slack](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#configure-a-slack-channel)
+or [Email](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#configure-authentication-for-an-email-channel).
 
-1.  In OpenSearch Dashboards, select **Notifications** from the left side panel.
-1.  Select the **Channels** tab and click **Create channel**.
-1.  Fill in the fields under **Channel details**.
+### Configure a Slack channel
 
-    1. Fill in `slack-test` as the **Name**.
-    1. Provide a description (optional).
-    1. Select `Slack` under **Channel type**.
+1.  In OpenSearch Dashboards, go to **Notifications** > **Channels**.
+1.  Click **Create channel**.
+1.  Enter the following:
+
+    1. **Name**: `slack-test`
+    1. **Channel type**: `Slack`
+    1. **Slack webhook URL**: Paste your Slack webhook URL.
+
+1.  Click **Create**.
+
+### Configure authentication for an email channel
+
+To authenticate the sender account for sending email messages, add their credentials to
+the OpenSearch keystore:
+
+1. Go to the [Aiven Console](https://console.aiven.io).
+
+   1.  On the <ConsoleLabel name="service settings"/> page of your Aiven for OpenSearch®
+       service, go to **Advanced configuration**.
+   1.  Click **Configure** > **Add configuration options**.
+   1.  Add all three of the following configuration options and provide the
+       corresponding details for each field:
+
+       -   `email_sender_name`
+       -   `email_sender_username`
+       -   `email_sender_password`
 
        :::note
-
-       - Channel types can be: `Amazon Chime`, `Amazon SNS`, `Slack`, `Custom webhook`,
-         `Email`, or `Microsoft Teams`.
-       - To use `Email`, ensure you have an SMTP server configured for a
-         valid domain to deliver email notifications.
-
+       Configure all three parameters together. You cannot set them individually or save
+       the configuration with only some of them set.
        :::
 
-    1. Paste your Slack webhook URL `https://your_slack_webhook_URL` under
-       **Webhook URL**.
+   1.  Click **Save configuration**.
 
-1.  Click **Create**.
+1. Go to OpenSearch Dashboards.
 
-## Configure authentication for email channel
+   1. Go to **Notifications** > **Channels**.
+   1.  Click **Create channel**.
+   1.  Enter the following:
 
-This section shows how to authenticate the sender account before sending
-email messages. To authenticate when sending emails, the credentials
-need to be added first to the OpenSearch keystore. Perform this step
-before configuring an email channel that requires authentication.
+       1. **Name**: `email-test`
+       1. **Channel type**: `Email`
 
-1.  In the **Overview** screen of your OpenSearch service, scroll to the
-    **Advanced configuration** section.
-1.  Select **Change** and **+Add configuration option**.
-1.  Select the following configuration options and provide the
-    corresponding details for each field:
+   1. Configure a sender:
 
-    -   `email_sender_name`
-    -   `email_sender_username`
-    -   `email_sender_password`
+       1. **Sender type**: Select `SMTP sender`.
+       1. Select an SMTP sender. If no SMTP sender exists, create one:
+          1. Enter a sender name matching the `email_sender_name` property from the
+             keystore configuration.
+          1. Click **Create SMTP sender**.
+          1. Enter the sender details, select **Encryption method** `SSL/TLS`, and click
+             **Create**.
 
-    At the end of this step, the email account credentials will be added
-    to the OpenSearch keystore.
+   1. Configure default recipients:
 
-1.  Select **Save advanced configuration**.
+      Select default recipients. If no default recipients exist, create a recipient group:
 
-In OpenSearch Dashboards:
+      1. Click **Create recipient group**.
+      1. Enter the recipient group details, and click **Create**.
 
-1.  Select **Notifications** from the left side panel.
-1.  Select the **Channels** tab and click **Create channel**.
-1.  Fill in the fields under **Channel details**.
+   1. Click **Create** to save the new channel configuration.
 
-    1. Fill in `email-test` as the **Name**.
-    1. Select `Email` under **Channel type**.
-    1. Under **Email settings**, click **Manage senders** if no senders exist yet, then
-       select **Create sender**.
-    1. Assign a name to the sender. This name should match the property
-       `email_sender_name` from the keystore configuration.
-    1. Fill in the information required by the form and select SSL or TLS
-       in **Encryption method**.
+## Access **Alerting** in OpenSearch Dashboards
 
-1.  Complete the form with the recipients. You can create email groups in
-    **Manage email groups** if necessary.
-1.  Click **Create**.
+1.  Log in to the [Aiven Console](https://console.aiven.io) and go to your Aiven for
+    OpenSearch service.
+1.  On the service's <ConsoleLabel name="overview"/> page, in the **Connection
+    information** section, go to the **OpenSearch Dashboards** tab.
+1.  Open OpenSearch Dashboards by clicking **Service URI** and logging in.
+1.  In OpenSearch Dashboards, go to **Alerting**.
 
 ## Create a monitor
 
-A monitor is a job that runs on a defined schedule and queries OpenSearch
-indices.
+In OpenSearch Dashboards, go to **Alerting** > **Monitors** > **Create monitor**.
 
-1.  Open the **Monitors** tab and click **Create monitor**.
-1.  Fill in the fields under **Monitor details**:
+### Configure monitor details
 
-    1. Fill in `High CPU Monitor` as the **Monitor name**.
-    1. Select `Per query monitor` as the **Monitor type** (selected by default).
-    1. Select `Visual editor` as the **Monitor defining method**.
-    1. Under **Frequency**, select `By interval`.
-    1. Under **Run every**, select `1` `Minutes`.
+In the **Monitor details** section:
 
-    :::note
-    Frequency can be `By interval`, `Daily`, `Weekly`, `Monthly`, or
-    `Custom CRON expression`.
-    :::
+1. **Monitor name**: Enter `High CPU Monitor`.
+1. **Monitor type**: Select `Per query monitor` (selected by default).
+1. **Monitor defining method**: Select `Visual editor`.
+1. **Frequency**: Select `By interval`.
+1. **Run every**: Select `1 Minute(s)`.
 
-1.  Fill in the fields under **Select data**. Data source is the OpenSearch indices to
-    query.
+### Configure a data source
 
-    1. Fill in `sample-host-health` as the **Index**.
-    1. Fill in `timestamp` as the **Time field**.
+In the **Select data** section, configure a data source:
 
-1.  Configure the **Query**. Query defines the fields to query from indices and how to
-    evaluate the results.
+1. Enter `sample-host-health` as **Indexes**.
+1. Enter `timestamp` as **Time field**.
 
-    1. Under **Metrics**, click **Add metric**.
-    1. Select `average()` under **Aggregation** and `cpu_usage_percentage` under **Field**.
-    1. Click **Save**.
-    1. Fill in `3` under **Time range for the last** and select `minutes`.
+### Configure a query
 
-## Create a trigger
+In the **Query** section, configure a query:
 
-A trigger is a defined condition from the query results from the monitor.
-If conditions are met, alerts are generated.
+1. Click **Add metric**.
+1. **Aggregation**: Select `average()`.
+1. **Field**: Select `cpu_usage_percentage`.
+1. Click **Save**.
+1. **Time range for the last**: Enter `3 minute(s)`.
 
-1.  Select **Add trigger**.
+### Create a trigger
 
-    1. Fill `high_cpu` as the **Trigger name**.
-    1. Select `1 (Highest)` for **Severity level**.
-    1. Under **Trigger condition**, select `IS ABOVE` from the drop-down menu and fill
-       `75` into the number field.
+In the **Triggers** section, create a trigger:
 
-    :::note
-    You can see a visual graph below the trigger with the index data and the
-    trigger condition you have defined as a red line.
-    :::
+1. Click **Add trigger**.
+1. **Trigger name**: Enter `high_cpu`.
+1. **Severity level**: Select `1 (Highest)`.
+1. **Trigger condition**: Select `IS ABOVE` and enter `75`.
 
-1.  Fill in the fields under **Actions**. Actions define the notification channel for
-    alerts when trigger conditions are met.
+:::note
+You can see a visual graph for the trigger with the index data and the defined trigger
+condition as a red line.
+:::
 
-    1. Fill in `slack` as **Action name**.
-    1. Select `slack-test` under **Notification channel**.
-    1. Fill in `High CPU Test Alert` as **Message subject**.
+### Create an action
 
-    :::note
-    Multiple actions can be defined. In this example, we define one
-    action to send notifications to the channel we created earlier.
-    :::
+In the **Triggers** section, configure **Actions** for your trigger.
 
-## Alert message
+- To use an existing notification channel for your action:
 
-The **Message** can be adjusted as needed. Check **Message Preview** to see
-a sample and use **Send test message** to validate notification
-delivery.
+  1. **Action name**: Enter `slack`.
+  1. Select your notification channel.
+  1. **Message subject**: Enter `High CPU Test Alert`.
+  1. Enter the message body.
 
-Select **Create**.
+- To use a new notification channel for your action:
+
+  1. Click either **Manage channels** or **Create channels**, depending on whether you
+     already have notification channels.
+  1. [Create a channel](/docs/products/opensearch/dashboards/howto/opensearch-alerting-dashboard#configure-a-slack-channel).
+  1. Return to configuring your action: Go to **Alerting** > **Monitors** >
+     **Create monitor** > **Triggers** > **Actions**.
+  1. **Action name**: Enter `slack`.
+  1. Select your new notification channel.
+  1. **Message subject**: Enter `High CPU Test Alert`.
+  1. Enter the message body.
+
+:::tip
+Verify your action configuration by using **Preview message** and **Send test message**.
+:::
+
+Click **Create** to finalize your monitor setup.
 
 <RelatedPages/>
 

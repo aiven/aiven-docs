@@ -12,7 +12,12 @@ var ctx = context.Background()
 func main() {
 	valkeyURI := "SERVICE_URI"
 
-	client, err := valkey.NewClient(valkey.ClientOption{InitAddress: []string{valkeyURI}})
+	opts, err = valkey.ParseURL(valkeyURI)
+	if err != nil {
+		return panic(err)
+	}
+
+	client, err := valkey.NewClient(opts)
 	if err != nil {
 		panic(err)
 	}

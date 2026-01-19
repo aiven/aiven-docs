@@ -1,5 +1,6 @@
 ---
-title: Connect with Python
+title: Connect to Aiven for Valkey™ with Python
+sidebar_label: Python
 ---
 
 import CodeBlock from '@theme/CodeBlock';

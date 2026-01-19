@@ -1,5 +1,6 @@
 ---
-title: Connect with redis-cli
+title: Connect to Aiven for Dragonfly® with redis-cli
+sidebar_label: redis-cli
 ---
 
 This example demonstrates how to connect to Dragonfly® using

@@ -1,5 +1,6 @@
 ---
-title: Connect with Java
+title: Connect to Aiven for PostgreSQL® with Java
+sidebar_label: Java
 ---
 
 import CodeBlock from '@theme/CodeBlock';
