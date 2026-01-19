@@ -12,7 +12,7 @@ The Aiven Terraform Provider has been added as a git submodule in the Aiven docs
 
 ## `examples/resources` directory
 
-Contains files with example usage for individual resources. These are the most useful files to embed in the Aiven docs to show how to use a specific features with Terraform. Examples are organized by the resource names, for example:
+Contains files with example usage for individual resources. These are the most useful files to embed in the Aiven docs to show how to use specific features with Terraform. Examples are organized by the resource names, for example:
 
 - `examples/resources/aiven_kafka/resource.tf` - Example for Aiven for Apache Kafka® service resource, used to create and configure Kafka services
 - `examples/resources/aiven_vpc/resource.tf` - Example for VPC resource, used to create and manage virtual private clouds
@@ -22,7 +22,7 @@ Contains files with example usage for individual resources. These are the most u
 
 Contains files with example usage for individual data sources. These are ONLY useful to embed in the Aiven docs to show how to reference or view information about existing entities with Terraform. Examples are organized by the data source names, for example:
 
-- `examples/data-sources/aiven_project/data-source.tf` - Example for Aiven project data source, often used to reference existing projects that you want to create resources in
+- `examples/data-sources/aiven_project/data-source.tf` - Example for Aiven project data source, often used to reference existing projects to create resources in
 - `examples/data-sources/aiven_billing_group/data-source.tf` - Example for Aiven billing group data source, used to reference existing billing groups
 
 ## `examples/` directory
@@ -48,9 +48,9 @@ Each example typically includes:
 
 Your job is to review the Console instructions for a feature in the Aiven documentation and add a Terraform tab with steps to produce the same result using the Aiven Provider for Terraform.
 
-**Important** You do not add add instructions for deleting or removing resources UNLESS there are special instructions in the examples for doing this.
+**Important** You do not add instructions for deleting or removing resources UNLESS there are special instructions in the examples for doing this.
 
-To do add Terraform instructions for a feature, you have to decide to either:
+To add Terraform instructions for a feature, you have to decide to either:
 
 - embed an existing file with a Terraform example from the Aiven Terraform Provider submodule in this repository, or
 - link to the relevant Terraform documentation if no example file exists.
@@ -59,7 +59,7 @@ Follow these steps every time:
 
 1. Determine whether you need to refer to a Terraform resource or data source. Resources are used to create or manage Aiven entities, while data sources are used to read or reference existing entities. a. **Note**: Some features are enabled or used by setting values for a resource's attributes. If this is the case, follow the instructions for documenting attributes.
 2. Look for a suitable example in the `examples/resources/` directory or `examples/data-sources/` directory for a Terraform (`.tf`) file matching the feature being documented.
-3. If no suitable file exists, check the `examples/` directory for a complete example that matches the feature being documented. ONLY use more complex example files if it does not require many other additional resources or data sources to work, or if the feature documented is something alrleady complex like an integration.
+3. If no suitable file exists, check the `examples/` directory for a complete example that matches the feature being documented. ONLY use more complex example files if it does not require many other additional resources or data sources to work, or if the feature documented is something already complex like an integration.
 4. If there is no suitable `resource.tf` or `data-source.tf` file in the `examples/resources` or `examples/data-sources` directories respectively AND the other examples are too complex, determine the link to the relevant resource or data source in the Aiven Provider for Terraform documentation.
 5. If you are unsure, default to linking to the documentation.
 6. Provide your reasoning for the changes in the chat.
@@ -72,7 +72,7 @@ Configuration options (for example, service maintenance windows and technical co
 
 The steps for documenting attributes are as follows:
 
-1. Determin which attribute needs to be documented to enable or configure the feature.
+1. Determine which attribute needs to be documented to enable or configure the feature.
 2. Determine whether the user needs to change the attribute in a Terraform resource or data source. Resources are used to create or manage Aiven entities, while data sources are used to read or reference existing entities. Users may also need to only read a data source attribute to get information about an existing entity.
 3. Check the appropriate `.tf` example file in the `examples/resources/` directory or `examples/data-sources/` directory for the target attribute.
 4. If the attribute exists in the example file, embed the file as normal using the `TerraformSample` component.
@@ -289,7 +289,7 @@ Use the `technical_emails` attribute in [your `aiven_project` resource](https://
 
 ## ClickHouse get started guide with a specific use case example
 
-<!--This example is used on in the get started guide for ClickHouse. The example is somewhat more complex but self-contained, so it works well to embed the individual files as steps within the Aiven docs.-->
+<!--This example is used in the get started guide for ClickHouse. The example is somewhat more complex but self-contained, so it works well to embed the individual files as steps within the Aiven docs.-->
 
 ```markdown
 In this example, an Aiven for ClickHouse service is used to store IoT sensor data. You create the service, two service users, and assign each user a role:
